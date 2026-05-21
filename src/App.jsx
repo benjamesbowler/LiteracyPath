@@ -1,0 +1,2137 @@
+import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
+import { motion } from "framer-motion";
+import "./App.css";
+import { supabase } from "./supabaseClient";
+import { getMasteryRule } from "./masterySystem";
+import { skillTree } from "./skillTree";
+import {
+  AdvancedPhonicsPatternAssessmentPage,
+  AssessmentPage,
+  DashboardSummary,
+  FinishedReportPage,
+  LetterAssessmentPage,
+  StudentOverviewPage,
+  StudentSelectPage,
+  TopNavigation
+} from "./components/AppPages";
+
+import { masteryCoreQuestions } from "./data/masteryCoreQuestions";
+import { masteryExtraQuestions } from "./data/masteryExtraQuestions";
+
+import { templateQuestions } from "./data/templateQuestions";
+import { templateExpansion } from "./data/templateExpansion";
+import { templateExpansion2 } from "./data/templateExpansion2";
+import { templateExpansion3 } from "./data/templateExpansion3";
+import { templateExpansion4 } from "./data/templateExpansion4";
+import { templateExpansion5 } from "./data/templateExpansion5";
+import { templateExpansion6 } from "./data/templateExpansion6";
+import { templateExpansion7 } from "./data/templateExpansion7";
+import { generatedQuestions } from "./data/generatedQuestions";
+import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
+import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
+import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
+import { audioManifest, audioTextIndex } from "./data/audioManifest";
+
+// dynamic mastery system
+
+function shuffleArray(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+function normalize(text) {
+  return String(text || "").toLowerCase().trim();
+}
+
+function getStageIndex(question) {
+  const skill = normalize(question.skill);
+
+  const exactIndex = skillTree.findIndex(stage =>
+    stage.match.some(term => skill === normalize(term))
+  );
+
+  if (exactIndex !== -1) return exactIndex;
+
+  return skillTree.findIndex(stage =>
+    stage.match.some(term =>
+      skill.includes(normalize(term)) ||
+      normalize(term).includes(skill)
+    )
+  );
+}
+
+function isFixSentenceQuestion(question) {
+  return question?.questionType === "fix_sentence";
+}
+
+function normalizeSentenceAnswer(text) {
+  return String(text || "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function comparableSentenceAnswer(text) {
+  return normalizeSentenceAnswer(text).toLowerCase();
+}
+
+function getQuestionPrompt(question) {
+  return question.prompt || question.question || "";
+}
+
+function getQuestionAnswer(question) {
+  return isFixSentenceQuestion(question)
+    ? question.correctSentence
+    : question.answer;
+}
+
+function calculateWeaknessSnapshot(answerHistory) {
+  const groupedTargets = new Map();
+  const groupedStages = new Map();
+
+  answerHistory.forEach(record => {
+    const stage = record.stage || record.skill || "Unknown skill";
+    const target = record.diagnosticTarget || "general";
+    const targetKey = `${stage}::${target}`;
+
+    if (!groupedTargets.has(targetKey)) {
+      groupedTargets.set(targetKey, {
+        stage,
+        skill: record.skill || stage,
+        target,
+        correct: 0,
+        incorrect: 0,
+        total: 0
+      });
+    }
+
+    if (!groupedStages.has(stage)) {
+      groupedStages.set(stage, {
+        stage,
+        correct: 0,
+        incorrect: 0,
+        total: 0
+      });
+    }
+
+    const targetStats = groupedTargets.get(targetKey);
+    const stageStats = groupedStages.get(stage);
+
+    targetStats.total += 1;
+    stageStats.total += 1;
+
+    if (record.isCorrect) {
+      targetStats.correct += 1;
+      stageStats.correct += 1;
+    } else {
+      targetStats.incorrect += 1;
+      stageStats.incorrect += 1;
+    }
+  });
+
+  const withScores = stats => ({
+    ...stats,
+    accuracy: stats.total ? stats.correct / stats.total : 0,
+    weaknessScore: stats.incorrect * 2 + (stats.total ? 1 - stats.correct / stats.total : 0)
+  });
+
+  const targets =
+    [...groupedTargets.values()].map(withScores);
+
+  const stages =
+    [...groupedStages.values()].map(withScores);
+
+  const needsPractice =
+    targets
+      .filter(item => item.incorrect > 0)
+      .sort((a, b) =>
+        b.weaknessScore - a.weaknessScore ||
+        a.accuracy - b.accuracy ||
+        b.total - a.total
+      );
+
+  const strongest =
+    targets
+      .filter(item => item.total >= 2 && item.accuracy >= 0.8)
+      .sort((a, b) =>
+        b.accuracy - a.accuracy ||
+        b.total - a.total
+      );
+
+  return {
+    stages,
+    targets,
+    strongest,
+    needsPractice,
+    suggestedNextFocus: needsPractice[0] || null
+  };
+}
+
+function isQuestionValid(q) {
+  if (!q) return false;
+  if (!q.id || !q.skill || !getQuestionPrompt(q) || !getQuestionAnswer(q)) return false;
+
+  if (isFixSentenceQuestion(q)) {
+    const tiles = q.tiles || q.choices;
+
+    if (!q.brokenSentence || !Array.isArray(tiles) || tiles.length < 2) return false;
+    return getStageIndex(q) !== -1;
+  }
+
+  if (!Array.isArray(q.choices) || q.choices.length < 2) return false;
+  if (!q.choices.includes(q.answer)) return false;
+
+  const lowerChoices = q.choices.map(c => normalize(c));
+  if (new Set(lowerChoices).size !== lowerChoices.length) return false;
+
+  const questionText = normalize(q.question);
+  const allText = [q.question, q.skill, q.passage, ...q.choices].join(" ").toLowerCase();
+
+  if (questionText.includes("silent letter")) return false;
+  if (allText.includes("sun") && allText.includes("son") && allText.includes("middle")) return false;
+  if (questionText.includes("which word spells")) return false;
+  if (questionText.includes("matches the picture") && !q.imagePath) return false;
+
+  return getStageIndex(q) !== -1;
+}
+
+const allQuestions = [
+  ...masteryCoreQuestions,
+  ...masteryExtraQuestions,
+  ...templateQuestions,
+  ...templateExpansion,
+  ...templateExpansion2,
+  ...templateExpansion3,
+  ...templateExpansion4,
+  ...templateExpansion5,
+  ...templateExpansion6,
+  ...templateExpansion7,
+  ...generatedQuestions,
+  ...fixSentenceQuestions,
+  ...templateComprehensionAdvanced
+].filter(isQuestionValid);
+
+const letterAssessmentOrder = [
+  "m", "T", "b", "S", "a", "F", "d", "R", "p", "E", "g", "H", "c",
+  "M", "t", "B", "s", "A", "f", "D", "r", "P", "e", "G", "h", "C",
+  "y", "K", "o", "J", "w", "Z", "x", "V", "l", "N", "q", "U", "i",
+  "Y", "k", "O", "j", "W", "z", "X", "v", "L", "n", "Q", "u", "I"
+];
+
+export default function App() {
+  const [studentName, setStudentName] = useState("");
+  const [studentId, setStudentId] = useState(null);
+  const [studentList, setStudentList] = useState([]);
+  const [loadingStudents, setLoadingStudents] = useState(false);
+  const [classList, setClassList] = useState([]);
+  const [selectedClassId, setSelectedClassId] = useState(null);
+  const [newClassName, setNewClassName] = useState("");
+  const [classDashboard, setClassDashboard] = useState([]);
+  const [showClassDashboard, setShowClassDashboard] = useState(false);
+  const [appView, setAppView] = useState("select");
+  const [profileLoaded, setProfileLoaded] = useState(false);
+  const [nameSaved, setNameSaved] = useState(false);
+  const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
+  const [roundAnswers, setRoundAnswers] = useState([]);
+  const [usedByStage, setUsedByStage] = useState({});
+  const [mastery, setMastery] = useState({});
+  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [feedback, setFeedback] = useState(null);
+  const [message, setMessage] = useState("");
+  const [totalAnswered, setTotalAnswered] = useState(0);
+  const [correctAnswered, setCorrectAnswered] = useState(0);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showReport, setShowReport] = useState(false);
+  const [allowPassageAudio, setAllowPassageAudio] = useState(false);
+
+  const [assessmentMode, setAssessmentMode] =
+    useState("mastery");
+
+  const [letterIndex, setLetterIndex] =
+    useState(0);
+
+  const [letterAssessment, setLetterAssessment] =
+    useState([]);
+
+  const [patternIndex, setPatternIndex] =
+    useState(0);
+
+  const [patternAssessment, setPatternAssessment] =
+    useState([]);
+
+  const [patternAttempt, setPatternAttempt] =
+    useState(0);
+  const [answerHistory, setAnswerHistory] = useState([]);
+
+  const currentStage = skillTree[currentSkillIndex];
+
+  const masteryRule =
+    getMasteryRule(currentStage.label);
+
+  const ROUND_LENGTH =
+    masteryRule.roundLength;
+
+  const PASS_SCORE =
+    masteryRule.passScore;
+
+  const currentStageQuestions =
+    allQuestions.filter(q =>
+      getStageIndex(q) === currentSkillIndex
+    );
+
+  const weaknessSnapshot =
+    calculateWeaknessSnapshot(answerHistory);
+
+  useEffect(() => {
+    loadClasses();
+
+    const saved = localStorage.getItem("readingMasteryProfile");
+
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        const savedStudentName = data.studentName || "";
+        const savedClassId = data.selectedClassId || null;
+
+        setStudentName(savedStudentName);
+        setStudentId(data.studentId || null);
+        setSelectedClassId(savedClassId);
+        setNameSaved(Boolean(savedStudentName));
+        setAppView(data.appView || (savedStudentName ? "overview" : "select"));
+        setAssessmentMode(data.assessmentMode || "mastery");
+        setCurrentSkillIndex(data.currentSkillIndex || 0);
+        setRoundAnswers(data.roundAnswers || []);
+        setUsedByStage(data.usedByStage || {});
+        setMastery(data.mastery || {});
+        setTotalAnswered(data.totalAnswered || 0);
+        setCorrectAnswered(data.correctAnswered || 0);
+        setLetterIndex(data.letterIndex || 0);
+        setLetterAssessment(data.letterAssessment || []);
+        setPatternIndex(data.patternIndex || 0);
+        setPatternAssessment(data.patternAssessment || []);
+        setPatternAttempt(data.patternAttempt || 0);
+        setAnswerHistory(data.answerHistory || []);
+
+        loadStudents(savedClassId);
+      } catch (error) {
+        console.warn("Could not restore saved reading profile.", error);
+        localStorage.removeItem("readingMasteryProfile");
+        loadStudents();
+      }
+    } else {
+      loadStudents();
+    }
+
+    setProfileLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!profileLoaded) return;
+
+    localStorage.setItem(
+      "readingMasteryProfile",
+      JSON.stringify({
+        studentName,
+        studentId,
+        selectedClassId,
+        appView,
+        assessmentMode,
+        currentSkillIndex,
+        roundAnswers,
+        usedByStage,
+        mastery,
+        totalAnswered,
+        correctAnswered,
+        letterIndex,
+        letterAssessment,
+        patternIndex,
+        patternAssessment,
+        patternAttempt,
+        answerHistory
+      })
+    );
+  }, [
+    profileLoaded,
+    studentName,
+    studentId,
+    selectedClassId,
+    appView,
+    assessmentMode,
+    currentSkillIndex,
+    roundAnswers,
+    usedByStage,
+    mastery,
+    totalAnswered,
+    correctAnswered,
+    letterIndex,
+    letterAssessment,
+    patternIndex,
+    patternAssessment,
+    patternAttempt,
+    answerHistory
+  ]);
+
+  async function loadClasses() {
+    const { data, error } = await supabase
+      .from("classes")
+      .select("id, name, created_at")
+      .order("name", { ascending: true });
+
+    if (error) {
+      console.error("Load classes error:", error);
+      setMessage("Could not load classes from cloud.");
+      return;
+    }
+
+    setClassList(data || []);
+  }
+
+  async function createClass() {
+    const clean = newClassName.trim();
+    if (!clean) return;
+
+    const { data, error } = await supabase
+      .from("classes")
+      .insert({ name: clean })
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Create class error:", error);
+      setMessage("Could not create class.");
+      return;
+    }
+
+    setNewClassName("");
+    setSelectedClassId(data.id);
+    await loadClasses();
+    await loadStudents(data.id);
+    setMessage(`Class created: ${clean}`);
+  }
+
+  async function loadStudents(classId = selectedClassId) {
+    setLoadingStudents(true);
+
+    const { data, error } = await supabase
+      .from("students")
+      .select("id, name, class_id, created_at")
+      .eq("class_id", classId)
+      .order("name", { ascending: true });
+
+    if (error) {
+      console.error("Load students error:", error);
+      setMessage("Could not load students from cloud.");
+      setLoadingStudents(false);
+      return;
+    }
+
+    setStudentList(data || []);
+    setLoadingStudents(false);
+  }
+
+  async function loadClassDashboard(classId = selectedClassId) {
+    if (!classId) {
+      setMessage("Select a class first.");
+      return;
+    }
+
+    const { data: students, error: studentsError } = await supabase
+      .from("students")
+      .select("id, name, created_at")
+      .eq("class_id", classId)
+      .order("name", { ascending: true });
+
+    if (studentsError) {
+      console.error("Dashboard students error:", studentsError);
+      setMessage("Could not load class dashboard.");
+      return;
+    }
+
+    const studentIds =
+      (students || []).map(s => s.id);
+
+    if (studentIds.length === 0) {
+      setClassDashboard([]);
+      setShowClassDashboard(true);
+      return;
+    }
+
+    const { data: answers, error: answersError } = await supabase
+      .from("answers")
+      .select("*")
+      .in("student_id", studentIds)
+      .order("answered_at", { ascending: true });
+
+    if (answersError) {
+      console.error("Dashboard answers error:", answersError);
+    }
+
+    const { data: masteryRows, error: masteryError } = await supabase
+      .from("mastery")
+      .select("*")
+      .in("student_id", studentIds)
+      .order("updated_at", { ascending: true });
+
+    if (masteryError) {
+      console.error("Dashboard mastery error:", masteryError);
+    }
+
+    const rows =
+      (students || []).map(student => {
+        const studentAnswers =
+          (answers || []).filter(a =>
+            a.student_id === student.id
+          );
+
+        const studentMastery =
+          (masteryRows || []).filter(m =>
+            m.student_id === student.id
+          );
+
+        const correct =
+          studentAnswers.filter(a => a.is_correct).length;
+
+        const accuracy =
+          studentAnswers.length === 0
+            ? 0
+            : Math.round((correct / studentAnswers.length) * 100);
+
+        const mastered =
+          studentMastery.filter(m => m.mastered);
+
+        const masteredIds =
+          new Set(mastered.map(m => m.skill_id));
+
+        const firstUnmastered =
+          skillTree.find(stage =>
+            !masteredIds.has(stage.id)
+          );
+
+        const lastAnswer =
+          studentAnswers[studentAnswers.length - 1];
+
+        return {
+          id: student.id,
+          name: student.name,
+          answered: studentAnswers.length,
+          correct,
+          accuracy,
+          masteredCount: mastered.length,
+          currentSkill: firstUnmastered?.label || "Completed",
+          lastActive: lastAnswer?.answered_at || "No activity yet"
+        };
+      });
+
+    setClassDashboard(rows);
+    setShowClassDashboard(true);
+  }
+
+
+  async function loadStudentProgress(selectedStudentId, selectedStudentName) {
+    setStudentId(selectedStudentId);
+    setStudentName(selectedStudentName);
+    setNameSaved(true);
+    setAppView("overview");
+
+    const { data: answerRows, error: answerError } = await supabase
+      .from("answers")
+      .select("*")
+      .eq("student_id", selectedStudentId)
+      .order("answered_at", { ascending: true });
+
+    if (answerError) {
+      console.error("Load answers error:", answerError);
+    }
+
+    const rebuiltHistory =
+      (answerRows || []).map(row => ({
+        date: row.answered_at,
+        skill: row.skill,
+        stage: row.stage,
+        diagnosticTarget: row.diagnostic_target,
+        question: row.question,
+        passage: row.passage || "",
+        chosen: row.chosen_answer,
+        correct: row.correct_answer,
+        isCorrect: row.is_correct
+      }));
+
+    setAnswerHistory(rebuiltHistory);
+    setTotalAnswered(rebuiltHistory.length);
+    setCorrectAnswered(rebuiltHistory.filter(x => x.isCorrect).length);
+
+    const { data: masteryRows, error: masteryError } = await supabase
+      .from("mastery")
+      .select("*")
+      .eq("student_id", selectedStudentId)
+      .order("updated_at", { ascending: true });
+
+    if (masteryError) {
+      console.error("Load mastery error:", masteryError);
+    }
+
+    const rebuiltMastery = {};
+
+    (masteryRows || []).forEach(row => {
+      rebuiltMastery[row.skill_id] = {
+        attempts: row.attempts || 1,
+        mastered: row.mastered || false,
+        lastScore: row.last_score,
+        lastTotal: row.last_total
+      };
+    });
+
+    setMastery(rebuiltMastery);
+
+    const firstUnmastered =
+      skillTree.findIndex(stage =>
+        !rebuiltMastery[stage.id]?.mastered
+      );
+
+    setCurrentSkillIndex(firstUnmastered === -1 ? skillTree.length - 1 : firstUnmastered);
+    setRoundAnswers([]);
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setMessage(`Loaded ${selectedStudentName}.`);
+  }
+
+
+  async function saveStudentName() {
+    const clean = studentName.trim();
+    if (!clean) return;
+
+    setStudentName(clean);
+    setNameSaved(true);
+
+    if (!studentId) {
+      if (!selectedClassId) {
+        setMessage("Please select or create a class first.");
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("students")
+        .insert({
+          name: clean,
+          class_id: selectedClassId
+        })
+        .select()
+        .single();
+
+      if (error) {
+        console.error("Supabase student save error:", error);
+        setMessage("Student saved locally, but cloud save failed.");
+        return;
+      }
+
+      setStudentId(data.id);
+      setMessage("Student saved to cloud.");
+      setAppView("overview");
+    }
+  }
+
+  function getAvailableStageQuestions(stageIndex) {
+    const stage = skillTree[stageIndex];
+    if (!stage) return [];
+
+    const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex);
+    const used = usedByStage[stage.id] || [];
+
+    let available = stageQuestions.filter(q => !used.includes(q.id));
+
+    // Do not recycle questions too quickly.
+    // Only reset used questions when there are not enough left for a full round.
+    if (available.length < ROUND_LENGTH) {
+      const keepRecent =
+        used.slice(-ROUND_LENGTH * 3);
+
+      available =
+        stageQuestions.filter(q =>
+          !keepRecent.includes(q.id)
+        );
+
+      setUsedByStage(prev => ({
+        ...prev,
+        [stage.id]: keepRecent
+      }));
+    }
+
+    return available;
+  }
+
+  function getAttemptedStageLabels() {
+    return new Set(
+      answerHistory
+        .map(record => record.stage)
+        .filter(Boolean)
+    );
+  }
+
+  function getReviewQuestionPool() {
+    const attemptedStageLabels =
+      getAttemptedStageLabels();
+
+    if (attemptedStageLabels.size === 0) return [];
+
+    const allowedStageLabels =
+      new Set(
+        skillTree
+          .slice(0, currentSkillIndex + 1)
+          .map(stage => stage.label)
+          .filter(label => attemptedStageLabels.has(label))
+      );
+
+    if (allowedStageLabels.size === 0) return [];
+
+    const usedQuestionIds =
+      new Set(Object.values(usedByStage).flat());
+
+    for (const weakness of weaknessSnapshot.needsPractice) {
+      if (!allowedStageLabels.has(weakness.stage)) continue;
+
+      const matches =
+        allQuestions.filter(question => {
+          const stageIndex = getStageIndex(question);
+          const stage = skillTree[stageIndex];
+
+          return (
+            stage &&
+            allowedStageLabels.has(stage.label) &&
+            getDiagnosticTarget(question) === weakness.target &&
+            !usedQuestionIds.has(question.id)
+          );
+        });
+
+      if (matches.length > 0) {
+        return shuffleArray(matches);
+      }
+    }
+
+    return [];
+  }
+
+  function prepareQuestion(question, isTargetedReview = false) {
+    return {
+      ...question,
+      isTargetedReview,
+      choices: Array.isArray(question.choices)
+        ? shuffleArray(question.choices)
+        : question.choices
+    };
+  }
+
+  function pickQuestion(mode = assessmentMode, answeredCount = roundAnswers.length) {
+    setMessage("");
+    setShowConfetti(false);
+    setShowReport(false);
+
+    if (mode === "targetedReview") {
+      const reviewPool =
+        getReviewQuestionPool();
+
+      if (reviewPool.length === 0) {
+        setMessage("No targeted review questions are available yet. Complete more mastery questions first.");
+        return;
+      }
+
+      setCurrentQuestion(prepareQuestion(reviewPool[0], true));
+      return;
+    }
+
+    const available = getAvailableStageQuestions(currentSkillIndex);
+
+    if (available.length === 0) {
+      setMessage(`No questions found for ${currentStage.label}.`);
+      return;
+    }
+
+    const shouldInjectReview =
+      mode === "mastery" &&
+      answeredCount > 0 &&
+      (answeredCount + 1) % 5 === 0;
+
+    if (shouldInjectReview) {
+      const reviewPool =
+        getReviewQuestionPool();
+
+      if (reviewPool.length > 0) {
+        setCurrentQuestion(prepareQuestion(reviewPool[0], true));
+        return;
+      }
+    }
+
+    const targetsAlreadyInRound =
+      answeredCount > 0
+        ? answerHistory
+          .slice(-answeredCount)
+          .filter(item => item.stage === currentStage.label)
+          .map(item => item.diagnosticTarget)
+        : [];
+
+    const unusedTargets =
+      available.filter(q =>
+        !targetsAlreadyInRound.includes(getDiagnosticTarget(q))
+      );
+
+    const pool =
+      unusedTargets.length > 0
+        ? unusedTargets
+        : available;
+
+    const picked = shuffleArray(pool)[0];
+
+    setCurrentQuestion(prepareQuestion(picked));
+  }
+
+  async function saveAnswerToSupabase(record) {
+    if (!studentId) return;
+
+    const { error } = await supabase
+      .from("answers")
+      .insert({
+        student_id: studentId,
+        skill: record.skill,
+        stage: record.stage,
+        diagnostic_target: record.diagnosticTarget,
+        question: record.question,
+        passage: record.passage,
+        chosen_answer: record.chosen,
+        correct_answer: record.correct,
+        is_correct: record.isCorrect
+      });
+
+    if (error) {
+      console.error("Supabase answer save error:", error);
+    }
+  }
+
+  async function saveMasteryToSupabase(stage, score, total, mastered) {
+    if (!studentId) return;
+
+    const { error } = await supabase
+      .from("mastery")
+      .insert({
+        student_id: studentId,
+        skill_id: stage.id,
+        skill_label: stage.label,
+        mastered,
+        attempts: 1,
+        last_score: score,
+        last_total: total
+      });
+
+    if (error) {
+      console.error("Supabase mastery save error:", error);
+    }
+  }
+
+
+  function answerQuestion(choice) {
+    if (!currentQuestion) return;
+
+    const correctAnswer = getQuestionAnswer(currentQuestion);
+    const submittedAnswer = isFixSentenceQuestion(currentQuestion)
+      ? normalizeSentenceAnswer(choice)
+      : choice;
+    const isCorrect = isFixSentenceQuestion(currentQuestion)
+      ? comparableSentenceAnswer(submittedAnswer) === comparableSentenceAnswer(correctAnswer)
+      : submittedAnswer === correctAnswer;
+    const questionStage =
+      skillTree[getStageIndex(currentQuestion)] || currentStage;
+    const stage = currentStage;
+    const nextRound = [...roundAnswers, isCorrect];
+
+    setUsedByStage(prev => ({
+      ...prev,
+      [questionStage.id]: [...(prev[questionStage.id] || []), currentQuestion.id]
+    }));
+
+    setTotalAnswered(n => n + 1);
+
+    const answerRecord = {
+      date: new Date().toLocaleString(),
+      skill: currentQuestion.skill,
+      stage: questionStage.label,
+      question: getQuestionPrompt(currentQuestion),
+      passage: currentQuestion.passage || "",
+      chosen: submittedAnswer,
+      correct: correctAnswer,
+      isCorrect,
+      diagnosticTarget: getDiagnosticTarget(currentQuestion)
+    };
+
+    setAnswerHistory(prev => [
+      ...prev,
+      answerRecord
+    ]);
+
+    saveAnswerToSupabase(answerRecord);
+
+    if (isCorrect) {
+      setCorrectAnswered(n => n + 1);
+      setShowConfetti(true);
+    }
+
+    if (assessmentMode === "targetedReview") {
+      if (nextRound.length >= ROUND_LENGTH) {
+        setTimeout(() => {
+          setAppView("finished");
+          setShowReport(true);
+        }, 500);
+
+        setRoundAnswers([]);
+      } else {
+        setRoundAnswers(nextRound);
+      }
+
+      setFeedback({
+        isCorrect,
+        chosen: submittedAnswer,
+        correct: correctAnswer,
+        skill: currentQuestion.skill,
+        explanation: getTeachingTip(currentQuestion, submittedAnswer, isCorrect)
+      });
+
+      setCurrentQuestion(null);
+      return;
+    }
+
+    if (nextRound.length >= ROUND_LENGTH) {
+      const score = nextRound.filter(Boolean).length;
+      const mastered = score >= PASS_SCORE;
+
+      setMastery(prev => ({
+        ...prev,
+        [stage.id]: {
+          attempts: (prev[stage.id]?.attempts || 0) + 1,
+          mastered: mastered || prev[stage.id]?.mastered || false,
+          lastScore: score,
+          lastTotal: ROUND_LENGTH
+        }
+      }));
+
+      saveMasteryToSupabase(stage, score, ROUND_LENGTH, mastered);
+
+      if (mastered) {
+        setCurrentSkillIndex(index => Math.min(index + 1, skillTree.length - 1));
+      }
+
+      setTimeout(() => {
+        setAppView("finished");
+        setShowReport(true);
+      }, 500);
+
+      setRoundAnswers([]);
+    } else {
+      setRoundAnswers(nextRound);
+    }
+
+    setFeedback({
+      isCorrect,
+      chosen: submittedAnswer,
+      correct: correctAnswer,
+      skill: currentQuestion.skill,
+      explanation: getTeachingTip(currentQuestion, submittedAnswer, isCorrect)
+    });
+
+    setCurrentQuestion(null);
+  }
+
+  function getTeachingTip(question, choice, isCorrect) {
+    const skill = normalize(question.skill);
+    const answer = String(getQuestionAnswer(question) || "");
+
+    if (isCorrect) return "Good job. You used the skill correctly.";
+
+    if (isFixSentenceQuestion(question)) {
+      return `The corrected sentence is "${answer}". Check the capital letter, word order, and ending punctuation.`;
+    }
+
+    if (skill.includes("initial")) {
+      return `The correct answer is "${answer}". Listen to the first sound in the word.`;
+    }
+
+    if (skill.includes("final")) {
+      return `The correct answer is "${answer}". Listen to the last sound in the word.`;
+    }
+
+    if (skill.includes("rhym")) {
+      return `The correct answer is "${answer}". Rhyming words have the same ending sound.`;
+    }
+
+    if (skill.includes("short vowel") || skill.includes("cvc")) {
+      return `The correct answer is "${answer}". Listen carefully to the vowel sound in the middle of the word.`;
+    }
+
+    if (skill.includes("high-frequency")) {
+      return `The correct answer is "${answer}". This is a high-frequency word. These words appear often when we read.`;
+    }
+
+    if (skill.includes("blend")) {
+      return `The correct answer is "${answer}". A blend has two consonant sounds together, like bl, st, or cr.`;
+    }
+
+    if (skill.includes("digraph")) {
+      return `The correct answer is "${answer}". A digraph is two letters making one sound, like sh, ch, th, or wh.`;
+    }
+
+    if (skill.includes("preposition")) {
+      return `The correct answer is "${answer}". A preposition tells where something is.`;
+    }
+
+    if (skill.includes("plural")) {
+      return `The correct answer is "${answer}". A plural means more than one.`;
+    }
+
+    if (skill.includes("comprehension") || skill.includes("details") || skill.includes("main idea") || skill.includes("inference")) {
+      return `The correct answer is "${answer}". Look back at the passage and use the details to help you.`;
+    }
+
+    return `The correct answer is "${answer}". Review the skill and try the next one.`;
+  }
+
+  function normalizeAudioText(text) {
+    return String(text || "")
+      .normalize("NFKC")
+      .replace(/[“”]/g, "\"")
+      .replace(/[‘’]/g, "'")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+  }
+
+  function speakWithBrowser(text) {
+    if (!text) return;
+
+    if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === "undefined") {
+      console.warn("Browser speech synthesis is unavailable.");
+      return;
+    }
+
+    try {
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.85;
+      utterance.pitch = 1;
+      utterance.lang = "en-US";
+
+      window.speechSynthesis.speak(utterance);
+    } catch (error) {
+      console.warn("Browser speech synthesis failed.", error);
+    }
+  }
+
+  async function speakText(text) {
+    if (!text) return;
+
+    const normalizedText = normalizeAudioText(text);
+    const audioKey = audioTextIndex[normalizedText];
+    const audioEntry = audioKey ? audioManifest[audioKey] : null;
+
+    if (audioEntry?.path) {
+      const audioPaths = audioEntry.kinds?.includes("choice")
+        ? [`/audio/choices/${audioKey}.mp3`, audioEntry.path]
+        : [audioEntry.path];
+
+      try {
+        for (const audioPath of audioPaths) {
+          const response = await fetch(audioPath, { method: "HEAD" });
+
+          if (response.ok) {
+            if (window.speechSynthesis) {
+              window.speechSynthesis.cancel();
+            }
+
+            const audio = new Audio(audioPath);
+            await audio.play();
+            return;
+          }
+        }
+      } catch (error) {
+        console.warn("Local audio unavailable, using browser speech.", error);
+      }
+    }
+
+    speakWithBrowser(text);
+  }
+
+  function shouldShowImage(question) {
+    const skill = normalize(question.skill);
+
+    return (
+      skill.includes("vocabulary") ||
+      skill.includes("preposition") ||
+      skill.includes("emotion") ||
+      skill.includes("picture comprehension")
+    ) && Boolean(question.imagePath);
+  }
+
+  function flagCurrentQuestion() {
+    if (!currentQuestion) return;
+
+    const existing = JSON.parse(localStorage.getItem("flaggedQuestions") || "{}");
+    existing[currentQuestion.id] = (existing[currentQuestion.id] || 0) + 1;
+
+    localStorage.setItem("flaggedQuestions", JSON.stringify(existing));
+    setMessage(`Flagged question: ${currentQuestion.id}`);
+  }
+
+  function getDiagnosticTarget(question) {
+    const skill =
+      normalize(question.skill);
+
+    const text =
+      [
+        question.question,
+        question.answer,
+        question.passage
+      ].join(" ").toLowerCase();
+
+    if (skill.includes("initial")) {
+      const match =
+        text.match(/\/([a-z]+)\//);
+
+      if (match) return `initial /${match[1]}/`;
+
+      const word =
+        String(question.answer || "").toLowerCase();
+
+      return word
+        ? `initial ${word[0]}`
+        : "initial sound";
+    }
+
+    if (skill.includes("final")) {
+      const match =
+        text.match(/\/([a-z]+)\//);
+
+      if (match) return `final /${match[1]}/`;
+
+      const word =
+        String(question.answer || "").toLowerCase();
+
+      return word
+        ? `final ${word[word.length - 1]}`
+        : "final sound";
+    }
+
+    if (skill.includes("rhym")) {
+      const match =
+        text.match(/rhymes with ([a-z]+)/);
+
+      return match
+        ? `rhymes with ${match[1]}`
+        : "rhyming";
+    }
+
+    if (skill.includes("short vowel") || skill.includes("cvc")) {
+      const answer =
+        String(question.answer || "").toLowerCase();
+
+      if (/[a]/.test(answer)) return "short a";
+      if (/[e]/.test(answer)) return "short e";
+      if (/[i]/.test(answer)) return "short i";
+      if (/[o]/.test(answer)) return "short o";
+      if (/[u]/.test(answer)) return "short u";
+
+      return "short vowel";
+    }
+
+    if (skill.includes("blend")) {
+      const match =
+        text.match(/(bl|cl|fl|gl|pl|sl|br|cr|dr|fr|gr|pr|tr|sc|sk|sm|sn|sp|st|sw)/);
+
+      return match
+        ? `${match[1]} blend`
+        : "blend";
+    }
+
+    if (skill.includes("digraph")) {
+      const match =
+        text.match(/(sh|ch|th|wh|ph)/);
+
+      return match
+        ? `${match[1]} digraph`
+        : "digraph";
+    }
+
+    if (skill.includes("long vowel")) {
+      const match =
+        text.match(/long ([aeiou])/);
+
+      return match
+        ? `long ${match[1]}`
+        : "long vowel";
+    }
+
+    if (skill.includes("vowel team")) {
+      const match =
+        text.match(/(ai|ay|ee|ea|oa|ow|igh|ie|oo|ue|ew)/);
+
+      return match
+        ? `${match[1]} vowel team`
+        : "vowel team";
+    }
+
+    if (skill.includes("r-controlled") || skill.includes("r controlled")) {
+      const match =
+        text.match(/(ar|er|ir|or|ur)/);
+
+      return match
+        ? `${match[1]} r-controlled`
+        : "r-controlled vowel";
+    }
+
+    if (skill.includes("high-frequency")) {
+      return String(question.answer || "high-frequency word");
+    }
+
+    if (skill.includes("preposition")) {
+      return String(question.answer || "preposition");
+    }
+
+    if (skill.includes("plural")) {
+      return String(question.answer || "plural");
+    }
+
+    if (skill.includes("prefix") || skill.includes("suffix")) {
+      return String(question.answer || "morphology");
+    }
+
+    if (skill.includes("homophone")) {
+      return String(question.answer || "homophone");
+    }
+
+    if (skill.includes("main idea")) return "main idea";
+    if (skill.includes("key details")) return "key details";
+    if (skill.includes("sequencing")) return "sequencing";
+    if (skill.includes("cause")) return "cause and effect";
+    if (skill.includes("context")) return "context clues";
+    if (skill.includes("theme")) return "theme";
+    if (skill.includes("inference")) return "inference";
+
+    return question.skill || "general skill";
+  }
+
+  function summarizeTargets(records) {
+    const targetStats = {};
+
+    records.forEach(record => {
+      const target =
+        record.diagnosticTarget || "general";
+
+      if (!targetStats[target]) {
+        targetStats[target] = {
+          correct: 0,
+          total: 0
+        };
+      }
+
+      targetStats[target].total += 1;
+
+      if (record.isCorrect) {
+        targetStats[target].correct += 1;
+      }
+    });
+
+    const secure = [];
+    const developing = [];
+    const needsPractice = [];
+
+    Object.entries(targetStats).forEach(([target, stats]) => {
+      const accuracy =
+        stats.correct / stats.total;
+
+      const label =
+        `${target} (${stats.correct}/${stats.total})`;
+
+      if (stats.total >= 2 && accuracy >= 0.9) {
+        secure.push(label);
+      } else if (accuracy >= 0.6) {
+        developing.push(label);
+      } else {
+        needsPractice.push(label);
+      }
+    });
+
+    return {
+      secure,
+      developing,
+      needsPractice
+    };
+  }
+
+
+  const letterItems = letterAssessmentOrder.map(letter => ({
+    display: letter,
+    type: letter === letter.toUpperCase() ? "uppercase" : "lowercase"
+  }));
+
+  const patternItems = advancedPhonicsPatterns.map((item, index) => ({
+    ...item,
+    exampleWord: item.examples[(patternAttempt + index) % item.examples.length]
+  }));
+
+  function startAdvancedPhonicsAssessment() {
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setPatternAttempt(attempt => attempt + 1);
+    setAppView("advancedPhonics");
+  }
+
+  function recordPatternResult(soundCorrect, wordCorrect) {
+    const current =
+      patternItems[patternIndex];
+
+    setPatternAssessment(prev => [
+      ...prev,
+      {
+        pattern: current.pattern,
+        exampleWord: current.exampleWord,
+        soundCorrect,
+        wordCorrect
+      }
+    ]);
+
+    setPatternIndex(prev => prev + 1);
+  }
+
+  function resetPatternAssessment() {
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setPatternAttempt(attempt => attempt + 1);
+  }
+
+  function recordLetterResult(knowsName, knowsSound) {
+    const current =
+      letterItems[letterIndex];
+
+    setLetterAssessment(prev => [
+      ...prev,
+      {
+        letter: current.display,
+        type: current.type,
+        knowsName,
+        knowsSound
+      }
+    ]);
+
+    setLetterIndex(prev => prev + 1);
+  }
+
+  function resetLetterAssessment() {
+    setLetterIndex(0);
+    setLetterAssessment([]);
+  }
+
+  async function exportLetterAssessment() {
+    const today =
+      new Date().toISOString().slice(0, 10);
+
+    const safeName =
+      (studentName || "Unnamed student")
+        .replace(/[^a-z0-9]/gi, "_")
+        .toLowerCase();
+
+    const alphabet =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+    const uppercaseResults =
+      new Map(
+        letterAssessment
+          .filter(item => item.type === "uppercase")
+          .map(item => [item.letter.toUpperCase(), item])
+      );
+
+    const lowercaseResults =
+      new Map(
+        letterAssessment
+          .filter(item => item.type === "lowercase")
+          .map(item => [item.letter.toUpperCase(), item])
+      );
+
+    const countKnown = (results, field) =>
+      alphabet.filter(letter => results.get(letter)?.[field]).length;
+
+    const ExcelJS =
+      (await import("exceljs")).default;
+
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("Letter Assessment");
+
+    const colors = {
+      title: "FF1F4E79",
+      section: "FF3478F6",
+      summary: "FFEAF2FF",
+      border: "FFB7C2D0",
+      yes: "FFD9EAD3",
+      no: "FFF4CCCC",
+      white: "FFFFFFFF"
+    };
+
+    worksheet.columns = [
+      { width: 10 },
+      { width: 18 },
+      { width: 18 },
+      { width: 4 },
+      { width: 10 },
+      { width: 18 },
+      { width: 18 }
+    ];
+
+    worksheet.mergeCells("A1:G1");
+    worksheet.getCell("A1").value = "EL Letter Name and Sound Assessment";
+    worksheet.getCell("A1").font = { bold: true, size: 18, color: { argb: colors.white } };
+    worksheet.getCell("A1").alignment = { horizontal: "center" };
+    worksheet.getCell("A1").fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: colors.title }
+    };
+    worksheet.getRow(1).height = 28;
+
+    worksheet.mergeCells("A2:G2");
+    worksheet.getCell("A2").value = `Student: ${studentName || "Unnamed student"}`;
+    worksheet.mergeCells("A3:G3");
+    worksheet.getCell("A3").value = `Date: ${today}`;
+
+    ["A2", "A3"].forEach(cellRef => {
+      worksheet.getCell(cellRef).font = { bold: true, size: 12 };
+      worksheet.getCell(cellRef).alignment = { horizontal: "center" };
+    });
+
+    const summaryValues = [
+      ["A5", "Total Names Known", countKnown(uppercaseResults, "knowsName") + countKnown(lowercaseResults, "knowsName")],
+      ["C5", "Total Sounds Known", countKnown(uppercaseResults, "knowsSound") + countKnown(lowercaseResults, "knowsSound")],
+      ["E5", "Uppercase Names Known", countKnown(uppercaseResults, "knowsName")],
+      ["A7", "Uppercase Sounds Known", countKnown(uppercaseResults, "knowsSound")],
+      ["C7", "Lowercase Names Known", countKnown(lowercaseResults, "knowsName")],
+      ["E7", "Lowercase Sounds Known", countKnown(lowercaseResults, "knowsSound")]
+    ];
+
+    summaryValues.forEach(([cellRef, label, value]) => {
+      const cell = worksheet.getCell(cellRef);
+      const valueCell = worksheet.getCell(cellRef.replace(/[A-Z]+/, match =>
+        String.fromCharCode(match.charCodeAt(0) + 1)
+      ));
+
+      cell.value = label;
+      valueCell.value = value;
+      cell.font = { bold: true };
+      valueCell.font = { bold: true, size: 14 };
+      valueCell.alignment = { horizontal: "center" };
+
+      [cell, valueCell].forEach(summaryCell => {
+        summaryCell.fill = {
+          type: "pattern",
+          pattern: "solid",
+          fgColor: { argb: colors.summary }
+        };
+        summaryCell.border = {
+          top: { style: "thin", color: { argb: colors.border } },
+          right: { style: "thin", color: { argb: colors.border } },
+          bottom: { style: "thin", color: { argb: colors.border } },
+          left: { style: "thin", color: { argb: colors.border } }
+        };
+      });
+    });
+
+    function styleSectionHeader(rowNumber, startCol, endCol, title) {
+      worksheet.mergeCells(rowNumber, startCol, rowNumber, endCol);
+      const cell = worksheet.getCell(rowNumber, startCol);
+      cell.value = title;
+      cell.font = { bold: true, color: { argb: colors.white } };
+      cell.alignment = { horizontal: "center" };
+      cell.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: colors.section }
+      };
+    }
+
+    function styleCell(cell) {
+      cell.border = {
+        top: { style: "thin", color: { argb: colors.border } },
+        right: { style: "thin", color: { argb: colors.border } },
+        bottom: { style: "thin", color: { argb: colors.border } },
+        left: { style: "thin", color: { argb: colors.border } }
+      };
+      cell.alignment = { horizontal: "center", vertical: "middle" };
+    }
+
+    function styleResultCell(cell) {
+      styleCell(cell);
+      cell.font = { bold: true };
+      cell.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: cell.value === "Y" ? colors.yes : colors.no }
+      };
+    }
+
+    function writeLetterTable({ title, startCol, letters, results }) {
+      const headerRow = 10;
+      styleSectionHeader(headerRow, startCol, startCol + 2, title);
+
+      const columns = ["Letter", "Knows Name", "Knows Sound"];
+      columns.forEach((heading, index) => {
+        const cell = worksheet.getCell(headerRow + 1, startCol + index);
+        cell.value = heading;
+        cell.font = { bold: true };
+        cell.fill = {
+          type: "pattern",
+          pattern: "solid",
+          fgColor: { argb: "FFD9EAF7" }
+        };
+        styleCell(cell);
+      });
+
+      letters.forEach((letter, index) => {
+        const rowNumber = headerRow + 2 + index;
+        const result = results.get(letter.toUpperCase());
+        const values = [
+          letter,
+          result?.knowsName ? "Y" : "N",
+          result?.knowsSound ? "Y" : "N"
+        ];
+
+        values.forEach((value, columnIndex) => {
+          const cell = worksheet.getCell(rowNumber, startCol + columnIndex);
+          cell.value = value;
+          if (columnIndex === 0) {
+            styleCell(cell);
+            cell.font = { bold: true };
+          } else {
+            styleResultCell(cell);
+          }
+        });
+      });
+    }
+
+    writeLetterTable({
+      title: "Uppercase Letters",
+      startCol: 1,
+      letters: alphabet,
+      results: uppercaseResults
+    });
+
+    writeLetterTable({
+      title: "Lowercase Letters",
+      startCol: 5,
+      letters: alphabet.map(letter => letter.toLowerCase()),
+      results: lowercaseResults
+    });
+
+    worksheet.views = [{ state: "frozen", ySplit: 10 }];
+
+    const workbookBuffer =
+      await workbook.xlsx.writeBuffer();
+
+    const blob = new Blob([workbookBuffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `${safeName}_letter_name_sound_assessment_${today}.xlsx`;
+    link.click();
+
+    URL.revokeObjectURL(url);
+  }
+
+  async function exportPatternAssessment() {
+    const today =
+      new Date().toISOString().slice(0, 10);
+
+    const safeName =
+      (studentName || "Unnamed student")
+        .replace(/[^a-z0-9]/gi, "_")
+        .toLowerCase();
+
+    const results =
+      new Map(patternAssessment.map(item => [item.pattern, item]));
+
+    const totalSoundCorrect =
+      patternAssessment.filter(item => item.soundCorrect).length;
+
+    const totalWordCorrect =
+      patternAssessment.filter(item => item.wordCorrect).length;
+
+    const totalBothCorrect =
+      patternAssessment.filter(item => item.soundCorrect && item.wordCorrect).length;
+
+    const ExcelJS =
+      (await import("exceljs")).default;
+
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("Advanced Phonics");
+
+    const colors = {
+      title: "FF1F4E79",
+      section: "FF3478F6",
+      summary: "FFEAF2FF",
+      border: "FFB7C2D0",
+      yes: "FFD9EAD3",
+      no: "FFF4CCCC",
+      white: "FFFFFFFF"
+    };
+
+    worksheet.columns = [
+      { width: 16 },
+      { width: 22 },
+      { width: 16 },
+      { width: 16 }
+    ];
+
+    worksheet.mergeCells("A1:D1");
+    worksheet.getCell("A1").value = "Advanced Phonics Pattern Assessment";
+    worksheet.getCell("A1").font = { bold: true, size: 18, color: { argb: colors.white } };
+    worksheet.getCell("A1").alignment = { horizontal: "center" };
+    worksheet.getCell("A1").fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: colors.title }
+    };
+    worksheet.getRow(1).height = 28;
+
+    worksheet.mergeCells("A2:D2");
+    worksheet.getCell("A2").value = `Student: ${studentName || "Unnamed student"}`;
+    worksheet.mergeCells("A3:D3");
+    worksheet.getCell("A3").value = `Date: ${today}`;
+
+    ["A2", "A3"].forEach(cellRef => {
+      worksheet.getCell(cellRef).font = { bold: true, size: 12 };
+      worksheet.getCell(cellRef).alignment = { horizontal: "center" };
+    });
+
+    const summaryRows = [
+      ["A5", "Patterns assessed", patternAssessment.length],
+      ["C5", "Sound correct", totalSoundCorrect],
+      ["A7", "Word correct", totalWordCorrect],
+      ["C7", "Both correct", totalBothCorrect]
+    ];
+
+    summaryRows.forEach(([cellRef, label, value]) => {
+      const cell = worksheet.getCell(cellRef);
+      const valueCell = worksheet.getCell(cellRef.replace(/[A-Z]+/, match =>
+        String.fromCharCode(match.charCodeAt(0) + 1)
+      ));
+
+      cell.value = label;
+      valueCell.value = value;
+      cell.font = { bold: true };
+      valueCell.font = { bold: true, size: 14 };
+      valueCell.alignment = { horizontal: "center" };
+
+      [cell, valueCell].forEach(summaryCell => {
+        summaryCell.fill = {
+          type: "pattern",
+          pattern: "solid",
+          fgColor: { argb: colors.summary }
+        };
+        summaryCell.border = {
+          top: { style: "thin", color: { argb: colors.border } },
+          right: { style: "thin", color: { argb: colors.border } },
+          bottom: { style: "thin", color: { argb: colors.border } },
+          left: { style: "thin", color: { argb: colors.border } }
+        };
+      });
+    });
+
+    function styleCell(cell) {
+      cell.border = {
+        top: { style: "thin", color: { argb: colors.border } },
+        right: { style: "thin", color: { argb: colors.border } },
+        bottom: { style: "thin", color: { argb: colors.border } },
+        left: { style: "thin", color: { argb: colors.border } }
+      };
+      cell.alignment = { horizontal: "center", vertical: "middle" };
+    }
+
+    function styleResultCell(cell) {
+      styleCell(cell);
+      cell.font = { bold: true };
+      cell.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: cell.value === "Y" ? colors.yes : colors.no }
+      };
+    }
+
+    worksheet.mergeCells("A10:D10");
+    worksheet.getCell("A10").value = "Pattern Results";
+    worksheet.getCell("A10").font = { bold: true, color: { argb: colors.white } };
+    worksheet.getCell("A10").alignment = { horizontal: "center" };
+    worksheet.getCell("A10").fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: colors.section }
+    };
+
+    ["Pattern", "Example Word", "Sound Correct", "Word Correct"].forEach((heading, index) => {
+      const cell = worksheet.getCell(11, index + 1);
+      cell.value = heading;
+      cell.font = { bold: true };
+      cell.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: "FFD9EAF7" }
+      };
+      styleCell(cell);
+    });
+
+    patternItems.forEach((item, index) => {
+      const result = results.get(item.pattern);
+      const values = [
+        item.pattern,
+        result?.exampleWord || item.exampleWord,
+        result?.soundCorrect ? "Y" : "N",
+        result?.wordCorrect ? "Y" : "N"
+      ];
+
+      values.forEach((value, columnIndex) => {
+        const cell = worksheet.getCell(index + 12, columnIndex + 1);
+        cell.value = value;
+
+        if (columnIndex < 2) {
+          styleCell(cell);
+          if (columnIndex === 0) cell.font = { bold: true };
+        } else {
+          styleResultCell(cell);
+        }
+      });
+    });
+
+    worksheet.views = [{ state: "frozen", ySplit: 10 }];
+
+    const workbookBuffer =
+      await workbook.xlsx.writeBuffer();
+
+    const blob = new Blob([workbookBuffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `${safeName}_advanced_phonics_pattern_assessment_${today}.xlsx`;
+    link.click();
+
+    URL.revokeObjectURL(url);
+  }
+
+
+  function exportCSVData() {
+    const today =
+      new Date().toISOString().slice(0, 10);
+
+    const safeName =
+      (studentName || "Unnamed student")
+        .replace(/[^a-z0-9]/gi, "_")
+        .toLowerCase();
+
+    const rows = [
+      [
+        "Date",
+        "Student",
+        "Skill",
+        "Diagnostic Target",
+        "Question",
+        "Student Answer",
+        "Correct Answer",
+        "Result"
+      ]
+    ];
+
+    answerHistory.forEach(item => {
+      rows.push([
+        item.date || "",
+        studentName || "Unnamed student",
+        item.stage || item.skill || "",
+        item.diagnosticTarget || "",
+        `${item.passage ? item.passage + " " : ""}${item.question || ""}`,
+        item.chosen || "",
+        item.correct || "",
+        item.isCorrect ? "Correct" : "Incorrect"
+      ]);
+    });
+
+    const csv =
+      rows
+        .map(row =>
+          row
+            .map(cell =>
+              `"${String(cell).replace(/"/g, '""')}"`
+            )
+            .join(",")
+        )
+        .join("\n");
+
+    const blob = new Blob([csv], {
+      type: "text/csv"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `${safeName}_reading_data_${today}.csv`;
+    link.click();
+
+    URL.revokeObjectURL(url);
+  }
+
+
+  function startAssessment() {
+    setAssessmentMode("mastery");
+    setFeedback(null);
+    setCurrentQuestion(null);
+    setShowReport(false);
+    setRoundAnswers([]);
+    setMessage("");
+    setAppView("assessment");
+    pickQuestion("mastery", 0);
+  }
+
+  function startTargetedReview() {
+    setAssessmentMode("targetedReview");
+    setFeedback(null);
+    setCurrentQuestion(null);
+    setShowReport(false);
+    setRoundAnswers([]);
+    setMessage("");
+    setAppView("assessment");
+    pickQuestion("targetedReview", 0);
+  }
+
+  function endAssessment() {
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setShowReport(true);
+    setAppView("finished");
+  }
+
+  function goToOverview() {
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setShowReport(false);
+    setAppView("overview");
+  }
+
+
+  function exportData() {
+    const today =
+      new Date().toISOString().slice(0, 10);
+
+    const safeName =
+      (studentName || "Unnamed student")
+        .replace(/[^a-z0-9]/gi, "_")
+        .toLowerCase();
+
+    function summarizeSkill(stage) {
+      const records =
+        answerHistory.filter(item =>
+          item.stage === stage.label
+        );
+
+      const data =
+        mastery[stage.id];
+
+      if (records.length === 0 && !data) {
+        return `${stage.label}: Not yet reached or tested.`;
+      }
+
+      if (records.length === 0) {
+        return `${stage.label}: Started, but no individual question data has been recorded yet.`;
+      }
+
+      const correct =
+        records.filter(r => r.isCorrect).length;
+
+      const summary =
+        summarizeTargets(records);
+
+      let note =
+        `${stage.label}: ${correct}/${records.length} correct. `;
+
+      if (data?.mastered) {
+        note += `Status: mastered. `;
+      } else if (stage.id === currentStage.id) {
+        note += `Status: current working skill. `;
+      } else {
+        note += `Status: attempted but not yet mastered. `;
+      }
+
+      note += `\nSecure: ${
+        summary.secure.length
+          ? summary.secure.join(", ")
+          : "No secure subskills recorded yet."
+      }`;
+
+      note += `\nDeveloping: ${
+        summary.developing.length
+          ? summary.developing.join(", ")
+          : "No developing subskills recorded yet."
+      }`;
+
+      note += `\nNeeds practice: ${
+        summary.needsPractice.length
+          ? summary.needsPractice.join(", ")
+          : "No specific needs recorded yet."
+      }`;
+
+      return note;
+    }
+
+    const reportText = `
+Reading Mastery Report
+
+Student: ${studentName || "Unnamed student"}
+Date: ${today}
+
+Overall Summary
+Questions answered: ${totalAnswered}
+Correct answers: ${correctAnswered}
+Accuracy: ${accuracy}%
+
+Current Position
+Current skill: ${currentSkillIndex + 1}. ${currentStage.label}
+Current round score: ${roundCorrect}/${ROUND_LENGTH}
+Mastery rule: ${PASS_SCORE}/${ROUND_LENGTH} correct to unlock the next skill.
+
+Teacher Notes by Skill
+
+${skillTree.map(stage => summarizeSkill(stage)).join("\n\n")}
+
+Recent Question Evidence
+
+${answerHistory.slice(-30).map((item, index) => {
+  return `${index + 1}. Skill: ${item.stage}
+Question: ${item.passage ? item.passage + " " : ""}${item.question}
+Student answered: ${item.chosen}
+Correct answer: ${item.correct}
+Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
+}).join("\n\n")}
+`.trim();
+
+    const blob = new Blob([reportText], {
+      type: "text/plain"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `${safeName}_reading_mastery_report_${today}.txt`;
+    link.click();
+
+    URL.revokeObjectURL(url);
+  }
+
+  function resetStudent() {
+    localStorage.removeItem("readingMasteryProfile");
+    window.location.reload();
+  }
+
+  function switchStudent() {
+    setNameSaved(false);
+    setStudentId(null);
+    setStudentName("");
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setMessage("");
+    setAppView("select");
+    loadClasses();
+    loadStudents();
+  }
+
+  function viewReport() {
+    setShowReport(true);
+    setAppView("finished");
+  }
+
+  const roundCorrect = roundAnswers.filter(Boolean).length;
+  const roundProgress = Math.round((roundAnswers.length / ROUND_LENGTH) * 100);
+  const accuracy = totalAnswered === 0 ? 0 : Math.round((correctAnswered / totalAnswered) * 100);
+  const isFocusedAssessment =
+    appView === "assessment" ||
+    appView === "letters" ||
+    appView === "advancedPhonics";
+
+  return (
+    <div className={isFocusedAssessment ? "app assessment-app" : "app"}>
+      {showConfetti && <Confetti recycle={false} numberOfPieces={90} />}
+
+      {!isFocusedAssessment && (
+        <TopNavigation
+          appView={appView}
+          nameSaved={nameSaved}
+          studentName={studentName}
+          currentStage={currentStage}
+          goToOverview={goToOverview}
+          switchStudent={switchStudent}
+          viewReport={viewReport}
+        />
+      )}
+
+      {!isFocusedAssessment && (
+        <motion.div
+          className="hero"
+          initial={{ y: -12, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
+          <h1>Reading Mastery</h1>
+          <p>Structured EL-style reading skill progression</p>
+
+          {appView === "select" && !nameSaved && (
+            <StudentSelectPage
+              classList={classList}
+              selectedClassId={selectedClassId}
+              setSelectedClassId={setSelectedClassId}
+              setStudentList={setStudentList}
+              loadStudents={loadStudents}
+              newClassName={newClassName}
+              setNewClassName={setNewClassName}
+              createClass={createClass}
+              loadClassDashboard={loadClassDashboard}
+              studentList={studentList}
+              loadingStudents={loadingStudents}
+              loadStudentProgress={loadStudentProgress}
+              studentName={studentName}
+              setStudentName={setStudentName}
+              saveStudentName={saveStudentName}
+              showClassDashboard={showClassDashboard}
+              classDashboard={classDashboard}
+              skillTree={skillTree}
+              setShowClassDashboard={setShowClassDashboard}
+            />
+          )}
+
+          {nameSaved && <h2>Student: {studentName}</h2>}
+        </motion.div>
+      )}
+
+      {appView === "overview" && nameSaved && (
+        <StudentOverviewPage
+          studentName={studentName}
+          currentSkillIndex={currentSkillIndex}
+          currentStage={currentStage}
+          accuracy={accuracy}
+          totalAnswered={totalAnswered}
+          passScore={PASS_SCORE}
+          roundLength={ROUND_LENGTH}
+          skillTree={skillTree}
+          setCurrentSkillIndex={setCurrentSkillIndex}
+          setRoundAnswers={setRoundAnswers}
+          setCurrentQuestion={setCurrentQuestion}
+          setFeedback={setFeedback}
+          setMessage={setMessage}
+          startAssessment={startAssessment}
+          startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
+          startTargetedReview={startTargetedReview}
+          weaknessSnapshot={weaknessSnapshot}
+          setAppView={setAppView}
+          switchStudent={switchStudent}
+        />
+      )}
+
+      {!isFocusedAssessment && (
+        <DashboardSummary
+          currentSkillIndex={currentSkillIndex}
+          skillTree={skillTree}
+          currentStage={currentStage}
+          roundCorrect={roundCorrect}
+          roundLength={ROUND_LENGTH}
+          accuracy={accuracy}
+        />
+      )}
+
+      {appView === "letters" && (
+        <LetterAssessmentPage
+          studentName={studentName}
+          letterIndex={letterIndex}
+          letterItems={letterItems}
+          endAssessment={endAssessment}
+          recordLetterResult={recordLetterResult}
+          letterAssessment={letterAssessment}
+          exportLetterAssessment={exportLetterAssessment}
+          resetLetterAssessment={resetLetterAssessment}
+        />
+      )}
+
+      {appView === "advancedPhonics" && (
+        <AdvancedPhonicsPatternAssessmentPage
+          studentName={studentName}
+          patternIndex={patternIndex}
+          patternItems={patternItems}
+          endAssessment={endAssessment}
+          recordPatternResult={recordPatternResult}
+          patternAssessment={patternAssessment}
+          exportPatternAssessment={exportPatternAssessment}
+          resetPatternAssessment={resetPatternAssessment}
+        />
+      )}
+
+      {appView === "assessment" && (
+        <AssessmentPage
+          currentQuestion={currentQuestion}
+          feedback={feedback}
+          studentName={studentName}
+          currentSkillIndex={currentSkillIndex}
+          currentStage={currentStage}
+          setFeedback={setFeedback}
+          pickQuestion={pickQuestion}
+          roundAnswers={roundAnswers}
+          roundLength={ROUND_LENGTH}
+          roundProgress={roundProgress}
+          shouldShowImage={shouldShowImage}
+          flagCurrentQuestion={flagCurrentQuestion}
+          answerQuestion={answerQuestion}
+          speakText={speakText}
+          message={message}
+          endAssessment={endAssessment}
+          assessmentMode={assessmentMode}
+        />
+      )}
+
+      {appView === "finished" && (
+        <FinishedReportPage
+          startAssessment={startAssessment}
+          goToOverview={goToOverview}
+          studentName={studentName}
+          totalAnswered={totalAnswered}
+          accuracy={accuracy}
+          currentStage={currentStage}
+          currentSkillIndex={currentSkillIndex}
+          setCurrentSkillIndex={setCurrentSkillIndex}
+          setRoundAnswers={setRoundAnswers}
+          setCurrentQuestion={setCurrentQuestion}
+          setFeedback={setFeedback}
+          setMessage={setMessage}
+          skillTree={skillTree}
+          currentStageQuestions={currentStageQuestions}
+          mastery={mastery}
+          allowPassageAudio={allowPassageAudio}
+          setAllowPassageAudio={setAllowPassageAudio}
+          exportData={exportData}
+          exportCSVData={exportCSVData}
+        />
+      )}
+
+      {!isFocusedAssessment && appView !== "overview" && (
+        <div className="footer-utility-actions">
+          <button className="report-button" onClick={switchStudent}>
+            Switch Student
+          </button>
+
+          <button className="reset-button" onClick={resetStudent}>
+            Reset Student
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
