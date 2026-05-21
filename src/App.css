@@ -1261,10 +1261,16 @@ div {
     linear-gradient(180deg, #183646 0%, #224756 42%, #5a3a2a 100%);
 }
 
+.child-screen,
 .child-mode-page,
 .child-activity-shell,
+.child-map-screen,
+.child-subworld-screen,
+.child-mission-screen,
+.child-complete-screen,
 .child-world-zone,
 .child-interaction-zone {
+  height: 100%;
   min-height: 0;
   max-height: 100%;
   overflow: hidden;
@@ -1287,8 +1293,10 @@ div {
 
 .learning-world-fallback,
 .child-mode-inline-fallback {
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
   display: grid;
   place-items: center;
   padding: 88px 20px 28px;
@@ -1323,6 +1331,8 @@ div {
 .child-activity-screen,
 .child-complete-screen {
   position: relative;
+  height: 100vh;
+  height: 100dvh;
   max-height: 100vh;
   max-height: 100dvh;
   overflow: hidden;
@@ -1345,38 +1355,55 @@ div {
 
 .child-exit-button {
   position: absolute;
-  z-index: 5;
-  top: 18px;
-  left: 18px;
+  z-index: 20;
+  top: clamp(10px, 2dvh, 18px);
+  left: clamp(10px, 2.5vw, 18px);
   min-height: 44px;
-  padding: 10px 18px;
+  padding: 10px clamp(14px, 3vw, 18px);
 }
 
 .echo-cave-hero {
   position: relative;
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: 72px 28px 30px;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(8px, 1.8dvh, 18px);
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  padding: clamp(66px, 10dvh, 88px) clamp(12px, 3vw, 28px) clamp(12px, 2.2dvh, 24px);
+  overflow: hidden;
   isolation: isolate;
+}
+
+.echo-cave-hero > *:not(.cave-glow):not(.cave-ceiling):not(.cave-lake):not(.short-a-path) {
+  position: relative;
+  z-index: 2;
 }
 
 .cave-ceiling {
   position: absolute;
   inset: 0 0 auto;
-  height: 180px;
+  height: clamp(92px, 18dvh, 150px);
   background: linear-gradient(180deg, rgba(19, 30, 39, 0.92), rgba(19, 30, 39, 0));
   clip-path: polygon(0 0, 100% 0, 100% 48%, 86% 32%, 72% 58%, 58% 28%, 47% 62%, 34% 35%, 22% 66%, 10% 38%, 0 58%);
   z-index: -1;
+  pointer-events: none;
+}
+
+.ambient-crystals,
+.ambient-crystals span,
+.replay-ring {
+  pointer-events: none;
 }
 
 .cave-glow {
   position: absolute;
   border-radius: 999px;
   filter: blur(2px);
-  opacity: 0.85;
+  opacity: 0.46;
   z-index: -1;
+  pointer-events: none;
 }
 
 .cave-glow-one {
@@ -1400,13 +1427,20 @@ div {
   left: 10%;
   right: 10%;
   bottom: 4%;
-  height: 120px;
+  height: clamp(58px, 13dvh, 110px);
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(58, 202, 208, 0.35), rgba(21, 60, 70, 0.18) 62%, transparent 70%);
   z-index: -1;
+  pointer-events: none;
 }
 
 .child-world-heading {
+  justify-self: center;
+  max-width: min(720px, 100%);
+  padding: clamp(8px, 1.4dvh, 14px) clamp(16px, 4vw, 28px);
+  border-radius: 24px;
+  background: rgba(20, 39, 48, 0.42);
+  border: 1px solid rgba(255, 230, 166, 0.18);
   text-align: center;
   text-shadow: 0 3px 18px rgba(34, 20, 11, 0.36);
 }
@@ -1427,7 +1461,7 @@ div {
 .complete-message h1 {
   margin: 6px 0 0;
   color: #fff8df !important;
-  font-size: clamp(36px, 7vw, 86px);
+  font-size: clamp(30px, 8dvh, 76px);
   line-height: 1;
   letter-spacing: 0;
 }
@@ -1437,8 +1471,9 @@ div {
   justify-self: center;
   display: grid;
   justify-items: center;
-  gap: 14px;
-  margin-top: 12px;
+  gap: clamp(6px, 1.4dvh, 12px);
+  min-height: 0;
+  margin-top: 0;
 }
 
 .rumble {
@@ -1502,30 +1537,35 @@ div {
 }
 
 .rumble-speech {
-  padding: 10px 16px;
+  padding: clamp(7px, 1.3dvh, 10px) clamp(12px, 3vw, 16px);
   border-radius: 999px;
-  background: rgba(255, 244, 210, 0.18);
-  border: 1px solid rgba(255, 230, 166, 0.38);
+  background: rgba(33, 57, 64, 0.72);
+  border: 1px solid rgba(255, 230, 166, 0.46);
   color: #fff8df;
   font-weight: 800;
+  font-size: clamp(13px, 2.2dvh, 18px);
+  text-align: center;
 }
 
 .short-a-path {
   position: absolute;
   left: 14%;
   right: 14%;
-  bottom: 230px;
-  height: 48px;
+  bottom: clamp(96px, 23dvh, 170px);
+  height: clamp(24px, 5dvh, 42px);
   border-radius: 999px;
   background: linear-gradient(90deg, rgba(255, 196, 99, 0.08), rgba(255, 196, 99, 0.62), rgba(91, 221, 216, 0.28));
   box-shadow: 0 0 28px rgba(255, 194, 98, 0.32);
+  opacity: 0.62;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .short-a-path span {
   position: absolute;
   top: 50%;
-  width: 34px;
-  height: 56px;
+  width: clamp(22px, 4dvh, 34px);
+  height: clamp(34px, 7dvh, 56px);
   border-radius: 50% 50% 46% 46%;
   background: linear-gradient(180deg, #fff2bd, #ffb75e 68%, #be6e35);
   box-shadow: 0 0 22px rgba(255, 206, 113, 0.68);
@@ -1540,17 +1580,19 @@ div {
 .mission-card-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
-  gap: 16px;
+  gap: clamp(8px, 1.6dvh, 16px);
   align-self: end;
   width: min(1040px, 100%);
   justify-self: center;
+  min-height: 0;
+  z-index: 3;
 }
 
 .child-mission-card,
 .child-word-card {
-  min-height: 132px;
+  min-height: clamp(78px, 16dvh, 132px);
   border: 2px solid rgba(255, 227, 161, 0.5);
-  border-radius: 26px;
+  border-radius: clamp(18px, 3dvh, 26px);
   background: linear-gradient(180deg, rgba(255, 248, 223, 0.96), rgba(255, 218, 147, 0.94)) !important;
   color: #422616 !important;
   box-shadow: 0 16px 34px rgba(30, 18, 14, 0.26);
@@ -1562,8 +1604,8 @@ div {
   display: grid;
   align-content: center;
   justify-items: center;
-  gap: 8px;
-  padding: 18px;
+  gap: clamp(4px, 1dvh, 8px);
+  padding: clamp(10px, 2dvh, 18px);
 }
 
 .child-mission-card:hover,
@@ -1585,8 +1627,8 @@ div {
 .mission-glow-dot,
 .word-card-crystal,
 .child-crystal-shard {
-  width: 28px;
-  height: 34px;
+  width: clamp(18px, 3.4dvh, 28px);
+  height: clamp(22px, 4dvh, 34px);
   border-radius: 50% 50% 44% 44%;
   background: linear-gradient(180deg, #ddfffb, #5fd1cc 58%, #238c90);
   box-shadow: 0 0 18px rgba(101, 238, 226, 0.78);
@@ -1862,17 +1904,19 @@ div {
 .child-complete-screen {
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: clamp(72px, 11dvh, 92px) clamp(14px, 3vw, 24px) clamp(14px, 3dvh, 24px);
 }
 
 .complete-cave-scene {
   position: relative;
   width: min(780px, 100%);
-  min-height: 620px;
+  height: min(620px, 100%);
+  max-height: 100%;
+  min-height: 0;
   display: grid;
   place-items: center;
   align-content: center;
-  gap: 26px;
+  gap: clamp(12px, 2.4dvh, 26px);
   border: 1px solid rgba(255, 230, 166, 0.32);
   border-radius: 46px;
   background: rgba(255, 248, 223, 0.1);
@@ -1882,22 +1926,29 @@ div {
 
 .complete-light {
   position: absolute;
-  width: 520px;
-  height: 520px;
+  width: min(520px, 80vmin);
+  height: min(520px, 80vmin);
   border-radius: 999px;
   background: radial-gradient(circle, rgba(255, 211, 120, 0.45), transparent 68%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .complete-message {
   position: relative;
+  z-index: 1;
+  padding: clamp(12px, 2.5dvh, 22px);
+  border-radius: 24px;
+  background: rgba(20, 39, 48, 0.42);
+  border: 1px solid rgba(255, 230, 166, 0.18);
   text-align: center;
 }
 
 .child-crystal-row {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-top: 20px;
+  gap: clamp(10px, 2dvh, 16px);
+  margin-top: clamp(12px, 2dvh, 20px);
 }
 
 .child-crystal-shard {
@@ -1910,9 +1961,11 @@ div {
 .child-crystal-shard:nth-child(3) { animation-delay: 320ms; }
 
 .child-continue-button {
-  min-height: 64px;
-  padding: 16px 28px;
-  font-size: 18px;
+  position: relative;
+  z-index: 2;
+  min-height: clamp(52px, 8dvh, 64px);
+  padding: clamp(12px, 2dvh, 16px) clamp(22px, 5vw, 28px);
+  font-size: clamp(16px, 2.6dvh, 18px);
 }
 
 @keyframes rumbleFloat {
@@ -1982,8 +2035,8 @@ div {
   }
 
   .mission-card-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(7px, 1.2dvh, 10px);
   }
 
   .child-choice-grid {
@@ -2050,11 +2103,100 @@ div {
     min-height: 64px;
   }
 
+  .child-world-heading {
+    padding: 8px 14px;
+  }
+
+  .child-world-heading h1 {
+    font-size: clamp(28px, 7dvh, 44px);
+  }
+
+  .child-world-heading p {
+    font-size: clamp(10px, 1.8dvh, 13px);
+  }
+
+  .rumble-stage .rumble {
+    width: clamp(78px, 19dvh, 112px);
+  }
+
+  .rumble-speech {
+    max-width: 92vw;
+  }
+
   .child-card-label {
     font-size: clamp(26px, 5.5dvh, 42px);
   }
 
   .child-word-card .word-card-crystal {
     display: none;
+  }
+}
+
+@media (max-height: 620px) {
+  .echo-cave-hero {
+    gap: clamp(5px, 1.2dvh, 10px);
+    padding-top: clamp(56px, 9dvh, 66px);
+    padding-bottom: clamp(8px, 1.8dvh, 14px);
+  }
+
+  .child-world-heading {
+    padding: 7px 16px;
+  }
+
+  .child-world-heading p {
+    display: none;
+  }
+
+  .child-world-heading h1 {
+    margin-top: 0;
+    font-size: clamp(24px, 7dvh, 42px);
+  }
+
+  .rumble-stage {
+    gap: 5px;
+  }
+
+  .rumble-stage .rumble {
+    width: clamp(66px, 17dvh, 104px);
+  }
+
+  .rumble-speech {
+    padding: 6px 12px;
+    font-size: clamp(12px, 2.5dvh, 15px);
+  }
+
+  .short-a-path {
+    opacity: 0.28;
+    bottom: clamp(78px, 21dvh, 120px);
+  }
+
+  .child-mission-card {
+    min-height: clamp(58px, 15dvh, 86px);
+    padding: 8px;
+  }
+
+  .child-mission-card strong {
+    font-size: clamp(14px, 3.4dvh, 18px);
+  }
+
+  .child-mission-card small,
+  .mission-glow-dot {
+    display: none;
+  }
+
+  .child-complete-screen {
+    padding-top: clamp(58px, 10dvh, 72px);
+  }
+
+  .complete-cave-scene {
+    gap: 10px;
+  }
+
+  .complete-cave-scene .rumble {
+    width: clamp(78px, 20dvh, 116px);
+  }
+
+  .complete-message h1 {
+    font-size: clamp(24px, 7dvh, 42px);
   }
 }

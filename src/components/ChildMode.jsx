@@ -125,7 +125,7 @@ function Rumble({ active }) {
 
 function EchoCavesMap({ startMission, returnToTeacher }) {
   return (
-    <main className="child-mode echo-caves-screen">
+    <main className="child-mode child-screen child-map-screen child-subworld-screen child-mission-screen echo-caves-screen">
       <button className="child-exit-button" onClick={returnToTeacher} type="button">
         Back to Teacher
       </button>
@@ -238,7 +238,7 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
     <main className="child-mode child-mode-page child-activity-screen child-activity-shell">
       <section className="child-world-zone">
         <button className="child-exit-button child-map-button" onClick={returnToMap} type="button">
-          Path
+          Back to Echo Caves
         </button>
 
         <div className="ambient-crystals">
@@ -323,7 +323,7 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
 
 function MissionCompleteScreen({ mission, returnToMap }) {
   return (
-    <main className="child-mode child-complete-screen">
+    <main className="child-mode child-screen child-complete-screen">
       <div className="complete-cave-scene">
         <div className="complete-light"></div>
         <Rumble active />
@@ -335,7 +335,7 @@ function MissionCompleteScreen({ mission, returnToMap }) {
         </div>
 
         <button className="child-continue-button" onClick={returnToMap} type="button">
-          Keep Exploring
+          Back to Echo Caves
         </button>
       </div>
     </main>
