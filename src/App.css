@@ -15,6 +15,13 @@ body {
   max-width: 1120px;
   margin: 0 auto;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.app > * {
+  min-width: 0;
 }
 
 .assessment-app {
@@ -123,7 +130,7 @@ body {
 
 .hero {
   padding: 28px 32px;
-  margin-bottom: 18px;
+  margin-bottom: 0;
   text-align: left;
 }
 
@@ -166,19 +173,61 @@ body {
   line-height: 1.2;
 }
 
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.page-stack > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section-grid,
+.card-grid,
+.action-grid {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.action-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.button-row > button {
+  flex: 0 1 auto;
+  min-width: 160px;
+}
+
 .card,
 .report-panel,
 .teacher-panel,
 .feedback-card {
+  min-width: 0;
   padding: 24px;
-  margin: 18px 0;
+  margin: 0;
 }
 
 .dashboard {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  margin: 18px 0;
+  margin: 0;
 }
 
 .dash-card {
@@ -242,10 +291,9 @@ body {
 }
 
 .overview-actions {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 14px;
-  margin-top: 18px;
+  margin-top: 0;
 }
 
 .overview-action-card {
@@ -279,9 +327,10 @@ body {
   line-height: 1.4;
 }
 
-.overview-button-group {
+.overview-button-group,
+.overview-button-group.button-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 10px;
 }
 
@@ -333,6 +382,7 @@ select:focus {
 }
 
 button {
+  max-width: 100%;
   min-height: 44px;
   border: none;
   border-radius: 14px;
@@ -340,6 +390,8 @@ button {
   font-family: inherit;
   font-size: 15px;
   font-weight: 700;
+  line-height: 1.2;
+  white-space: normal;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -488,6 +540,7 @@ button:disabled {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
 }
 
 .assessment-topbar {
@@ -495,11 +548,16 @@ button:disabled {
   grid-template-columns: minmax(160px, 0.8fr) minmax(220px, 1fr) auto;
   gap: 14px;
   align-items: center;
+  min-width: 0;
   padding: 10px 12px;
   background: #ffffff;
   border: 1px solid #e3e8ef;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(22, 34, 51, 0.05);
+}
+
+.assessment-topbar > * {
+  min-width: 0;
 }
 
 .assessment-meta {
@@ -726,6 +784,14 @@ button:disabled {
   font-size: 14px;
 }
 
+.report-panel .dashboard-table {
+  min-width: 760px;
+}
+
+.report-panel {
+  overflow-x: auto;
+}
+
 .dashboard-table th,
 .dashboard-table td {
   border-bottom: 1px solid #e4e7ec;
@@ -867,11 +933,9 @@ div {
     grid-template-columns: 1fr;
   }
 
-  .overview-actions {
-    grid-template-columns: 1fr;
-  }
-
-  .overview-button-group {
+  .overview-actions,
+  .overview-button-group,
+  .overview-button-group.button-row {
     grid-template-columns: 1fr;
   }
 
@@ -966,7 +1030,16 @@ div {
 }
 
 @media (max-width: 560px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
   .class-action-grid {
     grid-template-columns: 1fr;
+  }
+
+  .button-row > button {
+    width: 100%;
+    min-width: 0;
   }
 }

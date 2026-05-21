@@ -176,8 +176,8 @@ export function StudentSelectPage({
   setShowClassDashboard
 }) {
   return (
-    <>
-      <div className="name-entry">
+    <div className="page-stack">
+      <div className="name-entry page-stack">
         <h3>Select Class</h3>
 
         <select
@@ -277,7 +277,7 @@ export function StudentSelectPage({
       </div>
 
       {showClassDashboard && (
-        <div className="report-panel">
+        <div className="report-panel page-stack">
           <h2>Class Dashboard</h2>
 
           {classDashboard.length === 0 ? (
@@ -322,15 +322,17 @@ export function StudentSelectPage({
             </table>
           )}
 
-          <button
-            className="reset-button"
-            onClick={() => setShowClassDashboard(false)}
-          >
-            Close Dashboard
-          </button>
+          <div className="button-row">
+            <button
+              className="reset-button"
+              onClick={() => setShowClassDashboard(false)}
+            >
+              Close Dashboard
+            </button>
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -365,7 +367,7 @@ export function StudentOverviewPage({
     weaknessSnapshot.suggestedNextFocus;
 
   return (
-    <div className="card page-card">
+    <div className="card page-card page-stack">
       <h2>Student Overview</h2>
 
       <p><strong>Student:</strong> {studentName || "Unnamed student"}</p>
@@ -439,7 +441,7 @@ export function StudentOverviewPage({
         </div>
       </section>
 
-      <section className="overview-actions" aria-label="Student overview actions">
+      <section className="overview-actions section-grid" aria-label="Student overview actions">
         <div className="overview-action-card primary-action-card">
           <div>
             <h3>Primary</h3>
@@ -472,7 +474,7 @@ export function StudentOverviewPage({
             <p>Run focused supplemental assessments.</p>
           </div>
 
-          <div className="overview-button-group">
+          <div className="overview-button-group button-row">
             <button
               className="report-button overview-action-button"
               onClick={() => setAppView("letters")}
@@ -495,7 +497,7 @@ export function StudentOverviewPage({
             <p>Review results or choose another student.</p>
           </div>
 
-          <div className="overview-button-group">
+          <div className="overview-button-group button-row">
             <button
               className="report-button overview-action-button"
               onClick={() => setAppView("finished")}
@@ -632,7 +634,7 @@ export function AdvancedPhonicsPatternAssessmentPage({
           </div>
         </>
       ) : (
-        <section className="card letter-complete-card">
+        <section className="card letter-complete-card page-stack">
           <h2>Assessment Complete</h2>
 
           <p>
@@ -647,19 +649,21 @@ export function AdvancedPhonicsPatternAssessmentPage({
             {patternAssessment.filter(x => x.wordCorrect).length}/{patternItems.length}
           </p>
 
-          <button
-            className="report-button"
-            onClick={exportPatternAssessment}
-          >
-            Export Pattern Excel
-          </button>
+          <div className="button-row">
+            <button
+              className="report-button"
+              onClick={exportPatternAssessment}
+            >
+              Export Pattern Excel
+            </button>
 
-          <button
-            className="reset-button"
-            onClick={resetPatternAssessment}
-          >
-            Restart Pattern Assessment
-          </button>
+            <button
+              className="reset-button"
+              onClick={resetPatternAssessment}
+            >
+              Restart Pattern Assessment
+            </button>
+          </div>
         </section>
       )}
     </main>
@@ -746,7 +750,7 @@ export function LetterAssessmentPage({
           </div>
         </>
       ) : (
-        <section className="card letter-complete-card">
+        <section className="card letter-complete-card page-stack">
           <h2>Assessment Complete</h2>
 
           <p>
@@ -761,19 +765,21 @@ export function LetterAssessmentPage({
             {letterAssessment.filter(x => x.knowsSound).length}/52
           </p>
 
-          <button
-            className="report-button"
-            onClick={exportLetterAssessment}
-          >
-            Export Letter Excel
-          </button>
+          <div className="button-row">
+            <button
+              className="report-button"
+              onClick={exportLetterAssessment}
+            >
+              Export Letter Excel
+            </button>
 
-          <button
-            className="reset-button"
-            onClick={resetLetterAssessment}
-          >
-            Restart Letter Assessment
-          </button>
+            <button
+              className="reset-button"
+              onClick={resetLetterAssessment}
+            >
+              Restart Letter Assessment
+            </button>
+          </div>
         </section>
       )}
     </main>
@@ -830,9 +836,11 @@ export function AssessmentPage({
       </div>
 
       {!currentQuestion && !feedback && (
-        <button className="main-button" onClick={pickQuestion}>
-          {roundAnswers.length === 0 ? "Start Skill Round" : "Next Question"}
-        </button>
+        <div className="button-row assessment-start-row">
+          <button className="main-button" onClick={pickQuestion}>
+            {roundAnswers.length === 0 ? "Start Skill Round" : "Next Question"}
+          </button>
+        </div>
       )}
 
       <AnimatePresence mode="wait">
@@ -971,10 +979,10 @@ export function FinishedReportPage({
   exportCSVData
 }) {
   return (
-    <div className="report-panel">
+    <div className="report-panel page-stack">
       <h2>Finished Report</h2>
 
-      <div className="action-row">
+      <div className="button-row">
         <button className="main-button" onClick={startAssessment}>
           Enter Full Screen Assessment
         </button>
@@ -1034,15 +1042,15 @@ export function FinishedReportPage({
         Allow passage audio
       </label>
 
-      <br />
+      <div className="button-row export-actions">
+        <button className="report-button" onClick={exportData}>
+          Export Text Report
+        </button>
 
-      <button className="report-button" onClick={exportData}>
-        Export Text Report
-      </button>
-
-      <button className="report-button" onClick={exportCSVData}>
-        Export Excel CSV
-      </button>
+        <button className="report-button" onClick={exportCSVData}>
+          Export Excel CSV
+        </button>
+      </div>
     </div>
   );
 }
