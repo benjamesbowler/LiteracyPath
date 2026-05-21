@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Component, lazy, Suspense, useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import "./App.css";
@@ -35,7 +35,6 @@ import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { audioManifest, audioTextIndex } from "./data/audioManifest";
-import { ChildModePage } from "./components/ChildMode";
 import {
   applyQuestionFormatMetadata,
   getQuestionFormatMetadata,
@@ -43,6 +42,70 @@ import {
 } from "./questionFormatFramework";
 
 // dynamic mastery system
+
+const ChildModePage = lazy(() =>
+  import("./components/ChildMode").then(module => ({
+    default: module.ChildModePage
+  }))
+);
+
+function LearningWorldFallback({ returnToTeacher }) {
+  return (
+    <main className="learning-world-fallback" role="alert">
+      <section className="learning-world-fallback-card">
+        <h1>Learning World could not load</h1>
+        <button
+          className="child-continue-button"
+          onClick={returnToTeacher}
+          type="button"
+        >
+          Back to Teacher
+        </button>
+      </section>
+    </main>
+  );
+}
+
+class LearningWorldErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.warn("Learning World failed to render.", error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <LearningWorldFallback returnToTeacher={this.props.returnToTeacher} />;
+    }
+
+    return this.props.children;
+  }
+}
+
+function LearningWorldShell({ children, returnToTeacher }) {
+  return (
+    <section className="learning-world-shell" aria-label="Learning World">
+      <button
+        className="learning-world-exit-button"
+        onClick={returnToTeacher}
+        type="button"
+      >
+        Exit Learning World
+      </button>
+
+      <LearningWorldErrorBoundary returnToTeacher={returnToTeacher}>
+        {children}
+      </LearningWorldErrorBoundary>
+    </section>
+  );
+}
 
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
@@ -3227,6 +3290,14 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           endAssessment={endAssessment}
           assessmentMode={assessmentMode}
         />
+      )}
+
+      {appView === "childMode" && (
+        <LearningWorldShell returnToTeacher={goToOverview}>
+          <Suspense fallback={<LearningWorldFallback returnToTeacher={goToOverview} />}>
+            <ChildModePage returnToTeacher={goToOverview} />
+          </Suspense>
+        </LearningWorldShell>
       )}
 
       <QuestionFlagDialog

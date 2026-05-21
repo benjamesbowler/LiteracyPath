@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img">
+  <!-- TODO: Replace with generated kindergarten-friendly raster art in the same path. -->
+  <rect width="240" height="240" rx="44" fill="#dff8ff"/>
+  <path d="M48 121c27-39 92-55 139 0-47 55-112 39-139 0Z" fill="#ffad6f"/>
+  <path d="M184 121l36-32v64Z" fill="#f47d68"/>
+  <circle cx="92" cy="112" r="8" fill="#263238"/>
+  <path d="M122 88c11 22 11 44 0 66" fill="none" stroke="#f47d68" stroke-width="8" stroke-linecap="round"/>
+  <path d="M54 181c18-9 35-9 52 0" stroke="#72c7d7" stroke-width="8" stroke-linecap="round"/>
+</svg>

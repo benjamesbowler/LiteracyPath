@@ -1,0 +1,21 @@
+{
+  "style": "Warm, colorful, soft-edged, kindergarten-friendly, simple silhouettes, low visual clutter.",
+  "status": "SVG placeholders ready for generated raster replacement.",
+  "assets": {
+    "dog": "/images/objects/dog.svg",
+    "cat": "/images/cvc/cat.svg",
+    "fish": "/images/objects/fish.svg",
+    "book": "/images/objects/book.svg",
+    "bed": "/images/vowels/bed.svg",
+    "bat": "/images/cvc/bat.svg",
+    "hat": "/images/cvc/hat.svg",
+    "map": "/images/cvc/map.svg",
+    "cap": "/images/cvc/cap.svg",
+    "pan": "/images/cvc/pan.svg",
+    "man": "/images/cvc/man.svg",
+    "nap": "/images/cvc/nap.svg",
+    "boat": "/images/vowels/boat.svg",
+    "coat": "/images/vowels/coat.svg",
+    "goat": "/images/vowels/goat.svg"
+  }
+}

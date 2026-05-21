@@ -1,51 +1,103 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { audioManifest, audioTextIndex } from "../data/audioManifest";
+import { shortAEchoCavesQuestions } from "../data/childActivityModels";
 
 const echoMissions = [
   {
     id: "crystal-hum",
     name: "The Crystal Hum",
-    format: "Sound Finder",
-    prompt: "Which word starts like cat?",
-    spoken: "Which word starts like cat?",
-    choices: ["cat", "dog", "sun", "pig"],
-    answer: "cat",
+    format: "Picture Bridge",
+    questionIndexes: [0, 1],
     reward: "Crystal Fragment",
     shards: 1
   },
   {
     id: "lost-crystals",
     name: "Rumble's Lost Crystals",
-    format: "Echo Drop",
-    prompt: "Find the word Rumble says.",
-    spoken: "Find the word cat.",
-    choices: ["cat", "cot", "cut", "cit"],
-    answer: "cat",
+    format: "Picture Bridge",
+    questionIndexes: [2, 3],
     reward: "Cave Moss Gem",
     shards: 2
   },
   {
     id: "four-tunnel-crystals",
     name: "The Four Tunnel Crystals",
-    format: "Tap-the-Sound",
-    prompt: "Three crystals sound alike. Find the different one.",
-    spoken: "Listen for the one that sounds different.",
-    choices: ["cat", "map", "hat", "mud"],
-    answer: "mud",
+    format: "Picture Bridge",
+    questionIndexes: [4, 5],
     reward: "Ancient Cave Pearl",
     shards: 2
   },
   {
     id: "deep-crystal-mastery",
     name: "Deep Crystal Mastery",
-    format: "Echo Drop",
-    prompt: "Find the word Rumble says.",
-    spoken: "Find the word cap.",
-    choices: ["cap", "cup", "cop", "map"],
-    answer: "cap",
+    format: "Picture Bridge",
+    questionIndexes: [6, 7],
     reward: "Heart Crystal",
     shards: 3
   }
 ];
+
+function normalizeAudioText(text) {
+  return String(text || "")
+    .normalize("NFKC")
+    .replace(/[“”]/g, "\"")
+    .replace(/[‘’]/g, "'")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function speakWithBrowser(text) {
+  if (!text || !window.speechSynthesis || typeof SpeechSynthesisUtterance === "undefined") {
+    return;
+  }
+
+  try {
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.85;
+    utterance.pitch = 1;
+    utterance.lang = "en-US";
+
+    window.speechSynthesis.speak(utterance);
+  } catch (error) {
+    console.warn("Child Mode speech synthesis failed.", error);
+  }
+}
+
+async function speakChildText(text) {
+  if (!text) return;
+
+  const normalizedText = normalizeAudioText(text);
+  const audioKey = audioTextIndex[normalizedText];
+  const audioEntry = audioKey ? audioManifest[audioKey] : null;
+
+  if (audioEntry?.path) {
+    const audioPaths = audioEntry.kinds?.includes("choice")
+      ? [`/audio/choices/${audioKey}.mp3`, audioEntry.path]
+      : [audioEntry.path];
+
+    try {
+      for (const audioPath of audioPaths) {
+        const response = await fetch(audioPath, { method: "HEAD" });
+
+        if (response.ok) {
+          if (window.speechSynthesis) window.speechSynthesis.cancel();
+
+          const audio = new Audio(audioPath);
+          await audio.play();
+          return;
+        }
+      }
+    } catch (error) {
+      console.warn("Child Mode local audio unavailable, using browser speech.", error);
+    }
+  }
+
+  speakWithBrowser(text);
+}
 
 function CrystalShards({ count = 3 }) {
   return (
@@ -120,20 +172,62 @@ function EchoCavesMap({ startMission, returnToTeacher }) {
   );
 }
 
-function ChildActivityShell({ mission, onComplete, returnToMap }) {
+function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher }) {
   const [feedback, setFeedback] = useState(null);
   const [selectedChoice, setSelectedChoice] = useState("");
+  const [questionStep, setQuestionStep] = useState(0);
+  const questions = (mission?.questionIndexes || [])
+    .map(index => shortAEchoCavesQuestions[index])
+    .filter(Boolean);
+  const question = questions[questionStep];
+
+  useEffect(() => {
+    setFeedback(null);
+    setSelectedChoice("");
+    setQuestionStep(0);
+  }, [mission?.id]);
+
+  if (!mission || !question?.targetAsset || !question.choices?.length) {
+    return (
+      <main className="child-mode child-mode-inline-fallback">
+        <button className="child-exit-button" onClick={returnToTeacher} type="button">
+          Back to Teacher
+        </button>
+        <section className="learning-world-fallback-card">
+          <h1>Learning World could not load</h1>
+          <button className="child-continue-button" onClick={returnToTeacher} type="button">
+            Back to Teacher
+          </button>
+        </section>
+      </main>
+    );
+  }
+
+  function replayTargetAudio() {
+    speakChildText(question.audioText || question.spokenPrompt || question.prompt);
+  }
 
   function choose(choice) {
-    setSelectedChoice(choice);
+    const selectedWord = choice.word || choice;
+    setSelectedChoice(selectedWord);
 
-    if (choice === mission.answer) {
+    if (selectedWord === question.answer) {
       setFeedback("correct");
-      window.setTimeout(() => onComplete(), 850);
+      window.setTimeout(() => {
+        if (questionStep >= questions.length - 1) {
+          onComplete();
+          return;
+        }
+
+        setQuestionStep(step => step + 1);
+        setFeedback(null);
+        setSelectedChoice("");
+      }, 850);
       return;
     }
 
     setFeedback("incorrect");
+    speakChildText(question.audioText || question.targetWord);
     window.setTimeout(() => {
       setFeedback(null);
       setSelectedChoice("");
@@ -158,7 +252,12 @@ function ChildActivityShell({ mission, onComplete, returnToMap }) {
           <h1>{mission.name}</h1>
         </div>
 
-        <button className="rumble-replay-button" type="button" aria-label="Replay Rumble">
+        <button
+          className="rumble-replay-button"
+          onClick={replayTargetAudio}
+          type="button"
+          aria-label={`Hear ${question.targetWord} again`}
+        >
           <Rumble active={feedback === "correct"} />
           <span className="replay-ring"></span>
         </button>
@@ -172,29 +271,47 @@ function ChildActivityShell({ mission, onComplete, returnToMap }) {
 
       <section className="child-interaction-zone">
         <div className="child-prompt-row">
-          <button className="child-speaker-button" type="button" aria-label="Hear it again">
-            Listen
+          <button
+            className="child-speaker-button"
+            onClick={replayTargetAudio}
+            type="button"
+            aria-label={`Hear ${question.targetWord} again`}
+          >
+            <span aria-hidden="true">▶</span>
           </button>
           <div>
-            <p className="child-helper-text">Rumble says:</p>
-            <h2>{mission.prompt}</h2>
+            <p className="child-helper-text">Picture clue</p>
+            <h2>{question.prompt}</h2>
           </div>
         </div>
 
+        <figure className="child-target-picture">
+          <button
+            className="child-target-picture-button"
+            onClick={replayTargetAudio}
+            type="button"
+            aria-label={`Hear ${question.targetWord}`}
+          >
+            <img src={question.targetAsset.image} alt={question.targetAsset.alt} />
+            <span className="picture-audio-badge" aria-hidden="true">▶</span>
+          </button>
+        </figure>
+
         <div className="child-choice-grid">
-          {mission.choices.map(choice => {
-            const isSelected = choice === selectedChoice;
+          {question.choices.map(choice => {
+            const isSelected = choice.word === selectedChoice;
             const feedbackClass = isSelected && feedback ? `child-card-${feedback}` : "";
 
             return (
               <button
                 className={`child-word-card ${feedbackClass}`}
-                key={choice}
+                key={choice.id}
                 onClick={() => choose(choice)}
                 type="button"
+                aria-label={choice.label}
               >
                 <span className="word-card-crystal"></span>
-                {choice}
+                <span className="child-card-label">{choice.label}</span>
               </button>
             );
           })}
@@ -242,6 +359,7 @@ export function ChildModePage({ returnToTeacher }) {
         mission={activeMission}
         onComplete={() => setScreen("complete")}
         returnToMap={() => setScreen("map")}
+        returnToTeacher={returnToTeacher}
       />
     );
   }
@@ -252,6 +370,22 @@ export function ChildModePage({ returnToTeacher }) {
         mission={activeMission}
         returnToMap={() => setScreen("map")}
       />
+    );
+  }
+
+  if (!activeMission || echoMissions.length === 0) {
+    return (
+      <main className="child-mode child-mode-inline-fallback">
+        <button className="child-exit-button" onClick={returnToTeacher} type="button">
+          Back to Teacher
+        </button>
+        <section className="learning-world-fallback-card">
+          <h1>Learning World could not load</h1>
+          <button className="child-continue-button" onClick={returnToTeacher} type="button">
+            Back to Teacher
+          </button>
+        </section>
+      </main>
     );
   }
 
