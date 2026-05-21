@@ -6,12 +6,14 @@ import { supabase } from "./supabaseClient";
 import { getMasteryRule } from "./masterySystem";
 import { skillTree } from "./skillTree";
 import {
+  AdminDashboardPage,
   AdvancedPhonicsPatternAssessmentPage,
   AssessmentPage,
   AuthPage,
   DashboardSummary,
   FinishedReportPage,
   LetterAssessmentPage,
+  QuestionFlagDialog,
   StudentOverviewPage,
   StudentSelectPage,
   TopNavigation
@@ -190,8 +192,12 @@ function applyItemMetadata(question) {
     : question;
 }
 
+function isMissingTableError(error, tableName) {
+  return error?.code === "42P01" || new RegExp("relation .*" + tableName + ".* does not exist", "i").test(error?.message || "");
+}
+
 function isMissingItemMasteryTableError(error) {
-  return error?.code === "42P01" || /relation .*item_mastery.* does not exist/i.test(error?.message || "");
+  return isMissingTableError(error, "item_mastery");
 }
 
 function calculateWeaknessSnapshot(answerHistory) {
@@ -353,6 +359,17 @@ export default function App() {
   const [authPassword, setAuthPassword] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [adminFlagStatusFilter, setAdminFlagStatusFilter] = useState("open");
+  const [adminFlags, setAdminFlags] = useState([]);
+  const [adminTeachers, setAdminTeachers] = useState([]);
+  const [adminClasses, setAdminClasses] = useState([]);
+  const [adminStudents, setAdminStudents] = useState([]);
+  const [adminLoading, setAdminLoading] = useState(false);
+  const [flagDialogOpen, setFlagDialogOpen] = useState(false);
+  const [flagIssueType, setFlagIssueType] = useState("Confusing wording");
+  const [flagNote, setFlagNote] = useState("");
+  const [flagSubmitting, setFlagSubmitting] = useState(false);
   const [totalAnswered, setTotalAnswered] = useState(0);
   const [correctAnswered, setCorrectAnswered] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -423,6 +440,12 @@ export default function App() {
     setCurrentQuestion(null);
     setFeedback(null);
     setMessage("");
+    setFlagDialogOpen(false);
+    setAdminFlags([]);
+    setAdminTeachers([]);
+    setAdminClasses([]);
+    setAdminStudents([]);
+    setIsAdmin(false);
     setTotalAnswered(0);
     setCorrectAnswered(0);
     setShowReport(false);
@@ -456,6 +479,21 @@ export default function App() {
       authListener.subscription.unsubscribe();
     };
   }, []);
+
+  useEffect(() => {
+    if (!teacherId) {
+      setIsAdmin(false);
+      return;
+    }
+
+    checkAdminStatus(teacherId);
+  }, [teacherId]);
+
+  useEffect(() => {
+    if (isAdmin && appView === "admin") {
+      loadAdminDashboard(adminFlagStatusFilter);
+    }
+  }, [isAdmin, appView]);
 
   useEffect(() => {
     if (!authReady) return;
@@ -560,6 +598,292 @@ export default function App() {
     itemMastery,
     profileStorageKey
   ]);
+
+
+  async function checkAdminStatus(userId = teacherId) {
+    if (!userId) {
+      setIsAdmin(false);
+      return false;
+    }
+
+    const { data, error } = await supabase
+      .from("app_admins")
+      .select("id, user_id, email")
+      .eq("user_id", userId)
+      .maybeSingle();
+
+    if (error) {
+      if (!isMissingTableError(error, "app_admins")) {
+        console.warn("Admin status check failed.", error);
+      }
+      setIsAdmin(false);
+      return false;
+    }
+
+    const nextIsAdmin = Boolean(data?.user_id);
+    setIsAdmin(nextIsAdmin);
+    return nextIsAdmin;
+  }
+
+  function buildTeacherRows(classes = [], students = [], answers = [], flags = []) {
+    const teacherMap = new Map();
+
+    function ensureTeacher(id, email = "") {
+      if (!id) return null;
+      if (!teacherMap.has(id)) {
+        teacherMap.set(id, {
+          id,
+          email: email || "Email unavailable",
+          classes: 0,
+          students: 0,
+          answers: 0,
+          flags: 0
+        });
+      }
+
+      const row = teacherMap.get(id);
+      if (email && row.email === "Email unavailable") row.email = email;
+      return row;
+    }
+
+    classes.forEach(row => {
+      const teacher = ensureTeacher(row.teacher_id);
+      if (teacher) teacher.classes += 1;
+    });
+
+    students.forEach(row => {
+      const teacher = ensureTeacher(row.teacher_id);
+      if (teacher) teacher.students += 1;
+    });
+
+    answers.forEach(row => {
+      const teacher = ensureTeacher(row.teacher_id);
+      if (teacher) teacher.answers += 1;
+    });
+
+    flags.forEach(row => {
+      const teacher = ensureTeacher(row.teacher_id, row.teacher_email);
+      if (teacher) teacher.flags += 1;
+    });
+
+    return [...teacherMap.values()].sort((a, b) => a.email.localeCompare(b.email));
+  }
+
+  async function loadAdminDashboard(statusFilter = adminFlagStatusFilter) {
+    if (!isAdmin) return;
+
+    setAdminLoading(true);
+
+    const flagQuery = supabase
+      .from("question_flags")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (statusFilter !== "all") flagQuery.eq("status", statusFilter);
+
+    const [flagsResult, classesResult, studentsResult, answersResult] = await Promise.all([
+      flagQuery,
+      supabase.from("classes").select("id, name, teacher_id, created_at").order("created_at", { ascending: false }),
+      supabase.from("students").select("id, name, class_id, teacher_id, created_at").order("created_at", { ascending: false }),
+      supabase.from("answers").select("id, teacher_id, student_id")
+    ]);
+
+    setAdminLoading(false);
+
+    const firstError = flagsResult.error || classesResult.error || studentsResult.error || answersResult.error;
+    if (firstError) {
+      console.error("Admin dashboard load error:", firstError);
+      setMessage("Could not load admin dashboard. Check admin RLS policies and migration.");
+      return;
+    }
+
+    const classes = classesResult.data || [];
+    const students = studentsResult.data || [];
+    const flags = flagsResult.data || [];
+    const answers = answersResult.data || [];
+    const classById = new Map(classes.map(row => [row.id, row]));
+    const studentById = new Map(students.map(row => [row.id, row]));
+    const studentCounts = new Map();
+
+    students.forEach(student => {
+      studentCounts.set(student.class_id, (studentCounts.get(student.class_id) || 0) + 1);
+    });
+
+    const flagsWithNames = flags.map(flag => ({
+      ...flag,
+      class_name: classById.get(flag.class_id)?.name || "Class unavailable",
+      student_name: studentById.get(flag.student_id)?.name || "Student unavailable"
+    }));
+
+    const classRows = classes.map(row => ({
+      ...row,
+      studentCount: studentCounts.get(row.id) || 0
+    }));
+
+    const studentRows = students.map(row => ({
+      ...row,
+      className: classById.get(row.class_id)?.name || "Class unavailable"
+    }));
+
+    setAdminFlags(flagsWithNames);
+    setAdminClasses(classRows);
+    setAdminStudents(studentRows);
+    setAdminTeachers(buildTeacherRows(classes, students, answers, flags));
+  }
+
+  function openAdminDashboard() {
+    setAppView("admin");
+    loadAdminDashboard(adminFlagStatusFilter);
+  }
+
+  async function updateQuestionFlagStatus(flagId, status) {
+    if (!isAdmin || !flagId) return;
+
+    const patch = status === "resolved"
+      ? {
+          status: "resolved",
+          resolved_at: new Date().toISOString(),
+          resolved_by: teacherId
+        }
+      : {
+          status: "open",
+          resolved_at: null,
+          resolved_by: null
+        };
+
+    const { error } = await supabase
+      .from("question_flags")
+      .update(patch)
+      .eq("id", flagId);
+
+    if (error) {
+      console.error("Update question flag error:", error);
+      setMessage("Could not update question flag.");
+      return;
+    }
+
+    await loadAdminDashboard(adminFlagStatusFilter);
+    setMessage(status === "resolved" ? "Flag marked resolved." : "Flag reopened.");
+  }
+
+  async function deleteOptionalTableRows(tableName, columnName, values) {
+    if (!values || values.length === 0) return null;
+
+    const { error } = await supabase
+      .from(tableName)
+      .delete()
+      .in(columnName, values);
+
+    if (error && !isMissingTableError(error, tableName)) return error;
+    return null;
+  }
+
+  async function adminDeleteStudent(selectedStudentId, selectedStudentName = "this student") {
+    if (!isAdmin || !selectedStudentId) return;
+
+    const confirmed = window.confirm(
+      `Admin delete ${selectedStudentName}? This removes the student and associated assessment data.`
+    );
+
+    if (!confirmed) return;
+
+    const ids = [selectedStudentId];
+    const errors = [];
+
+    for (const [tableName, columnName] of [
+      ["answers", "student_id"],
+      ["mastery", "student_id"],
+      ["item_mastery", "student_id"],
+      ["assessment_sessions", "student_id"],
+      ["question_flags", "student_id"]
+    ]) {
+      const error = await deleteOptionalTableRows(tableName, columnName, ids);
+      if (error) errors.push(error);
+    }
+
+    const { error: studentError } = await supabase
+      .from("students")
+      .delete()
+      .eq("id", selectedStudentId);
+
+    if (studentError) errors.push(studentError);
+
+    if (errors.length > 0) {
+      console.error("Admin delete student error:", errors[0]);
+      setMessage("Could not delete student from admin dashboard.");
+      return;
+    }
+
+    await loadAdminDashboard(adminFlagStatusFilter);
+    setMessage(`Deleted ${selectedStudentName}.`);
+  }
+
+  async function adminDeleteClass(classId, className = "this class") {
+    if (!isAdmin || !classId) return;
+
+    const confirmed = window.confirm(
+      `Admin delete ${className}? This removes the class, its students, and associated assessment data.`
+    );
+
+    if (!confirmed) return;
+
+    const { data: students, error: lookupError } = await supabase
+      .from("students")
+      .select("id")
+      .eq("class_id", classId);
+
+    if (lookupError) {
+      console.error("Admin class student lookup error:", lookupError);
+      setMessage("Could not delete class from admin dashboard.");
+      return;
+    }
+
+    const studentIds = (students || []).map(row => row.id);
+    const errors = [];
+
+    if (studentIds.length > 0) {
+      for (const [tableName, columnName] of [
+        ["answers", "student_id"],
+        ["mastery", "student_id"],
+        ["item_mastery", "student_id"],
+        ["assessment_sessions", "student_id"],
+        ["question_flags", "student_id"]
+      ]) {
+        const error = await deleteOptionalTableRows(tableName, columnName, studentIds);
+        if (error) errors.push(error);
+      }
+    }
+
+    const { error: flagClassError } = await supabase
+      .from("question_flags")
+      .delete()
+      .eq("class_id", classId);
+
+    if (flagClassError && !isMissingTableError(flagClassError, "question_flags")) errors.push(flagClassError);
+
+    const { error: studentsError } = await supabase
+      .from("students")
+      .delete()
+      .eq("class_id", classId);
+
+    if (studentsError) errors.push(studentsError);
+
+    const { error: classError } = await supabase
+      .from("classes")
+      .delete()
+      .eq("id", classId);
+
+    if (classError) errors.push(classError);
+
+    if (errors.length > 0) {
+      console.error("Admin delete class error:", errors[0]);
+      setMessage("Could not delete class from admin dashboard.");
+      return;
+    }
+
+    await loadAdminDashboard(adminFlagStatusFilter);
+    setMessage(`Deleted ${className}.`);
+  }
 
   async function signUpTeacher() {
     const email = authEmail.trim();
@@ -1659,14 +1983,83 @@ export default function App() {
     );
   }
 
+
   function flagCurrentQuestion() {
     if (!currentQuestion) return;
 
-    const existing = JSON.parse(localStorage.getItem("flaggedQuestions") || "{}");
-    existing[currentQuestion.id] = (existing[currentQuestion.id] || 0) + 1;
+    setFlagIssueType("Confusing wording");
+    setFlagNote("");
+    setFlagDialogOpen(true);
+  }
 
-    localStorage.setItem("flaggedQuestions", JSON.stringify(existing));
-    setMessage(`Flagged question: ${currentQuestion.id}`);
+  async function submitQuestionFlag() {
+    if (!teacherId || !currentQuestion) {
+      setMessage("Please log in and select a question first.");
+      return;
+    }
+
+    const questionId = currentQuestion.id || getQuestionPrompt(currentQuestion);
+    const choices = currentQuestion.choices || currentQuestion.tiles || [];
+
+    setFlagSubmitting(true);
+
+    const { data: existingFlag, error: existingError } = await supabase
+      .from("question_flags")
+      .select("id")
+      .eq("teacher_id", teacherId)
+      .eq("question_id", questionId)
+      .eq("status", "open")
+      .maybeSingle();
+
+    if (existingError && !isMissingTableError(existingError, "question_flags")) {
+      console.error("Question flag duplicate check error:", existingError);
+      setFlagSubmitting(false);
+      setMessage("Could not check existing question flags.");
+      return;
+    }
+
+    if (existingFlag) {
+      setFlagSubmitting(false);
+      setFlagDialogOpen(false);
+      setMessage("This question is already flagged.");
+      return;
+    }
+
+    const { error } = await supabase
+      .from("question_flags")
+      .insert({
+        teacher_id: teacherId,
+        teacher_email: teacherUser?.email || null,
+        student_id: studentId,
+        class_id: selectedClassId,
+        question_id: questionId,
+        question_text: getQuestionPrompt(currentQuestion),
+        choices,
+        correct_answer: getQuestionAnswer(currentQuestion),
+        skill: currentQuestion.skill || currentStage?.label || "Unknown skill",
+        diagnostic_target: currentQuestion.diagnosticTarget || getDiagnosticTarget(currentQuestion),
+        mode: assessmentMode,
+        issue_type: flagIssueType,
+        note: flagNote.trim(),
+        status: "open"
+      });
+
+    setFlagSubmitting(false);
+
+    if (error) {
+      if (error.code === "23505") {
+        setFlagDialogOpen(false);
+        setMessage("This question is already flagged.");
+        return;
+      }
+
+      console.error("Question flag submit error:", error);
+      setMessage("Could not flag question. Make sure the question flag migration has been run.");
+      return;
+    }
+
+    setFlagDialogOpen(false);
+    setMessage("Question flagged for review.");
   }
 
   function getDiagnosticTarget(question) {
@@ -2583,6 +2976,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     setAppView("finished");
   }
 
+  function changeAdminFlagStatusFilter(nextStatus) {
+    setAdminFlagStatusFilter(nextStatus);
+    loadAdminDashboard(nextStatus);
+  }
+
 
   if (!authReady) {
     return (
@@ -2643,6 +3041,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           viewReport={viewReport}
           teacherEmail={teacherUser.email}
           logOutTeacher={logOutTeacher}
+          isAdmin={isAdmin}
+          openAdminDashboard={openAdminDashboard}
         />
       )}
 
@@ -2685,6 +3085,24 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </motion.div>
       )}
 
+      {appView === "admin" && isAdmin && (
+        <AdminDashboardPage
+          flags={adminFlags}
+          teachers={adminTeachers}
+          classes={adminClasses}
+          students={adminStudents}
+          statusFilter={adminFlagStatusFilter}
+          setStatusFilter={changeAdminFlagStatusFilter}
+          loading={adminLoading}
+          refreshDashboard={() => loadAdminDashboard(adminFlagStatusFilter)}
+          resolveFlag={flagId => updateQuestionFlagStatus(flagId, "resolved")}
+          reopenFlag={flagId => updateQuestionFlagStatus(flagId, "open")}
+          deleteClass={adminDeleteClass}
+          deleteStudent={adminDeleteStudent}
+          message={message}
+        />
+      )}
+
       {appView === "overview" && nameSaved && (
         <StudentOverviewPage
           studentName={studentName}
@@ -2710,7 +3128,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && (
+      {!isFocusedAssessment && appView !== "admin" && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -2769,6 +3187,19 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
+      <QuestionFlagDialog
+        open={flagDialogOpen}
+        question={currentQuestion}
+        issueType={flagIssueType}
+        setIssueType={setFlagIssueType}
+        note={flagNote}
+        setNote={setFlagNote}
+        submitting={flagSubmitting}
+        onSubmit={submitQuestionFlag}
+        onCancel={() => setFlagDialogOpen(false)}
+        getDiagnosticTarget={getDiagnosticTarget}
+      />
+
       {appView === "finished" && (
         <FinishedReportPage
           startAssessment={startAssessment}
@@ -2793,7 +3224,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && appView !== "overview" && (
+      {!isFocusedAssessment && appView !== "overview" && appView !== "admin" && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
             Switch Student

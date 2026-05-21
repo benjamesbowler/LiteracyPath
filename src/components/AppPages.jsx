@@ -152,7 +152,9 @@ export function TopNavigation({
   switchStudent,
   viewReport,
   teacherEmail,
-  logOutTeacher
+  logOutTeacher,
+  isAdmin,
+  openAdminDashboard
 }) {
   const steps = [
     { id: "select", label: "Class/Student Select" },
@@ -211,11 +213,310 @@ export function TopNavigation({
           View Report
         </button>
 
+        {isAdmin && (
+          <button className="nav-button" onClick={openAdminDashboard}>
+            Admin Dashboard
+          </button>
+        )}
+
         <button className="nav-button" onClick={logOutTeacher}>
           Log Out
         </button>
       </div>
     </nav>
+  );
+}
+
+
+export function QuestionFlagDialog({
+  open,
+  question,
+  issueType,
+  setIssueType,
+  note,
+  setNote,
+  submitting,
+  onSubmit,
+  onCancel,
+  getDiagnosticTarget
+}) {
+  if (!open || !question) return null;
+
+  const choices = question.choices || question.tiles || [];
+  const questionText = question.prompt || question.question || question.brokenSentence || "Untitled question";
+  const correctAnswer = question.questionType === "fix_sentence"
+    ? question.correctSentence
+    : question.answer;
+  const diagnosticTarget = question.diagnosticTarget || getDiagnosticTarget(question);
+  const issueOptions = [
+    "Incorrect answer",
+    "Confusing wording",
+    "Too hard",
+    "Too easy",
+    "Bad audio",
+    "Bad image",
+    "Wrong skill",
+    "Other"
+  ];
+
+  return (
+    <div className="modal-backdrop" role="presentation">
+      <div className="flag-dialog" role="dialog" aria-modal="true" aria-label="Flag question for review">
+        <div className="page-stack">
+          <div>
+            <h2>Flag Question</h2>
+            <p className="muted-text">This sends the item to the app owner for review.</p>
+          </div>
+
+          <div className="flag-question-summary">
+            <p><strong>Question:</strong> {questionText}</p>
+            <p><strong>Skill:</strong> {question.skill || "Unknown skill"}</p>
+            <p><strong>Diagnostic target:</strong> {diagnosticTarget || "General"}</p>
+            <p><strong>Correct answer:</strong> {correctAnswer || "Not set"}</p>
+
+            {choices.length > 0 && (
+              <div>
+                <strong>Answer choices:</strong>
+                <ul>
+                  {choices.map((choice, index) => (
+                    <li key={String(choice) + "-" + index}>{choice}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <label className="auth-field">
+            <strong>Issue type</strong>
+            <select value={issueType} onChange={event => setIssueType(event.target.value)}>
+              {issueOptions.map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+          </label>
+
+          <label className="auth-field">
+            <strong>What is wrong with this question?</strong>
+            <textarea
+              className="flag-note-input"
+              value={note}
+              onChange={event => setNote(event.target.value)}
+              placeholder="Optional teacher note"
+              rows={4}
+            />
+          </label>
+
+          <div className="button-row flag-dialog-actions">
+            <button className="reset-button" onClick={onCancel} disabled={submitting} type="button">
+              Cancel
+            </button>
+            <button className="main-button" onClick={onSubmit} disabled={submitting} type="button">
+              {submitting ? "Submitting..." : "Submit Flag"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function AdminDashboardPage({
+  flags,
+  teachers,
+  classes,
+  students,
+  statusFilter,
+  setStatusFilter,
+  loading,
+  refreshDashboard,
+  resolveFlag,
+  reopenFlag,
+  deleteClass,
+  deleteStudent,
+  message
+}) {
+  return (
+    <main className="admin-dashboard page-stack">
+      <section className="card page-stack">
+        <div className="admin-header">
+          <div>
+            <h2>Admin Dashboard</h2>
+            <p className="muted-text">Review flagged questions and manage app data.</p>
+          </div>
+
+          <div className="button-row admin-controls">
+            <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
+              <option value="open">Open flags</option>
+              <option value="resolved">Resolved flags</option>
+              <option value="all">All flags</option>
+            </select>
+            <button className="report-button" onClick={refreshDashboard} disabled={loading} type="button">
+              {loading ? "Loading..." : "Refresh"}
+            </button>
+          </div>
+        </div>
+
+        {message && <p className="message">{message}</p>}
+      </section>
+
+      <section className="report-panel page-stack admin-section">
+        <h3>Flagged Questions</h3>
+
+        {flags.length === 0 ? (
+          <p>No flagged questions for this filter.</p>
+        ) : (
+          <div className="admin-table-wrap">
+            <table className="dashboard-table admin-table">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Teacher</th>
+                  <th>Class</th>
+                  <th>Student</th>
+                  <th>Skill</th>
+                  <th>Question</th>
+                  <th>Choices</th>
+                  <th>Correct</th>
+                  <th>Issue</th>
+                  <th>Note</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {flags.map(flag => (
+                  <tr key={flag.id}>
+                    <td>{flag.status}</td>
+                    <td>{flag.created_at ? new Date(flag.created_at).toLocaleString() : ""}</td>
+                    <td>{flag.teacher_email || flag.teacher_id}</td>
+                    <td>{flag.class_name}</td>
+                    <td>{flag.student_name}</td>
+                    <td>
+                      <strong>{flag.skill}</strong>
+                      <div className="muted-text">{flag.diagnostic_target}</div>
+                    </td>
+                    <td className="admin-question-cell">{flag.question_text}</td>
+                    <td>{Array.isArray(flag.choices) ? flag.choices.join(", ") : ""}</td>
+                    <td>{flag.correct_answer}</td>
+                    <td>{flag.issue_type}</td>
+                    <td>{flag.note}</td>
+                    <td>
+                      {flag.status === "resolved" ? (
+                        <button className="report-button" onClick={() => reopenFlag(flag.id)} type="button">
+                          Reopen
+                        </button>
+                      ) : (
+                        <button className="report-button" onClick={() => resolveFlag(flag.id)} type="button">
+                          Resolve
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+
+      <section className="card page-stack admin-section">
+        <h3>Teachers</h3>
+        {teachers.length === 0 ? (
+          <p>No teacher data loaded.</p>
+        ) : (
+          <div className="admin-table-wrap">
+            <table className="dashboard-table admin-table">
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>User ID</th>
+                  <th>Classes</th>
+                  <th>Students</th>
+                  <th>Answers</th>
+                  <th>Flags</th>
+                </tr>
+              </thead>
+              <tbody>
+                {teachers.map(teacher => (
+                  <tr key={teacher.id}>
+                    <td>{teacher.email}</td>
+                    <td>{teacher.id}</td>
+                    <td>{teacher.classes}</td>
+                    <td>{teacher.students}</td>
+                    <td>{teacher.answers}</td>
+                    <td>{teacher.flags}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+
+      <section className="report-panel page-stack admin-section">
+        <h3>Classes</h3>
+        <div className="admin-table-wrap">
+          <table className="dashboard-table admin-table">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Teacher</th>
+                <th>Students</th>
+                <th>Created</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {classes.map(row => (
+                <tr key={row.id}>
+                  <td>{row.name}</td>
+                  <td>{row.teacher_id}</td>
+                  <td>{row.studentCount}</td>
+                  <td>{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
+                  <td>
+                    <button className="reset-button" onClick={() => deleteClass(row.id, row.name)} type="button">
+                      Delete Class
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="report-panel page-stack admin-section">
+        <h3>Students</h3>
+        <div className="admin-table-wrap">
+          <table className="dashboard-table admin-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Class</th>
+                <th>Teacher</th>
+                <th>Created</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {students.map(row => (
+                <tr key={row.id}>
+                  <td>{row.name}</td>
+                  <td>{row.className}</td>
+                  <td>{row.teacher_id}</td>
+                  <td>{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
+                  <td>
+                    <button className="reset-button" onClick={() => deleteStudent(row.id, row.name)} type="button">
+                      Delete Student
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
   );
 }
 
