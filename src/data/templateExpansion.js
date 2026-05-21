@@ -1459,7 +1459,7 @@ export const templateExpansion = [
     "skill": "nouns",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a noun?",
+    "question": "Which word names a thing?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1495,7 +1495,7 @@ export const templateExpansion = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1531,7 +1531,7 @@ export const templateExpansion = [
     "skill": "adjectives",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is an adjective?",
+    "question": "Which word describes something?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1542,78 +1542,6 @@ export const templateExpansion = [
       "under"
     ],
     "answer": "happy"
-  },
-  {
-    "id": "template_homophone_1",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means the number 2?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "two",
-      "too",
-      "to",
-      "toe"
-    ],
-    "answer": "two"
-  },
-  {
-    "id": "template_homophone_2",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means also?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "too",
-      "two",
-      "to",
-      "toe"
-    ],
-    "answer": "too"
-  },
-  {
-    "id": "template_homophone_3",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word is something you hear with?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "ear",
-      "here",
-      "hear",
-      "air"
-    ],
-    "answer": "ear"
-  },
-  {
-    "id": "template_homophone_4",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means to listen?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "hear",
-      "here",
-      "hair",
-      "ear"
-    ],
-    "answer": "hear"
   },
   {
     "id": "template_detail_1",

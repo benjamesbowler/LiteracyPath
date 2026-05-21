@@ -329,7 +329,7 @@ export const templateExpansion3 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -401,7 +401,7 @@ export const templateExpansion3 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -455,7 +455,7 @@ export const templateExpansion3 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -491,7 +491,7 @@ export const templateExpansion3 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -617,7 +617,7 @@ export const templateExpansion3 = [
     "skill": "adjectives",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is an adjective?",
+    "question": "Which word describes something?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -761,7 +761,7 @@ export const templateExpansion3 = [
     "skill": "adjectives",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is an adjective?",
+    "question": "Which word describes something?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1042,204 +1042,6 @@ export const templateExpansion3 = [
       "full of kind"
     ],
     "answer": "the state of being kind"
-  },
-  {
-    "id": "exp3_homophone_1",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means the number 2?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "two",
-      "too",
-      "to",
-      "toe"
-    ],
-    "answer": "two"
-  },
-  {
-    "id": "exp3_homophone_2",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means also?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "too",
-      "two",
-      "to",
-      "toe"
-    ],
-    "answer": "too"
-  },
-  {
-    "id": "exp3_homophone_3",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means a place?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "there",
-      "their",
-      "they're",
-      "three"
-    ],
-    "answer": "there"
-  },
-  {
-    "id": "exp3_homophone_4",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means belonging to them?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "their",
-      "there",
-      "they're",
-      "three"
-    ],
-    "answer": "their"
-  },
-  {
-    "id": "exp3_homophone_5",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means they are?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "they're",
-      "there",
-      "their",
-      "three"
-    ],
-    "answer": "they're"
-  },
-  {
-    "id": "exp3_homophone_6",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means to listen?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "hear",
-      "here",
-      "hair",
-      "ear"
-    ],
-    "answer": "hear"
-  },
-  {
-    "id": "exp3_homophone_7",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means in this place?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "here",
-      "hear",
-      "hair",
-      "ear"
-    ],
-    "answer": "here"
-  },
-  {
-    "id": "exp3_homophone_8",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word names the bright object in the sky?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "sun",
-      "son",
-      "some",
-      "soon"
-    ],
-    "answer": "sun"
-  },
-  {
-    "id": "exp3_homophone_9",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means a boy child of parents?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "son",
-      "sun",
-      "some",
-      "soon"
-    ],
-    "answer": "son"
-  },
-  {
-    "id": "exp3_homophone_10",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means the number 1?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "one",
-      "won",
-      "own",
-      "on"
-    ],
-    "answer": "one"
-  },
-  {
-    "id": "exp3_homophone_11",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means was first in a game?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "won",
-      "one",
-      "own",
-      "on"
-    ],
-    "answer": "won"
   },
   {
     "id": "exp3_homophone_12",

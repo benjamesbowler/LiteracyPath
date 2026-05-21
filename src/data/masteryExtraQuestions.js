@@ -121,7 +121,7 @@ export const masteryExtraQuestions = [
     ["pig","sit",["sit","sat","set","sot"]],
     ["fin","pin",["pin","pan","pen","pun"]],
     ["dog","hop",["hop","hip","hap","hep"]],
-    ["fox","box",["box","bag","big","bug"]],
+    ["log","pot",["pot","pat","pit","pet"]],
     ["cup","rug",["rug","rag","rig","rog"]],
     ["mud","cup",["cup","cap","cop","cip"]]
   ].map(([target, answer, choices], i) => ({
@@ -131,6 +131,7 @@ export const masteryExtraQuestions = [
     difficulty: 2,
     passage: "",
     question: `Which word has the same middle sound as ${target}?`,
+    spokenPrompt: `Which word has the same vowel sound as ${target}?`,
     choices,
     answer
   }))

@@ -195,7 +195,8 @@ export const templateExpansion2 = [
       "mit",
       "mop"
     ],
-    "answer": "mat"
+    "answer": "mat",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp2_short_vowel_2",
@@ -213,7 +214,8 @@ export const templateExpansion2 = [
       "rid",
       "rod"
     ],
-    "answer": "red"
+    "answer": "red",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp2_short_vowel_3",
@@ -231,7 +233,8 @@ export const templateExpansion2 = [
       "set",
       "sot"
     ],
-    "answer": "sit"
+    "answer": "sit",
+    "spokenPrompt": "Which word has the same vowel sound as itch?"
   },
   {
     "id": "exp2_short_vowel_4",
@@ -249,7 +252,8 @@ export const templateExpansion2 = [
       "hap",
       "hep"
     ],
-    "answer": "hop"
+    "answer": "hop",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp2_short_vowel_5",
@@ -267,7 +271,8 @@ export const templateExpansion2 = [
       "cop",
       "cip"
     ],
-    "answer": "cup"
+    "answer": "cup",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp2_short_vowel_6",
@@ -285,7 +290,8 @@ export const templateExpansion2 = [
       "top",
       "tup"
     ],
-    "answer": "tap"
+    "answer": "tap",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp2_short_vowel_7",
@@ -303,7 +309,8 @@ export const templateExpansion2 = [
       "pin",
       "pun"
     ],
-    "answer": "pen"
+    "answer": "pen",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp2_short_vowel_8",
@@ -321,7 +328,8 @@ export const templateExpansion2 = [
       "pen",
       "pun"
     ],
-    "answer": "pin"
+    "answer": "pin",
+    "spokenPrompt": "Which word has the same vowel sound as itch?"
   },
   {
     "id": "exp2_short_vowel_9",
@@ -339,7 +347,8 @@ export const templateExpansion2 = [
       "tip",
       "tup"
     ],
-    "answer": "top"
+    "answer": "top",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp2_short_vowel_10",
@@ -357,7 +366,8 @@ export const templateExpansion2 = [
       "rig",
       "rog"
     ],
-    "answer": "rug"
+    "answer": "rug",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp2_hfw_51_100_1",
@@ -1578,7 +1588,7 @@ export const templateExpansion2 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",

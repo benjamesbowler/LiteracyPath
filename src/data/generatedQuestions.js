@@ -339,6 +339,7 @@ export const generatedQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "Which word has a different vowel sound?",
+    "spokenPrompt": "Which word does not have the same vowel sound as apple?",
     "choices": [
       "dad",
       "mad",
@@ -853,6 +854,7 @@ export const generatedQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "Choose the word that has the same vowel sound as 'bed'.",
+    "spokenPrompt": "Choose the word that has the same vowel sound as egg.",
     "choices": [
       "red",
       "rod",
@@ -1079,6 +1081,7 @@ export const generatedQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "What is the vowel sound in the middle of the word 'cup'?",
+    "spokenPrompt": "What vowel sound do you hear in the middle of cup?",
     "choices": [
       "u",
       "a",
@@ -1094,6 +1097,7 @@ export const generatedQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "Which word has a different vowel sound?",
+    "spokenPrompt": "Which word does not have the same vowel sound as apple?",
     "choices": [
       "cat",
       "cap",

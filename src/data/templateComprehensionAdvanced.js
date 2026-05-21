@@ -358,7 +358,7 @@ const themePassages = [
     passage: "Sofia was nervous about reading her poem aloud. Her hands shook as she walked to the front of the room. She took a breath and read the first line. A few classmates nodded, so she kept going. When she finished, Sofia felt proud that she had tried.",
     questions: [
       ["What lesson does the story teach?", "courage means trying even when nervous", ["courage means trying even when nervous", "poems should stay unread", "nodding makes people nervous", "classrooms should be quiet forever"]],
-      ["Which choice states the theme?", "bravery can start with one small step", ["bravery can start with one small step", "only perfect readers should share", "hands shake because poems are long", "pride means never feeling afraid"]],
+      ["Which choice states the theme?", "bravery can start with one small step", ["bravery can start with one small step", "reading aloud is only for confident readers", "hands shake because poems are long", "pride means never feeling afraid"]],
       ["What did Sofia learn?", "she could face a difficult moment", ["she could face a difficult moment", "she should avoid poems", "classmates never listen", "reading is only for teachers"]],
       ["Which detail supports the theme?", "Sofia kept reading after the first line", ["Sofia kept reading after the first line", "her hands shook", "the room had classmates", "the poem was aloud"]]
     ]

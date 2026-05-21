@@ -87,6 +87,24 @@ const earlyBoundaryPromptPattern =
 
 const cvcVowels = new Set(["a", "e", "i", "o", "u"]);
 
+const approvedHomophonePairs = [
+  ["road", "rode"],
+  ["eight", "ate"],
+  ["sea", "see"],
+  ["right", "write"],
+  ["stair", "stare"],
+  ["steak", "stake"]
+];
+
+const approvedHomophoneWords =
+  new Set(approvedHomophonePairs.flat());
+
+const grammarMetaPattern =
+  /^Which word is an? (noun|verb|adjective)\?$/i;
+
+const finalKsPattern =
+  /(^|[^a-z])(fox|box|wax|fix|six|mix)([^a-z]|$)/i;
+
 const answerVisibleStopwords = new Set([
   "a",
   "an",
@@ -133,6 +151,40 @@ function extractEarlyPhonicsTarget(questionText) {
     text.match(/sound in .*?word ['"]?([a-z]+)['"]?/i);
 
   return soundInWordMatch?.[1] || null;
+}
+
+function homophoneValidityIssue(question) {
+  const skill = normalize(question.skill);
+  if (!skill.includes("homophone") && !skill.includes("homonym")) return null;
+
+  const answer = normalize(question.answer);
+  const choices = normalizedChoices(question.choices || []);
+
+  if (!approvedHomophoneWords.has(answer)) {
+    return `Answer "${question.answer}" is not in the approved true-homophone set.`;
+  }
+
+  const hasApprovedPair = approvedHomophonePairs.some(pair =>
+    pair.includes(answer) && pair.every(word => choices.includes(word))
+  );
+
+  return hasApprovedPair
+    ? null
+    : `Question does not include the approved homophone pair for "${question.answer}".`;
+}
+
+function finalKsCvcIssue(question, stage) {
+  if (!earlyPhonicsStages.has(stage)) return null;
+
+  const target = extractEarlyPhonicsTarget(question.question);
+  const values = [target, question.answer, ...(question.choices || [])]
+    .filter(Boolean);
+
+  const flagged = values.find(value => finalKsPattern.test(String(value)));
+
+  return flagged
+    ? `Final /ks/ word "${flagged}" is not allowed in beginner CVC/short-vowel stages.`
+    : null;
 }
 
 function earlyPhonicsBoundaryIssue(question, stage) {
@@ -386,6 +438,48 @@ function auditQuestions() {
         "meta phonics wording",
         item,
         `Student-facing prompt uses CVC jargon: "${question.question}".`
+      );
+    }
+
+    const homophoneProblem =
+      homophoneValidityIssue(question);
+
+    if (homophoneProblem) {
+      addProblem(
+        problems,
+        "fake homophone",
+        item,
+        homophoneProblem
+      );
+    }
+
+    if (grammarMetaPattern.test(question.question || "")) {
+      addProblem(
+        problems,
+        "grammar meta phrasing",
+        item,
+        `Use child-facing grammar wording instead of: "${question.question}".`
+      );
+    }
+
+    if (stage === "Short Vowel Discrimination" && !question.spokenPrompt && !question.audioText) {
+      addProblem(
+        problems,
+        "short vowel missing spokenPrompt",
+        item,
+        `Short vowel discrimination question needs spokenPrompt/audioText: "${question.question}".`
+      );
+    }
+
+    const finalKsProblem =
+      finalKsCvcIssue(question, stage);
+
+    if (finalKsProblem) {
+      addProblem(
+        problems,
+        "final ks in beginner cvc",
+        item,
+        finalKsProblem
       );
     }
 

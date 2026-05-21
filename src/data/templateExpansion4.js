@@ -15,7 +15,8 @@ export const templateExpansion4 = [
       "mit",
       "mop"
     ],
-    "answer": "mat"
+    "answer": "mat",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp4_short_vowel_2",
@@ -33,7 +34,8 @@ export const templateExpansion4 = [
       "mug",
       "men"
     ],
-    "answer": "map"
+    "answer": "map",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp4_short_vowel_3",
@@ -51,7 +53,8 @@ export const templateExpansion4 = [
       "rid",
       "rod"
     ],
-    "answer": "red"
+    "answer": "red",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp4_short_vowel_4",
@@ -69,7 +72,8 @@ export const templateExpansion4 = [
       "pin",
       "pun"
     ],
-    "answer": "pen"
+    "answer": "pen",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp4_short_vowel_5",
@@ -87,7 +91,8 @@ export const templateExpansion4 = [
       "set",
       "sot"
     ],
-    "answer": "sit"
+    "answer": "sit",
+    "spokenPrompt": "Which word has the same vowel sound as itch?"
   },
   {
     "id": "exp4_short_vowel_6",
@@ -105,7 +110,8 @@ export const templateExpansion4 = [
       "pen",
       "pun"
     ],
-    "answer": "pin"
+    "answer": "pin",
+    "spokenPrompt": "Which word has the same vowel sound as itch?"
   },
   {
     "id": "exp4_short_vowel_7",
@@ -123,7 +129,8 @@ export const templateExpansion4 = [
       "hap",
       "hep"
     ],
-    "answer": "hop"
+    "answer": "hop",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp4_short_vowel_8",
@@ -131,17 +138,18 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as fox?",
+    "question": "Which word has the same middle sound as log?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "box",
-      "bag",
-      "big",
-      "bug"
+      "pot",
+      "pat",
+      "pit",
+      "pet"
     ],
-    "answer": "box"
+    "answer": "pot",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp4_short_vowel_9",
@@ -159,7 +167,8 @@ export const templateExpansion4 = [
       "set",
       "sit"
     ],
-    "answer": "sun"
+    "answer": "sun",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp4_short_vowel_10",
@@ -177,7 +186,8 @@ export const templateExpansion4 = [
       "rig",
       "rog"
     ],
-    "answer": "rug"
+    "answer": "rug",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp4_short_vowel_11",
@@ -195,7 +205,8 @@ export const templateExpansion4 = [
       "top",
       "tup"
     ],
-    "answer": "tap"
+    "answer": "tap",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp4_short_vowel_12",
@@ -213,7 +224,8 @@ export const templateExpansion4 = [
       "pin",
       "pun"
     ],
-    "answer": "pen"
+    "answer": "pen",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp4_short_vowel_13",
@@ -231,7 +243,8 @@ export const templateExpansion4 = [
       "pit",
       "pet"
     ],
-    "answer": "pot"
+    "answer": "pot",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp4_short_vowel_14",
@@ -249,7 +262,8 @@ export const templateExpansion4 = [
       "cop",
       "cip"
     ],
-    "answer": "cup"
+    "answer": "cup",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp4_short_vowel_15",
@@ -267,7 +281,8 @@ export const templateExpansion4 = [
       "hot",
       "hut"
     ],
-    "answer": "hat"
+    "answer": "hat",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp4_prep_1",
@@ -448,132 +463,6 @@ export const templateExpansion4 = [
       "behind the pond"
     ],
     "answer": "outside the pond"
-  },
-  {
-    "id": "exp4_homophone_1",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means not old?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "new",
-      "knew",
-      "now",
-      "no"
-    ],
-    "answer": "new"
-  },
-  {
-    "id": "exp4_homophone_2",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means already understood something?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "knew",
-      "new",
-      "now",
-      "no"
-    ],
-    "answer": "knew"
-  },
-  {
-    "id": "exp4_homophone_3",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word names a plant bloom?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "flower",
-      "flour",
-      "floor",
-      "flow"
-    ],
-    "answer": "flower"
-  },
-  {
-    "id": "exp4_homophone_4",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word is used to bake bread?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "flour",
-      "flower",
-      "floor",
-      "flow"
-    ],
-    "answer": "flour"
-  },
-  {
-    "id": "exp4_homophone_8",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means to come together with someone?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "meet",
-      "meat",
-      "mitt",
-      "met"
-    ],
-    "answer": "meet"
-  },
-  {
-    "id": "exp4_homophone_9",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word is food?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "meat",
-      "meet",
-      "mitt",
-      "met"
-    ],
-    "answer": "meat"
-  },
-  {
-    "id": "exp4_homophone_10",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means a place to buy things?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "store",
-      "stair",
-      "stare",
-      "story"
-    ],
-    "answer": "store"
   },
   {
     "id": "exp4_comp_1",
@@ -1012,7 +901,7 @@ export const templateExpansion4 = [
     "questionType": "multiple_choice",
     "choices": [
       "do not give up",
-      "blocks are food",
+      "building is always easy",
       "never build things"
     ],
     "answer": "do not give up"
@@ -1029,8 +918,8 @@ export const templateExpansion4 = [
     "questionType": "multiple_choice",
     "choices": [
       "helping others is kind",
-      "new students are maps",
-      "classrooms are outside"
+      "new students should find the way alone",
+      "classrooms are easy for everyone to find"
     ],
     "answer": "helping others is kind"
   },
@@ -1064,7 +953,7 @@ export const templateExpansion4 = [
     "choices": [
       "teamwork is important",
       "only one person matters",
-      "ideas are bad"
+      "working alone is always better"
     ],
     "answer": "teamwork is important"
   },
@@ -1080,8 +969,8 @@ export const templateExpansion4 = [
     "questionType": "multiple_choice",
     "choices": [
       "being brave can help",
-      "games are scary forever",
-      "never try new things"
+      "new games should be avoided",
+      "only easy things are worth doing"
     ],
     "answer": "being brave can help"
   }

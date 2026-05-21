@@ -107,7 +107,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 7
+    "useCount": 9
   },
   "00b3dbccd4155c36": {
     "text": "the glue was heavy",
@@ -224,7 +224,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 8
+    "useCount": 4
   },
   "015acacbbaa0c0b7": {
     "text": "Which word begins with the br blend?",
@@ -241,15 +241,6 @@ export const audioManifest = {
     "path": "/audio/01656f2a22b46c57.mp3",
     "kinds": [
       "prompt"
-    ],
-    "useCount": 1
-  },
-  "017314416ac44307": {
-    "text": "games are scary forever",
-    "normalizedText": "games are scary forever",
-    "path": "/audio/017314416ac44307.mp3",
-    "kinds": [
-      "choice"
     ],
     "useCount": 1
   },
@@ -685,15 +676,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "048c000d64c48993": {
-    "text": "Which word means a boy child of parents?",
-    "normalizedText": "which word means a boy child of parents?",
-    "path": "/audio/048c000d64c48993.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
-  },
   "049acaa5ffc00e0f": {
     "text": "aftere",
     "normalizedText": "aftere",
@@ -883,15 +865,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "059701c42540f3c7": {
-    "text": "hoarse",
-    "normalizedText": "hoarse",
-    "path": "/audio/059701c42540f3c7.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "05a444365fb1bd8b": {
     "text": "Which word begins with the /c/ sound?",
     "normalizedText": "which word begins with the /c/ sound?",
@@ -908,7 +881,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 2
+    "useCount": 1
   },
   "05bcd0e7ceed08a1": {
     "text": "dove",
@@ -1450,6 +1423,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "08f48ed65357a3a5": {
+    "text": "classrooms are easy for everyone to find",
+    "normalizedText": "classrooms are easy for everyone to find",
+    "path": "/audio/08f48ed65357a3a5.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "08fbe5a2e401d336": {
     "text": "river",
     "normalizedText": "river",
@@ -1475,7 +1457,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 2
   },
   "092c9c45f33f50ef": {
     "text": "A yellow hat",
@@ -1535,15 +1517,6 @@ export const audioManifest = {
     "text": "vex",
     "normalizedText": "vex",
     "path": "/audio/096bc8f1213373e7.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
-  "096cb85cae09178b": {
-    "text": "rules are always bad",
-    "normalizedText": "rules are always bad",
-    "path": "/audio/096cb85cae09178b.mp3",
     "kinds": [
       "choice"
     ],
@@ -1907,7 +1880,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 2
   },
   "0c721df988ffa6b6": {
     "text": "ears",
@@ -1980,15 +1953,6 @@ export const audioManifest = {
       "prompt"
     ],
     "useCount": 1
-  },
-  "0d15a62e0edc7efe": {
-    "text": "Which word means also?",
-    "normalizedText": "which word means also?",
-    "path": "/audio/0d15a62e0edc7efe.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 2
   },
   "0d483644050c748b": {
     "text": "shiny",
@@ -2440,15 +2404,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "0fabf39f6048440f": {
-    "text": "games are only for one",
-    "normalizedText": "games are only for one",
-    "path": "/audio/0fabf39f6048440f.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "0fbdc4df2d292ff6": {
     "text": "She thinks laundry is too boring to do.",
     "normalizedText": "she thinks laundry is too boring to do.",
@@ -2494,15 +2449,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "1010638da6f185e4": {
-    "text": "they're",
-    "normalizedText": "they're",
-    "path": "/audio/1010638da6f185e4.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 6
-  },
   "1016b3363ca07239": {
     "text": "He is playing in the snow.",
     "normalizedText": "he is playing in the snow.",
@@ -2525,15 +2471,6 @@ export const audioManifest = {
     "text": "energetic",
     "normalizedText": "energetic",
     "path": "/audio/1039229544d20e09.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
-  "104537b3addfc8f2": {
-    "text": "classrooms are outside",
-    "normalizedText": "classrooms are outside",
-    "path": "/audio/104537b3addfc8f2.mp3",
     "kinds": [
       "choice"
     ],
@@ -2727,15 +2664,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 5
-  },
-  "1232f98f0fafe3a9": {
-    "text": "only perfect readers should share",
-    "normalizedText": "only perfect readers should share",
-    "path": "/audio/1232f98f0fafe3a9.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
   },
   "124896fb301c84c6": {
     "text": "run again",
@@ -3340,6 +3268,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "15b2ca53c9dac0c1": {
+    "text": "only fast players should join",
+    "normalizedText": "only fast players should join",
+    "path": "/audio/15b2ca53c9dac0c1.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "15b4aaf296104272": {
     "text": "students stopped talking",
     "normalizedText": "students stopped talking",
@@ -3456,15 +3393,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "164a5c24f5df5918": {
-    "text": "too",
-    "normalizedText": "too",
-    "path": "/audio/164a5c24f5df5918.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 4
   },
   "1650db2496980cad": {
     "text": "By setting the table",
@@ -3869,7 +3797,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 2
+    "useCount": 1
   },
   "18cda133d3fc9896": {
     "text": "he knew losing something feels bad",
@@ -4256,7 +4184,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 8
+    "useCount": 10
   },
   "1b09045adc25563b": {
     "text": "shin",
@@ -4671,6 +4599,15 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 4
+  },
+  "1d9d83b1e5d1fcfb": {
+    "text": "Which word has the same vowel sound as up?",
+    "normalizedText": "which word has the same vowel sound as up?",
+    "path": "/audio/1d9d83b1e5d1fcfb.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 9
   },
   "1da9e98e7da4b8d7": {
     "text": "the room was cold",
@@ -5381,7 +5318,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 55
+    "useCount": 53
   },
   "2309cac3ae32d755": {
     "text": "confused by coins",
@@ -6526,6 +6463,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "297ac4e3ee0cf8fb": {
+    "text": "helpers do not need thanks",
+    "normalizedText": "helpers do not need thanks",
+    "path": "/audio/297ac4e3ee0cf8fb.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "297c77fedceedd8a": {
     "text": "easy to hear",
     "normalizedText": "easy to hear",
@@ -6696,15 +6642,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 4
-  },
-  "2a5a2364ab91ef36": {
-    "text": "Which word is used to bake bread?",
-    "normalizedText": "which word is used to bake bread?",
-    "path": "/audio/2a5a2364ab91ef36.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
   },
   "2a61ac9d8909987e": {
     "text": "vat",
@@ -7102,15 +7039,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "2ca896b4deaa2acd": {
-    "text": "Which word means in this place?",
-    "normalizedText": "which word means in this place?",
-    "path": "/audio/2ca896b4deaa2acd.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
-  },
   "2cb2af6cfb9474f5": {
     "text": "Why did Noah sigh?",
     "normalizedText": "why did noah sigh?",
@@ -7458,9 +7386,10 @@ export const audioManifest = {
     "normalizedText": "which word has the same vowel sound as mud?",
     "path": "/audio/2ee68449f9ad87ef.mp3",
     "kinds": [
-      "prompt"
+      "prompt",
+      "spokenPrompt"
     ],
-    "useCount": 1
+    "useCount": 2
   },
   "2eef40d210917c89": {
     "text": "Which word rhymes with ten?",
@@ -7502,6 +7431,15 @@ export const audioManifest = {
     "text": "He was helping the teacher clean desks.",
     "normalizedText": "he was helping the teacher clean desks.",
     "path": "/audio/2f38d5f9bd8b8e58.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
+  "2f3d1f53271e345a": {
+    "text": "only easy things are worth doing",
+    "normalizedText": "only easy things are worth doing",
+    "path": "/audio/2f3d1f53271e345a.mp3",
     "kinds": [
       "choice"
     ],
@@ -7786,15 +7724,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "30c766b8d519a7f6": {
-    "text": "Which word is something you hear with?",
-    "normalizedText": "which word is something you hear with?",
-    "path": "/audio/30c766b8d519a7f6.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
-  },
   "30cdf73eff2a596a": {
     "text": "due",
     "normalizedText": "due",
@@ -7821,15 +7750,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 3
-  },
-  "30fbf2a63c4c96c6": {
-    "text": "ideas are toys",
-    "normalizedText": "ideas are toys",
-    "path": "/audio/30fbf2a63c4c96c6.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
   },
   "31071d58e99467f3": {
     "text": "A bird",
@@ -8362,6 +8282,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "340b54da5b829b37": {
+    "text": "new students should find the way alone",
+    "normalizedText": "new students should find the way alone",
+    "path": "/audio/340b54da5b829b37.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 2
+  },
   "34109fc838415b93": {
     "text": "What can you guess about the weather?",
     "normalizedText": "what can you guess about the weather?",
@@ -8659,15 +8588,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "35ecb9d64779e824": {
-    "text": "Which word names the bright object in the sky?",
-    "normalizedText": "which word names the bright object in the sky?",
-    "path": "/audio/35ecb9d64779e824.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
-  },
   "3608a6d1a05aba23": {
     "text": "sa",
     "normalizedText": "sa",
@@ -8703,15 +8623,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "3640420eba0c090f": {
-    "text": "mitt",
-    "normalizedText": "mitt",
-    "path": "/audio/3640420eba0c090f.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
   },
   "3648ad858761f3fc": {
     "text": "it went outside for recess",
@@ -8766,15 +8677,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "3684c9d3c05e7bee": {
-    "text": "floor",
-    "normalizedText": "floor",
-    "path": "/audio/3684c9d3c05e7bee.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
   },
   "36960fe3c78f2bda": {
     "text": "sod",
@@ -9125,12 +9027,12 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 4
   },
-  "392d7871944af9f8": {
-    "text": "meet",
-    "normalizedText": "meet",
-    "path": "/audio/392d7871944af9f8.mp3",
+  "3921973f8096658f": {
+    "text": "working alone is always better",
+    "normalizedText": "working alone is always better",
+    "path": "/audio/3921973f8096658f.mp3",
     "kinds": [
       "choice"
     ],
@@ -9287,7 +9189,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 6
+    "useCount": 3
   },
   "3a232802dd031259": {
     "text": "stap",
@@ -9450,15 +9352,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "3bcfa747d1716cbd": {
-    "text": "flour",
-    "normalizedText": "flour",
-    "path": "/audio/3bcfa747d1716cbd.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
   },
   "3be26b7949286159": {
     "text": "His homework was messy and incomplete.",
@@ -9910,15 +9803,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "3e18293f59d8f467": {
-    "text": "friends do not matter",
-    "normalizedText": "friends do not matter",
-    "path": "/audio/3e18293f59d8f467.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "3e27d44a1b911351": {
     "text": "every book is red",
     "normalizedText": "every book is red",
@@ -9981,6 +9865,15 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 2
+  },
+  "3e8426c20ac91279": {
+    "text": "someone else should clean up",
+    "normalizedText": "someone else should clean up",
+    "path": "/audio/3e8426c20ac91279.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
   },
   "3e8926c2a72de1e0": {
     "text": "Choose the word that means the opposite of happy.",
@@ -10058,15 +9951,6 @@ export const audioManifest = {
     "text": "When it is cold",
     "normalizedText": "when it is cold",
     "path": "/audio/3f064ea2b4dfe2eb.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
-  "3f14ecc8cc777b55": {
-    "text": "later",
-    "normalizedText": "later",
-    "path": "/audio/3f14ecc8cc777b55.mp3",
     "kinds": [
       "choice"
     ],
@@ -10169,7 +10053,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 6
+    "useCount": 4
   },
   "3f95ffe3cc6bc474": {
     "text": "how farmers sell honey",
@@ -10296,6 +10180,15 @@ export const audioManifest = {
       "prompt"
     ],
     "useCount": 1
+  },
+  "407e8ca7dc480bb4": {
+    "text": "Which word describes something?",
+    "normalizedText": "which word describes something?",
+    "path": "/audio/407e8ca7dc480bb4.mp3",
+    "kinds": [
+      "prompt"
+    ],
+    "useCount": 8
   },
   "408158643ed564c7": {
     "text": "by",
@@ -10540,6 +10433,15 @@ export const audioManifest = {
     ],
     "useCount": 6
   },
+  "422a1fc86c568a4a": {
+    "text": "Which word has the same vowel sound as egg?",
+    "normalizedText": "which word has the same vowel sound as egg?",
+    "path": "/audio/422a1fc86c568a4a.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 9
+  },
   "4231e832c381056e": {
     "text": "After sunset",
     "normalizedText": "after sunset",
@@ -10729,15 +10631,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "436cb3e3b9757538": {
-    "text": "Which word means belonging to them?",
-    "normalizedText": "which word means belonging to them?",
-    "path": "/audio/436cb3e3b9757538.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 2
-  },
   "4374aaee247fb237": {
     "text": "to",
     "normalizedText": "to",
@@ -10745,7 +10638,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 7
+    "useCount": 3
   },
   "437f5a5735982790": {
     "text": "It is cold or chilly outside.",
@@ -10954,15 +10847,6 @@ export const audioManifest = {
     ],
     "useCount": 2
   },
-  "44da7761af6ef25d": {
-    "text": "hose",
-    "normalizedText": "hose",
-    "path": "/audio/44da7761af6ef25d.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "4502229742dda534": {
     "text": "little",
     "normalizedText": "little",
@@ -11034,15 +10918,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "45880733b48fd344": {
-    "text": "Which word means the number 2?",
-    "normalizedText": "which word means the number 2?",
-    "path": "/audio/45880733b48fd344.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 2
   },
   "4594f6118e3a830e": {
     "text": "Because he was cleaning his room.",
@@ -11149,15 +11024,6 @@ export const audioManifest = {
     "path": "/audio/463f0b80493bf57f.mp3",
     "kinds": [
       "choice"
-    ],
-    "useCount": 1
-  },
-  "46597f7cfbe12e2d": {
-    "text": "Which word is food?",
-    "normalizedText": "which word is food?",
-    "path": "/audio/46597f7cfbe12e2d.mp3",
-    "kinds": [
-      "prompt"
     ],
     "useCount": 1
   },
@@ -11629,15 +11495,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "490528f36debf7c1": {
-    "text": "there",
-    "normalizedText": "there",
-    "path": "/audio/490528f36debf7c1.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 6
-  },
   "490daefc42726f34": {
     "text": "It hides under the bed",
     "normalizedText": "it hides under the bed",
@@ -11752,15 +11609,6 @@ export const audioManifest = {
     "path": "/audio/4979d619a7b7afcc.mp3",
     "kinds": [
       "choice"
-    ],
-    "useCount": 1
-  },
-  "497a80688793e4e9": {
-    "text": "Which word has the same vowel sound as box?",
-    "normalizedText": "which word has the same vowel sound as box?",
-    "path": "/audio/497a80688793e4e9.mp3",
-    "kinds": [
-      "prompt"
     ],
     "useCount": 1
   },
@@ -13133,13 +12981,13 @@ export const audioManifest = {
     "useCount": 1
   },
   "52a7c2b11b9313bf": {
-    "text": "lettuce",
+    "text": "Lettuce",
     "normalizedText": "lettuce",
     "path": "/audio/52a7c2b11b9313bf.mp3",
     "kinds": [
       "choice"
     ],
-    "useCount": 2
+    "useCount": 1
   },
   "52af700a90d87842": {
     "text": "she ate fast",
@@ -13301,7 +13149,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 2
+    "useCount": 1
   },
   "53b305f759c4bce2": {
     "text": "A rainbow",
@@ -13607,7 +13455,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 4
+    "useCount": 5
   },
   "55ae4b294234089c": {
     "text": "Every weekend",
@@ -14282,7 +14130,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 1
   },
   "5a4fe08359c7f973": {
     "text": "ci",
@@ -14344,15 +14192,6 @@ export const audioManifest = {
     "path": "/audio/5afe5ca94ba7cf9e.mp3",
     "kinds": [
       "choice"
-    ],
-    "useCount": 1
-  },
-  "5b0c0df6804c3c00": {
-    "text": "Which word means a piece of mail?",
-    "normalizedText": "which word means a piece of mail?",
-    "path": "/audio/5b0c0df6804c3c00.mp3",
-    "kinds": [
-      "prompt"
     ],
     "useCount": 1
   },
@@ -14489,7 +14328,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 2
   },
   "5bfdffda29babdfa": {
     "text": "What happened because the log was damp?",
@@ -14549,6 +14388,15 @@ export const audioManifest = {
     "text": "j",
     "normalizedText": "j",
     "path": "/audio/5c2dd944dde9e088.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
+  "5c3aa1244a14f4dd": {
+    "text": "quiet children should not play",
+    "normalizedText": "quiet children should not play",
+    "path": "/audio/5c3aa1244a14f4dd.mp3",
     "kinds": [
       "choice"
     ],
@@ -14779,6 +14627,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "5db446c5119c2c42": {
+    "text": "new games should be avoided",
+    "normalizedText": "new games should be avoided",
+    "path": "/audio/5db446c5119c2c42.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "5db8b5925992b455": {
     "text": "backpakk",
     "normalizedText": "backpakk",
@@ -14855,6 +14712,15 @@ export const audioManifest = {
     "text": "moved",
     "normalizedText": "moved",
     "path": "/audio/5e142a4b65ebbac7.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
+  "5e1e6c791cd85262": {
+    "text": "fallen books can be ignored",
+    "normalizedText": "fallen books can be ignored",
+    "path": "/audio/5e1e6c791cd85262.mp3",
     "kinds": [
       "choice"
     ],
@@ -16336,6 +16202,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "6753ba728d119ca2": {
+    "text": "Choose the word that has the same vowel sound as egg.",
+    "normalizedText": "choose the word that has the same vowel sound as egg.",
+    "path": "/audio/6753ba728d119ca2.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 1
+  },
   "6755d638f6b1fcd1": {
     "text": "paint the table",
     "normalizedText": "paint the table",
@@ -16424,7 +16299,7 @@ export const audioManifest = {
     "kinds": [
       "prompt"
     ],
-    "useCount": 8
+    "useCount": 18
   },
   "67c7d5c2b6981345": {
     "text": "he ate breakfast",
@@ -16532,7 +16407,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 14
+    "useCount": 12
   },
   "688f2bf2989da29a": {
     "text": "the food was too cold",
@@ -16576,15 +16451,6 @@ export const audioManifest = {
     "path": "/audio/68e71f57512c4528.mp3",
     "kinds": [
       "choice"
-    ],
-    "useCount": 2
-  },
-  "68f14bcc0d0b767e": {
-    "text": "Which word means to listen?",
-    "normalizedText": "which word means to listen?",
-    "path": "/audio/68f14bcc0d0b767e.mp3",
-    "kinds": [
-      "prompt"
     ],
     "useCount": 2
   },
@@ -16993,6 +16859,15 @@ export const audioManifest = {
     ],
     "useCount": 2
   },
+  "6b9ed2959c0be48d": {
+    "text": "Which word has the same vowel sound as apple?",
+    "normalizedText": "which word has the same vowel sound as apple?",
+    "path": "/audio/6b9ed2959c0be48d.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 10
+  },
   "6ba8e8a947aa4554": {
     "text": "It is autumn, and Emma is raking leaves.",
     "normalizedText": "it is autumn, and emma is raking leaves.",
@@ -17006,15 +16881,6 @@ export const audioManifest = {
     "text": "What can you infer about Pete’s homework?",
     "normalizedText": "what can you infer about pete's homework?",
     "path": "/audio/6bad595a37395ff1.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
-  },
-  "6bae1a3ceff3c183": {
-    "text": "Which word names a plant bloom?",
-    "normalizedText": "which word names a plant bloom?",
-    "path": "/audio/6bae1a3ceff3c183.mp3",
     "kinds": [
       "prompt"
     ],
@@ -17065,12 +16931,21 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "6c213e98ab9afad8": {
-    "text": "Which word means a place where food is sold?",
-    "normalizedText": "which word means a place where food is sold?",
-    "path": "/audio/6c213e98ab9afad8.mp3",
+  "6c272c735cd7bf60": {
+    "text": "Find the word nut.",
+    "normalizedText": "find the word nut.",
+    "path": "/audio/6c272c735cd7bf60.mp3",
     "kinds": [
-      "prompt"
+      "spokenPrompt"
+    ],
+    "useCount": 1
+  },
+  "6c2f8788818f23ac": {
+    "text": "Which word has the same vowel sound as cup?",
+    "normalizedText": "which word has the same vowel sound as cup?",
+    "path": "/audio/6c2f8788818f23ac.mp3",
+    "kinds": [
+      "spokenPrompt"
     ],
     "useCount": 1
   },
@@ -17308,15 +17183,6 @@ export const audioManifest = {
     ],
     "useCount": 4
   },
-  "6d72996b44ce5755": {
-    "text": "Which word is a verb?",
-    "normalizedText": "which word is a verb?",
-    "path": "/audio/6d72996b44ce5755.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 14
-  },
   "6d7b26d39fd8f3f6": {
     "text": "full of quick",
     "normalizedText": "full of quick",
@@ -17362,6 +17228,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "6dc4e34ee89cd40c": {
+    "text": "solving problems should be rushed",
+    "normalizedText": "solving problems should be rushed",
+    "path": "/audio/6dc4e34ee89cd40c.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "6dc8f4cab69c441e": {
     "text": "under the chair",
     "normalizedText": "under the chair",
@@ -17395,6 +17270,15 @@ export const audioManifest = {
     "path": "/audio/6e268f5543c103c3.mp3",
     "kinds": [
       "prompt"
+    ],
+    "useCount": 1
+  },
+  "6e288fd7ce50acad": {
+    "text": "only one idea should be used",
+    "normalizedText": "only one idea should be used",
+    "path": "/audio/6e288fd7ce50acad.mp3",
+    "kinds": [
+      "choice"
     ],
     "useCount": 1
   },
@@ -17875,6 +17759,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "70e3f1ff3de42d67": {
+    "text": "Which word does not have the same vowel sound as apple?",
+    "normalizedText": "which word does not have the same vowel sound as apple?",
+    "path": "/audio/70e3f1ff3de42d67.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 2
+  },
   "70fb66650aa8fcaf": {
     "text": "bees move pollen between flowers",
     "normalizedText": "bees move pollen between flowers",
@@ -18026,7 +17919,7 @@ export const audioManifest = {
     "kinds": [
       "prompt"
     ],
-    "useCount": 1
+    "useCount": 3
   },
   "71f870b95edb8a02": {
     "text": "Where does the frog jump?",
@@ -18059,6 +17952,15 @@ export const audioManifest = {
     "text": "Lila is allergic to apples.",
     "normalizedText": "lila is allergic to apples.",
     "path": "/audio/7237a5dcf817e5db.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
+  "723b522cb0bebbb4": {
+    "text": "games are better with fewer people",
+    "normalizedText": "games are better with fewer people",
+    "path": "/audio/723b522cb0bebbb4.mp3",
     "kinds": [
       "choice"
     ],
@@ -18097,15 +17999,6 @@ export const audioManifest = {
     "path": "/audio/727f9ade98eeda58.mp3",
     "kinds": [
       "prompt"
-    ],
-    "useCount": 1
-  },
-  "72926047a98ce286": {
-    "text": "Find the word fox.",
-    "normalizedText": "find the word fox.",
-    "path": "/audio/72926047a98ce286.mp3",
-    "kinds": [
-      "spokenPrompt"
     ],
     "useCount": 1
   },
@@ -19333,6 +19226,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "7afeed7597efc743": {
+    "text": "saving water does not matter",
+    "normalizedText": "saving water does not matter",
+    "path": "/audio/7afeed7597efc743.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "7afff0c074a6a9d4": {
     "text": "Which word has the same vowel sound as jet?",
     "normalizedText": "which word has the same vowel sound as jet?",
@@ -19504,15 +19406,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "7bc5788b9b55df5f": {
-    "text": "shelves are food",
-    "normalizedText": "shelves are food",
-    "path": "/audio/7bc5788b9b55df5f.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "7be77f1a79f44c12": {
     "text": "luck",
     "normalizedText": "luck",
@@ -19571,6 +19464,15 @@ export const audioManifest = {
     "text": "seid",
     "normalizedText": "seid",
     "path": "/audio/7c561d08bb767163.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
+  "7c8811e71b0f4186": {
+    "text": "messes should be left alone",
+    "normalizedText": "messes should be left alone",
+    "path": "/audio/7c8811e71b0f4186.mp3",
     "kinds": [
       "choice"
     ],
@@ -20026,15 +19928,6 @@ export const audioManifest = {
     ],
     "useCount": 15
   },
-  "7e973a1499d32826": {
-    "text": "blocks are food",
-    "normalizedText": "blocks are food",
-    "path": "/audio/7e973a1499d32826.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
-  },
   "7e9fa1b86d129620": {
     "text": "Because she lost her hat and gloves.",
     "normalizedText": "because she lost her hat and gloves.",
@@ -20077,6 +19970,15 @@ export const audioManifest = {
     "path": "/audio/7edb90b7cd61a8c4.mp3",
     "kinds": [
       "choice"
+    ],
+    "useCount": 1
+  },
+  "7ee40de9850688b9": {
+    "text": "Which word has the same vowel sound as pig?",
+    "normalizedText": "which word has the same vowel sound as pig?",
+    "path": "/audio/7ee40de9850688b9.mp3",
+    "kinds": [
+      "spokenPrompt"
     ],
     "useCount": 1
   },
@@ -20215,6 +20117,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "7ff340144fbcee33": {
+    "text": "Which word has the same vowel sound as itch?",
+    "normalizedText": "which word has the same vowel sound as itch?",
+    "path": "/audio/7ff340144fbcee33.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 8
+  },
   "7ffe1ba40f2584b9": {
     "text": "pat",
     "normalizedText": "pat",
@@ -20222,7 +20133,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 7
+    "useCount": 9
   },
   "8031dbcee0be7508": {
     "text": "Complete the sentence about size.",
@@ -20304,6 +20215,15 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 11
+  },
+  "806cce890a0e15cb": {
+    "text": "building is always easy",
+    "normalizedText": "building is always easy",
+    "path": "/audio/806cce890a0e15cb.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 2
   },
   "806de356e591b387": {
     "text": "What did Ben wear?",
@@ -20629,15 +20549,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "822f660f24f17d78": {
-    "text": "new students are maps",
-    "normalizedText": "new students are maps",
-    "path": "/audio/822f660f24f17d78.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
-  },
   "823c1e79fcc29f80": {
     "text": "gut",
     "normalizedText": "gut",
@@ -20671,15 +20582,6 @@ export const audioManifest = {
     "path": "/audio/8267ca06d10e4faa.mp3",
     "kinds": [
       "choice"
-    ],
-    "useCount": 1
-  },
-  "8270fc70a0f35103": {
-    "text": "Which word has the same vowel sound as fox?",
-    "normalizedText": "which word has the same vowel sound as fox?",
-    "path": "/audio/8270fc70a0f35103.mp3",
-    "kinds": [
-      "prompt"
     ],
     "useCount": 1
   },
@@ -20835,15 +20737,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 2
-  },
-  "83e5f040a5e7e215": {
-    "text": "Which word means the number 1?",
-    "normalizedText": "which word means the number 1?",
-    "path": "/audio/83e5f040a5e7e215.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
   },
   "83eac97db951de9b": {
     "text": "ladle",
@@ -21149,7 +21042,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 4
   },
   "85b9b91d3ae64a74": {
     "text": "What does brave mean?",
@@ -21672,15 +21565,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "8a183292e82b41ce": {
-    "text": "knew",
-    "normalizedText": "knew",
-    "path": "/audio/8a183292e82b41ce.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
   },
   "8a33653c54d82cd6": {
     "text": "a mountain",
@@ -22231,15 +22115,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "8dded4035e3e76e3": {
-    "text": "posters are heavy",
-    "normalizedText": "posters are heavy",
-    "path": "/audio/8dded4035e3e76e3.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "8de2b12ece2e2bf1": {
     "text": "shaking",
     "normalizedText": "shaking",
@@ -22347,6 +22222,15 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 7
+  },
+  "8ece7fbb2e83026f": {
+    "text": "lost things are not important",
+    "normalizedText": "lost things are not important",
+    "path": "/audio/8ece7fbb2e83026f.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
   },
   "8ed86c58b4376dd2": {
     "text": "Excitedly",
@@ -22517,7 +22401,7 @@ export const audioManifest = {
     "kinds": [
       "prompt"
     ],
-    "useCount": 5
+    "useCount": 19
   },
   "8fff994ba451dfd5": {
     "text": "Castles",
@@ -22588,6 +22472,15 @@ export const audioManifest = {
     "path": "/audio/9041b8785c596af2.mp3",
     "kinds": [
       "choice"
+    ],
+    "useCount": 1
+  },
+  "904a2659d3cf4a9b": {
+    "text": "Which word has the same vowel sound as cat?",
+    "normalizedText": "which word has the same vowel sound as cat?",
+    "path": "/audio/904a2659d3cf4a9b.mp3",
+    "kinds": [
+      "spokenPrompt"
     ],
     "useCount": 1
   },
@@ -23131,15 +23024,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "93662e295e2c9c55": {
-    "text": "Which word means a tale?",
-    "normalizedText": "which word means a tale?",
-    "path": "/audio/93662e295e2c9c55.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
-  },
   "936acd3e5fa29920": {
     "text": "friends never share",
     "normalizedText": "friends never share",
@@ -23516,7 +23400,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 16
+    "useCount": 14
   },
   "9621a244a447ec74": {
     "text": "hand",
@@ -23594,6 +23478,15 @@ export const audioManifest = {
     "text": "rein",
     "normalizedText": "rein",
     "path": "/audio/96913d54be09d18c.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
+  "9696778a606c6543": {
+    "text": "taking turns is not important",
+    "normalizedText": "taking turns is not important",
+    "path": "/audio/9696778a606c6543.mp3",
     "kinds": [
       "choice"
     ],
@@ -24085,15 +23978,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "99b512cd28fbd1ed": {
-    "text": "water is never useful",
-    "normalizedText": "water is never useful",
-    "path": "/audio/99b512cd28fbd1ed.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "99d72c7fc3e2e145": {
     "text": "hidden",
     "normalizedText": "hidden",
@@ -24137,7 +24021,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 2
+    "useCount": 1
   },
   "99fca3835728f43e": {
     "text": "What is Sally probably preparing to do?",
@@ -24283,15 +24167,6 @@ export const audioManifest = {
     ],
     "useCount": 2
   },
-  "9abd3b29e9c9f24a": {
-    "text": "only Ben should play",
-    "normalizedText": "only ben should play",
-    "path": "/audio/9abd3b29e9c9f24a.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "9ac2a53f2f91deef": {
     "text": "She wants to throw the plants away.",
     "normalizedText": "she wants to throw the plants away.",
@@ -24362,7 +24237,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 16
+    "useCount": 14
   },
   "9b64d4ad2ee2fb84": {
     "text": "bat",
@@ -24485,15 +24360,6 @@ export const audioManifest = {
     "text": "the hamster got out of its cage",
     "normalizedText": "the hamster got out of its cage",
     "path": "/audio/9c43766765df2e10.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
-  "9c4994667638756b": {
-    "text": "books should stay down",
-    "normalizedText": "books should stay down",
-    "path": "/audio/9c4994667638756b.mp3",
     "kinds": [
       "choice"
     ],
@@ -24928,15 +24794,6 @@ export const audioManifest = {
     "path": "/audio/9f682485bc394fa2.mp3",
     "kinds": [
       "choice"
-    ],
-    "useCount": 1
-  },
-  "9f6d355402f1a62a": {
-    "text": "Which word means already understood something?",
-    "normalizedText": "which word means already understood something?",
-    "path": "/audio/9f6d355402f1a62a.mp3",
-    "kinds": [
-      "prompt"
     ],
     "useCount": 1
   },
@@ -25462,6 +25319,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "a2ffaa360c25f832": {
+    "text": "Which word has the same vowel sound as pet?",
+    "normalizedText": "which word has the same vowel sound as pet?",
+    "path": "/audio/a2ffaa360c25f832.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 1
+  },
   "a304412a572f9c89": {
     "text": "lunches were in a cooler",
     "normalizedText": "lunches were in a cooler",
@@ -25487,7 +25353,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 1
   },
   "a32f780dee2de2ca": {
     "text": "mail carriers",
@@ -26083,6 +25949,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "a898972ba6f8fa61": {
+    "text": "the best player should go first every time",
+    "normalizedText": "the best player should go first every time",
+    "path": "/audio/a898972ba6f8fa61.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "a8acce245efca7fb": {
     "text": "pets",
     "normalizedText": "pets",
@@ -26159,15 +26034,6 @@ export const audioManifest = {
     "text": "What color is the apple?",
     "normalizedText": "what color is the apple?",
     "path": "/audio/a93dfddbba8746a7.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
-  },
-  "a945c1c2a772a194": {
-    "text": "Which word means a place to buy things?",
-    "normalizedText": "which word means a place to buy things?",
-    "path": "/audio/a945c1c2a772a194.mp3",
     "kinds": [
       "prompt"
     ],
@@ -26407,15 +26273,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "abb96ea03a676cac": {
-    "text": "never invite anyone",
-    "normalizedText": "never invite anyone",
-    "path": "/audio/abb96ea03a676cac.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "abc1350f2b5be870": {
     "text": "said",
     "normalizedText": "said",
@@ -26639,7 +26496,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 9
+    "useCount": 5
   },
   "ad87109bfff0765f": {
     "text": "empty",
@@ -27775,15 +27632,6 @@ export const audioManifest = {
     ],
     "useCount": 2
   },
-  "b5a453e965f3d110": {
-    "text": "mittens can talk",
-    "normalizedText": "mittens can talk",
-    "path": "/audio/b5a453e965f3d110.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "b5aca81065689d4b": {
     "text": "chaer",
     "normalizedText": "chaer",
@@ -28115,7 +27963,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 15
+    "useCount": 9
   },
   "b8037158ea203396": {
     "text": "After school",
@@ -28188,15 +28036,6 @@ export const audioManifest = {
       "prompt"
     ],
     "useCount": 2
-  },
-  "b847a6042d5bab36": {
-    "text": "Which word means to come together with someone?",
-    "normalizedText": "which word means to come together with someone?",
-    "path": "/audio/b847a6042d5bab36.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
   },
   "b86a4fe1b14db2a8": {
     "text": "put instruments away quickly",
@@ -28673,15 +28512,6 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 5
-  },
-  "bb40f75a9c6038e0": {
-    "text": "meat",
-    "normalizedText": "meat",
-    "path": "/audio/bb40f75a9c6038e0.mp3",
-    "kinds": [
-      "choice"
-    ],
     "useCount": 2
   },
   "bb4ee4051edbef4a": {
@@ -28871,7 +28701,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 8
+    "useCount": 5
   },
   "bc74f4f071a5a33f": {
     "text": "green",
@@ -29069,7 +28899,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 5
+    "useCount": 2
   },
   "bde99cd3ed832bd0": {
     "text": "Looks for food",
@@ -29223,6 +29053,15 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 2
+  },
+  "bf26342c1c87aa7a": {
+    "text": "parks should be cleaned only by workers",
+    "normalizedText": "parks should be cleaned only by workers",
+    "path": "/audio/bf26342c1c87aa7a.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
   },
   "bf265208f33b9082": {
     "text": "Which word has the /ĭ/ sound?",
@@ -29735,7 +29574,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 4
   },
   "c26a3055fb3f4af6": {
     "text": "Choose the opposite of sweet.",
@@ -29755,6 +29594,16 @@ export const audioManifest = {
     ],
     "useCount": 3
   },
+  "c28ef648cda34eb9": {
+    "text": "Which word has the same vowel sound as dog?",
+    "normalizedText": "which word has the same vowel sound as dog?",
+    "path": "/audio/c28ef648cda34eb9.mp3",
+    "kinds": [
+      "prompt",
+      "spokenPrompt"
+    ],
+    "useCount": 2
+  },
   "c2a441564fa70f86": {
     "text": "Which of these words starts with the letter 'l' sound?",
     "normalizedText": "which of these words starts with the letter 'l' sound?",
@@ -29771,7 +29620,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 7
+    "useCount": 5
   },
   "c2db5aef3162fcdd": {
     "text": "ignore partners",
@@ -29853,15 +29702,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "c358a509c084b5b3": {
-    "text": "Which word means a place?",
-    "normalizedText": "which word means a place?",
-    "path": "/audio/c358a509c084b5b3.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 2
   },
   "c36282ad1d746edb": {
     "text": "He was going swimming in a pool.",
@@ -30572,7 +30412,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 8
+    "useCount": 6
   },
   "c7e8a170b7b9691b": {
     "text": "bread cooled first",
@@ -30617,7 +30457,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 16
+    "useCount": 15
   },
   "c8560471c8bcc54e": {
     "text": "not wide",
@@ -30905,7 +30745,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 1
   },
   "c9be014f81aeb389": {
     "text": "basket",
@@ -31033,15 +30873,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "ca607cf696dce94d": {
-    "text": "hear",
-    "normalizedText": "hear",
-    "path": "/audio/ca607cf696dce94d.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 4
-  },
   "ca84d1343b96baa8": {
     "text": "web",
     "normalizedText": "web",
@@ -31166,7 +30997,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 8
+    "useCount": 10
   },
   "cb97c011906c9164": {
     "text": "friends never help",
@@ -31733,7 +31564,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 5
+    "useCount": 3
   },
   "cedccd67dedcc448": {
     "text": "What did Lena carry?",
@@ -31940,7 +31771,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 5
+    "useCount": 2
   },
   "d02406658520d23d": {
     "text": "he chose to be kind to his sister",
@@ -31975,15 +31806,6 @@ export const audioManifest = {
     "path": "/audio/d06efd20726ec190.mp3",
     "kinds": [
       "choice"
-    ],
-    "useCount": 1
-  },
-  "d0703d372d53f331": {
-    "text": "Which word means not old?",
-    "normalizedText": "which word means not old?",
-    "path": "/audio/d0703d372d53f331.mp3",
-    "kinds": [
-      "prompt"
     ],
     "useCount": 1
   },
@@ -32317,15 +32139,6 @@ export const audioManifest = {
     "path": "/audio/d1d6c5d9cb762084.mp3",
     "kinds": [
       "prompt"
-    ],
-    "useCount": 1
-  },
-  "d1d9b9355fa9cd3e": {
-    "text": "air",
-    "normalizedText": "air",
-    "path": "/audio/d1d9b9355fa9cd3e.mp3",
-    "kinds": [
-      "choice"
     ],
     "useCount": 1
   },
@@ -33112,15 +32925,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "d756976ba7717813": {
-    "text": "toe",
-    "normalizedText": "toe",
-    "path": "/audio/d756976ba7717813.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 4
-  },
   "d76101d2832b1008": {
     "text": "She wants to throw the toy away.",
     "normalizedText": "she wants to throw the toy away.",
@@ -33362,7 +33166,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 1
   },
   "d8fc9f043ed2b56f": {
     "text": "the storm stopped",
@@ -33553,15 +33357,6 @@ export const audioManifest = {
     ],
     "useCount": 5
   },
-  "da41abc0db70b4ef": {
-    "text": "fax",
-    "normalizedText": "fax",
-    "path": "/audio/da41abc0db70b4ef.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "da53b78ae250b123": {
     "text": "Which word rhymes with bee?",
     "normalizedText": "which word rhymes with bee?",
@@ -33695,7 +33490,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 6
+    "useCount": 4
   },
   "db3ff75bc3808a86": {
     "text": "Maggie was wearing sandals this morning.",
@@ -34012,15 +33807,6 @@ export const audioManifest = {
     ],
     "useCount": 8
   },
-  "dd3efca81346fd0e": {
-    "text": "Which word has the same middle sound as fox?",
-    "normalizedText": "which word has the same middle sound as fox?",
-    "path": "/audio/dd3efca81346fd0e.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 2
-  },
   "dd3f8eae3c979599": {
     "text": "they listened to each idea",
     "normalizedText": "they listened to each idea",
@@ -34047,15 +33833,6 @@ export const audioManifest = {
       "prompt"
     ],
     "useCount": 1
-  },
-  "ddbc6188203df73f": {
-    "text": "ear",
-    "normalizedText": "ear",
-    "path": "/audio/ddbc6188203df73f.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 4
   },
   "ddd465cc5ca9bf1b": {
     "text": "Which word rhymes with bed?",
@@ -34245,15 +34022,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "df055c669423fda1": {
-    "text": "their",
-    "normalizedText": "their",
-    "path": "/audio/df055c669423fda1.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 6
   },
   "df06b147f778d46f": {
     "text": "walk",
@@ -34493,6 +34261,15 @@ export const audioManifest = {
     "text": "He might be nervous about reading aloud.",
     "normalizedText": "he might be nervous about reading aloud.",
     "path": "/audio/e07bb0f08d86a8e5.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
+  "e08809a75f97f9c6": {
+    "text": "fair rules slow everyone down",
+    "normalizedText": "fair rules slow everyone down",
+    "path": "/audio/e08809a75f97f9c6.mp3",
     "kinds": [
       "choice"
     ],
@@ -35099,7 +34876,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 2
+    "useCount": 1
   },
   "e4928b42c73f84e3": {
     "text": "tied",
@@ -35335,6 +35112,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "e611eba1b0c8ed90": {
+    "text": "Which word has the same vowel sound as octopus?",
+    "normalizedText": "which word has the same vowel sound as octopus?",
+    "path": "/audio/e611eba1b0c8ed90.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 9
+  },
   "e614e1d9e0095859": {
     "text": "It is rainy but warm.",
     "normalizedText": "it is rainy but warm.",
@@ -35479,15 +35265,6 @@ export const audioManifest = {
     ],
     "useCount": 2
   },
-  "e7013d0358bf1d32": {
-    "text": "ideas are bad",
-    "normalizedText": "ideas are bad",
-    "path": "/audio/e7013d0358bf1d32.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
-  },
   "e7066930f561120d": {
     "text": "the kite was on a shelf",
     "normalizedText": "the kite was on a shelf",
@@ -35578,12 +35355,30 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "e7c5ac21c79390c9": {
+    "text": "work is better alone",
+    "normalizedText": "work is better alone",
+    "path": "/audio/e7c5ac21c79390c9.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "e7cae473a366eccd": {
     "text": "Where does the kitten sleep?",
     "normalizedText": "where does the kitten sleep?",
     "path": "/audio/e7cae473a366eccd.mp3",
     "kinds": [
       "prompt"
+    ],
+    "useCount": 1
+  },
+  "e7dd53425587e3f4": {
+    "text": "Which word has the same vowel sound as bag?",
+    "normalizedText": "which word has the same vowel sound as bag?",
+    "path": "/audio/e7dd53425587e3f4.mp3",
+    "kinds": [
+      "spokenPrompt"
     ],
     "useCount": 1
   },
@@ -35668,6 +35463,15 @@ export const audioManifest = {
     ],
     "useCount": 2
   },
+  "e833809fed2c3004": {
+    "text": "water can be left running",
+    "normalizedText": "water can be left running",
+    "path": "/audio/e833809fed2c3004.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "e844ecaa95a0c720": {
     "text": "Which word tells what the child does?",
     "normalizedText": "which word tells what the child does?",
@@ -35699,15 +35503,6 @@ export const audioManifest = {
     "text": "Eli forgot to bring his notebook to class.",
     "normalizedText": "eli forgot to bring his notebook to class.",
     "path": "/audio/e86f7dfdf53f122a.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
-  "e875c4643b142ea8": {
-    "text": "sinks are toys",
-    "normalizedText": "sinks are toys",
-    "path": "/audio/e875c4643b142ea8.mp3",
     "kinds": [
       "choice"
     ],
@@ -36224,7 +36019,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 3
+    "useCount": 1
   },
   "eb93c29571414fb9": {
     "text": "Which letter makes the beginning sound in the word 'dog'?",
@@ -36351,6 +36146,16 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
+  },
+  "ec5b5fdc57ef6224": {
+    "text": "Which word has the same vowel sound as log?",
+    "normalizedText": "which word has the same vowel sound as log?",
+    "path": "/audio/ec5b5fdc57ef6224.mp3",
+    "kinds": [
+      "prompt",
+      "spokenPrompt"
+    ],
+    "useCount": 2
   },
   "ec71e20c82205ab7": {
     "text": "do the right thing",
@@ -36599,15 +36404,6 @@ export const audioManifest = {
     "text": "mittens",
     "normalizedText": "mittens",
     "path": "/audio/ee096e633837bab1.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
-  "ee384f69a06f59c7": {
-    "text": "never try new things",
-    "normalizedText": "never try new things",
-    "path": "/audio/ee384f69a06f59c7.mp3",
     "kinds": [
       "choice"
     ],
@@ -36910,15 +36706,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "efb8e78aeeead400": {
-    "text": "quiet children are maps",
-    "normalizedText": "quiet children are maps",
-    "path": "/audio/efb8e78aeeead400.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "efd16fe2a4606b44": {
     "text": "classmates never listen",
     "normalizedText": "classmates never listen",
@@ -36977,15 +36764,6 @@ export const audioManifest = {
     "text": "Where does the fish swim?",
     "normalizedText": "where does the fish swim?",
     "path": "/audio/f01dd381be52c93b.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
-  },
-  "f023a857b8ac9106": {
-    "text": "Which word means was first in a game?",
-    "normalizedText": "which word means was first in a game?",
-    "path": "/audio/f023a857b8ac9106.mp3",
     "kinds": [
       "prompt"
     ],
@@ -37115,7 +36893,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 5
+    "useCount": 3
   },
   "f0edf2675d35cb5a": {
     "text": "Put the words in order.",
@@ -37414,6 +37192,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "f2cefcb5bebd2483": {
+    "text": "What vowel sound do you hear in the middle of cup?",
+    "normalizedText": "what vowel sound do you hear in the middle of cup?",
+    "path": "/audio/f2cefcb5bebd2483.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 1
+  },
   "f2d7ed63bfc6702a": {
     "text": "in the box",
     "normalizedText": "in the box",
@@ -37675,15 +37462,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "f425e1e9ee806d14": {
-    "text": "owners are doors",
-    "normalizedText": "owners are doors",
-    "path": "/audio/f425e1e9ee806d14.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
   "f43205084c152157": {
     "text": "waiting without playing",
     "normalizedText": "waiting without playing",
@@ -37823,6 +37601,15 @@ export const audioManifest = {
     "text": "hime",
     "normalizedText": "hime",
     "path": "/audio/f4e2c1a45ddbaba6.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
+  "f4eb806be6c73ecf": {
+    "text": "found items can be kept",
+    "normalizedText": "found items can be kept",
+    "path": "/audio/f4eb806be6c73ecf.mp3",
     "kinds": [
       "choice"
     ],
@@ -38058,9 +37845,10 @@ export const audioManifest = {
     "normalizedText": "which word has the same vowel sound as fin?",
     "path": "/audio/f66072574b6eb504.mp3",
     "kinds": [
-      "prompt"
+      "prompt",
+      "spokenPrompt"
     ],
-    "useCount": 1
+    "useCount": 2
   },
   "f678dd0a6c44af41": {
     "text": "Where is the dog?",
@@ -38170,6 +37958,15 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
+  "f73557de143fef95": {
+    "text": "reading aloud is only for confident readers",
+    "normalizedText": "reading aloud is only for confident readers",
+    "path": "/audio/f73557de143fef95.mp3",
+    "kinds": [
+      "choice"
+    ],
+    "useCount": 1
+  },
   "f749d76f48b905d2": {
     "text": "miss",
     "normalizedText": "miss",
@@ -38241,15 +38038,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 1
-  },
-  "f78cdcc062800ad6": {
-    "text": "Which word means they are?",
-    "normalizedText": "which word means they are?",
-    "path": "/audio/f78cdcc062800ad6.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 2
   },
   "f793522355b5ef88": {
     "text": "throw",
@@ -38674,15 +38462,6 @@ export const audioManifest = {
     ],
     "useCount": 3
   },
-  "fa6dcc81ff1dde15": {
-    "text": "Which word is an adjective?",
-    "normalizedText": "which word is an adjective?",
-    "path": "/audio/fa6dcc81ff1dde15.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 8
-  },
   "fa9f22e62229ac79": {
     "text": "give",
     "normalizedText": "give",
@@ -38755,15 +38534,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "fafb2b8d1ace6a8c": {
-    "text": "Which word is a noun?",
-    "normalizedText": "which word is a noun?",
-    "path": "/audio/fafb2b8d1ace6a8c.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 10
-  },
   "fb03068ff5bc820f": {
     "text": "Complete the sentence about a place.",
     "normalizedText": "complete the sentence about a place.",
@@ -38777,15 +38547,6 @@ export const audioManifest = {
     "text": "A game of basketball.",
     "normalizedText": "a game of basketball.",
     "path": "/audio/fb244ed28780ad1d.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 1
-  },
-  "fb24f6e5beb15fff": {
-    "text": "games need no turns",
-    "normalizedText": "games need no turns",
-    "path": "/audio/fb24f6e5beb15fff.mp3",
     "kinds": [
       "choice"
     ],
@@ -38944,15 +38705,6 @@ export const audioManifest = {
     ],
     "useCount": 6
   },
-  "fbf63c6adba57ff2": {
-    "text": "own",
-    "normalizedText": "own",
-    "path": "/audio/fbf63c6adba57ff2.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
-  },
   "fc109cc51937ccd4": {
     "text": "between the books",
     "normalizedText": "between the books",
@@ -39088,15 +38840,6 @@ export const audioManifest = {
     ],
     "useCount": 1
   },
-  "fd1286353570c570": {
-    "text": "no",
-    "normalizedText": "no",
-    "path": "/audio/fd1286353570c570.mp3",
-    "kinds": [
-      "choice"
-    ],
-    "useCount": 2
-  },
   "fd199cf46a314c00": {
     "text": "What showed that the seeds had started to grow?",
     "normalizedText": "what showed that the seeds had started to grow?",
@@ -39221,7 +38964,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 7
+    "useCount": 5
   },
   "fe1ee9826a5a9748": {
     "text": "very happy",
@@ -39347,7 +39090,7 @@ export const audioManifest = {
     "kinds": [
       "choice"
     ],
-    "useCount": 6
+    "useCount": 5
   },
   "ff10f15d53a793c2": {
     "text": "The dog",
@@ -39366,15 +39109,6 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 5
-  },
-  "ff240eec0b23919e": {
-    "text": "Which word means an animal with a mane?",
-    "normalizedText": "which word means an animal with a mane?",
-    "path": "/audio/ff240eec0b23919e.mp3",
-    "kinds": [
-      "prompt"
-    ],
-    "useCount": 1
   },
   "ff33451c3b80b5d2": {
     "text": "After dinner",
@@ -39483,6 +39217,15 @@ export const audioManifest = {
       "choice"
     ],
     "useCount": 2
+  },
+  "fffbe56e891ed7ff": {
+    "text": "Which word has the same vowel sound as hen?",
+    "normalizedText": "which word has the same vowel sound as hen?",
+    "path": "/audio/fffbe56e891ed7ff.mp3",
+    "kinds": [
+      "spokenPrompt"
+    ],
+    "useCount": 1
   }
 };
 
@@ -39514,7 +39257,6 @@ export const audioTextIndex = {
   "here": "0154c0dabe7145db",
   "which word begins with the br blend?": "015acacbbaa0c0b7",
   "what might nina be feeling about her report card?": "01656f2a22b46c57",
-  "games are scary forever": "017314416ac44307",
   "give up quickly": "01747c58d01c20c8",
   "why did water spill?": "017aa3087aa8232c",
   "appll": "01878cf45a7ef1b7",
@@ -39563,7 +39305,6 @@ export const audioTextIndex = {
   "at the small desk": "046a3dca1ab9c306",
   "the team wore shoes": "046b81f1dfda6af3",
   "her brother was reading": "0476359e11b417ed",
-  "which word means a boy child of parents?": "048c000d64c48993",
   "aftere": "049acaa5ffc00e0f",
   "it is raining heavily outside.": "04a8e0fa559a35b9",
   "when does ella help wash the car?": "04a9a131597cd0e1",
@@ -39585,7 +39326,6 @@ export const audioTextIndex = {
   "bright": "0570b92fa1d62502",
   "opened the box": "0575e4ecb648710c",
   "which letter is at the beginning of the word 'run'?": "0579b5969f1d948c",
-  "hoarse": "059701c42540f3c7",
   "which word begins with the /c/ sound?": "05a444365fb1bd8b",
   "problems are toys": "05ae393c48c6d9cc",
   "dove": "05bcd0e7ceed08a1",
@@ -39648,6 +39388,7 @@ export const audioTextIndex = {
   "kindness is worth a small wait": "08d42a19fc45006e",
   "in spring": "08e0e43d053b531f",
   "the librarian": "08f306c6ccb58288",
+  "classrooms are easy for everyone to find": "08f48ed65357a3a5",
   "river": "08fbe5a2e401d336",
   "chop": "0914b71d9a69f732",
   "horse": "091b5035885c0017",
@@ -39658,7 +39399,6 @@ export const audioTextIndex = {
   "patiently": "09616a1996e37a3a",
   "tall": "09649207a9b5da67",
   "vex": "096bc8f1213373e7",
-  "rules are always bad": "096cb85cae09178b",
   "flying": "0974abfe4509edd0",
   "cab": "098ea07aa4c6faf9",
   "low on the ground": "0990727248760255",
@@ -39707,7 +39447,6 @@ export const audioTextIndex = {
   "where did nora see the frogs?": "0cab14e89e1358f0",
   "play games": "0cafbc7e390d0a38",
   "how did nora use her notes later?": "0ccc9602707a7880",
-  "which word means also?": "0d15a62e0edc7efe",
   "shiny": "0d483644050c748b",
   "a bus ride": "0d51f19f48edb639",
   "what do plants need to grow?": "0d6ed5df81d2204e",
@@ -39758,17 +39497,14 @@ export const audioTextIndex = {
   "walked inside": "0f8c9449d3d33fb7",
   "before he plays": "0f99be28898879a7",
   "horses": "0fa13e9c53b81b1c",
-  "games are only for one": "0fabf39f6048440f",
   "she thinks laundry is too boring to do.": "0fbdc4df2d292ff6",
   "she doesn't mind helping, even if it is hard work.": "0fcdfd45aec6f51d",
   "plot": "0fee558eeb6a2c01",
   "which word has the same vowel sound as mop?": "0ff79fc93466e304",
   "she pushed herself to run faster": "101046eee9454bd1",
-  "they're": "1010638da6f185e4",
   "he is playing in the snow.": "1016b3363ca07239",
   "a person who paints": "1035ed8b39528d35",
   "energetic": "1039229544d20e09",
-  "classrooms are outside": "104537b3addfc8f2",
   "what happened to jacob's shoes?": "106b33cb65035762",
   "swims in the pond": "106ce412f3c01809",
   "which word has the same vowel sound as jam?": "107df5f5d868d981",
@@ -39790,7 +39526,6 @@ export const audioTextIndex = {
   "risk": "11a110bbef1bcc07",
   "tre": "11aa6adc773482bc",
   "beside the tree": "11b44b5619ff7ec0",
-  "only perfect readers should share": "1232f98f0fafe3a9",
   "run again": "124896fb301c84c6",
   "kids are lining up quietly for lunch.": "12592910b534872c",
   "what sound does the letter 'b' make in the word 'bat'?": "125e0e9ed706e673",
@@ -39858,6 +39593,7 @@ export const audioTextIndex = {
   "sam is practicing to be quiet for a test.": "1594355bef0e5cb6",
   "on the shore": "159fbb501f84a133",
   "sunlight reached the tank": "15a5caf772f52bf4",
+  "only fast players should join": "15b2ca53c9dac0c1",
   "students stopped talking": "15b4aaf296104272",
   "because it was painted": "15c21ea11f0e6083",
   "keys open doors": "15cae0412f3354a8",
@@ -39871,7 +39607,6 @@ export const audioTextIndex = {
   "what does observe mean in the passage?": "162fe906d65c1772",
   "what did the class do after snack?": "1639aa84cf79457f",
   "to stay warm on a cold day.": "1648933eba0d5797",
-  "too": "164a5c24f5df5918",
   "by setting the table": "1650db2496980cad",
   "crayons are heavy": "16688bbb1b1d4a3a",
   "wost": "1673fe5e097ae4b7",
@@ -40006,6 +39741,7 @@ export const audioTextIndex = {
   "mail": "1d6e1cf70ec6f9ab",
   "which word starts with the /h/ sound?": "1d752373bdba575e",
   "chairs": "1d8f9c1a5415534b",
+  "which word has the same vowel sound as up?": "1d9d83b1e5d1fcfb",
   "the room was cold": "1da9e98e7da4b8d7",
   "what did ava do next?": "1dc5cb6c7b3eafe2",
   "sister": "1dd09baa19dc7688",
@@ -40212,6 +39948,7 @@ export const audioTextIndex = {
   "which word ends like roof?": "2951456d0730323e",
   "saw": "29596a43a2ef2bbf",
   "very heavy": "296969852cf61c02",
+  "helpers do not need thanks": "297ac4e3ee0cf8fb",
   "easy to hear": "297c77fedceedd8a",
   "it had a toy": "297f3c321a41012d",
   "a shell": "2984c9bef2508e5c",
@@ -40231,7 +39968,6 @@ export const audioTextIndex = {
   "reads books": "2a44922d43275a3a",
   "near the farm": "2a4a1bbeb34462e4",
   "boat": "2a50ddf9299c2bc2",
-  "which word is used to bake bread?": "2a5a2364ab91ef36",
   "vat": "2a61ac9d8909987e",
   "care again": "2a63d6aa4bfed402",
   "flower bulbs": "2a6511bf71f16465",
@@ -40276,7 +40012,6 @@ export const audioTextIndex = {
   "gardens": "2c8aedcda44a2b4c",
   "the gym was muddy": "2c92b1ef545f61ab",
   "it is winter, and emma is playing in the snow.": "2c971d0859a7d1e0",
-  "which word means in this place?": "2ca896b4deaa2acd",
   "why did noah sigh?": "2cb2af6cfb9474f5",
   "in the desk": "2cc779d5585d0002",
   "pig": "2cd4ba93087f2749",
@@ -40321,6 +40056,7 @@ export const audioTextIndex = {
   "it grew leaves": "2f04c6487d839602",
   "what can you guess about julia's condition after the game?": "2f07e17a9e5db9a9",
   "he was helping the teacher clean desks.": "2f38d5f9bd8b8e58",
+  "only easy things are worth doing": "2f3d1f53271e345a",
   "what did molly do before putting the dough in the oven?": "2f49f893dda5c9c6",
   "kitchen": "2f56c0ac09ef740a",
   "it is a place for playing loud video games.": "2f6594d11db25d06",
@@ -40352,11 +40088,9 @@ export const audioTextIndex = {
   "what sound do the letters 'ck' make at the end of a word like 'duck'?": "3095959a962dda43",
   "north": "3099447db4c86031",
   "they are at school during class.": "30c51cb4e01a7136",
-  "which word is something you hear with?": "30c766b8d519a7f6",
   "due": "30cdf73eff2a596a",
   "which word has the long e sound?": "30d53242a14d53b3",
   "he": "30f088ea6673877c",
-  "ideas are toys": "30fbf2a63c4c96c6",
   "a bird": "31071d58e99467f3",
   "what letter makes the ending sound in the word 'duck'?": "310c9b43ff7c24b6",
   "how do you think the hikers feel after climbing the mountain?": "31119603b730c5a5",
@@ -40416,6 +40150,7 @@ export const audioTextIndex = {
   "what does unlock mean?": "33f76f53caf5ebe5",
   "mon": "33febd43e85e7055",
   "rabitt": "34018e4ac0157f8b",
+  "new students should find the way alone": "340b54da5b829b37",
   "what can you guess about the weather?": "34109fc838415b93",
   "played outside": "342735cfe3266219",
   "ate the leaves": "34397b28e13676c1",
@@ -40449,19 +40184,16 @@ export const audioTextIndex = {
   "grapes": "35c4cdb50a9a6b44",
   "tan": "35ca8cf12ff7ebe9",
   "what does unkind mean?": "35cc103a128e03f0",
-  "which word names the bright object in the sky?": "35ecb9d64779e824",
   "sa": "3608a6d1a05aba23",
   "very dry": "3612e39d7f7a361c",
   "the cookie fell": "362346fdac7c9096",
   "to give the plants more sunlight": "3636ad65427704f2",
-  "mitt": "3640420eba0c090f",
   "it went outside for recess": "3648ad858761f3fc",
   "zipped her coat": "364fb0b3773141e3",
   "what word means the opposite of clear?": "364fef006bc4d84b",
   "find the word van.": "365cea507d76d101",
   "a person who teaches": "36683a297c76c977",
   "swimn": "366eff03d0bf02e4",
-  "floor": "3684c9d3c05e7bee",
   "sod": "36960fe3c78f2bda",
   "doctors": "36a00b17d9b233c0",
   "farm": "36a3bbe0659d5cf5",
@@ -40501,7 +40233,7 @@ export const audioTextIndex = {
   "showing courage": "38dec65b8c542796",
   "to tell the class what she observed": "3914736dbd9a7e72",
   "net": "391b6629d9b645d3",
-  "meet": "392d7871944af9f8",
+  "working alone is always better": "3921973f8096658f",
   "swim deep": "3930eb3785cb784d",
   "gave it food and water": "393eaed59555a6be",
   "lab": "3953f9ddf975ab50",
@@ -40537,7 +40269,6 @@ export const audioTextIndex = {
   "lettar": "3bbf1099ed014d39",
   "what is the ending sound in the word 'cat'?": "3bcc2ed0a1cb4c8c",
   "landfills are playgrounds": "3bcec1f44a8d06fb",
-  "flour": "3bcfa747d1716cbd",
   "his homework was messy and incomplete.": "3be26b7949286159",
   "practicing a small part each day": "3be560412303f9ce",
   "cut the opening": "3bef6d07521a5609",
@@ -40588,7 +40319,6 @@ export const audioTextIndex = {
   "under the door": "3de733d6a5fa3ba2",
   "complete the sentence about a helper.": "3dea62e0398a0223",
   "sticky": "3e0fd166d4940e5f",
-  "friends do not matter": "3e18293f59d8f467",
   "every book is red": "3e27d44a1b911351",
   "the puppy chewed it": "3e27eed01e07c361",
   "schol": "3e2ff81b8adca252",
@@ -40596,6 +40326,7 @@ export const audioTextIndex = {
   "a basket": "3e3aa8c3b935f9fc",
   "above the books": "3e782f10473f4fa7",
   "full of paint": "3e78d8e66acdcd86",
+  "someone else should clean up": "3e8426c20ac91279",
   "choose the word that means the opposite of happy.": "3e8926c2a72de1e0",
   "he plays outside": "3ead0d939a983218",
   "my": "3ece1471f44f6317",
@@ -40605,7 +40336,6 @@ export const audioTextIndex = {
   "working with others helped her succeed": "3eda945e968c689b",
   "she wore boots": "3ee94a7c9e0ac218",
   "when it is cold": "3f064ea2b4dfe2eb",
-  "later": "3f14ecc8cc777b55",
   "kid": "3f158d4cc7182068",
   "which letter makes the last sound in the word 'hop'?": "3f1bda3764b30b35",
   "what is the plural of bus?": "3f26245f220d8b92",
@@ -40631,6 +40361,7 @@ export const audioTextIndex = {
   "why did the books fall out?": "406341282c2a0035",
   "turned": "406cc7e81a75aca0",
   "choose the opposite of cold.": "40797716ffad91e0",
+  "which word describes something?": "407e8ca7dc480bb4",
   "by": "408158643ed564c7",
   "emos": "408aefce3656a614",
   "the window opened": "40a96612b141206e",
@@ -40658,6 +40389,7 @@ export const audioTextIndex = {
   "worn": "41c4e2b42409e83c",
   "ti": "41c76e5218177bb9",
   "mug": "41eceaf7561be175",
+  "which word has the same vowel sound as egg?": "422a1fc86c568a4a",
   "after sunset": "4231e832c381056e",
   "cold": "424fa43965bde21e",
   "what is happening in this scene?": "4250f4fdc99b572b",
@@ -40679,7 +40411,6 @@ export const audioTextIndex = {
   "on the floor": "433ba7d6d8666155",
   "he played video games all day.": "4351aa9e9bc5a410",
   "where do the fish swim?": "43566fdb7fa8a25d",
-  "which word means belonging to them?": "436cb3e3b9757538",
   "to": "4374aaee247fb237",
   "it is cold or chilly outside.": "437f5a5735982790",
   "grub": "43a3103d25952fc5",
@@ -40704,7 +40435,6 @@ export const audioTextIndex = {
   "a butterfly": "44be010e9a232873",
   "what does fragile mean?": "44c20f8e0543ba28",
   "bike": "44d5369032336a51",
-  "hose": "44da7761af6ef25d",
   "little": "4502229742dda534",
   "which word has the consonant blend at the beginning?": "4514674f5f8133ec",
   "she is sad about the broken crayons and doesn't want new ones.": "4526592ff601a294",
@@ -40713,7 +40443,6 @@ export const audioTextIndex = {
   "sweet": "457774c6f0228627",
   "sophie's birthday party.": "4578f6987a475d1c",
   "pain": "4582cd02ee9fd9bc",
-  "which word means the number 2?": "45880733b48fd344",
   "because he was cleaning his room.": "4594f6118e3a830e",
   "morning": "45a21e4b5b2a90eb",
   "find the plural noun in the sentence.": "45ba9fdf91d9c637",
@@ -40726,7 +40455,6 @@ export const audioTextIndex = {
   "complete the sentence about movement.": "462aa456761f7078",
   "cad": "462c18d5b89050fb",
   "many ways to move": "463f0b80493bf57f",
-  "which word is food?": "46597f7cfbe12e2d",
   "sokcs": "465b36cc50e19d34",
   "black": "466bc8cef3e71de7",
   "in the oven": "466ffaf9bf4f29bc",
@@ -40779,7 +40507,6 @@ export const audioTextIndex = {
   "what buses do": "48e3153472d72ad1",
   "why maps are useful": "48e51e01b4a208af",
   "which word starts like banana?": "49035e4d80094198",
-  "there": "490528f36debf7c1",
   "it hides under the bed": "490daefc42726f34",
   "classes are quiet": "49137078af0169d1",
   "her brother walked too": "4923ff57f771a21c",
@@ -40793,7 +40520,6 @@ export const audioTextIndex = {
   "stopp": "496bbea18b457b40",
   "into the pond": "4978a1f91c0a218c",
   "drive": "4979d619a7b7afcc",
-  "which word has the same vowel sound as box?": "497a80688793e4e9",
   "it was empty for a long time.": "49a0b302bcb888cd",
   "the plant got no water": "49a3773dad8662db",
   "the rain has just started when children came out.": "49c4287380fbd064",
@@ -41081,7 +40807,6 @@ export const audioTextIndex = {
   "listen and find the word.": "5ae125a3733f7bdc",
   "choose the word that rhymes with 'pig'.": "5ae98b480a743601",
   "why workers need uniforms": "5afe5ca94ba7cf9e",
-  "which word means a piece of mail?": "5b0c0df6804c3c00",
   "games must start immediately": "5b0c2b79fb7681f6",
   "a picture of her house and family": "5b11f6991c5fd9f5",
   "the longest river": "5b1a09303bab19cc",
@@ -41104,6 +40829,7 @@ export const audioTextIndex = {
   "hung the feeder": "5c1d2fb88b238e2c",
   "the quietest chair": "5c2586da77d10a5f",
   "j": "5c2dd944dde9e088",
+  "quiet children should not play": "5c3aa1244a14f4dd",
   "what is the opposite of cold?": "5c3b4db146936a8b",
   "new places should not be visited": "5c48b03bf9977746",
   "made the sun shine": "5c52f90134c3f88a",
@@ -41129,6 +40855,7 @@ export const audioTextIndex = {
   "sub": "5d85613a56c124e3",
   "a coin": "5d8676c4be6a1350",
   "in a slow way": "5dabb91294195fa2",
+  "new games should be avoided": "5db446c5119c2c42",
   "backpakk": "5db8b5925992b455",
   "a picture of a dog": "5dc09fbe5fa316f5",
   "did": "5dd92d18235068c2",
@@ -41138,6 +40865,7 @@ export const audioTextIndex = {
   "what did the students paint?": "5de70e77ebd01cb9",
   "which word starts with the /r/ sound?": "5dff3b2b9af40d00",
   "moved": "5e142a4b65ebbac7",
+  "fallen books can be ignored": "5e1e6c791cd85262",
   "read a story": "5e2fca80e009c3a8",
   "which word begins with the th sound?": "5e45706845c9d98d",
   "bail": "5e45d064f99e8d1f",
@@ -41302,6 +41030,7 @@ export const audioTextIndex = {
   "because it is dark": "6705ff3c83cbe02e",
   "men": "6711b9ebf598e7db",
   "jakett": "671bf30da99e41a6",
+  "choose the word that has the same vowel sound as egg.": "6753ba728d119ca2",
   "paint the table": "6755d638f6b1fcd1",
   "blackk": "676830887ba92f37",
   "we": "676e6f35cfc173f7",
@@ -41329,7 +41058,6 @@ export const audioTextIndex = {
   "what did sam do before bringing his costume?": "68b94bf8b05d35a7",
   "plain": "68c46e84d76d2e7e",
   "reading a book": "68e71f57512c4528",
-  "which word means to listen?": "68f14bcc0d0b767e",
   "jada caught up to other runners": "69203859d36d3b18",
   "what letter comes after the first sound in stop?": "6923f6586f570e72",
   "starr": "6932841aedda3e8f",
@@ -41375,15 +41103,16 @@ export const audioTextIndex = {
   "which word rhymes with map?": "6b4fedc673826bb9",
   "it got water every day": "6b55f85ee279435b",
   "dip": "6b665e89f23e1731",
+  "which word has the same vowel sound as apple?": "6b9ed2959c0be48d",
   "it is autumn, and emma is raking leaves.": "6ba8e8a947aa4554",
   "what can you infer about pete's homework?": "6bad595a37395ff1",
-  "which word names a plant bloom?": "6bae1a3ceff3c183",
   "rough": "6bb57c7ed7c1e831",
   "under the tree": "6bd8a44f89e5a3a7",
   "at the round kitchen table": "6bed2c3b52134850",
   "ba": "6c0596b8ac609191",
   "very careful": "6c12e5f23cf4048e",
-  "which word means a place where food is sold?": "6c213e98ab9afad8",
+  "find the word nut.": "6c272c735cd7bf60",
+  "which word has the same vowel sound as cup?": "6c2f8788818f23ac",
   "to eat lunch": "6c4179fb71fe9b97",
   "it": "6c5522ca8af86fc5",
   "the field was unsafe after rain": "6c5ac5160f028586",
@@ -41410,16 +41139,17 @@ export const audioTextIndex = {
   "under the pond": "6d601f59fc7fb0e1",
   "go outside": "6d62b968622df914",
   "sleepy": "6d677ad010cd3f9f",
-  "which word is a verb?": "6d72996b44ce5755",
   "full of quick": "6d7b26d39fd8f3f6",
   "storm, cones, sun, recess": "6d94c8f9b571589f",
   "it was asleep": "6da29e3219e90667",
   "when does mom put the cookies on the plate?": "6da3454140e62cdd",
   "where does my family eat breakfast?": "6daaf573753c001d",
+  "solving problems should be rushed": "6dc4e34ee89cd40c",
   "under the chair": "6dc8f4cab69c441e",
   "waiting is impossible": "6dc9c8aab248fc8a",
   "glue the loose roof": "6e075f6a14eec7b9",
   "what did the farmers plant?": "6e268f5543c103c3",
+  "only one idea should be used": "6e288fd7ce50acad",
   "choose the opposite of strong.": "6e318f9cc2073aac",
   "knife": "6e32618ee300d43f",
   "what does preview mean?": "6e33e63c3b9fd126",
@@ -41473,6 +41203,7 @@ export const audioTextIndex = {
   "far": "70b2db8ae957dc9c",
   "which word has the same middle sound as 'bug'?": "70bb469e587b26e3",
   "how did jacob help his grandmother?": "70e2e15497db91b1",
+  "which word does not have the same vowel sound as apple?": "70e3f1ff3de42d67",
   "bees move pollen between flowers": "70fb66650aa8fcaf",
   "eli was drawing or daydreaming rather than writing.": "71043334b2d1856d",
   "choose the opposite of cool.": "7108a6220fd27595",
@@ -41494,11 +41225,11 @@ export const audioTextIndex = {
   "none": "71f8e7976e4cbc45",
   "which word describes the dog?": "720c7d4225b1666c",
   "lila is allergic to apples.": "7237a5dcf817e5db",
+  "games are better with fewer people": "723b522cb0bebbb4",
   "swing": "723f4e1ce33adddf",
   "so the hamster would not be scared or stepped on": "72552b8f3a8ee1e9",
   "which word has the same middle sound as fin?": "7276645a9d6332c1",
   "when do they build a snowman?": "727f9ade98eeda58",
-  "find the word fox.": "72926047a98ce286",
   "it flew away": "7292a52108c7f72a",
   "on the roof": "729f0b6ed2d998bd",
   "cob": "72a008c473e42d51",
@@ -41635,6 +41366,7 @@ export const audioTextIndex = {
   "bookz": "7af17e2fc2b3143a",
   "seedz": "7af4d6f9cd8a879f",
   "which word starts with the /t/ sound?": "7afaa03f5e0b1ce5",
+  "saving water does not matter": "7afeed7597efc743",
   "which word has the same vowel sound as jet?": "7afff0c074a6a9d4",
   "which letter makes the sound at the start of the word 'milk'?": "7b02232bdc4aec40",
   "the carrot plant": "7b06d9c63376ea3d",
@@ -41654,7 +41386,6 @@ export const audioTextIndex = {
   "log": "7babc233de26ab19",
   "show gratitude": "7bb89efec00c393a",
   "not teach": "7bc40d9a389138a5",
-  "shelves are food": "7bc5788b9b55df5f",
   "luck": "7be77f1a79f44c12",
   "up": "7c0a25c06ea30bae",
   "ice cream": "7c16c8188e25f3f7",
@@ -41662,6 +41393,7 @@ export const audioTextIndex = {
   "careful": "7c41bee11e416b7a",
   "choose the word with the same middle sound as 'pen'.": "7c434a7b4e7ed470",
   "seid": "7c561d08bb767163",
+  "messes should be left alone": "7c8811e71b0f4186",
   "the puppy wants to be left alone.": "7c95d6fdd3a1925a",
   "dad cooked": "7c975b8da8e183e0",
   "complete the sentence about wanting.": "7c97d140ac58ddf1",
@@ -41712,12 +41444,12 @@ export const audioTextIndex = {
   "corn and carrots": "7e6a22952fa0dc1f",
   "heavy": "7e85183c21f800c0",
   "can": "7e9219a0599eae1d",
-  "blocks are food": "7e973a1499d32826",
   "because she lost her hat and gloves.": "7e9fa1b86d129620",
   "she is getting ready to go outside.": "7ebcde424a15c3fd",
   "he disliked markers": "7ec13b876d1b738c",
   "chat": "7ecde348ff9cda2c",
   "because the sun is shining": "7edb90b7cd61a8c4",
+  "which word has the same vowel sound as pig?": "7ee40de9850688b9",
   "under the ground": "7efa14a16c9eb49e",
   "batch": "7f01fe787c49e4ad",
   "in the clear blue ocean": "7f5aec368d655903",
@@ -41733,6 +41465,7 @@ export const audioTextIndex = {
   "cot": "7fd2e982067b387f",
   "it is very hot and sunny.": "7fdae2f1710c9565",
   "eating seeds": "7fdae518bfadfe25",
+  "which word has the same vowel sound as itch?": "7ff340144fbcee33",
   "pat": "7ffe1ba40f2584b9",
   "complete the sentence about size.": "8031dbcee0be7508",
   "what likely happened in the classroom?": "8036f1eef10a4b4c",
@@ -41743,6 +41476,7 @@ export const audioTextIndex = {
   "where is the bird?": "805fa9ba971b5e4a",
   "school is over and kids are leaving.": "806473e7be4b8b54",
   "tree": "80655da8d80aaaf9",
+  "building is always easy": "806cce890a0e15cb",
   "what did ben wear?": "806de356e591b387",
   "build": "80754af91bfb6d10",
   "made louder": "807c0799bdf58b59",
@@ -41779,12 +41513,10 @@ export const audioTextIndex = {
   "washed hands": "8203f8d1f2e4008f",
   "rinse, cut, fill, hang": "820c62b865a10bd8",
   "sunlight, water, and air": "820fe2558d74448d",
-  "new students are maps": "822f660f24f17d78",
   "gut": "823c1e79fcc29f80",
   "a bakery": "824cbe25e4fdb3f1",
   "because winter is over and she doesn't need them.": "825d33dc32dd08b7",
   "knive": "8267ca06d10e4faa",
-  "which word has the same vowel sound as fox?": "8270fc70a0f35103",
   "when do i like to drink cold water?": "8277f574ca1ec447",
   "the cat is hungry and looking for food.": "829451ce5310425a",
   "bisket": "82a8a35cb57bd7d4",
@@ -41802,7 +41534,6 @@ export const audioTextIndex = {
   "went swimming": "83c0f2a878392463",
   "what did sofia learn?": "83d6999180c83506",
   "before sunrise": "83dc4beace655887",
-  "which word means the number 1?": "83e5f040a5e7e215",
   "ladle": "83eac97db951de9b",
   "cod": "83f677838fa9a584",
   "what is the plural of peach?": "8403a94c872bb61b",
@@ -41895,7 +41626,6 @@ export const audioTextIndex = {
   "which event happened second?": "89e95fba9010a844",
   "small": "89f6229a11ac4eba",
   "snoll": "8a04c193320ff419",
-  "knew": "8a183292e82b41ce",
   "a mountain": "8a33653c54d82cd6",
   "a pear": "8a5d34bc7e445208",
   "the class went outside": "8a89359dce0577cf",
@@ -41957,7 +41687,6 @@ export const audioTextIndex = {
   "what does joyful mean?": "8da819c6762fba9a",
   "what is the opposite of opened?": "8dc1e9b81b780cde",
   "the puppy is scared of the fire.": "8ddcbfd7982359f9",
-  "posters are heavy": "8dded4035e3e76e3",
   "shaking": "8de2b12ece2e2bf1",
   "ph": "8df74dda184c19df",
   "brushes her teeth": "8e081439bf5e2578",
@@ -41970,6 +41699,7 @@ export const audioTextIndex = {
   "he is angry because the clock is broken.": "8eb7302cf3e3c9de",
   "mices": "8ebbc39941087b03",
   "cats": "8ebf601f8b808c32",
+  "lost things are not important": "8ece7fbb2e83026f",
   "excitedly": "8ed86c58b4376dd2",
   "what did nora carry on the walk?": "8ee93ce151d52b67",
   "teachers": "8eea3d11ccbf687d",
@@ -41997,6 +41727,7 @@ export const audioTextIndex = {
   "the gate was open": "9032dd51ea45d71d",
   "barn": "904058b787e35da9",
   "he used glue": "9041b8785c596af2",
+  "which word has the same vowel sound as cat?": "904a2659d3cf4a9b",
   "at the park": "9050606593916157",
   "the corners folded": "9052fa68abc73213",
   "snail": "9054cc2304e6ca6a",
@@ -42057,7 +41788,6 @@ export const audioTextIndex = {
   "crumbs were on a shirt": "934deb6bbd7c96b7",
   "the classroom": "935904009291fa0c",
   "maggie was inside all day and stayed dry.": "9364d3b57c7aa64e",
-  "which word means a tale?": "93662e295e2c9c55",
   "friends never share": "936acd3e5fa29920",
   "rum": "937adac2c1769863",
   "pick the flowers": "937d6c887dc7753b",
@@ -42109,6 +41839,7 @@ export const audioTextIndex = {
   "tom": "96835dd8bfa718bd",
   "mune": "968e0611a9f215b2",
   "rein": "96913d54be09d18c",
+  "taking turns is not important": "9696778a606c6543",
   "the quiz disappeared": "96d2cb533af3614c",
   "the gym closed": "96d32711228c7688",
   "the umbrella broke in the rain.": "96d3333741ce4df4",
@@ -42163,7 +41894,6 @@ export const audioTextIndex = {
   "her": "999400659233415a",
   "snacks are heavy": "999bdcbe22dbcc89",
   "in the car": "99ae9b60e57ac97e",
-  "water is never useful": "99b512cd28fbd1ed",
   "hidden": "99d72c7fc3e2e145",
   "during the school assembly": "99d8e7c6eb0b6feb",
   "kniht": "99dacaffa2dbe9cc",
@@ -42185,7 +41915,6 @@ export const audioTextIndex = {
   "never draw": "9aaebe0d4e9e3e9c",
   "in the morning": "9ab0437a651b91cb",
   "heel": "9ab5da88dfc7ed62",
-  "only ben should play": "9abd3b29e9c9f24a",
   "she wants to throw the plants away.": "9ac2a53f2f91deef",
   "what is this passage mostly teaching?": "9aed6d82a16d4b5f",
   "cold and snowy": "9b09578be6b40e2b",
@@ -42208,7 +41937,6 @@ export const audioTextIndex = {
   "pupe": "9c37a460518209a3",
   "joy again": "9c38c625090e1a2a",
   "the hamster got out of its cage": "9c43766765df2e10",
-  "books should stay down": "9c4994667638756b",
   "no one liked the snacks.": "9c4d9b9cd2188434",
   "dogg": "9c6c927190d86d7e",
   "the fossil was too heavy": "9c7ded636d54acb2",
@@ -42257,7 +41985,6 @@ export const audioTextIndex = {
   "ofe": "9f4712966dd03f9f",
   "brand new": "9f50882295d3f0af",
   "peach's": "9f682485bc394fa2",
-  "which word means already understood something?": "9f6d355402f1a62a",
   "knowe": "9f791a5e167a0c8a",
   "four": "9f8f7eec5dea5ac4",
   "which word starts like stem?": "9fa91e549ba670fa",
@@ -42316,6 +42043,7 @@ export const audioTextIndex = {
   "what do we do after planting seeds?": "a2e7224beb4328e1",
   "the water": "a2eb107a0a7ef376",
   "which word starts with the /s/ sound?": "a2fc3b99cb949878",
+  "which word has the same vowel sound as pet?": "a2ffaa360c25f832",
   "lunches were in a cooler": "a304412a572f9c89",
   "were": "a315dee0bd22f452",
   "won": "a32b8cd11ba5616e",
@@ -42385,6 +42113,7 @@ export const audioTextIndex = {
   "a feather": "a7f796f253a79a81",
   "different ways people use libraries": "a830f17e716b227e",
   "the sidewalk got smaller": "a836e86c2375d184",
+  "the best player should go first every time": "a898972ba6f8fa61",
   "pets": "a8acce245efca7fb",
   "the tower flew": "a8ca0d7ff406764d",
   "what did the rabbit eat?": "a8cb06e29cf76369",
@@ -42394,7 +42123,6 @@ export const audioTextIndex = {
   "it sat in the sun": "a9289f1ca1f6dbbb",
   "moose": "a9327e3c5e1ba239",
   "what color is the apple?": "a93dfddbba8746a7",
-  "which word means a place to buy things?": "a945c1c2a772a194",
   "mila hid it": "a946e504247b2843",
   "test": "a94a8fe5ccb19ba6",
   "hw": "a9524066475fd91c",
@@ -42421,7 +42149,6 @@ export const audioTextIndex = {
   "an orange": "ab5aecc27044df2a",
   "recycling turns used materials into new things": "ab82518f6ffcb6ae",
   "shelves are made of wood": "ab93f94a30fcaa4f",
-  "never invite anyone": "abb96ea03a676cac",
   "said": "abc1350f2b5be870",
   "it is likely sunny and bright outside.": "abc31aa74d87e621",
   "so the bookshelf could move itself": "abcdd4722e8e6b08",
@@ -42573,7 +42300,6 @@ export const audioTextIndex = {
   "power": "b573f24e55d6b754",
   "socer": "b594761f2a901885",
   "inside the door": "b59a4515d5da952d",
-  "mittens can talk": "b5a453e965f3d110",
   "chaer": "b5aca81065689d4b",
   "a sandwich": "b5ccacd5d6baf9f9",
   "to make sure he didn't forget his homework.": "b5d80d55bd1ace8f",
@@ -42619,7 +42345,6 @@ export const audioTextIndex = {
   "how does olivia probably feel after eating her vegetables?": "b836cd43a3e42831",
   "muck": "b83c93e0facd27e9",
   "which word has the same middle sound as cup?": "b83f12598ae41a6f",
-  "which word means to come together with someone?": "b847a6042d5bab36",
   "put instruments away quickly": "b86a4fe1b14db2a8",
   "sam spoke on stage": "b877c69c54e97c6e",
   "fold, draw, write, give": "b87a3c9a8c41c880",
@@ -42673,7 +42398,6 @@ export const audioTextIndex = {
   "grow underground": "bb027f6d37be09a7",
   "never try": "bb179a62ac095a73",
   "stair": "bb31fd64dda46b33",
-  "meat": "bb40f75a9c6038e0",
   "flop": "bb4ee4051edbef4a",
   "when the wind blows strongly": "bb4f80bd072626c8",
   "sot": "bb6c237f3217a12f",
@@ -42734,6 +42458,7 @@ export const audioTextIndex = {
   "where to buy jump ropes": "befebb8e29a58ee8",
   "glue": "bf135d1f23a49cd3",
   "hatz": "bf237b3bc2676a2d",
+  "parks should be cleaned only by workers": "bf26342c1c87aa7a",
   "which word has the /ĭ/ sound?": "bf265208f33b9082",
   "steam": "bf2903b55e59523c",
   "safe": "bf31c52c32b0fcda",
@@ -42793,6 +42518,7 @@ export const audioTextIndex = {
   "nap": "c2640f79b4ed481b",
   "choose the opposite of sweet.": "c26a3055fb3f4af6",
   "which word rhymes with king?": "c285f4b75dc946fe",
+  "which word has the same vowel sound as dog?": "c28ef648cda34eb9",
   "which of these words starts with the letter 'l' sound?": "c2a441564fa70f86",
   "new": "c2a6b03f190dfb2b",
   "ignore partners": "c2db5aef3162fcdd",
@@ -42804,7 +42530,6 @@ export const audioTextIndex = {
   "full of play": "c331e6bea9ce9cd8",
   "what do emma and her brother do to help the flowers grow?": "c3332a90f4fff8a5",
   "sorting toys at home": "c33e130f46a29811",
-  "which word means a place?": "c358a509c084b5b3",
   "he was going swimming in a pool.": "c36282ad1d746edb",
   "wolvez": "c3721f810cf8005e",
   "what does obedient mean?": "c37b56fc7dcae9e8",
@@ -42935,7 +42660,6 @@ export const audioTextIndex = {
   "what did the birds do in the tree?": "ca22ff5bf431df78",
   "got his bag": "ca3af764f535a3a2",
   "spread the blanket": "ca58d0aea5587f17",
-  "hear": "ca607cf696dce94d",
   "web": "ca84d1343b96baa8",
   "new songs should be avoided": "ca95a9d7812f61c3",
   "please": "cae355b615b61313",
@@ -43040,7 +42764,6 @@ export const audioTextIndex = {
   "students picked all the tomatoes": "d036342297c043d3",
   "what did omar wear?": "d05ab179cb76ab6f",
   "a turtle": "d06efd20726ec190",
-  "which word means not old?": "d0703d372d53f331",
   "fill, hang, rinse, cut": "d0792bb6a683d726",
   "which word has the or r-controlled vowel?": "d098f8eec023b03f",
   "pick the plural noun.": "d09acdcf0e922ab0",
@@ -43078,7 +42801,6 @@ export const audioTextIndex = {
   "loud": "d1c6f1a8165a0d45",
   "beside": "d1c8869983ffe3b4",
   "why did the baby keep sleeping?": "d1d6c5d9cb762084",
-  "air": "d1d9b9355fa9cd3e",
   "flew": "d1de9198a0aad875",
   "why did it melt?": "d1e80c884b434045",
   "what do we do after reading books?": "d1ef74fe40f4bd4c",
@@ -43166,7 +42888,6 @@ export const audioTextIndex = {
   "hats": "d6c9b9e2c248ea61",
   "the fossil was in a museum": "d6d1f14b01120a1e",
   "take them home": "d70ac31f4d24c0b2",
-  "toe": "d756976ba7717813",
   "she wants to throw the toy away.": "d76101d2832b1008",
   "wh": "d764022e72480fa9",
   "what does narrow mean?": "d7641cc53e3fa201",
@@ -43215,7 +42936,6 @@ export const audioTextIndex = {
   "brigt": "da2c080e1c9b1503",
   "close": "da38860cb875cb64",
   "jam": "da3dd5c2657fecad",
-  "fax": "da41abc0db70b4ef",
   "which word rhymes with bee?": "da53b78ae250b123",
   "started": "da7153ee73f11310",
   "full of kind": "da769cf277198ce3",
@@ -43266,11 +42986,9 @@ export const audioTextIndex = {
   "when does mark clean his room?": "dd1299cbbd51433d",
   "games": "dd27204535de317c",
   "ten": "dd3562449147ffc7",
-  "which word has the same middle sound as fox?": "dd3efca81346fd0e",
   "they listened to each idea": "dd3f8eae3c979599",
   "which word begins with the /b/ sound?": "dd6a226fd3fd13a3",
   "what is the opposite of full?": "ddbbb1079e736a8e",
-  "ear": "ddbc6188203df73f",
   "which word rhymes with bed?": "ddd465cc5ca9bf1b",
   "pencils": "dde2ffb9b49d2a08",
   "students talked together": "ddf0c43f9d3542fc",
@@ -43292,7 +43010,6 @@ export const audioTextIndex = {
   "not fair": "dee74b93b914065c",
   "he is angry at his backpack.": "dee9a4cc2c5eaeba",
   "sunny and warm": "defa4207de500dd4",
-  "their": "df055c669423fda1",
   "walk": "df06b147f778d46f",
   "very fair": "df10916cc1aeea46",
   "under the rocks": "df1314a6c019e860",
@@ -43320,6 +43037,7 @@ export const audioTextIndex = {
   "which letter makes the middle sound in the word 'bat'?": "e05525dcf2448d87",
   "equipment must be fancy": "e076d9729a628594",
   "he might be nervous about reading aloud.": "e07bb0f08d86a8e5",
+  "fair rules slow everyone down": "e08809a75f97f9c6",
   "factories only make bottles": "e08c76670a978547",
   "it is afternoon, and plants are being picked.": "e08d49a3fd80189f",
   "look": "e09315fa02d775f3",
@@ -43413,6 +43131,7 @@ export const audioTextIndex = {
   "rise": "e5edb94ec7c2fc31",
   "why did books fall out?": "e5f1c69308f4313c",
   "cloes": "e6041bbbb5381088",
+  "which word has the same vowel sound as octopus?": "e611eba1b0c8ed90",
   "it is rainy but warm.": "e614e1d9e0095859",
   "firefighters": "e62de041fa532a14",
   "which word starts with the letter 't' sound?": "e63641bdc36319c8",
@@ -43429,7 +43148,6 @@ export const audioTextIndex = {
   "sandcasstel": "e6e708af4f6524bf",
   "he doesn't hear the alarm at all.": "e6f8ec17df29e9e8",
   "wind": "e70091e7cdb71138",
-  "ideas are bad": "e7013d0358bf1d32",
   "the kite was on a shelf": "e7066930f561120d",
   "plays games": "e713160a5e59886c",
   "handed over the card": "e727888b13a5863e",
@@ -43440,7 +43158,9 @@ export const audioTextIndex = {
   "slide": "e75e1be665cd80a0",
   "vegitble": "e7a7d114dea5e77e",
   "what do i put on before playing outside?": "e7c3cb6cb5806af3",
+  "work is better alone": "e7c5ac21c79390c9",
   "where does the kitten sleep?": "e7cae473a366eccd",
+  "which word has the same vowel sound as bag?": "e7dd53425587e3f4",
   "she was climbing a tree.": "e7dfff84241b387c",
   "book": "e7e694c58cd50e03",
   "when do i wear my jacket?": "e800a23ff04bd16f",
@@ -43450,11 +43170,11 @@ export const audioTextIndex = {
   "which word means the opposite of east?": "e8173bff7c4a996c",
   "the mouse is very quick": "e81db0b436b57888",
   "home": "e83249bd3ba79932",
+  "water can be left running": "e833809fed2c3004",
   "which word tells what the child does?": "e844ecaa95a0c720",
   "it was very sunny and hot all day.": "e848394fe6a8fee5",
   "which letter makes the sound you hear at the beginning of the word 'cat'?": "e86a24ed7d6eb257",
   "eli forgot to bring his notebook to class.": "e86f7dfdf53f122a",
-  "sinks are toys": "e875c4643b142ea8",
   "what is the opposite of calm?": "e88d03a9c45cefb3",
   "silly": "e891b554dd524dde",
   "she is ignoring the task completely.": "e89ad4594e70e8fb",
@@ -43526,6 +43246,7 @@ export const audioTextIndex = {
   "which vowel makes the sound you hear in the middle of the word 'bed'?": "ec4e865687046006",
   "choose the word that means the opposite of ripe.": "ec530bf784d6fda3",
   "he wore new shoes without playing.": "ec55165c517381c1",
+  "which word has the same vowel sound as log?": "ec5b5fdc57ef6224",
   "do the right thing": "ec71e20c82205ab7",
   "cats and dogs": "ec7dd515eea502cc",
   "birds and rabbits": "ec81a8e53416961a",
@@ -43554,7 +43275,6 @@ export const audioTextIndex = {
   "jumps": "eda92612cf24747e",
   "without joy": "edb73a5f046dd850",
   "mittens": "ee096e633837bab1",
-  "never try new things": "ee384f69a06f59c7",
   "why did lena get them right?": "ee396faf5f353e7b",
   "rabit": "ee3f7d52ca341c51",
   "it was wet": "ee5fb3f498fe2902",
@@ -43588,7 +43308,6 @@ export const audioTextIndex = {
   "dry": "ef926a85211da9af",
   "van": "efa44987b6e36a90",
   "be a good sport": "efa75539eecb4fcc",
-  "quiet children are maps": "efb8e78aeeead400",
   "classmates never listen": "efd16fe2a4606b44",
   "the sun was bright": "efd267a89be0fab3",
   "an apple": "efde5f0b5ff895fc",
@@ -43596,7 +43315,6 @@ export const audioTextIndex = {
   "hungry": "eff2146bfbc05835",
   "he lost his lunch": "effc26215feb2e22",
   "where does the fish swim?": "f01dd381be52c93b",
-  "which word means was first in a game?": "f023a857b8ac9106",
   "which word has the /ŭ/ sound?": "f02965574698edb3",
   "rack": "f036d3de1f0247cc",
   "round": "f0590a6dd3663be1",
@@ -43644,6 +43362,7 @@ export const audioTextIndex = {
   "closs": "f2a41c459a5eeb85",
   "complete the sentence about one pet.": "f2acf45a4a98148a",
   "which word means a pointed post?": "f2ae82ca6c179010",
+  "what vowel sound do you hear in the middle of cup?": "f2cefcb5bebd2483",
   "in the box": "f2d7ed63bfc6702a",
   "flowers do not need insects": "f2e53b731c7af896",
   "goes outside to play": "f2e87f07923092b0",
@@ -43673,7 +43392,6 @@ export const audioTextIndex = {
   "because it is cold": "f41649659c60da4d",
   "away": "f416d44c605f8de8",
   "the shoe was new": "f41907341600f4d9",
-  "owners are doors": "f425e1e9ee806d14",
   "waiting without playing": "f43205084c152157",
   "which word begins with the wh digraph?": "f433ba20d9c4be30",
   "what does careful mean?": "f437022d782bd62c",
@@ -43690,6 +43408,7 @@ export const audioTextIndex = {
   "what is the opposite of strong?": "f4d61fe1e53b860d",
   "it was in the freezer": "f4d9949923bff58d",
   "hime": "f4e2c1a45ddbaba6",
+  "found items can be kept": "f4eb806be6c73ecf",
   "what did the butterfly do on the flower?": "f4ece8a96291913a",
   "she was baking cookies in the kitchen.": "f4ed9cfe41f3f25f",
   "he wanted to sit by the fence": "f4ee99d9bfb38bb7",
@@ -43728,6 +43447,7 @@ export const audioTextIndex = {
   "look at the picture. where is the cat?": "f6d9b6f557afdcf4",
   "has": "f6f39fbf678d4c03",
   "feeling sleepy": "f7027e9db0ca8d81",
+  "reading aloud is only for confident readers": "f73557de143fef95",
   "miss": "f749d76f48b905d2",
   "easy to eat": "f74cba5a791463cf",
   "what does unfair mean?": "f7507532ffc7213f",
@@ -43736,7 +43456,6 @@ export const audioTextIndex = {
   "steep": "f76290c0ffa1562e",
   "which word rhymes with top?": "f777c0b673eb9789",
   "bright blue": "f778a2be29ae7951",
-  "which word means they are?": "f78cdcc062800ad6",
   "throw": "f793522355b5ef88",
   "she practiced many times": "f79c88bfc35443b9",
   "try again after mistakes": "f79e40cfe7dec1fd",
@@ -43784,7 +43503,6 @@ export const audioTextIndex = {
   "it started raining heavily again.": "fa485d69bf089034",
   "why did the kite go higher?": "fa6a41e83c4accae",
   "th": "fa6af6e97d010a98",
-  "which word is an adjective?": "fa6dcc81ff1dde15",
   "give": "fa9f22e62229ac79",
   "shirt": "faa5d68302694fc7",
   "suddenly": "fac40e01fef1e0f7",
@@ -43793,10 +43511,8 @@ export const audioTextIndex = {
   "younger students never lose things": "fae2286ae2aa6fb6",
   "hard to see": "faebb7a5a5d718f3",
   "glass jars": "faecf083f03f3dfe",
-  "which word is a noun?": "fafb2b8d1ace6a8c",
   "complete the sentence about a place.": "fb03068ff5bc820f",
   "a game of basketball.": "fb244ed28780ad1d",
-  "games need no turns": "fb24f6e5beb15fff",
   "yes": "fb360f9c09ac8c5e",
   "which word has the fl blend?": "fb3a5966ac8d6e29",
   "playing soccer": "fb433ee93997478f",
@@ -43814,7 +43530,6 @@ export const audioTextIndex = {
   "complete the sentence about a group.": "fbe1e9e1195ee755",
   "rain": "fbec17cb2fcbbd1c",
   "tail": "fbf5f2a2875b3bb6",
-  "own": "fbf63c6adba57ff2",
   "between the books": "fc109cc51937ccd4",
   "she didn't finish the race.": "fc1be55673c85ab0",
   "who helped owen find more books?": "fc265e73dc8c4c76",
@@ -43830,7 +43545,6 @@ export const audioTextIndex = {
   "inside": "fcc537881cd1d5bc",
   "lap": "fcedddf472903165",
   "filled it with seeds": "fd017883ea806162",
-  "no": "fd1286353570c570",
   "what showed that the seeds had started to grow?": "fd199cf46a314c00",
   "messy": "fd278a35b9e3cf48",
   "not run": "fd55e96d737de4da",
@@ -43861,7 +43575,6 @@ export const audioTextIndex = {
   "fox": "ff0f0a8b656f0b44",
   "the dog": "ff10f15d53a793c2",
   "beg": "ff14a362669695cc",
-  "which word means an animal with a mane?": "ff240eec0b23919e",
   "after dinner": "ff33451c3b80b5d2",
   "dug": "ff3bde741799c0ef",
   "sam carried his costume to school": "ff3ced2e74f55e0a",
@@ -43873,16 +43586,17 @@ export const audioTextIndex = {
   "have": "ff87cea4a48b7734",
   "houze": "ff9be3865c4ff185",
   "which word means to leap into the air?": "ffa6fa67b5ed3e23",
-  "bone": "ffdf4ccbf050a0f3"
+  "bone": "ffdf4ccbf050a0f3",
+  "which word has the same vowel sound as hen?": "fffbe56e891ed7ff"
 };
 
 export const audioManifestStats = {
-  "entries": 4387,
-  "questionsScanned": 1711,
+  "entries": 4358,
+  "questionsScanned": 1682,
   "collectedUses": {
-    "prompt": 1711,
-    "choice": 6701,
-    "spokenPrompt": 103,
+    "prompt": 1682,
+    "choice": 6585,
+    "spokenPrompt": 162,
     "audioText": 0,
     "passage": 0
   }

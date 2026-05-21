@@ -818,25 +818,25 @@ addRows("exp7_context_clues", contextClues, ([passage, question, answer, wrongs]
 }));
 
 const themes = [
-  ["Ava helped a new student find the lunch line.", "What lesson does this teach?", "kindness helps others", ["lines are always long", "lunch is never good", "new students are maps"]],
+  ["Ava helped a new student find the lunch line.", "What lesson does this teach?", "kindness helps others", ["lines are always long", "lunch is never good", "new students should find the way alone"]],
   ["Noah kept trying the puzzle until the last piece fit.", "What lesson does this teach?", "keep trying", ["give up quickly", "puzzles are food", "never think"]],
   ["Maya told the truth about spilling the paint.", "What lesson does this teach?", "honesty matters", ["hide mistakes", "paint is always blue", "never clean"]],
-  ["The team shared ideas and built a strong bridge.", "What lesson does this teach?", "teamwork helps", ["only one person matters", "bridges are soft", "ideas are bad"]],
+  ["The team shared ideas and built a strong bridge.", "What lesson does this teach?", "teamwork helps", ["only one person matters", "bridges are soft", "working alone is always better"]],
   ["Leo was nervous but read his poem to the class.", "What lesson does this teach?", "being brave can help", ["never read", "poems are scary forever", "classes are quiet"]],
   ["Emma gave half her snack to a friend who forgot one.", "What lesson does this teach?", "sharing is kind", ["snacks are heavy", "friends never help", "forgetting is best"]],
-  ["Sam cleaned the park even though he did not make the mess.", "What lesson does this teach?", "helping the community is good", ["parks are food", "never pick up trash", "messes are toys"]],
+  ["Sam cleaned the park even though he did not make the mess.", "What lesson does this teach?", "helping the community is good", ["parks should be cleaned only by workers", "never pick up trash", "messes should be left alone"]],
   ["Ivy practiced the song each day before the concert.", "What lesson does this teach?", "practice helps you improve", ["never practice", "songs are only paper", "concerts are always easy"]],
-  ["Jamal listened when his partner had a different idea.", "What lesson does this teach?", "listen to others", ["ignore partners", "ideas are toys", "talking is always bad"]],
+  ["Jamal listened when his partner had a different idea.", "What lesson does this teach?", "listen to others", ["ignore partners", "only one idea should be used", "talking is always bad"]],
   ["Rosa waited patiently for her turn on the swing.", "What lesson does this teach?", "patience matters", ["always push ahead", "swings are books", "waiting is impossible"]],
-  ["Kai fixed the block tower after it fell.", "What lesson does this teach?", "try again after mistakes", ["mistakes mean stop", "blocks are food", "falling is winning"]],
-  ["Nina invited a quiet child to join the game.", "What lesson does this teach?", "include others", ["games are only for one", "quiet children are maps", "never invite anyone"]],
-  ["Owen returned the lost mitten to its owner.", "What lesson does this teach?", "do the right thing", ["keep lost things", "mittens can talk", "owners are doors"]],
-  ["The class saved water by turning off the sink.", "What lesson does this teach?", "care for resources", ["leave water running", "sinks are toys", "water is never useful"]],
+  ["Kai fixed the block tower after it fell.", "What lesson does this teach?", "try again after mistakes", ["mistakes mean stop", "building is always easy", "falling is winning"]],
+  ["Nina invited a quiet child to join the game.", "What lesson does this teach?", "include others", ["only fast players should join", "quiet children should not play", "games are better with fewer people"]],
+  ["Owen returned the lost mitten to its owner.", "What lesson does this teach?", "do the right thing", ["keep lost things", "lost things are not important", "found items can be kept"]],
+  ["The class saved water by turning off the sink.", "What lesson does this teach?", "care for resources", ["leave water running", "saving water does not matter", "water can be left running"]],
   ["Tara apologized after bumping into her friend.", "What lesson does this teach?", "apologize when needed", ["never say sorry", "friends are chairs", "bumping is best"]],
-  ["Ben chose a fair rule so everyone could play.", "What lesson does this teach?", "fairness matters", ["rules are always bad", "only Ben should play", "games need no turns"]],
-  ["Lily picked up books that fell from the shelf.", "What lesson does this teach?", "help without being asked", ["books should stay down", "shelves are food", "never help"]],
-  ["Mateo stayed calm and solved the problem step by step.", "What lesson does this teach?", "stay calm when solving problems", ["panic first", "steps are never useful", "problems are toys"]],
-  ["Zoe thanked her friend for helping with the poster.", "What lesson does this teach?", "show gratitude", ["never thank helpers", "posters are heavy", "friends do not matter"]]
+  ["Ben chose a fair rule so everyone could play.", "What lesson does this teach?", "fairness matters", ["fair rules slow everyone down", "the best player should go first every time", "taking turns is not important"]],
+  ["Lily picked up books that fell from the shelf.", "What lesson does this teach?", "help without being asked", ["someone else should clean up", "fallen books can be ignored", "never help"]],
+  ["Mateo stayed calm and solved the problem step by step.", "What lesson does this teach?", "stay calm when solving problems", ["panic first", "steps are never useful", "solving problems should be rushed"]],
+  ["Zoe thanked her friend for helping with the poster.", "What lesson does this teach?", "show gratitude", ["never thank helpers", "helpers do not need thanks", "work is better alone"]]
 ];
 
 addRows("exp7_theme", themes, ([passage, question, answer, wrongs], index, id) => ({

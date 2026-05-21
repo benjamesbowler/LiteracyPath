@@ -463,7 +463,8 @@ export const templateExpansion7 = [
       "big",
       "bug"
     ],
-    "answer": "bag"
+    "answer": "bag",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp7_short_vowel_2",
@@ -481,7 +482,8 @@ export const templateExpansion7 = [
       "cop",
       "dip"
     ],
-    "answer": "cap"
+    "answer": "cap",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp7_short_vowel_3",
@@ -499,7 +501,8 @@ export const templateExpansion7 = [
       "hit",
       "hot"
     ],
-    "answer": "hen"
+    "answer": "hen",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp7_short_vowel_4",
@@ -517,7 +520,8 @@ export const templateExpansion7 = [
       "lag",
       "lug"
     ],
-    "answer": "leg"
+    "answer": "leg",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp7_short_vowel_5",
@@ -535,7 +539,8 @@ export const templateExpansion7 = [
       "dug",
       "dag"
     ],
-    "answer": "dig"
+    "answer": "dig",
+    "spokenPrompt": "Which word has the same vowel sound as itch?"
   },
   {
     "id": "exp7_short_vowel_6",
@@ -553,7 +558,8 @@ export const templateExpansion7 = [
       "lop",
       "cup"
     ],
-    "answer": "lip"
+    "answer": "lip",
+    "spokenPrompt": "Which word has the same vowel sound as itch?"
   },
   {
     "id": "exp7_short_vowel_7",
@@ -561,7 +567,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as fox?",
+    "question": "Which word has the same vowel sound as log?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -571,7 +577,8 @@ export const templateExpansion7 = [
       "tap",
       "tub"
     ],
-    "answer": "top"
+    "answer": "top",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp7_short_vowel_8",
@@ -589,7 +596,8 @@ export const templateExpansion7 = [
       "lag",
       "lug"
     ],
-    "answer": "log"
+    "answer": "log",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp7_short_vowel_9",
@@ -607,7 +615,8 @@ export const templateExpansion7 = [
       "sin",
       "sat"
     ],
-    "answer": "sun"
+    "answer": "sun",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp7_short_vowel_10",
@@ -625,7 +634,8 @@ export const templateExpansion7 = [
       "cop",
       "tip"
     ],
-    "answer": "cup"
+    "answer": "cup",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp7_short_vowel_11",
@@ -643,7 +653,8 @@ export const templateExpansion7 = [
       "him",
       "hum"
     ],
-    "answer": "ham"
+    "answer": "ham",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp7_short_vowel_12",
@@ -661,7 +672,8 @@ export const templateExpansion7 = [
       "not",
       "nat"
     ],
-    "answer": "net"
+    "answer": "net",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp7_short_vowel_13",
@@ -679,7 +691,8 @@ export const templateExpansion7 = [
       "wen",
       "won"
     ],
-    "answer": "win"
+    "answer": "win",
+    "spokenPrompt": "Which word has the same vowel sound as itch?"
   },
   {
     "id": "exp7_short_vowel_14",
@@ -697,7 +710,8 @@ export const templateExpansion7 = [
       "rid",
       "rug"
     ],
-    "answer": "rod"
+    "answer": "rod",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp7_short_vowel_15",
@@ -715,7 +729,8 @@ export const templateExpansion7 = [
       "hot",
       "hat"
     ],
-    "answer": "hut"
+    "answer": "hut",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp7_short_vowel_16",
@@ -733,7 +748,8 @@ export const templateExpansion7 = [
       "mug",
       "men"
     ],
-    "answer": "map"
+    "answer": "map",
+    "spokenPrompt": "Which word has the same vowel sound as apple?"
   },
   {
     "id": "exp7_short_vowel_17",
@@ -751,7 +767,8 @@ export const templateExpansion7 = [
       "pit",
       "pot"
     ],
-    "answer": "pet"
+    "answer": "pet",
+    "spokenPrompt": "Which word has the same vowel sound as egg?"
   },
   {
     "id": "exp7_short_vowel_18",
@@ -769,7 +786,8 @@ export const templateExpansion7 = [
       "cod",
       "cud"
     ],
-    "answer": "kid"
+    "answer": "kid",
+    "spokenPrompt": "Which word has the same vowel sound as itch?"
   },
   {
     "id": "exp7_short_vowel_19",
@@ -777,7 +795,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as box?",
+    "question": "Which word has the same vowel sound as dog?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -787,7 +805,8 @@ export const templateExpansion7 = [
       "cut",
       "kit"
     ],
-    "answer": "cot"
+    "answer": "cot",
+    "spokenPrompt": "Which word has the same vowel sound as octopus?"
   },
   {
     "id": "exp7_short_vowel_20",
@@ -805,7 +824,8 @@ export const templateExpansion7 = [
       "rig",
       "rog"
     ],
-    "answer": "rug"
+    "answer": "rug",
+    "spokenPrompt": "Which word has the same vowel sound as up?"
   },
   {
     "id": "exp7_cvc_1",
@@ -1118,17 +1138,17 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "Find the word fox.",
+    "spokenPrompt": "Find the word nut.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "fox",
-      "fix",
-      "fax",
-      "fun"
+      "nut",
+      "net",
+      "not",
+      "nap"
     ],
-    "answer": "fox"
+    "answer": "nut"
   },
   {
     "id": "exp7_cvc_18",
@@ -3613,7 +3633,7 @@ export const templateExpansion7 = [
     "skill": "nouns",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a noun?",
+    "question": "Which word names a thing?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -3685,7 +3705,7 @@ export const templateExpansion7 = [
     "skill": "nouns",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a noun?",
+    "question": "Which word names a thing?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -3829,7 +3849,7 @@ export const templateExpansion7 = [
     "skill": "nouns",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a noun?",
+    "question": "Which word names a thing?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -3919,7 +3939,7 @@ export const templateExpansion7 = [
     "skill": "nouns",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a noun?",
+    "question": "Which word names a thing?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4009,7 +4029,7 @@ export const templateExpansion7 = [
     "skill": "nouns",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a noun?",
+    "question": "Which word names a thing?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4099,7 +4119,7 @@ export const templateExpansion7 = [
     "skill": "nouns",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a noun?",
+    "question": "Which word names a thing?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4189,7 +4209,7 @@ export const templateExpansion7 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4243,7 +4263,7 @@ export const templateExpansion7 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4297,7 +4317,7 @@ export const templateExpansion7 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4351,7 +4371,7 @@ export const templateExpansion7 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4405,7 +4425,7 @@ export const templateExpansion7 = [
     "skill": "verbs",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is a verb?",
+    "question": "Which word tells an action?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4513,7 +4533,7 @@ export const templateExpansion7 = [
     "skill": "adjectives",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is an adjective?",
+    "question": "Which word describes something?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -4657,7 +4677,7 @@ export const templateExpansion7 = [
     "skill": "adjectives",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word is an adjective?",
+    "question": "Which word describes something?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -5354,42 +5374,6 @@ export const templateExpansion7 = [
     "answer": "write again"
   },
   {
-    "id": "exp7_homophones_1",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means a piece of mail?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "letter",
-      "lettuce",
-      "later",
-      "ladder"
-    ],
-    "answer": "letter"
-  },
-  {
-    "id": "exp7_homophones_2",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means an animal with a mane?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "horse",
-      "hoarse",
-      "house",
-      "hose"
-    ],
-    "answer": "horse"
-  },
-  {
     "id": "exp7_homophones_3",
     "grade": "2",
     "skill": "homophones",
@@ -5424,42 +5408,6 @@ export const templateExpansion7 = [
       "read"
     ],
     "answer": "rode"
-  },
-  {
-    "id": "exp7_homophones_5",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means a place where food is sold?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "store",
-      "story",
-      "stair",
-      "stare"
-    ],
-    "answer": "store"
-  },
-  {
-    "id": "exp7_homophones_6",
-    "grade": "2",
-    "skill": "homophones",
-    "difficulty": 4,
-    "passage": "",
-    "question": "Which word means a tale?",
-    "image": "",
-    "imagePath": "",
-    "questionType": "multiple_choice",
-    "choices": [
-      "story",
-      "store",
-      "stair",
-      "stare"
-    ],
-    "answer": "story"
   },
   {
     "id": "exp7_homophones_7",
@@ -7383,7 +7331,7 @@ export const templateExpansion7 = [
       "kindness helps others",
       "lines are always long",
       "lunch is never good",
-      "new students are maps"
+      "new students should find the way alone"
     ],
     "answer": "kindness helps others"
   },
@@ -7437,7 +7385,7 @@ export const templateExpansion7 = [
       "teamwork helps",
       "only one person matters",
       "bridges are soft",
-      "ideas are bad"
+      "working alone is always better"
     ],
     "answer": "teamwork helps"
   },
@@ -7489,9 +7437,9 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "helping the community is good",
-      "parks are food",
+      "parks should be cleaned only by workers",
       "never pick up trash",
-      "messes are toys"
+      "messes should be left alone"
     ],
     "answer": "helping the community is good"
   },
@@ -7526,7 +7474,7 @@ export const templateExpansion7 = [
     "choices": [
       "listen to others",
       "ignore partners",
-      "ideas are toys",
+      "only one idea should be used",
       "talking is always bad"
     ],
     "answer": "listen to others"
@@ -7562,7 +7510,7 @@ export const templateExpansion7 = [
     "choices": [
       "try again after mistakes",
       "mistakes mean stop",
-      "blocks are food",
+      "building is always easy",
       "falling is winning"
     ],
     "answer": "try again after mistakes"
@@ -7579,9 +7527,9 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "include others",
-      "games are only for one",
-      "quiet children are maps",
-      "never invite anyone"
+      "only fast players should join",
+      "quiet children should not play",
+      "games are better with fewer people"
     ],
     "answer": "include others"
   },
@@ -7598,8 +7546,8 @@ export const templateExpansion7 = [
     "choices": [
       "do the right thing",
       "keep lost things",
-      "mittens can talk",
-      "owners are doors"
+      "lost things are not important",
+      "found items can be kept"
     ],
     "answer": "do the right thing"
   },
@@ -7616,8 +7564,8 @@ export const templateExpansion7 = [
     "choices": [
       "care for resources",
       "leave water running",
-      "sinks are toys",
-      "water is never useful"
+      "saving water does not matter",
+      "water can be left running"
     ],
     "answer": "care for resources"
   },
@@ -7651,9 +7599,9 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "fairness matters",
-      "rules are always bad",
-      "only Ben should play",
-      "games need no turns"
+      "fair rules slow everyone down",
+      "the best player should go first every time",
+      "taking turns is not important"
     ],
     "answer": "fairness matters"
   },
@@ -7669,8 +7617,8 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "help without being asked",
-      "books should stay down",
-      "shelves are food",
+      "someone else should clean up",
+      "fallen books can be ignored",
       "never help"
     ],
     "answer": "help without being asked"
@@ -7689,7 +7637,7 @@ export const templateExpansion7 = [
       "stay calm when solving problems",
       "panic first",
       "steps are never useful",
-      "problems are toys"
+      "solving problems should be rushed"
     ],
     "answer": "stay calm when solving problems"
   },
@@ -7706,8 +7654,8 @@ export const templateExpansion7 = [
     "choices": [
       "show gratitude",
       "never thank helpers",
-      "posters are heavy",
-      "friends do not matter"
+      "helpers do not need thanks",
+      "work is better alone"
     ],
     "answer": "show gratitude"
   }
