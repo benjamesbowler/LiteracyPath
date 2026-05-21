@@ -1,3 +1,34 @@
+const initialSoundAudioExamples = {
+  b: "banana",
+  c: "cookie",
+  d: "door",
+  f: "fan",
+  g: "go",
+  h: "house",
+  l: "lion",
+  m: "milk",
+  n: "nose",
+  p: "pizza",
+  r: "rabbit",
+  s: "snake",
+  t: "table",
+  w: "water",
+  y: "yellow"
+};
+
+const finalSoundAudioExamples = {
+  d: "road",
+  f: "roof",
+  g: "frog",
+  k: "bike",
+  l: "ball",
+  m: "home",
+  n: "green",
+  p: "hop",
+  s: "mouse",
+  t: "light"
+};
+
 export const masteryExtraQuestions = [
   ...["m","s","t","p","b","n","f","g","d","l","r","h","c","w","y"].map((sound, i) => ({
     id: `extra_initial_${i + 1}`,
@@ -6,6 +37,7 @@ export const masteryExtraQuestions = [
     difficulty: 1,
     passage: "",
     question: `Which word begins with the /${sound}/ sound?`,
+    spokenPrompt: `Which word begins like ${initialSoundAudioExamples[sound]}?`,
     choices: {
       m:["moon","sun","fish","dog"],
       s:["sun","moon","fish","dog"],
@@ -36,6 +68,7 @@ export const masteryExtraQuestions = [
     difficulty: 1,
     passage: "",
     question: `Which word ends with the /${sound}/ sound?`,
+    spokenPrompt: `Which word ends like ${finalSoundAudioExamples[sound]}?`,
     choices: {
       t:["hat","ham","had","hag"],
       p:["map","mat","man","mad"],

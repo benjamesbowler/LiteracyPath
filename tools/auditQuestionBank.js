@@ -66,6 +66,17 @@ const obviousQuestionStems = [
   "which one is correct"
 ];
 
+const metaPhonicsPatterns = [
+  /\bwhich (word|choice) is a cvc word\b/i,
+  /\bwhich choice is a cvc word\b/i
+];
+
+const unsafeShortVowelAudioPattern =
+  /\bshort [aeiou] sound\b/i;
+
+const phonemeSlashPattern =
+  /\/[a-z]{1,3}\//i;
+
 const answerVisibleStopwords = new Set([
   "a",
   "an",
@@ -300,6 +311,33 @@ function auditQuestions() {
         "unclear wording",
         item,
         `Question wording is too vague: "${question.question}".`
+      );
+    }
+
+    if (metaPhonicsPatterns.some(pattern => pattern.test(question.question || ""))) {
+      addProblem(
+        problems,
+        "meta phonics wording",
+        item,
+        `Student-facing prompt uses CVC jargon: "${question.question}".`
+      );
+    }
+
+    if (unsafeShortVowelAudioPattern.test(question.question || "") && !question.spokenPrompt && !question.audioText) {
+      addProblem(
+        problems,
+        "unsafe phonics audio wording",
+        item,
+        `Short-vowel prompt needs spokenPrompt/audioText so TTS does not read letter names: "${question.question}".`
+      );
+    }
+
+    if (phonemeSlashPattern.test(question.question || "") && !question.spokenPrompt && !question.audioText) {
+      addProblem(
+        problems,
+        "phoneme prompt missing safe audio",
+        item,
+        `Prompt contains slash phoneme notation but no spokenPrompt/audioText: "${question.question}".`
       );
     }
 

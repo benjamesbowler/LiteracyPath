@@ -33,6 +33,28 @@ const usedQuestionText = new Set(
 const generatedIds = new Set();
 const templateExpansion7 = [];
 
+const initialSoundAudioExamples = {
+  "/b/": "banana",
+  "/f/": "fan",
+  "/h/": "house",
+  "/j/": "juice",
+  "/m/": "milk",
+  "/r/": "rabbit",
+  "/s/": "snake",
+  "/t/": "table"
+};
+
+const finalSoundAudioExamples = {
+  "/d/": "road",
+  "/g/": "frog",
+  "/k/": "bike",
+  "/m/": "home",
+  "/n/": "green",
+  "/p/": "hop",
+  "/s/": "mouse",
+  "/t/": "light"
+};
+
 function normalize(text) {
   return String(text || "")
     .toLowerCase()
@@ -75,6 +97,7 @@ function add(q) {
     difficulty: q.difficulty,
     passage: q.passage || "",
     question: q.question,
+    ...(q.spokenPrompt ? { spokenPrompt: q.spokenPrompt } : {}),
     image: q.image || "",
     imagePath: q.imagePath || "",
     questionType: q.questionType || "multiple_choice",
@@ -102,6 +125,7 @@ addRows("exp7_initial", [
   skill: "initial sounds",
   difficulty: 1,
   question: `Which word starts with the ${sound} sound?`,
+  spokenPrompt: `Which word starts like ${initialSoundAudioExamples[sound]}?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -121,6 +145,7 @@ addRows("exp7_final", [
   skill: "final sounds",
   difficulty: 1,
   question: `Which word ends with the ${sound} sound?`,
+  spokenPrompt: `Which word ends like ${finalSoundAudioExamples[sound]}?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -176,31 +201,31 @@ addRows("exp7_short_vowel", [
 }));
 
 addRows("exp7_cvc", [
-  ["Which choice is a CVC word?", "cat", ["cake", "rain", "ship"]],
-  ["Which choice is a CVC word?", "bed", ["bead", "tree", "chair"]],
-  ["Which choice is a CVC word?", "hop", ["hope", "boat", "brush"]],
-  ["Which choice is a CVC word?", "mud", ["moon", "slide", "green"]],
-  ["Which choice is a CVC word?", "fin", ["fine", "train", "shell"]],
-  ["Which choice is a CVC word?", "log", ["light", "float", "stick"]],
-  ["Which choice is a CVC word?", "cup", ["cube", "spoon", "three"]],
-  ["Which choice is a CVC word?", "map", ["mail", "plant", "cheese"]],
-  ["Which choice is a CVC word?", "rug", ["road", "smile", "white"]],
-  ["Which choice is a CVC word?", "pet", ["peach", "clock", "storm"]],
-  ["Which choice is a CVC word?", "jam", ["jump", "rain", "shine"]],
-  ["Which choice is a CVC word?", "sit", ["sight", "chair", "plate"]],
-  ["Which choice is a CVC word?", "pot", ["paint", "glass", "wheel"]],
-  ["Which choice is a CVC word?", "hen", ["herd", "whale", "green"]],
-  ["Which choice is a CVC word?", "bag", ["beach", "stone", "black"]],
-  ["Which choice is a CVC word?", "red", ["read", "brush", "train"]],
-  ["Which choice is a CVC word?", "fox", ["fork", "goat", "sheep"]],
-  ["Which choice is a CVC word?", "sun", ["snow", "slide", "three"]],
-  ["Which choice is a CVC word?", "pin", ["plain", "chair", "storm"]],
-  ["Which choice is a CVC word?", "top", ["toast", "glove", "wheel"]],
-  ["Which choice is a CVC word?", "web", ["weed", "shell", "plant"]],
-  ["Which choice is a CVC word?", "cab", ["crab", "cube", "light"]],
-  ["Which choice is a CVC word?", "zip", ["ship", "soap", "tree"]],
-  ["Which choice is a CVC word?", "gum", ["goat", "drum", "bright"]],
-  ["Which choice is a CVC word?", "van", ["vase", "snail", "phone"]]
+  ["Which word has 3 letters and 3 sounds?", "cat", ["cake", "rain", "ship"]],
+  ["Which word has 3 letters and 3 sounds?", "bed", ["bead", "tree", "chair"]],
+  ["Which word has 3 letters and 3 sounds?", "hop", ["hope", "boat", "brush"]],
+  ["Which word has 3 letters and 3 sounds?", "mud", ["moon", "slide", "green"]],
+  ["Which word has 3 letters and 3 sounds?", "fin", ["fine", "train", "shell"]],
+  ["Which word has 3 letters and 3 sounds?", "log", ["light", "float", "stick"]],
+  ["Which word has 3 letters and 3 sounds?", "cup", ["cube", "spoon", "three"]],
+  ["Which word has 3 letters and 3 sounds?", "map", ["mail", "plant", "cheese"]],
+  ["Which word has 3 letters and 3 sounds?", "rug", ["road", "smile", "white"]],
+  ["Which word has 3 letters and 3 sounds?", "pet", ["peach", "clock", "storm"]],
+  ["Which word has 3 letters and 3 sounds?", "jam", ["jump", "rain", "shine"]],
+  ["Which word has 3 letters and 3 sounds?", "sit", ["sight", "chair", "plate"]],
+  ["Which word has 3 letters and 3 sounds?", "pot", ["paint", "glass", "wheel"]],
+  ["Which word has 3 letters and 3 sounds?", "hen", ["herd", "whale", "green"]],
+  ["Which word has 3 letters and 3 sounds?", "bag", ["beach", "stone", "black"]],
+  ["Which word has 3 letters and 3 sounds?", "red", ["read", "brush", "train"]],
+  ["Which word has 3 letters and 3 sounds?", "fox", ["fork", "goat", "sheep"]],
+  ["Which word has 3 letters and 3 sounds?", "sun", ["snow", "slide", "three"]],
+  ["Which word has 3 letters and 3 sounds?", "pin", ["plain", "chair", "storm"]],
+  ["Which word has 3 letters and 3 sounds?", "top", ["toast", "glove", "wheel"]],
+  ["Which word has 3 letters and 3 sounds?", "web", ["weed", "shell", "plant"]],
+  ["Which word has 3 letters and 3 sounds?", "cab", ["crab", "cube", "light"]],
+  ["Which word has 3 letters and 3 sounds?", "zip", ["ship", "soap", "tree"]],
+  ["Which word has 3 letters and 3 sounds?", "gum", ["goat", "drum", "bright"]],
+  ["Which word has 3 letters and 3 sounds?", "van", ["vase", "snail", "phone"]]
 ], ([question, answer, wrongs], index, id) => ({
   id,
   grade: "K",

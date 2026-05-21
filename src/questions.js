@@ -5,6 +5,7 @@ export const questions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "question": "Which word starts with /b/?",
+    "spokenPrompt": "Which word starts like banana?",
     "image": "🦇",
     "choices": [
       "bat",
@@ -20,6 +21,7 @@ export const questions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "question": "Which word starts with /m/?",
+    "spokenPrompt": "Which word starts like milk?",
     "image": "🐒",
     "choices": [
       "moon",
@@ -35,6 +37,7 @@ export const questions = [
     "skill": "final sounds",
     "difficulty": 2,
     "question": "Which word ends with /t/?",
+    "spokenPrompt": "Which word ends like light?",
     "image": "🎩",
     "choices": [
       "hat",

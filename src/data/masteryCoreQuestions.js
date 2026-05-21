@@ -5,7 +5,7 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word is a CVC word?",
+    "question": "Which word has 3 letters and 3 sounds?",
     "choices": [
       "cat",
       "cake",
@@ -20,7 +20,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a short a sound?",
+    "question": "Which word has the /ă/ sound?",
+    "spokenPrompt": "Which word has the vowel sound in apple?",
     "choices": [
       "map",
       "mop",
@@ -35,7 +36,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a short e sound?",
+    "question": "Which word has the /ĕ/ sound?",
+    "spokenPrompt": "Which word has the vowel sound in egg?",
     "choices": [
       "bed",
       "bad",
@@ -50,7 +52,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a short i sound?",
+    "question": "Which word has the /ĭ/ sound?",
+    "spokenPrompt": "Which word has the vowel sound in itch?",
     "choices": [
       "sit",
       "sat",
@@ -65,7 +68,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a short o sound?",
+    "question": "Which word has the /ŏ/ sound?",
+    "spokenPrompt": "Which word has the vowel sound in octopus?",
     "choices": [
       "pot",
       "pat",
@@ -80,7 +84,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a short u sound?",
+    "question": "Which word has the /ŭ/ sound?",
+    "spokenPrompt": "Which word has the vowel sound in up?",
     "choices": [
       "cup",
       "cap",

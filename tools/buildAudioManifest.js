@@ -92,6 +92,7 @@ const stats = {
   prompt: 0,
   choice: 0,
   spokenPrompt: 0,
+  audioText: 0,
   passage: 0
 };
 
@@ -103,6 +104,7 @@ for (const [, bank] of questionBanks) {
 
     addEntry(entries, stats, question.prompt || question.question, "prompt");
     addEntry(entries, stats, question.spokenPrompt, "spokenPrompt");
+    addEntry(entries, stats, question.audioText, "audioText");
 
     if (Array.isArray(question.choices)) {
       for (const choice of question.choices) {

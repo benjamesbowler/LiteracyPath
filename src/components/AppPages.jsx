@@ -956,7 +956,7 @@ export function AssessmentPage({
             <div className="question-line">
               <button
                 className="mini-audio-button"
-                onClick={() => speakText(currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question)}
+                onClick={() => speakText(currentQuestion.audioText || currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question)}
                 aria-label="Listen to question"
                 type="button"
               >

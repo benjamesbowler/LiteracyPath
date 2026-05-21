@@ -172,6 +172,7 @@ export const generatedQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "What word is made when you blend the sounds /c/ /a/ /t/?",
+    "spokenPrompt": "What word is made when you blend kuh, ah, tuh?",
     "choices": [
       "cat",
       "cap",
@@ -353,6 +354,7 @@ export const generatedQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "Choose the word with the beginning sound /f/.",
+    "spokenPrompt": "Choose the word that starts like frog.",
     "choices": [
       "fan",
       "van",
@@ -398,6 +400,7 @@ export const generatedQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "What letter blends with /s/ to make the sound at the start of 'stop'?",
+    "spokenPrompt": "What letter comes after the first sound in stop?",
     "choices": [
       "t",
       "p",
@@ -1106,6 +1109,7 @@ export const generatedQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "Which word begins with the sound /st/?",
+    "spokenPrompt": "Which word starts like stem?",
     "choices": [
       "stop",
       "top",
