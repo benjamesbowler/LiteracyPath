@@ -1364,12 +1364,13 @@ export default function App() {
   function shouldShowImage(question) {
     const skill = normalize(question.skill);
 
-    return (
+    return Boolean(question.imagePath) && (
+      question.question === "Listen and find the word." ||
       skill.includes("vocabulary") ||
       skill.includes("preposition") ||
       skill.includes("emotion") ||
       skill.includes("picture comprehension")
-    ) && Boolean(question.imagePath);
+    );
   }
 
   function flagCurrentQuestion() {

@@ -187,6 +187,29 @@ function finalKsCvcIssue(question, stage) {
     : null;
 }
 
+function cvcListenAudioIssue(question, stage) {
+  if (stage !== "CVC and Short Vowels") return null;
+  if (question.question !== "Listen and find the word.") return null;
+
+  const answer = normalize(question.answer);
+  const spokenPrompt = question.spokenPrompt ? normalize(question.spokenPrompt) : "";
+  const audioText = question.audioText ? normalize(question.audioText) : "";
+
+  if (!spokenPrompt && !audioText) {
+    return "CVC listening question needs spokenPrompt/audioText equal to the target answer.";
+  }
+
+  if (spokenPrompt && spokenPrompt !== answer) {
+    return `spokenPrompt must be only the target answer "${question.answer}", not "${question.spokenPrompt}".`;
+  }
+
+  if (audioText && audioText !== answer) {
+    return `audioText must be only the target answer "${question.answer}", not "${question.audioText}".`;
+  }
+
+  return null;
+}
+
 function earlyPhonicsBoundaryIssue(question, stage) {
   if (!earlyPhonicsStages.has(stage)) return null;
 
@@ -480,6 +503,18 @@ function auditQuestions() {
         "final ks in beginner cvc",
         item,
         finalKsProblem
+      );
+    }
+
+    const cvcListenProblem =
+      cvcListenAudioIssue(question, stage);
+
+    if (cvcListenProblem) {
+      addProblem(
+        problems,
+        "cvc listen audio text",
+        item,
+        cvcListenProblem
       );
     }
 

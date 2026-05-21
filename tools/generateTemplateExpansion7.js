@@ -55,6 +55,12 @@ const finalSoundAudioExamples = {
   "/t/": "light"
 };
 
+const cvcImagePaths = {
+  cat: "/images/general/cat_sleeping.png",
+  cup: "/images/prepositions/cup_between_books.png",
+  dog: "/images/general/dog_running.png"
+};
+
 function normalize(text) {
   return String(text || "")
     .toLowerCase()
@@ -235,7 +241,8 @@ addRows("exp7_cvc", [
   skill: "cvc",
   difficulty: 1,
   question: "Listen and find the word.",
-  spokenPrompt: `Find the word ${answer}.`,
+  spokenPrompt: answer,
+  imagePath: cvcImagePaths[answer] || "",
   choices: choices(answer, wrongs),
   answer
 }));

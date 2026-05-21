@@ -6,14 +6,15 @@ export const masteryCoreQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "Find the word cat.",
+    "spokenPrompt": "cat",
     "choices": [
       "cat",
       "cap",
       "cot",
       "cut"
     ],
-    "answer": "cat"
+    "answer": "cat",
+    "imagePath": "/images/general/cat_sleeping.png"
   },
   {
     "id": "core_cvc_002",
