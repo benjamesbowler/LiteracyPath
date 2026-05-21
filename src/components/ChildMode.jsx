@@ -235,7 +235,7 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
   }
 
   return (
-    <main className="child-mode child-activity-screen">
+    <main className="child-mode child-mode-page child-activity-screen child-activity-shell">
       <section className="child-world-zone">
         <button className="child-exit-button child-map-button" onClick={returnToMap} type="button">
           Path

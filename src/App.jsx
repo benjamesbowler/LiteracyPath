@@ -3129,9 +3129,14 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     appView === "letters" ||
     appView === "advancedPhonics" ||
     appView === "childMode";
+  const appShellClassName = [
+    "app",
+    isFocusedAssessment ? "assessment-app" : "",
+    appView === "childMode" ? "learning-world-app" : ""
+  ].filter(Boolean).join(" ");
 
   return (
-    <div className={isFocusedAssessment ? "app assessment-app" : "app"}>
+    <div className={appShellClassName}>
       {showConfetti && <Confetti recycle={false} numberOfPieces={90} />}
 
       {!isFocusedAssessment && (
