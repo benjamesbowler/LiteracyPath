@@ -35,6 +35,7 @@ import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { audioManifest, audioTextIndex } from "./data/audioManifest";
+import { ChildModePage } from "./components/ChildMode";
 import {
   applyQuestionFormatMetadata,
   getQuestionFormatMetadata,
@@ -3011,6 +3012,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     setAppView("finished");
   }
 
+  function openChildMode() {
+    setAppView("childMode");
+  }
+
   function changeAdminFlagStatusFilter(nextStatus) {
     setAdminFlagStatusFilter(nextStatus);
     loadAdminDashboard(nextStatus);
@@ -3059,7 +3064,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const isFocusedAssessment =
     appView === "assessment" ||
     appView === "letters" ||
-    appView === "advancedPhonics";
+    appView === "advancedPhonics" ||
+    appView === "childMode";
 
   return (
     <div className={isFocusedAssessment ? "app assessment-app" : "app"}>
@@ -3078,6 +3084,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           logOutTeacher={logOutTeacher}
           isAdmin={isAdmin}
           openAdminDashboard={openAdminDashboard}
+          openChildMode={openChildMode}
         />
       )}
 

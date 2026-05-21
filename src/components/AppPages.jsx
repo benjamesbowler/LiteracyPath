@@ -154,7 +154,8 @@ export function TopNavigation({
   teacherEmail,
   logOutTeacher,
   isAdmin,
-  openAdminDashboard
+  openAdminDashboard,
+  openChildMode
 }) {
   const steps = [
     { id: "select", label: "Class/Student Select" },
@@ -211,6 +212,10 @@ export function TopNavigation({
           disabled={!nameSaved}
         >
           View Report
+        </button>
+
+        <button className="nav-button" onClick={openChildMode}>
+          Learning World
         </button>
 
         {isAdmin && (
