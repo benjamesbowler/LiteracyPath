@@ -122,100 +122,111 @@ export const childImageAssets = {
   }
 };
 
-const shortAWordSets = {
-  cat: ["cat", "bat", "hat", "cap"],
-  bat: ["bat", "cat", "hat", "map"],
-  hat: ["hat", "bat", "cat", "cap"],
-  map: ["map", "cap", "nap", "man"],
-  cap: ["cap", "cat", "map", "nap"],
-  pan: ["pan", "man", "nap", "cap"],
-  man: ["man", "pan", "map", "nap"],
-  nap: ["nap", "cap", "map", "pan"]
+const formatTwoChoiceSets = {
+  catEarly: ["cat", "dog", "fish", "book"],
+  batEarly: ["bat", "dog", "fish", "book"],
+  hatPractice: ["hat", "hot", "hut", "hit"],
+  mapPractice: ["map", "mop", "cap", "nap"],
+  capLater: ["cap", "cat", "cot", "cut"],
+  panLater: ["pan", "pin", "pen", "pun"],
+  manLater: ["man", "men", "map", "mop"],
+  napLater: ["nap", "nip", "cap", "cup"]
 };
 
+// TODO(child-mode-adaptive): Replace fixed mission ordering with adaptive progression once Child Mode connects to mastery state.
+// TODO(child-mode-mastery): Add a mastery-mode variant with reduced scaffolding after introduction/practice evidence exists.
 export const shortAEchoCavesQuestions = [
   {
     id: "picture-cat",
-    formatType: "PICTURE_TO_PRINT_CVC",
+    formatType: "PICTURE_TO_PRINT_MATCH",
+    formatLevel: "early",
     targetWord: "cat",
     prompt: "Which word matches the picture?",
     spokenPrompt: "Which word matches the picture?",
     audioText: "cat",
     answer: "cat",
-    choices: shortAWordSets.cat
+    choices: formatTwoChoiceSets.catEarly
   },
   {
     id: "picture-bat",
-    formatType: "PICTURE_TO_PRINT_CVC",
+    formatType: "PICTURE_TO_PRINT_MATCH",
+    formatLevel: "early",
     targetWord: "bat",
     prompt: "Which word matches the picture?",
     spokenPrompt: "Which word matches the picture?",
     audioText: "bat",
     answer: "bat",
-    choices: shortAWordSets.bat
+    choices: formatTwoChoiceSets.batEarly
   },
   {
     id: "picture-hat",
-    formatType: "PICTURE_TO_PRINT_CVC",
+    formatType: "PICTURE_TO_PRINT_MATCH",
+    formatLevel: "practice",
     targetWord: "hat",
     prompt: "Which word matches the picture?",
     spokenPrompt: "Which word matches the picture?",
     audioText: "hat",
     answer: "hat",
-    choices: shortAWordSets.hat
+    choices: formatTwoChoiceSets.hatPractice
   },
   {
     id: "picture-map",
-    formatType: "PICTURE_TO_PRINT_CVC",
+    formatType: "PICTURE_TO_PRINT_MATCH",
+    formatLevel: "practice",
     targetWord: "map",
     prompt: "Which word matches the picture?",
     spokenPrompt: "Which word matches the picture?",
     audioText: "map",
     answer: "map",
-    choices: shortAWordSets.map
+    choices: formatTwoChoiceSets.mapPractice
   },
   {
     id: "picture-cap",
-    formatType: "PICTURE_TO_PRINT_CVC",
+    formatType: "PICTURE_TO_PRINT_MATCH",
+    formatLevel: "later",
     targetWord: "cap",
     prompt: "Which word matches the picture?",
     spokenPrompt: "Which word matches the picture?",
     audioText: "cap",
     answer: "cap",
-    choices: shortAWordSets.cap
+    choices: formatTwoChoiceSets.capLater
   },
   {
     id: "picture-pan",
-    formatType: "PICTURE_TO_PRINT_CVC",
+    formatType: "PICTURE_TO_PRINT_MATCH",
+    formatLevel: "later",
     targetWord: "pan",
     prompt: "Which word matches the picture?",
     spokenPrompt: "Which word matches the picture?",
     audioText: "pan",
     answer: "pan",
-    choices: shortAWordSets.pan
+    choices: formatTwoChoiceSets.panLater
   },
   {
     id: "picture-man",
-    formatType: "PICTURE_TO_PRINT_CVC",
+    formatType: "PICTURE_TO_PRINT_MATCH",
+    formatLevel: "later",
     targetWord: "man",
     prompt: "Which word matches the picture?",
     spokenPrompt: "Which word matches the picture?",
     audioText: "man",
     answer: "man",
-    choices: shortAWordSets.man
+    choices: formatTwoChoiceSets.manLater
   },
   {
     id: "picture-nap",
-    formatType: "PICTURE_TO_PRINT_CVC",
+    formatType: "PICTURE_TO_PRINT_MATCH",
+    formatLevel: "later",
     targetWord: "nap",
     prompt: "Which word matches the picture?",
     spokenPrompt: "Which word matches the picture?",
     audioText: "nap",
     answer: "nap",
-    choices: shortAWordSets.nap
+    choices: formatTwoChoiceSets.napLater
   }
 ].map(question => ({
   ...question,
+  // TODO(child-mode-assets): Replace placeholder SVGs and browser fallback speech with final image/audio assets.
   targetAsset: childImageAssets[question.targetWord],
   choices: question.choices.map(word => ({
     id: word,
@@ -224,4 +235,3 @@ export const shortAEchoCavesQuestions = [
     audioText: word
   }))
 }));
-

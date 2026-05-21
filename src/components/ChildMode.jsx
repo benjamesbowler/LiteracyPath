@@ -269,7 +269,19 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
         </div>
       </section>
 
-      <section className="child-interaction-zone">
+      <section className="child-interaction-zone child-format-two-zone">
+        <figure className="child-target-picture">
+          <button
+            className="child-target-picture-button"
+            onClick={replayTargetAudio}
+            type="button"
+            aria-label={`Hear ${question.targetWord}`}
+          >
+            <img src={question.targetAsset.image} alt={question.targetAsset.alt} />
+            <span className="picture-audio-badge" aria-hidden="true">▶</span>
+          </button>
+        </figure>
+
         <div className="child-prompt-row">
           <button
             className="child-speaker-button"
@@ -284,18 +296,6 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
             <h2>{question.prompt}</h2>
           </div>
         </div>
-
-        <figure className="child-target-picture">
-          <button
-            className="child-target-picture-button"
-            onClick={replayTargetAudio}
-            type="button"
-            aria-label={`Hear ${question.targetWord}`}
-          >
-            <img src={question.targetAsset.image} alt={question.targetAsset.alt} />
-            <span className="picture-audio-badge" aria-hidden="true">▶</span>
-          </button>
-        </figure>
 
         <div className="child-choice-grid">
           {question.choices.map(choice => {
