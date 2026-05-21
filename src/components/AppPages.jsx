@@ -439,6 +439,7 @@ export function StudentOverviewPage({
   startAdvancedPhonicsAssessment,
   startTargetedReview,
   weaknessSnapshot,
+  itemMasterySnapshot,
   setAppView,
   switchStudent
 }) {
@@ -450,6 +451,16 @@ export function StudentOverviewPage({
 
   const suggestedFocus =
     weaknessSnapshot.suggestedNextFocus;
+
+  const itemSnapshot = itemMasterySnapshot || {
+    mastered: [],
+    attempting: [],
+    unseenCount: 0,
+    trackedCount: 0
+  };
+
+  const formatItemLabel = item =>
+    item.itemKey + " (" + item.itemType.replace(/_/g, " ") + ", " + item.correct + "/" + item.attempts + ")";
 
   return (
     <div className="card page-card page-stack">
@@ -525,6 +536,47 @@ export function StudentOverviewPage({
           </div>
         </div>
       </section>
+
+      <details className="item-mastery-debug">
+        <summary>Developer item mastery snapshot</summary>
+
+        <div className="item-mastery-grid">
+          <div>
+            <strong>Mastered items</strong>
+            {itemSnapshot.mastered.length > 0 ? (
+              <ul>
+                {itemSnapshot.mastered.map(item => (
+                  <li key={item.itemType + "-" + item.itemKey}>
+                    {formatItemLabel(item)}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No mastered item records yet.</p>
+            )}
+          </div>
+
+          <div>
+            <strong>Attempting items</strong>
+            {itemSnapshot.attempting.length > 0 ? (
+              <ul>
+                {itemSnapshot.attempting.map(item => (
+                  <li key={item.itemType + "-" + item.itemKey}>
+                    {formatItemLabel(item)}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No item attempts recorded yet.</p>
+            )}
+          </div>
+
+          <div>
+            <strong>Coverage</strong>
+            <p>{itemSnapshot.unseenCount} unseen of {itemSnapshot.trackedCount} tracked runtime items.</p>
+          </div>
+        </div>
+      </details>
 
       <section className="overview-actions section-grid" aria-label="Student overview actions">
         <div className="overview-action-card primary-action-card">

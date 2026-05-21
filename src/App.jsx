@@ -85,6 +85,115 @@ function getQuestionAnswer(question) {
     : question.answer;
 }
 
+function normalizeItemKey(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[“”]/g, "\"")
+    .replace(/[‘’]/g, "'")
+    .replace(/^\/|\/$/g, "")
+    .trim();
+}
+
+function inferItemMetadata(question) {
+  if (!question) return null;
+  if (question.itemKey && question.itemType) {
+    return {
+      itemKey: normalizeItemKey(question.itemKey),
+      itemType: question.itemType
+    };
+  }
+
+  const skill = normalize(question.skill);
+  const answer = normalizeItemKey(getQuestionAnswer(question));
+  const diagnosticTarget = normalizeItemKey(question.diagnosticTarget || "");
+  const text = normalizeItemKey([
+    question.question,
+    question.spokenPrompt,
+    question.audioText,
+    question.answer,
+    question.passage
+  ].filter(Boolean).join(" "));
+
+  if (!answer) return null;
+
+  if (skill.includes("high-frequency") || skill.includes("sight")) {
+    return { itemKey: answer, itemType: "sight_word" };
+  }
+
+  if (skill.includes("rhym")) {
+    const rhymeMatch = text.match(/rhymes? with ([a-z]+)/);
+    const family = rhymeMatch?.[1]?.slice(-2) || answer.slice(-2);
+    return family ? { itemKey: family, itemType: "rhyming_family" } : null;
+  }
+
+  if (skill.includes("initial")) {
+    const soundMatch = text.match(/\/([a-z]{1,3})\//);
+    return {
+      itemKey: soundMatch?.[1] || answer[0],
+      itemType: "initial_sound"
+    };
+  }
+
+  if (skill.includes("letter sound")) {
+    const soundMatch = text.match(/letter ['"]?([a-z])['"]?/);
+    return {
+      itemKey: soundMatch?.[1] || answer[0],
+      itemType: "letter_sound"
+    };
+  }
+
+  if (skill.includes("cvc")) {
+    return { itemKey: answer, itemType: "cvc_word" };
+  }
+
+  if (skill.includes("short vowel")) {
+    const vowel = ["a", "e", "i", "o", "u"].find(letter => answer.includes(letter));
+    return vowel ? { itemKey: vowel, itemType: "short_vowel" } : null;
+  }
+
+  if (skill.includes("blend")) {
+    const match = text.match(/\b(bl|cl|fl|gl|pl|sl|br|cr|dr|fr|gr|pr|tr|sc|sk|sm|sn|sp|st|sw)\b/);
+    return { itemKey: match?.[1] || answer.slice(0, 2), itemType: "phonics_pattern" };
+  }
+
+  if (skill.includes("digraph")) {
+    const match = text.match(/\b(sh|ch|th|wh|ph)\b/);
+    return { itemKey: match?.[1] || answer.slice(0, 2), itemType: "phonics_pattern" };
+  }
+
+  if (skill.includes("long vowel")) {
+    const match = text.match(/long ([aeiou])/);
+    return match ? { itemKey: match[1] + "_e", itemType: "phonics_pattern" } : null;
+  }
+
+  if (skill.includes("vowel team")) {
+    const match = text.match(/\b(ai|ay|ee|ea|oa|ow|igh|ie|oo|ue|ew|oi|oy|ou|aw)\b/);
+    return match ? { itemKey: match[1], itemType: "phonics_pattern" } : null;
+  }
+
+  if (skill.includes("r-controlled") || skill.includes("r controlled")) {
+    const match = text.match(/\b(ar|er|ir|or|ur)\b/);
+    return match ? { itemKey: match[1], itemType: "phonics_pattern" } : null;
+  }
+
+  if (diagnosticTarget && /^(ai|ay|ee|ea|oa|ow|igh|ie|oo|ue|ew|oi|oy|ou|aw|ar|er|ir|or|ur|sh|ch|th|wh|ph|[a-z]{1,2})/.test(diagnosticTarget)) {
+    return { itemKey: diagnosticTarget.split(/\s+/)[0], itemType: "phonics_pattern" };
+  }
+
+  return null;
+}
+
+function applyItemMetadata(question) {
+  const metadata = inferItemMetadata(question);
+  return metadata
+    ? { ...question, itemKey: metadata.itemKey, itemType: metadata.itemType }
+    : question;
+}
+
+function isMissingItemMasteryTableError(error) {
+  return error?.code === "42P01" || /relation .*item_mastery.* does not exist/i.test(error?.message || "");
+}
+
 function calculateWeaknessSnapshot(answerHistory) {
   const groupedTargets = new Map();
   const groupedStages = new Map();
@@ -209,7 +318,7 @@ const allQuestions = [
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
-].filter(isQuestionValid);
+].filter(isQuestionValid).map(applyItemMetadata);
 
 const letterAssessmentOrder = [
   "m", "T", "b", "S", "a", "F", "d", "R", "p", "E", "g", "H", "c",
@@ -268,6 +377,8 @@ export default function App() {
   const [patternAttempt, setPatternAttempt] =
     useState(0);
   const [answerHistory, setAnswerHistory] = useState([]);
+  const [itemMastery, setItemMastery] = useState({});
+  const [itemSessionSeen, setItemSessionSeen] = useState({});
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -321,6 +432,8 @@ export default function App() {
     setPatternIndex(0);
     setPatternAssessment([]);
     setAnswerHistory([]);
+    setItemMastery({});
+    setItemSessionSeen({});
   }
 
   useEffect(() => {
@@ -383,6 +496,8 @@ export default function App() {
         setPatternAssessment(data.patternAssessment || []);
         setPatternAttempt(data.patternAttempt || 0);
         setAnswerHistory(data.answerHistory || []);
+        setItemMastery(data.itemMastery || {});
+        setItemSessionSeen({});
 
         loadStudents(savedClassId);
       } catch (error) {
@@ -419,7 +534,8 @@ export default function App() {
         patternIndex,
         patternAssessment,
         patternAttempt,
-        answerHistory
+        answerHistory,
+        itemMastery
       })
     );
   }, [
@@ -441,6 +557,7 @@ export default function App() {
     patternAssessment,
     patternAttempt,
     answerHistory,
+    itemMastery,
     profileStorageKey
   ]);
 
@@ -622,6 +739,7 @@ export default function App() {
       console.error("Dashboard answers error:", answersError);
     }
 
+
     const { data: masteryRows, error: masteryError } = await supabase
       .from("mastery")
       .select("*")
@@ -704,14 +822,23 @@ export default function App() {
       .eq("teacher_id", teacherId)
       .eq("student_id", selectedStudentId);
 
+    const { error: itemMasteryError } = await supabase
+      .from("item_mastery")
+      .delete()
+      .eq("teacher_id", teacherId)
+      .eq("student_id", selectedStudentId);
+
     const { error: studentError } = await supabase
       .from("students")
       .delete()
       .eq("teacher_id", teacherId)
       .eq("id", selectedStudentId);
 
-    if (answersError || masteryError || studentError) {
-      console.error("Delete student error:", answersError || masteryError || studentError);
+    const blockingItemMasteryError =
+      itemMasteryError && !isMissingItemMasteryTableError(itemMasteryError);
+
+    if (answersError || masteryError || blockingItemMasteryError || studentError) {
+      console.error("Delete student error:", answersError || masteryError || blockingItemMasteryError || studentError);
       setMessage("Could not delete student.");
       return;
     }
@@ -721,6 +848,8 @@ export default function App() {
       setStudentName("");
       setNameSaved(false);
       setAnswerHistory([]);
+      setItemMastery({});
+      setItemSessionSeen({});
       setMastery({});
       setRoundAnswers([]);
       setCurrentQuestion(null);
@@ -773,8 +902,17 @@ export default function App() {
         .eq("teacher_id", teacherId)
         .in("student_id", studentIds);
 
-      if (answersError || masteryError) {
-        console.error("Delete class data error:", answersError || masteryError);
+      const { error: itemMasteryError } = await supabase
+        .from("item_mastery")
+        .delete()
+        .eq("teacher_id", teacherId)
+        .in("student_id", studentIds);
+
+      const blockingItemMasteryError =
+        itemMasteryError && !isMissingItemMasteryTableError(itemMasteryError);
+
+      if (answersError || masteryError || blockingItemMasteryError) {
+        console.error("Delete class data error:", answersError || masteryError || blockingItemMasteryError);
         setMessage("Could not delete class data.");
         return;
       }
@@ -810,6 +948,8 @@ export default function App() {
       setStudentName("");
       setNameSaved(false);
       setAnswerHistory([]);
+      setItemMastery({});
+      setItemSessionSeen({});
       setMastery({});
       setRoundAnswers([]);
       setCurrentQuestion(null);
@@ -855,6 +995,27 @@ export default function App() {
     setAnswerHistory(rebuiltHistory);
     setTotalAnswered(rebuiltHistory.length);
     setCorrectAnswered(rebuiltHistory.filter(x => x.isCorrect).length);
+
+    const { data: itemMasteryRows, error: itemMasteryError } = await supabase
+      .from("item_mastery")
+      .select("*")
+      .eq("teacher_id", teacherId)
+      .eq("student_id", selectedStudentId)
+      .order("updated_at", { ascending: true });
+
+    if (itemMasteryError && !isMissingItemMasteryTableError(itemMasteryError)) {
+      console.error("Load item mastery error:", itemMasteryError);
+    }
+
+    const rebuiltItemMastery = {};
+
+    (itemMasteryRows || []).forEach(row => {
+      const key = getItemMasteryStateKey(row.item_key, row.item_type);
+      rebuiltItemMastery[key] = normalizeItemMasteryRow(row);
+    });
+
+    setItemMastery(rebuiltItemMastery);
+    setItemSessionSeen({});
 
     const { data: masteryRows, error: masteryError } = await supabase
       .from("mastery")
@@ -1086,6 +1247,130 @@ export default function App() {
     setCurrentQuestion(prepareQuestion(picked));
   }
 
+
+  function getItemMasteryStateKey(itemKey, itemType) {
+    return normalizeItemKey(itemType) + "::" + normalizeItemKey(itemKey);
+  }
+
+  function normalizeItemMasteryRow(row) {
+    return {
+      itemKey: normalizeItemKey(row.item_key),
+      itemType: row.item_type,
+      attempts: Number(row.attempts || 0),
+      correct: Number(row.correct || 0),
+      lastSeen: row.last_seen || null,
+      lastResult: Boolean(row.last_result),
+      sessionsSeen: Number(row.sessions_seen || 0),
+      mastered: Boolean(row.mastered),
+      updatedAt: row.updated_at || null
+    };
+  }
+
+  function nextItemMasteryRow(previous, metadata, isCorrect, isNewSessionSeen) {
+    const attempts = (previous?.attempts || 0) + 1;
+    const correct = (previous?.correct || 0) + (isCorrect ? 1 : 0);
+    const sessionsSeen = (previous?.sessionsSeen || 0) + (isNewSessionSeen ? 1 : 0);
+    const mastered = attempts >= 4 && correct >= 3 && isCorrect && sessionsSeen >= 2;
+
+    return {
+      itemKey: metadata.itemKey,
+      itemType: metadata.itemType,
+      attempts,
+      correct,
+      lastSeen: new Date().toISOString(),
+      lastResult: isCorrect,
+      sessionsSeen,
+      mastered
+    };
+  }
+
+  async function saveItemMasteryToSupabase(row) {
+    if (!studentId || !teacherId || !row?.itemKey || !row?.itemType) return;
+
+    const { error } = await supabase
+      .from("item_mastery")
+      .upsert(
+        {
+          student_id: studentId,
+          teacher_id: teacherId,
+          item_key: row.itemKey,
+          item_type: row.itemType,
+          attempts: row.attempts,
+          correct: row.correct,
+          last_seen: row.lastSeen,
+          last_result: row.lastResult,
+          sessions_seen: row.sessionsSeen,
+          mastered: row.mastered,
+          updated_at: new Date().toISOString()
+        },
+        { onConflict: "teacher_id,student_id,item_key,item_type" }
+      );
+
+    if (error && !isMissingItemMasteryTableError(error)) {
+      console.error("Supabase item mastery save error:", error);
+    }
+  }
+
+  function updateItemMastery(source, isCorrect) {
+    const metadata = inferItemMetadata(source);
+    if (!metadata?.itemKey || !metadata?.itemType) return;
+
+    const key = getItemMasteryStateKey(metadata.itemKey, metadata.itemType);
+    const isNewSessionSeen = !itemSessionSeen[key];
+
+    setItemSessionSeen(prev => ({
+      ...prev,
+      [key]: true
+    }));
+
+    setItemMastery(prev => {
+      const nextRow = nextItemMasteryRow(prev[key], metadata, isCorrect, isNewSessionSeen);
+      saveItemMasteryToSupabase(nextRow);
+
+      return {
+        ...prev,
+        [key]: nextRow
+      };
+    });
+  }
+
+  function getItemMasterySnapshot() {
+    const trackedItems = allQuestions
+      .map(question => inferItemMetadata(question))
+      .filter(Boolean)
+      .map(metadata => getItemMasteryStateKey(metadata.itemKey, metadata.itemType));
+
+    letterAssessmentOrder.forEach(letter => {
+      trackedItems.push(getItemMasteryStateKey(letter, "letter_name"));
+      trackedItems.push(getItemMasteryStateKey(letter, "letter_sound"));
+    });
+
+    advancedPhonicsPatterns.forEach(pattern => {
+      trackedItems.push(getItemMasteryStateKey(pattern.pattern, "phonics_pattern"));
+      pattern.examples.forEach(example => {
+        trackedItems.push(getItemMasteryStateKey(example, "phonics_pattern_word"));
+      });
+    });
+
+    const trackedUnique = new Set(trackedItems);
+    const rows = Object.values(itemMastery || {});
+    const ranked = rows
+      .filter(row => row.itemKey && row.itemType)
+      .sort((a, b) =>
+        Number(b.mastered) - Number(a.mastered) ||
+        b.attempts - a.attempts ||
+        a.itemType.localeCompare(b.itemType) ||
+        a.itemKey.localeCompare(b.itemKey)
+      );
+
+    return {
+      mastered: ranked.filter(row => row.mastered).slice(0, 12),
+      attempting: ranked.filter(row => !row.mastered).slice(0, 12),
+      unseenCount: Math.max(0, trackedUnique.size - rows.length),
+      trackedCount: trackedUnique.size
+    };
+  }
+
   async function saveAnswerToSupabase(record) {
     if (!studentId || !teacherId) return;
 
@@ -1171,6 +1456,7 @@ export default function App() {
     ]);
 
     saveAnswerToSupabase(answerRecord);
+    updateItemMastery(currentQuestion, isCorrect);
 
     if (isCorrect) {
       setCorrectAnswered(n => n + 1);
@@ -1590,6 +1876,22 @@ export default function App() {
     const current =
       patternItems[patternIndex];
 
+    updateItemMastery(
+      {
+        itemKey: current.pattern,
+        itemType: "phonics_pattern"
+      },
+      soundCorrect
+    );
+
+    updateItemMastery(
+      {
+        itemKey: current.exampleWord,
+        itemType: "phonics_pattern_word"
+      },
+      wordCorrect
+    );
+
     setPatternAssessment(prev => [
       ...prev,
       {
@@ -1612,6 +1914,22 @@ export default function App() {
   function recordLetterResult(knowsName, knowsSound) {
     const current =
       letterItems[letterIndex];
+
+    updateItemMastery(
+      {
+        itemKey: current.display,
+        itemType: "letter_name"
+      },
+      knowsName
+    );
+
+    updateItemMastery(
+      {
+        itemKey: current.display,
+        itemType: "letter_sound"
+      },
+      knowsSound
+    );
 
     setLetterAssessment(prev => [
       ...prev,
@@ -2386,6 +2704,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
           startTargetedReview={startTargetedReview}
           weaknessSnapshot={weaknessSnapshot}
+          itemMasterySnapshot={getItemMasterySnapshot()}
           setAppView={setAppView}
           switchStudent={switchStudent}
         />
