@@ -105,6 +105,12 @@ const grammarMetaPattern =
 const finalKsPattern =
   /(^|[^a-z])(fox|box|wax|fix|six|mix)([^a-z]|$)/i;
 
+const unsafeIsolatedPhonemePromptPattern =
+  /\b(what sound does|which letter makes|what letter makes|what is the (first|beginning|ending|last|middle) sound|which vowel makes|what sound do these letters|which two letters make|what two letters together)\b/i;
+
+const verifiedPhonemeAudioPattern =
+  /^\/audio\/phonemes\/[a-z]{1,3}\.mp3$/i;
+
 const answerVisibleStopwords = new Set([
   "a",
   "an",
@@ -185,6 +191,22 @@ function finalKsCvcIssue(question, stage) {
   return flagged
     ? `Final /ks/ word "${flagged}" is not allowed in beginner CVC/short-vowel stages.`
     : null;
+}
+
+function isolatedPhonemeAudioIssue(question) {
+  if (!unsafeIsolatedPhonemePromptPattern.test(question.question || "")) return null;
+
+  const choices = question.choices || [];
+  const hasOnlyIsolatedLetterChoices =
+    choices.length > 0 && choices.every(choice => /^[a-z]{1,3}$/i.test(String(choice).trim()));
+
+  if (!hasOnlyIsolatedLetterChoices) return null;
+
+  const audioPath = question.audioPath || question.phonemeAudioPath || question.audioFile || "";
+
+  return verifiedPhonemeAudioPattern.test(audioPath)
+    ? null
+    : `Prompt asks for isolated phoneme/letter sound with isolated letter choices but no verified phoneme MP3: "${question.question}".`;
 }
 
 function cvcListenAudioIssue(question, stage) {
@@ -482,6 +504,18 @@ function auditQuestions() {
         "grammar meta phrasing",
         item,
         `Use child-facing grammar wording instead of: "${question.question}".`
+      );
+    }
+
+    const isolatedPhonemeProblem =
+      isolatedPhonemeAudioIssue(question);
+
+    if (isolatedPhonemeProblem) {
+      addProblem(
+        problems,
+        "unsafe isolated phoneme audio",
+        item,
+        isolatedPhonemeProblem
       );
     }
 

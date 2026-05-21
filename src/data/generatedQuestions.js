@@ -2,32 +2,32 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_001",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the sound you hear at the beginning of the word 'cat'?",
+    "question": "Which word begins like cookie?",
     "choices": [
-      "c",
-      "a",
-      "t",
-      "m"
+      "cat",
+      "dog",
+      "sun",
+      "map"
     ],
-    "answer": "c"
+    "answer": "cat"
   },
   {
     "id": "phonics_k_002",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What sound does the letter 'b' make in the word 'bat'?",
+    "question": "Which word begins like baby?",
     "choices": [
-      "buh",
-      "tuh",
-      "muh",
-      "suh"
+      "ball",
+      "cat",
+      "sun",
+      "map"
     ],
-    "answer": "buh"
+    "answer": "ball"
   },
   {
     "id": "phonics_k_003",
@@ -47,47 +47,47 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_004",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the ending sound in the word 'sun'?",
+    "question": "Which word ends like green?",
     "choices": [
-      "n",
-      "s",
-      "u",
-      "m"
+      "sun",
+      "map",
+      "cat",
+      "dog"
     ],
-    "answer": "n"
+    "answer": "sun"
   },
   {
     "id": "phonics_k_005",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the first sound you hear in the word 'fish'?",
+    "question": "Which word begins like fan?",
     "choices": [
-      "f",
-      "p",
-      "s",
-      "h"
+      "fish",
+      "sun",
+      "pan",
+      "hat"
     ],
-    "answer": "f"
+    "answer": "fish"
   },
   {
     "id": "phonics_k_006",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the sound at the start of the word 'milk'?",
+    "question": "Which word begins like moon?",
     "choices": [
-      "m",
-      "l",
-      "k",
-      "s"
+      "map",
+      "sun",
+      "fish",
+      "dog"
     ],
-    "answer": "m"
+    "answer": "map"
   },
   {
     "id": "phonics_k_007",
@@ -122,17 +122,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_009",
     "grade": "K",
-    "skill": "short vowels",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What sound does the letter 's' make in the word 'sun'?",
+    "question": "Which word begins like snake?",
     "choices": [
-      "s",
-      "z",
-      "k",
-      "t"
+      "sun",
+      "moon",
+      "fish",
+      "dog"
     ],
-    "answer": "s",
+    "answer": "sun",
     "questionType": "multiple_choice"
   },
   {
@@ -153,17 +153,18 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_011",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the middle sound in the word 'bat'?",
+    "question": "Which word has the same vowel sound as bat?",
+    "spokenPrompt": "Which word has the same vowel sound as apple?",
     "choices": [
-      "a",
-      "b",
-      "t",
-      "e"
+      "map",
+      "met",
+      "mit",
+      "mop"
     ],
-    "answer": "a"
+    "answer": "map"
   },
   {
     "id": "phonics_k_012",
@@ -184,17 +185,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_014",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the first sound in the word 'sun'?",
+    "question": "Which word begins like snake?",
     "choices": [
-      "s",
-      "n",
-      "u",
-      "m"
+      "sun",
+      "moon",
+      "fish",
+      "dog"
     ],
-    "answer": "s"
+    "answer": "sun"
   },
   {
     "id": "phonics_k_015",
@@ -202,30 +203,31 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "What sound do these letters make together: 'sh'?",
+    "question": "Which word begins like shark?",
     "choices": [
-      "sh",
-      "ch",
-      "th",
-      "zh"
+      "ship",
+      "chip",
+      "thin",
+      "whale"
     ],
-    "answer": "sh",
+    "answer": "ship",
     "questionType": "multiple_choice"
   },
   {
     "id": "phonics_k_016",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Which vowel makes the sound you hear in the middle of the word 'bed'?",
+    "question": "Which word has the same vowel sound as bed?",
+    "spokenPrompt": "Which word has the same vowel sound as egg?",
     "choices": [
-      "e",
-      "a",
-      "i",
-      "o"
+      "red",
+      "rad",
+      "rid",
+      "rod"
     ],
-    "answer": "e"
+    "answer": "red"
   },
   {
     "id": "phonics_k_017",
@@ -245,32 +247,32 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_018",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the last sound in the word 'hop'?",
+    "question": "Which word ends like hop?",
     "choices": [
-      "p",
-      "h",
-      "o",
-      "b"
+      "map",
+      "mat",
+      "man",
+      "mad"
     ],
-    "answer": "p"
+    "answer": "map"
   },
   {
     "id": "phonics_k_019",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the ending sound in the word 'cat'?",
+    "question": "Which word ends like light?",
     "choices": [
-      "t",
-      "c",
-      "a",
-      "k"
+      "mat",
+      "map",
+      "man",
+      "mad"
     ],
-    "answer": "t"
+    "answer": "mat"
   },
   {
     "id": "phonics_k_020",
@@ -305,32 +307,32 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_024",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "What two letters together make a new sound in the word 'chat'?",
+    "question": "Which word begins like cheese?",
     "choices": [
-      "ch",
-      "ct",
-      "ht",
-      "at"
+      "chip",
+      "ship",
+      "thin",
+      "whale"
     ],
-    "answer": "ch"
+    "answer": "chip"
   },
   {
     "id": "phonics_k_025",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the beginning sound in the word 'ship'?",
+    "question": "Which word begins like shark?",
     "choices": [
-      "s",
-      "sh",
-      "p",
-      "i"
+      "ship",
+      "chip",
+      "thin",
+      "whale"
     ],
-    "answer": "sh"
+    "answer": "ship"
   },
   {
     "id": "phonics_k_026",
@@ -367,17 +369,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_029",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What letter makes the ending sound in the word 'duck'?",
+    "question": "Which word ends like bike?",
     "choices": [
-      "k",
-      "d",
-      "u",
-      "c"
+      "duck",
+      "dog",
+      "sun",
+      "cup"
     ],
-    "answer": "k"
+    "answer": "duck"
   },
   {
     "id": "phonics_k_031",
@@ -428,17 +430,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_035",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which two letters make the new sound in 'chip'?",
+    "question": "Which word begins like cheese?",
     "choices": [
-      "ch",
-      "ci",
-      "cp",
-      "ip"
+      "chair",
+      "ship",
+      "thin",
+      "whale"
     ],
-    "answer": "ch"
+    "answer": "chair"
   },
   {
     "id": "phonics_k_036",
@@ -458,17 +460,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_037",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the first sound in the word 'phone'?",
+    "question": "Which word begins like photo?",
     "choices": [
-      "f",
-      "p",
-      "ph",
-      "v"
+      "phone",
+      "fish",
+      "pan",
+      "van"
     ],
-    "answer": "ph"
+    "answer": "phone"
   },
   {
     "id": "phonics_k_038",
@@ -488,17 +490,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_039",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the ending sound in the word 'top'?",
+    "question": "Which word ends like hop?",
     "choices": [
-      "p",
-      "t",
-      "o",
-      "b"
+      "top",
+      "hot",
+      "hog",
+      "hen"
     ],
-    "answer": "p"
+    "answer": "top"
   },
   {
     "id": "phonics_k_040",
@@ -548,17 +550,18 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_043",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the middle sound in the word 'lip'?",
+    "question": "Which word has the same vowel sound as lip?",
+    "spokenPrompt": "Which word has the same vowel sound as itch?",
     "choices": [
-      "i",
-      "p",
-      "l",
-      "e"
+      "pin",
+      "pan",
+      "pen",
+      "pun"
     ],
-    "answer": "i"
+    "answer": "pin"
   },
   {
     "id": "phonics_k_044",
@@ -624,17 +627,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_050",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the beginning sound in the word 'dog'?",
+    "question": "Which word begins like door?",
     "choices": [
-      "d",
-      "g",
-      "o",
-      "b"
+      "dog",
+      "cat",
+      "fish",
+      "sun"
     ],
-    "answer": "d"
+    "answer": "dog"
   },
   {
     "id": "phonics_k_051",
@@ -702,14 +705,14 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "What sound do these letters make together: 'wh'?",
+    "question": "Which word begins like wheel?",
     "choices": [
-      "wh",
-      "w",
-      "h",
-      "hw"
+      "whale",
+      "ship",
+      "chip",
+      "thin"
     ],
-    "answer": "wh",
+    "answer": "whale",
     "questionType": "multiple_choice"
   },
   {
@@ -730,32 +733,32 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_058",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the beginning sound in 'sun'?",
+    "question": "Which word begins like snake?",
     "choices": [
-      "s",
-      "u",
-      "n",
-      "m"
+      "sun",
+      "moon",
+      "fish",
+      "dog"
     ],
-    "answer": "s"
+    "answer": "sun"
   },
   {
     "id": "phonics_k_059",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the first sound in the word 'jump'?",
+    "question": "Which word begins like juice?",
     "choices": [
-      "j",
-      "u",
-      "m",
-      "p"
+      "jam",
+      "ham",
+      "ram",
+      "yam"
     ],
-    "answer": "j"
+    "answer": "jam"
   },
   {
     "id": "phonics_k_060",
@@ -835,17 +838,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_066",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the ending sound in the word 'ball'?",
+    "question": "Which word ends like ball?",
     "choices": [
-      "l",
-      "b",
-      "a",
-      "n"
+      "bell",
+      "bed",
+      "bag",
+      "ban"
     ],
-    "answer": "l"
+    "answer": "bell"
   },
   {
     "id": "phonics_k_069",
@@ -881,17 +884,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_071",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the first sound in the word 'cake'?",
+    "question": "Which word begins like cookie?",
     "choices": [
-      "c",
-      "k",
-      "a",
-      "e"
+      "cat",
+      "sun",
+      "dog",
+      "fish"
     ],
-    "answer": "c"
+    "answer": "cat"
   },
   {
     "id": "phonics_k_072",
@@ -944,30 +947,30 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which two letters make the sound 'th'?",
+    "question": "Which word begins like thumb?",
     "choices": [
-      "th",
-      "ht",
-      "tt",
-      "dh"
+      "thin",
+      "ship",
+      "chip",
+      "whale"
     ],
-    "answer": "th",
+    "answer": "thin",
     "questionType": "multiple_choice"
   },
   {
     "id": "phonics_k_077",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the ending sound of the word 'hat'?",
+    "question": "Which word ends like light?",
     "choices": [
-      "t",
-      "h",
-      "a",
-      "p"
+      "hat",
+      "ham",
+      "had",
+      "hag"
     ],
-    "answer": "t"
+    "answer": "hat"
   },
   {
     "id": "phonics_k_079",
@@ -1017,17 +1020,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_082",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the first sound in the word 'ball'?",
+    "question": "Which word begins like baby?",
     "choices": [
-      "b",
-      "a",
-      "l",
-      "p"
+      "ball",
+      "cat",
+      "sun",
+      "fish"
     ],
-    "answer": "b"
+    "answer": "ball"
   },
   {
     "id": "phonics_k_083",
@@ -1125,17 +1128,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_090",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter makes the first sound in 'dog'?",
+    "question": "Which word begins like door?",
     "choices": [
-      "d",
-      "g",
-      "o",
-      "b"
+      "dog",
+      "cat",
+      "sun",
+      "fish"
     ],
-    "answer": "d"
+    "answer": "dog"
   },
   {
     "id": "phonics_k_091",
@@ -1170,17 +1173,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_095",
     "grade": "K",
-    "skill": "short vowels",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What sound does the letter 'm' make at the start ?",
+    "question": "Which word begins like milk?",
     "choices": [
-      "m",
-      "n",
-      "b",
-      "d"
+      "map",
+      "dog",
+      "sun",
+      "fish"
     ],
-    "answer": "m",
+    "answer": "map",
     "questionType": "multiple_choice"
   },
   {
@@ -1231,17 +1234,17 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_100",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "What sound does the letter 'c' make in the word 'cake'?",
+    "question": "Which word begins like cookie?",
     "choices": [
-      "k",
-      "s",
-      "ch",
-      "t"
+      "cat",
+      "sun",
+      "dog",
+      "fish"
     ],
-    "answer": "k"
+    "answer": "cat"
   },
   {
     "id": "spelling-k-1-002",
