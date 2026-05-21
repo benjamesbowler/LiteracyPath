@@ -101,7 +101,7 @@ addRows("exp7_initial", [
   grade: "K",
   skill: "initial sounds",
   difficulty: 1,
-  question: `Which word starts with the ${sound} sound in set ${index}?`,
+  question: `Which word starts with the ${sound} sound?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -120,7 +120,7 @@ addRows("exp7_final", [
   grade: "K",
   skill: "final sounds",
   difficulty: 1,
-  question: `Which word ends with the ${sound} sound in set ${index}?`,
+  question: `Which word ends with the ${sound} sound?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -139,7 +139,7 @@ addRows("exp7_rhyme", [
   grade: "K",
   skill: "rhyming",
   difficulty: 1,
-  question: `Which word rhymes with ${target} in set ${index}?`,
+  question: `Which word rhymes with ${target}?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -170,37 +170,37 @@ addRows("exp7_short_vowel", [
   grade: "K",
   skill: "short vowel discrimination",
   difficulty: 2,
-  question: `Which word has the same vowel sound as ${target} in set ${index}?`,
+  question: `Which word has the same vowel sound as ${target}?`,
   choices: choices(answer, wrongs),
   answer
 }));
 
 addRows("exp7_cvc", [
-  ["Which choice is a CVC word in set 1?", "cat", ["cake", "rain", "ship"]],
-  ["Which choice is a CVC word in set 2?", "bed", ["bead", "tree", "chair"]],
-  ["Which choice is a CVC word in set 3?", "hop", ["hope", "boat", "brush"]],
-  ["Which choice is a CVC word in set 4?", "mud", ["moon", "slide", "green"]],
-  ["Which choice is a CVC word in set 5?", "fin", ["fine", "train", "shell"]],
-  ["Which choice is a CVC word in set 6?", "log", ["light", "float", "stick"]],
-  ["Which choice is a CVC word in set 7?", "cup", ["cube", "spoon", "three"]],
-  ["Which choice is a CVC word in set 8?", "map", ["mail", "plant", "cheese"]],
-  ["Which choice is a CVC word in set 9?", "rug", ["road", "smile", "white"]],
-  ["Which choice is a CVC word in set 10?", "pet", ["peach", "clock", "storm"]],
-  ["Which choice is a CVC word in set 11?", "jam", ["jump", "rain", "shine"]],
-  ["Which choice is a CVC word in set 12?", "sit", ["sight", "chair", "plate"]],
-  ["Which choice is a CVC word in set 13?", "pot", ["paint", "glass", "wheel"]],
-  ["Which choice is a CVC word in set 14?", "hen", ["herd", "whale", "green"]],
-  ["Which choice is a CVC word in set 15?", "bag", ["beach", "stone", "black"]],
-  ["Which choice is a CVC word in set 16?", "red", ["read", "brush", "train"]],
-  ["Which choice is a CVC word in set 17?", "fox", ["fork", "goat", "sheep"]],
-  ["Which choice is a CVC word in set 18?", "sun", ["snow", "slide", "three"]],
-  ["Which choice is a CVC word in set 19?", "pin", ["plain", "chair", "storm"]],
-  ["Which choice is a CVC word in set 20?", "top", ["toast", "glove", "wheel"]],
-  ["Which choice is a CVC word in set 21?", "web", ["weed", "shell", "plant"]],
-  ["Which choice is a CVC word in set 22?", "cab", ["crab", "cube", "light"]],
-  ["Which choice is a CVC word in set 23?", "zip", ["ship", "soap", "tree"]],
-  ["Which choice is a CVC word in set 24?", "gum", ["goat", "drum", "bright"]],
-  ["Which choice is a CVC word in set 25?", "van", ["vase", "snail", "phone"]]
+  ["Which choice is a CVC word?", "cat", ["cake", "rain", "ship"]],
+  ["Which choice is a CVC word?", "bed", ["bead", "tree", "chair"]],
+  ["Which choice is a CVC word?", "hop", ["hope", "boat", "brush"]],
+  ["Which choice is a CVC word?", "mud", ["moon", "slide", "green"]],
+  ["Which choice is a CVC word?", "fin", ["fine", "train", "shell"]],
+  ["Which choice is a CVC word?", "log", ["light", "float", "stick"]],
+  ["Which choice is a CVC word?", "cup", ["cube", "spoon", "three"]],
+  ["Which choice is a CVC word?", "map", ["mail", "plant", "cheese"]],
+  ["Which choice is a CVC word?", "rug", ["road", "smile", "white"]],
+  ["Which choice is a CVC word?", "pet", ["peach", "clock", "storm"]],
+  ["Which choice is a CVC word?", "jam", ["jump", "rain", "shine"]],
+  ["Which choice is a CVC word?", "sit", ["sight", "chair", "plate"]],
+  ["Which choice is a CVC word?", "pot", ["paint", "glass", "wheel"]],
+  ["Which choice is a CVC word?", "hen", ["herd", "whale", "green"]],
+  ["Which choice is a CVC word?", "bag", ["beach", "stone", "black"]],
+  ["Which choice is a CVC word?", "red", ["read", "brush", "train"]],
+  ["Which choice is a CVC word?", "fox", ["fork", "goat", "sheep"]],
+  ["Which choice is a CVC word?", "sun", ["snow", "slide", "three"]],
+  ["Which choice is a CVC word?", "pin", ["plain", "chair", "storm"]],
+  ["Which choice is a CVC word?", "top", ["toast", "glove", "wheel"]],
+  ["Which choice is a CVC word?", "web", ["weed", "shell", "plant"]],
+  ["Which choice is a CVC word?", "cab", ["crab", "cube", "light"]],
+  ["Which choice is a CVC word?", "zip", ["ship", "soap", "tree"]],
+  ["Which choice is a CVC word?", "gum", ["goat", "drum", "bright"]],
+  ["Which choice is a CVC word?", "van", ["vase", "snail", "phone"]]
 ], ([question, answer, wrongs], index, id) => ({
   id,
   grade: "K",
@@ -316,7 +316,7 @@ addRows("exp7_blends", [
   grade: "1",
   skill: "blends",
   difficulty: 2,
-  question: `Which word begins with the ${blend} blend in set ${index}?`,
+  question: `Which word begins with the ${blend} blend?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -345,7 +345,7 @@ addRows("exp7_digraphs", [
   grade: "1",
   skill: "digraphs",
   difficulty: 3,
-  question: `Which word begins with the ${digraph} digraph in set ${index}?`,
+  question: `Which word begins with the ${digraph} digraph?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -374,7 +374,7 @@ addRows("exp7_long_vowels", [
   grade: "1",
   skill: "long vowels",
   difficulty: 3,
-  question: `Which word has the ${sound} sound in set ${index}?`,
+  question: `Which word has the ${sound} sound?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -403,7 +403,7 @@ addRows("exp7_vowel_teams", [
   grade: "2",
   skill: "vowel teams",
   difficulty: 4,
-  question: `Which word has the ${team} vowel team in set ${index}?`,
+  question: `Which word has the ${team} vowel team?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -429,46 +429,46 @@ addRows("exp7_r_controlled", [
   grade: "2",
   skill: "r controlled vowels",
   difficulty: 4,
-  question: `Which word has the ${pattern} r-controlled vowel in set ${index}?`,
+  question: `Which word has the ${pattern} r-controlled vowel?`,
   choices: choices(answer, wrongs),
   answer
 }));
 
 addRows("exp7_nouns", [
-  ["Which word names a person in set 1?", "teacher", ["run", "blue", "under"]],
-  ["Which word names a place in set 2?", "school", ["jump", "tiny", "quickly"]],
-  ["Which word names a thing in set 3?", "pencil", ["write", "happy", "beside"]],
-  ["Which word is a noun in set 4?", "garden", ["grow", "green", "slowly"]],
-  ["Which word names an animal in set 5?", "rabbit", ["hop", "soft", "near"]],
-  ["Which word names a thing in set 6?", "basket", ["carry", "round", "behind"]],
-  ["Which word names a place in set 7?", "library", ["read", "quiet", "inside"]],
-  ["Which word is a noun in set 8?", "window", ["open", "bright", "above"]],
-  ["Which word names a person in set 9?", "doctor", ["help", "kind", "after"]],
-  ["Which word names a thing in set 10?", "blanket", ["sleep", "warm", "under"]],
-  ["Which word names a place in set 11?", "farm", ["plant", "muddy", "outside"]],
-  ["Which word names an animal in set 12?", "duck", ["swim", "wet", "around"]],
-  ["Which word names a thing in set 13?", "spoon", ["stir", "shiny", "under"]],
-  ["Which word names a place in set 14?", "market", ["buy", "busy", "beside"]],
-  ["Which word names a person in set 15?", "pilot", ["fly", "fast", "above"]],
-  ["Which word is a noun in set 16?", "river", ["flow", "wide", "near"]],
-  ["Which word names a thing in set 17?", "helmet", ["wear", "safe", "on"]],
-  ["Which word names an animal in set 18?", "turtle", ["crawl", "slow", "under"]],
-  ["Which word names a place in set 19?", "museum", ["look", "quiet", "inside"]],
-  ["Which word names a person in set 20?", "artist", ["paint", "bright", "with"]],
-  ["Which word is a noun in set 21?", "ladder", ["climb", "tall", "against"]],
-  ["Which word names a thing in set 22?", "button", ["push", "round", "near"]],
-  ["Which word names a place in set 23?", "kitchen", ["cook", "warm", "inside"]],
-  ["Which word names an animal in set 24?", "horse", ["gallop", "brown", "behind"]],
-  ["Which word names a person in set 25?", "nurse", ["help", "kind", "beside"]],
-  ["Which word is a noun in set 26?", "candle", ["glow", "small", "on"]],
-  ["Which word names a thing in set 27?", "ticket", ["hold", "paper", "inside"]],
-  ["Which word names a place in set 28?", "station", ["wait", "loud", "near"]],
-  ["Which word names an animal in set 29?", "goose", ["waddle", "white", "outside"]],
-  ["Which word names a person in set 30?", "coach", ["teach", "loud", "after"]],
-  ["Which word is a noun in set 31?", "pocket", ["carry", "small", "inside"]],
-  ["Which word names a thing in set 32?", "ladle", ["scoop", "deep", "beside"]],
-  ["Which word names a place in set 33?", "garden", ["plant", "green", "behind"]],
-  ["Which word names an animal in set 34?", "kitten", ["meow", "soft", "under"]]
+  ["Which word names a person?", "teacher", ["run", "blue", "under"]],
+  ["Which word names a place?", "school", ["jump", "tiny", "quickly"]],
+  ["Which word names a thing?", "pencil", ["write", "happy", "beside"]],
+  ["Which word is a noun?", "garden", ["grow", "green", "slowly"]],
+  ["Which word names an animal?", "rabbit", ["hop", "soft", "near"]],
+  ["Which word names a thing?", "basket", ["carry", "round", "behind"]],
+  ["Which word names a place?", "library", ["read", "quiet", "inside"]],
+  ["Which word is a noun?", "window", ["open", "bright", "above"]],
+  ["Which word names a person?", "doctor", ["help", "kind", "after"]],
+  ["Which word names a thing?", "blanket", ["sleep", "warm", "under"]],
+  ["Which word names a place?", "farm", ["plant", "muddy", "outside"]],
+  ["Which word names an animal?", "duck", ["swim", "wet", "around"]],
+  ["Which word names a thing?", "spoon", ["stir", "shiny", "under"]],
+  ["Which word names a place?", "market", ["buy", "busy", "beside"]],
+  ["Which word names a person?", "pilot", ["fly", "fast", "above"]],
+  ["Which word is a noun?", "river", ["flow", "wide", "near"]],
+  ["Which word names a thing?", "helmet", ["wear", "safe", "on"]],
+  ["Which word names an animal?", "turtle", ["crawl", "slow", "under"]],
+  ["Which word names a place?", "museum", ["look", "quiet", "inside"]],
+  ["Which word names a person?", "artist", ["paint", "bright", "with"]],
+  ["Which word is a noun?", "ladder", ["climb", "tall", "against"]],
+  ["Which word names a thing?", "button", ["push", "round", "near"]],
+  ["Which word names a place?", "kitchen", ["cook", "warm", "inside"]],
+  ["Which word names an animal?", "horse", ["gallop", "brown", "behind"]],
+  ["Which word names a person?", "nurse", ["help", "kind", "beside"]],
+  ["Which word is a noun?", "candle", ["glow", "small", "on"]],
+  ["Which word names a thing?", "ticket", ["hold", "paper", "inside"]],
+  ["Which word names a place?", "station", ["wait", "loud", "near"]],
+  ["Which word names an animal?", "goose", ["waddle", "white", "outside"]],
+  ["Which word names a person?", "coach", ["teach", "loud", "after"]],
+  ["Which word is a noun?", "pocket", ["carry", "small", "inside"]],
+  ["Which word names a thing?", "ladle", ["scoop", "deep", "beside"]],
+  ["Which word names a place?", "garden", ["plant", "green", "behind"]],
+  ["Which word names an animal?", "kitten", ["meow", "soft", "under"]]
 ], ([question, answer, wrongs], index, id) => ({
   id,
   grade: "1",
@@ -480,22 +480,22 @@ addRows("exp7_nouns", [
 }));
 
 addRows("exp7_verbs", [
-  ["Which word tells an action in set 1?", "clap", ["hands", "loud", "near"]],
-  ["Which word is a verb in set 2?", "build", ["blocks", "tall", "under"]],
-  ["Which word tells what someone can do in set 3?", "paint", ["brush", "red", "inside"]],
-  ["Which word shows action in set 4?", "carry", ["bag", "heavy", "beside"]],
-  ["Which word is a verb in set 5?", "listen", ["ears", "quiet", "behind"]],
-  ["Which word tells an action in set 6?", "wash", ["hands", "clean", "above"]],
-  ["Which word shows something you can do in set 7?", "crawl", ["baby", "small", "outside"]],
-  ["Which word is a verb in set 8?", "drive", ["car", "fast", "around"]],
-  ["Which word tells an action in set 9?", "plant", ["seed", "green", "under"]],
-  ["Which word shows action in set 10?", "share", ["toy", "kind", "with"]],
-  ["Which word is a verb in set 11?", "count", ["numbers", "many", "near"]],
-  ["Which word tells what someone can do in set 12?", "laugh", ["joke", "funny", "after"]],
-  ["Which word shows action in set 13?", "clean", ["room", "messy", "inside"]],
-  ["Which word is a verb in set 14?", "pull", ["rope", "long", "behind"]],
-  ["Which word tells an action in set 15?", "push", ["cart", "heavy", "beside"]],
-  ["Which word shows something you can do in set 16?", "write", ["paper", "white", "on"]]
+  ["Which word tells an action?", "clap", ["hands", "loud", "near"]],
+  ["Which word is a verb?", "build", ["blocks", "tall", "under"]],
+  ["Which word tells what someone can do?", "paint", ["brush", "red", "inside"]],
+  ["Which word shows action?", "carry", ["bag", "heavy", "beside"]],
+  ["Which word is a verb?", "listen", ["ears", "quiet", "behind"]],
+  ["Which word tells an action?", "wash", ["hands", "clean", "above"]],
+  ["Which word shows something you can do?", "crawl", ["baby", "small", "outside"]],
+  ["Which word is a verb?", "drive", ["car", "fast", "around"]],
+  ["Which word tells an action?", "plant", ["seed", "green", "under"]],
+  ["Which word shows action?", "share", ["toy", "kind", "with"]],
+  ["Which word is a verb?", "count", ["numbers", "many", "near"]],
+  ["Which word tells what someone can do?", "laugh", ["joke", "funny", "after"]],
+  ["Which word shows action?", "clean", ["room", "messy", "inside"]],
+  ["Which word is a verb?", "pull", ["rope", "long", "behind"]],
+  ["Which word tells an action?", "push", ["cart", "heavy", "beside"]],
+  ["Which word shows something you can do?", "write", ["paper", "white", "on"]]
 ], ([question, answer, wrongs], index, id) => ({
   id,
   grade: "1",
@@ -507,22 +507,22 @@ addRows("exp7_verbs", [
 }));
 
 addRows("exp7_adjectives", [
-  ["Which word describes size in set 1?", "tiny", ["mouse", "crawl", "under"]],
-  ["Which word describes color in set 2?", "purple", ["grape", "eat", "beside"]],
-  ["Which word describes how something feels in set 3?", "smooth", ["stone", "roll", "near"]],
-  ["Which word is an adjective in set 4?", "noisy", ["bell", "ring", "above"]],
-  ["Which word describes taste in set 5?", "sour", ["lemon", "cut", "inside"]],
-  ["Which word describes temperature in set 6?", "warm", ["blanket", "sleep", "under"]],
-  ["Which word describes shape in set 7?", "square", ["box", "open", "behind"]],
-  ["Which word is a describing word in set 8?", "gentle", ["touch", "hand", "with"]],
-  ["Which word describes speed in set 9?", "slow", ["turtle", "walk", "around"]],
-  ["Which word describes sound in set 10?", "silent", ["room", "read", "inside"]],
-  ["Which word describes feeling in set 11?", "proud", ["child", "smile", "after"]],
-  ["Which word is an adjective in set 12?", "dusty", ["shelf", "wipe", "near"]],
-  ["Which word describes height in set 13?", "short", ["tree", "grow", "outside"]],
-  ["Which word describes weight in set 14?", "light", ["feather", "float", "above"]],
-  ["Which word describes age in set 15?", "young", ["puppy", "play", "under"]],
-  ["Which word is a describing word in set 16?", "brave", ["helper", "help", "with"]]
+  ["Which word describes size?", "tiny", ["mouse", "crawl", "under"]],
+  ["Which word describes color?", "purple", ["grape", "eat", "beside"]],
+  ["Which word describes how something feels?", "smooth", ["stone", "roll", "near"]],
+  ["Which word is an adjective?", "noisy", ["bell", "ring", "above"]],
+  ["Which word describes taste?", "sour", ["lemon", "cut", "inside"]],
+  ["Which word describes temperature?", "warm", ["blanket", "sleep", "under"]],
+  ["Which word describes shape?", "square", ["box", "open", "behind"]],
+  ["Which word is a describing word?", "gentle", ["touch", "hand", "with"]],
+  ["Which word describes speed?", "slow", ["turtle", "walk", "around"]],
+  ["Which word describes sound?", "silent", ["room", "read", "inside"]],
+  ["Which word describes feeling?", "proud", ["child", "smile", "after"]],
+  ["Which word is an adjective?", "dusty", ["shelf", "wipe", "near"]],
+  ["Which word describes height?", "short", ["tree", "grow", "outside"]],
+  ["Which word describes weight?", "light", ["feather", "float", "above"]],
+  ["Which word describes age?", "young", ["puppy", "play", "under"]],
+  ["Which word is a describing word?", "brave", ["helper", "help", "with"]]
 ], ([question, answer, wrongs], index, id) => ({
   id,
   grade: "1",
@@ -562,29 +562,29 @@ addRows("exp7_prepositions", [
     difficulty: 1,
     questionType: "image_choice",
     imagePath,
-    question: `Look at picture set ${index}. Where ${verb} the ${thing}?`,
+    question: `Look at the picture. Where ${verb} the ${thing}?`,
     choices: choices(answer, wrongs),
     answer
   };
 });
 
 addRows("exp7_morphology", [
-  ["What does redo mean in set 1?", "do again", ["not do", "full of doing", "do quickly"]],
-  ["What does preheat mean in set 2?", "heat before", ["heat again", "not heat", "full of heat"]],
-  ["What does unkind mean in set 3?", "not kind", ["kind again", "very kind", "full of kind"]],
-  ["What does hopeful mean in set 4?", "full of hope", ["without hope", "hope again", "not hope"]],
-  ["What does fearless mean in set 5?", "without fear", ["full of fear", "fear again", "not afraid again"]],
-  ["What does painter mean in set 6?", "a person who paints", ["paint again", "not paint", "full of paint"]],
-  ["What does slowly mean in set 7?", "in a slow way", ["not slow", "slow again", "full of slow"]],
-  ["What does preview mean in set 8?", "see before", ["see again", "not see", "full of seeing"]],
-  ["What does unlock mean in set 9?", "make not locked", ["lock again", "very locked", "full of locks"]],
-  ["What does playful mean in set 10?", "full of play", ["without play", "play again", "not play"]],
-  ["What does washable mean in set 11?", "able to be washed", ["washed before", "not washed", "full of washing"]],
-  ["What does reread mean in set 12?", "read again", ["not read", "read before", "full of reading"]],
-  ["What does unsafe mean in set 13?", "not safe", ["safe again", "very safe", "full of safe"]],
-  ["What does helper mean in set 14?", "a person who helps", ["help again", "not help", "full of help"]],
-  ["What does carefully mean in set 15?", "in a careful way", ["without care", "care again", "not careful"]],
-  ["What does rewrite mean in set 16?", "write again", ["not write", "write before", "full of writing"]]
+  ["What does redo mean?", "do again", ["not do", "full of doing", "do quickly"]],
+  ["What does preheat mean?", "heat before", ["heat again", "not heat", "full of heat"]],
+  ["What does unkind mean?", "not kind", ["kind again", "very kind", "full of kind"]],
+  ["What does hopeful mean?", "full of hope", ["without hope", "hope again", "not hope"]],
+  ["What does fearless mean?", "without fear", ["full of fear", "fear again", "not afraid again"]],
+  ["What does painter mean?", "a person who paints", ["paint again", "not paint", "full of paint"]],
+  ["What does slowly mean?", "in a slow way", ["not slow", "slow again", "full of slow"]],
+  ["What does preview mean?", "see before", ["see again", "not see", "full of seeing"]],
+  ["What does unlock mean?", "make not locked", ["lock again", "very locked", "full of locks"]],
+  ["What does playful mean?", "full of play", ["without play", "play again", "not play"]],
+  ["What does washable mean?", "able to be washed", ["washed before", "not washed", "full of washing"]],
+  ["What does reread mean?", "read again", ["not read", "read before", "full of reading"]],
+  ["What does unsafe mean?", "not safe", ["safe again", "very safe", "full of safe"]],
+  ["What does helper mean?", "a person who helps", ["help again", "not help", "full of help"]],
+  ["What does carefully mean?", "in a careful way", ["without care", "care again", "not careful"]],
+  ["What does rewrite mean?", "write again", ["not write", "write before", "full of writing"]]
 ], ([question, answer, wrongs], index, id) => ({
   id,
   grade: "2",
@@ -617,7 +617,7 @@ addRows("exp7_homophones", [
   grade: "2",
   skill: "homophones",
   difficulty: 4,
-  question: `${question} Set ${index}.`,
+  question: `${question}`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -650,7 +650,7 @@ addRows("exp7_key_details", keyDetails, ([passage, question, answer, wrongs], in
   skill: "key details",
   difficulty: 3,
   passage,
-  question: `${question} Set ${index}.`,
+  question: `${question}`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -683,7 +683,7 @@ addRows("exp7_sequencing", sequencing, ([passage, question, answer, wrongs], ind
   skill: "sequencing",
   difficulty: 3,
   passage,
-  question: `${question} Set ${index}.`,
+  question: `${question}`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -716,7 +716,7 @@ addRows("exp7_main_idea", mainIdea, ([passage, question, answer, wrongs], index,
   skill: "main idea",
   difficulty: 4,
   passage,
-  question: `${question} Set ${index}.`,
+  question: `${question}`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -750,7 +750,7 @@ addRows("exp7_cause_effect", causeEffect, ([passage, question, answer, wrongs], 
   skill: "cause and effect",
   difficulty: 4,
   passage,
-  question: `${question} Set ${index}.`,
+  question: `${question}`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -783,7 +783,7 @@ addRows("exp7_context_clues", contextClues, ([passage, question, answer, wrongs]
   skill: "context clues",
   difficulty: 4,
   passage,
-  question: `${question} Set ${index}.`,
+  question: `${question}`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -816,7 +816,7 @@ addRows("exp7_theme", themes, ([passage, question, answer, wrongs], index, id) =
   skill: "theme",
   difficulty: 5,
   passage,
-  question: `${question} Set ${index}.`,
+  question: `${question}`,
   choices: choices(answer, wrongs),
   answer
 }));
