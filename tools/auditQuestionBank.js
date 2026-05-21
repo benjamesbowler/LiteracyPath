@@ -77,6 +77,16 @@ const unsafeShortVowelAudioPattern =
 const phonemeSlashPattern =
   /\/[a-z]{1,3}\//i;
 
+const earlyPhonicsStages = new Set([
+  "CVC and Short Vowels",
+  "Short Vowel Discrimination"
+]);
+
+const earlyBoundaryPromptPattern =
+  /\b(blend|blends|digraph|digraphs|two consonants?|consonants together|long vowel|silent e|magic e|vowel team|r-controlled)\b/i;
+
+const cvcVowels = new Set(["a", "e", "i", "o", "u"]);
+
 const answerVisibleStopwords = new Set([
   "a",
   "an",
@@ -94,6 +104,62 @@ function normalize(text) {
 
 function normalizedChoices(choices) {
   return choices.map(choice => normalize(choice));
+}
+
+function isSingleLetter(text) {
+  return /^[a-z]$/i.test(String(text || "").trim());
+}
+
+function isSimpleCvcWord(text) {
+  const word = normalize(text);
+
+  if (!/^[a-z]{3}$/.test(word)) return false;
+
+  return (
+    !cvcVowels.has(word[0]) &&
+    cvcVowels.has(word[1]) &&
+    !cvcVowels.has(word[2])
+  );
+}
+
+function extractEarlyPhonicsTarget(questionText) {
+  const text = String(questionText || "");
+  const sameSoundMatch =
+    text.match(/same (?:middle |vowel )?sound as ['"]?([a-z]+)['"]?/i);
+
+  if (sameSoundMatch) return sameSoundMatch[1];
+
+  const soundInWordMatch =
+    text.match(/sound in .*?word ['"]?([a-z]+)['"]?/i);
+
+  return soundInWordMatch?.[1] || null;
+}
+
+function earlyPhonicsBoundaryIssue(question, stage) {
+  if (!earlyPhonicsStages.has(stage)) return null;
+
+  if (earlyBoundaryPromptPattern.test(question.question || "")) {
+    return `Prompt uses a later phonics concept in ${stage}: "${question.question}".`;
+  }
+
+  const target = extractEarlyPhonicsTarget(question.question);
+
+  if (target && !isSimpleCvcWord(target)) {
+    return `Target word "${target}" is not a simple CVC word for ${stage}.`;
+  }
+
+  const responseWords = [question.answer, ...(question.choices || [])]
+    .map(value => normalize(value))
+    .filter(Boolean);
+
+  for (const word of responseWords) {
+    if (isSingleLetter(word)) continue;
+    if (!isSimpleCvcWord(word)) {
+      return `Choice/answer "${word}" is not a simple CVC word for ${stage}.`;
+    }
+  }
+
+  return null;
 }
 
 function getStage(question) {
@@ -341,6 +407,17 @@ function auditQuestions() {
       );
     }
 
+    const earlyBoundaryProblem =
+      earlyPhonicsBoundaryIssue(question, stage);
+
+    if (earlyBoundaryProblem) {
+      addProblem(
+        problems,
+        "early phonics boundary",
+        item,
+        earlyBoundaryProblem
+      );
+    }
     if (isImageQuestion(question)) {
       if (!question.imagePath) {
         addProblem(

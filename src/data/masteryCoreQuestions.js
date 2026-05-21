@@ -5,12 +5,13 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word cat.",
     "choices": [
       "cat",
-      "cake",
-      "chair",
-      "train"
+      "cap",
+      "cot",
+      "cut"
     ],
     "answer": "cat"
   },

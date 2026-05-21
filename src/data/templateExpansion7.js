@@ -813,15 +813,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word cat.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "cat",
-      "cake",
-      "rain",
-      "ship"
+      "cap",
+      "cot",
+      "cut"
     ],
     "answer": "cat"
   },
@@ -831,15 +832,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word bed.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "bed",
-      "bead",
-      "tree",
-      "chair"
+      "bad",
+      "bid",
+      "bud"
     ],
     "answer": "bed"
   },
@@ -849,15 +851,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word hop.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "hop",
-      "hope",
-      "boat",
-      "brush"
+      "hip",
+      "hap",
+      "hup"
     ],
     "answer": "hop"
   },
@@ -867,15 +870,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word mud.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "mud",
-      "moon",
-      "slide",
-      "green"
+      "mad",
+      "mid",
+      "mop"
     ],
     "answer": "mud"
   },
@@ -885,15 +889,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word fin.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "fin",
-      "fine",
-      "train",
-      "shell"
+      "fan",
+      "fun",
+      "fog"
     ],
     "answer": "fin"
   },
@@ -903,15 +908,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word log.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "log",
-      "light",
-      "float",
-      "stick"
+      "lag",
+      "leg",
+      "lug"
     ],
     "answer": "log"
   },
@@ -921,15 +927,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word cup.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "cup",
-      "cube",
-      "spoon",
-      "three"
+      "cap",
+      "cop",
+      "cab"
     ],
     "answer": "cup"
   },
@@ -939,15 +946,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word map.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "map",
-      "mail",
-      "plant",
-      "cheese"
+      "mop",
+      "mug",
+      "men"
     ],
     "answer": "map"
   },
@@ -957,15 +965,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word rug.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "rug",
-      "road",
-      "smile",
-      "white"
+      "rag",
+      "rig",
+      "rot"
     ],
     "answer": "rug"
   },
@@ -975,15 +984,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word pet.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "pet",
-      "peach",
-      "clock",
-      "storm"
+      "pat",
+      "pit",
+      "pot"
     ],
     "answer": "pet"
   },
@@ -993,15 +1003,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word jam.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "jam",
-      "jump",
-      "rain",
-      "shine"
+      "jet",
+      "jig",
+      "jog"
     ],
     "answer": "jam"
   },
@@ -1011,15 +1022,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word sit.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "sit",
-      "sight",
-      "chair",
-      "plate"
+      "sat",
+      "set",
+      "sod"
     ],
     "answer": "sit"
   },
@@ -1029,15 +1041,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word pot.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "pot",
-      "paint",
-      "glass",
-      "wheel"
+      "pat",
+      "pet",
+      "pit"
     ],
     "answer": "pot"
   },
@@ -1047,15 +1060,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word hen.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "hen",
-      "herd",
-      "whale",
-      "green"
+      "hat",
+      "hit",
+      "hot"
     ],
     "answer": "hen"
   },
@@ -1065,15 +1079,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word bag.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "bag",
-      "beach",
-      "stone",
-      "black"
+      "bug",
+      "big",
+      "bog"
     ],
     "answer": "bag"
   },
@@ -1083,15 +1098,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word red.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "red",
-      "read",
-      "brush",
-      "train"
+      "rid",
+      "rod",
+      "rug"
     ],
     "answer": "red"
   },
@@ -1101,15 +1117,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word fox.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "fox",
-      "fork",
-      "goat",
-      "sheep"
+      "fix",
+      "fax",
+      "fun"
     ],
     "answer": "fox"
   },
@@ -1119,15 +1136,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word sun.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "sun",
-      "snow",
-      "slide",
-      "three"
+      "sad",
+      "sit",
+      "sop"
     ],
     "answer": "sun"
   },
@@ -1137,15 +1155,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word pin.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "pin",
-      "plain",
-      "chair",
-      "storm"
+      "pan",
+      "pen",
+      "pun"
     ],
     "answer": "pin"
   },
@@ -1155,15 +1174,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word top.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "top",
-      "toast",
-      "glove",
-      "wheel"
+      "tap",
+      "tip",
+      "tub"
     ],
     "answer": "top"
   },
@@ -1173,15 +1193,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word web.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "web",
-      "weed",
-      "shell",
-      "plant"
+      "wed",
+      "wet",
+      "wag"
     ],
     "answer": "web"
   },
@@ -1191,15 +1212,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word cab.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "cab",
-      "crab",
-      "cube",
-      "light"
+      "cub",
+      "cob",
+      "cat"
     ],
     "answer": "cab"
   },
@@ -1209,15 +1231,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word zip.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "zip",
-      "ship",
-      "soap",
-      "tree"
+      "zap",
+      "zig",
+      "zen"
     ],
     "answer": "zip"
   },
@@ -1227,15 +1250,16 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word gum.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "gum",
-      "goat",
-      "drum",
-      "bright"
+      "gap",
+      "got",
+      "gas"
     ],
     "answer": "gum"
   },
@@ -1245,17 +1269,75 @@ export const templateExpansion7 = [
     "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has 3 letters and 3 sounds?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word van.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
       "van",
-      "vase",
-      "snail",
-      "phone"
+      "vet",
+      "vat",
+      "vex"
     ],
     "answer": "van"
+  },
+  {
+    "id": "exp7_cvc_26",
+    "grade": "K",
+    "skill": "cvc",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word bat.",
+    "image": "",
+    "imagePath": "",
+    "questionType": "multiple_choice",
+    "choices": [
+      "bat",
+      "bet",
+      "bit",
+      "but"
+    ],
+    "answer": "bat"
+  },
+  {
+    "id": "exp7_cvc_27",
+    "grade": "K",
+    "skill": "cvc",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word dog.",
+    "image": "",
+    "imagePath": "",
+    "questionType": "multiple_choice",
+    "choices": [
+      "dog",
+      "dig",
+      "dug",
+      "dag"
+    ],
+    "answer": "dog"
+  },
+  {
+    "id": "exp7_cvc_28",
+    "grade": "K",
+    "skill": "cvc",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word man.",
+    "image": "",
+    "imagePath": "",
+    "questionType": "multiple_choice",
+    "choices": [
+      "man",
+      "men",
+      "map",
+      "mop"
+    ],
+    "answer": "man"
   },
   {
     "id": "exp7_hfw_1_25_1",

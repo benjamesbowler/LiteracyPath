@@ -199,7 +199,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_015",
     "grade": "K",
-    "skill": "short vowels",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
     "question": "What sound do these letters make together: 'sh'?",
@@ -592,7 +592,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_047",
     "grade": "K",
-    "skill": "short vowels",
+    "skill": "blends",
     "difficulty": 1,
     "passage": "",
     "question": "Which word starts with two consonant sounds together?",
@@ -698,7 +698,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_056",
     "grade": "K",
-    "skill": "short vowels",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
     "question": "What sound do these letters make together: 'wh'?",
@@ -857,7 +857,7 @@ export const generatedQuestions = [
       "red",
       "rod",
       "rid",
-      "ride"
+      "rug"
     ],
     "answer": "red"
   },
@@ -939,7 +939,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_076",
     "grade": "K",
-    "skill": "short vowels",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
     "question": "Which two letters make the sound 'th'?",
