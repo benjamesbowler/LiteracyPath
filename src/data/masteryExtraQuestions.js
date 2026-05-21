@@ -1,138 +1,787 @@
-const initialSoundAudioExamples = {
-  b: "banana",
-  c: "cookie",
-  d: "door",
-  f: "fan",
-  g: "go",
-  h: "house",
-  l: "lion",
-  m: "milk",
-  n: "nose",
-  p: "pizza",
-  r: "rabbit",
-  s: "snake",
-  t: "table",
-  w: "water",
-  y: "yellow"
-};
-
-const finalSoundAudioExamples = {
-  d: "road",
-  f: "roof",
-  g: "frog",
-  k: "bike",
-  l: "ball",
-  m: "home",
-  n: "green",
-  p: "hop",
-  s: "mouse",
-  t: "light"
-};
-
 export const masteryExtraQuestions = [
-  ...["m","s","t","p","b","n","f","g","d","l","r","h","c","w","y"].map((sound, i) => ({
-    id: `extra_initial_${i + 1}`,
-    grade: "K",
-    skill: "initial sounds",
-    difficulty: 1,
-    passage: "",
-    question: `Which word begins with the /${sound}/ sound?`,
-    spokenPrompt: `Which word begins like ${initialSoundAudioExamples[sound]}?`,
-    choices: {
-      m:["moon","sun","fish","dog"],
-      s:["sun","moon","fish","dog"],
-      t:["top","sun","fish","dog"],
-      p:["pig","sun","fish","dog"],
-      b:["ball","sun","fish","dog"],
-      n:["nest","sun","fish","dog"],
-      f:["fish","sun","dog","map"],
-      g:["goat","sun","fish","map"],
-      d:["dog","sun","fish","map"],
-      l:["leaf","sun","fish","dog"],
-      r:["run","sun","fish","dog"],
-      h:["hat","sun","fish","dog"],
-      c:["cat","sun","fish","dog"],
-      w:["web","sun","fish","dog"],
-      y:["yak","sun","fish","dog"]
-    }[sound],
-    answer: {
-      m:"moon", s:"sun", t:"top", p:"pig", b:"ball", n:"nest", f:"fish", g:"goat", d:"dog",
-      l:"leaf", r:"run", h:"hat", c:"cat", w:"web", y:"yak"
-    }[sound]
-  })),
-
-  ...["t","p","n","g","m","d","k","l","s","f"].map((sound, i) => ({
-    id: `extra_final_${i + 1}`,
-    grade: "K",
-    skill: "final sounds",
-    difficulty: 1,
-    passage: "",
-    question: `Which word ends with the /${sound}/ sound?`,
-    spokenPrompt: `Which word ends like ${finalSoundAudioExamples[sound]}?`,
-    choices: {
-      t:["hat","ham","had","hag"],
-      p:["map","mat","man","mad"],
-      n:["sun","sup","sut","sub"],
-      g:["dog","dot","dock","don"],
-      m:["jam","jet","jag","jab"],
-      d:["bed","bet","beg","ben"],
-      k:["duck","dug","dun","dub"],
-      l:["bell","bed","beg","ben"],
-      s:["bus","bug","bun","but"],
-      f:["leaf","leak","lead","lean"]
-    }[sound],
-    answer: {
-      t:"hat", p:"map", n:"sun", g:"dog", m:"jam", d:"bed", k:"duck", l:"bell", s:"bus", f:"leaf"
-    }[sound]
-  })),
-
-  ...[
-    ["cat","hat",["hat","dog","sun","fish"]],
-    ["bug","rug",["rug","cat","pen","fish"]],
-    ["sun","run",["run","dog","map","book"]],
-    ["bed","red",["red","cup","dog","fish"]],
-    ["top","hop",["hop","sun","cat","pen"]],
-    ["cake","lake",["lake","dog","fish","sun"]],
-    ["fish","dish",["dish","cat","bug","pen"]],
-    ["king","ring",["ring","dog","cat","sun"]],
-    ["boat","coat",["coat","bed","fish","map"]],
-    ["star","car",["car","dog","pen","bug"]],
-    ["moon","spoon",["spoon","cat","fish","dog"]],
-    ["light","night",["night","log","bug","pen"]],
-    ["bee","tree",["tree","sun","dog","cat"]],
-    ["goat","coat",["coat","fish","bed","cup"]],
-    ["chair","bear",["bear","dog","sun","fish"]]
-  ].map(([target, answer, choices], i) => ({
-    id: `extra_rhyme_${i + 1}`,
-    grade: "K",
-    skill: "rhyming",
-    difficulty: 1,
-    passage: "",
-    question: `Which word rhymes with ${target}?`,
-    choices,
-    answer
-  })),
-
-  ...[
-    ["cat","mat",["mat","met","mit","mop"]],
-    ["bag","map",["map","mop","mug","men"]],
-    ["pet","red",["red","rad","rid","rod"]],
-    ["hen","pen",["pen","pan","pin","pun"]],
-    ["pig","sit",["sit","sat","set","sot"]],
-    ["fin","pin",["pin","pan","pen","pun"]],
-    ["dog","hop",["hop","hip","hap","hep"]],
-    ["log","pot",["pot","pat","pit","pet"]],
-    ["cup","rug",["rug","rag","rig","rog"]],
-    ["mud","cup",["cup","cap","cop","cip"]]
-  ].map(([target, answer, choices], i) => ({
-    id: `extra_short_vowel_${i + 1}`,
-    grade: "K",
-    skill: "short vowel discrimination",
-    difficulty: 2,
-    passage: "",
-    question: `Which word has the same middle sound as ${target}?`,
-    spokenPrompt: `Which word has the same vowel sound as ${target}?`,
-    choices,
-    answer
-  }))
+  {
+    "id": "extra_initial_1",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as moon?",
+    "spokenPrompt": "Which word starts like moon?",
+    "choices": [
+      "moon",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "moon"
+  },
+  {
+    "id": "extra_initial_2",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as sun?",
+    "spokenPrompt": "Which word starts like sun?",
+    "choices": [
+      "sun",
+      "moon",
+      "fish",
+      "dog"
+    ],
+    "answer": "sun"
+  },
+  {
+    "id": "extra_initial_3",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as top?",
+    "spokenPrompt": "Which word starts like top?",
+    "choices": [
+      "top",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "top"
+  },
+  {
+    "id": "extra_initial_4",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as pig?",
+    "spokenPrompt": "Which word starts like pig?",
+    "choices": [
+      "pig",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "pig"
+  },
+  {
+    "id": "extra_initial_5",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as ball?",
+    "spokenPrompt": "Which word starts like ball?",
+    "choices": [
+      "ball",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "ball"
+  },
+  {
+    "id": "extra_initial_6",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as nest?",
+    "spokenPrompt": "Which word starts like nest?",
+    "choices": [
+      "nest",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "nest"
+  },
+  {
+    "id": "extra_initial_7",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as fish?",
+    "spokenPrompt": "Which word starts like fish?",
+    "choices": [
+      "fish",
+      "sun",
+      "dog",
+      "map"
+    ],
+    "answer": "fish"
+  },
+  {
+    "id": "extra_initial_8",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as goat?",
+    "spokenPrompt": "Which word starts like goat?",
+    "choices": [
+      "goat",
+      "sun",
+      "fish",
+      "map"
+    ],
+    "answer": "goat"
+  },
+  {
+    "id": "extra_initial_9",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as dog?",
+    "spokenPrompt": "Which word starts like dog?",
+    "choices": [
+      "dog",
+      "sun",
+      "fish",
+      "map"
+    ],
+    "answer": "dog"
+  },
+  {
+    "id": "extra_initial_10",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as leaf?",
+    "spokenPrompt": "Which word starts like leaf?",
+    "choices": [
+      "leaf",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "leaf"
+  },
+  {
+    "id": "extra_initial_11",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as rabbit?",
+    "spokenPrompt": "Which word starts like rabbit?",
+    "choices": [
+      "run",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "run"
+  },
+  {
+    "id": "extra_initial_12",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as hat?",
+    "spokenPrompt": "Which word starts like hat?",
+    "choices": [
+      "hat",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "hat"
+  },
+  {
+    "id": "extra_initial_13",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as cat?",
+    "spokenPrompt": "Which word starts like cat?",
+    "choices": [
+      "cat",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "cat"
+  },
+  {
+    "id": "extra_initial_14",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as web?",
+    "spokenPrompt": "Which word starts like web?",
+    "choices": [
+      "web",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "web"
+  },
+  {
+    "id": "extra_initial_15",
+    "grade": "K",
+    "skill": "initial sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word starts the same as yak?",
+    "spokenPrompt": "Which word starts like yak?",
+    "choices": [
+      "yak",
+      "sun",
+      "fish",
+      "dog"
+    ],
+    "answer": "yak"
+  },
+  {
+    "id": "extra_final_1",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as light?",
+    "spokenPrompt": "Which word ends like light?",
+    "choices": [
+      "hat",
+      "ham",
+      "had",
+      "hag"
+    ],
+    "answer": "hat"
+  },
+  {
+    "id": "extra_final_2",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as hop?",
+    "spokenPrompt": "Which word ends like hop?",
+    "choices": [
+      "map",
+      "mat",
+      "man",
+      "mad"
+    ],
+    "answer": "map"
+  },
+  {
+    "id": "extra_final_3",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as green?",
+    "spokenPrompt": "Which word ends like green?",
+    "choices": [
+      "sun",
+      "sup",
+      "sut",
+      "sub"
+    ],
+    "answer": "sun"
+  },
+  {
+    "id": "extra_final_4",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as frog?",
+    "spokenPrompt": "Which word ends like frog?",
+    "choices": [
+      "dog",
+      "dot",
+      "dock",
+      "don"
+    ],
+    "answer": "dog"
+  },
+  {
+    "id": "extra_final_5",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as home?",
+    "spokenPrompt": "Which word ends like home?",
+    "choices": [
+      "jam",
+      "jet",
+      "jag",
+      "jab"
+    ],
+    "answer": "jam"
+  },
+  {
+    "id": "extra_final_6",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as road?",
+    "spokenPrompt": "Which word ends like road?",
+    "choices": [
+      "bed",
+      "bet",
+      "beg",
+      "ben"
+    ],
+    "answer": "bed"
+  },
+  {
+    "id": "extra_final_7",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as bike?",
+    "spokenPrompt": "Which word ends like bike?",
+    "choices": [
+      "duck",
+      "dug",
+      "dun",
+      "dub"
+    ],
+    "answer": "duck"
+  },
+  {
+    "id": "extra_final_8",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as ball?",
+    "spokenPrompt": "Which word ends like ball?",
+    "choices": [
+      "bell",
+      "bed",
+      "beg",
+      "ben"
+    ],
+    "answer": "bell"
+  },
+  {
+    "id": "extra_final_9",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as mouse?",
+    "spokenPrompt": "Which word ends like mouse?",
+    "choices": [
+      "bus",
+      "bug",
+      "bun",
+      "but"
+    ],
+    "answer": "bus"
+  },
+  {
+    "id": "extra_final_10",
+    "grade": "K",
+    "skill": "final sounds",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word ends the same as roof?",
+    "spokenPrompt": "Which word ends like roof?",
+    "choices": [
+      "leaf",
+      "leak",
+      "lead",
+      "lean"
+    ],
+    "answer": "leaf"
+  },
+  {
+    "id": "extra_rhyme_1",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with cat?",
+    "choices": [
+      "hat",
+      "dog",
+      "sun",
+      "fish"
+    ],
+    "answer": "hat"
+  },
+  {
+    "id": "extra_rhyme_2",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with bug?",
+    "choices": [
+      "rug",
+      "cat",
+      "pen",
+      "fish"
+    ],
+    "answer": "rug"
+  },
+  {
+    "id": "extra_rhyme_3",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with sun?",
+    "choices": [
+      "run",
+      "dog",
+      "map",
+      "book"
+    ],
+    "answer": "run"
+  },
+  {
+    "id": "extra_rhyme_4",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with bed?",
+    "choices": [
+      "red",
+      "cup",
+      "dog",
+      "fish"
+    ],
+    "answer": "red"
+  },
+  {
+    "id": "extra_rhyme_5",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with top?",
+    "choices": [
+      "hop",
+      "sun",
+      "cat",
+      "pen"
+    ],
+    "answer": "hop"
+  },
+  {
+    "id": "extra_rhyme_6",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with cake?",
+    "choices": [
+      "lake",
+      "dog",
+      "fish",
+      "sun"
+    ],
+    "answer": "lake"
+  },
+  {
+    "id": "extra_rhyme_7",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with fish?",
+    "choices": [
+      "dish",
+      "cat",
+      "bug",
+      "pen"
+    ],
+    "answer": "dish"
+  },
+  {
+    "id": "extra_rhyme_8",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with king?",
+    "choices": [
+      "ring",
+      "dog",
+      "cat",
+      "sun"
+    ],
+    "answer": "ring"
+  },
+  {
+    "id": "extra_rhyme_9",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with boat?",
+    "choices": [
+      "coat",
+      "bed",
+      "fish",
+      "map"
+    ],
+    "answer": "coat"
+  },
+  {
+    "id": "extra_rhyme_10",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with star?",
+    "choices": [
+      "car",
+      "dog",
+      "pen",
+      "bug"
+    ],
+    "answer": "car"
+  },
+  {
+    "id": "extra_rhyme_11",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with moon?",
+    "choices": [
+      "spoon",
+      "cat",
+      "fish",
+      "dog"
+    ],
+    "answer": "spoon"
+  },
+  {
+    "id": "extra_rhyme_12",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with light?",
+    "choices": [
+      "night",
+      "log",
+      "bug",
+      "pen"
+    ],
+    "answer": "night"
+  },
+  {
+    "id": "extra_rhyme_13",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with bee?",
+    "choices": [
+      "tree",
+      "sun",
+      "dog",
+      "cat"
+    ],
+    "answer": "tree"
+  },
+  {
+    "id": "extra_rhyme_14",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with goat?",
+    "choices": [
+      "coat",
+      "fish",
+      "bed",
+      "cup"
+    ],
+    "answer": "coat"
+  },
+  {
+    "id": "extra_rhyme_15",
+    "grade": "K",
+    "skill": "rhyming",
+    "difficulty": 1,
+    "passage": "",
+    "question": "Which word rhymes with chair?",
+    "choices": [
+      "bear",
+      "dog",
+      "sun",
+      "fish"
+    ],
+    "answer": "bear"
+  },
+  {
+    "id": "extra_short_vowel_1",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as cat?",
+    "spokenPrompt": "Which word has the same sound in the middle as cat?",
+    "choices": [
+      "mat",
+      "met",
+      "mit",
+      "mop"
+    ],
+    "answer": "mat"
+  },
+  {
+    "id": "extra_short_vowel_2",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as cat?",
+    "spokenPrompt": "Which word has the same sound in the middle as cat?",
+    "choices": [
+      "map",
+      "mop",
+      "mug",
+      "men"
+    ],
+    "answer": "map"
+  },
+  {
+    "id": "extra_short_vowel_3",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as bed?",
+    "spokenPrompt": "Which word has the same sound in the middle as bed?",
+    "choices": [
+      "red",
+      "rad",
+      "rid",
+      "rod"
+    ],
+    "answer": "red"
+  },
+  {
+    "id": "extra_short_vowel_4",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as bed?",
+    "spokenPrompt": "Which word has the same sound in the middle as bed?",
+    "choices": [
+      "pen",
+      "pan",
+      "pin",
+      "pun"
+    ],
+    "answer": "pen"
+  },
+  {
+    "id": "extra_short_vowel_5",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as pig?",
+    "spokenPrompt": "Which word has the same sound in the middle as pig?",
+    "choices": [
+      "sit",
+      "sat",
+      "set",
+      "sot"
+    ],
+    "answer": "sit"
+  },
+  {
+    "id": "extra_short_vowel_6",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as pig?",
+    "spokenPrompt": "Which word has the same sound in the middle as pig?",
+    "choices": [
+      "pin",
+      "pan",
+      "pen",
+      "pun"
+    ],
+    "answer": "pin"
+  },
+  {
+    "id": "extra_short_vowel_7",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as pot?",
+    "spokenPrompt": "Which word has the same sound in the middle as pot?",
+    "choices": [
+      "hop",
+      "hip",
+      "hap",
+      "hep"
+    ],
+    "answer": "hop"
+  },
+  {
+    "id": "extra_short_vowel_8",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as pot?",
+    "spokenPrompt": "Which word has the same sound in the middle as pot?",
+    "choices": [
+      "pot",
+      "pat",
+      "pit",
+      "pet"
+    ],
+    "answer": "pot"
+  },
+  {
+    "id": "extra_short_vowel_9",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as sun?",
+    "spokenPrompt": "Which word has the same sound in the middle as sun?",
+    "choices": [
+      "rug",
+      "rag",
+      "rig",
+      "rog"
+    ],
+    "answer": "rug"
+  },
+  {
+    "id": "extra_short_vowel_10",
+    "grade": "K",
+    "skill": "short vowel discrimination",
+    "difficulty": 2,
+    "passage": "",
+    "question": "Which word has the same middle sound as sun?",
+    "spokenPrompt": "Which word has the same sound in the middle as sun?",
+    "choices": [
+      "cup",
+      "cap",
+      "cop",
+      "cip"
+    ],
+    "answer": "cup"
+  }
 ];

@@ -1170,7 +1170,7 @@ export const templateExpansion3 = [
     "skill": "sequencing",
     "difficulty": 3,
     "passage": "First, Kim opened her book. Next, she read a page. Last, she closed the book.",
-    "question": "What did Kim do next?",
+    "question": "What happened second?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",

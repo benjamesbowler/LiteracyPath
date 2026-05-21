@@ -196,7 +196,7 @@ export const templateExpansion2 = [
       "mop"
     ],
     "answer": "mat",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp2_short_vowel_2",
@@ -204,7 +204,7 @@ export const templateExpansion2 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as pet?",
+    "question": "Which word has the same middle sound as bed?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -215,7 +215,7 @@ export const templateExpansion2 = [
       "rod"
     ],
     "answer": "red",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp2_short_vowel_3",
@@ -234,7 +234,7 @@ export const templateExpansion2 = [
       "sot"
     ],
     "answer": "sit",
-    "spokenPrompt": "Which word has the same vowel sound as itch?"
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "exp2_short_vowel_4",
@@ -242,7 +242,7 @@ export const templateExpansion2 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as dog?",
+    "question": "Which word has the same middle sound as pot?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -253,7 +253,7 @@ export const templateExpansion2 = [
       "hep"
     ],
     "answer": "hop",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp2_short_vowel_5",
@@ -272,7 +272,7 @@ export const templateExpansion2 = [
       "cip"
     ],
     "answer": "cup",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp2_short_vowel_6",
@@ -280,7 +280,7 @@ export const templateExpansion2 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as map?",
+    "question": "Which word has the same middle sound as cat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -291,7 +291,7 @@ export const templateExpansion2 = [
       "tup"
     ],
     "answer": "tap",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp2_short_vowel_7",
@@ -310,7 +310,7 @@ export const templateExpansion2 = [
       "pun"
     ],
     "answer": "pen",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp2_short_vowel_8",
@@ -318,7 +318,7 @@ export const templateExpansion2 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as fin?",
+    "question": "Which word has the same middle sound as pig?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -329,7 +329,7 @@ export const templateExpansion2 = [
       "pun"
     ],
     "answer": "pin",
-    "spokenPrompt": "Which word has the same vowel sound as itch?"
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "exp2_short_vowel_9",
@@ -348,7 +348,7 @@ export const templateExpansion2 = [
       "tup"
     ],
     "answer": "top",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp2_short_vowel_10",
@@ -356,7 +356,7 @@ export const templateExpansion2 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as bug?",
+    "question": "Which word has the same middle sound as sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -367,7 +367,7 @@ export const templateExpansion2 = [
       "rog"
     ],
     "answer": "rug",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp2_hfw_51_100_1",
@@ -850,7 +850,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh sound?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -860,7 +860,8 @@ export const templateExpansion2 = [
       "tip",
       "lip"
     ],
-    "answer": "ship"
+    "answer": "ship",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp2_digraph_2",
@@ -868,7 +869,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh sound?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -878,7 +879,8 @@ export const templateExpansion2 = [
       "fell",
       "bell"
     ],
-    "answer": "shell"
+    "answer": "shell",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp2_digraph_3",
@@ -886,7 +888,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch sound?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -896,7 +898,8 @@ export const templateExpansion2 = [
       "fair",
       "pair"
     ],
-    "answer": "chair"
+    "answer": "chair",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp2_digraph_4",
@@ -904,7 +907,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch sound?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -914,7 +917,8 @@ export const templateExpansion2 = [
       "win",
       "fin"
     ],
-    "answer": "chin"
+    "answer": "chin",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp2_digraph_5",
@@ -922,7 +926,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th sound?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -932,7 +936,8 @@ export const templateExpansion2 = [
       "pin",
       "win"
     ],
-    "answer": "thin"
+    "answer": "thin",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "exp2_digraph_6",
@@ -940,7 +945,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th sound?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -950,7 +955,8 @@ export const templateExpansion2 = [
       "free",
       "see"
     ],
-    "answer": "three"
+    "answer": "three",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "exp2_digraph_7",
@@ -958,7 +964,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the wh sound?",
+    "question": "Which word starts with wh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -968,7 +974,8 @@ export const templateExpansion2 = [
       "mail",
       "pail"
     ],
-    "answer": "whale"
+    "answer": "whale",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "exp2_digraph_8",
@@ -976,7 +983,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the wh sound?",
+    "question": "Which word starts with wh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -986,7 +993,8 @@ export const templateExpansion2 = [
       "peel",
       "heel"
     ],
-    "answer": "wheel"
+    "answer": "wheel",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "exp2_digraph_9",
@@ -994,7 +1002,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh sound?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1004,7 +1012,8 @@ export const templateExpansion2 = [
       "mop",
       "pop"
     ],
-    "answer": "shop"
+    "answer": "shop",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp2_digraph_10",
@@ -1012,7 +1021,7 @@ export const templateExpansion2 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch sound?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1022,7 +1031,8 @@ export const templateExpansion2 = [
       "knees",
       "sees"
     ],
-    "answer": "cheese"
+    "answer": "cheese",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp2_long_vowel_1",
@@ -1858,7 +1868,7 @@ export const templateExpansion2 = [
     "skill": "sequencing",
     "difficulty": 3,
     "passage": "First, Ava washed her hands. Next, she ate lunch. Last, she cleaned her plate.",
-    "question": "What did Ava do next?",
+    "question": "What happened second?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",

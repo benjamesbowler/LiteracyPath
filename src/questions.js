@@ -4,8 +4,8 @@ export const questions = [
     "grade": "K",
     "skill": "initial sounds",
     "difficulty": 1,
-    "question": "Which word starts with /b/?",
-    "spokenPrompt": "Which word starts like banana?",
+    "question": "Which word starts the same as ball?",
+    "spokenPrompt": "Which word starts like ball?",
     "image": "🦇",
     "choices": [
       "bat",
@@ -20,8 +20,8 @@ export const questions = [
     "grade": "K",
     "skill": "initial sounds",
     "difficulty": 1,
-    "question": "Which word starts with /m/?",
-    "spokenPrompt": "Which word starts like milk?",
+    "question": "Which word starts the same as moon?",
+    "spokenPrompt": "Which word starts like moon?",
     "image": "🐒",
     "choices": [
       "moon",
@@ -36,7 +36,7 @@ export const questions = [
     "grade": "K",
     "skill": "final sounds",
     "difficulty": 2,
-    "question": "Which word ends with /t/?",
+    "question": "Which word ends the same as light?",
     "spokenPrompt": "Which word ends like light?",
     "image": "🎩",
     "choices": [
@@ -66,9 +66,9 @@ export const questions = [
   {
     "id": "phonics_blend_001",
     "grade": "1",
-    "skill": "blends",
+    "skill": "initial sounds",
     "difficulty": 3,
-    "question": "Which word begins with the same sound as frog?",
+    "question": "Which word starts the same as fish?",
     "image": "🐸",
     "choices": [
       "flag",
@@ -76,7 +76,8 @@ export const questions = [
       "sun",
       "cake"
     ],
-    "answer": "flag"
+    "answer": "flag",
+    "spokenPrompt": "Which word starts like fish?"
   },
   {
     "id": "spelling_001",

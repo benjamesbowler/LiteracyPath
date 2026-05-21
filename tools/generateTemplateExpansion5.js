@@ -24,11 +24,11 @@ function choices(answer, wrongs) {
 
 // Extra final sounds
 [
-  ["Which word ends with the /t/ sound?", "mat", ["man", "map", "mad"]],
-  ["Which word ends with the /p/ sound?", "cap", ["cat", "can", "cab"]],
-  ["Which word ends with the /n/ sound?", "sun", ["sup", "sut", "sub"]],
-  ["Which word ends with the /g/ sound?", "dog", ["dot", "dock", "don"]],
-  ["Which word ends with the /m/ sound?", "jam", ["jet", "jag", "jab"]]
+  ["Which word ends the same as light?", "mat", ["man", "map", "mad"]],
+  ["Which word ends the same as hop?", "cap", ["cat", "can", "cab"]],
+  ["Which word ends the same as green?", "sun", ["sup", "sut", "sub"]],
+  ["Which word ends the same as frog?", "dog", ["dot", "dock", "don"]],
+  ["Which word ends the same as home?", "jam", ["jet", "jag", "jab"]]
 ].forEach(([question, answer, wrongs], i) => {
   add({
     id: `exp5_final_${i + 1}`,

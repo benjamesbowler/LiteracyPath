@@ -99,7 +99,7 @@ IMPORTANT RULES:
 - Use clean stems such as:
   * Which word matches the picture?
   * Which word is spelled correctly?
-  * Which word begins with the /b/ sound?
+  * Which word starts the same as ball?
   * Which word has the same middle sound as "pet"?
   * What does the word ___ mean?
   * What can you infer from the passage?

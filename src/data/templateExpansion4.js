@@ -16,7 +16,7 @@ export const templateExpansion4 = [
       "mop"
     ],
     "answer": "mat",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp4_short_vowel_2",
@@ -24,7 +24,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as bag?",
+    "question": "Which word has the same middle sound as cat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -35,7 +35,7 @@ export const templateExpansion4 = [
       "men"
     ],
     "answer": "map",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp4_short_vowel_3",
@@ -43,7 +43,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as pet?",
+    "question": "Which word has the same middle sound as bed?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -54,7 +54,7 @@ export const templateExpansion4 = [
       "rod"
     ],
     "answer": "red",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp4_short_vowel_4",
@@ -62,7 +62,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as hen?",
+    "question": "Which word has the same middle sound as bed?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -73,7 +73,7 @@ export const templateExpansion4 = [
       "pun"
     ],
     "answer": "pen",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp4_short_vowel_5",
@@ -92,7 +92,7 @@ export const templateExpansion4 = [
       "sot"
     ],
     "answer": "sit",
-    "spokenPrompt": "Which word has the same vowel sound as itch?"
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "exp4_short_vowel_6",
@@ -100,7 +100,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as fin?",
+    "question": "Which word has the same middle sound as pig?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -111,7 +111,7 @@ export const templateExpansion4 = [
       "pun"
     ],
     "answer": "pin",
-    "spokenPrompt": "Which word has the same vowel sound as itch?"
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "exp4_short_vowel_7",
@@ -119,7 +119,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as dog?",
+    "question": "Which word has the same middle sound as pot?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -130,7 +130,7 @@ export const templateExpansion4 = [
       "hep"
     ],
     "answer": "hop",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp4_short_vowel_8",
@@ -138,7 +138,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as log?",
+    "question": "Which word has the same middle sound as pot?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -149,7 +149,7 @@ export const templateExpansion4 = [
       "pet"
     ],
     "answer": "pot",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp4_short_vowel_9",
@@ -157,7 +157,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as cup?",
+    "question": "Which word has the same middle sound as sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -168,7 +168,7 @@ export const templateExpansion4 = [
       "sit"
     ],
     "answer": "sun",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp4_short_vowel_10",
@@ -176,7 +176,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as bug?",
+    "question": "Which word has the same middle sound as sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -187,7 +187,7 @@ export const templateExpansion4 = [
       "rog"
     ],
     "answer": "rug",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp4_short_vowel_11",
@@ -195,7 +195,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as map?",
+    "question": "Which word has the same middle sound as cat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -206,7 +206,7 @@ export const templateExpansion4 = [
       "tup"
     ],
     "answer": "tap",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp4_short_vowel_12",
@@ -225,7 +225,7 @@ export const templateExpansion4 = [
       "pun"
     ],
     "answer": "pen",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp4_short_vowel_13",
@@ -233,7 +233,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as log?",
+    "question": "Which word has the same middle sound as pot?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -244,7 +244,7 @@ export const templateExpansion4 = [
       "pet"
     ],
     "answer": "pot",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp4_short_vowel_14",
@@ -252,7 +252,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as mud?",
+    "question": "Which word has the same middle sound as sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -263,7 +263,7 @@ export const templateExpansion4 = [
       "cip"
     ],
     "answer": "cup",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp4_short_vowel_15",
@@ -271,7 +271,7 @@ export const templateExpansion4 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same middle sound as jam?",
+    "question": "Which word has the same middle sound as cat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -282,7 +282,7 @@ export const templateExpansion4 = [
       "hut"
     ],
     "answer": "hat",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp4_prep_1",
@@ -606,7 +606,7 @@ export const templateExpansion4 = [
     "skill": "sequencing",
     "difficulty": 3,
     "passage": "First, the class read a story. Next, they drew a picture. Last, they shared their work.",
-    "question": "What did the class do next?",
+    "question": "What happened second?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",

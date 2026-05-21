@@ -955,7 +955,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the bl blend?",
+    "question": "Which word starts with bl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -965,7 +965,8 @@ export const templateExpansion = [
       "glue",
       "clue"
     ],
-    "answer": "blue"
+    "answer": "blue",
+    "spokenPrompt": "Which word starts like blue?"
   },
   {
     "id": "template_blend_2",
@@ -973,7 +974,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the fl blend?",
+    "question": "Which word starts with fl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -983,7 +984,8 @@ export const templateExpansion = [
       "tag",
       "rag"
     ],
-    "answer": "flag"
+    "answer": "flag",
+    "spokenPrompt": "Which word starts like flag?"
   },
   {
     "id": "template_blend_3",
@@ -991,7 +993,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the fr blend?",
+    "question": "Which word starts with fr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1001,7 +1003,8 @@ export const templateExpansion = [
       "log",
       "hog"
     ],
-    "answer": "frog"
+    "answer": "frog",
+    "spokenPrompt": "Which word starts like frog?"
   },
   {
     "id": "template_blend_4",
@@ -1009,7 +1012,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the st blend?",
+    "question": "Which word starts with st?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1019,7 +1022,8 @@ export const templateExpansion = [
       "hop",
       "mop"
     ],
-    "answer": "stop"
+    "answer": "stop",
+    "spokenPrompt": "Which word starts like stop?"
   },
   {
     "id": "template_blend_5",
@@ -1027,7 +1031,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the cl blend?",
+    "question": "Which word starts with cl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1037,7 +1041,8 @@ export const templateExpansion = [
       "lap",
       "map"
     ],
-    "answer": "clap"
+    "answer": "clap",
+    "spokenPrompt": "Which word starts like clap?"
   },
   {
     "id": "template_blend_6",
@@ -1045,7 +1050,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the gr blend?",
+    "question": "Which word starts with gr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1055,7 +1060,8 @@ export const templateExpansion = [
       "win",
       "tin"
     ],
-    "answer": "grin"
+    "answer": "grin",
+    "spokenPrompt": "Which word starts like grass?"
   },
   {
     "id": "template_blend_7",
@@ -1063,7 +1069,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the dr blend?",
+    "question": "Which word starts with dr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1073,7 +1079,8 @@ export const templateExpansion = [
       "sum",
       "hum"
     ],
-    "answer": "drum"
+    "answer": "drum",
+    "spokenPrompt": "Which word starts like drum?"
   },
   {
     "id": "template_blend_8",
@@ -1081,7 +1088,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the tr blend?",
+    "question": "Which word starts with tr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1091,7 +1098,8 @@ export const templateExpansion = [
       "luck",
       "muck"
     ],
-    "answer": "truck"
+    "answer": "truck",
+    "spokenPrompt": "Which word starts like train?"
   },
   {
     "id": "template_blend_9",
@@ -1099,7 +1107,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the sn blend?",
+    "question": "Which word starts with sn?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1109,7 +1117,8 @@ export const templateExpansion = [
       "tail",
       "pail"
     ],
-    "answer": "snail"
+    "answer": "snail",
+    "spokenPrompt": "Which word starts like snail?"
   },
   {
     "id": "template_blend_10",
@@ -1117,7 +1126,7 @@ export const templateExpansion = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the cr blend?",
+    "question": "Which word starts with cr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1127,7 +1136,8 @@ export const templateExpansion = [
       "tab",
       "lab"
     ],
-    "answer": "crab"
+    "answer": "crab",
+    "spokenPrompt": "Which word starts like crab?"
   },
   {
     "id": "template_digraph_1",
@@ -1135,7 +1145,7 @@ export const templateExpansion = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh sound?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1145,7 +1155,8 @@ export const templateExpansion = [
       "tip",
       "lip"
     ],
-    "answer": "ship"
+    "answer": "ship",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "template_digraph_2",
@@ -1153,7 +1164,7 @@ export const templateExpansion = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch sound?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1163,7 +1174,8 @@ export const templateExpansion = [
       "hop",
       "mop"
     ],
-    "answer": "chop"
+    "answer": "chop",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "template_digraph_3",
@@ -1171,7 +1183,7 @@ export const templateExpansion = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th sound?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1181,7 +1193,8 @@ export const templateExpansion = [
       "win",
       "fin"
     ],
-    "answer": "thin"
+    "answer": "thin",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "template_digraph_4",
@@ -1189,7 +1202,7 @@ export const templateExpansion = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the wh sound?",
+    "question": "Which word starts with wh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1199,7 +1212,8 @@ export const templateExpansion = [
       "mail",
       "pail"
     ],
-    "answer": "whale"
+    "answer": "whale",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "template_digraph_5",
@@ -1207,7 +1221,7 @@ export const templateExpansion = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh sound?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1217,7 +1231,8 @@ export const templateExpansion = [
       "pop",
       "mop"
     ],
-    "answer": "shop"
+    "answer": "shop",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "template_digraph_6",
@@ -1225,7 +1240,7 @@ export const templateExpansion = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch sound?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1235,7 +1250,8 @@ export const templateExpansion = [
       "fair",
       "pair"
     ],
-    "answer": "chair"
+    "answer": "chair",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "template_digraph_7",
@@ -1243,7 +1259,7 @@ export const templateExpansion = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th sound?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1253,7 +1269,8 @@ export const templateExpansion = [
       "kiss",
       "hiss"
     ],
-    "answer": "this"
+    "answer": "this",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "template_long_vowel_1",

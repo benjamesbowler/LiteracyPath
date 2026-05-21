@@ -5,14 +5,15 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like cookie?",
+    "question": "Which word starts the same as cat?",
     "choices": [
       "cat",
       "dog",
       "sun",
       "map"
     ],
-    "answer": "cat"
+    "answer": "cat",
+    "spokenPrompt": "Which word starts like cat?"
   },
   {
     "id": "phonics_k_002",
@@ -20,29 +21,31 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like baby?",
+    "question": "Which word starts the same as ball?",
     "choices": [
       "ball",
       "cat",
       "sun",
       "map"
     ],
-    "answer": "ball"
+    "answer": "ball",
+    "spokenPrompt": "Which word starts like ball?"
   },
   {
     "id": "phonics_k_003",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the same sound as 'dog'?",
+    "question": "Which word starts the same as dog?",
     "choices": [
       "door",
       "cat",
       "fish",
       "apple"
     ],
-    "answer": "door"
+    "answer": "door",
+    "spokenPrompt": "Which word starts like dog?"
   },
   {
     "id": "phonics_k_004",
@@ -50,14 +53,15 @@ export const generatedQuestions = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends like green?",
+    "question": "Which word ends the same as green?",
     "choices": [
       "sun",
       "map",
       "cat",
       "dog"
     ],
-    "answer": "sun"
+    "answer": "sun",
+    "spokenPrompt": "Which word ends like green?"
   },
   {
     "id": "phonics_k_005",
@@ -65,14 +69,15 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like fan?",
+    "question": "Which word starts the same as fish?",
     "choices": [
       "fish",
       "sun",
       "pan",
       "hat"
     ],
-    "answer": "fish"
+    "answer": "fish",
+    "spokenPrompt": "Which word starts like fish?"
   },
   {
     "id": "phonics_k_006",
@@ -80,14 +85,15 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like moon?",
+    "question": "Which word starts the same as moon?",
     "choices": [
       "map",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "map"
+    "answer": "map",
+    "spokenPrompt": "Which word starts like moon?"
   },
   {
     "id": "phonics_k_007",
@@ -125,7 +131,7 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like snake?",
+    "question": "Which word starts the same as sun?",
     "choices": [
       "sun",
       "moon",
@@ -133,22 +139,24 @@ export const generatedQuestions = [
       "dog"
     ],
     "answer": "sun",
-    "questionType": "multiple_choice"
+    "questionType": "multiple_choice",
+    "spokenPrompt": "Which word starts like sun?"
   },
   {
     "id": "phonics_k_010",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which of these words begins with the same sound as 'bug'?",
+    "question": "Which word starts the same as ball?",
     "choices": [
       "ball",
       "car",
       "dog",
       "pig"
     ],
-    "answer": "ball"
+    "answer": "ball",
+    "spokenPrompt": "Which word starts like ball?"
   },
   {
     "id": "phonics_k_011",
@@ -156,8 +164,8 @@ export const generatedQuestions = [
     "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the same vowel sound as bat?",
-    "spokenPrompt": "Which word has the same vowel sound as apple?",
+    "question": "Which word has the same middle sound as cat?",
+    "spokenPrompt": "Which word has the same sound in the middle as cat?",
     "choices": [
       "map",
       "met",
@@ -169,11 +177,11 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_012",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "cvc",
     "difficulty": 1,
     "passage": "",
-    "question": "What word is made when you blend the sounds /c/ /a/ /t/?",
-    "spokenPrompt": "What word is made when you blend kuh, ah, tuh?",
+    "question": "Listen and find the word.",
+    "spokenPrompt": "Find the word cat.",
     "choices": [
       "cat",
       "cap",
@@ -188,14 +196,15 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like snake?",
+    "question": "Which word starts the same as sun?",
     "choices": [
       "sun",
       "moon",
       "fish",
       "dog"
     ],
-    "answer": "sun"
+    "answer": "sun",
+    "spokenPrompt": "Which word starts like sun?"
   },
   {
     "id": "phonics_k_015",
@@ -203,7 +212,7 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like shark?",
+    "question": "Which word starts with sh?",
     "choices": [
       "ship",
       "chip",
@@ -211,7 +220,8 @@ export const generatedQuestions = [
       "whale"
     ],
     "answer": "ship",
-    "questionType": "multiple_choice"
+    "questionType": "multiple_choice",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "phonics_k_016",
@@ -219,8 +229,8 @@ export const generatedQuestions = [
     "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the same vowel sound as bed?",
-    "spokenPrompt": "Which word has the same vowel sound as egg?",
+    "question": "Which word has the same middle sound as bed?",
+    "spokenPrompt": "Which word has the same sound in the middle as bed?",
     "choices": [
       "red",
       "rad",
@@ -250,14 +260,15 @@ export const generatedQuestions = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends like hop?",
+    "question": "Which word ends the same as hop?",
     "choices": [
       "map",
       "mat",
       "man",
       "mad"
     ],
-    "answer": "map"
+    "answer": "map",
+    "spokenPrompt": "Which word ends like hop?"
   },
   {
     "id": "phonics_k_019",
@@ -265,44 +276,47 @@ export const generatedQuestions = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends like light?",
+    "question": "Which word ends the same as light?",
     "choices": [
       "mat",
       "map",
       "man",
       "mad"
     ],
-    "answer": "mat"
+    "answer": "mat",
+    "spokenPrompt": "Which word ends like light?"
   },
   {
     "id": "phonics_k_020",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which of these words starts with the letter 'm' sound?",
+    "question": "Which word starts the same as moon?",
     "choices": [
       "man",
       "nap",
       "cat",
       "top"
     ],
-    "answer": "man"
+    "answer": "man",
+    "spokenPrompt": "Which word starts like moon?"
   },
   {
     "id": "phonics_k_021",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the same beginning sound as 'bat'?",
+    "question": "Which word starts the same as ball?",
     "choices": [
       "ball",
       "cat",
       "dog",
       "fan"
     ],
-    "answer": "ball"
+    "answer": "ball",
+    "spokenPrompt": "Which word starts like ball?"
   },
   {
     "id": "phonics_k_024",
@@ -310,14 +324,15 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like cheese?",
+    "question": "Which word starts with ch?",
     "choices": [
       "chip",
       "ship",
       "thin",
       "whale"
     ],
-    "answer": "chip"
+    "answer": "chip",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "phonics_k_025",
@@ -325,23 +340,24 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like shark?",
+    "question": "Which word starts with sh?",
     "choices": [
       "ship",
       "chip",
       "thin",
       "whale"
     ],
-    "answer": "ship"
+    "answer": "ship",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "phonics_k_026",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a different vowel sound?",
-    "spokenPrompt": "Which word does not have the same vowel sound as apple?",
+    "question": "Which word has the same middle sound as pig?",
+    "spokenPrompt": "Which word has the same sound in the middle as pig?",
     "choices": [
       "dad",
       "mad",
@@ -353,11 +369,11 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_027",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Choose the word with the beginning sound /f/.",
-    "spokenPrompt": "Choose the word that starts like frog.",
+    "question": "Which word starts the same as fish?",
+    "spokenPrompt": "Which word starts like fish?",
     "choices": [
       "fan",
       "van",
@@ -372,29 +388,31 @@ export const generatedQuestions = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends like bike?",
+    "question": "Which word ends the same as bike?",
     "choices": [
       "duck",
       "dog",
       "sun",
       "cup"
     ],
-    "answer": "duck"
+    "answer": "duck",
+    "spokenPrompt": "Which word ends like bike?"
   },
   {
     "id": "phonics_k_031",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Find the word that begins with the same sound as 'go'.",
+    "question": "Which word starts the same as goat?",
     "choices": [
       "got",
       "dot",
       "hot",
       "pot"
     ],
-    "answer": "got"
+    "answer": "got",
+    "spokenPrompt": "Which word starts like goat?"
   },
   {
     "id": "phonics_k_032",
@@ -402,8 +420,8 @@ export const generatedQuestions = [
     "skill": "phonics",
     "difficulty": 1,
     "passage": "",
-    "question": "What letter blends with /s/ to make the sound at the start of 'stop'?",
-    "spokenPrompt": "What letter comes after the first sound in stop?",
+    "question": "In stop, which letter comes after s?",
+    "spokenPrompt": "In stop, which letter comes after s?",
     "choices": [
       "t",
       "p",
@@ -433,14 +451,15 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like cheese?",
+    "question": "Which word starts with ch?",
     "choices": [
       "chair",
       "ship",
       "thin",
       "whale"
     ],
-    "answer": "chair"
+    "answer": "chair",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "phonics_k_036",
@@ -463,29 +482,31 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like photo?",
+    "question": "Which word starts with ph?",
     "choices": [
       "phone",
       "fish",
       "pan",
       "van"
     ],
-    "answer": "phone"
+    "answer": "phone",
+    "spokenPrompt": "Which word starts like phone?"
   },
   {
     "id": "phonics_k_038",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a different beginning sound?",
+    "question": "Which word starts the same as fish?",
     "choices": [
       "jump",
       "juice",
       "fan",
       "jam"
     ],
-    "answer": "fan"
+    "answer": "fan",
+    "spokenPrompt": "Which word starts like fish?"
   },
   {
     "id": "phonics_k_039",
@@ -493,14 +514,15 @@ export const generatedQuestions = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends like hop?",
+    "question": "Which word ends the same as hop?",
     "choices": [
       "top",
       "hot",
       "hog",
       "hen"
     ],
-    "answer": "top"
+    "answer": "top",
+    "spokenPrompt": "Which word ends like hop?"
   },
   {
     "id": "phonics_k_040",
@@ -520,17 +542,18 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_041",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the same sound as 'red'?",
+    "question": "Which word starts the same as rabbit?",
     "choices": [
       "run",
       "sun",
       "cut",
       "bed"
     ],
-    "answer": "run"
+    "answer": "run",
+    "spokenPrompt": "Which word starts like rabbit?"
   },
   {
     "id": "phonics_k_042",
@@ -553,8 +576,8 @@ export const generatedQuestions = [
     "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the same vowel sound as lip?",
-    "spokenPrompt": "Which word has the same vowel sound as itch?",
+    "question": "Which word has the same middle sound as pig?",
+    "spokenPrompt": "Which word has the same sound in the middle as pig?",
     "choices": [
       "pin",
       "pan",
@@ -599,15 +622,16 @@ export const generatedQuestions = [
     "skill": "blends",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with two consonant sounds together?",
+    "question": "Which word starts with bl?",
     "choices": [
-      "blend",
+      "black",
       "cat",
       "dog",
       "run"
     ],
-    "answer": "blend",
-    "questionType": "multiple_choice"
+    "answer": "black",
+    "questionType": "multiple_choice",
+    "spokenPrompt": "Which word starts like blue?"
   },
   {
     "id": "phonics_k_048",
@@ -630,29 +654,31 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like door?",
+    "question": "Which word starts the same as dog?",
     "choices": [
       "dog",
       "cat",
       "fish",
       "sun"
     ],
-    "answer": "dog"
+    "answer": "dog",
+    "spokenPrompt": "Which word starts like dog?"
   },
   {
     "id": "phonics_k_051",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins with the letter 'p' sound?",
+    "question": "Which word starts the same as pig?",
     "choices": [
       "pig",
       "cat",
       "rat",
       "bat"
     ],
-    "answer": "pig"
+    "answer": "pig",
+    "spokenPrompt": "Which word starts like pig?"
   },
   {
     "id": "phonics_k_052",
@@ -672,32 +698,34 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_054",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "blends",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the consonant blend at the beginning?",
+    "question": "Which word starts with fl?",
     "choices": [
       "flag",
       "fun",
       "fan",
       "fog"
     ],
-    "answer": "flag"
+    "answer": "flag",
+    "spokenPrompt": "Which word starts like flag?"
   },
   {
     "id": "phonics_k_055",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which of these words ends with the ‘t’ sound?",
+    "question": "Which word ends the same as light?",
     "choices": [
       "mat",
       "man",
       "mad",
       "map"
     ],
-    "answer": "mat"
+    "answer": "mat",
+    "spokenPrompt": "Which word ends like light?"
   },
   {
     "id": "phonics_k_056",
@@ -705,7 +733,7 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like wheel?",
+    "question": "Which word starts with wh?",
     "choices": [
       "whale",
       "ship",
@@ -713,22 +741,24 @@ export const generatedQuestions = [
       "thin"
     ],
     "answer": "whale",
-    "questionType": "multiple_choice"
+    "questionType": "multiple_choice",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "phonics_k_057",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Choose the word that ends with the same sound as 'dog'.",
+    "question": "Which word ends the same as frog?",
     "choices": [
       "fog",
       "fit",
       "fan",
       "fun"
     ],
-    "answer": "fog"
+    "answer": "fog",
+    "spokenPrompt": "Which word ends like frog?"
   },
   {
     "id": "phonics_k_058",
@@ -736,14 +766,15 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like snake?",
+    "question": "Which word starts the same as sun?",
     "choices": [
       "sun",
       "moon",
       "fish",
       "dog"
     ],
-    "answer": "sun"
+    "answer": "sun",
+    "spokenPrompt": "Which word starts like sun?"
   },
   {
     "id": "phonics_k_059",
@@ -751,44 +782,47 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like juice?",
+    "question": "Which word starts the same as jam?",
     "choices": [
       "jam",
       "ham",
       "ram",
       "yam"
     ],
-    "answer": "jam"
+    "answer": "jam",
+    "spokenPrompt": "Which word starts like jam?"
   },
   {
     "id": "phonics_k_060",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a different ending sound?",
+    "question": "Which word ends the same as green?",
     "choices": [
       "cat",
       "hat",
       "run",
       "mat"
     ],
-    "answer": "run"
+    "answer": "run",
+    "spokenPrompt": "Which word ends like green?"
   },
   {
     "id": "phonics_k_061",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Choose the word with the same middle sound as 'pen'.",
+    "question": "Which word has the same middle sound as bed?",
     "choices": [
       "pet",
       "pit",
       "pan",
       "pat"
     ],
-    "answer": "pet"
+    "answer": "pet",
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "phonics_k_062",
@@ -841,23 +875,24 @@ export const generatedQuestions = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends like ball?",
+    "question": "Which word ends the same as ball?",
     "choices": [
       "bell",
       "bed",
       "bag",
       "ban"
     ],
-    "answer": "bell"
+    "answer": "bell",
+    "spokenPrompt": "Which word ends like ball?"
   },
   {
     "id": "phonics_k_069",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Choose the word that has the same vowel sound as 'bed'.",
-    "spokenPrompt": "Choose the word that has the same vowel sound as egg.",
+    "question": "Which word has the same middle sound as bed?",
+    "spokenPrompt": "Which word has the same sound in the middle as bed?",
     "choices": [
       "red",
       "rod",
@@ -869,17 +904,18 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_070",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "blends",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a consonant blend at the beginning?",
+    "question": "Which word starts with bl?",
     "choices": [
       "black",
       "back",
       "bat",
       "bag"
     ],
-    "answer": "black"
+    "answer": "black",
+    "spokenPrompt": "Which word starts like blue?"
   },
   {
     "id": "phonics_k_071",
@@ -887,14 +923,15 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like cookie?",
+    "question": "Which word starts the same as cat?",
     "choices": [
       "cat",
       "sun",
       "dog",
       "fish"
     ],
-    "answer": "cat"
+    "answer": "cat",
+    "spokenPrompt": "Which word starts like cat?"
   },
   {
     "id": "phonics_k_072",
@@ -914,32 +951,34 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_073",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which of these words starts with the letter 'l' sound?",
+    "question": "Which word starts the same as leaf?",
     "choices": [
       "lion",
       "tiger",
       "rabbit",
       "duck"
     ],
-    "answer": "lion"
+    "answer": "lion",
+    "spokenPrompt": "Which word starts like leaf?"
   },
   {
     "id": "phonics_k_074",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a different beginning sound?",
+    "question": "Which word starts the same as moon?",
     "choices": [
       "pen",
       "pan",
       "man",
       "pig"
     ],
-    "answer": "man"
+    "answer": "man",
+    "spokenPrompt": "Which word starts like moon?"
   },
   {
     "id": "phonics_k_076",
@@ -947,7 +986,7 @@ export const generatedQuestions = [
     "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like thumb?",
+    "question": "Which word starts with th?",
     "choices": [
       "thin",
       "ship",
@@ -955,7 +994,8 @@ export const generatedQuestions = [
       "whale"
     ],
     "answer": "thin",
-    "questionType": "multiple_choice"
+    "questionType": "multiple_choice",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "phonics_k_077",
@@ -963,44 +1003,47 @@ export const generatedQuestions = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends like light?",
+    "question": "Which word ends the same as light?",
     "choices": [
       "hat",
       "ham",
       "had",
       "hag"
     ],
-    "answer": "hat"
+    "answer": "hat",
+    "spokenPrompt": "Which word ends like light?"
   },
   {
     "id": "phonics_k_079",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the same middle sound as 'bug'?",
+    "question": "Which word has the same middle sound as pig?",
     "choices": [
       "big",
       "bag",
       "dig",
       "dog"
     ],
-    "answer": "big"
+    "answer": "big",
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "phonics_k_080",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "blends",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins with a blend of two consonants?",
+    "question": "Which word starts with dr?",
     "choices": [
       "drum",
       "rum",
       "dum",
       "run"
     ],
-    "answer": "drum"
+    "answer": "drum",
+    "spokenPrompt": "Which word starts like drum?"
   },
   {
     "id": "phonics_k_081",
@@ -1023,44 +1066,47 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like baby?",
+    "question": "Which word starts the same as ball?",
     "choices": [
       "ball",
       "cat",
       "sun",
       "fish"
     ],
-    "answer": "ball"
+    "answer": "ball",
+    "spokenPrompt": "Which word starts like ball?"
   },
   {
     "id": "phonics_k_083",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the letter 't' sound?",
+    "question": "Which word starts the same as top?",
     "choices": [
       "top",
       "cat",
       "dog",
       "sun"
     ],
-    "answer": "top"
+    "answer": "top",
+    "spokenPrompt": "Which word starts like top?"
   },
   {
     "id": "phonics_k_084",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the same sound as 'kick'?",
+    "question": "Which word ends the same as bike?",
     "choices": [
       "duck",
       "dog",
       "dig",
       "ducked"
     ],
-    "answer": "duck"
+    "answer": "duck",
+    "spokenPrompt": "Which word ends like bike?"
   },
   {
     "id": "phonics_k_085",
@@ -1080,27 +1126,27 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_087",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "What is the vowel sound in the middle of the word 'cup'?",
-    "spokenPrompt": "What vowel sound do you hear in the middle of cup?",
+    "question": "Which word has the same middle sound as sun?",
+    "spokenPrompt": "Which word has the same sound in the middle as sun?",
     "choices": [
-      "u",
-      "a",
-      "o",
-      "e"
+      "cup",
+      "cap",
+      "cop",
+      "cip"
     ],
-    "answer": "u"
+    "answer": "cup"
   },
   {
     "id": "phonics_k_088",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a different vowel sound?",
-    "spokenPrompt": "Which word does not have the same vowel sound as apple?",
+    "question": "Which word has the same middle sound as sun?",
+    "spokenPrompt": "Which word has the same sound in the middle as sun?",
     "choices": [
       "cat",
       "cap",
@@ -1112,11 +1158,11 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_089",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "blends",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins with the sound /st/?",
-    "spokenPrompt": "Which word starts like stem?",
+    "question": "Which word starts with st?",
+    "spokenPrompt": "Which word starts like stop?",
     "choices": [
       "stop",
       "top",
@@ -1131,14 +1177,15 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like door?",
+    "question": "Which word starts the same as dog?",
     "choices": [
       "dog",
       "cat",
       "sun",
       "fish"
     ],
-    "answer": "dog"
+    "answer": "dog",
+    "spokenPrompt": "Which word starts like dog?"
   },
   {
     "id": "phonics_k_091",
@@ -1176,7 +1223,7 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like milk?",
+    "question": "Which word starts the same as moon?",
     "choices": [
       "map",
       "dog",
@@ -1184,37 +1231,40 @@ export const generatedQuestions = [
       "fish"
     ],
     "answer": "map",
-    "questionType": "multiple_choice"
+    "questionType": "multiple_choice",
+    "spokenPrompt": "Which word starts like moon?"
   },
   {
     "id": "phonics_k_097",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "blends",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has a blend at the start?",
+    "question": "Which word starts with pl?",
     "choices": [
       "plum",
-      "pun",
-      "lum",
-      "mum"
+      "sun",
+      "leg",
+      "map"
     ],
-    "answer": "plum"
+    "answer": "plum",
+    "spokenPrompt": "Which word starts like plant?"
   },
   {
     "id": "phonics_k_098",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Choose the word that starts with the letter 's' sound.",
+    "question": "Which word starts the same as sun?",
     "choices": [
       "sun",
       "run",
       "fun",
       "nun"
     ],
-    "answer": "sun"
+    "answer": "sun",
+    "spokenPrompt": "Which word starts like sun?"
   },
   {
     "id": "phonics_k_099",
@@ -1237,14 +1287,15 @@ export const generatedQuestions = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins like cookie?",
+    "question": "Which word starts the same as cat?",
     "choices": [
       "cat",
       "sun",
       "dog",
       "fish"
     ],
-    "answer": "cat"
+    "answer": "cat",
+    "spokenPrompt": "Which word starts like cat?"
   },
   {
     "id": "spelling-k-1-002",
@@ -6454,7 +6505,7 @@ export const generatedQuestions = [
   {
     "id": "RC015",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "sentence comprehension",
     "difficulty": 2,
     "passage": "Mark and his friends played soccer after school. They kicked the ball back and forth and laughed a lot.",
     "question": "What were Mark and his friends doing?",
@@ -6838,10 +6889,10 @@ export const generatedQuestions = [
   {
     "id": "RC039",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "final sounds",
     "difficulty": 2,
     "passage": "Maria and her friends built a fort with blankets and chairs. They played inside all afternoon.",
-    "question": "What did Maria and her friends build?",
+    "question": "Which word ends the same as light?",
     "choices": [
       "A sandcastle",
       "A blanket fort",
@@ -6849,7 +6900,8 @@ export const generatedQuestions = [
       "A treehouse"
     ],
     "answer": "A blanket fort",
-    "imagePath": "/images/vocabulary/friends.png"
+    "imagePath": "/images/vocabulary/friends.png",
+    "spokenPrompt": "Which word ends like light?"
   },
   {
     "id": "RC040",

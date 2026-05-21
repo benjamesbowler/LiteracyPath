@@ -6,7 +6,7 @@ export const masteryCoreQuestions = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "cat",
+    "spokenPrompt": "Find the word cat.",
     "choices": [
       "cat",
       "cap",
@@ -22,8 +22,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the /ă/ sound?",
-    "spokenPrompt": "Which word has the vowel sound in apple?",
+    "question": "Which word has the same middle sound as cat?",
+    "spokenPrompt": "Which word has the same sound in the middle as cat?",
     "choices": [
       "map",
       "mop",
@@ -38,8 +38,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the /ĕ/ sound?",
-    "spokenPrompt": "Which word has the vowel sound in egg?",
+    "question": "Which word has the same middle sound as bed?",
+    "spokenPrompt": "Which word has the same sound in the middle as bed?",
     "choices": [
       "bed",
       "bad",
@@ -54,8 +54,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the /ĭ/ sound?",
-    "spokenPrompt": "Which word has the vowel sound in itch?",
+    "question": "Which word has the same middle sound as pig?",
+    "spokenPrompt": "Which word has the same sound in the middle as pig?",
     "choices": [
       "sit",
       "sat",
@@ -70,8 +70,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the /ŏ/ sound?",
-    "spokenPrompt": "Which word has the vowel sound in octopus?",
+    "question": "Which word has the same middle sound as pot?",
+    "spokenPrompt": "Which word has the same sound in the middle as pot?",
     "choices": [
       "pot",
       "pat",
@@ -86,8 +86,8 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word has the /ŭ/ sound?",
-    "spokenPrompt": "Which word has the vowel sound in up?",
+    "question": "Which word has the same middle sound as sun?",
+    "spokenPrompt": "Which word has the same sound in the middle as sun?",
     "choices": [
       "cup",
       "cap",

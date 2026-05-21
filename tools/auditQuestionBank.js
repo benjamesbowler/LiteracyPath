@@ -16,6 +16,13 @@ import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
 import { skillTree } from "../src/skillTree.js";
+import {
+  blendAnchors,
+  digraphAnchors,
+  finalSoundAnchors,
+  initialSoundAnchors,
+  shortVowelAnchors
+} from "../src/data/phonicsAnchors.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -75,7 +82,19 @@ const unsafeShortVowelAudioPattern =
   /\bshort [aeiou] sound\b/i;
 
 const phonemeSlashPattern =
-  /\/[a-z]{1,3}\//i;
+  /\/[a-zăĕĭŏŭ]{1,3}\//i;
+
+const visiblePhonemeNotationPattern =
+  /\/[a-zăĕĭŏŭ]{1,3}\//i;
+
+const isolatedSpokenPhonemePattern =
+  /^(\/[a-zăĕĭŏŭ]{1,3}\/|[a-zăĕĭŏŭ]{1,3}|short [aeiou]|long [aeiou])$/i;
+
+const vagueVowelWordingPattern =
+  /\b(vowel sound|short [aeiou] sound|sound in (apple|egg|itch|octopus|up))\b/i;
+
+const naturalSentencePattern =
+  /^[A-Z].*[.?!]$/;
 
 const earlyPhonicsStages = new Set([
   "CVC and Short Vowels",
@@ -179,6 +198,186 @@ function homophoneValidityIssue(question) {
     : `Question does not include the approved homophone pair for "${question.answer}".`;
 }
 
+function getFirstVowel(word) {
+  return normalize(word).split("").find(letter => cvcVowels.has(letter));
+}
+
+function getInitialPattern(word) {
+  return normalize(word)[0] || "";
+}
+
+function getBlendPattern(question) {
+  const answer = normalize(question.answer);
+  const text = normalize([question.question, question.spokenPrompt, question.answer, ...(question.choices || [])].join(" "));
+
+  return Object.keys(blendAnchors).find(pattern =>
+    answer.startsWith(pattern) || new RegExp("(^| )" + pattern + "( |$)").test(text)
+  );
+}
+
+function getDigraphPattern(question) {
+  const answer = normalize(question.answer);
+  const text = normalize([question.question, question.spokenPrompt, question.answer, ...(question.choices || [])].join(" "));
+
+  return Object.keys(digraphAnchors).find(pattern =>
+    answer.startsWith(pattern) || new RegExp("(^| )" + pattern + "( |$)").test(text)
+  );
+}
+
+function phonicsWordingIssue(question, stage) {
+  const prompt = String(question.question || "");
+  const spoken = String(question.spokenPrompt || question.audioText || "");
+
+  if (visiblePhonemeNotationPattern.test(prompt)) {
+    return 'Visible prompt contains phoneme slash notation: "' + prompt + '".';
+  }
+
+  if (spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
+    return 'spokenPrompt/audioText uses an isolated phoneme or letter sound: "' + spoken + '".';
+  }
+
+  if (spoken && !naturalSentencePattern.test(spoken.trim())) {
+    return 'spokenPrompt/audioText should be a full natural sentence: "' + spoken + '".';
+  }
+
+  if ((stage === "Short Vowel Discrimination" || stage === "CVC and Short Vowels") && (vagueVowelWordingPattern.test(prompt) || vagueVowelWordingPattern.test(spoken))) {
+    return 'Use anchor-word middle-sound wording instead of vague vowel wording: "' + prompt + '" / "' + spoken + '".';
+  }
+
+  if (stage === "Initial Sounds") {
+    const anchor = initialSoundAnchors[getInitialPattern(question.answer)];
+    if (anchor) {
+      const expectedPrompt = "Which word starts the same as " + anchor + "?";
+      const expectedSpoken = "Which word starts like " + anchor + "?";
+      if (prompt !== expectedPrompt || spoken !== expectedSpoken) {
+        return 'Initial-sound wording should use ' + anchor + ': "' + expectedPrompt + '" / "' + expectedSpoken + '".';
+      }
+    }
+  }
+
+  if (stage === "Final Sounds") {
+    const answer = normalize(question.answer);
+    const anchor = finalSoundAnchors[answer.at(-1)];
+    if (anchor) {
+      const expectedPrompt = "Which word ends the same as " + anchor + "?";
+      const expectedSpoken = "Which word ends like " + anchor + "?";
+      if (prompt !== expectedPrompt || spoken !== expectedSpoken) {
+        return 'Final-sound wording should use ' + anchor + ': "' + expectedPrompt + '" / "' + expectedSpoken + '".';
+      }
+    }
+  }
+
+  if (stage === "Short Vowel Discrimination") {
+    const anchor = shortVowelAnchors[getFirstVowel(question.answer)];
+    if (anchor) {
+      const expectedPrompt = "Which word has the same middle sound as " + anchor + "?";
+      const expectedSpoken = "Which word has the same sound in the middle as " + anchor + "?";
+      if (prompt !== expectedPrompt || spoken !== expectedSpoken) {
+        return 'Short-vowel wording should use ' + anchor + ': "' + expectedPrompt + '" / "' + expectedSpoken + '".';
+      }
+    }
+  }
+
+  if (stage === "CVC and Short Vowels" && prompt === "Listen and find the word.") {
+    const expectedSpoken = "Find the word " + normalize(question.answer) + ".";
+    if (spoken !== expectedSpoken) {
+      return 'CVC listening spokenPrompt/audioText should be "' + expectedSpoken + '".';
+    }
+  }
+
+  if (stage === "Digraphs") {
+    const pattern = getDigraphPattern(question);
+    const anchor = digraphAnchors[pattern];
+    if (pattern && anchor) {
+      const expectedPrompt = "Which word starts with " + pattern + "?";
+      const expectedSpoken = "Which word starts like " + anchor + "?";
+      if (prompt !== expectedPrompt || spoken !== expectedSpoken) {
+        return 'Digraph wording should use ' + pattern + '/' + anchor + ': "' + expectedPrompt + '" / "' + expectedSpoken + '".';
+      }
+    }
+  }
+
+  if (stage === "Blends") {
+    const pattern = getBlendPattern(question);
+    const anchor = blendAnchors[pattern];
+    if (pattern && anchor) {
+      const expectedPrompt = "Which word starts with " + pattern + "?";
+      const expectedSpoken = "Which word starts like " + anchor + "?";
+      if (prompt !== expectedPrompt || spoken !== expectedSpoken) {
+        return 'Blend wording should use ' + pattern + '/' + anchor + ': "' + expectedPrompt + '" / "' + expectedSpoken + '".';
+      }
+    }
+  }
+
+  return null;
+}
+
+function meaningTaskNonwordIssue(question, stage) {
+  const meaningStages = new Set([
+    "High-Frequency Words 1-25",
+    "High-Frequency Words 26-50",
+    "High-Frequency Words 51-100",
+    "Nouns",
+    "Verbs",
+    "Adjectives",
+    "Prepositions of Place",
+    "Plurals",
+    "Prefixes and Suffixes",
+    "Antonyms and Synonyms",
+    "Homophones and Homonyms",
+    "Sentence Comprehension",
+    "Key Details",
+    "Sequencing",
+    "Main Idea",
+    "Inference",
+    "Cause and Effect",
+    "Context Clues",
+    "Theme and Higher Comprehension"
+  ]);
+
+  if (!meaningStages.has(stage)) return null;
+
+  const suspicious = (question.choices || []).find(choice => {
+    const normalized = normalize(choice);
+    if (!normalized || normalized.length <= 1) return false;
+    if (/^[a-z]+(?: [a-z]+)*$/.test(normalized)) return false;
+    return true;
+  });
+
+  return suspicious
+    ? 'Meaning-based task has a suspicious nonword or artifact choice: "' + suspicious + '".'
+    : null;
+}
+
+function hasCompletedSequenceMarkers(passage) {
+  const text = normalize(passage);
+  const markerGroups = [
+    ["first", "next", "last"],
+    ["first", "then", "last"],
+    ["first", "then", "finally"],
+    ["first", "next", "finally"],
+    ["then", "later"],
+    ["last", "finally"]
+  ];
+
+  return markerGroups.some(group =>
+    group.every(marker => new RegExp("(^| )" + marker + "( |$)").test(text))
+  );
+}
+
+function ambiguousSequencingNextIssue(question, stage) {
+  if (stage !== "Sequencing") return null;
+
+  const prompt = String(question.question || "");
+  if (!/\b(what happened next|what did .+ do next|what did they do next|what did .+ pack next)\?/i.test(prompt)) {
+    return null;
+  }
+
+  if (!hasCompletedSequenceMarkers(question.passage || "")) return null;
+
+  return 'Completed sequence should use explicit ordinal wording instead of ambiguous "next": "' + prompt + '".';
+}
+
 function finalKsCvcIssue(question, stage) {
   if (!earlyPhonicsStages.has(stage)) return null;
 
@@ -213,20 +412,20 @@ function cvcListenAudioIssue(question, stage) {
   if (stage !== "CVC and Short Vowels") return null;
   if (question.question !== "Listen and find the word.") return null;
 
-  const answer = normalize(question.answer);
+  const expected = "find the word " + normalize(question.answer);
   const spokenPrompt = question.spokenPrompt ? normalize(question.spokenPrompt) : "";
   const audioText = question.audioText ? normalize(question.audioText) : "";
 
   if (!spokenPrompt && !audioText) {
-    return "CVC listening question needs spokenPrompt/audioText equal to the target answer.";
+    return "CVC listening question needs spokenPrompt/audioText as a full sentence.";
   }
 
-  if (spokenPrompt && spokenPrompt !== answer) {
-    return `spokenPrompt must be only the target answer "${question.answer}", not "${question.spokenPrompt}".`;
+  if (spokenPrompt && spokenPrompt !== expected) {
+    return 'spokenPrompt must be "Find the word ' + question.answer + '.", not "' + question.spokenPrompt + '".';
   }
 
-  if (audioText && audioText !== answer) {
-    return `audioText must be only the target answer "${question.answer}", not "${question.audioText}".`;
+  if (audioText && audioText !== expected) {
+    return 'audioText must be "Find the word ' + question.answer + '.", not "' + question.audioText + '".';
   }
 
   return null;
@@ -350,6 +549,15 @@ function answerIsVisible(question) {
   if (!answer || answer.length < 3) return false;
   if (answerVisibleStopwords.has(answer)) return false;
   if (normalize(question.skill).includes("rhym")) return false;
+
+  const skill = normalize(question.skill);
+  const prompt = normalize(question.question);
+  if (
+    (skill.includes("initial") || skill.includes("final") || skill.includes("short vowel") || skill.includes("cvc")) &&
+    /^(which word starts the same as|which word ends the same as|which word has the same middle sound as)/.test(prompt)
+  ) {
+    return false;
+  }
 
   return new RegExp(`(^| )${answer.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}( |$)`)
     .test(questionText);
@@ -498,6 +706,18 @@ function auditQuestions() {
       );
     }
 
+    const ambiguousSequencingProblem =
+      ambiguousSequencingNextIssue(question, stage);
+
+    if (ambiguousSequencingProblem) {
+      addProblem(
+        problems,
+        "ambiguous sequencing next wording",
+        item,
+        ambiguousSequencingProblem
+      );
+    }
+
     if (grammarMetaPattern.test(question.question || "")) {
       addProblem(
         problems,
@@ -516,6 +736,30 @@ function auditQuestions() {
         "unsafe isolated phoneme audio",
         item,
         isolatedPhonemeProblem
+      );
+    }
+
+    const phonicsWordingProblem =
+      phonicsWordingIssue(question, stage);
+
+    if (phonicsWordingProblem) {
+      addProblem(
+        problems,
+        "instructional phonics wording",
+        item,
+        phonicsWordingProblem
+      );
+    }
+
+    const meaningNonwordProblem =
+      meaningTaskNonwordIssue(question, stage);
+
+    if (meaningNonwordProblem) {
+      addProblem(
+        problems,
+        "nonword meaning distractor",
+        item,
+        meaningNonwordProblem
       );
     }
 

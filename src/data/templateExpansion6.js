@@ -5,8 +5,8 @@ export const templateExpansion6 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins with the /b/ sound?",
-    "spokenPrompt": "Which word begins like banana?",
+    "question": "Which word starts the same as ball?",
+    "spokenPrompt": "Which word starts like ball?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -24,8 +24,8 @@ export const templateExpansion6 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins with the /m/ sound?",
-    "spokenPrompt": "Which word begins like milk?",
+    "question": "Which word starts the same as moon?",
+    "spokenPrompt": "Which word starts like moon?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -43,8 +43,8 @@ export const templateExpansion6 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins with the /t/ sound?",
-    "spokenPrompt": "Which word begins like table?",
+    "question": "Which word starts the same as top?",
+    "spokenPrompt": "Which word starts like top?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -62,8 +62,8 @@ export const templateExpansion6 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins with the /p/ sound?",
-    "spokenPrompt": "Which word begins like pizza?",
+    "question": "Which word starts the same as pig?",
+    "spokenPrompt": "Which word starts like pig?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -81,8 +81,8 @@ export const templateExpansion6 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word begins with the /l/ sound?",
-    "spokenPrompt": "Which word begins like lion?",
+    "question": "Which word starts the same as leaf?",
+    "spokenPrompt": "Which word starts like leaf?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -100,7 +100,7 @@ export const templateExpansion6 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /t/ sound?",
+    "question": "Which word ends the same as light?",
     "spokenPrompt": "Which word ends like light?",
     "image": "",
     "imagePath": "",
@@ -119,7 +119,7 @@ export const templateExpansion6 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /n/ sound?",
+    "question": "Which word ends the same as green?",
     "spokenPrompt": "Which word ends like green?",
     "image": "",
     "imagePath": "",
@@ -138,7 +138,7 @@ export const templateExpansion6 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /p/ sound?",
+    "question": "Which word ends the same as hop?",
     "spokenPrompt": "Which word ends like hop?",
     "image": "",
     "imagePath": "",
@@ -157,7 +157,7 @@ export const templateExpansion6 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /g/ sound?",
+    "question": "Which word ends the same as frog?",
     "spokenPrompt": "Which word ends like frog?",
     "image": "",
     "imagePath": "",
@@ -176,7 +176,7 @@ export const templateExpansion6 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /d/ sound?",
+    "question": "Which word ends the same as road?",
     "spokenPrompt": "Which word ends like road?",
     "image": "",
     "imagePath": "",
@@ -1175,7 +1175,7 @@ export const templateExpansion6 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh sound?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1185,7 +1185,8 @@ export const templateExpansion6 = [
       "two",
       "blue"
     ],
-    "answer": "shoe"
+    "answer": "shoe",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp6_phonics_7",
@@ -1193,7 +1194,7 @@ export const templateExpansion6 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch sound?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1203,7 +1204,8 @@ export const templateExpansion6 = [
       "knees",
       "sees"
     ],
-    "answer": "cheese"
+    "answer": "cheese",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp6_phonics_8",
@@ -1211,7 +1213,7 @@ export const templateExpansion6 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th sound?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1221,7 +1223,8 @@ export const templateExpansion6 = [
       "gum",
       "plum"
     ],
-    "answer": "thumb"
+    "answer": "thumb",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "exp6_phonics_9",
@@ -1229,7 +1232,7 @@ export const templateExpansion6 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the wh sound?",
+    "question": "Which word starts with wh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1239,7 +1242,8 @@ export const templateExpansion6 = [
       "peel",
       "heel"
     ],
-    "answer": "wheel"
+    "answer": "wheel",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "exp6_phonics_10",
@@ -1247,7 +1251,7 @@ export const templateExpansion6 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ph sound?",
+    "question": "Which word starts with ph?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1257,7 +1261,8 @@ export const templateExpansion6 = [
       "bone",
       "stone"
     ],
-    "answer": "phone"
+    "answer": "phone",
+    "spokenPrompt": "Which word starts like phone?"
   },
   {
     "id": "exp6_phonics_11",
@@ -1962,7 +1967,7 @@ export const templateExpansion6 = [
     "skill": "sequencing",
     "difficulty": 3,
     "passage": "First, Sam opened the door. Next, he walked inside. Last, he sat down.",
-    "question": "What did Sam do next?",
+    "question": "What happened second?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",

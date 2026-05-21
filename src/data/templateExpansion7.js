@@ -5,8 +5,8 @@ export const templateExpansion7 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the /b/ sound?",
-    "spokenPrompt": "Which word starts like banana?",
+    "question": "Which word starts the same as ball?",
+    "spokenPrompt": "Which word starts like ball?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -24,8 +24,8 @@ export const templateExpansion7 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the /m/ sound?",
-    "spokenPrompt": "Which word starts like milk?",
+    "question": "Which word starts the same as moon?",
+    "spokenPrompt": "Which word starts like moon?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -43,8 +43,8 @@ export const templateExpansion7 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the /s/ sound?",
-    "spokenPrompt": "Which word starts like snake?",
+    "question": "Which word starts the same as sun?",
+    "spokenPrompt": "Which word starts like sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -62,8 +62,8 @@ export const templateExpansion7 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the /t/ sound?",
-    "spokenPrompt": "Which word starts like table?",
+    "question": "Which word starts the same as top?",
+    "spokenPrompt": "Which word starts like top?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -81,8 +81,8 @@ export const templateExpansion7 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the /f/ sound?",
-    "spokenPrompt": "Which word starts like fan?",
+    "question": "Which word starts the same as fish?",
+    "spokenPrompt": "Which word starts like fish?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -100,7 +100,7 @@ export const templateExpansion7 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the /r/ sound?",
+    "question": "Which word starts the same as rabbit?",
     "spokenPrompt": "Which word starts like rabbit?",
     "image": "",
     "imagePath": "",
@@ -119,8 +119,8 @@ export const templateExpansion7 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the /h/ sound?",
-    "spokenPrompt": "Which word starts like house?",
+    "question": "Which word starts the same as hat?",
+    "spokenPrompt": "Which word starts like hat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -138,8 +138,8 @@ export const templateExpansion7 = [
     "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word starts with the /j/ sound?",
-    "spokenPrompt": "Which word starts like juice?",
+    "question": "Which word starts the same as jam?",
+    "spokenPrompt": "Which word starts like jam?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -157,7 +157,7 @@ export const templateExpansion7 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /t/ sound?",
+    "question": "Which word ends the same as light?",
     "spokenPrompt": "Which word ends like light?",
     "image": "",
     "imagePath": "",
@@ -176,7 +176,7 @@ export const templateExpansion7 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /p/ sound?",
+    "question": "Which word ends the same as hop?",
     "spokenPrompt": "Which word ends like hop?",
     "image": "",
     "imagePath": "",
@@ -195,7 +195,7 @@ export const templateExpansion7 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /n/ sound?",
+    "question": "Which word ends the same as green?",
     "spokenPrompt": "Which word ends like green?",
     "image": "",
     "imagePath": "",
@@ -214,7 +214,7 @@ export const templateExpansion7 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /g/ sound?",
+    "question": "Which word ends the same as frog?",
     "spokenPrompt": "Which word ends like frog?",
     "image": "",
     "imagePath": "",
@@ -233,7 +233,7 @@ export const templateExpansion7 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /m/ sound?",
+    "question": "Which word ends the same as home?",
     "spokenPrompt": "Which word ends like home?",
     "image": "",
     "imagePath": "",
@@ -252,7 +252,7 @@ export const templateExpansion7 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /d/ sound?",
+    "question": "Which word ends the same as road?",
     "spokenPrompt": "Which word ends like road?",
     "image": "",
     "imagePath": "",
@@ -271,7 +271,7 @@ export const templateExpansion7 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /k/ sound?",
+    "question": "Which word ends the same as bike?",
     "spokenPrompt": "Which word ends like bike?",
     "image": "",
     "imagePath": "",
@@ -290,7 +290,7 @@ export const templateExpansion7 = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which word ends with the /s/ sound?",
+    "question": "Which word ends the same as mouse?",
     "spokenPrompt": "Which word ends like mouse?",
     "image": "",
     "imagePath": "",
@@ -453,7 +453,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as pan?",
+    "question": "Which word has the same middle sound as cat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -464,7 +464,7 @@ export const templateExpansion7 = [
       "bug"
     ],
     "answer": "bag",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp7_short_vowel_2",
@@ -472,7 +472,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as jam?",
+    "question": "Which word has the same middle sound as cat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -483,7 +483,7 @@ export const templateExpansion7 = [
       "dip"
     ],
     "answer": "cap",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp7_short_vowel_3",
@@ -491,7 +491,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as web?",
+    "question": "Which word has the same middle sound as bed?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -502,7 +502,7 @@ export const templateExpansion7 = [
       "hot"
     ],
     "answer": "hen",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp7_short_vowel_4",
@@ -510,7 +510,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as ten?",
+    "question": "Which word has the same middle sound as bed?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -521,7 +521,7 @@ export const templateExpansion7 = [
       "lug"
     ],
     "answer": "leg",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp7_short_vowel_5",
@@ -529,7 +529,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as pin?",
+    "question": "Which word has the same middle sound as pig?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -540,7 +540,7 @@ export const templateExpansion7 = [
       "dag"
     ],
     "answer": "dig",
-    "spokenPrompt": "Which word has the same vowel sound as itch?"
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "exp7_short_vowel_6",
@@ -548,7 +548,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as sit?",
+    "question": "Which word has the same middle sound as pig?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -559,7 +559,7 @@ export const templateExpansion7 = [
       "cup"
     ],
     "answer": "lip",
-    "spokenPrompt": "Which word has the same vowel sound as itch?"
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "exp7_short_vowel_7",
@@ -567,7 +567,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as log?",
+    "question": "Which word has the same middle sound as pot?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -578,7 +578,7 @@ export const templateExpansion7 = [
       "tub"
     ],
     "answer": "top",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp7_short_vowel_8",
@@ -586,7 +586,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as mop?",
+    "question": "Which word has the same middle sound as pot?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -597,7 +597,7 @@ export const templateExpansion7 = [
       "lug"
     ],
     "answer": "log",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp7_short_vowel_9",
@@ -605,7 +605,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as mud?",
+    "question": "Which word has the same middle sound as sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -616,7 +616,7 @@ export const templateExpansion7 = [
       "sat"
     ],
     "answer": "sun",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp7_short_vowel_10",
@@ -624,7 +624,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as tub?",
+    "question": "Which word has the same middle sound as sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -635,7 +635,7 @@ export const templateExpansion7 = [
       "tip"
     ],
     "answer": "cup",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp7_short_vowel_11",
@@ -643,7 +643,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as rag?",
+    "question": "Which word has the same middle sound as cat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -654,7 +654,7 @@ export const templateExpansion7 = [
       "hum"
     ],
     "answer": "ham",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp7_short_vowel_12",
@@ -662,7 +662,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as pen?",
+    "question": "Which word has the same middle sound as bed?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -673,7 +673,7 @@ export const templateExpansion7 = [
       "nat"
     ],
     "answer": "net",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp7_short_vowel_13",
@@ -681,7 +681,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as fin?",
+    "question": "Which word has the same middle sound as pig?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -692,7 +692,7 @@ export const templateExpansion7 = [
       "won"
     ],
     "answer": "win",
-    "spokenPrompt": "Which word has the same vowel sound as itch?"
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "exp7_short_vowel_14",
@@ -700,7 +700,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as hop?",
+    "question": "Which word has the same middle sound as pot?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -711,7 +711,7 @@ export const templateExpansion7 = [
       "rug"
     ],
     "answer": "rod",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp7_short_vowel_15",
@@ -719,7 +719,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as gum?",
+    "question": "Which word has the same middle sound as sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -730,7 +730,7 @@ export const templateExpansion7 = [
       "hat"
     ],
     "answer": "hut",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp7_short_vowel_16",
@@ -738,7 +738,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as cab?",
+    "question": "Which word has the same middle sound as cat?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -749,7 +749,7 @@ export const templateExpansion7 = [
       "men"
     ],
     "answer": "map",
-    "spokenPrompt": "Which word has the same vowel sound as apple?"
+    "spokenPrompt": "Which word has the same sound in the middle as cat?"
   },
   {
     "id": "exp7_short_vowel_17",
@@ -757,7 +757,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as jet?",
+    "question": "Which word has the same middle sound as bed?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -768,7 +768,7 @@ export const templateExpansion7 = [
       "pot"
     ],
     "answer": "pet",
-    "spokenPrompt": "Which word has the same vowel sound as egg?"
+    "spokenPrompt": "Which word has the same sound in the middle as bed?"
   },
   {
     "id": "exp7_short_vowel_18",
@@ -776,7 +776,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as rib?",
+    "question": "Which word has the same middle sound as pig?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -787,7 +787,7 @@ export const templateExpansion7 = [
       "cud"
     ],
     "answer": "kid",
-    "spokenPrompt": "Which word has the same vowel sound as itch?"
+    "spokenPrompt": "Which word has the same sound in the middle as pig?"
   },
   {
     "id": "exp7_short_vowel_19",
@@ -795,7 +795,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as dog?",
+    "question": "Which word has the same middle sound as pot?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -806,7 +806,7 @@ export const templateExpansion7 = [
       "kit"
     ],
     "answer": "cot",
-    "spokenPrompt": "Which word has the same vowel sound as octopus?"
+    "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
     "id": "exp7_short_vowel_20",
@@ -814,7 +814,7 @@ export const templateExpansion7 = [
     "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word has the same vowel sound as bun?",
+    "question": "Which word has the same middle sound as sun?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -825,7 +825,7 @@ export const templateExpansion7 = [
       "rog"
     ],
     "answer": "rug",
-    "spokenPrompt": "Which word has the same vowel sound as up?"
+    "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
     "id": "exp7_cvc_1",
@@ -834,7 +834,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "cat",
+    "spokenPrompt": "Find the word cat.",
     "image": "",
     "imagePath": "/images/general/cat_sleeping.png",
     "questionType": "multiple_choice",
@@ -853,7 +853,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "bed",
+    "spokenPrompt": "Find the word bed.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -872,7 +872,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "hop",
+    "spokenPrompt": "Find the word hop.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -891,7 +891,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "mud",
+    "spokenPrompt": "Find the word mud.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -910,7 +910,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "fin",
+    "spokenPrompt": "Find the word fin.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -929,7 +929,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "log",
+    "spokenPrompt": "Find the word log.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -948,7 +948,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "cup",
+    "spokenPrompt": "Find the word cup.",
     "image": "",
     "imagePath": "/images/prepositions/cup_between_books.png",
     "questionType": "multiple_choice",
@@ -967,7 +967,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "map",
+    "spokenPrompt": "Find the word map.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -986,7 +986,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "rug",
+    "spokenPrompt": "Find the word rug.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1005,7 +1005,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "pet",
+    "spokenPrompt": "Find the word pet.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1024,7 +1024,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "jam",
+    "spokenPrompt": "Find the word jam.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1043,7 +1043,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "sit",
+    "spokenPrompt": "Find the word sit.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1062,7 +1062,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "pot",
+    "spokenPrompt": "Find the word pot.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1081,7 +1081,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "hen",
+    "spokenPrompt": "Find the word hen.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1100,7 +1100,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "bag",
+    "spokenPrompt": "Find the word bag.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1119,7 +1119,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "red",
+    "spokenPrompt": "Find the word red.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1138,7 +1138,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "nut",
+    "spokenPrompt": "Find the word nut.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1157,7 +1157,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "sun",
+    "spokenPrompt": "Find the word sun.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1176,7 +1176,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "pin",
+    "spokenPrompt": "Find the word pin.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1195,7 +1195,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "top",
+    "spokenPrompt": "Find the word top.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1214,7 +1214,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "web",
+    "spokenPrompt": "Find the word web.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1233,7 +1233,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "cab",
+    "spokenPrompt": "Find the word cab.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1252,7 +1252,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "zip",
+    "spokenPrompt": "Find the word zip.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1271,7 +1271,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "gum",
+    "spokenPrompt": "Find the word gum.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1290,7 +1290,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "van",
+    "spokenPrompt": "Find the word van.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1309,7 +1309,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "bat",
+    "spokenPrompt": "Find the word bat.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1328,7 +1328,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "dog",
+    "spokenPrompt": "Find the word dog.",
     "image": "",
     "imagePath": "/images/general/dog_running.png",
     "questionType": "multiple_choice",
@@ -1347,7 +1347,7 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "man",
+    "spokenPrompt": "Find the word man.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -1995,7 +1995,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the bl blend?",
+    "question": "Which word starts with bl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2005,7 +2005,8 @@ export const templateExpansion7 = [
       "lack",
       "pack"
     ],
-    "answer": "black"
+    "answer": "black",
+    "spokenPrompt": "Which word starts like blue?"
   },
   {
     "id": "exp7_blends_2",
@@ -2013,7 +2014,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the br blend?",
+    "question": "Which word starts with br?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2023,7 +2024,8 @@ export const templateExpansion7 = [
       "mush",
       "hush"
     ],
-    "answer": "brush"
+    "answer": "brush",
+    "spokenPrompt": "Which word starts like brush?"
   },
   {
     "id": "exp7_blends_3",
@@ -2031,7 +2033,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the cl blend?",
+    "question": "Which word starts with cl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2041,7 +2043,8 @@ export const templateExpansion7 = [
       "lap",
       "tap"
     ],
-    "answer": "clap"
+    "answer": "clap",
+    "spokenPrompt": "Which word starts like clap?"
   },
   {
     "id": "exp7_blends_4",
@@ -2049,7 +2052,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the cr blend?",
+    "question": "Which word starts with cr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2059,7 +2062,8 @@ export const templateExpansion7 = [
       "grab",
       "tab"
     ],
-    "answer": "crab"
+    "answer": "crab",
+    "spokenPrompt": "Which word starts like crab?"
   },
   {
     "id": "exp7_blends_5",
@@ -2067,7 +2071,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the dr blend?",
+    "question": "Which word starts with dr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2077,7 +2081,8 @@ export const templateExpansion7 = [
       "gum",
       "sum"
     ],
-    "answer": "drum"
+    "answer": "drum",
+    "spokenPrompt": "Which word starts like drum?"
   },
   {
     "id": "exp7_blends_6",
@@ -2085,7 +2090,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the fl blend?",
+    "question": "Which word starts with fl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2095,7 +2100,8 @@ export const templateExpansion7 = [
       "bag",
       "tag"
     ],
-    "answer": "flag"
+    "answer": "flag",
+    "spokenPrompt": "Which word starts like flag?"
   },
   {
     "id": "exp7_blends_7",
@@ -2103,7 +2109,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the fr blend?",
+    "question": "Which word starts with fr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2113,7 +2119,8 @@ export const templateExpansion7 = [
       "log",
       "hog"
     ],
-    "answer": "frog"
+    "answer": "frog",
+    "spokenPrompt": "Which word starts like frog?"
   },
   {
     "id": "exp7_blends_8",
@@ -2121,7 +2128,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the gl blend?",
+    "question": "Which word starts with gl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2131,7 +2138,8 @@ export const templateExpansion7 = [
       "dove",
       "move"
     ],
-    "answer": "glove"
+    "answer": "glove",
+    "spokenPrompt": "Which word starts like glove?"
   },
   {
     "id": "exp7_blends_9",
@@ -2139,7 +2147,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the gr blend?",
+    "question": "Which word starts with gr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2149,7 +2157,8 @@ export const templateExpansion7 = [
       "mass",
       "pass"
     ],
-    "answer": "grass"
+    "answer": "grass",
+    "spokenPrompt": "Which word starts like grass?"
   },
   {
     "id": "exp7_blends_10",
@@ -2157,7 +2166,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the pl blend?",
+    "question": "Which word starts with pl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2167,7 +2176,8 @@ export const templateExpansion7 = [
       "ant",
       "tent"
     ],
-    "answer": "plant"
+    "answer": "plant",
+    "spokenPrompt": "Which word starts like plant?"
   },
   {
     "id": "exp7_blends_11",
@@ -2175,7 +2185,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the pr blend?",
+    "question": "Which word starts with pr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2185,7 +2195,8 @@ export const templateExpansion7 = [
       "size",
       "wise"
     ],
-    "answer": "prize"
+    "answer": "prize",
+    "spokenPrompt": "Which word starts like prize?"
   },
   {
     "id": "exp7_blends_12",
@@ -2193,7 +2204,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the sk blend?",
+    "question": "Which word starts with sk?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2203,7 +2214,8 @@ export const templateExpansion7 = [
       "late",
       "plate"
     ],
-    "answer": "skate"
+    "answer": "skate",
+    "spokenPrompt": "Which word starts like skate?"
   },
   {
     "id": "exp7_blends_13",
@@ -2211,7 +2223,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the sl blend?",
+    "question": "Which word starts with sl?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2221,7 +2233,8 @@ export const templateExpansion7 = [
       "hide",
       "wide"
     ],
-    "answer": "slide"
+    "answer": "slide",
+    "spokenPrompt": "Which word starts like slide?"
   },
   {
     "id": "exp7_blends_14",
@@ -2229,7 +2242,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the sn blend?",
+    "question": "Which word starts with sn?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2239,7 +2252,8 @@ export const templateExpansion7 = [
       "mail",
       "tail"
     ],
-    "answer": "snail"
+    "answer": "snail",
+    "spokenPrompt": "Which word starts like snail?"
   },
   {
     "id": "exp7_blends_15",
@@ -2247,7 +2261,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the sp blend?",
+    "question": "Which word starts with sp?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2257,7 +2271,8 @@ export const templateExpansion7 = [
       "moon",
       "noon"
     ],
-    "answer": "spoon"
+    "answer": "spoon",
+    "spokenPrompt": "Which word starts like spoon?"
   },
   {
     "id": "exp7_blends_16",
@@ -2265,7 +2280,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the st blend?",
+    "question": "Which word starts with st?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2275,7 +2290,8 @@ export const templateExpansion7 = [
       "cone",
       "bone"
     ],
-    "answer": "stone"
+    "answer": "stone",
+    "spokenPrompt": "Which word starts like stop?"
   },
   {
     "id": "exp7_blends_17",
@@ -2283,7 +2299,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the sw blend?",
+    "question": "Which word starts with sw?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2293,7 +2309,8 @@ export const templateExpansion7 = [
       "ring",
       "wing"
     ],
-    "answer": "swing"
+    "answer": "swing",
+    "spokenPrompt": "Which word starts like swing?"
   },
   {
     "id": "exp7_blends_18",
@@ -2301,7 +2318,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the tr blend?",
+    "question": "Which word starts with tr?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2311,7 +2328,8 @@ export const templateExpansion7 = [
       "main",
       "chain"
     ],
-    "answer": "train"
+    "answer": "train",
+    "spokenPrompt": "Which word starts like train?"
   },
   {
     "id": "exp7_blends_19",
@@ -2319,7 +2337,7 @@ export const templateExpansion7 = [
     "skill": "blends",
     "difficulty": 2,
     "passage": "",
-    "question": "Which word begins with the tw blend?",
+    "question": "Which word starts with tw?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2329,7 +2347,8 @@ export const templateExpansion7 = [
       "list",
       "mist"
     ],
-    "answer": "twist"
+    "answer": "twist",
+    "spokenPrompt": "Which word starts like twist?"
   },
   {
     "id": "exp7_digraphs_1",
@@ -2337,7 +2356,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh digraph?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2347,7 +2366,8 @@ export const templateExpansion7 = [
       "bell",
       "fell"
     ],
-    "answer": "shell"
+    "answer": "shell",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp7_digraphs_2",
@@ -2355,7 +2375,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch digraph?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2365,7 +2385,8 @@ export const templateExpansion7 = [
       "fair",
       "pair"
     ],
-    "answer": "chair"
+    "answer": "chair",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp7_digraphs_3",
@@ -2373,7 +2394,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th digraph?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2383,7 +2404,8 @@ export const templateExpansion7 = [
       "drum",
       "plum"
     ],
-    "answer": "thumb"
+    "answer": "thumb",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "exp7_digraphs_4",
@@ -2391,7 +2413,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the wh digraph?",
+    "question": "Which word starts with wh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2401,7 +2423,8 @@ export const templateExpansion7 = [
       "mail",
       "sail"
     ],
-    "answer": "whale"
+    "answer": "whale",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "exp7_digraphs_5",
@@ -2409,7 +2432,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh digraph?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2419,7 +2442,8 @@ export const templateExpansion7 = [
       "window",
       "basket"
     ],
-    "answer": "shadow"
+    "answer": "shadow",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp7_digraphs_6",
@@ -2427,7 +2451,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch digraph?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2437,7 +2461,8 @@ export const templateExpansion7 = [
       "please",
       "trees"
     ],
-    "answer": "cheese"
+    "answer": "cheese",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp7_digraphs_7",
@@ -2445,7 +2470,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th digraph?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2455,7 +2480,8 @@ export const templateExpansion7 = [
       "free",
       "green"
     ],
-    "answer": "three"
+    "answer": "three",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "exp7_digraphs_8",
@@ -2463,7 +2489,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the wh digraph?",
+    "question": "Which word starts with wh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2473,7 +2499,8 @@ export const templateExpansion7 = [
       "peel",
       "seal"
     ],
-    "answer": "wheel"
+    "answer": "wheel",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "exp7_digraphs_9",
@@ -2481,7 +2508,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh digraph?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2491,7 +2518,8 @@ export const templateExpansion7 = [
       "tip",
       "dip"
     ],
-    "answer": "ship"
+    "answer": "ship",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp7_digraphs_10",
@@ -2499,7 +2527,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch digraph?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2509,7 +2537,8 @@ export const templateExpansion7 = [
       "mop",
       "top"
     ],
-    "answer": "chop"
+    "answer": "chop",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp7_digraphs_11",
@@ -2517,7 +2546,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th digraph?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2527,7 +2556,8 @@ export const templateExpansion7 = [
       "pin",
       "tin"
     ],
-    "answer": "thin"
+    "answer": "thin",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "exp7_digraphs_12",
@@ -2535,7 +2565,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the wh digraph?",
+    "question": "Which word starts with wh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2545,7 +2575,8 @@ export const templateExpansion7 = [
       "bite",
       "site"
     ],
-    "answer": "white"
+    "answer": "white",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "exp7_digraphs_13",
@@ -2553,7 +2584,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh digraph?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2563,7 +2594,8 @@ export const templateExpansion7 = [
       "line",
       "nine"
     ],
-    "answer": "shine"
+    "answer": "shine",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp7_digraphs_14",
@@ -2571,7 +2603,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch digraph?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2581,7 +2613,8 @@ export const templateExpansion7 = [
       "train",
       "plain"
     ],
-    "answer": "chain"
+    "answer": "chain",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp7_digraphs_15",
@@ -2589,7 +2622,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the th digraph?",
+    "question": "Which word starts with th?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2599,7 +2632,8 @@ export const templateExpansion7 = [
       "born",
       "horn"
     ],
-    "answer": "thorn"
+    "answer": "thorn",
+    "spokenPrompt": "Which word starts like thumb?"
   },
   {
     "id": "exp7_digraphs_16",
@@ -2607,7 +2641,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the wh digraph?",
+    "question": "Which word starts with wh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2617,7 +2651,8 @@ export const templateExpansion7 = [
       "disk",
       "mask"
     ],
-    "answer": "whisk"
+    "answer": "whisk",
+    "spokenPrompt": "Which word starts like whale?"
   },
   {
     "id": "exp7_digraphs_17",
@@ -2625,7 +2660,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the sh digraph?",
+    "question": "Which word starts with sh?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2635,7 +2670,8 @@ export const templateExpansion7 = [
       "dark",
       "mark"
     ],
-    "answer": "shark"
+    "answer": "shark",
+    "spokenPrompt": "Which word starts like shell?"
   },
   {
     "id": "exp7_digraphs_18",
@@ -2643,7 +2679,7 @@ export const templateExpansion7 = [
     "skill": "digraphs",
     "difficulty": 3,
     "passage": "",
-    "question": "Which word begins with the ch digraph?",
+    "question": "Which word starts with ch?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -2653,7 +2689,8 @@ export const templateExpansion7 = [
       "pick",
       "lick"
     ],
-    "answer": "chick"
+    "answer": "chick",
+    "spokenPrompt": "Which word starts like chair?"
   },
   {
     "id": "exp7_long_vowels_1",
@@ -5937,7 +5974,7 @@ export const templateExpansion7 = [
     "skill": "sequencing",
     "difficulty": 3,
     "passage": "First, Mia zipped her coat. Next, she put on mittens. Last, she went outside.",
-    "question": "What did Mia do next?",
+    "question": "What happened second?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -6081,7 +6118,7 @@ export const templateExpansion7 = [
     "skill": "sequencing",
     "difficulty": 3,
     "passage": "First, the bird picked up grass. Next, it made a nest. Later, it rested.",
-    "question": "What did the bird do next?",
+    "question": "What happened second?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
@@ -6261,7 +6298,7 @@ export const templateExpansion7 = [
     "skill": "sequencing",
     "difficulty": 3,
     "passage": "First, Rosa packed crayons. Next, she packed paper. Last, she closed the bag.",
-    "question": "What did Rosa pack next?",
+    "question": "What happened second?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",

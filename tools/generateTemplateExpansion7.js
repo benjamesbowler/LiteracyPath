@@ -34,25 +34,25 @@ const generatedIds = new Set();
 const templateExpansion7 = [];
 
 const initialSoundAudioExamples = {
-  "/b/": "banana",
-  "/f/": "fan",
-  "/h/": "house",
-  "/j/": "juice",
-  "/m/": "milk",
-  "/r/": "rabbit",
-  "/s/": "snake",
-  "/t/": "table"
+  b: "ball",
+  f: "fish",
+  h: "hat",
+  j: "jam",
+  m: "moon",
+  r: "rabbit",
+  s: "sun",
+  t: "top"
 };
 
 const finalSoundAudioExamples = {
-  "/d/": "road",
-  "/g/": "frog",
-  "/k/": "bike",
-  "/m/": "home",
-  "/n/": "green",
-  "/p/": "hop",
-  "/s/": "mouse",
-  "/t/": "light"
+  d: "road",
+  g: "frog",
+  k: "bike",
+  m: "home",
+  n: "green",
+  p: "hop",
+  s: "mouse",
+  t: "light"
 };
 
 const cvcImagePaths = {
@@ -117,40 +117,40 @@ function addRows(prefix, rows, build) {
 }
 
 addRows("exp7_initial", [
-  ["/b/", "bat", ["cat", "sun", "dog"]],
-  ["/m/", "map", ["tap", "cap", "nap"]],
-  ["/s/", "sock", ["rock", "lock", "dock"]],
-  ["/t/", "tent", ["sent", "went", "bent"]],
-  ["/f/", "fish", ["dish", "wish", "ship"]],
-  ["/r/", "rain", ["pain", "main", "chain"]],
-  ["/h/", "hat", ["mat", "sat", "pat"]],
-  ["/j/", "jam", ["ham", "ram", "yam"]]
+  ["b", "bat", ["cat", "sun", "dog"]],
+  ["m", "map", ["tap", "cap", "nap"]],
+  ["s", "sock", ["rock", "lock", "dock"]],
+  ["t", "tent", ["sent", "went", "bent"]],
+  ["f", "fish", ["dish", "wish", "ship"]],
+  ["r", "rain", ["pain", "main", "chain"]],
+  ["h", "hat", ["mat", "sat", "pat"]],
+  ["j", "jam", ["ham", "ram", "yam"]]
 ], ([sound, answer, wrongs], index, id) => ({
   id,
   grade: "K",
   skill: "initial sounds",
   difficulty: 1,
-  question: `Which word starts with the ${sound} sound?`,
+  question: `Which word starts the same as ${initialSoundAudioExamples[sound]}?`,
   spokenPrompt: `Which word starts like ${initialSoundAudioExamples[sound]}?`,
   choices: choices(answer, wrongs),
   answer
 }));
 
 addRows("exp7_final", [
-  ["/t/", "boat", ["soap", "foam", "road"]],
-  ["/p/", "cup", ["cut", "cub", "gum"]],
-  ["/n/", "moon", ["mood", "mop", "move"]],
-  ["/g/", "bag", ["bat", "ban", "bad"]],
-  ["/m/", "drum", ["duck", "drop", "dress"]],
-  ["/d/", "bed", ["bet", "beg", "bell"]],
-  ["/k/", "duck", ["dun", "dub", "dug"]],
-  ["/s/", "bus", ["bug", "bun", "bud"]]
+  ["t", "boat", ["soap", "foam", "road"]],
+  ["p", "cup", ["cut", "cub", "gum"]],
+  ["n", "moon", ["mood", "mop", "move"]],
+  ["g", "bag", ["bat", "ban", "bad"]],
+  ["m", "drum", ["duck", "drop", "dress"]],
+  ["d", "bed", ["bet", "beg", "bell"]],
+  ["k", "duck", ["dun", "dub", "dug"]],
+  ["s", "bus", ["bug", "bun", "bud"]]
 ], ([sound, answer, wrongs], index, id) => ({
   id,
   grade: "K",
   skill: "final sounds",
   difficulty: 1,
-  question: `Which word ends with the ${sound} sound?`,
+  question: `Which word ends the same as ${finalSoundAudioExamples[sound]}?`,
   spokenPrompt: `Which word ends like ${finalSoundAudioExamples[sound]}?`,
   choices: choices(answer, wrongs),
   answer
@@ -201,7 +201,7 @@ addRows("exp7_short_vowel", [
   grade: "K",
   skill: "short vowel discrimination",
   difficulty: 2,
-  question: `Which word has the same vowel sound as ${target}?`,
+  question: `Which word has the same middle sound as ${target}?`,
   choices: choices(answer, wrongs),
   answer
 }));
@@ -241,7 +241,7 @@ addRows("exp7_cvc", [
   skill: "cvc",
   difficulty: 1,
   question: "Listen and find the word.",
-  spokenPrompt: answer,
+  spokenPrompt: `Find the word ${answer}.`,
   imagePath: cvcImagePaths[answer] || "",
   choices: choices(answer, wrongs),
   answer
