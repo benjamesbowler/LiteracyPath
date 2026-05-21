@@ -1,6 +1,64 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+export function AuthPage({
+  authEmail,
+  setAuthEmail,
+  authPassword,
+  setAuthPassword,
+  authLoading,
+  authMessage,
+  signUpTeacher,
+  logInTeacher
+}) {
+  return (
+    <div className="card page-card page-stack auth-card">
+      <div>
+        <h2>Teacher Login</h2>
+        <p className="muted-text">Sign in to view only your own classes and student data.</p>
+      </div>
+
+      <label className="auth-field">
+        <strong>Email</strong>
+        <input
+          autoComplete="email"
+          inputMode="email"
+          value={authEmail}
+          placeholder="teacher@example.com"
+          onChange={event => setAuthEmail(event.target.value)}
+          type="email"
+        />
+      </label>
+
+      <label className="auth-field">
+        <strong>Password</strong>
+        <input
+          autoComplete="current-password"
+          value={authPassword}
+          placeholder="Password"
+          onChange={event => setAuthPassword(event.target.value)}
+          onKeyDown={event => {
+            if (event.key === "Enter") logInTeacher();
+          }}
+          type="password"
+        />
+      </label>
+
+      <div className="button-row auth-actions">
+        <button className="main-button" disabled={authLoading} onClick={logInTeacher}>
+          Log In
+        </button>
+
+        <button className="report-button" disabled={authLoading} onClick={signUpTeacher}>
+          Sign Up
+        </button>
+      </div>
+
+      {authMessage && <p className="message auth-message">{authMessage}</p>}
+    </div>
+  );
+}
+
 function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
 
@@ -92,7 +150,9 @@ export function TopNavigation({
   currentStage,
   goToOverview,
   switchStudent,
-  viewReport
+  viewReport,
+  teacherEmail,
+  logOutTeacher
 }) {
   const steps = [
     { id: "select", label: "Class/Student Select" },
@@ -125,6 +185,7 @@ export function TopNavigation({
       </div>
 
       <div className="top-nav-meta">
+        <span>{teacherEmail || "Signed in"}</span>
         <span>{nameSaved ? studentName || "Unnamed student" : "No student selected"}</span>
         {nameSaved && currentStage && <span>{currentStage.label}</span>}
       </div>
@@ -148,6 +209,10 @@ export function TopNavigation({
           disabled={!nameSaved}
         >
           View Report
+        </button>
+
+        <button className="nav-button" onClick={logOutTeacher}>
+          Log Out
         </button>
       </div>
     </nav>
@@ -173,7 +238,9 @@ export function StudentSelectPage({
   showClassDashboard,
   classDashboard,
   skillTree,
-  setShowClassDashboard
+  setShowClassDashboard,
+  deleteClass,
+  deleteStudent
 }) {
   return (
     <div className="page-stack">
@@ -222,6 +289,15 @@ export function StudentSelectPage({
               onClick={() => loadClassDashboard(selectedClassId)}
             >
               View Class Dashboard
+            </button>
+          )}
+
+          {selectedClassId && (
+            <button
+              className="reset-button class-action-button"
+              onClick={() => deleteClass(selectedClassId)}
+            >
+              Delete Class
             </button>
           )}
         </div>
@@ -293,6 +369,7 @@ export function StudentSelectPage({
                   <th>Current Skill</th>
                   <th>Last Active</th>
                   <th>Open</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
 
@@ -314,6 +391,14 @@ export function StudentSelectPage({
                         }}
                       >
                         Open
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        className="reset-button"
+                        onClick={() => deleteStudent(row.id, row.name)}
+                      >
+                        Delete
                       </button>
                     </td>
                   </tr>

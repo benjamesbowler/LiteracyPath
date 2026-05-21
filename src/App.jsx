@@ -8,6 +8,7 @@ import { skillTree } from "./skillTree";
 import {
   AdvancedPhonicsPatternAssessmentPage,
   AssessmentPage,
+  AuthPage,
   DashboardSummary,
   FinishedReportPage,
   LetterAssessmentPage,
@@ -237,6 +238,12 @@ export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [message, setMessage] = useState("");
+  const [teacherUser, setTeacherUser] = useState(null);
+  const [authReady, setAuthReady] = useState(false);
+  const [authEmail, setAuthEmail] = useState("");
+  const [authPassword, setAuthPassword] = useState("");
+  const [authLoading, setAuthLoading] = useState(false);
+  const [authMessage, setAuthMessage] = useState("");
   const [totalAnswered, setTotalAnswered] = useState(0);
   const [correctAnswered, setCorrectAnswered] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -281,10 +288,76 @@ export default function App() {
   const weaknessSnapshot =
     calculateWeaknessSnapshot(answerHistory);
 
+  const teacherId =
+    teacherUser?.id || null;
+
+  const profileStorageKey =
+    teacherId ? `readingMasteryProfile:${teacherId}` : null;
+
+  function clearTeacherState() {
+    setStudentName("");
+    setStudentId(null);
+    setStudentList([]);
+    setClassList([]);
+    setSelectedClassId(null);
+    setNewClassName("");
+    setClassDashboard([]);
+    setShowClassDashboard(false);
+    setAppView("select");
+    setNameSaved(false);
+    setCurrentSkillIndex(0);
+    setRoundAnswers([]);
+    setUsedByStage({});
+    setMastery({});
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setMessage("");
+    setTotalAnswered(0);
+    setCorrectAnswered(0);
+    setShowReport(false);
+    setAssessmentMode("mastery");
+    setLetterIndex(0);
+    setLetterAssessment([]);
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setAnswerHistory([]);
+  }
+
   useEffect(() => {
+    let isMounted = true;
+
+    supabase.auth.getSession().then(({ data }) => {
+      if (!isMounted) return;
+      setTeacherUser(data.session?.user || null);
+      setAuthReady(true);
+    });
+
+    const { data: authListener } =
+      supabase.auth.onAuthStateChange((_event, session) => {
+        setTeacherUser(session?.user || null);
+        setAuthReady(true);
+      });
+
+    return () => {
+      isMounted = false;
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!authReady) return;
+
+    setProfileLoaded(false);
+
+    if (!teacherId || !profileStorageKey) {
+      clearTeacherState();
+      setProfileLoaded(true);
+      return;
+    }
+
     loadClasses();
 
-    const saved = localStorage.getItem("readingMasteryProfile");
+    const saved = localStorage.getItem(profileStorageKey);
 
     if (saved) {
       try {
@@ -314,7 +387,7 @@ export default function App() {
         loadStudents(savedClassId);
       } catch (error) {
         console.warn("Could not restore saved reading profile.", error);
-        localStorage.removeItem("readingMasteryProfile");
+        localStorage.removeItem(profileStorageKey);
         loadStudents();
       }
     } else {
@@ -322,13 +395,13 @@ export default function App() {
     }
 
     setProfileLoaded(true);
-  }, []);
+  }, [authReady, teacherId, profileStorageKey]);
 
   useEffect(() => {
-    if (!profileLoaded) return;
+    if (!profileLoaded || !profileStorageKey) return;
 
     localStorage.setItem(
-      "readingMasteryProfile",
+      profileStorageKey,
       JSON.stringify({
         studentName,
         studentId,
@@ -367,13 +440,78 @@ export default function App() {
     patternIndex,
     patternAssessment,
     patternAttempt,
-    answerHistory
+    answerHistory,
+    profileStorageKey
   ]);
 
+  async function signUpTeacher() {
+    const email = authEmail.trim();
+    if (!email || !authPassword) {
+      setAuthMessage("Enter an email and password.");
+      return;
+    }
+
+    setAuthLoading(true);
+    setAuthMessage("");
+
+    const { error } = await supabase.auth.signUp({
+      email,
+      password: authPassword
+    });
+
+    setAuthLoading(false);
+
+    if (error) {
+      setAuthMessage(error.message);
+      return;
+    }
+
+    setAuthMessage("Account created. Check your email if confirmation is enabled, then log in.");
+  }
+
+  async function logInTeacher() {
+    const email = authEmail.trim();
+    if (!email || !authPassword) {
+      setAuthMessage("Enter an email and password.");
+      return;
+    }
+
+    setAuthLoading(true);
+    setAuthMessage("");
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password: authPassword
+    });
+
+    setAuthLoading(false);
+
+    if (error) {
+      setAuthMessage(error.message);
+      return;
+    }
+
+    setAuthPassword("");
+    setAuthMessage("");
+  }
+
+  async function logOutTeacher() {
+    await supabase.auth.signOut();
+    clearTeacherState();
+    setAuthPassword("");
+    setAuthMessage("Logged out.");
+  }
+
   async function loadClasses() {
+    if (!teacherId) {
+      setClassList([]);
+      return;
+    }
+
     const { data, error } = await supabase
       .from("classes")
       .select("id, name, created_at")
+      .eq("teacher_id", teacherId)
       .order("name", { ascending: true });
 
     if (error) {
@@ -389,9 +527,14 @@ export default function App() {
     const clean = newClassName.trim();
     if (!clean) return;
 
+    if (!teacherId) {
+      setMessage("Please log in first.");
+      return;
+    }
+
     const { data, error } = await supabase
       .from("classes")
-      .insert({ name: clean })
+      .insert({ name: clean, teacher_id: teacherId })
       .select()
       .single();
 
@@ -409,11 +552,18 @@ export default function App() {
   }
 
   async function loadStudents(classId = selectedClassId) {
+    if (!teacherId || !classId) {
+      setStudentList([]);
+      setLoadingStudents(false);
+      return;
+    }
+
     setLoadingStudents(true);
 
     const { data, error } = await supabase
       .from("students")
       .select("id, name, class_id, created_at")
+      .eq("teacher_id", teacherId)
       .eq("class_id", classId)
       .order("name", { ascending: true });
 
@@ -429,6 +579,11 @@ export default function App() {
   }
 
   async function loadClassDashboard(classId = selectedClassId) {
+    if (!teacherId) {
+      setMessage("Please log in first.");
+      return;
+    }
+
     if (!classId) {
       setMessage("Select a class first.");
       return;
@@ -437,6 +592,7 @@ export default function App() {
     const { data: students, error: studentsError } = await supabase
       .from("students")
       .select("id, name, created_at")
+      .eq("teacher_id", teacherId)
       .eq("class_id", classId)
       .order("name", { ascending: true });
 
@@ -458,6 +614,7 @@ export default function App() {
     const { data: answers, error: answersError } = await supabase
       .from("answers")
       .select("*")
+      .eq("teacher_id", teacherId)
       .in("student_id", studentIds)
       .order("answered_at", { ascending: true });
 
@@ -468,6 +625,7 @@ export default function App() {
     const { data: masteryRows, error: masteryError } = await supabase
       .from("mastery")
       .select("*")
+      .eq("teacher_id", teacherId)
       .in("student_id", studentIds)
       .order("updated_at", { ascending: true });
 
@@ -525,6 +683,144 @@ export default function App() {
     setShowClassDashboard(true);
   }
 
+  async function deleteStudent(selectedStudentId, selectedStudentName = "this student") {
+    if (!teacherId || !selectedStudentId) return;
+
+    const confirmed = window.confirm(
+      `Delete ${selectedStudentName}? This removes the student and their assessment records.`
+    );
+
+    if (!confirmed) return;
+
+    const { error: answersError } = await supabase
+      .from("answers")
+      .delete()
+      .eq("teacher_id", teacherId)
+      .eq("student_id", selectedStudentId);
+
+    const { error: masteryError } = await supabase
+      .from("mastery")
+      .delete()
+      .eq("teacher_id", teacherId)
+      .eq("student_id", selectedStudentId);
+
+    const { error: studentError } = await supabase
+      .from("students")
+      .delete()
+      .eq("teacher_id", teacherId)
+      .eq("id", selectedStudentId);
+
+    if (answersError || masteryError || studentError) {
+      console.error("Delete student error:", answersError || masteryError || studentError);
+      setMessage("Could not delete student.");
+      return;
+    }
+
+    if (studentId === selectedStudentId) {
+      setStudentId(null);
+      setStudentName("");
+      setNameSaved(false);
+      setAnswerHistory([]);
+      setMastery({});
+      setRoundAnswers([]);
+      setCurrentQuestion(null);
+      setFeedback(null);
+      setAppView("select");
+    }
+
+    await loadStudents(selectedClassId);
+    await loadClassDashboard(selectedClassId);
+    setMessage(`Deleted ${selectedStudentName}.`);
+  }
+
+  async function deleteClass(classId = selectedClassId) {
+    if (!teacherId || !classId) return;
+
+    const className =
+      classList.find(cls => cls.id === classId)?.name || "this class";
+
+    const confirmed = window.confirm(
+      `Delete ${className}? This removes the class, students, answers, and mastery records.`
+    );
+
+    if (!confirmed) return;
+
+    const { data: students, error: studentsError } = await supabase
+      .from("students")
+      .select("id")
+      .eq("teacher_id", teacherId)
+      .eq("class_id", classId);
+
+    if (studentsError) {
+      console.error("Delete class student lookup error:", studentsError);
+      setMessage("Could not delete class.");
+      return;
+    }
+
+    const studentIds =
+      (students || []).map(student => student.id);
+
+    if (studentIds.length > 0) {
+      const { error: answersError } = await supabase
+        .from("answers")
+        .delete()
+        .eq("teacher_id", teacherId)
+        .in("student_id", studentIds);
+
+      const { error: masteryError } = await supabase
+        .from("mastery")
+        .delete()
+        .eq("teacher_id", teacherId)
+        .in("student_id", studentIds);
+
+      if (answersError || masteryError) {
+        console.error("Delete class data error:", answersError || masteryError);
+        setMessage("Could not delete class data.");
+        return;
+      }
+    }
+
+    const { error: deleteStudentsError } = await supabase
+      .from("students")
+      .delete()
+      .eq("teacher_id", teacherId)
+      .eq("class_id", classId);
+
+    const { error: deleteClassError } = await supabase
+      .from("classes")
+      .delete()
+      .eq("teacher_id", teacherId)
+      .eq("id", classId);
+
+    if (deleteStudentsError || deleteClassError) {
+      console.error("Delete class error:", deleteStudentsError || deleteClassError);
+      setMessage("Could not delete class.");
+      return;
+    }
+
+    if (selectedClassId === classId) {
+      setSelectedClassId(null);
+      setStudentList([]);
+      setClassDashboard([]);
+      setShowClassDashboard(false);
+    }
+
+    if (studentId && studentIds.includes(studentId)) {
+      setStudentId(null);
+      setStudentName("");
+      setNameSaved(false);
+      setAnswerHistory([]);
+      setMastery({});
+      setRoundAnswers([]);
+      setCurrentQuestion(null);
+      setFeedback(null);
+      setAppView("select");
+    }
+
+    await loadClasses();
+    setMessage(`Deleted ${className}.`);
+  }
+
 
   async function loadStudentProgress(selectedStudentId, selectedStudentName) {
     setStudentId(selectedStudentId);
@@ -535,6 +831,7 @@ export default function App() {
     const { data: answerRows, error: answerError } = await supabase
       .from("answers")
       .select("*")
+      .eq("teacher_id", teacherId)
       .eq("student_id", selectedStudentId)
       .order("answered_at", { ascending: true });
 
@@ -562,6 +859,7 @@ export default function App() {
     const { data: masteryRows, error: masteryError } = await supabase
       .from("mastery")
       .select("*")
+      .eq("teacher_id", teacherId)
       .eq("student_id", selectedStudentId)
       .order("updated_at", { ascending: true });
 
@@ -599,6 +897,11 @@ export default function App() {
     const clean = studentName.trim();
     if (!clean) return;
 
+    if (!teacherId) {
+      setMessage("Please log in first.");
+      return;
+    }
+
     setStudentName(clean);
     setNameSaved(true);
 
@@ -612,7 +915,8 @@ export default function App() {
         .from("students")
         .insert({
           name: clean,
-          class_id: selectedClassId
+          class_id: selectedClassId,
+          teacher_id: teacherId
         })
         .select()
         .single();
@@ -783,12 +1087,13 @@ export default function App() {
   }
 
   async function saveAnswerToSupabase(record) {
-    if (!studentId) return;
+    if (!studentId || !teacherId) return;
 
     const { error } = await supabase
       .from("answers")
       .insert({
         student_id: studentId,
+        teacher_id: teacherId,
         skill: record.skill,
         stage: record.stage,
         diagnostic_target: record.diagnosticTarget,
@@ -805,12 +1110,13 @@ export default function App() {
   }
 
   async function saveMasteryToSupabase(stage, score, total, mastered) {
-    if (!studentId) return;
+    if (!studentId || !teacherId) return;
 
     const { error } = await supabase
       .from("mastery")
       .insert({
         student_id: studentId,
+        teacher_id: teacherId,
         skill_id: stage.id,
         skill_label: stage.label,
         mastered,
@@ -1932,8 +2238,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   }
 
   function resetStudent() {
-    localStorage.removeItem("readingMasteryProfile");
-    window.location.reload();
+    if (profileStorageKey) {
+      localStorage.removeItem(profileStorageKey);
+    }
+
+    clearTeacherState();
+    loadClasses();
   }
 
   function switchStudent() {
@@ -1943,14 +2253,52 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     setCurrentQuestion(null);
     setFeedback(null);
     setMessage("");
+    setShowClassDashboard(false);
     setAppView("select");
     loadClasses();
-    loadStudents();
+    loadStudents(selectedClassId);
   }
 
   function viewReport() {
     setShowReport(true);
     setAppView("finished");
+  }
+
+
+  if (!authReady) {
+    return (
+      <div className="app">
+        <div className="card page-card page-stack auth-card">
+          <h2>Loading teacher session...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  if (!teacherUser) {
+    return (
+      <div className="app">
+        <motion.div
+          className="hero"
+          initial={{ y: -12, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+        >
+          <h1>Reading Mastery</h1>
+          <p>Structured EL-style reading skill progression</p>
+        </motion.div>
+
+        <AuthPage
+          authEmail={authEmail}
+          setAuthEmail={setAuthEmail}
+          authPassword={authPassword}
+          setAuthPassword={setAuthPassword}
+          authLoading={authLoading}
+          authMessage={authMessage}
+          signUpTeacher={signUpTeacher}
+          logInTeacher={logInTeacher}
+        />
+      </div>
+    );
   }
 
   const roundCorrect = roundAnswers.filter(Boolean).length;
@@ -1974,6 +2322,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToOverview={goToOverview}
           switchStudent={switchStudent}
           viewReport={viewReport}
+          teacherEmail={teacherUser.email}
+          logOutTeacher={logOutTeacher}
         />
       )}
 
@@ -2007,6 +2357,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               classDashboard={classDashboard}
               skillTree={skillTree}
               setShowClassDashboard={setShowClassDashboard}
+              deleteClass={deleteClass}
+              deleteStudent={deleteStudent}
             />
           )}
 

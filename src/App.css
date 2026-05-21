@@ -223,6 +223,41 @@ body {
   margin: 0;
 }
 
+.auth-card {
+  width: 100%;
+  max-width: 520px;
+  align-self: center;
+}
+
+.muted-text {
+  color: #667085 !important;
+  line-height: 1.5;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-field input {
+  max-width: none;
+  margin: 0;
+}
+
+.auth-actions {
+  align-items: stretch;
+}
+
+.auth-actions button {
+  flex: 1 1 180px;
+}
+
+.auth-message {
+  border-radius: 14px;
+  margin: 0;
+}
+
 .dashboard {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
