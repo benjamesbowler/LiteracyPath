@@ -756,12 +756,21 @@ export function StudentOverviewPage({
   const itemSnapshot = itemMasterySnapshot || {
     mastered: [],
     attempting: [],
+    evidence: [],
     unseenCount: 0,
     trackedCount: 0
   };
 
   const formatItemLabel = item =>
     item.itemKey + " (" + item.itemType.replace(/_/g, " ") + ", " + item.correct + "/" + item.attempts + ")";
+
+  const formatEvidenceLabel = item => {
+    const formats = item.formatTypes?.length ? item.formatTypes.join(", ") : "none yet";
+    const positions = item.phonicsPositions?.length ? item.phonicsPositions.join(", ") : "none";
+    const blockers = item.masteryBlockers?.length ? item.masteryBlockers.join("; ") : "No blockers";
+
+    return item.itemKey + " (" + item.itemType.replace(/_/g, " ") + "): formats " + formats + "; PTD " + (item.hadPTDExposure ? "yes" : "no") + "; cross-pattern " + (item.crossPatternExposure ? "yes" : "no") + "; positions " + positions + "; " + blockers;
+  };
 
   return (
     <div className="card page-card page-stack">
@@ -875,6 +884,21 @@ export function StudentOverviewPage({
           <div>
             <strong>Coverage</strong>
             <p>{itemSnapshot.unseenCount} unseen of {itemSnapshot.trackedCount} tracked runtime items.</p>
+          </div>
+
+          <div>
+            <strong>Question format evidence</strong>
+            {itemSnapshot.evidence.length > 0 ? (
+              <ul>
+                {itemSnapshot.evidence.map(item => (
+                  <li key={item.itemType + "-evidence-" + item.itemKey}>
+                    {formatEvidenceLabel(item)}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No format evidence recorded yet.</p>
+            )}
           </div>
         </div>
       </details>

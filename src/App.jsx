@@ -35,6 +35,11 @@ import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { audioManifest, audioTextIndex } from "./data/audioManifest";
+import {
+  applyQuestionFormatMetadata,
+  getQuestionFormatMetadata,
+  isMasteryEligible
+} from "./questionFormatFramework";
 
 // dynamic mastery system
 
@@ -324,7 +329,9 @@ const allQuestions = [
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
-].filter(isQuestionValid).map(applyItemMetadata);
+].filter(isQuestionValid).map(question =>
+  applyQuestionFormatMetadata(applyItemMetadata(question))
+);
 
 const letterAssessmentOrder = [
   "m", "T", "b", "S", "a", "F", "d", "R", "p", "E", "g", "H", "c",
@@ -1586,15 +1593,36 @@ export default function App() {
       lastResult: Boolean(row.last_result),
       sessionsSeen: Number(row.sessions_seen || 0),
       mastered: Boolean(row.mastered),
+      formatTypes: row.formatTypes || [],
+      hadPTDExposure: Boolean(row.hadPTDExposure),
+      crossPatternExposure: Boolean(row.crossPatternExposure),
+      phonicsPositions: row.phonicsPositions || [],
+      masteryBlockers: row.masteryBlockers || [],
       updatedAt: row.updated_at || null
     };
   }
 
-  function nextItemMasteryRow(previous, metadata, isCorrect, isNewSessionSeen) {
+  function nextItemMasteryRow(previous, metadata, isCorrect, isNewSessionSeen, formatMetadata) {
     const attempts = (previous?.attempts || 0) + 1;
     const correct = (previous?.correct || 0) + (isCorrect ? 1 : 0);
     const sessionsSeen = (previous?.sessionsSeen || 0) + (isNewSessionSeen ? 1 : 0);
-    const mastered = attempts >= 4 && correct >= 3 && isCorrect && sessionsSeen >= 2;
+    const formatTypes = Array.from(new Set([
+      ...(previous?.formatTypes || []),
+      formatMetadata.formatType
+    ].filter(Boolean)));
+    const phonicsPositions = Array.from(new Set([
+      ...(previous?.phonicsPositions || []),
+      formatMetadata.phonicsPosition
+    ].filter(position => position && position !== "unknown")));
+    const evidence = {
+      formatTypes,
+      phonicsPositions,
+      hadPTDExposure: Boolean(previous?.hadPTDExposure || formatMetadata.hadPTD),
+      crossPatternExposure: Boolean(previous?.crossPatternExposure || formatMetadata.crossPatternGroup || formatMetadata.formatType === "CPS")
+    };
+    const eligibility = isMasteryEligible(evidence, metadata.itemType, metadata.itemKey);
+    const baseMastered = attempts >= 4 && correct >= 3 && isCorrect && sessionsSeen >= 2;
+    const mastered = baseMastered && eligibility.eligible;
 
     return {
       itemKey: metadata.itemKey,
@@ -1604,7 +1632,12 @@ export default function App() {
       lastSeen: new Date().toISOString(),
       lastResult: isCorrect,
       sessionsSeen,
-      mastered
+      mastered,
+      formatTypes,
+      hadPTDExposure: evidence.hadPTDExposure,
+      crossPatternExposure: evidence.crossPatternExposure,
+      phonicsPositions,
+      masteryBlockers: eligibility.blockers
     };
   }
 
@@ -1639,6 +1672,7 @@ export default function App() {
     const metadata = inferItemMetadata(source);
     if (!metadata?.itemKey || !metadata?.itemType) return;
 
+    const formatMetadata = getQuestionFormatMetadata(source);
     const key = getItemMasteryStateKey(metadata.itemKey, metadata.itemType);
     const isNewSessionSeen = !itemSessionSeen[key];
 
@@ -1648,7 +1682,7 @@ export default function App() {
     }));
 
     setItemMastery(prev => {
-      const nextRow = nextItemMasteryRow(prev[key], metadata, isCorrect, isNewSessionSeen);
+      const nextRow = nextItemMasteryRow(prev[key], metadata, isCorrect, isNewSessionSeen, formatMetadata);
       saveItemMasteryToSupabase(nextRow);
 
       return {
@@ -1690,6 +1724,7 @@ export default function App() {
     return {
       mastered: ranked.filter(row => row.mastered).slice(0, 12),
       attempting: ranked.filter(row => !row.mastered).slice(0, 12),
+      evidence: ranked.slice(0, 16),
       unseenCount: Math.max(0, trackedUnique.size - rows.length),
       trackedCount: trackedUnique.size
     };

@@ -17,6 +17,14 @@ import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
 import { skillTree } from "../src/skillTree.js";
 import {
+  getAllowedQuestionFormatValues,
+  getQuestionFormatMetadata,
+  hasPatternTrap,
+  isCrossPatternQuestion,
+  isVisualRecognitionOnly,
+  requiresAudioSupport
+} from "../src/questionFormatFramework.js";
+import {
   blendAnchors,
   digraphAnchors,
   finalSoundAnchors,
@@ -47,6 +55,8 @@ const allQuestions =
   questionBanks.flatMap(([file, bank]) =>
     bank.map((question, index) => ({ file, index, question }))
   );
+
+const questionFormatValues = getAllowedQuestionFormatValues();
 
 const knownPluralNouns = new Set([
   "children",
@@ -458,6 +468,56 @@ function earlyPhonicsBoundaryIssue(question, stage) {
   return null;
 }
 
+
+function questionFormatMetadataIssue(question) {
+  if (question.formatType && !questionFormatValues.formatTypes.includes(String(question.formatType).toUpperCase())) {
+    return `Unknown formatType "${question.formatType}".`;
+  }
+
+  if (question.phonicsPosition && !questionFormatValues.phonicsPositions.includes(normalize(question.phonicsPosition))) {
+    return `Unknown phonicsPosition "${question.phonicsPosition}".`;
+  }
+
+  if (question.hadPTD !== undefined && typeof question.hadPTD !== "boolean") {
+    return "hadPTD must be a boolean when supplied.";
+  }
+
+  if (question.crossPatternGroup && !question.targetPattern) {
+    return "crossPatternGroup is set but targetPattern is missing.";
+  }
+
+  return null;
+}
+
+function createQuestionFormatStats() {
+  return {
+    tagged: 0,
+    inferred: 0,
+    formatTypes: {},
+    visualRecognitionOnly: 0,
+    requiresAudio: 0,
+    patternTrap: 0,
+    crossPattern: 0,
+    missingExplicitMigration: 0
+  };
+}
+
+function updateQuestionFormatStats(stats, question) {
+  const metadata = getQuestionFormatMetadata(question);
+  const explicit = Boolean(question.formatType && question.masteryStage);
+  if (explicit) stats.tagged += 1;
+  else {
+    stats.inferred += 1;
+    stats.missingExplicitMigration += 1;
+  }
+
+  stats.formatTypes[metadata.formatType] = (stats.formatTypes[metadata.formatType] || 0) + 1;
+  if (isVisualRecognitionOnly(question)) stats.visualRecognitionOnly += 1;
+  if (requiresAudioSupport(question)) stats.requiresAudio += 1;
+  if (hasPatternTrap(question)) stats.patternTrap += 1;
+  if (isCrossPatternQuestion(question)) stats.crossPattern += 1;
+}
+
 function getStage(question) {
   const skill = normalize(question.skill);
 
@@ -608,12 +668,20 @@ function isTooAdvancedForEarlySkill(question) {
 function auditQuestions() {
   const problems = [];
   const counts = {};
+  const formatStats = createQuestionFormatStats();
   const idLocations = new Map();
 
   for (const item of allQuestions) {
     const question = item.question;
     const stage = getStage(question);
     counts[stage] = (counts[stage] || 0) + 1;
+    updateQuestionFormatStats(formatStats, question);
+
+    const formatMetadataProblem = questionFormatMetadataIssue(question);
+
+    if (formatMetadataProblem) {
+      addProblem(problems, "question format metadata", item, formatMetadataProblem);
+    }
 
     if (!question.id) addProblem(problems, "missing id", item, "Question has no id.");
     if (!question.question) addProblem(problems, "missing question", item, "Question text is empty.");
@@ -876,7 +944,7 @@ function auditQuestions() {
     }
   }
 
-  return { counts, problems };
+  return { counts, problems, formatStats };
 }
 
 function printCounts(counts) {
@@ -896,6 +964,22 @@ function printCounts(counts) {
 
   console.log("");
   console.log("UNMATCHED:", counts.UNMATCHED || 0);
+}
+
+function printQuestionFormatStats(stats) {
+  console.log("");
+  console.log("QUESTION FORMAT FRAMEWORK:");
+  console.log(`Explicitly tagged: ${stats.tagged}`);
+  console.log(`Inferred for compatibility: ${stats.inferred}`);
+  console.log(`Needs future explicit metadata migration: ${stats.missingExplicitMigration}`);
+  console.log(`Visual-recognition-only: ${stats.visualRecognitionOnly}`);
+  console.log(`Requires audio support: ${stats.requiresAudio}`);
+  console.log(`Pattern-trap discrimination: ${stats.patternTrap}`);
+  console.log(`Cross-pattern questions: ${stats.crossPattern}`);
+  console.log("Format counts:");
+  Object.entries(stats.formatTypes)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .forEach(([type, count]) => console.log(`- ${type}: ${count}`));
 }
 
 function printProblems(problems) {
@@ -925,9 +1009,10 @@ function printProblems(problems) {
   }
 }
 
-const { counts, problems } = auditQuestions();
+const { counts, problems, formatStats } = auditQuestions();
 
 printCounts(counts);
+printQuestionFormatStats(formatStats);
 printProblems(problems);
 
 if (problems.length > 0) {
