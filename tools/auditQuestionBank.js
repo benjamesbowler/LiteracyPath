@@ -9,6 +9,7 @@ import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQ
 import { finalSoundCoverageQuestions } from "../src/data/finalSoundCoverageQuestions.js";
 import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.js";
 import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
+import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -22,6 +23,10 @@ import {
   hasCompletePairSelectionAssets,
   isPairSelectionQuestion
 } from "../src/data/soundPairAssets.js";
+import {
+  hasCompleteVisualQuestionAssets,
+  isVisualCardChoiceQuestion
+} from "../src/data/visualQuestionAssets.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
 import { templateExpansion2 } from "../src/data/templateExpansion2.js";
@@ -61,6 +66,7 @@ const questionBanks = [
   ["src/data/finalSoundCoverageQuestions.js", finalSoundCoverageQuestions],
   ["src/data/rhymingCoverageQuestions.js", rhymingCoverageQuestions],
   ["src/data/cvcShortVowelExpansionQuestions.js", cvcShortVowelExpansionQuestions],
+  ["src/data/contentExpansionPass3Questions.js", contentExpansionPass3Questions],
   ["src/data/templateQuestions.js", templateQuestions],
   ["src/data/templateExpansion.js", templateExpansion],
   ["src/data/templateExpansion2.js", templateExpansion2],
@@ -388,6 +394,25 @@ function getDigraphPattern(question) {
 function phonicsWordingIssue(question, stage) {
   const prompt = String(question.question || "");
   const spoken = String(question.spokenPrompt || question.audioText || "");
+  const formatType = String(question.formatType || "").toUpperCase();
+  const permitsStaticWordAudio = new Set([
+    "LISTEN_FIND_RHYME",
+    "LISTEN_CHOOSE_VOWEL",
+    "MISSING_VOWEL_CVC",
+    "PICTURE_AUDIO_TO_PATTERN",
+    "LISTEN_FIND_WORD",
+    "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
+    "PICTURE_TO_PRINT_MATCH"
+  ]).has(formatType);
+  const usesNewVisualPatternFormat = new Set([
+    "PICTURE_AUDIO_TO_PATTERN",
+    "IMAGE_WORD_PATTERN_MATCH"
+  ]).has(formatType);
+  const usesNewShortVowelFormat = new Set([
+    "LISTEN_CHOOSE_VOWEL",
+    "PICTURE_TO_PRINT_MATCH",
+    "MISSING_VOWEL_CVC"
+  ]).has(formatType);
 
   if (visiblePhonemeNotationPattern.test(prompt)) {
     return 'Visible prompt contains phoneme slash notation: "' + prompt + '".';
@@ -396,15 +421,15 @@ function phonicsWordingIssue(question, stage) {
   const isListenAndFindWord = question.questionType === "listen_and_find_word";
   const isPairSelect = isPairSelectionQuestion(question);
 
-  if (!isListenAndFindWord && !isPairSelect && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
+  if (!permitsStaticWordAudio && !isListenAndFindWord && !isPairSelect && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText uses an isolated phoneme or letter sound: "' + spoken + '".';
   }
 
-  if (!isListenAndFindWord && !isPairSelect && spoken && !naturalSentencePattern.test(spoken.trim())) {
+  if (!permitsStaticWordAudio && !isListenAndFindWord && !isPairSelect && spoken && !naturalSentencePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText should be a full natural sentence: "' + spoken + '".';
   }
 
-  if ((stage === "Short Vowel Discrimination" || stage === "CVC and Short Vowels") && (vagueVowelWordingPattern.test(prompt) || vagueVowelWordingPattern.test(spoken))) {
+  if (!usesNewShortVowelFormat && (stage === "Short Vowel Discrimination" || stage === "CVC and Short Vowels") && (vagueVowelWordingPattern.test(prompt) || vagueVowelWordingPattern.test(spoken))) {
     return 'Use anchor-word middle-sound wording instead of vague vowel wording: "' + prompt + '" / "' + spoken + '".';
   }
 
@@ -431,7 +456,7 @@ function phonicsWordingIssue(question, stage) {
     }
   }
 
-  if (stage === "Short Vowel Discrimination") {
+  if (stage === "Short Vowel Discrimination" && !usesNewShortVowelFormat) {
     const anchor = shortVowelAnchors[getFirstVowel(question.answer)];
     if (anchor) {
       const expectedPrompt = "Which word has the same middle sound as " + anchor + "?";
@@ -449,7 +474,7 @@ function phonicsWordingIssue(question, stage) {
     }
   }
 
-  if (stage === "Digraphs") {
+  if (stage === "Digraphs" && !usesNewVisualPatternFormat) {
     const pattern = getDigraphPattern(question);
     const anchor = digraphAnchors[pattern];
     if (pattern && anchor) {
@@ -461,7 +486,7 @@ function phonicsWordingIssue(question, stage) {
     }
   }
 
-  if (stage === "Blends") {
+  if (stage === "Blends" && !usesNewVisualPatternFormat) {
     const pattern = getBlendPattern(question);
     const anchor = blendAnchors[pattern];
     if (pattern && anchor) {
@@ -718,6 +743,7 @@ function isActiveRuntimeQuestion(question) {
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
   if (!isPairSelectionQuestion(question) && !question.choices.includes(question.answer)) return false;
   if (isPairSelectionQuestion(question) && !hasCompletePairSelectionAssets(question)) return false;
+  if (isVisualCardChoiceQuestion(question) && !hasCompleteVisualQuestionAssets(question)) return false;
   if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
   if (question.questionType === "listen_and_find_word") {
     const diagnostics = getListenAndFindAssetDiagnostics(question);
@@ -795,6 +821,7 @@ function answerIsVisible(question) {
   if (!answer || answer.length < 3) return false;
   if (answerVisibleStopwords.has(answer)) return false;
   if (normalize(question.skill).includes("rhym")) return false;
+  if (String(question.formatType || "").toUpperCase() === "LISTEN_FIND_WORD") return false;
 
   const skill = normalize(question.skill);
   const prompt = normalize(question.question);

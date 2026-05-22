@@ -23,19 +23,23 @@ import { initialSoundCoverageQuestions } from "./data/initialSoundCoverageQuesti
 import { finalSoundCoverageQuestions } from "./data/finalSoundCoverageQuestions";
 import { rhymingCoverageQuestions } from "./data/rhymingCoverageQuestions";
 import { cvcShortVowelExpansionQuestions } from "./data/cvcShortVowelExpansionQuestions";
+import { contentExpansionPass3Questions } from "./data/contentExpansionPass3Questions";
 import { coverageExpectations } from "./data/coverageExpectations";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
   enrichInitialSoundPairQuestion,
   hasCompleteInitialSoundPairAssets,
-  isInitialSoundQuestion,
-  isInitialSoundPairQuestion
+  isInitialSoundQuestion
 } from "./data/initialSoundPairAssets";
 import {
   hasCompletePairSelectionAssets,
   isPairSelectionQuestion,
   normalizePairSelectionAnswer
 } from "./data/soundPairAssets";
+import {
+  hasCompleteVisualQuestionAssets,
+  isVisualCardChoiceQuestion
+} from "./data/visualQuestionAssets";
 
 import { templateQuestions } from "./data/templateQuestions";
 import { templateExpansion } from "./data/templateExpansion";
@@ -552,6 +556,7 @@ function isQuestionValid(q) {
 
   if (isInitialSoundQuestion(q) && !hasCompleteInitialSoundPairAssets(q)) return false;
   if (isPairSelectionQuestion(q) && !hasCompletePairSelectionAssets(q)) return false;
+  if (isVisualCardChoiceQuestion(q) && !hasCompleteVisualQuestionAssets(q)) return false;
   if (q.questionType === "listen_and_find_word") {
     const diagnostics = getListenAndFindAssetDiagnostics(q);
     if (
@@ -585,6 +590,7 @@ const allQuestions = [
   ...finalSoundCoverageQuestions,
   ...rhymingCoverageQuestions,
   ...cvcShortVowelExpansionQuestions,
+  ...contentExpansionPass3Questions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,
@@ -1948,12 +1954,18 @@ export default function App() {
   }
 
   function prepareQuestion(question, isTargetedReview = false) {
+    const preparedChoices = Array.isArray(question.choices)
+      ? (isPairSelectionQuestion(question) ? question.choices : shuffleArray(question.choices))
+      : question.choices;
+    const preparedCards = Array.isArray(question.imageCards)
+      ? shuffleArray(question.imageCards)
+      : question.imageCards;
+
     return {
       ...question,
       isTargetedReview,
-      choices: Array.isArray(question.choices)
-        ? (isPairSelectionQuestion(question) ? question.choices : shuffleArray(question.choices))
-        : question.choices
+      choices: preparedChoices,
+      imageCards: preparedCards
     };
   }
 
@@ -2014,7 +2026,15 @@ export default function App() {
         : available;
 
     const prioritized = prioritizeCoverageQuestions(pool, activeStage);
-    const picked = prioritized[0];
+    const roundFormatTypes = new Set(
+      roundQuestionIds
+        .map(id => allQuestions.find(question => question.id === id))
+        .filter(Boolean)
+        .map(question => getQuestionFormatMetadata(question).formatType)
+    );
+    const picked =
+      prioritized.find(question => !roundFormatTypes.has(getQuestionFormatMetadata(question).formatType)) ||
+      prioritized[0];
 
     debugAssessmentCoverage("question selection", {
       studentId,
@@ -2482,7 +2502,7 @@ export default function App() {
   }
 
   function buildFeedbackSupport(question, submittedAnswer) {
-    if (!isInitialSoundPairQuestion(question)) return null;
+    if (!isPairSelectionQuestion(question)) return null;
 
     const chosenWords = normalizePairSelectionAnswer(submittedAnswer)
       .split("|")
@@ -2496,18 +2516,37 @@ export default function App() {
     const wrongWord = wrongWords[0];
 
     return {
-      type: "initial_sound_pair",
+      type: "pair_selection",
       targetSound,
       correctWords,
       chosenWords,
       cardsByWord,
-      exampleText: correctWords.length >= 2
-        ? `${correctWords[0]} and ${correctWords[1]} both begin with /${targetSound}/.`
-        : "",
+      exampleText: getPairSupportText(question, correctWords, targetSound),
       wrongText: wrongWord
-        ? `${wrongWord} starts with /${wrongWord[0]}/, so it does not match /${targetSound}/.`
+        ? getPairWrongText(question, wrongWord, targetSound)
         : "Both matching pictures need to be selected."
     };
+  }
+
+  function getPairSupportText(question, correctWords, targetSound) {
+    if (correctWords.length < 2) return "";
+    if (question.questionType === "rhyme_pair") {
+      return `${correctWords[0]} and ${correctWords[1]} rhyme because they share the ending sound ${targetSound}.`;
+    }
+    if (question.questionType === "final_sound_pair") {
+      return `${correctWords[0]} and ${correctWords[1]} both end with /${targetSound}/.`;
+    }
+    return `${correctWords[0]} and ${correctWords[1]} both begin with /${targetSound}/.`;
+  }
+
+  function getPairWrongText(question, wrongWord, targetSound) {
+    if (question.questionType === "rhyme_pair") {
+      return `${wrongWord} does not share the same rhyming ending.`;
+    }
+    if (question.questionType === "final_sound_pair") {
+      return `${wrongWord} does not end with /${targetSound}/.`;
+    }
+    return `${wrongWord} starts with /${wrongWord[0]}/, so it does not match /${targetSound}/.`;
   }
 
   function getTeachingTip(question, choice, isCorrect) {

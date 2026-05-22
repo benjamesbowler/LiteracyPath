@@ -11,7 +11,18 @@ const FORMAT_TYPES = new Set([
   "INITIAL_SOUND_PAIR_SELECT",
   "FINAL_SOUND_PAIR_SELECT",
   "RHYME_PAIR_SELECT",
+  "LISTEN_FIND_RHYME",
+  "READ_FIND_RHYME",
+  "LISTEN_CHOOSE_VOWEL",
   "PICTURE_TO_PRINT_CVC",
+  "PICTURE_AUDIO_TO_PATTERN",
+  "IMAGE_WORD_PATTERN_MATCH",
+  "MISSING_VOWEL_CVC",
+  "PLURAL_IMAGE_SPELLING",
+  "MORPHEME_MEANING_CONTEXT",
+  "LISTEN_FIND_WORD",
+  "READ_FIND_WORD",
+  "SENTENCE_CONTEXT_WORD",
   "IMAGE_VOWEL_SORT",
   "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "COMPREHENSION",
@@ -74,7 +85,7 @@ export function requiresAudioSupport(question) {
   if (question.audioText || question.spokenPrompt) return true;
 
   const formatType = normalizeFormatType(question.formatType);
-  if (["LISTENING", "PTD", "MPD", "PICTURE_TO_PRINT_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "IMAGE_INITIAL_SOUND", "INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT", "RHYME_PAIR_SELECT", "PICTURE_TO_PRINT_CVC", "IMAGE_VOWEL_SORT", "SHORT_VOWEL_IMAGE_GROUP_SELECT"].includes(formatType)) return true;
+  if (["LISTENING", "PTD", "MPD", "PICTURE_TO_PRINT_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "IMAGE_INITIAL_SOUND", "INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT", "RHYME_PAIR_SELECT", "LISTEN_FIND_RHYME", "LISTEN_CHOOSE_VOWEL", "PICTURE_AUDIO_TO_PATTERN", "LISTEN_FIND_WORD", "PICTURE_TO_PRINT_CVC", "IMAGE_VOWEL_SORT", "SHORT_VOWEL_IMAGE_GROUP_SELECT"].includes(formatType)) return true;
 
   const text = normalizeText(getQuestionText(question));
   return text.includes("listen") || text.includes("sound") || text.includes("starts like") || text.includes("middle sound");

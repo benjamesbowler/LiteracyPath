@@ -829,6 +829,65 @@ select:focus {
   min-width: 180px;
 }
 
+.prompt-image-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.prompt-image-card {
+  width: clamp(92px, 16vw, 150px);
+  height: clamp(92px, 16vw, 150px);
+  object-fit: contain;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 6px;
+}
+
+.visual-card-choice-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.visual-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+}
+
+.visual-assessment-card {
+  display: grid;
+  grid-template-rows: minmax(140px, 1fr) auto;
+  gap: 8px;
+  padding: 10px;
+  border: 1.5px solid var(--lp-color-border-strong);
+  border-radius: 8px;
+  background: var(--lp-color-surface);
+}
+
+.visual-assessment-card-button {
+  display: grid;
+  grid-template-rows: minmax(112px, 1fr) auto;
+  gap: 8px;
+  min-height: 156px;
+  padding: 8px !important;
+  border: 0 !important;
+  border-radius: 8px;
+  background: #f8fafc !important;
+  color: var(--lp-color-text-strong) !important;
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 800;
+}
+
+.visual-assessment-card-button img {
+  width: 100%;
+  height: clamp(112px, 22vh, 190px);
+  object-fit: contain;
+}
+
 .support-image-row {
   display: flex;
   flex-wrap: wrap;
@@ -1622,6 +1681,22 @@ select:focus {
   }
 
   .initial-sound-image-button img {
+    height: 112px;
+  }
+
+  .visual-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visual-assessment-card {
+    grid-template-rows: minmax(112px, 1fr) auto;
+  }
+
+  .visual-assessment-card-button {
+    min-height: 130px;
+  }
+
+  .visual-assessment-card-button img {
     height: 112px;
   }
 

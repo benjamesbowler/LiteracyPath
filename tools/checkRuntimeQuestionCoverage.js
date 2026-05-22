@@ -9,6 +9,7 @@ import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQ
 import { finalSoundCoverageQuestions } from "../src/data/finalSoundCoverageQuestions.js";
 import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.js";
 import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
+import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -22,6 +23,10 @@ import {
   hasCompletePairSelectionAssets,
   isPairSelectionQuestion
 } from "../src/data/soundPairAssets.js";
+import {
+  hasCompleteVisualQuestionAssets,
+  isVisualCardChoiceQuestion
+} from "../src/data/visualQuestionAssets.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
 import { templateExpansion2 } from "../src/data/templateExpansion2.js";
@@ -47,6 +52,7 @@ const runtimeQuestionBanks = [
   ["finalSoundCoverageQuestions", finalSoundCoverageQuestions],
   ["rhymingCoverageQuestions", rhymingCoverageQuestions],
   ["cvcShortVowelExpansionQuestions", cvcShortVowelExpansionQuestions],
+  ["contentExpansionPass3Questions", contentExpansionPass3Questions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -232,6 +238,7 @@ function isQuestionValid(question) {
   if (getStageIndex(question) === -1) return false;
   if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
   if (isPairSelectionQuestion(question) && !hasCompletePairSelectionAssets(question)) return false;
+  if (isVisualCardChoiceQuestion(question) && !hasCompleteVisualQuestionAssets(question)) return false;
   if (question.questionType === "listen_and_find_word") {
     const diagnostics = getListenAndFindAssetDiagnostics(question);
     if (
@@ -329,7 +336,8 @@ function formatName(question) {
 
 function isAssetRequiredQuestion(question) {
   return question.questionType === "listen_and_find_word" ||
-    isPairSelectionQuestion(question);
+    isPairSelectionQuestion(question) ||
+    isVisualCardChoiceQuestion(question);
 }
 
 function assetGapsForQuestion(question) {
@@ -441,6 +449,7 @@ function buildStageAudit(stage, index) {
   const itemTypes = new Set();
   const formats = new Map();
   const assetGaps = [];
+  const correctPositions = new Map();
 
   for (const question of questions) {
     const metadata = inferCoverageMetadata(question, stage.label);
@@ -451,6 +460,14 @@ function buildStageAudit(stage, index) {
 
     const format = formatName(question);
     formats.set(format, (formats.get(format) || 0) + 1);
+
+    if (!isPairSelectionQuestion(question) && Array.isArray(question.choices)) {
+      const index = question.choices.indexOf(question.answer);
+      if (index >= 0) {
+        const label = String(index + 1);
+        correctPositions.set(label, (correctPositions.get(label) || 0) + 1);
+      }
+    }
 
     for (const gap of assetGapsForQuestion(question)) {
       assetGaps.push({
@@ -511,6 +528,7 @@ function buildStageAudit(stage, index) {
     overusedKeys,
     underVariantKeys,
     formats,
+    correctPositions,
     assetGaps,
     expectedTotal,
     configured,
@@ -664,6 +682,7 @@ function writeCoverageAuditDoc() {
       `- Missing itemKeys: ${audit.missingKeys.join(", ") || "none"}`,
       `- Duplicate/overused itemKeys: ${audit.overusedKeys.join(", ") || "none"}`,
       `- Formats: ${[...audit.formats.entries()].map(([key, count]) => `${key}:${count}`).join(", ") || "none"}`,
+      `- Correct-position distribution before runtime randomization: ${[...audit.correctPositions.entries()].map(([position, count]) => `${position}:${count}`).join(", ") || "not applicable"}`,
       `- Meets ${minimumRuntimeQuestions}-question target: ${audit.questions.length >= minimumRuntimeQuestions ? "yes" : "no"}`,
       `- Pedagogical completeness: ${stageCompleteness(audit)}`,
       audit.configured?.note ? `- Coverage note: ${audit.configured.note}` : "",
@@ -699,6 +718,7 @@ function writeCoverageAuditDoc() {
     "- High-Frequency Words 51-75 and 76-100 are requested audit bands, but the current app has one combined `High-Frequency Words 51-100` runtime stage. This audit reports the active combined stage and flags the split as a content architecture follow-up rather than inventing stages in the audit.",
     "- Final Sounds still uses mostly legacy text/decoding formats in the active pool. The audit marks it below standard and under-covered; converting it to asset-backed pair selection needs real final-sound image/audio sets.",
     "- Initial Sounds uses the asset-backed pair-select format in live runtime only; old text-choice anchor prompts are excluded from live eligibility.",
+    "- Assessment choices and visual cards are randomized once when a question is prepared, then remain stable for that attempt; answer checking uses words/IDs rather than card position.",
     "",
     "## EL Alignment Note",
     "",

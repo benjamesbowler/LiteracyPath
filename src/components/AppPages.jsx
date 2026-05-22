@@ -394,6 +394,41 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
   );
 }
 
+function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }) {
+  return (
+    <div className="visual-card-choice-panel">
+      <div className="visual-card-grid">
+        {(currentQuestion.imageCards || []).map(card => (
+          <article className="visual-assessment-card" key={card.id || card.word}>
+            <button
+              className="visual-assessment-card-button"
+              onClick={() => answerQuestion(card.value || card.word)}
+              aria-label={`Choose ${card.word}`}
+              type="button"
+            >
+              {card.image && (
+                <img src={card.image} alt={card.alt || `Picture for ${card.word}`} />
+              )}
+              {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
+            </button>
+
+            {card.audio && (
+              <button
+                className="initial-sound-card-audio"
+                onClick={() => speakText(card.word, card.audio, { allowBrowserFallback: false })}
+                aria-label={`Hear ${card.word}`}
+                type="button"
+              >
+                🔊
+              </button>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function AdminDashboardPage({
   flags,
   teachers,
@@ -1481,6 +1516,8 @@ export function AssessmentPage({
     currentQuestion?.questionType === "listen_and_find_word";
   const isPairSelection =
     ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
+  const isVisualCardChoice =
+    currentQuestion?.questionType === "visual_card_choice";
 
   return (
     <main className="assessment-shell">
@@ -1529,7 +1566,20 @@ export function AssessmentPage({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.96, opacity: 0 }}
           >
-            {shouldShowImage(currentQuestion) && (
+            {currentQuestion.promptImageCards?.length > 0 && (
+              <div className="prompt-image-row" aria-label="Question picture">
+                {currentQuestion.promptImageCards.map(card => (
+                  <img
+                    key={card.id || card.word}
+                    src={card.image}
+                    alt={card.alt || `Picture for ${card.word}`}
+                    className="prompt-image-card"
+                  />
+                ))}
+              </div>
+            )}
+
+            {shouldShowImage(currentQuestion) && !currentQuestion.promptImageCards?.length && (
               <div className="image-box">
                 <img
                   src={currentQuestion.imagePath}
@@ -1575,6 +1625,12 @@ export function AssessmentPage({
 
             {isPairSelection ? (
               <PairSelectionQuestion
+                currentQuestion={currentQuestion}
+                answerQuestion={answerQuestion}
+                speakText={speakText}
+              />
+            ) : isVisualCardChoice ? (
+              <VisualCardChoiceQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}
@@ -1632,9 +1688,9 @@ export function AssessmentPage({
           initial={{ scale: 0.96, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         >
-          <h2>{feedback.isCorrect ? "Correct!" : feedback.support?.type === "initial_sound_pair" ? "Sorry, incorrect." : "Let's learn from that one"}</h2>
+          <h2>{feedback.isCorrect ? "Correct!" : feedback.support?.type === "pair_selection" ? "Sorry, incorrect." : "Let's learn from that one"}</h2>
 
-          {feedback.support?.type !== "initial_sound_pair" && (
+          {feedback.support?.type !== "pair_selection" && (
             <>
               <p><strong>Your answer:</strong> {feedback.chosen}</p>
               <p><strong>Correct answer:</strong> {feedback.correct}</p>
@@ -1643,7 +1699,7 @@ export function AssessmentPage({
 
           {!feedback.isCorrect && (
             <div className="teaching-slide">
-              {feedback.support?.type === "initial_sound_pair" ? (
+              {feedback.support?.type === "pair_selection" ? (
                 <div className="initial-sound-support">
                   <section>
                     <strong>Correct answer</strong>
@@ -1673,7 +1729,7 @@ export function AssessmentPage({
                     </div>
                   </section>
 
-                  <p>Words are made up of sounds. Some words start with the same sound.</p>
+                  <p>Words are made up of sounds. Some words share the same beginning, ending, or rhyming sound.</p>
                   <p>{feedback.support.exampleText}</p>
                   <p>{feedback.support.wrongText}</p>
                 </div>
