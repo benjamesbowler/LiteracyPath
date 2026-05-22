@@ -192,7 +192,7 @@ function EchoCavesMap({ startMission, returnToTeacher }) {
   );
 }
 
-function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher }) {
+function ChildActivityShell({ mission, onComplete, onAnswer, returnToMap, returnToTeacher }) {
   const [feedback, setFeedback] = useState(null);
   const [selectedChoice, setSelectedChoice] = useState("");
   const [questionStep, setQuestionStep] = useState(0);
@@ -231,8 +231,25 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
   function choose(choice) {
     const selectedWord = choice.word || choice;
     setSelectedChoice(selectedWord);
+    const isCorrect = selectedWord === question.answer;
 
-    if (selectedWord === question.answer) {
+    onAnswer?.({
+      source: "child_mode",
+      questionId: question.id,
+      targetWord: question.targetWord,
+      itemKey: question.targetWord,
+      itemType: "cvc_word",
+      formatType: question.formatType,
+      isCorrect,
+      selectedAnswer: selectedWord,
+      correctAnswer: question.answer,
+      prompt: question.prompt,
+      audioText: question.audioText,
+      spokenPrompt: question.spokenPrompt,
+      timestamp: new Date().toISOString()
+    });
+
+    if (isCorrect) {
       setFeedback("correct");
       window.setTimeout(() => {
         if (questionStep >= questions.length - 1) {
@@ -374,7 +391,7 @@ function MissionCompleteScreen({ mission, returnToMap }) {
   );
 }
 
-export function ChildModePage({ returnToTeacher }) {
+export function ChildModePage({ returnToTeacher, onAnswer }) {
   const [screen, setScreen] = useState("map");
   const [activeMissionIndex, setActiveMissionIndex] = useState(0);
 
@@ -390,6 +407,7 @@ export function ChildModePage({ returnToTeacher }) {
       <ChildActivityShell
         mission={activeMission}
         onComplete={() => setScreen("complete")}
+        onAnswer={onAnswer}
         returnToMap={() => setScreen("map")}
         returnToTeacher={returnToTeacher}
       />

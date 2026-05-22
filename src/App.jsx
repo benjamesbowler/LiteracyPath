@@ -269,6 +269,10 @@ function isMissingItemMasteryTableError(error) {
   return isMissingTableError(error, "item_mastery");
 }
 
+function isMissingChildModeAnswersTableError(error) {
+  return isMissingTableError(error, "child_mode_answers");
+}
+
 function calculateWeaknessSnapshot(answerHistory) {
   const groupedTargets = new Map();
   const groupedStages = new Map();
@@ -1754,6 +1758,82 @@ export default function App() {
         [key]: nextRow
       };
     });
+  }
+
+  async function saveChildModeAnswerToSupabase(record) {
+    if (!studentId || !teacherId || !record?.questionId) return;
+
+    try {
+      const { error } = await supabase
+        .from("child_mode_answers")
+        .insert({
+          source: "child_mode",
+          student_id: studentId,
+          class_id: selectedClassId,
+          teacher_id: teacherId,
+          question_id: record.questionId,
+          target_word: record.targetWord,
+          item_key: record.itemKey,
+          item_type: record.itemType,
+          format_type: record.formatType,
+          is_correct: record.isCorrect,
+          selected_answer: record.selectedAnswer,
+          correct_answer: record.correctAnswer,
+          answered_at: record.timestamp
+        });
+
+      if (error && !isMissingChildModeAnswersTableError(error)) {
+        console.warn("Child Mode answer save failed; continuing play.", error);
+      }
+    } catch (error) {
+      console.warn("Child Mode answer save failed; continuing play.", error);
+    }
+  }
+
+  function recordChildModeAnswer(record) {
+    const targetWord = normalizeItemKey(record?.targetWord || record?.correctAnswer || "");
+    if (!targetWord) return;
+
+    const timestamp = record.timestamp || new Date().toISOString();
+    const itemType = "cvc_word";
+    const itemKey = targetWord;
+    const formatType = record.formatType || "UNKNOWN";
+    const correctAnswer = record.correctAnswer || targetWord;
+    const selectedAnswer = record.selectedAnswer || "";
+    const isCorrect = Boolean(record.isCorrect);
+
+    const childModeRecord = {
+      questionId: record.questionId,
+      targetWord,
+      itemKey,
+      itemType,
+      formatType,
+      isCorrect,
+      selectedAnswer,
+      correctAnswer,
+      timestamp
+    };
+
+    saveChildModeAnswerToSupabase(childModeRecord);
+
+    updateItemMastery(
+      {
+        id: record.questionId,
+        skill: "CVC and Short Vowels",
+        question: record.prompt || "Child Mode Echo Caves",
+        prompt: record.prompt || "Child Mode Echo Caves",
+        answer: correctAnswer,
+        audioText: record.audioText || targetWord,
+        spokenPrompt: record.spokenPrompt || targetWord,
+        diagnosticTarget: targetWord,
+        itemKey,
+        itemType,
+        formatType,
+        masteryStage: "child_mode_echo_caves_short_a",
+        source: "child_mode"
+      },
+      isCorrect
+    );
   }
 
   function getItemMasterySnapshot() {
@@ -3300,7 +3380,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === "childMode" && (
         <LearningWorldShell returnToTeacher={goToOverview}>
           <Suspense fallback={<LearningWorldFallback returnToTeacher={goToOverview} />}>
-            <ChildModePage returnToTeacher={goToOverview} />
+            <ChildModePage
+              returnToTeacher={goToOverview}
+              onAnswer={recordChildModeAnswer}
+            />
           </Suspense>
         </LearningWorldShell>
       )}

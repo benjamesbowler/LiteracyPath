@@ -855,6 +855,10 @@ export function StudentOverviewPage({
       <details className="item-mastery-debug">
         <summary>Developer item mastery snapshot</summary>
 
+        <p className="muted-text">
+          Note: Child Mode evidence is tagged separately as child_mode and is not part of formal EL assessment exports yet.
+        </p>
+
         <div className="item-mastery-grid">
           <div>
             <strong>Mastered items</strong>
