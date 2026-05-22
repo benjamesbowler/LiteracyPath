@@ -18,6 +18,15 @@ function wordAsset({
   };
 }
 
+function childModeWordAsset({ word, folder, audio = true, alt = "" }) {
+  return wordAsset({
+    word,
+    image: `/images/child-mode/${folder}/${word}.png`,
+    audio: audio ? `/audio/child-mode/words/${word}.mp3` : "",
+    alt: alt || `Picture for ${word}`
+  });
+}
+
 export const childWordAssets = {
   bad: wordAsset({
     word: "bad",
@@ -27,6 +36,7 @@ export const childWordAssets = {
   bag: wordAsset({
     word: "bag",
     image: "/images/child-mode/cvc/bag.png",
+    audio: "/audio/child-mode/words/bag.mp3",
     fallbackImage: "/images/child-mode/cvc/cap.png",
     alt: "A paper bag"
   }),
@@ -44,10 +54,22 @@ export const childWordAssets = {
     fallbackImage: "/images/vowels/bed.svg",
     alt: "A bed"
   }),
+  big: childModeWordAsset({
+    word: "big",
+    folder: "short-i"
+  }),
   bid: wordAsset({
     word: "bid",
     image: "/images/child-mode/cvc/bid.png",
     audio: "/audio/child-mode/words/bid.mp3"
+  }),
+  black: childModeWordAsset({
+    word: "black",
+    folder: "blends"
+  }),
+  blue: childModeWordAsset({
+    word: "blue",
+    folder: "blends"
   }),
   boat: wordAsset({
     word: "boat",
@@ -68,6 +90,18 @@ export const childWordAssets = {
     image: "/images/child-mode/cvc/bud.png",
     audio: "/audio/child-mode/words/bud.mp3"
   }),
+  bug: wordAsset({
+    word: "bug",
+    image: "/images/child-mode/cvc/bug.png",
+    audio: "/audio/child-mode/words/bug.mp3",
+    fallbackImage: "/images/child-mode/short-u/bug.png",
+    alt: "A bug"
+  }),
+  bus: childModeWordAsset({
+    word: "bus",
+    folder: "short-u",
+    audio: false
+  }),
   cap: wordAsset({
     word: "cap",
     image: "/images/child-mode/cvc/cap.png",
@@ -82,12 +116,35 @@ export const childWordAssets = {
     fallbackImage: "/images/cvc/cat.svg",
     alt: "A cat"
   }),
+  chair: childModeWordAsset({
+    word: "chair",
+    folder: "digraphs"
+  }),
+  cloud: childModeWordAsset({
+    word: "cloud",
+    folder: "blends",
+    audio: false
+  }),
   coat: wordAsset({
     word: "coat",
     image: "/images/child-mode/vowels/coat.png",
     audio: "/audio/child-mode/words/coat.mp3",
     fallbackImage: "/images/vowels/coat.svg",
     alt: "A coat"
+  }),
+  cot: childModeWordAsset({
+    word: "cot",
+    folder: "minimal-pairs",
+    audio: false
+  }),
+  cup: childModeWordAsset({
+    word: "cup",
+    folder: "short-u"
+  }),
+  cut: childModeWordAsset({
+    word: "cut",
+    folder: "minimal-pairs",
+    audio: false
   }),
   dig: wordAsset({
     word: "dig",
@@ -101,6 +158,10 @@ export const childWordAssets = {
     fallbackImage: "/images/objects/dog.svg",
     alt: "A dog"
   }),
+  drum: childModeWordAsset({
+    word: "drum",
+    folder: "blends"
+  }),
   dot: wordAsset({
     word: "dot",
     image: "/images/child-mode/cvc/dot.png",
@@ -111,12 +172,34 @@ export const childWordAssets = {
     image: "/images/child-mode/cvc/dug.png",
     audio: "/audio/child-mode/words/dug.mp3"
   }),
+  duck: childModeWordAsset({
+    word: "duck",
+    folder: "short-u",
+    audio: false
+  }),
+  fin: childModeWordAsset({
+    word: "fin",
+    folder: "short-i"
+  }),
   fish: wordAsset({
     word: "fish",
     image: "/images/child-mode/cvc/fish.png",
     audio: "/audio/child-mode/words/fish.mp3",
     fallbackImage: "/images/objects/fish.svg",
     alt: "A fish"
+  }),
+  flag: childModeWordAsset({
+    word: "flag",
+    folder: "blends"
+  }),
+  fox: childModeWordAsset({
+    word: "fox",
+    folder: "short-o",
+    audio: false
+  }),
+  frog: childModeWordAsset({
+    word: "frog",
+    folder: "blends"
   }),
   goat: wordAsset({
     word: "goat",
@@ -127,8 +210,10 @@ export const childWordAssets = {
   }),
   ham: wordAsset({
     word: "ham",
+    image: "/images/child-mode/short-a/ham.png",
+    audio: "/audio/child-mode/words/ham.mp3",
     fallbackImage: "/images/child-mode/cvc/hat.png",
-    alt: "Placeholder for ham"
+    alt: "Ham"
   }),
   hat: wordAsset({
     word: "hat",
@@ -139,8 +224,30 @@ export const childWordAssets = {
   }),
   jam: wordAsset({
     word: "jam",
+    image: "/images/child-mode/short-a/jam.png",
+    audio: "/audio/child-mode/words/jam.mp3",
     fallbackImage: "/images/child-mode/cvc/cap.png",
-    alt: "Placeholder for jam"
+    alt: "A jar of jam"
+  }),
+  jet: childModeWordAsset({
+    word: "jet",
+    folder: "short-e",
+    audio: false
+  }),
+  leg: childModeWordAsset({
+    word: "leg",
+    folder: "short-e"
+  }),
+  lid: childModeWordAsset({
+    word: "lid",
+    folder: "short-i"
+  }),
+  log: wordAsset({
+    word: "log",
+    image: "/images/child-mode/cvc/log.png",
+    audio: "/audio/child-mode/words/log.mp3",
+    fallbackImage: "/images/child-mode/short-o/log.png",
+    alt: "A log"
   }),
   man: wordAsset({
     word: "man",
@@ -156,12 +263,35 @@ export const childWordAssets = {
     fallbackImage: "/images/cvc/map.svg",
     alt: "A map"
   }),
+  mop: childModeWordAsset({
+    word: "mop",
+    folder: "short-o"
+  }),
+  mud: childModeWordAsset({
+    word: "mud",
+    folder: "short-u"
+  }),
+  mug: wordAsset({
+    word: "mug",
+    image: "/images/child-mode/cvc/mug.png",
+    audio: "/audio/child-mode/words/mug.mp3",
+    fallbackImage: "/images/child-mode/short-u/mug.png",
+    alt: "A mug"
+  }),
   nap: wordAsset({
     word: "nap",
     image: "/images/child-mode/cvc/nap.png",
     audio: "/audio/child-mode/words/nap.mp3",
     fallbackImage: "/images/cvc/nap.svg",
     alt: "A nap"
+  }),
+  net: childModeWordAsset({
+    word: "net",
+    folder: "short-e"
+  }),
+  nut: childModeWordAsset({
+    word: "nut",
+    folder: "short-u"
   }),
   pan: wordAsset({
     word: "pan",
@@ -170,15 +300,109 @@ export const childWordAssets = {
     fallbackImage: "/images/cvc/pan.svg",
     alt: "A pan"
   }),
+  pen: childModeWordAsset({
+    word: "pen",
+    folder: "short-e"
+  }),
+  phone: childModeWordAsset({
+    word: "phone",
+    folder: "digraphs"
+  }),
+  pig: childModeWordAsset({
+    word: "pig",
+    folder: "short-i"
+  }),
+  pin: childModeWordAsset({
+    word: "pin",
+    folder: "minimal-pairs",
+    audio: false
+  }),
+  pot: wordAsset({
+    word: "pot",
+    image: "/images/child-mode/cvc/pot.png",
+    audio: "/audio/child-mode/words/pot.mp3",
+    fallbackImage: "/images/child-mode/short-o/pot.png",
+    alt: "A pot"
+  }),
+  pun: childModeWordAsset({
+    word: "pun",
+    folder: "minimal-pairs",
+    audio: false
+  }),
   ram: wordAsset({
     word: "ram",
+    image: "/images/child-mode/short-a/ram.png",
+    audio: "/audio/child-mode/words/ram.mp3",
     fallbackImage: "/images/child-mode/vowels/goat.png",
-    alt: "Placeholder for ram"
+    alt: "A ram"
+  }),
+  red: childModeWordAsset({
+    word: "red",
+    folder: "short-e"
+  }),
+  rock: childModeWordAsset({
+    word: "rock",
+    folder: "short-o"
+  }),
+  shell: childModeWordAsset({
+    word: "shell",
+    folder: "digraphs"
+  }),
+  ship: childModeWordAsset({
+    word: "ship",
+    folder: "digraphs"
+  }),
+  sit: childModeWordAsset({
+    word: "sit",
+    folder: "short-i"
+  }),
+  slide: childModeWordAsset({
+    word: "slide",
+    folder: "blends",
+    audio: false
+  }),
+  snake: childModeWordAsset({
+    word: "snake",
+    folder: "blends"
+  }),
+  sock: childModeWordAsset({
+    word: "sock",
+    folder: "short-o"
+  }),
+  star: childModeWordAsset({
+    word: "star",
+    folder: "blends"
   }),
   sun: wordAsset({
     word: "sun",
     image: "/images/child-mode/cvc/sun.png",
-    audio: "/audio/child-mode/words/sun.mp3"
+    audio: "/audio/child-mode/words/sun.mp3",
+    fallbackImage: "/images/child-mode/short-u/sun.png"
+  }),
+  thumb: childModeWordAsset({
+    word: "thumb",
+    folder: "digraphs"
+  }),
+  tree: childModeWordAsset({
+    word: "tree",
+    folder: "blends"
+  }),
+  web: childModeWordAsset({
+    word: "web",
+    folder: "short-e",
+    audio: false
+  }),
+  whale: childModeWordAsset({
+    word: "whale",
+    folder: "digraphs"
+  }),
+  wig: childModeWordAsset({
+    word: "wig",
+    folder: "short-i"
+  }),
+  zip: childModeWordAsset({
+    word: "zip",
+    folder: "short-i"
   })
 };
 
@@ -186,10 +410,27 @@ export const childPhraseAudio = {
   "excellent listening": "/audio/child-mode/phrases/excellent-listening.mp3",
   "great job": "/audio/child-mode/phrases/great-job.mp3",
   "listen and find": "/audio/child-mode/phrases/listen-and-find.mp3",
+  "listen carefully": "/audio/child-mode/phrases/listen-carefully.mp3",
+  "tap rumble": "/audio/child-mode/phrases/tap-rumble.mp3",
+  "tap rumble to hear it again": "/audio/child-mode/phrases/tap-rumble.mp3",
+  "tap rumble to hear it again.": "/audio/child-mode/phrases/tap-rumble.mp3",
   "try again": "/audio/child-mode/phrases/try-again.mp3",
   "which word matches": "/audio/child-mode/phrases/which-word-matches.mp3",
   "which word matches the picture?": "/audio/child-mode/phrases/which-word-matches.mp3",
   "you found it": "/audio/child-mode/phrases/you-found-it.mp3"
+};
+
+export const childModeUiAssets = {
+  caveButtonPanel: "/images/child-mode/ui/cave_button_panel.png",
+  caveRewardIcon: "/images/child-mode/ui/cave_reward_icon.png",
+  crystalShards: "/images/child-mode/ui/crystal_shards.png",
+  crystalSparkleParticles: "/images/child-mode/ui/crystal_sparkle_particles.png",
+  floatingCrystal: "/images/child-mode/ui/floating_crystal.png",
+  glowBurst: "/images/child-mode/ui/glow_burst.png",
+  magicalParticles: "/images/child-mode/ui/magical_particles.png",
+  masteryBadge: "/images/child-mode/ui/mastery_badge.png",
+  rewardStar: "/images/child-mode/ui/reward_star.png",
+  successSparkle: "/images/child-mode/ui/success_sparkle.png"
 };
 
 export const echoCavesAssets = {
