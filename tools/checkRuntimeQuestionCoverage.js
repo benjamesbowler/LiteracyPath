@@ -33,6 +33,77 @@ function normalize(text) {
   return String(text || "").toLowerCase().trim();
 }
 
+const coverageEnabledStages = new Set([
+  "Initial Sounds",
+  "Final Sounds",
+  "Rhyming",
+  "CVC and Short Vowels",
+  "Short Vowel Discrimination",
+  "High-Frequency Words 1-25",
+  "High-Frequency Words 26-50",
+  "High-Frequency Words 51-100",
+  "Blends",
+  "Digraphs",
+  "Long Vowels and Silent E",
+  "Vowel Teams",
+  "R-Controlled Vowels"
+]);
+
+const vowelTeamPatterns = ["ai", "ay", "ee", "ea", "oa", "ow", "igh", "ie", "oo", "ue", "ew", "oi", "oy", "ou", "aw"];
+const rControlledPatterns = ["ar", "er", "ir", "or", "ur"];
+const blendPatterns = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];
+const digraphPatterns = ["sh", "ch", "th", "wh", "ph"];
+
+function findPattern(patterns, text) {
+  const normalized = normalize(text);
+  return patterns.find(pattern => normalized.includes(pattern));
+}
+
+function inferCoverageMetadata(question, stageLabel) {
+  if (question.itemType && question.itemKey) {
+    return { itemType: question.itemType, itemKey: normalize(question.itemKey) };
+  }
+
+  const answer = normalize(question.answer);
+  const text = normalize([question.question, question.prompt, question.spokenPrompt, question.audioText, question.passage, answer].join(" "));
+  if (!answer) return null;
+
+  if (stageLabel.startsWith("High-Frequency Words")) return { itemType: "sight_word", itemKey: answer };
+  if (stageLabel === "Initial Sounds") return { itemType: "initial_sound", itemKey: answer[0] };
+  if (stageLabel === "Final Sounds") return { itemType: "final_sound", itemKey: answer.at(-1) };
+  if (stageLabel === "Rhyming") {
+    const anchor = text.match(/rhymes? with ([a-z]+)/)?.[1];
+    return { itemType: "rhyming_family", itemKey: (anchor || answer).slice(-2) };
+  }
+  if (stageLabel === "CVC and Short Vowels") return { itemType: "cvc_word", itemKey: answer };
+  if (stageLabel === "Short Vowel Discrimination") {
+    const vowel = answer.split("").find(letter => "aeiou".includes(letter));
+    return vowel ? { itemType: "short_vowel", itemKey: `short_${vowel}` } : null;
+  }
+  if (stageLabel === "Blends") {
+    const pattern = findPattern(blendPatterns, `${answer} ${text}`);
+    return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+  if (stageLabel === "Digraphs") {
+    const pattern = findPattern(digraphPatterns, `${answer} ${text}`);
+    return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+  if (stageLabel === "Long Vowels and Silent E") {
+    const pattern = text.match(/long ([aeiou])/)?.[1] || answer.match(/([aeiou])[^aeiou]?e$/)?.[1];
+    return pattern ? { itemType: "phonics_pattern", itemKey: `${pattern}_e` } : null;
+  }
+  if (stageLabel === "Vowel Teams") {
+    const pattern = findPattern(vowelTeamPatterns, `${answer} ${text}`);
+    return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+  if (stageLabel === "R-Controlled Vowels") {
+    const pattern = findPattern(rControlledPatterns, `${answer} ${text}`);
+    return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+
+  return null;
+}
+
 function getStageIndex(question) {
   const skill = normalize(question.skill);
 
@@ -145,12 +216,32 @@ for (const { stage, count } of counts) {
 }
 
 const emptyStages = counts.filter(({ count }) => count === 0);
+const missingCoverageMetadata = matchedQuestions
+  .map(question => {
+    const stage = skillTree[getStageIndex(question)];
+    return { question, stage };
+  })
+  .filter(({ question, stage }) =>
+    stage &&
+    coverageEnabledStages.has(stage.label) &&
+    !inferCoverageMetadata(question, stage.label)
+  );
 
 if (emptyStages.length > 0) {
   console.log("");
   console.error("Missing runtime questions for:");
   for (const { stage } of emptyStages) {
     console.error(`- ${stage.label}`);
+  }
+
+  process.exit(1);
+}
+
+if (missingCoverageMetadata.length > 0) {
+  console.log("");
+  console.error("Coverage-enabled runtime questions missing item metadata:");
+  for (const { question, stage } of missingCoverageMetadata.slice(0, 25)) {
+    console.error(`- ${stage.label}: ${question.id} "${question.question || question.prompt}"`);
   }
 
   process.exit(1);

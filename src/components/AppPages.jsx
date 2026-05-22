@@ -1569,6 +1569,7 @@ export function AssessmentPage({
 
 export function FinishedReportPage({
   startAssessment,
+  keepPracticingSkill,
   goToOverview,
   studentName,
   totalAnswered,
@@ -1673,7 +1674,7 @@ export function FinishedReportPage({
             </button>
             <button
               className="report-button"
-              onClick={() => startAssessment(latestCheckpointIndex)}
+              onClick={() => keepPracticingSkill(latestCheckpointIndex)}
               type="button"
             >
               Keep Practicing This Skill

@@ -199,6 +199,12 @@ const vowelTeamPatterns = ["ai", "ay", "ee", "ea", "oa", "ow", "igh", "ie", "oo"
 const rControlledPatterns = ["ar", "er", "ir", "or", "ur"];
 const blendPatterns = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];
 const digraphPatterns = ["sh", "ch", "th", "wh", "ph"];
+const DEBUG_ASSESSMENT_COVERAGE = Boolean(import.meta.env?.DEV);
+
+function debugAssessmentCoverage(label, payload) {
+  if (!DEBUG_ASSESSMENT_COVERAGE) return;
+  console.debug(`[assessment-coverage] ${label}`, payload);
+}
 
 function findPatternInText(patterns, text) {
   return patterns.find(pattern =>
@@ -572,7 +578,7 @@ function getItemMasteryStateKeyForValues(itemKey, itemType) {
   return normalizeItemKey(itemType) + "::" + normalizeItemKey(itemKey);
 }
 
-function buildCoverageSnapshot(itemMasteryRows = {}) {
+function buildCoverageSnapshot(itemMasteryRows = {}, debugContext = null) {
   const rowsByKey = new Map(
     Object.values(itemMasteryRows || {}).map(row => [
       getItemMasteryStateKeyForValues(row.itemKey, row.itemType),
@@ -585,10 +591,21 @@ function buildCoverageSnapshot(itemMasteryRows = {}) {
     const configured = configuredCoverageTotals[stage.id];
     const total = configured?.total || runtimeKeys.size;
     const unit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words" : "items");
-    const mastered = Array.from(runtimeKeys).filter(key => {
+    const masteredKeys = Array.from(runtimeKeys).filter(key => {
       const row = rowsByKey.get(key);
       return row?.mastered || row?.correct > 0;
-    }).length;
+    });
+    const mastered = masteredKeys.length;
+
+    if (debugContext?.enabled) {
+      debugAssessmentCoverage("coverage calculation", {
+        studentId: debugContext.studentId,
+        skill: stage.label,
+        expectedItemTypes: Array.from(new Set(Array.from(runtimeKeys).map(key => key.split("::")[0]))),
+        masteredRowCount: mastered,
+        masteredItemKeys: masteredKeys.map(key => key.split("::")[1])
+      });
+    }
 
     snapshot[stage.id] = {
       mastered: Math.min(mastered, total),
@@ -623,6 +640,8 @@ export default function App() {
   const [nameSaved, setNameSaved] = useState(false);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const [roundAnswers, setRoundAnswers] = useState([]);
+  const [roundItemKeys, setRoundItemKeys] = useState([]);
+  const [roundQuestionIds, setRoundQuestionIds] = useState([]);
   const [usedByStage, setUsedByStage] = useState({});
   const [mastery, setMastery] = useState({});
   const [childLearningEvidence, setChildLearningEvidence] = useState(() =>
@@ -713,6 +732,8 @@ export default function App() {
     setNameSaved(false);
     setCurrentSkillIndex(0);
     setRoundAnswers([]);
+    setRoundItemKeys([]);
+    setRoundQuestionIds([]);
     setUsedByStage({});
     setMastery({});
     setChildLearningEvidence(buildChildLearningEvidence());
@@ -803,6 +824,8 @@ export default function App() {
         setAssessmentMode(data.assessmentMode || "mastery");
         setCurrentSkillIndex(data.currentSkillIndex || 0);
         setRoundAnswers(data.roundAnswers || []);
+        setRoundItemKeys([]);
+        setRoundQuestionIds([]);
         setUsedByStage(data.usedByStage || {});
         setMastery(data.mastery || {});
         setTotalAnswered(data.totalAnswered || 0);
@@ -1796,22 +1819,72 @@ export default function App() {
     return [];
   }
 
-  function getQuestionMasteryRank(question) {
+  function inferAnswerRecordMetadata(record) {
+    if (!record) return null;
+
+    return inferItemMetadata({
+      itemKey: record.itemKey,
+      itemType: record.itemType,
+      skill: record.skill || record.stage,
+      question: record.question || record.diagnosticTarget,
+      passage: record.passage,
+      answer: record.correct,
+      diagnosticTarget: record.diagnosticTarget
+    });
+  }
+
+  function getRecentStageItemKeys(stageLabel, limit = ROUND_LENGTH * 3) {
+    return answerHistory
+      .filter(record => record.stage === stageLabel)
+      .slice(-limit)
+      .map(inferAnswerRecordMetadata)
+      .filter(metadata => metadata?.itemKey && metadata?.itemType)
+      .map(metadata => getItemMasteryStateKey(metadata.itemKey, metadata.itemType));
+  }
+
+  function getAnyStageItemKeys(stageLabel) {
+    return new Set(
+      answerHistory
+        .filter(record => record.stage === stageLabel)
+        .map(inferAnswerRecordMetadata)
+        .filter(metadata => metadata?.itemKey && metadata?.itemType)
+        .map(metadata => getItemMasteryStateKey(metadata.itemKey, metadata.itemType))
+    );
+  }
+
+  function getRecentStageQuestionIds(stageLabel, limit = ROUND_LENGTH * 3) {
+    return answerHistory
+      .filter(record => record.stage === stageLabel)
+      .slice(-limit)
+      .map(record => record.questionId)
+      .filter(Boolean);
+  }
+
+  function getQuestionSelectionRank(question, activeStage) {
     const metadata = inferItemMetadata(question);
-    if (!metadata?.itemKey || !metadata?.itemType) return 4;
+    if (!metadata?.itemKey || !metadata?.itemType) return 6;
 
     const key = getItemMasteryStateKey(metadata.itemKey, metadata.itemType);
     const row = itemMastery[key];
+    const currentRoundKeys = new Set(roundItemKeys);
+    const currentRoundQuestionIds = new Set(roundQuestionIds);
+    const recentKeys = new Set(getRecentStageItemKeys(activeStage.label));
+    const allAttemptedKeys = getAnyStageItemKeys(activeStage.label);
+    const recentQuestionIds = new Set(getRecentStageQuestionIds(activeStage.label));
 
-    if (!row) return 0;
-    if (!row.mastered && row.correct === 0) return 1;
-    if (!row.mastered) return 2;
-    return 3;
+    if (currentRoundKeys.has(key)) return 5;
+    if (currentRoundQuestionIds.has(question.id) || recentQuestionIds.has(question.id)) return 5;
+    if (!row && !allAttemptedKeys.has(key)) return 0;
+    if (row && !row.mastered && row.correct === 0) return 1;
+    if (row && !row.mastered) return 2;
+    if (recentKeys.has(key)) return 4;
+
+    return row?.mastered || row?.correct > 0 ? 5 : 3;
   }
 
-  function prioritizeCoverageQuestions(questions) {
+  function prioritizeCoverageQuestions(questions, activeStage) {
     const grouped = questions.reduce((groups, question) => {
-      const rank = getQuestionMasteryRank(question);
+      const rank = getQuestionSelectionRank(question, activeStage);
       groups[rank] = [...(groups[rank] || []), question];
       return groups;
     }, {});
@@ -1820,6 +1893,13 @@ export default function App() {
       .map(Number)
       .sort((a, b) => a - b)
       .flatMap(rank => shuffleArray(grouped[rank]));
+  }
+
+  function getQuestionItemKey(question) {
+    const metadata = inferItemMetadata(question);
+    return metadata?.itemKey && metadata?.itemType
+      ? getItemMasteryStateKey(metadata.itemKey, metadata.itemType)
+      : "";
   }
 
   function prepareQuestion(question, isTargetedReview = false) {
@@ -1874,25 +1954,31 @@ export default function App() {
       }
     }
 
-    const targetsAlreadyInRound =
-      answeredCount > 0
-        ? answerHistory
-          .slice(-answeredCount)
-          .filter(item => item.stage === activeStage.label)
-          .map(item => item.diagnosticTarget)
-        : [];
+    const keysAlreadyInRound =
+      new Set(roundItemKeys);
 
-    const unusedTargets =
-      available.filter(q =>
-        !targetsAlreadyInRound.includes(getDiagnosticTarget(q))
-      );
+    const unusedItemKeys =
+      available.filter(question => {
+        const key = getQuestionItemKey(question);
+        return !key || !keysAlreadyInRound.has(key);
+      });
 
     const pool =
-      unusedTargets.length > 0
-        ? unusedTargets
+      unusedItemKeys.length > 0
+        ? unusedItemKeys
         : available;
 
-    const picked = prioritizeCoverageQuestions(pool)[0];
+    const prioritized = prioritizeCoverageQuestions(pool, activeStage);
+    const picked = prioritized[0];
+
+    debugAssessmentCoverage("question selection", {
+      studentId,
+      skill: activeStage.label,
+      selectedItemKeys: prioritized.slice(0, ROUND_LENGTH).map(getQuestionItemKey).filter(Boolean),
+      selectedQuestionIds: prioritized.slice(0, ROUND_LENGTH).map(question => question.id),
+      currentRoundItemKeys: roundItemKeys,
+      recentItemKeys: getRecentStageItemKeys(activeStage.label)
+    });
 
     setCurrentQuestion(prepareQuestion(picked));
   }
@@ -2004,11 +2090,31 @@ export default function App() {
     if (error && !isMissingItemMasteryTableError(error)) {
       console.error("Supabase item mastery save error:", error);
     }
+
+    debugAssessmentCoverage("item_mastery upsert result", {
+      studentId,
+      teacherId,
+      itemType: row.itemType,
+      itemKey: row.itemKey,
+      attempts: row.attempts,
+      correct: row.correct,
+      mastered: row.mastered,
+      error: error?.message || null
+    });
+
+    return { error, row };
   }
 
   function updateItemMastery(source, isCorrect) {
     const metadata = inferItemMetadata(source);
-    if (!metadata?.itemKey || !metadata?.itemType) return;
+    if (!metadata?.itemKey || !metadata?.itemType) {
+      debugAssessmentCoverage("item_mastery skipped", {
+        questionId: source?.id,
+        skill: source?.skill,
+        reason: "No inferable itemType/itemKey"
+      });
+      return;
+    }
 
     const formatMetadata = getQuestionFormatMetadata(source);
     const key = getItemMasteryStateKey(metadata.itemKey, metadata.itemType);
@@ -2201,17 +2307,28 @@ export default function App() {
       : submittedAnswer === correctAnswer;
     const questionStage =
       skillTree[getStageIndex(currentQuestion)] || currentStage;
-    const stage = currentStage;
+    const stage = questionStage;
     const nextRound = [...roundAnswers, isCorrect];
+    const itemMetadata = inferItemMetadata(currentQuestion);
+    const itemStateKey = itemMetadata?.itemKey && itemMetadata?.itemType
+      ? getItemMasteryStateKey(itemMetadata.itemKey, itemMetadata.itemType)
+      : "";
 
     setUsedByStage(prev => ({
       ...prev,
       [questionStage.id]: [...(prev[questionStage.id] || []), currentQuestion.id]
     }));
 
+    setRoundQuestionIds(prev => [...prev, currentQuestion.id].filter(Boolean));
+
+    if (itemStateKey) {
+      setRoundItemKeys(prev => [...prev, itemStateKey]);
+    }
+
     setTotalAnswered(n => n + 1);
 
     const answerRecord = {
+      questionId: currentQuestion.id,
       date: new Date().toLocaleString(),
       skill: currentQuestion.skill,
       stage: questionStage.label,
@@ -2220,8 +2337,20 @@ export default function App() {
       chosen: submittedAnswer,
       correct: correctAnswer,
       isCorrect,
-      diagnosticTarget: getDiagnosticTarget(currentQuestion)
+      diagnosticTarget: getDiagnosticTarget(currentQuestion),
+      itemType: itemMetadata?.itemType || "",
+      itemKey: itemMetadata?.itemKey || ""
     };
+
+    debugAssessmentCoverage("assessment answer", {
+      questionId: currentQuestion.id,
+      skill: currentQuestion.skill,
+      inferredItemType: itemMetadata?.itemType || "",
+      inferredItemKey: itemMetadata?.itemKey || "",
+      selectedAnswer: submittedAnswer,
+      correctAnswer,
+      isCorrect
+    });
 
     setAnswerHistory(prev => [
       ...prev,
@@ -3254,15 +3383,37 @@ export default function App() {
 
   function startAssessment(stageIndex = currentSkillIndex) {
     const nextStageIndex = Number.isFinite(stageIndex) ? stageIndex : currentSkillIndex;
+    const nextStage = skillTree[nextStageIndex] || currentStage;
+    const previewQuestions =
+      prioritizeCoverageQuestions(getAvailableStageQuestions(nextStageIndex), nextStage).slice(0, ROUND_LENGTH);
+
+    debugAssessmentCoverage("start assessment", {
+      studentId,
+      skill: nextStage.label,
+      selectedItemKeys: previewQuestions.map(getQuestionItemKey).filter(Boolean),
+      selectedQuestionIds: previewQuestions.map(question => question.id)
+    });
+
     setCurrentSkillIndex(nextStageIndex);
     setAssessmentMode("mastery");
     setFeedback(null);
     setCurrentQuestion(null);
     setShowReport(false);
     setRoundAnswers([]);
+    setRoundItemKeys([]);
+    setRoundQuestionIds([]);
     setMessage("");
     setAppView("assessment");
     pickQuestion("mastery", 0, nextStageIndex);
+  }
+
+  function keepPracticingSkill(stageIndex) {
+    const stage = skillTree[stageIndex] || currentStage;
+    debugAssessmentCoverage("Keep Practicing clicked", {
+      studentId,
+      currentSkill: stage.label
+    });
+    startAssessment(stageIndex);
   }
 
   function startTargetedReview() {
@@ -3271,6 +3422,8 @@ export default function App() {
     setCurrentQuestion(null);
     setShowReport(false);
     setRoundAnswers([]);
+    setRoundItemKeys([]);
+    setRoundQuestionIds([]);
     setMessage("");
     setAppView("assessment");
     pickQuestion("targetedReview", 0);
@@ -3279,6 +3432,8 @@ export default function App() {
   function endAssessment() {
     setCurrentQuestion(null);
     setFeedback(null);
+    setRoundItemKeys([]);
+    setRoundQuestionIds([]);
     setShowReport(true);
     setAppView("finished");
   }
@@ -3590,7 +3745,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           startTargetedReview={startTargetedReview}
           weaknessSnapshot={weaknessSnapshot}
           itemMasterySnapshot={getItemMasterySnapshot()}
-          coverageSnapshot={buildCoverageSnapshot(itemMastery)}
+          coverageSnapshot={buildCoverageSnapshot(itemMastery, {
+            enabled: DEBUG_ASSESSMENT_COVERAGE,
+            studentId
+          })}
           childLearningEvidence={childLearningEvidence}
           setAppView={setAppView}
           switchStudent={switchStudent}
@@ -3683,6 +3841,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === "finished" && (
         <FinishedReportPage
           startAssessment={startAssessment}
+          keepPracticingSkill={keepPracticingSkill}
           goToOverview={goToOverview}
           studentName={studentName}
           totalAnswered={totalAnswered}
@@ -3697,7 +3856,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           skillTree={skillTree}
           currentStageQuestions={currentStageQuestions}
           mastery={mastery}
-          coverageSnapshot={buildCoverageSnapshot(itemMastery)}
+          coverageSnapshot={buildCoverageSnapshot(itemMastery, {
+            enabled: DEBUG_ASSESSMENT_COVERAGE,
+            studentId
+          })}
           allowPassageAudio={allowPassageAudio}
           setAllowPassageAudio={setAllowPassageAudio}
           exportData={exportData}
