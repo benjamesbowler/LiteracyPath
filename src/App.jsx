@@ -235,6 +235,13 @@ function inferItemMetadata(question) {
     };
   }
 
+  if (skill.includes("final")) {
+    return {
+      itemKey: answer.at(-1),
+      itemType: "final_sound"
+    };
+  }
+
   if (skill.includes("letter sound")) {
     const soundMatch = text.match(/letter ['"]?([a-z])['"]?/);
     return {
@@ -523,6 +530,61 @@ const allQuestions = [
 ].filter(isQuestionValid).map(question =>
   applyQuestionFormatMetadata(applyItemMetadata(question))
 );
+
+const configuredCoverageTotals = {
+  initial_sounds: { total: 26, unit: "sounds" },
+  // TODO(item-coverage): Replace this safe alphabet total with an explicit final-sound scope when the curriculum map is formalized.
+  final_sounds: { total: 26, unit: "sounds" },
+  hfw_1_25: { total: 25, unit: "words" },
+  hfw_26_50: { total: 25, unit: "words" },
+  // TODO(item-coverage): The current app groups 51-100 together; split into 51-75 and 76-100 if the skill tree is later separated.
+  hfw_51_100: { total: 50, unit: "words" }
+};
+
+function getCoverageItemKeysForStage(stage) {
+  const keys = new Set();
+
+  allQuestions.forEach(question => {
+    if (getStageIndex(question) !== skillTree.findIndex(item => item.id === stage.id)) return;
+
+    const metadata = inferItemMetadata(question);
+    if (!metadata?.itemKey || !metadata?.itemType) return;
+
+    keys.add(getItemMasteryStateKeyForValues(metadata.itemKey, metadata.itemType));
+  });
+
+  return keys;
+}
+
+function getItemMasteryStateKeyForValues(itemKey, itemType) {
+  return normalizeItemKey(itemType) + "::" + normalizeItemKey(itemKey);
+}
+
+function buildCoverageSnapshot(itemMasteryRows = {}) {
+  const rowsByKey = new Map(
+    Object.values(itemMasteryRows || {}).map(row => [
+      getItemMasteryStateKeyForValues(row.itemKey, row.itemType),
+      row
+    ])
+  );
+
+  return skillTree.reduce((snapshot, stage) => {
+    const runtimeKeys = getCoverageItemKeysForStage(stage);
+    const configured = configuredCoverageTotals[stage.id];
+    const total = configured?.total || runtimeKeys.size;
+    const unit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words" : "items");
+    const mastered = Array.from(runtimeKeys).filter(key => rowsByKey.get(key)?.mastered).length;
+
+    snapshot[stage.id] = {
+      mastered: Math.min(mastered, total),
+      total,
+      unit,
+      inferred: !configured
+    };
+
+    return snapshot;
+  }, {});
+}
 
 const letterAssessmentOrder = [
   "m", "T", "b", "S", "a", "F", "d", "R", "p", "E", "g", "H", "c",
@@ -3205,11 +3267,11 @@ export default function App() {
         `${stage.label}: ${correct}/${records.length} correct. `;
 
       if (data?.mastered) {
-        note += `Status: mastered. `;
+        note += `Status: checkpoint passed. `;
       } else if (stage.id === currentStage.id) {
         note += `Status: current working skill. `;
       } else {
-        note += `Status: attempted but not yet mastered. `;
+        note += `Status: attempted, checkpoint not yet passed. `;
       }
 
       note += `\nSecure: ${
@@ -3247,7 +3309,7 @@ Accuracy: ${accuracy}%
 Current Position
 Current skill: ${currentSkillIndex + 1}. ${currentStage.label}
 Current round score: ${roundCorrect}/${ROUND_LENGTH}
-Mastery rule: ${PASS_SCORE}/${ROUND_LENGTH} correct to unlock the next skill.
+Checkpoint rule: ${PASS_SCORE}/${ROUND_LENGTH} correct to unlock the next skill.
 
 Teacher Notes by Skill
 
@@ -3450,6 +3512,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           currentStage={currentStage}
           accuracy={accuracy}
           totalAnswered={totalAnswered}
+          roundCorrect={roundCorrect}
           passScore={PASS_SCORE}
           roundLength={ROUND_LENGTH}
           skillTree={skillTree}
@@ -3463,6 +3526,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           startTargetedReview={startTargetedReview}
           weaknessSnapshot={weaknessSnapshot}
           itemMasterySnapshot={getItemMasterySnapshot()}
+          coverageSnapshot={buildCoverageSnapshot(itemMastery)}
           childLearningEvidence={childLearningEvidence}
           setAppView={setAppView}
           switchStudent={switchStudent}
@@ -3569,6 +3633,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           skillTree={skillTree}
           currentStageQuestions={currentStageQuestions}
           mastery={mastery}
+          coverageSnapshot={buildCoverageSnapshot(itemMastery)}
           allowPassageAudio={allowPassageAudio}
           setAllowPassageAudio={setAllowPassageAudio}
           exportData={exportData}

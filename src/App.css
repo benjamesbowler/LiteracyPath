@@ -716,6 +716,102 @@ button:disabled {
   border-radius: 999px;
 }
 
+.checkpoint-coverage-panel,
+.checkpoint-complete-panel {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #fcfcfd;
+}
+
+.checkpoint-coverage-panel {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.checkpoint-complete-panel {
+  border-left: 4px solid #12b76a;
+}
+
+.coverage-card {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.coverage-card.compact {
+  margin-top: 10px;
+}
+
+.coverage-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: #344054 !important;
+  font-size: 13px;
+}
+
+.coverage-card-header span {
+  color: #667085 !important;
+  font-weight: 800;
+  text-align: right;
+}
+
+.coverage-card p,
+.checkpoint-complete-panel p {
+  margin: 8px 0 0;
+  color: #667085 !important;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.coverage-bar,
+.mini-progress-bar {
+  display: block;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e4e7ec;
+}
+
+.coverage-bar > span,
+.mini-progress-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: #3478f6;
+}
+
+.coverage-bar.secondary > span,
+.mini-progress-bar.secondary > span {
+  background: #12b76a;
+}
+
+.skill-row {
+  display: grid;
+  grid-template-columns: minmax(170px, 1.4fr) minmax(130px, 0.8fr) minmax(150px, 1fr) minmax(190px, 1.2fr);
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e4e7ec;
+  color: #344054 !important;
+}
+
+.skill-row-progress {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.mini-progress-bar {
+  height: 8px;
+}
+
 .passage {
   background: #f9fafb;
   border: 1px solid #e4e7ec;
@@ -1253,7 +1349,9 @@ div {
   .weakness-grid,
   .item-mastery-grid,
   .child-learning-grid,
-  .child-learning-lists {
+  .child-learning-lists,
+  .checkpoint-coverage-panel,
+  .skill-row {
     grid-template-columns: 1fr;
   }
 
