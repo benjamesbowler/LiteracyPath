@@ -14,10 +14,10 @@ body {
 .app {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
 }
 
 .app > * {
@@ -28,7 +28,7 @@ body {
   max-width: none;
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 16px;
+  padding: 8px 10px;
 }
 
 .learning-world-app {
@@ -47,31 +47,34 @@ body {
   top: 0;
   z-index: 10;
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(180px, 0.8fr) auto;
-  gap: 14px;
+  grid-template-columns: minmax(190px, 0.95fr) minmax(220px, 0.85fr) minmax(0, 1.55fr);
+  gap: 8px;
   align-items: center;
-  padding: 12px 14px;
-  margin-bottom: 16px;
+  padding: 7px 10px;
+  margin-bottom: 6px;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid #e3e8ef;
-  border-radius: 18px;
-  box-shadow: 0 8px 28px rgba(22, 34, 51, 0.07);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(22, 34, 51, 0.06);
   backdrop-filter: blur(10px);
 }
 
 .breadcrumb {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-wrap: nowrap;
+  gap: 4px;
   align-items: center;
   min-width: 0;
+  overflow: hidden;
 }
 
 .breadcrumb-step {
   color: #667085;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .breadcrumb-step.active {
@@ -80,16 +83,17 @@ body {
 
 .breadcrumb-separator {
   color: #98a2b3;
-  margin-left: 6px;
+  margin-left: 4px;
 }
 
 .top-nav-meta {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
   min-width: 0;
   color: #475467;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -97,23 +101,31 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
+}
+
+.top-nav-meta span:not(:last-child)::after {
+  content: "·";
+  color: #98a2b3;
+  margin-left: 8px;
 }
 
 .top-nav-actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 6px;
 }
 
 .nav-button {
-  min-height: 38px;
-  padding: 8px 12px;
+  min-height: 32px;
+  padding: 6px 9px;
   background: #ffffff !important;
   color: #344054 !important;
   border: 1px solid #d0d5dd !important;
-  border-radius: 12px;
-  font-size: 13px;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.1;
 }
 
 .nav-button.primary {
@@ -140,23 +152,23 @@ body {
 }
 
 .hero {
-  padding: 28px 32px;
+  padding: 14px 18px;
   margin-bottom: 0;
   text-align: left;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: 42px;
-  letter-spacing: -0.04em;
+  font-size: 26px;
+  letter-spacing: 0;
   font-weight: 800;
   color: #101828 !important;
 }
 
 .hero p {
-  margin: 8px 0 0;
+  margin: 4px 0 0;
   color: #667085 !important;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 500;
 }
 
@@ -187,7 +199,7 @@ body {
 .page-stack {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   min-width: 0;
 }
 
@@ -216,7 +228,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   min-width: 0;
 }
 
@@ -230,7 +242,7 @@ body {
 .teacher-panel,
 .feedback-card {
   min-width: 0;
-  padding: 24px;
+  padding: 18px;
   margin: 0;
 }
 
@@ -846,25 +858,28 @@ button:disabled {
 
 .assessment-shell {
   width: min(1040px, 100%);
-  min-height: calc(100vh - 32px);
-  min-height: calc(100dvh - 32px);
+  min-height: calc(100vh - 16px);
+  min-height: calc(100dvh - 16px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   min-width: 0;
 }
 
 .assessment-topbar {
+  position: sticky;
+  top: 8px;
+  z-index: 12;
   display: grid;
-  grid-template-columns: minmax(160px, 0.8fr) minmax(220px, 1fr) auto;
-  gap: 14px;
+  grid-template-columns: minmax(160px, 0.75fr) minmax(220px, 1.1fr) auto;
+  gap: 8px;
   align-items: center;
   min-width: 0;
-  padding: 10px 12px;
+  padding: 6px 8px;
   background: #ffffff;
   border: 1px solid #e3e8ef;
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 4px 16px rgba(22, 34, 51, 0.05);
 }
 
@@ -888,13 +903,13 @@ button:disabled {
 
 .assessment-meta span {
   color: #667085;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
 }
 
 .assessment-meta strong {
   color: #101828;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 800;
 }
 
@@ -903,16 +918,16 @@ button:disabled {
 }
 
 .assessment-progress .progress-label {
-  margin-bottom: 5px;
-  font-size: 12px;
+  margin-bottom: 4px;
+  font-size: 11px;
 }
 
 .assessment-end-button {
   justify-self: end;
-  min-height: 38px;
-  padding: 8px 12px;
-  border-radius: 12px;
-  font-size: 13px;
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  font-size: 12px;
 }
 
 .assessment-card,
@@ -921,7 +936,7 @@ button:disabled {
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: clamp(14px, 2vw, 20px);
+  padding: clamp(12px, 1.6vw, 16px);
 }
 
 .assessment-card .image-box {
@@ -1320,11 +1335,29 @@ div {
 
   .top-nav {
     grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
     position: static;
+  }
+
+  .breadcrumb {
+    flex-wrap: wrap;
+  }
+
+  .top-nav-meta {
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .top-nav-actions {
     justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .nav-button {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: 13px;
   }
 
   .dashboard {
@@ -1371,8 +1404,11 @@ div {
   }
 
   .assessment-topbar {
+    position: sticky;
+    top: 6px;
     grid-template-columns: 1fr auto;
     gap: 10px;
+    padding: 8px 10px;
   }
 
   .assessment-progress {
@@ -1383,10 +1419,12 @@ div {
   .assessment-end-button {
     grid-column: 2;
     grid-row: 1;
+    min-height: 40px;
+    padding: 8px 11px;
   }
 
   .hero h1 {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .question-line h2 {
@@ -1452,6 +1490,24 @@ div {
 }
 
 @media (max-width: 560px) {
+  .app {
+    padding: 10px;
+  }
+
+  .hero {
+    padding: 12px 14px;
+  }
+
+  .top-nav-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .top-nav-actions .nav-button {
+    width: 100%;
+  }
+
   .dashboard {
     grid-template-columns: 1fr;
   }
