@@ -23,6 +23,7 @@ const initialSoundPairSets = {
   r: [["red", "ram", "dog"], ["rat", "rug", "sun"]],
   s: [["sun", "sit", "map"], ["seed", "seal", "dog"]],
   t: [["tent", "ten", "dog"], ["tiger", "top", "sun"]],
+  u: [["umbrella", "under", "dog"], ["uncle", "up", "cat"]],
   v: [["van", "vase", "dog"], ["vest", "vet", "sun"]],
   w: [["whale", "wig", "sun"], ["web", "worm", "dog"]],
   y: [["yak", "yarn", "dog"], ["yo-yo", "yak", "sun"]],

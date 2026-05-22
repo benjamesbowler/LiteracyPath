@@ -34,6 +34,7 @@ import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
 import { getQuestionFormatMetadata } from "../src/questionFormatFramework.js";
+import { getChildWordAsset } from "../src/data/childAssets.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -716,6 +717,19 @@ function writeAssetCoverageDoc() {
   const docPath = path.join(rootDir, "docs", "assets", "assessment_asset_coverage.md");
   fs.mkdirSync(path.dirname(docPath), { recursive: true });
 
+  function sourcePackForKey(key) {
+    const asset = getChildWordAsset(key);
+    return asset?.source || "existing";
+  }
+
+  function duplicateCandidateForAsset(assetPath = "") {
+    if (!assetPath) return "";
+    if (assetPath.includes("-kimi3")) return "preserved kimi_assets3 conflict";
+    const parsed = path.parse(assetPath);
+    const candidate = path.join(rootDir, "public", parsed.dir, `${parsed.name}-kimi3${parsed.ext}`);
+    return fs.existsSync(candidate) ? "kimi_assets3 alternate available" : "";
+  }
+
   const rows = [];
 
   for (const audit of stageAudits) {
@@ -744,13 +758,23 @@ function writeAssetCoverageDoc() {
           format,
           image ? (hasImage ? "yes" : "no") : "",
           sound ? (hasAudio ? "yes" : "no") : "",
+          sourcePackForKey(key),
           image?.path || "",
           sound?.path || "",
           missingRequired ? "missing required asset" : "",
-          missingRequired ? "high" : ""
+          missingRequired ? "high" : "",
+          duplicateCandidateForAsset(image?.path || sound?.path || "")
         ]);
       }
     }
+  }
+
+  const initialAudit = stageAudits.find(audit => audit.stage.label === "Initial Sounds");
+  const knownBlockingGaps = [];
+  if (initialAudit?.missingKeys?.includes("u")) {
+    knownBlockingGaps.push("- Initial Sounds `/u/`: still blocked because fewer than two clean image/audio-backed short-/u/ words are available.");
+  } else {
+    knownBlockingGaps.push("- Initial Sounds `/u/`: complete after Kimi asset pack 3 import. `unicorn` remains excluded from `/u/` activation because its common onset is /yoo/.");
   }
 
   const body = [
@@ -760,10 +784,10 @@ function writeAssetCoverageDoc() {
     "",
     "## Known Blocking Gaps",
     "",
-    "- Initial Sounds `/u/`: Kimi asset pack 2 provides `umbrella` image/audio, but a second clean Kindergarten `/u/` word with both static image and audio is still needed before `/u/` can enter the live pair-select pool.",
+    knownBlockingGaps.join("\n"),
     "",
     markdownTable(
-      ["word", "skill", "format", "has image", "has audio", "image path", "audio path", "missing/weak asset flag", "priority"],
+      ["word", "skill", "format", "has image", "has audio", "source pack", "image path", "audio path", "missing/weak asset flag", "priority", "duplicate candidates"],
       rows
     )
   ].join("\n");
