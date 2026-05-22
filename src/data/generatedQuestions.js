@@ -7,12 +7,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as cat?",
     "choices": [
-      "cat",
+      "cap",
       "dog",
       "sun",
       "map"
     ],
-    "answer": "cat",
+    "answer": "cap",
     "spokenPrompt": "Which word starts like cat?"
   },
   {
@@ -23,12 +23,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as ball?",
     "choices": [
-      "ball",
+      "bat",
       "cat",
       "sun",
       "map"
     ],
-    "answer": "ball",
+    "answer": "bat",
     "spokenPrompt": "Which word starts like ball?"
   },
   {
@@ -71,12 +71,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as fish?",
     "choices": [
-      "fish",
+      "fan",
       "sun",
       "pan",
       "hat"
     ],
-    "answer": "fish",
+    "answer": "fan",
     "spokenPrompt": "Which word starts like fish?"
   },
   {
@@ -133,12 +133,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as sun?",
     "choices": [
-      "sun",
+      "sock",
       "moon",
       "fish",
       "dog"
     ],
-    "answer": "sun",
+    "answer": "sock",
     "questionType": "multiple_choice",
     "spokenPrompt": "Which word starts like sun?"
   },
@@ -150,12 +150,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as ball?",
     "choices": [
-      "ball",
+      "bat",
       "car",
       "dog",
       "pig"
     ],
-    "answer": "ball",
+    "answer": "bat",
     "spokenPrompt": "Which word starts like ball?"
   },
   {
@@ -198,12 +198,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as sun?",
     "choices": [
-      "sun",
+      "sock",
       "moon",
       "fish",
       "dog"
     ],
-    "answer": "sun",
+    "answer": "sock",
     "spokenPrompt": "Which word starts like sun?"
   },
   {
@@ -310,12 +310,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as ball?",
     "choices": [
-      "ball",
+      "bat",
       "cat",
       "dog",
       "fan"
     ],
-    "answer": "ball",
+    "answer": "bat",
     "spokenPrompt": "Which word starts like ball?"
   },
   {
@@ -453,12 +453,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts with ch?",
     "choices": [
-      "chair",
+      "chip",
       "ship",
       "thin",
       "whale"
     ],
-    "answer": "chair",
+    "answer": "chip",
     "spokenPrompt": "Which word starts like chair?"
   },
   {
@@ -484,12 +484,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts with ph?",
     "choices": [
-      "phone",
+      "photo",
       "fish",
       "pan",
       "van"
     ],
-    "answer": "phone",
+    "answer": "photo",
     "spokenPrompt": "Which word starts like phone?"
   },
   {
@@ -656,12 +656,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as dog?",
     "choices": [
-      "dog",
+      "dig",
       "cat",
       "fish",
       "sun"
     ],
-    "answer": "dog",
+    "answer": "dig",
     "spokenPrompt": "Which word starts like dog?"
   },
   {
@@ -672,12 +672,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as pig?",
     "choices": [
-      "pig",
+      "pan",
       "cat",
       "rat",
       "bat"
     ],
-    "answer": "pig",
+    "answer": "pan",
     "spokenPrompt": "Which word starts like pig?"
   },
   {
@@ -703,12 +703,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts with fl?",
     "choices": [
-      "flag",
+      "flip",
       "fun",
       "fan",
       "fog"
     ],
-    "answer": "flag",
+    "answer": "flip",
     "spokenPrompt": "Which word starts like flag?"
   },
   {
@@ -735,12 +735,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts with wh?",
     "choices": [
-      "whale",
+      "wheel",
       "ship",
       "chip",
       "thin"
     ],
-    "answer": "whale",
+    "answer": "wheel",
     "questionType": "multiple_choice",
     "spokenPrompt": "Which word starts like whale?"
   },
@@ -768,12 +768,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as sun?",
     "choices": [
-      "sun",
+      "sock",
       "moon",
       "fish",
       "dog"
     ],
-    "answer": "sun",
+    "answer": "sock",
     "spokenPrompt": "Which word starts like sun?"
   },
   {
@@ -784,12 +784,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as jam?",
     "choices": [
-      "jam",
+      "jet",
       "ham",
       "ram",
       "yam"
     ],
-    "answer": "jam",
+    "answer": "jet",
     "spokenPrompt": "Which word starts like jam?"
   },
   {
@@ -925,12 +925,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as cat?",
     "choices": [
-      "cat",
+      "cap",
       "sun",
       "dog",
       "fish"
     ],
-    "answer": "cat",
+    "answer": "cap",
     "spokenPrompt": "Which word starts like cat?"
   },
   {
@@ -1037,12 +1037,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts with dr?",
     "choices": [
-      "drum",
+      "drop",
       "rum",
       "dum",
       "run"
     ],
-    "answer": "drum",
+    "answer": "drop",
     "spokenPrompt": "Which word starts like drum?"
   },
   {
@@ -1068,12 +1068,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as ball?",
     "choices": [
-      "ball",
+      "bat",
       "cat",
       "sun",
       "fish"
     ],
-    "answer": "ball",
+    "answer": "bat",
     "spokenPrompt": "Which word starts like ball?"
   },
   {
@@ -1084,12 +1084,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as top?",
     "choices": [
-      "top",
+      "tub",
       "cat",
       "dog",
       "sun"
     ],
-    "answer": "top",
+    "answer": "tub",
     "spokenPrompt": "Which word starts like top?"
   },
   {
@@ -1164,12 +1164,12 @@ export const generatedQuestions = [
     "question": "Which word starts with st?",
     "spokenPrompt": "Which word starts like stop?",
     "choices": [
-      "stop",
+      "step",
       "top",
       "shop",
       "pot"
     ],
-    "answer": "stop"
+    "answer": "step"
   },
   {
     "id": "phonics_k_090",
@@ -1179,12 +1179,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as dog?",
     "choices": [
-      "dog",
+      "dig",
       "cat",
       "sun",
       "fish"
     ],
-    "answer": "dog",
+    "answer": "dig",
     "spokenPrompt": "Which word starts like dog?"
   },
   {
@@ -1258,12 +1258,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as sun?",
     "choices": [
-      "sun",
+      "sock",
       "run",
       "fun",
       "nun"
     ],
-    "answer": "sun",
+    "answer": "sock",
     "spokenPrompt": "Which word starts like sun?"
   },
   {
@@ -1289,12 +1289,12 @@ export const generatedQuestions = [
     "passage": "",
     "question": "Which word starts the same as cat?",
     "choices": [
-      "cat",
+      "cap",
       "sun",
       "dog",
       "fish"
     ],
-    "answer": "cat",
+    "answer": "cap",
     "spokenPrompt": "Which word starts like cat?"
   },
   {

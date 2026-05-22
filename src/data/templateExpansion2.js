@@ -874,12 +874,12 @@ export const templateExpansion2 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "shell",
+      "ship",
       "sell",
       "fell",
       "bell"
     ],
-    "answer": "shell",
+    "answer": "ship",
     "spokenPrompt": "Which word starts like shell?"
   },
   {
@@ -893,12 +893,12 @@ export const templateExpansion2 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "chair",
+      "chip",
       "hair",
       "fair",
       "pair"
     ],
-    "answer": "chair",
+    "answer": "chip",
     "spokenPrompt": "Which word starts like chair?"
   },
   {
@@ -969,12 +969,12 @@ export const templateExpansion2 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "whale",
+      "wheel",
       "tail",
       "mail",
       "pail"
     ],
-    "answer": "whale",
+    "answer": "wheel",
     "spokenPrompt": "Which word starts like whale?"
   },
   {

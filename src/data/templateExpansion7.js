@@ -87,12 +87,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "fish",
+      "fan",
       "dish",
       "wish",
       "ship"
     ],
-    "answer": "fish"
+    "answer": "fan"
   },
   {
     "id": "exp7_initial_6",
@@ -125,12 +125,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "hat",
+      "ham",
       "mat",
       "sat",
       "pat"
     ],
-    "answer": "hat"
+    "answer": "ham"
   },
   {
     "id": "exp7_initial_8",
@@ -144,12 +144,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "jam",
+      "jet",
       "ham",
       "ram",
       "yam"
     ],
-    "answer": "jam"
+    "answer": "jet"
   },
   {
     "id": "exp7_final_1",
@@ -610,12 +610,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "sun",
+      "cup",
       "son",
       "sin",
       "sat"
     ],
-    "answer": "sun",
+    "answer": "cup",
     "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
@@ -2019,12 +2019,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "brush",
+      "brick",
       "rush",
       "mush",
       "hush"
     ],
-    "answer": "brush",
+    "answer": "brick",
     "spokenPrompt": "Which word starts like brush?"
   },
   {
@@ -2038,12 +2038,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "clap",
+      "clip",
       "cap",
       "lap",
       "tap"
     ],
-    "answer": "clap",
+    "answer": "clip",
     "spokenPrompt": "Which word starts like clap?"
   },
   {
@@ -2057,12 +2057,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "crab",
+      "crib",
       "cab",
       "grab",
       "tab"
     ],
-    "answer": "crab",
+    "answer": "crib",
     "spokenPrompt": "Which word starts like crab?"
   },
   {
@@ -2076,12 +2076,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "drum",
+      "drop",
       "rum",
       "gum",
       "sum"
     ],
-    "answer": "drum",
+    "answer": "drop",
     "spokenPrompt": "Which word starts like drum?"
   },
   {
@@ -2095,12 +2095,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "flag",
+      "flip",
       "lag",
       "bag",
       "tag"
     ],
-    "answer": "flag",
+    "answer": "flip",
     "spokenPrompt": "Which word starts like flag?"
   },
   {
@@ -2114,12 +2114,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "frog",
+      "fresh",
       "fog",
       "log",
       "hog"
     ],
-    "answer": "frog",
+    "answer": "fresh",
     "spokenPrompt": "Which word starts like frog?"
   },
   {
@@ -2133,12 +2133,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "glove",
+      "glass",
       "love",
       "dove",
       "move"
     ],
-    "answer": "glove",
+    "answer": "glass",
     "spokenPrompt": "Which word starts like glove?"
   },
   {
@@ -2152,12 +2152,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "grass",
+      "green",
       "glass",
       "mass",
       "pass"
     ],
-    "answer": "grass",
+    "answer": "green",
     "spokenPrompt": "Which word starts like grass?"
   },
   {
@@ -2171,12 +2171,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "plant",
+      "plug",
       "pant",
       "ant",
       "tent"
     ],
-    "answer": "plant",
+    "answer": "plug",
     "spokenPrompt": "Which word starts like plant?"
   },
   {
@@ -2190,12 +2190,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "prize",
+      "press",
       "rise",
       "size",
       "wise"
     ],
-    "answer": "prize",
+    "answer": "press",
     "spokenPrompt": "Which word starts like prize?"
   },
   {
@@ -2209,12 +2209,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "skate",
+      "skip",
       "gate",
       "late",
       "plate"
     ],
-    "answer": "skate",
+    "answer": "skip",
     "spokenPrompt": "Which word starts like skate?"
   },
   {
@@ -2228,12 +2228,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "slide",
+      "sleep",
       "side",
       "hide",
       "wide"
     ],
-    "answer": "slide",
+    "answer": "sleep",
     "spokenPrompt": "Which word starts like slide?"
   },
   {
@@ -2247,12 +2247,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "snail",
+      "snap",
       "nail",
       "mail",
       "tail"
     ],
-    "answer": "snail",
+    "answer": "snap",
     "spokenPrompt": "Which word starts like snail?"
   },
   {
@@ -2266,12 +2266,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "spoon",
+      "spill",
       "soon",
       "moon",
       "noon"
     ],
-    "answer": "spoon",
+    "answer": "spill",
     "spokenPrompt": "Which word starts like spoon?"
   },
   {
@@ -2304,12 +2304,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "swing",
+      "swim",
       "sing",
       "ring",
       "wing"
     ],
-    "answer": "swing",
+    "answer": "swim",
     "spokenPrompt": "Which word starts like swing?"
   },
   {
@@ -2323,12 +2323,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "train",
+      "tree",
       "rain",
       "main",
       "chain"
     ],
-    "answer": "train",
+    "answer": "tree",
     "spokenPrompt": "Which word starts like train?"
   },
   {
@@ -2342,12 +2342,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "twist",
+      "twig",
       "wrist",
       "list",
       "mist"
     ],
-    "answer": "twist",
+    "answer": "twig",
     "spokenPrompt": "Which word starts like twist?"
   },
   {
@@ -2361,12 +2361,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "shell",
+      "ship",
       "sell",
       "bell",
       "fell"
     ],
-    "answer": "shell",
+    "answer": "ship",
     "spokenPrompt": "Which word starts like shell?"
   },
   {
@@ -2380,12 +2380,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "chair",
+      "chip",
       "hair",
       "fair",
       "pair"
     ],
-    "answer": "chair",
+    "answer": "chip",
     "spokenPrompt": "Which word starts like chair?"
   },
   {
@@ -2399,12 +2399,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "thumb",
+      "thin",
       "gum",
       "drum",
       "plum"
     ],
-    "answer": "thumb",
+    "answer": "thin",
     "spokenPrompt": "Which word starts like thumb?"
   },
   {
@@ -2418,12 +2418,12 @@ export const templateExpansion7 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "whale",
+      "wheel",
       "tail",
       "mail",
       "sail"
     ],
-    "answer": "whale",
+    "answer": "wheel",
     "spokenPrompt": "Which word starts like whale?"
   },
   {

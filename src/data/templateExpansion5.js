@@ -233,12 +233,12 @@ export const templateExpansion5 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "slide",
+      "sleep",
       "side",
       "ride",
       "wide"
     ],
-    "answer": "slide",
+    "answer": "sleep",
     "spokenPrompt": "Which word starts like slide?"
   },
   {
@@ -252,12 +252,12 @@ export const templateExpansion5 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "smile",
+      "small",
       "mile",
       "pile",
       "tile"
     ],
-    "answer": "smile",
+    "answer": "small",
     "spokenPrompt": "Which word starts like smile?"
   },
   {
@@ -271,12 +271,12 @@ export const templateExpansion5 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "brush",
+      "brick",
       "rush",
       "mush",
       "tush"
     ],
-    "answer": "brush",
+    "answer": "brick",
     "spokenPrompt": "Which word starts like brush?"
   },
   {
@@ -328,12 +328,12 @@ export const templateExpansion5 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "thumb",
+      "thin",
       "gum",
       "drum",
       "plum"
     ],
-    "answer": "thumb",
+    "answer": "thin",
     "spokenPrompt": "Which word starts like thumb?"
   },
   {

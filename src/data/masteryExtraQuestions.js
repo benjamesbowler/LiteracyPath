@@ -8,12 +8,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as moon?",
     "spokenPrompt": "Which word starts like moon?",
     "choices": [
-      "moon",
+      "map",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "moon"
+    "answer": "map"
   },
   {
     "id": "extra_initial_2",
@@ -24,12 +24,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as sun?",
     "spokenPrompt": "Which word starts like sun?",
     "choices": [
-      "sun",
+      "sock",
       "moon",
       "fish",
       "dog"
     ],
-    "answer": "sun"
+    "answer": "sock"
   },
   {
     "id": "extra_initial_3",
@@ -40,12 +40,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as top?",
     "spokenPrompt": "Which word starts like top?",
     "choices": [
-      "top",
+      "tub",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "top"
+    "answer": "tub"
   },
   {
     "id": "extra_initial_4",
@@ -56,12 +56,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as pig?",
     "spokenPrompt": "Which word starts like pig?",
     "choices": [
-      "pig",
+      "pan",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "pig"
+    "answer": "pan"
   },
   {
     "id": "extra_initial_5",
@@ -72,12 +72,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as ball?",
     "spokenPrompt": "Which word starts like ball?",
     "choices": [
-      "ball",
+      "bat",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "ball"
+    "answer": "bat"
   },
   {
     "id": "extra_initial_6",
@@ -88,12 +88,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as nest?",
     "spokenPrompt": "Which word starts like nest?",
     "choices": [
-      "nest",
+      "nap",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "nest"
+    "answer": "nap"
   },
   {
     "id": "extra_initial_7",
@@ -104,12 +104,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as fish?",
     "spokenPrompt": "Which word starts like fish?",
     "choices": [
-      "fish",
+      "fan",
       "sun",
       "dog",
       "map"
     ],
-    "answer": "fish"
+    "answer": "fan"
   },
   {
     "id": "extra_initial_8",
@@ -120,12 +120,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as goat?",
     "spokenPrompt": "Which word starts like goat?",
     "choices": [
-      "goat",
+      "gum",
       "sun",
       "fish",
       "map"
     ],
-    "answer": "goat"
+    "answer": "gum"
   },
   {
     "id": "extra_initial_9",
@@ -136,12 +136,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as dog?",
     "spokenPrompt": "Which word starts like dog?",
     "choices": [
-      "dog",
+      "dig",
       "sun",
       "fish",
       "map"
     ],
-    "answer": "dog"
+    "answer": "dig"
   },
   {
     "id": "extra_initial_10",
@@ -152,12 +152,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as leaf?",
     "spokenPrompt": "Which word starts like leaf?",
     "choices": [
-      "leaf",
+      "log",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "leaf"
+    "answer": "log"
   },
   {
     "id": "extra_initial_11",
@@ -184,12 +184,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as hat?",
     "spokenPrompt": "Which word starts like hat?",
     "choices": [
-      "hat",
+      "ham",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "hat"
+    "answer": "ham"
   },
   {
     "id": "extra_initial_13",
@@ -200,12 +200,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as cat?",
     "spokenPrompt": "Which word starts like cat?",
     "choices": [
-      "cat",
+      "cap",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "cat"
+    "answer": "cap"
   },
   {
     "id": "extra_initial_14",
@@ -216,12 +216,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as web?",
     "spokenPrompt": "Which word starts like web?",
     "choices": [
-      "web",
+      "wig",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "web"
+    "answer": "wig"
   },
   {
     "id": "extra_initial_15",
@@ -232,12 +232,12 @@ export const masteryExtraQuestions = [
     "question": "Which word starts the same as yak?",
     "spokenPrompt": "Which word starts like yak?",
     "choices": [
-      "yak",
+      "yes",
       "sun",
       "fish",
       "dog"
     ],
-    "answer": "yak"
+    "answer": "yes"
   },
   {
     "id": "extra_final_1",
@@ -745,12 +745,12 @@ export const masteryExtraQuestions = [
     "question": "Which word has the same middle sound as pot?",
     "spokenPrompt": "Which word has the same sound in the middle as pot?",
     "choices": [
-      "pot",
+      "dog",
       "pat",
       "pit",
       "pet"
     ],
-    "answer": "pot"
+    "answer": "dog"
   },
   {
     "id": "extra_short_vowel_9",

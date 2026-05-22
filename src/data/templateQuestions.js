@@ -11,12 +11,12 @@ export const templateQuestions = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "fish",
+      "fan",
       "sun",
       "van",
       "dog"
     ],
-    "answer": "fish"
+    "answer": "fan"
   },
   {
     "id": "template_initial_2",
@@ -30,12 +30,12 @@ export const templateQuestions = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "moon",
+      "map",
       "fish",
       "cake",
       "run"
     ],
-    "answer": "moon"
+    "answer": "map"
   },
   {
     "id": "template_initial_3",
@@ -68,12 +68,12 @@ export const templateQuestions = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "sun",
+      "sock",
       "dog",
       "map",
       "pen"
     ],
-    "answer": "sun"
+    "answer": "sock"
   },
   {
     "id": "template_initial_5",
@@ -87,12 +87,12 @@ export const templateQuestions = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "dog",
+      "dig",
       "cat",
       "fish",
       "sun"
     ],
-    "answer": "dog"
+    "answer": "dig"
   },
   {
     "id": "template_final_1",

@@ -41,12 +41,12 @@ export const masteryCoreQuestions = [
     "question": "Which word has the same middle sound as bed?",
     "spokenPrompt": "Which word has the same sound in the middle as bed?",
     "choices": [
-      "bed",
+      "red",
       "bad",
       "bid",
       "bud"
     ],
-    "answer": "bed"
+    "answer": "red"
   },
   {
     "id": "core_cvc_004",
@@ -73,12 +73,12 @@ export const masteryCoreQuestions = [
     "question": "Which word has the same middle sound as pot?",
     "spokenPrompt": "Which word has the same sound in the middle as pot?",
     "choices": [
-      "pot",
+      "dog",
       "pat",
       "pet",
       "pit"
     ],
-    "answer": "pot"
+    "answer": "dog"
   },
   {
     "id": "core_cvc_006",

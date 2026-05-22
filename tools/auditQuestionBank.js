@@ -14,6 +14,7 @@ import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
+import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
 import { skillTree } from "../src/skillTree.js";
 import {
@@ -48,6 +49,7 @@ const questionBanks = [
   ["src/data/templateExpansion6.js", templateExpansion6],
   ["src/data/templateExpansion7.js", templateExpansion7],
   ["src/data/generatedQuestions.js", generatedQuestions],
+  ["src/data/fixSentenceQuestions.js", fixSentenceQuestions],
   ["src/data/templateComprehensionAdvanced.js", templateComprehensionAdvanced]
 ];
 
@@ -157,6 +159,52 @@ function normalize(text) {
 
 function normalizedChoices(choices) {
   return choices.map(choice => normalize(choice));
+}
+
+function isFixSentenceQuestion(question) {
+  return question?.questionType === "fix_sentence";
+}
+
+function isWordRecognitionQuestion(question) {
+  const typeText = normalize([question.questionType, question.formatType].join(" "));
+  return typeText.includes("word recognition") || typeText.includes("print match");
+}
+
+function getAnchorPromptInfo(question) {
+  const text = normalize([question.question, question.prompt, question.spokenPrompt].join(" "));
+  const match =
+    text.match(/\b(starts the same as|ends the same as|starts like|ends like|has the same middle sound as|same sound in the middle as) ([a-z]+)\b/);
+
+  if (!match) return null;
+
+  return {
+    phrase: match[1],
+    anchor: match[2]
+  };
+}
+
+function anchorChoiceLeakageIssue(question) {
+  if (isWordRecognitionQuestion(question)) return null;
+
+  const anchorInfo = getAnchorPromptInfo(question);
+  if (!anchorInfo || !Array.isArray(question.choices)) return null;
+
+  const choices = normalizedChoices(question.choices);
+
+  return choices.includes(anchorInfo.anchor)
+    ? `Anchor word "${anchorInfo.anchor}" appears in choices for "${question.question}".`
+    : null;
+}
+
+function sentenceCompletionContextIssue(question) {
+  const promptText = String([question.question, question.prompt, question.spokenPrompt].join(" "));
+  if (!/\b(complete(?:s)? the sentence|best completes the sentence)\b/i.test(promptText)) return null;
+
+  const visibleContext = question.passage || question.sentence || question.context || question.brokenSentence;
+
+  return visibleContext
+    ? null
+    : `Sentence-completion prompt has no visible sentence/context: "${question.question || question.prompt}".`;
 }
 
 function isSingleLetter(text) {
@@ -701,6 +749,24 @@ function auditQuestions() {
       }
     }
 
+    if (isFixSentenceQuestion(question)) {
+      const tiles = question.tiles || question.choices;
+
+      if (!question.brokenSentence) {
+        addProblem(problems, "fix sentence missing broken sentence", item, "Fix-sentence question has no brokenSentence.");
+      }
+
+      if (!question.correctSentence) {
+        addProblem(problems, "fix sentence missing correct sentence", item, "Fix-sentence question has no correctSentence.");
+      }
+
+      if (!Array.isArray(tiles) || tiles.length < 2) {
+        addProblem(problems, "fix sentence missing tiles", item, "Fix-sentence question needs at least two tiles.");
+      }
+
+      continue;
+    }
+
     if (!Array.isArray(question.choices)) {
       addProblem(problems, "choices not array", item, "Choices must be an array.");
       continue;
@@ -741,6 +807,30 @@ function auditQuestions() {
         "answer visible in question",
         item,
         `Answer "${question.answer}" appears in the question text.`
+      );
+    }
+
+    const anchorLeakageProblem =
+      anchorChoiceLeakageIssue(question);
+
+    if (anchorLeakageProblem) {
+      addProblem(
+        problems,
+        "anchor word leaked into choices",
+        item,
+        anchorLeakageProblem
+      );
+    }
+
+    const sentenceCompletionProblem =
+      sentenceCompletionContextIssue(question);
+
+    if (sentenceCompletionProblem) {
+      addProblem(
+        problems,
+        "sentence completion missing context",
+        item,
+        sentenceCompletionProblem
       );
     }
 

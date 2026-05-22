@@ -24,12 +24,12 @@ export const questions = [
     "spokenPrompt": "Which word starts like moon?",
     "image": "🐒",
     "choices": [
-      "moon",
+      "map",
       "fish",
       "cake",
       "run"
     ],
-    "answer": "moon"
+    "answer": "map"
   },
   {
     "id": "phonics_final_001",

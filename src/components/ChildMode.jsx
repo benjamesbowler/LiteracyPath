@@ -68,6 +68,51 @@ function speakWithBrowser(text) {
   }
 }
 
+function hashSeed(value) {
+  return String(value || "").split("").reduce((hash, char) => {
+    const nextHash = (hash << 5) - hash + char.charCodeAt(0);
+    return nextHash | 0;
+  }, 0);
+}
+
+export function shuffleChoices(questionId, sessionSeed, choices = [], preferredCorrectIndex = 0, answer = "") {
+  const correctChoice = choices.find(choice => (choice.word || choice) === answer);
+  const distractors = choices.filter(choice => (choice.word || choice) !== answer);
+  let seed = Math.abs(hashSeed(`${sessionSeed}:${questionId}`)) || 1;
+  const shuffledDistractors = [...distractors];
+
+  for (let index = shuffledDistractors.length - 1; index > 0; index -= 1) {
+    seed = (seed * 1664525 + 1013904223) % 4294967296;
+    const swapIndex = seed % (index + 1);
+    [shuffledDistractors[index], shuffledDistractors[swapIndex]] = [shuffledDistractors[swapIndex], shuffledDistractors[index]];
+  }
+
+  if (!correctChoice) return shuffledDistractors;
+
+  const correctIndex = Math.min(preferredCorrectIndex, choices.length - 1);
+  shuffledDistractors.splice(correctIndex, 0, correctChoice);
+  return shuffledDistractors;
+}
+
+function getQuestionImageSource(question) {
+  if (!question?.targetAsset) return "";
+  return question.targetAsset.image || question.targetAsset.fallbackImage || "";
+}
+
+function preloadImage(src) {
+  if (!src || typeof window === "undefined") return;
+
+  const image = new Image();
+  image.src = src;
+}
+
+function preloadMissionImages(questions = []) {
+  questions.forEach(question => {
+    preloadImage(getQuestionImageSource(question));
+    if (question?.targetAsset?.fallbackImage) preloadImage(question.targetAsset.fallbackImage);
+  });
+}
+
 async function speakChildText(text) {
   if (!text) return;
 
@@ -196,17 +241,36 @@ function ChildActivityShell({ mission, onComplete, onAnswer, returnToMap, return
   const [feedback, setFeedback] = useState(null);
   const [selectedChoice, setSelectedChoice] = useState("");
   const [questionStep, setQuestionStep] = useState(0);
+  const [sessionSeed, setSessionSeed] = useState("");
+  const [shuffledChoices, setShuffledChoices] = useState([]);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const questions = (mission?.questionIndexes || [])
     .map(index => shortAEchoCavesQuestions[index])
     .filter(Boolean);
   const question = questions[questionStep];
   const isHeardWordMastery = question?.formatType === "HEARD_WORD_TO_PRINT_MINIMAL_PAIR";
+  const questionImageSource = getQuestionImageSource(question);
 
   useEffect(() => {
     setFeedback(null);
     setSelectedChoice("");
     setQuestionStep(0);
+    setSessionSeed(`${mission?.id || "mission"}-${Date.now()}-${Math.random()}`);
+    preloadMissionImages(questions);
   }, [mission?.id]);
+
+  useEffect(() => {
+    if (!question?.choices?.length) return;
+
+    setShuffledChoices(
+      shuffleChoices(question.id, sessionSeed, question.choices, questionStep % question.choices.length, question.answer)
+    );
+  }, [question?.id, sessionSeed, questionStep]);
+
+  useEffect(() => {
+    setImageLoaded(!questionImageSource);
+    preloadImage(getQuestionImageSource(questions[questionStep + 1]));
+  }, [question?.id, questionImageSource, questionStep]);
 
   if (!mission || !question || (!isHeardWordMastery && !question.targetAsset) || !question.choices?.length) {
     return (
@@ -317,8 +381,12 @@ function ChildActivityShell({ mission, onComplete, onAnswer, returnToMap, return
               aria-label={`Hear ${question.targetWord}`}
             >
               <img
-                src={question.targetAsset.image || question.targetAsset.fallbackImage}
+                className={imageLoaded ? "child-target-image loaded" : "child-target-image"}
+                src={questionImageSource}
                 alt={question.targetAsset.alt}
+                loading={questionStep === 0 ? "eager" : "lazy"}
+                decoding="async"
+                onLoad={() => setImageLoaded(true)}
                 onError={event => {
                   if (question.targetAsset.fallbackImage && !event.currentTarget.dataset.fallbackApplied) {
                     event.currentTarget.dataset.fallbackApplied = "true";
@@ -326,6 +394,7 @@ function ChildActivityShell({ mission, onComplete, onAnswer, returnToMap, return
                   }
                 }}
               />
+              {!imageLoaded && <span className="child-image-skeleton" aria-hidden="true"></span>}
               <span className="picture-audio-badge" aria-hidden="true">▶</span>
             </button>
           </figure>
@@ -347,7 +416,7 @@ function ChildActivityShell({ mission, onComplete, onAnswer, returnToMap, return
         </div>
 
         <div className="child-choice-grid">
-          {question.choices.map(choice => {
+          {shuffledChoices.map(choice => {
             const isSelected = choice.word === selectedChoice;
             const feedbackClass = isSelected && feedback ? `child-card-${feedback}` : "";
 

@@ -62,6 +62,7 @@ export function AuthPage({
 function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
 
+  // TODO(fix-sentence-drag): Upgrade this tap-to-order tile builder to true drag-and-drop when touch/mouse reordering is prioritized.
   const tiles = currentQuestion.tiles || currentQuestion.choices || [];
   const builtSentence = selectedTiles.map(item => item.tile).join(" ");
   const availableTiles = tiles
@@ -1431,6 +1432,12 @@ export function AssessmentPage({
             {currentQuestion.passage && (
               <div className="passage-wrap">
                 <p className="passage">{currentQuestion.passage}</p>
+              </div>
+            )}
+
+            {(currentQuestion.sentence || currentQuestion.context) && (
+              <div className="passage-wrap">
+                <p className="passage">{currentQuestion.sentence || currentQuestion.context}</p>
               </div>
             )}
 

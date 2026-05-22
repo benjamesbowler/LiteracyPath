@@ -11,12 +11,12 @@ export const templateExpansion6 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "ball",
+      "bat",
       "cat",
       "sun",
       "fish"
     ],
-    "answer": "ball"
+    "answer": "bat"
   },
   {
     "id": "exp6_foundation_2",
@@ -49,12 +49,12 @@ export const templateExpansion6 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "top",
+      "tub",
       "dog",
       "fish",
       "sun"
     ],
-    "answer": "top"
+    "answer": "tub"
   },
   {
     "id": "exp6_foundation_4",
@@ -1218,12 +1218,12 @@ export const templateExpansion6 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "thumb",
+      "thin",
       "drum",
       "gum",
       "plum"
     ],
-    "answer": "thumb",
+    "answer": "thin",
     "spokenPrompt": "Which word starts like thumb?"
   },
   {
@@ -1256,12 +1256,12 @@ export const templateExpansion6 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "phone",
+      "photo",
       "cone",
       "bone",
       "stone"
     ],
-    "answer": "phone",
+    "answer": "photo",
     "spokenPrompt": "Which word starts like phone?"
   },
   {

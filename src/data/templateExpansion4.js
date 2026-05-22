@@ -143,12 +143,12 @@ export const templateExpansion4 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "pot",
+      "dog",
       "pat",
       "pit",
       "pet"
     ],
-    "answer": "pot",
+    "answer": "dog",
     "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {
@@ -162,12 +162,12 @@ export const templateExpansion4 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "sun",
+      "cup",
       "sat",
       "set",
       "sit"
     ],
-    "answer": "sun",
+    "answer": "cup",
     "spokenPrompt": "Which word has the same sound in the middle as sun?"
   },
   {
@@ -238,12 +238,12 @@ export const templateExpansion4 = [
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "pot",
+      "dog",
       "pat",
       "pit",
       "pet"
     ],
-    "answer": "pot",
+    "answer": "dog",
     "spokenPrompt": "Which word has the same sound in the middle as pot?"
   },
   {

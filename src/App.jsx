@@ -157,6 +157,35 @@ function getQuestionAnswer(question) {
     : question.answer;
 }
 
+function isWordRecognitionQuestion(question) {
+  const typeText = normalize([question?.questionType, question?.formatType].join(" "));
+  return typeText.includes("word recognition") || typeText.includes("print match");
+}
+
+function getAnchorWord(question) {
+  const text = normalize([question?.question, question?.prompt, question?.spokenPrompt].join(" "));
+  const match =
+    text.match(/\b(?:starts the same as|ends the same as|starts like|ends like|has the same middle sound as|same sound in the middle as) ([a-z]+)\b/);
+
+  return match?.[1] || "";
+}
+
+function hasAnchorChoiceLeakage(question) {
+  if (isWordRecognitionQuestion(question)) return false;
+
+  const anchor = getAnchorWord(question);
+  if (!anchor || !Array.isArray(question?.choices)) return false;
+
+  return question.choices.map(choice => normalize(choice)).includes(anchor);
+}
+
+function sentenceCompletionMissingContext(question) {
+  const promptText = String([question?.question, question?.prompt, question?.spokenPrompt].join(" "));
+  if (!/\b(complete(?:s)? the sentence|best completes the sentence)\b/i.test(promptText)) return false;
+
+  return !(question?.passage || question?.sentence || question?.context || question?.brokenSentence);
+}
+
 function normalizeItemKey(value) {
   return String(value || "")
     .toLowerCase()
@@ -471,6 +500,8 @@ function isQuestionValid(q) {
   if (allText.includes("sun") && allText.includes("son") && allText.includes("middle")) return false;
   if (questionText.includes("which word spells")) return false;
   if (questionText.includes("matches the picture") && !q.imagePath) return false;
+  if (hasAnchorChoiceLeakage(q)) return false;
+  if (sentenceCompletionMissingContext(q)) return false;
 
   return getStageIndex(q) !== -1;
 }
