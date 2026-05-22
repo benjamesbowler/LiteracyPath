@@ -1,6 +1,9 @@
 import { skillTree } from "../src/skillTree.js";
 import { masteryCoreQuestions } from "../src/data/masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "../src/data/masteryExtraQuestions.js";
+import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQuestions.js";
+import { coverageExpectations } from "../src/data/coverageExpectations.js";
+import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
 import { templateExpansion2 } from "../src/data/templateExpansion2.js";
@@ -16,6 +19,7 @@ import { templateComprehensionAdvanced } from "../src/data/templateComprehension
 const runtimeQuestionBanks = [
   ["masteryCoreQuestions", masteryCoreQuestions],
   ["masteryExtraQuestions", masteryExtraQuestions],
+  ["initialSoundCoverageQuestions", initialSoundCoverageQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -198,7 +202,7 @@ function isQuestionValid(question) {
 
 const runtimeQuestions =
   runtimeQuestionBanks.flatMap(([source, questions]) =>
-    questions.map(question => ({ ...question, source }))
+    questions.map(question => ({ ...enrichListenAndFindWordQuestion(question), source }))
   );
 
 const matchedQuestions = runtimeQuestions.filter(isQuestionValid);
@@ -213,6 +217,63 @@ console.log("");
 
 for (const { stage, count } of counts) {
   console.log(`${String(count).padStart(3)}  ${stage.label}`);
+}
+
+console.log("");
+console.log("Coverage-enabled skill diagnostics:");
+
+for (const stage of skillTree.filter(item => coverageEnabledStages.has(item.label))) {
+  const stageQuestions = matchedQuestions.filter(question => getStageIndex(question) === skillTree.indexOf(stage));
+  const byKey = new Map();
+
+  for (const question of stageQuestions) {
+    const metadata = inferCoverageMetadata(question, stage.label);
+    if (!metadata?.itemKey || !metadata?.itemType) continue;
+    const key = metadata.itemKey;
+    byKey.set(key, (byKey.get(key) || 0) + 1);
+  }
+
+  const runtimeKeys = [...byKey.keys()].sort();
+  const configured = coverageExpectations[stage.id];
+  const expectedKeys = configured?.itemKeys || runtimeKeys;
+  const missingKeys = expectedKeys.filter(key => !byKey.has(key));
+  const impossibleKeys = expectedKeys.filter(key => !runtimeKeys.includes(key));
+  const expectedTotal = configured?.total || expectedKeys.length;
+
+  console.log(`- ${stage.label}`);
+  console.log(`  expected total: ${expectedTotal} ${configured?.unit || "items"}${configured?.note ? ` (${configured.note})` : ""}`);
+  console.log(`  runtime unique itemKeys: ${runtimeKeys.length}${runtimeKeys.length ? ` [${runtimeKeys.join(", ")}]` : ""}`);
+  console.log(`  missing itemKeys: ${missingKeys.length ? missingKeys.join(", ") : "none"}`);
+  console.log(`  questions per itemKey: ${runtimeKeys.map(key => `${key}:${byKey.get(key)}`).join(", ") || "none"}`);
+
+  if (configured?.itemKeys && impossibleKeys.length > 0) {
+    console.warn(`  warning: configured total is impossible with current runtime pool; missing ${impossibleKeys.join(", ")}`);
+  }
+}
+
+const listenAndFindDiagnostics = matchedQuestions
+  .map(question => getListenAndFindAssetDiagnostics(question))
+  .filter(Boolean);
+const listenAndFindMissingImages = listenAndFindDiagnostics
+  .filter(item => item.missingImages.length > 0 || item.missingChoiceAssets.length > 0);
+const listenAndFindMissingAudio = listenAndFindDiagnostics
+  .filter(item => item.missingAudio);
+const listenAndFindBadAudioText = listenAndFindDiagnostics
+  .filter(item => !item.usesSingleWordAudioText);
+
+console.log("");
+console.log("Listen & Find Word diagnostics:");
+console.log(`  questions: ${listenAndFindDiagnostics.length}`);
+console.log(`  questions missing option images: ${listenAndFindMissingImages.length}`);
+console.log(`  questions missing static target mp3: ${listenAndFindMissingAudio.length}`);
+console.log(`  questions not using one-word audio text: ${listenAndFindBadAudioText.length}`);
+
+for (const item of listenAndFindMissingImages.slice(0, 20)) {
+  console.warn(`  missing images: ${item.question.id} -> ${[...new Set([...item.missingImages, ...item.missingChoiceAssets])].join(", ")}`);
+}
+
+for (const item of listenAndFindMissingAudio.slice(0, 20)) {
+  console.warn(`  missing mp3: ${item.question.id} -> ${item.question.answer}`);
 }
 
 const emptyStages = counts.filter(({ count }) => count === 0);

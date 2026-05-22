@@ -1,22 +1,29 @@
 export const initialSoundAnchors = {
+  a: "apple",
   b: "ball",
   c: "cat",
   d: "dog",
+  e: "egg",
   f: "fish",
   g: "goat",
   h: "hat",
+  i: "igloo",
   j: "jam",
+  k: "kite",
   l: "leaf",
   m: "moon",
   n: "nest",
+  o: "octopus",
   p: "pig",
+  q: "queen",
   r: "rabbit",
   s: "sun",
   t: "top",
+  u: "umbrella",
   v: "van",
   w: "web",
   y: "yak",
-  z: "zip"
+  z: "zebra"
 };
 
 export const finalSoundAnchors = {

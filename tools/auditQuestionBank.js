@@ -5,6 +5,9 @@ import { fileURLToPath } from "url";
 import { questions } from "../src/questions.js";
 import { masteryCoreQuestions } from "../src/data/masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "../src/data/masteryExtraQuestions.js";
+import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQuestions.js";
+import { coverageExpectations } from "../src/data/coverageExpectations.js";
+import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
 import { templateExpansion2 } from "../src/data/templateExpansion2.js";
@@ -40,6 +43,7 @@ const questionBanks = [
   ["src/questions.js", questions],
   ["src/data/masteryCoreQuestions.js", masteryCoreQuestions],
   ["src/data/masteryExtraQuestions.js", masteryExtraQuestions],
+  ["src/data/initialSoundCoverageQuestions.js", initialSoundCoverageQuestions],
   ["src/data/templateQuestions.js", templateQuestions],
   ["src/data/templateExpansion.js", templateExpansion],
   ["src/data/templateExpansion2.js", templateExpansion2],
@@ -55,7 +59,7 @@ const questionBanks = [
 
 const allQuestions =
   questionBanks.flatMap(([file, bank]) =>
-    bank.map((question, index) => ({ file, index, question }))
+    bank.map((question, index) => ({ file, index, question: enrichListenAndFindWordQuestion(question) }))
   );
 
 const questionFormatValues = getAllowedQuestionFormatValues();
@@ -368,11 +372,13 @@ function phonicsWordingIssue(question, stage) {
     return 'Visible prompt contains phoneme slash notation: "' + prompt + '".';
   }
 
-  if (spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
+  const isListenAndFindWord = question.questionType === "listen_and_find_word";
+
+  if (!isListenAndFindWord && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText uses an isolated phoneme or letter sound: "' + spoken + '".';
   }
 
-  if (spoken && !naturalSentencePattern.test(spoken.trim())) {
+  if (!isListenAndFindWord && spoken && !naturalSentencePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText should be a full natural sentence: "' + spoken + '".';
   }
 
@@ -414,10 +420,10 @@ function phonicsWordingIssue(question, stage) {
     }
   }
 
-  if (stage === "CVC and Short Vowels" && prompt === "Listen and find the word.") {
-    const expectedSpoken = "Find the word " + normalize(question.answer) + ".";
+  if (stage === "CVC and Short Vowels" && isListenAndFindWord) {
+    const expectedSpoken = normalize(question.answer);
     if (spoken !== expectedSpoken) {
-      return 'CVC listening spokenPrompt/audioText should be "' + expectedSpoken + '".';
+      return 'Listen & Find audio text should be the single target word "' + expectedSpoken + '".';
     }
   }
 
@@ -546,22 +552,31 @@ function isolatedPhonemeAudioIssue(question) {
 
 function cvcListenAudioIssue(question, stage) {
   if (stage !== "CVC and Short Vowels") return null;
-  if (question.question !== "Listen and find the word.") return null;
+  if (question.questionType !== "listen_and_find_word") return null;
 
-  const expected = "find the word " + normalize(question.answer);
+  const expected = normalize(question.answer);
   const spokenPrompt = question.spokenPrompt ? normalize(question.spokenPrompt) : "";
   const audioText = question.audioText ? normalize(question.audioText) : "";
 
   if (!spokenPrompt && !audioText) {
-    return "CVC listening question needs spokenPrompt/audioText as a full sentence.";
+    return "Listen & Find Word question needs one-word spokenPrompt/audioText.";
   }
 
   if (spokenPrompt && spokenPrompt !== expected) {
-    return 'spokenPrompt must be "Find the word ' + question.answer + '.", not "' + question.spokenPrompt + '".';
+    return 'spokenPrompt must be the single target word "' + question.answer + '", not "' + question.spokenPrompt + '".';
   }
 
   if (audioText && audioText !== expected) {
-    return 'audioText must be "Find the word ' + question.answer + '.", not "' + question.audioText + '".';
+    return 'audioText must be the single target word "' + question.answer + '", not "' + question.audioText + '".';
+  }
+
+  const diagnostics = getListenAndFindAssetDiagnostics(question);
+  if (!diagnostics) return null;
+  if (diagnostics.missingAudio) {
+    return `Listen & Find Word target needs a static word mp3: "${question.answer}".`;
+  }
+  if (diagnostics.missingImages.length > 0 || diagnostics.missingChoiceAssets.length > 0) {
+    return `Listen & Find Word choices need image assets: ${[...new Set([...diagnostics.missingImages, ...diagnostics.missingChoiceAssets])].join(", ")}.`;
   }
 
   return null;
@@ -1162,6 +1177,64 @@ function printQuestionFormatStats(stats) {
     .forEach(([type, count]) => console.log(`- ${type}: ${count}`));
 }
 
+function printCoverageDiagnostics() {
+  console.log("");
+  console.log("COVERAGE DIAGNOSTICS:");
+
+  for (const stage of skillTree.filter(item => coverageEnabledStages.has(item.label))) {
+    const byKey = new Map();
+
+    for (const item of allQuestions) {
+      const question = item.question;
+      if (getStage(question) !== stage.label) continue;
+
+      const metadata = inferCoverageMetadata(question, stage.label);
+      if (!metadata?.itemKey || !metadata?.itemType) continue;
+
+      byKey.set(metadata.itemKey, (byKey.get(metadata.itemKey) || 0) + 1);
+    }
+
+    const runtimeKeys = [...byKey.keys()].sort();
+    const configured = coverageExpectations[stage.id];
+    const expectedKeys = configured?.itemKeys || runtimeKeys;
+    const missingKeys = expectedKeys.filter(key => !byKey.has(key));
+    const expectedTotal = configured?.total || expectedKeys.length;
+
+    console.log(`- ${stage.label}: expected ${expectedTotal} ${configured?.unit || "items"}, runtime unique ${runtimeKeys.length}`);
+    console.log(`  itemKeys: ${runtimeKeys.join(", ") || "none"}`);
+    console.log(`  missing: ${missingKeys.join(", ") || "none"}`);
+    console.log(`  per itemKey: ${runtimeKeys.map(key => `${key}:${byKey.get(key)}`).join(", ") || "none"}`);
+
+    if (configured?.note) {
+      console.log(`  note: ${configured.note}`);
+    }
+  }
+}
+
+function printListenAndFindDiagnostics() {
+  const diagnostics = allQuestions
+    .map(item => getListenAndFindAssetDiagnostics(item.question))
+    .filter(Boolean);
+  const missingImages = diagnostics.filter(item => item.missingImages.length > 0 || item.missingChoiceAssets.length > 0);
+  const missingAudio = diagnostics.filter(item => item.missingAudio);
+  const badAudioText = diagnostics.filter(item => !item.usesSingleWordAudioText);
+
+  console.log("");
+  console.log("LISTEN & FIND WORD DIAGNOSTICS:");
+  console.log(`Questions: ${diagnostics.length}`);
+  console.log(`Missing option images: ${missingImages.length}`);
+  console.log(`Missing static target mp3: ${missingAudio.length}`);
+  console.log(`Not one-word audio text: ${badAudioText.length}`);
+
+  for (const item of missingImages.slice(0, 20)) {
+    console.log(`- Missing images ${item.question.id}: ${[...new Set([...item.missingImages, ...item.missingChoiceAssets])].join(", ")}`);
+  }
+
+  for (const item of missingAudio.slice(0, 20)) {
+    console.log(`- Missing mp3 ${item.question.id}: ${item.question.answer}`);
+  }
+}
+
 function printProblems(problems) {
   const byType = new Map();
 
@@ -1193,6 +1266,8 @@ const { counts, problems, formatStats } = auditQuestions();
 
 printCounts(counts);
 printQuestionFormatStats(formatStats);
+printCoverageDiagnostics();
+printListenAndFindDiagnostics();
 printProblems(problems);
 
 if (problems.length > 0) {

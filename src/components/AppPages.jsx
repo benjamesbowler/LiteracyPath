@@ -1409,6 +1409,9 @@ export function AssessmentPage({
   endAssessment,
   assessmentMode
 }) {
+  const isListenAndFindWord =
+    currentQuestion?.questionType === "listen_and_find_word";
+
   return (
     <main className="assessment-shell">
       <div className="assessment-topbar">
@@ -1481,7 +1484,13 @@ export function AssessmentPage({
             <div className="question-line">
               <button
                 className="mini-audio-button"
-                onClick={() => speakText(currentQuestion.audioText || currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question)}
+                onClick={() =>
+                  speakText(
+                    currentQuestion.audioText || currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question,
+                    currentQuestion.audioPath || "",
+                    { allowBrowserFallback: !isListenAndFindWord }
+                  )
+                }
                 aria-label="Listen to question"
                 type="button"
               >
@@ -1500,22 +1509,34 @@ export function AssessmentPage({
                 answerQuestion={answerQuestion}
               />
             ) : (
-              <div className="choices">
+              <div className={isListenAndFindWord ? "choices visual-word-choices" : "choices"}>
                 {currentQuestion.choices.map((choice, index) => (
-                  <div className="choice-wrap" key={index}>
+                  <div
+                    className={isListenAndFindWord ? "choice-wrap visual-word-choice-wrap" : "choice-wrap"}
+                    key={index}
+                  >
+                    {!isListenAndFindWord && (
+                      <button
+                        className="choice-audio"
+                        onClick={() => speakText(choice)}
+                        aria-label={`Listen to ${choice}`}
+                        type="button"
+                      >
+                        🔊
+                      </button>
+                    )}
                     <button
-                      className="choice-audio"
-                      onClick={() => speakText(choice)}
-                      aria-label={`Listen to ${choice}`}
-                      type="button"
-                    >
-                      🔊
-                    </button>
-                    <button
-                      className="choice-button"
+                      className={isListenAndFindWord ? "choice-button visual-word-choice" : "choice-button"}
                       onClick={() => answerQuestion(choice)}
                     >
-                      {choice}
+                      {isListenAndFindWord && currentQuestion.choiceImages?.[choice]?.image && (
+                        <img
+                          src={currentQuestion.choiceImages[choice].image}
+                          alt={currentQuestion.choiceImages[choice].alt || `Picture for ${choice}`}
+                          className="visual-word-choice-image"
+                        />
+                      )}
+                      <span>{choice}</span>
                     </button>
                   </div>
                 ))}

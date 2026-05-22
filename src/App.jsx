@@ -21,6 +21,9 @@ import {
 
 import { masteryCoreQuestions } from "./data/masteryCoreQuestions";
 import { masteryExtraQuestions } from "./data/masteryExtraQuestions";
+import { initialSoundCoverageQuestions } from "./data/initialSoundCoverageQuestions";
+import { coverageExpectations } from "./data/coverageExpectations";
+import { enrichListenAndFindWordQuestion } from "./data/listenAndFindAssets";
 
 import { templateQuestions } from "./data/templateQuestions";
 import { templateExpansion } from "./data/templateExpansion";
@@ -534,6 +537,7 @@ function isQuestionValid(q) {
 const allQuestions = [
   ...masteryCoreQuestions,
   ...masteryExtraQuestions,
+  ...initialSoundCoverageQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,
@@ -546,18 +550,10 @@ const allQuestions = [
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
 ].filter(isQuestionValid).map(question =>
-  applyQuestionFormatMetadata(applyItemMetadata(question))
+  applyQuestionFormatMetadata(applyItemMetadata(enrichListenAndFindWordQuestion(question)))
 );
 
-const configuredCoverageTotals = {
-  initial_sounds: { total: 26, unit: "sounds" },
-  // TODO(item-coverage): Replace this safe alphabet total with an explicit final-sound scope when the curriculum map is formalized.
-  final_sounds: { total: 26, unit: "sounds" },
-  hfw_1_25: { total: 25, unit: "words" },
-  hfw_26_50: { total: 25, unit: "words" },
-  // TODO(item-coverage): The current app groups 51-100 together; split into 51-75 and 76-100 if the skill tree is later separated.
-  hfw_51_100: { total: 50, unit: "words" }
-};
+const configuredCoverageTotals = coverageExpectations;
 
 function getCoverageItemKeysForStage(stage) {
   const keys = new Set();
@@ -2515,8 +2511,24 @@ export default function App() {
     }
   }
 
-  async function speakText(text) {
+  async function speakText(text, audioPath = "", options = {}) {
     if (!text) return;
+
+    const allowBrowserFallback = options.allowBrowserFallback !== false;
+    if (audioPath) {
+      try {
+        if (window.speechSynthesis) {
+          window.speechSynthesis.cancel();
+        }
+
+        const audio = new Audio(audioPath);
+        await audio.play();
+        return;
+      } catch (error) {
+        console.warn("Static audio unavailable.", error);
+        if (!allowBrowserFallback) return;
+      }
+    }
 
     const normalizedText = normalizeAudioText(text);
     const audioKey = audioTextIndex[normalizedText];
@@ -2546,7 +2558,9 @@ export default function App() {
       }
     }
 
-    speakWithBrowser(text);
+    if (allowBrowserFallback) {
+      speakWithBrowser(text);
+    }
   }
 
   function shouldShowImage(question) {
