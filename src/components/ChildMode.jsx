@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { audioManifest, audioTextIndex } from "../data/audioManifest";
+import { getChildAudioPath, rumbleAssets } from "../data/childAssets";
 import { shortAEchoCavesQuestions } from "../data/childActivityModels";
 
 const echoMissions = [
@@ -70,6 +71,19 @@ function speakWithBrowser(text) {
 async function speakChildText(text) {
   if (!text) return;
 
+  const childAudioPath = getChildAudioPath(text);
+  if (childAudioPath) {
+    try {
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+
+      const audio = new Audio(childAudioPath);
+      await audio.play();
+      return;
+    } catch (error) {
+      console.warn("Kimi Child Mode audio unavailable, checking existing audio.", error);
+    }
+  }
+
   const normalizedText = normalizeAudioText(text);
   const audioKey = audioTextIndex[normalizedText];
   const audioEntry = audioKey ? audioManifest[audioKey] : null;
@@ -110,8 +124,14 @@ function CrystalShards({ count = 3 }) {
 }
 
 function Rumble({ active }) {
+  const rumbleImage = active ? rumbleAssets.excited : rumbleAssets.listening;
+
   return (
-    <div className={active ? "rumble rumble-active" : "rumble"} aria-label="Rumble">
+    <div
+      className={active ? "rumble rumble-active rumble-asset-ready" : "rumble rumble-asset-ready"}
+      aria-label="Rumble"
+    >
+      <img className="rumble-asset-image" src={rumbleImage} alt="" aria-hidden="true" />
       <div className="rumble-horn left"></div>
       <div className="rumble-horn right"></div>
       <div className="rumble-face">
@@ -277,7 +297,16 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
             type="button"
             aria-label={`Hear ${question.targetWord}`}
           >
-            <img src={question.targetAsset.image} alt={question.targetAsset.alt} />
+            <img
+              src={question.targetAsset.image || question.targetAsset.fallbackImage}
+              alt={question.targetAsset.alt}
+              onError={event => {
+                if (question.targetAsset.fallbackImage && !event.currentTarget.dataset.fallbackApplied) {
+                  event.currentTarget.dataset.fallbackApplied = "true";
+                  event.currentTarget.src = question.targetAsset.fallbackImage;
+                }
+              }}
+            />
             <span className="picture-audio-badge" aria-hidden="true">▶</span>
           </button>
         </figure>

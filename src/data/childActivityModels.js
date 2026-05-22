@@ -1,3 +1,5 @@
+import { childWordAssets, getChildWordAsset } from "./childAssets";
+
 export const CHILD_ACTIVITY_FORMATS = {
   PICTURE_TO_PRINT_MATCH: {
     label: "Picture to Print Match",
@@ -29,98 +31,17 @@ export const CHILD_ACTIVITY_FORMATS = {
   }
 };
 
-export const childImageAssets = {
-  dog: {
-    word: "dog",
-    image: "/images/objects/dog.svg",
-    category: "objects",
-    alt: "A friendly dog"
-  },
-  cat: {
-    word: "cat",
-    image: "/images/cvc/cat.svg",
-    category: "cvc",
-    alt: "A friendly cat"
-  },
-  fish: {
-    word: "fish",
-    image: "/images/objects/fish.svg",
-    category: "objects",
-    alt: "A colorful fish"
-  },
-  book: {
-    word: "book",
-    image: "/images/objects/book.svg",
-    category: "objects",
-    alt: "A picture book"
-  },
-  bed: {
-    word: "bed",
-    image: "/images/vowels/bed.svg",
-    category: "vowels",
-    alt: "A cozy bed"
-  },
-  bat: {
-    word: "bat",
-    image: "/images/cvc/bat.svg",
-    category: "cvc",
-    alt: "A baseball bat"
-  },
-  hat: {
-    word: "hat",
-    image: "/images/cvc/hat.svg",
-    category: "cvc",
-    alt: "A soft hat"
-  },
-  map: {
-    word: "map",
-    image: "/images/cvc/map.svg",
-    category: "cvc",
-    alt: "A folded map"
-  },
-  cap: {
-    word: "cap",
-    image: "/images/cvc/cap.svg",
-    category: "cvc",
-    alt: "A baseball cap"
-  },
-  pan: {
-    word: "pan",
-    image: "/images/cvc/pan.svg",
-    category: "cvc",
-    alt: "A cooking pan"
-  },
-  man: {
-    word: "man",
-    image: "/images/cvc/man.svg",
-    category: "cvc",
-    alt: "A smiling man"
-  },
-  nap: {
-    word: "nap",
-    image: "/images/cvc/nap.svg",
-    category: "cvc",
-    alt: "A child taking a nap"
-  },
-  boat: {
-    word: "boat",
-    image: "/images/vowels/boat.svg",
-    category: "vowels",
-    alt: "A small boat"
-  },
-  coat: {
-    word: "coat",
-    image: "/images/vowels/coat.svg",
-    category: "vowels",
-    alt: "A warm coat"
-  },
-  goat: {
-    word: "goat",
-    image: "/images/vowels/goat.svg",
-    category: "vowels",
-    alt: "A gentle goat"
-  }
-};
+export const childImageAssets = Object.fromEntries(
+  Object.entries(childWordAssets).map(([word, asset]) => [
+    word,
+    {
+      word,
+      image: asset.image || asset.fallbackImage,
+      fallbackImage: asset.fallbackImage,
+      alt: asset.alt
+    }
+  ])
+);
 
 const formatTwoChoiceSets = {
   catEarly: ["cat", "dog", "fish", "book"],
@@ -226,8 +147,8 @@ export const shortAEchoCavesQuestions = [
   }
 ].map(question => ({
   ...question,
-  // TODO(child-mode-assets): Replace placeholder SVGs and browser fallback speech with final image/audio assets.
-  targetAsset: childImageAssets[question.targetWord],
+  // TODO(child-mode-assets): Replace any fallback placeholders with final Kimi/generated assets as the pool expands.
+  targetAsset: getChildWordAsset(question.targetWord) || childImageAssets[question.targetWord],
   choices: question.choices.map(word => ({
     id: word,
     word,
