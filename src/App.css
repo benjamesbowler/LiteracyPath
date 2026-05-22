@@ -888,6 +888,102 @@ select:focus {
   object-fit: contain;
 }
 
+.assessment-question-layout {
+  gap: 12px;
+}
+
+.assessment-prompt {
+  margin-bottom: 0 !important;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--lp-color-border-subtle);
+}
+
+.assessment-prompt h2 {
+  font-size: clamp(23px, 2.4vw, 28px) !important;
+  line-height: 1.25;
+}
+
+.assessment-stimulus {
+  display: grid;
+  place-items: center;
+  min-height: clamp(132px, 22vh, 240px);
+  padding: 4px 0;
+}
+
+.assessment-main-image-wrap,
+.assessment-listening-panel,
+.assessment-passage-card {
+  width: min(520px, 100%);
+  margin: 0 auto !important;
+}
+
+.assessment-main-image-wrap {
+  position: relative;
+  min-height: clamp(150px, 24vh, 240px);
+}
+
+.assessment-main-image {
+  max-height: clamp(140px, 23vh, 220px) !important;
+}
+
+.assessment-stimulus-audio {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 48px;
+  min-height: 48px !important;
+  border-radius: 999px;
+  font-size: 18px;
+}
+
+.assessment-listening-panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(150px, 24vh, 220px);
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 16px;
+  background: var(--lp-color-surface-subtle);
+}
+
+.assessment-listening-visual {
+  display: grid;
+  place-items: center;
+  width: clamp(86px, 14vw, 128px);
+  height: clamp(86px, 14vw, 128px);
+  border-radius: 999px;
+  background: #eef6ff;
+  border: 1px solid #b2ddff;
+  color: #175cd3;
+  box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.72);
+}
+
+.assessment-listening-visual span {
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1;
+}
+
+.assessment-answer-grid {
+  margin-top: 0 !important;
+}
+
+.assessment-answer-card {
+  min-height: clamp(58px, 8vh, 76px) !important;
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 800;
+}
+
+.visual-card-grid,
+.initial-sound-card-grid,
+.visual-word-choices {
+  gap: 12px;
+}
+
+.visual-assessment-card,
+.initial-sound-card {
+  min-width: 0;
+}
+
 .support-image-row {
   display: flex;
   flex-wrap: wrap;
@@ -1698,6 +1794,20 @@ select:focus {
 
   .visual-assessment-card-button img {
     height: 112px;
+  }
+
+  .assessment-stimulus {
+    min-height: 116px;
+  }
+
+  .assessment-main-image-wrap,
+  .assessment-listening-panel {
+    min-height: 132px;
+  }
+
+  .assessment-stimulus-audio {
+    width: 42px;
+    min-height: 42px !important;
   }
 
   .fix-sentence-actions {

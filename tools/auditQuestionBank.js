@@ -785,6 +785,20 @@ function isImageQuestion(question) {
   );
 }
 
+function isPictureToPrintQuestion(question) {
+  return String(question.formatType || "").toUpperCase() === "PICTURE_TO_PRINT_MATCH" ||
+    normalize(question.question || question.prompt).includes("matches the picture");
+}
+
+function pictureToPrintLayoutIssue(question) {
+  if (!isPictureToPrintQuestion(question)) return "";
+  if (!question.imagePath) return "Picture-to-print question needs exactly one main target image.";
+  if ((question.imageCards || []).length > 0 || Object.keys(question.choiceImages || {}).length > 0) {
+    return "Picture-to-print answer choices must be text-only, not image cards.";
+  }
+  return "";
+}
+
 function imagePathExists(imagePath) {
   if (!imagePath || !imagePath.startsWith("/")) return false;
 
@@ -998,6 +1012,18 @@ function auditQuestions() {
         "sentence completion missing context",
         item,
         sentenceCompletionProblem
+      );
+    }
+
+    const pictureToPrintProblem =
+      pictureToPrintLayoutIssue(question);
+
+    if (pictureToPrintProblem) {
+      addProblem(
+        problems,
+        "picture-to-print layout",
+        item,
+        pictureToPrintProblem
       );
     }
 

@@ -239,6 +239,7 @@ function isQuestionValid(question) {
   if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
   if (isPairSelectionQuestion(question) && !hasCompletePairSelectionAssets(question)) return false;
   if (isVisualCardChoiceQuestion(question) && !hasCompleteVisualQuestionAssets(question)) return false;
+  if (isPictureToPrintQuestion(question) && ((question.imageCards || []).length > 0 || Object.keys(question.choiceImages || {}).length > 0)) return false;
   if (question.questionType === "listen_and_find_word") {
     const diagnostics = getListenAndFindAssetDiagnostics(question);
     if (
@@ -289,6 +290,14 @@ function questionImageAssets(question) {
     });
   }
 
+  for (const card of question.promptImageCards || []) {
+    assets.push({
+      key: card.word,
+      path: card.image,
+      role: "prompt image"
+    });
+  }
+
   for (const card of question.imageCards || []) {
     assets.push({
       key: card.word,
@@ -334,10 +343,30 @@ function formatName(question) {
   return getQuestionFormatMetadata(question).formatType;
 }
 
+function isPictureToPrintQuestion(question) {
+  return formatName(question) === "PICTURE_TO_PRINT_MATCH" ||
+    normalize(question.question || question.prompt).includes("matches the picture");
+}
+
+function requiresStaticAssessmentAudio(question) {
+  return new Set([
+    "INITIAL_SOUND_PAIR_SELECT",
+    "FINAL_SOUND_PAIR_SELECT",
+    "RHYME_PAIR_SELECT",
+    "LISTEN_FIND_RHYME",
+    "LISTEN_CHOOSE_VOWEL",
+    "PICTURE_TO_PRINT_MATCH",
+    "PICTURE_AUDIO_TO_PATTERN",
+    "LISTEN_FIND_WORD",
+    "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+  ]).has(formatName(question)) || question.questionType === "listen_and_find_word";
+}
+
 function isAssetRequiredQuestion(question) {
   return question.questionType === "listen_and_find_word" ||
     isPairSelectionQuestion(question) ||
-    isVisualCardChoiceQuestion(question);
+    isVisualCardChoiceQuestion(question) ||
+    isPictureToPrintQuestion(question);
 }
 
 function assetGapsForQuestion(question) {
@@ -347,6 +376,26 @@ function assetGapsForQuestion(question) {
 
   const images = questionImageAssets(question);
   const audio = questionAudioAssets(question);
+
+  if (isPictureToPrintQuestion(question)) {
+    if (!question.imagePath) {
+      gaps.push({
+        type: "missing main target image",
+        key: question.targetWord || question.answer,
+        path: "",
+        priority: "high"
+      });
+    }
+
+    if ((question.imageCards || []).length > 0 || Object.keys(question.choiceImages || {}).length > 0) {
+      gaps.push({
+        type: "picture-to-print option images should be text-only",
+        key: question.id,
+        path: "",
+        priority: "high"
+      });
+    }
+  }
 
   if (question.questionType === "listen_and_find_word") {
     const diagnostics = getListenAndFindAssetDiagnostics(question);
@@ -415,6 +464,15 @@ function assetGapsForQuestion(question) {
         priority: "high"
       });
     }
+  }
+
+  if (requiresStaticAssessmentAudio(question) && question.audioText && !question.audioPath) {
+    gaps.push({
+      type: "missing static audio",
+      key: question.audioText,
+      path: "",
+      priority: "high"
+    });
   }
 
   return gaps;
@@ -816,11 +874,223 @@ function writeAssetCoverageDoc() {
   return docPath;
 }
 
+function writeAudioQualityAuditDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "audio_quality_audit.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const byPath = new Map();
+  for (const audit of stageAudits) {
+    for (const question of audit.questions) {
+      for (const asset of questionAudioAssets(question)) {
+        if (!asset.path && !requiresStaticAssessmentAudio(question)) continue;
+        const key = asset.path || `${question.id}:${asset.key}`;
+        const existing = byPath.get(key) || {
+          word: asset.key,
+          path: asset.path || "",
+          source: sourcePackForAuditKey(asset.key),
+          skills: new Set(),
+          flags: new Set()
+        };
+
+        existing.skills.add(audit.stage.label);
+        if (!asset.path) existing.flags.add("missing human/static MP3");
+        if (asset.path && !publicAssetExists(asset.path)) existing.flags.add("missing file");
+        if (asset.path?.startsWith("/audio/") && !asset.path.includes("/audio/child-mode/")) {
+          existing.flags.add("legacy generated audio; review voice consistency");
+        }
+        if (asset.path?.includes("-kimi3")) existing.flags.add("alternate Kimi 3 voice; review consistency with existing pack");
+        byPath.set(key, existing);
+      }
+    }
+  }
+
+  const rows = [...byPath.values()]
+    .sort((a, b) => a.word.localeCompare(b.word) || a.path.localeCompare(b.path))
+    .map(item => [
+      item.word,
+      item.path,
+      item.source,
+      [...item.skills].sort().join(", "),
+      [...item.flags].sort().join("; ") || "static asset present"
+    ]);
+
+  const body = [
+    "# Audio Quality Audit",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`.",
+    "",
+    "Audio policy: early phonics and HFW assessment formats use static asset audio only. Browser TTS is reserved for legacy non-critical prompts and is not an allowed fallback for asset-required assessment formats.",
+    "",
+    markdownTable(["word", "audio path", "source pack", "used in skills", "quality flag"], rows)
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function sourcePackForAuditKey(key) {
+  const asset = getChildWordAsset(key);
+  return asset?.source || "existing";
+}
+
+function writeImageQualityAuditDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "image_quality_audit.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const rows = [];
+  for (const audit of stageAudits) {
+    for (const question of audit.questions) {
+      const format = formatName(question);
+      const images = questionImageAssets(question);
+      const pathToKeys = new Map();
+
+      for (const asset of images) {
+        if (asset.path) {
+          const keys = pathToKeys.get(asset.path) || new Set();
+          keys.add(asset.key);
+          pathToKeys.set(asset.path, keys);
+        }
+
+        const flags = [];
+        if (!asset.path) flags.push("missing image");
+        else if (!publicAssetExists(asset.path)) flags.push("missing file");
+        if (asset.path?.includes("fallback")) flags.push("fallback/placeholder candidate");
+        if (isPictureToPrintQuestion(question) && asset.role !== "question image") {
+          flags.push("picture-to-print choices should not use option images");
+        }
+        if (format === "PLURAL_IMAGE_SPELLING" && asset.role === "prompt image") {
+          flags.push("uses repeated singular asset; request true plural image");
+        }
+
+        rows.push([
+          asset.key,
+          audit.stage.label,
+          format,
+          asset.role,
+          publicAssetExists(asset.path) ? "yes" : "no",
+          asset.path || "",
+          flags.join("; ")
+        ]);
+      }
+
+      for (const [assetPath, keys] of pathToKeys.entries()) {
+        if (keys.size > 1) {
+          rows.push([
+            [...keys].sort().join(", "),
+            audit.stage.label,
+            format,
+            "duplicate path check",
+            publicAssetExists(assetPath) ? "yes" : "no",
+            assetPath,
+            "same image path reused for multiple answer words; review match quality"
+          ]);
+        }
+      }
+
+      if (format === "PICTURE_TO_PRINT_MATCH" && (question.imageCards || []).length > 0) {
+        rows.push([
+          question.id,
+          audit.stage.label,
+          format,
+          "layout guard",
+          "no",
+          "",
+          "answer cards include images; should be one target image with text-only choices"
+        ]);
+      }
+    }
+  }
+
+  const body = [
+    "# Image Quality Audit",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`.",
+    "",
+    "This audit reports missing/broken assets and flags image uses that need human visual review. It does not mark placeholders or repeated singular images as complete plural assets.",
+    "",
+    markdownTable(["word", "skill", "format", "role", "file exists", "image path", "quality flag"], rows)
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeKimiNextAssetRequestDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "kimi_next_asset_request.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const gapLines = [];
+  const weakPluralLines = [];
+  const audioLines = [];
+  const imageLines = [];
+
+  for (const audit of stageAudits) {
+    for (const gap of audit.assetGaps) {
+      const line = `- ${gap.key} (${gap.skill}, ${gap.format}): ${gap.type}${gap.path ? ` at ${gap.path}` : ""}`;
+      gapLines.push(line);
+      if (gap.type.includes("audio")) audioLines.push(line);
+      if (gap.type.includes("image")) imageLines.push(line);
+    }
+
+    for (const question of audit.questions) {
+      if (formatName(question) === "PLURAL_IMAGE_SPELLING") {
+        weakPluralLines.push(`- ${question.targetPlural || question.answer}: create a clear plural image showing more than one ${question.targetWord || "object"}.`);
+      }
+    }
+  }
+
+  const body = [
+    "# Kimi Next Asset Request",
+    "",
+    "Please create or replace only real, child-friendly assets. Do not create placeholders.",
+    "",
+    "## Urgent UI Consistency Assets",
+    "",
+    "- A simple consistent listening/speaker illustration for assessment stimulus panels, exported as `listen-icon.png` if possible.",
+    "",
+    "## Short Vowels / CVC",
+    "",
+    imageLines.filter(line => /Short Vowel|CVC/.test(line)).join("\n") || "- No missing required runtime image files found; review visual clarity for minimal-pair words.",
+    "",
+    "## Blends / Digraphs",
+    "",
+    imageLines.filter(line => /Blend|Digraph/.test(line)).join("\n") || "- No missing required runtime image files found; add more images/audio for underrepresented blends and `wh` variants.",
+    "",
+    "## Plurals",
+    "",
+    weakPluralLines.join("\n") || "- No plural image requests found.",
+    "",
+    "## HFW",
+    "",
+    audioLines.filter(line => /High-Frequency/.test(line)).join("\n") || "- No missing required runtime HFW MP3s found.",
+    "",
+    "## Remaining Phonics",
+    "",
+    gapLines.filter(line => !/Short Vowel|CVC|Blend|Digraph|High-Frequency/.test(line)).join("\n") || "- No missing required runtime files found in currently active asset-backed formats.",
+    "",
+    "## Priority Order",
+    "",
+    "1. True plural images for active plural questions.",
+    "2. More real images/audio for underrepresented blend and digraph patterns.",
+    "3. Additional long vowel, vowel team, r-controlled, and homophone assets to unlock honest coverage expansion.",
+    "4. Voice-consistency review for `-kimi3` alternate MP3s."
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
 const coverageDocPath = writeCoverageAuditDoc();
 const assetDocPath = writeAssetCoverageDoc();
+const audioQualityDocPath = writeAudioQualityAuditDoc();
+const imageQualityDocPath = writeImageQualityAuditDoc();
+const kimiRequestDocPath = writeKimiNextAssetRequestDoc();
 console.log("");
 console.log(`Wrote coverage audit: ${path.relative(rootDir, coverageDocPath)}`);
 console.log(`Wrote asset coverage: ${path.relative(rootDir, assetDocPath)}`);
+console.log(`Wrote audio quality audit: ${path.relative(rootDir, audioQualityDocPath)}`);
+console.log(`Wrote image quality audit: ${path.relative(rootDir, imageQualityDocPath)}`);
+console.log(`Wrote Kimi asset request: ${path.relative(rootDir, kimiRequestDocPath)}`);
 
 const emptyStages = counts.filter(({ count }) => count === 0);
 const missingCoverageMetadata = matchedQuestions

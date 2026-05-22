@@ -123,7 +123,7 @@ export const shortVowelFormatExpansionQuestions = cvcWords.flatMap(([itemKey, wo
       targetWord: word,
       audioWord: word
     }),
-    makeVisualCardChoiceQuestion({
+    makeWordChoiceQuestion({
       id: `p3_short_vowel_picture_${index + 1}`,
       skill: "short vowel discrimination",
       skillId: "short_vowel_discrimination",
@@ -135,8 +135,11 @@ export const shortVowelFormatExpansionQuestions = cvcWords.flatMap(([itemKey, wo
       answer: word,
       targetWord: word,
       imageWord: word,
-      requireOptionImages: false,
-      extra: { targetVowel: vowel }
+      audioWord: hasAudio(word) ? word : "",
+      extra: {
+        targetVowel: vowel,
+        textOnlyChoices: true
+      }
     }),
     makeWordChoiceQuestion({
       id: `p3_cvc_missing_vowel_${index + 1}`,

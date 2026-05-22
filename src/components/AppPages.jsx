@@ -215,14 +215,16 @@ export function TopNavigation({
           View Report
         </button>
 
-        <button className="nav-button" onClick={openChildMode}>
-          Learning World
-        </button>
-
         {isAdmin && (
-          <button className="nav-button" onClick={openAdminDashboard}>
-            Admin Dashboard
-          </button>
+          <>
+            <button className="nav-button" onClick={openChildMode}>
+              Learning World
+            </button>
+
+            <button className="nav-button" onClick={openAdminDashboard}>
+              Admin Dashboard
+            </button>
+          </>
         )}
 
         <button className="nav-button" onClick={logOutTeacher}>
@@ -425,6 +427,106 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
           </article>
         ))}
       </div>
+    </div>
+  );
+}
+
+function ListeningVisual() {
+  return (
+    <div className="assessment-listening-visual" aria-hidden="true">
+      <span>🔊</span>
+    </div>
+  );
+}
+
+function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, speakText, shouldShowImage }) {
+  const hasPromptImages = currentQuestion.promptImageCards?.length > 0;
+  const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
+  const hasMainImage = shouldShowImage(currentQuestion) || (
+    currentQuestion.imagePath &&
+    (currentQuestion.formatType === "PICTURE_TO_PRINT_MATCH" || currentQuestion.question?.toLowerCase().includes("matches the picture"))
+  );
+  const shouldShowListeningVisual =
+    !hasPromptImages &&
+    !hasPassage &&
+    !hasMainImage &&
+    !isPairSelection &&
+    Boolean(currentQuestion.audioPath || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
+
+  return (
+    <div className="assessment-stimulus">
+      {hasPromptImages && (
+        <div className="prompt-image-row" aria-label="Question picture">
+          {currentQuestion.promptImageCards.map(card => (
+            <img
+              key={card.id || card.word}
+              src={card.image}
+              alt={card.alt || `Picture for ${card.word}`}
+              className="prompt-image-card"
+            />
+          ))}
+        </div>
+      )}
+
+      {hasMainImage && !hasPromptImages && (
+        <div className="image-box assessment-main-image-wrap">
+          <img
+            src={currentQuestion.imagePath}
+            alt="question visual"
+            className="question-image assessment-main-image"
+          />
+          {currentQuestion.audioPath && (
+            <button
+              className="mini-audio-button assessment-stimulus-audio"
+              onClick={() =>
+                speakText(
+                  currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
+                  currentQuestion.audioPath,
+                  { allowBrowserFallback: false }
+                )
+              }
+              aria-label="Hear the word"
+              type="button"
+            >
+              🔊
+            </button>
+          )}
+        </div>
+      )}
+
+      {shouldShowListeningVisual && (
+        <div className="assessment-listening-panel">
+          <ListeningVisual />
+          {currentQuestion.audioPath && (
+            <button
+              className="mini-audio-button assessment-stimulus-audio"
+              onClick={() =>
+                speakText(
+                  currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
+                  currentQuestion.audioPath,
+                  { allowBrowserFallback: false }
+                )
+              }
+              aria-label="Hear the word"
+              type="button"
+            >
+              🔊
+            </button>
+          )}
+        </div>
+      )}
+
+      {currentQuestion.passage && (
+        <div className="passage-wrap assessment-passage-card">
+          <p className="passage">{currentQuestion.passage}</p>
+        </div>
+      )}
+
+      {(currentQuestion.sentence || currentQuestion.context) && (
+        <div className="passage-wrap assessment-passage-card">
+          <p className="passage">{currentQuestion.sentence || currentQuestion.context}</p>
+        </div>
+      )}
     </div>
   );
 }
@@ -1518,6 +1620,23 @@ export function AssessmentPage({
     ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
   const isVisualCardChoice =
     currentQuestion?.questionType === "visual_card_choice";
+  const staticAudioRequiredFormats = new Set([
+    "INITIAL_SOUND_PAIR_SELECT",
+    "FINAL_SOUND_PAIR_SELECT",
+    "RHYME_PAIR_SELECT",
+    "LISTEN_FIND_RHYME",
+    "LISTEN_CHOOSE_VOWEL",
+    "PICTURE_TO_PRINT_MATCH",
+    "PICTURE_AUDIO_TO_PATTERN",
+    "LISTEN_FIND_WORD",
+    "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+  ]);
+  const requiresStaticAudio =
+    isListenAndFindWord ||
+    isPairSelection ||
+    isVisualCardChoice ||
+    staticAudioRequiredFormats.has(currentQuestion?.formatType);
+  const promptAudioPath = isPairSelection ? currentQuestion?.audioPath || "" : "";
 
   return (
     <main className="assessment-shell">
@@ -1560,55 +1679,20 @@ export function AssessmentPage({
       <AnimatePresence mode="wait">
         {currentQuestion && (
           <motion.div
-            className="card assessment-card"
+            className="card assessment-card assessment-question-layout"
             key={currentQuestion.id}
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.96, opacity: 0 }}
           >
-            {currentQuestion.promptImageCards?.length > 0 && (
-              <div className="prompt-image-row" aria-label="Question picture">
-                {currentQuestion.promptImageCards.map(card => (
-                  <img
-                    key={card.id || card.word}
-                    src={card.image}
-                    alt={card.alt || `Picture for ${card.word}`}
-                    className="prompt-image-card"
-                  />
-                ))}
-              </div>
-            )}
-
-            {shouldShowImage(currentQuestion) && !currentQuestion.promptImageCards?.length && (
-              <div className="image-box">
-                <img
-                  src={currentQuestion.imagePath}
-                  alt="question visual"
-                  className="question-image"
-                />
-              </div>
-            )}
-
-            {currentQuestion.passage && (
-              <div className="passage-wrap">
-                <p className="passage">{currentQuestion.passage}</p>
-              </div>
-            )}
-
-            {(currentQuestion.sentence || currentQuestion.context) && (
-              <div className="passage-wrap">
-                <p className="passage">{currentQuestion.sentence || currentQuestion.context}</p>
-              </div>
-            )}
-
-            <div className="question-line">
+            <div className="question-line assessment-prompt">
               <button
                 className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
                 onClick={() =>
                   speakText(
-                    currentQuestion.audioText || currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question,
-                    currentQuestion.audioPath || "",
-                    { allowBrowserFallback: !(isListenAndFindWord || isPairSelection) }
+                    currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question || currentQuestion.audioText,
+                    promptAudioPath,
+                    { allowBrowserFallback: !requiresStaticAudio }
                   )
                 }
                 aria-label="Listen to question"
@@ -1618,6 +1702,15 @@ export function AssessmentPage({
               </button>
               <h2>{currentQuestion.prompt || currentQuestion.question}</h2>
             </div>
+
+            <AssessmentStimulus
+              currentQuestion={currentQuestion}
+              isListenAndFindWord={isListenAndFindWord}
+              isPairSelection={isPairSelection}
+              isVisualCardChoice={isVisualCardChoice}
+              speakText={speakText}
+              shouldShowImage={shouldShowImage}
+            />
 
             <button className="flag-button" onClick={flagCurrentQuestion}>
               ⚠️ Flag Question
@@ -1641,7 +1734,7 @@ export function AssessmentPage({
                 answerQuestion={answerQuestion}
               />
             ) : (
-              <div className={isListenAndFindWord ? "choices visual-word-choices" : "choices"}>
+              <div className={isListenAndFindWord ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid"}>
                 {currentQuestion.choices.map((choice, index) => (
                   <div
                     className={isListenAndFindWord ? "choice-wrap visual-word-choice-wrap" : "choice-wrap"}
@@ -1658,7 +1751,7 @@ export function AssessmentPage({
                       </button>
                     )}
                     <button
-                      className={isListenAndFindWord ? "choice-button visual-word-choice" : "choice-button"}
+                      className={isListenAndFindWord ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card"}
                       onClick={() => answerQuestion(choice)}
                     >
                       {isListenAndFindWord && currentQuestion.choiceImages?.[choice]?.image && (
