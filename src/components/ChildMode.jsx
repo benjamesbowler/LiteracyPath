@@ -9,7 +9,7 @@ const echoMissions = [
     id: "crystal-hum",
     name: "The Crystal Hum",
     format: "Picture Bridge",
-    questionIndexes: [0, 1],
+    questionIndexes: [0, 1, 2, 3, 4, 5, 6, 7],
     reward: "Crystal Fragment",
     shards: 1
   },
@@ -17,7 +17,7 @@ const echoMissions = [
     id: "lost-crystals",
     name: "Rumble's Lost Crystals",
     format: "Picture Bridge",
-    questionIndexes: [2, 3],
+    questionIndexes: [8, 9, 10, 11, 12, 13, 14, 15],
     reward: "Cave Moss Gem",
     shards: 2
   },
@@ -25,7 +25,7 @@ const echoMissions = [
     id: "four-tunnel-crystals",
     name: "The Four Tunnel Crystals",
     format: "Picture Bridge",
-    questionIndexes: [4, 5],
+    questionIndexes: [16, 17, 18, 19, 20, 21, 22, 23],
     reward: "Ancient Cave Pearl",
     shards: 2
   },
@@ -33,7 +33,7 @@ const echoMissions = [
     id: "deep-crystal-mastery",
     name: "Deep Crystal Mastery",
     format: "Picture Bridge",
-    questionIndexes: [6, 7],
+    questionIndexes: [24, 25, 26, 27, 28, 29, 30, 31],
     reward: "Heart Crystal",
     shards: 3
   }
