@@ -48,6 +48,13 @@ import {
   requiresAudioSupport
 } from "../src/questionFormatFramework.js";
 import {
+  getApprovedAudioPath,
+  getAudioPreference,
+  getAudioPreferenceForPath,
+  isDeprecatedAudioPath,
+  isReviewNeededAudioPath
+} from "../src/data/audioPreferenceManifest.js";
+import {
   blendAnchors,
   digraphAnchors,
   finalSoundAnchors,
@@ -799,6 +806,84 @@ function pictureToPrintLayoutIssue(question) {
   return "";
 }
 
+function requiresStaticAssessmentAudio(question) {
+  const formatType = String(question.formatType || "").toUpperCase();
+  return new Set([
+    "INITIAL_SOUND_PAIR_SELECT",
+    "FINAL_SOUND_PAIR_SELECT",
+    "RHYME_PAIR_SELECT",
+    "LISTEN_FIND_RHYME",
+    "LISTEN_CHOOSE_VOWEL",
+    "PICTURE_TO_PRINT_MATCH",
+    "PICTURE_AUDIO_TO_PATTERN",
+    "LISTEN_FIND_WORD",
+    "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
+    "PLURAL_LISTEN_SELECT"
+  ]).has(formatType) || question.questionType === "listen_and_find_word";
+}
+
+function audioPathsForQuestion(question) {
+  const audioPaths = [];
+  if (question.audioPath) {
+    audioPaths.push({
+      key: question.audioText || question.answer || question.id,
+      path: question.audioPath,
+      role: "prompt audio"
+    });
+  }
+
+  for (const card of question.imageCards || []) {
+    audioPaths.push({
+      key: card.word,
+      path: card.audio,
+      role: "card audio"
+    });
+  }
+
+  return audioPaths;
+}
+
+function audioPreferenceIssue(question) {
+  const issues = [];
+  const requiresStatic = requiresStaticAssessmentAudio(question);
+
+  if (requiresStatic && question.audioText && !question.audioPath && !question.imageCards?.length) {
+    issues.push(`Asset-required audio prompt has no static MP3 for "${question.audioText}".`);
+  }
+
+  for (const asset of audioPathsForQuestion(question)) {
+    if (!asset.path && requiresStatic) {
+      issues.push(`${asset.role} for "${asset.key}" is missing a static MP3.`);
+      continue;
+    }
+
+    if (asset.path && isDeprecatedAudioPath(asset.path)) {
+      issues.push(`${asset.role} uses deprecated/quarantined audio: ${asset.path}`);
+    } else if (asset.path && isReviewNeededAudioPath(asset.path)) {
+      issues.push(`${asset.role} uses review-needed audio: ${asset.path}`);
+    }
+
+    if (requiresStatic && !getAudioPreference(asset.key) && !getAudioPreferenceForPath(asset.path)) {
+      issues.push(`${asset.role} key "${asset.key}" is missing from audioPreferenceManifest.`);
+    }
+
+    if (requiresStatic && !getApprovedAudioPath(asset.key, asset.path)) {
+      issues.push(`${asset.role} has no approved static MP3: ${asset.key}.`);
+    }
+
+    if (
+      requiresStatic &&
+      String(question.formatType || "").toUpperCase() === "LISTEN_FIND_WORD" &&
+      asset.path &&
+      !asset.path.startsWith("/audio/child-mode/")
+    ) {
+      issues.push(`Listen & Find Word must use static child-mode audio, not ${asset.path}.`);
+    }
+  }
+
+  return issues.join(" ");
+}
+
 function imagePathExists(imagePath) {
   if (!imagePath || !imagePath.startsWith("/")) return false;
 
@@ -1027,6 +1112,18 @@ function auditQuestions() {
       );
     }
 
+    const audioPreferenceProblem =
+      audioPreferenceIssue(question);
+
+    if (audioPreferenceProblem) {
+      addProblem(
+        problems,
+        "assessment audio preference",
+        item,
+        audioPreferenceProblem
+      );
+    }
+
     const coverageProblem =
       coverageMetadataIssue(question, stage);
 
@@ -1252,6 +1349,16 @@ function auditQuestions() {
       item,
       `Active Initial Sounds question must use image/audio pair format: "${item.question.question || item.question.prompt}".`
     );
+  }
+
+  const appPagesSource = fs.readFileSync(path.join(rootDir, "src", "components", "AppPages.jsx"), "utf8");
+  if (/allowBrowserFallback:\s*true|allowBrowserFallback:\s*!/.test(appPagesSource)) {
+    problems.push({
+      type: "assessment browser tts",
+      file: "src/components/AppPages.jsx",
+      id: "AssessmentPage",
+      detail: "Teacher Assessment Mode must not enable browser TTS fallback."
+    });
   }
 
   return { counts, problems, formatStats };

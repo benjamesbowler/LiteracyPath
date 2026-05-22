@@ -1,4 +1,5 @@
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 
 const instructionAudioPath = "/audio/child-mode/phrases/listen-and-find.mp3";
 
@@ -16,11 +17,12 @@ function pairAnswer(words) {
 
 function wordCard(word) {
   const asset = getChildWordAsset(word);
+  const audio = getApprovedAudioPath(word, asset?.audio || getChildAudioPath(word));
 
   return {
     word,
     image: asset?.image || asset?.fallbackImage || "",
-    audio: asset?.audio || getChildAudioPath(word),
+    audio,
     alt: asset?.alt || `Picture for ${word}`,
     source: asset?.source || "existing"
   };
@@ -77,7 +79,7 @@ export function makePairSelectionQuestion({
     prompt,
     spokenPrompt: "Listen and find.",
     audioText: "listen and find",
-    audioPath: instructionAudioPath,
+    audioPath: getApprovedAudioPath("listen-and-find", instructionAudioPath),
     questionType,
     formatType,
     phonicsPosition: itemType === "final_sound" ? "final" : "mixed",
@@ -97,4 +99,3 @@ export function makePairSelectionQuestion({
     hideWrittenLabels: true
   };
 }
-

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 
 export function AuthPage({
   authEmail,
@@ -354,6 +355,7 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
       <div className="initial-sound-card-grid">
         {(currentQuestion.imageCards || []).map(card => {
           const selected = selectedWords.includes(card.word);
+          const approvedAudioPath = getApprovedAudioPath(card.word, card.audio);
 
           return (
             <article
@@ -371,14 +373,16 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
                 {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
               </button>
 
-              <button
-                className="initial-sound-card-audio"
-                onClick={() => speakText(card.word, card.audio, { allowBrowserFallback: false })}
-                aria-label={`Hear ${card.word}`}
-                type="button"
-              >
-                🔊
-              </button>
+              {approvedAudioPath && (
+                <button
+                  className="initial-sound-card-audio"
+                  onClick={() => speakText(card.word, approvedAudioPath, { allowBrowserFallback: false, requireApprovedAudio: true })}
+                  aria-label={`Hear ${card.word}`}
+                  type="button"
+                >
+                  🔊
+                </button>
+              )}
             </article>
           );
         })}
@@ -400,32 +404,36 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
   return (
     <div className="visual-card-choice-panel">
       <div className="visual-card-grid">
-        {(currentQuestion.imageCards || []).map(card => (
-          <article className="visual-assessment-card" key={card.id || card.word}>
-            <button
-              className="visual-assessment-card-button"
-              onClick={() => answerQuestion(card.value || card.word)}
-              aria-label={`Choose ${card.word}`}
-              type="button"
-            >
-              {card.image && (
-                <img src={card.image} alt={card.alt || `Picture for ${card.word}`} />
-              )}
-              {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
-            </button>
+        {(currentQuestion.imageCards || []).map(card => {
+          const approvedAudioPath = getApprovedAudioPath(card.word, card.audio);
 
-            {card.audio && (
+          return (
+            <article className="visual-assessment-card" key={card.id || card.word}>
               <button
-                className="initial-sound-card-audio"
-                onClick={() => speakText(card.word, card.audio, { allowBrowserFallback: false })}
-                aria-label={`Hear ${card.word}`}
+                className="visual-assessment-card-button"
+                onClick={() => answerQuestion(card.value || card.word)}
+                aria-label={`Choose ${card.word}`}
                 type="button"
               >
-                🔊
+                {card.image && (
+                  <img src={card.image} alt={card.alt || `Picture for ${card.word}`} />
+                )}
+                {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
               </button>
-            )}
-          </article>
-        ))}
+
+              {approvedAudioPath && (
+                <button
+                  className="initial-sound-card-audio"
+                  onClick={() => speakText(card.word, approvedAudioPath, { allowBrowserFallback: false, requireApprovedAudio: true })}
+                  aria-label={`Hear ${card.word}`}
+                  type="button"
+                >
+                  🔊
+                </button>
+              )}
+            </article>
+          );
+        })}
       </div>
     </div>
   );
@@ -440,6 +448,10 @@ function ListeningVisual() {
 }
 
 function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, speakText, shouldShowImage }) {
+  const approvedStimulusAudioPath = getApprovedAudioPath(
+    currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
+    currentQuestion.audioPath
+  );
   const hasPromptImages = currentQuestion.promptImageCards?.length > 0;
   const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
   const hasMainImage = shouldShowImage(currentQuestion) || (
@@ -455,7 +467,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     !hasPassage &&
     !hasMainImage &&
     !isPairSelection &&
-    Boolean(currentQuestion.audioPath || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
+    Boolean(approvedStimulusAudioPath || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
 
   return (
     <div className="assessment-stimulus">
@@ -479,14 +491,14 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
             alt="question visual"
             className="question-image assessment-main-image"
           />
-          {currentQuestion.audioPath && (
+          {approvedStimulusAudioPath && (
             <button
               className="mini-audio-button assessment-stimulus-audio"
               onClick={() =>
                 speakText(
                   currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
-                  currentQuestion.audioPath,
-                  { allowBrowserFallback: false }
+                  approvedStimulusAudioPath,
+                  { allowBrowserFallback: false, requireApprovedAudio: true }
                 )
               }
               aria-label="Hear the word"
@@ -501,14 +513,14 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
       {shouldShowListeningVisual && (
         <div className="assessment-listening-panel">
           <ListeningVisual />
-          {currentQuestion.audioPath && (
+          {approvedStimulusAudioPath && (
             <button
               className="mini-audio-button assessment-stimulus-audio"
               onClick={() =>
                 speakText(
                   currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
-                  currentQuestion.audioPath,
-                  { allowBrowserFallback: false }
+                  approvedStimulusAudioPath,
+                  { allowBrowserFallback: false, requireApprovedAudio: true }
                 )
               }
               aria-label="Hear the word"
@@ -1624,23 +1636,13 @@ export function AssessmentPage({
     ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
   const isVisualCardChoice =
     currentQuestion?.questionType === "visual_card_choice";
-  const staticAudioRequiredFormats = new Set([
-    "INITIAL_SOUND_PAIR_SELECT",
-    "FINAL_SOUND_PAIR_SELECT",
-    "RHYME_PAIR_SELECT",
-    "LISTEN_FIND_RHYME",
-    "LISTEN_CHOOSE_VOWEL",
-    "PICTURE_TO_PRINT_MATCH",
-    "PICTURE_AUDIO_TO_PATTERN",
-    "LISTEN_FIND_WORD",
-    "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
-  ]);
-  const requiresStaticAudio =
-    isListenAndFindWord ||
-    isPairSelection ||
-    isVisualCardChoice ||
-    staticAudioRequiredFormats.has(currentQuestion?.formatType);
-  const promptAudioPath = isPairSelection ? currentQuestion?.audioPath || "" : "";
+  const promptAudioText =
+    currentQuestion?.spokenPrompt ||
+    currentQuestion?.prompt ||
+    currentQuestion?.question ||
+    currentQuestion?.audioText ||
+    "";
+  const promptAudioPath = getApprovedAudioPath(promptAudioText, isPairSelection ? currentQuestion?.audioPath || "" : "");
 
   return (
     <main className="assessment-shell">
@@ -1690,20 +1692,22 @@ export function AssessmentPage({
             exit={{ scale: 0.96, opacity: 0 }}
           >
             <div className="question-line assessment-prompt">
-              <button
-                className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
-                onClick={() =>
-                  speakText(
-                    currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question || currentQuestion.audioText,
-                    promptAudioPath,
-                    { allowBrowserFallback: !requiresStaticAudio }
-                  )
-                }
-                aria-label="Listen to question"
-                type="button"
-              >
-                🔊
-              </button>
+              {promptAudioPath && (
+                <button
+                  className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
+                  onClick={() =>
+                    speakText(
+                      promptAudioText,
+                      promptAudioPath,
+                      { allowBrowserFallback: false, requireApprovedAudio: true }
+                    )
+                  }
+                  aria-label="Listen to question"
+                  type="button"
+                >
+                  🔊
+                </button>
+              )}
               <h2>{currentQuestion.prompt || currentQuestion.question}</h2>
             </div>
 
@@ -1744,10 +1748,10 @@ export function AssessmentPage({
                     className={isListenAndFindWord ? "choice-wrap visual-word-choice-wrap" : "choice-wrap"}
                     key={index}
                   >
-                    {!isListenAndFindWord && (
+                    {!isListenAndFindWord && getApprovedAudioPath(choice) && (
                       <button
                         className="choice-audio"
-                        onClick={() => speakText(choice)}
+                        onClick={() => speakText(choice, getApprovedAudioPath(choice), { allowBrowserFallback: false, requireApprovedAudio: true })}
                         aria-label={`Listen to ${choice}`}
                         type="button"
                       >

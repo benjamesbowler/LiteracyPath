@@ -1,4 +1,5 @@
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 
 const instructionAudioPath = "/audio/child-mode/phrases/listen-and-find.mp3";
 
@@ -14,7 +15,7 @@ export function wordCard(word, overrides = {}) {
     word,
     value: overrides.value || word,
     image: overrides.image || asset?.image || asset?.fallbackImage || "",
-    audio: overrides.audio || asset?.audio || getChildAudioPath(word),
+    audio: getApprovedAudioPath(word, overrides.audio || asset?.audio || getChildAudioPath(word)),
     alt: overrides.alt || asset?.alt || `Picture for ${word}`,
     source: overrides.source || asset?.source || "existing"
   };
@@ -72,7 +73,7 @@ export function makeVisualCardChoiceQuestion({
     imagePath: imageAsset?.image || imageAsset?.fallbackImage || "",
     audioText: audioWord || "",
     spokenPrompt: audioWord || prompt,
-    audioPath: targetAsset?.audio || "",
+    audioPath: getApprovedAudioPath(audioWord, targetAsset?.audio || ""),
     audioKey: audioWord || "",
     imageKey: imageWord || itemKey,
     requireOptionImages,
@@ -121,7 +122,7 @@ export function makeWordChoiceQuestion({
     imagePath: imageAsset?.image || imageAsset?.fallbackImage || "",
     audioText: audioWord || "",
     spokenPrompt: audioWord || prompt,
-    audioPath: targetAsset?.audio || "",
+    audioPath: getApprovedAudioPath(audioWord, targetAsset?.audio || ""),
     audioKey: audioWord || "",
     imageKey: imageWord || itemKey,
     ...extra

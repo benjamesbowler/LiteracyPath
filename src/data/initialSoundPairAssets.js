@@ -1,4 +1,5 @@
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 
 const instructionAudioPath = "/audio/child-mode/phrases/listen-and-find.mp3";
 
@@ -58,11 +59,12 @@ function pairAnswer(words) {
 
 function wordCard(word) {
   const asset = getChildWordAsset(word);
+  const audio = getApprovedAudioPath(word, asset?.audio || getChildAudioPath(word));
 
   return {
     word,
     image: asset?.image || asset?.fallbackImage || "",
-    audio: asset?.audio || getChildAudioPath(word),
+    audio,
     alt: asset?.alt || `Picture for ${word}`,
     source: asset?.source || "existing"
   };
@@ -136,7 +138,7 @@ export function enrichInitialSoundPairQuestion(question = {}) {
     prompt: "Listen to each word. Which two words start with the same sound?",
     spokenPrompt: "Listen and find.",
     audioText: "listen and find",
-    audioPath: instructionAudioPath,
+    audioPath: getApprovedAudioPath("listen-and-find", instructionAudioPath),
     questionType: "initial_sound_pair",
     formatType: "INITIAL_SOUND_PAIR_SELECT",
     phonicsPosition: "initial",

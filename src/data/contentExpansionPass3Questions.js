@@ -4,6 +4,7 @@ import {
   makeWordChoiceQuestion
 } from "./visualQuestionAssets.js";
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 
 const vowels = ["a", "e", "i", "o", "u"];
 
@@ -22,7 +23,7 @@ function hasImage(word) {
 }
 
 function hasAudio(word) {
-  return Boolean(getChildAudioPath(word));
+  return Boolean(getApprovedAudioPath(word, getChildAudioPath(word)));
 }
 
 function firstVowel(word) {

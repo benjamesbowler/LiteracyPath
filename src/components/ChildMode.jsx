@@ -49,6 +49,7 @@ function normalizeAudioText(text) {
     .toLowerCase();
 }
 
+// Dev-only fallback for Learning World prototypes; Teacher Assessment Mode never uses browser TTS.
 function speakWithBrowser(text) {
   if (!text || !window.speechSynthesis || typeof SpeechSynthesisUtterance === "undefined") {
     return;

@@ -1,4 +1,5 @@
 import { getChildWordAsset } from "./childAssets.js";
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 
 const listenAndFindOverrides = {
   core_cvc_001: ["cat", ["cat", "cap", "dog", "sun"]],
@@ -70,6 +71,7 @@ export function enrichListenAndFindWordQuestion(question = {}) {
   const answer = override?.[0] || question.answer;
   const choices = override?.[1] || question.choices || [];
   const targetAsset = getChildWordAsset(answer);
+  const approvedAudioPath = getApprovedAudioPath(answer, targetAsset?.audio || "");
 
   return {
     ...question,
@@ -79,7 +81,7 @@ export function enrichListenAndFindWordQuestion(question = {}) {
     formatType: "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
     spokenPrompt: answer,
     audioText: answer,
-    audioPath: targetAsset?.audio || "",
+    audioPath: approvedAudioPath,
     choices,
     answer,
     choiceImages: getChoiceAssetMap(choices),
@@ -100,7 +102,7 @@ export function getListenAndFindAssetDiagnostics(question = {}) {
     question: enriched,
     missingImages,
     missingChoiceAssets,
-    missingAudio: !enriched.audioPath || !targetAsset?.audio,
+    missingAudio: !enriched.audioPath || !getApprovedAudioPath(enriched.answer, targetAsset?.audio || ""),
     usesSingleWordAudioText: normalize(enriched.audioText) === normalize(enriched.answer)
   };
 }

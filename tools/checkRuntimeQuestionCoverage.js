@@ -40,6 +40,15 @@ import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
 import { getQuestionFormatMetadata } from "../src/questionFormatFramework.js";
 import { getChildWordAsset } from "../src/data/childAssets.js";
+import {
+  audioPreferenceManifest,
+  getApprovedAudioPath,
+  getAudioPreferenceForPath,
+  getAudioReviewNote,
+  getAudioPreference,
+  isDeprecatedAudioPath,
+  isReviewNeededAudioPath
+} from "../src/data/audioPreferenceManifest.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -339,6 +348,21 @@ function questionAudioAssets(question) {
   return assets;
 }
 
+function sourcePackForAudioPath(audioPath) {
+  if (!audioPath) return "";
+  if (audioPath.includes("-kimi4")) return "kimi_assets4 review variant";
+  if (audioPath.includes("-kimi3")) return "kimi_assets3 review variant";
+  if (audioPath.includes("/audio/child-mode/hfw/")) return "child-mode hfw";
+  if (audioPath.includes("/audio/child-mode/words/")) return "child-mode words";
+  if (audioPath.includes("/audio/child-mode/phrases/")) return "child-mode phrases";
+  if (audioPath.startsWith("/audio/")) return "legacy audio manifest";
+  return "unknown";
+}
+
+function browserTtsFallbackPossible(question) {
+  return "no in Teacher Assessment Mode";
+}
+
 function formatName(question) {
   return getQuestionFormatMetadata(question).formatType;
 }
@@ -464,6 +488,42 @@ function assetGapsForQuestion(question) {
         priority: "high"
       });
     }
+
+    if (asset.path && isDeprecatedAudioPath(asset.path)) {
+      gaps.push({
+        type: "deprecated/review-needed audio active",
+        key: asset.key,
+        path: asset.path,
+        priority: "high"
+      });
+    } else if (asset.path && isReviewNeededAudioPath(asset.path)) {
+      gaps.push({
+        type: "review-needed audio active",
+        key: asset.key,
+        path: asset.path,
+        priority: "medium"
+      });
+    }
+
+    if (requiresStaticAssessmentAudio(question)) {
+      if (!getAudioPreference(asset.key) && !getAudioPreferenceForPath(asset.path)) {
+        gaps.push({
+          type: "audio key missing from preference manifest",
+          key: asset.key,
+          path: asset.path || "",
+          priority: "high"
+        });
+      }
+
+      if (!getApprovedAudioPath(asset.key, asset.path)) {
+        gaps.push({
+          type: "missing approved audio",
+          key: asset.key,
+          path: asset.path || "",
+          priority: "high"
+        });
+      }
+    }
   }
 
   if (requiresStaticAssessmentAudio(question) && question.audioText && !question.audioPath) {
@@ -476,6 +536,23 @@ function assetGapsForQuestion(question) {
   }
 
   return gaps;
+}
+
+function missingApprovedAudioForQuestion(question) {
+  if (!isAssetRequiredQuestion(question) && !requiresStaticAssessmentAudio(question)) return [];
+
+  const missing = [];
+  for (const asset of questionAudioAssets(question)) {
+    if (!getApprovedAudioPath(asset.key, asset.path)) {
+      missing.push(`${asset.key}${asset.path ? ` (${asset.path})` : ""}`);
+    }
+  }
+
+  if (requiresStaticAssessmentAudio(question) && question.audioText && !question.audioPath) {
+    missing.push(`${question.audioText} (no static path)`);
+  }
+
+  return missing;
 }
 
 function expectedKeysForStage(stage, runtimeKeys) {
@@ -492,6 +569,14 @@ const runtimeQuestions =
   );
 
 const matchedQuestions = runtimeQuestions.filter(isQuestionValid);
+const approvedAudioExcludedQuestions = runtimeQuestions
+  .filter(question => !isQuestionValid(question) && missingApprovedAudioForQuestion(question).length > 0)
+  .map(question => ({
+    id: question.id,
+    skill: question.skill,
+    format: formatName(question),
+    missing: missingApprovedAudioForQuestion(question)
+  }));
 const activeOldInitialSoundQuestions = matchedQuestions.filter(question =>
   skillTree[getStageIndex(question)]?.label === "Initial Sounds" &&
   !isInitialSoundPairQuestion(question)
@@ -598,6 +683,7 @@ const stageAudits = skillTree.map((stage, index) => buildStageAudit(stage, index
 
 console.log(`Runtime questions scanned: ${runtimeQuestions.length}`);
 console.log(`Runtime questions matched and valid: ${matchedQuestions.length}`);
+console.log(`Questions excluded due to missing approved audio: ${approvedAudioExcludedQuestions.length}`);
 console.log("");
 
 for (const { stage, count } of counts) {
@@ -887,34 +973,71 @@ function writeAudioQualityAuditDoc() {
         const existing = byPath.get(key) || {
           word: asset.key,
           path: asset.path || "",
-          source: sourcePackForAuditKey(asset.key),
+          source: sourcePackForAudioPath(asset.path) || sourcePackForAuditKey(asset.key),
           skills: new Set(),
+          required: requiresStaticAssessmentAudio(question),
+          browserFallback: browserTtsFallbackPossible(question),
           flags: new Set()
         };
 
         existing.skills.add(audit.stage.label);
+        existing.required = existing.required || requiresStaticAssessmentAudio(question);
+        if (existing.browserFallback !== "no") existing.browserFallback = browserTtsFallbackPossible(question);
         if (!asset.path) existing.flags.add("missing human/static MP3");
         if (asset.path && !publicAssetExists(asset.path)) existing.flags.add("missing file");
         if (asset.path?.startsWith("/audio/") && !asset.path.includes("/audio/child-mode/")) {
           existing.flags.add("legacy generated audio; review voice consistency");
         }
-        if (asset.path?.includes("-kimi3")) existing.flags.add("alternate Kimi 3 voice; review consistency with existing pack");
+        if (asset.path?.includes("-kimi3") || asset.path?.includes("-kimi4")) {
+          existing.flags.add("Kimi alternate voice; quarantined until human review");
+        }
+        if (asset.path && isReviewNeededAudioPath(asset.path)) existing.flags.add("review-needed audio path is active");
+        if (asset.path && isDeprecatedAudioPath(asset.path)) existing.flags.add("deprecated audio path is active");
         byPath.set(key, existing);
       }
     }
   }
 
+  for (const preference of Object.values(audioPreferenceManifest)) {
+    for (const reviewPath of preference.reviewNeededPaths || []) {
+      const existing = byPath.get(reviewPath) || {
+        word: preference.word,
+        path: reviewPath,
+        source: sourcePackForAudioPath(reviewPath),
+        skills: new Set(["not active"]),
+        required: false,
+        browserFallback: "no",
+        flags: new Set()
+      };
+      existing.flags.add("quarantined review variant; not preferred");
+      byPath.set(reviewPath, existing);
+    }
+  }
+
   const rows = [...byPath.values()]
     .sort((a, b) => a.word.localeCompare(b.word) || a.path.localeCompare(b.path))
-    .map(item => [
-      item.word,
-      item.path,
-      item.source,
-      [...item.skills].sort().join(", "),
-      item.path?.includes("-kimi4") ? "review candidate" : "preferred active path",
-      item.path?.includes("-kimi4") ? "existing stable audio remains preferred until human review" : "",
-      [...item.flags].sort().join("; ") || "static asset present"
-    ]);
+    .map(item => {
+      const preference = getAudioPreferenceForPath(item.path);
+      const isPreferred = preference?.preferredAudioPath === item.path;
+      const preferenceLabel =
+        isDeprecatedAudioPath(item.path) ? "deprecated/quarantined" :
+          isReviewNeededAudioPath(item.path) ? "review needed" :
+            isPreferred ? "preferred" :
+              item.path ? "active static path" : "missing";
+
+      return [
+        item.word,
+        item.path,
+        item.source,
+        [...item.skills].sort().join(", "),
+        item.required ? "yes" : "no",
+        item.browserFallback,
+        item.path ? (publicAssetExists(item.path) ? "no" : "yes") : "yes",
+        preferenceLabel,
+        [...item.flags].sort().join("; ") || "static asset present",
+        getAudioReviewNote(item.path)
+      ];
+    });
 
   const body = [
     "# Audio Quality Audit",
@@ -923,7 +1046,270 @@ function writeAudioQualityAuditDoc() {
     "",
     "Audio policy: early phonics and HFW assessment formats use static asset audio only. Browser TTS is reserved for legacy non-critical prompts and is not an allowed fallback for asset-required assessment formats.",
     "",
-    markdownTable(["word", "audio path", "source pack", "used in skills", "preference", "deprecated/review note", "quality flag"], rows)
+    "## Summary",
+    "",
+    `- Approved active runtime audio keys: ${collectActiveAudioInventory().filter(item => getApprovedAudioPath(item.key, item.path)).length}`,
+    `- Review-needed/quarantined audio files: ${Object.values(audioPreferenceManifest).reduce((sum, item) => sum + (item.reviewNeededPaths?.length || 0), 0)}`,
+    `- Deprecated audio files: ${Object.values(audioPreferenceManifest).reduce((sum, item) => sum + (item.deprecatedAudioPaths?.length || 0), 0)}`,
+    `- Missing approved active runtime audio: ${collectActiveAudioInventory().filter(item => !getApprovedAudioPath(item.key, item.path)).length}`,
+    `- Runtime questions blocked by missing approved audio: ${approvedAudioExcludedQuestions.length}`,
+    "",
+    "## Runtime Audio Inventory",
+    "",
+    markdownTable(["word/phrase", "audio path", "source pack", "used in skills", "audio required", "browser TTS fallback", "file missing", "preference", "quality flag", "notes"], rows)
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeCleanAudioReplacementRequestDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "clean_audio_replacement_request.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const activeAudioByWord = new Map();
+  const missingAudio = new Map();
+
+  for (const audit of stageAudits) {
+    for (const question of audit.questions) {
+      for (const asset of questionAudioAssets(question)) {
+        const key = String(asset.key || "").toLowerCase();
+        if (!key) continue;
+        if (!asset.path && requiresStaticAssessmentAudio(question)) {
+          missingAudio.set(key, {
+            word: key,
+            skills: new Set([audit.stage.label]),
+            reason: "Missing static MP3 in an asset-required assessment format."
+          });
+          continue;
+        }
+
+        const existing = activeAudioByWord.get(key) || {
+          word: key,
+          paths: new Set(),
+          skills: new Set(),
+          reasons: new Set()
+        };
+        if (asset.path) existing.paths.add(asset.path);
+        existing.skills.add(audit.stage.label);
+        if (asset.path && isReviewNeededAudioPath(asset.path)) existing.reasons.add("Active path is marked review-needed.");
+        if (asset.path?.includes("-kimi")) existing.reasons.add("Kimi-suffixed voice needs human review.");
+        if (asset.path && !publicAssetExists(asset.path)) existing.reasons.add("Referenced MP3 is missing.");
+        activeAudioByWord.set(key, existing);
+      }
+    }
+  }
+
+  const suspectRows = [...activeAudioByWord.values()]
+    .filter(item => item.reasons.size > 0)
+    .sort((a, b) => a.word.localeCompare(b.word))
+    .map(item => [
+      item.word,
+      `public/audio/child-mode/words/${item.word}.mp3`,
+      [...item.skills].sort().join(", "),
+      [...item.paths].sort().join(", "),
+      [...item.reasons].sort().join("; ")
+    ]);
+
+  const missingRows = [...missingAudio.values()]
+    .sort((a, b) => a.word.localeCompare(b.word))
+    .map(item => [
+      item.word,
+      `public/audio/child-mode/words/${item.word}.mp3`,
+      [...item.skills].sort().join(", "),
+      item.reason
+    ]);
+
+  const quarantinedRows = Object.values(audioPreferenceManifest)
+    .sort((a, b) => a.word.localeCompare(b.word))
+    .map(item => [
+      item.word,
+      item.preferredAudioPath.replace(/^\//, "public/"),
+      item.reviewNeededPaths.map(audioPath => audioPath.replace(/^\//, "public/")).join(", "),
+      item.notes
+    ]);
+
+  const body = [
+    "# Clean Audio Replacement Request",
+    "",
+    "Please provide clean, child-friendly, human-recorded MP3 files. Each file should contain only the target word or phrase, with no sentence framing, odd ending sound, long silence, robotic voice, or strong synthetic intonation.",
+    "",
+    "## Priority 1: Active Runtime Audio Needing Review",
+    "",
+    suspectRows.length
+      ? markdownTable(["word/phrase", "requested filename", "used in skills", "current active path", "reason"], suspectRows)
+      : "No active runtime question currently points at a quarantined `-kimi` audio path.",
+    "",
+    "## Priority 2: Missing Static Audio",
+    "",
+    missingRows.length
+      ? markdownTable(["word/phrase", "requested filename", "used in skills", "reason"], missingRows)
+      : "No missing required static MP3 files were found in active asset-backed runtime questions.",
+    "",
+    "## Priority 3: Quarantined Alternates To Replace Or Review",
+    "",
+    markdownTable(["word/phrase", "preferred filename", "review-needed variants", "notes"], quarantinedRows)
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function collectActiveAudioInventory() {
+  const byKey = new Map();
+
+  for (const audit of stageAudits) {
+    for (const question of audit.questions) {
+      for (const asset of questionAudioAssets(question)) {
+        const normalizedKey = String(asset.key || "").toLowerCase().trim();
+        if (!normalizedKey) continue;
+
+        const existing = byKey.get(normalizedKey) || {
+          key: normalizedKey,
+          path: asset.path || "",
+          skills: new Set(),
+          formats: new Set(),
+          required: false,
+          missing: false,
+          suspect: false
+        };
+
+        if (!existing.path && asset.path) existing.path = asset.path;
+        existing.skills.add(audit.stage.label);
+        existing.formats.add(formatName(question));
+        existing.required = existing.required || requiresStaticAssessmentAudio(question);
+        existing.missing = existing.missing || !asset.path || (asset.path && !publicAssetExists(asset.path));
+        existing.suspect = existing.suspect || Boolean(asset.path && (isReviewNeededAudioPath(asset.path) || isDeprecatedAudioPath(asset.path) || asset.path.includes("-kimi")));
+        byKey.set(normalizedKey, existing);
+      }
+    }
+  }
+
+  return [...byKey.values()].sort((a, b) => a.key.localeCompare(b.key));
+}
+
+function writeSuspectAudioQuarantineDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "suspect_audio_quarantine.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const rows = [];
+  for (const item of Object.values(audioPreferenceManifest)) {
+    for (const audioPath of item.reviewNeededPaths || []) {
+      rows.push([
+        item.word,
+        audioPath,
+        sourcePackForAudioPath(audioPath),
+        "not approved for active assessment runtime",
+        item.preferredAudioPath,
+        item.notes
+      ]);
+    }
+  }
+
+  const body = [
+    "# Suspect Audio Quarantine",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`.",
+    "",
+    "These files are not deleted, but they are blocked from active Teacher Assessment playback. A file can be restored only after human review and an explicit `approved` entry in `src/data/audioPreferenceManifest.js`.",
+    "",
+    markdownTable(["word/phrase", "quarantined path", "source pack", "runtime status", "preferred path", "notes"], rows)
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeCompleteAudioReplacementRequestDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "complete_audio_replacement_request.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const remainingItems = collectActiveAudioInventory().filter(item => {
+    const approvedPath = getApprovedAudioPath(item.key, item.path);
+    return !approvedPath || !approvedPath.includes("/audio/child-mode/clean-human/");
+  });
+
+  const activeRows = remainingItems.map(item => {
+    const approvedPath = getApprovedAudioPath(item.key, item.path);
+    const category =
+      (approvedPath || item.path).includes("/hfw/") ? "hfw" :
+        (approvedPath || item.path).includes("/phrases/") ? "phrase" :
+          "word";
+    const requestedPath =
+      approvedPath ||
+      (category === "hfw"
+        ? `/audio/child-mode/clean-human/hfw/${item.key}.mp3`
+        : category === "phrase"
+          ? `/audio/child-mode/clean-human/phrases/${item.key}.mp3`
+          : `/audio/child-mode/clean-human/words/${item.key}.mp3`);
+
+    return [
+      item.key,
+      requestedPath.replace(/^\//, "public/"),
+      item.key.replace(/-/g, " "),
+      category,
+      item.required ? "required" : "optional",
+      item.suspect ? "high" : item.missing ? "high" : "standard",
+      item.path && !item.suspect ? "yes" : "suspect or missing",
+      item.missing ? "yes" : "no",
+      [...item.skills].sort().join(", "),
+      [...item.formats].sort().join(", ")
+    ];
+  });
+
+  const body = [
+    "# Complete Audio Replacement Request",
+    "",
+    "Please create clean, neutral, child-friendly human voice MP3 files for every row. Each recording should contain only the expected spoken text. No sentence framing, no synthetic voice, no odd intonation, no long silence, no background noise.",
+    "",
+    "Rows that already use approved Pack 6 clean-human audio are intentionally omitted. This request lists only active runtime audio still using older approved audio, missing audio, or review-needed audio.",
+    "",
+    "## Active Assessment Runtime Audio",
+    "",
+    activeRows.length
+      ? markdownTable(["key", "exact filename needed", "expected spoken text", "category", "runtime priority", "replacement priority", "current clean file exists", "current missing", "skills using it", "formats using it"], activeRows)
+      : "All active runtime audio keys currently have approved Pack 6 clean-human replacements.",
+    "",
+    "## Import Target",
+    "",
+    "- Preferred clean replacement root: `public/audio/child-mode/clean-human/`.",
+    "- Use `words/`, `hfw/`, and `phrases/` subfolders.",
+    "- After import, update `src/data/audioPreferenceManifest.js` so each replacement has `status: \"approved\"` and becomes the `preferredAudioPath`."
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeCleanAudioPackImportGuideDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "clean_audio_pack_import.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const body = [
+    "# Clean Audio Pack Import Guide",
+    "",
+    "Expected clean-human audio root:",
+    "",
+    "```text",
+    "public/audio/child-mode/clean-human/",
+    "  words/",
+    "  hfw/",
+    "  phrases/",
+    "```",
+    "",
+    "Naming convention:",
+    "- Lowercase filenames.",
+    "- Hyphenate multiword phrases, for example `listen-and-find.mp3`.",
+    "- Each MP3 should contain only the exact word or phrase represented by the filename.",
+    "- No browser TTS, generated sentence audio, long silence, clipped endings, background noise, or strong synthetic intonation.",
+    "",
+    "Manifest process:",
+    "1. Import files without deleting older audio.",
+    "2. Compare filenames against `docs/assets/complete_audio_replacement_request.md`.",
+    "3. Update `src/data/audioPreferenceManifest.js` with `preferredAudioPath` pointing to the clean-human file.",
+    "4. Set `status: \"approved\"` only after human review.",
+    "5. Move any replaced Pack/Kimi/legacy variants into `deprecatedAudioPaths` or `reviewNeededPaths`.",
+    "6. Run `npm run build`, `node tools/auditQuestionBank.js`, and `node tools/checkRuntimeQuestionCoverage.js`."
   ].join("\n");
 
   fs.writeFileSync(docPath, `${body}\n`);
@@ -1099,12 +1485,20 @@ const assetDocPath = writeAssetCoverageDoc();
 const audioQualityDocPath = writeAudioQualityAuditDoc();
 const imageQualityDocPath = writeImageQualityAuditDoc();
 const kimiRequestDocPath = writeKimiNextAssetRequestDoc();
+const cleanAudioRequestDocPath = writeCleanAudioReplacementRequestDoc();
+const suspectAudioDocPath = writeSuspectAudioQuarantineDoc();
+const completeAudioRequestDocPath = writeCompleteAudioReplacementRequestDoc();
+const cleanAudioImportGuideDocPath = writeCleanAudioPackImportGuideDoc();
 console.log("");
 console.log(`Wrote coverage audit: ${path.relative(rootDir, coverageDocPath)}`);
 console.log(`Wrote asset coverage: ${path.relative(rootDir, assetDocPath)}`);
 console.log(`Wrote audio quality audit: ${path.relative(rootDir, audioQualityDocPath)}`);
 console.log(`Wrote image quality audit: ${path.relative(rootDir, imageQualityDocPath)}`);
 console.log(`Wrote Kimi asset request: ${path.relative(rootDir, kimiRequestDocPath)}`);
+console.log(`Wrote clean audio request: ${path.relative(rootDir, cleanAudioRequestDocPath)}`);
+console.log(`Wrote suspect audio quarantine: ${path.relative(rootDir, suspectAudioDocPath)}`);
+console.log(`Wrote complete audio replacement request: ${path.relative(rootDir, completeAudioRequestDocPath)}`);
+console.log(`Wrote clean audio import guide: ${path.relative(rootDir, cleanAudioImportGuideDocPath)}`);
 
 const emptyStages = counts.filter(({ count }) => count === 0);
 const missingCoverageMetadata = matchedQuestions

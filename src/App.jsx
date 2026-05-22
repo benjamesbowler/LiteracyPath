@@ -55,6 +55,7 @@ import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvan
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { shortAEchoCavesQuestions } from "./data/childActivityModels";
 import { audioManifest, audioTextIndex } from "./data/audioManifest";
+import { getApprovedAudioPath, getPreferredAudioPath } from "./data/audioPreferenceManifest";
 import {
   applyQuestionFormatMetadata,
   getQuestionFormatMetadata,
@@ -2638,13 +2639,20 @@ export default function App() {
     if (!text) return;
 
     const allowBrowserFallback = options.allowBrowserFallback !== false;
-    if (audioPath) {
+    const requireApprovedAudio = options.requireApprovedAudio === true;
+    const preferredAudioPath = requireApprovedAudio
+      ? getApprovedAudioPath(text, audioPath)
+      : getPreferredAudioPath(text, audioPath);
+
+    if (requireApprovedAudio && !preferredAudioPath) return;
+
+    if (preferredAudioPath) {
       try {
         if (window.speechSynthesis) {
           window.speechSynthesis.cancel();
         }
 
-        const audio = new Audio(audioPath);
+        const audio = new Audio(preferredAudioPath);
         await audio.play();
         return;
       } catch (error) {
@@ -2657,10 +2665,13 @@ export default function App() {
     const audioKey = audioTextIndex[normalizedText];
     const audioEntry = audioKey ? audioManifest[audioKey] : null;
 
+    if (requireApprovedAudio) return;
+
     if (audioEntry?.path) {
+      const preferredManifestPath = getPreferredAudioPath(text, audioEntry.path);
       const audioPaths = audioEntry.kinds?.includes("choice")
-        ? [`/audio/choices/${audioKey}.mp3`, audioEntry.path]
-        : [audioEntry.path];
+        ? [`/audio/choices/${audioKey}.mp3`, preferredManifestPath]
+        : [preferredManifestPath];
 
       try {
         for (const audioPath of audioPaths) {
@@ -2677,7 +2688,7 @@ export default function App() {
           }
         }
       } catch (error) {
-        console.warn("Local audio unavailable, using browser speech.", error);
+        console.warn("Local audio unavailable.", error);
       }
     }
 

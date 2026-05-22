@@ -3,19 +3,25 @@
 :root {
   --lp-color-primary: #3478f6;
   --lp-color-primary-strong: #175cd3;
+  --lp-color-primary-soft: #eff6ff;
+  --lp-color-accent-warm: #f59e0b;
+  --lp-color-accent-warm-soft: #fff7ed;
   --lp-color-success: #12b76a;
   --lp-color-text: #172033;
   --lp-color-text-strong: #101828;
   --lp-color-text-muted: #667085;
   --lp-color-text-subtle: #98a2b3;
   --lp-color-surface: #ffffff;
+  --lp-color-surface-warm: #fffdf8;
   --lp-color-surface-subtle: #f9fafb;
-  --lp-color-background: #f6f8fb;
+  --lp-color-background: #f7f8fb;
+  --lp-color-background-warm: #fbf7ef;
   --lp-color-border: #e3e8ef;
   --lp-color-border-strong: #d0d5dd;
   --lp-color-border-subtle: #e4e7ec;
-  --lp-shadow-card: 0 8px 28px rgba(22, 34, 51, 0.07);
-  --lp-shadow-nav: 0 3px 12px rgba(22, 34, 51, 0.05);
+  --lp-shadow-card: 0 10px 32px rgba(22, 34, 51, 0.08);
+  --lp-shadow-nav: 0 8px 26px rgba(22, 34, 51, 0.07);
+  --lp-shadow-soft: 0 14px 42px rgba(48, 37, 18, 0.08);
   --lp-shadow-focus: 0 0 0 4px rgba(52, 120, 246, 0.12);
   --lp-radius-sm: 6px;
   --lp-radius-md: 8px;
@@ -41,7 +47,9 @@
 body {
   margin: 0;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--lp-color-background);
+  background:
+    radial-gradient(circle at top left, rgba(255, 247, 237, 0.82), transparent 36rem),
+    linear-gradient(180deg, var(--lp-color-background-warm) 0%, var(--lp-color-background) 44%);
   color: var(--lp-color-text);
 }
 
@@ -86,9 +94,9 @@ body {
   align-items: start;
   padding: 6px 8px;
   margin-bottom: 4px;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid var(--lp-color-border);
-  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.96);
+  border: 1px solid rgba(208, 213, 221, 0.9);
+  border-radius: 10px;
   box-shadow: var(--lp-shadow-nav);
   backdrop-filter: blur(10px);
 }
@@ -144,7 +152,7 @@ body {
   min-width: 0;
   min-height: 28px;
   padding: 4px 8px;
-  background: var(--lp-color-surface) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
   color: #344054 !important;
   border: 1px solid var(--lp-color-border-strong) !important;
   border-radius: 6px;
@@ -154,8 +162,14 @@ body {
   white-space: nowrap;
 }
 
+.nav-button:hover:not(:disabled) {
+  background: var(--lp-color-accent-warm-soft) !important;
+  border-color: #fed7aa !important;
+  color: #7c2d12 !important;
+}
+
 .nav-button.primary {
-  background: var(--lp-color-primary) !important;
+  background: linear-gradient(180deg, #3b82f6, var(--lp-color-primary-strong)) !important;
   color: var(--lp-color-surface) !important;
   border-color: var(--lp-color-primary) !important;
 }
@@ -171,7 +185,7 @@ body {
 .report-panel,
 .teacher-panel,
 .feedback-card {
-  background: var(--lp-color-surface);
+  background: var(--lp-color-surface-warm);
   border: 1px solid var(--lp-color-border);
   border-radius: 22px;
   box-shadow: var(--lp-shadow-card);
@@ -681,13 +695,34 @@ select:focus {
 }
 
 .mini-audio-button,
-.choice-audio {
-  min-height: 38px !important;
-  width: 44px;
+.choice-audio,
+.initial-sound-card-audio {
+  display: inline-grid;
+  place-items: center;
+  min-height: 42px !important;
+  width: 46px;
   padding: 6px !important;
-  background: #f2f4f7 !important;
-  color: var(--lp-color-text-strong) !important;
-  border: 1px solid var(--lp-color-border-strong) !important;
+  background: linear-gradient(180deg, #eef6ff, #ffffff) !important;
+  color: #175cd3 !important;
+  border: 1px solid #bfdbfe !important;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(23, 92, 211, 0.08);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.mini-audio-button:hover,
+.choice-audio:hover,
+.initial-sound-card-audio:hover {
+  border-color: #60a5fa !important;
+  box-shadow: 0 10px 24px rgba(23, 92, 211, 0.14);
+  transform: translateY(-1px);
+}
+
+.mini-audio-button:active,
+.choice-audio:active,
+.initial-sound-card-audio:active {
+  box-shadow: 0 4px 12px rgba(23, 92, 211, 0.1);
+  transform: translateY(0);
 }
 
 .instruction-audio-button {
@@ -726,15 +761,17 @@ select:focus {
 .choice-button {
   flex: 1;
   min-height: 66px;
-  background: var(--lp-color-surface) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%) !important;
   color: var(--lp-color-text-strong) !important;
   border: 1.5px solid var(--lp-color-border-strong) !important;
   text-align: center;
+  box-shadow: 0 4px 14px rgba(22, 34, 51, 0.05);
 }
 
 .choice-button:hover {
-  border-color: var(--lp-color-primary) !important;
-  background: #f5f8ff !important;
+  border-color: #93c5fd !important;
+  background: linear-gradient(180deg, #ffffff 0%, var(--lp-color-primary-soft) 100%) !important;
+  box-shadow: 0 8px 22px rgba(23, 92, 211, 0.11);
 }
 
 .visual-word-choices {
@@ -789,14 +826,15 @@ select:focus {
   grid-template-rows: minmax(150px, 1fr) auto;
   gap: 8px;
   padding: 10px;
-  border: 2px solid var(--lp-color-border-strong);
-  border-radius: 10px;
-  background: var(--lp-color-surface);
+  border: 2px solid rgba(208, 213, 221, 0.9);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(22, 34, 51, 0.06);
 }
 
 .initial-sound-card.selected {
   border-color: var(--lp-color-primary);
-  box-shadow: 0 0 0 4px rgba(52, 120, 246, 0.14);
+  box-shadow: 0 0 0 4px rgba(52, 120, 246, 0.14), 0 12px 28px rgba(23, 92, 211, 0.12);
 }
 
 .initial-sound-image-button {
@@ -806,7 +844,7 @@ select:focus {
   padding: 8px;
   border: 0 !important;
   border-radius: 8px;
-  background: #f8fafc !important;
+  background: linear-gradient(180deg, #ffffff, #f8fafc) !important;
   color: var(--lp-color-text-strong) !important;
 }
 
@@ -817,11 +855,7 @@ select:focus {
 }
 
 .initial-sound-card-audio {
-  min-height: 42px;
-  border-radius: 8px;
-  background: #eef6ff !important;
-  color: #175cd3 !important;
-  border: 1px solid #b2ddff !important;
+  justify-self: center;
 }
 
 .initial-sound-submit {
@@ -863,9 +897,10 @@ select:focus {
   grid-template-rows: minmax(140px, 1fr) auto;
   gap: 8px;
   padding: 10px;
-  border: 1.5px solid var(--lp-color-border-strong);
-  border-radius: 8px;
-  background: var(--lp-color-surface);
+  border: 1.5px solid rgba(208, 213, 221, 0.9);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(22, 34, 51, 0.06);
 }
 
 .visual-assessment-card-button {
@@ -876,7 +911,7 @@ select:focus {
   padding: 8px !important;
   border: 0 !important;
   border-radius: 8px;
-  background: #f8fafc !important;
+  background: linear-gradient(180deg, #ffffff, #f8fafc) !important;
   color: var(--lp-color-text-strong) !important;
   font-size: clamp(18px, 2.2vw, 24px);
   font-weight: 800;
@@ -890,12 +925,17 @@ select:focus {
 
 .assessment-question-layout {
   gap: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 253, 248, 0.98)),
+    var(--lp-color-surface-warm);
+  border-color: rgba(226, 232, 240, 0.95);
+  box-shadow: var(--lp-shadow-soft);
 }
 
 .assessment-prompt {
   margin-bottom: 0 !important;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--lp-color-border-subtle);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
 }
 
 .assessment-prompt h2 {
@@ -941,9 +981,11 @@ select:focus {
   display: grid;
   place-items: center;
   min-height: clamp(150px, 24vh, 220px);
-  border: 1px solid var(--lp-color-border-subtle);
+  border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: 16px;
-  background: var(--lp-color-surface-subtle);
+  background:
+    radial-gradient(circle at center, rgba(255, 247, 237, 0.78), transparent 72%),
+    var(--lp-color-surface-subtle);
 }
 
 .assessment-listening-visual {
@@ -952,10 +994,10 @@ select:focus {
   width: clamp(86px, 14vw, 128px);
   height: clamp(86px, 14vw, 128px);
   border-radius: 999px;
-  background: #eef6ff;
-  border: 1px solid #b2ddff;
+  background: linear-gradient(180deg, #eef6ff, #ffffff);
+  border: 1px solid #bfdbfe;
   color: #175cd3;
-  box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.72), 0 14px 30px rgba(23, 92, 211, 0.12);
 }
 
 .assessment-listening-visual span {
@@ -1019,14 +1061,14 @@ select:focus {
 
 .progress-bar {
   height: 12px;
-  background: var(--lp-color-border-subtle);
+  background: #e8edf3;
   border-radius: 999px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: var(--lp-color-primary);
+  background: linear-gradient(90deg, var(--lp-color-primary), #60a5fa);
   border-radius: 999px;
 }
 
