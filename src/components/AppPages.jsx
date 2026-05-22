@@ -167,31 +167,31 @@ export function TopNavigation({
 
   const activeStep =
     appView === "letters" || appView === "advancedPhonics" ? "assessment" : appView;
+  const infoItems = [
+    ...steps.map(step => ({ id: step.id, label: step.label, active: step.id === activeStep })),
+    { id: "teacher", label: teacherEmail || "Signed in" },
+    { id: "student", label: nameSaved ? studentName || "Unnamed student" : "No student selected" },
+    ...(nameSaved && currentStage ? [{ id: "stage", label: currentStage.label }] : [])
+  ];
 
   return (
     <nav className="top-nav" aria-label="Teacher navigation">
-      <div className="breadcrumb">
-        {steps.map((step, index) => (
+      <div className="breadcrumb" aria-label="Current teacher context">
+        {infoItems.map((item, index) => (
           <span
             className={
-              step.id === activeStep
+              item.active
                 ? "breadcrumb-step active"
                 : "breadcrumb-step"
             }
-            key={step.id}
+            key={item.id}
           >
-            {step.label}
-            {index < steps.length - 1 && (
+            <span className="breadcrumb-label">{item.label}</span>
+            {index < infoItems.length - 1 && (
               <span className="breadcrumb-separator">/</span>
             )}
           </span>
         ))}
-      </div>
-
-      <div className="top-nav-meta">
-        <span>{teacherEmail || "Signed in"}</span>
-        <span>{nameSaved ? studentName || "Unnamed student" : "No student selected"}</span>
-        {nameSaved && currentStage && <span>{currentStage.label}</span>}
       </div>
 
       <div className="top-nav-actions">
