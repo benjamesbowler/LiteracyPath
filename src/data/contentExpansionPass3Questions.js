@@ -52,7 +52,7 @@ const rhymeTargets = [
   ["op", "mop", "top", ["top", "dog", "sun", "fish"]],
   ["ot", "pot", "cot", ["cot", "dog", "sun", "map"]],
   ["ug", "bug", "rug", ["rug", "dog", "sun", "fish"]],
-  ["un", "sun", "pun", ["pun", "dog", "map", "fish"]]
+  ["un", "sun", "bun", ["bun", "dog", "map", "fish"]]
 ];
 
 export const rhymingFormatExpansionQuestions = rhymeTargets.flatMap(([family, target, answer, choices], index) => [
@@ -92,7 +92,7 @@ const cvcWords = [
   ["short_a", "bag", ["bag", "bug", "big", "bed"]],
   ["short_a", "map", ["map", "mop", "mug", "man"]],
   ["short_e", "bed", ["bed", "bad", "bid", "bud"]],
-  ["short_e", "pen", ["pen", "pan", "pin", "pun"]],
+  ["short_e", "pen", ["pen", "pan", "pin", "bed"]],
   ["short_e", "red", ["red", "ram", "rug", "bed"]],
   ["short_i", "pig", ["pig", "pan", "pen", "pot"]],
   ["short_i", "fin", ["fin", "fan", "pin", "pen"]],
@@ -251,14 +251,13 @@ export const digraphFormatExpansionQuestions = digraphTargets.flatMap(([pattern,
 ]).filter(q => q.choices.length >= 2).filter(valid);
 
 const pluralTargets = [
-  ["s", "cat", "cats", ["cats", "cates", "catz", "cat"]],
-  ["s", "dog", "dogs", ["dogs", "doges", "dogz", "dog"]],
-  ["s", "book", "books", ["books", "bookes", "bookz", "book"]],
-  ["es", "box", "boxes", ["boxes", "boxs", "boxz", "box"]],
-  ["es", "dish", "dishes", ["dishes", "dishs", "dishz", "dish"]],
-  ["es", "brush", "brushes", ["brushes", "brushs", "brushz", "brush"]],
-  ["s", "cup", "cups", ["cups", "cupes", "cupz", "cup"]],
-  ["s", "hat", "hats", ["hats", "hates", "hatz", "hat"]]
+  ["s", "cat", "cats", ["cats", "cates", "cat", "cat's"]],
+  ["s", "dog", "dogs", ["dogs", "doges", "dog", "dog's"]],
+  ["s", "book", "books", ["books", "bookes", "book", "book's"]],
+  ["es", "box", "boxes", ["boxes", "boxs", "boxies", "box"]],
+  ["es", "brush", "brushes", ["brushes", "brushs", "brushies", "brush"]],
+  ["s", "cup", "cups", ["cups", "cupes", "cup", "cup's"]],
+  ["s", "hat", "hats", ["hats", "hates", "hat", "hat's"]]
 ];
 
 export const pluralsFormatExpansionQuestions = pluralTargets.map(([pattern, singular, plural, choices], index) =>

@@ -272,6 +272,63 @@ function sentenceCompletionMissingContext(question) {
   return !(question?.passage || question?.sentence || question?.context || question?.brokenSentence);
 }
 
+function questionContainsWord(question, word) {
+  const target = normalize(word);
+  const values = [
+    question?.answer,
+    question?.correctAnswer,
+    question?.targetWord,
+    question?.audioText,
+    ...(question?.choices || []),
+    ...(question?.correctWords || []),
+    ...(question?.correctAnswers || []),
+    ...(question?.imageCards || []).map(card => card.word)
+  ];
+
+  return values.some(value => normalize(value) === target);
+}
+
+function hasWeakLegacyPhonicsFormat(question) {
+  const skill = normalize(question?.skill);
+  const promptText = normalize([question?.question, question?.prompt, question?.spokenPrompt].join(" "));
+  const formatType = String(question?.formatType || "").toUpperCase();
+  const questionType = normalize(question?.questionType);
+  const hasVisualOrAudio =
+    Boolean(question?.imagePath || question?.audioPath || question?.imageCards?.length || question?.promptImageCards?.length);
+  const assetBackedFormats = new Set([
+    "INITIAL_SOUND_PAIR_SELECT",
+    "FINAL_SOUND_PAIR_SELECT",
+    "RHYME_PAIR_SELECT",
+    "LISTEN_FIND_RHYME",
+    "READ_FIND_RHYME",
+    "LISTEN_CHOOSE_VOWEL",
+    "PICTURE_TO_PRINT_MATCH",
+    "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
+    "MISSING_VOWEL_CVC",
+    "PICTURE_AUDIO_TO_PATTERN",
+    "IMAGE_WORD_PATTERN_MATCH"
+  ]);
+
+  if (assetBackedFormats.has(formatType) || questionType === "listen_and_find_word") return false;
+
+  if (skill.includes("final") && /\b(which word ends|ends the same|ends like)\b/.test(promptText)) return true;
+  if (/\b(which word rhymes|choose the word that rhymes)\b/.test(promptText)) return !hasVisualOrAudio;
+  if ((skill.includes("short vowel") || skill.includes("cvc")) && /\b(same middle sound|same sound in the middle)\b/.test(promptText)) return true;
+  if ((skill.includes("blend") || skill.includes("digraph")) && /\bwhich word starts with\b/.test(promptText)) return !hasVisualOrAudio;
+  if (/\bwhich word has the [a-z]{2} (?:blend|digraph)\b/.test(promptText)) return !hasVisualOrAudio;
+
+  return false;
+}
+
+function hasLowQualityPluralDistractors(question) {
+  const skill = normalize(question?.skill);
+  if (!skill.includes("plural")) return false;
+
+  return (question?.choices || [])
+    .map(choice => normalize(choice))
+    .some(choice => choice.endsWith("z"));
+}
+
 function normalizeItemKey(value) {
   return String(value || "")
     .toLowerCase()
@@ -626,6 +683,9 @@ function isQuestionValid(q) {
   if (questionText.includes("matches the picture") && !q.imagePath) return false;
   if (hasAnchorChoiceLeakage(q)) return false;
   if (sentenceCompletionMissingContext(q)) return false;
+  if (questionContainsWord(q, "pun")) return false;
+  if (hasWeakLegacyPhonicsFormat(q)) return false;
+  if (hasLowQualityPluralDistractors(q)) return false;
 
   return getStageIndex(q) !== -1;
 }

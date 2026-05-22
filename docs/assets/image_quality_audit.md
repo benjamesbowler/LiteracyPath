@@ -495,7 +495,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | kite | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/kite.png | active asset |  |  |
 | gate | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/gate.png | active asset |  |  |
 | sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| A blanket fort | Final Sounds | COMPREHENSION | question image | yes | /images/vocabulary/friends.png | active asset |  |  |
 | cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | dog | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
@@ -599,9 +598,9 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | mug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
 | fish | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
 | sun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| pun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/pun.png | active asset |  |  |
+| bun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
 | dog | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| pun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/pun.png | active asset |  |  |
+| bun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
 | sun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
 | map | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
 | hat | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
@@ -700,11 +699,11 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
 | sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
 | fish | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| pun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/minimal-pairs/pun.png | active asset |  |  |
+| bun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
 | dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
 | map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
 | fish | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| pun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/minimal-pairs/pun.png | active asset |  |  |
+| bun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
 | dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
 | map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
 | fish | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
@@ -856,14 +855,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | pot | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
 | nap | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
 | net | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/net.png | active asset |  |  |
-| pen | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
-| pan | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| pin | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
-| pun | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/minimal-pairs/pun.png | active asset |  |  |
-| pen | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
-| pun | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/minimal-pairs/pun.png | active asset |  |  |
-| pin | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
-| pan | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
 | pig | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
 | pin | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
 | pan | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
@@ -1176,14 +1167,12 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | dogs | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/dogs.png | preferred Pack 4 organized asset |  |  |
 | books | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/books.png | preferred Pack 4 organized asset |  |  |
 | boxes | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/boxes.png | preferred Pack 4 organized asset |  |  |
-| dishes | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/dishes.png | preferred Pack 4 organized asset |  |  |
 | brushes | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/brushes.png | preferred Pack 4 organized asset |  |  |
 | cups | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/cups.png | preferred Pack 4 organized asset |  |  |
 | hats | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/hats.png | preferred Pack 4 organized asset |  |  |
 | cats | Plurals | COMPREHENSION | question image | yes | /images/prepositions/duck_outside_pond.png | active asset |  |  |
 | apples | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
 | children | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/book.png | active asset |  |  |
-| books | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/book.png | active asset |  |  |
 | apples | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
 | children | Plurals | COMPREHENSION | question image | yes | /images/prepositions/duck_outside_pond.png | active asset |  |  |
 | tales | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/book.png | active asset |  |  |

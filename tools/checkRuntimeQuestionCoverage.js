@@ -225,6 +225,77 @@ function sentenceCompletionMissingContext(question) {
   return !(question.passage || question.sentence || question.context || question.brokenSentence);
 }
 
+function questionContainsWord(question, word) {
+  const target = normalize(word);
+  const values = [
+    question.answer,
+    question.correctAnswer,
+    question.targetWord,
+    question.audioText,
+    ...(question.choices || []),
+    ...(question.correctWords || []),
+    ...(question.correctAnswers || []),
+    ...(question.imageCards || []).map(card => card.word)
+  ];
+
+  return values.some(value => normalize(value) === target);
+}
+
+function weakLegacyPhonicsReason(question) {
+  const skill = normalize(question.skill);
+  const promptText = normalize([question.question, question.prompt, question.spokenPrompt].join(" "));
+  const formatType = String(question.formatType || "").toUpperCase();
+  const questionType = normalize(question.questionType);
+  const hasVisualOrAudio =
+    Boolean(question.imagePath || question.audioPath || question.imageCards?.length || question.promptImageCards?.length);
+  const assetBackedFormats = new Set([
+    "INITIAL_SOUND_PAIR_SELECT",
+    "FINAL_SOUND_PAIR_SELECT",
+    "RHYME_PAIR_SELECT",
+    "LISTEN_FIND_RHYME",
+    "READ_FIND_RHYME",
+    "LISTEN_CHOOSE_VOWEL",
+    "PICTURE_TO_PRINT_MATCH",
+    "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
+    "MISSING_VOWEL_CVC",
+    "PICTURE_AUDIO_TO_PATTERN",
+    "IMAGE_WORD_PATTERN_MATCH"
+  ]);
+
+  if (assetBackedFormats.has(formatType) || questionType === "listen_and_find_word") return "";
+
+  if (skill.includes("final") && /\b(which word ends|ends the same|ends like)\b/.test(promptText)) {
+    return "legacy text-only Final Sounds prompt";
+  }
+  if (/\b(which word rhymes|choose the word that rhymes)\b/.test(promptText) && !hasVisualOrAudio) {
+    return "legacy text-only Rhyming prompt";
+  }
+  if ((skill.includes("short vowel") || skill.includes("cvc")) && /\b(same middle sound|same sound in the middle)\b/.test(promptText)) {
+    return "legacy text-only short-vowel/CVC sound prompt";
+  }
+  if ((skill.includes("blend") || skill.includes("digraph")) && /\bwhich word starts with\b/.test(promptText) && !hasVisualOrAudio) {
+    return "legacy text-only blend/digraph visual pattern prompt";
+  }
+  if (/\bwhich word has the [a-z]{2} (?:blend|digraph)\b/.test(promptText) && !hasVisualOrAudio) {
+    return "legacy text-only blend/digraph visual pattern prompt";
+  }
+
+  return "";
+}
+
+function lowQualityPluralDistractorReason(question) {
+  const skill = normalize(question.skill);
+  if (!skill.includes("plural")) return "";
+
+  const zDistractors = (question.choices || [])
+    .map(choice => normalize(choice))
+    .filter(choice => choice.endsWith("z"));
+
+  return zDistractors.length
+    ? `low-quality plural z distractors: ${zDistractors.join(", ")}`
+    : "";
+}
+
 function isQuestionValid(question) {
   if (!question) return false;
   if (!question.id || !question.skill || !(question.prompt || question.question)) return false;
@@ -260,6 +331,9 @@ function isQuestionValid(question) {
   }
   if (hasAnchorChoiceLeakage(question)) return false;
   if (sentenceCompletionMissingContext(question)) return false;
+  if (questionContainsWord(question, "pun")) return false;
+  if (weakLegacyPhonicsReason(question)) return false;
+  if (lowQualityPluralDistractorReason(question)) return false;
 
   const choices = question.choices.map(choice => normalize(choice));
   if (new Set(choices).size !== choices.length) return false;
@@ -577,6 +651,52 @@ const approvedAudioExcludedQuestions = runtimeQuestions
     format: formatName(question),
     missing: missingApprovedAudioForQuestion(question)
   }));
+const runtimeQualityWarnings = runtimeQuestions.reduce((warnings, question) => {
+  const stage = skillTree[getStageIndex(question)]?.label || question.skill || "Unknown";
+  const weakReason = weakLegacyPhonicsReason(question);
+
+  if (weakReason) {
+    warnings.removedLegacy.push({
+      id: question.id,
+      source: question.source,
+      skill: stage,
+      reason: weakReason
+    });
+  }
+
+  if (questionContainsWord(question, "pun")) {
+    warnings.removedPun.push({
+      id: question.id,
+      source: question.source,
+      skill: stage
+    });
+  }
+
+  const pluralReason = lowQualityPluralDistractorReason(question);
+  if (pluralReason) {
+    warnings.pluralFixes.push({
+      id: question.id,
+      source: question.source,
+      issue: pluralReason
+    });
+  }
+
+  if (stage === "Plurals" && isQuestionValid(question)) {
+    if (question.imagePath && !question.imagePath.includes("/plurals/")) {
+      warnings.pluralFixes.push({
+        id: question.id,
+        source: question.source,
+        issue: "plural question does not use a plural image path"
+      });
+    }
+  }
+
+  return warnings;
+}, {
+  removedLegacy: [],
+  removedPun: [],
+  pluralFixes: []
+});
 const activeOldInitialSoundQuestions = matchedQuestions.filter(question =>
   skillTree[getStageIndex(question)]?.label === "Initial Sounds" &&
   !isInitialSoundPairQuestion(question)
@@ -684,6 +804,8 @@ const stageAudits = skillTree.map((stage, index) => buildStageAudit(stage, index
 console.log(`Runtime questions scanned: ${runtimeQuestions.length}`);
 console.log(`Runtime questions matched and valid: ${matchedQuestions.length}`);
 console.log(`Questions excluded due to missing approved audio: ${approvedAudioExcludedQuestions.length}`);
+console.log(`Legacy text-only phonics questions excluded: ${runtimeQualityWarnings.removedLegacy.length}`);
+console.log(`Questions containing pun excluded: ${runtimeQualityWarnings.removedPun.length}`);
 console.log("");
 
 for (const { stage, count } of counts) {
@@ -809,6 +931,19 @@ function writeCoverageAuditDoc() {
     audit.assetGaps.length,
     stageCompleteness(audit)
   ]);
+  const qualityRows = [
+    ["Removed legacy text-only phonics questions", runtimeQualityWarnings.removedLegacy.length],
+    ["Removed questions containing `pun`", runtimeQualityWarnings.removedPun.length],
+    ["Plural questions removed/review-flagged", runtimeQualityWarnings.pluralFixes.length],
+    ["Final Sounds active itemKeys", (stageAudits.find(audit => audit.stage.label === "Final Sounds")?.runtimeKeys || []).join(", ") || "none"],
+    ["Digraph balance", [...(stageAudits.find(audit => audit.stage.label === "Digraphs")?.byKey || new Map()).entries()].map(([key, count]) => `${key}:${count}`).join(", ") || "none"]
+  ];
+  const removedLegacyRows = runtimeQualityWarnings.removedLegacy.slice(0, 80).map(item => [
+    item.skill,
+    item.id,
+    item.source,
+    item.reason
+  ]);
 
   const detailSections = stageAudits.map(audit => {
     const rows = audit.runtimeKeys.map(key => [
@@ -856,6 +991,18 @@ function writeCoverageAuditDoc() {
       ["Skill", "Runtime questions", "52+", "ItemTypes", "Unique itemKeys", "Expected itemKeys", "Missing itemKeys", "Formats", "Asset gaps", "Notes"],
       summaryRows
     ),
+    "",
+    "## Active Runtime Quality Warnings",
+    "",
+    markdownTable(["Check", "Result"], qualityRows),
+    "",
+    removedLegacyRows.length
+      ? markdownTable(["Skill", "Question id", "Source", "Reason removed from runtime"], removedLegacyRows)
+      : "No legacy text-only phonics questions were excluded.",
+    "",
+    runtimeQualityWarnings.pluralFixes.length
+      ? markdownTable(["Question id", "Source", "Plural issue"], runtimeQualityWarnings.pluralFixes.map(item => [item.id, item.source || "", item.issue]))
+      : "No plural quality warnings remain.",
     "",
     "## Structural Notes",
     "",

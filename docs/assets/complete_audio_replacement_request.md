@@ -34,7 +34,6 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 | listen and find | public/audio/child-mode/phrases/listen-and-find.mp3 | listen and find | phrase | required | standard | yes | no | Final Sounds, Initial Sounds, Rhyming | FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT, RHYME_PAIR_SELECT |
 | nose | public/audio/child-mode/words/nose.mp3 | nose | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | orange | public/audio/child-mode/words/orange.mp3 | orange | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
-| pun | public/audio/child-mode/words/pun.mp3 | pun | word | required | standard | yes | no | Rhyming | LISTEN_FIND_RHYME, READ_FIND_RHYME, RHYME_PAIR_SELECT |
 | queen | public/audio/child-mode/words/queen.mp3 | queen | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | quilt | public/audio/child-mode/words/quilt.mp3 | quilt | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | quiz | public/audio/child-mode/words/quiz.mp3 | quiz | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
