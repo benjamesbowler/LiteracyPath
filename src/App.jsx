@@ -34,6 +34,7 @@ import { generatedQuestions } from "./data/generatedQuestions";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
+import { shortAEchoCavesQuestions } from "./data/childActivityModels";
 import { audioManifest, audioTextIndex } from "./data/audioManifest";
 import {
   applyQuestionFormatMetadata,
@@ -355,6 +356,97 @@ function calculateWeaknessSnapshot(answerHistory) {
   };
 }
 
+const echoCavesMissionMap = [
+  { id: "intro", label: "The Crystal Hum", matches: questionId => questionId.includes("intro") },
+  { id: "practice", label: "Rumble's Lost Crystals", matches: questionId => questionId.includes("practice-") },
+  { id: "mixed", label: "The Four Tunnel Crystals", matches: questionId => questionId.includes("mixed") },
+  { id: "mastery", label: "Deep Crystal Mastery", matches: questionId => questionId.includes("mastery") }
+];
+
+const echoCavesWords = Array.from(
+  new Set(shortAEchoCavesQuestions.map(question => normalizeItemKey(question.targetWord)).filter(Boolean))
+).sort();
+
+function buildChildLearningEvidence(answerRows = [], itemMasteryRows = [], tableMissing = false) {
+  if (tableMissing) {
+    return {
+      tableMissing: true,
+      worldsPlayed: [],
+      missionsCompleted: [],
+      attempted: 0,
+      correct: 0,
+      recentAccuracy: null,
+      masteredWords: [],
+      focus: "Child Learning World practice data is not available yet.",
+      supportNeeds: [],
+      lastPlayed: null,
+      masteryChips: echoCavesWords.map(word => ({ word, status: "not-attempted" }))
+    };
+  }
+
+  const childRows = (answerRows || []).filter(row =>
+    (row.source || "child_mode").includes("child_mode")
+  );
+  const attemptedWords = new Set(childRows.map(row => normalizeItemKey(row.item_key || row.target_word)).filter(Boolean));
+  const childMasteryRows = (itemMasteryRows || []).filter(row =>
+    attemptedWords.has(normalizeItemKey(row.item_key)) &&
+    (row.item_type === "cvc_word" || row.item_type?.includes("child_mode"))
+  );
+
+  const attempted = childRows.length;
+  const correct = childRows.filter(row => row.is_correct).length;
+  const recent = childRows.slice(-10);
+  const recentCorrect = recent.filter(row => row.is_correct).length;
+  const missedRows = childRows.filter(row => !row.is_correct);
+  const masteredWords = childMasteryRows
+    .filter(row => row.mastered)
+    .map(row => normalizeItemKey(row.item_key))
+    .filter(Boolean)
+    .sort();
+  const masteredSet = new Set(masteredWords);
+  const allChipWords = Array.from(new Set([...echoCavesWords, ...attemptedWords])).sort();
+  const lastPlayed = childRows.length
+    ? childRows[childRows.length - 1].answered_at
+    : null;
+  const supportNeeds = [];
+
+  if (missedRows.some(row =>
+    /[eo]/.test(normalizeItemKey(row.selected_answer || "")) &&
+    /a/.test(normalizeItemKey(row.correct_answer || row.target_word || ""))
+  )) {
+    supportNeeds.push("Confuses short-a and short-o/short-e contrasts");
+  }
+
+  if (missedRows.length > 0) {
+    supportNeeds.push("Short-A vowel discrimination");
+  }
+
+  const missionsCompleted = echoCavesMissionMap
+    .filter(mission => childRows.some(row => mission.matches(row.question_id || "")))
+    .map(mission => mission.label);
+
+  return {
+    tableMissing: false,
+    worldsPlayed: attempted > 0 ? ["Echo Caves"] : [],
+    missionsCompleted,
+    attempted,
+    correct,
+    recentAccuracy: recent.length ? Math.round((recentCorrect / recent.length) * 100) : null,
+    masteredWords,
+    focus: supportNeeds[0] || (attempted > 0 ? "Ready for more Child Learning World practice" : "No Child Learning World practice yet"),
+    supportNeeds,
+    lastPlayed,
+    masteryChips: allChipWords.map(word => ({
+      word,
+      status: masteredSet.has(word)
+        ? "mastered"
+        : attemptedWords.has(word)
+          ? "practicing"
+          : "not-attempted"
+    }))
+  };
+}
+
 function isQuestionValid(q) {
   if (!q) return false;
   if (!q.id || !q.skill || !getQuestionPrompt(q) || !getQuestionAnswer(q)) return false;
@@ -425,6 +517,9 @@ export default function App() {
   const [roundAnswers, setRoundAnswers] = useState([]);
   const [usedByStage, setUsedByStage] = useState({});
   const [mastery, setMastery] = useState({});
+  const [childLearningEvidence, setChildLearningEvidence] = useState(() =>
+    buildChildLearningEvidence()
+  );
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [message, setMessage] = useState("");
@@ -512,6 +607,7 @@ export default function App() {
     setRoundAnswers([]);
     setUsedByStage({});
     setMastery({});
+    setChildLearningEvidence(buildChildLearningEvidence());
     setCurrentQuestion(null);
     setFeedback(null);
     setMessage("");
@@ -1248,6 +1344,7 @@ export default function App() {
       setNameSaved(false);
       setAnswerHistory([]);
       setItemMastery({});
+      setChildLearningEvidence(buildChildLearningEvidence());
       setItemSessionSeen({});
       setMastery({});
       setRoundAnswers([]);
@@ -1348,6 +1445,7 @@ export default function App() {
       setNameSaved(false);
       setAnswerHistory([]);
       setItemMastery({});
+      setChildLearningEvidence(buildChildLearningEvidence());
       setItemSessionSeen({});
       setMastery({});
       setRoundAnswers([]);
@@ -1405,6 +1503,23 @@ export default function App() {
     if (itemMasteryError && !isMissingItemMasteryTableError(itemMasteryError)) {
       console.error("Load item mastery error:", itemMasteryError);
     }
+
+    const { data: childAnswerRows, error: childAnswerError } = await supabase
+      .from("child_mode_answers")
+      .select("*")
+      .eq("teacher_id", teacherId)
+      .eq("student_id", selectedStudentId)
+      .order("answered_at", { ascending: true });
+
+    const childAnswersTableMissing = isMissingChildModeAnswersTableError(childAnswerError);
+
+    if (childAnswerError && !childAnswersTableMissing) {
+      console.error("Load child mode answers error:", childAnswerError);
+    }
+
+    setChildLearningEvidence(
+      buildChildLearningEvidence(childAnswerRows || [], itemMasteryRows || [], childAnswersTableMissing)
+    );
 
     const rebuiltItemMastery = {};
 
@@ -3011,11 +3126,15 @@ export default function App() {
     setAppView("finished");
   }
 
-  function goToOverview() {
+  async function goToOverview() {
     setCurrentQuestion(null);
     setFeedback(null);
     setShowReport(false);
     setAppView("overview");
+
+    if (appView === "childMode" && studentId) {
+      await loadStudentProgress(studentId, studentName || "Unnamed student");
+    }
   }
 
 
@@ -3313,6 +3432,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           startTargetedReview={startTargetedReview}
           weaknessSnapshot={weaknessSnapshot}
           itemMasterySnapshot={getItemMasterySnapshot()}
+          childLearningEvidence={childLearningEvidence}
           setAppView={setAppView}
           switchStudent={switchStudent}
         />

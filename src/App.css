@@ -336,6 +336,135 @@ body {
   line-height: 1.45;
 }
 
+.child-learning-panel {
+  padding: 16px;
+  border: 1px solid #d0d5dd;
+  border-left: 4px solid #3478f6;
+  border-radius: 8px;
+  background: #fcfcfd;
+}
+
+.child-learning-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.child-learning-header h3,
+.child-learning-panel p {
+  margin: 0;
+}
+
+.panel-label,
+.practice-source-label {
+  color: #667085 !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.practice-source-label {
+  padding: 5px 8px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #ffffff;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.child-learning-grid,
+.child-learning-lists {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.child-learning-lists {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 12px;
+}
+
+.child-learning-grid > div,
+.child-learning-lists > div {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.child-learning-panel strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #344054 !important;
+  font-size: 13px;
+}
+
+.child-learning-panel p,
+.child-learning-panel li {
+  color: #101828 !important;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.child-learning-panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.child-learning-empty {
+  padding: 12px;
+  border: 1px dashed #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #667085 !important;
+}
+
+.word-chip-row,
+.mastery-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mastery-chip-row {
+  margin-top: 12px;
+}
+
+.word-chip,
+.mastery-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.word-chip.mastered,
+.mastery-chip.mastered {
+  background: #ecfdf3;
+  color: #027a48 !important;
+  border: 1px solid #75e0a7;
+}
+
+.mastery-chip.practicing {
+  background: #fffaeb;
+  color: #b54708 !important;
+  border: 1px solid #fedf89;
+}
+
+.mastery-chip.not-attempted {
+  background: #f2f4f7;
+  color: #667085 !important;
+  border: 1px solid #e4e7ec;
+}
+
 .item-mastery-debug {
   margin: 0 0 18px;
   padding: 14px 16px;
@@ -1122,7 +1251,9 @@ div {
   }
 
   .weakness-grid,
-  .item-mastery-grid {
+  .item-mastery-grid,
+  .child-learning-grid,
+  .child-learning-lists {
     grid-template-columns: 1fr;
   }
 

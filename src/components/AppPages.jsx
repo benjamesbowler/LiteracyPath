@@ -746,6 +746,7 @@ export function StudentOverviewPage({
   startTargetedReview,
   weaknessSnapshot,
   itemMasterySnapshot,
+  childLearningEvidence,
   setAppView,
   switchStudent
 }) {
@@ -775,6 +776,20 @@ export function StudentOverviewPage({
     const blockers = item.masteryBlockers?.length ? item.masteryBlockers.join("; ") : "No blockers";
 
     return item.itemKey + " (" + item.itemType.replace(/_/g, " ") + "): formats " + formats + "; PTD " + (item.hadPTDExposure ? "yes" : "no") + "; cross-pattern " + (item.crossPatternExposure ? "yes" : "no") + "; positions " + positions + "; " + blockers;
+  };
+
+  const childEvidence = childLearningEvidence || {
+    tableMissing: false,
+    worldsPlayed: [],
+    missionsCompleted: [],
+    attempted: 0,
+    correct: 0,
+    recentAccuracy: null,
+    masteredWords: [],
+    focus: "No Child Learning World practice yet",
+    supportNeeds: [],
+    lastPlayed: null,
+    masteryChips: []
   };
 
   return (
@@ -850,6 +865,86 @@ export function StudentOverviewPage({
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="child-learning-panel">
+        <div className="child-learning-header">
+          <div>
+            <p className="panel-label">Child Learning World Practice Data</p>
+            <h3>Child Learning World Progress</h3>
+          </div>
+          <span className="practice-source-label">Separate from EL assessments and reports</span>
+        </div>
+
+        {childEvidence.tableMissing ? (
+          <p className="child-learning-empty">
+            Child Learning World practice data is not available yet.
+          </p>
+        ) : childEvidence.attempted === 0 ? (
+          <p className="child-learning-empty">
+            No Child Learning World practice has been recorded for this student yet.
+          </p>
+        ) : (
+          <>
+            <div className="child-learning-grid">
+              <div>
+                <strong>Worlds Played</strong>
+                <p>{childEvidence.worldsPlayed.join(", ") || "None yet"}</p>
+              </div>
+
+              <div>
+                <strong>Child Mode Accuracy</strong>
+                <p>{childEvidence.attempted} attempted / {childEvidence.correct} correct / {childEvidence.recentAccuracy ?? 0}% recent</p>
+              </div>
+
+              <div>
+                <strong>Current Focus / Needs Support</strong>
+                <p>{childEvidence.focus}</p>
+              </div>
+
+              <div>
+                <strong>Last Played</strong>
+                <p>{childEvidence.lastPlayed ? new Date(childEvidence.lastPlayed).toLocaleString() : "No activity yet"}</p>
+              </div>
+            </div>
+
+            <div className="child-learning-lists">
+              <div>
+                <strong>Missions Completed</strong>
+                {childEvidence.missionsCompleted.length > 0 ? (
+                  <ul>
+                    {childEvidence.missionsCompleted.map(mission => (
+                      <li key={mission}>{mission}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No missions completed yet.</p>
+                )}
+              </div>
+
+              <div>
+                <strong>Mastered Child Mode Words</strong>
+                {childEvidence.masteredWords.length > 0 ? (
+                  <div className="word-chip-row">
+                    {childEvidence.masteredWords.map(word => (
+                      <span className="word-chip mastered" key={word}>{word}</span>
+                    ))}
+                  </div>
+                ) : (
+                  <p>No Child Mode words mastered yet.</p>
+                )}
+              </div>
+            </div>
+
+            <div className="mastery-chip-row" aria-label="Child Mode mastery status">
+              {childEvidence.masteryChips.map(item => (
+                <span className={`mastery-chip ${item.status}`} key={item.word}>
+                  {item.word}
+                </span>
+              ))}
+            </div>
+          </>
+        )}
       </section>
 
       <details className="item-mastery-debug">
