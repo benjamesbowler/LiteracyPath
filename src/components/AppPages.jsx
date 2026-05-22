@@ -326,6 +326,74 @@ export function QuestionFlagDialog({
   );
 }
 
+function InitialSoundPairQuestion({ currentQuestion, answerQuestion, speakText }) {
+  const [selectedWords, setSelectedWords] = useState([]);
+
+  useEffect(() => {
+    setSelectedWords([]);
+  }, [currentQuestion.id]);
+
+  function toggleWord(word) {
+    setSelectedWords(previous => {
+      if (previous.includes(word)) {
+        return previous.filter(item => item !== word);
+      }
+
+      if (previous.length >= 2) {
+        return [previous[1], word];
+      }
+
+      return [...previous, word];
+    });
+  }
+
+  return (
+    <div className="initial-sound-pair-panel">
+      <div className="initial-sound-card-grid">
+        {(currentQuestion.imageCards || []).map(card => {
+          const selected = selectedWords.includes(card.word);
+
+          return (
+            <article
+              className={selected ? "initial-sound-card selected" : "initial-sound-card"}
+              key={card.word}
+            >
+              <button
+                className="initial-sound-image-button"
+                onClick={() => toggleWord(card.word)}
+                aria-pressed={selected}
+                aria-label={`Select picture for ${card.word}`}
+                type="button"
+              >
+                <img src={card.image} alt={card.alt || `Picture for ${card.word}`} />
+                {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
+              </button>
+
+              <button
+                className="initial-sound-card-audio"
+                onClick={() => speakText(card.word, card.audio, { allowBrowserFallback: false })}
+                aria-label={`Hear ${card.word}`}
+                type="button"
+              >
+                🔊
+              </button>
+            </article>
+          );
+        })}
+      </div>
+
+      <button
+        className="main-button initial-sound-submit"
+        disabled={selectedWords.length !== 2}
+        onClick={() => answerQuestion(selectedWords)}
+        type="button"
+      >
+        Submit
+      </button>
+    </div>
+  );
+}
+
 export function AdminDashboardPage({
   flags,
   teachers,
@@ -1411,6 +1479,8 @@ export function AssessmentPage({
 }) {
   const isListenAndFindWord =
     currentQuestion?.questionType === "listen_and_find_word";
+  const isInitialSoundPair =
+    currentQuestion?.questionType === "initial_sound_pair";
 
   return (
     <main className="assessment-shell">
@@ -1483,12 +1553,12 @@ export function AssessmentPage({
 
             <div className="question-line">
               <button
-                className="mini-audio-button"
+                className={isInitialSoundPair ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
                 onClick={() =>
                   speakText(
                     currentQuestion.audioText || currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question,
                     currentQuestion.audioPath || "",
-                    { allowBrowserFallback: !isListenAndFindWord }
+                    { allowBrowserFallback: !(isListenAndFindWord || isInitialSoundPair) }
                   )
                 }
                 aria-label="Listen to question"
@@ -1503,7 +1573,13 @@ export function AssessmentPage({
               ⚠️ Flag Question
             </button>
 
-            {currentQuestion.questionType === "fix_sentence" ? (
+            {isInitialSoundPair ? (
+              <InitialSoundPairQuestion
+                currentQuestion={currentQuestion}
+                answerQuestion={answerQuestion}
+                speakText={speakText}
+              />
+            ) : currentQuestion.questionType === "fix_sentence" ? (
               <FixSentenceQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
@@ -1556,16 +1632,58 @@ export function AssessmentPage({
           initial={{ scale: 0.96, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         >
-          <h2>{feedback.isCorrect ? "Correct!" : "Let's learn from that one"}</h2>
+          <h2>{feedback.isCorrect ? "Correct!" : feedback.support?.type === "initial_sound_pair" ? "Sorry, incorrect." : "Let's learn from that one"}</h2>
 
-          <p><strong>Your answer:</strong> {feedback.chosen}</p>
-          <p><strong>Correct answer:</strong> {feedback.correct}</p>
+          {feedback.support?.type !== "initial_sound_pair" && (
+            <>
+              <p><strong>Your answer:</strong> {feedback.chosen}</p>
+              <p><strong>Correct answer:</strong> {feedback.correct}</p>
+            </>
+          )}
 
           {!feedback.isCorrect && (
             <div className="teaching-slide">
-              <h3>Teaching Tip</h3>
-              <p>{feedback.explanation}</p>
-              <p><strong>Skill focus:</strong> {feedback.skill}</p>
+              {feedback.support?.type === "initial_sound_pair" ? (
+                <div className="initial-sound-support">
+                  <section>
+                    <strong>Correct answer</strong>
+                    <div className="support-image-row">
+                      {feedback.support.correctWords.map(word => {
+                        const card = feedback.support.cardsByWord[word];
+                        return card ? (
+                          <figure key={word}>
+                            <img src={card.image} alt={card.alt || `Picture for ${word}`} />
+                          </figure>
+                        ) : null;
+                      })}
+                    </div>
+                  </section>
+
+                  <section>
+                    <strong>You answered</strong>
+                    <div className="support-image-row">
+                      {feedback.support.chosenWords.map(word => {
+                        const card = feedback.support.cardsByWord[word];
+                        return card ? (
+                          <figure key={word}>
+                            <img src={card.image} alt={card.alt || `Picture for ${word}`} />
+                          </figure>
+                        ) : null;
+                      })}
+                    </div>
+                  </section>
+
+                  <p>Words are made up of sounds. Some words start with the same sound.</p>
+                  <p>{feedback.support.exampleText}</p>
+                  <p>{feedback.support.wrongText}</p>
+                </div>
+              ) : (
+                <>
+                  <h3>Teaching Tip</h3>
+                  <p>{feedback.explanation}</p>
+                  <p><strong>Skill focus:</strong> {feedback.skill}</p>
+                </>
+              )}
             </div>
           )}
 

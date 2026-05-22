@@ -6,12 +6,10 @@ import { supabase } from "./supabaseClient";
 import { getMasteryRule } from "./masterySystem";
 import { skillTree } from "./skillTree";
 import {
-  AdminDashboardPage,
   AdvancedPhonicsPatternAssessmentPage,
   AssessmentPage,
   AuthPage,
   DashboardSummary,
-  FinishedReportPage,
   LetterAssessmentPage,
   QuestionFlagDialog,
   StudentOverviewPage,
@@ -24,6 +22,13 @@ import { masteryExtraQuestions } from "./data/masteryExtraQuestions";
 import { initialSoundCoverageQuestions } from "./data/initialSoundCoverageQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
 import { enrichListenAndFindWordQuestion } from "./data/listenAndFindAssets";
+import {
+  enrichInitialSoundPairQuestion,
+  hasCompleteInitialSoundPairAssets,
+  isInitialSoundQuestion,
+  isInitialSoundPairQuestion,
+  normalizeInitialSoundPairAnswer
+} from "./data/initialSoundPairAssets";
 
 import { templateQuestions } from "./data/templateQuestions";
 import { templateExpansion } from "./data/templateExpansion";
@@ -52,6 +57,26 @@ const ChildModePage = lazy(() =>
     default: module.ChildModePage
   }))
 );
+
+const AdminDashboardPage = lazy(() =>
+  import("@/components/AdminDashboardPage").then(module => ({
+    default: module.AdminDashboardPage
+  }))
+);
+
+const FinishedReportPage = lazy(() =>
+  import("@/components/FinishedReportPage").then(module => ({
+    default: module.FinishedReportPage
+  }))
+);
+
+function LazyPageFallback({ label = "Loading..." }) {
+  return (
+    <div className="card page-card page-stack lazy-page-fallback">
+      <h2>{label}</h2>
+    </div>
+  );
+}
 
 function LearningWorldFallback({ returnToTeacher }) {
   return (
@@ -138,6 +163,10 @@ function getStageIndex(question) {
 
 function isFixSentenceQuestion(question) {
   return question?.questionType === "fix_sentence";
+}
+
+function isPairSelectionQuestion(question) {
+  return isInitialSoundPairQuestion(question);
 }
 
 function normalizeSentenceAnswer(text) {
@@ -516,7 +545,9 @@ function isQuestionValid(q) {
   }
 
   if (!Array.isArray(q.choices) || q.choices.length < 2) return false;
-  if (!q.choices.includes(q.answer)) return false;
+  if (!isPairSelectionQuestion(q) && !q.choices.includes(q.answer)) return false;
+
+  if (isInitialSoundQuestion(q) && !hasCompleteInitialSoundPairAssets(q)) return false;
 
   const lowerChoices = q.choices.map(c => normalize(c));
   if (new Set(lowerChoices).size !== lowerChoices.length) return false;
@@ -549,9 +580,11 @@ const allQuestions = [
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
-].filter(isQuestionValid).map(question =>
-  applyQuestionFormatMetadata(applyItemMetadata(enrichListenAndFindWordQuestion(question)))
-);
+].map(question =>
+  applyQuestionFormatMetadata(applyItemMetadata(
+    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))
+  ))
+).filter(isQuestionValid);
 
 const configuredCoverageTotals = coverageExpectations;
 
@@ -1903,7 +1936,7 @@ export default function App() {
       ...question,
       isTargetedReview,
       choices: Array.isArray(question.choices)
-        ? shuffleArray(question.choices)
+        ? (isPairSelectionQuestion(question) ? question.choices : shuffleArray(question.choices))
         : question.choices
     };
   }
@@ -2297,10 +2330,14 @@ export default function App() {
     const correctAnswer = getQuestionAnswer(currentQuestion);
     const submittedAnswer = isFixSentenceQuestion(currentQuestion)
       ? normalizeSentenceAnswer(choice)
-      : choice;
+      : isPairSelectionQuestion(currentQuestion)
+        ? normalizeInitialSoundPairAnswer(choice)
+        : choice;
     const isCorrect = isFixSentenceQuestion(currentQuestion)
       ? comparableSentenceAnswer(submittedAnswer) === comparableSentenceAnswer(correctAnswer)
-      : submittedAnswer === correctAnswer;
+      : isPairSelectionQuestion(currentQuestion)
+        ? submittedAnswer === normalizeInitialSoundPairAnswer(correctAnswer)
+        : submittedAnswer === correctAnswer;
     const questionStage =
       skillTree[getStageIndex(currentQuestion)] || currentStage;
     const stage = questionStage;
@@ -2378,7 +2415,8 @@ export default function App() {
         chosen: submittedAnswer,
         correct: correctAnswer,
         skill: currentQuestion.skill,
-        explanation: getTeachingTip(currentQuestion, submittedAnswer, isCorrect)
+        explanation: getTeachingTip(currentQuestion, submittedAnswer, isCorrect),
+        support: buildFeedbackSupport(currentQuestion, submittedAnswer)
       });
 
       setCurrentQuestion(null);
@@ -2420,10 +2458,40 @@ export default function App() {
       chosen: submittedAnswer,
       correct: correctAnswer,
       skill: currentQuestion.skill,
-      explanation: getTeachingTip(currentQuestion, submittedAnswer, isCorrect)
+      explanation: getTeachingTip(currentQuestion, submittedAnswer, isCorrect),
+      support: buildFeedbackSupport(currentQuestion, submittedAnswer)
     });
 
     setCurrentQuestion(null);
+  }
+
+  function buildFeedbackSupport(question, submittedAnswer) {
+    if (!isInitialSoundPairQuestion(question)) return null;
+
+    const chosenWords = normalizeInitialSoundPairAnswer(submittedAnswer)
+      .split("|")
+      .filter(Boolean);
+    const correctWords = question.correctWords || [];
+    const cardsByWord = Object.fromEntries(
+      (question.imageCards || []).map(card => [card.word, card])
+    );
+    const wrongWords = chosenWords.filter(word => !correctWords.includes(word));
+    const targetSound = question.itemKey || correctWords[0]?.[0] || "";
+    const wrongWord = wrongWords[0];
+
+    return {
+      type: "initial_sound_pair",
+      targetSound,
+      correctWords,
+      chosenWords,
+      cardsByWord,
+      exampleText: correctWords.length >= 2
+        ? `${correctWords[0]} and ${correctWords[1]} both begin with /${targetSound}/.`
+        : "",
+      wrongText: wrongWord
+        ? `${wrongWord} starts with /${wrongWord[0]}/, so it does not match /${targetSound}/.`
+        : "Both matching pictures need to be selected."
+    };
   }
 
   function getTeachingTip(question, choice, isCorrect) {
@@ -3721,21 +3789,23 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       )}
 
       {appView === "admin" && isAdmin && (
-        <AdminDashboardPage
-          flags={adminFlags}
-          teachers={adminTeachers}
-          classes={adminClasses}
-          students={adminStudents}
-          statusFilter={adminFlagStatusFilter}
-          setStatusFilter={changeAdminFlagStatusFilter}
-          loading={adminLoading}
-          refreshDashboard={() => loadAdminDashboard(adminFlagStatusFilter)}
-          resolveFlag={flagId => updateQuestionFlagStatus(flagId, "resolved")}
-          reopenFlag={flagId => updateQuestionFlagStatus(flagId, "open")}
-          deleteClass={adminDeleteClass}
-          deleteStudent={adminDeleteStudent}
-          message={message}
-        />
+        <Suspense fallback={<LazyPageFallback label="Loading admin dashboard..." />}>
+          <AdminDashboardPage
+            flags={adminFlags}
+            teachers={adminTeachers}
+            classes={adminClasses}
+            students={adminStudents}
+            statusFilter={adminFlagStatusFilter}
+            setStatusFilter={changeAdminFlagStatusFilter}
+            loading={adminLoading}
+            refreshDashboard={() => loadAdminDashboard(adminFlagStatusFilter)}
+            resolveFlag={flagId => updateQuestionFlagStatus(flagId, "resolved")}
+            reopenFlag={flagId => updateQuestionFlagStatus(flagId, "open")}
+            deleteClass={adminDeleteClass}
+            deleteStudent={adminDeleteStudent}
+            message={message}
+          />
+        </Suspense>
       )}
 
       {appView === "overview" && nameSaved && (
@@ -3853,32 +3923,34 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       />
 
       {appView === "finished" && (
-        <FinishedReportPage
-          startAssessment={startAssessment}
-          keepPracticingSkill={keepPracticingSkill}
-          goToOverview={goToOverview}
-          studentName={studentName}
-          totalAnswered={totalAnswered}
-          accuracy={accuracy}
-          currentStage={currentStage}
-          currentSkillIndex={currentSkillIndex}
-          setCurrentSkillIndex={setCurrentSkillIndex}
-          setRoundAnswers={setRoundAnswers}
-          setCurrentQuestion={setCurrentQuestion}
-          setFeedback={setFeedback}
-          setMessage={setMessage}
-          skillTree={skillTree}
-          currentStageQuestions={currentStageQuestions}
-          mastery={mastery}
-          coverageSnapshot={buildCoverageSnapshot(itemMastery, {
-            enabled: DEBUG_ASSESSMENT_COVERAGE,
-            studentId
-          })}
-          allowPassageAudio={allowPassageAudio}
-          setAllowPassageAudio={setAllowPassageAudio}
-          exportData={exportData}
-          exportCSVData={exportCSVData}
-        />
+        <Suspense fallback={<LazyPageFallback label="Loading report..." />}>
+          <FinishedReportPage
+            startAssessment={startAssessment}
+            keepPracticingSkill={keepPracticingSkill}
+            goToOverview={goToOverview}
+            studentName={studentName}
+            totalAnswered={totalAnswered}
+            accuracy={accuracy}
+            currentStage={currentStage}
+            currentSkillIndex={currentSkillIndex}
+            setCurrentSkillIndex={setCurrentSkillIndex}
+            setRoundAnswers={setRoundAnswers}
+            setCurrentQuestion={setCurrentQuestion}
+            setFeedback={setFeedback}
+            setMessage={setMessage}
+            skillTree={skillTree}
+            currentStageQuestions={currentStageQuestions}
+            mastery={mastery}
+            coverageSnapshot={buildCoverageSnapshot(itemMastery, {
+              enabled: DEBUG_ASSESSMENT_COVERAGE,
+              studentId
+            })}
+            allowPassageAudio={allowPassageAudio}
+            setAllowPassageAudio={setAllowPassageAudio}
+            exportData={exportData}
+            exportCSVData={exportCSVData}
+          />
+        </Suspense>
       )}
 
       {!isFocusedAssessment && appView !== "overview" && appView !== "admin" && (

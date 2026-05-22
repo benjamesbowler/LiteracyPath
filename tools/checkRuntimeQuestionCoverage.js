@@ -4,6 +4,13 @@ import { masteryExtraQuestions } from "../src/data/masteryExtraQuestions.js";
 import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
+import {
+  enrichInitialSoundPairQuestion,
+  getInitialSoundPairDiagnostics,
+  hasCompleteInitialSoundPairAssets,
+  isInitialSoundQuestion,
+  isInitialSoundPairQuestion
+} from "../src/data/initialSoundPairAssets.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
 import { templateExpansion2 } from "../src/data/templateExpansion2.js";
@@ -176,8 +183,9 @@ function isQuestionValid(question) {
 
   if (!question.answer) return false;
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
-  if (!question.choices.includes(question.answer)) return false;
+  if (!isInitialSoundPairQuestion(question) && !question.choices.includes(question.answer)) return false;
   if (getStageIndex(question) === -1) return false;
+  if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
   if (hasAnchorChoiceLeakage(question)) return false;
   if (sentenceCompletionMissingContext(question)) return false;
 
@@ -202,10 +210,17 @@ function isQuestionValid(question) {
 
 const runtimeQuestions =
   runtimeQuestionBanks.flatMap(([source, questions]) =>
-    questions.map(question => ({ ...enrichListenAndFindWordQuestion(question), source }))
+    questions.map(question => ({
+      ...enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question)),
+      source
+    }))
   );
 
 const matchedQuestions = runtimeQuestions.filter(isQuestionValid);
+const activeOldInitialSoundQuestions = matchedQuestions.filter(question =>
+  skillTree[getStageIndex(question)]?.label === "Initial Sounds" &&
+  !isInitialSoundPairQuestion(question)
+);
 const counts = skillTree.map((stage, index) => ({
   stage,
   count: matchedQuestions.filter(question => getStageIndex(question) === index).length
@@ -276,6 +291,34 @@ for (const item of listenAndFindMissingAudio.slice(0, 20)) {
   console.warn(`  missing mp3: ${item.question.id} -> ${item.question.answer}`);
 }
 
+const initialSoundPairDiagnostics = matchedQuestions
+  .map(question => getInitialSoundPairDiagnostics(question))
+  .filter(Boolean);
+const initialSoundPairSupported = initialSoundPairDiagnostics.filter(item => item.supported);
+const initialSoundPairUnsupportedKeys = [...new Set(
+  initialSoundPairDiagnostics
+    .filter(item => !item.supported)
+    .map(item => item.itemKey)
+)].sort();
+const initialSoundPairMissingImages = initialSoundPairSupported.filter(item => item.missingImages.length > 0);
+const initialSoundPairMissingAudio = initialSoundPairSupported.filter(item => item.missingAudio.length > 0);
+
+console.log("");
+console.log("Initial Sounds image/audio pair diagnostics:");
+console.log(`  initial sound questions: ${initialSoundPairDiagnostics.length}`);
+console.log(`  image/audio pair format questions: ${initialSoundPairSupported.length}`);
+console.log(`  unsupported itemKeys without paired static assets: ${initialSoundPairUnsupportedKeys.join(", ") || "none"}`);
+console.log(`  pair questions missing images: ${initialSoundPairMissingImages.length}`);
+console.log(`  pair questions missing word mp3: ${initialSoundPairMissingAudio.length}`);
+
+for (const item of initialSoundPairMissingImages.slice(0, 20)) {
+  console.warn(`  missing initial-pair images: ${item.question.id} -> ${item.missingImages.join(", ")}`);
+}
+
+for (const item of initialSoundPairMissingAudio.slice(0, 20)) {
+  console.warn(`  missing initial-pair mp3: ${item.question.id} -> ${item.missingAudio.join(", ")}`);
+}
+
 const emptyStages = counts.filter(({ count }) => count === 0);
 const missingCoverageMetadata = matchedQuestions
   .map(question => {
@@ -303,6 +346,16 @@ if (missingCoverageMetadata.length > 0) {
   console.error("Coverage-enabled runtime questions missing item metadata:");
   for (const { question, stage } of missingCoverageMetadata.slice(0, 25)) {
     console.error(`- ${stage.label}: ${question.id} "${question.question || question.prompt}"`);
+  }
+
+  process.exit(1);
+}
+
+if (activeOldInitialSoundQuestions.length > 0) {
+  console.log("");
+  console.error("Initial Sounds runtime guard failed: old text-choice format is still active.");
+  for (const question of activeOldInitialSoundQuestions.slice(0, 25)) {
+    console.error(`- ${question.id}: "${question.question || question.prompt}"`);
   }
 
   process.exit(1);

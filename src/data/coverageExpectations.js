@@ -1,30 +1,6 @@
-export const initialSoundExpectedItemKeys = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "y",
-  "z"
-];
+import { initialSoundPairItemKeys } from "./initialSoundPairAssets.js";
+
+export const initialSoundExpectedItemKeys = initialSoundPairItemKeys;
 
 export const coverageExpectations = {
   initial_sounds: {
@@ -32,7 +8,7 @@ export const coverageExpectations = {
     itemKeys: initialSoundExpectedItemKeys,
     total: initialSoundExpectedItemKeys.length,
     unit: "sounds",
-    note: "Initial Sounds tracks Kindergarten-appropriate initial sound targets. The letter x is intentionally excluded because common x words either begin with /z/ (xylophone) or a letter-name sound (x-ray), which makes it a poor initial-sound mastery target."
+    note: "Initial Sounds live assessment only serves itemKeys with complete static image and human-word audio pairs. Other letters remain out of the live pool until matching assets are added; x is intentionally excluded because common x words do not make a clean Kindergarten initial-sound target."
   },
   final_sounds: {
     total: 26,

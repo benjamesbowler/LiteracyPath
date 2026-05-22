@@ -8,6 +8,13 @@ import { masteryExtraQuestions } from "../src/data/masteryExtraQuestions.js";
 import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
+import {
+  enrichInitialSoundPairQuestion,
+  getInitialSoundPairDiagnostics,
+  hasCompleteInitialSoundPairAssets,
+  isInitialSoundQuestion,
+  isInitialSoundPairQuestion
+} from "../src/data/initialSoundPairAssets.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
 import { templateExpansion2 } from "../src/data/templateExpansion2.js";
@@ -59,7 +66,11 @@ const questionBanks = [
 
 const allQuestions =
   questionBanks.flatMap(([file, bank]) =>
-    bank.map((question, index) => ({ file, index, question: enrichListenAndFindWordQuestion(question) }))
+    bank.map((question, index) => ({
+      file,
+      index,
+      question: enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))
+    }))
   );
 
 const questionFormatValues = getAllowedQuestionFormatValues();
@@ -373,12 +384,13 @@ function phonicsWordingIssue(question, stage) {
   }
 
   const isListenAndFindWord = question.questionType === "listen_and_find_word";
+  const isInitialSoundPair = isInitialSoundPairQuestion(question);
 
-  if (!isListenAndFindWord && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
+  if (!isListenAndFindWord && !isInitialSoundPair && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText uses an isolated phoneme or letter sound: "' + spoken + '".';
   }
 
-  if (!isListenAndFindWord && spoken && !naturalSentencePattern.test(spoken.trim())) {
+  if (!isListenAndFindWord && !isInitialSoundPair && spoken && !naturalSentencePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText should be a full natural sentence: "' + spoken + '".';
   }
 
@@ -386,7 +398,7 @@ function phonicsWordingIssue(question, stage) {
     return 'Use anchor-word middle-sound wording instead of vague vowel wording: "' + prompt + '" / "' + spoken + '".';
   }
 
-  if (stage === "Initial Sounds") {
+  if (stage === "Initial Sounds" && !isInitialSoundPair) {
     const anchor = initialSoundAnchors[getInitialPattern(question.answer)];
     if (anchor) {
       const expectedPrompt = "Which word starts the same as " + anchor + "?";
@@ -690,6 +702,19 @@ function getStage(question) {
   return index === -1 ? "UNMATCHED" : skillTree[index].label;
 }
 
+function isActiveRuntimeQuestion(question) {
+  if (!question?.id || !question.skill || !(question.question || question.prompt) || !question.answer) return false;
+  if (getStage(question) === "UNMATCHED") return false;
+  if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
+  if (!isInitialSoundPairQuestion(question) && !question.choices.includes(question.answer)) return false;
+  if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
+  if (anchorChoiceLeakageIssue(question)) return false;
+  if (sentenceCompletionContextIssue(question)) return false;
+
+  const choices = normalizedChoices(question.choices);
+  return new Set(choices).size === choices.length;
+}
+
 function addProblem(problems, type, item, detail) {
   problems.push({
     type,
@@ -765,6 +790,8 @@ function answerIsVisible(question) {
 }
 
 function hasMultipleLikelyCorrectAnswers(question) {
+  if (isInitialSoundPairQuestion(question)) return false;
+
   const skill = normalize(question.skill);
   const answer = normalize(question.answer);
   const choices = normalizedChoices(question.choices || []);
@@ -876,7 +903,7 @@ function auditQuestions() {
       addProblem(problems, "duplicate answer choices", item, question.choices.join(" | "));
     }
 
-    if (!choices.includes(normalize(question.answer))) {
+    if (!isInitialSoundPairQuestion(question) && !choices.includes(normalize(question.answer))) {
       addProblem(
         problems,
         "answer not present in choices",
@@ -1139,6 +1166,21 @@ function auditQuestions() {
     }
   }
 
+  const activeOldInitialSounds = allQuestions.filter(item =>
+    isActiveRuntimeQuestion(item.question) &&
+    getStage(item.question) === "Initial Sounds" &&
+    !isInitialSoundPairQuestion(item.question)
+  );
+
+  for (const item of activeOldInitialSounds) {
+    addProblem(
+      problems,
+      "initial sounds old live format",
+      item,
+      `Active Initial Sounds question must use image/audio pair format: "${item.question.question || item.question.prompt}".`
+    );
+  }
+
   return { counts, problems, formatStats };
 }
 
@@ -1186,6 +1228,7 @@ function printCoverageDiagnostics() {
 
     for (const item of allQuestions) {
       const question = item.question;
+      if (!isActiveRuntimeQuestion(question)) continue;
       if (getStage(question) !== stage.label) continue;
 
       const metadata = inferCoverageMetadata(question, stage.label);
@@ -1235,6 +1278,42 @@ function printListenAndFindDiagnostics() {
   }
 }
 
+function printInitialSoundPairDiagnostics() {
+  const diagnostics = allQuestions
+    .map(item => getInitialSoundPairDiagnostics(item.question))
+    .filter(Boolean);
+  const activeInitialSoundQuestions = allQuestions
+    .filter(item => isActiveRuntimeQuestion(item.question) && getStage(item.question) === "Initial Sounds");
+  const activeOldFormat = activeInitialSoundQuestions
+    .filter(item => !isInitialSoundPairQuestion(item.question));
+  const supported = diagnostics.filter(item => item.supported);
+  const unsupportedKeys = [...new Set(
+    diagnostics
+      .filter(item => !item.supported)
+      .map(item => item.itemKey)
+  )].sort();
+  const missingImages = supported.filter(item => item.missingImages.length > 0);
+  const missingAudio = supported.filter(item => item.missingAudio.length > 0);
+
+  console.log("");
+  console.log("INITIAL SOUNDS IMAGE/AUDIO PAIR DIAGNOSTICS:");
+  console.log(`Initial sound questions: ${diagnostics.length}`);
+  console.log(`Active live Initial Sounds questions: ${activeInitialSoundQuestions.length}`);
+  console.log(`Active old text-choice Initial Sounds questions: ${activeOldFormat.length}`);
+  console.log(`Image/audio pair format questions: ${supported.length}`);
+  console.log(`Unsupported itemKeys without paired static assets: ${unsupportedKeys.join(", ") || "none"}`);
+  console.log(`Pair questions missing images: ${missingImages.length}`);
+  console.log(`Pair questions missing word mp3: ${missingAudio.length}`);
+
+  for (const item of missingImages.slice(0, 20)) {
+    console.log(`- Missing initial-pair images ${item.question.id}: ${item.missingImages.join(", ")}`);
+  }
+
+  for (const item of missingAudio.slice(0, 20)) {
+    console.log(`- Missing initial-pair mp3 ${item.question.id}: ${item.missingAudio.join(", ")}`);
+  }
+}
+
 function printProblems(problems) {
   const byType = new Map();
 
@@ -1268,6 +1347,7 @@ printCounts(counts);
 printQuestionFormatStats(formatStats);
 printCoverageDiagnostics();
 printListenAndFindDiagnostics();
+printInitialSoundPairDiagnostics();
 printProblems(problems);
 
 if (problems.length > 0) {
