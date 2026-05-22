@@ -197,6 +197,52 @@ function getQuestionAnswer(question) {
     : question.answer;
 }
 
+function formatExportValue(value) {
+  if (Array.isArray(value)) {
+    return value.map(formatExportValue).filter(Boolean).join(" | ");
+  }
+
+  if (value && typeof value === "object") {
+    if (value.word) return formatExportValue(value.word);
+    if (value.label) return formatExportValue(value.label);
+    if (value.text) return formatExportValue(value.text);
+    return JSON.stringify(value);
+  }
+
+  return String(value ?? "");
+}
+
+function buildQuestionExportText(item = {}) {
+  const passage = formatExportValue(item.passage);
+  const question = formatExportValue(item.question || item.prompt);
+  return [passage, question].filter(Boolean).join(" ");
+}
+
+async function createExcelWorkbook() {
+  const module = await import("exceljs");
+  const ExcelJS = module.default || module["module.exports"] || module;
+
+  if (!ExcelJS?.Workbook) {
+    throw new Error("ExcelJS workbook export is unavailable.");
+  }
+
+  return new ExcelJS.Workbook();
+}
+
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = filename;
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  window.setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
 function isWordRecognitionQuestion(question) {
   const typeText = normalize([question?.questionType, question?.formatType].join(" "));
   return typeText.includes("word recognition") || typeText.includes("print match");
@@ -3069,16 +3115,17 @@ export default function App() {
   }
 
   async function exportLetterAssessment() {
-    const today =
-      new Date().toISOString().slice(0, 10);
+    try {
+      const today =
+        new Date().toISOString().slice(0, 10);
 
-    const safeName =
-      (studentName || "Unnamed student")
-        .replace(/[^a-z0-9]/gi, "_")
-        .toLowerCase();
+      const safeName =
+        (studentName || "Unnamed student")
+          .replace(/[^a-z0-9]/gi, "_")
+          .toLowerCase();
 
-    const alphabet =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      const alphabet =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
     const uppercaseResults =
       new Map(
@@ -3097,10 +3144,7 @@ export default function App() {
     const countKnown = (results, field) =>
       alphabet.filter(letter => results.get(letter)?.[field]).length;
 
-    const ExcelJS =
-      (await import("exceljs")).default;
-
-    const workbook = new ExcelJS.Workbook();
+    const workbook = await createExcelWorkbook();
     const worksheet = workbook.addWorksheet("Letter Assessment");
 
     const colors = {
@@ -3275,24 +3319,23 @@ export default function App() {
       type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     });
 
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = `${safeName}_letter_name_sound_assessment_${today}.xlsx`;
-    link.click();
-
-    URL.revokeObjectURL(url);
+      downloadBlob(blob, `${safeName}_letter_name_sound_assessment_${today}.xlsx`);
+      setMessage("Letter assessment Excel exported.");
+    } catch (error) {
+      console.error("Letter assessment Excel export failed:", error);
+      setMessage("Could not export the letter assessment Excel report.");
+    }
   }
 
   async function exportPatternAssessment() {
-    const today =
-      new Date().toISOString().slice(0, 10);
+    try {
+      const today =
+        new Date().toISOString().slice(0, 10);
 
-    const safeName =
-      (studentName || "Unnamed student")
-        .replace(/[^a-z0-9]/gi, "_")
-        .toLowerCase();
+      const safeName =
+        (studentName || "Unnamed student")
+          .replace(/[^a-z0-9]/gi, "_")
+          .toLowerCase();
 
     const results =
       new Map(patternAssessment.map(item => [item.pattern, item]));
@@ -3306,10 +3349,7 @@ export default function App() {
     const totalBothCorrect =
       patternAssessment.filter(item => item.soundCorrect && item.wordCorrect).length;
 
-    const ExcelJS =
-      (await import("exceljs")).default;
-
-    const workbook = new ExcelJS.Workbook();
+    const workbook = await createExcelWorkbook();
     const worksheet = workbook.addWorksheet("Advanced Phonics");
 
     const colors = {
@@ -3457,14 +3497,12 @@ export default function App() {
       type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     });
 
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = `${safeName}_advanced_phonics_pattern_assessment_${today}.xlsx`;
-    link.click();
-
-    URL.revokeObjectURL(url);
+      downloadBlob(blob, `${safeName}_advanced_phonics_pattern_assessment_${today}.xlsx`);
+      setMessage("Pattern assessment Excel exported.");
+    } catch (error) {
+      console.error("Pattern assessment Excel export failed:", error);
+      setMessage("Could not export the pattern assessment Excel report.");
+    }
   }
 
 
@@ -3492,13 +3530,13 @@ export default function App() {
 
     answerHistory.forEach(item => {
       rows.push([
-        item.date || "",
+        formatExportValue(item.date),
         studentName || "Unnamed student",
-        item.stage || item.skill || "",
-        item.diagnosticTarget || "",
-        `${item.passage ? item.passage + " " : ""}${item.question || ""}`,
-        item.chosen || "",
-        item.correct || "",
+        formatExportValue(item.stage || item.skill),
+        formatExportValue(item.diagnosticTarget),
+        buildQuestionExportText(item),
+        formatExportValue(item.chosen),
+        formatExportValue(item.correct),
         item.isCorrect ? "Correct" : "Incorrect"
       ]);
     });
@@ -3518,14 +3556,7 @@ export default function App() {
       type: "text/csv"
     });
 
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = `${safeName}_reading_data_${today}.csv`;
-    link.click();
-
-    URL.revokeObjectURL(url);
+    downloadBlob(blob, `${safeName}_reading_data_${today}.csv`);
   }
 
 
@@ -3686,9 +3717,9 @@ Recent Question Evidence
 
 ${answerHistory.slice(-30).map((item, index) => {
   return `${index + 1}. Skill: ${item.stage}
-Question: ${item.passage ? item.passage + " " : ""}${item.question}
-Student answered: ${item.chosen}
-Correct answer: ${item.correct}
+Question: ${buildQuestionExportText(item)}
+Student answered: ${formatExportValue(item.chosen)}
+Correct answer: ${formatExportValue(item.correct)}
 Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 }).join("\n\n")}
 `.trim();
@@ -3697,14 +3728,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       type: "text/plain"
     });
 
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-
-    link.href = url;
-    link.download = `${safeName}_reading_mastery_report_${today}.txt`;
-    link.click();
-
-    URL.revokeObjectURL(url);
+    downloadBlob(blob, `${safeName}_reading_mastery_report_${today}.txt`);
   }
 
   function resetStudent() {
@@ -3902,6 +3926,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           childLearningEvidence={childLearningEvidence}
           setAppView={setAppView}
           switchStudent={switchStudent}
+          letterAssessment={letterAssessment}
+          patternAssessment={patternAssessment}
+          exportLetterAssessment={exportLetterAssessment}
+          exportPatternAssessment={exportPatternAssessment}
         />
       )}
 
@@ -4015,6 +4043,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             setAllowPassageAudio={setAllowPassageAudio}
             exportData={exportData}
             exportCSVData={exportCSVData}
+            letterAssessment={letterAssessment}
+            patternAssessment={patternAssessment}
+            exportLetterAssessment={exportLetterAssessment}
+            exportPatternAssessment={exportPatternAssessment}
           />
         </Suspense>
       )}

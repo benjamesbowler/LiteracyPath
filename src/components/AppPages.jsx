@@ -972,7 +972,11 @@ export function StudentOverviewPage({
   coverageSnapshot,
   childLearningEvidence,
   setAppView,
-  switchStudent
+  switchStudent,
+  letterAssessment = [],
+  patternAssessment = [],
+  exportLetterAssessment,
+  exportPatternAssessment
 }) {
   const strongestAreas =
     weaknessSnapshot.strongest.slice(0, 3);
@@ -1313,6 +1317,26 @@ export function StudentOverviewPage({
             >
               Advanced Phonics Pattern Assessment
             </button>
+
+            {letterAssessment.length > 0 && (
+              <button
+                className="report-button overview-action-button secondary"
+                onClick={exportLetterAssessment}
+                type="button"
+              >
+                Export Letter Excel
+              </button>
+            )}
+
+            {patternAssessment.length > 0 && (
+              <button
+                className="report-button overview-action-button secondary"
+                onClick={exportPatternAssessment}
+                type="button"
+              >
+                Export Pattern Excel
+              </button>
+            )}
           </div>
         </div>
 
@@ -1884,7 +1908,11 @@ export function FinishedReportPage({
   allowPassageAudio,
   setAllowPassageAudio,
   exportData,
-  exportCSVData
+  exportCSVData,
+  letterAssessment = [],
+  patternAssessment = [],
+  exportLetterAssessment,
+  exportPatternAssessment
 }) {
   const latestCheckpointIndex = Math.max(
     -1,
@@ -2028,6 +2056,18 @@ export function FinishedReportPage({
         <button className="report-button" onClick={exportCSVData}>
           Export Excel CSV
         </button>
+
+        {letterAssessment.length > 0 && (
+          <button className="report-button" onClick={exportLetterAssessment} type="button">
+            Export Letter Excel
+          </button>
+        )}
+
+        {patternAssessment.length > 0 && (
+          <button className="report-button" onClick={exportPatternAssessment} type="button">
+            Export Pattern Excel
+          </button>
+        )}
       </div>
     </div>
   );
