@@ -8,8 +8,12 @@ const FORMAT_TYPES = new Set([
   "PICTURE_TO_PRINT_MATCH",
   "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
   "IMAGE_INITIAL_SOUND",
+  "INITIAL_SOUND_PAIR_SELECT",
+  "FINAL_SOUND_PAIR_SELECT",
+  "RHYME_PAIR_SELECT",
   "PICTURE_TO_PRINT_CVC",
   "IMAGE_VOWEL_SORT",
+  "SHORT_VOWEL_IMAGE_GROUP_SELECT",
   "COMPREHENSION",
   "FIX_SENTENCE",
   "UNKNOWN"
@@ -70,7 +74,7 @@ export function requiresAudioSupport(question) {
   if (question.audioText || question.spokenPrompt) return true;
 
   const formatType = normalizeFormatType(question.formatType);
-  if (["LISTENING", "PTD", "MPD", "PICTURE_TO_PRINT_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "IMAGE_INITIAL_SOUND", "PICTURE_TO_PRINT_CVC", "IMAGE_VOWEL_SORT"].includes(formatType)) return true;
+  if (["LISTENING", "PTD", "MPD", "PICTURE_TO_PRINT_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "IMAGE_INITIAL_SOUND", "INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT", "RHYME_PAIR_SELECT", "PICTURE_TO_PRINT_CVC", "IMAGE_VOWEL_SORT", "SHORT_VOWEL_IMAGE_GROUP_SELECT"].includes(formatType)) return true;
 
   const text = normalizeText(getQuestionText(question));
   return text.includes("listen") || text.includes("sound") || text.includes("starts like") || text.includes("middle sound");

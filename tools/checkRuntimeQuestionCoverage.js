@@ -1,7 +1,14 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
 import { skillTree } from "../src/skillTree.js";
 import { masteryCoreQuestions } from "../src/data/masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "../src/data/masteryExtraQuestions.js";
 import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQuestions.js";
+import { finalSoundCoverageQuestions } from "../src/data/finalSoundCoverageQuestions.js";
+import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.js";
+import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -11,6 +18,10 @@ import {
   isInitialSoundQuestion,
   isInitialSoundPairQuestion
 } from "../src/data/initialSoundPairAssets.js";
+import {
+  hasCompletePairSelectionAssets,
+  isPairSelectionQuestion
+} from "../src/data/soundPairAssets.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
 import { templateExpansion2 } from "../src/data/templateExpansion2.js";
@@ -22,11 +33,19 @@ import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
+import { getQuestionFormatMetadata } from "../src/questionFormatFramework.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(__dirname, "..");
+const minimumRuntimeQuestions = 52;
 
 const runtimeQuestionBanks = [
   ["masteryCoreQuestions", masteryCoreQuestions],
   ["masteryExtraQuestions", masteryExtraQuestions],
   ["initialSoundCoverageQuestions", initialSoundCoverageQuestions],
+  ["finalSoundCoverageQuestions", finalSoundCoverageQuestions],
+  ["rhymingCoverageQuestions", rhymingCoverageQuestions],
+  ["cvcShortVowelExpansionQuestions", cvcShortVowelExpansionQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -77,6 +96,9 @@ function inferCoverageMetadata(question, stageLabel) {
 
   const answer = normalize(question.answer);
   const text = normalize([question.question, question.prompt, question.spokenPrompt, question.audioText, question.passage, answer].join(" "));
+  if (question.questionType === "fix_sentence") {
+    return { itemType: "sentence_order", itemKey: question.id };
+  }
   if (!answer) return null;
 
   if (stageLabel.startsWith("High-Frequency Words")) return { itemType: "sight_word", itemKey: answer };
@@ -110,6 +132,28 @@ function inferCoverageMetadata(question, stageLabel) {
   if (stageLabel === "R-Controlled Vowels") {
     const pattern = findPattern(rControlledPatterns, `${answer} ${text}`);
     return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+
+  if (stageLabel === "Nouns") return { itemType: "grammar_noun", itemKey: answer };
+  if (stageLabel === "Verbs") return { itemType: "grammar_verb", itemKey: answer };
+  if (stageLabel === "Adjectives") return { itemType: "grammar_adjective", itemKey: answer };
+  if (stageLabel === "Prepositions of Place") return { itemType: "preposition", itemKey: answer };
+  if (stageLabel === "Plurals") return { itemType: "plural_form", itemKey: answer };
+  if (stageLabel === "Prefixes and Suffixes") return { itemType: "morphology", itemKey: answer };
+  if (stageLabel === "Antonyms and Synonyms") return { itemType: "semantic_relation", itemKey: answer };
+  if (stageLabel === "Homophones and Homonyms") return { itemType: "homophone", itemKey: answer };
+  if (stageLabel === "Sentence Comprehension") return { itemType: "sentence_comprehension", itemKey: question.id };
+
+  if ([
+    "Key Details",
+    "Sequencing",
+    "Main Idea",
+    "Inference",
+    "Cause and Effect",
+    "Context Clues",
+    "Theme and Higher Comprehension"
+  ].includes(stageLabel)) {
+    return { itemType: "reading_comprehension", itemKey: question.id };
   }
 
   return null;
@@ -183,9 +227,19 @@ function isQuestionValid(question) {
 
   if (!question.answer) return false;
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
-  if (!isInitialSoundPairQuestion(question) && !question.choices.includes(question.answer)) return false;
+  if (!isPairSelectionQuestion(question) && !question.choices.includes(question.answer)) return false;
   if (getStageIndex(question) === -1) return false;
   if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
+  if (isPairSelectionQuestion(question) && !hasCompletePairSelectionAssets(question)) return false;
+  if (question.questionType === "listen_and_find_word") {
+    const diagnostics = getListenAndFindAssetDiagnostics(question);
+    if (
+      diagnostics?.missingAudio ||
+      diagnostics?.missingImages.length > 0 ||
+      diagnostics?.missingChoiceAssets.length > 0 ||
+      !diagnostics?.usesSingleWordAudioText
+    ) return false;
+  }
   if (hasAnchorChoiceLeakage(question)) return false;
   if (sentenceCompletionMissingContext(question)) return false;
 
@@ -208,6 +262,160 @@ function isQuestionValid(question) {
   return true;
 }
 
+function publicAssetExists(assetPath) {
+  return Boolean(
+    assetPath &&
+    String(assetPath).startsWith("/") &&
+    fs.existsSync(path.join(rootDir, "public", assetPath))
+  );
+}
+
+function questionImageAssets(question) {
+  const assets = [];
+
+  if (question.imagePath) {
+    assets.push({
+      key: question.answer || question.id,
+      path: question.imagePath,
+      role: "question image"
+    });
+  }
+
+  for (const card of question.imageCards || []) {
+    assets.push({
+      key: card.word,
+      path: card.image,
+      role: "image card"
+    });
+  }
+
+  for (const [key, value] of Object.entries(question.choiceImages || {})) {
+    assets.push({
+      key,
+      path: value?.image,
+      role: "choice image"
+    });
+  }
+
+  return assets;
+}
+
+function questionAudioAssets(question) {
+  const assets = [];
+
+  if (question.audioPath) {
+    assets.push({
+      key: question.audioText || question.spokenPrompt || question.answer || question.id,
+      path: question.audioPath,
+      role: "prompt audio"
+    });
+  }
+
+  for (const card of question.imageCards || []) {
+    assets.push({
+      key: card.word,
+      path: card.audio,
+      role: "word audio"
+    });
+  }
+
+  return assets;
+}
+
+function formatName(question) {
+  return getQuestionFormatMetadata(question).formatType;
+}
+
+function isAssetRequiredQuestion(question) {
+  return question.questionType === "listen_and_find_word" ||
+    isPairSelectionQuestion(question);
+}
+
+function assetGapsForQuestion(question) {
+  const gaps = [];
+
+  if (!isAssetRequiredQuestion(question)) return gaps;
+
+  const images = questionImageAssets(question);
+  const audio = questionAudioAssets(question);
+
+  if (question.questionType === "listen_and_find_word") {
+    const diagnostics = getListenAndFindAssetDiagnostics(question);
+    if (diagnostics?.missingAudio) {
+      gaps.push({
+        type: "missing audio",
+        key: question.answer,
+        path: question.audioPath || "",
+        priority: "high"
+      });
+    }
+
+    for (const key of new Set([...(diagnostics?.missingImages || []), ...(diagnostics?.missingChoiceAssets || [])])) {
+      gaps.push({
+        type: "missing image",
+        key,
+        path: question.choiceImages?.[key]?.image || "",
+        priority: "high"
+      });
+    }
+  }
+
+  if (isPairSelectionQuestion(question)) {
+    const diagnostics = getInitialSoundPairDiagnostics(question);
+    const missingImages = diagnostics?.missingImages ||
+      (question.imageCards || []).filter(card => !card.image).map(card => card.word);
+    const missingAudio = diagnostics?.missingAudio ||
+      (question.imageCards || []).filter(card => !card.audio).map(card => card.word);
+
+    for (const key of missingImages) {
+      gaps.push({
+        type: "missing image",
+        key,
+        path: question.imageCards?.find(card => card.word === key)?.image || "",
+        priority: "high"
+      });
+    }
+
+    for (const key of missingAudio) {
+      gaps.push({
+        type: "missing audio",
+        key,
+        path: question.imageCards?.find(card => card.word === key)?.audio || "",
+        priority: "high"
+      });
+    }
+  }
+
+  for (const asset of images) {
+    if (asset.path && !publicAssetExists(asset.path)) {
+      gaps.push({
+        type: "missing image",
+        key: asset.key,
+        path: asset.path,
+        priority: "high"
+      });
+    }
+  }
+
+  for (const asset of audio) {
+    if (asset.path && !publicAssetExists(asset.path)) {
+      gaps.push({
+        type: "missing audio",
+        key: asset.key,
+        path: asset.path,
+        priority: "high"
+      });
+    }
+  }
+
+  return gaps;
+}
+
+function expectedKeysForStage(stage, runtimeKeys) {
+  const configured = coverageExpectations[stage.id];
+  return configured?.itemKeys || runtimeKeys;
+}
+
 const runtimeQuestions =
   runtimeQuestionBanks.flatMap(([source, questions]) =>
     questions.map(question => ({
@@ -226,6 +434,91 @@ const counts = skillTree.map((stage, index) => ({
   count: matchedQuestions.filter(question => getStageIndex(question) === index).length
 }));
 
+function buildStageAudit(stage, index) {
+  const questions = matchedQuestions.filter(question => getStageIndex(question) === index);
+  const byKey = new Map();
+  const itemTypes = new Set();
+  const formats = new Map();
+  const assetGaps = [];
+
+  for (const question of questions) {
+    const metadata = inferCoverageMetadata(question, stage.label);
+    if (metadata?.itemType) itemTypes.add(metadata.itemType);
+    if (metadata?.itemKey) {
+      byKey.set(metadata.itemKey, (byKey.get(metadata.itemKey) || 0) + 1);
+    }
+
+    const format = formatName(question);
+    formats.set(format, (formats.get(format) || 0) + 1);
+
+    for (const gap of assetGapsForQuestion(question)) {
+      assetGaps.push({
+        ...gap,
+        skill: stage.label,
+        questionId: question.id,
+        format
+      });
+    }
+  }
+
+  const runtimeKeys = [...byKey.keys()].sort();
+  const configured = coverageExpectations[stage.id];
+  const expectedKeys = expectedKeysForStage(stage, runtimeKeys);
+  const missingKeys = expectedKeys.filter(key => !byKey.has(key));
+  const expectedTotal = configured?.total || expectedKeys.length;
+  const averagePerKey = runtimeKeys.length ? questions.length / runtimeKeys.length : 0;
+  const overusedKeys = runtimeKeys.filter(key =>
+    byKey.get(key) >= Math.max(5, Math.ceil(averagePerKey * 2))
+  );
+  const underVariantKeys = expectedKeys.filter(key =>
+    (byKey.get(key) || 0) > 0 && (byKey.get(key) || 0) < 2
+  );
+  const pedagogicalNotes = [];
+
+  if (questions.length < minimumRuntimeQuestions) {
+    pedagogicalNotes.push(`Below ${minimumRuntimeQuestions} runtime-question target.`);
+  }
+
+  if (missingKeys.length > 0) {
+    pedagogicalNotes.push(`Missing expected itemKeys: ${missingKeys.join(", ")}.`);
+  }
+
+  if (expectedTotal > runtimeKeys.length && stage.id !== "hfw_51_100") {
+    pedagogicalNotes.push(`Configured expected total is ${expectedTotal}, but runtime has ${runtimeKeys.length} unique itemKeys.`);
+  }
+
+  if (underVariantKeys.length > 0) {
+    pedagogicalNotes.push(`Fewer than 2 variants for: ${underVariantKeys.join(", ")}.`);
+  }
+
+  if (stage.id === "initial_sounds") {
+    pedagogicalNotes.push("Live Initial Sounds is intentionally restricted to static image/audio pair-select items. Other alphabet sounds need real assets before activation.");
+  }
+
+  if (stage.id === "hfw_51_100") {
+    pedagogicalNotes.push("The app currently models HFW 51-100 as one combined band; 51-75 and 76-100 are not separate runtime stages yet.");
+  }
+
+  return {
+    stage,
+    questions,
+    itemTypes: [...itemTypes].sort(),
+    runtimeKeys,
+    expectedKeys,
+    missingKeys,
+    byKey,
+    overusedKeys,
+    underVariantKeys,
+    formats,
+    assetGaps,
+    expectedTotal,
+    configured,
+    pedagogicalNotes
+  };
+}
+
+const stageAudits = skillTree.map((stage, index) => buildStageAudit(stage, index));
+
 console.log(`Runtime questions scanned: ${runtimeQuestions.length}`);
 console.log(`Runtime questions matched and valid: ${matchedQuestions.length}`);
 console.log("");
@@ -238,31 +531,33 @@ console.log("");
 console.log("Coverage-enabled skill diagnostics:");
 
 for (const stage of skillTree.filter(item => coverageEnabledStages.has(item.label))) {
-  const stageQuestions = matchedQuestions.filter(question => getStageIndex(question) === skillTree.indexOf(stage));
-  const byKey = new Map();
-
-  for (const question of stageQuestions) {
-    const metadata = inferCoverageMetadata(question, stage.label);
-    if (!metadata?.itemKey || !metadata?.itemType) continue;
-    const key = metadata.itemKey;
-    byKey.set(key, (byKey.get(key) || 0) + 1);
-  }
-
-  const runtimeKeys = [...byKey.keys()].sort();
-  const configured = coverageExpectations[stage.id];
-  const expectedKeys = configured?.itemKeys || runtimeKeys;
-  const missingKeys = expectedKeys.filter(key => !byKey.has(key));
-  const impossibleKeys = expectedKeys.filter(key => !runtimeKeys.includes(key));
-  const expectedTotal = configured?.total || expectedKeys.length;
+  const audit = stageAudits.find(item => item.stage.id === stage.id);
+  const impossibleKeys = audit.expectedKeys.filter(key => !audit.runtimeKeys.includes(key));
 
   console.log(`- ${stage.label}`);
-  console.log(`  expected total: ${expectedTotal} ${configured?.unit || "items"}${configured?.note ? ` (${configured.note})` : ""}`);
-  console.log(`  runtime unique itemKeys: ${runtimeKeys.length}${runtimeKeys.length ? ` [${runtimeKeys.join(", ")}]` : ""}`);
-  console.log(`  missing itemKeys: ${missingKeys.length ? missingKeys.join(", ") : "none"}`);
-  console.log(`  questions per itemKey: ${runtimeKeys.map(key => `${key}:${byKey.get(key)}`).join(", ") || "none"}`);
+  console.log(`  expected total: ${audit.expectedTotal} ${audit.configured?.unit || "items"}${audit.configured?.note ? ` (${audit.configured.note})` : ""}`);
+  console.log(`  available questions: ${audit.questions.length}${audit.questions.length < minimumRuntimeQuestions ? ` (warning: below ${minimumRuntimeQuestions})` : ""}`);
+  console.log(`  unique itemTypes: ${audit.itemTypes.join(", ") || "none"}`);
+  console.log(`  runtime unique itemKeys: ${audit.runtimeKeys.length}${audit.runtimeKeys.length ? ` [${audit.runtimeKeys.join(", ")}]` : ""}`);
+  console.log(`  missing itemKeys: ${audit.missingKeys.length ? audit.missingKeys.join(", ") : "none"}`);
+  console.log(`  questions per itemKey: ${audit.runtimeKeys.map(key => `${key}:${audit.byKey.get(key)}`).join(", ") || "none"}`);
+  console.log(`  formats: ${[...audit.formats.entries()].map(([key, count]) => `${key}:${count}`).join(", ") || "none"}`);
+  console.log(`  asset gaps: ${audit.assetGaps.length}`);
 
-  if (configured?.itemKeys && impossibleKeys.length > 0) {
-    console.warn(`  warning: configured total is impossible with current runtime pool; missing ${impossibleKeys.join(", ")}`);
+  if (audit.configured?.itemKeys && impossibleKeys.length > 0) {
+    console.log(`  warning: configured total is impossible with current runtime pool; missing ${impossibleKeys.join(", ")}`);
+  }
+
+  if (!audit.configured?.itemKeys && audit.configured?.total && audit.runtimeKeys.length < audit.configured.total) {
+    console.log(`  warning: configured expected total is ${audit.configured.total}, but runtime has ${audit.runtimeKeys.length} unique itemKeys`);
+  }
+
+  if (audit.overusedKeys.length > 0) {
+    console.log(`  warning: overused itemKeys: ${audit.overusedKeys.join(", ")}`);
+  }
+
+  if (audit.underVariantKeys.length > 0) {
+    console.log(`  warning: fewer than 2 variants: ${audit.underVariantKeys.join(", ")}`);
   }
 }
 
@@ -284,11 +579,11 @@ console.log(`  questions missing static target mp3: ${listenAndFindMissingAudio.
 console.log(`  questions not using one-word audio text: ${listenAndFindBadAudioText.length}`);
 
 for (const item of listenAndFindMissingImages.slice(0, 20)) {
-  console.warn(`  missing images: ${item.question.id} -> ${[...new Set([...item.missingImages, ...item.missingChoiceAssets])].join(", ")}`);
+  console.log(`  missing images: ${item.question.id} -> ${[...new Set([...item.missingImages, ...item.missingChoiceAssets])].join(", ")}`);
 }
 
 for (const item of listenAndFindMissingAudio.slice(0, 20)) {
-  console.warn(`  missing mp3: ${item.question.id} -> ${item.question.answer}`);
+  console.log(`  missing mp3: ${item.question.id} -> ${item.question.answer}`);
 }
 
 const initialSoundPairDiagnostics = matchedQuestions
@@ -312,12 +607,176 @@ console.log(`  pair questions missing images: ${initialSoundPairMissingImages.le
 console.log(`  pair questions missing word mp3: ${initialSoundPairMissingAudio.length}`);
 
 for (const item of initialSoundPairMissingImages.slice(0, 20)) {
-  console.warn(`  missing initial-pair images: ${item.question.id} -> ${item.missingImages.join(", ")}`);
+  console.log(`  missing initial-pair images: ${item.question.id} -> ${item.missingImages.join(", ")}`);
 }
 
 for (const item of initialSoundPairMissingAudio.slice(0, 20)) {
-  console.warn(`  missing initial-pair mp3: ${item.question.id} -> ${item.missingAudio.join(", ")}`);
+  console.log(`  missing initial-pair mp3: ${item.question.id} -> ${item.missingAudio.join(", ")}`);
 }
+
+function markdownTable(headers, rows) {
+  const escapeCell = value => String(value ?? "").replace(/\|/g, "\\|").replace(/\n/g, "<br>");
+  return [
+    `| ${headers.map(escapeCell).join(" | ")} |`,
+    `| ${headers.map(() => "---").join(" | ")} |`,
+    ...rows.map(row => `| ${row.map(escapeCell).join(" | ")} |`)
+  ].join("\n");
+}
+
+function stageCompleteness(audit) {
+  const notes = [...audit.pedagogicalNotes];
+  if (audit.assetGaps.length > 0) notes.push(`${audit.assetGaps.length} asset gaps.`);
+  if (audit.overusedKeys.length > 0) notes.push(`Overused itemKeys: ${audit.overusedKeys.join(", ")}.`);
+  return notes.length ? notes.join(" ") : "No major runtime coverage warnings.";
+}
+
+function writeCoverageAuditDoc() {
+  const docPath = path.join(rootDir, "docs", "implementation", "content_coverage_audit.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const summaryRows = stageAudits.map(audit => [
+    audit.stage.label,
+    audit.questions.length,
+    audit.questions.length >= minimumRuntimeQuestions ? "yes" : "no",
+    audit.itemTypes.join(", ") || "none",
+    audit.runtimeKeys.length,
+    audit.expectedKeys.length,
+    audit.missingKeys.join(", ") || "none",
+    [...audit.formats.entries()].map(([key, count]) => `${key}:${count}`).join(", ") || "none",
+    audit.assetGaps.length,
+    stageCompleteness(audit)
+  ]);
+
+  const detailSections = stageAudits.map(audit => {
+    const rows = audit.runtimeKeys.map(key => [
+      key,
+      audit.byKey.get(key),
+      audit.expectedKeys.includes(key) ? "yes" : "extra"
+    ]);
+
+    return [
+      `## ${audit.stage.label}`,
+      "",
+      `- Runtime questions: ${audit.questions.length}`,
+      `- Unique itemTypes: ${audit.itemTypes.join(", ") || "none"}`,
+      `- Expected itemKeys: ${audit.expectedKeys.join(", ") || "runtime-derived"}`,
+      `- Missing itemKeys: ${audit.missingKeys.join(", ") || "none"}`,
+      `- Duplicate/overused itemKeys: ${audit.overusedKeys.join(", ") || "none"}`,
+      `- Formats: ${[...audit.formats.entries()].map(([key, count]) => `${key}:${count}`).join(", ") || "none"}`,
+      `- Meets ${minimumRuntimeQuestions}-question target: ${audit.questions.length >= minimumRuntimeQuestions ? "yes" : "no"}`,
+      `- Pedagogical completeness: ${stageCompleteness(audit)}`,
+      audit.configured?.note ? `- Coverage note: ${audit.configured.note}` : "",
+      "",
+      rows.length ? markdownTable(["itemKey", "questions", "expected"], rows) : "_No itemKey metadata found._"
+    ].filter(Boolean).join("\n");
+  });
+
+  const body = [
+    "# Runtime Content Coverage Audit",
+    "",
+    `Generated by \`node tools/checkRuntimeQuestionCoverage.js\`. Minimum target: ${minimumRuntimeQuestions} valid runtime questions per skill where pedagogically appropriate.`,
+    "",
+    "## Standards",
+    "",
+    "- Minimum 52 valid runtime questions per skill where appropriate.",
+    "- Minimum 2 variants per expected itemKey where possible.",
+    "- Explicit itemType/itemKey metadata for mastery-tracked skills.",
+    "- Asset-required formats are excluded from runtime if required static image/audio is missing.",
+    "- Initial Sounds must not use old anchor-word text-choice prompts in live assessment.",
+    "- Listen & Find Word must use one-word static MP3 audio and visual option cards.",
+    "- Sentence completion prompts must include visible sentence/context.",
+    "",
+    "## Summary",
+    "",
+    markdownTable(
+      ["Skill", "Runtime questions", "52+", "ItemTypes", "Unique itemKeys", "Expected itemKeys", "Missing itemKeys", "Formats", "Asset gaps", "Notes"],
+      summaryRows
+    ),
+    "",
+    "## Structural Notes",
+    "",
+    "- High-Frequency Words 51-75 and 76-100 are requested audit bands, but the current app has one combined `High-Frequency Words 51-100` runtime stage. This audit reports the active combined stage and flags the split as a content architecture follow-up rather than inventing stages in the audit.",
+    "- Final Sounds still uses mostly legacy text/decoding formats in the active pool. The audit marks it below standard and under-covered; converting it to asset-backed pair selection needs real final-sound image/audio sets.",
+    "- Initial Sounds uses the asset-backed pair-select format in live runtime only; old text-choice anchor prompts are excluded from live eligibility.",
+    "",
+    "## EL Alignment Note",
+    "",
+    "EL Skills Block benchmark assessment includes Letter Name and Sound Identification for all 26 uppercase/lowercase letters and sounds, and EL phonological awareness assessment includes isolating initial phonemes. LiteracyPath's Initial Sounds assessment is a digital, image/audio-supported adaptation of phonological awareness practice, not a replacement for the formal EL benchmark export. Because of that alignment, the intended Initial Sounds coverage should not collapse to only the asset-backed targets currently available at runtime; missing targets are reported as coverage gaps.",
+    "",
+    "## Detailed Skill Audits",
+    "",
+    detailSections.join("\n\n")
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeAssetCoverageDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "assessment_asset_coverage.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const rows = [];
+
+  for (const audit of stageAudits) {
+    for (const question of audit.questions) {
+      const format = formatName(question);
+      const images = questionImageAssets(question);
+      const audio = questionAudioAssets(question);
+      const keys = new Set([
+        ...images.map(asset => asset.key),
+        ...audio.map(asset => asset.key)
+      ]);
+
+      for (const key of keys) {
+        const image = images.find(asset => asset.key === key);
+        const sound = audio.find(asset => asset.key === key);
+        const hasImage = image ? publicAssetExists(image.path) : "";
+        const hasAudio = sound ? publicAssetExists(sound.path) : "";
+        const required = isAssetRequiredQuestion(question);
+        const missingRequired =
+          required &&
+          ((image && !hasImage) || (sound && !hasAudio));
+
+        rows.push([
+          key,
+          audit.stage.label,
+          format,
+          image ? (hasImage ? "yes" : "no") : "",
+          sound ? (hasAudio ? "yes" : "no") : "",
+          image?.path || "",
+          sound?.path || "",
+          missingRequired ? "missing required asset" : "",
+          missingRequired ? "high" : ""
+        ]);
+      }
+    }
+  }
+
+  const body = [
+    "# Assessment Asset Coverage",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`. This document lists runtime assessment assets discovered from image/audio-backed formats. Blank image/audio cells mean the active question format does not declare that asset role.",
+    "",
+    "## Known Blocking Gaps",
+    "",
+    "- Initial Sounds `/u/`: Kimi asset pack 2 provides `umbrella` image/audio, but a second clean Kindergarten `/u/` word with both static image and audio is still needed before `/u/` can enter the live pair-select pool.",
+    "",
+    markdownTable(
+      ["word", "skill", "format", "has image", "has audio", "image path", "audio path", "missing/weak asset flag", "priority"],
+      rows
+    )
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+const coverageDocPath = writeCoverageAuditDoc();
+const assetDocPath = writeAssetCoverageDoc();
+console.log("");
+console.log(`Wrote coverage audit: ${path.relative(rootDir, coverageDocPath)}`);
+console.log(`Wrote asset coverage: ${path.relative(rootDir, assetDocPath)}`);
 
 const emptyStages = counts.filter(({ count }) => count === 0);
 const missingCoverageMetadata = matchedQuestions

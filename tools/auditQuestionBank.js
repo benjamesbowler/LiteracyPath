@@ -6,6 +6,9 @@ import { questions } from "../src/questions.js";
 import { masteryCoreQuestions } from "../src/data/masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "../src/data/masteryExtraQuestions.js";
 import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQuestions.js";
+import { finalSoundCoverageQuestions } from "../src/data/finalSoundCoverageQuestions.js";
+import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.js";
+import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -15,6 +18,10 @@ import {
   isInitialSoundQuestion,
   isInitialSoundPairQuestion
 } from "../src/data/initialSoundPairAssets.js";
+import {
+  hasCompletePairSelectionAssets,
+  isPairSelectionQuestion
+} from "../src/data/soundPairAssets.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
 import { templateExpansion2 } from "../src/data/templateExpansion2.js";
@@ -51,6 +58,9 @@ const questionBanks = [
   ["src/data/masteryCoreQuestions.js", masteryCoreQuestions],
   ["src/data/masteryExtraQuestions.js", masteryExtraQuestions],
   ["src/data/initialSoundCoverageQuestions.js", initialSoundCoverageQuestions],
+  ["src/data/finalSoundCoverageQuestions.js", finalSoundCoverageQuestions],
+  ["src/data/rhymingCoverageQuestions.js", rhymingCoverageQuestions],
+  ["src/data/cvcShortVowelExpansionQuestions.js", cvcShortVowelExpansionQuestions],
   ["src/data/templateQuestions.js", templateQuestions],
   ["src/data/templateExpansion.js", templateExpansion],
   ["src/data/templateExpansion2.js", templateExpansion2],
@@ -384,13 +394,13 @@ function phonicsWordingIssue(question, stage) {
   }
 
   const isListenAndFindWord = question.questionType === "listen_and_find_word";
-  const isInitialSoundPair = isInitialSoundPairQuestion(question);
+  const isPairSelect = isPairSelectionQuestion(question);
 
-  if (!isListenAndFindWord && !isInitialSoundPair && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
+  if (!isListenAndFindWord && !isPairSelect && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText uses an isolated phoneme or letter sound: "' + spoken + '".';
   }
 
-  if (!isListenAndFindWord && !isInitialSoundPair && spoken && !naturalSentencePattern.test(spoken.trim())) {
+  if (!isListenAndFindWord && !isPairSelect && spoken && !naturalSentencePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText should be a full natural sentence: "' + spoken + '".';
   }
 
@@ -398,7 +408,7 @@ function phonicsWordingIssue(question, stage) {
     return 'Use anchor-word middle-sound wording instead of vague vowel wording: "' + prompt + '" / "' + spoken + '".';
   }
 
-  if (stage === "Initial Sounds" && !isInitialSoundPair) {
+  if (stage === "Initial Sounds" && !isPairSelect) {
     const anchor = initialSoundAnchors[getInitialPattern(question.answer)];
     if (anchor) {
       const expectedPrompt = "Which word starts the same as " + anchor + "?";
@@ -409,7 +419,7 @@ function phonicsWordingIssue(question, stage) {
     }
   }
 
-  if (stage === "Final Sounds") {
+  if (stage === "Final Sounds" && !isPairSelect) {
     const answer = normalize(question.answer);
     const anchor = finalSoundAnchors[answer.at(-1)];
     if (anchor) {
@@ -706,8 +716,18 @@ function isActiveRuntimeQuestion(question) {
   if (!question?.id || !question.skill || !(question.question || question.prompt) || !question.answer) return false;
   if (getStage(question) === "UNMATCHED") return false;
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
-  if (!isInitialSoundPairQuestion(question) && !question.choices.includes(question.answer)) return false;
+  if (!isPairSelectionQuestion(question) && !question.choices.includes(question.answer)) return false;
+  if (isPairSelectionQuestion(question) && !hasCompletePairSelectionAssets(question)) return false;
   if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
+  if (question.questionType === "listen_and_find_word") {
+    const diagnostics = getListenAndFindAssetDiagnostics(question);
+    if (
+      diagnostics?.missingAudio ||
+      diagnostics?.missingImages.length > 0 ||
+      diagnostics?.missingChoiceAssets.length > 0 ||
+      !diagnostics?.usesSingleWordAudioText
+    ) return false;
+  }
   if (anchorChoiceLeakageIssue(question)) return false;
   if (sentenceCompletionContextIssue(question)) return false;
 
@@ -790,7 +810,7 @@ function answerIsVisible(question) {
 }
 
 function hasMultipleLikelyCorrectAnswers(question) {
-  if (isInitialSoundPairQuestion(question)) return false;
+  if (isPairSelectionQuestion(question)) return false;
 
   const skill = normalize(question.skill);
   const answer = normalize(question.answer);
@@ -903,7 +923,7 @@ function auditQuestions() {
       addProblem(problems, "duplicate answer choices", item, question.choices.join(" | "));
     }
 
-    if (!isInitialSoundPairQuestion(question) && !choices.includes(normalize(question.answer))) {
+    if (!isPairSelectionQuestion(question) && !choices.includes(normalize(question.answer))) {
       addProblem(
         problems,
         "answer not present in choices",

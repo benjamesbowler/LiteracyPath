@@ -1,3 +1,5 @@
+import { kimiAssets2WordAssets } from "./kimiAssets2Manifest.js";
+
 function normalizeAssetKey(value) {
   return String(value || "").toLowerCase().trim();
 }
@@ -456,10 +458,23 @@ export const rumbleAssets = {
 };
 
 export function getChildWordAsset(word) {
-  return childWordAssets[normalizeAssetKey(word)] || null;
+  const key = normalizeAssetKey(word);
+  const localAsset = childWordAssets[key];
+  const kimiAsset = kimiAssets2WordAssets[key];
+
+  if (!localAsset) return kimiAsset || null;
+  if (!kimiAsset) return localAsset;
+
+  return {
+    ...localAsset,
+    image: localAsset.image || kimiAsset.image,
+    audio: localAsset.audio || kimiAsset.audio,
+    fallbackImage: localAsset.fallbackImage || kimiAsset.image || kimiAsset.fallbackImage,
+    source: localAsset.source || kimiAsset.source
+  };
 }
 
 export function getChildAudioPath(text) {
   const key = normalizeAssetKey(text);
-  return childWordAssets[key]?.audio || childPhraseAudio[key] || "";
+  return childWordAssets[key]?.audio || kimiAssets2WordAssets[key]?.audio || childPhraseAudio[key] || "";
 }

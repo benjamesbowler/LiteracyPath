@@ -20,15 +20,22 @@ import {
 import { masteryCoreQuestions } from "./data/masteryCoreQuestions";
 import { masteryExtraQuestions } from "./data/masteryExtraQuestions";
 import { initialSoundCoverageQuestions } from "./data/initialSoundCoverageQuestions";
+import { finalSoundCoverageQuestions } from "./data/finalSoundCoverageQuestions";
+import { rhymingCoverageQuestions } from "./data/rhymingCoverageQuestions";
+import { cvcShortVowelExpansionQuestions } from "./data/cvcShortVowelExpansionQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
-import { enrichListenAndFindWordQuestion } from "./data/listenAndFindAssets";
+import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
   enrichInitialSoundPairQuestion,
   hasCompleteInitialSoundPairAssets,
   isInitialSoundQuestion,
-  isInitialSoundPairQuestion,
-  normalizeInitialSoundPairAnswer
+  isInitialSoundPairQuestion
 } from "./data/initialSoundPairAssets";
+import {
+  hasCompletePairSelectionAssets,
+  isPairSelectionQuestion,
+  normalizePairSelectionAnswer
+} from "./data/soundPairAssets";
 
 import { templateQuestions } from "./data/templateQuestions";
 import { templateExpansion } from "./data/templateExpansion";
@@ -163,10 +170,6 @@ function getStageIndex(question) {
 
 function isFixSentenceQuestion(question) {
   return question?.questionType === "fix_sentence";
-}
-
-function isPairSelectionQuestion(question) {
-  return isInitialSoundPairQuestion(question);
 }
 
 function normalizeSentenceAnswer(text) {
@@ -548,6 +551,16 @@ function isQuestionValid(q) {
   if (!isPairSelectionQuestion(q) && !q.choices.includes(q.answer)) return false;
 
   if (isInitialSoundQuestion(q) && !hasCompleteInitialSoundPairAssets(q)) return false;
+  if (isPairSelectionQuestion(q) && !hasCompletePairSelectionAssets(q)) return false;
+  if (q.questionType === "listen_and_find_word") {
+    const diagnostics = getListenAndFindAssetDiagnostics(q);
+    if (
+      diagnostics?.missingAudio ||
+      diagnostics?.missingImages.length > 0 ||
+      diagnostics?.missingChoiceAssets.length > 0 ||
+      !diagnostics?.usesSingleWordAudioText
+    ) return false;
+  }
 
   const lowerChoices = q.choices.map(c => normalize(c));
   if (new Set(lowerChoices).size !== lowerChoices.length) return false;
@@ -569,6 +582,9 @@ const allQuestions = [
   ...masteryCoreQuestions,
   ...masteryExtraQuestions,
   ...initialSoundCoverageQuestions,
+  ...finalSoundCoverageQuestions,
+  ...rhymingCoverageQuestions,
+  ...cvcShortVowelExpansionQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,
@@ -2331,12 +2347,12 @@ export default function App() {
     const submittedAnswer = isFixSentenceQuestion(currentQuestion)
       ? normalizeSentenceAnswer(choice)
       : isPairSelectionQuestion(currentQuestion)
-        ? normalizeInitialSoundPairAnswer(choice)
+        ? normalizePairSelectionAnswer(choice)
         : choice;
     const isCorrect = isFixSentenceQuestion(currentQuestion)
       ? comparableSentenceAnswer(submittedAnswer) === comparableSentenceAnswer(correctAnswer)
       : isPairSelectionQuestion(currentQuestion)
-        ? submittedAnswer === normalizeInitialSoundPairAnswer(correctAnswer)
+        ? submittedAnswer === normalizePairSelectionAnswer(correctAnswer)
         : submittedAnswer === correctAnswer;
     const questionStage =
       skillTree[getStageIndex(currentQuestion)] || currentStage;
@@ -2468,7 +2484,7 @@ export default function App() {
   function buildFeedbackSupport(question, submittedAnswer) {
     if (!isInitialSoundPairQuestion(question)) return null;
 
-    const chosenWords = normalizeInitialSoundPairAnswer(submittedAnswer)
+    const chosenWords = normalizePairSelectionAnswer(submittedAnswer)
       .split("|")
       .filter(Boolean);
     const correctWords = question.correctWords || [];

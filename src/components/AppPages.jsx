@@ -128,7 +128,7 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
           onClick={() => setSelectedTiles([])}
           type="button"
         >
-          Clear
+          Reset
         </button>
 
         <button
@@ -326,7 +326,7 @@ export function QuestionFlagDialog({
   );
 }
 
-function InitialSoundPairQuestion({ currentQuestion, answerQuestion, speakText }) {
+function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedWords, setSelectedWords] = useState([]);
 
   useEffect(() => {
@@ -1479,8 +1479,8 @@ export function AssessmentPage({
 }) {
   const isListenAndFindWord =
     currentQuestion?.questionType === "listen_and_find_word";
-  const isInitialSoundPair =
-    currentQuestion?.questionType === "initial_sound_pair";
+  const isPairSelection =
+    ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
 
   return (
     <main className="assessment-shell">
@@ -1553,12 +1553,12 @@ export function AssessmentPage({
 
             <div className="question-line">
               <button
-                className={isInitialSoundPair ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
+                className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
                 onClick={() =>
                   speakText(
                     currentQuestion.audioText || currentQuestion.spokenPrompt || currentQuestion.prompt || currentQuestion.question,
                     currentQuestion.audioPath || "",
-                    { allowBrowserFallback: !(isListenAndFindWord || isInitialSoundPair) }
+                    { allowBrowserFallback: !(isListenAndFindWord || isPairSelection) }
                   )
                 }
                 aria-label="Listen to question"
@@ -1573,8 +1573,8 @@ export function AssessmentPage({
               ⚠️ Flag Question
             </button>
 
-            {isInitialSoundPair ? (
-              <InitialSoundPairQuestion
+            {isPairSelection ? (
+              <PairSelectionQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}
