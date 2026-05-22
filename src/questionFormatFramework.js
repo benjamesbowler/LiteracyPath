@@ -6,6 +6,7 @@ const FORMAT_TYPES = new Set([
   "DECODING",
   "LISTENING",
   "PICTURE_TO_PRINT_MATCH",
+  "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
   "IMAGE_INITIAL_SOUND",
   "PICTURE_TO_PRINT_CVC",
   "IMAGE_VOWEL_SORT",
@@ -69,7 +70,7 @@ export function requiresAudioSupport(question) {
   if (question.audioText || question.spokenPrompt) return true;
 
   const formatType = normalizeFormatType(question.formatType);
-  if (["LISTENING", "PTD", "MPD", "PICTURE_TO_PRINT_MATCH", "IMAGE_INITIAL_SOUND", "PICTURE_TO_PRINT_CVC", "IMAGE_VOWEL_SORT"].includes(formatType)) return true;
+  if (["LISTENING", "PTD", "MPD", "PICTURE_TO_PRINT_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "IMAGE_INITIAL_SOUND", "PICTURE_TO_PRINT_CVC", "IMAGE_VOWEL_SORT"].includes(formatType)) return true;
 
   const text = normalizeText(getQuestionText(question));
   return text.includes("listen") || text.includes("sound") || text.includes("starts like") || text.includes("middle sound");

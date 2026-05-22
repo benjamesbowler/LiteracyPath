@@ -1788,6 +1788,27 @@ div {
     "choices";
 }
 
+.child-heard-word-zone {
+  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "prompt"
+    "choices";
+}
+
+.child-heard-word-zone .child-prompt-row {
+  align-self: center;
+  justify-content: center;
+  padding: clamp(16px, 4dvh, 34px);
+  border: 2px solid rgba(74, 166, 160, 0.18);
+  border-radius: clamp(22px, 4dvh, 34px);
+  background: linear-gradient(180deg, rgba(255, 250, 240, 0.98), rgba(255, 231, 178, 0.96));
+  box-shadow: 0 16px 36px rgba(85, 48, 20, 0.14);
+}
+
+.child-heard-word-zone .child-prompt-row h2 {
+  font-size: clamp(24px, 5dvh, 46px);
+}
+
 .child-prompt-row {
   grid-area: prompt;
   display: flex;

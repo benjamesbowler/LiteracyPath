@@ -200,6 +200,7 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
     .map(index => shortAEchoCavesQuestions[index])
     .filter(Boolean);
   const question = questions[questionStep];
+  const isHeardWordMastery = question?.formatType === "HEARD_WORD_TO_PRINT_MINIMAL_PAIR";
 
   useEffect(() => {
     setFeedback(null);
@@ -207,7 +208,7 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
     setQuestionStep(0);
   }, [mission?.id]);
 
-  if (!mission || !question?.targetAsset || !question.choices?.length) {
+  if (!mission || !question || (!isHeardWordMastery && !question.targetAsset) || !question.choices?.length) {
     return (
       <main className="child-mode child-mode-inline-fallback">
         <button className="child-exit-button" onClick={returnToTeacher} type="button">
@@ -289,27 +290,29 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
         </div>
       </section>
 
-      <section className="child-interaction-zone child-format-two-zone">
-        <figure className="child-target-picture">
-          <button
-            className="child-target-picture-button"
-            onClick={replayTargetAudio}
-            type="button"
-            aria-label={`Hear ${question.targetWord}`}
-          >
-            <img
-              src={question.targetAsset.image || question.targetAsset.fallbackImage}
-              alt={question.targetAsset.alt}
-              onError={event => {
-                if (question.targetAsset.fallbackImage && !event.currentTarget.dataset.fallbackApplied) {
-                  event.currentTarget.dataset.fallbackApplied = "true";
-                  event.currentTarget.src = question.targetAsset.fallbackImage;
-                }
-              }}
-            />
-            <span className="picture-audio-badge" aria-hidden="true">▶</span>
-          </button>
-        </figure>
+      <section className={isHeardWordMastery ? "child-interaction-zone child-heard-word-zone" : "child-interaction-zone child-format-two-zone"}>
+        {!isHeardWordMastery && (
+          <figure className="child-target-picture">
+            <button
+              className="child-target-picture-button"
+              onClick={replayTargetAudio}
+              type="button"
+              aria-label={`Hear ${question.targetWord}`}
+            >
+              <img
+                src={question.targetAsset.image || question.targetAsset.fallbackImage}
+                alt={question.targetAsset.alt}
+                onError={event => {
+                  if (question.targetAsset.fallbackImage && !event.currentTarget.dataset.fallbackApplied) {
+                    event.currentTarget.dataset.fallbackApplied = "true";
+                    event.currentTarget.src = question.targetAsset.fallbackImage;
+                  }
+                }}
+              />
+              <span className="picture-audio-badge" aria-hidden="true">▶</span>
+            </button>
+          </figure>
+        )}
 
         <div className="child-prompt-row">
           <button
@@ -321,7 +324,7 @@ function ChildActivityShell({ mission, onComplete, returnToMap, returnToTeacher 
             <span aria-hidden="true">▶</span>
           </button>
           <div>
-            <p className="child-helper-text">Picture clue</p>
+            <p className="child-helper-text">{isHeardWordMastery ? "Listen to Rumble" : "Picture clue"}</p>
             <h2>{question.prompt}</h2>
           </div>
         </div>

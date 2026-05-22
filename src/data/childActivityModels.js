@@ -8,6 +8,13 @@ export const CHILD_ACTIVITY_FORMATS = {
     supportsChoiceAudio: false,
     supportsMultiSelect: false
   },
+  HEARD_WORD_TO_PRINT_MINIMAL_PAIR: {
+    label: "Heard Word to Print Minimal Pair",
+    evidence: "sound-print-minimal-pair-decoding",
+    supportsImages: false,
+    supportsChoiceAudio: false,
+    supportsMultiSelect: false
+  },
   IMAGE_INITIAL_SOUND: {
     label: "Image Initial Sound",
     evidence: "meaning-sound-phonological-awareness",
@@ -101,6 +108,20 @@ function buildPictureToPrintQuestion([id, targetWord, choices], formatLevel) {
   };
 }
 
+function buildHeardWordToPrintQuestion([id, targetWord, choices]) {
+  return {
+    id: `heard-word-${id}`,
+    formatType: "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
+    formatLevel: "mastery-prep",
+    targetWord,
+    prompt: "Which word did Rumble say?",
+    spokenPrompt: targetWord,
+    audioText: targetWord,
+    answer: targetWord,
+    choices
+  };
+}
+
 // TODO(child-mode-adaptive): Replace fixed mission ordering with adaptive progression once Child Mode connects to mastery state.
 // TODO(child-mode-mastery): Add a mastery-mode variant with reduced scaffolding after introduction/practice evidence exists.
 // TODO(child-mode-assets): Add final Kimi assets for jam/ham/ram before using them as targets.
@@ -108,7 +129,7 @@ export const shortAEchoCavesQuestions = [
   ...introQuestions.map(question => buildPictureToPrintQuestion(question, "introduction")),
   ...practiceQuestions.map(question => buildPictureToPrintQuestion(question, "practice")),
   ...mixedPracticeQuestions.map(question => buildPictureToPrintQuestion(question, "mixed-practice")),
-  ...masteryPrepQuestions.map(question => buildPictureToPrintQuestion(question, "mastery-prep"))
+  ...masteryPrepQuestions.map(question => buildHeardWordToPrintQuestion(question))
 ].map(question => ({
   ...question,
   // TODO(child-mode-assets): Replace any fallback placeholders with final Kimi/generated assets as the pool expands.
