@@ -444,7 +444,11 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
   const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
   const hasMainImage = shouldShowImage(currentQuestion) || (
     currentQuestion.imagePath &&
-    (currentQuestion.formatType === "PICTURE_TO_PRINT_MATCH" || currentQuestion.question?.toLowerCase().includes("matches the picture"))
+    (
+      currentQuestion.formatType === "PICTURE_TO_PRINT_MATCH" ||
+      currentQuestion.formatType === "PLURAL_IMAGE_SPELLING" ||
+      currentQuestion.question?.toLowerCase().includes("matches the picture")
+    )
   );
   const shouldShowListeningVisual =
     !hasPromptImages &&

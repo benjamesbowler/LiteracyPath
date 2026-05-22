@@ -911,6 +911,8 @@ function writeAudioQualityAuditDoc() {
       item.path,
       item.source,
       [...item.skills].sort().join(", "),
+      item.path?.includes("-kimi4") ? "review candidate" : "preferred active path",
+      item.path?.includes("-kimi4") ? "existing stable audio remains preferred until human review" : "",
       [...item.flags].sort().join("; ") || "static asset present"
     ]);
 
@@ -921,7 +923,7 @@ function writeAudioQualityAuditDoc() {
     "",
     "Audio policy: early phonics and HFW assessment formats use static asset audio only. Browser TTS is reserved for legacy non-critical prompts and is not an allowed fallback for asset-required assessment formats.",
     "",
-    markdownTable(["word", "audio path", "source pack", "used in skills", "quality flag"], rows)
+    markdownTable(["word", "audio path", "source pack", "used in skills", "preference", "deprecated/review note", "quality flag"], rows)
   ].join("\n");
 
   fs.writeFileSync(docPath, `${body}\n`);
@@ -955,11 +957,12 @@ function writeImageQualityAuditDoc() {
         if (!asset.path) flags.push("missing image");
         else if (!publicAssetExists(asset.path)) flags.push("missing file");
         if (asset.path?.includes("fallback")) flags.push("fallback/placeholder candidate");
+        if (asset.path?.includes("-kimi4")) flags.push("Pack 4 review candidate; existing stable image remains preferred");
         if (isPictureToPrintQuestion(question) && asset.role !== "question image") {
           flags.push("picture-to-print choices should not use option images");
         }
-        if (format === "PLURAL_IMAGE_SPELLING" && asset.role === "prompt image") {
-          flags.push("uses repeated singular asset; request true plural image");
+        if (format === "PLURAL_IMAGE_SPELLING" && !asset.path?.includes("/plurals/")) {
+          flags.push("plural question should use a true plural image");
         }
 
         rows.push([
@@ -969,6 +972,12 @@ function writeImageQualityAuditDoc() {
           asset.role,
           publicAssetExists(asset.path) ? "yes" : "no",
           asset.path || "",
+          asset.path?.includes("/plurals/") || asset.path?.includes("/vowel-teams/") || asset.path?.includes("/r-controlled/")
+            ? "preferred Pack 4 organized asset"
+            : asset.path?.includes("-kimi4")
+              ? "review candidate"
+              : "active asset",
+          asset.path?.includes("-kimi4") ? "yes" : "",
           flags.join("; ")
         ]);
       }
@@ -982,6 +991,8 @@ function writeImageQualityAuditDoc() {
             "duplicate path check",
             publicAssetExists(assetPath) ? "yes" : "no",
             assetPath,
+            "review",
+            "",
             "same image path reused for multiple answer words; review match quality"
           ]);
         }
@@ -1008,7 +1019,7 @@ function writeImageQualityAuditDoc() {
     "",
     "This audit reports missing/broken assets and flags image uses that need human visual review. It does not mark placeholders or repeated singular images as complete plural assets.",
     "",
-    markdownTable(["word", "skill", "format", "role", "file exists", "image path", "quality flag"], rows)
+    markdownTable(["word", "skill", "format", "role", "file exists", "image path", "preference", "deprecated", "quality flag"], rows)
   ].join("\n");
 
   fs.writeFileSync(docPath, `${body}\n`);
@@ -1034,7 +1045,10 @@ function writeKimiNextAssetRequestDoc() {
 
     for (const question of audit.questions) {
       if (formatName(question) === "PLURAL_IMAGE_SPELLING") {
-        weakPluralLines.push(`- ${question.targetPlural || question.answer}: create a clear plural image showing more than one ${question.targetWord || "object"}.`);
+        const pluralImage = question.imagePath || "";
+        if (!pluralImage.includes("/plurals/")) {
+          weakPluralLines.push(`- ${question.targetPlural || question.answer}: create a clear plural image showing more than one ${question.targetWord || "object"}.`);
+        }
       }
     }
   }
@@ -1070,10 +1084,10 @@ function writeKimiNextAssetRequestDoc() {
     "",
     "## Priority Order",
     "",
-    "1. True plural images for active plural questions.",
-    "2. More real images/audio for underrepresented blend and digraph patterns.",
-    "3. Additional long vowel, vowel team, r-controlled, and homophone assets to unlock honest coverage expansion.",
-    "4. Voice-consistency review for `-kimi3` alternate MP3s."
+    "1. More real images/audio for underrepresented blend and digraph patterns.",
+    "2. Additional long vowel, vowel team, r-controlled, and homophone assets to unlock honest coverage expansion.",
+    "3. Extra plural image variants only if expanding plural coverage beyond the current Pack 4 set.",
+    "4. Voice-consistency review for `-kimi3` and `-kimi4` alternate MP3s."
   ].join("\n");
 
   fs.writeFileSync(docPath, `${body}\n`);

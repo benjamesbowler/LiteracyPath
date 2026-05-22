@@ -1,6 +1,5 @@
 import {
   hasCompleteVisualQuestionAssets,
-  makeRepeatedPromptCards,
   makeVisualCardChoiceQuestion,
   makeWordChoiceQuestion
 } from "./visualQuestionAssets.js";
@@ -272,16 +271,15 @@ export const pluralsFormatExpansionQuestions = pluralTargets.map(([pattern, sing
     prompt: "What is the correct plural?",
     choices,
     answer: plural,
-    targetWord: singular,
-    imageWord: singular,
-    promptImageWords: hasImage(singular) ? [singular, singular, singular] : [],
+    targetWord: plural,
+    imageWord: plural,
     extra: {
+      singularWord: singular,
       targetPlural: plural,
-      pluralImageCount: 3,
-      promptImageCards: hasImage(singular) ? makeRepeatedPromptCards(singular, 3) : []
+      pluralImageCount: 1
     }
   })
-).filter(q => q.promptImageCards.length >= 2);
+).filter(q => q.imagePath);
 
 const hfwBands = [
   ["hfw_1_25", "high-frequency words 1-25", ["the", "and", "to", "a", "I", "you", "my", "we", "see", "go", "up", "can"]],

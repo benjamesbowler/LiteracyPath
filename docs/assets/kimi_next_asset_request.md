@@ -16,14 +16,7 @@ Please create or replace only real, child-friendly assets. Do not create placeho
 
 ## Plurals
 
-- cats: create a clear plural image showing more than one cat.
-- dogs: create a clear plural image showing more than one dog.
-- books: create a clear plural image showing more than one book.
-- boxes: create a clear plural image showing more than one box.
-- dishes: create a clear plural image showing more than one dish.
-- brushes: create a clear plural image showing more than one brush.
-- cups: create a clear plural image showing more than one cup.
-- hats: create a clear plural image showing more than one hat.
+- No plural image requests found.
 
 ## HFW
 
@@ -35,7 +28,7 @@ Please create or replace only real, child-friendly assets. Do not create placeho
 
 ## Priority Order
 
-1. True plural images for active plural questions.
-2. More real images/audio for underrepresented blend and digraph patterns.
-3. Additional long vowel, vowel team, r-controlled, and homophone assets to unlock honest coverage expansion.
-4. Voice-consistency review for `-kimi3` alternate MP3s.
+1. More real images/audio for underrepresented blend and digraph patterns.
+2. Additional long vowel, vowel team, r-controlled, and homophone assets to unlock honest coverage expansion.
+3. Extra plural image variants only if expanding plural coverage beyond the current Pack 4 set.
+4. Voice-consistency review for `-kimi3` and `-kimi4` alternate MP3s.

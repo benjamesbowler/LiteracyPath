@@ -1,5 +1,6 @@
 import { kimiAssets2WordAssets } from "./kimiAssets2Manifest.js";
 import { kimiAssets3WordAssets } from "./kimiAssets3Manifest.js";
+import { kimiAssets4WordAssets } from "./kimiAssets4Manifest.js";
 
 function normalizeAssetKey(value) {
   return String(value || "").toLowerCase().trim();
@@ -463,30 +464,32 @@ export function getChildWordAsset(word) {
   const localAsset = childWordAssets[key];
   const kimiAsset = kimiAssets2WordAssets[key];
   const kimi3Asset = kimiAssets3WordAssets[key];
+  const kimi4Asset = kimiAssets4WordAssets[key];
 
-  if (!localAsset && !kimiAsset) return kimi3Asset || null;
-  if (!localAsset && kimiAsset && !kimi3Asset) return kimiAsset;
-  if (!localAsset && kimiAsset && kimi3Asset) {
+  if (!localAsset && !kimiAsset && !kimi3Asset) return kimi4Asset || null;
+  if (!localAsset && !kimiAsset && kimi3Asset && !kimi4Asset) return kimi3Asset;
+  if (!localAsset && kimiAsset && !kimi3Asset && !kimi4Asset) return kimiAsset;
+  if (!localAsset && (kimiAsset || kimi3Asset || kimi4Asset)) {
     return {
-      ...kimiAsset,
-      image: kimiAsset.image || kimi3Asset.image,
-      audio: kimiAsset.audio || kimi3Asset.audio,
-      fallbackImage: kimiAsset.fallbackImage || kimi3Asset.image || kimi3Asset.fallbackImage,
-      source: kimiAsset.source || kimi3Asset.source
+      ...(kimiAsset || kimi3Asset || kimi4Asset),
+      image: kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image,
+      audio: kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio,
+      fallbackImage: kimiAsset?.fallbackImage || kimi3Asset?.image || kimi4Asset?.image || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage,
+      source: kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source
     };
   }
-  if (localAsset && !kimiAsset && !kimi3Asset) return localAsset;
+  if (localAsset && !kimiAsset && !kimi3Asset && !kimi4Asset) return localAsset;
 
   return {
     ...localAsset,
-    image: localAsset.image || kimiAsset?.image || kimi3Asset?.image,
-    audio: localAsset.audio || kimiAsset?.audio || kimi3Asset?.audio,
-    fallbackImage: localAsset.fallbackImage || kimiAsset?.image || kimi3Asset?.image || kimiAsset?.fallbackImage || kimi3Asset?.fallbackImage,
-    source: localAsset.source || kimiAsset?.source || kimi3Asset?.source
+    image: localAsset.image || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image,
+    audio: localAsset.audio || kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio,
+    fallbackImage: localAsset.fallbackImage || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || kimiAsset?.fallbackImage || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage,
+    source: localAsset.source || kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source
   };
 }
 
 export function getChildAudioPath(text) {
   const key = normalizeAssetKey(text);
-  return childWordAssets[key]?.audio || kimiAssets2WordAssets[key]?.audio || kimiAssets3WordAssets[key]?.audio || childPhraseAudio[key] || "";
+  return childWordAssets[key]?.audio || kimiAssets2WordAssets[key]?.audio || kimiAssets3WordAssets[key]?.audio || kimiAssets4WordAssets[key]?.audio || childPhraseAudio[key] || "";
 }
