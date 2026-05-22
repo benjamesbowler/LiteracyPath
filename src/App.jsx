@@ -195,6 +195,18 @@ function normalizeItemKey(value) {
     .trim();
 }
 
+const vowelTeamPatterns = ["ai", "ay", "ee", "ea", "oa", "ow", "igh", "ie", "oo", "ue", "ew", "oi", "oy", "ou", "aw"];
+const rControlledPatterns = ["ar", "er", "ir", "or", "ur"];
+const blendPatterns = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];
+const digraphPatterns = ["sh", "ch", "th", "wh", "ph"];
+
+function findPatternInText(patterns, text) {
+  return patterns.find(pattern =>
+    new RegExp(`(^|[^a-z])${pattern}([^a-z]|$)`).test(text) ||
+    normalizeItemKey(text).includes(pattern)
+  );
+}
+
 function inferItemMetadata(question) {
   if (!question) return null;
   if (question.itemKey && question.itemType) {
@@ -256,32 +268,32 @@ function inferItemMetadata(question) {
 
   if (skill.includes("short vowel")) {
     const vowel = ["a", "e", "i", "o", "u"].find(letter => answer.includes(letter));
-    return vowel ? { itemKey: vowel, itemType: "short_vowel" } : null;
+    return vowel ? { itemKey: `short_${vowel}`, itemType: "short_vowel" } : null;
   }
 
   if (skill.includes("blend")) {
-    const match = text.match(/\b(bl|cl|fl|gl|pl|sl|br|cr|dr|fr|gr|pr|tr|sc|sk|sm|sn|sp|st|sw)\b/);
-    return { itemKey: match?.[1] || answer.slice(0, 2), itemType: "phonics_pattern" };
+    const pattern = findPatternInText(blendPatterns, `${answer} ${text}`);
+    return pattern ? { itemKey: pattern, itemType: "phonics_pattern" } : null;
   }
 
   if (skill.includes("digraph")) {
-    const match = text.match(/\b(sh|ch|th|wh|ph)\b/);
-    return { itemKey: match?.[1] || answer.slice(0, 2), itemType: "phonics_pattern" };
+    const pattern = findPatternInText(digraphPatterns, `${answer} ${text}`);
+    return pattern ? { itemKey: pattern, itemType: "phonics_pattern" } : null;
   }
 
   if (skill.includes("long vowel")) {
-    const match = text.match(/long ([aeiou])/);
-    return match ? { itemKey: match[1] + "_e", itemType: "phonics_pattern" } : null;
+    const match = text.match(/long ([aeiou])/) || answer.match(/([aeiou])[^aeiou]?e$/);
+    return match ? { itemKey: `${match[1]}_e`, itemType: "phonics_pattern" } : null;
   }
 
   if (skill.includes("vowel team")) {
-    const match = text.match(/\b(ai|ay|ee|ea|oa|ow|igh|ie|oo|ue|ew|oi|oy|ou|aw)\b/);
-    return match ? { itemKey: match[1], itemType: "phonics_pattern" } : null;
+    const pattern = findPatternInText(vowelTeamPatterns, `${answer} ${text}`);
+    return pattern ? { itemKey: pattern, itemType: "phonics_pattern" } : null;
   }
 
   if (skill.includes("r-controlled") || skill.includes("r controlled")) {
-    const match = text.match(/\b(ar|er|ir|or|ur)\b/);
-    return match ? { itemKey: match[1], itemType: "phonics_pattern" } : null;
+    const pattern = findPatternInText(rControlledPatterns, `${answer} ${text}`);
+    return pattern ? { itemKey: pattern, itemType: "phonics_pattern" } : null;
   }
 
   if (diagnosticTarget && /^(ai|ay|ee|ea|oa|ow|igh|ie|oo|ue|ew|oi|oy|ou|aw|ar|er|ir|or|ur|sh|ch|th|wh|ph|[a-z]{1,2})/.test(diagnosticTarget)) {
@@ -573,7 +585,10 @@ function buildCoverageSnapshot(itemMasteryRows = {}) {
     const configured = configuredCoverageTotals[stage.id];
     const total = configured?.total || runtimeKeys.size;
     const unit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words" : "items");
-    const mastered = Array.from(runtimeKeys).filter(key => rowsByKey.get(key)?.mastered).length;
+    const mastered = Array.from(runtimeKeys).filter(key => {
+      const row = rowsByKey.get(key);
+      return row?.mastered || row?.correct > 0;
+    }).length;
 
     snapshot[stage.id] = {
       mastered: Math.min(mastered, total),
@@ -1781,6 +1796,32 @@ export default function App() {
     return [];
   }
 
+  function getQuestionMasteryRank(question) {
+    const metadata = inferItemMetadata(question);
+    if (!metadata?.itemKey || !metadata?.itemType) return 4;
+
+    const key = getItemMasteryStateKey(metadata.itemKey, metadata.itemType);
+    const row = itemMastery[key];
+
+    if (!row) return 0;
+    if (!row.mastered && row.correct === 0) return 1;
+    if (!row.mastered) return 2;
+    return 3;
+  }
+
+  function prioritizeCoverageQuestions(questions) {
+    const grouped = questions.reduce((groups, question) => {
+      const rank = getQuestionMasteryRank(question);
+      groups[rank] = [...(groups[rank] || []), question];
+      return groups;
+    }, {});
+
+    return Object.keys(grouped)
+      .map(Number)
+      .sort((a, b) => a - b)
+      .flatMap(rank => shuffleArray(grouped[rank]));
+  }
+
   function prepareQuestion(question, isTargetedReview = false) {
     return {
       ...question,
@@ -1791,7 +1832,7 @@ export default function App() {
     };
   }
 
-  function pickQuestion(mode = assessmentMode, answeredCount = roundAnswers.length) {
+  function pickQuestion(mode = assessmentMode, answeredCount = roundAnswers.length, stageIndexOverride = currentSkillIndex) {
     setMessage("");
     setShowConfetti(false);
     setShowReport(false);
@@ -1809,10 +1850,12 @@ export default function App() {
       return;
     }
 
-    const available = getAvailableStageQuestions(currentSkillIndex);
+    const activeStageIndex = stageIndexOverride;
+    const activeStage = skillTree[activeStageIndex] || currentStage;
+    const available = getAvailableStageQuestions(activeStageIndex);
 
     if (available.length === 0) {
-      setMessage(`No questions found for ${currentStage.label}.`);
+      setMessage(`No questions found for ${activeStage.label}.`);
       return;
     }
 
@@ -1835,7 +1878,7 @@ export default function App() {
       answeredCount > 0
         ? answerHistory
           .slice(-answeredCount)
-          .filter(item => item.stage === currentStage.label)
+          .filter(item => item.stage === activeStage.label)
           .map(item => item.diagnosticTarget)
         : [];
 
@@ -1849,7 +1892,7 @@ export default function App() {
         ? unusedTargets
         : available;
 
-    const picked = shuffleArray(pool)[0];
+    const picked = prioritizeCoverageQuestions(pool)[0];
 
     setCurrentQuestion(prepareQuestion(picked));
   }
@@ -1863,6 +1906,12 @@ export default function App() {
     return {
       itemKey: normalizeItemKey(row.item_key),
       itemType: row.item_type,
+      skillId: row.skillId || row.skill_id || "",
+      targetSkill: row.targetSkill || row.target_skill || "",
+      targetWord: row.targetWord || row.target_word || "",
+      targetSound: row.targetSound || row.target_sound || "",
+      targetPattern: row.targetPattern || row.target_pattern || "",
+      source: row.source || "assessment",
       attempts: Number(row.attempts || 0),
       correct: Number(row.correct || 0),
       lastSeen: row.last_seen || null,
@@ -1878,7 +1927,7 @@ export default function App() {
     };
   }
 
-  function nextItemMasteryRow(previous, metadata, isCorrect, isNewSessionSeen, formatMetadata) {
+  function nextItemMasteryRow(previous, metadata, isCorrect, isNewSessionSeen, formatMetadata, source = {}) {
     const attempts = (previous?.attempts || 0) + 1;
     const correct = (previous?.correct || 0) + (isCorrect ? 1 : 0);
     const sessionsSeen = (previous?.sessionsSeen || 0) + (isNewSessionSeen ? 1 : 0);
@@ -1898,11 +1947,24 @@ export default function App() {
     };
     const eligibility = isMasteryEligible(evidence, metadata.itemType, metadata.itemKey);
     const baseMastered = attempts >= 4 && correct >= 3 && isCorrect && sessionsSeen >= 2;
-    const mastered = baseMastered && eligibility.eligible;
+    const isAssessmentEvidence = (source.source || "assessment") === "assessment";
+    const mastered = Boolean(
+      previous?.mastered ||
+      (isAssessmentEvidence && isCorrect) ||
+      (baseMastered && eligibility.eligible)
+    );
+    const stageIndex = getStageIndex(source);
+    const stage = skillTree[stageIndex];
 
     return {
       itemKey: metadata.itemKey,
       itemType: metadata.itemType,
+      skillId: stage?.id || source.skillId || "",
+      targetSkill: source.targetSkill || source.skill || stage?.label || "",
+      targetWord: metadata.itemType.includes("word") ? metadata.itemKey : "",
+      targetSound: metadata.itemType.includes("sound") || metadata.itemType === "short_vowel" ? metadata.itemKey : "",
+      targetPattern: metadata.itemType.includes("pattern") ? metadata.itemKey : "",
+      source: source.source || "assessment",
       attempts,
       correct,
       lastSeen: new Date().toISOString(),
@@ -1958,7 +2020,7 @@ export default function App() {
     }));
 
     setItemMastery(prev => {
-      const nextRow = nextItemMasteryRow(prev[key], metadata, isCorrect, isNewSessionSeen, formatMetadata);
+      const nextRow = nextItemMasteryRow(prev[key], metadata, isCorrect, isNewSessionSeen, formatMetadata, source);
       saveItemMasteryToSupabase(nextRow);
 
       return {
@@ -3190,7 +3252,9 @@ export default function App() {
   }
 
 
-  function startAssessment() {
+  function startAssessment(stageIndex = currentSkillIndex) {
+    const nextStageIndex = Number.isFinite(stageIndex) ? stageIndex : currentSkillIndex;
+    setCurrentSkillIndex(nextStageIndex);
     setAssessmentMode("mastery");
     setFeedback(null);
     setCurrentQuestion(null);
@@ -3198,7 +3262,7 @@ export default function App() {
     setRoundAnswers([]);
     setMessage("");
     setAppView("assessment");
-    pickQuestion("mastery", 0);
+    pickQuestion("mastery", 0, nextStageIndex);
   }
 
   function startTargetedReview() {

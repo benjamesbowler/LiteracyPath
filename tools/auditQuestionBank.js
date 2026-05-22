@@ -207,6 +207,84 @@ function sentenceCompletionContextIssue(question) {
     : `Sentence-completion prompt has no visible sentence/context: "${question.question || question.prompt}".`;
 }
 
+const coverageEnabledStages = new Set([
+  "Initial Sounds",
+  "Final Sounds",
+  "Rhyming",
+  "CVC and Short Vowels",
+  "Short Vowel Discrimination",
+  "High-Frequency Words 1-25",
+  "High-Frequency Words 26-50",
+  "High-Frequency Words 51-100",
+  "Blends",
+  "Digraphs",
+  "Long Vowels and Silent E",
+  "Vowel Teams",
+  "R-Controlled Vowels"
+]);
+
+const auditVowelTeams = ["ai", "ay", "ee", "ea", "oa", "ow", "igh", "ie", "oo", "ue", "ew", "oi", "oy", "ou", "aw"];
+const auditRControlled = ["ar", "er", "ir", "or", "ur"];
+const auditBlends = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];
+const auditDigraphs = ["sh", "ch", "th", "wh", "ph"];
+
+function findPattern(patterns, text) {
+  const normalized = normalize(text);
+  return patterns.find(pattern => normalized.includes(pattern));
+}
+
+function inferCoverageMetadata(question, stage) {
+  if (question.itemType && question.itemKey) {
+    return { itemType: question.itemType, itemKey: normalize(question.itemKey) };
+  }
+
+  const answer = normalize(question.answer);
+  const text = normalize([question.question, question.prompt, question.spokenPrompt, question.audioText, question.passage, answer].join(" "));
+  if (!answer) return null;
+
+  if (stage.startsWith("High-Frequency Words")) return { itemType: "sight_word", itemKey: answer };
+  if (stage === "Initial Sounds") return { itemType: "initial_sound", itemKey: answer[0] };
+  if (stage === "Final Sounds") return { itemType: "final_sound", itemKey: answer.at(-1) };
+  if (stage === "Rhyming") {
+    const anchor = text.match(/rhymes? with ([a-z]+)/)?.[1];
+    return { itemType: "rhyming_family", itemKey: (anchor || answer).slice(-2) };
+  }
+  if (stage === "CVC and Short Vowels") return { itemType: "cvc_word", itemKey: answer };
+  if (stage === "Short Vowel Discrimination") {
+    const vowel = answer.split("").find(letter => "aeiou".includes(letter));
+    return vowel ? { itemType: "short_vowel", itemKey: `short_${vowel}` } : null;
+  }
+  if (stage === "Blends") {
+    const pattern = findPattern(auditBlends, `${answer} ${text}`);
+    return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+  if (stage === "Digraphs") {
+    const pattern = findPattern(auditDigraphs, `${answer} ${text}`);
+    return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+  if (stage === "Long Vowels and Silent E") {
+    const pattern = text.match(/long ([aeiou])/)?.[1] || answer.match(/([aeiou])[^aeiou]?e$/)?.[1];
+    return pattern ? { itemType: "phonics_pattern", itemKey: `${pattern}_e` } : null;
+  }
+  if (stage === "Vowel Teams") {
+    const pattern = findPattern(auditVowelTeams, `${answer} ${text}`);
+    return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+  if (stage === "R-Controlled Vowels") {
+    const pattern = findPattern(auditRControlled, `${answer} ${text}`);
+    return pattern ? { itemType: "phonics_pattern", itemKey: pattern } : null;
+  }
+
+  return null;
+}
+
+function coverageMetadataIssue(question, stage) {
+  if (!coverageEnabledStages.has(stage)) return null;
+  return inferCoverageMetadata(question, stage)
+    ? null
+    : `Coverage-enabled question lacks inferable itemType/itemKey: "${question.question}".`;
+}
+
 function isSingleLetter(text) {
   return /^[a-z]$/i.test(String(text || "").trim());
 }
@@ -831,6 +909,18 @@ function auditQuestions() {
         "sentence completion missing context",
         item,
         sentenceCompletionProblem
+      );
+    }
+
+    const coverageProblem =
+      coverageMetadataIssue(question, stage);
+
+    if (coverageProblem) {
+      addProblem(
+        problems,
+        "coverage metadata missing",
+        item,
+        coverageProblem
       );
     }
 

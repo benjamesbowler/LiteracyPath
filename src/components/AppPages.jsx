@@ -836,7 +836,7 @@ export function StudentOverviewPage({
           <div className="coverage-bar secondary" aria-label="Item coverage progress">
             <span style={{ width: `${coveragePercent}%` }}></span>
           </div>
-          <p>Coverage uses item-level mastery records where available.</p>
+          <p>Coverage source: item_mastery rows.</p>
         </div>
       </section>
 
@@ -1668,18 +1668,12 @@ export function FinishedReportPage({
           </div>
 
           <div className="button-row">
-            <button className="main-button" onClick={startAssessment} type="button">
+            <button className="main-button" onClick={() => startAssessment(currentSkillIndex)} type="button">
               Move to Next Skill
             </button>
             <button
               className="report-button"
-              onClick={() => {
-                setCurrentSkillIndex(latestCheckpointIndex);
-                setRoundAnswers([]);
-                setCurrentQuestion(null);
-                setFeedback(null);
-                setMessage("Continuing practice on the checkpoint skill.");
-              }}
+              onClick={() => startAssessment(latestCheckpointIndex)}
               type="button"
             >
               Keep Practicing This Skill
