@@ -1061,7 +1061,7 @@ function answerIsVisible(question) {
   if (!answer || answer.length < 3) return false;
   if (answerVisibleStopwords.has(answer)) return false;
   if (normalize(question.skill).includes("rhym")) return false;
-  if (String(question.formatType || "").toUpperCase() === "LISTEN_FIND_WORD") return false;
+  if (["LISTEN_FIND_WORD", "READ_FIND_WORD"].includes(String(question.formatType || "").toUpperCase())) return false;
 
   const skill = normalize(question.skill);
   const prompt = normalize(question.question);
@@ -1176,8 +1176,12 @@ function auditQuestions() {
     }
 
     if (isIxlTemplate(question) && String(question.templateType || question.formatType || "").toUpperCase() === "PUT_SOUNDS_IN_ORDER") {
+      const contentIssues = getAssessmentContentIssues(question, { assetExists: publicAssetExists });
       if (!Array.isArray(question.soundTiles) || question.soundTiles.length < 2) {
         addProblem(problems, "sound-order missing tiles", item, "Sound-order template needs at least two sound tiles.");
+      }
+      for (const issue of contentIssues) {
+        addProblem(problems, "template validation", item, issue);
       }
       continue;
     }
@@ -1552,6 +1556,7 @@ function printActiveRuntimeQualityWarnings() {
   const removedLegacy = [];
   const removedPun = [];
   const removedPlural = [];
+  const templateValidationRemoved = [];
   const activeTextOnlyBySkill = new Map();
 
   for (const item of allQuestions) {
@@ -1572,6 +1577,12 @@ function printActiveRuntimeQualityWarnings() {
       removedPlural.push({ stage, id: question.id, file: item.file, reason: pluralReason });
     }
 
+    const templateIssues = getAssessmentContentIssues(question, { assetExists: publicAssetExists })
+      .filter(issue => /template|find-the-word|listen|answer options|correct answer|card audio|card images|target word|prompt/i.test(issue));
+    if (templateIssues.length > 0) {
+      templateValidationRemoved.push({ stage, id: question.id, file: item.file, reason: templateIssues.join("; ") });
+    }
+
     if (isActiveRuntimeQuestion(question) && !question.imagePath && !question.audioPath && !question.imageCards?.length) {
       activeTextOnlyBySkill.set(stage, (activeTextOnlyBySkill.get(stage) || 0) + 1);
     }
@@ -1582,10 +1593,15 @@ function printActiveRuntimeQualityWarnings() {
   console.log(`Removed legacy text-only phonics questions: ${removedLegacy.length}`);
   console.log(`Removed questions containing pun: ${removedPun.length}`);
   console.log(`Removed weak plural questions: ${removedPlural.length}`);
+  console.log(`Malformed template questions excluded: ${templateValidationRemoved.length}`);
   console.log(`Remaining text-only active questions by skill: ${[...activeTextOnlyBySkill.entries()].map(([stage, count]) => `${stage}:${count}`).join(", ") || "none"}`);
 
   for (const item of removedLegacy.slice(0, 20)) {
     console.log(`- Removed ${item.id} (${item.stage}, ${item.file}): ${item.reason}`);
+  }
+
+  for (const item of templateValidationRemoved.slice(0, 20)) {
+    console.log(`- Template excluded ${item.id} (${item.stage}, ${item.file}): ${item.reason}`);
   }
 }
 

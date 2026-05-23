@@ -101,6 +101,10 @@ export function makeWordChoiceQuestion({
 }) {
   const targetAsset = audioWord ? getChildWordAsset(audioWord) : null;
   const imageAsset = imageWord ? getChildWordAsset(imageWord) : null;
+  const visiblePrompt =
+    formatType === "READ_FIND_WORD" && normalize(prompt).replace(/[.?!]/g, "") === "find the word"
+      ? `Find the word: ${targetWord}.`
+      : prompt;
 
   return {
     id,
@@ -109,8 +113,8 @@ export function makeWordChoiceQuestion({
     skillId,
     difficulty: 1,
     passage: "",
-    question: prompt,
-    prompt,
+    question: visiblePrompt,
+    prompt: visiblePrompt,
     questionType: "word_choice",
     formatType,
     itemType,

@@ -183,6 +183,10 @@ export function TopNavigation({
   studentName,
   currentStage,
   goToOverview,
+  goToSkills,
+  goToElAssessments,
+  goToReports,
+  goToTools,
   switchStudent,
   viewReport,
   teacherEmail,
@@ -191,17 +195,10 @@ export function TopNavigation({
   openAdminDashboard,
   openChildMode
 }) {
-  const steps = [
-    { id: "select", label: "Class/Student Select" },
-    { id: "overview", label: "Student Overview" },
-    { id: "assessment", label: "Assessment" },
-    { id: "finished", label: "Report" }
-  ];
-
   const activeStep =
     appView === "letters" || appView === "advancedPhonics" ? "assessment" : appView;
   const infoItems = [
-    ...steps.map(step => ({ id: step.id, label: step.label, active: step.id === activeStep })),
+    { id: "section", label: activeStep === "select" ? "Class/Student Select" : "Teacher Mode", active: true },
     { id: "teacher", label: teacherEmail || "Signed in" },
     { id: "student", label: nameSaved ? studentName || "Unnamed student" : "No student selected" },
     ...(nameSaved && currentStage ? [{ id: "stage", label: currentStage.label }] : [])
@@ -229,23 +226,47 @@ export function TopNavigation({
 
       <div className="top-nav-actions">
         <button
-          className="nav-button"
+          className={appView === "overview" ? "nav-button primary" : "nav-button"}
           onClick={goToOverview}
           disabled={!nameSaved}
         >
           Student Overview
         </button>
 
-        <button className="nav-button" onClick={switchStudent}>
-          Switch Student
+        <button
+          className={appView === "skills" ? "nav-button primary" : "nav-button"}
+          onClick={goToSkills}
+          disabled={!nameSaved}
+        >
+          Skills
         </button>
 
         <button
-          className="nav-button primary"
-          onClick={viewReport}
+          className={appView === "elAssessments" ? "nav-button primary" : "nav-button"}
+          onClick={goToElAssessments}
           disabled={!nameSaved}
         >
-          View Report
+          EL Assessments
+        </button>
+
+        <button
+          className={appView === "reports" || appView === "finished" ? "nav-button primary" : "nav-button"}
+          onClick={goToReports}
+          disabled={!nameSaved}
+        >
+          Reports
+        </button>
+
+        <button
+          className={appView === "tools" ? "nav-button primary" : "nav-button"}
+          onClick={goToTools}
+          disabled={!nameSaved}
+        >
+          Tools
+        </button>
+
+        <button className="nav-button" onClick={switchStudent}>
+          Switch Student
         </button>
 
         {isAdmin && (
@@ -472,9 +493,7 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
 function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
-  const answerOptions = currentQuestion.answerOptions?.length
-    ? currentQuestion.answerOptions
-    : (currentQuestion.choices || []).map(choice => ({ label: choice, value: choice }));
+  const answerOptions = currentQuestion.answerOptions || [];
   const showOptionAudio =
     answerOptions.length > 0 &&
     answerOptions.every(option => Boolean(getApprovedAudioPath(option.word || option.label, option.audio || "")));
@@ -1123,7 +1142,6 @@ export function StudentOverviewPage({
   exportPatternAssessment,
   isAdmin = false
 }) {
-  const [activeTab, setActiveTab] = useState("overview");
   const strongestAreas =
     weaknessSnapshot.strongest.slice(0, 3);
 
@@ -1176,12 +1194,6 @@ export function StudentOverviewPage({
     : 0;
   const checkpointPassed = roundCorrect >= passScore;
   const hasProgress = totalAnswered > 0 || roundCorrect > 0 || currentCoverage.mastered > 0;
-  const tabItems = [
-    { id: "overview", label: "Overview" },
-    { id: "el", label: "EL Assessments" },
-    { id: "reports", label: "Reports" },
-    { id: "tools", label: "Tools" }
-  ];
 
   return (
     <div className="card page-card teacher-overview-dashboard">
@@ -1282,97 +1294,268 @@ export function StudentOverviewPage({
         </div>
       </section>
 
-      <nav className="teacher-tabs" aria-label="Student overview sections">
-        {tabItems.map(tab => (
+      <section className="teacher-tab-panel" aria-label="Next recommendation">
+        <div className="teacher-panel-header">
+          <div>
+            <h3>Next recommendation</h3>
+            <p>{suggestedFocus ? `${suggestedFocus.target} in ${suggestedFocus.stage}` : "Complete more questions to build a recommendation."}</p>
+          </div>
           <button
-            key={tab.id}
-            type="button"
-            className={activeTab === tab.id ? "active" : ""}
-            onClick={() => setActiveTab(tab.id)}
+            className="lp-button lp-button-secondary"
+            disabled={!suggestedFocus}
+            onClick={startTargetedReview}
           >
-            {tab.label}
+            Start Targeted Review
           </button>
+        </div>
+
+        <div className="weakness-grid compact">
+          <div>
+            <strong>Needs practice</strong>
+            {needsPractice.length > 0 ? (
+              <ul>
+                {needsPractice.map(item => (
+                  <li key={`${item.stage}-${item.target}`}>
+                    {item.target} in {item.stage} ({item.incorrect} missed)
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No clear weak spots yet.</p>
+            )}
+          </div>
+
+          <div>
+            <strong>Strongest area</strong>
+            {strongestAreas.length > 0 ? (
+              <ul>
+                {strongestAreas.slice(0, 2).map(item => (
+                  <li key={`${item.stage}-${item.target}`}>
+                    {item.target} ({item.correct}/{item.total})
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>Not enough data yet.</p>
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function getSkillCategory(stage) {
+  const label = stage.label.toLowerCase();
+  if (/initial|final|rhym|cvc|short vowel/.test(label)) return "Reading Foundations";
+  if (/blend|digraph|long vowel|vowel team|controlled|homophone/.test(label)) return "Phonics Patterns";
+  if (/high-frequency|sight/.test(label)) return "Sight Words";
+  if (/noun|verb|adjective|preposition|plural|prefix|suffix/.test(label)) return "Grammar";
+  if (/antonym|synonym|context/.test(label)) return "Vocabulary";
+  return "Reading Strategies";
+}
+
+const skillCategoryOrder = [
+  "Reading Foundations",
+  "Phonics Patterns",
+  "Sight Words",
+  "Vocabulary",
+  "Grammar",
+  "Reading Strategies"
+];
+
+export function SkillsProgressPage({
+  studentName,
+  skillTree,
+  currentSkillIndex,
+  setCurrentSkillIndex,
+  setRoundAnswers,
+  setCurrentQuestion,
+  setFeedback,
+  setMessage,
+  mastery,
+  coverageSnapshot,
+  startAssessment
+}) {
+  const grouped = skillCategoryOrder.map(category => ({
+    category,
+    skills: skillTree
+      .map((stage, index) => ({ stage, index }))
+      .filter(item => getSkillCategory(item.stage) === category)
+  }));
+
+  const startSkill = index => {
+    setCurrentSkillIndex(index);
+    setRoundAnswers([]);
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setMessage("Start skill changed.");
+    startAssessment(index);
+  };
+
+  return (
+    <div className="teacher-product-page">
+      <section className="teacher-page-header">
+        <div>
+          <p className="panel-label">Skills / Progress</p>
+          <h2>{studentName || "Student"} Skill Map</h2>
+          <p>Browse adaptive checkpoints by category and jump into the next useful practice round.</p>
+        </div>
+      </section>
+
+      <div className="skill-catalogue">
+        {grouped.map(group => (
+          <section className="skill-category-section" key={group.category}>
+            <div className="skill-category-header">
+              <h3>{group.category}</h3>
+              <span>{group.skills.length} skills</span>
+            </div>
+
+            <div className="skill-compact-list">
+              {group.skills.map(({ stage, index }) => {
+                const data = mastery[stage.id];
+                const coverage = coverageSnapshot?.[stage.id] || { mastered: 0, total: 0, unit: "items" };
+                const checkpointPercent = data?.lastTotal
+                  ? Math.round((data.lastScore / data.lastTotal) * 100)
+                  : 0;
+                const coveragePercent = coverage.total
+                  ? Math.round((coverage.mastered / coverage.total) * 100)
+                  : 0;
+                const unlocked = index <= currentSkillIndex || Boolean(data?.mastered);
+                const status = data?.mastered
+                  ? "Passed"
+                  : index === currentSkillIndex
+                    ? "Current"
+                    : unlocked
+                      ? "Open"
+                      : "Locked";
+
+                return (
+                  <article className={`skill-catalogue-row ${status.toLowerCase()}`} key={stage.id}>
+                    <div className="skill-index-badge">{index + 1}</div>
+                    <div className="skill-row-main">
+                      <strong>{stage.label}</strong>
+                      <span>{status}</span>
+                    </div>
+                    <div className="skill-row-meter">
+                      <span>Checkpoint {data ? `${data.lastScore}/${data.lastTotal}` : "-"}</span>
+                      <span className="mini-progress-bar"><span style={{ width: `${checkpointPercent}%` }}></span></span>
+                    </div>
+                    <div className="skill-row-meter">
+                      <span>Coverage {coverage.mastered}/{coverage.total} {coverage.unit}</span>
+                      <span className="mini-progress-bar secondary"><span style={{ width: `${coveragePercent}%` }}></span></span>
+                    </div>
+                    <button
+                      className={index === currentSkillIndex ? "lp-button lp-button-primary" : "lp-button lp-button-secondary"}
+                      disabled={!unlocked}
+                      onClick={() => startSkill(index)}
+                      type="button"
+                    >
+                      {index === currentSkillIndex ? "Start" : data?.mastered ? "Practice" : "Open"}
+                    </button>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
         ))}
-      </nav>
+      </div>
+    </div>
+  );
+}
 
-      {activeTab === "overview" && (
-        <section className="teacher-tab-panel" aria-label="Overview">
-          <div className="teacher-panel-header">
-            <div>
-              <h3>Recommendation</h3>
-              <p>{suggestedFocus ? `${suggestedFocus.target} in ${suggestedFocus.stage}` : "Complete more questions to build a recommendation."}</p>
-            </div>
-            <button
-              className="lp-button lp-button-secondary"
-              disabled={!suggestedFocus}
-              onClick={startTargetedReview}
-            >
-              Start Targeted Review
-            </button>
-          </div>
+export function ELAssessmentsPage({
+  studentName,
+  startLetterAssessment,
+  startAdvancedPhonicsAssessment,
+  letterAssessment = [],
+  patternAssessment = [],
+  exportLetterAssessment,
+  exportPatternAssessment
+}) {
+  return (
+    <div className="teacher-product-page">
+      <section className="teacher-page-header">
+        <div>
+          <p className="panel-label">EL Assessments</p>
+          <h2>Formal Assessment Tools</h2>
+          <p>Formal EL assessments are separate from adaptive practice progress for {studentName || "this student"}.</p>
+        </div>
+      </section>
 
-          <div className="weakness-grid compact">
-            <div>
-              <strong>Needs practice</strong>
-              {needsPractice.length > 0 ? (
-                <ul>
-                  {needsPractice.map(item => (
-                    <li key={`${item.stage}-${item.target}`}>
-                      {item.target} in {item.stage} ({item.incorrect} missed)
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No clear weak spots yet.</p>
-              )}
-            </div>
-
-            <div>
-              <strong>Strongest areas</strong>
-              {strongestAreas.length > 0 ? (
-                <ul>
-                  {strongestAreas.map(item => (
-                    <li key={`${item.stage}-${item.target}`}>
-                      {item.target} ({item.correct}/{item.total})
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>Not enough data yet.</p>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {activeTab === "el" && (
-        <section className="teacher-tab-panel" aria-label="EL assessments">
+      <section className="teacher-action-panel-grid">
+        <article className="teacher-action-panel">
+          <h3>Letter Name and Sound</h3>
+          <p>Run the formal letter identification assessment and export the Excel workbook when complete.</p>
           <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={() => setAppView("letters")}>
-              Letter Name and Sound Assessment
+            <button className="lp-button lp-button-secondary" onClick={startLetterAssessment}>
+              Start Letter Assessment
             </button>
+            {letterAssessment.length > 0 && (
+              <button className="lp-button lp-button-secondary" onClick={exportLetterAssessment} type="button">
+                Export Letter Excel
+              </button>
+            )}
+          </div>
+        </article>
+
+        <article className="teacher-action-panel">
+          <h3>Advanced Phonics Patterns</h3>
+          <p>Run the formal pattern assessment and export pattern-level Excel results when complete.</p>
+          <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startAdvancedPhonicsAssessment}>
-              Advanced Phonics Pattern Assessment
+              Start Advanced Phonics
             </button>
-            {letterAssessment.length > 0 && (
-              <button className="lp-button lp-button-secondary" onClick={exportLetterAssessment} type="button">
-                Export Letter Excel
-              </button>
-            )}
             {patternAssessment.length > 0 && (
               <button className="lp-button lp-button-secondary" onClick={exportPatternAssessment} type="button">
                 Export Pattern Excel
               </button>
             )}
           </div>
-        </section>
-      )}
+        </article>
+      </section>
+    </div>
+  );
+}
 
-      {activeTab === "reports" && (
-        <section className="teacher-tab-panel" aria-label="Reports">
+export function TeacherReportsPage({
+  studentName,
+  viewFinishedReport,
+  exportData,
+  exportCSVData,
+  letterAssessment = [],
+  patternAssessment = [],
+  exportLetterAssessment,
+  exportPatternAssessment
+}) {
+  return (
+    <div className="teacher-product-page">
+      <section className="teacher-page-header">
+        <div>
+          <p className="panel-label">Reports</p>
+          <h2>{studentName || "Student"} Reports</h2>
+          <p>Review assessment results and export files from one focused report area.</p>
+        </div>
+      </section>
+
+      <section className="teacher-action-panel-grid">
+        <article className="teacher-action-panel">
+          <h3>Student Report</h3>
+          <p>Open the finished report view for checkpoint summaries, coverage, and teacher notes.</p>
+          <button className="lp-button lp-button-primary" onClick={viewFinishedReport}>
+            View Report
+          </button>
+        </article>
+
+        <article className="teacher-action-panel">
+          <h3>Exports</h3>
+          <p>Download adaptive and formal assessment exports without changing student progress.</p>
           <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={() => setAppView("finished")}>
-              View Report
+            <button className="lp-button lp-button-secondary" onClick={exportData}>
+              Export Text Report
+            </button>
+            <button className="lp-button lp-button-secondary" onClick={exportCSVData}>
+              Export Excel CSV
             </button>
             {letterAssessment.length > 0 && (
               <button className="lp-button lp-button-secondary" onClick={exportLetterAssessment} type="button">
@@ -1385,11 +1568,54 @@ export function StudentOverviewPage({
               </button>
             )}
           </div>
-        </section>
-      )}
+        </article>
+      </section>
+    </div>
+  );
+}
 
-      {activeTab === "tools" && (
-        <section className="teacher-tab-panel" aria-label="Tools">
+export function TeacherSettingsToolsPage({
+  studentName,
+  switchStudent,
+  openResetStudentProgress,
+  isAdmin,
+  childLearningEvidence,
+  itemMasterySnapshot
+}) {
+  const itemSnapshot = itemMasterySnapshot || {
+    mastered: [],
+    attempting: [],
+    evidence: [],
+    unseenCount: 0,
+    trackedCount: 0
+  };
+  const childEvidence = childLearningEvidence || {
+    tableMissing: false,
+    worldsPlayed: [],
+    attempted: 0,
+    correct: 0,
+    recentAccuracy: null,
+    focus: "No Child Learning World practice yet",
+    lastPlayed: null,
+    masteryChips: []
+  };
+  const formatItemLabel = item =>
+    item.itemKey + " (" + item.itemType.replace(/_/g, " ") + ", " + item.correct + "/" + item.attempts + ")";
+
+  return (
+    <div className="teacher-product-page">
+      <section className="teacher-page-header">
+        <div>
+          <p className="panel-label">Settings / Tools</p>
+          <h2>Student Tools</h2>
+          <p>Manage the selected student without mixing tools into the assessment dashboard.</p>
+        </div>
+      </section>
+
+      <section className="teacher-action-panel-grid">
+        <article className="teacher-action-panel">
+          <h3>Student</h3>
+          <p>Current student: {studentName || "Unnamed student"}</p>
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={switchStudent}>
               Switch Student
@@ -1398,103 +1624,73 @@ export function StudentOverviewPage({
               Reset Student Progress
             </button>
           </div>
+        </article>
+      </section>
 
-          {isAdmin && (
-            <div className="admin-tools-stack">
-              <section className="child-learning-panel">
-                <div className="child-learning-header">
-                  <div>
-                    <p className="panel-label">Admin only</p>
-                    <h3>Child Learning World Progress</h3>
-                  </div>
-                  <span className="practice-source-label">Separate from EL assessments and reports</span>
+      {isAdmin && (
+        <section className="admin-tools-stack">
+          <article className="teacher-action-panel">
+            <p className="panel-label">Admin only</p>
+            <h3>Child Learning World Progress</h3>
+            {childEvidence.tableMissing ? (
+              <p>Child Learning World practice data is not available yet.</p>
+            ) : childEvidence.attempted === 0 ? (
+              <p>No Child Learning World practice has been recorded for this student yet.</p>
+            ) : (
+              <div className="child-learning-grid">
+                <div>
+                  <strong>Worlds Played</strong>
+                  <p>{childEvidence.worldsPlayed.join(", ") || "None yet"}</p>
                 </div>
+                <div>
+                  <strong>Child Mode Accuracy</strong>
+                  <p>{childEvidence.attempted} attempted / {childEvidence.correct} correct / {childEvidence.recentAccuracy ?? 0}% recent</p>
+                </div>
+                <div>
+                  <strong>Current Focus / Needs Support</strong>
+                  <p>{childEvidence.focus}</p>
+                </div>
+                <div>
+                  <strong>Last Played</strong>
+                  <p>{childEvidence.lastPlayed ? new Date(childEvidence.lastPlayed).toLocaleString() : "No activity yet"}</p>
+                </div>
+              </div>
+            )}
+          </article>
 
-                {childEvidence.tableMissing ? (
-                  <p className="child-learning-empty">Child Learning World practice data is not available yet.</p>
-                ) : childEvidence.attempted === 0 ? (
-                  <p className="child-learning-empty">No Child Learning World practice has been recorded for this student yet.</p>
+          <details className="item-mastery-debug">
+            <summary>Developer item mastery snapshot</summary>
+            <div className="item-mastery-grid">
+              <div>
+                <strong>Mastered items</strong>
+                {itemSnapshot.mastered.length > 0 ? (
+                  <ul>
+                    {itemSnapshot.mastered.map(item => (
+                      <li key={item.itemType + "-" + item.itemKey}>{formatItemLabel(item)}</li>
+                    ))}
+                  </ul>
                 ) : (
-                  <>
-                    <div className="child-learning-grid">
-                      <div>
-                        <strong>Worlds Played</strong>
-                        <p>{childEvidence.worldsPlayed.join(", ") || "None yet"}</p>
-                      </div>
-                      <div>
-                        <strong>Child Mode Accuracy</strong>
-                        <p>{childEvidence.attempted} attempted / {childEvidence.correct} correct / {childEvidence.recentAccuracy ?? 0}% recent</p>
-                      </div>
-                      <div>
-                        <strong>Current Focus / Needs Support</strong>
-                        <p>{childEvidence.focus}</p>
-                      </div>
-                      <div>
-                        <strong>Last Played</strong>
-                        <p>{childEvidence.lastPlayed ? new Date(childEvidence.lastPlayed).toLocaleString() : "No activity yet"}</p>
-                      </div>
-                    </div>
-                    <div className="mastery-chip-row" aria-label="Child Mode mastery status">
-                      {childEvidence.masteryChips.map(item => (
-                        <span className={`mastery-chip ${item.status}`} key={item.word}>
-                          {item.word}
-                        </span>
-                      ))}
-                    </div>
-                  </>
+                  <p>No mastered item records yet.</p>
                 )}
-              </section>
-
-              <details className="item-mastery-debug">
-                <summary>Developer item mastery snapshot</summary>
-                <p className="muted-text">
-                  Child Mode evidence is tagged separately as child_mode and is not part of formal EL assessment exports yet.
-                </p>
-                <div className="item-mastery-grid">
-                  <div>
-                    <strong>Mastered items</strong>
-                    {itemSnapshot.mastered.length > 0 ? (
-                      <ul>
-                        {itemSnapshot.mastered.map(item => (
-                          <li key={item.itemType + "-" + item.itemKey}>{formatItemLabel(item)}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p>No mastered item records yet.</p>
-                    )}
-                  </div>
-                  <div>
-                    <strong>Attempting items</strong>
-                    {itemSnapshot.attempting.length > 0 ? (
-                      <ul>
-                        {itemSnapshot.attempting.map(item => (
-                          <li key={item.itemType + "-" + item.itemKey}>{formatItemLabel(item)}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p>No item attempts recorded yet.</p>
-                    )}
-                  </div>
-                  <div>
-                    <strong>Coverage</strong>
-                    <p>{itemSnapshot.unseenCount} unseen of {itemSnapshot.trackedCount} tracked runtime items.</p>
-                  </div>
-                  <div>
-                    <strong>Question format evidence</strong>
-                    {itemSnapshot.evidence.length > 0 ? (
-                      <ul>
-                        {itemSnapshot.evidence.map(item => (
-                          <li key={item.itemType + "-evidence-" + item.itemKey}>{formatEvidenceLabel(item)}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p>No format evidence recorded yet.</p>
-                    )}
-                  </div>
-                </div>
-              </details>
+              </div>
+              <div>
+                <strong>Attempting items</strong>
+                {itemSnapshot.attempting.length > 0 ? (
+                  <ul>
+                    {itemSnapshot.attempting.map(item => (
+                      <li key={item.itemType + "-" + item.itemKey}>{formatItemLabel(item)}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No item attempts recorded yet.</p>
+                )}
+              </div>
+              <div>
+                <strong>Coverage</strong>
+                <p>{itemSnapshot.unseenCount} unseen of {itemSnapshot.trackedCount} tracked runtime items.</p>
+              </div>
             </div>
-          )}
+          </details>
         </section>
       )}
     </div>

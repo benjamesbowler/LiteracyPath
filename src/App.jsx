@@ -11,11 +11,15 @@ import {
   AuthPage,
   CheckpointDecisionPage,
   DashboardSummary,
+  ELAssessmentsPage,
   LetterAssessmentPage,
   QuestionFlagDialog,
   ResetStudentProgressDialog,
+  SkillsProgressPage,
   StudentOverviewPage,
   StudentSelectPage,
+  TeacherReportsPage,
+  TeacherSettingsToolsPage,
   TopNavigation
 } from "./components/AppPages";
 
@@ -743,7 +747,10 @@ function isQuestionValid(q) {
   }
 
   if (q.templateType === "PUT_SOUNDS_IN_ORDER") {
-    return Array.isArray(q.soundTiles) && q.soundTiles.length >= 2 && getStageIndex(q) !== -1;
+    return Array.isArray(q.soundTiles) &&
+      q.soundTiles.length >= 2 &&
+      getStageIndex(q) !== -1 &&
+      isAssessmentContentValid(q);
   }
 
   if (!Array.isArray(q.choices) || q.choices.length < 2) return false;
@@ -4238,6 +4245,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           studentName={studentName}
           currentStage={currentStage}
           goToOverview={goToOverview}
+          goToSkills={() => setAppView("skills")}
+          goToElAssessments={() => setAppView("elAssessments")}
+          goToReports={() => setAppView("reports")}
+          goToTools={() => setAppView("tools")}
           switchStudent={switchStudent}
           viewReport={viewReport}
           teacherEmail={teacherUser.email}
@@ -4248,7 +4259,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && (
+      {!isFocusedAssessment && appView === "select" && (
         <motion.div
           className="hero"
           initial={{ y: -12, opacity: 0 }}
@@ -4345,7 +4356,62 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && appView !== "admin" && appView !== "overview" && (
+      {appView === "skills" && nameSaved && (
+        <SkillsProgressPage
+          studentName={studentName}
+          skillTree={skillTree}
+          currentSkillIndex={currentSkillIndex}
+          setCurrentSkillIndex={setCurrentSkillIndex}
+          setRoundAnswers={setRoundAnswers}
+          setCurrentQuestion={setCurrentQuestion}
+          setFeedback={setFeedback}
+          setMessage={setMessage}
+          mastery={mastery}
+          coverageSnapshot={buildCoverageSnapshot(itemMastery, {
+            enabled: DEBUG_ASSESSMENT_COVERAGE,
+            studentId
+          })}
+          startAssessment={startAssessment}
+        />
+      )}
+
+      {appView === "elAssessments" && nameSaved && (
+        <ELAssessmentsPage
+          studentName={studentName}
+          startLetterAssessment={() => setAppView("letters")}
+          startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
+          letterAssessment={letterAssessment}
+          patternAssessment={patternAssessment}
+          exportLetterAssessment={exportLetterAssessment}
+          exportPatternAssessment={exportPatternAssessment}
+        />
+      )}
+
+      {appView === "reports" && nameSaved && (
+        <TeacherReportsPage
+          studentName={studentName}
+          viewFinishedReport={() => setAppView("finished")}
+          exportData={exportData}
+          exportCSVData={exportCSVData}
+          letterAssessment={letterAssessment}
+          patternAssessment={patternAssessment}
+          exportLetterAssessment={exportLetterAssessment}
+          exportPatternAssessment={exportPatternAssessment}
+        />
+      )}
+
+      {appView === "tools" && nameSaved && (
+        <TeacherSettingsToolsPage
+          studentName={studentName}
+          switchStudent={switchStudent}
+          openResetStudentProgress={() => setResetProgressDialogOpen(true)}
+          isAdmin={isAdmin}
+          childLearningEvidence={childLearningEvidence}
+          itemMasterySnapshot={getItemMasterySnapshot()}
+        />
+      )}
+
+      {!isFocusedAssessment && appView !== "admin" && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "reports" && appView !== "tools" && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -4484,7 +4550,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </Suspense>
       )}
 
-      {!isFocusedAssessment && appView !== "overview" && appView !== "admin" && (
+      {!isFocusedAssessment && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "reports" && appView !== "tools" && appView !== "admin" && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
             Switch Student
