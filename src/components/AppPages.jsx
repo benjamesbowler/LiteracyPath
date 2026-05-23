@@ -1482,6 +1482,7 @@ export function ELAssessmentsPage({
   studentName,
   startLetterAssessment,
   startAdvancedPhonicsAssessment,
+  openGuidedReading,
   letterAssessment = [],
   patternAssessment = [],
   exportLetterAssessment,
@@ -1527,7 +1528,338 @@ export function ELAssessmentsPage({
             )}
           </div>
         </article>
+
+        <article className="teacher-action-panel">
+          <h3>Guided Reading</h3>
+          <p>Listen to a student read an original sample book, mark word reading, and record teacher notes.</p>
+          <div className="teacher-action-list">
+            <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
+              Open Guided Reading
+            </button>
+          </div>
+        </article>
       </section>
+    </div>
+  );
+}
+
+function GuidedReadingImage({ src, alt, className = "" }) {
+  const [missing, setMissing] = useState(false);
+
+  if (!src || missing) {
+    return (
+      <div className={`guided-reading-image-fallback ${className}`} role="img" aria-label={alt || "Book page image unavailable"}>
+        <span>Image unavailable</span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      alt={alt}
+      className={className}
+      onError={() => setMissing(true)}
+      src={src}
+    />
+  );
+}
+
+export function GuidedReadingPage({
+  studentName,
+  guidedReadingRecords = {},
+  saveGuidedReadingRecord,
+  speakText,
+  returnToElAssessments,
+  viewReports
+}) {
+  const [selectedBookId, setSelectedBookId] = useState(guidedReadingBooks[0]?.id || "");
+  const [pageIndex, setPageIndex] = useState(0);
+  const [showSummary, setShowSummary] = useState(false);
+  const selectedBook = guidedReadingBooks.find(book => book.id === selectedBookId) || guidedReadingBooks[0];
+  const page = selectedBook?.pages?.[pageIndex];
+  const record = guidedReadingRecords[selectedBook?.id] || {
+    bookId: selectedBook?.id,
+    title: selectedBook?.title,
+    type: selectedBook?.type,
+    level: selectedBook?.level,
+    pages: {},
+    wholeBookNote: ""
+  };
+  const currentPageRecord = record.pages?.[pageIndex] || {
+    wordMarks: {},
+    wordTexts: page?.words?.map(word => word.text) || [],
+    note: ""
+  };
+  const summary = summarizeGuidedReadingRecord(record);
+
+  function updateRecord(patch) {
+    saveGuidedReadingRecord(selectedBook.id, {
+      ...record,
+      bookId: selectedBook.id,
+      title: selectedBook.title,
+      type: selectedBook.type,
+      level: selectedBook.level,
+      updatedAt: new Date().toISOString(),
+      ...patch
+    });
+  }
+
+  function updatePageRecord(nextPageRecord) {
+    updateRecord({
+      pages: {
+        ...record.pages,
+        [pageIndex]: {
+          ...currentPageRecord,
+          wordTexts: page.words.map(word => word.text),
+          ...nextPageRecord
+        }
+      }
+    });
+  }
+
+  function cycleWordMark(wordIndex) {
+    const existing = currentPageRecord.wordMarks?.[wordIndex] || "";
+    const next =
+      existing === ""
+        ? "correct"
+        : existing === "correct"
+          ? "support"
+          : "";
+    const wordMarks = { ...(currentPageRecord.wordMarks || {}) };
+
+    if (next) wordMarks[wordIndex] = next;
+    else delete wordMarks[wordIndex];
+
+    updatePageRecord({ wordMarks });
+  }
+
+  function updatePageNote(note) {
+    updatePageRecord({ note });
+  }
+
+  function updateWholeBookNote(wholeBookNote) {
+    updateRecord({ wholeBookNote });
+  }
+
+  function completeBook() {
+    updateRecord({ completedAt: new Date().toISOString() });
+    setShowSummary(true);
+  }
+
+  function changeBook(bookId) {
+    setSelectedBookId(bookId);
+    setPageIndex(0);
+    setShowSummary(false);
+  }
+
+  const recordSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
+
+  return (
+    <div className="teacher-product-page guided-reading-page">
+      <section className="teacher-page-header">
+        <div>
+          <p className="panel-label">Guided Reading</p>
+          <h2>{studentName || "Student"} Reading Conference</h2>
+          <p>Use original sample books to listen, mark word reading, and capture teacher notes.</p>
+        </div>
+
+        <div className="teacher-action-list">
+          <button className="lp-button lp-button-secondary" onClick={returnToElAssessments} type="button">
+            EL Assessments
+          </button>
+          <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
+            Reports
+          </button>
+        </div>
+      </section>
+
+      <section className="guided-reading-library" aria-label="Guided reading book library">
+        {guidedReadingBooks.map(book => (
+          <button
+            className={book.id === selectedBook.id ? "guided-book-card active" : "guided-book-card"}
+            key={book.id}
+            onClick={() => changeBook(book.id)}
+            type="button"
+          >
+            <GuidedReadingImage alt={`${book.title} cover`} className="guided-book-cover" src={book.coverImage} />
+            <span>{book.title}</span>
+            <small>{book.type} · Level {book.level}</small>
+          </button>
+        ))}
+      </section>
+
+      {!showSummary ? (
+        <section className="guided-reader-shell">
+          <div className="guided-reader-card">
+            <div className="guided-reader-header">
+              <div>
+                <p className="panel-label">{selectedBook.type} · Level {selectedBook.level}</p>
+                <h3>{selectedBook.title}</h3>
+                <p>{selectedBook.targetSkills.join(" · ")}</p>
+              </div>
+              <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>
+            </div>
+
+            <div className="guided-page-layout">
+              <div className="guided-page-image-card">
+                <GuidedReadingImage alt="" className="guided-page-image" src={page.image} />
+              </div>
+
+              <div className="guided-page-reading">
+                <div className="guided-page-text" aria-label="Page text">
+                  {page.words.map((word, index) => {
+                    const mark = currentPageRecord.wordMarks?.[index] || "";
+                    const approvedAudioPath = getApprovedAudioPath(word.text, word.audioPath);
+
+                    return (
+                      <span className={`guided-word-wrap ${mark || "neutral"}`} key={`${word.text}-${index}`}>
+                        <button
+                          className={`guided-word ${mark || "neutral"}`}
+                          onClick={() => cycleWordMark(index)}
+                          title="Click once for read correctly, twice for needs support, three times to clear."
+                          type="button"
+                        >
+                          {word.text}
+                        </button>
+                        {approvedAudioPath && (
+                          <button
+                            aria-label={`Play ${word.text}`}
+                            className="guided-word-audio"
+                            onClick={() =>
+                              speakText(word.text, approvedAudioPath, {
+                                allowBrowserFallback: false,
+                                requireApprovedAudio: true
+                              })
+                            }
+                            type="button"
+                          >
+                            🔊
+                          </button>
+                        )}
+                      </span>
+                    );
+                  })}
+                </div>
+
+                <div className="guided-mark-legend" aria-label="Word marking legend">
+                  <span><b className="legend-dot correct"></b> Read correctly</span>
+                  <span><b className="legend-dot support"></b> Needs support</span>
+                  <span><b className="legend-dot neutral"></b> Unmarked</span>
+                </div>
+
+                <label className="guided-note-field">
+                  <strong>Page note</strong>
+                  <textarea
+                    value={currentPageRecord.note || ""}
+                    onChange={event => updatePageNote(event.target.value)}
+                    placeholder="Add miscues, strategy use, fluency notes, or comprehension observations."
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className="guided-reader-actions">
+              <button
+                className="lp-button lp-button-secondary"
+                disabled={pageIndex === 0}
+                onClick={() => setPageIndex(index => Math.max(0, index - 1))}
+                type="button"
+              >
+                Previous Page
+              </button>
+              {pageIndex < selectedBook.pages.length - 1 ? (
+                <button
+                  className="lp-button lp-button-primary"
+                  onClick={() => setPageIndex(index => Math.min(selectedBook.pages.length - 1, index + 1))}
+                  type="button"
+                >
+                  Next Page
+                </button>
+              ) : (
+                <button className="lp-button lp-button-primary" onClick={completeBook} type="button">
+                  Finish Book
+                </button>
+              )}
+            </div>
+          </div>
+
+          <aside className="guided-notes-panel">
+            <h3>Whole-book note</h3>
+            <textarea
+              value={record.wholeBookNote || ""}
+              onChange={event => updateWholeBookNote(event.target.value)}
+              placeholder="Overall reading behavior, confidence, prompt level, next teaching point."
+            />
+            <div className="guided-mini-summary">
+              <span>Attempted: {summary.attempted}</span>
+              <span>Correct: {summary.correct}</span>
+              <span>Support: {summary.support}</span>
+              <span>Accuracy: {summary.accuracy}%</span>
+            </div>
+          </aside>
+        </section>
+      ) : (
+        <section className="guided-reading-summary">
+          <div>
+            <p className="panel-label">Book Complete</p>
+            <h3>{selectedBook.title}</h3>
+            <p>{summary.completedAt ? `Completed ${new Date(summary.completedAt).toLocaleString()}` : "Summary saved locally."}</p>
+          </div>
+
+          <div className="checkpoint-result-grid">
+            <div>
+              <span>Total words attempted</span>
+              <strong>{summary.attempted}</strong>
+            </div>
+            <div>
+              <span>Read correctly</span>
+              <strong>{summary.correct}</strong>
+            </div>
+            <div>
+              <span>Accuracy</span>
+              <strong>{summary.accuracy}%</strong>
+            </div>
+          </div>
+
+          <div className="checkpoint-detail-grid">
+            <section>
+              <h3>Support words</h3>
+              <p>{summary.supportWords.length ? summary.supportWords.join(", ") : "No support words marked."}</p>
+            </section>
+            <section>
+              <h3>Teacher notes</h3>
+              <p>{summary.wholeBookNote || "No whole-book note yet."}</p>
+              {summary.pageNotes.map(item => (
+                <p key={item.page}><strong>Page {item.page}:</strong> {item.note}</p>
+              ))}
+            </section>
+          </div>
+
+          <div className="teacher-action-list">
+            <button className="lp-button lp-button-primary" onClick={() => setShowSummary(false)} type="button">
+              Continue Marking
+            </button>
+            <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
+              View Reports
+            </button>
+          </div>
+        </section>
+      )}
+
+      {recordSummaries.length > 0 && (
+        <section className="teacher-action-panel">
+          <h3>Saved guided reading summaries</h3>
+          <div className="guided-record-list">
+            {recordSummaries.map(item => (
+              <article key={item.bookId}>
+                <strong>{item.title}</strong>
+                <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
+                <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
@@ -1535,6 +1867,8 @@ export function ELAssessmentsPage({
 export function TeacherReportsPage({
   studentName,
   viewFinishedReport,
+  openGuidedReading,
+  guidedReadingRecords = {},
   exportData,
   exportCSVData,
   letterAssessment = [],
@@ -1558,6 +1892,26 @@ export function TeacherReportsPage({
           <p>Open the finished report view for checkpoint summaries, coverage, and teacher notes.</p>
           <button className="lp-button lp-button-primary" onClick={viewFinishedReport}>
             View Report
+          </button>
+        </article>
+
+        <article className="teacher-action-panel">
+          <h3>Guided Reading Summary</h3>
+          {summarizeGuidedReadingRecords(guidedReadingRecords).length > 0 ? (
+            <div className="guided-record-list compact">
+              {summarizeGuidedReadingRecords(guidedReadingRecords).map(item => (
+                <article key={item.bookId}>
+                  <strong>{item.title}</strong>
+                  <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
+                  <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p>No guided reading records saved for this student yet.</p>
+          )}
+          <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
+            Open Guided Reading
           </button>
         </article>
 

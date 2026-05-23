@@ -12,6 +12,7 @@ import {
   CheckpointDecisionPage,
   DashboardSummary,
   ELAssessmentsPage,
+  GuidedReadingPage,
   LetterAssessmentPage,
   QuestionFlagDialog,
   ResetStudentProgressDialog,
@@ -35,6 +36,7 @@ import { kimiDataset7RuntimeQuestions } from "./data/kimiDataset7RuntimeQuestion
 import { ixlStyleSeedQuestions } from "./data/ixlStyleSeedQuestions";
 import { safeContentExpansionQuestions } from "./data/safeContentExpansionQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
+import { summarizeGuidedReadingRecords } from "./data/guidedReadingBooks";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
   enrichInitialSoundPairQuestion,
@@ -1005,6 +1007,7 @@ export default function App() {
   const [patternAttempt, setPatternAttempt] =
     useState(0);
   const [answerHistory, setAnswerHistory] = useState([]);
+  const [guidedReadingRecords, setGuidedReadingRecords] = useState({});
   const [itemMastery, setItemMastery] = useState({});
   const [itemSessionSeen, setItemSessionSeen] = useState({});
   const [checkpointDecision, setCheckpointDecision] = useState(null);
@@ -1036,6 +1039,38 @@ export default function App() {
 
   const profileStorageKey =
     teacherId ? `readingMasteryProfile:${teacherId}` : null;
+
+  function getGuidedReadingStorageKey(selectedStudentId = studentId) {
+    // TODO(guided-reading-persistence): Move these records into Supabase once a stable table/schema is approved.
+    if (!teacherId || !selectedStudentId) return null;
+    return `guidedReadingAssessment:${teacherId}:${selectedStudentId}`;
+  }
+
+  function loadGuidedReadingRecords(selectedStudentId = studentId) {
+    const key = getGuidedReadingStorageKey(selectedStudentId);
+    if (!key) return {};
+
+    try {
+      return JSON.parse(localStorage.getItem(key) || "{}");
+    } catch (error) {
+      console.warn("Could not restore guided reading records.", error);
+      return {};
+    }
+  }
+
+  function saveGuidedReadingRecord(bookId, record) {
+    if (!bookId || !studentId) return;
+
+    setGuidedReadingRecords(previous => {
+      const next = {
+        ...previous,
+        [bookId]: record
+      };
+      const key = getGuidedReadingStorageKey(studentId);
+      if (key) localStorage.setItem(key, JSON.stringify(next));
+      return next;
+    });
+  }
 
   function clearTeacherState() {
     setStudentName("");
@@ -1073,6 +1108,7 @@ export default function App() {
     setPatternIndex(0);
     setPatternAssessment([]);
     setAnswerHistory([]);
+    setGuidedReadingRecords({});
     setItemMastery({});
     setItemSessionSeen({});
     setCheckpointDecision(null);
@@ -1158,6 +1194,7 @@ export default function App() {
         setPatternAssessment(data.patternAssessment || []);
         setPatternAttempt(data.patternAttempt || 0);
         setAnswerHistory(data.answerHistory || []);
+        setGuidedReadingRecords(loadGuidedReadingRecords(data.studentId || null));
         setItemMastery(data.itemMastery || {});
         setItemSessionSeen({});
 
@@ -1196,8 +1233,8 @@ export default function App() {
         patternIndex,
         patternAssessment,
         patternAttempt,
-        answerHistory,
-        itemMastery
+    answerHistory,
+    itemMastery
       })
     );
   }, [
@@ -2051,6 +2088,7 @@ export default function App() {
     setChildLearningEvidence(
       buildChildLearningEvidence(childAnswerRows || [], itemMasteryRows || [], childAnswersTableMissing)
     );
+    setGuidedReadingRecords(loadGuidedReadingRecords(selectedStudentId));
 
     const rebuiltItemMastery = {};
 
@@ -2133,6 +2171,7 @@ export default function App() {
       resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
       setStudentId(data.id);
       setStudentName(data.name || clean);
+      setGuidedReadingRecords({});
       setNameSaved(true);
       setCurrentSkillIndex(0);
       setAppView("overview");
@@ -4229,6 +4268,14 @@ Current skill: ${currentSkillIndex + 1}. ${currentStage.label}
 Current round score: ${roundCorrect}/${ROUND_LENGTH}
 Checkpoint rule: ${PASS_SCORE}/${ROUND_LENGTH} correct to unlock the next skill.
 
+Guided Reading
+
+${summarizeGuidedReadingRecords(guidedReadingRecords).length
+  ? summarizeGuidedReadingRecords(guidedReadingRecords).map(item =>
+      `${item.title} (${item.type}, Level ${item.level}): ${item.correct}/${item.attempted} words read correctly (${item.accuracy}%). Support words: ${item.supportWords.length ? item.supportWords.join(", ") : "none"}. Notes: ${[item.wholeBookNote, ...item.pageNotes.map(note => `Page ${note.page}: ${note.note}`)].filter(Boolean).join(" | ") || "none"}`
+    ).join("\n")
+  : "No guided reading records saved yet."}
+
 Teacher Notes by Skill
 
 ${skillTree.map(stage => summarizeSkill(stage)).join("\n\n")}
@@ -4264,6 +4311,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     setNameSaved(false);
     setStudentId(null);
     setStudentName("");
+    setGuidedReadingRecords({});
     setCurrentQuestion(null);
     setFeedback(null);
     setMessage("");
@@ -4353,6 +4401,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToOverview={goToOverview}
           goToSkills={() => setAppView("skills")}
           goToElAssessments={() => setAppView("elAssessments")}
+          goToGuidedReading={() => setAppView("guidedReading")}
           goToReports={() => setAppView("reports")}
           goToTools={() => setAppView("tools")}
           switchStudent={switchStudent}
@@ -4486,6 +4535,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           studentName={studentName}
           startLetterAssessment={() => setAppView("letters")}
           startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
+          openGuidedReading={() => setAppView("guidedReading")}
           letterAssessment={letterAssessment}
           patternAssessment={patternAssessment}
           exportLetterAssessment={exportLetterAssessment}
@@ -4493,10 +4543,23 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
+      {appView === "guidedReading" && nameSaved && (
+        <GuidedReadingPage
+          studentName={studentName}
+          guidedReadingRecords={guidedReadingRecords}
+          saveGuidedReadingRecord={saveGuidedReadingRecord}
+          speakText={speakText}
+          returnToElAssessments={() => setAppView("elAssessments")}
+          viewReports={() => setAppView("reports")}
+        />
+      )}
+
       {appView === "reports" && nameSaved && (
         <TeacherReportsPage
           studentName={studentName}
           viewFinishedReport={() => setAppView("finished")}
+          openGuidedReading={() => setAppView("guidedReading")}
+          guidedReadingRecords={guidedReadingRecords}
           exportData={exportData}
           exportCSVData={exportCSVData}
           letterAssessment={letterAssessment}
@@ -4517,7 +4580,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && appView !== "admin" && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "reports" && appView !== "tools" && (
+      {!isFocusedAssessment && appView !== "admin" && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -4652,11 +4715,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             patternAssessment={patternAssessment}
             exportLetterAssessment={exportLetterAssessment}
             exportPatternAssessment={exportPatternAssessment}
+            guidedReadingRecords={guidedReadingRecords}
           />
         </Suspense>
       )}
 
-      {!isFocusedAssessment && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "reports" && appView !== "tools" && appView !== "admin" && (
+      {!isFocusedAssessment && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && appView !== "admin" && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
             Switch Student

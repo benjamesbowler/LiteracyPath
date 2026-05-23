@@ -1,3 +1,5 @@
+import { summarizeGuidedReadingRecords } from "../data/guidedReadingBooks";
+
 export function FinishedReportPage({
   startAssessment,
   keepPracticingSkill,
@@ -23,7 +25,8 @@ export function FinishedReportPage({
   letterAssessment = [],
   patternAssessment = [],
   exportLetterAssessment,
-  exportPatternAssessment
+  exportPatternAssessment,
+  guidedReadingRecords = {}
 }) {
   const latestCheckpointIndex = Math.max(
     -1,
@@ -39,6 +42,7 @@ export function FinishedReportPage({
   const latestCheckpointIncomplete =
     latestCheckpointCoverage &&
     latestCheckpointCoverage.mastered < latestCheckpointCoverage.total;
+  const guidedReadingSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
 
   return (
     <div className="report-panel page-stack">
@@ -58,6 +62,24 @@ export function FinishedReportPage({
       <p><strong>Total answered:</strong> {totalAnswered}</p>
       <p><strong>Accuracy:</strong> {accuracy}%</p>
       <p><strong>Current focus:</strong> {currentStage.label}</p>
+
+      {guidedReadingSummaries.length > 0 && (
+        <section className="checkpoint-complete-panel">
+          <div>
+            <h3>Guided Reading</h3>
+            <p>Locally saved guided reading summaries for this student.</p>
+          </div>
+          <div className="guided-record-list compact">
+            {guidedReadingSummaries.map(item => (
+              <article key={item.bookId}>
+                <strong>{item.title}</strong>
+                <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
+                <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <label>
         <strong>Set start skill: </strong>
