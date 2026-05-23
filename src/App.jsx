@@ -76,6 +76,15 @@ import {
 } from "./questionFormatFramework";
 import { isAssessmentContentValid } from "./assessmentContentValidation";
 import { prepareNaturalSpeechText } from "./audioSpeechPolicy";
+import {
+  getAnswerRecordPromptAnswerSignature,
+  getAnswerRecordSignature,
+  getQuestionPromptAnswerSignature,
+  getQuestionSignature,
+  getRepeatOptionSetSignature,
+  getRepeatTargetWord,
+  normalizeRepeatValue
+} from "./questionRepeatGuards";
 
 // dynamic mastery system
 
@@ -109,7 +118,7 @@ function LearningWorldFallback({ returnToTeacher }) {
   return (
     <main className="learning-world-fallback" role="alert">
       <section className="learning-world-fallback-card">
-        <h1>Learning World could not load</h1>
+        <h1>Space Hub could not load</h1>
         <button
           className="child-continue-button"
           onClick={returnToTeacher}
@@ -133,7 +142,7 @@ class LearningWorldErrorBoundary extends Component {
   }
 
   componentDidCatch(error, info) {
-    console.warn("Learning World failed to render.", error, info);
+    console.warn("Space Hub failed to render.", error, info);
   }
 
   render() {
@@ -147,13 +156,13 @@ class LearningWorldErrorBoundary extends Component {
 
 function LearningWorldShell({ children, returnToTeacher }) {
   return (
-    <section className="learning-world-shell" aria-label="Learning World">
+    <section className="learning-world-shell" aria-label="Space Hub">
       <button
         className="learning-world-exit-button"
         onClick={returnToTeacher}
         type="button"
       >
-        Exit Learning World
+        Exit Space Hub
       </button>
 
       <LearningWorldErrorBoundary returnToTeacher={returnToTeacher}>
@@ -414,14 +423,7 @@ function hasLowQualityPluralDistractors(question) {
 }
 
 function getQuestionTargetWord(question) {
-  return normalizeItemKey(
-    question?.targetWord ||
-    question?.audioText ||
-    question?.imageKey ||
-    question?.answer ||
-    question?.correctAnswer ||
-    ""
-  );
+  return getRepeatTargetWord(question);
 }
 
 function normalizeItemKey(value) {
@@ -547,6 +549,31 @@ function inferItemMetadata(question) {
   return null;
 }
 
+function getRuntimeQuestionSignature(question) {
+  return getQuestionSignature(question, inferItemMetadata(question));
+}
+
+function getRuntimeQuestionPromptAnswerSignature(question) {
+  return getQuestionPromptAnswerSignature(question);
+}
+
+function findQuestionForAnswerRecord(record) {
+  const promptAnswerSignature = getAnswerRecordPromptAnswerSignature(record);
+  const stage = record.stage || record.skill || "";
+  if (!promptAnswerSignature) return "";
+
+  return allQuestions.find(question =>
+    (skillTree[getStageIndex(question)]?.label || question.skill) === stage &&
+    getRuntimeQuestionPromptAnswerSignature(question) === promptAnswerSignature
+  );
+}
+
+function deriveQuestionIdFromAnswerRecord(record) {
+  const match = findQuestionForAnswerRecord(record);
+
+  return match?.id || "";
+}
+
 function applyItemMetadata(question) {
   const metadata = inferItemMetadata(question);
   return metadata
@@ -669,7 +696,7 @@ function buildChildLearningEvidence(answerRows = [], itemMasteryRows = [], table
       correct: 0,
       recentAccuracy: null,
       masteredWords: [],
-      focus: "Child Learning World practice data is not available yet.",
+      focus: "Space Hub practice data is not available yet.",
       supportNeeds: [],
       lastPlayed: null,
       masteryChips: echoCavesWords.map(word => ({ word, status: "not-attempted" }))
@@ -719,13 +746,13 @@ function buildChildLearningEvidence(answerRows = [], itemMasteryRows = [], table
 
   return {
     tableMissing: false,
-    worldsPlayed: attempted > 0 ? ["Echo Caves"] : [],
+    worldsPlayed: attempted > 0 ? ["Phonics Lab"] : [],
     missionsCompleted,
     attempted,
     correct,
     recentAccuracy: recent.length ? Math.round((recentCorrect / recent.length) * 100) : null,
     masteredWords,
-    focus: supportNeeds[0] || (attempted > 0 ? "Ready for more Child Learning World practice" : "No Child Learning World practice yet"),
+    focus: supportNeeds[0] || (attempted > 0 ? "Ready for more Space Hub practice" : "No Space Hub practice yet"),
     supportNeeds,
     lastPlayed,
     masteryChips: allChipWords.map(word => ({
@@ -2047,17 +2074,32 @@ export default function App() {
     }
 
     const rebuiltHistory =
-      (answerRows || []).map(row => ({
-        date: row.answered_at,
-        skill: row.skill,
-        stage: row.stage,
-        diagnosticTarget: row.diagnostic_target,
-        question: row.question,
-        passage: row.passage || "",
-        chosen: row.chosen_answer,
-        correct: row.correct_answer,
-        isCorrect: row.is_correct
-      }));
+      (answerRows || []).map(row => {
+        const baseRecord = {
+          date: row.answered_at,
+          skill: row.skill,
+          stage: row.stage,
+          diagnosticTarget: row.diagnostic_target,
+          question: row.question,
+          passage: row.passage || "",
+          chosen: row.chosen_answer,
+          correct: row.correct_answer,
+          isCorrect: row.is_correct
+        };
+
+        const matchedQuestion = findQuestionForAnswerRecord(baseRecord);
+
+        return {
+          ...baseRecord,
+          questionId: matchedQuestion?.id || "",
+          questionSignature: matchedQuestion
+            ? getRuntimeQuestionSignature(matchedQuestion)
+            : getAnswerRecordSignature(baseRecord),
+          promptAnswerSignature: getAnswerRecordPromptAnswerSignature(baseRecord),
+          optionSetSignature: matchedQuestion ? getRepeatOptionSetSignature(matchedQuestion) : "",
+          targetWord: matchedQuestion ? getQuestionTargetWord(matchedQuestion) : ""
+        };
+      });
 
     setAnswerHistory(rebuiltHistory);
     setTotalAnswered(rebuiltHistory.length);
@@ -2191,28 +2233,42 @@ export default function App() {
     if (!stage) return [];
 
     const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex);
-    const used = usedByStage[stage.id] || [];
+    const currentProfile = getRoundDuplicateProfile();
+    const correctMemory = getCorrectStageRepeatMemory(stage.label);
+    const recentMemory = getRecentStageRepeatMemory(stage.label);
+    const filterCurrentRoundRepeats = question => {
+      const flags = getRoundDuplicateFlags(question, currentProfile);
+      return !flags.questionId &&
+        !flags.targetWord &&
+        !flags.promptAnswer &&
+        !flags.optionSet &&
+        !flags.signature;
+    };
+    const outsideCurrentRound = stageQuestions.filter(filterCurrentRoundRepeats);
+    const neverCorrectExact = outsideCurrentRound.filter(question =>
+      !wasQuestionAnsweredCorrectly(question, correctMemory)
+    );
+    const noCorrectTargetWord = neverCorrectExact.filter(question => {
+      const target = getQuestionTargetWord(question);
+      return !target || !correctMemory.targetWords.has(target);
+    });
+    const noRecentTargetWord = noCorrectTargetWord.filter(question => {
+      const target = getQuestionTargetWord(question);
+      return !target || !recentMemory.targetWords.has(target);
+    });
 
-    let available = stageQuestions.filter(q => !used.includes(q.id));
+    if (noRecentTargetWord.length > 0) return noRecentTargetWord;
+    if (noCorrectTargetWord.length > 0) return noCorrectTargetWord;
+    if (neverCorrectExact.length > 0) return neverCorrectExact;
 
-    // Do not recycle questions too quickly.
-    // Only reset used questions when there are not enough left for a full round.
-    if (available.length < ROUND_LENGTH) {
-      const keepRecent =
-        used.slice(-ROUND_LENGTH * 3);
+    const incorrectOnly = outsideCurrentRound.filter(question =>
+      wasQuestionAnsweredIncorrectly(question, stage.label) &&
+      !wasQuestionAnsweredCorrectly(question, correctMemory)
+    );
 
-      available =
-        stageQuestions.filter(q =>
-          !keepRecent.includes(q.id)
-        );
+    if (incorrectOnly.length > 0) return incorrectOnly;
 
-      setUsedByStage(prev => ({
-        ...prev,
-        [stage.id]: keepRecent
-      }));
-    }
-
-    return available;
+    return getOldestReusableCorrectQuestions(outsideCurrentRound, stage.label);
   }
 
   function getAttemptedStageLabels() {
@@ -2307,6 +2363,95 @@ export default function App() {
       .filter(Boolean);
   }
 
+  function getStageAnswerRecords(stageLabel) {
+    return answerHistory.filter(record => record.stage === stageLabel);
+  }
+
+  function getStageRepeatMemory(stageLabel, { correctOnly = false, limit = null } = {}) {
+    const records = getStageAnswerRecords(stageLabel)
+      .filter(record => !correctOnly || record.isCorrect)
+      .slice(limit ? -limit : 0);
+
+    return {
+      questionIds: new Set(records.map(record => record.questionId).filter(Boolean)),
+      signatures: new Set(records.map(record => record.questionSignature).filter(Boolean)),
+      promptAnswers: new Set(records.map(record =>
+        record.promptAnswerSignature || getAnswerRecordPromptAnswerSignature(record)
+      ).filter(Boolean)),
+      optionSets: new Set(records.map(record => record.optionSetSignature).filter(Boolean)),
+      targetWords: new Set(records.map(record => record.targetWord).filter(Boolean))
+    };
+  }
+
+  function getCorrectStageRepeatMemory(stageLabel) {
+    return getStageRepeatMemory(stageLabel, { correctOnly: true });
+  }
+
+  function getRecentStageRepeatMemory(stageLabel) {
+    return getStageRepeatMemory(stageLabel, { limit: ROUND_LENGTH * 3 });
+  }
+
+  function wasQuestionAnsweredCorrectly(question, memory = getCorrectStageRepeatMemory(skillTree[getStageIndex(question)]?.label)) {
+    const questionId = question.id || "";
+    const signature = getRuntimeQuestionSignature(question);
+    const promptAnswer = getRuntimeQuestionPromptAnswerSignature(question);
+
+    return Boolean(
+      (questionId && memory.questionIds.has(questionId)) ||
+      (signature && memory.signatures.has(signature)) ||
+      (promptAnswer && memory.promptAnswers.has(promptAnswer))
+    );
+  }
+
+  function wasQuestionAnsweredIncorrectly(question, stageLabel) {
+    const questionId = question.id || "";
+    const signature = getRuntimeQuestionSignature(question);
+    const promptAnswer = getRuntimeQuestionPromptAnswerSignature(question);
+
+    return getStageAnswerRecords(stageLabel).some(record =>
+      !record.isCorrect &&
+      (
+        (questionId && record.questionId === questionId) ||
+        (signature && record.questionSignature === signature) ||
+        (promptAnswer && (record.promptAnswerSignature || getAnswerRecordPromptAnswerSignature(record)) === promptAnswer)
+      )
+    );
+  }
+
+  function getOldestReusableCorrectQuestions(questions, stageLabel) {
+    const correctRecords = getStageAnswerRecords(stageLabel)
+      .filter(record => record.isCorrect)
+      .map((record, index) => ({
+        record,
+        index,
+        promptAnswer: record.promptAnswerSignature || getAnswerRecordPromptAnswerSignature(record)
+      }));
+    const ageByPromptAnswer = new Map();
+    const ageByQuestionId = new Map();
+    const ageBySignature = new Map();
+
+    correctRecords.forEach(({ record, index, promptAnswer }) => {
+      if (record.questionId && !ageByQuestionId.has(record.questionId)) ageByQuestionId.set(record.questionId, index);
+      if (record.questionSignature && !ageBySignature.has(record.questionSignature)) ageBySignature.set(record.questionSignature, index);
+      if (promptAnswer && !ageByPromptAnswer.has(promptAnswer)) ageByPromptAnswer.set(promptAnswer, index);
+    });
+
+    return [...questions].sort((a, b) => {
+      const ageA =
+        ageByQuestionId.get(a.id) ??
+        ageBySignature.get(getRuntimeQuestionSignature(a)) ??
+        ageByPromptAnswer.get(getRuntimeQuestionPromptAnswerSignature(a)) ??
+        Number.MAX_SAFE_INTEGER;
+      const ageB =
+        ageByQuestionId.get(b.id) ??
+        ageBySignature.get(getRuntimeQuestionSignature(b)) ??
+        ageByPromptAnswer.get(getRuntimeQuestionPromptAnswerSignature(b)) ??
+        Number.MAX_SAFE_INTEGER;
+
+      return ageA - ageB;
+    });
+  }
+
   function getQuestionSelectionRank(question, activeStage) {
     const metadata = inferItemMetadata(question);
     if (!metadata?.itemKey || !metadata?.itemType) return 6;
@@ -2344,10 +2489,7 @@ export default function App() {
   }
 
   function getQuestionRoundSignature(question) {
-    return [
-      normalizeItemKey(getQuestionPrompt(question)),
-      normalizeItemKey(getQuestionAnswer(question))
-    ].join("::");
+    return getRuntimeQuestionSignature(question);
   }
 
   function getRoundDuplicateProfile() {
@@ -2358,7 +2500,9 @@ export default function App() {
       targetWords: new Set(currentRoundQuestions.map(getQuestionTargetWord).filter(Boolean)),
       itemKeys: new Set(roundItemKeys.filter(Boolean)),
       correctAnswers: new Set(currentRoundQuestions.map(getQuestionAnswer).map(normalizeItemKey).filter(Boolean)),
-      signatures: new Set(currentRoundQuestions.map(getQuestionRoundSignature).filter(Boolean))
+      promptAnswers: new Set(currentRoundQuestions.map(getRuntimeQuestionPromptAnswerSignature).filter(Boolean)),
+      optionSets: new Set(currentRoundQuestions.map(getRepeatOptionSetSignature).filter(Boolean)),
+      signatures: new Set(currentRoundQuestions.map(getRuntimeQuestionSignature).filter(Boolean))
     };
   }
 
@@ -2369,13 +2513,17 @@ export default function App() {
       : "";
     const target = getQuestionTargetWord(question);
     const correct = normalizeItemKey(getQuestionAnswer(question));
-    const signature = getQuestionRoundSignature(question);
+    const promptAnswer = getRuntimeQuestionPromptAnswerSignature(question);
+    const optionSet = getRepeatOptionSetSignature(question);
+    const signature = getRuntimeQuestionSignature(question);
 
     return {
       questionId: Boolean(question.id && profile.questionIds.has(question.id)),
       targetWord: Boolean(target && profile.targetWords.has(target)),
       itemKey: Boolean(itemStateKey && profile.itemKeys.has(itemStateKey)),
       correctAnswer: Boolean(correct && profile.correctAnswers.has(correct)),
+      promptAnswer: Boolean(promptAnswer && profile.promptAnswers.has(promptAnswer)),
+      optionSet: Boolean(optionSet && profile.optionSets.has(optionSet)),
       signature: Boolean(signature && profile.signatures.has(signature))
     };
   }
@@ -2760,8 +2908,8 @@ export default function App() {
       {
         id: record.questionId,
         skill: "CVC and Short Vowels",
-        question: record.prompt || "Child Mode Echo Caves",
-        prompt: record.prompt || "Child Mode Echo Caves",
+        question: record.prompt || "Space Hub Phonics Lab",
+        prompt: record.prompt || "Space Hub Phonics Lab",
         answer: correctAnswer,
         audioText: record.audioText || targetWord,
         spokenPrompt: record.spokenPrompt || targetWord,

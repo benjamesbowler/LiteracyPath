@@ -286,7 +286,7 @@ export function TopNavigation({
         {isAdmin && (
           <>
             <button className="nav-button" onClick={openChildMode}>
-              Learning World
+              Space Hub
             </button>
 
             <button className="nav-button" onClick={openAdminDashboard}>
@@ -1192,7 +1192,7 @@ export function StudentOverviewPage({
     correct: 0,
     recentAccuracy: null,
     masteredWords: [],
-    focus: "No Child Learning World practice yet",
+    focus: "No Space Hub practice yet",
     supportNeeds: [],
     lastPlayed: null,
     masteryChips: []
@@ -1963,7 +1963,7 @@ export function TeacherSettingsToolsPage({
     attempted: 0,
     correct: 0,
     recentAccuracy: null,
-    focus: "No Child Learning World practice yet",
+    focus: "No Space Hub practice yet",
     lastPlayed: null,
     masteryChips: []
   };
@@ -1999,11 +1999,11 @@ export function TeacherSettingsToolsPage({
         <section className="admin-tools-stack">
           <article className="teacher-action-panel">
             <p className="panel-label">Admin only</p>
-            <h3>Child Learning World Progress</h3>
+            <h3>Space Hub Progress</h3>
             {childEvidence.tableMissing ? (
-              <p>Child Learning World practice data is not available yet.</p>
+              <p>Space Hub practice data is not available yet.</p>
             ) : childEvidence.attempted === 0 ? (
-              <p>No Child Learning World practice has been recorded for this student yet.</p>
+              <p>No Space Hub practice has been recorded for this student yet.</p>
             ) : (
               <div className="child-learning-grid">
                 <div>
