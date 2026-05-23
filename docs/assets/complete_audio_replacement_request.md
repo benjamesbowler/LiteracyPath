@@ -8,7 +8,7 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 
 | key | exact filename needed | expected spoken text | category | runtime priority | replacement priority | current clean file exists | current missing | skills using it | formats using it |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| axe | public/audio/child-mode/words/axe.mp3 | axe | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
+| axe | public/audio/child-mode/words/axe.mp3 | axe | word | required | standard | yes | no | Final Sounds, Initial Sounds | FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |
 | bid | public/audio/child-mode/words/bid.mp3 | bid | word | required | standard | yes | no | Final Sounds | FINAL_SOUND_PAIR_SELECT |
 | big | public/audio/child-mode/words/big.mp3 | big | word | required | standard | yes | no | Rhyming | RHYME_PAIR_SELECT |
 | bin | public/audio/child-mode/words/bin.mp3 | bin | word | required | standard | yes | no | Final Sounds, Rhyming | FINAL_SOUND_PAIR_SELECT, RHYME_PAIR_SELECT |

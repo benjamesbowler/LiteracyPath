@@ -25,6 +25,7 @@ import { rhymingCoverageQuestions } from "./data/rhymingCoverageQuestions";
 import { cvcShortVowelExpansionQuestions } from "./data/cvcShortVowelExpansionQuestions";
 import { contentExpansionPass3Questions } from "./data/contentExpansionPass3Questions";
 import { targetedContentRecoveryQuestions } from "./data/targetedContentRecoveryQuestions";
+import { kimiDataset7RuntimeQuestions } from "./data/kimiDataset7RuntimeQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
@@ -703,6 +704,7 @@ const allQuestions = [
   ...cvcShortVowelExpansionQuestions,
   ...contentExpansionPass3Questions,
   ...targetedContentRecoveryQuestions,
+  ...kimiDataset7RuntimeQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,

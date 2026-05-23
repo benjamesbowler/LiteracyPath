@@ -553,6 +553,18 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | book | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/book.png | active asset |  |  |
 | duck | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/duck.png | active asset |  |  |
 | fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| crab | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| web | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/web.png | active asset |  |  |
+| fan | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| thumb | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| web | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/web.png | active asset |  |  |
+| cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| fox | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-o/fox.png | active asset |  |  |
+| ox | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/ox.png | active asset |  |  |
+| cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| axe | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/axe.png | active asset |  |  |
+| fox | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-o/fox.png | active asset |  |  |
+| dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
 | cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | dog | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |

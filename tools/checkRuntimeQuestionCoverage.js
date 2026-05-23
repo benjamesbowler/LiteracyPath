@@ -11,6 +11,9 @@ import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.j
 import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
+import { kimiDataset7RuntimeQuestions } from "../src/data/kimiDataset7RuntimeQuestions.js";
+import { kimiDataset7Candidates } from "../src/data/imported/kimiDataset7Candidates.js";
+import { kimiDataset7Summary } from "../src/data/imported/kimiDataset7Summary.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -65,6 +68,7 @@ const runtimeQuestionBanks = [
   ["cvcShortVowelExpansionQuestions", cvcShortVowelExpansionQuestions],
   ["contentExpansionPass3Questions", contentExpansionPass3Questions],
   ["targetedContentRecoveryQuestions", targetedContentRecoveryQuestions],
+  ["kimiDataset7RuntimeQuestions", kimiDataset7RuntimeQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -820,6 +824,8 @@ console.log(`Questions excluded due to missing approved audio: ${approvedAudioEx
 console.log(`Questions excluded by content validation: ${contentValidationExcludedQuestions.length}`);
 console.log(`Legacy text-only phonics questions excluded: ${runtimeQualityWarnings.removedLegacy.length}`);
 console.log(`Questions containing pun excluded: ${runtimeQualityWarnings.removedPun.length}`);
+console.log(`Pack 7 candidate sample count: ${kimiDataset7Candidates.length}`);
+console.log(`Pack 7 active runtime questions: ${kimiDataset7RuntimeQuestions.length}`);
 console.log("");
 
 for (const { stage, count } of counts) {
@@ -950,6 +956,11 @@ function writeCoverageAuditDoc() {
     ["Removed questions containing `pun`", runtimeQualityWarnings.removedPun.length],
     ["Plural questions removed/review-flagged", runtimeQualityWarnings.pluralFixes.length],
     ["Systemic content validation exclusions", contentValidationExcludedQuestions.length],
+    ["Pack 7 parsed items", kimiDataset7Summary.totalItems],
+    ["Pack 7 approved candidates", kimiDataset7Summary.approvedCandidates],
+    ["Pack 7 blocked candidates", kimiDataset7Summary.blockedCandidates],
+    ["Pack 7 active runtime questions", kimiDataset7RuntimeQuestions.length],
+    ["Pack 7 exported candidate sample", kimiDataset7Candidates.length],
     ["Final Sounds active itemKeys", (stageAudits.find(audit => audit.stage.label === "Final Sounds")?.runtimeKeys || []).join(", ") || "none"],
     ["Digraph balance", [...(stageAudits.find(audit => audit.stage.label === "Digraphs")?.byKey || new Map()).entries()].map(([key, count]) => `${key}:${count}`).join(", ") || "none"]
   ];

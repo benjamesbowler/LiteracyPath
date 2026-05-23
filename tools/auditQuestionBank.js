@@ -11,6 +11,7 @@ import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.j
 import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
+import { kimiDataset7RuntimeQuestions } from "../src/data/kimiDataset7RuntimeQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -85,6 +86,7 @@ const questionBanks = [
   ["src/data/cvcShortVowelExpansionQuestions.js", cvcShortVowelExpansionQuestions],
   ["src/data/contentExpansionPass3Questions.js", contentExpansionPass3Questions],
   ["src/data/targetedContentRecoveryQuestions.js", targetedContentRecoveryQuestions],
+  ["src/data/kimiDataset7RuntimeQuestions.js", kimiDataset7RuntimeQuestions],
   ["src/data/templateQuestions.js", templateQuestions],
   ["src/data/templateExpansion.js", templateExpansion],
   ["src/data/templateExpansion2.js", templateExpansion2],
