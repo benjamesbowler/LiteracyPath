@@ -989,6 +989,7 @@ export function StudentOverviewPage({
   childLearningEvidence,
   setAppView,
   switchStudent,
+  openResetStudentProgress,
   letterAssessment = [],
   patternAssessment = [],
   exportLetterAssessment,
@@ -1081,25 +1082,38 @@ export function StudentOverviewPage({
         </div>
       </section>
 
-      <label>
-        <strong>Start or adjust skill level:</strong>
-        <select
-          value={currentSkillIndex}
-          onChange={e => {
-            setCurrentSkillIndex(Number(e.target.value));
-            setRoundAnswers([]);
-            setCurrentQuestion(null);
-            setFeedback(null);
-            setMessage("Start skill changed.");
-          }}
-        >
-          {skillTree.map((stage, index) => (
-            <option key={stage.id} value={index}>
-              {index + 1}. {stage.label}
-            </option>
-          ))}
-        </select>
-      </label>
+      <section className="overview-start-panel" aria-label="Start assessment">
+        <label className="overview-skill-selector">
+          <strong>Start or adjust skill level</strong>
+          <select
+            value={currentSkillIndex}
+            onChange={e => {
+              setCurrentSkillIndex(Number(e.target.value));
+              setRoundAnswers([]);
+              setCurrentQuestion(null);
+              setFeedback(null);
+              setMessage("Start skill changed.");
+            }}
+          >
+            {skillTree.map((stage, index) => (
+              <option key={stage.id} value={index}>
+                {index + 1}. {stage.label}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <div className="overview-primary-start">
+          <div>
+            <strong>Primary</strong>
+            <p>Continue the checkpoint path for this student.</p>
+          </div>
+
+          <button className="main-button overview-action-button" onClick={startAssessment}>
+            Enter Full Screen Assessment
+          </button>
+        </div>
+      </section>
 
       <section className="weakness-snapshot">
         <h3>Weakness Snapshot</h3>
@@ -1287,17 +1301,6 @@ export function StudentOverviewPage({
       </details>
 
       <section className="overview-actions section-grid" aria-label="Student overview actions">
-        <div className="overview-action-card primary-action-card">
-          <div>
-            <h3>Primary</h3>
-            <p>Continue the checkpoint path for this student.</p>
-          </div>
-
-          <button className="main-button overview-action-button" onClick={startAssessment}>
-            Enter Full Screen Assessment
-          </button>
-        </div>
-
         <div className="overview-action-card">
           <div>
             <h3>Review</h3>
@@ -1373,10 +1376,181 @@ export function StudentOverviewPage({
             <button className="report-button overview-action-button secondary" onClick={switchStudent}>
               Switch Student
             </button>
+
+            <button
+              className="reset-button overview-action-button secondary"
+              onClick={openResetStudentProgress}
+              type="button"
+            >
+              Reset Student Progress
+            </button>
           </div>
         </div>
       </section>
     </div>
+  );
+}
+
+export function ResetStudentProgressDialog({
+  open,
+  studentName,
+  resetting,
+  onAdaptiveReset,
+  onFullReset,
+  onCancel
+}) {
+  if (!open) return null;
+
+  return (
+    <div className="modal-backdrop" role="presentation">
+      <section className="modal-card reset-progress-dialog" role="dialog" aria-modal="true" aria-labelledby="reset-progress-title">
+        <h2 id="reset-progress-title">Reset Student Progress</h2>
+        <p>
+          This will keep {studentName || "the student"} and the class in place. Choose the scope carefully.
+        </p>
+
+        <div className="reset-progress-options">
+          <button
+            className="main-button"
+            disabled={resetting}
+            onClick={onAdaptiveReset}
+            type="button"
+          >
+            Reset adaptive assessment progress only
+          </button>
+          <p>
+            Clears checkpoint progress, skill progression, item mastery, and adaptive answer history for this student.
+            Formal EL assessment results stay available.
+          </p>
+
+          <button
+            className="reset-button"
+            disabled={resetting}
+            onClick={onFullReset}
+            type="button"
+          >
+            Reset all student assessment data including formal EL results
+          </button>
+          <p>
+            Also clears local Letter Name/Sound and Advanced Phonics assessment results for this selected student.
+          </p>
+        </div>
+
+        <div className="button-row">
+          <button
+            className="report-button"
+            disabled={resetting}
+            onClick={onCancel}
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export function CheckpointDecisionPage({
+  checkpoint,
+  continueSkill,
+  moveToNextSkill,
+  retrySkill,
+  reviewMistakes,
+  returnToOverview
+}) {
+  if (!checkpoint) return null;
+
+  const completedText =
+    `${checkpoint.correct}/${checkpoint.total} ${checkpoint.skillLabel}`;
+  const canMoveNext =
+    checkpoint.passed && checkpoint.nextSkillLabel;
+
+  return (
+    <main className="assessment-shell checkpoint-decision-shell">
+      <section className="card checkpoint-decision-card">
+        <p className="panel-label">Checkpoint complete</p>
+        <h2>You completed {completedText}.</h2>
+
+        <div className="checkpoint-result-grid">
+          <div>
+            <span>Accuracy</span>
+            <strong>{checkpoint.accuracy}%</strong>
+          </div>
+          <div>
+            <span>Checkpoint</span>
+            <strong>{checkpoint.passed ? "Passed" : "Needs retry"}</strong>
+          </div>
+          <div>
+            <span>Skill coverage</span>
+            <strong>
+              {checkpoint.coverage.mastered}/{checkpoint.coverage.total} {checkpoint.coverage.unit} covered
+            </strong>
+          </div>
+        </div>
+
+        <div className="checkpoint-detail-grid">
+          <section>
+            <h3>Covered this round</h3>
+            {checkpoint.coveredThisRound.length > 0 ? (
+              <div className="word-chip-row">
+                {checkpoint.coveredThisRound.map(item => (
+                  <span className="word-chip mastered" key={item}>{item}</span>
+                ))}
+              </div>
+            ) : (
+              <p className="muted-text">No item keys were recorded for this round.</p>
+            )}
+          </section>
+
+          <section>
+            <h3>Still to cover</h3>
+            {checkpoint.remainingItems.length > 0 ? (
+              <div className="word-chip-row">
+                {checkpoint.remainingItems.map(item => (
+                  <span className="word-chip" key={item}>{item}</span>
+                ))}
+              </div>
+            ) : (
+              <p className="muted-text">No remaining runtime items are currently visible for this skill.</p>
+            )}
+          </section>
+        </div>
+
+        <div className="button-row checkpoint-decision-actions">
+          {checkpoint.passed ? (
+            <>
+              <button className="main-button" onClick={continueSkill} type="button">
+                Continue this skill to build mastery
+              </button>
+
+              <button
+                className="report-button"
+                disabled={!canMoveNext}
+                onClick={moveToNextSkill}
+                type="button"
+              >
+                Move to next skill{checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="main-button" onClick={retrySkill} type="button">
+                Retry this skill
+              </button>
+
+              <button className="report-button" onClick={reviewMistakes} type="button">
+                Review mistakes
+              </button>
+            </>
+          )}
+
+          <button className="report-button" onClick={returnToOverview} type="button">
+            Return to Student Overview
+          </button>
+        </div>
+      </section>
+    </main>
   );
 }
 
@@ -1888,15 +2062,19 @@ export function AssessmentPage({
             </div>
           )}
 
-          <button
-            className="main-button"
-            onClick={() => {
-              setFeedback(null);
-              pickQuestion();
-            }}
-          >
-            Continue
-          </button>
+          {feedback.isCorrect && feedback.autoAdvance ? (
+            <p className="muted-text feedback-auto-advance">Next question coming up...</p>
+          ) : (
+            <button
+              className="main-button"
+              onClick={() => {
+                setFeedback(null);
+                pickQuestion();
+              }}
+            >
+              Continue
+            </button>
+          )}
         </motion.div>
       )}
 

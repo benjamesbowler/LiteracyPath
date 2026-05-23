@@ -175,9 +175,18 @@ export const masteryRules = {
 };
 
 export function getMasteryRule(skillLabel) {
-  return masteryRules[skillLabel] || {
+  const rule = masteryRules[skillLabel] || {
     roundLength: 10,
     passScore: 8,
     reviewAfter: 20
+  };
+
+  const originalRoundLength = Math.max(1, rule.roundLength || 10);
+  const passRate = (rule.passScore || Math.ceil(originalRoundLength * 0.8)) / originalRoundLength;
+
+  return {
+    ...rule,
+    roundLength: 15,
+    passScore: Math.ceil(passRate * 15)
   };
 }

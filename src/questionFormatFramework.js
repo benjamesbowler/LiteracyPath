@@ -25,6 +25,16 @@ const FORMAT_TYPES = new Set([
   "SENTENCE_CONTEXT_WORD",
   "IMAGE_VOWEL_SORT",
   "SHORT_VOWEL_IMAGE_GROUP_SELECT",
+  "FIRST_SOUND",
+  "ENDING_SOUND",
+  "BLEND_SOUNDS",
+  "PUT_SOUNDS_IN_ORDER",
+  "RHYMING_PICTURE",
+  "SHORT_VOWEL_WORD",
+  "COMPLETE_WORD",
+  "SENTENCE_MATCHES_PICTURE",
+  "VOCABULARY_CATEGORY",
+  "GRAMMAR_BASICS",
   "COMPREHENSION",
   "FIX_SENTENCE",
   "UNKNOWN"
@@ -85,7 +95,7 @@ export function requiresAudioSupport(question) {
   if (question.audioText || question.spokenPrompt) return true;
 
   const formatType = normalizeFormatType(question.formatType);
-  if (["LISTENING", "PTD", "MPD", "PICTURE_TO_PRINT_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "IMAGE_INITIAL_SOUND", "INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT", "RHYME_PAIR_SELECT", "LISTEN_FIND_RHYME", "LISTEN_CHOOSE_VOWEL", "PICTURE_AUDIO_TO_PATTERN", "LISTEN_FIND_WORD", "PICTURE_TO_PRINT_CVC", "IMAGE_VOWEL_SORT", "SHORT_VOWEL_IMAGE_GROUP_SELECT"].includes(formatType)) return true;
+  if (["LISTENING", "PTD", "MPD", "PICTURE_TO_PRINT_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "IMAGE_INITIAL_SOUND", "INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT", "RHYME_PAIR_SELECT", "LISTEN_FIND_RHYME", "LISTEN_CHOOSE_VOWEL", "PICTURE_AUDIO_TO_PATTERN", "LISTEN_FIND_WORD", "PICTURE_TO_PRINT_CVC", "IMAGE_VOWEL_SORT", "SHORT_VOWEL_IMAGE_GROUP_SELECT", "FIRST_SOUND", "ENDING_SOUND", "BLEND_SOUNDS", "PUT_SOUNDS_IN_ORDER", "RHYMING_PICTURE", "SHORT_VOWEL_WORD", "COMPLETE_WORD"].includes(formatType)) return true;
 
   const text = normalizeText(getQuestionText(question));
   return text.includes("listen") || text.includes("sound") || text.includes("starts like") || text.includes("middle sound");
@@ -133,6 +143,9 @@ export function inferPhonicsPosition(question) {
 export function inferFormatType(question) {
   const explicit = normalizeFormatType(question?.formatType);
   if (explicit !== "UNKNOWN") return explicit;
+
+  const template = normalizeFormatType(question?.templateType);
+  if (template !== "UNKNOWN") return template;
 
   if (question?.questionType === "fix_sentence") return "FIX_SENTENCE";
   if (question?.passage) return "COMPREHENSION";

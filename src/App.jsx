@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, useEffect, useState } from "react";
+import { Component, lazy, Suspense, useEffect, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import "./App.css";
@@ -9,9 +9,11 @@ import {
   AdvancedPhonicsPatternAssessmentPage,
   AssessmentPage,
   AuthPage,
+  CheckpointDecisionPage,
   DashboardSummary,
   LetterAssessmentPage,
   QuestionFlagDialog,
+  ResetStudentProgressDialog,
   StudentOverviewPage,
   StudentSelectPage,
   TopNavigation
@@ -858,6 +860,10 @@ export default function App() {
   const [answerHistory, setAnswerHistory] = useState([]);
   const [itemMastery, setItemMastery] = useState({});
   const [itemSessionSeen, setItemSessionSeen] = useState({});
+  const [checkpointDecision, setCheckpointDecision] = useState(null);
+  const [resetProgressDialogOpen, setResetProgressDialogOpen] = useState(false);
+  const [resettingProgress, setResettingProgress] = useState(false);
+  const answerInFlightRef = useRef(false);
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -922,6 +928,10 @@ export default function App() {
     setAnswerHistory([]);
     setItemMastery({});
     setItemSessionSeen({});
+    setCheckpointDecision(null);
+    setResetProgressDialogOpen(false);
+    setResettingProgress(false);
+    answerInFlightRef.current = false;
   }
 
   useEffect(() => {
@@ -985,7 +995,7 @@ export default function App() {
         setStudentId(data.studentId || null);
         setSelectedClassId(savedClassId);
         setNameSaved(Boolean(savedStudentName));
-        setAppView(data.appView || (savedStudentName ? "overview" : "select"));
+        setAppView(data.appView === "checkpoint" ? "overview" : data.appView || (savedStudentName ? "overview" : "select"));
         setAssessmentMode(data.assessmentMode || "mastery");
         setCurrentSkillIndex(data.currentSkillIndex || 0);
         setRoundAnswers(data.roundAnswers || []);
@@ -1754,12 +1764,90 @@ export default function App() {
     setMessage(`Deleted ${className}.`);
   }
 
+  function resetCurrentStudentLocalProgress({ clearFormalAssessments = false } = {}) {
+    answerInFlightRef.current = false;
+    setCurrentSkillIndex(0);
+    setRoundAnswers([]);
+    setRoundItemKeys([]);
+    setRoundQuestionIds([]);
+    setUsedByStage({});
+    setMastery({});
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setCheckpointDecision(null);
+    setShowReport(false);
+    setAssessmentMode("mastery");
+    setTotalAnswered(0);
+    setCorrectAnswered(0);
+    setAnswerHistory([]);
+    setItemMastery({});
+    setItemSessionSeen({});
+    setChildLearningEvidence(buildChildLearningEvidence());
+
+    if (clearFormalAssessments) {
+      setLetterIndex(0);
+      setLetterAssessment([]);
+      setPatternIndex(0);
+      setPatternAssessment([]);
+      setPatternAttempt(0);
+    }
+  }
+
+  async function deleteStudentProgressRows(tableName, selectedStudentId) {
+    const { error } = await supabase
+      .from(tableName)
+      .delete()
+      .eq("teacher_id", teacherId)
+      .eq("student_id", selectedStudentId);
+
+    if (error && !isMissingTableError(error, tableName)) return error;
+    return null;
+  }
+
+  async function resetSelectedStudentProgress({ includeFormalAssessments = false } = {}) {
+    if (!teacherId || !studentId) {
+      setMessage("Select a student before resetting progress.");
+      return;
+    }
+
+    setResettingProgress(true);
+
+    const errors = [];
+
+    for (const tableName of ["answers", "mastery", "item_mastery"]) {
+      const error = await deleteStudentProgressRows(tableName, studentId);
+      if (error) errors.push(error);
+    }
+
+    setResettingProgress(false);
+
+    if (errors.length > 0) {
+      console.error("Reset student progress error:", errors[0]);
+      setMessage("Could not reset this student's progress.");
+      return;
+    }
+
+    resetCurrentStudentLocalProgress({ clearFormalAssessments: includeFormalAssessments });
+    setResetProgressDialogOpen(false);
+    setAppView("overview");
+    setMessage(
+      includeFormalAssessments
+        ? "Student progress and local EL assessment results were reset."
+        : "Adaptive assessment progress was reset. Formal EL assessment results were kept."
+    );
+
+    await loadStudents(selectedClassId);
+    await loadClassDashboard(selectedClassId);
+  }
+
 
   async function loadStudentProgress(selectedStudentId, selectedStudentName) {
+    answerInFlightRef.current = false;
     setStudentId(selectedStudentId);
     setStudentName(selectedStudentName);
     setNameSaved(true);
     setAppView("overview");
+    setCheckpointDecision(null);
 
     const { data: answerRows, error: answerError } = await supabase
       .from("answers")
@@ -1873,9 +1961,6 @@ export default function App() {
       return;
     }
 
-    setStudentName(clean);
-    setNameSaved(true);
-
     if (!studentId) {
       if (!selectedClassId) {
         setMessage("Please select or create a class first.");
@@ -1898,10 +1983,19 @@ export default function App() {
         return;
       }
 
+      resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
       setStudentId(data.id);
-      setMessage("Student saved to cloud.");
+      setStudentName(data.name || clean);
+      setNameSaved(true);
+      setCurrentSkillIndex(0);
       setAppView("overview");
+      await loadStudents(selectedClassId);
+      setMessage(`Student created and selected: ${data.name || clean}`);
+      return;
     }
+
+    setStudentName(clean);
+    setNameSaved(true);
   }
 
   function getAvailableStageQuestions(stageIndex) {
@@ -2084,9 +2178,11 @@ export default function App() {
   }
 
   function pickQuestion(mode = assessmentMode, answeredCount = roundAnswers.length, stageIndexOverride = currentSkillIndex) {
+    answerInFlightRef.current = false;
     setMessage("");
     setShowConfetti(false);
     setShowReport(false);
+    setCheckpointDecision(null);
 
     if (mode === "targetedReview") {
       const reviewPool =
@@ -2473,9 +2569,62 @@ export default function App() {
     }
   }
 
+  function formatCoverageKeyLabel(key) {
+    const [, itemKey = key] = String(key).split("::");
+    return itemKey;
+  }
+
+  function buildCheckpointDecision(stage, stageIndex, nextRound, nextRoundItemKeys, passed) {
+    const runtimeKeys = Array.from(getCoverageItemKeysForStage(stage));
+    const runtimeKeySet = new Set(runtimeKeys);
+    const coveredKeys = new Set(
+      Object.values(itemMastery || {})
+        .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0))
+        .map(row => getItemMasteryStateKey(row.itemKey, row.itemType))
+        .filter(key => runtimeKeySet.has(key))
+    );
+
+    nextRoundItemKeys
+      .filter(key => runtimeKeySet.has(key))
+      .forEach(key => coveredKeys.add(key));
+
+    const configured = configuredCoverageTotals[stage.id];
+    const coverageTotal = configured?.total || runtimeKeys.length;
+    const coverageUnit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words" : "items");
+    const remainingItems = runtimeKeys
+      .filter(key => !coveredKeys.has(key))
+      .map(formatCoverageKeyLabel)
+      .slice(0, 40);
+    const coveredThisRound = Array.from(new Set(
+      nextRoundItemKeys
+        .filter(key => runtimeKeySet.has(key))
+        .map(formatCoverageKeyLabel)
+    ));
+    const score = nextRound.filter(Boolean).length;
+
+    return {
+      skillId: stage.id,
+      skillIndex: stageIndex,
+      skillLabel: stage.label,
+      correct: score,
+      total: ROUND_LENGTH,
+      accuracy: Math.round((score / ROUND_LENGTH) * 100),
+      passed,
+      nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
+      coveredThisRound,
+      remainingItems,
+      coverage: {
+        mastered: Math.min(coveredKeys.size, coverageTotal),
+        total: coverageTotal,
+        unit: coverageUnit
+      }
+    };
+  }
+
 
   function answerQuestion(choice) {
-    if (!currentQuestion) return;
+    if (!currentQuestion || answerInFlightRef.current) return;
+    answerInFlightRef.current = true;
 
     const correctAnswer = getQuestionAnswer(currentQuestion);
     const submittedAnswer = isFixSentenceQuestion(currentQuestion)
@@ -2496,6 +2645,9 @@ export default function App() {
     const itemStateKey = itemMetadata?.itemKey && itemMetadata?.itemType
       ? getItemMasteryStateKey(itemMetadata.itemKey, itemMetadata.itemType)
       : "";
+    const nextRoundItemKeys = itemStateKey
+      ? [...roundItemKeys, itemStateKey]
+      : [...roundItemKeys];
 
     setUsedByStage(prev => ({
       ...prev,
@@ -2550,12 +2702,15 @@ export default function App() {
 
     if (assessmentMode === "targetedReview") {
       if (nextRound.length >= ROUND_LENGTH) {
+        setCurrentQuestion(null);
+        setFeedback(null);
+        setRoundAnswers([]);
         setTimeout(() => {
+          answerInFlightRef.current = false;
           setAppView("finished");
           setShowReport(true);
         }, 500);
-
-        setRoundAnswers([]);
+        return;
       } else {
         setRoundAnswers(nextRound);
       }
@@ -2566,10 +2721,17 @@ export default function App() {
         correct: correctAnswer,
         skill: currentQuestion.skill,
         explanation: getTeachingTip(currentQuestion, submittedAnswer, isCorrect),
-        support: buildFeedbackSupport(currentQuestion, submittedAnswer)
+        support: buildFeedbackSupport(currentQuestion, submittedAnswer),
+        autoAdvance: isCorrect
       });
 
       setCurrentQuestion(null);
+      if (isCorrect) {
+        setTimeout(() => {
+          setFeedback(null);
+          pickQuestion("targetedReview", nextRound.length);
+        }, 750);
+      }
       return;
     }
 
@@ -2589,16 +2751,15 @@ export default function App() {
 
       saveMasteryToSupabase(stage, score, ROUND_LENGTH, mastered);
 
-      if (mastered) {
-        setCurrentSkillIndex(index => Math.min(index + 1, skillTree.length - 1));
-      }
-
-      setTimeout(() => {
-        setAppView("finished");
-        setShowReport(true);
-      }, 500);
-
+      setCheckpointDecision(
+        buildCheckpointDecision(stage, getStageIndex(currentQuestion), nextRound, nextRoundItemKeys, mastered)
+      );
       setRoundAnswers([]);
+      setCurrentQuestion(null);
+      setFeedback(null);
+      setAppView("checkpoint");
+      answerInFlightRef.current = false;
+      return;
     } else {
       setRoundAnswers(nextRound);
     }
@@ -2609,10 +2770,17 @@ export default function App() {
       correct: correctAnswer,
       skill: currentQuestion.skill,
       explanation: getTeachingTip(currentQuestion, submittedAnswer, isCorrect),
-      support: buildFeedbackSupport(currentQuestion, submittedAnswer)
+      support: buildFeedbackSupport(currentQuestion, submittedAnswer),
+      autoAdvance: isCorrect
     });
 
     setCurrentQuestion(null);
+    if (isCorrect) {
+      setTimeout(() => {
+        setFeedback(null);
+        pickQuestion("mastery", nextRound.length, getStageIndex(currentQuestion));
+      }, 750);
+    }
   }
 
   function buildFeedbackSupport(question, submittedAnswer) {
@@ -3628,6 +3796,7 @@ export default function App() {
 
 
   function startAssessment(stageIndex = currentSkillIndex) {
+    answerInFlightRef.current = false;
     const nextStageIndex = Number.isFinite(stageIndex) ? stageIndex : currentSkillIndex;
     const nextStage = skillTree[nextStageIndex] || currentStage;
     const previewQuestions =
@@ -3644,6 +3813,7 @@ export default function App() {
     setAssessmentMode("mastery");
     setFeedback(null);
     setCurrentQuestion(null);
+    setCheckpointDecision(null);
     setShowReport(false);
     setRoundAnswers([]);
     setRoundItemKeys([]);
@@ -3663,9 +3833,11 @@ export default function App() {
   }
 
   function startTargetedReview() {
+    answerInFlightRef.current = false;
     setAssessmentMode("targetedReview");
     setFeedback(null);
     setCurrentQuestion(null);
+    setCheckpointDecision(null);
     setShowReport(false);
     setRoundAnswers([]);
     setRoundItemKeys([]);
@@ -3676,8 +3848,10 @@ export default function App() {
   }
 
   function endAssessment() {
+    answerInFlightRef.current = false;
     setCurrentQuestion(null);
     setFeedback(null);
+    setCheckpointDecision(null);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
     setShowReport(true);
@@ -3685,14 +3859,34 @@ export default function App() {
   }
 
   async function goToOverview() {
+    answerInFlightRef.current = false;
     setCurrentQuestion(null);
     setFeedback(null);
+    setCheckpointDecision(null);
     setShowReport(false);
     setAppView("overview");
 
     if (appView === "childMode" && studentId) {
       await loadStudentProgress(studentId, studentName || "Unnamed student");
     }
+  }
+
+  function continueCheckpointSkill() {
+    const stageIndex = checkpointDecision?.skillIndex ?? currentSkillIndex;
+    startAssessment(stageIndex);
+  }
+
+  function moveToNextCheckpointSkill() {
+    const nextStageIndex = Math.min(
+      (checkpointDecision?.skillIndex ?? currentSkillIndex) + 1,
+      skillTree.length - 1
+    );
+    startAssessment(nextStageIndex);
+  }
+
+  function retryCheckpointSkill() {
+    const stageIndex = checkpointDecision?.skillIndex ?? currentSkillIndex;
+    startAssessment(stageIndex);
   }
 
 
@@ -3876,6 +4070,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const accuracy = totalAnswered === 0 ? 0 : Math.round((correctAnswered / totalAnswered) * 100);
   const isFocusedAssessment =
     appView === "assessment" ||
+    appView === "checkpoint" ||
     appView === "letters" ||
     appView === "advancedPhonics" ||
     appView === "childMode";
@@ -3993,6 +4188,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           childLearningEvidence={childLearningEvidence}
           setAppView={setAppView}
           switchStudent={switchStudent}
+          openResetStudentProgress={() => setResetProgressDialogOpen(true)}
           letterAssessment={letterAssessment}
           patternAssessment={patternAssessment}
           exportLetterAssessment={exportLetterAssessment}
@@ -4059,6 +4255,17 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
+      {appView === "checkpoint" && (
+        <CheckpointDecisionPage
+          checkpoint={checkpointDecision}
+          continueSkill={continueCheckpointSkill}
+          moveToNextSkill={moveToNextCheckpointSkill}
+          retrySkill={retryCheckpointSkill}
+          reviewMistakes={startTargetedReview}
+          returnToOverview={goToOverview}
+        />
+      )}
+
       {appView === "childMode" && (
         <LearningWorldShell returnToTeacher={goToOverview}>
           <Suspense fallback={<LearningWorldFallback returnToTeacher={goToOverview} />}>
@@ -4081,6 +4288,15 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         onSubmit={submitQuestionFlag}
         onCancel={() => setFlagDialogOpen(false)}
         getDiagnosticTarget={getDiagnosticTarget}
+      />
+
+      <ResetStudentProgressDialog
+        open={resetProgressDialogOpen}
+        studentName={studentName}
+        resetting={resettingProgress}
+        onAdaptiveReset={() => resetSelectedStudentProgress({ includeFormalAssessments: false })}
+        onFullReset={() => resetSelectedStudentProgress({ includeFormalAssessments: true })}
+        onCancel={() => setResetProgressDialogOpen(false)}
       />
 
       {appView === "finished" && (
