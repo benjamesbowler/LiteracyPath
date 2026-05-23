@@ -6,7 +6,7 @@ export const kimiDataset7Summary = {
   "uniqueWords": 5229,
   "approvedCandidates": 3275,
   "blockedCandidates": 6947,
-  "activeCandidatesWithCurrentAssets": 463,
+  "activeCandidatesWithCurrentAssets": 459,
   "exportedCandidateSampleCount": 120,
   "docsCandidateCount": 600,
   "skills": [
@@ -18,7 +18,7 @@ export const kimiDataset7Summary = {
       "actual": 2063,
       "approved": 111,
       "blocked": 1952,
-      "activeCandidates": 105,
+      "activeCandidates": 104,
       "patternCount": 20,
       "samplePatterns": "initial_b, initial_c, initial_d, initial_f, initial_g, initial_h, initial_j, initial_k, initial_l, initial_m, initial_n, initial_p, initial_qu, initial_r, initial_s, initial_t, initial_v, initial_w"
     },
@@ -42,7 +42,7 @@ export const kimiDataset7Summary = {
       "actual": 867,
       "approved": 53,
       "blocked": 814,
-      "activeCandidates": 53,
+      "activeCandidates": 52,
       "patternCount": 69,
       "samplePatterns": "rhyme_ay, rhyme_ee, rhyme_igh, rhyme_ow, rhyme_oo, rhyme_an, rhyme_at, rhyme_ad, rhyme_ag, rhyme_ap, rhyme_eg, rhyme_et, rhyme_en, rhyme_ig, rhyme_in, rhyme_ip, rhyme_it, rhyme_og"
     },
@@ -54,7 +54,7 @@ export const kimiDataset7Summary = {
       "actual": 268,
       "approved": 52,
       "blocked": 216,
-      "activeCandidates": 52,
+      "activeCandidates": 51,
       "patternCount": 5,
       "samplePatterns": "cvc_short_a, cvc_short_e, cvc_short_i, cvc_short_o, cvc_short_u"
     },
@@ -66,7 +66,7 @@ export const kimiDataset7Summary = {
       "actual": 321,
       "approved": 54,
       "blocked": 267,
-      "activeCandidates": 54,
+      "activeCandidates": 53,
       "patternCount": 5,
       "samplePatterns": "short_a, short_e, short_i, short_o, short_u"
     },

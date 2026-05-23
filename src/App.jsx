@@ -33,6 +33,7 @@ import { contentExpansionPass3Questions } from "./data/contentExpansionPass3Ques
 import { targetedContentRecoveryQuestions } from "./data/targetedContentRecoveryQuestions";
 import { kimiDataset7RuntimeQuestions } from "./data/kimiDataset7RuntimeQuestions";
 import { ixlStyleSeedQuestions } from "./data/ixlStyleSeedQuestions";
+import { safeContentExpansionQuestions } from "./data/safeContentExpansionQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
@@ -800,6 +801,7 @@ const allQuestions = [
   ...targetedContentRecoveryQuestions,
   ...kimiDataset7RuntimeQuestions,
   ...ixlStyleSeedQuestions,
+  ...safeContentExpansionQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,

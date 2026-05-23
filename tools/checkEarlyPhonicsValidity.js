@@ -11,6 +11,7 @@ import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpans
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
 import { kimiDataset7RuntimeQuestions } from "../src/data/kimiDataset7RuntimeQuestions.js";
+import { safeContentExpansionQuestions } from "../src/data/safeContentExpansionQuestions.js";
 import { ixlStyleSeedQuestions } from "../src/data/ixlStyleSeedQuestions.js";
 import { templateQuestions } from "../src/data/templateQuestions.js";
 import { templateExpansion } from "../src/data/templateExpansion.js";
@@ -43,6 +44,7 @@ const banks = [
   ["contentExpansionPass3Questions", contentExpansionPass3Questions],
   ["targetedContentRecoveryQuestions", targetedContentRecoveryQuestions],
   ["kimiDataset7RuntimeQuestions", kimiDataset7RuntimeQuestions],
+  ["safeContentExpansionQuestions", safeContentExpansionQuestions],
   ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],

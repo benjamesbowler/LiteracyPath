@@ -9,7 +9,7 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | Skill | Active valid | Excluded by audio | Excluded by instructional level | Excluded malformed/duplicate | Active itemKeys |
 | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 119 | 1 | 20 | 1 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z |
-| Final Sounds | 66 | 0 | 82 | 0 | b, d, g, l, m, n, p, t |
+| Final Sounds | 66 | 0 | 77 | 0 | b, d, g, l, m, n, p, t |
 | Rhyming | 135 | 0 | 0 | 1 | air, am, an, ap, at, ck, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ouse, ox, ug, un, ut |
 | CVC and Short Vowels | 120 | 0 | 0 | 30 | bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig |
 | Short Vowel Discrimination | 174 | 0 | 0 | 0 | short_a, short_e, short_i, short_o, short_u |
@@ -68,11 +68,6 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | Final Sounds | recovery_final_sh_3 | targetedContentRecoveryQuestions | sh | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds itemKey "sh" is outside configured early final-sound set; Final Sounds word "fish" is not valid for early itemKey "sh"; Final Sounds word "brush" is not valid for early itemKey "sh" |
 | Final Sounds | recovery_final_k_1 | targetedContentRecoveryQuestions | k | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds itemKey "k" is outside configured early final-sound set; Final Sounds word "duck" is not valid for early itemKey "k"; Final Sounds word "rock" is not valid for early itemKey "k" |
 | Final Sounds | recovery_final_k_2 | targetedContentRecoveryQuestions | k | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds itemKey "k" is outside configured early final-sound set; Final Sounds word "book" is not valid for early itemKey "k"; Final Sounds word "duck" is not valid for early itemKey "k" |
-| Final Sounds | kimi7_final_b_2 | kimiDataset7RuntimeQuestions | b | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds word "thumb" is not valid for early itemKey "b" |
-| Final Sounds | kimi7_final_ng_1 | kimiDataset7RuntimeQuestions | ng | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds itemKey "ng" is outside configured early final-sound set; Final Sounds word "king" is not valid for early itemKey "ng"; Final Sounds word "ring" is not valid for early itemKey "ng"; expected exactly two final ng pair answers, found 0 |
-| Final Sounds | kimi7_final_ng_2 | kimiDataset7RuntimeQuestions | ng | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds itemKey "ng" is outside configured early final-sound set; Final Sounds word "ring" is not valid for early itemKey "ng"; Final Sounds word "king" is not valid for early itemKey "ng"; expected exactly two final ng pair answers, found 0 |
-| Final Sounds | kimi7_final_x_1 | kimiDataset7RuntimeQuestions | x | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds itemKey "x" is outside configured early final-sound set; Final Sounds word "fox" is not valid for early itemKey "x"; Final Sounds word "ox" is not valid for early itemKey "x" |
-| Final Sounds | kimi7_final_x_2 | kimiDataset7RuntimeQuestions | x | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds itemKey "x" is outside configured early final-sound set; Final Sounds word "axe" is not valid for early itemKey "x"; Final Sounds word "fox" is not valid for early itemKey "x" |
 | Initial Sounds | ixl_first_sound_20 | ixlStyleSeedQuestions | m | FIRST_SOUND | milk | prompt says listen but no approved prompt or card audio exists; missing approved whole-word audio for "milk" |
 | Blends | ixl_blend_sound_6 | ixlStyleSeedQuestions | cl | BLEND_SOUNDS | cloud | missing approved whole-word audio for "cloud" |
 | Blends | ixl_blend_sound_29 | ixlStyleSeedQuestions | cl | BLEND_SOUNDS | cloud | missing approved whole-word audio for "cloud" |

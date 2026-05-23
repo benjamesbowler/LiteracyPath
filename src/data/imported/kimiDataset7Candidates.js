@@ -2497,30 +2497,6 @@ export const kimiDataset7Candidates = [
   },
   {
     "source": "kimi_dataset7",
-    "originalSkill": "Beginning Sounds",
-    "mappedSkillId": "initial_sounds",
-    "word": "zip",
-    "pattern": "initial_z",
-    "distractors": [
-      "mould",
-      "play",
-      "yarn"
-    ],
-    "audioSafe": true,
-    "imageSafe": true,
-    "ambiguitySafe": true,
-    "validationStatus": "candidate",
-    "requiredAssets": {
-      "hasImage": true,
-      "hasAudio": true,
-      "imagePath": "/images/child-mode/short-i/zip.png",
-      "audioPath": "/audio/child-mode/clean-human/words/zip.mp3"
-    },
-    "activationStatus": "active_candidate",
-    "blockedReason": ""
-  },
-  {
-    "source": "kimi_dataset7",
     "originalSkill": "Final Sounds",
     "mappedSkillId": "final_sounds",
     "word": "cob",
@@ -2865,6 +2841,30 @@ export const kimiDataset7Candidates = [
       "trank",
       "collow",
       "young"
+    ],
+    "audioSafe": true,
+    "imageSafe": true,
+    "ambiguitySafe": true,
+    "validationStatus": "blocked",
+    "requiredAssets": {
+      "hasImage": false,
+      "hasAudio": false,
+      "imagePath": "",
+      "audioPath": ""
+    },
+    "activationStatus": "candidate",
+    "blockedReason": "image_safe overclaimed for unfamiliar/non-imageable word"
+  },
+  {
+    "source": "kimi_dataset7",
+    "originalSkill": "Final Sounds",
+    "mappedSkillId": "final_sounds",
+    "word": "tribe",
+    "pattern": "final_b",
+    "distractors": [
+      "them",
+      "smooch",
+      "prank"
     ],
     "audioSafe": true,
     "imageSafe": true,

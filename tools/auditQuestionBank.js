@@ -12,6 +12,7 @@ import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpans
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
 import { kimiDataset7RuntimeQuestions } from "../src/data/kimiDataset7RuntimeQuestions.js";
+import { safeContentExpansionQuestions } from "../src/data/safeContentExpansionQuestions.js";
 import { ixlStyleSeedQuestions } from "../src/data/ixlStyleSeedQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
@@ -88,6 +89,7 @@ const questionBanks = [
   ["src/data/contentExpansionPass3Questions.js", contentExpansionPass3Questions],
   ["src/data/targetedContentRecoveryQuestions.js", targetedContentRecoveryQuestions],
   ["src/data/kimiDataset7RuntimeQuestions.js", kimiDataset7RuntimeQuestions],
+  ["src/data/safeContentExpansionQuestions.js", safeContentExpansionQuestions],
   ["src/data/ixlStyleSeedQuestions.js", ixlStyleSeedQuestions],
   ["src/data/templateQuestions.js", templateQuestions],
   ["src/data/templateExpansion.js", templateExpansion],
@@ -209,7 +211,26 @@ const approvedHomophonePairs = [
   ["sea", "see"],
   ["right", "write"],
   ["stair", "stare"],
-  ["steak", "stake"]
+  ["steak", "stake"],
+  ["one", "won"],
+  ["two", "too"],
+  ["blue", "blew"],
+  ["hear", "here"],
+  ["no", "know"],
+  ["by", "buy"],
+  ["pair", "pear"],
+  ["flower", "flour"],
+  ["mail", "male"],
+  ["night", "knight"],
+  ["week", "weak"],
+  ["tail", "tale"],
+  ["hole", "whole"],
+  ["meet", "meat"],
+  ["peace", "piece"],
+  ["bear", "bare"],
+  ["dear", "deer"],
+  ["sail", "sale"],
+  ["wait", "weight"]
 ];
 
 const approvedHomophoneWords =

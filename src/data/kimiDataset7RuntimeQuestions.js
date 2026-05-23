@@ -8,9 +8,7 @@ function valid(question) {
 }
 
 const finalSoundItems = [
-  ["b", ["crab", "web", "fan"], ["thumb", "web", "cat"]],
-  ["ng", ["king", "ring", "cat"], ["ring", "king", "dog"]],
-  ["x", ["fox", "ox", "cat"], ["axe", "fox", "dog"]]
+  ["b", ["crab", "web", "fan"]]
 ];
 
 export const kimiDataset7RuntimeQuestions = finalSoundItems.flatMap(([itemKey, ...wordSets]) =>

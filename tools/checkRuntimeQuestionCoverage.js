@@ -12,6 +12,7 @@ import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpans
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
 import { kimiDataset7RuntimeQuestions } from "../src/data/kimiDataset7RuntimeQuestions.js";
+import { safeContentExpansionQuestions } from "../src/data/safeContentExpansionQuestions.js";
 import { ixlStyleSeedQuestions } from "../src/data/ixlStyleSeedQuestions.js";
 import { kimiDataset7Candidates } from "../src/data/imported/kimiDataset7Candidates.js";
 import { kimiDataset7Summary } from "../src/data/imported/kimiDataset7Summary.js";
@@ -70,6 +71,7 @@ const runtimeQuestionBanks = [
   ["contentExpansionPass3Questions", contentExpansionPass3Questions],
   ["targetedContentRecoveryQuestions", targetedContentRecoveryQuestions],
   ["kimiDataset7RuntimeQuestions", kimiDataset7RuntimeQuestions],
+  ["safeContentExpansionQuestions", safeContentExpansionQuestions],
   ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
@@ -683,6 +685,8 @@ const runtimeQuestions =
   );
 
 const matchedQuestions = runtimeQuestions.filter(isQuestionValid);
+const kimiDataset7SourceQuestions = runtimeQuestions.filter(question => question.source === "kimiDataset7RuntimeQuestions");
+const validKimiDataset7RuntimeQuestions = matchedQuestions.filter(question => question.source === "kimiDataset7RuntimeQuestions");
 const approvedAudioExcludedQuestions = runtimeQuestions
   .filter(question => !isQuestionValid(question) && missingApprovedAudioForQuestion(question).length > 0)
   .map(question => ({
@@ -965,6 +969,112 @@ function markdownTable(headers, rows) {
   ].join("\n");
 }
 
+function duplicateAuditTarget(question) {
+  if (Array.isArray(question.correctWords) && question.correctWords.length > 0) {
+    return question.correctWords.map(normalize).sort().join("+");
+  }
+
+  return normalize(
+    question.targetWord ||
+    question.audioText ||
+    question.imageKey ||
+    question.answer ||
+    question.correctAnswer ||
+    ""
+  );
+}
+
+function duplicateAuditSignature(question) {
+  return [
+    normalize(question.prompt || question.question || ""),
+    normalize(question.answer || question.correctAnswer || "")
+  ].join("::");
+}
+
+function duplicateAuditOptionSet(question) {
+  return (question.choices || [])
+    .map(normalize)
+    .filter(Boolean)
+    .sort()
+    .join(" | ");
+}
+
+function duplicateAuditDistractorSet(question) {
+  const correct = new Set(
+    [
+      question.answer,
+      question.correctAnswer,
+      ...(question.correctWords || []),
+      ...(question.correctAnswers || [])
+    ]
+      .map(normalize)
+      .filter(Boolean)
+  );
+
+  return (question.choices || [])
+    .map(normalize)
+    .filter(choice => choice && !correct.has(choice))
+    .sort()
+    .join(" | ");
+}
+
+function addGroupedValue(map, key, question) {
+  if (!key) return;
+  map.set(key, [...(map.get(key) || []), question]);
+}
+
+function topEntries(map, limit = 8) {
+  return [...map.entries()]
+    .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+    .slice(0, limit);
+}
+
+function buildDuplicateAudit(stage, index) {
+  const questions = matchedQuestions.filter(question => getStageIndex(question) === index);
+  const ids = new Map();
+  const targets = new Map();
+  const signatures = new Map();
+  const optionSets = new Map();
+  const distractorSets = new Map();
+  const itemKeys = new Map();
+
+  for (const question of questions) {
+    addGroupedValue(ids, question.id, question);
+    addGroupedValue(targets, duplicateAuditTarget(question), question);
+    addGroupedValue(signatures, duplicateAuditSignature(question), question);
+    addGroupedValue(optionSets, duplicateAuditOptionSet(question), question);
+    addGroupedValue(distractorSets, duplicateAuditDistractorSet(question), question);
+
+    const metadata = inferCoverageMetadata(question, stage.label);
+    addGroupedValue(itemKeys, metadata?.itemKey || "", question);
+  }
+
+  const duplicateIds = [...ids.entries()].filter(([, items]) => items.length > 1);
+  const duplicateSignatures = [...signatures.entries()].filter(([, items]) => items.length > 1);
+  const duplicateOptionSets = [...optionSets.entries()].filter(([key, items]) => key && items.length > 1);
+  const repeatedDistractorSets = [...distractorSets.entries()].filter(([key, items]) => key && items.length > 2);
+  const overusedWords = topEntries(targets, 10).filter(([, items]) => items.length >= 5);
+  const averagePerKey = itemKeys.size ? questions.length / itemKeys.size : 0;
+  const overusedItemKeys = [...itemKeys.entries()]
+    .filter(([, items]) => items.length >= Math.max(6, Math.ceil(averagePerKey * 2)))
+    .sort((a, b) => b[1].length - a[1].length);
+
+  return {
+    stage,
+    questions,
+    uniqueTargetWords: targets.size,
+    duplicateIds,
+    duplicateSignatures,
+    duplicateOptionSets,
+    repeatedDistractorSets,
+    overusedWords,
+    overusedItemKeys,
+    itemKeys
+  };
+}
+
+const duplicateAudits = skillTree.map((stage, index) => buildDuplicateAudit(stage, index));
+
 function stageCompleteness(audit) {
   const notes = [...audit.pedagogicalNotes];
   if (audit.assetGaps.length > 0) notes.push(`${audit.assetGaps.length} asset gaps.`);
@@ -997,7 +1107,8 @@ function writeCoverageAuditDoc() {
     ["Pack 7 parsed items", kimiDataset7Summary.totalItems],
     ["Pack 7 approved candidates", kimiDataset7Summary.approvedCandidates],
     ["Pack 7 blocked candidates", kimiDataset7Summary.blockedCandidates],
-    ["Pack 7 active runtime questions", kimiDataset7RuntimeQuestions.length],
+    ["Pack 7 curated source entries", kimiDataset7RuntimeQuestions.length],
+    ["Pack 7 valid after runtime gates", validKimiDataset7RuntimeQuestions.length],
     ["Pack 7 exported candidate sample", kimiDataset7Candidates.length],
     ["Final Sounds active itemKeys", (stageAudits.find(audit => audit.stage.label === "Final Sounds")?.runtimeKeys || []).join(", ") || "none"],
     ["Digraph balance", [...(stageAudits.find(audit => audit.stage.label === "Digraphs")?.byKey || new Map()).entries()].map(([key, count]) => `${key}:${count}`).join(", ") || "none"]
@@ -1122,6 +1233,158 @@ function writeRuntimeTemplateFailuresDoc() {
     rows.length
       ? markdownTable(["Question ID", "Skill", "Template/format", "Source", "Prompt", "Why excluded"], rows)
       : "No malformed runtime templates were found."
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeDuplicateQuestionAuditDoc() {
+  const docPath = path.join(rootDir, "docs", "validation", "duplicate_question_audit.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const summaryRows = duplicateAudits.map(audit => [
+    audit.stage.label,
+    audit.questions.length,
+    audit.uniqueTargetWords,
+    audit.duplicateIds.length,
+    audit.duplicateSignatures.length,
+    audit.duplicateOptionSets.length,
+    audit.repeatedDistractorSets.length,
+    audit.overusedWords.map(([word, items]) => `${word}:${items.length}`).join(", ") || "none",
+    audit.overusedItemKeys.map(([key, items]) => `${key}:${items.length}`).join(", ") || "none"
+  ]);
+
+  const detailSections = duplicateAudits.map(audit => {
+    const duplicateSignatureRows = audit.duplicateSignatures.slice(0, 12).map(([signature, items]) => [
+      signature,
+      items.length,
+      items.map(item => item.id).join(", "),
+      "Replace or retire repeated prompt+answer variants if they appear in the same skill round."
+    ]);
+    const optionRows = audit.duplicateOptionSets.slice(0, 8).map(([optionSet, items]) => [
+      optionSet,
+      items.length,
+      items.map(item => item.id).join(", ")
+    ]);
+    const itemKeyRows = [...audit.itemKeys.entries()]
+      .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+      .map(([key, items]) => [key, items.length]);
+
+    return [
+      `## ${audit.stage.label}`,
+      "",
+      `- Active questions: ${audit.questions.length}`,
+      `- Unique target words / answer targets: ${audit.uniqueTargetWords}`,
+      `- Duplicate IDs: ${audit.duplicateIds.length}`,
+      `- Duplicate prompt + correct-answer signatures: ${audit.duplicateSignatures.length}`,
+      `- Repeated answer option sets: ${audit.duplicateOptionSets.length}`,
+      `- Repeated distractor sets: ${audit.repeatedDistractorSets.length}`,
+      `- Overused words: ${audit.overusedWords.map(([word, items]) => `${word}:${items.length}`).join(", ") || "none"}`,
+      `- Overused itemKeys: ${audit.overusedItemKeys.map(([key, items]) => `${key}:${items.length}`).join(", ") || "none"}`,
+      "",
+      "### ItemKey Distribution",
+      "",
+      itemKeyRows.length ? markdownTable(["itemKey", "active questions"], itemKeyRows) : "_No itemKey metadata._",
+      "",
+      "### Duplicate Signatures",
+      "",
+      duplicateSignatureRows.length
+        ? markdownTable(["prompt + answer signature", "count", "question IDs", "recommendation"], duplicateSignatureRows)
+        : "No duplicate prompt+answer signatures.",
+      "",
+      "### Repeated Answer Option Sets",
+      "",
+      optionRows.length
+        ? markdownTable(["answer option set", "count", "question IDs"], optionRows)
+        : "No repeated answer option sets."
+    ].join("\n");
+  });
+
+  const body = [
+    "# Duplicate Question Audit",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`.",
+    "",
+    "This report audits active runtime questions after validation gates are applied. Runtime selection also guards against duplicate question IDs, target words, itemKeys, correct answers, and prompt+answer signatures inside a 15-question round whenever alternatives exist.",
+    "",
+    "## Summary",
+    "",
+    markdownTable(
+      ["Skill", "Active questions", "Unique targets", "Duplicate IDs", "Duplicate signatures", "Repeated option sets", "Repeated distractor sets", "Overused words", "Overused itemKeys"],
+      summaryRows
+    ),
+    "",
+    "## Details By Skill",
+    "",
+    detailSections.join("\n\n")
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeKimiDataset7ActivationReportDoc() {
+  const docPath = path.join(rootDir, "docs", "imports", "kimi_dataset7_activation_report.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const activeRows = kimiDataset7SourceQuestions.map(question => {
+    const valid = isQuestionValid(question);
+    const issues = getAssessmentContentIssues(question, { assetExists: publicAssetExists });
+    return [
+      question.id,
+      question.skill,
+      question.itemKey || "",
+      question.formatType || question.questionType || "",
+      question.activationStatus || "active",
+      valid ? "valid active" : "excluded by current gates",
+      valid ? "Passes current runtime validation." : issues.join("; ") || "Does not meet current runtime selection rules."
+    ];
+  });
+  const blockedRows = kimiDataset7Candidates
+    .filter(candidate => candidate.activationStatus !== "active")
+    .slice(0, 120)
+    .map(candidate => [
+      candidate.word || candidate.id || "",
+      candidate.mappedSkillId || candidate.skill || "",
+      candidate.pattern || candidate.itemKey || "",
+      candidate.activationStatus || "candidate",
+      candidate.blockedReason || candidate.validationStatus || "awaiting assets/review"
+    ]);
+
+  const body = [
+    "# Kimi Dataset 7 Activation Report",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`.",
+    "",
+    "The full Kimi Dataset 7 source remains source/candidate data and is not imported wholesale into the frontend runtime. This pass did not blindly activate raw Kimi items; it only kept the already curated runtime sample that passes LiteracyPath gates and added separate hand-curated safe expansion content.",
+    "",
+    "## Counts",
+    "",
+    markdownTable(
+      ["Metric", "Count"],
+      [
+        ["Kimi claimed/parsed source items", kimiDataset7Summary.totalItems],
+        ["Validated candidate sample exported", kimiDataset7Candidates.length],
+        ["Kimi approved candidates", kimiDataset7Summary.approvedCandidates],
+        ["Kimi blocked candidates", kimiDataset7Summary.blockedCandidates],
+        ["Curated Kimi runtime source entries", kimiDataset7RuntimeQuestions.length],
+        ["Valid active Kimi questions after current gates", validKimiDataset7RuntimeQuestions.length],
+        ["New raw Kimi activations in this pass", 0]
+      ]
+    ),
+    "",
+    "## Active Kimi Runtime Items",
+    "",
+    activeRows.length
+      ? markdownTable(["Question ID", "Skill", "ItemKey", "Format", "Source status", "Runtime gate", "Note"], activeRows)
+      : "No Kimi Dataset 7 items are active.",
+    "",
+    "## Candidate / Blocked Sample",
+    "",
+    blockedRows.length
+      ? markdownTable(["Word/ID", "Mapped skill", "Pattern", "Status", "Reason"], blockedRows)
+      : "No blocked candidate sample available."
   ].join("\n");
 
   fs.writeFileSync(docPath, `${body}\n`);
@@ -1741,6 +2004,8 @@ const suspectAudioDocPath = writeSuspectAudioQuarantineDoc();
 const completeAudioRequestDocPath = writeCompleteAudioReplacementRequestDoc();
 const cleanAudioImportGuideDocPath = writeCleanAudioPackImportGuideDoc();
 const runtimeTemplateFailuresDocPath = writeRuntimeTemplateFailuresDoc();
+const duplicateQuestionAuditDocPath = writeDuplicateQuestionAuditDoc();
+const kimiDataset7ActivationReportDocPath = writeKimiDataset7ActivationReportDoc();
 console.log("");
 console.log(`Wrote coverage audit: ${path.relative(rootDir, coverageDocPath)}`);
 console.log(`Wrote asset coverage: ${path.relative(rootDir, assetDocPath)}`);
@@ -1752,6 +2017,8 @@ console.log(`Wrote suspect audio quarantine: ${path.relative(rootDir, suspectAud
 console.log(`Wrote complete audio replacement request: ${path.relative(rootDir, completeAudioRequestDocPath)}`);
 console.log(`Wrote clean audio import guide: ${path.relative(rootDir, cleanAudioImportGuideDocPath)}`);
 console.log(`Wrote runtime template failures: ${path.relative(rootDir, runtimeTemplateFailuresDocPath)}`);
+console.log(`Wrote duplicate question audit: ${path.relative(rootDir, duplicateQuestionAuditDocPath)}`);
+console.log(`Wrote Kimi Dataset 7 activation report: ${path.relative(rootDir, kimiDataset7ActivationReportDocPath)}`);
 
 const emptyStages = counts.filter(({ count }) => count === 0);
 const missingCoverageMetadata = matchedQuestions
