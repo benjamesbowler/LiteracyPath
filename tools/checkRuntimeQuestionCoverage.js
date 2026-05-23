@@ -41,9 +41,11 @@ import { templateExpansion4 } from "../src/data/templateExpansion4.js";
 import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
+import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
+import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
 import { getQuestionFormatMetadata } from "../src/questionFormatFramework.js";
 import { getChildWordAsset } from "../src/data/childAssets.js";
 import {
@@ -81,6 +83,7 @@ const runtimeQuestionBanks = [
   ["templateExpansion5", templateExpansion5],
   ["templateExpansion6", templateExpansion6],
   ["templateExpansion7", templateExpansion7],
+  ["questionBankExpansion8", questionBankExpansion8],
   ["generatedQuestions", generatedQuestions],
   ["fixSentenceQuestions", fixSentenceQuestions],
   ["templateComprehensionAdvanced", templateComprehensionAdvanced]
@@ -1075,6 +1078,28 @@ function buildDuplicateAudit(stage, index) {
 
 const duplicateAudits = skillTree.map((stage, index) => buildDuplicateAudit(stage, index));
 
+function duplicateMapCount(map) {
+  return [...map.entries()].filter(([key, items]) => key && items.length > 1).length;
+}
+
+function uniqueQuestionSignatureCount(audit) {
+  const signatures = new Set(
+    audit.questions.map(question => duplicateAuditSignature(question)).filter(Boolean)
+  );
+  return signatures.size;
+}
+
+function uniqueOptionSetCount(audit) {
+  const optionSets = new Set(
+    audit.questions.map(question => duplicateAuditOptionSet(question)).filter(Boolean)
+  );
+  return optionSets.size;
+}
+
+function sourceFilesForAudit(audit) {
+  return [...new Set(audit.questions.map(question => question.source).filter(Boolean))].sort();
+}
+
 function stageCompleteness(audit) {
   const notes = [...audit.pedagogicalNotes];
   if (audit.assetGaps.length > 0) notes.push(`${audit.assetGaps.length} asset gaps.`);
@@ -1385,6 +1410,385 @@ function writeKimiDataset7ActivationReportDoc() {
     blockedRows.length
       ? markdownTable(["Word/ID", "Mapped skill", "Pattern", "Status", "Reason"], blockedRows)
       : "No blocked candidate sample available."
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeFullQuestionBankAuditDoc() {
+  const docPath = path.join(rootDir, "docs", "validation", "full_question_bank_audit.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const summaryRows = stageAudits.map((stageAudit, index) => {
+    const duplicateAudit = duplicateAudits[index];
+    const uniqueSignatures = uniqueQuestionSignatureCount(duplicateAudit);
+    const uniqueOptionSets = uniqueOptionSetCount(duplicateAudit);
+    return [
+      stageAudit.stage.label,
+      stageAudit.questions.length,
+      uniqueSignatures,
+      duplicateAudit.uniqueTargetWords,
+      stageAudit.runtimeKeys.length,
+      duplicateAudit.duplicateIds.length,
+      duplicateAudit.duplicateSignatures.length,
+      duplicateAudit.repeatedDistractorSets.length,
+      stageAudit.assetGaps.length,
+      uniqueSignatures < 50 ? "yes" : "no",
+      stageAudit.questions.length < minimumRuntimeQuestions ? "yes" : "no",
+      uniqueOptionSets,
+      sourceFilesForAudit(stageAudit).join(", ") || "none"
+    ];
+  });
+
+  const underTargetRows = stageAudits
+    .map((stageAudit, index) => {
+      const duplicateAudit = duplicateAudits[index];
+      return {
+        stageAudit,
+        duplicateAudit,
+        uniqueSignatures: uniqueQuestionSignatureCount(duplicateAudit)
+      };
+    })
+    .filter(item => item.uniqueSignatures < 50 || item.stageAudit.questions.length < minimumRuntimeQuestions)
+    .map(item => [
+      item.stageAudit.stage.label,
+      item.stageAudit.questions.length,
+      item.uniqueSignatures,
+      item.stageAudit.runtimeKeys.length,
+      item.stageAudit.missingKeys.join(", ") || "none",
+      item.stageAudit.pedagogicalNotes.join(" ") || "Needs more variety."
+    ]);
+
+  const detailSections = stageAudits.map((stageAudit, index) => {
+    const duplicateAudit = duplicateAudits[index];
+    return [
+      `## ${stageAudit.stage.label}`,
+      "",
+      `- Active valid runtime questions: ${stageAudit.questions.length}`,
+      `- Unique question signatures: ${uniqueQuestionSignatureCount(duplicateAudit)}`,
+      `- Unique target words / answer targets: ${duplicateAudit.uniqueTargetWords}`,
+      `- Unique itemKeys/patterns: ${stageAudit.runtimeKeys.length} (${stageAudit.runtimeKeys.join(", ") || "none"})`,
+      `- Duplicate signatures: ${duplicateAudit.duplicateSignatures.length}`,
+      `- Repeated distractor sets: ${duplicateAudit.repeatedDistractorSets.length}`,
+      `- Missing image/audio needs in active runtime: ${stageAudit.assetGaps.length}`,
+      `- Below-50 unique question warning: ${uniqueQuestionSignatureCount(duplicateAudit) < 50 ? "yes" : "no"}`,
+      `- Below-${minimumRuntimeQuestions} runtime question warning: ${stageAudit.questions.length < minimumRuntimeQuestions ? "yes" : "no"}`,
+      `- Formats: ${[...stageAudit.formats.entries()].map(([format, count]) => `${format}:${count}`).join(", ") || "none"}`,
+      `- Overused targets: ${duplicateAudit.overusedWords.map(([word, items]) => `${word}:${items.length}`).join(", ") || "none"}`,
+      `- Overused itemKeys: ${stageAudit.overusedKeys.join(", ") || "none"}`,
+      "",
+      duplicateAudit.duplicateSignatures.length
+        ? markdownTable(
+            ["Duplicate signature", "Count", "Question IDs"],
+            duplicateAudit.duplicateSignatures.slice(0, 10).map(([signature, items]) => [
+              signature,
+              items.length,
+              items.map(item => item.id).join(", ")
+            ])
+          )
+        : "No duplicate prompt+answer signatures detected."
+    ].join("\n");
+  });
+
+  const body = [
+    "# Full Question Bank Audit",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js` after active runtime validation gates are applied.",
+    "",
+    "This audit is intentionally stricter than a raw file count. It counts only questions that pass the current runtime content, asset, template, audio, and early-phonics validation rules.",
+    "",
+    "## Summary",
+    "",
+    markdownTable(
+      [
+        "Skill",
+        "Active valid runtime questions",
+        "Unique question signatures",
+        "Unique targets",
+        "Unique itemKeys/patterns",
+        "Duplicate IDs",
+        "Duplicate signatures",
+        "Repeated distractor sets",
+        "Missing image/audio needs",
+        "Below 50 unique?",
+        `Below ${minimumRuntimeQuestions} runtime?`,
+        "Unique option sets",
+        "Runtime sources"
+      ],
+      summaryRows
+    ),
+    "",
+    "## Skills Under Target",
+    "",
+    underTargetRows.length
+      ? markdownTable(["Skill", "Runtime questions", "Unique signatures", "Unique itemKeys", "Missing itemKeys", "Notes"], underTargetRows)
+      : `No active skill is below 50 unique question signatures or below ${minimumRuntimeQuestions} valid runtime questions.`,
+    "",
+    "## Expansion Pass Notes",
+    "",
+    "- Early phonics expansion remains constrained by strict simple-sound validation and approved word audio/image requirements.",
+    "- Asset-backed questions are not activated when required image or audio assets are missing.",
+    "- Higher-level comprehension expansion should use paragraph-length Grade 2-3 passages with plausible distractors and answer explanations.",
+    "- Kimi Dataset 7 remains a candidate source only; raw imported items are not activated wholesale.",
+    "",
+    "## Detail By Skill",
+    "",
+    detailSections.join("\n\n")
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+const guidedReadingPackRequests = [
+  ["gr-a-01", "The Red Hat Plan", "fiction", "A", "solving a small classroom problem", "short a CVC, simple HFW"],
+  ["gr-a-02", "Sam Can Help", "fiction", "A", "kindness during cleanup", "CVC, can, help"],
+  ["gr-a-03", "The Map in the Bag", "fiction", "A", "using a map to find a lost item", "short a, map, bag"],
+  ["gr-a-04", "Kit and the Big Box", "fiction", "A", "sharing space and taking turns", "short i/o, big, box"],
+  ["gr-a-05", "Nan and the Seed", "fiction", "A", "patience as a seed sprouts", "short e, seed vocabulary in context"],
+  ["gr-b-06", "Mina Fixes the Gate", "fiction", "B", "persistence and teamwork", "silent e preview, short vowels"],
+  ["gr-b-07", "The Quiet Bell", "fiction", "B", "noticing needs in a community", "short vowels, -ell family"],
+  ["gr-b-08", "A Lunch for Two", "fiction", "B", "generosity and friendship", "HFW, simple dialogue"],
+  ["gr-b-09", "The Kite That Waited", "fiction", "B", "waiting for the right conditions", "long i preview, weather words"],
+  ["gr-b-10", "Omar's Bright Idea", "fiction", "B", "creative problem solving", "CVC and HFW mix"],
+  ["gr-c-11", "The Bridge of Sticks", "fiction", "C", "cooperation to cross a small stream", "blends, digraphs"],
+  ["gr-c-12", "The Lost Paintbrush", "fiction", "C", "honesty and responsibility", "vowel teams in context"],
+  ["gr-c-13", "A Garden for Everyone", "fiction", "C", "inclusion and shared work", "r-controlled preview"],
+  ["gr-c-14", "The Rain Jar", "fiction", "C", "curiosity about weather", "ai, ar, cause/effect"],
+  ["gr-c-15", "The Lantern Path", "fiction", "C", "helping a neighbor", "long vowels, sequencing"],
+  ["gr-d-16", "Maya and the Broken Bridge", "fiction", "D", "planning before acting", "paragraph fluency, inference"],
+  ["gr-d-17", "The Honest Choice", "fiction", "D", "choosing honesty over a reward", "theme, dialogue"],
+  ["gr-d-18", "The Smallest Seed", "fiction", "D", "small actions can matter", "plant vocabulary, theme"],
+  ["gr-d-19", "The Team With No Captain", "fiction", "D", "shared leadership", "Grade 2 comprehension"],
+  ["gr-d-20", "The Window Garden", "fiction", "D", "careful observation", "science vocabulary"],
+  ["gr-e-21", "The Long Way Home", "fiction", "E", "using clues and maps wisely", "multi-paragraph inference"],
+  ["gr-e-22", "The Debate at Table Four", "fiction", "E", "respectful disagreement", "dialogue, opinion words"],
+  ["gr-e-23", "The Day the Lights Went Out", "fiction", "E", "staying calm and helping others", "cause/effect"],
+  ["gr-e-24", "The Community Mural", "fiction", "E", "many voices making one project", "main idea/theme"],
+  ["gr-e-25", "A Promise to the Pond", "fiction", "E", "protecting a shared natural place", "environment vocabulary"],
+  ["gr-a-26", "What Is a Map?", "nonfiction", "A", "maps show places", "map, road, park"],
+  ["gr-a-27", "Day and Night", "nonfiction", "A", "basic day/night cycle", "sun, moon, sky"],
+  ["gr-a-28", "How Rain Helps", "nonfiction", "A", "rain supports plants", "rain, plant, grow"],
+  ["gr-a-29", "Animal Homes", "nonfiction", "A", "animals need safe homes", "nest, den, pond"],
+  ["gr-a-30", "We Take Care of Books", "nonfiction", "A", "book care routines", "book, page, shelf"],
+  ["gr-b-31", "How Seeds Become Plants", "nonfiction", "B", "seed life cycle", "seed, root, stem"],
+  ["gr-b-32", "Why Bees Visit Flowers", "nonfiction", "B", "pollination basics", "bee, flower, pollen"],
+  ["gr-b-33", "What Makes Shadows?", "nonfiction", "B", "light and shadows", "light, block, shadow"],
+  ["gr-b-34", "How Bread Is Made", "nonfiction", "B", "farm-to-food sequence", "grain, flour, bake"],
+  ["gr-b-35", "Big Machines at Work", "nonfiction", "B", "community construction machines", "truck, crane, dig"],
+  ["gr-c-36", "Weather Tools", "nonfiction", "C", "measuring weather", "thermometer, rain gauge"],
+  ["gr-c-37", "How We Use Water", "nonfiction", "C", "water in daily life", "water cycle vocabulary"],
+  ["gr-c-38", "Birds Build Nests", "nonfiction", "C", "nest-building behaviors", "twigs, eggs, protect"],
+  ["gr-c-39", "From Caterpillar to Butterfly", "nonfiction", "C", "life cycle stages", "sequence words"],
+  ["gr-c-40", "Healthy Hands", "nonfiction", "C", "hygiene and germs", "wash, soap, clean"],
+  ["gr-d-41", "How Bridges Hold Weight", "nonfiction", "D", "basic engineering ideas", "support, beam, arch"],
+  ["gr-d-42", "Why Leaves Change", "nonfiction", "D", "seasonal plant changes", "chlorophyll-free wording"],
+  ["gr-d-43", "The Work of Pollinators", "nonfiction", "D", "expanded pollinator role", "bees, butterflies, crops"],
+  ["gr-d-44", "How Communities Share Spaces", "nonfiction", "D", "parks, libraries, transit", "civics vocabulary"],
+  ["gr-d-45", "What Soil Is Made Of", "nonfiction", "D", "soil components", "sand, clay, humus"],
+  ["gr-e-46", "How Water Changes the Land", "nonfiction", "E", "erosion and deposition basics", "river, shore, sediment"],
+  ["gr-e-47", "Planning a Safe Route", "nonfiction", "E", "maps and safety decisions", "route, landmark, crossing"],
+  ["gr-e-48", "Why Animals Migrate", "nonfiction", "E", "migration reasons", "season, food, shelter"],
+  ["gr-e-49", "How Simple Machines Help", "nonfiction", "E", "levers, ramps, pulleys", "machine vocabulary"],
+  ["gr-e-50", "Reading Like a Researcher", "nonfiction", "E", "asking questions and checking sources", "research vocabulary"]
+];
+
+function guidedReadingBookRows() {
+  return guidedReadingPackRequests.map(([id, title, type, level, goal, skills]) => [
+    "Guided Reading",
+    id,
+    title,
+    type,
+    level,
+    goal,
+    skills,
+    "high",
+    "Needed to replace the current tiny guided-reading sample with a complete K-3 progression."
+  ]);
+}
+
+function activeAssetGapRows() {
+  return stageAudits.flatMap(audit =>
+    audit.assetGaps.map(gap => [
+      audit.stage.label,
+      gap.questionId,
+      gap.key || "",
+      gap.role || gap.format || "",
+      gap.path || "",
+      "high",
+      "Active/candidate question requires this asset before activation."
+    ])
+  );
+}
+
+function writeKimiQuestionAssetRequestDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "kimi_question_asset_request.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const underTarget = stageAudits
+    .map((audit, index) => ({
+      audit,
+      uniqueSignatures: uniqueQuestionSignatureCount(duplicateAudits[index])
+    }))
+    .filter(item => item.uniqueSignatures < 50 || item.audit.questions.length < minimumRuntimeQuestions)
+    .map(item => [
+      item.audit.stage.label,
+      item.audit.questions.length,
+      item.uniqueSignatures,
+      item.audit.assetGaps.length,
+      item.audit.missingKeys.join(", ") || "none",
+      item.audit.stage.id === "initial_sounds" || item.audit.stage.id === "final_sounds"
+        ? "Only provide simple, unambiguous early phonics assets."
+        : "Provide assets only when needed by image/audio-backed formats."
+    ]);
+  const currentGuidedRows = guidedReadingBooks.map(book => [
+    "Guided Reading MVP sample",
+    book.id,
+    book.title,
+    book.type,
+    book.level,
+    `${book.pages?.length || 0} pages`,
+    "Replace with full pack-quality image/audio coverage",
+    "medium",
+    "Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library."
+  ]);
+
+  const body = [
+    "# Kimi Question Asset Request",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`.",
+    "",
+    "Use this with the separate Guided Reading book-pack prompt. Do not create placeholder assets, browser-TTS audio, or unreviewed bulk question banks.",
+    "",
+    "## Current Assessment Bank Gaps",
+    "",
+    underTarget.length
+      ? markdownTable(["Skill", "Runtime questions", "Unique question signatures", "Asset gaps", "Missing itemKeys", "Request note"], underTarget)
+      : "No active assessment skill is currently below the 50-unique / 52-runtime threshold after this expansion pass.",
+    "",
+    "## Active Runtime Asset Gaps",
+    "",
+    activeAssetGapRows().length
+      ? markdownTable(["Skill", "Question ID", "Target", "Asset role", "Current path", "Priority", "Reason needed"], activeAssetGapRows())
+      : "No active validated runtime questions are currently blocked by missing required image/audio assets. Future asset work should focus on Guided Reading and richer optional visual/audio coverage.",
+    "",
+    "## Guided Reading Pack Requests",
+    "",
+    "### Current MVP Samples To Supersede",
+    "",
+    currentGuidedRows.length
+      ? markdownTable(["Skill", "Book ID", "Title", "Type", "Level", "Current scope", "Request", "Priority", "Reason needed"], currentGuidedRows)
+      : "No Guided Reading MVP samples found.",
+    "",
+    "### New 50-Book Pack",
+    "",
+    markdownTable(
+      ["Skill", "Question/Book ID", "Target title", "Type", "Level", "Target passage/purpose", "Target skills", "Priority", "Reason needed"],
+      guidedReadingBookRows()
+    ),
+    "",
+    "## Required Manifest Fields For Kimi",
+    "",
+    "- `guided_reading_books_manifest.json` with book/page/word-level references.",
+    "- 50 original books: 25 fiction and 25 nonfiction.",
+    "- Levels A-E with kindergarten through Grade 3 progression.",
+    "- For each book: cover image, page images, page narration MP3s, and word-level MP3s.",
+    "- Filenames must exactly match the generated manifest.",
+    "- Audio must speak words naturally, never letter-by-letter unless the text explicitly asks for spelling."
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeKimiImageRequestDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "kimi_image_request.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const rows = guidedReadingPackRequests.flatMap(([id, title, type, level, goal]) => {
+    const slug = id;
+    const pageRows = Array.from({ length: 6 }, (_, index) => [
+      "Guided Reading",
+      `${id}_page_${index + 1}`,
+      title,
+      `Original ${type} Level ${level} page ${index + 1}. Image must match the page text, support ${goal}, and use the same warm modern style as the rest of the pack.`,
+      `guided-reading-pack-01/images/pages/${slug}-page-${index + 1}.png`,
+      "high",
+      "Required page illustration for teacher-guided reading."
+    ]);
+    return [
+      [
+        "Guided Reading",
+        `${id}_cover`,
+        title,
+        `Original cover image for ${title}. Show the central setting/problem without copyrighted characters or brand references.`,
+        `guided-reading-pack-01/images/covers/${slug}-cover.png`,
+        "high",
+        "Required book cover for library browsing."
+      ],
+      ...pageRows
+    ];
+  });
+
+  const body = [
+    "# Kimi Image Request",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`.",
+    "",
+    "Images should be warm, modern, consistent, culturally neutral, and not babyish. Do not imitate copyrighted books, brands, characters, or famous illustration styles.",
+    "",
+    markdownTable(
+      ["Skill", "Question/Page ID", "Target title", "Required image description", "Filename required", "Priority", "Reason needed"],
+      rows
+    )
+  ].join("\n");
+
+  fs.writeFileSync(docPath, `${body}\n`);
+  return docPath;
+}
+
+function writeKimiAudioRequestDoc() {
+  const docPath = path.join(rootDir, "docs", "assets", "kimi_audio_request.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+
+  const rows = guidedReadingPackRequests.flatMap(([id, title, type, level, goal, skills]) => {
+    const pageRows = Array.from({ length: 6 }, (_, index) => [
+      "Guided Reading",
+      `${id}_page_audio_${index + 1}`,
+      title,
+      `Narrate the exact original page ${index + 1} text from the manifest for ${title}.`,
+      `guided-reading-pack-01/audio/page-narration/${id}-page-${index + 1}.mp3`,
+      "Neutral natural human teacher voice; child-friendly pacing; no robotic intonation.",
+      "high",
+      `Required page narration for Level ${level} ${type}; supports ${goal}.`
+    ]);
+    return [
+      [
+        "Guided Reading",
+        `${id}_word_audio_manifest`,
+        title,
+        `Provide individual word audio for every unique word in ${title}. Spoken text must be each whole word from the manifest, not spelled letter by letter.`,
+        `guided-reading-pack-01/audio/words/${id}-<word>.mp3`,
+        `Natural pronunciation; include notes for irregular/high-frequency words. Target skills: ${skills}.`,
+        "high",
+        "Required for tap-word support in teacher-guided reading."
+      ],
+      ...pageRows
+    ];
+  });
+
+  const body = [
+    "# Kimi Audio Request",
+    "",
+    "Generated by `node tools/checkRuntimeQuestionCoverage.js`.",
+    "",
+    "All audio must be clean neutral human voice. Browser TTS, robotic delivery, odd intonation, clipped endings, and spelling-style word audio are not acceptable for active assessment or Guided Reading.",
+    "",
+    markdownTable(
+      ["Skill", "Question/Audio ID", "Target title", "Required audio text", "Filename required", "Pronunciation notes", "Priority", "Reason needed"],
+      rows
+    )
   ].join("\n");
 
   fs.writeFileSync(docPath, `${body}\n`);
@@ -2006,6 +2410,10 @@ const cleanAudioImportGuideDocPath = writeCleanAudioPackImportGuideDoc();
 const runtimeTemplateFailuresDocPath = writeRuntimeTemplateFailuresDoc();
 const duplicateQuestionAuditDocPath = writeDuplicateQuestionAuditDoc();
 const kimiDataset7ActivationReportDocPath = writeKimiDataset7ActivationReportDoc();
+const fullQuestionBankAuditDocPath = writeFullQuestionBankAuditDoc();
+const kimiQuestionAssetRequestDocPath = writeKimiQuestionAssetRequestDoc();
+const kimiImageRequestDocPath = writeKimiImageRequestDoc();
+const kimiAudioRequestDocPath = writeKimiAudioRequestDoc();
 console.log("");
 console.log(`Wrote coverage audit: ${path.relative(rootDir, coverageDocPath)}`);
 console.log(`Wrote asset coverage: ${path.relative(rootDir, assetDocPath)}`);
@@ -2019,6 +2427,10 @@ console.log(`Wrote clean audio import guide: ${path.relative(rootDir, cleanAudio
 console.log(`Wrote runtime template failures: ${path.relative(rootDir, runtimeTemplateFailuresDocPath)}`);
 console.log(`Wrote duplicate question audit: ${path.relative(rootDir, duplicateQuestionAuditDocPath)}`);
 console.log(`Wrote Kimi Dataset 7 activation report: ${path.relative(rootDir, kimiDataset7ActivationReportDocPath)}`);
+console.log(`Wrote full question bank audit: ${path.relative(rootDir, fullQuestionBankAuditDocPath)}`);
+console.log(`Wrote Kimi question asset request: ${path.relative(rootDir, kimiQuestionAssetRequestDocPath)}`);
+console.log(`Wrote Kimi image request: ${path.relative(rootDir, kimiImageRequestDocPath)}`);
+console.log(`Wrote Kimi audio request: ${path.relative(rootDir, kimiAudioRequestDocPath)}`);
 
 const emptyStages = counts.filter(({ count }) => count === 0);
 const missingCoverageMetadata = matchedQuestions

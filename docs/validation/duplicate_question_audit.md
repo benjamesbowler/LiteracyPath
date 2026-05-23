@@ -9,7 +9,7 @@ This report audits active runtime questions after validation gates are applied. 
 | Skill | Active questions | Unique targets | Duplicate IDs | Duplicate signatures | Repeated option sets | Repeated distractor sets | Overused words | Overused itemKeys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 119 | 78 | 0 | 35 | 26 | 8 | sit+sun:5 | b:11, f:10 |
-| Final Sounds | 66 | 61 | 0 | 11 | 8 | 6 | none | none |
+| Final Sounds | 81 | 65 | 0 | 12 | 10 | 6 | none | none |
 | Rhyming | 92 | 71 | 0 | 5 | 13 | 9 | none | at:8 |
 | CVC and Short Vowels | 115 | 36 | 0 | 31 | 29 | 11 | bag:5, bed:5, cat:5, cup:5, dog:5, log:5, map:5, sun:5 | none |
 | Short Vowel Discrimination | 110 | 37 | 0 | 19 | 18 | 5 | bed:5, cat:5, cup:5, dog:5, fin:5, log:5, map:5, red:5, sun:5 | none |
@@ -18,25 +18,25 @@ This report audits active runtime questions after validation gates are applied. 
 | High-Frequency Words 51-100 | 70 | 68 | 0 | 0 | 0 | 1 | none | none |
 | Blends | 80 | 15 | 0 | 27 | 27 | 10 | brush:7, clap:7, drum:7, frog:7, slide:7, blue:6, flag:6, tree:6, black:5, crab:5 | none |
 | Digraphs | 52 | 9 | 0 | 22 | 9 | 11 | chair:7, ship:6, shop:6, thin:6, thumb:6, whale:6, chick:5, shell:5, wheel:5 | none |
-| Long Vowels and Silent E | 53 | 34 | 0 | 13 | 10 | 0 | none | none |
-| Vowel Teams | 57 | 38 | 0 | 15 | 10 | 1 | none | ea:23 |
+| Long Vowels and Silent E | 69 | 44 | 0 | 13 | 10 | 2 | none | none |
+| Vowel Teams | 75 | 50 | 0 | 16 | 13 | 1 | none | ea:25 |
 | R-Controlled Vowels | 52 | 29 | 0 | 1 | 12 | 6 | turn:5 | none |
 | Nouns | 69 | 46 | 0 | 16 | 15 | 1 | none | none |
-| Verbs | 63 | 37 | 0 | 17 | 11 | 1 | none | none |
-| Adjectives | 39 | 32 | 0 | 1 | 0 | 0 | none | none |
-| Prepositions of Place | 37 | 10 | 0 | 14 | 9 | 5 | in the box:5, on the chair:5, under the table:5 | none |
-| Plurals | 53 | 24 | 0 | 5 | 11 | 1 | boxes:6, foxes:5, leaves:5 | es:6 |
-| Prefixes and Suffixes | 52 | 45 | 0 | 15 | 5 | 0 | none | none |
+| Verbs | 69 | 43 | 0 | 17 | 11 | 1 | none | none |
+| Adjectives | 61 | 43 | 0 | 1 | 0 | 0 | none | none |
+| Prepositions of Place | 69 | 24 | 0 | 14 | 9 | 5 | in the box:5, on the chair:5, under the table:5 | none |
+| Plurals | 59 | 28 | 0 | 5 | 11 | 3 | boxes:6, foxes:6, children:5, leaves:5 | es:9 |
+| Prefixes and Suffixes | 90 | 59 | 0 | 29 | 13 | 1 | none | ful:8, un:6, re:6, less:6, er:6 |
 | Antonyms and Synonyms | 65 | 40 | 0 | 10 | 5 | 1 | short:6 | short:6 |
 | Homophones and Homonyms | 52 | 50 | 0 | 0 | 18 | 0 | none | none |
 | Sentence Comprehension | 141 | 113 | 0 | 15 | 17 | 0 | none | none |
 | Key Details | 59 | 52 | 0 | 1 | 2 | 0 | none | none |
 | Sequencing | 59 | 57 | 0 | 0 | 0 | 0 | none | none |
-| Main Idea | 59 | 54 | 0 | 5 | 1 | 0 | none | none |
-| Inference | 100 | 100 | 0 | 0 | 0 | 0 | none | none |
-| Cause and Effect | 59 | 56 | 0 | 0 | 0 | 0 | none | none |
-| Context Clues | 60 | 55 | 0 | 2 | 0 | 0 | none | none |
-| Theme and Higher Comprehension | 59 | 48 | 0 | 6 | 0 | 0 | none | none |
+| Main Idea | 65 | 60 | 0 | 5 | 1 | 0 | none | none |
+| Inference | 106 | 106 | 0 | 0 | 0 | 0 | none | none |
+| Cause and Effect | 65 | 62 | 0 | 0 | 0 | 0 | none | none |
+| Context Clues | 66 | 60 | 0 | 2 | 0 | 0 | none | none |
+| Theme and Higher Comprehension | 65 | 54 | 0 | 6 | 0 | 0 | none | none |
 
 ## Details By Skill
 
@@ -113,11 +113,11 @@ This report audits active runtime questions after validation gates are applied. 
 
 ## Final Sounds
 
-- Active questions: 66
-- Unique target words / answer targets: 61
+- Active questions: 81
+- Unique target words / answer targets: 65
 - Duplicate IDs: 0
-- Duplicate prompt + correct-answer signatures: 11
-- Repeated answer option sets: 8
+- Duplicate prompt + correct-answer signatures: 12
+- Repeated answer option sets: 10
 - Repeated distractor sets: 6
 - Overused words: none
 - Overused itemKeys: none
@@ -126,14 +126,14 @@ This report audits active runtime questions after validation gates are applied. 
 
 | itemKey | active questions |
 | --- | --- |
-| g | 15 |
-| p | 12 |
-| t | 12 |
-| n | 9 |
-| d | 8 |
-| m | 5 |
+| g | 18 |
+| p | 14 |
+| t | 14 |
+| d | 11 |
+| n | 11 |
+| m | 7 |
+| b | 3 |
 | l | 3 |
-| b | 2 |
 
 ### Duplicate Signatures
 
@@ -144,12 +144,13 @@ This report audits active runtime questions after validation gates are applied. 
 | listen to each word. which two words end with the same sound?::clap\|nap | 2 | coverage_final_p_004, recovery_final_p_2 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | listen to each word. which two words end with the same sound?::cat\|hat | 2 | coverage_final_t_001, recovery_final_t_1 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | listen to each word. which two words end with the same sound?::bat\|rat | 2 | coverage_final_t_002, recovery_final_t_2 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| listen to the word. which sound does it end with?::t | 5 | ixl_ending_sound_1, ixl_ending_sound_7, ixl_ending_sound_11, ixl_ending_sound_16, ixl_ending_sound_19 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| listen to the word. which sound does it end with?::g | 6 | ixl_ending_sound_2, ixl_ending_sound_8, ixl_ending_sound_17, ixl_ending_sound_18, ixl_ending_sound_20, ixl_ending_sound_21 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| listen to the word. which sound does it end with?::d | 2 | ixl_ending_sound_3, ixl_ending_sound_22 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| listen to the word. which sound does it end with?::p | 4 | ixl_ending_sound_4, ixl_ending_sound_9, ixl_ending_sound_13, ixl_ending_sound_14 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| listen to the word. which sound does it end with?::n | 3 | ixl_ending_sound_5, ixl_ending_sound_6, ixl_ending_sound_15 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| listen to the word. which sound does it end with?::m | 2 | ixl_ending_sound_12, ixl_ending_sound_24 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| listen to the word. which sound does it end with?::t | 7 | ixl_ending_sound_1, ixl_ending_sound_7, ixl_ending_sound_11, ixl_ending_sound_16, ixl_ending_sound_19, qb8_final_14, qb8_final_15 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| listen to the word. which sound does it end with?::g | 9 | ixl_ending_sound_2, ixl_ending_sound_8, ixl_ending_sound_17, ixl_ending_sound_18, ixl_ending_sound_20, ixl_ending_sound_21, qb8_final_05, qb8_final_06, qb8_final_07 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| listen to the word. which sound does it end with?::d | 5 | ixl_ending_sound_3, ixl_ending_sound_22, qb8_final_01, qb8_final_02, qb8_final_03 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| listen to the word. which sound does it end with?::p | 6 | ixl_ending_sound_4, ixl_ending_sound_9, ixl_ending_sound_13, ixl_ending_sound_14, qb8_final_12, qb8_final_13 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| listen to the word. which sound does it end with?::n | 5 | ixl_ending_sound_5, ixl_ending_sound_6, ixl_ending_sound_15, qb8_final_10, qb8_final_11 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| listen to the word. which sound does it end with?::b | 2 | ixl_ending_sound_10, qb8_final_04 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| listen to the word. which sound does it end with?::m | 4 | ixl_ending_sound_12, ixl_ending_sound_24, qb8_final_08, qb8_final_09 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 
 ### Repeated Answer Option Sets
 
@@ -704,12 +705,12 @@ No repeated answer option sets.
 
 ## Long Vowels and Silent E
 
-- Active questions: 53
-- Unique target words / answer targets: 34
+- Active questions: 69
+- Unique target words / answer targets: 44
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 13
 - Repeated answer option sets: 10
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -717,11 +718,11 @@ No repeated answer option sets.
 
 | itemKey | active questions |
 | --- | --- |
-| a_e | 11 |
-| i_e | 11 |
-| o_e | 11 |
-| e_e | 10 |
-| u_e | 10 |
+| a_e | 15 |
+| i_e | 14 |
+| o_e | 14 |
+| e_e | 13 |
+| u_e | 13 |
 
 ### Duplicate Signatures
 
@@ -750,32 +751,32 @@ No repeated answer option sets.
 | hog \| home \| hop \| hot | 2 | template_long_vowel_3, exp2_long_vowel_5 |
 | cub \| cube \| cup \| cut | 2 | template_long_vowel_4, exp2_long_vowel_7 |
 | sit \| time \| tin \| tip | 2 | template_long_vowel_5, exp2_long_vowel_4 |
-| small \| smell \| smile \| spill | 2 | exp5_long_vowel_2, exp7_long_vowels_13 |
+| small \| smell \| smile \| spill | 3 | exp5_long_vowel_2, exp7_long_vowels_13, qb8_long_05 |
 | stamp \| stem \| stone \| stop | 2 | exp5_long_vowel_3, exp7_long_vowels_14 |
 
 ## Vowel Teams
 
-- Active questions: 57
-- Unique target words / answer targets: 38
+- Active questions: 75
+- Unique target words / answer targets: 50
 - Duplicate IDs: 0
-- Duplicate prompt + correct-answer signatures: 15
-- Repeated answer option sets: 10
+- Duplicate prompt + correct-answer signatures: 16
+- Repeated answer option sets: 13
 - Repeated distractor sets: 1
 - Overused words: none
-- Overused itemKeys: ea:23
+- Overused itemKeys: ea:25
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| ea | 23 |
-| ai | 10 |
-| ee | 9 |
-| ay | 7 |
-| oa | 2 |
-| oi | 2 |
-| ow | 2 |
-| oy | 2 |
+| ea | 25 |
+| ai | 13 |
+| ee | 12 |
+| ay | 10 |
+| oa | 4 |
+| ow | 4 |
+| oy | 4 |
+| oi | 3 |
 
 ### Duplicate Signatures
 
@@ -790,8 +791,8 @@ No repeated answer option sets.
 | which word has the ee vowel team?::seed | 2 | template_vowel_team_3, exp2_vowel_team_5 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | which word has the ai vowel team?::train | 2 | template_vowel_team_5, exp2_vowel_team_2 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | which word has the ee vowel team?::feet | 2 | exp2_vowel_team_6, exp7_vowel_teams_3 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which word has the ea vowel team?::beach | 2 | exp2_vowel_team_8, exp7_vowel_teams_14 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which word has the ee vowel team?::green | 2 | exp5_vowel_team_3, exp6_phonics_18 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| which word has the ea vowel team?::beach | 3 | exp2_vowel_team_8, exp7_vowel_teams_14, qb8_vteam_07 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| which word has the ee vowel team?::green | 3 | exp5_vowel_team_3, exp6_phonics_18, qb8_vteam_05 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | which word has the ea vowel team?::dream | 2 | exp5_vowel_team_4, exp6_phonics_19 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 
 ### Repeated Answer Option Sets
@@ -941,8 +942,8 @@ No repeated answer option sets.
 
 ## Verbs
 
-- Active questions: 63
-- Unique target words / answer targets: 37
+- Active questions: 69
+- Unique target words / answer targets: 43
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 17
 - Repeated answer option sets: 11
@@ -974,6 +975,7 @@ No repeated answer option sets.
 | wash | 2 |
 | clean | 1 |
 | climb | 1 |
+| compare | 1 |
 | cook | 1 |
 | count | 1 |
 | crawl | 1 |
@@ -981,12 +983,17 @@ No repeated answer option sets.
 | draw | 1 |
 | drive | 1 |
 | eat | 1 |
+| explain | 1 |
 | kick | 1 |
 | laugh | 1 |
+| measure | 1 |
+| observe | 1 |
 | open | 1 |
 | plant | 1 |
+| predict | 1 |
 | pull | 1 |
 | push | 1 |
+| repair | 1 |
 | share | 1 |
 | think | 1 |
 | throw | 1 |
@@ -1024,8 +1031,8 @@ No repeated answer option sets.
 
 ## Adjectives
 
-- Active questions: 39
-- Unique target words / answer targets: 32
+- Active questions: 61
+- Unique target words / answer targets: 43
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 1
 - Repeated answer option sets: 0
@@ -1037,36 +1044,47 @@ No repeated answer option sets.
 
 | itemKey | active questions |
 | --- | --- |
+| smooth | 3 |
+| soft | 3 |
 | tiny | 3 |
 | brave | 2 |
+| bright | 2 |
+| cold | 2 |
+| empty | 2 |
 | happy | 2 |
-| smooth | 2 |
-| soft | 2 |
+| light | 2 |
+| long | 2 |
+| quiet | 2 |
+| small | 2 |
+| sour | 2 |
 | sweet | 2 |
-| bright | 1 |
-| cold | 1 |
+| warm | 2 |
+| bumpy | 1 |
+| calm | 1 |
+| crisp | 1 |
 | dusty | 1 |
-| empty | 1 |
 | fast | 1 |
+| fluffy | 1 |
+| full | 1 |
 | gentle | 1 |
 | green | 1 |
+| heavy | 1 |
 | hot | 1 |
 | huge | 1 |
-| light | 1 |
-| long | 1 |
 | loud | 1 |
 | noisy | 1 |
+| playful | 1 |
+| prickly | 1 |
 | proud | 1 |
 | purple | 1 |
-| quiet | 1 |
 | rough | 1 |
+| shiny | 1 |
 | short | 1 |
 | silent | 1 |
 | slow | 1 |
-| small | 1 |
-| sour | 1 |
 | square | 1 |
-| warm | 1 |
+| striped | 1 |
+| tall | 1 |
 | yellow | 1 |
 | young | 1 |
 
@@ -1082,8 +1100,8 @@ No repeated answer option sets.
 
 ## Prepositions of Place
 
-- Active questions: 37
-- Unique target words / answer targets: 10
+- Active questions: 69
+- Unique target words / answer targets: 24
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 14
 - Repeated answer option sets: 9
@@ -1101,10 +1119,24 @@ No repeated answer option sets.
 | behind the tree | 4 |
 | beside the basket | 4 |
 | between the books | 4 |
+| above | 3 |
 | above the tree | 3 |
+| beside | 3 |
+| inside | 3 |
+| near | 3 |
 | near the door | 3 |
+| on | 3 |
+| under | 3 |
+| around | 2 |
+| below | 2 |
+| between | 2 |
 | inside the barn | 2 |
+| outside | 2 |
 | outside the pond | 2 |
+| over | 2 |
+| through | 2 |
+| behind | 1 |
+| beneath | 1 |
 
 ### Duplicate Signatures
 
@@ -1138,31 +1170,31 @@ No repeated answer option sets.
 
 ## Plurals
 
-- Active questions: 53
-- Unique target words / answer targets: 24
+- Active questions: 59
+- Unique target words / answer targets: 28
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 5
 - Repeated answer option sets: 11
-- Repeated distractor sets: 1
-- Overused words: boxes:6, foxes:5, leaves:5
-- Overused itemKeys: es:6
+- Repeated distractor sets: 3
+- Overused words: boxes:6, foxes:6, children:5, leaves:5
+- Overused itemKeys: es:9
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| es | 6 |
+| es | 9 |
 | foxes | 5 |
+| irregular | 5 |
 | boxes | 4 |
 | children | 4 |
 | dogs | 4 |
 | leaves | 4 |
-| irregular | 3 |
+| ies | 3 |
 | s | 3 |
 | buses | 2 |
 | cats | 2 |
 | geese | 2 |
-| ies | 2 |
 | knives | 2 |
 | pencils | 2 |
 | apples | 1 |
@@ -1193,34 +1225,40 @@ No repeated answer option sets.
 | babies \| baby \| babyes \| babys | 2 | safe_plural_baby, template_plural_2 |
 | leaf \| leafes \| leafs \| leaves | 2 | safe_plural_leaf, exp6_language_11 |
 | mice \| mices \| mouse \| mouses | 2 | safe_plural_mouse, plurals_022 |
-| fox \| foxes \| foxies \| foxs | 2 | exp6_language_10, plurals_005 |
+| fox \| foxes \| foxies \| foxs | 3 | exp6_language_10, qb8_plural_01, plurals_005 |
+| child \| childes \| children \| childs | 3 | qb8_plural_05, plurals_042, plurals_068 |
 | dog \| doged \| doges \| dogs | 2 | plurals_002, plurals_013 |
-| geese \| goos \| gooses \| goosies | 2 | plurals_025, plurals_054 |
 
 ## Prefixes and Suffixes
 
-- Active questions: 52
-- Unique target words / answer targets: 45
+- Active questions: 90
+- Unique target words / answer targets: 59
 - Duplicate IDs: 0
-- Duplicate prompt + correct-answer signatures: 15
-- Repeated answer option sets: 5
-- Repeated distractor sets: 0
+- Duplicate prompt + correct-answer signatures: 29
+- Repeated answer option sets: 13
+- Repeated distractor sets: 1
 - Overused words: none
-- Overused itemKeys: none
+- Overused itemKeys: ful:8, un:6, re:6, less:6, er:6
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
+| ful | 8 |
+| er | 6 |
+| less | 6 |
+| re | 6 |
+| un | 6 |
+| ly | 4 |
+| pre | 4 |
+| able | 3 |
+| ed | 3 |
 | read again | 3 |
-| un | 3 |
-| er | 2 |
-| ful | 2 |
-| less | 2 |
+| ing | 2 |
+| ness | 2 |
 | not fair | 2 |
 | not happy | 2 |
 | play again | 2 |
-| re | 2 |
 | see before | 2 |
 | without fear | 2 |
 | a person who helps | 1 |
@@ -1229,8 +1267,8 @@ No repeated answer option sets.
 | a person who teaches | 1 |
 | able to be washed | 1 |
 | build again | 1 |
+| dis | 1 |
 | do again | 1 |
-| ed | 1 |
 | full of care | 1 |
 | full of help | 1 |
 | full of hope | 1 |
@@ -1241,12 +1279,11 @@ No repeated answer option sets.
 | in a careful way | 1 |
 | in a quick way | 1 |
 | in a slow way | 1 |
-| ing | 1 |
 | make not locked | 1 |
+| mis | 1 |
 | not kind | 1 |
 | not safe | 1 |
 | open or make not locked | 1 |
-| pre | 1 |
 | the state of being kind | 1 |
 | without care | 1 |
 | without pain | 1 |
@@ -1257,15 +1294,15 @@ No repeated answer option sets.
 | prompt + answer signature | count | question IDs | recommendation |
 | --- | --- | --- | --- |
 | what does unhappy mean?::not happy | 3 | p3_morphology_un_1, template_prefix_1, exp3_morphology_1 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| what does unkind mean?::not kind | 2 | p3_morphology_un_2, exp7_morphology_3 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| what does unkind mean?::not kind | 3 | p3_morphology_un_2, exp7_morphology_3, qb8_morph_24 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | what does reread mean?::read again | 4 | p3_morphology_re_3, template_prefix_2, exp3_morphology_4, exp7_morphology_12 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| what does playful mean?::full of play | 2 | p3_morphology_ful_5, exp7_morphology_10 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| what does careless mean?::without care | 2 | p3_morphology_less_6, exp3_morphology_11 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| what does playful mean?::full of play | 3 | p3_morphology_ful_5, exp7_morphology_10, qb8_morph_33 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| what does careless mean?::without care | 3 | p3_morphology_less_6, exp3_morphology_11, qb8_morph_21 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | what does teacher mean?::a person who teaches | 2 | p3_morphology_er_7, exp3_morphology_12 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| what does unlock mean?::make not locked | 2 | p3_morphology_un_10, exp7_morphology_9 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| what does rebuild mean?::build again | 2 | p3_morphology_re_11, exp3_morphology_6 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| what does helpful mean?::full of help | 2 | p3_morphology_ful_12, exp3_morphology_7 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| what does painless mean?::without pain | 2 | p3_morphology_less_13, exp3_morphology_10 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| what does unlock mean?::make not locked | 3 | p3_morphology_un_10, exp7_morphology_9, qb8_morph_03 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| what does rebuild mean?::build again | 3 | p3_morphology_re_11, exp3_morphology_6, qb8_morph_22 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| what does helpful mean?::full of help | 3 | p3_morphology_ful_12, exp3_morphology_7, qb8_morph_20 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+| what does painless mean?::without pain | 3 | p3_morphology_less_13, exp3_morphology_10, qb8_morph_10 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | what does runner mean?::a person who runs | 2 | p3_morphology_er_14, exp3_morphology_13 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 | what does unfair mean?::not fair | 2 | template_prefix_3, exp3_morphology_2 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
 
@@ -1274,10 +1311,13 @@ No repeated answer option sets.
 | answer option set | count | question IDs |
 | --- | --- | --- |
 | a person who teaches \| full of teach \| not teach \| teach again | 2 | p3_morphology_er_7, exp3_morphology_12 |
+| before pain \| full of pain \| pain again \| without pain | 2 | p3_morphology_less_13, qb8_morph_10 |
 | a person who runs \| full of run \| not run \| run again | 2 | p3_morphology_er_14, exp3_morphology_13 |
 | full of happy \| happy again \| not happy \| very happy | 2 | template_prefix_1, exp3_morphology_1 |
 | fair again \| full of fair \| not fair \| very fair | 2 | template_prefix_3, exp3_morphology_2 |
+| full of kind \| kind again \| not kind \| the state of being kind | 2 | exp3_morphology_15, qb8_morph_15 |
 | full of seeing \| not see \| see again \| see before | 2 | exp6_language_13, exp7_morphology_8 |
+| full of hope \| hope again \| not hope \| without hope | 2 | exp7_morphology_4, qb8_morph_19 |
 
 ## Antonyms and Synonyms
 
@@ -1788,8 +1828,8 @@ No repeated answer option sets.
 
 ## Main Idea
 
-- Active questions: 59
-- Unique target words / answer targets: 54
+- Active questions: 65
+- Unique target words / answer targets: 60
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 5
 - Repeated answer option sets: 1
@@ -1859,6 +1899,12 @@ No repeated answer option sets.
 | exp7_main_idea_7 | 1 |
 | exp7_main_idea_8 | 1 |
 | exp7_main_idea_9 | 1 |
+| qb8_main_03_01 | 1 |
+| qb8_main_03_02 | 1 |
+| qb8_main_03_03 | 1 |
+| qb8_main_04_01 | 1 |
+| qb8_main_04_02 | 1 |
+| qb8_main_04_03 | 1 |
 | template_main_idea_1 | 1 |
 
 ### Duplicate Signatures
@@ -1879,8 +1925,8 @@ No repeated answer option sets.
 
 ## Inference
 
-- Active questions: 100
-- Unique target words / answer targets: 100
+- Active questions: 106
+- Unique target words / answer targets: 106
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 0
@@ -1992,6 +2038,12 @@ No repeated answer option sets.
 | inf_2_3_079 | 1 |
 | inf_2_3_080 | 1 |
 | p3_inference_paragraph_001 | 1 |
+| qb8_infer_01_01 | 1 |
+| qb8_infer_01_02 | 1 |
+| qb8_infer_01_03 | 1 |
+| qb8_infer_02_01 | 1 |
+| qb8_infer_02_02 | 1 |
+| qb8_infer_02_03 | 1 |
 
 ### Duplicate Signatures
 
@@ -2003,8 +2055,8 @@ No repeated answer option sets.
 
 ## Cause and Effect
 
-- Active questions: 59
-- Unique target words / answer targets: 56
+- Active questions: 65
+- Unique target words / answer targets: 62
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 0
@@ -2074,6 +2126,12 @@ No repeated answer option sets.
 | exp7_cause_effect_7 | 1 |
 | exp7_cause_effect_8 | 1 |
 | exp7_cause_effect_9 | 1 |
+| qb8_cause_09_01 | 1 |
+| qb8_cause_09_02 | 1 |
+| qb8_cause_09_03 | 1 |
+| qb8_cause_10_01 | 1 |
+| qb8_cause_10_02 | 1 |
+| qb8_cause_10_03 | 1 |
 | template_cause_1 | 1 |
 
 ### Duplicate Signatures
@@ -2086,8 +2144,8 @@ No repeated answer option sets.
 
 ## Context Clues
 
-- Active questions: 60
-- Unique target words / answer targets: 55
+- Active questions: 66
+- Unique target words / answer targets: 60
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 2
 - Repeated answer option sets: 0
@@ -2158,6 +2216,12 @@ No repeated answer option sets.
 | exp7_context_clues_8 | 1 |
 | exp7_context_clues_9 | 1 |
 | p3_context_clues_paragraph_001 | 1 |
+| qb8_context_05_01 | 1 |
+| qb8_context_05_02 | 1 |
+| qb8_context_05_03 | 1 |
+| qb8_context_06_01 | 1 |
+| qb8_context_06_02 | 1 |
+| qb8_context_06_03 | 1 |
 | template_context_1 | 1 |
 
 ### Duplicate Signatures
@@ -2173,8 +2237,8 @@ No repeated answer option sets.
 
 ## Theme and Higher Comprehension
 
-- Active questions: 59
-- Unique target words / answer targets: 48
+- Active questions: 65
+- Unique target words / answer targets: 54
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 6
 - Repeated answer option sets: 0
@@ -2244,6 +2308,12 @@ No repeated answer option sets.
 | exp7_theme_7 | 1 |
 | exp7_theme_8 | 1 |
 | exp7_theme_9 | 1 |
+| qb8_theme_07_01 | 1 |
+| qb8_theme_07_02 | 1 |
+| qb8_theme_07_03 | 1 |
+| qb8_theme_08_01 | 1 |
+| qb8_theme_08_02 | 1 |
+| qb8_theme_08_03 | 1 |
 | template_theme_1 | 1 |
 
 ### Duplicate Signatures

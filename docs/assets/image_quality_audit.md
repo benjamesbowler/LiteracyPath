@@ -457,6 +457,21 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
 | l | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/bell.png | active asset |  |  |
 | m | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-i/lid.png | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/web.png | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
 | cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | dog | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |

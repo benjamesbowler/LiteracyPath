@@ -39,6 +39,7 @@ import { templateExpansion4 } from "../src/data/templateExpansion4.js";
 import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
+import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
@@ -99,6 +100,7 @@ const questionBanks = [
   ["src/data/templateExpansion5.js", templateExpansion5],
   ["src/data/templateExpansion6.js", templateExpansion6],
   ["src/data/templateExpansion7.js", templateExpansion7],
+  ["src/data/questionBankExpansion8.js", questionBankExpansion8],
   ["src/data/generatedQuestions.js", generatedQuestions],
   ["src/data/fixSentenceQuestions.js", fixSentenceQuestions],
   ["src/data/templateComprehensionAdvanced.js", templateComprehensionAdvanced]

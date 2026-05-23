@@ -61,6 +61,7 @@ import { templateExpansion4 } from "./data/templateExpansion4";
 import { templateExpansion5 } from "./data/templateExpansion5";
 import { templateExpansion6 } from "./data/templateExpansion6";
 import { templateExpansion7 } from "./data/templateExpansion7";
+import { questionBankExpansion8 } from "./data/questionBankExpansion8";
 import { generatedQuestions } from "./data/generatedQuestions";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
@@ -812,6 +813,7 @@ const allQuestions = [
   ...templateExpansion5,
   ...templateExpansion6,
   ...templateExpansion7,
+  ...questionBankExpansion8,
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
