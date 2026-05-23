@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
+  guidedReadingBooks,
+  summarizeGuidedReadingRecord,
+  summarizeGuidedReadingRecords
+} from "../data/guidedReadingBooks";
+import {
   getApprovedCardAudioPath,
   shouldShowUniformCardAudio
 } from "../assessmentContentValidation";
@@ -185,6 +190,7 @@ export function TopNavigation({
   goToOverview,
   goToSkills,
   goToElAssessments,
+  goToGuidedReading,
   goToReports,
   goToTools,
   switchStudent,
@@ -247,6 +253,14 @@ export function TopNavigation({
           disabled={!nameSaved}
         >
           EL Assessments
+        </button>
+
+        <button
+          className={appView === "guidedReading" ? "nav-button primary" : "nav-button"}
+          onClick={goToGuidedReading}
+          disabled={!nameSaved}
+        >
+          Guided Reading
         </button>
 
         <button
