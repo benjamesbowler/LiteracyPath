@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
+import {
+  getApprovedCardAudioPath,
+  shouldShowUniformCardAudio
+} from "../assessmentContentValidation";
 
 export function AuthPage({
   authEmail,
@@ -142,6 +146,34 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
         </button>
       </div>
     </div>
+  );
+}
+
+function AssessmentAudioButton({
+  text,
+  audioPath = "",
+  speakText,
+  label = "Play audio",
+  className = "mini-audio-button"
+}) {
+  const approvedAudioPath = getApprovedAudioPath(text, audioPath);
+
+  if (!approvedAudioPath) return null;
+
+  return (
+    <button
+      className={`assessment-audio-button ${className}`}
+      onClick={() =>
+        speakText(text, approvedAudioPath, {
+          allowBrowserFallback: false,
+          requireApprovedAudio: true
+        })
+      }
+      aria-label={label}
+      type="button"
+    >
+      <span aria-hidden="true">🔊</span>
+    </button>
   );
 }
 
@@ -331,6 +363,7 @@ export function QuestionFlagDialog({
 
 function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedWords, setSelectedWords] = useState([]);
+  const showCardAudio = shouldShowUniformCardAudio(currentQuestion.imageCards || []);
 
   useEffect(() => {
     setSelectedWords([]);
@@ -355,7 +388,6 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
       <div className="initial-sound-card-grid">
         {(currentQuestion.imageCards || []).map(card => {
           const selected = selectedWords.includes(card.word);
-          const approvedAudioPath = getApprovedAudioPath(card.word, card.audio);
 
           return (
             <article
@@ -373,15 +405,14 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
                 {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
               </button>
 
-              {approvedAudioPath && (
-                <button
+              {showCardAudio && (
+                <AssessmentAudioButton
+                  text={card.word}
+                  audioPath={getApprovedCardAudioPath(card)}
+                  speakText={speakText}
+                  label={`Hear ${card.word}`}
                   className="initial-sound-card-audio"
-                  onClick={() => speakText(card.word, approvedAudioPath, { allowBrowserFallback: false, requireApprovedAudio: true })}
-                  aria-label={`Hear ${card.word}`}
-                  type="button"
-                >
-                  🔊
-                </button>
+                />
               )}
             </article>
           );
@@ -401,12 +432,12 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
 }
 
 function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }) {
+  const showCardAudio = shouldShowUniformCardAudio(currentQuestion.imageCards || []);
+
   return (
     <div className="visual-card-choice-panel">
       <div className="visual-card-grid">
         {(currentQuestion.imageCards || []).map(card => {
-          const approvedAudioPath = getApprovedAudioPath(card.word, card.audio);
-
           return (
             <article className="visual-assessment-card" key={card.id || card.word}>
               <button
@@ -421,15 +452,14 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
                 {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
               </button>
 
-              {approvedAudioPath && (
-                <button
+              {showCardAudio && (
+                <AssessmentAudioButton
+                  text={card.word}
+                  audioPath={getApprovedCardAudioPath(card)}
+                  speakText={speakText}
+                  label={`Hear ${card.word}`}
                   className="initial-sound-card-audio"
-                  onClick={() => speakText(card.word, approvedAudioPath, { allowBrowserFallback: false, requireApprovedAudio: true })}
-                  aria-label={`Hear ${card.word}`}
-                  type="button"
-                >
-                  🔊
-                </button>
+                />
               )}
             </article>
           );
@@ -492,20 +522,13 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
             className="question-image assessment-main-image"
           />
           {approvedStimulusAudioPath && (
-            <button
+            <AssessmentAudioButton
+              text={currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer}
+              audioPath={approvedStimulusAudioPath}
+              speakText={speakText}
+              label="Hear the word"
               className="mini-audio-button assessment-stimulus-audio"
-              onClick={() =>
-                speakText(
-                  currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
-                  approvedStimulusAudioPath,
-                  { allowBrowserFallback: false, requireApprovedAudio: true }
-                )
-              }
-              aria-label="Hear the word"
-              type="button"
-            >
-              🔊
-            </button>
+            />
           )}
         </div>
       )}
@@ -514,20 +537,13 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
         <div className="assessment-listening-panel">
           <ListeningVisual />
           {approvedStimulusAudioPath && (
-            <button
+            <AssessmentAudioButton
+              text={currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer}
+              audioPath={approvedStimulusAudioPath}
+              speakText={speakText}
+              label="Hear the word"
               className="mini-audio-button assessment-stimulus-audio"
-              onClick={() =>
-                speakText(
-                  currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
-                  approvedStimulusAudioPath,
-                  { allowBrowserFallback: false, requireApprovedAudio: true }
-                )
-              }
-              aria-label="Hear the word"
-              type="button"
-            >
-              🔊
-            </button>
+            />
           )}
         </div>
       )}
@@ -1667,6 +1683,18 @@ export function AssessmentPage({
     currentQuestion?.audioText ||
     "";
   const promptAudioPath = getApprovedAudioPath(promptAudioText, isPairSelection ? currentQuestion?.audioPath || "" : "");
+  const textChoiceAudioPaths = Object.fromEntries(
+    (currentQuestion?.choices || []).map(choice => [
+      choice,
+      getApprovedAudioPath(choice)
+    ])
+  );
+  const showTextChoiceAudio =
+    !isListenAndFindWord &&
+    !isPairSelection &&
+    !isVisualCardChoice &&
+    currentQuestion?.choices?.length > 0 &&
+    currentQuestion.choices.every(choice => Boolean(textChoiceAudioPaths[choice]));
 
   return (
     <main className="assessment-shell">
@@ -1717,20 +1745,13 @@ export function AssessmentPage({
           >
             <div className="question-line assessment-prompt">
               {promptAudioPath && (
-                <button
+                <AssessmentAudioButton
+                  text={promptAudioText}
+                  audioPath={promptAudioPath}
+                  speakText={speakText}
+                  label="Listen to question"
                   className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
-                  onClick={() =>
-                    speakText(
-                      promptAudioText,
-                      promptAudioPath,
-                      { allowBrowserFallback: false, requireApprovedAudio: true }
-                    )
-                  }
-                  aria-label="Listen to question"
-                  type="button"
-                >
-                  🔊
-                </button>
+                />
               )}
               <h2>{currentQuestion.prompt || currentQuestion.question}</h2>
             </div>
@@ -1772,15 +1793,14 @@ export function AssessmentPage({
                     className={isListenAndFindWord ? "choice-wrap visual-word-choice-wrap" : "choice-wrap"}
                     key={index}
                   >
-                    {!isListenAndFindWord && getApprovedAudioPath(choice) && (
-                      <button
+                    {showTextChoiceAudio && (
+                      <AssessmentAudioButton
+                        text={choice}
+                        audioPath={textChoiceAudioPaths[choice]}
+                        speakText={speakText}
+                        label={`Listen to ${choice}`}
                         className="choice-audio"
-                        onClick={() => speakText(choice, getApprovedAudioPath(choice), { allowBrowserFallback: false, requireApprovedAudio: true })}
-                        aria-label={`Listen to ${choice}`}
-                        type="button"
-                      >
-                        🔊
-                      </button>
+                      />
                     )}
                     <button
                       className={isListenAndFindWord ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card"}
@@ -1890,6 +1910,7 @@ export function AssessmentPage({
 export function FinishedReportPage({
   startAssessment,
   keepPracticingSkill,
+  startTargetedReview,
   goToOverview,
   studentName,
   totalAnswered,
@@ -1933,13 +1954,25 @@ export function FinishedReportPage({
     <div className="report-panel page-stack">
       <h2>Finished Report</h2>
 
-      <div className="button-row">
+      <div className="button-row finished-report-actions">
         <button className="main-button" onClick={startAssessment}>
-          Enter Full Screen Assessment
+          Continue Learning
         </button>
 
         <button className="report-button" onClick={goToOverview}>
-          Student Overview
+          Return to Dashboard
+        </button>
+
+        <button className="report-button" onClick={goToOverview}>
+          Return to Menu
+        </button>
+
+        <button className="report-button" onClick={startTargetedReview} type="button">
+          Review Mistakes
+        </button>
+
+        <button className="report-button" onClick={startTargetedReview} type="button">
+          Retry Incorrect Only
         </button>
       </div>
 

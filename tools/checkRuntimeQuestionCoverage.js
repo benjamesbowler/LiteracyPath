@@ -10,6 +10,7 @@ import { finalSoundCoverageQuestions } from "../src/data/finalSoundCoverageQuest
 import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.js";
 import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
+import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -49,6 +50,7 @@ import {
   isDeprecatedAudioPath,
   isReviewNeededAudioPath
 } from "../src/data/audioPreferenceManifest.js";
+import { getAssessmentContentIssues } from "../src/assessmentContentValidation.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -62,6 +64,7 @@ const runtimeQuestionBanks = [
   ["rhymingCoverageQuestions", rhymingCoverageQuestions],
   ["cvcShortVowelExpansionQuestions", cvcShortVowelExpansionQuestions],
   ["contentExpansionPass3Questions", contentExpansionPass3Questions],
+  ["targetedContentRecoveryQuestions", targetedContentRecoveryQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -334,6 +337,7 @@ function isQuestionValid(question) {
   if (questionContainsWord(question, "pun")) return false;
   if (weakLegacyPhonicsReason(question)) return false;
   if (lowQualityPluralDistractorReason(question)) return false;
+  if (getAssessmentContentIssues(question, { assetExists: publicAssetExists }).length > 0) return false;
 
   const choices = question.choices.map(choice => normalize(choice));
   if (new Set(choices).size !== choices.length) return false;
@@ -651,6 +655,15 @@ const approvedAudioExcludedQuestions = runtimeQuestions
     format: formatName(question),
     missing: missingApprovedAudioForQuestion(question)
   }));
+const contentValidationExcludedQuestions = runtimeQuestions
+  .map(question => ({
+    id: question.id,
+    source: question.source,
+    skill: question.skill,
+    format: formatName(question),
+    issues: getAssessmentContentIssues(question, { assetExists: publicAssetExists })
+  }))
+  .filter(item => item.issues.length > 0);
 const runtimeQualityWarnings = runtimeQuestions.reduce((warnings, question) => {
   const stage = skillTree[getStageIndex(question)]?.label || question.skill || "Unknown";
   const weakReason = weakLegacyPhonicsReason(question);
@@ -804,6 +817,7 @@ const stageAudits = skillTree.map((stage, index) => buildStageAudit(stage, index
 console.log(`Runtime questions scanned: ${runtimeQuestions.length}`);
 console.log(`Runtime questions matched and valid: ${matchedQuestions.length}`);
 console.log(`Questions excluded due to missing approved audio: ${approvedAudioExcludedQuestions.length}`);
+console.log(`Questions excluded by content validation: ${contentValidationExcludedQuestions.length}`);
 console.log(`Legacy text-only phonics questions excluded: ${runtimeQualityWarnings.removedLegacy.length}`);
 console.log(`Questions containing pun excluded: ${runtimeQualityWarnings.removedPun.length}`);
 console.log("");
@@ -935,6 +949,7 @@ function writeCoverageAuditDoc() {
     ["Removed legacy text-only phonics questions", runtimeQualityWarnings.removedLegacy.length],
     ["Removed questions containing `pun`", runtimeQualityWarnings.removedPun.length],
     ["Plural questions removed/review-flagged", runtimeQualityWarnings.pluralFixes.length],
+    ["Systemic content validation exclusions", contentValidationExcludedQuestions.length],
     ["Final Sounds active itemKeys", (stageAudits.find(audit => audit.stage.label === "Final Sounds")?.runtimeKeys || []).join(", ") || "none"],
     ["Digraph balance", [...(stageAudits.find(audit => audit.stage.label === "Digraphs")?.byKey || new Map()).entries()].map(([key, count]) => `${key}:${count}`).join(", ") || "none"]
   ];
@@ -1003,6 +1018,15 @@ function writeCoverageAuditDoc() {
     runtimeQualityWarnings.pluralFixes.length
       ? markdownTable(["Question id", "Source", "Plural issue"], runtimeQualityWarnings.pluralFixes.map(item => [item.id, item.source || "", item.issue]))
       : "No plural quality warnings remain.",
+    "",
+    contentValidationExcludedQuestions.length
+      ? markdownTable(
+          ["Skill", "Question id", "Source", "Format", "Validation issue"],
+          contentValidationExcludedQuestions
+            .slice(0, 80)
+            .map(item => [item.skill || "", item.id || "", item.source || "", item.format || "", item.issues.join("; ")])
+        )
+      : "No systemic content validation exclusions.",
     "",
     "## Structural Notes",
     "",

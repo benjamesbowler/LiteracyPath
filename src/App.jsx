@@ -24,6 +24,7 @@ import { finalSoundCoverageQuestions } from "./data/finalSoundCoverageQuestions"
 import { rhymingCoverageQuestions } from "./data/rhymingCoverageQuestions";
 import { cvcShortVowelExpansionQuestions } from "./data/cvcShortVowelExpansionQuestions";
 import { contentExpansionPass3Questions } from "./data/contentExpansionPass3Questions";
+import { targetedContentRecoveryQuestions } from "./data/targetedContentRecoveryQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
@@ -61,6 +62,8 @@ import {
   getQuestionFormatMetadata,
   isMasteryEligible
 } from "./questionFormatFramework";
+import { isAssessmentContentValid } from "./assessmentContentValidation";
+import { prepareNaturalSpeechText } from "./audioSpeechPolicy";
 
 // dynamic mastery system
 
@@ -686,6 +689,7 @@ function isQuestionValid(q) {
   if (questionContainsWord(q, "pun")) return false;
   if (hasWeakLegacyPhonicsFormat(q)) return false;
   if (hasLowQualityPluralDistractors(q)) return false;
+  if (!isAssessmentContentValid(q)) return false;
 
   return getStageIndex(q) !== -1;
 }
@@ -698,6 +702,7 @@ const allQuestions = [
   ...rhymingCoverageQuestions,
   ...cvcShortVowelExpansionQuestions,
   ...contentExpansionPass3Questions,
+  ...targetedContentRecoveryQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,
@@ -2730,7 +2735,7 @@ export default function App() {
     try {
       window.speechSynthesis.cancel();
 
-      const utterance = new SpeechSynthesisUtterance(text);
+      const utterance = new SpeechSynthesisUtterance(prepareNaturalSpeechText(text));
       utterance.rate = 0.85;
       utterance.pitch = 1;
       utterance.lang = "en-US";
@@ -2744,7 +2749,7 @@ export default function App() {
   async function speakText(text, audioPath = "", options = {}) {
     if (!text) return;
 
-    const allowBrowserFallback = options.allowBrowserFallback !== false;
+    const allowBrowserFallback = options.allowBrowserFallback === true;
     const requireApprovedAudio = options.requireApprovedAudio === true;
     const preferredAudioPath = requireApprovedAudio
       ? getApprovedAudioPath(text, audioPath)
@@ -4081,6 +4086,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           <FinishedReportPage
             startAssessment={startAssessment}
             keepPracticingSkill={keepPracticingSkill}
+            startTargetedReview={startTargetedReview}
             goToOverview={goToOverview}
             studentName={studentName}
             totalAnswered={totalAnswered}

@@ -417,9 +417,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | farm | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/farm.png | active asset |  |  |
 | worm | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/worm.png | active asset |  |  |
 | cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| thumb | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
-| drum | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/blends/drum.png | active asset |  |  |
-| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
 | fan | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
 | ten | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
 | dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
@@ -429,9 +426,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | moon | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/moon.png | active asset |  |  |
 | corn | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/corn.png | active asset |  |  |
 | cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| lion | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/lion.png | active asset |  |  |
-| pen | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
-| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
 | pin | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
 | bin | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
 | hat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
@@ -456,15 +450,9 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | car | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/car.png | active asset |  |  |
 | tiger | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/tiger.png | active asset |  |  |
 | dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| fork | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fork.png | active asset |  |  |
-| park | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/park.png | active asset |  |  |
-| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
 | star | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/blends/star.png | active asset |  |  |
 | car | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/car.png | active asset |  |  |
 | fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| fork | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fork.png | active asset |  |  |
-| car | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/car.png | active asset |  |  |
-| map | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
 | bus | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/bus.png | active asset |  |  |
 | this | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/this.png | active asset |  |  |
 | dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
@@ -495,6 +483,76 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | kite | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/kite.png | active asset |  |  |
 | gate | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/gate.png | active asset |  |  |
 | sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| leaf | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/leaf.png | active asset |  |  |
+| roof | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/roof.png | active asset |  |  |
+| cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| roof | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/roof.png | active asset |  |  |
+| leaf | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/leaf.png | active asset |  |  |
+| dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| dish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/dish.png | active asset |  |  |
+| cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| dish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/dish.png | active asset |  |  |
+| brush | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
+| map | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| brush | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
+| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| hat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| bat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| rat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| mat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| hat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| cup | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
+| map | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| nap | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| clap | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| cap | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| clap | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| bed | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| bed | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| red | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| mud | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/mud.png | active asset |  |  |
+| red | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| pen | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| hen | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| ten | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
+| hen | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| cup | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
+| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| fin | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| map | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| log | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| mug | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| leg | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/leg.png | active asset |  |  |
+| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| pig | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| egg | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/egg.png | active asset |  |  |
+| map | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| drum | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| jam | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| duck | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/duck.png | active asset |  |  |
+| rock | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-o/rock.png | active asset |  |  |
+| sun | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| book | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/book.png | active asset |  |  |
+| duck | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/duck.png | active asset |  |  |
+| fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
 | cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | dog | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
@@ -855,6 +913,14 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | pot | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
 | nap | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
 | net | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/net.png | active asset |  |  |
+| pen | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| pan | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| pin | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| bed | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| pen | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| bed | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| pin | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| pan | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
 | pig | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
 | pin | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
 | pan | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
@@ -934,6 +1000,7 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
 | u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/short-u/mud.png | active asset |  |  |
 | u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| pen | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
 | cat | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | cap | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
 | dog | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
@@ -1065,6 +1132,31 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | cup | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
 | mud | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-u/mud.png | active asset |  |  |
 | sun | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| cat | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| hat | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| map | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| pan | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| bed | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| red | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| pen | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| net | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-e/net.png | active asset |  |  |
+| jet | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-e/jet.png | active asset |  |  |
+| pig | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| wig | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
+| fin | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| pin | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| sit | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
+| dog | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| log | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| pot | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| cot | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
+| mop | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
+| cup | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
+| mud | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-u/mud.png | active asset |  |  |
+| mug | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| sun | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| nut | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-u/nut.png | active asset |  |  |
 | bl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
 | cl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
 | clap | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
@@ -1108,6 +1200,105 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | blue | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/blue.png | active asset |  |  |
 | frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
 | crab | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| bl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/black.png | active asset |  |  |
+| black | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/black.png | active asset |  |  |
+| clap | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| flag | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| slide | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/slide.png | active asset |  |  |
+| black | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/black.png | active asset |  |  |
+| clap | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| flag | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| slide | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/slide.png | active asset |  |  |
+| bl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| blue | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| crab | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| drum | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| blue | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| crab | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| drum | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| frog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| cl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| clap | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| crab | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| flag | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| blue | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| clap | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| crab | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| flag | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| blue | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| fl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| flag | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| dog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| log | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| flag | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| frog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| dog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| log | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| sl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/slide.png | active asset |  |  |
+| slide | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/slide.png | active asset |  |  |
+| blue | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| flag | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| slide | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/slide.png | active asset |  |  |
+| blue | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| frog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| flag | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| br | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
+| brush | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
+| blue | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| crab | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| brush | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
+| blue | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| frog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| crab | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| cr | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| crab | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| clap | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| brush | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
+| drum | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| crab | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| clap | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
+| brush | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
+| drum | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| dr | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| drum | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| duck | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/short-u/duck.png | active asset |  |  |
+| frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| train | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/train.png | active asset |  |  |
+| drum | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| duck | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-u/duck.png | active asset |  |  |
+| frog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| train | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/train.png | active asset |  |  |
+| fr | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| flag | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| dog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| log | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| frog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| flag | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/flag.png | active asset |  |  |
+| dog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| log | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| tr | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/tree.png | active asset |  |  |
+| tree | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/tree.png | active asset |  |  |
+| frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| blue | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| crab | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| tree | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/tree.png | active asset |  |  |
+| frog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| blue | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
+| crab | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| tr | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/train.png | active asset |  |  |
+| train | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/train.png | active asset |  |  |
+| drum | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| frog | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| crab | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| train | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/train.png | active asset |  |  |
+| drum | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/drum.png | active asset |  |  |
+| frog | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/blends/frog.png | active asset |  |  |
+| crab | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
 | sh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
 | sh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
 | ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
@@ -1117,15 +1308,160 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
 | th | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
 | th | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| wh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| sh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| shell | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| shell | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| sh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| ship | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| chick | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| ship | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| wheel | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| sh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| shop | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
 | thumb | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| shop | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thumb | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| ship | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| ship | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| chick | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| shell | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| thumb | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| shell | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| thumb | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| wheel | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| th | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
 | thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
 | ship | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
 | chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| ship | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| th | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| thumb | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| shop | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chick | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| thumb | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| shop | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| wheel | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
 | wh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
 | whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
-| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
 | ship | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
 | chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| ship | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| wh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| shell | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| chick | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| thumb | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| wheel | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| shell | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| thumb | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| shell | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| shell | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| ship | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| chick | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| ship | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| wheel | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| shop | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thumb | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| shop | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thumb | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| ship | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| ship | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| chick | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| shell | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| thumb | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| shell | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| thumb | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| wheel | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| shop | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| shop | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| wheel | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| thumb | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| shop | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chick | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| thumb | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| shop | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| whale | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| ship | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| chair | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thin | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| ship | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| chair | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chair.png | active asset |  |  |
+| thin | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/thin.png | active asset |  |  |
+| wheel | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| shell | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| chick | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| thumb | Digraphs | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
+| wheel | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/wheel.png | active asset |  |  |
+| shell | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
+| thumb | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/thumb.png | active asset |  |  |
 | in the box | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/cat_in_box.png | active asset |  |  |
 | under the table | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/dog_under_table.png | active asset |  |  |
 | on the chair | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/ball_on_chair.png | active asset |  |  |
@@ -1163,23 +1499,13 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | between the books | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/cup_between_books.png | active asset |  |  |
 | above the tree | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/bird_above_tree.png | active asset |  |  |
 | near the door | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/shoes_near_door.png | active asset |  |  |
-| cats | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/cats.png | preferred Pack 4 organized asset |  |  |
-| dogs | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/dogs.png | preferred Pack 4 organized asset |  |  |
-| books | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/books.png | preferred Pack 4 organized asset |  |  |
 | boxes | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/boxes.png | preferred Pack 4 organized asset |  |  |
 | brushes | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/brushes.png | preferred Pack 4 organized asset |  |  |
-| cups | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/cups.png | preferred Pack 4 organized asset |  |  |
-| hats | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/hats.png | preferred Pack 4 organized asset |  |  |
 | cats | Plurals | COMPREHENSION | question image | yes | /images/prepositions/duck_outside_pond.png | active asset |  |  |
 | apples | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
 | children | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/book.png | active asset |  |  |
-| apples | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
 | children | Plurals | COMPREHENSION | question image | yes | /images/prepositions/duck_outside_pond.png | active asset |  |  |
-| tales | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/book.png | active asset |  |  |
-| apples | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
-| girls | Plurals | COMPREHENSION | question image | yes | /images/prepositions/duck_outside_pond.png | active asset |  |  |
 | children | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/book.png | active asset |  |  |
-| apples | Plurals | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
 | sad | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/emotions/happy_child.png | active asset |  |  |
 | noisy | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/emotions/calm_child.png | active asset |  |  |
 | raw | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |

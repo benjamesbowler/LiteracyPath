@@ -17,7 +17,7 @@ const cvcTargets = [
   ["mud", ["mud", "mug", "map", "bed"]],
   ["mug", ["mug", "mud", "map", "mop"]],
   ["nut", ["nut", "net", "nap", "pot"]],
-  ["pen", ["pen", "pan", "pin", "pun"]],
+  ["pen", ["pen", "pan", "pin", "bed"]],
   ["pig", ["pig", "pin", "pan", "pen"]],
   ["pot", ["pot", "pan", "pen", "pig"]],
   ["ram", ["ram", "red", "rug", "mug"]],

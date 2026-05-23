@@ -10,6 +10,7 @@ import { finalSoundCoverageQuestions } from "../src/data/finalSoundCoverageQuest
 import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.js";
 import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
+import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -54,6 +55,7 @@ import {
   isDeprecatedAudioPath,
   isReviewNeededAudioPath
 } from "../src/data/audioPreferenceManifest.js";
+import { getAssessmentContentIssues } from "../src/assessmentContentValidation.js";
 import {
   blendAnchors,
   digraphAnchors,
@@ -65,6 +67,14 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 
+function publicAssetExists(assetPath) {
+  return Boolean(
+    assetPath &&
+    String(assetPath).startsWith("/") &&
+    fs.existsSync(path.join(rootDir, "public", assetPath))
+  );
+}
+
 const questionBanks = [
   ["src/questions.js", questions],
   ["src/data/masteryCoreQuestions.js", masteryCoreQuestions],
@@ -74,6 +84,7 @@ const questionBanks = [
   ["src/data/rhymingCoverageQuestions.js", rhymingCoverageQuestions],
   ["src/data/cvcShortVowelExpansionQuestions.js", cvcShortVowelExpansionQuestions],
   ["src/data/contentExpansionPass3Questions.js", contentExpansionPass3Questions],
+  ["src/data/targetedContentRecoveryQuestions.js", targetedContentRecoveryQuestions],
   ["src/data/templateQuestions.js", templateQuestions],
   ["src/data/templateExpansion.js", templateExpansion],
   ["src/data/templateExpansion2.js", templateExpansion2],
@@ -474,7 +485,8 @@ function phonicsWordingIssue(question, stage) {
   ]).has(formatType);
   const usesNewVisualPatternFormat = new Set([
     "PICTURE_AUDIO_TO_PATTERN",
-    "IMAGE_WORD_PATTERN_MATCH"
+    "IMAGE_WORD_PATTERN_MATCH",
+    "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
   ]).has(formatType);
   const usesNewShortVowelFormat = new Set([
     "LISTEN_CHOOSE_VOWEL",
@@ -827,6 +839,7 @@ function isActiveRuntimeQuestion(question) {
   if (questionContainsWord(question, "pun")) return false;
   if (weakLegacyPhonicsReason(question)) return false;
   if (lowQualityPluralDistractorReason(question)) return false;
+  if (getAssessmentContentIssues(question, { assetExists: publicAssetExists }).length > 0) return false;
 
   const choices = normalizedChoices(question.choices);
   return new Set(choices).size === choices.length;

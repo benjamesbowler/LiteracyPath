@@ -696,7 +696,8 @@ select:focus {
 
 .mini-audio-button,
 .choice-audio,
-.initial-sound-card-audio {
+.initial-sound-card-audio,
+.assessment-audio-button {
   display: inline-grid;
   place-items: center;
   min-height: 42px !important;
@@ -712,7 +713,8 @@ select:focus {
 
 .mini-audio-button:hover,
 .choice-audio:hover,
-.initial-sound-card-audio:hover {
+.initial-sound-card-audio:hover,
+.assessment-audio-button:hover {
   border-color: #60a5fa !important;
   box-shadow: 0 10px 24px rgba(23, 92, 211, 0.14);
   transform: translateY(-1px);
@@ -720,7 +722,8 @@ select:focus {
 
 .mini-audio-button:active,
 .choice-audio:active,
-.initial-sound-card-audio:active {
+.initial-sound-card-audio:active,
+.assessment-audio-button:active {
   box-shadow: 0 4px 12px rgba(23, 92, 211, 0.1);
   transform: translateY(0);
 }
@@ -1286,6 +1289,11 @@ select:focus {
   padding: clamp(12px, 1.6vw, 16px);
 }
 
+.assessment-card {
+  max-height: calc(100dvh - 92px);
+  overflow: auto;
+}
+
 .assessment-card .image-box {
   max-height: clamp(140px, 24vh, 220px);
   margin-bottom: 10px;
@@ -1313,8 +1321,8 @@ select:focus {
 .assessment-card .flag-button {
   align-self: flex-start;
   min-height: 38px;
-  margin: 0 0 10px;
-  padding: 8px 12px;
+  margin: 0 0 8px;
+  padding: 7px 10px;
   border-radius: 12px;
   font-size: 13px;
 }
@@ -1327,6 +1335,12 @@ select:focus {
 .assessment-card .choice-button {
   min-height: clamp(54px, 8vh, 72px);
   padding: 10px 12px;
+}
+
+.finished-report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .fix-sentence-panel {
@@ -1739,13 +1753,15 @@ select:focus {
   .assessment-shell {
     min-height: calc(100vh - 20px);
     min-height: calc(100dvh - 20px);
+    gap: 6px;
   }
 
   .assessment-topbar {
     position: sticky;
-    top: 6px;
-    gap: 10px;
-    padding: 8px 10px;
+    top: 4px;
+    gap: 6px;
+    padding: 6px 8px;
+    border-radius: 10px;
   }
 
   .assessment-progress {
@@ -1755,8 +1771,8 @@ select:focus {
 
   .assessment-end-button {
     order: 2;
-    min-height: 40px;
-    padding: 8px 11px;
+    min-height: 36px;
+    padding: 6px 9px;
   }
 
   .assessment-meta {
@@ -1768,7 +1784,7 @@ select:focus {
   }
 
   .question-line h2 {
-    font-size: 21px;
+    font-size: 19px;
   }
 
   .image-box {
@@ -1789,21 +1805,23 @@ select:focus {
   }
 
   .assessment-card .passage {
-    font-size: 15px;
+    font-size: 14px;
+    padding: 9px 10px;
   }
 
   .assessment-card .choice-button {
-    min-height: 50px;
+    min-height: 46px;
+    padding: 8px 10px;
   }
 
   .assessment-card .visual-word-choice {
-    min-height: 150px !important;
-    grid-template-rows: minmax(92px, 1fr) auto;
+    min-height: 130px !important;
+    grid-template-rows: minmax(82px, 1fr) auto;
   }
 
   .visual-word-choice-image {
-    min-height: 92px;
-    max-height: 126px;
+    min-height: 82px;
+    max-height: 112px;
   }
 
   .initial-sound-card-grid {
@@ -1811,15 +1829,16 @@ select:focus {
   }
 
   .initial-sound-card {
-    grid-template-rows: minmax(112px, 1fr) auto;
+    grid-template-rows: minmax(92px, 1fr) auto;
+    padding: 8px;
   }
 
   .initial-sound-image-button {
-    min-height: 112px;
+    min-height: 92px;
   }
 
   .initial-sound-image-button img {
-    height: 112px;
+    height: 92px;
   }
 
   .visual-card-grid {
@@ -1827,24 +1846,25 @@ select:focus {
   }
 
   .visual-assessment-card {
-    grid-template-rows: minmax(112px, 1fr) auto;
+    grid-template-rows: minmax(92px, 1fr) auto;
+    padding: 8px;
   }
 
   .visual-assessment-card-button {
-    min-height: 130px;
+    min-height: 112px;
   }
 
   .visual-assessment-card-button img {
-    height: 112px;
+    height: 92px;
   }
 
   .assessment-stimulus {
-    min-height: 116px;
+    min-height: 92px;
   }
 
   .assessment-main-image-wrap,
   .assessment-listening-panel {
-    min-height: 132px;
+    min-height: 112px;
   }
 
   .assessment-stimulus-audio {

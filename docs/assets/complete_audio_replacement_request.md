@@ -12,7 +12,8 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 | bid | public/audio/child-mode/words/bid.mp3 | bid | word | required | standard | yes | no | Final Sounds | FINAL_SOUND_PAIR_SELECT |
 | big | public/audio/child-mode/words/big.mp3 | big | word | required | standard | yes | no | Rhyming | RHYME_PAIR_SELECT |
 | bin | public/audio/child-mode/words/bin.mp3 | bin | word | required | standard | yes | no | Final Sounds, Rhyming | FINAL_SOUND_PAIR_SELECT, RHYME_PAIR_SELECT |
-| blue | public/audio/child-mode/words/blue.mp3 | blue | word | required | standard | yes | no | Blends | IMAGE_WORD_PATTERN_MATCH, PICTURE_AUDIO_TO_PATTERN |
+| black | public/audio/child-mode/words/black.mp3 | black | word | required | standard | yes | no | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR, IMAGE_WORD_PATTERN_MATCH, PICTURE_AUDIO_TO_PATTERN |
+| blue | public/audio/child-mode/words/blue.mp3 | blue | word | required | standard | yes | no | Blends | HEARD_WORD_TO_PRINT_MINIMAL_PAIR, IMAGE_WORD_PATTERN_MATCH, PICTURE_AUDIO_TO_PATTERN |
 | book | public/audio/child-mode/words/book.mp3 | book | word | required | standard | yes | no | Final Sounds | FINAL_SOUND_PAIR_SELECT |
 | bud | public/audio/child-mode/words/bud.mp3 | bud | word | required | standard | yes | no | Final Sounds | FINAL_SOUND_PAIR_SELECT |
 | desk | public/audio/child-mode/words/desk.mp3 | desk | word | required | standard | yes | no | Final Sounds, Initial Sounds | FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |
@@ -30,7 +31,7 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 | king | public/audio/child-mode/words/king.mp3 | king | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | kite | public/audio/child-mode/words/kite.mp3 | kite | word | required | standard | yes | no | Final Sounds, Initial Sounds | FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |
 | lamp | public/audio/child-mode/words/lamp.mp3 | lamp | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
-| lion | public/audio/child-mode/words/lion.mp3 | lion | word | required | standard | yes | no | Final Sounds, Initial Sounds | FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |
+| lion | public/audio/child-mode/words/lion.mp3 | lion | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | listen and find | public/audio/child-mode/phrases/listen-and-find.mp3 | listen and find | phrase | required | standard | yes | no | Final Sounds, Initial Sounds, Rhyming | FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT, RHYME_PAIR_SELECT |
 | nose | public/audio/child-mode/words/nose.mp3 | nose | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | orange | public/audio/child-mode/words/orange.mp3 | orange | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
