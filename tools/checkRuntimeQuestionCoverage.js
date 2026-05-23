@@ -12,6 +12,7 @@ import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpans
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
 import { kimiDataset7RuntimeQuestions } from "../src/data/kimiDataset7RuntimeQuestions.js";
+import { ixlStyleSeedQuestions } from "../src/data/ixlStyleSeedQuestions.js";
 import { kimiDataset7Candidates } from "../src/data/imported/kimiDataset7Candidates.js";
 import { kimiDataset7Summary } from "../src/data/imported/kimiDataset7Summary.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
@@ -69,6 +70,7 @@ const runtimeQuestionBanks = [
   ["contentExpansionPass3Questions", contentExpansionPass3Questions],
   ["targetedContentRecoveryQuestions", targetedContentRecoveryQuestions],
   ["kimiDataset7RuntimeQuestions", kimiDataset7RuntimeQuestions],
+  ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -254,7 +256,13 @@ function weakLegacyPhonicsReason(question) {
   const formatType = String(question.formatType || "").toUpperCase();
   const questionType = normalize(question.questionType);
   const hasVisualOrAudio =
-    Boolean(question.imagePath || question.audioPath || question.imageCards?.length || question.promptImageCards?.length);
+    Boolean(
+      question.imagePath ||
+      question.audioPath ||
+      question.imageCards?.length ||
+      question.promptImageCards?.length ||
+      question.answerOptions?.some(option => option?.image || option?.audio)
+    );
   const assetBackedFormats = new Set([
     "INITIAL_SOUND_PAIR_SELECT",
     "FINAL_SOUND_PAIR_SELECT",
@@ -266,11 +274,24 @@ function weakLegacyPhonicsReason(question) {
     "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
     "MISSING_VOWEL_CVC",
     "PICTURE_AUDIO_TO_PATTERN",
-    "IMAGE_WORD_PATTERN_MATCH"
+    "IMAGE_WORD_PATTERN_MATCH",
+    "FIRST_SOUND",
+    "ENDING_SOUND",
+    "BLEND_SOUNDS",
+    "PUT_SOUNDS_IN_ORDER",
+    "RHYMING_PICTURE",
+    "SHORT_VOWEL_WORD",
+    "COMPLETE_WORD",
+    "SENTENCE_MATCHES_PICTURE",
+    "VOCABULARY_CATEGORY",
+    "GRAMMAR_BASICS"
   ]);
 
   if (assetBackedFormats.has(formatType) || questionType === "listen_and_find_word") return "";
 
+  if (skill.includes("initial") && /\b(which word starts the same as|starts the same as|starts like)\b/.test(promptText)) {
+    return "legacy text-only Initial Sounds anchor prompt";
+  }
   if (skill.includes("final") && /\b(which word ends|ends the same|ends like)\b/.test(promptText)) {
     return "legacy text-only Final Sounds prompt";
   }
@@ -288,6 +309,11 @@ function weakLegacyPhonicsReason(question) {
   }
 
   return "";
+}
+
+function isAllowedInitialSoundRuntimeFormat(question) {
+  const formatType = String(question?.templateType || question?.formatType || "").toUpperCase();
+  return isInitialSoundPairQuestion(question) || formatType === "FIRST_SOUND";
 }
 
 function lowQualityPluralDistractorReason(question) {
@@ -320,10 +346,13 @@ function isQuestionValid(question) {
   }
 
   if (!question.answer) return false;
+  if (question.questionType === "ixl_template" && String(question.templateType || question.formatType || "").toUpperCase() === "PUT_SOUNDS_IN_ORDER") {
+    return Array.isArray(question.soundTiles) && question.soundTiles.length >= 2 && getStageIndex(question) !== -1;
+  }
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
   if (!isPairSelectionQuestion(question) && !question.choices.includes(question.answer)) return false;
   if (getStageIndex(question) === -1) return false;
-  if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
+  if (question.questionType === "initial_sound_pair" && isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
   if (isPairSelectionQuestion(question) && !hasCompletePairSelectionAssets(question)) return false;
   if (isVisualCardChoiceQuestion(question) && !hasCompleteVisualQuestionAssets(question)) return false;
   if (isPictureToPrintQuestion(question) && ((question.imageCards || []).length > 0 || Object.keys(question.choiceImages || {}).length > 0)) return false;
@@ -344,7 +373,7 @@ function isQuestionValid(question) {
   if (getAssessmentContentIssues(question, { assetExists: publicAssetExists }).length > 0) return false;
 
   const choices = question.choices.map(choice => normalize(choice));
-  if (new Set(choices).size !== choices.length) return false;
+  if (new Set(choices).size !== choices.length && !(question.questionType === "ixl_template" && String(question.templateType || question.formatType || "").toUpperCase() === "GRAMMAR_BASICS")) return false;
 
   const questionText = normalize(question.question);
   const allText = [
@@ -716,7 +745,7 @@ const runtimeQualityWarnings = runtimeQuestions.reduce((warnings, question) => {
 });
 const activeOldInitialSoundQuestions = matchedQuestions.filter(question =>
   skillTree[getStageIndex(question)]?.label === "Initial Sounds" &&
-  !isInitialSoundPairQuestion(question)
+  !isAllowedInitialSoundRuntimeFormat(question)
 );
 const counts = skillTree.map((stage, index) => ({
   stage,

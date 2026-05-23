@@ -71,6 +71,9 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   padding: 8px 10px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(72, 183, 199, 0.18), transparent 26%),
+    linear-gradient(180deg, #eaf7fb 0%, #f7fbff 58%, #ffffff 100%);
 }
 
 .learning-world-app {
@@ -1316,6 +1319,29 @@ select:focus {
   font-size: 11px;
 }
 
+.assessment-progress-dots {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.assessment-progress-dots span {
+  flex: 1 1 0;
+  min-width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #dbe7f3;
+}
+
+.assessment-progress-dots span.complete {
+  background: #2aa7a5;
+}
+
+.assessment-progress-dots span.current {
+  background: #1f6feb;
+}
+
 .assessment-end-button {
   flex: 0 0 auto;
   margin-left: auto;
@@ -1337,6 +1363,11 @@ select:focus {
 .assessment-card {
   max-height: calc(100dvh - 92px);
   overflow: auto;
+  width: min(920px, 100%);
+  align-self: center;
+  border: 1px solid #cfe4f7;
+  border-radius: 24px;
+  box-shadow: 0 22px 46px rgba(33, 71, 112, 0.12);
 }
 
 .assessment-card .image-box {
@@ -1380,6 +1411,118 @@ select:focus {
 .assessment-card .choice-button {
   min-height: clamp(54px, 8vh, 72px);
   padding: 10px 12px;
+}
+
+.ixl-template-panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+  min-height: 0;
+}
+
+.ixl-answer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.ixl-answer-card {
+  position: relative;
+  min-width: 0;
+  border-radius: 20px;
+}
+
+.ixl-answer-button {
+  width: 100%;
+  min-height: clamp(78px, 16vh, 150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border: 2px solid #cfe4f7;
+  border-radius: 20px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  box-shadow: 0 10px 22px rgba(33, 71, 112, 0.09);
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 850;
+}
+
+.ixl-answer-button:hover {
+  border-color: #48b7c7;
+  background: #f2fbfc;
+}
+
+.ixl-answer-card.image-card .ixl-answer-button {
+  min-height: clamp(150px, 30vh, 240px);
+}
+
+.ixl-answer-button img {
+  width: 100%;
+  max-width: 180px;
+  height: clamp(92px, 18vh, 150px);
+  object-fit: contain;
+}
+
+.partial-word-card,
+.sound-order-build {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 78px;
+  padding: 16px;
+  border: 2px dashed #9fd4e0;
+  border-radius: 20px;
+  background: #f4fcfd;
+  color: var(--lp-color-text-strong);
+  font-size: clamp(34px, 6vw, 58px);
+  font-weight: 900;
+}
+
+.sound-order-build {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sound-order-placeholder {
+  color: var(--lp-color-text-muted) !important;
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 800;
+}
+
+.sound-order-tile-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+  gap: 10px;
+}
+
+.sound-order-tile,
+.sound-order-selected-tile {
+  min-height: 64px;
+  border: 2px solid #b6d8f4;
+  border-radius: 18px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.sound-order-tile:disabled {
+  opacity: 0.35;
+}
+
+.sound-order-selected-tile {
+  min-width: 58px;
+  background: #e9f9f9;
+  border-color: #48b7c7;
+}
+
+.ixl-template-actions {
+  justify-content: center;
 }
 
 .finished-report-actions {
@@ -1795,6 +1938,19 @@ select:focus {
 .admin-controls select {
   min-height: 44px;
   min-width: 170px;
+}
+
+.admin-content-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.admin-content-filters select,
+.admin-content-filters input {
+  width: 100%;
+  min-height: 42px;
+  margin: 0;
 }
 
 .admin-section {

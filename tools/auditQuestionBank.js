@@ -12,6 +12,7 @@ import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpans
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
 import { kimiDataset7RuntimeQuestions } from "../src/data/kimiDataset7RuntimeQuestions.js";
+import { ixlStyleSeedQuestions } from "../src/data/ixlStyleSeedQuestions.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
@@ -87,6 +88,7 @@ const questionBanks = [
   ["src/data/contentExpansionPass3Questions.js", contentExpansionPass3Questions],
   ["src/data/targetedContentRecoveryQuestions.js", targetedContentRecoveryQuestions],
   ["src/data/kimiDataset7RuntimeQuestions.js", kimiDataset7RuntimeQuestions],
+  ["src/data/ixlStyleSeedQuestions.js", ixlStyleSeedQuestions],
   ["src/data/templateQuestions.js", templateQuestions],
   ["src/data/templateExpansion.js", templateExpansion],
   ["src/data/templateExpansion2.js", templateExpansion2],
@@ -163,6 +165,38 @@ const earlyPhonicsStages = new Set([
   "CVC and Short Vowels",
   "Short Vowel Discrimination"
 ]);
+
+const ixlTemplateTypes = new Set([
+  "FIRST_SOUND",
+  "ENDING_SOUND",
+  "BLEND_SOUNDS",
+  "PUT_SOUNDS_IN_ORDER",
+  "RHYMING_PICTURE",
+  "SHORT_VOWEL_WORD",
+  "COMPLETE_WORD",
+  "SENTENCE_MATCHES_PICTURE",
+  "VOCABULARY_CATEGORY",
+  "GRAMMAR_BASICS"
+]);
+
+const ixlWordAudioTemplateTypes = new Set([
+  "FIRST_SOUND",
+  "ENDING_SOUND",
+  "BLEND_SOUNDS",
+  "PUT_SOUNDS_IN_ORDER",
+  "RHYMING_PICTURE",
+  "SHORT_VOWEL_WORD",
+  "COMPLETE_WORD"
+]);
+
+function isIxlTemplate(question) {
+  return question?.questionType === "ixl_template" || ixlTemplateTypes.has(String(question?.templateType || question?.formatType || "").toUpperCase());
+}
+
+function isAllowedInitialSoundRuntimeFormat(question) {
+  const formatType = String(question?.templateType || question?.formatType || "").toUpperCase();
+  return isInitialSoundPairQuestion(question) || formatType === "FIRST_SOUND";
+}
 
 const earlyBoundaryPromptPattern =
   /\b(blend|blends|digraph|digraphs|two consonants?|consonants together|long vowel|silent e|magic e|vowel team|r-controlled)\b/i;
@@ -280,7 +314,13 @@ function weakLegacyPhonicsReason(question) {
   const formatType = String(question.formatType || "").toUpperCase();
   const questionType = normalize(question.questionType);
   const hasVisualOrAudio =
-    Boolean(question.imagePath || question.audioPath || question.imageCards?.length || question.promptImageCards?.length);
+    Boolean(
+      question.imagePath ||
+      question.audioPath ||
+      question.imageCards?.length ||
+      question.promptImageCards?.length ||
+      question.answerOptions?.some(option => option?.image || option?.audio)
+    );
   const assetBackedFormats = new Set([
     "INITIAL_SOUND_PAIR_SELECT",
     "FINAL_SOUND_PAIR_SELECT",
@@ -292,11 +332,22 @@ function weakLegacyPhonicsReason(question) {
     "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
     "MISSING_VOWEL_CVC",
     "PICTURE_AUDIO_TO_PATTERN",
-    "IMAGE_WORD_PATTERN_MATCH"
+    "IMAGE_WORD_PATTERN_MATCH",
+    "FIRST_SOUND",
+    "ENDING_SOUND",
+    "BLEND_SOUNDS",
+    "PUT_SOUNDS_IN_ORDER",
+    "RHYMING_PICTURE",
+    "SHORT_VOWEL_WORD",
+    "COMPLETE_WORD",
+    "SENTENCE_MATCHES_PICTURE",
+    "VOCABULARY_CATEGORY",
+    "GRAMMAR_BASICS"
   ]);
 
   if (assetBackedFormats.has(formatType) || questionType === "listen_and_find_word") return "";
 
+  if (skill.includes("initial") && /\b(which word starts the same as|starts the same as|starts like)\b/.test(promptText)) return "legacy text-only Initial Sounds anchor prompt";
   if (skill.includes("final") && /\b(which word ends|ends the same|ends like)\b/.test(promptText)) return "legacy text-only Final Sounds prompt";
   if (/\b(which word rhymes|choose the word that rhymes)\b/.test(promptText) && !hasVisualOrAudio) return "legacy text-only Rhyming prompt";
   if ((skill.includes("short vowel") || skill.includes("cvc")) && /\b(same middle sound|same sound in the middle)\b/.test(promptText)) return "legacy text-only short-vowel/CVC sound prompt";
@@ -476,6 +527,7 @@ function phonicsWordingIssue(question, stage) {
   const prompt = String(question.question || "");
   const spoken = String(question.spokenPrompt || question.audioText || "");
   const formatType = String(question.formatType || "").toUpperCase();
+  const isIxlWordAudio = isIxlTemplate(question) && ixlWordAudioTemplateTypes.has(formatType);
   const permitsStaticWordAudio = new Set([
     "LISTEN_FIND_RHYME",
     "LISTEN_CHOOSE_VOWEL",
@@ -500,14 +552,16 @@ function phonicsWordingIssue(question, stage) {
     return 'Visible prompt contains phoneme slash notation: "' + prompt + '".';
   }
 
+  if (isIxlTemplate(question)) return null;
+
   const isListenAndFindWord = question.questionType === "listen_and_find_word";
   const isPairSelect = isPairSelectionQuestion(question);
 
-  if (!permitsStaticWordAudio && !isListenAndFindWord && !isPairSelect && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
+  if (!isIxlWordAudio && !permitsStaticWordAudio && !isListenAndFindWord && !isPairSelect && spoken && isolatedSpokenPhonemePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText uses an isolated phoneme or letter sound: "' + spoken + '".';
   }
 
-  if (!permitsStaticWordAudio && !isListenAndFindWord && !isPairSelect && spoken && !naturalSentencePattern.test(spoken.trim())) {
+  if (!isIxlWordAudio && !permitsStaticWordAudio && !isListenAndFindWord && !isPairSelect && spoken && !naturalSentencePattern.test(spoken.trim())) {
     return 'spokenPrompt/audioText should be a full natural sentence: "' + spoken + '".';
   }
 
@@ -650,6 +704,7 @@ function ambiguousSequencingNextIssue(question, stage) {
 }
 
 function finalKsCvcIssue(question, stage) {
+  if (isIxlTemplate(question)) return null;
   if (!earlyPhonicsStages.has(stage)) return null;
 
   const target = extractEarlyPhonicsTarget(question.question);
@@ -664,6 +719,7 @@ function finalKsCvcIssue(question, stage) {
 }
 
 function isolatedPhonemeAudioIssue(question) {
+  if (isIxlTemplate(question)) return null;
   if (!unsafeIsolatedPhonemePromptPattern.test(question.question || "")) return null;
 
   const choices = question.choices || [];
@@ -712,6 +768,10 @@ function cvcListenAudioIssue(question, stage) {
 }
 
 function earlyPhonicsBoundaryIssue(question, stage) {
+  if (isIxlTemplate(question) && ["COMPLETE_WORD", "PUT_SOUNDS_IN_ORDER", "SHORT_VOWEL_WORD"].includes(String(question.templateType || question.formatType || "").toUpperCase())) {
+    return null;
+  }
+
   if (!earlyPhonicsStages.has(stage)) return null;
 
   if (earlyBoundaryPromptPattern.test(question.question || "")) {
@@ -826,7 +886,7 @@ function isActiveRuntimeQuestion(question) {
   if (!isPairSelectionQuestion(question) && !question.choices.includes(question.answer)) return false;
   if (isPairSelectionQuestion(question) && !hasCompletePairSelectionAssets(question)) return false;
   if (isVisualCardChoiceQuestion(question) && !hasCompleteVisualQuestionAssets(question)) return false;
-  if (isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
+  if (question.questionType === "initial_sound_pair" && isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
   if (question.questionType === "listen_and_find_word") {
     const diagnostics = getListenAndFindAssetDiagnostics(question);
     if (
@@ -993,6 +1053,8 @@ function expectedWhereVerb(questionText) {
 }
 
 function answerIsVisible(question) {
+  if (isIxlTemplate(question)) return false;
+
   const answer = normalize(question.answer);
   const questionText = normalize(question.question);
 
@@ -1016,6 +1078,7 @@ function answerIsVisible(question) {
 
 function hasMultipleLikelyCorrectAnswers(question) {
   if (isPairSelectionQuestion(question)) return false;
+  if (isIxlTemplate(question)) return false;
 
   const skill = normalize(question.skill);
   const answer = normalize(question.answer);
@@ -1112,6 +1175,13 @@ function auditQuestions() {
       continue;
     }
 
+    if (isIxlTemplate(question) && String(question.templateType || question.formatType || "").toUpperCase() === "PUT_SOUNDS_IN_ORDER") {
+      if (!Array.isArray(question.soundTiles) || question.soundTiles.length < 2) {
+        addProblem(problems, "sound-order missing tiles", item, "Sound-order template needs at least two sound tiles.");
+      }
+      continue;
+    }
+
     if (!Array.isArray(question.choices)) {
       addProblem(problems, "choices not array", item, "Choices must be an array.");
       continue;
@@ -1124,7 +1194,7 @@ function auditQuestions() {
     const choices = normalizedChoices(question.choices);
     const uniqueChoices = new Set(choices);
 
-    if (uniqueChoices.size !== choices.length) {
+    if (uniqueChoices.size !== choices.length && !(isIxlTemplate(question) && String(question.templateType || question.formatType || "").toUpperCase() === "GRAMMAR_BASICS")) {
       addProblem(problems, "duplicate answer choices", item, question.choices.join(" | "));
     }
 
@@ -1418,7 +1488,7 @@ function auditQuestions() {
   const activeOldInitialSounds = allQuestions.filter(item =>
     isActiveRuntimeQuestion(item.question) &&
     getStage(item.question) === "Initial Sounds" &&
-    !isInitialSoundPairQuestion(item.question)
+    !isAllowedInitialSoundRuntimeFormat(item.question)
   );
 
   for (const item of activeOldInitialSounds) {
@@ -1585,7 +1655,7 @@ function printInitialSoundPairDiagnostics() {
   const activeInitialSoundQuestions = allQuestions
     .filter(item => isActiveRuntimeQuestion(item.question) && getStage(item.question) === "Initial Sounds");
   const activeOldFormat = activeInitialSoundQuestions
-    .filter(item => !isInitialSoundPairQuestion(item.question));
+    .filter(item => !isAllowedInitialSoundRuntimeFormat(item.question));
   const supported = diagnostics.filter(item => item.supported);
   const unsupportedKeys = [...new Set(
     diagnostics

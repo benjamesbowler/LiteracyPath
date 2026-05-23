@@ -113,6 +113,8 @@ export function normalizeInitialSoundPairAnswer(value) {
 }
 
 export function enrichInitialSoundPairQuestion(question = {}) {
+  if (question.questionType && question.questionType !== "initial_sound_pair") return question;
+
   const skill = normalize(question.skill);
   const explicitKey = normalize(question.itemType) === "initial_sound"
     ? normalize(question.itemKey)

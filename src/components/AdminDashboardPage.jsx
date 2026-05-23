@@ -1,3 +1,5 @@
+import { useMemo, useState } from "react";
+
 export function AdminDashboardPage({
   flags,
   teachers,
@@ -11,8 +13,41 @@ export function AdminDashboardPage({
   reopenFlag,
   deleteClass,
   deleteStudent,
+  questionBankCoverage = [],
   message
 }) {
+  const [skillFilter, setSkillFilter] = useState("all");
+  const [templateFilter, setTemplateFilter] = useState("all");
+  const [difficultyFilter, setDifficultyFilter] = useState("all");
+  const [patternFilter, setPatternFilter] = useState("");
+  const [mediaFilter, setMediaFilter] = useState("all");
+  const [statusFilterLocal, setStatusFilterLocal] = useState("all");
+  const templateOptions = useMemo(() => Array.from(new Set(
+    questionBankCoverage.flatMap(row => Object.keys(row.templates || {}))
+  )).sort(), [questionBankCoverage]);
+  const difficultyOptions = useMemo(() => Array.from(new Set(
+    questionBankCoverage.flatMap(row => Object.keys(row.difficulties || {}))
+  )).sort(), [questionBankCoverage]);
+  const filteredCoverage = questionBankCoverage.filter(row => {
+    const matchesSkill = skillFilter === "all" || row.skill === skillFilter;
+    const matchesTemplate = templateFilter === "all" || row.templates?.[templateFilter];
+    const matchesDifficulty = difficultyFilter === "all" || row.difficulties?.[difficultyFilter];
+    const matchesPattern = !patternFilter || Object.keys(row.patterns || {}).some(pattern =>
+      pattern.toLowerCase().includes(patternFilter.toLowerCase())
+    );
+    const matchesMedia =
+      mediaFilter === "all" ||
+      (mediaFilter === "missing_image" && row.missingImage > 0) ||
+      (mediaFilter === "missing_audio" && row.missingAudio > 0) ||
+      (mediaFilter === "complete_media" && row.missingImage === 0 && row.missingAudio === 0);
+    const matchesStatus =
+      statusFilterLocal === "all" ||
+      (statusFilterLocal === "active" && row.active > 0) ||
+      (statusFilterLocal === "inactive" && row.inactive > 0);
+
+    return matchesSkill && matchesTemplate && matchesDifficulty && matchesPattern && matchesMedia && matchesStatus;
+  });
+
   return (
     <main className="admin-dashboard page-stack">
       <section className="card page-stack">
@@ -35,6 +70,83 @@ export function AdminDashboardPage({
         </div>
 
         {message && <p className="message">{message}</p>}
+      </section>
+
+      <section className="report-panel page-stack admin-section">
+        <h3>Content Coverage</h3>
+        <p className="muted-text">Filter active assessment content and watch for skills below the 30-question floor.</p>
+
+        <div className="admin-content-filters">
+          <select value={skillFilter} onChange={event => setSkillFilter(event.target.value)}>
+            <option value="all">All skills</option>
+            {questionBankCoverage.map(row => (
+              <option key={row.skill} value={row.skill}>{row.skill}</option>
+            ))}
+          </select>
+
+          <select value={templateFilter} onChange={event => setTemplateFilter(event.target.value)}>
+            <option value="all">All templates</option>
+            {templateOptions.map(template => (
+              <option key={template} value={template}>{template}</option>
+            ))}
+          </select>
+
+          <select value={difficultyFilter} onChange={event => setDifficultyFilter(event.target.value)}>
+            <option value="all">All difficulties</option>
+            {difficultyOptions.map(difficulty => (
+              <option key={difficulty} value={difficulty}>{difficulty}</option>
+            ))}
+          </select>
+
+          <input
+            value={patternFilter}
+            onChange={event => setPatternFilter(event.target.value)}
+            placeholder="Pattern"
+            type="search"
+          />
+
+          <select value={mediaFilter} onChange={event => setMediaFilter(event.target.value)}>
+            <option value="all">All media</option>
+            <option value="missing_image">Missing image</option>
+            <option value="missing_audio">Missing audio</option>
+            <option value="complete_media">Complete media</option>
+          </select>
+
+          <select value={statusFilterLocal} onChange={event => setStatusFilterLocal(event.target.value)}>
+            <option value="all">Active + inactive</option>
+            <option value="active">Active only</option>
+            <option value="inactive">Inactive only</option>
+          </select>
+        </div>
+
+        <div className="admin-table-wrap">
+          <table className="dashboard-table admin-table">
+            <thead>
+              <tr>
+                <th>Skill</th>
+                <th>Questions</th>
+                <th>30+</th>
+                <th>Templates</th>
+                <th>Patterns</th>
+                <th>Media gaps</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredCoverage.map(row => (
+                <tr key={row.skill}>
+                  <td><strong>{row.skill}</strong></td>
+                  <td>{row.total}</td>
+                  <td>{row.total >= 30 ? "OK" : "Below 30"}</td>
+                  <td>{Object.entries(row.templates).map(([key, count]) => `${key}: ${count}`).join(", ")}</td>
+                  <td>{Object.entries(row.patterns).slice(0, 8).map(([key, count]) => `${key}: ${count}`).join(", ") || "Not tagged"}</td>
+                  <td>{row.missingImage} image / {row.missingAudio} audio</td>
+                  <td>{row.active} active / {row.inactive} inactive</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section className="report-panel page-stack admin-section">

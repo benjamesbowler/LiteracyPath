@@ -469,6 +469,131 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
   );
 }
 
+function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }) {
+  const [selectedTiles, setSelectedTiles] = useState([]);
+  const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
+  const answerOptions = currentQuestion.answerOptions?.length
+    ? currentQuestion.answerOptions
+    : (currentQuestion.choices || []).map(choice => ({ label: choice, value: choice }));
+  const showOptionAudio =
+    answerOptions.length > 0 &&
+    answerOptions.every(option => Boolean(getApprovedAudioPath(option.word || option.label, option.audio || "")));
+
+  useEffect(() => {
+    setSelectedTiles([]);
+  }, [currentQuestion.id]);
+
+  function addTile(tile, index) {
+    setSelectedTiles(previous => [...previous, { tile, index }]);
+  }
+
+  function removeTile(index) {
+    setSelectedTiles(previous => previous.filter((_, itemIndex) => itemIndex !== index));
+  }
+
+  if (isSoundOrder) {
+    const selectedIndexes = new Set(selectedTiles.map(item => item.index));
+    const builtWord = selectedTiles.map(item => item.tile).join("");
+
+    return (
+      <div className="ixl-template-panel">
+        <div className="sound-order-build" aria-label="Built word">
+          {selectedTiles.length === 0 ? (
+            <span className="sound-order-placeholder">Tap the sounds in order</span>
+          ) : (
+            selectedTiles.map((item, index) => (
+              <button
+                className="sound-order-selected-tile"
+                key={`${item.tile}-${item.index}`}
+                onClick={() => removeTile(index)}
+                type="button"
+              >
+                {item.tile}
+              </button>
+            ))
+          )}
+        </div>
+
+        <div className="sound-order-tile-row">
+          {(currentQuestion.soundTiles || []).map((tile, index) => (
+            <button
+              className="sound-order-tile"
+              disabled={selectedIndexes.has(index)}
+              key={`${tile}-${index}`}
+              onClick={() => addTile(tile, index)}
+              type="button"
+            >
+              {tile}
+            </button>
+          ))}
+        </div>
+
+        <div className="button-row ixl-template-actions">
+          <button
+            className="reset-button"
+            onClick={() => setSelectedTiles([])}
+            type="button"
+          >
+            Reset
+          </button>
+          <button
+            className="main-button"
+            disabled={builtWord.length !== String(currentQuestion.correctAnswer || currentQuestion.answer || "").length}
+            onClick={() => answerQuestion(builtWord)}
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="ixl-template-panel">
+      {currentQuestion.partialWord && (
+        <div className="partial-word-card" aria-label="Partial word">
+          {currentQuestion.partialWord}
+        </div>
+      )}
+
+      <div className="ixl-answer-grid">
+        {answerOptions.map((option, index) => {
+          const label = option.label || option.word || option.value;
+          const value = option.value || option.word || label;
+          const image = option.image || option.imageUrl || "";
+          const audioPath = getApprovedAudioPath(option.word || label, option.audio || "");
+
+          return (
+            <article className={image ? "ixl-answer-card image-card" : "ixl-answer-card"} key={`${value}-${index}`}>
+              <button
+                className="ixl-answer-button"
+                onClick={() => answerQuestion(value)}
+                type="button"
+              >
+                {image && (
+                  <img src={image} alt={option.alt || `Picture for ${label}`} />
+                )}
+                <strong>{label}</strong>
+              </button>
+
+              {showOptionAudio && audioPath && (
+                <AssessmentAudioButton
+                  text={option.word || label}
+                  audioPath={audioPath}
+                  speakText={speakText}
+                  label={`Hear ${label}`}
+                  className="initial-sound-card-audio"
+                />
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function ListeningVisual() {
   return (
     <div className="assessment-listening-visual" aria-hidden="true">
@@ -477,7 +602,7 @@ function ListeningVisual() {
   );
 }
 
-function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, speakText, shouldShowImage }) {
+function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, speakText, shouldShowImage }) {
   const approvedStimulusAudioPath = getApprovedAudioPath(
     currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
     currentQuestion.audioPath
@@ -487,6 +612,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
   const hasMainImage = shouldShowImage(currentQuestion) || (
     currentQuestion.imagePath &&
     (
+      isIxlStyleTemplate ||
       currentQuestion.formatType === "PICTURE_TO_PRINT_MATCH" ||
       currentQuestion.formatType === "PLURAL_IMAGE_SPELLING" ||
       currentQuestion.question?.toLowerCase().includes("matches the picture")
@@ -497,6 +623,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     !hasPassage &&
     !hasMainImage &&
     !isPairSelection &&
+    !isIxlStyleTemplate &&
     Boolean(approvedStimulusAudioPath || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
 
   return (
@@ -1850,6 +1977,8 @@ export function AssessmentPage({
     ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
   const isVisualCardChoice =
     currentQuestion?.questionType === "visual_card_choice";
+  const isIxlStyleTemplate =
+    currentQuestion?.questionType === "ixl_template";
   const promptAudioText =
     currentQuestion?.spokenPrompt ||
     currentQuestion?.prompt ||
@@ -1867,6 +1996,7 @@ export function AssessmentPage({
     !isListenAndFindWord &&
     !isPairSelection &&
     !isVisualCardChoice &&
+    !isIxlStyleTemplate &&
     currentQuestion?.choices?.length > 0 &&
     currentQuestion.choices.every(choice => Boolean(textChoiceAudioPaths[choice]));
 
@@ -1884,7 +2014,7 @@ export function AssessmentPage({
 
         <div className="assessment-progress">
           <div className="progress-label">
-            Mastery Round Progress: {roundAnswers.length}/{roundLength}
+            Question {Math.min(roundAnswers.length + 1, roundLength)} of {roundLength}
           </div>
 
           <div className="progress-bar">
@@ -1892,6 +2022,21 @@ export function AssessmentPage({
               className="progress-fill"
               style={{ width: `${roundProgress}%` }}
             ></div>
+          </div>
+
+          <div className="assessment-progress-dots" aria-label={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}>
+            {Array.from({ length: roundLength }, (_, index) => (
+              <span
+                className={
+                  index < roundAnswers.length
+                    ? "complete"
+                    : index === roundAnswers.length
+                      ? "current"
+                      : ""
+                }
+                key={index}
+              ></span>
+            ))}
           </div>
         </div>
 
@@ -1935,6 +2080,7 @@ export function AssessmentPage({
               isListenAndFindWord={isListenAndFindWord}
               isPairSelection={isPairSelection}
               isVisualCardChoice={isVisualCardChoice}
+              isIxlStyleTemplate={isIxlStyleTemplate}
               speakText={speakText}
               shouldShowImage={shouldShowImage}
             />
@@ -1951,6 +2097,12 @@ export function AssessmentPage({
               />
             ) : isVisualCardChoice ? (
               <VisualCardChoiceQuestion
+                currentQuestion={currentQuestion}
+                answerQuestion={answerQuestion}
+                speakText={speakText}
+              />
+            ) : isIxlStyleTemplate ? (
+              <IxlStyleTemplateQuestion
                 currentQuestion={currentQuestion}
                 answerQuestion={answerQuestion}
                 speakText={speakText}

@@ -28,6 +28,7 @@ import { cvcShortVowelExpansionQuestions } from "./data/cvcShortVowelExpansionQu
 import { contentExpansionPass3Questions } from "./data/contentExpansionPass3Questions";
 import { targetedContentRecoveryQuestions } from "./data/targetedContentRecoveryQuestions";
 import { kimiDataset7RuntimeQuestions } from "./data/kimiDataset7RuntimeQuestions";
+import { ixlStyleSeedQuestions } from "./data/ixlStyleSeedQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
@@ -200,7 +201,59 @@ function getQuestionPrompt(question) {
 function getQuestionAnswer(question) {
   return isFixSentenceQuestion(question)
     ? question.correctSentence
-    : question.answer;
+    : question.answer || question.correctAnswer;
+}
+
+function normalizeTemplateOption(option) {
+  if (typeof option === "string") {
+    return {
+      label: option,
+      value: option
+    };
+  }
+
+  return {
+    ...option,
+    label: option.label || option.word || option.value,
+    value: option.value || option.word || option.label
+  };
+}
+
+function normalizeContentQuestion(question) {
+  const answerOptions = Array.isArray(question.answerOptions)
+    ? question.answerOptions.map(normalizeTemplateOption)
+    : [];
+  const choices = Array.isArray(question.choices) && question.choices.length > 0
+    ? question.choices
+    : answerOptions.map(option => option.value).filter(Boolean);
+  const answer = question.answer || question.correctAnswer;
+
+  return {
+    ...question,
+    skill: question.skill || question.skillName || "",
+    question: question.question || question.prompt || "",
+    prompt: question.prompt || question.question || "",
+    answer,
+    correctAnswer: question.correctAnswer || answer,
+    choices,
+    answerOptions,
+    imagePath: question.imagePath || question.imageUrl || "",
+    audioPath: question.audioPath || question.audioUrl || "",
+    itemKey: question.itemKey || question.phonicsPattern || question.targetWord || answer,
+    itemType: question.itemType || (question.skillId === "initial_sounds"
+      ? "initial_sound"
+      : question.skillId === "final_sounds"
+        ? "final_sound"
+        : question.skillId === "rhyming"
+          ? "rhyming_family"
+          : question.skillId === "short_vowel_discrimination"
+            ? "short_vowel"
+            : question.skillId === "cvc_short_vowels"
+              ? "cvc_word"
+              : question.skillId === "blends" || question.skillId === "digraphs"
+                ? "phonics_pattern"
+                : question.itemType)
+  };
 }
 
 function formatExportValue(value) {
@@ -300,7 +353,13 @@ function hasWeakLegacyPhonicsFormat(question) {
   const formatType = String(question?.formatType || "").toUpperCase();
   const questionType = normalize(question?.questionType);
   const hasVisualOrAudio =
-    Boolean(question?.imagePath || question?.audioPath || question?.imageCards?.length || question?.promptImageCards?.length);
+    Boolean(
+      question?.imagePath ||
+      question?.audioPath ||
+      question?.imageCards?.length ||
+      question?.promptImageCards?.length ||
+      question?.answerOptions?.some(option => option?.image || option?.audio)
+    );
   const assetBackedFormats = new Set([
     "INITIAL_SOUND_PAIR_SELECT",
     "FINAL_SOUND_PAIR_SELECT",
@@ -312,11 +371,22 @@ function hasWeakLegacyPhonicsFormat(question) {
     "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
     "MISSING_VOWEL_CVC",
     "PICTURE_AUDIO_TO_PATTERN",
-    "IMAGE_WORD_PATTERN_MATCH"
+    "IMAGE_WORD_PATTERN_MATCH",
+    "FIRST_SOUND",
+    "ENDING_SOUND",
+    "BLEND_SOUNDS",
+    "PUT_SOUNDS_IN_ORDER",
+    "RHYMING_PICTURE",
+    "SHORT_VOWEL_WORD",
+    "COMPLETE_WORD",
+    "SENTENCE_MATCHES_PICTURE",
+    "VOCABULARY_CATEGORY",
+    "GRAMMAR_BASICS"
   ]);
 
   if (assetBackedFormats.has(formatType) || questionType === "listen_and_find_word") return false;
 
+  if (skill.includes("initial") && /\b(which word starts the same as|starts the same as|starts like)\b/.test(promptText)) return true;
   if (skill.includes("final") && /\b(which word ends|ends the same|ends like)\b/.test(promptText)) return true;
   if (/\b(which word rhymes|choose the word that rhymes)\b/.test(promptText)) return !hasVisualOrAudio;
   if ((skill.includes("short vowel") || skill.includes("cvc")) && /\b(same middle sound|same sound in the middle)\b/.test(promptText)) return true;
@@ -333,6 +403,17 @@ function hasLowQualityPluralDistractors(question) {
   return (question?.choices || [])
     .map(choice => normalize(choice))
     .some(choice => choice.endsWith("z"));
+}
+
+function getQuestionTargetWord(question) {
+  return normalizeItemKey(
+    question?.targetWord ||
+    question?.audioText ||
+    question?.imageKey ||
+    question?.answer ||
+    question?.correctAnswer ||
+    ""
+  );
 }
 
 function normalizeItemKey(value) {
@@ -661,10 +742,14 @@ function isQuestionValid(q) {
     return getStageIndex(q) !== -1;
   }
 
+  if (q.templateType === "PUT_SOUNDS_IN_ORDER") {
+    return Array.isArray(q.soundTiles) && q.soundTiles.length >= 2 && getStageIndex(q) !== -1;
+  }
+
   if (!Array.isArray(q.choices) || q.choices.length < 2) return false;
   if (!isPairSelectionQuestion(q) && !q.choices.includes(q.answer)) return false;
 
-  if (isInitialSoundQuestion(q) && !hasCompleteInitialSoundPairAssets(q)) return false;
+  if (q.questionType === "initial_sound_pair" && isInitialSoundQuestion(q) && !hasCompleteInitialSoundPairAssets(q)) return false;
   if (isPairSelectionQuestion(q) && !hasCompletePairSelectionAssets(q)) return false;
   if (isVisualCardChoiceQuestion(q) && !hasCompleteVisualQuestionAssets(q)) return false;
   if (q.questionType === "listen_and_find_word") {
@@ -707,6 +792,7 @@ const allQuestions = [
   ...contentExpansionPass3Questions,
   ...targetedContentRecoveryQuestions,
   ...kimiDataset7RuntimeQuestions,
+  ...ixlStyleSeedQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,
@@ -720,7 +806,7 @@ const allQuestions = [
   ...templateComprehensionAdvanced
 ].map(question =>
   applyQuestionFormatMetadata(applyItemMetadata(
-    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))
+    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(question)))
   ))
 ).filter(isQuestionValid);
 
@@ -783,6 +869,49 @@ function buildCoverageSnapshot(itemMasteryRows = {}, debugContext = null) {
 
     return snapshot;
   }, {});
+}
+
+function buildQuestionBankCoverage(questions = []) {
+  const rowsBySkill = new Map();
+
+  questions.forEach(question => {
+    const skill = question.skill || question.skillName || "Unassigned";
+    const existing = rowsBySkill.get(skill) || {
+      skill,
+      total: 0,
+      active: 0,
+      inactive: 0,
+      templates: {},
+      difficulties: {},
+      patterns: {},
+      missingImage: 0,
+      missingAudio: 0
+    };
+    const template = question.templateType || question.formatType || question.questionType || "legacy";
+    const difficulty = question.difficulty || "not tagged";
+    const pattern = question.phonicsPattern || question.targetPattern || question.itemKey || "";
+    const needsImage =
+      question.questionType === "ixl_template" &&
+      ["FIRST_SOUND", "ENDING_SOUND", "PUT_SOUNDS_IN_ORDER", "COMPLETE_WORD", "SENTENCE_MATCHES_PICTURE"].includes(question.templateType);
+    const needsAudio =
+      question.questionType === "ixl_template" &&
+      ["FIRST_SOUND", "ENDING_SOUND", "BLEND_SOUNDS", "PUT_SOUNDS_IN_ORDER"].includes(question.templateType);
+
+    existing.total += 1;
+    existing.active += question.active === false ? 0 : 1;
+    existing.inactive += question.active === false ? 1 : 0;
+    existing.templates[template] = (existing.templates[template] || 0) + 1;
+    existing.difficulties[difficulty] = (existing.difficulties[difficulty] || 0) + 1;
+    if (pattern) existing.patterns[pattern] = (existing.patterns[pattern] || 0) + 1;
+    if (needsImage && !question.imagePath) existing.missingImage += 1;
+    if (needsAudio && !getApprovedAudioPath(question.audioText || question.targetWord || question.answer, question.audioPath || "")) {
+      existing.missingAudio += 1;
+    }
+
+    rowsBySkill.set(skill, existing);
+  });
+
+  return Array.from(rowsBySkill.values()).sort((a, b) => a.skill.localeCompare(b.skill));
 }
 
 const letterAssessmentOrder = [
@@ -2127,12 +2256,20 @@ export default function App() {
     const row = itemMastery[key];
     const currentRoundKeys = new Set(roundItemKeys);
     const currentRoundQuestionIds = new Set(roundQuestionIds);
+    const currentRoundTargetWords = new Set(
+      roundQuestionIds
+        .map(id => allQuestions.find(item => item.id === id))
+        .filter(Boolean)
+        .map(getQuestionTargetWord)
+        .filter(Boolean)
+    );
     const recentKeys = new Set(getRecentStageItemKeys(activeStage.label));
     const allAttemptedKeys = getAnyStageItemKeys(activeStage.label);
     const recentQuestionIds = new Set(getRecentStageQuestionIds(activeStage.label));
 
     if (currentRoundKeys.has(key)) return 5;
     if (currentRoundQuestionIds.has(question.id) || recentQuestionIds.has(question.id)) return 5;
+    if (getQuestionTargetWord(question) && currentRoundTargetWords.has(getQuestionTargetWord(question))) return 4;
     if (!row && !allAttemptedKeys.has(key)) return 0;
     if (row && !row.mastered && row.correct === 0) return 1;
     if (row && !row.mastered) return 2;
@@ -2165,15 +2302,23 @@ export default function App() {
     const preparedChoices = Array.isArray(question.choices)
       ? (isPairSelectionQuestion(question) ? question.choices : shuffleArray(question.choices))
       : question.choices;
+    const preparedAnswerOptions = Array.isArray(question.answerOptions)
+      ? shuffleArray(question.answerOptions)
+      : question.answerOptions;
     const preparedCards = Array.isArray(question.imageCards)
       ? shuffleArray(question.imageCards)
       : question.imageCards;
+    const preparedSoundTiles = Array.isArray(question.soundTiles)
+      ? shuffleArray(question.soundTiles)
+      : question.soundTiles;
 
     return {
       ...question,
       isTargetedReview,
       choices: preparedChoices,
-      imageCards: preparedCards
+      answerOptions: preparedAnswerOptions,
+      imageCards: preparedCards,
+      soundTiles: preparedSoundTiles
     };
   }
 
@@ -2982,6 +3127,7 @@ export default function App() {
     const skill = normalize(question.skill);
 
     return Boolean(question.imagePath) && (
+      question.questionType === "ixl_template" ||
       question.question === "Listen and find the word." ||
       skill.includes("vocabulary") ||
       skill.includes("preposition") ||
@@ -4068,6 +4214,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const roundCorrect = roundAnswers.filter(Boolean).length;
   const roundProgress = Math.round((roundAnswers.length / ROUND_LENGTH) * 100);
   const accuracy = totalAnswered === 0 ? 0 : Math.round((correctAnswered / totalAnswered) * 100);
+  const questionBankCoverage = buildQuestionBankCoverage(allQuestions);
   const isFocusedAssessment =
     appView === "assessment" ||
     appView === "checkpoint" ||
@@ -4155,6 +4302,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             reopenFlag={flagId => updateQuestionFlagStatus(flagId, "open")}
             deleteClass={adminDeleteClass}
             deleteStudent={adminDeleteStudent}
+            questionBankCoverage={questionBankCoverage}
             message={message}
           />
         </Suspense>
