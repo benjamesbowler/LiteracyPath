@@ -26,9 +26,9 @@ const initialSoundPairSets = {
   t: [["tent", "ten", "dog"], ["tiger", "top", "sun"]],
   u: [["umbrella", "under", "dog"], ["uncle", "up", "cat"]],
   v: [["van", "vase", "dog"], ["vest", "vet", "sun"]],
-  w: [["whale", "wig", "sun"], ["web", "worm", "dog"]],
+  w: [["web", "wig", "sun"], ["worm", "web", "dog"]],
   y: [["yak", "yarn", "dog"], ["yo-yo", "yak", "sun"]],
-  z: [["zebra", "zip", "dog"], ["zoo", "zebra", "sun"]]
+  z: [["zebra", "zoo", "dog"], ["zoo", "zebra", "sun"]]
 };
 
 export const initialSoundPairItemKeys = Object.keys(initialSoundPairSets);

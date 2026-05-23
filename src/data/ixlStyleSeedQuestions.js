@@ -1,4 +1,5 @@
 import { getChildWordAsset } from "./childAssets.js";
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 
 function assetFor(word) {
   const asset = getChildWordAsset(word);
@@ -7,7 +8,7 @@ function assetFor(word) {
     label: word,
     value: word,
     image: asset?.image || asset?.fallbackImage || "",
-    audio: asset?.audio || "",
+    audio: getApprovedAudioPath(word, asset?.audio || ""),
     alt: asset?.alt || `Picture for ${word}`
   };
 }
@@ -99,24 +100,23 @@ const firstSoundWords = [
   ["jet", "j"], ["jam", "j"], ["fish", "f"], ["fan", "f"], ["farm", "f"],
   ["sock", "s"], ["duck", "d"], ["ring", "r"], ["hand", "h"], ["milk", "m"],
   ["sun", "s"], ["hat", "h"], ["log", "l"], ["mug", "m"], ["nut", "n"],
-  ["fox", "f"], ["bug", "b"], ["wig", "w"], ["zip", "z"], ["van", "v"]
+  ["fox", "f"], ["bug", "b"], ["wig", "w"], ["zebra", "z"], ["van", "v"]
 ];
-const firstSoundChoices = ["b", "c", "d", "f", "h", "j", "l", "m", "n", "p", "r", "s", "sh", "v", "w", "z"];
+const firstSoundChoices = ["b", "c", "d", "f", "h", "j", "l", "m", "n", "p", "r", "s", "t", "v", "w", "z"];
 
 const endingSoundWords = [
   ["cat", "t"], ["dog", "g"], ["bed", "d"], ["map", "p"], ["pan", "n"],
   ["pin", "n"], ["bat", "t"], ["bag", "g"], ["cup", "p"], ["web", "b"],
-  ["jet", "t"], ["jam", "m"], ["fish", "sh"], ["ship", "p"], ["shop", "p"],
-  ["sock", "ck"], ["duck", "ck"], ["ring", "ng"], ["hand", "nd"], ["milk", "lk"],
+  ["jet", "t"], ["jam", "m"], ["ship", "p"], ["shop", "p"],
   ["sun", "n"], ["hat", "t"], ["log", "g"], ["mug", "g"], ["nut", "t"],
-  ["fox", "x"], ["bug", "g"], ["wig", "g"], ["zip", "p"], ["tent", "nt"]
+  ["bug", "g"], ["wig", "g"], ["red", "d"], ["bell", "l"], ["ham", "m"]
 ];
-const endingChoices = ["b", "ck", "d", "g", "lk", "m", "n", "nd", "ng", "nt", "p", "sh", "t", "x"];
+const endingChoices = ["b", "d", "g", "l", "m", "n", "p", "s", "t"];
 
 const cvcWords = [
   "cat", "dog", "bed", "map", "pan", "pin", "bat", "bag", "cup", "web",
   "jet", "jam", "fish", "sock", "duck", "sun", "hat", "log", "mug", "nut",
-  "fox", "bug", "wig", "zip", "fin", "sit", "pot", "cap", "man", "ram"
+  "fox", "bug", "wig", "lid", "fin", "sit", "pot", "cap", "man", "ram"
 ];
 
 const completeWordItems = [
@@ -149,7 +149,7 @@ const shortVowelItems = [
   ["short_e", "short e", "bed", "bad"], ["short_e", "short e", "web", "wig"], ["short_e", "short e", "jet", "jam"],
   ["short_e", "short e", "red", "ram"], ["short_e", "short e", "hen", "hat"], ["short_e", "short e", "net", "nut"],
   ["short_i", "short i", "pin", "pan"], ["short_i", "short i", "fish", "fox"], ["short_i", "short i", "ship", "shop"],
-  ["short_i", "short i", "wig", "web"], ["short_i", "short i", "zip", "cup"], ["short_i", "short i", "fin", "fan"],
+  ["short_i", "short i", "wig", "web"], ["short_i", "short i", "lid", "cup"], ["short_i", "short i", "fin", "fan"],
   ["short_o", "short o", "dog", "duck"], ["short_o", "short o", "sock", "sun"], ["short_o", "short o", "shop", "ship"],
   ["short_o", "short o", "log", "leg"], ["short_o", "short o", "mop", "map"], ["short_o", "short o", "fox", "fin"],
   ["short_u", "short u", "cup", "cap"], ["short_u", "short u", "duck", "dog"], ["short_u", "short u", "sun", "sock"],

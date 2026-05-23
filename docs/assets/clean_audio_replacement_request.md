@@ -236,5 +236,5 @@ No missing required static MP3 files were found in active asset-backed runtime q
 | you | public/audio/child-mode/clean-human/hfw/you.mp3 |  | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | you-found-it | public/audio/child-mode/phrases/you-found-it.mp3 | public/audio/child-mode/phrases/you-found-it-kimi3.mp3 | Kimi phrase alternate is quarantined until human review; stable local phrase audio remains preferred. |
 | zebra | public/audio/child-mode/clean-human/words/zebra.mp3 |  | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
-| zip | public/audio/child-mode/clean-human/words/zip.mp3 |  | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
+| zip |  | public/audio/child-mode/words/zip.mp3, public/audio/child-mode/clean-human/words/zip.mp3 | Blocked from active Teacher Assessment after live testing showed the word audio was pronounced as separated letters instead of the natural word. |
 | zoo | public/audio/child-mode/clean-human/words/zoo.mp3 |  | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |

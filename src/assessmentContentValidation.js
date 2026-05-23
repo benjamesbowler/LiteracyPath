@@ -1,5 +1,6 @@
 import { getApprovedAudioPath } from "./data/audioPreferenceManifest.js";
 import { validateQuestionTemplate } from "./data/templateValidationRules.js";
+import { getEarlyPhonicsAndAudioIssues } from "./data/earlyPhonicsValidation.js";
 
 const BLEND_PATTERNS = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];
 const DIGRAPH_PATTERNS = ["sh", "ch", "th", "wh", "ph", "ck"];
@@ -213,6 +214,7 @@ function audioIssue(question, assetExists) {
 export function getAssessmentContentIssues(question, options = {}) {
   const issues = [
     ...validateQuestionTemplate(question, options),
+    ...getEarlyPhonicsAndAudioIssues(question),
     repeatedAnswerIssue(question),
     imageIssue(question, options.assetExists),
     audioIssue(question, options.assetExists),

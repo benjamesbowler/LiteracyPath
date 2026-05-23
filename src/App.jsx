@@ -820,6 +820,15 @@ const allQuestions = [
 const configuredCoverageTotals = coverageExpectations;
 
 function getCoverageItemKeysForStage(stage) {
+  const configured = configuredCoverageTotals[stage?.id];
+  if (configured?.itemKeys?.length && configured?.itemType) {
+    return new Set(
+      configured.itemKeys.map(itemKey =>
+        getItemMasteryStateKeyForValues(itemKey, configured.itemType)
+      )
+    );
+  }
+
   const keys = new Set();
 
   allQuestions.forEach(question => {
@@ -2285,6 +2294,99 @@ export default function App() {
     return row?.mastered || row?.correct > 0 ? 5 : 3;
   }
 
+  function getCurrentRoundQuestionObjects() {
+    return roundQuestionIds
+      .map(id => allQuestions.find(item => item.id === id))
+      .filter(Boolean);
+  }
+
+  function getQuestionRoundSignature(question) {
+    return [
+      normalizeItemKey(getQuestionPrompt(question)),
+      normalizeItemKey(getQuestionAnswer(question))
+    ].join("::");
+  }
+
+  function getRoundDuplicateProfile() {
+    const currentRoundQuestions = getCurrentRoundQuestionObjects();
+
+    return {
+      questionIds: new Set(roundQuestionIds.filter(Boolean)),
+      targetWords: new Set(currentRoundQuestions.map(getQuestionTargetWord).filter(Boolean)),
+      itemKeys: new Set(roundItemKeys.filter(Boolean)),
+      correctAnswers: new Set(currentRoundQuestions.map(getQuestionAnswer).map(normalizeItemKey).filter(Boolean)),
+      signatures: new Set(currentRoundQuestions.map(getQuestionRoundSignature).filter(Boolean))
+    };
+  }
+
+  function getRoundDuplicateFlags(question, profile = getRoundDuplicateProfile()) {
+    const metadata = inferItemMetadata(question);
+    const itemStateKey = metadata?.itemKey && metadata?.itemType
+      ? getItemMasteryStateKey(metadata.itemKey, metadata.itemType)
+      : "";
+    const target = getQuestionTargetWord(question);
+    const correct = normalizeItemKey(getQuestionAnswer(question));
+    const signature = getQuestionRoundSignature(question);
+
+    return {
+      questionId: Boolean(question.id && profile.questionIds.has(question.id)),
+      targetWord: Boolean(target && profile.targetWords.has(target)),
+      itemKey: Boolean(itemStateKey && profile.itemKeys.has(itemStateKey)),
+      correctAnswer: Boolean(correct && profile.correctAnswers.has(correct)),
+      signature: Boolean(signature && profile.signatures.has(signature))
+    };
+  }
+
+  function selectNonDuplicateRoundCandidate(prioritized, activeStage) {
+    const profile = getRoundDuplicateProfile();
+    const roundFormatTypes = new Set(
+      getCurrentRoundQuestionObjects()
+        .map(question => getQuestionFormatMetadata(question).formatType)
+    );
+    const strict = prioritized.filter(question => {
+      const flags = getRoundDuplicateFlags(question, profile);
+      return !flags.questionId &&
+        !flags.targetWord &&
+        !flags.itemKey &&
+        !flags.correctAnswer &&
+        !flags.signature;
+    });
+    const relaxedItemKey = prioritized.filter(question => {
+      const flags = getRoundDuplicateFlags(question, profile);
+      return !flags.questionId &&
+        !flags.targetWord &&
+        !flags.correctAnswer &&
+        !flags.signature;
+    });
+    const relaxedAnswer = prioritized.filter(question => {
+      const flags = getRoundDuplicateFlags(question, profile);
+      return !flags.questionId &&
+        !flags.targetWord &&
+        !flags.signature;
+    });
+    const noQuestionRepeat = prioritized.filter(question => !getRoundDuplicateFlags(question, profile).questionId);
+    const candidatePools = [strict, relaxedItemKey, relaxedAnswer, noQuestionRepeat, prioritized].filter(pool => pool.length > 0);
+    const pool = candidatePools[0] || [];
+    const picked =
+      pool.find(question => !roundFormatTypes.has(getQuestionFormatMetadata(question).formatType)) ||
+      pool[0];
+
+    debugAssessmentCoverage("round duplicate guard", {
+      studentId,
+      skill: activeStage.label,
+      poolSize: prioritized.length,
+      strictCandidates: strict.length,
+      relaxedItemKeyCandidates: relaxedItemKey.length,
+      relaxedAnswerCandidates: relaxedAnswer.length,
+      selectedQuestionId: picked?.id || "",
+      selectedTargetWord: picked ? getQuestionTargetWord(picked) : "",
+      selectedItemKey: picked ? getQuestionItemKey(picked) : "",
+      duplicateFlags: picked ? getRoundDuplicateFlags(picked, profile) : {}
+    });
+
+    return picked;
+  }
+
   function prioritizeCoverageQuestions(questions, activeStage) {
     const grouped = questions.reduce((groups, question) => {
       const rank = getQuestionSelectionRank(question, activeStage);
@@ -2388,15 +2490,7 @@ export default function App() {
         : available;
 
     const prioritized = prioritizeCoverageQuestions(pool, activeStage);
-    const roundFormatTypes = new Set(
-      roundQuestionIds
-        .map(id => allQuestions.find(question => question.id === id))
-        .filter(Boolean)
-        .map(question => getQuestionFormatMetadata(question).formatType)
-    );
-    const picked =
-      prioritized.find(question => !roundFormatTypes.has(getQuestionFormatMetadata(question).formatType)) ||
-      prioritized[0];
+    const picked = selectNonDuplicateRoundCandidate(prioritized, activeStage);
 
     debugAssessmentCoverage("question selection", {
       studentId,
@@ -2727,31 +2821,39 @@ export default function App() {
   }
 
   function buildCheckpointDecision(stage, stageIndex, nextRound, nextRoundItemKeys, passed) {
-    const runtimeKeys = Array.from(getCoverageItemKeysForStage(stage));
-    const runtimeKeySet = new Set(runtimeKeys);
-    const coveredKeys = new Set(
+    const expectedKeys = Array.from(getCoverageItemKeysForStage(stage));
+    const expectedKeySet = new Set(expectedKeys);
+    const alreadyCoveredKeys = new Set(
       Object.values(itemMastery || {})
         .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0))
         .map(row => getItemMasteryStateKey(row.itemKey, row.itemType))
-        .filter(key => runtimeKeySet.has(key))
+        .filter(key => expectedKeySet.has(key))
     );
+    const coveredKeys = new Set(alreadyCoveredKeys);
 
     nextRoundItemKeys
-      .filter(key => runtimeKeySet.has(key))
+      .filter(key => expectedKeySet.has(key))
       .forEach(key => coveredKeys.add(key));
 
     const configured = configuredCoverageTotals[stage.id];
-    const coverageTotal = configured?.total || runtimeKeys.length;
+    const coverageTotal = configured?.total || expectedKeys.length;
     const coverageUnit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words" : "items");
-    const remainingItems = runtimeKeys
+    const remainingItems = expectedKeys
       .filter(key => !coveredKeys.has(key))
       .map(formatCoverageKeyLabel)
       .slice(0, 40);
     const coveredThisRound = Array.from(new Set(
       nextRoundItemKeys
-        .filter(key => runtimeKeySet.has(key))
+        .filter(key => expectedKeySet.has(key))
         .map(formatCoverageKeyLabel)
     ));
+    const alreadyMastered = Array.from(alreadyCoveredKeys)
+      .filter(key => !nextRoundItemKeys.includes(key))
+      .map(formatCoverageKeyLabel)
+      .slice(0, 40);
+    const totalCoveredItems = Array.from(coveredKeys)
+      .map(formatCoverageKeyLabel)
+      .slice(0, 60);
     const score = nextRound.filter(Boolean).length;
 
     return {
@@ -2764,6 +2866,8 @@ export default function App() {
       passed,
       nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
       coveredThisRound,
+      alreadyMastered,
+      totalCoveredItems,
       remainingItems,
       coverage: {
         mastered: Math.min(coveredKeys.size, coverageTotal),

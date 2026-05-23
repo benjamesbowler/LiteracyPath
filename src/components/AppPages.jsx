@@ -1810,6 +1810,32 @@ export function CheckpointDecisionPage({
           </section>
 
           <section>
+            <h3>Already covered before this round</h3>
+            {checkpoint.alreadyMastered?.length > 0 ? (
+              <div className="word-chip-row">
+                {checkpoint.alreadyMastered.map(item => (
+                  <span className="word-chip mastered" key={item}>{item}</span>
+                ))}
+              </div>
+            ) : (
+              <p className="muted-text">No prior coverage was recorded for this skill.</p>
+            )}
+          </section>
+
+          <section>
+            <h3>Total covered</h3>
+            {checkpoint.totalCoveredItems?.length > 0 ? (
+              <div className="word-chip-row">
+                {checkpoint.totalCoveredItems.map(item => (
+                  <span className="word-chip mastered" key={item}>{item}</span>
+                ))}
+              </div>
+            ) : (
+              <p className="muted-text">Coverage will appear after this round saves.</p>
+            )}
+          </section>
+
+          <section>
             <h3>Still to cover</h3>
             {checkpoint.remainingItems.length > 0 ? (
               <div className="word-chip-row">
@@ -1818,7 +1844,7 @@ export function CheckpointDecisionPage({
                 ))}
               </div>
             ) : (
-              <p className="muted-text">No remaining runtime items are currently visible for this skill.</p>
+              <p className="muted-text">All configured items for this skill are covered.</p>
             )}
           </section>
         </div>

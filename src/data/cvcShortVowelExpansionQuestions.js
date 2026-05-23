@@ -24,8 +24,8 @@ const cvcTargets = [
   ["red", ["red", "ram", "rug", "bed"]],
   ["sit", ["sit", "sun", "hit", "hot"]],
   ["sun", ["sun", "sit", "nut", "cup"]],
-  ["wig", ["wig", "web", "zip", "pig"]],
-  ["zip", ["zip", "wig", "sit", "pig"]]
+  ["wig", ["wig", "web", "lid", "pig"]],
+  ["lid", ["lid", "wig", "sit", "pig"]]
 ];
 
 function uniqueChoices(choices) {

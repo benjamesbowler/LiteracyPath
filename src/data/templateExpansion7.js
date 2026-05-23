@@ -1252,17 +1252,17 @@ export const templateExpansion7 = [
     "difficulty": 1,
     "passage": "",
     "question": "Listen and find the word.",
-    "spokenPrompt": "Find the word zip.",
+    "spokenPrompt": "Find the word lid.",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",
     "choices": [
-      "zip",
-      "zap",
-      "zig",
-      "zen"
+      "lid",
+      "leg",
+      "lad",
+      "log"
     ],
-    "answer": "zip"
+    "answer": "lid"
   },
   {
     "id": "exp7_cvc_24",

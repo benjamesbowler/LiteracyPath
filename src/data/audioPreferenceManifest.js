@@ -53,6 +53,20 @@ function approvedPreference({ key, word = key, category, fallbackPath, source, n
   };
 }
 
+function reviewNeededPreference({ key, word = key, fallbackPath, source, notes, reviewNeededPaths = [] }) {
+  return {
+    key,
+    word,
+    textSpoken: word.replace(/-/g, " "),
+    preferredAudioPath: "",
+    deprecatedAudioPaths: [],
+    reviewNeededPaths: [...new Set([fallbackPath, ...reviewNeededPaths].filter(Boolean))],
+    source,
+    status: "review_needed",
+    notes
+  };
+}
+
 const approvedWordAudioKeys = [
   "ant", "apple", "axe", "bad", "bag", "ball", "bat", "bear", "bed", "bee",
   "bell", "bid", "big", "bin", "bird", "black", "blue", "boat", "book", "books",
@@ -142,6 +156,15 @@ const quarantinedPhraseAudio = {
   "you-found-it": ["you-found-it-kimi3"]
 };
 
+const blockedWordAudio = {
+  zip: {
+    fallbackPath: wordAudioPath("zip"),
+    reviewNeededPaths: ["/audio/child-mode/clean-human/words/zip.mp3"],
+    source: "live assessment audio review",
+    notes: "Blocked from active Teacher Assessment after live testing showed the word audio was pronounced as separated letters instead of the natural word."
+  }
+};
+
 export const audioPreferenceManifest = Object.fromEntries([
   ...approvedWordAudioKeys.map(word => [
     word,
@@ -200,6 +223,14 @@ export const audioPreferenceManifest = Object.fromEntries([
       reviewNeededPaths: variants.map(variant => phraseAudioPath(variant)),
       source: "child-mode phrases",
       notes: "Kimi phrase alternate is quarantined until human review; stable local phrase audio remains preferred."
+    })
+  ]),
+  ...Object.entries(blockedWordAudio).map(([word, config]) => [
+    word,
+    reviewNeededPreference({
+      key: word,
+      word,
+      ...config
     })
   ])
 ]);
