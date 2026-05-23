@@ -38,6 +38,15 @@
   --lp-space-7: 16px;
   --lp-space-8: 18px;
   --lp-space-9: 20px;
+  --color-primary: var(--lp-color-primary);
+  --color-primary-soft: var(--lp-color-primary-soft);
+  --color-success: var(--lp-color-success);
+  --color-danger: #dc2626;
+  --color-bg: var(--lp-color-background-warm);
+  --color-card: var(--lp-color-surface);
+  --color-border: var(--lp-color-border);
+  --shadow-card: var(--lp-shadow-card);
+  --radius-card: var(--lp-radius-lg);
 }
 
 * {
@@ -656,6 +665,255 @@ body {
   padding: 10px 12px;
   line-height: 1.2;
   white-space: normal;
+}
+
+.teacher-overview-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-card);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+.teacher-overview-hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.15fr);
+  gap: 14px;
+  align-items: stretch;
+  padding: 14px;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fffdf8 0%, #f7fbff 100%);
+}
+
+.teacher-student-title h2,
+.teacher-student-title p {
+  margin: 0;
+}
+
+.teacher-student-title h2 {
+  color: var(--lp-color-text-strong) !important;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.teacher-student-title p:not(.panel-label) {
+  margin-top: 6px;
+  color: var(--lp-color-text-muted) !important;
+  font-weight: 700;
+}
+
+.teacher-metric-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.teacher-metric-strip > div {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.teacher-metric-strip span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--lp-color-text-muted) !important;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.teacher-metric-strip strong {
+  color: var(--lp-color-text-strong) !important;
+  font-size: 20px;
+  font-weight: 850;
+}
+
+.teacher-start-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.1fr) minmax(280px, 1.2fr) minmax(220px, 0.9fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.teacher-skill-selector,
+.teacher-primary-action,
+.teacher-quick-actions {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.teacher-skill-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teacher-skill-selector span,
+.teacher-primary-action strong {
+  color: var(--lp-color-text-strong) !important;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.teacher-skill-selector select {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.teacher-primary-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  border-color: #bfdbfe;
+  background: #f8fbff;
+}
+
+.teacher-primary-action p {
+  margin: 4px 0 0;
+  color: var(--lp-color-text-muted) !important;
+  font-size: 13px;
+}
+
+.teacher-quick-actions,
+.teacher-action-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.teacher-quick-actions .lp-button {
+  flex: 1 1 150px;
+}
+
+.teacher-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.teacher-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.teacher-tabs button {
+  min-height: 34px !important;
+  padding: 7px 12px !important;
+  border-radius: 9px !important;
+  background: transparent !important;
+  color: var(--lp-color-text-muted) !important;
+  border: 0 !important;
+  font-size: 13px !important;
+}
+
+.teacher-tabs button.active {
+  background: #ffffff !important;
+  color: var(--lp-color-text-strong) !important;
+  box-shadow: 0 4px 14px rgba(22, 34, 51, 0.08);
+}
+
+.teacher-tab-panel {
+  padding: 14px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.teacher-panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.teacher-panel-header h3,
+.teacher-panel-header p {
+  margin: 0;
+}
+
+.teacher-panel-header h3 {
+  color: var(--lp-color-text-strong) !important;
+  font-size: 16px;
+}
+
+.teacher-panel-header p {
+  margin-top: 4px;
+  color: var(--lp-color-text-muted) !important;
+  font-size: 13px;
+}
+
+.weakness-grid.compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.teacher-action-list .lp-button {
+  flex: 0 1 230px;
+}
+
+.admin-tools-stack {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.lp-button {
+  min-height: 40px !important;
+  padding: 9px 13px !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+}
+
+.lp-button-primary {
+  background: linear-gradient(180deg, var(--lp-color-primary), var(--lp-color-primary-strong)) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--lp-color-primary-strong) !important;
+  box-shadow: 0 8px 18px rgba(23, 92, 211, 0.16);
+}
+
+.lp-button-secondary {
+  background: #ffffff !important;
+  color: #344054 !important;
+  border: 1px solid var(--lp-color-border-strong) !important;
+}
+
+.lp-button-secondary:hover:not(:disabled) {
+  border-color: #bfdbfe !important;
+  color: var(--lp-color-primary-strong) !important;
+}
+
+.lp-button-danger-outline {
+  background: #ffffff !important;
+  color: #b42318 !important;
+  border: 1px solid #fecdca !important;
+}
+
+.lp-button-danger-outline:hover:not(:disabled) {
+  background: #fff5f5 !important;
+  border-color: #fda29b !important;
 }
 
 .overview-action-button.secondary {
@@ -2035,6 +2293,10 @@ select:focus {
   }
 
   .weakness-grid,
+  .weakness-grid.compact,
+  .teacher-overview-hero,
+  .teacher-start-grid,
+  .teacher-progress-grid,
   .item-mastery-grid,
   .child-learning-grid,
   .child-learning-lists,
@@ -2050,6 +2312,26 @@ select:focus {
   .overview-button-group,
   .overview-button-group.button-row {
     grid-template-columns: 1fr;
+  }
+
+  .teacher-overview-dashboard {
+    padding: 12px;
+  }
+
+  .teacher-metric-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .teacher-primary-action {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-tabs {
+    width: 100%;
+  }
+
+  .teacher-tabs button {
+    flex: 1 1 120px;
   }
 
   .choices {

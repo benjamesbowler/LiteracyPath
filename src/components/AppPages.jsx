@@ -1120,8 +1120,10 @@ export function StudentOverviewPage({
   letterAssessment = [],
   patternAssessment = [],
   exportLetterAssessment,
-  exportPatternAssessment
+  exportPatternAssessment,
+  isAdmin = false
 }) {
+  const [activeTab, setActiveTab] = useState("overview");
   const strongestAreas =
     weaknessSnapshot.strongest.slice(0, 3);
 
@@ -1173,45 +1175,46 @@ export function StudentOverviewPage({
     ? Math.round((currentCoverage.mastered / currentCoverage.total) * 100)
     : 0;
   const checkpointPassed = roundCorrect >= passScore;
+  const hasProgress = totalAnswered > 0 || roundCorrect > 0 || currentCoverage.mastered > 0;
+  const tabItems = [
+    { id: "overview", label: "Overview" },
+    { id: "el", label: "EL Assessments" },
+    { id: "reports", label: "Reports" },
+    { id: "tools", label: "Tools" }
+  ];
 
   return (
-    <div className="card page-card page-stack">
-      <h2>Student Overview</h2>
-
-      <p><strong>Student:</strong> {studentName || "Unnamed student"}</p>
-      <p><strong>Current skill:</strong> {currentSkillIndex + 1}. {currentStage.label}</p>
-      <p><strong>Overall accuracy:</strong> {accuracy}%</p>
-      <p><strong>Questions answered:</strong> {totalAnswered}</p>
-      <p><strong>Checkpoint rule:</strong> {passScore}/{roundLength} correct to unlock the next skill.</p>
-      <p className="muted-text">Checkpoint means enough evidence to proceed. Mastery coverage means item-level completion within the skill.</p>
-
-      <section className="checkpoint-coverage-panel">
-        <div className="coverage-card">
-          <div className="coverage-card-header">
-            <strong>Checkpoint Progress</strong>
-            <span>{checkpointPassed ? "Checkpoint Passed" : `${roundCorrect}/${roundLength} correct`}</span>
-          </div>
-          <div className="coverage-bar" aria-label="Checkpoint progress">
-            <span style={{ width: `${checkpointPercent}%` }}></span>
-          </div>
-          <p>{passScore}/{roundLength} correct gate keeps the current unlock logic.</p>
+    <div className="card page-card teacher-overview-dashboard">
+      <section className="teacher-overview-hero" aria-label="Student overview summary">
+        <div className="teacher-student-title">
+          <p className="panel-label">Student Overview</p>
+          <h2>{studentName || "Unnamed student"}</h2>
+          <p>{currentSkillIndex + 1}. {currentStage.label}</p>
         </div>
 
-        <div className="coverage-card">
-          <div className="coverage-card-header">
-            <strong>Item Coverage Progress</strong>
-            <span>{currentCoverage.mastered}/{currentCoverage.total} {currentCoverage.unit} mastered</span>
+        <div className="teacher-metric-strip" aria-label="Student progress summary">
+          <div>
+            <span>Accuracy</span>
+            <strong>{accuracy}%</strong>
           </div>
-          <div className="coverage-bar secondary" aria-label="Item coverage progress">
-            <span style={{ width: `${coveragePercent}%` }}></span>
+          <div>
+            <span>Checkpoint</span>
+            <strong>{roundCorrect}/{roundLength}</strong>
           </div>
-          <p>Coverage source: item_mastery rows.</p>
+          <div>
+            <span>Coverage</span>
+            <strong>{currentCoverage.mastered}/{currentCoverage.total || 0}</strong>
+          </div>
+          <div>
+            <span>Answered</span>
+            <strong>{totalAnswered}</strong>
+          </div>
         </div>
       </section>
 
-      <section className="overview-start-panel" aria-label="Start assessment">
-        <label className="overview-skill-selector">
-          <strong>Start or adjust skill level</strong>
+      <section className="teacher-start-grid" aria-label="Start assessment">
+        <label className="teacher-skill-selector">
+          <span>Start or adjust skill level</span>
           <select
             value={currentSkillIndex}
             onChange={e => {
@@ -1230,290 +1233,270 @@ export function StudentOverviewPage({
           </select>
         </label>
 
-        <div className="overview-primary-start">
+        <div className="teacher-primary-action">
           <div>
-            <strong>Primary</strong>
-            <p>Continue the checkpoint path for this student.</p>
+            <strong>{hasProgress ? "Continue assessment path" : "Begin checkpoint path"}</strong>
+            <p>{passScore}/{roundLength} correct is enough evidence to move forward.</p>
           </div>
-
-          <button className="main-button overview-action-button" onClick={startAssessment}>
-            Enter Full Screen Assessment
+          <button className="lp-button lp-button-primary" onClick={startAssessment}>
+            {hasProgress ? "Resume Full Screen Assessment" : "Enter Full Screen Assessment"}
           </button>
         </div>
-      </section>
 
-      <section className="weakness-snapshot">
-        <h3>Weakness Snapshot</h3>
-
-        <div className="weakness-grid">
-          <div>
-            <strong>Strongest areas</strong>
-            {strongestAreas.length > 0 ? (
-              <ul>
-                {strongestAreas.map(item => (
-                  <li key={`${item.stage}-${item.target}`}>
-                    {item.target} ({item.correct}/{item.total})
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>Not enough data yet.</p>
-            )}
-          </div>
-
-          <div>
-            <strong>Needs practice</strong>
-            {needsPractice.length > 0 ? (
-              <ul>
-                {needsPractice.map(item => (
-                  <li key={`${item.stage}-${item.target}`}>
-                    {item.target} in {item.stage} ({item.incorrect} missed)
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No clear weak spots yet.</p>
-            )}
-          </div>
-
-          <div>
-            <strong>Suggested next focus</strong>
-            <p>
-              {suggestedFocus
-                ? `${suggestedFocus.target} in ${suggestedFocus.stage}`
-                : "Complete more questions to build a recommendation."}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="child-learning-panel">
-        <div className="child-learning-header">
-          <div>
-            <p className="panel-label">Child Learning World Practice Data</p>
-            <h3>Child Learning World Progress</h3>
-          </div>
-          <span className="practice-source-label">Separate from EL assessments and reports</span>
-        </div>
-
-        {childEvidence.tableMissing ? (
-          <p className="child-learning-empty">
-            Child Learning World practice data is not available yet.
-          </p>
-        ) : childEvidence.attempted === 0 ? (
-          <p className="child-learning-empty">
-            No Child Learning World practice has been recorded for this student yet.
-          </p>
-        ) : (
-          <>
-            <div className="child-learning-grid">
-              <div>
-                <strong>Worlds Played</strong>
-                <p>{childEvidence.worldsPlayed.join(", ") || "None yet"}</p>
-              </div>
-
-              <div>
-                <strong>Child Mode Accuracy</strong>
-                <p>{childEvidence.attempted} attempted / {childEvidence.correct} correct / {childEvidence.recentAccuracy ?? 0}% recent</p>
-              </div>
-
-              <div>
-                <strong>Current Focus / Needs Support</strong>
-                <p>{childEvidence.focus}</p>
-              </div>
-
-              <div>
-                <strong>Last Played</strong>
-                <p>{childEvidence.lastPlayed ? new Date(childEvidence.lastPlayed).toLocaleString() : "No activity yet"}</p>
-              </div>
-            </div>
-
-            <div className="child-learning-lists">
-              <div>
-                <strong>Missions Completed</strong>
-                {childEvidence.missionsCompleted.length > 0 ? (
-                  <ul>
-                    {childEvidence.missionsCompleted.map(mission => (
-                      <li key={mission}>{mission}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>No missions completed yet.</p>
-                )}
-              </div>
-
-              <div>
-                <strong>Mastered Child Mode Words</strong>
-                {childEvidence.masteredWords.length > 0 ? (
-                  <div className="word-chip-row">
-                    {childEvidence.masteredWords.map(word => (
-                      <span className="word-chip mastered" key={word}>{word}</span>
-                    ))}
-                  </div>
-                ) : (
-                  <p>No Child Mode words mastered yet.</p>
-                )}
-              </div>
-            </div>
-
-            <div className="mastery-chip-row" aria-label="Child Mode mastery status">
-              {childEvidence.masteryChips.map(item => (
-                <span className={`mastery-chip ${item.status}`} key={item.word}>
-                  {item.word}
-                </span>
-              ))}
-            </div>
-          </>
-        )}
-      </section>
-
-      <details className="item-mastery-debug">
-        <summary>Developer item mastery snapshot</summary>
-
-        <p className="muted-text">
-          Note: Child Mode evidence is tagged separately as child_mode and is not part of formal EL assessment exports yet.
-        </p>
-
-        <div className="item-mastery-grid">
-          <div>
-            <strong>Mastered items</strong>
-            {itemSnapshot.mastered.length > 0 ? (
-              <ul>
-                {itemSnapshot.mastered.map(item => (
-                  <li key={item.itemType + "-" + item.itemKey}>
-                    {formatItemLabel(item)}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No mastered item records yet.</p>
-            )}
-          </div>
-
-          <div>
-            <strong>Attempting items</strong>
-            {itemSnapshot.attempting.length > 0 ? (
-              <ul>
-                {itemSnapshot.attempting.map(item => (
-                  <li key={item.itemType + "-" + item.itemKey}>
-                    {formatItemLabel(item)}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No item attempts recorded yet.</p>
-            )}
-          </div>
-
-          <div>
-            <strong>Coverage</strong>
-            <p>{itemSnapshot.unseenCount} unseen of {itemSnapshot.trackedCount} tracked runtime items.</p>
-          </div>
-
-          <div>
-            <strong>Question format evidence</strong>
-            {itemSnapshot.evidence.length > 0 ? (
-              <ul>
-                {itemSnapshot.evidence.map(item => (
-                  <li key={item.itemType + "-evidence-" + item.itemKey}>
-                    {formatEvidenceLabel(item)}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No format evidence recorded yet.</p>
-            )}
-          </div>
-        </div>
-      </details>
-
-      <section className="overview-actions section-grid" aria-label="Student overview actions">
-        <div className="overview-action-card">
-          <div>
-            <h3>Review</h3>
-            <p>Practice the weakest recent target when enough data exists.</p>
-          </div>
-
+        <div className="teacher-quick-actions" aria-label="Quick actions">
+          <button className="lp-button lp-button-secondary" onClick={switchStudent}>
+            Switch Student
+          </button>
+          <button className="lp-button lp-button-secondary" onClick={() => setAppView("finished")}>
+            View Report
+          </button>
           <button
-            className="report-button overview-action-button"
-            disabled={!suggestedFocus}
-            onClick={startTargetedReview}
+            className="lp-button lp-button-danger-outline"
+            onClick={openResetStudentProgress}
+            type="button"
           >
-            Start Targeted Review
+            Reset Student Progress
           </button>
         </div>
+      </section>
 
-        <div className="overview-action-card tools-action-card">
-          <div>
-            <h3>Assessment Tools</h3>
-            <p>Run focused supplemental assessments.</p>
+      <section className="teacher-progress-grid" aria-label="Progress details">
+        <div className="coverage-card compact">
+          <div className="coverage-card-header">
+            <strong>Checkpoint progress</strong>
+            <span>{checkpointPassed ? "Passed" : `${roundCorrect}/${roundLength}`}</span>
+          </div>
+          <div className="coverage-bar" aria-label="Checkpoint progress">
+            <span style={{ width: `${checkpointPercent}%` }}></span>
+          </div>
+        </div>
+
+        <div className="coverage-card compact">
+          <div className="coverage-card-header">
+            <strong>Coverage progress</strong>
+            <span>{currentCoverage.mastered}/{currentCoverage.total || 0} {currentCoverage.unit}</span>
+          </div>
+          <div className="coverage-bar secondary" aria-label="Item coverage progress">
+            <span style={{ width: `${coveragePercent}%` }}></span>
+          </div>
+        </div>
+      </section>
+
+      <nav className="teacher-tabs" aria-label="Student overview sections">
+        {tabItems.map(tab => (
+          <button
+            key={tab.id}
+            type="button"
+            className={activeTab === tab.id ? "active" : ""}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </nav>
+
+      {activeTab === "overview" && (
+        <section className="teacher-tab-panel" aria-label="Overview">
+          <div className="teacher-panel-header">
+            <div>
+              <h3>Recommendation</h3>
+              <p>{suggestedFocus ? `${suggestedFocus.target} in ${suggestedFocus.stage}` : "Complete more questions to build a recommendation."}</p>
+            </div>
+            <button
+              className="lp-button lp-button-secondary"
+              disabled={!suggestedFocus}
+              onClick={startTargetedReview}
+            >
+              Start Targeted Review
+            </button>
           </div>
 
-          <div className="overview-button-group button-row">
-            <button
-              className="report-button overview-action-button"
-              onClick={() => setAppView("letters")}
-            >
+          <div className="weakness-grid compact">
+            <div>
+              <strong>Needs practice</strong>
+              {needsPractice.length > 0 ? (
+                <ul>
+                  {needsPractice.map(item => (
+                    <li key={`${item.stage}-${item.target}`}>
+                      {item.target} in {item.stage} ({item.incorrect} missed)
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No clear weak spots yet.</p>
+              )}
+            </div>
+
+            <div>
+              <strong>Strongest areas</strong>
+              {strongestAreas.length > 0 ? (
+                <ul>
+                  {strongestAreas.map(item => (
+                    <li key={`${item.stage}-${item.target}`}>
+                      {item.target} ({item.correct}/{item.total})
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>Not enough data yet.</p>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {activeTab === "el" && (
+        <section className="teacher-tab-panel" aria-label="EL assessments">
+          <div className="teacher-action-list">
+            <button className="lp-button lp-button-secondary" onClick={() => setAppView("letters")}>
               Letter Name and Sound Assessment
             </button>
-
-            <button
-              className="report-button overview-action-button"
-              onClick={startAdvancedPhonicsAssessment}
-            >
+            <button className="lp-button lp-button-secondary" onClick={startAdvancedPhonicsAssessment}>
               Advanced Phonics Pattern Assessment
             </button>
-
             {letterAssessment.length > 0 && (
-              <button
-                className="report-button overview-action-button secondary"
-                onClick={exportLetterAssessment}
-                type="button"
-              >
+              <button className="lp-button lp-button-secondary" onClick={exportLetterAssessment} type="button">
                 Export Letter Excel
               </button>
             )}
-
             {patternAssessment.length > 0 && (
-              <button
-                className="report-button overview-action-button secondary"
-                onClick={exportPatternAssessment}
-                type="button"
-              >
+              <button className="lp-button lp-button-secondary" onClick={exportPatternAssessment} type="button">
                 Export Pattern Excel
               </button>
             )}
           </div>
-        </div>
+        </section>
+      )}
 
-        <div className="overview-action-card reports-action-card">
-          <div>
-            <h3>Reports</h3>
-            <p>Review results or choose another student.</p>
-          </div>
-
-          <div className="overview-button-group button-row">
-            <button
-              className="report-button overview-action-button"
-              onClick={() => setAppView("finished")}
-            >
+      {activeTab === "reports" && (
+        <section className="teacher-tab-panel" aria-label="Reports">
+          <div className="teacher-action-list">
+            <button className="lp-button lp-button-secondary" onClick={() => setAppView("finished")}>
               View Report
             </button>
+            {letterAssessment.length > 0 && (
+              <button className="lp-button lp-button-secondary" onClick={exportLetterAssessment} type="button">
+                Export Letter Excel
+              </button>
+            )}
+            {patternAssessment.length > 0 && (
+              <button className="lp-button lp-button-secondary" onClick={exportPatternAssessment} type="button">
+                Export Pattern Excel
+              </button>
+            )}
+          </div>
+        </section>
+      )}
 
-            <button className="report-button overview-action-button secondary" onClick={switchStudent}>
+      {activeTab === "tools" && (
+        <section className="teacher-tab-panel" aria-label="Tools">
+          <div className="teacher-action-list">
+            <button className="lp-button lp-button-secondary" onClick={switchStudent}>
               Switch Student
             </button>
-
-            <button
-              className="reset-button overview-action-button secondary"
-              onClick={openResetStudentProgress}
-              type="button"
-            >
+            <button className="lp-button lp-button-danger-outline" onClick={openResetStudentProgress} type="button">
               Reset Student Progress
             </button>
           </div>
-        </div>
-      </section>
+
+          {isAdmin && (
+            <div className="admin-tools-stack">
+              <section className="child-learning-panel">
+                <div className="child-learning-header">
+                  <div>
+                    <p className="panel-label">Admin only</p>
+                    <h3>Child Learning World Progress</h3>
+                  </div>
+                  <span className="practice-source-label">Separate from EL assessments and reports</span>
+                </div>
+
+                {childEvidence.tableMissing ? (
+                  <p className="child-learning-empty">Child Learning World practice data is not available yet.</p>
+                ) : childEvidence.attempted === 0 ? (
+                  <p className="child-learning-empty">No Child Learning World practice has been recorded for this student yet.</p>
+                ) : (
+                  <>
+                    <div className="child-learning-grid">
+                      <div>
+                        <strong>Worlds Played</strong>
+                        <p>{childEvidence.worldsPlayed.join(", ") || "None yet"}</p>
+                      </div>
+                      <div>
+                        <strong>Child Mode Accuracy</strong>
+                        <p>{childEvidence.attempted} attempted / {childEvidence.correct} correct / {childEvidence.recentAccuracy ?? 0}% recent</p>
+                      </div>
+                      <div>
+                        <strong>Current Focus / Needs Support</strong>
+                        <p>{childEvidence.focus}</p>
+                      </div>
+                      <div>
+                        <strong>Last Played</strong>
+                        <p>{childEvidence.lastPlayed ? new Date(childEvidence.lastPlayed).toLocaleString() : "No activity yet"}</p>
+                      </div>
+                    </div>
+                    <div className="mastery-chip-row" aria-label="Child Mode mastery status">
+                      {childEvidence.masteryChips.map(item => (
+                        <span className={`mastery-chip ${item.status}`} key={item.word}>
+                          {item.word}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </section>
+
+              <details className="item-mastery-debug">
+                <summary>Developer item mastery snapshot</summary>
+                <p className="muted-text">
+                  Child Mode evidence is tagged separately as child_mode and is not part of formal EL assessment exports yet.
+                </p>
+                <div className="item-mastery-grid">
+                  <div>
+                    <strong>Mastered items</strong>
+                    {itemSnapshot.mastered.length > 0 ? (
+                      <ul>
+                        {itemSnapshot.mastered.map(item => (
+                          <li key={item.itemType + "-" + item.itemKey}>{formatItemLabel(item)}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>No mastered item records yet.</p>
+                    )}
+                  </div>
+                  <div>
+                    <strong>Attempting items</strong>
+                    {itemSnapshot.attempting.length > 0 ? (
+                      <ul>
+                        {itemSnapshot.attempting.map(item => (
+                          <li key={item.itemType + "-" + item.itemKey}>{formatItemLabel(item)}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>No item attempts recorded yet.</p>
+                    )}
+                  </div>
+                  <div>
+                    <strong>Coverage</strong>
+                    <p>{itemSnapshot.unseenCount} unseen of {itemSnapshot.trackedCount} tracked runtime items.</p>
+                  </div>
+                  <div>
+                    <strong>Question format evidence</strong>
+                    {itemSnapshot.evidence.length > 0 ? (
+                      <ul>
+                        {itemSnapshot.evidence.map(item => (
+                          <li key={item.itemType + "-evidence-" + item.itemKey}>{formatEvidenceLabel(item)}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>No format evidence recorded yet.</p>
+                    )}
+                  </div>
+                </div>
+              </details>
+            </div>
+          )}
+        </section>
+      )}
     </div>
   );
 }

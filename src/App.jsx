@@ -4341,10 +4341,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           patternAssessment={patternAssessment}
           exportLetterAssessment={exportLetterAssessment}
           exportPatternAssessment={exportPatternAssessment}
+          isAdmin={isAdmin}
         />
       )}
 
-      {!isFocusedAssessment && appView !== "admin" && (
+      {!isFocusedAssessment && appView !== "admin" && appView !== "overview" && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
