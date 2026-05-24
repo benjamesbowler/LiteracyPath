@@ -8,8 +8,7 @@ Use this with the separate Guided Reading book-pack prompt. Do not create placeh
 
 | Skill | Runtime questions | Unique question signatures | Asset gaps | Missing itemKeys | Request note |
 | --- | --- | --- | --- | --- | --- |
-| Final Sounds | 81 | 45 | 0 | none | Only provide simple, unambiguous early phonics assets. |
-| Digraphs | 52 | 22 | 0 | none | Provide assets only when needed by image/audio-backed formats. |
+| Digraphs | 31 | 31 | 0 | none | Provide assets only when needed by image/audio-backed formats. |
 
 ## Active Runtime Asset Gaps
 
@@ -32,7 +31,54 @@ These requests are **not active runtime content**. The app now blocks these ques
 
 ### Current MVP Samples To Supersede
 
-No Guided Reading MVP samples found.
+| Skill | Book ID | Title | Type | Level | Current scope | Request | Priority | Reason needed |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Guided Reading MVP sample | gr-a-01 | The Red Hat | fiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-a-02 | The Mess | fiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-a-03 | The Map | fiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-a-04 | The Box | fiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-a-05 | The Seed | fiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-a-26 | Pets | nonfiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-a-27 | The Sun | nonfiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-a-28 | Colors | nonfiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-a-29 | My Body | nonfiction | A | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-06 | The Picnic | fiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-07 | The Lost Dog | fiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-08 | The Big Hill | fiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-09 | The Rainy Day | fiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-31 | Seasons | nonfiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-32 | Fruits | nonfiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-33 | Tools | nonfiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-34 | Day and Night | nonfiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-b-35 | Community Helpers | nonfiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-11 | The Camping Trip | fiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-12 | The New Puppy | fiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-13 | The Kite | fiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-14 | The Store | fiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-15 | The Farm Visit | fiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-36 | Bugs | nonfiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-37 | Water | nonfiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-38 | Five Senses | nonfiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-c-39 | Shapes | nonfiction | C | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-16 | The School Play | fiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-17 | The Tree House | fiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-18 | The Broken Toy | fiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-19 | The Race | fiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-41 | Transportation | nonfiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-42 | Our Earth | nonfiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-43 | Healthy Habits | nonfiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-44 | Animal Homes | nonfiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-d-45 | Space | nonfiction | D | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-21 | The Talent Show | fiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-22 | The Garden | fiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-23 | The Sleepover | fiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-24 | The New Neighbor | fiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-25 | The Lost Tooth | fiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-46 | Reptiles | nonfiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-47 | How Things Grow | nonfiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-48 | Magnets | nonfiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-49 | Clothes | nonfiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gr-e-50 | Our Five Senses | nonfiction | E | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
 
 ### New 50-Book Pack
 

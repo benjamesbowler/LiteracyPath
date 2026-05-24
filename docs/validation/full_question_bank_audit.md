@@ -8,42 +8,41 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 
 | Skill | Active valid runtime questions | Unique question signatures | Unique targets | Unique itemKeys/patterns | Duplicate IDs | Duplicate signatures | Repeated distractor sets | Missing image/audio needs | Below 50 unique? | Below 52 runtime? | Unique option sets | Runtime sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Initial Sounds | 119 | 64 | 78 | 25 | 0 | 35 | 8 | 0 | no | no | 77 | generatedQuestions, initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
-| Final Sounds | 81 | 45 | 65 | 8 | 0 | 12 | 6 | 0 | yes | no | 69 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
-| Rhyming | 88 | 83 | 67 | 23 | 0 | 5 | 8 | 0 | no | no | 75 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
-| CVC and Short Vowels | 115 | 80 | 36 | 41 | 0 | 31 | 11 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
-| Short Vowel Discrimination | 110 | 61 | 37 | 5 | 0 | 19 | 5 | 0 | no | no | 53 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
+| Initial Sounds | 79 | 79 | 78 | 25 | 0 | 0 | 8 | 0 | no | no | 77 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
+| Final Sounds | 79 | 79 | 65 | 8 | 0 | 0 | 6 | 0 | no | no | 69 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
+| Rhyming | 88 | 88 | 67 | 23 | 0 | 0 | 8 | 0 | no | no | 75 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
+| CVC and Short Vowels | 88 | 88 | 36 | 41 | 0 | 0 | 8 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
+| Short Vowel Discrimination | 91 | 91 | 37 | 5 | 0 | 0 | 5 | 0 | no | no | 53 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | High-Frequency Words 1-25 | 61 | 61 | 32 | 32 | 0 | 0 | 6 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
 | High-Frequency Words 26-50 | 63 | 63 | 38 | 38 | 0 | 0 | 7 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
 | High-Frequency Words 51-100 | 70 | 70 | 68 | 68 | 0 | 0 | 1 | 0 | no | no | 70 | templateExpansion2, templateExpansion6, templateExpansion7 |
-| Blends | 80 | 51 | 15 | 12 | 0 | 27 | 10 | 0 | no | no | 41 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
-| Digraphs | 52 | 22 | 9 | 4 | 0 | 22 | 11 | 0 | yes | no | 9 | contentExpansionPass3Questions, targetedContentRecoveryQuestions |
-| Long Vowels and Silent E | 69 | 50 | 44 | 5 | 0 | 13 | 2 | 0 | no | no | 57 | questionBankExpansion8, safeContentExpansionQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Vowel Teams | 75 | 50 | 50 | 8 | 0 | 16 | 1 | 0 | no | no | 60 | questionBankExpansion8, safeContentExpansionQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
-| R-Controlled Vowels | 52 | 51 | 29 | 5 | 0 | 1 | 6 | 0 | no | no | 30 | safeContentExpansionQuestions, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
-| Nouns | 69 | 53 | 46 | 46 | 0 | 16 | 1 | 0 | no | no | 54 | ixlStyleSeedQuestions, templateExpansion, templateExpansion6, templateExpansion7 |
-| Verbs | 69 | 52 | 43 | 43 | 0 | 17 | 1 | 0 | no | no | 56 | ixlStyleSeedQuestions, questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
-| Adjectives | 61 | 60 | 43 | 43 | 0 | 1 | 0 | 0 | no | no | 61 | questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
-| Prepositions of Place | 69 | 52 | 24 | 24 | 0 | 14 | 5 | 0 | no | no | 52 | questionBankExpansion8, templateExpansion2, templateExpansion4, templateExpansion7, templateQuestions |
-| Plurals | 59 | 53 | 28 | 22 | 0 | 5 | 3 | 0 | no | no | 43 | contentExpansionPass3Questions, generatedQuestions, questionBankExpansion8, safeContentExpansionQuestions, templateExpansion6, templateQuestions |
-| Prefixes and Suffixes | 90 | 50 | 59 | 44 | 0 | 29 | 1 | 0 | no | no | 77 | contentExpansionPass3Questions, questionBankExpansion8, templateExpansion3, templateExpansion6, templateExpansion7, templateQuestions |
-| Antonyms and Synonyms | 65 | 55 | 40 | 40 | 0 | 10 | 1 | 0 | no | no | 59 | generatedQuestions, templateExpansion6 |
+| Blends | 61 | 61 | 15 | 12 | 0 | 0 | 2 | 0 | no | no | 41 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
+| Digraphs | 31 | 31 | 9 | 4 | 0 | 0 | 1 | 0 | yes | yes | 9 | contentExpansionPass3Questions, targetedContentRecoveryQuestions |
+| Long Vowels and Silent E | 60 | 60 | 44 | 5 | 0 | 0 | 0 | 0 | no | no | 57 | questionBankExpansion8, safeContentExpansionQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Vowel Teams | 67 | 67 | 50 | 8 | 0 | 0 | 0 | 0 | no | no | 60 | questionBankExpansion8, safeContentExpansionQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
+| R-Controlled Vowels | 52 | 52 | 29 | 5 | 0 | 0 | 6 | 0 | no | no | 30 | safeContentExpansionQuestions, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
+| Nouns | 54 | 54 | 46 | 46 | 0 | 0 | 0 | 0 | no | no | 54 | ixlStyleSeedQuestions, templateExpansion, templateExpansion6, templateExpansion7 |
+| Verbs | 57 | 57 | 43 | 43 | 0 | 0 | 0 | 0 | no | no | 56 | ixlStyleSeedQuestions, questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
+| Adjectives | 61 | 61 | 43 | 43 | 0 | 0 | 0 | 0 | no | no | 61 | questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
+| Prepositions of Place | 61 | 61 | 24 | 24 | 0 | 0 | 0 | 0 | no | no | 52 | questionBankExpansion8, templateExpansion2, templateExpansion4, templateExpansion7, templateQuestions |
+| Plurals | 57 | 57 | 28 | 22 | 0 | 0 | 3 | 0 | no | no | 43 | contentExpansionPass3Questions, generatedQuestions, questionBankExpansion8, safeContentExpansionQuestions, templateExpansion6, templateQuestions |
+| Prefixes and Suffixes | 89 | 89 | 59 | 44 | 0 | 0 | 1 | 0 | no | no | 77 | contentExpansionPass3Questions, questionBankExpansion8, templateExpansion3, templateExpansion6, templateExpansion7, templateQuestions |
+| Antonyms and Synonyms | 64 | 64 | 40 | 40 | 0 | 0 | 1 | 0 | no | no | 59 | generatedQuestions, templateExpansion6 |
 | Homophones and Homonyms | 52 | 52 | 50 | 50 | 0 | 0 | 0 | 0 | no | no | 34 | safeContentExpansionQuestions, templateExpansion3, templateExpansion7 |
 | Sentence Comprehension | 111 | 111 | 98 | 111 | 0 | 0 | 0 | 0 | no | no | 95 | contentExpansionPass3Questions, fixSentenceQuestions, generatedQuestions |
-| Key Details | 59 | 58 | 52 | 59 | 0 | 1 | 0 | 0 | no | no | 57 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Key Details | 59 | 59 | 52 | 59 | 0 | 0 | 0 | 0 | no | no | 57 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
 | Sequencing | 59 | 59 | 57 | 59 | 0 | 0 | 0 | 0 | no | no | 59 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Main Idea | 65 | 60 | 60 | 65 | 0 | 5 | 0 | 0 | no | no | 64 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Main Idea | 65 | 65 | 60 | 65 | 0 | 0 | 0 | 0 | no | no | 64 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
 | Inference | 106 | 106 | 106 | 106 | 0 | 0 | 0 | 0 | no | no | 106 | contentExpansionPass3Questions, generatedQuestions, questionBankExpansion8, templateComprehensionAdvanced |
 | Cause and Effect | 65 | 65 | 62 | 65 | 0 | 0 | 0 | 0 | no | no | 65 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Context Clues | 66 | 64 | 60 | 66 | 0 | 2 | 0 | 0 | no | no | 66 | contentExpansionPass3Questions, questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Theme and Higher Comprehension | 65 | 58 | 54 | 65 | 0 | 6 | 0 | 0 | no | no | 65 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Context Clues | 66 | 66 | 60 | 66 | 0 | 0 | 0 | 0 | no | no | 66 | contentExpansionPass3Questions, questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Theme and Higher Comprehension | 65 | 65 | 54 | 65 | 0 | 0 | 0 | 0 | no | no | 65 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
 
 ## Skills Under Target
 
 | Skill | Runtime questions | Unique signatures | Unique itemKeys | Missing itemKeys | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Final Sounds | 81 | 45 | 8 | none | Needs more variety. |
-| Digraphs | 52 | 22 | 4 | none | Needs more variety. |
+| Digraphs | 31 | 31 | 4 | none | Below 52 runtime-question target. |
 
 ## Expansion Pass Notes
 
@@ -56,67 +55,45 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 
 ## Initial Sounds
 
-- Active valid runtime questions: 119
-- Unique question signatures: 64
+- Active valid runtime questions: 79
+- Unique question signatures: 79
 - Unique target words / answer targets: 78
 - Unique itemKeys/patterns: 25 (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z)
-- Duplicate signatures: 35
+- Duplicate signatures: 0
 - Repeated distractor sets: 8
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: INITIAL_SOUND_PAIR_SELECT:90, FIRST_SOUND:29
-- Overused targets: sit+sun:5
-- Overused itemKeys: b, f
-
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| listen to each word. which two words start with the same sound?::moon\|mop | 4 | extra_initial_1, coverage_initial_m_002, phonics_k_006, phonics_k_020 |
-| listen to each word. which two words start with the same sound?::sit\|sun | 5 | extra_initial_2, coverage_initial_s_001, phonics_k_014, phonics_k_058, phonics_k_098 |
-| listen to each word. which two words start with the same sound?::tiger\|top | 2 | extra_initial_3, coverage_initial_t_002 |
-| listen to each word. which two words start with the same sound?::pan\|pig | 2 | extra_initial_4, coverage_initial_p_001 |
-| listen to each word. which two words start with the same sound?::bag\|bat | 4 | extra_initial_5, coverage_initial_b_002, phonics_k_002, phonics_k_082 |
-| listen to each word. which two words start with the same sound?::net\|nut | 2 | extra_initial_6, coverage_initial_n_001 |
-| listen to each word. which two words start with the same sound?::farm\|fork | 2 | extra_initial_7, coverage_initial_f_002 |
-| listen to each word. which two words start with the same sound?::gate\|girl | 2 | extra_initial_8, coverage_initial_g_001 |
-| listen to each word. which two words start with the same sound?::desk\|dig | 2 | extra_initial_9, coverage_initial_d_002 |
-| listen to each word. which two words start with the same sound?::leg\|lid | 3 | extra_initial_10, coverage_initial_l_002, phonics_k_073 |
-
-## Final Sounds
-
-- Active valid runtime questions: 81
-- Unique question signatures: 45
-- Unique target words / answer targets: 65
-- Unique itemKeys/patterns: 8 (b, d, g, l, m, n, p, t)
-- Duplicate signatures: 12
-- Repeated distractor sets: 6
-- Missing image/audio needs in active runtime: 0
-- Below-50 unique question warning: yes
-- Below-52 runtime question warning: no
-- Formats: FINAL_SOUND_PAIR_SELECT:42, ENDING_SOUND:39
+- Formats: INITIAL_SOUND_PAIR_SELECT:50, FIRST_SOUND:29
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| listen to each word. which two words end with the same sound?::bed\|red | 2 | coverage_final_d_006, recovery_final_d_1 |
-| listen to each word. which two words end with the same sound?::dog\|log | 2 | coverage_final_g_006, recovery_final_g_1 |
-| listen to each word. which two words end with the same sound?::clap\|nap | 2 | coverage_final_p_004, recovery_final_p_2 |
-| listen to each word. which two words end with the same sound?::cat\|hat | 2 | coverage_final_t_001, recovery_final_t_1 |
-| listen to each word. which two words end with the same sound?::bat\|rat | 2 | coverage_final_t_002, recovery_final_t_2 |
-| listen to the word. which sound does it end with?::t | 7 | ixl_ending_sound_1, ixl_ending_sound_7, ixl_ending_sound_11, ixl_ending_sound_16, ixl_ending_sound_19, qb8_final_14, qb8_final_15 |
-| listen to the word. which sound does it end with?::g | 9 | ixl_ending_sound_2, ixl_ending_sound_8, ixl_ending_sound_17, ixl_ending_sound_18, ixl_ending_sound_20, ixl_ending_sound_21, qb8_final_05, qb8_final_06, qb8_final_07 |
-| listen to the word. which sound does it end with?::d | 5 | ixl_ending_sound_3, ixl_ending_sound_22, qb8_final_01, qb8_final_02, qb8_final_03 |
-| listen to the word. which sound does it end with?::p | 6 | ixl_ending_sound_4, ixl_ending_sound_9, ixl_ending_sound_13, ixl_ending_sound_14, qb8_final_12, qb8_final_13 |
-| listen to the word. which sound does it end with?::n | 5 | ixl_ending_sound_5, ixl_ending_sound_6, ixl_ending_sound_15, qb8_final_10, qb8_final_11 |
+No duplicate prompt+answer signatures detected.
+
+## Final Sounds
+
+- Active valid runtime questions: 79
+- Unique question signatures: 79
+- Unique target words / answer targets: 65
+- Unique itemKeys/patterns: 8 (b, d, g, l, m, n, p, t)
+- Duplicate signatures: 0
+- Repeated distractor sets: 6
+- Missing image/audio needs in active runtime: 0
+- Below-50 unique question warning: no
+- Below-52 runtime question warning: no
+- Formats: FINAL_SOUND_PAIR_SELECT:40, ENDING_SOUND:39
+- Overused targets: none
+- Overused itemKeys: none
+
+No duplicate prompt+answer signatures detected.
 
 ## Rhyming
 
 - Active valid runtime questions: 88
-- Unique question signatures: 83
+- Unique question signatures: 88
 - Unique target words / answer targets: 67
 - Unique itemKeys/patterns: 23 (air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ox, ug, un, ut)
-- Duplicate signatures: 5
+- Duplicate signatures: 0
 - Repeated distractor sets: 8
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
@@ -125,69 +102,41 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 - Overused targets: none
 - Overused itemKeys: at
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| listen to each word. which two words rhyme?::bed\|red | 2 | coverage_rhyme_ed_001, coverage_rhyme_ed_002 |
-| listen to each word. which two words rhyme?::hit\|sit | 2 | coverage_rhyme_it_001, coverage_rhyme_it_002 |
-| listen to each word. which two words rhyme?::bun\|sun | 2 | coverage_rhyme_un_001, coverage_rhyme_un_002 |
-| which word rhymes with fin?::pin | 2 | p3_rhyme_read_in_7, ixl_rhyming_picture_18 |
-| which word rhymes with sun?::bun | 2 | p3_rhyme_read_un_13, ixl_rhyming_picture_8 |
+No duplicate prompt+answer signatures detected.
 
 ## CVC and Short Vowels
 
-- Active valid runtime questions: 115
-- Unique question signatures: 80
+- Active valid runtime questions: 88
+- Unique question signatures: 88
 - Unique target words / answer targets: 36
 - Unique itemKeys/patterns: 41 (bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig)
-- Duplicate signatures: 31
-- Repeated distractor sets: 11
+- Duplicate signatures: 0
+- Repeated distractor sets: 8
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: HEARD_WORD_TO_PRINT_MINIMAL_PAIR:54, MISSING_VOWEL_CVC:15, PICTURE_TO_PRINT_MATCH:1, PUT_SOUNDS_IN_ORDER:30, COMPLETE_WORD:15
-- Overused targets: bag:5, bed:5, cat:5, cup:5, dog:5, log:5, map:5, sun:5
+- Formats: HEARD_WORD_TO_PRINT_MINIMAL_PAIR:27, MISSING_VOWEL_CVC:15, PICTURE_TO_PRINT_MATCH:1, PUT_SOUNDS_IN_ORDER:30, COMPLETE_WORD:15
+- Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| listen and find the word::bag | 2 | cvc_listen_find_001, cvc_picture_print_001 |
-| listen and find the word::bat | 2 | cvc_listen_find_002, cvc_picture_print_002 |
-| listen and find the word::bed | 2 | cvc_listen_find_003, cvc_picture_print_003 |
-| listen and find the word::cap | 2 | cvc_listen_find_004, cvc_picture_print_004 |
-| listen and find the word::cat | 2 | cvc_listen_find_005, cvc_picture_print_005 |
-| listen and find the word::cup | 2 | cvc_listen_find_006, cvc_picture_print_006 |
-| listen and find the word::dog | 2 | cvc_listen_find_007, cvc_picture_print_007 |
-| listen and find the word::dot | 2 | cvc_listen_find_008, cvc_picture_print_008 |
-| listen and find the word::fin | 2 | cvc_listen_find_009, cvc_picture_print_009 |
-| listen and find the word::hat | 2 | cvc_listen_find_010, cvc_picture_print_010 |
+No duplicate prompt+answer signatures detected.
 
 ## Short Vowel Discrimination
 
-- Active valid runtime questions: 110
-- Unique question signatures: 61
+- Active valid runtime questions: 91
+- Unique question signatures: 91
 - Unique target words / answer targets: 37
 - Unique itemKeys/patterns: 5 (short_a, short_e, short_i, short_o, short_u)
-- Duplicate signatures: 19
+- Duplicate signatures: 0
 - Repeated distractor sets: 5
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: LISTEN_CHOOSE_VOWEL:40, PICTURE_TO_PRINT_MATCH:40, SHORT_VOWEL_WORD:30
-- Overused targets: bed:5, cat:5, cup:5, dog:5, fin:5, log:5, map:5, red:5, sun:5
+- Formats: LISTEN_CHOOSE_VOWEL:26, PICTURE_TO_PRINT_MATCH:35, SHORT_VOWEL_WORD:30
+- Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| listen to the word. which vowel sound do you hear?::a | 8 | p3_short_vowel_listen_1, p3_short_vowel_listen_2, p3_short_vowel_listen_3, recovery_short_vowel_listen_1, recovery_short_vowel_listen_2, recovery_short_vowel_listen_3, recovery_short_vowel_listen_4, recovery_short_vowel_listen_5 |
-| which word matches the picture?::cat | 2 | p3_short_vowel_picture_1, recovery_short_vowel_picture_1 |
-| which word matches the picture?::map | 2 | p3_short_vowel_picture_3, recovery_short_vowel_picture_3 |
-| listen to the word. which vowel sound do you hear?::e | 8 | p3_short_vowel_listen_4, p3_short_vowel_listen_5, p3_short_vowel_listen_6, recovery_short_vowel_listen_6, recovery_short_vowel_listen_7, recovery_short_vowel_listen_8, recovery_short_vowel_listen_9, recovery_short_vowel_listen_10 |
-| which word matches the picture?::bed | 2 | p3_short_vowel_picture_4, recovery_short_vowel_picture_6 |
-| which word matches the picture?::pen | 2 | p3_short_vowel_picture_5, recovery_short_vowel_picture_8 |
-| which word matches the picture?::red | 2 | p3_short_vowel_picture_6, recovery_short_vowel_picture_7 |
-| listen to the word. which vowel sound do you hear?::i | 8 | p3_short_vowel_listen_7, p3_short_vowel_listen_8, p3_short_vowel_listen_9, recovery_short_vowel_listen_11, recovery_short_vowel_listen_12, recovery_short_vowel_listen_13, recovery_short_vowel_listen_14, recovery_short_vowel_listen_15 |
-| which word matches the picture?::pig | 2 | p3_short_vowel_picture_7, recovery_short_vowel_picture_11 |
-| which word matches the picture?::fin | 2 | p3_short_vowel_picture_8, recovery_short_vowel_picture_13 |
+No duplicate prompt+answer signatures detected.
 
 ## High-Frequency Words 1-25
 
@@ -242,123 +191,79 @@ No duplicate prompt+answer signatures detected.
 
 ## Blends
 
-- Active valid runtime questions: 80
-- Unique question signatures: 51
+- Active valid runtime questions: 61
+- Unique question signatures: 61
 - Unique target words / answer targets: 15
 - Unique itemKeys/patterns: 12 (bl, br, cl, cr, dr, fl, fr, sl, sn, sp, st, tr)
-- Duplicate signatures: 27
-- Repeated distractor sets: 10
-- Missing image/audio needs in active runtime: 0
-- Below-50 unique question warning: no
-- Below-52 runtime question warning: no
-- Formats: PICTURE_AUDIO_TO_PATTERN:22, IMAGE_WORD_PATTERN_MATCH:19, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:11, BLEND_SOUNDS:28
-- Overused targets: brush:7, clap:7, drum:7, frog:7, slide:7, blue:6, flag:6, tree:6, black:5, crab:5
-- Overused itemKeys: none
-
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| which blend starts this word?::bl | 3 | p3_blend_sound_bl_1, recovery_blend_sound_bl_black, recovery_blend_sound_bl_blue |
-| which blend starts this word?::cl | 2 | p3_blend_sound_cl_2, recovery_blend_sound_cl_clap |
-| which word starts with cl?::clap | 2 | p3_blend_word_cl_2, recovery_blend_card_cl_clap |
-| which blend starts this word?::fl | 2 | p3_blend_sound_fl_3, recovery_blend_sound_fl_flag |
-| which blend starts this word?::fr | 2 | p3_blend_sound_fr_4, recovery_blend_sound_fr_frog |
-| which word starts with fr?::frog | 2 | p3_blend_word_fr_4, recovery_blend_card_fr_frog |
-| which blend starts this word?::sl | 2 | p3_blend_sound_sl_6, recovery_blend_sound_sl_slide |
-| which word starts with sl?::slide | 2 | p3_blend_word_sl_6, recovery_blend_card_sl_slide |
-| which blend starts this word?::tr | 3 | p3_blend_sound_tr_10, recovery_blend_sound_tr_tree, recovery_blend_sound_tr_train |
-| which blend starts this word?::dr | 2 | p3_blend_sound_dr_11, recovery_blend_sound_dr_drum |
-
-## Digraphs
-
-- Active valid runtime questions: 52
-- Unique question signatures: 22
-- Unique target words / answer targets: 9
-- Unique itemKeys/patterns: 4 (ch, sh, th, wh)
-- Duplicate signatures: 22
-- Repeated distractor sets: 11
-- Missing image/audio needs in active runtime: 0
-- Below-50 unique question warning: yes
-- Below-52 runtime question warning: no
-- Formats: PICTURE_AUDIO_TO_PATTERN:15, IMAGE_WORD_PATTERN_MATCH:19, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:18
-- Overused targets: chair:7, ship:6, shop:6, thin:6, thumb:6, whale:6, chick:5, shell:5, wheel:5
-- Overused itemKeys: none
-
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| which letters start this word?::sh | 5 | p3_digraph_sound_sh_1, p3_digraph_sound_sh_2, recovery_digraph_sound_sh_shell, recovery_digraph_sound_sh_ship, recovery_digraph_sound_sh_shop |
-| which letters start this word?::ch | 3 | p3_digraph_sound_ch_4, recovery_digraph_sound_ch_chair, recovery_digraph_sound_ch_chick |
-| which word starts with ch?::chair | 3 | p3_digraph_word_ch_4, recovery_digraph_card_ch_chair, recovery_digraph_review_card_ch_chair |
-| which letters start this word?::th | 4 | p3_digraph_sound_th_5, p3_digraph_sound_th_6, recovery_digraph_sound_th_thin, recovery_digraph_sound_th_thumb |
-| which letters start this word?::wh | 3 | p3_digraph_sound_wh_7, recovery_digraph_sound_wh_whale, recovery_digraph_sound_wh_wheel |
-| which word starts with sh?::shell | 2 | recovery_digraph_card_sh_shell, recovery_digraph_review_card_sh_shell |
-| listen and find the word::shell | 2 | recovery_digraph_listen_sh_shell, recovery_digraph_review_listen_sh_shell |
-| which word starts with sh?::ship | 2 | recovery_digraph_card_sh_ship, recovery_digraph_review_card_sh_ship |
-| listen and find the word::ship | 2 | recovery_digraph_listen_sh_ship, recovery_digraph_review_listen_sh_ship |
-| which word starts with sh?::shop | 2 | recovery_digraph_card_sh_shop, recovery_digraph_review_card_sh_shop |
-
-## Long Vowels and Silent E
-
-- Active valid runtime questions: 69
-- Unique question signatures: 50
-- Unique target words / answer targets: 44
-- Unique itemKeys/patterns: 5 (a_e, e_e, i_e, o_e, u_e)
-- Duplicate signatures: 13
+- Duplicate signatures: 0
 - Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: DECODING:69
-- Overused targets: none
+- Formats: PICTURE_AUDIO_TO_PATTERN:22, IMAGE_WORD_PATTERN_MATCH:14, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:11, BLEND_SOUNDS:14
+- Overused targets: blue:5, brush:5, clap:5, drum:5, flag:5, frog:5, slide:5, tree:5
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| which word has the long e sound?::these | 3 | safe_long_e_1, exp2_long_vowel_9, exp6_phonics_15 |
-| which word has the long e sound?::pete | 2 | safe_long_e_2, exp2_long_vowel_10 |
-| which word has the long i sound?::bike | 3 | safe_long_i_1, template_long_vowel_2, exp2_long_vowel_3 |
-| which word has the long o sound?::home | 3 | safe_long_o_1, template_long_vowel_3, exp2_long_vowel_5 |
-| which word has the long a sound?::cake | 3 | template_long_vowel_1, exp2_long_vowel_1, exp7_long_vowels_1 |
-| which word has the long u sound?::cube | 3 | template_long_vowel_4, exp2_long_vowel_7, exp7_long_vowels_5 |
-| which word has the long i sound?::time | 2 | template_long_vowel_5, exp2_long_vowel_4 |
-| which word has the long o sound?::rope | 2 | exp2_long_vowel_6, exp7_long_vowels_4 |
-| which word has the long u sound?::mule | 2 | exp2_long_vowel_8, exp7_long_vowels_15 |
-| which word has the long i sound?::smile | 2 | exp5_long_vowel_2, exp7_long_vowels_13 |
+No duplicate prompt+answer signatures detected.
 
-## Vowel Teams
+## Digraphs
 
-- Active valid runtime questions: 75
-- Unique question signatures: 50
-- Unique target words / answer targets: 50
-- Unique itemKeys/patterns: 8 (ai, ay, ea, ee, oa, oi, ow, oy)
-- Duplicate signatures: 16
+- Active valid runtime questions: 31
+- Unique question signatures: 31
+- Unique target words / answer targets: 9
+- Unique itemKeys/patterns: 4 (ch, sh, th, wh)
+- Duplicate signatures: 0
 - Repeated distractor sets: 1
+- Missing image/audio needs in active runtime: 0
+- Below-50 unique question warning: yes
+- Below-52 runtime question warning: yes
+- Formats: PICTURE_AUDIO_TO_PATTERN:9, IMAGE_WORD_PATTERN_MATCH:11, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:11
+- Overused targets: thin:5, thumb:5
+- Overused itemKeys: none
+
+No duplicate prompt+answer signatures detected.
+
+## Long Vowels and Silent E
+
+- Active valid runtime questions: 60
+- Unique question signatures: 60
+- Unique target words / answer targets: 44
+- Unique itemKeys/patterns: 5 (a_e, e_e, i_e, o_e, u_e)
+- Duplicate signatures: 0
+- Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: DECODING:75
+- Formats: DECODING:60
+- Overused targets: none
+- Overused itemKeys: none
+
+No duplicate prompt+answer signatures detected.
+
+## Vowel Teams
+
+- Active valid runtime questions: 67
+- Unique question signatures: 67
+- Unique target words / answer targets: 50
+- Unique itemKeys/patterns: 8 (ai, ay, ea, ee, oa, oi, ow, oy)
+- Duplicate signatures: 0
+- Repeated distractor sets: 0
+- Missing image/audio needs in active runtime: 0
+- Below-50 unique question warning: no
+- Below-52 runtime question warning: no
+- Formats: DECODING:67
 - Overused targets: none
 - Overused itemKeys: ea
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| which word has the ay vowel team?::day | 2 | safe_vowel_team_ay_1, exp2_vowel_team_10 |
-| which word has the ea vowel team?::leaf | 4 | safe_vowel_team_ea_1, template_vowel_team_4, exp2_vowel_team_7, exp7_vowel_teams_4 |
-| which word has the oa vowel team?::road | 2 | safe_vowel_team_oa_1, exp2_vowel_team_4 |
-| which word has the oa vowel team?::boat | 3 | safe_vowel_team_oa_2, template_vowel_team_2, exp2_vowel_team_3 |
-| which word has the ow vowel team?::snow | 2 | safe_vowel_team_ow_2, exp7_vowel_teams_6 |
-| which word has the ai vowel team?::rain | 3 | template_vowel_team_1, exp2_vowel_team_1, exp7_vowel_teams_1 |
-| which word has the ee vowel team?::seed | 2 | template_vowel_team_3, exp2_vowel_team_5 |
-| which word has the ai vowel team?::train | 2 | template_vowel_team_5, exp2_vowel_team_2 |
-| which word has the ee vowel team?::feet | 2 | exp2_vowel_team_6, exp7_vowel_teams_3 |
-| which word has the ea vowel team?::beach | 3 | exp2_vowel_team_8, exp7_vowel_teams_14, qb8_vteam_07 |
+No duplicate prompt+answer signatures detected.
 
 ## R-Controlled Vowels
 
 - Active valid runtime questions: 52
-- Unique question signatures: 51
+- Unique question signatures: 52
 - Unique target words / answer targets: 29
 - Unique itemKeys/patterns: 5 (ar, er, ir, or, ur)
-- Duplicate signatures: 1
+- Duplicate signatures: 0
 - Repeated distractor sets: 6
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
@@ -367,73 +272,49 @@ No duplicate prompt+answer signatures detected.
 - Overused targets: turn:5
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| which word has the ur r-controlled vowel?::turn | 2 | safe_r_ur_3, exp7_r_controlled_9 |
+No duplicate prompt+answer signatures detected.
 
 ## Nouns
 
-- Active valid runtime questions: 69
-- Unique question signatures: 53
+- Active valid runtime questions: 54
+- Unique question signatures: 54
 - Unique target words / answer targets: 46
 - Unique itemKeys/patterns: 46 (artist, basket, blanket, book, bug, button, candle, cat, coach, cup, doctor, dog, duck, farm, fish, frog, garden, goose, ham, hat, helmet, horse, kitchen, kitten, ladder, ladle, lamp, library, map, market, museum, nurse, pencil, pilot, pocket, rabbit, river, school, ship, sock, spoon, station, teacher, ticket, turtle, window)
-- Duplicate signatures: 16
-- Repeated distractor sets: 1
+- Duplicate signatures: 0
+- Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: VOCABULARY_CATEGORY:30, UNKNOWN:39
+- Formats: VOCABULARY_CATEGORY:15, UNKNOWN:39
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| which one is an animal?::cat | 2 | ixl_category_1, ixl_category_b_1 |
-| which one is an animal?::dog | 2 | ixl_category_2, ixl_category_b_2 |
-| which one is an animal?::fish | 2 | ixl_category_3, ixl_category_b_3 |
-| which one is something you wear?::hat | 2 | ixl_category_4, ixl_category_b_4 |
-| which one is something you wear?::sock | 2 | ixl_category_5, ixl_category_b_5 |
-| which one is a thing you can read?::book | 2 | ixl_category_6, ixl_category_b_6 |
-| which one is food?::ham | 2 | ixl_category_7, ixl_category_b_7 |
-| which one is a place?::farm | 2 | ixl_category_8, ixl_category_b_8 |
-| which one is a vehicle?::ship | 2 | ixl_category_9, ixl_category_b_9 |
-| which one is not like the others?::cup | 2 | ixl_category_10, ixl_category_b_10 |
+No duplicate prompt+answer signatures detected.
 
 ## Verbs
 
-- Active valid runtime questions: 69
-- Unique question signatures: 52
+- Active valid runtime questions: 57
+- Unique question signatures: 57
 - Unique target words / answer targets: 43
 - Unique itemKeys/patterns: 43 (asking sentence, build, carry, clap, clean, climb, compare, cook, count, crawl, dance, dig, draw, drive, eat, explain, hop, jump, kick, laugh, listen, look, measure, observe, open, paint, plant, play, predict, pull, push, read, repair, run, share, sleep, stop, swim, telling sentence, think, throw, wash, write)
-- Duplicate signatures: 17
-- Repeated distractor sets: 1
+- Duplicate signatures: 0
+- Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: GRAMMAR_BASICS:30, UNKNOWN:39
+- Formats: GRAMMAR_BASICS:18, UNKNOWN:39
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| find the action verb.::run | 2 | ixl_grammar_1, ixl_grammar_b_1 |
-| find the action verb.::jump | 2 | ixl_grammar_2, ixl_grammar_b_2 |
-| find the action verb.::hop | 2 | ixl_grammar_3, ixl_grammar_b_3 |
-| find the action verb.::dig | 2 | ixl_grammar_4, ixl_grammar_b_4 |
-| find the action verb.::play | 2 | ixl_grammar_5, ixl_grammar_b_5 |
-| find the action verb.::sleep | 2 | ixl_grammar_6, ixl_grammar_b_6 |
-| find the action verb.::look | 2 | ixl_grammar_7, ixl_grammar_b_7 |
-| find the action verb.::stop | 2 | ixl_grammar_8, ixl_grammar_b_8 |
-| find the action verb.::read | 2 | ixl_grammar_9, ixl_grammar_b_9 |
-| find the action verb.::swim | 2 | ixl_grammar_10, ixl_grammar_b_10 |
+No duplicate prompt+answer signatures detected.
 
 ## Adjectives
 
 - Active valid runtime questions: 61
-- Unique question signatures: 60
+- Unique question signatures: 61
 - Unique target words / answer targets: 43
 - Unique itemKeys/patterns: 43 (brave, bright, bumpy, calm, cold, crisp, dusty, empty, fast, fluffy, full, gentle, green, happy, heavy, hot, huge, light, long, loud, noisy, playful, prickly, proud, purple, quiet, rough, shiny, short, silent, slow, small, smooth, soft, sour, square, striped, sweet, tall, tiny, warm, yellow, young)
-- Duplicate signatures: 1
+- Duplicate signatures: 0
 - Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
@@ -442,116 +323,75 @@ No duplicate prompt+answer signatures detected.
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| which word describes size?::tiny | 2 | exp2_grammar_5, exp7_adjectives_1 |
+No duplicate prompt+answer signatures detected.
 
 ## Prepositions of Place
 
-- Active valid runtime questions: 69
-- Unique question signatures: 52
+- Active valid runtime questions: 61
+- Unique question signatures: 61
 - Unique target words / answer targets: 24
 - Unique itemKeys/patterns: 24 (above, above the tree, around, behind, behind the tree, below, beneath, beside, beside the basket, between, between the books, in the box, inside, inside the barn, near, near the door, on, on the chair, outside, outside the pond, over, through, under, under the table)
-- Duplicate signatures: 14
-- Repeated distractor sets: 5
+- Duplicate signatures: 0
+- Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: UNKNOWN:37, GRAMMAR_BASICS:32
-- Overused targets: in the box:5, on the chair:5, under the table:5
+- Formats: UNKNOWN:29, GRAMMAR_BASICS:32
+- Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| where is the cat?::in the box | 3 | template_prep_1, exp2_prep_1, exp4_prep_1 |
-| where is the dog?::under the table | 3 | template_prep_2, exp2_prep_2, exp4_prep_2 |
-| where is the ball?::on the chair | 3 | template_prep_3, exp2_prep_3, exp4_prep_3 |
-| where is the rabbit?::beside the basket | 2 | exp2_prep_4, exp4_prep_4 |
-| where is the bear?::behind the tree | 2 | exp2_prep_5, exp4_prep_5 |
-| where is the cup?::between the books | 2 | exp2_prep_6, exp4_prep_6 |
-| look at the picture. where is the cat?::in the box | 2 | exp7_prepositions_1, exp7_prepositions_11 |
-| look at the picture. where is the dog?::under the table | 2 | exp7_prepositions_2, exp7_prepositions_12 |
-| look at the picture. where is the ball?::on the chair | 2 | exp7_prepositions_3, exp7_prepositions_13 |
-| look at the picture. where is the rabbit?::beside the basket | 2 | exp7_prepositions_4, exp7_prepositions_14 |
+No duplicate prompt+answer signatures detected.
 
 ## Plurals
 
-- Active valid runtime questions: 59
-- Unique question signatures: 53
+- Active valid runtime questions: 57
+- Unique question signatures: 57
 - Unique target words / answer targets: 28
 - Unique itemKeys/patterns: 22 (apples, babies, birds, boxes, buses, cats, children, dogs, dolls, es, foxes, geese, horses, ies, irregular, knives, leaves, mice, pencils, s, shoes, wolves)
-- Duplicate signatures: 5
+- Duplicate signatures: 0
 - Repeated distractor sets: 3
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: PLURAL_IMAGE_SPELLING:2, PLURAL_SPELLING_CONTEXT:18, UNKNOWN:8, COMPREHENSION:31
-- Overused targets: boxes:6, foxes:6, children:5, leaves:5
+- Formats: PLURAL_IMAGE_SPELLING:2, PLURAL_SPELLING_CONTEXT:18, UNKNOWN:8, COMPREHENSION:29
+- Overused targets: boxes:6, foxes:6, children:5
 - Overused itemKeys: es
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| what is the plural of fox?::foxes | 2 | exp6_language_10, plurals_005 |
-| which word shows more than one dog?::dogs | 2 | plurals_002, plurals_033 |
-| what is the plural form of leaf?::leaves | 3 | plurals_016, plurals_041, plurals_067 |
-| what is the plural of goose?::geese | 2 | plurals_025, plurals_054 |
-| which word is plural?::children | 2 | plurals_042, plurals_068 |
+No duplicate prompt+answer signatures detected.
 
 ## Prefixes and Suffixes
 
-- Active valid runtime questions: 90
-- Unique question signatures: 50
+- Active valid runtime questions: 89
+- Unique question signatures: 89
 - Unique target words / answer targets: 59
 - Unique itemKeys/patterns: 44 (a person who helps, a person who paints, a person who runs, a person who teaches, able, able to be washed, build again, dis, do again, ed, er, ful, full of care, full of help, full of hope, full of joy, full of play, full of thanks, heat before, in a careful way, in a quick way, in a slow way, ing, less, ly, make not locked, mis, ness, not fair, not happy, not kind, not safe, open or make not locked, play again, pre, re, read again, see before, the state of being kind, un, without care, without fear, without pain, write again)
-- Duplicate signatures: 29
+- Duplicate signatures: 0
 - Repeated distractor sets: 1
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: MORPHEME_MEANING_CONTEXT:52, UNKNOWN:38
+- Formats: MORPHEME_MEANING_CONTEXT:52, UNKNOWN:37
 - Overused targets: none
 - Overused itemKeys: er, ful, less, re, un
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| what does unhappy mean?::not happy | 3 | p3_morphology_un_1, template_prefix_1, exp3_morphology_1 |
-| what does unkind mean?::not kind | 3 | p3_morphology_un_2, exp7_morphology_3, qb8_morph_24 |
-| what does reread mean?::read again | 4 | p3_morphology_re_3, template_prefix_2, exp3_morphology_4, exp7_morphology_12 |
-| what does playful mean?::full of play | 3 | p3_morphology_ful_5, exp7_morphology_10, qb8_morph_33 |
-| what does careless mean?::without care | 3 | p3_morphology_less_6, exp3_morphology_11, qb8_morph_21 |
-| what does teacher mean?::a person who teaches | 2 | p3_morphology_er_7, exp3_morphology_12 |
-| what does unlock mean?::make not locked | 3 | p3_morphology_un_10, exp7_morphology_9, qb8_morph_03 |
-| what does rebuild mean?::build again | 3 | p3_morphology_re_11, exp3_morphology_6, qb8_morph_22 |
-| what does helpful mean?::full of help | 3 | p3_morphology_ful_12, exp3_morphology_7, qb8_morph_20 |
-| what does painless mean?::without pain | 3 | p3_morphology_less_13, exp3_morphology_10, qb8_morph_10 |
+No duplicate prompt+answer signatures detected.
 
 ## Antonyms and Synonyms
 
-- Active valid runtime questions: 65
-- Unique question signatures: 55
+- Active valid runtime questions: 64
+- Unique question signatures: 64
 - Unique target words / answer targets: 40
 - Unique itemKeys/patterns: 40 (after, big, careless, closed, cloudy, dark, deep, dirty, down, dry, dull, empty, energetic, fast, hard, hot, late, light, loudly, low, mean, narrow, nervous, noisy, old, quiet, raw, sad, shallow, short, slow, slowly, small, soft, sour, thin, tiny, warm, weak, wide)
-- Duplicate signatures: 10
+- Duplicate signatures: 0
 - Repeated distractor sets: 1
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: UNKNOWN:4, COMPREHENSION:61
+- Formats: UNKNOWN:4, COMPREHENSION:60
 - Overused targets: short:6
 - Overused itemKeys: short
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| choose the word that means the opposite of happy.::sad | 2 | antonyms_002, antonyms_021 |
-| what is the opposite of opened?::closed | 2 | antonyms_004, antonyms_045 |
-| choose the opposite of loud.::quiet | 2 | antonyms_010, antonyms_072 |
-| what is the opposite of tall?::short | 2 | antonyms_015, antonyms_057 |
-| what is the opposite of happy?::sad | 2 | antonyms_025, antonyms_068 |
-| choose the opposite of tall.::short | 2 | antonyms_026, antonyms_075 |
-| choose the word that means the opposite of fast.::slow | 2 | antonyms_030, antonyms_062 |
-| choose the opposite of up.::down | 2 | antonyms_051, antonyms_067 |
-| choose the opposite of sweet.::sour | 2 | antonyms_053, antonyms_078 |
-| choose the word that means the opposite of loud.::quiet | 2 | antonyms_056, antonyms_080 |
+No duplicate prompt+answer signatures detected.
 
 ## Homophones and Homonyms
 
@@ -590,10 +430,10 @@ No duplicate prompt+answer signatures detected.
 ## Key Details
 
 - Active valid runtime questions: 59
-- Unique question signatures: 58
+- Unique question signatures: 59
 - Unique target words / answer targets: 52
 - Unique itemKeys/patterns: 59 (adv_key_details_1_1, adv_key_details_1_2, adv_key_details_1_3, adv_key_details_1_4, adv_key_details_2_1, adv_key_details_2_2, adv_key_details_2_3, adv_key_details_2_4, adv_key_details_3_1, adv_key_details_3_2, adv_key_details_3_3, adv_key_details_3_4, adv_key_details_4_1, adv_key_details_4_2, adv_key_details_4_3, adv_key_details_4_4, adv_key_details_5_1, adv_key_details_5_2, adv_key_details_5_3, adv_key_details_5_4, exp2_comp_1, exp2_comp_2, exp3_comp_1, exp3_comp_2, exp3_comp_3, exp3_comp_4, exp3_comp_5, exp4_comp_1, exp4_comp_2, exp4_comp_3, exp4_comp_4, exp4_comp_5, exp5_comp_1, exp5_comp_2, exp6_comp_1, exp6_comp_2, exp6_comp_3, exp6_comp_4, exp6_comp_5, exp7_key_details_1, exp7_key_details_10, exp7_key_details_11, exp7_key_details_12, exp7_key_details_13, exp7_key_details_14, exp7_key_details_15, exp7_key_details_16, exp7_key_details_17, exp7_key_details_18, exp7_key_details_19, exp7_key_details_2, exp7_key_details_3, exp7_key_details_4, exp7_key_details_5, exp7_key_details_6, exp7_key_details_7, exp7_key_details_8, exp7_key_details_9, template_detail_1)
-- Duplicate signatures: 1
+- Duplicate signatures: 0
 - Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
@@ -602,9 +442,7 @@ No duplicate prompt+answer signatures detected.
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| what did the class plant?::beans | 2 | exp3_comp_5, exp7_key_details_2 |
+No duplicate prompt+answer signatures detected.
 
 ## Sequencing
 
@@ -626,10 +464,10 @@ No duplicate prompt+answer signatures detected.
 ## Main Idea
 
 - Active valid runtime questions: 65
-- Unique question signatures: 60
+- Unique question signatures: 65
 - Unique target words / answer targets: 60
 - Unique itemKeys/patterns: 65 (adv_main_idea_1_1, adv_main_idea_1_2, adv_main_idea_1_3, adv_main_idea_1_4, adv_main_idea_2_1, adv_main_idea_2_2, adv_main_idea_2_3, adv_main_idea_2_4, adv_main_idea_3_1, adv_main_idea_3_2, adv_main_idea_3_3, adv_main_idea_3_4, adv_main_idea_4_1, adv_main_idea_4_2, adv_main_idea_4_3, adv_main_idea_4_4, adv_main_idea_5_1, adv_main_idea_5_2, adv_main_idea_5_3, adv_main_idea_5_4, exp2_comp_5, exp2_comp_6, exp3_comp_11, exp3_comp_12, exp3_comp_13, exp3_comp_14, exp3_comp_15, exp4_comp_11, exp4_comp_12, exp4_comp_13, exp4_comp_14, exp4_comp_15, exp5_comp_5, exp5_comp_6, exp6_comp_11, exp6_comp_12, exp6_comp_13, exp6_comp_14, exp6_comp_15, exp7_main_idea_1, exp7_main_idea_10, exp7_main_idea_11, exp7_main_idea_12, exp7_main_idea_13, exp7_main_idea_14, exp7_main_idea_15, exp7_main_idea_16, exp7_main_idea_17, exp7_main_idea_18, exp7_main_idea_19, exp7_main_idea_2, exp7_main_idea_3, exp7_main_idea_4, exp7_main_idea_5, exp7_main_idea_6, exp7_main_idea_7, exp7_main_idea_8, exp7_main_idea_9, qb8_main_03_01, qb8_main_03_02, qb8_main_03_03, qb8_main_04_01, qb8_main_04_02, qb8_main_04_03, template_main_idea_1)
-- Duplicate signatures: 5
+- Duplicate signatures: 0
 - Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
@@ -638,13 +476,7 @@ No duplicate prompt+answer signatures detected.
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| what is this mostly about?::cats | 2 | exp3_comp_11, exp7_main_idea_1 |
-| what is this mostly about?::rain | 2 | exp3_comp_13, exp7_main_idea_8 |
-| what is this mostly about?::doctors | 2 | exp5_comp_6, exp7_main_idea_17 |
-| what is this mostly about?::trains | 2 | exp6_comp_12, exp7_main_idea_15 |
-| what is this mostly about?::libraries | 2 | exp6_comp_15, exp7_main_idea_6 |
+No duplicate prompt+answer signatures detected.
 
 ## Inference
 
@@ -683,10 +515,10 @@ No duplicate prompt+answer signatures detected.
 ## Context Clues
 
 - Active valid runtime questions: 66
-- Unique question signatures: 64
+- Unique question signatures: 66
 - Unique target words / answer targets: 60
 - Unique itemKeys/patterns: 66 (adv_context_clues_1_1, adv_context_clues_1_2, adv_context_clues_1_3, adv_context_clues_1_4, adv_context_clues_2_1, adv_context_clues_2_2, adv_context_clues_2_3, adv_context_clues_2_4, adv_context_clues_3_1, adv_context_clues_3_2, adv_context_clues_3_3, adv_context_clues_3_4, adv_context_clues_4_1, adv_context_clues_4_2, adv_context_clues_4_3, adv_context_clues_4_4, adv_context_clues_5_1, adv_context_clues_5_2, adv_context_clues_5_3, adv_context_clues_5_4, exp2_comp_10, exp2_comp_9, exp3_comp_21, exp3_comp_22, exp3_comp_23, exp3_comp_24, exp3_comp_25, exp4_comp_21, exp4_comp_22, exp4_comp_23, exp4_comp_24, exp4_comp_25, exp5_comp_10, exp5_comp_9, exp6_comp_21, exp6_comp_22, exp6_comp_23, exp6_comp_24, exp6_comp_25, exp7_context_clues_1, exp7_context_clues_10, exp7_context_clues_11, exp7_context_clues_12, exp7_context_clues_13, exp7_context_clues_14, exp7_context_clues_15, exp7_context_clues_16, exp7_context_clues_17, exp7_context_clues_18, exp7_context_clues_19, exp7_context_clues_2, exp7_context_clues_3, exp7_context_clues_4, exp7_context_clues_5, exp7_context_clues_6, exp7_context_clues_7, exp7_context_clues_8, exp7_context_clues_9, p3_context_clues_paragraph_001, qb8_context_05_01, qb8_context_05_02, qb8_context_05_03, qb8_context_06_01, qb8_context_06_02, qb8_context_06_03, template_context_1)
-- Duplicate signatures: 2
+- Duplicate signatures: 0
 - Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
@@ -695,18 +527,15 @@ No duplicate prompt+answer signatures detected.
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| what does enormous mean?::very large | 2 | exp3_comp_21, exp4_comp_21 |
-| what does narrow mean?::not wide | 2 | exp4_comp_24, exp7_context_clues_2 |
+No duplicate prompt+answer signatures detected.
 
 ## Theme and Higher Comprehension
 
 - Active valid runtime questions: 65
-- Unique question signatures: 58
+- Unique question signatures: 65
 - Unique target words / answer targets: 54
 - Unique itemKeys/patterns: 65 (adv_theme_1_1, adv_theme_1_2, adv_theme_1_3, adv_theme_1_4, adv_theme_2_1, adv_theme_2_2, adv_theme_2_3, adv_theme_2_4, adv_theme_3_1, adv_theme_3_2, adv_theme_3_3, adv_theme_3_4, adv_theme_4_1, adv_theme_4_2, adv_theme_4_3, adv_theme_4_4, adv_theme_5_1, adv_theme_5_2, adv_theme_5_3, adv_theme_5_4, exp2_comp_11, exp2_comp_12, exp3_comp_26, exp3_comp_27, exp3_comp_28, exp3_comp_29, exp3_comp_30, exp4_comp_26, exp4_comp_27, exp4_comp_28, exp4_comp_29, exp4_comp_30, exp5_comp_11, exp5_comp_12, exp6_comp_26, exp6_comp_27, exp6_comp_28, exp6_comp_29, exp6_comp_30, exp7_theme_1, exp7_theme_10, exp7_theme_11, exp7_theme_12, exp7_theme_13, exp7_theme_14, exp7_theme_15, exp7_theme_16, exp7_theme_17, exp7_theme_18, exp7_theme_19, exp7_theme_2, exp7_theme_3, exp7_theme_4, exp7_theme_5, exp7_theme_6, exp7_theme_7, exp7_theme_8, exp7_theme_9, qb8_theme_07_01, qb8_theme_07_02, qb8_theme_07_03, qb8_theme_08_01, qb8_theme_08_02, qb8_theme_08_03, template_theme_1)
-- Duplicate signatures: 6
+- Duplicate signatures: 0
 - Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
@@ -715,11 +544,4 @@ No duplicate prompt+answer signatures detected.
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| what lesson does this teach?::teamwork helps | 3 | exp3_comp_30, exp6_comp_30, exp7_theme_4 |
-| what lesson does this teach?::being brave can help | 2 | exp4_comp_30, exp7_theme_5 |
-| what lesson does this teach?::honesty matters | 2 | exp6_comp_26, exp7_theme_3 |
-| what lesson does this teach?::helping the community is good | 2 | exp6_comp_27, exp7_theme_7 |
-| what lesson does this teach?::keep trying | 2 | exp6_comp_28, exp7_theme_2 |
-| what lesson does this teach?::kindness helps others | 2 | exp6_comp_29, exp7_theme_1 |
+No duplicate prompt+answer signatures detected.
