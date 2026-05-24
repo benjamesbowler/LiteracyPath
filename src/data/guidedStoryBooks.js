@@ -12,6 +12,69 @@ const words = text =>
       audioPath: wordAudio(word)
     }));
 
+const characterFieldFallbacks = {
+  ageSpecies: "Use the exact age/species implied by the canonical appearance; do not change age or species between pages.",
+  skinFurColor: "Use the exact skin, fur, feather, or body color named in the canonical appearance; if not visible, keep it visually unchanged.",
+  hairStyleColor: "Use the exact hair, mane, feather, or head detail named in the canonical appearance; if not applicable, do not invent one.",
+  eyeColor: "Use one consistent eye color and eye style across every page.",
+  clothing: "Use the same clothing on every page; if no clothing is specified, do not add random clothing.",
+  accessories: "Use only the accessories named in the canonical appearance, and keep them unchanged.",
+  personality: "Keep the character's emotional role consistent with the story arc.",
+  speakingStyle: "Use natural child-friendly dialogue that matches the character's role.",
+  heightBuild: "Keep the same size, body shape, proportions, and visual age across every page.",
+  settingRelationship: "Keep the character visually connected to the story setting and sequence."
+};
+
+function normalizeCharacterProfile(character) {
+  const canonicalAppearance = character.canonicalAppearance || character.consistency || "";
+
+  return {
+    name: character.name,
+    canonicalAppearance,
+    ageSpecies: character.ageSpecies || character.species || canonicalAppearance || characterFieldFallbacks.ageSpecies,
+    skinFurColor: character.skinFurColor || character.furColor || character.bodyColor || characterFieldFallbacks.skinFurColor,
+    hairStyleColor: character.hairStyleColor || character.hairColor || character.maneColor || characterFieldFallbacks.hairStyleColor,
+    eyeColor: character.eyeColor || characterFieldFallbacks.eyeColor,
+    clothing: character.clothing || characterFieldFallbacks.clothing,
+    accessories: character.accessories || characterFieldFallbacks.accessories,
+    personality: character.personality || characterFieldFallbacks.personality,
+    speakingStyle: character.speakingStyle || characterFieldFallbacks.speakingStyle,
+    heightBuild: character.heightBuild || characterFieldFallbacks.heightBuild,
+    settingRelationship: character.settingRelationship || characterFieldFallbacks.settingRelationship,
+    consistency: canonicalAppearance
+  };
+}
+
+function buildEnvironmentBible(config) {
+  return {
+    primarySetting: config.primarySetting,
+    timeOfDay: config.timeOfDay || "Use the same time-of-day logic from the story sequence; do not change randomly.",
+    weather: config.weather || "Use stable weather unless the page text clearly changes it.",
+    lighting: config.lighting || "Keep lighting coherent from page to page unless the story intentionally changes time.",
+    recurringProps: config.recurringProps || [],
+    settingContinuity: config.settingContinuity || "Each page must feel like it belongs to the same story world and sequence.",
+    forbiddenSettingDrift: [
+      "random desert, beach, classroom, city, or indoor switch unless written in the page text",
+      "random season changes",
+      "random weather changes",
+      "random day/night changes",
+      "unexplained new buildings, props, or background characters"
+    ]
+  };
+}
+
+const continuityChecklist = [
+  "same character appearance",
+  "same clothing and accessories",
+  "same hair/fur/body colors",
+  "same visual age/species/body proportions",
+  "same illustration style",
+  "logical setting continuity",
+  "coherent time of day/weather/lighting",
+  "recurring props remain consistent",
+  "story events flow in page order"
+];
+
 function page(text, action, setting) {
   return {
     text: normalizeText(text),
@@ -21,12 +84,16 @@ function page(text, action, setting) {
 }
 
 function buildStoryBook(config) {
+  const characterBible = config.characterBible.map(normalizeCharacterProfile);
+  const environmentBible = buildEnvironmentBible(config);
   const pages = config.pages.map((item, index) => ({
     pageNumber: index + 1,
     text: item.text,
     image: "",
     pageAudio: "",
     imageAlt: `${config.title} page ${index + 1} illustration`,
+    requiredAction: item.requiredAction,
+    setting: item.setting || config.primarySetting,
     pageDescription: item.requiredAction,
     embeddedImageText: "",
     targetWords: config.targetVocabulary,
@@ -40,7 +107,9 @@ function buildStoryBook(config) {
       `Exact app text: "${item.text}"`,
       `Show: ${item.requiredAction}`,
       `Setting: ${item.setting || config.primarySetting}.`,
-      `Visible characters: ${config.characterBible.map(character => `${character.name} (${character.consistency})`).join("; ")}.`,
+      `Canonical character bible: ${characterBible.map(character => `${character.name}: ${character.canonicalAppearance}; clothing: ${character.clothing}; accessories: ${character.accessories}; height/build: ${character.heightBuild}`).join(" | ")}.`,
+      `Environment bible: primary setting is ${environmentBible.primarySetting}; time/weather/lighting must remain coherent with previous pages.`,
+      `Continuity rule: this page must visually follow page ${index === 0 ? "1 as the opening scene" : index}; do not redesign characters, clothing, props, setting, lighting, or art style.`,
       "No embedded text, captions, labels, watermarks, speech bubbles, or extra characters.",
       "Keep character age/species, clothing, colors, and accessories identical to the character bible."
     ].join(" ")
@@ -50,7 +119,7 @@ function buildStoryBook(config) {
     pageNumber: item.pageNumber,
     exactAppText: item.text,
     imagePrompt: item.imagePrompt,
-    requiredVisibleCharacters: config.characterBible.map(character => character.name),
+    requiredVisibleCharacters: characterBible.map(character => character.name),
     requiredSetting: item.setting || config.primarySetting,
     requiredAction: item.requiredAction,
     forbiddenElements: [
@@ -59,9 +128,20 @@ function buildStoryBook(config) {
       "speech bubbles",
       "watermarks",
       "random extra characters",
+      "random character redesigns",
+      "random clothing changes",
+      "random setting, weather, or lighting changes",
       "scary or violent imagery"
     ],
-    consistencyNotes: config.characterBible.map(character => `${character.name}: ${character.consistency}`).join(" ")
+    characterBible,
+    environmentBible,
+    continuityNotes: [
+      `Use the canonical character bible for ${config.title} on every page.`,
+      "Reference the prior page before generating the next page.",
+      "Maintain one illustrated universe across the whole book."
+    ],
+    continuityChecklist,
+    consistencyNotes: characterBible.map(character => `${character.name}: ${character.canonicalAppearance}`).join(" ")
   }));
 
   const narrationScript = pages.map(item => ({
@@ -92,7 +172,15 @@ function buildStoryBook(config) {
     moral: config.moral,
     theme: config.moral,
     primarySetting: config.primarySetting,
-    characterBible: config.characterBible,
+    characterBible,
+    environmentBible,
+    continuityNotes: [
+      "Fiction continuity is mandatory. Character drift, random clothing changes, setting drift, lighting drift, or disconnected scene sequencing blocks activation.",
+      "Consistency overrides image prettiness. A beautiful page that redesigns a character or setting is a failed page.",
+      "Nonfiction may vary by page, but this fiction book must preserve narrative and visual continuity."
+    ],
+    continuityChecklist,
+    continuityStatus: "draft_needs_assets",
     imagePromptPack,
     narrationScript,
     pages

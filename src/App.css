@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&display=swap');
 
 :root {
   --lp-color-primary: #4f63d7;
@@ -34,6 +34,9 @@
   --lp-radius-xl: 16px;
   --lp-radius-card: 22px;
   --lp-radius-pill: 999px;
+  --lp-font-ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --lp-font-reading: Lexend, "Atkinson Hyperlegible", Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --lp-font-readable: "Atkinson Hyperlegible", Lexend, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --lp-space-1: 4px;
   --lp-space-2: 6px;
   --lp-space-3: 8px;
@@ -71,7 +74,7 @@
 
 body {
   margin: 0;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--lp-font-ui);
   background:
     radial-gradient(circle at top left, rgba(255, 246, 230, 0.86), transparent 36rem),
     radial-gradient(circle at 90% 8%, rgba(231, 247, 243, 0.58), transparent 28rem),
@@ -1101,6 +1104,7 @@ body {
   width: min(100%, 1180px);
   margin-inline: auto;
   overflow-x: clip;
+  font-family: var(--lp-font-readable);
 }
 
 .guided-reading-reader-open {
@@ -1227,7 +1231,9 @@ body {
 
 .guided-category-card strong,
 .guided-level-card strong {
+  font-family: var(--lp-font-reading);
   font-size: 1.2rem;
+  letter-spacing: 0;
 }
 
 .guided-category-card small,
@@ -1367,6 +1373,7 @@ body {
 .guided-book-generated-cover strong {
   display: -webkit-box;
   overflow: hidden;
+  font-family: var(--lp-font-reading);
   font-size: 1rem;
   line-height: 1.18;
   -webkit-box-orient: vertical;
@@ -1379,6 +1386,7 @@ body {
   min-width: 0;
   overflow: hidden;
   color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
   font-size: 0.98rem;
   font-weight: 850;
   line-height: 1.25;
@@ -1448,7 +1456,9 @@ body {
 .guided-reader-header h3,
 .guided-reading-summary h3 {
   color: var(--lp-color-text-strong) !important;
+  font-family: var(--lp-font-reading);
   font-size: clamp(22px, 2.6vw, 30px);
+  letter-spacing: 0;
 }
 
 .guided-reader-header p:not(.panel-label) {
@@ -1553,9 +1563,12 @@ body {
   border-radius: 18px;
   background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
   color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
   font-size: clamp(1.55rem, 2.4vw, 2.35rem);
-  font-weight: 760;
-  line-height: 1.6;
+  font-weight: 600;
+  line-height: 1.72;
+  letter-spacing: 0;
+  word-spacing: 0.06em;
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.055);
 }
 
@@ -2724,6 +2737,121 @@ select:focus {
 
 .ixl-answer-card.image-card .ixl-answer-button {
   min-height: clamp(150px, 30vh, 240px);
+}
+
+.first-sound-question-card {
+  display: grid;
+  gap: 16px;
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: clamp(18px, 4vw, 28px);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 22px 46px rgba(48, 37, 18, 0.11);
+}
+
+.first-sound-progress {
+  justify-self: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.first-sound-prompt {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+}
+
+.first-sound-prompt h2 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: clamp(1.55rem, 4vw, 2.35rem);
+  line-height: 1.15;
+}
+
+.first-sound-audio-button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 850;
+}
+
+.first-sound-audio-button:disabled {
+  background: var(--color-border-soft);
+  color: var(--lp-color-text-muted);
+  cursor: not-allowed;
+}
+
+.first-sound-image-area {
+  display: grid;
+  place-items: center;
+  min-height: clamp(170px, 32vh, 280px);
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #f8fafc 0%, #fffaf0 100%);
+}
+
+.first-sound-image-area img {
+  display: block;
+  max-width: 100%;
+  max-height: clamp(160px, 30vh, 260px);
+  object-fit: contain;
+}
+
+.first-sound-image-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 180px;
+  color: var(--lp-color-text-muted);
+  font-weight: 850;
+}
+
+.first-sound-answer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+  gap: 12px;
+}
+
+.first-sound-answer-grid button {
+  min-height: 64px;
+  border: 2px solid var(--color-border-soft);
+  border-radius: 18px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 900;
+}
+
+.first-sound-answer-grid button.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.first-sound-feedback {
+  padding: 12px;
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 850;
+}
+
+.first-sound-feedback.correct {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.first-sound-feedback.incorrect {
+  background: var(--color-warning-soft);
+  color: #9a5b00;
 }
 
 .ixl-answer-button img {

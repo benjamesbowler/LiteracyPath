@@ -26,7 +26,7 @@ The system must prioritize:
 3. Narrative quality
 4. Reading enjoyment
 5. Vocabulary development
-6. Consistency
+6. Fiction continuity
 7. Technical reliability
 
 ---
@@ -86,6 +86,8 @@ for every level.
 ---
 
 # Reading Level Structure
+
+This legacy section describes the starter-library leveling baseline. The controlled production model later in this document is the stricter standard for all new production batches.
 
 ## Level A
 Purpose:
@@ -309,6 +311,112 @@ Avoid:
 
 ---
 
+# Fiction Continuity Enforcement
+
+Fiction continuity is mandatory.
+
+This is a literacy and comprehension requirement, not just a visual preference. Children use repeated character appearance, stable settings, predictable props, and coherent page-to-page events to understand who is acting, where events happen, and how the story sequence works.
+
+Continuity failures invalidate a fiction book. A book with inconsistent characters, random clothing changes, unexplained setting changes, broken weather/time continuity, or disconnected story events cannot become active in the Guided Reading library.
+
+Consistency overrides image prettiness. A beautiful illustration that redesigns a character, changes clothing without story cause, changes species/body proportions, or jumps to an unrelated setting is a failed illustration.
+
+For fiction:
+- characters must remain visually identical across all pages
+- clothing must remain consistent unless the story explicitly changes it
+- hair, fur, feather, skin, and body colors must remain consistent
+- body proportions, visual age, and species must remain consistent
+- recurring props and accessories must remain consistent
+- settings must remain logically continuous
+- time of day, weather, and lighting must remain coherent unless intentionally changed in the text
+- events must flow sequentially from page to page
+- visual style must remain stable across the whole book
+
+For nonfiction:
+- page visuals may vary because each page may explain a different fact, object, place, or process
+- page-level relevance is more important than character continuity
+- recurring narrator/mascot characters, if used, must still remain visually consistent
+
+## Character Bible Enforcement
+
+Every fiction book must include a canonical character sheet before assets can be requested or approved.
+
+Required character fields:
+- name
+- age/species
+- skin/fur/feather/body color
+- hair style/color, mane detail, or head detail
+- eye color/style
+- clothing
+- accessories
+- personality
+- speaking style
+- height/build/body proportions
+- setting relationship
+- canonical appearance summary
+
+Character bible rules:
+- The same character bible must be referenced in every page image prompt.
+- Kimi or any future generator must not redesign characters page-to-page.
+- If a page cannot preserve the character bible, the page must be regenerated.
+- If a full book cannot preserve the character bible, the book remains inactive.
+
+## Environment Continuity Enforcement
+
+Every fiction book must include an environment bible.
+
+Required environment fields:
+- primary setting
+- time-of-day logic
+- weather logic
+- lighting logic
+- recurring props
+- setting continuity notes
+- forbidden setting drift
+
+If a story starts in a forest cabin at sunset during winter, later pages cannot randomly become a desert, daytime beach, or modern classroom unless that movement is explicitly written into the story.
+
+Environment continuity rules:
+- Keep the main setting stable unless the text describes a journey or change.
+- Keep weather and lighting coherent with the story sequence.
+- Keep recurring props visually consistent.
+- Do not add random background characters or objects that change the story meaning.
+- Do not shift art style between pages.
+
+## Continuity Metadata Requirements
+
+Every fiction guided story must support:
+- `characterBible`
+- `environmentBible`
+- `continuityNotes`
+- `continuityChecklist`
+- `continuityStatus`
+
+Allowed continuity statuses:
+- `draft_needs_assets`
+- `approved`
+- `needs_fix`
+- `needs_regeneration`
+- `rejected`
+
+Draft books may remain inactive with `draft_needs_assets`. Active fiction books must have `approved` continuity status after visual QA.
+
+## Future Automated Continuity Support
+
+The system should keep hooks for future automated support without adding heavy AI vision logic yet.
+
+Planned future checks:
+- image embedding comparison between pages
+- character similarity scoring
+- clothing/accessory consistency scoring
+- environment similarity scoring
+- visual style drift detection
+- page-sequence anomaly detection
+
+These checks should support, not replace, human literacy QA.
+
+---
+
 # Vocabulary Rules
 
 Vocabulary must:
@@ -409,12 +517,17 @@ Check:
 - beginning/middle/end
 - character consistency
 - setting consistency
+- fiction continuity checklist
 
 ## Image QA
 Check:
 - image/text match
 - no conflicting embedded text
 - visual clarity
+- same character appearance across pages for fiction
+- same clothing/accessories across pages for fiction
+- same environment/time/weather/lighting continuity for fiction
+- same visual style across pages for fiction
 
 ## Audio QA
 Check:
@@ -433,6 +546,12 @@ Reject or regenerate if:
 - story incoherent
 - page sequence broken
 - characters inconsistent
+- main character appearance changes
+- clothing or accessories randomly change
+- environment continuity breaks
+- weather, time of day, or lighting changes without story cause
+- visual style changes heavily between pages
+- narrative continuity breaks
 - embedded image text conflicts
 - literacy quality weak
 
@@ -454,6 +573,11 @@ Every book must include:
 - coverImage
 - narrationFiles
 - QA status
+- characterBible for fiction
+- environmentBible for fiction
+- continuityNotes for fiction
+- continuityChecklist for fiction
+- continuityStatus for fiction
 
 Every page must include:
 - pageNumber
@@ -502,3 +626,130 @@ The system must always prioritize:
 - child readability
 - teacher trust
 over content quantity.
+
+---
+
+# Controlled Production Model
+
+Guided Reading production now uses a controlled batch model. Codex is the story author and quality-control owner. Kimi is the asset renderer.
+
+## Codex Responsibilities
+
+Codex must:
+- write the books
+- structure reading levels
+- enforce literacy progression
+- enforce fiction continuity
+- generate exact page-by-page image requirements
+- generate exact narration scripts
+- generate canonical character bibles
+- generate environment bibles
+- generate Kimi asset request files
+- generate validation metadata
+- approve or reject assets after QA
+
+## Kimi Responsibilities
+
+Kimi must:
+- create the actual images
+- create the actual narration audio
+- follow Codex instructions exactly
+- preserve character, setting, and story continuity
+- use exact app text for narration
+
+Kimi must never:
+- invent story details
+- rewrite app text
+- paraphrase narration
+- redesign characters
+- change clothing randomly
+- change setting/weather/lighting randomly
+- add embedded text unless explicitly requested
+- activate or approve content
+
+Kimi is an asset renderer, not the story author.
+
+## Batch Strategy
+
+Production proceeds in batches, not infinite generation.
+
+Each production round contains:
+- 5 fiction books per level
+- 5 nonfiction books per level
+- Levels A, B, C, D, E
+- 50 books total per round
+- 25 fiction books
+- 25 nonfiction books
+
+Batch flow:
+1. Codex writes and validates book text.
+2. Codex generates character bibles, continuity metadata, page image requirements, narration scripts, filenames, and QA metadata.
+3. Kimi renders images and audio exactly from Codex instructions.
+4. Codex validates continuity, narration match, image/text alignment, literacy correctness, and technical file integrity.
+5. Only approved books become active.
+
+Current active books remain as temporary starter content. They should not be removed until replacement batches are validated and approved.
+
+---
+
+# Production Level Requirements
+
+## Level A
+
+Requirements:
+- 6-10 pages
+- 1-2 simple sentences per page
+- heavy image support
+- focused on decoding, first 1-25 high-frequency words, CVC words, and a few long-vowel words
+- clear page-to-page meaning even with very simple text
+
+## Level B
+
+Requirements:
+- 8-10 pages
+- 2-3 simple sentences per page
+- focused on blends, digraphs, long vowels, vowel teams, CVC words, first 1-50 high-frequency words, and some rhyming patterns
+- simple story or informational flow
+
+## Level C
+
+Requirements:
+- 10-12 pages
+- 1 simple paragraph per page
+- focused on all K-1 reading skills, CVC words, blends, short vowels, long vowels, vowel teams, and first 100 sight words
+- proper beginning, middle, and ending for fiction
+- clear topic sequence for nonfiction
+
+## Level D
+
+Requirements:
+- 12-15 pages
+- multiple short paragraphs per page
+- focused on K-3 reading skills, stronger comprehension, richer vocabulary, and deeper narrative or informational structure
+- more inference, sequencing, and evidence-based discussion
+
+## Level E
+
+Requirements:
+- 12-15 pages
+- multiple paragraphs per page
+- more advanced language than Level D
+- more complex narrative or informational structure
+- stronger emotional/comprehension depth
+- richer sentence variety
+- clear opportunities for discussion, inference, and retelling
+
+---
+
+# Nonfiction Expectations
+
+Nonfiction books must:
+- be factually accurate
+- use clear topic progression
+- avoid random fact lists
+- define or support new vocabulary
+- use images that directly support the text
+- organize information in a way teachers can discuss
+- remain age-appropriate and not babyish
+
+Continuity is relaxed for nonfiction because pages may show different subtopics, examples, diagrams, places, or processes. If a nonfiction book uses a recurring narrator, child, mascot, or guide character, that recurring character must remain visually consistent.
