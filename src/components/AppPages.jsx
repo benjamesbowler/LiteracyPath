@@ -1569,6 +1569,36 @@ function GuidedReadingImage({ src, alt, className = "" }) {
   );
 }
 
+function getGuidedBookCover(book = {}) {
+  const src = book.cover || book.coverImage || book.coverUrl || "";
+  return {
+    src,
+    isGenerated: !src
+  };
+}
+
+function GuidedBookCover({ book }) {
+  const cover = getGuidedBookCover(book);
+
+  if (!cover.src) {
+    return (
+      <div className="guided-book-generated-cover" role="img" aria-label={`${book.title} generated cover`}>
+        <span>{formatGuidedReadingType(book.type)}</span>
+        <strong>{book.title}</strong>
+        <small>Level {book.level}</small>
+      </div>
+    );
+  }
+
+  return (
+    <GuidedReadingImage
+      alt={`${book.title} cover`}
+      className="guided-book-cover"
+      src={cover.src}
+    />
+  );
+}
+
 function tokenizeReadingText(text = "") {
   const normalizedText = String(text || "")
     .replace(/\s+([.,!?;:])/g, "$1")
@@ -2068,18 +2098,26 @@ export function GuidedReadingPage({
               const progress = getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
 
               return (
-                <button
+                <article
                   className={book.id === selectedBook.id ? "guided-book-card active" : "guided-book-card"}
                   key={book.id}
-                  onClick={() => changeBook(book.id)}
-                  type="button"
                 >
                   {progress.completed && <span className="guided-complete-badge" aria-label="Completed">✓</span>}
-                  <GuidedReadingImage alt={`${book.title} cover`} className="guided-book-cover" src={book.coverImage} />
-                  <span className="guided-book-title">{book.title}</span>
-                  <small className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</small>
-                  <b className="guided-book-action">{progress.completed ? "Read Again" : "Read"}</b>
-                </button>
+                  <div className="guided-book-cover-wrap">
+                    <GuidedBookCover book={book} />
+                  </div>
+                  <div className="guided-book-info">
+                    <h3 className="guided-book-title">{book.title}</h3>
+                    <p className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
+                    <button
+                      className="guided-book-action"
+                      onClick={() => changeBook(book.id)}
+                      type="button"
+                    >
+                      {progress.completed ? "Read Again" : "Read"}
+                    </button>
+                  </div>
+                </article>
               );
             })}
           </div>
