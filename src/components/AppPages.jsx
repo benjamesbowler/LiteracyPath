@@ -1565,7 +1565,11 @@ function GuidedReadingImage({ src, alt, className = "" }) {
 }
 
 function tokenizeReadingText(text = "") {
-  const tokens = text.match(/[A-Za-z0-9'-]+|[^A-Za-z0-9'-]+/g) || [];
+  const normalizedText = String(text || "")
+    .replace(/\s+([.,!?;:])/g, "$1")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+  const tokens = normalizedText.match(/[A-Za-z0-9'-]+|[^A-Za-z0-9'-]+/g) || [];
   let wordIndex = -1;
 
   return tokens.map((token, index) => {
@@ -1830,6 +1834,52 @@ export function GuidedReadingPage({
   }
 
   const recordSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
+
+  if (!selectedBook) {
+    return (
+      <div className="teacher-product-page guided-reading-page">
+        <section className="teacher-page-header">
+          <div>
+            <p className="panel-label">Guided Reading</p>
+            <h2>{studentName || "Student"} Reading Conference</h2>
+            <p>Guided Reading books are temporarily paused while the page images and app text are regenerated to match correctly.</p>
+          </div>
+
+          <div className="teacher-action-list">
+            <button className="lp-button lp-button-secondary" onClick={returnToElAssessments} type="button">
+              EL Assessments
+            </button>
+            <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
+              Reports
+            </button>
+          </div>
+        </section>
+
+        <section className="guided-reader-empty">
+          <h3>No approved Guided Reading books are active right now.</h3>
+          <p>
+            The imported book pack was disabled because page illustrations include embedded text and story details that conflict with the app text.
+            The QA report lists the exact books/pages Kimi needs to regenerate.
+          </p>
+        </section>
+
+        {recordSummaries.length > 0 && (
+          <section className="teacher-action-panel">
+            <h3>Saved guided reading summaries</h3>
+            <div className="guided-record-list">
+              {recordSummaries.map(item => (
+                <article key={item.bookId}>
+                  <strong>{item.title}</strong>
+                  <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
+                  <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className={readerOpen ? "guided-reading-page guided-reading-reader-open" : "teacher-product-page guided-reading-page"}>

@@ -8,7 +8,8 @@
     "build": "vite build",
     "analyze": "ANALYZE_BUNDLE=true vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate:guided-reading": "node tools/auditGuidedReadingContent.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

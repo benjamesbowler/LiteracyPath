@@ -1,7 +1,13 @@
 const wordAudio = word => `/audio/child-mode/words/${word.toLowerCase().replace(/[^a-z0-9'-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
 
+const normalizeReadingText = text =>
+  String(text || "")
+    .replace(/\s+([.,!?;:])/g, "$1")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
 const words = text =>
-  text
+  normalizeReadingText(text)
     .replace(/[.,!?;:()"]/g, "")
     .split(/\s+/)
     .filter(Boolean)
@@ -6324,13 +6330,40 @@ const rawGuidedReadingBooks = [
   }
 ];
 
-export const guidedReadingBooks = rawGuidedReadingBooks.map(book => ({
+const PACK_8_REGENERATION_REASON =
+  "Pack 8 page art contains embedded book text and/or visual story details that conflict with the app text and narration. Disable until Kimi regenerates clean illustration-only page images or provides matching app text and narration.";
+
+export const guidedReadingBookCandidates = rawGuidedReadingBooks.map(book => ({
   ...book,
+  active: false,
+  needsRegeneration: true,
+  regenerationReason: PACK_8_REGENERATION_REASON,
+  qaStatus: "needs_regeneration",
+  qaNotes: PACK_8_REGENERATION_REASON,
   pages: book.pages.map(page => ({
     ...page,
+    text: normalizeReadingText(page.text),
+    active: false,
+    needsRegeneration: true,
+    regenerationReason: PACK_8_REGENERATION_REASON,
+    imageAlt: page.imageAlt || `${book.title} page illustration`,
+    pageDescription: page.pageDescription || "",
+    embeddedImageText: page.embeddedImageText || "",
+    targetWords: page.targetWords || [...new Set(words(page.text).map(word => word.text.toLowerCase()))],
+    decodableFocus: page.decodableFocus || book.targetSkills || [],
+    qaStatus: "needs_regeneration",
+    qaNotes: PACK_8_REGENERATION_REASON,
     words: words(page.text)
   }))
 }));
+
+export const guidedReadingBooks = guidedReadingBookCandidates
+  .filter(book => book.active !== false && book.qaStatus === "approved")
+  .map(book => ({
+    ...book,
+    pages: book.pages.filter(page => page.active !== false && page.qaStatus === "approved")
+  }))
+  .filter(book => book.pages.length >= 4);
 
 export function summarizeGuidedReadingRecord(record) {
   const pages = Object.values(record?.pages || {});
