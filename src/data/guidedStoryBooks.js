@@ -75,6 +75,27 @@ const continuityChecklist = [
   "story events flow in page order"
 ];
 
+const ignoredCharacterTerms = new Set(["the", "and", "with", "little", "small", "adult", "young"]);
+const escapeRegExp = value => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+function inferVisibleCharacters(item, characterBible) {
+  if (Array.isArray(item.visibleCharacters)) return item.visibleCharacters;
+
+  const haystack = `${item.text} ${item.requiredAction}`.toLowerCase();
+  const visible = characterBible
+    .filter(character => {
+      const terms = String(character.name || "")
+        .toLowerCase()
+        .split(/\s+/)
+        .map(term => term.replace(/[^a-z0-9'-]/g, ""))
+        .filter(term => term.length > 2 && !ignoredCharacterTerms.has(term));
+      return terms.some(term => new RegExp(`\\b${escapeRegExp(term)}\\b`).test(haystack));
+    })
+    .map(character => character.name);
+
+  return visible.length ? visible : [characterBible[0]?.name].filter(Boolean);
+}
+
 function page(text, action, setting) {
   return {
     text: normalizeText(text),
@@ -93,6 +114,7 @@ function buildStoryBook(config) {
     pageAudio: "",
     imageAlt: `${config.title} page ${index + 1} illustration`,
     requiredAction: item.requiredAction,
+    visibleCharacters: inferVisibleCharacters(item, characterBible),
     setting: item.setting || config.primarySetting,
     pageDescription: item.requiredAction,
     embeddedImageText: "",
@@ -119,7 +141,7 @@ function buildStoryBook(config) {
     pageNumber: item.pageNumber,
     exactAppText: item.text,
     imagePrompt: item.imagePrompt,
-    requiredVisibleCharacters: characterBible.map(character => character.name),
+    requiredVisibleCharacters: item.visibleCharacters,
     requiredSetting: item.setting || config.primarySetting,
     requiredAction: item.requiredAction,
     forbiddenElements: [
@@ -224,8 +246,34 @@ const draftDefinitions = [
     moral: "Kindness matters, even when help seems small.",
     primarySetting: "sunny grassland near a shady tree",
     characterBible: [
-      { name: "Luma the lion", consistency: "golden lion with a soft brown mane and calm eyes" },
-      { name: "Pip the mouse", consistency: "small gray mouse with round ears and a tiny blue scarf" }
+      {
+        name: "Luma the lion",
+        consistency: "golden adult lion with a soft brown mane, amber eyes, broad paws, and calm gentle posture",
+        ageSpecies: "adult lion",
+        skinFurColor: "golden fur with a warm brown mane",
+        hairStyleColor: "full soft brown mane, same shape on every page",
+        eyeColor: "amber eyes",
+        clothing: "no clothing",
+        accessories: "no accessories",
+        personality: "powerful but gentle, surprised at first, grateful by the end",
+        speakingStyle: "slow, warm, respectful",
+        heightBuild: "large sturdy lion with broad paws and consistent adult proportions",
+        settingRelationship: "belongs in the same sunny grassland near one shady tree"
+      },
+      {
+        name: "Pip the mouse",
+        consistency: "small gray mouse with round ears, black eyes, pink nose, and a tiny blue scarf",
+        ageSpecies: "small mouse",
+        skinFurColor: "soft gray fur with pale pink inner ears and nose",
+        hairStyleColor: "smooth gray head fur with round ears",
+        eyeColor: "small black eyes",
+        clothing: "tiny blue scarf only",
+        accessories: "tiny blue scarf, always tied the same way",
+        personality: "brave, polite, determined, kind",
+        speakingStyle: "small but clear and brave",
+        heightBuild: "tiny rounded mouse, always much smaller than Luma",
+        settingRelationship: "lives near the grassland tree and small mouse hole"
+      }
     ],
     pages: [
       page("Luma the lion slept under a warm tree. Pip the mouse ran over his paw and stopped with a squeak.", "Luma sleeping while Pip freezes beside his paw", "warm grassland under a tree"),
@@ -252,7 +300,34 @@ const draftDefinitions = [
     moral: "Thinking carefully can help when strength is not enough.",
     primarySetting: "dry garden path with a clay water jar",
     characterBible: [
-      { name: "Cora the crow", consistency: "black crow with glossy feathers and a tiny green leaf tucked near one wing" }
+      {
+        name: "Cora the crow",
+        consistency: "black crow with glossy feathers, dark eyes, charcoal beak, and a tiny green leaf tucked near one wing",
+        ageSpecies: "adult crow",
+        skinFurColor: "glossy black feathers with subtle blue highlights",
+        hairStyleColor: "smooth black head feathers",
+        eyeColor: "dark brown eyes",
+        clothing: "no clothing",
+        accessories: "tiny green leaf tucked near the same wing on every page",
+        personality: "thirsty, thoughtful, patient, proud of a good plan",
+        speakingStyle: "clear and thoughtful",
+        heightBuild: "small bird with consistent crow proportions",
+        settingRelationship: "moves around the same dry garden path and clay jar"
+      },
+      {
+        name: "Little sparrow",
+        consistency: "small tan sparrow with a cream belly, tiny brown beak, and bright black eyes",
+        ageSpecies: "small sparrow",
+        skinFurColor: "tan feathers with cream belly",
+        hairStyleColor: "smooth tan head feathers",
+        eyeColor: "bright black eyes",
+        clothing: "no clothing",
+        accessories: "no accessories",
+        personality: "curious and impressed",
+        speakingStyle: "short cheerful chirps",
+        heightBuild: "smaller than Cora, round sparrow body",
+        settingRelationship: "watches from the same garden wall near the jar"
+      }
     ],
     pages: [
       page("Cora the crow flew over a dry garden. Her throat felt scratchy, and she looked for water.", "Cora flying over a dry garden path", "dry garden"),
@@ -279,7 +354,34 @@ const draftDefinitions = [
     moral: "It is better to be honest about disappointment.",
     primarySetting: "vineyard with a high grape vine",
     characterBible: [
-      { name: "Felix the fox", consistency: "small red fox with a white tail tip and a tan satchel" }
+      {
+        name: "Felix the fox",
+        consistency: "small red fox with orange-red fur, white tail tip, amber eyes, and a tan satchel",
+        ageSpecies: "young fox",
+        skinFurColor: "orange-red fur with cream chest and white tail tip",
+        hairStyleColor: "smooth red fox head fur with pointed ears",
+        eyeColor: "amber eyes",
+        clothing: "no clothing",
+        accessories: "tan satchel worn across one shoulder, same placement every page",
+        personality: "eager, embarrassed, then honest",
+        speakingStyle: "quick and proud at first, softer when honest",
+        heightBuild: "small slim fox with consistent pointed ears and bushy tail",
+        settingRelationship: "walks beneath the same grape vine and vineyard fence"
+      },
+      {
+        name: "Fence bird",
+        consistency: "small blue bird with a yellow chest, round black eyes, and short tail feathers",
+        ageSpecies: "small bird",
+        skinFurColor: "blue feathers with yellow chest",
+        hairStyleColor: "smooth blue head feathers",
+        eyeColor: "round black eyes",
+        clothing: "no clothing",
+        accessories: "no accessories",
+        personality: "observant and gentle",
+        speakingStyle: "light, curious, kind",
+        heightBuild: "tiny bird, always much smaller than Felix",
+        settingRelationship: "perches on the same vineyard fence near the grapes"
+      }
     ],
     pages: [
       page("Felix the fox walked by a vine after lunch. Purple grapes hung high above his head.", "Felix looking up at high purple grapes", "sunny vineyard"),
@@ -306,7 +408,34 @@ const draftDefinitions = [
     moral: "Wanting more can make us lose what we have.",
     primarySetting: "small bridge over a calm river",
     characterBible: [
-      { name: "Rex the dog", consistency: "brown dog with floppy ears and a red collar" }
+      {
+        name: "Rex the dog",
+        consistency: "brown dog with floppy ears, warm brown eyes, short tail, and a red collar",
+        ageSpecies: "friendly medium-sized dog",
+        skinFurColor: "warm brown fur with slightly darker floppy ears",
+        hairStyleColor: "short smooth brown head fur",
+        eyeColor: "warm brown eyes",
+        clothing: "no clothing",
+        accessories: "red collar, always the same",
+        personality: "proud, tempted, disappointed, then wiser",
+        speakingStyle: "expressed through dog body language, no spoken dialogue",
+        heightBuild: "medium dog with sturdy body and floppy ears",
+        settingRelationship: "walks from the village path across the same small river bridge"
+      },
+      {
+        name: "Baker Mara",
+        consistency: "kind adult baker with medium brown skin, gray-streaked dark hair in a bun, white apron, and blue dress",
+        ageSpecies: "adult human baker",
+        skinFurColor: "medium brown skin",
+        hairStyleColor: "dark hair with gray streaks, always tied in a bun",
+        eyeColor: "dark brown eyes",
+        clothing: "white apron over a simple blue dress",
+        accessories: "small flour cloth tucked at apron side",
+        personality: "kind, observant, calm",
+        speakingStyle: "gentle and practical",
+        heightBuild: "average-height adult with steady posture",
+        settingRelationship: "belongs to the village path near the bakery and bridge"
+      }
     ],
     pages: [
       page("Rex the dog found a big treat near the bakery. He carried it proudly toward home.", "Rex carrying a treat in his mouth", "village path"),
@@ -807,8 +936,34 @@ const additionalOriginals = [
     moral: "Listening carefully can help us find the way.",
     primarySetting: "school garden with a bell hanging in a tree",
     characterBible: [
-      { name: "Mina", consistency: "child with brown skin, black bob haircut, red sweater, and yellow rain boots" },
-      { name: "Taro", consistency: "small white dog with one brown ear and a blue collar" }
+      {
+        name: "Mina",
+        consistency: "young child with warm brown skin, straight black bob haircut, brown eyes, red sweater, denim pants, and yellow rain boots",
+        ageSpecies: "young child",
+        skinFurColor: "warm brown skin",
+        hairStyleColor: "straight black bob haircut, same length every page",
+        eyeColor: "brown eyes",
+        clothing: "red sweater, denim pants, yellow rain boots",
+        accessories: "no accessories",
+        personality: "careful, caring, curious, learns from a small mistake",
+        speakingStyle: "gentle and clear",
+        heightBuild: "small child with consistent K-2 age proportions",
+        settingRelationship: "cares for the school garden and the bell tree"
+      },
+      {
+        name: "Taro",
+        consistency: "small white dog with one brown ear, black nose, round dark eyes, and a blue collar",
+        ageSpecies: "small dog",
+        skinFurColor: "white fur with one brown ear",
+        hairStyleColor: "short smooth dog fur",
+        eyeColor: "round dark eyes",
+        clothing: "no clothing",
+        accessories: "blue collar, always the same",
+        personality: "playful, easily distracted, happy to return",
+        speakingStyle: "dog body language, no spoken dialogue",
+        heightBuild: "small compact dog, always below Mina's knees",
+        settingRelationship: "plays in and around Mina's school garden"
+      }
     ],
     pages: [
       page("Mina hung a little bell in the garden tree. Taro the dog watched the bell shine in the morning sun.", "Mina hanging bell while Taro watches", "school garden"),
@@ -818,7 +973,7 @@ const additionalOriginals = [
       page("Taro heard the bell too and lifted his ears. The sound told him which way led back.", "Taro hearing bell on path", "quiet path"),
       page("Mina rang the bell again and again. Taro ran toward the sound with muddy paws.", "Mina ringing bell as Taro returns", "garden gate"),
       page("Taro jumped into Mina’s arms. Mina laughed because the bell had become a helper.", "Mina hugging Taro", "garden"),
-      page("The next day, Mina made a small sign for herself, not for the picture. It said to close the gate before play.", "Mina closing gate carefully", "garden gate"),
+      page("The next day, Mina made a small rule for herself. She would close the gate before play.", "Mina closing the garden gate carefully with no visible text or sign", "garden gate"),
       page("Taro sat under the tree and listened. The bell was quiet now, but he knew its sound.", "Taro sitting under bell tree", "tree"),
       page("When the wind rang the bell, Mina smiled. It reminded her that careful listening can bring a friend home.", "Mina and Taro smiling under tree", "school garden")
     ]

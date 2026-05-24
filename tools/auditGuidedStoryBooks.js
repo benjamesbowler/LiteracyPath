@@ -28,6 +28,9 @@ function writeFile(filePath, content) {
 
 const failures = [];
 const warnings = [];
+const round1LevelCFictionBatch = guidedStoryBookDrafts
+  .filter(book => book.level === "C" && book.type === "fiction")
+  .slice(0, 5);
 
 const requiredCharacterFields = [
   "name",
@@ -65,6 +68,10 @@ if (activeAboveBOneSentence.length) {
 
 if (guidedStoryBookDrafts.length !== 20) {
   failures.push(`Expected 20 guided story drafts, found ${guidedStoryBookDrafts.length}.`);
+}
+
+if (round1LevelCFictionBatch.length !== 5) {
+  failures.push(`Expected 5 Round 1 Level C fiction pilot books, found ${round1LevelCFictionBatch.length}.`);
 }
 
 guidedStoryBookDrafts.forEach(book => {
@@ -105,6 +112,16 @@ guidedStoryBookDrafts.forEach(book => {
     }
     if (page.image || page.pageAudio) warnings.push(`${book.id} page ${page.pageNumber} unexpectedly has asset paths while still draft.`);
   });
+});
+
+round1LevelCFictionBatch.forEach(book => {
+  if (book.level !== "C") failures.push(`${book.id} is in the Round 1 pilot but is not Level C.`);
+  if (book.type !== "fiction") failures.push(`${book.id} is in the Round 1 pilot but is not fiction.`);
+  if ((book.pages || []).length < 10 || (book.pages || []).length > 12) {
+    failures.push(`${book.id} must have 10-12 pages for the Round 1 Level C pilot.`);
+  }
+  if (book.active !== false) failures.push(`${book.id} must remain inactive until assets pass QA.`);
+  if (book.qaStatus !== "draft_needs_assets") failures.push(`${book.id} must remain qaStatus draft_needs_assets.`);
 });
 
 const relevelRows = guidedReadingRelevelAudit.map(row =>
@@ -292,7 +309,192 @@ ${audioRequest}
 `
 );
 
+const round1BooksMarkdown = round1LevelCFictionBatch.map(book => {
+  const pageText = book.pages
+    .map(page => `### Page ${page.pageNumber}\n\n${page.text}`)
+    .join("\n\n");
+  return `## ${book.id}: ${book.title}
+
+- Level: ${book.level}
+- Type: ${book.type}
+- Status: ${book.qaStatus}
+- Active: ${book.active}
+- Comprehension focus: ${book.comprehensionFocus}
+- Phonics focus: ${book.decodableFocus.join(", ")}
+- Target vocabulary: ${book.targetVocabulary.join(", ")}
+- High-frequency words: ${book.highFrequencyWords.join(", ")}
+- Moral/theme: ${book.moral || book.theme}
+- Source inspiration: ${book.sourceTitle} (${book.sourceCollection})
+
+### Full Page Text
+
+${pageText}`;
+}).join("\n\n");
+
+writeFile(
+  path.join(rootDir, "docs", "assets", "round1_level_c_fiction_books.md"),
+  `# Round 1 Level C Fiction Books
+
+Date: 2026-05-25
+
+## Scope
+
+This is the first controlled Guided Story production batch only.
+
+- Books: ${round1LevelCFictionBatch.length}
+- Type: fiction
+- Level: C
+- Runtime status: inactive until Kimi assets are generated and Codex validates continuity, image/text alignment, narration match, and literacy QA.
+
+## Level C Standard
+
+- 10-12 pages per book
+- One simple paragraph per page
+- K-1 reading skills with first 100 high-frequency words
+- Clear beginning, middle, and ending
+- Strong comprehension flow
+- Consistent fiction continuity
+
+${round1BooksMarkdown}
+`
+);
+
+const round1ImageRequest = round1LevelCFictionBatch.map(book => {
+  const coverFile = `${book.id}-cover.webp`;
+  const characterBible = book.characterBible
+    .map(character => `- ${character.name}
+  - canonical appearance: ${character.canonicalAppearance}
+  - age/species: ${character.ageSpecies}
+  - skin/fur/body color: ${character.skinFurColor}
+  - hair/mane/head detail: ${character.hairStyleColor}
+  - eye color/style: ${character.eyeColor}
+  - clothing: ${character.clothing}
+  - accessories: ${character.accessories}
+  - personality: ${character.personality}
+  - speaking style: ${character.speakingStyle}
+  - height/build/proportions: ${character.heightBuild}
+  - setting relationship: ${character.settingRelationship}`)
+    .join("\n");
+  const environmentBible = `- primary setting: ${book.environmentBible.primarySetting}
+- time of day: ${book.environmentBible.timeOfDay}
+- weather: ${book.environmentBible.weather}
+- lighting: ${book.environmentBible.lighting}
+- recurring props: ${book.environmentBible.recurringProps?.join(", ") || "none specified"}
+- setting continuity: ${book.environmentBible.settingContinuity}
+- forbidden setting drift: ${book.environmentBible.forbiddenSettingDrift.join("; ")}`;
+  const coverPrompt = [
+    `Create a portrait book cover illustration for "${book.title}".`,
+    `Show the main character(s): ${book.characterBible.map(character => character.name).join(", ")}.`,
+    `Use this setting: ${book.environmentBible.primarySetting}.`,
+    `Match the character bible exactly and preserve the same art style that will be used on every page.`,
+    `Communicate the story theme: ${book.moral || book.theme}.`,
+    "No embedded text, title text, captions, labels, watermarks, or speech bubbles."
+  ].join(" ");
+  const pagePrompts = book.imagePromptPack
+    .map(page => {
+      const imageFile = `${book.id}-page-${String(page.pageNumber).padStart(2, "0")}.webp`;
+      return `### Page ${page.pageNumber}
+
+- Exact filename: ${imageFile}
+- Exact app text: ${page.exactAppText}
+- Required visible characters: ${page.requiredVisibleCharacters.join(", ")}
+- Required setting: ${page.requiredSetting}
+- Required visible action: ${page.requiredAction}
+- Image prompt: ${page.imagePrompt}
+- Continuity rules: ${page.continuityChecklist.join(", ")}
+- Forbidden elements: ${page.forbiddenElements.join(", ")}
+- Consistency notes: ${page.consistencyNotes}
+- Previous-page rule: This image must look like the next scene in the same illustrated book. Compare it to the prior page before finalizing.`;
+    })
+    .join("\n\n");
+
+  return `## ${book.id}: ${book.title}
+
+- Level: ${book.level}
+- Type: ${book.type}
+- Status: ${book.qaStatus}
+
+### Cover Image
+
+- Exact filename: ${coverFile}
+- Cover prompt: ${coverPrompt}
+
+### Character Bible
+
+${characterBible}
+
+### Environment Bible
+
+${environmentBible}
+
+### Continuity Rules
+
+- Kimi must not rewrite text, invent events, redesign characters, change clothing, alter setting continuity, or add embedded text.
+- Every page must use the character bible and environment bible exactly.
+- Fiction continuity failures invalidate the image even if the art is attractive.
+
+### Page Image Prompts
+
+${pagePrompts}`;
+}).join("\n\n");
+
+writeFile(
+  path.join(rootDir, "docs", "assets", "round1_level_c_fiction_kimi_image_request.md"),
+  `# Round 1 Level C Fiction Kimi Image Request
+
+Date: 2026-05-25
+
+## Global Rules
+
+- Render assets only. Do not rewrite stories.
+- Do not redesign characters.
+- Do not improvise story details.
+- Do not add embedded text, captions, labels, watermarks, or speech bubbles.
+- Keep hair, fur, skin tone, clothing, accessories, eye style, height/build, species, setting, time, weather, lighting, and art style consistent across every page of each book.
+- Use warm, child-friendly, mobile-readable illustrations.
+- Match each exact app text and required visible action.
+
+${round1ImageRequest}
+`
+);
+
+const round1AudioRequest = round1LevelCFictionBatch.map(book => {
+  const pageRows = book.narrationScript
+    .map(page => `| ${page.pageNumber} | ${page.fileName} | ${page.exactNarrationText} | ${page.pacingNotes} | ${page.pronunciationNotes} |`)
+    .join("\n");
+  return `## ${book.id}: ${book.title}
+
+- Level: ${book.level}
+- Voice style: neutral warm human guided-reading teacher voice
+
+| Page | Exact Filename | Exact Narration Text | Pacing Notes | Pronunciation Notes |
+|---:|---|---|---|---|
+${pageRows}`;
+}).join("\n\n");
+
+writeFile(
+  path.join(rootDir, "docs", "assets", "round1_level_c_fiction_kimi_audio_request.md"),
+  `# Round 1 Level C Fiction Kimi Audio Request
+
+Date: 2026-05-25
+
+## Global Rules
+
+- Narration must match the exact app text.
+- No paraphrasing.
+- No extra intro or outro.
+- No sound effects or music.
+- One MP3 file per page.
+- Warm natural human guided-reading teacher voice.
+- Calm pacing, slightly slower than conversation.
+- Do not spell words letter by letter unless the text explicitly asks for spelling.
+
+${round1AudioRequest}
+`
+);
+
 console.log(`Guided story drafts checked: ${guidedStoryBookDrafts.length}`);
+console.log(`Round 1 Level C fiction pilot books checked: ${round1LevelCFictionBatch.length}`);
 console.log(`Active books relevel audit rows: ${guidedReadingRelevelAudit.length}`);
 console.log(`Warnings: ${warnings.length}`);
 
