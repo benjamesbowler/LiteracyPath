@@ -513,6 +513,17 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
   const answerOptions = currentQuestion.answerOptions || [];
+  const hasImageOptions = answerOptions.some(option => Boolean(option.image || option.imageUrl));
+  const isCompactLetterOptions =
+    !hasImageOptions &&
+    answerOptions.length <= 4 &&
+    answerOptions.every(option => String(option.label || option.word || option.value || "").length <= 3);
+  const answerGridClassName = [
+    "ixl-answer-grid",
+    answerOptions.length === 4 ? "four-options" : "",
+    hasImageOptions ? "image-options" : "",
+    isCompactLetterOptions ? "letter-options" : ""
+  ].filter(Boolean).join(" ");
   const showOptionAudio =
     answerOptions.length > 0 &&
     answerOptions.every(option => Boolean(getApprovedAudioPath(option.word || option.label, option.audio || "")));
@@ -595,7 +606,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
         </div>
       )}
 
-      <div className="ixl-answer-grid">
+      <div className={answerGridClassName}>
         {answerOptions.map((option, index) => {
           const label = option.label || option.word || option.value;
           const value = option.value || option.word || label;
