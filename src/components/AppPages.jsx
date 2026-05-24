@@ -23,7 +23,7 @@ export function AuthPage({
 }) {
   return (
     <div className="card page-card page-stack auth-card">
-      <div>
+      <div className="auth-heading">
         <h2>Teacher Login</h2>
         <p className="muted-text">Sign in to view only your own classes and student data.</p>
       </div>

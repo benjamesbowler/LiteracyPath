@@ -4573,9 +4573,9 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
   if (!teacherUser) {
     return (
-      <div className="app">
+      <div className="app auth-shell">
         <motion.div
-          className="hero"
+          className="hero auth-hero"
           initial={{ y: -12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
         >

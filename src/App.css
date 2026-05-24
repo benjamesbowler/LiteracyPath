@@ -302,6 +302,16 @@ body {
   min-width: 0;
 }
 
+.card > .button-row,
+.report-panel > .button-row,
+.teacher-panel > .button-row,
+.feedback-card > .button-row,
+.export-actions,
+.finished-report-actions,
+.footer-utility-actions {
+  justify-content: center;
+}
+
 .button-row > button {
   flex: 0 1 auto;
   min-width: 160px;
@@ -318,8 +328,68 @@ body {
 
 .auth-card {
   width: 100%;
-  max-width: 520px;
+  max-width: 500px;
   align-self: center;
+  padding: clamp(22px, 4vw, 34px);
+  text-align: center;
+  border-color: rgba(199, 210, 254, 0.72);
+  background:
+    radial-gradient(circle at top right, rgba(231, 247, 243, 0.72), transparent 15rem),
+    linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
+}
+
+.auth-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-block: clamp(20px, 5vh, 56px);
+}
+
+.auth-hero {
+  width: min(100%, 680px);
+  padding: clamp(20px, 4vw, 32px);
+  text-align: center;
+  border-color: rgba(216, 221, 251, 0.95);
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255, 247, 232, 0.94), transparent 16rem),
+    radial-gradient(circle at 88% 4%, rgba(231, 247, 243, 0.8), transparent 15rem),
+    linear-gradient(135deg, #ffffff 0%, #f7f8ff 100%);
+}
+
+.auth-hero h1 {
+  margin: 0;
+  color: var(--lp-color-text-strong) !important;
+  font-size: clamp(2.35rem, 6vw, 4.5rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.auth-hero p {
+  max-width: 34rem;
+  margin: 12px auto 0;
+  color: var(--lp-color-text-muted) !important;
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  font-weight: 750;
+}
+
+.auth-heading {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+}
+
+.auth-heading h2 {
+  margin: 0;
+  color: var(--lp-color-text-strong) !important;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1.06;
+}
+
+.auth-heading p {
+  max-width: 24rem;
+  margin: 0 auto;
 }
 
 .muted-text {
@@ -331,6 +401,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  text-align: left;
 }
 
 .auth-field input {
@@ -339,11 +410,12 @@ body {
 }
 
 .auth-actions {
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
 }
 
 .auth-actions button {
-  flex: 1 1 180px;
+  flex: 0 1 180px;
 }
 
 .auth-message {
@@ -815,6 +887,14 @@ body {
   align-items: center;
 }
 
+.teacher-action-panel > .teacher-action-list,
+.teacher-tab-panel > .teacher-action-list,
+.guided-reader-empty > .teacher-action-list,
+.report-panel > .teacher-action-list,
+.card > .teacher-action-list {
+  justify-content: center;
+}
+
 .teacher-quick-actions .lp-button {
   flex: 1 1 150px;
 }
@@ -891,6 +971,12 @@ body {
 
 .teacher-action-list .lp-button {
   flex: 0 1 230px;
+  justify-content: center;
+}
+
+.teacher-action-panel > .teacher-action-list .lp-button,
+.teacher-tab-panel > .teacher-action-list .lp-button {
+  flex-grow: 0;
 }
 
 .admin-tools-stack {
@@ -900,6 +986,9 @@ body {
 }
 
 .lp-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
   min-height: 40px !important;
   padding: 9px 13px !important;
   border-radius: 10px !important;
@@ -1586,6 +1675,10 @@ select:focus {
 }
 
 .app button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   max-width: 100%;
   min-height: 44px;
   border: none;
