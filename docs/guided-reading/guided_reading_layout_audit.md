@@ -26,15 +26,26 @@ The Guided Reading library layout was tightened so book cards behave like a stab
 ## Book Card Rules
 
 - Cards are equal-height grid items with a fixed internal structure:
-  - cover image
+  - cover wrapper
+  - cover image or generated fallback cover
+  - info wrapper
   - title
   - metadata
-  - Read / Read Again action
+  - Read / Read Again button
 - Covers use a consistent `3 / 4` aspect ratio.
 - Cover images use `object-fit: cover` on standard card layouts and switch to `contain` on very narrow single-column layouts.
 - Titles are line-clamped to two lines and wrap safely inside card bounds.
 - Metadata wraps inside card bounds without escaping the card.
 - Completion badges remain pinned in the card corner without affecting layout flow.
+- The Read / Read Again button is inside the card markup, not floating as an outside sibling.
+
+## Regression Guard Notes
+
+- `.guided-book-card` must remain a contained card with `overflow: hidden`.
+- `.guided-book-cover-wrap` must keep a fixed `3 / 4` aspect ratio and explicit max-height.
+- `.guided-book-cover` must keep `width: 100%`, `height: 100%`, and `object-fit`.
+- Book cards should keep `.guided-book-info` as the title/meta/action container.
+- Do not return to loose cover/title/meta/action siblings without a cover wrapper and info wrapper.
 
 ## Responsive Breakpoints
 
