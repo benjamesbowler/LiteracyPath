@@ -10,7 +10,7 @@ This report audits active runtime questions after validation gates are applied. 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 119 | 78 | 0 | 35 | 26 | 8 | sit+sun:5 | b:11, f:10 |
 | Final Sounds | 81 | 65 | 0 | 12 | 10 | 6 | none | none |
-| Rhyming | 92 | 71 | 0 | 5 | 13 | 9 | none | at:8 |
+| Rhyming | 88 | 67 | 0 | 5 | 13 | 8 | none | at:8 |
 | CVC and Short Vowels | 115 | 36 | 0 | 31 | 29 | 11 | bag:5, bed:5, cat:5, cup:5, dog:5, log:5, map:5, sun:5 | none |
 | Short Vowel Discrimination | 110 | 37 | 0 | 19 | 18 | 5 | bed:5, cat:5, cup:5, dog:5, fin:5, log:5, map:5, red:5, sun:5 | none |
 | High-Frequency Words 1-25 | 61 | 32 | 0 | 0 | 10 | 6 | none | none |
@@ -29,7 +29,7 @@ This report audits active runtime questions after validation gates are applied. 
 | Prefixes and Suffixes | 90 | 59 | 0 | 29 | 13 | 1 | none | ful:8, un:6, re:6, less:6, er:6 |
 | Antonyms and Synonyms | 65 | 40 | 0 | 10 | 5 | 1 | short:6 | short:6 |
 | Homophones and Homonyms | 52 | 50 | 0 | 0 | 18 | 0 | none | none |
-| Sentence Comprehension | 141 | 113 | 0 | 15 | 17 | 0 | none | none |
+| Sentence Comprehension | 111 | 98 | 0 | 0 | 2 | 0 | none | none |
 | Key Details | 59 | 52 | 0 | 1 | 2 | 0 | none | none |
 | Sequencing | 59 | 57 | 0 | 0 | 0 | 0 | none | none |
 | Main Idea | 65 | 60 | 0 | 5 | 1 | 0 | none | none |
@@ -167,12 +167,12 @@ This report audits active runtime questions after validation gates are applied. 
 
 ## Rhyming
 
-- Active questions: 92
-- Unique target words / answer targets: 71
+- Active questions: 88
+- Unique target words / answer targets: 67
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 5
 - Repeated answer option sets: 13
-- Repeated distractor sets: 9
+- Repeated distractor sets: 8
 - Overused words: none
 - Overused itemKeys: at:8
 
@@ -184,25 +184,23 @@ This report audits active runtime questions after validation gates are applied. 
 | ap | 7 |
 | in | 7 |
 | ug | 7 |
-| an | 6 |
-| ed | 6 |
 | en | 6 |
 | ig | 6 |
 | og | 6 |
 | op | 6 |
+| an | 5 |
+| ed | 5 |
 | ot | 5 |
 | un | 5 |
 | it | 4 |
 | oat | 2 |
 | air | 1 |
 | am | 1 |
-| ck | 1 |
 | ee | 1 |
 | ell | 1 |
 | et | 1 |
 | ing | 1 |
 | ock | 1 |
-| ouse | 1 |
 | ox | 1 |
 | ut | 1 |
 
@@ -1485,11 +1483,11 @@ No duplicate prompt+answer signatures.
 
 ## Sentence Comprehension
 
-- Active questions: 141
-- Unique target words / answer targets: 113
+- Active questions: 111
+- Unique target words / answer targets: 98
 - Duplicate IDs: 0
-- Duplicate prompt + correct-answer signatures: 15
-- Repeated answer option sets: 17
+- Duplicate prompt + correct-answer signatures: 0
+- Repeated answer option sets: 2
 - Repeated distractor sets: 0
 - Overused words: none
 - Overused itemKeys: none
@@ -1498,21 +1496,6 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
-| bag | 2 |
-| bed | 2 |
-| books | 2 |
-| boxes | 2 |
-| cats | 2 |
-| cup | 2 |
-| cups | 2 |
-| dogs | 2 |
-| duck | 2 |
-| fish | 2 |
-| hats | 2 |
-| map | 2 |
-| ring | 2 |
-| ship | 2 |
-| sock | 2 |
 | fix_sentence_cap_1 | 1 |
 | fix_sentence_cap_2 | 1 |
 | fix_sentence_cap_3 | 1 |
@@ -1627,33 +1610,14 @@ No duplicate prompt+answer signatures.
 
 ### Duplicate Signatures
 
-| prompt + answer signature | count | question IDs | recommendation |
-| --- | --- | --- | --- |
-| which sentence matches the picture?::max has two cats. | 2 | ixl_sentence_picture_1, ixl_sentence_picture_b_1 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::sam sees two dogs. | 2 | ixl_sentence_picture_2, ixl_sentence_picture_b_2 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::the cups are on the mat. | 2 | ixl_sentence_picture_3, ixl_sentence_picture_b_3 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::the hats are red. | 2 | ixl_sentence_picture_4, ixl_sentence_picture_b_4 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::i see two books. | 2 | ixl_sentence_picture_5, ixl_sentence_picture_b_5 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::the boxes are big. | 2 | ixl_sentence_picture_6, ixl_sentence_picture_b_6 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::the fish can swim. | 2 | ixl_sentence_picture_7, ixl_sentence_picture_b_7 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::the ship is big. | 2 | ixl_sentence_picture_8, ixl_sentence_picture_b_8 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::the duck is in the pond. | 2 | ixl_sentence_picture_9, ixl_sentence_picture_b_9 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::the cat is on the bed. | 2 | ixl_sentence_picture_10, ixl_sentence_picture_b_10 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::dad has a map. | 2 | ixl_sentence_picture_11, ixl_sentence_picture_b_11 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
-| which sentence matches the picture?::the bag is on the bed. | 2 | ixl_sentence_picture_12, ixl_sentence_picture_b_12 | Replace or retire repeated prompt+answer variants if they appear in the same skill round. |
+No duplicate prompt+answer signatures.
 
 ### Repeated Answer Option Sets
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| max has two cats. \| max has two dogs. | 2 | ixl_sentence_picture_1, ixl_sentence_picture_b_1 |
-| sam sees two boxes. \| sam sees two dogs. | 2 | ixl_sentence_picture_2, ixl_sentence_picture_b_2 |
-| the cats are on the mat. \| the cups are on the mat. | 2 | ixl_sentence_picture_3, ixl_sentence_picture_b_3 |
-| the bags are red. \| the hats are red. | 2 | ixl_sentence_picture_4, ixl_sentence_picture_b_4 |
-| i see two books. \| i see two ducks. | 2 | ixl_sentence_picture_5, ixl_sentence_picture_b_5 |
-| the boxes are big. \| the dogs are big. | 2 | ixl_sentence_picture_6, ixl_sentence_picture_b_6 |
-| the dog can swim. \| the fish can swim. | 2 | ixl_sentence_picture_7, ixl_sentence_picture_b_7 |
-| the ship is big. \| the shop is big. | 2 | ixl_sentence_picture_8, ixl_sentence_picture_b_8 |
+| blue \| green \| red \| yellow | 5 | SC_K_002, SC_K_013, SC_K_021, SC_K_026, SC_2_083 |
+| carefully \| loudly \| quickly \| slowly | 3 | SC_1_069, SC_2_087, SC_2_090 |
 
 ## Key Details
 

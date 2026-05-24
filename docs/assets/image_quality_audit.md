@@ -1364,36 +1364,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | quiet | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/prepositions/duck_outside_pond.png | active asset |  |  |
 | sad | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/vocabulary/friends.png | active asset |  |  |
 | sour | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
-| Max has two cats. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/cats.png | preferred Pack 4 organized asset |  |  |
-| Max has two cats. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/cats.png | preferred Pack 4 organized asset |  |  |
-| Sam sees two dogs. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/dogs.png | preferred Pack 4 organized asset |  |  |
-| Sam sees two dogs. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/dogs.png | preferred Pack 4 organized asset |  |  |
-| The cups are on the mat. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/cups.png | preferred Pack 4 organized asset |  |  |
-| The cups are on the mat. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/cups.png | preferred Pack 4 organized asset |  |  |
-| The hats are red. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/hats.png | preferred Pack 4 organized asset |  |  |
-| The hats are red. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/hats.png | preferred Pack 4 organized asset |  |  |
-| I see two books. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/books.png | preferred Pack 4 organized asset |  |  |
-| I see two books. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/books.png | preferred Pack 4 organized asset |  |  |
-| The boxes are big. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/boxes.png | preferred Pack 4 organized asset |  |  |
-| The boxes are big. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/boxes.png | preferred Pack 4 organized asset |  |  |
-| The fish can swim. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| The fish can swim. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| The ship is big. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
-| The ship is big. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
-| The duck is in the pond. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-u/duck.png | active asset |  |  |
-| The duck is in the pond. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-u/duck.png | active asset |  |  |
-| The cat is on the bed. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
-| The cat is on the bed. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
-| Dad has a map. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| Dad has a map. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| The bag is on the bed. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
-| The bag is on the bed. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
-| The cup is blue. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
-| The cup is blue. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
-| The sock is wet. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-o/sock.png | active asset |  |  |
-| The sock is wet. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-o/sock.png | active asset |  |  |
-| The ring is small. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/initial-sounds/ring.png | active asset |  |  |
-| The ring is small. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/initial-sounds/ring.png | active asset |  |  |
 | Red | Sentence Comprehension | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
 | On the warm mat | Sentence Comprehension | COMPREHENSION | question image | yes | /images/prepositions/dog_under_table.png | active asset |  |  |
 | Reading a book | Sentence Comprehension | COMPREHENSION | question image | yes | /images/vocabulary/book.png | active asset |  |  |

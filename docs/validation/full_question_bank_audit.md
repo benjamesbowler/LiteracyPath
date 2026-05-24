@@ -10,7 +10,7 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 119 | 64 | 78 | 25 | 0 | 35 | 8 | 0 | no | no | 77 | generatedQuestions, initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
 | Final Sounds | 81 | 45 | 65 | 8 | 0 | 12 | 6 | 0 | yes | no | 69 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
-| Rhyming | 92 | 87 | 71 | 25 | 0 | 5 | 9 | 0 | no | no | 79 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
+| Rhyming | 88 | 83 | 67 | 23 | 0 | 5 | 8 | 0 | no | no | 75 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
 | CVC and Short Vowels | 115 | 80 | 36 | 41 | 0 | 31 | 11 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | Short Vowel Discrimination | 110 | 61 | 37 | 5 | 0 | 19 | 5 | 0 | no | no | 53 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | High-Frequency Words 1-25 | 61 | 61 | 32 | 32 | 0 | 0 | 6 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
@@ -29,7 +29,7 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 | Prefixes and Suffixes | 90 | 50 | 59 | 44 | 0 | 29 | 1 | 0 | no | no | 77 | contentExpansionPass3Questions, questionBankExpansion8, templateExpansion3, templateExpansion6, templateExpansion7, templateQuestions |
 | Antonyms and Synonyms | 65 | 55 | 40 | 40 | 0 | 10 | 1 | 0 | no | no | 59 | generatedQuestions, templateExpansion6 |
 | Homophones and Homonyms | 52 | 52 | 50 | 50 | 0 | 0 | 0 | 0 | no | no | 34 | safeContentExpansionQuestions, templateExpansion3, templateExpansion7 |
-| Sentence Comprehension | 141 | 126 | 113 | 126 | 0 | 15 | 0 | 0 | no | no | 110 | contentExpansionPass3Questions, fixSentenceQuestions, generatedQuestions, ixlStyleSeedQuestions |
+| Sentence Comprehension | 111 | 111 | 98 | 111 | 0 | 0 | 0 | 0 | no | no | 95 | contentExpansionPass3Questions, fixSentenceQuestions, generatedQuestions |
 | Key Details | 59 | 58 | 52 | 59 | 0 | 1 | 0 | 0 | no | no | 57 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
 | Sequencing | 59 | 59 | 57 | 59 | 0 | 0 | 0 | 0 | no | no | 59 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
 | Main Idea | 65 | 60 | 60 | 65 | 0 | 5 | 0 | 0 | no | no | 64 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
@@ -112,16 +112,16 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 
 ## Rhyming
 
-- Active valid runtime questions: 92
-- Unique question signatures: 87
-- Unique target words / answer targets: 71
-- Unique itemKeys/patterns: 25 (air, am, an, ap, at, ck, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ouse, ox, ug, un, ut)
+- Active valid runtime questions: 88
+- Unique question signatures: 83
+- Unique target words / answer targets: 67
+- Unique itemKeys/patterns: 23 (air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ox, ug, un, ut)
 - Duplicate signatures: 5
-- Repeated distractor sets: 9
+- Repeated distractor sets: 8
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: RHYME_PAIR_SELECT:36, LISTEN_FIND_RHYME:13, READ_FIND_RHYME:13, RHYMING_PICTURE:30
+- Formats: RHYME_PAIR_SELECT:36, LISTEN_FIND_RHYME:13, READ_FIND_RHYME:13, RHYMING_PICTURE:26
 - Overused targets: none
 - Overused itemKeys: at
 
@@ -572,31 +572,20 @@ No duplicate prompt+answer signatures detected.
 
 ## Sentence Comprehension
 
-- Active valid runtime questions: 141
-- Unique question signatures: 126
-- Unique target words / answer targets: 113
-- Unique itemKeys/patterns: 126 (RC015, SC_1_051, SC_1_052, SC_1_053, SC_1_054, SC_1_055, SC_1_056, SC_1_057, SC_1_058, SC_1_059, SC_1_060, SC_1_061, SC_1_062, SC_1_063, SC_1_064, SC_1_065, SC_1_066, SC_1_067, SC_1_068, SC_1_069, SC_1_070, SC_1_071, SC_1_072, SC_1_073, SC_1_074, SC_1_075, SC_1_076, SC_1_077, SC_1_078, SC_1_079, SC_1_080, SC_2_081, SC_2_082, SC_2_083, SC_2_084, SC_2_085, SC_2_086, SC_2_087, SC_2_088, SC_2_089, SC_2_090, SC_2_091, SC_2_092, SC_2_093, SC_2_094, SC_2_095, SC_2_096, SC_2_097, SC_2_098, SC_2_099, SC_2_100, SC_K_001, SC_K_002, SC_K_003, SC_K_004, SC_K_005, SC_K_006, SC_K_007, SC_K_008, SC_K_009, SC_K_010, SC_K_011, SC_K_012, SC_K_013, SC_K_014, SC_K_015, SC_K_016, SC_K_017, SC_K_019, SC_K_020, SC_K_021, SC_K_022, SC_K_023, SC_K_024, SC_K_025, SC_K_026, SC_K_027, SC_K_028, SC_K_029, SC_K_030, SC_K_031, SC_K_032, SC_K_033, SC_K_034, SC_K_035, SC_K_036, SC_K_037, SC_K_038, SC_K_039, SC_K_040, SC_K_041, SC_K_042, SC_K_043, SC_K_044, SC_K_045, SC_K_046, SC_K_047, SC_K_048, SC_K_049, SC_K_050, bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, fix_sentence_cap_1, fix_sentence_cap_2, fix_sentence_cap_3, fix_sentence_order_1, fix_sentence_order_2, fix_sentence_order_3, fix_sentence_order_4, fix_sentence_punc_1, fix_sentence_punc_2, fix_sentence_punc_3, hats, map, p3_sentence_comp_paragraph_001, ring, ship, sock)
-- Duplicate signatures: 15
+- Active valid runtime questions: 111
+- Unique question signatures: 111
+- Unique target words / answer targets: 98
+- Unique itemKeys/patterns: 111 (RC015, SC_1_051, SC_1_052, SC_1_053, SC_1_054, SC_1_055, SC_1_056, SC_1_057, SC_1_058, SC_1_059, SC_1_060, SC_1_061, SC_1_062, SC_1_063, SC_1_064, SC_1_065, SC_1_066, SC_1_067, SC_1_068, SC_1_069, SC_1_070, SC_1_071, SC_1_072, SC_1_073, SC_1_074, SC_1_075, SC_1_076, SC_1_077, SC_1_078, SC_1_079, SC_1_080, SC_2_081, SC_2_082, SC_2_083, SC_2_084, SC_2_085, SC_2_086, SC_2_087, SC_2_088, SC_2_089, SC_2_090, SC_2_091, SC_2_092, SC_2_093, SC_2_094, SC_2_095, SC_2_096, SC_2_097, SC_2_098, SC_2_099, SC_2_100, SC_K_001, SC_K_002, SC_K_003, SC_K_004, SC_K_005, SC_K_006, SC_K_007, SC_K_008, SC_K_009, SC_K_010, SC_K_011, SC_K_012, SC_K_013, SC_K_014, SC_K_015, SC_K_016, SC_K_017, SC_K_019, SC_K_020, SC_K_021, SC_K_022, SC_K_023, SC_K_024, SC_K_025, SC_K_026, SC_K_027, SC_K_028, SC_K_029, SC_K_030, SC_K_031, SC_K_032, SC_K_033, SC_K_034, SC_K_035, SC_K_036, SC_K_037, SC_K_038, SC_K_039, SC_K_040, SC_K_041, SC_K_042, SC_K_043, SC_K_044, SC_K_045, SC_K_046, SC_K_047, SC_K_048, SC_K_049, SC_K_050, fix_sentence_cap_1, fix_sentence_cap_2, fix_sentence_cap_3, fix_sentence_order_1, fix_sentence_order_2, fix_sentence_order_3, fix_sentence_order_4, fix_sentence_punc_1, fix_sentence_punc_2, fix_sentence_punc_3, p3_sentence_comp_paragraph_001)
+- Duplicate signatures: 0
 - Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:101, SENTENCE_MATCHES_PICTURE:30, FIX_SENTENCE:10
+- Formats: COMPREHENSION:101, FIX_SENTENCE:10
 - Overused targets: none
 - Overused itemKeys: none
 
-| Duplicate signature | Count | Question IDs |
-| --- | --- | --- |
-| which sentence matches the picture?::max has two cats. | 2 | ixl_sentence_picture_1, ixl_sentence_picture_b_1 |
-| which sentence matches the picture?::sam sees two dogs. | 2 | ixl_sentence_picture_2, ixl_sentence_picture_b_2 |
-| which sentence matches the picture?::the cups are on the mat. | 2 | ixl_sentence_picture_3, ixl_sentence_picture_b_3 |
-| which sentence matches the picture?::the hats are red. | 2 | ixl_sentence_picture_4, ixl_sentence_picture_b_4 |
-| which sentence matches the picture?::i see two books. | 2 | ixl_sentence_picture_5, ixl_sentence_picture_b_5 |
-| which sentence matches the picture?::the boxes are big. | 2 | ixl_sentence_picture_6, ixl_sentence_picture_b_6 |
-| which sentence matches the picture?::the fish can swim. | 2 | ixl_sentence_picture_7, ixl_sentence_picture_b_7 |
-| which sentence matches the picture?::the ship is big. | 2 | ixl_sentence_picture_8, ixl_sentence_picture_b_8 |
-| which sentence matches the picture?::the duck is in the pond. | 2 | ixl_sentence_picture_9, ixl_sentence_picture_b_9 |
-| which sentence matches the picture?::the cat is on the bed. | 2 | ixl_sentence_picture_10, ixl_sentence_picture_b_10 |
+No duplicate prompt+answer signatures detected.
 
 ## Key Details
 
