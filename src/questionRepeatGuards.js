@@ -41,16 +41,54 @@ export function getRepeatCorrectAnswer(question = {}) {
 }
 
 export function getRepeatTargetWord(question = {}) {
-  return normalizeRepeatValue(
+  const format = normalizeRepeatValue(
+    question.templateType ||
+    question.formatType ||
+    question.questionType ||
+    ""
+  );
+  const hasExplicitTarget =
     question.targetWord ||
     question.audioText ||
     question.imageKey ||
     question.audioKey ||
-    question.anchorWord ||
-    question.answer ||
-    question.correctAnswer ||
-    ""
-  );
+    question.anchorWord;
+
+  if (hasExplicitTarget) {
+    return normalizeRepeatValue(
+      question.targetWord ||
+      question.audioText ||
+      question.imageKey ||
+      question.audioKey ||
+      question.anchorWord
+    );
+  }
+
+  const pairAnswer =
+    question.correctAnswers ||
+    (Array.isArray(question.answer) ? question.answer : null) ||
+    (Array.isArray(question.correctAnswer) ? question.correctAnswer : null);
+
+  if (pairAnswer) {
+    return normalizeRepeatValue(pairAnswer);
+  }
+
+  const answerValue = question.answer || question.correctAnswer || "";
+  const answerText = normalizeRepeatValue(answerValue);
+  const canUseAnswerAsTarget =
+    format.includes("listen_find_word") ||
+    format.includes("read_find_word") ||
+    format.includes("heard_word") ||
+    format.includes("picture_to_print") ||
+    format.includes("minimal_pair") ||
+    format.includes("cvc") ||
+    format.includes("sight_word");
+
+  if (canUseAnswerAsTarget && answerText.length > 1) {
+    return answerText;
+  }
+
+  return "";
 }
 
 export function getRepeatOptionSetSignature(question = {}) {

@@ -82,8 +82,7 @@ import {
   getQuestionPromptAnswerSignature,
   getQuestionSignature,
   getRepeatOptionSetSignature,
-  getRepeatTargetWord,
-  normalizeRepeatValue
+  getRepeatTargetWord
 } from "./questionRepeatGuards";
 
 // dynamic mastery system
@@ -572,6 +571,28 @@ function deriveQuestionIdFromAnswerRecord(record) {
   const match = findQuestionForAnswerRecord(record);
 
   return match?.id || "";
+}
+
+function hydrateAnswerRecord(record = {}) {
+  const baseRecord = {
+    ...record,
+    question: record.question || record.prompt || "",
+    correct: record.correct || record.correctAnswer || ""
+  };
+  const matchedQuestion = findQuestionForAnswerRecord(baseRecord);
+
+  return {
+    ...baseRecord,
+    questionId: baseRecord.questionId || matchedQuestion?.id || "",
+    questionSignature: baseRecord.questionSignature || (
+      matchedQuestion
+        ? getRuntimeQuestionSignature(matchedQuestion)
+        : getAnswerRecordSignature(baseRecord)
+    ),
+    promptAnswerSignature: baseRecord.promptAnswerSignature || getAnswerRecordPromptAnswerSignature(baseRecord),
+    optionSetSignature: baseRecord.optionSetSignature || (matchedQuestion ? getRepeatOptionSetSignature(matchedQuestion) : ""),
+    targetWord: baseRecord.targetWord || (matchedQuestion ? getQuestionTargetWord(matchedQuestion) : "")
+  };
 }
 
 function applyItemMetadata(question) {
@@ -1222,7 +1243,7 @@ export default function App() {
         setPatternIndex(data.patternIndex || 0);
         setPatternAssessment(data.patternAssessment || []);
         setPatternAttempt(data.patternAttempt || 0);
-        setAnswerHistory(data.answerHistory || []);
+        setAnswerHistory((data.answerHistory || []).map(hydrateAnswerRecord));
         setGuidedReadingRecords(loadGuidedReadingRecords(data.studentId || null));
         setItemMastery(data.itemMastery || {});
         setItemSessionSeen({});
@@ -2234,32 +2255,37 @@ export default function App() {
 
     const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex);
     const currentProfile = getRoundDuplicateProfile();
+    const anyMemory = getStageRepeatMemory(stage.label);
     const correctMemory = getCorrectStageRepeatMemory(stage.label);
     const recentMemory = getRecentStageRepeatMemory(stage.label);
     const filterCurrentRoundRepeats = question => {
       const flags = getRoundDuplicateFlags(question, currentProfile);
-      return !flags.questionId &&
-        !flags.targetWord &&
-        !flags.promptAnswer &&
-        !flags.optionSet &&
-        !flags.signature;
+      return !flags.questionId && !flags.signature;
     };
     const outsideCurrentRound = stageQuestions.filter(filterCurrentRoundRepeats);
-    const neverCorrectExact = outsideCurrentRound.filter(question =>
-      !wasQuestionAnsweredCorrectly(question, correctMemory)
+    const globalUnseenExact = stageQuestions.filter(question =>
+      !wasQuestionSeen(question, anyMemory)
     );
-    const noCorrectTargetWord = neverCorrectExact.filter(question => {
+    const unseenExact = outsideCurrentRound.filter(question =>
+      !wasQuestionSeen(question, anyMemory)
+    );
+    const noCorrectTargetWord = unseenExact.filter(question => {
       const target = getQuestionTargetWord(question);
       return !target || !correctMemory.targetWords.has(target);
     });
     const noRecentTargetWord = noCorrectTargetWord.filter(question => {
       const target = getQuestionTargetWord(question);
-      return !target || !recentMemory.targetWords.has(target);
+      const optionSet = getRepeatOptionSetSignature(question);
+      const promptAnswer = getRuntimeQuestionPromptAnswerSignature(question);
+      return (!target || !recentMemory.targetWords.has(target)) &&
+        (!optionSet || !recentMemory.optionSets.has(optionSet)) &&
+        (!promptAnswer || !recentMemory.promptAnswers.has(promptAnswer));
     });
 
     if (noRecentTargetWord.length > 0) return noRecentTargetWord;
     if (noCorrectTargetWord.length > 0) return noCorrectTargetWord;
-    if (neverCorrectExact.length > 0) return neverCorrectExact;
+    if (unseenExact.length > 0) return unseenExact;
+    if (globalUnseenExact.length > 0) return [];
 
     const incorrectOnly = outsideCurrentRound.filter(question =>
       wasQuestionAnsweredIncorrectly(question, stage.label) &&
@@ -2301,6 +2327,8 @@ export default function App() {
     for (const weakness of weaknessSnapshot.needsPractice) {
       if (!allowedStageLabels.has(weakness.stage)) continue;
 
+      const correctMemory = getCorrectStageRepeatMemory(weakness.stage);
+
       const matches =
         allQuestions.filter(question => {
           const stageIndex = getStageIndex(question);
@@ -2310,7 +2338,8 @@ export default function App() {
             stage &&
             allowedStageLabels.has(stage.label) &&
             getDiagnosticTarget(question) === weakness.target &&
-            !usedQuestionIds.has(question.id)
+            !usedQuestionIds.has(question.id) &&
+            !wasQuestionAnsweredCorrectly(question, correctMemory)
           );
         });
 
@@ -2394,26 +2423,32 @@ export default function App() {
   function wasQuestionAnsweredCorrectly(question, memory = getCorrectStageRepeatMemory(skillTree[getStageIndex(question)]?.label)) {
     const questionId = question.id || "";
     const signature = getRuntimeQuestionSignature(question);
-    const promptAnswer = getRuntimeQuestionPromptAnswerSignature(question);
 
     return Boolean(
       (questionId && memory.questionIds.has(questionId)) ||
-      (signature && memory.signatures.has(signature)) ||
-      (promptAnswer && memory.promptAnswers.has(promptAnswer))
+      (signature && memory.signatures.has(signature))
+    );
+  }
+
+  function wasQuestionSeen(question, memory = getStageRepeatMemory(skillTree[getStageIndex(question)]?.label)) {
+    const questionId = question.id || "";
+    const signature = getRuntimeQuestionSignature(question);
+
+    return Boolean(
+      (questionId && memory.questionIds.has(questionId)) ||
+      (signature && memory.signatures.has(signature))
     );
   }
 
   function wasQuestionAnsweredIncorrectly(question, stageLabel) {
     const questionId = question.id || "";
     const signature = getRuntimeQuestionSignature(question);
-    const promptAnswer = getRuntimeQuestionPromptAnswerSignature(question);
 
     return getStageAnswerRecords(stageLabel).some(record =>
       !record.isCorrect &&
       (
         (questionId && record.questionId === questionId) ||
-        (signature && record.questionSignature === signature) ||
-        (promptAnswer && (record.promptAnswerSignature || getAnswerRecordPromptAnswerSignature(record)) === promptAnswer)
+        (signature && record.questionSignature === signature)
       )
     );
   }
@@ -2534,44 +2569,66 @@ export default function App() {
       getCurrentRoundQuestionObjects()
         .map(question => getQuestionFormatMetadata(question).formatType)
     );
-    const strict = prioritized.filter(question => {
+    const exactSafe = prioritized.filter(question => {
       const flags = getRoundDuplicateFlags(question, profile);
-      return !flags.questionId &&
-        !flags.targetWord &&
-        !flags.itemKey &&
-        !flags.correctAnswer &&
-        !flags.signature;
+      return !flags.questionId && !flags.signature;
     });
-    const relaxedItemKey = prioritized.filter(question => {
+
+    if (exactSafe.length === 0) {
+      debugAssessmentCoverage("round duplicate guard blocked pool", {
+        studentId,
+        skill: activeStage.label,
+        poolSize: prioritized.length,
+        currentRoundQuestionIds: roundQuestionIds,
+        currentRoundItemKeys: roundItemKeys
+      });
+      return null;
+    }
+
+    const strict = exactSafe.filter(question => {
       const flags = getRoundDuplicateFlags(question, profile);
-      return !flags.questionId &&
-        !flags.targetWord &&
-        !flags.correctAnswer &&
-        !flags.signature;
+      return !flags.targetWord && !flags.promptAnswer && !flags.optionSet;
     });
-    const relaxedAnswer = prioritized.filter(question => {
+    const relaxPrompt = exactSafe.filter(question => {
       const flags = getRoundDuplicateFlags(question, profile);
-      return !flags.questionId &&
-        !flags.targetWord &&
-        !flags.signature;
+      return !flags.targetWord && !flags.optionSet;
     });
-    const noQuestionRepeat = prioritized.filter(question => !getRoundDuplicateFlags(question, profile).questionId);
-    const candidatePools = [strict, relaxedItemKey, relaxedAnswer, noQuestionRepeat, prioritized].filter(pool => pool.length > 0);
-    const pool = candidatePools[0] || [];
+    const relaxOptionSet = exactSafe.filter(question => {
+      const flags = getRoundDuplicateFlags(question, profile);
+      return !flags.targetWord;
+    });
+    const candidatePool =
+      strict.length > 0
+        ? strict
+        : relaxPrompt.length > 0
+          ? relaxPrompt
+          : relaxOptionSet.length > 0
+            ? relaxOptionSet
+            : exactSafe;
+    const duplicateRelaxation =
+      strict.length > 0
+        ? "none"
+        : relaxPrompt.length > 0
+          ? "prompt-answer"
+          : relaxOptionSet.length > 0
+            ? "option-set"
+            : "target-word";
+
     const picked =
-      pool.find(question => !roundFormatTypes.has(getQuestionFormatMetadata(question).formatType)) ||
-      pool[0];
+      candidatePool.find(question => !roundFormatTypes.has(getQuestionFormatMetadata(question).formatType)) ||
+      candidatePool[0];
 
     debugAssessmentCoverage("round duplicate guard", {
       studentId,
       skill: activeStage.label,
       poolSize: prioritized.length,
+      exactSafeCandidates: exactSafe.length,
       strictCandidates: strict.length,
-      relaxedItemKeyCandidates: relaxedItemKey.length,
-      relaxedAnswerCandidates: relaxedAnswer.length,
+      duplicateRelaxation,
       selectedQuestionId: picked?.id || "",
       selectedTargetWord: picked ? getQuestionTargetWord(picked) : "",
       selectedItemKey: picked ? getQuestionItemKey(picked) : "",
+      selectedSignature: picked ? getRuntimeQuestionSignature(picked) : "",
       duplicateFlags: picked ? getRoundDuplicateFlags(picked, profile) : {}
     });
 
@@ -2683,11 +2740,21 @@ export default function App() {
     const prioritized = prioritizeCoverageQuestions(pool, activeStage);
     const picked = selectNonDuplicateRoundCandidate(prioritized, activeStage);
 
+    if (!picked) {
+      setCurrentQuestion(null);
+      setMessage(
+        `No unrepeated questions remain for ${activeStage.label} in this round. Add more validated questions/assets before continuing this skill.`
+      );
+      answerInFlightRef.current = false;
+      return;
+    }
+
     debugAssessmentCoverage("question selection", {
       studentId,
       skill: activeStage.label,
       selectedItemKeys: prioritized.slice(0, ROUND_LENGTH).map(getQuestionItemKey).filter(Boolean),
       selectedQuestionIds: prioritized.slice(0, ROUND_LENGTH).map(question => question.id),
+      selectedSignatures: prioritized.slice(0, ROUND_LENGTH).map(getRuntimeQuestionSignature),
       currentRoundItemKeys: roundItemKeys,
       recentItemKeys: getRecentStageItemKeys(activeStage.label)
     });
@@ -3111,6 +3178,10 @@ export default function App() {
 
     const answerRecord = {
       questionId: currentQuestion.id,
+      questionSignature: getRuntimeQuestionSignature(currentQuestion),
+      promptAnswerSignature: getRuntimeQuestionPromptAnswerSignature(currentQuestion),
+      optionSetSignature: getRepeatOptionSetSignature(currentQuestion),
+      targetWord: getQuestionTargetWord(currentQuestion),
       date: new Date().toLocaleString(),
       skill: currentQuestion.skill,
       stage: questionStage.label,
@@ -3152,6 +3223,8 @@ export default function App() {
         setCurrentQuestion(null);
         setFeedback(null);
         setRoundAnswers([]);
+        setRoundItemKeys([]);
+        setRoundQuestionIds([]);
         setTimeout(() => {
           answerInFlightRef.current = false;
           setAppView("finished");
@@ -3202,6 +3275,8 @@ export default function App() {
         buildCheckpointDecision(stage, getStageIndex(currentQuestion), nextRound, nextRoundItemKeys, mastered)
       );
       setRoundAnswers([]);
+      setRoundItemKeys([]);
+      setRoundQuestionIds([]);
       setCurrentQuestion(null);
       setFeedback(null);
       setAppView("checkpoint");

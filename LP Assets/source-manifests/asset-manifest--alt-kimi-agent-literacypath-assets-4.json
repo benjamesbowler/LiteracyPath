@@ -1,0 +1,1540 @@
+{
+  "assetPack": "LiteracyPath Kindergarten Assessment Pack v4",
+  "version": "4.0.0",
+  "generatedAt": "2026-05-22",
+  "format": {
+    "images": "PNG with transparent background, 1:1 square ratio",
+    "audio": "MP3, single word per file, human female voice, clear neutral accent"
+  },
+  "totals": {
+    "entries": 212,
+    "images": 178,
+    "audio": 212,
+    "audioOnly": 26
+  },
+  "categories": {
+    "high_frequency": 26,
+    "cvc_short_a": 15,
+    "vowel_team": 13,
+    "minimal_pair": 12,
+    "distractor": 11,
+    "misc": 10,
+    "r_controlled": 10,
+    "digraph": 9,
+    "cvc_short_i": 8,
+    "plural": 8,
+    "cvc_short_u": 8,
+    "cvc_short_e": 7,
+    "cvc_short_o": 7,
+    "blend": 6,
+    "homophone": 5,
+    "initial_sound_u": 5,
+    "initial_sound_d": 4,
+    "initial_sound_a": 3,
+    "initial_sound_e": 3,
+    "initial_sound_h": 3,
+    "initial_sound_i": 3,
+    "initial_sound_k": 3,
+    "initial_sound_o": 3,
+    "initial_sound_q": 3,
+    "initial_sound_r": 3,
+    "initial_sound_t": 3,
+    "initial_sound_v": 3,
+    "initial_sound_y": 3,
+    "initial_sound_g": 2,
+    "initial_sound_j": 2,
+    "initial_sound_l": 2,
+    "initial_sound_s": 2,
+    "initial_sound_w": 2,
+    "initial_sound_z": 2,
+    "initial_sound_f": 1,
+    "ui_icon": 1,
+    "initial_sound_m": 1
+  },
+  "assets": [
+    {
+      "word": "clap",
+      "imageFile": "clap.png",
+      "audioFile": "clap.mp3",
+      "category": "blend",
+      "notes": "Consonant blend"
+    },
+    {
+      "word": "flag",
+      "imageFile": "flag.png",
+      "audioFile": "flag.mp3",
+      "category": "blend",
+      "notes": "Consonant blend"
+    },
+    {
+      "word": "frog",
+      "imageFile": "frog.png",
+      "audioFile": "frog.mp3",
+      "category": "blend",
+      "notes": "Consonant blend"
+    },
+    {
+      "word": "slide",
+      "imageFile": null,
+      "audioFile": "slide.mp3",
+      "category": "blend",
+      "notes": "Consonant blend"
+    },
+    {
+      "word": "spin",
+      "imageFile": "spin.png",
+      "audioFile": "spin.mp3",
+      "category": "blend",
+      "notes": "Consonant blend"
+    },
+    {
+      "word": "stop",
+      "imageFile": "stop.png",
+      "audioFile": "stop.mp3",
+      "category": "blend",
+      "notes": "Consonant blend"
+    },
+    {
+      "word": "bag",
+      "imageFile": "bag.png",
+      "audioFile": "bag.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "bat",
+      "imageFile": "bat.png",
+      "audioFile": "bat.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "cap",
+      "imageFile": "cap.png",
+      "audioFile": "cap.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "cat",
+      "imageFile": "cat.png",
+      "audioFile": "cat.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "ham",
+      "imageFile": "ham.png",
+      "audioFile": "ham.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "hat",
+      "imageFile": "hat.png",
+      "audioFile": "hat.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "jam",
+      "imageFile": "jam.png",
+      "audioFile": "jam.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "man",
+      "imageFile": "man.png",
+      "audioFile": "man.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "map",
+      "imageFile": "map.png",
+      "audioFile": "map.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "mat",
+      "imageFile": "mat.png",
+      "audioFile": "mat.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "nap",
+      "imageFile": "nap.png",
+      "audioFile": "nap.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "pan",
+      "imageFile": "pan.png",
+      "audioFile": "pan.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "ram",
+      "imageFile": "ram.png",
+      "audioFile": "ram.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "rat",
+      "imageFile": "rat.png",
+      "audioFile": "rat.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "tap",
+      "imageFile": "tap.png",
+      "audioFile": "tap.mp3",
+      "category": "cvc_short_a",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "bed",
+      "imageFile": "bed.png",
+      "audioFile": "bed.mp3",
+      "category": "cvc_short_e",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "hen",
+      "imageFile": "hen.png",
+      "audioFile": "hen.mp3",
+      "category": "cvc_short_e",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "net",
+      "imageFile": "net.png",
+      "audioFile": "net.mp3",
+      "category": "cvc_short_e",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "red",
+      "imageFile": "red.png",
+      "audioFile": "red.mp3",
+      "category": "cvc_short_e",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "ten",
+      "imageFile": "ten.png",
+      "audioFile": "ten.mp3",
+      "category": "cvc_short_e",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "vet",
+      "imageFile": "vet.png",
+      "audioFile": "vet.mp3",
+      "category": "cvc_short_e",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "web",
+      "imageFile": "web.png",
+      "audioFile": "web.mp3",
+      "category": "cvc_short_e",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "bin",
+      "imageFile": "bin.png",
+      "audioFile": "bin.mp3",
+      "category": "cvc_short_i",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "fin",
+      "imageFile": "fin.png",
+      "audioFile": "fin.mp3",
+      "category": "cvc_short_i",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "kid",
+      "imageFile": "kid.png",
+      "audioFile": "kid.mp3",
+      "category": "cvc_short_i",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "lid",
+      "imageFile": "lid.png",
+      "audioFile": "lid.mp3",
+      "category": "cvc_short_i",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "pig",
+      "imageFile": "pig.png",
+      "audioFile": "pig.mp3",
+      "category": "cvc_short_i",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "sit",
+      "imageFile": "sit.png",
+      "audioFile": "sit.mp3",
+      "category": "cvc_short_i",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "wig",
+      "imageFile": "wig.png",
+      "audioFile": "wig.mp3",
+      "category": "cvc_short_i",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "zip",
+      "imageFile": "zip.png",
+      "audioFile": "zip.mp3",
+      "category": "cvc_short_i",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "box",
+      "imageFile": "box.png",
+      "audioFile": "box.mp3",
+      "category": "cvc_short_o",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "dog",
+      "imageFile": "dog.png",
+      "audioFile": "dog.mp3",
+      "category": "cvc_short_o",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "fox",
+      "imageFile": "fox.png",
+      "audioFile": "fox.mp3",
+      "category": "cvc_short_o",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "hop",
+      "imageFile": "hop.png",
+      "audioFile": "hop.mp3",
+      "category": "cvc_short_o",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "log",
+      "imageFile": "log.png",
+      "audioFile": "log.mp3",
+      "category": "cvc_short_o",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "mop",
+      "imageFile": "mop.png",
+      "audioFile": "mop.mp3",
+      "category": "cvc_short_o",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "pot",
+      "imageFile": "pot.png",
+      "audioFile": "pot.mp3",
+      "category": "cvc_short_o",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "bug",
+      "imageFile": "bug.png",
+      "audioFile": "bug.mp3",
+      "category": "cvc_short_u",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "bun",
+      "imageFile": "bun.png",
+      "audioFile": "bun.mp3",
+      "category": "cvc_short_u",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "bus",
+      "imageFile": "bus.png",
+      "audioFile": "bus.mp3",
+      "category": "cvc_short_u",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "cup",
+      "imageFile": "cup.png",
+      "audioFile": "cup.mp3",
+      "category": "cvc_short_u",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "mud",
+      "imageFile": "mud.png",
+      "audioFile": "mud.mp3",
+      "category": "cvc_short_u",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "nut",
+      "imageFile": "nut.png",
+      "audioFile": "nut.mp3",
+      "category": "cvc_short_u",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "rug",
+      "imageFile": "rug.png",
+      "audioFile": "rug.mp3",
+      "category": "cvc_short_u",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "tub",
+      "imageFile": "tub.png",
+      "audioFile": "tub.mp3",
+      "category": "cvc_short_u",
+      "notes": "CVC short vowel word"
+    },
+    {
+      "word": "chair",
+      "imageFile": "chair.png",
+      "audioFile": "chair.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "chick",
+      "imageFile": "chick.png",
+      "audioFile": "chick.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "chip",
+      "imageFile": null,
+      "audioFile": "chip.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "ship",
+      "imageFile": "ship.png",
+      "audioFile": "ship.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "shop",
+      "imageFile": "shop.png",
+      "audioFile": "shop.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "thin",
+      "imageFile": "thin.png",
+      "audioFile": "thin.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "this",
+      "imageFile": "this.png",
+      "audioFile": "this.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "whale",
+      "imageFile": "whale.png",
+      "audioFile": "whale.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "wheel",
+      "imageFile": "wheel.png",
+      "audioFile": "wheel.mp3",
+      "category": "digraph",
+      "notes": "Consonant digraph"
+    },
+    {
+      "word": "ball",
+      "imageFile": "ball.png",
+      "audioFile": "ball.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "bell",
+      "imageFile": "bell.png",
+      "audioFile": "bell.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "book",
+      "imageFile": "book.png",
+      "audioFile": "book.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "crab",
+      "imageFile": "crab.png",
+      "audioFile": "crab.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "fish",
+      "imageFile": "fish.png",
+      "audioFile": "fish.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "knife",
+      "imageFile": "knife.png",
+      "audioFile": "knife.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "roof",
+      "imageFile": "roof.png",
+      "audioFile": "roof.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "shell",
+      "imageFile": "shell.png",
+      "audioFile": "shell.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "shoe",
+      "imageFile": "shoe.png",
+      "audioFile": "shoe.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "sled",
+      "imageFile": "sled.png",
+      "audioFile": "sled.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "snake",
+      "imageFile": "snake.png",
+      "audioFile": "snake.mp3",
+      "category": "distractor",
+      "notes": "Common distractor object for multiple-choice items"
+    },
+    {
+      "word": "a",
+      "imageFile": null,
+      "audioFile": "a.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "all",
+      "imageFile": null,
+      "audioFile": "all.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "and",
+      "imageFile": null,
+      "audioFile": "and.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "at",
+      "imageFile": null,
+      "audioFile": "at.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "but",
+      "imageFile": null,
+      "audioFile": "but.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "can",
+      "imageFile": null,
+      "audioFile": "can.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "for",
+      "imageFile": null,
+      "audioFile": "for.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "he",
+      "imageFile": null,
+      "audioFile": "he.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "his",
+      "imageFile": null,
+      "audioFile": "his.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "i",
+      "imageFile": null,
+      "audioFile": "i.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "in",
+      "imageFile": null,
+      "audioFile": "in.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "is",
+      "imageFile": null,
+      "audioFile": "is.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "it",
+      "imageFile": null,
+      "audioFile": "it.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "of",
+      "imageFile": null,
+      "audioFile": "of.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "on",
+      "imageFile": null,
+      "audioFile": "on.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "said",
+      "imageFile": null,
+      "audioFile": "said.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "she",
+      "imageFile": null,
+      "audioFile": "she.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "that",
+      "imageFile": null,
+      "audioFile": "that.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "the",
+      "imageFile": null,
+      "audioFile": "the.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "then",
+      "imageFile": null,
+      "audioFile": "then.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "they",
+      "imageFile": null,
+      "audioFile": "they.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "to",
+      "imageFile": null,
+      "audioFile": "to.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "was",
+      "imageFile": null,
+      "audioFile": "was.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "we",
+      "imageFile": null,
+      "audioFile": "we.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "with",
+      "imageFile": null,
+      "audioFile": "with.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "you",
+      "imageFile": null,
+      "audioFile": "you.mp3",
+      "category": "high_frequency",
+      "notes": "Audio-only recommended -- abstract function word, not illustratable"
+    },
+    {
+      "word": "bear",
+      "imageFile": "bear.png",
+      "audioFile": "bear.mp3",
+      "category": "homophone",
+      "notes": "Homophone -- sounds like another word"
+    },
+    {
+      "word": "meat",
+      "imageFile": "meat.png",
+      "audioFile": "meat.mp3",
+      "category": "homophone",
+      "notes": "Homophone -- sounds like another word"
+    },
+    {
+      "word": "sea",
+      "imageFile": "sea.png",
+      "audioFile": "sea.mp3",
+      "category": "homophone",
+      "notes": "Homophone -- sounds like another word"
+    },
+    {
+      "word": "son",
+      "imageFile": "son.png",
+      "audioFile": "son.mp3",
+      "category": "homophone",
+      "notes": "Homophone -- sounds like another word"
+    },
+    {
+      "word": "sun",
+      "imageFile": "sun.png",
+      "audioFile": "sun.mp3",
+      "category": "homophone",
+      "notes": "Homophone -- sounds like another word"
+    },
+    {
+      "word": "ant",
+      "imageFile": "ant.png",
+      "audioFile": "ant.mp3",
+      "category": "initial_sound_a",
+      "notes": "Initial sound /a/"
+    },
+    {
+      "word": "apple",
+      "imageFile": "apple.png",
+      "audioFile": "apple.mp3",
+      "category": "initial_sound_a",
+      "notes": "Initial sound /a/"
+    },
+    {
+      "word": "axe",
+      "imageFile": "axe.png",
+      "audioFile": "axe.mp3",
+      "category": "initial_sound_a",
+      "notes": "Initial sound /a/"
+    },
+    {
+      "word": "desk",
+      "imageFile": "desk.png",
+      "audioFile": "desk.mp3",
+      "category": "initial_sound_d",
+      "notes": "Initial sound /d/"
+    },
+    {
+      "word": "dig",
+      "imageFile": "dig.png",
+      "audioFile": "dig.mp3",
+      "category": "initial_sound_d",
+      "notes": "Initial sound /d/"
+    },
+    {
+      "word": "drum",
+      "imageFile": "drum.png",
+      "audioFile": "drum.mp3",
+      "category": "initial_sound_d",
+      "notes": "Initial sound /d/"
+    },
+    {
+      "word": "duck",
+      "imageFile": "duck.png",
+      "audioFile": "duck.mp3",
+      "category": "initial_sound_d",
+      "notes": "Initial sound /d/"
+    },
+    {
+      "word": "egg",
+      "imageFile": "egg.png",
+      "audioFile": "egg.mp3",
+      "category": "initial_sound_e",
+      "notes": "Initial sound /e/"
+    },
+    {
+      "word": "elephant",
+      "imageFile": "elephant.png",
+      "audioFile": "elephant.mp3",
+      "category": "initial_sound_e",
+      "notes": "Initial sound /e/"
+    },
+    {
+      "word": "envelope",
+      "imageFile": "envelope.png",
+      "audioFile": "envelope.mp3",
+      "category": "initial_sound_e",
+      "notes": "Initial sound /e/"
+    },
+    {
+      "word": "fan",
+      "imageFile": "fan.png",
+      "audioFile": "fan.mp3",
+      "category": "initial_sound_f",
+      "notes": "Initial sound /f/"
+    },
+    {
+      "word": "gate",
+      "imageFile": "gate.png",
+      "audioFile": "gate.mp3",
+      "category": "initial_sound_g",
+      "notes": "Initial sound /g/"
+    },
+    {
+      "word": "gum",
+      "imageFile": "gum.png",
+      "audioFile": "gum.mp3",
+      "category": "initial_sound_g",
+      "notes": "Initial sound /g/"
+    },
+    {
+      "word": "hand",
+      "imageFile": "hand.png",
+      "audioFile": "hand.mp3",
+      "category": "initial_sound_h",
+      "notes": "Initial sound /h/"
+    },
+    {
+      "word": "hook",
+      "imageFile": "hook.png",
+      "audioFile": "hook.mp3",
+      "category": "initial_sound_h",
+      "notes": "Initial sound /h/"
+    },
+    {
+      "word": "house",
+      "imageFile": "house.png",
+      "audioFile": "house.mp3",
+      "category": "initial_sound_h",
+      "notes": "Initial sound /h/"
+    },
+    {
+      "word": "igloo",
+      "imageFile": "igloo.png",
+      "audioFile": "igloo.mp3",
+      "category": "initial_sound_i",
+      "notes": "Initial sound /i/"
+    },
+    {
+      "word": "ink",
+      "imageFile": "ink.png",
+      "audioFile": "ink.mp3",
+      "category": "initial_sound_i",
+      "notes": "Initial sound /i/"
+    },
+    {
+      "word": "insect",
+      "imageFile": "insect.png",
+      "audioFile": "insect.mp3",
+      "category": "initial_sound_i",
+      "notes": "Initial sound /i/"
+    },
+    {
+      "word": "jet",
+      "imageFile": "jet.png",
+      "audioFile": "jet.mp3",
+      "category": "initial_sound_j",
+      "notes": "Initial sound /j/"
+    },
+    {
+      "word": "jug",
+      "imageFile": "jug.png",
+      "audioFile": "jug.mp3",
+      "category": "initial_sound_j",
+      "notes": "Initial sound /j/"
+    },
+    {
+      "word": "key",
+      "imageFile": "key.png",
+      "audioFile": "key.mp3",
+      "category": "initial_sound_k",
+      "notes": "Initial sound /k/"
+    },
+    {
+      "word": "king",
+      "imageFile": "king.png",
+      "audioFile": "king.mp3",
+      "category": "initial_sound_k",
+      "notes": "Initial sound /k/"
+    },
+    {
+      "word": "kite",
+      "imageFile": "kite.png",
+      "audioFile": "kite.mp3",
+      "category": "initial_sound_k",
+      "notes": "Initial sound /k/"
+    },
+    {
+      "word": "lamp",
+      "imageFile": "lamp.png",
+      "audioFile": "lamp.mp3",
+      "category": "initial_sound_l",
+      "notes": "Initial sound /l/"
+    },
+    {
+      "word": "lion",
+      "imageFile": "lion.png",
+      "audioFile": "lion.mp3",
+      "category": "initial_sound_l",
+      "notes": "Initial sound /l/"
+    },
+    {
+      "word": "moon",
+      "imageFile": "moon.png",
+      "audioFile": "moon.mp3",
+      "category": "initial_sound_m",
+      "notes": "Initial sound /m/"
+    },
+    {
+      "word": "octopus",
+      "imageFile": "octopus.png",
+      "audioFile": "octopus.mp3",
+      "category": "initial_sound_o",
+      "notes": "Initial sound /o/"
+    },
+    {
+      "word": "orange",
+      "imageFile": "orange.png",
+      "audioFile": "orange.mp3",
+      "category": "initial_sound_o",
+      "notes": "Initial sound /o/"
+    },
+    {
+      "word": "ox",
+      "imageFile": "ox.png",
+      "audioFile": "ox.mp3",
+      "category": "initial_sound_o",
+      "notes": "Initial sound /o/"
+    },
+    {
+      "word": "queen",
+      "imageFile": "queen.png",
+      "audioFile": "queen.mp3",
+      "category": "initial_sound_q",
+      "notes": "Initial sound /q/"
+    },
+    {
+      "word": "quilt",
+      "imageFile": "quilt.png",
+      "audioFile": "quilt.mp3",
+      "category": "initial_sound_q",
+      "notes": "Initial sound /q/"
+    },
+    {
+      "word": "quiz",
+      "imageFile": "quiz.png",
+      "audioFile": "quiz.mp3",
+      "category": "initial_sound_q",
+      "notes": "Initial sound /q/"
+    },
+    {
+      "word": "ring",
+      "imageFile": "ring.png",
+      "audioFile": "ring.mp3",
+      "category": "initial_sound_r",
+      "notes": "Initial sound /r/"
+    },
+    {
+      "word": "rope",
+      "imageFile": "rope.png",
+      "audioFile": "rope.mp3",
+      "category": "initial_sound_r",
+      "notes": "Initial sound /r/"
+    },
+    {
+      "word": "run",
+      "imageFile": "run.png",
+      "audioFile": "run.mp3",
+      "category": "initial_sound_r",
+      "notes": "Initial sound /r/"
+    },
+    {
+      "word": "seal",
+      "imageFile": "seal.png",
+      "audioFile": "seal.mp3",
+      "category": "initial_sound_s",
+      "notes": "Initial sound /s/"
+    },
+    {
+      "word": "sock",
+      "imageFile": "sock.png",
+      "audioFile": "sock.mp3",
+      "category": "initial_sound_s",
+      "notes": "Initial sound /s/"
+    },
+    {
+      "word": "tent",
+      "imageFile": "tent.png",
+      "audioFile": "tent.mp3",
+      "category": "initial_sound_t",
+      "notes": "Initial sound /t/"
+    },
+    {
+      "word": "tiger",
+      "imageFile": "tiger.png",
+      "audioFile": "tiger.mp3",
+      "category": "initial_sound_t",
+      "notes": "Initial sound /t/"
+    },
+    {
+      "word": "top",
+      "imageFile": "top.png",
+      "audioFile": "top.mp3",
+      "category": "initial_sound_t",
+      "notes": "Initial sound /t/"
+    },
+    {
+      "word": "umbrella",
+      "imageFile": "umbrella.png",
+      "audioFile": "umbrella.mp3",
+      "category": "initial_sound_u",
+      "notes": "Initial sound /u/"
+    },
+    {
+      "word": "uncle",
+      "imageFile": "uncle.png",
+      "audioFile": "uncle.mp3",
+      "category": "initial_sound_u",
+      "notes": "Initial sound /u/"
+    },
+    {
+      "word": "under",
+      "imageFile": "under.png",
+      "audioFile": "under.mp3",
+      "category": "initial_sound_u",
+      "notes": "Initial sound /u/"
+    },
+    {
+      "word": "unicorn",
+      "imageFile": "unicorn.png",
+      "audioFile": "unicorn.mp3",
+      "category": "initial_sound_u",
+      "notes": "Initial sound /u/"
+    },
+    {
+      "word": "up",
+      "imageFile": "up.png",
+      "audioFile": "up.mp3",
+      "category": "initial_sound_u",
+      "notes": "Initial sound /u/"
+    },
+    {
+      "word": "van",
+      "imageFile": "van.png",
+      "audioFile": "van.mp3",
+      "category": "initial_sound_v",
+      "notes": "Initial sound /v/"
+    },
+    {
+      "word": "vase",
+      "imageFile": "vase.png",
+      "audioFile": "vase.mp3",
+      "category": "initial_sound_v",
+      "notes": "Initial sound /v/"
+    },
+    {
+      "word": "vest",
+      "imageFile": "vest.png",
+      "audioFile": "vest.mp3",
+      "category": "initial_sound_v",
+      "notes": "Initial sound /v/"
+    },
+    {
+      "word": "white",
+      "imageFile": "white.png",
+      "audioFile": "white.mp3",
+      "category": "initial_sound_w",
+      "notes": "Initial sound /w/"
+    },
+    {
+      "word": "worm",
+      "imageFile": "worm.png",
+      "audioFile": "worm.mp3",
+      "category": "initial_sound_w",
+      "notes": "Initial sound /w/"
+    },
+    {
+      "word": "yak",
+      "imageFile": "yak.png",
+      "audioFile": "yak.mp3",
+      "category": "initial_sound_y",
+      "notes": "Initial sound /y/"
+    },
+    {
+      "word": "yarn",
+      "imageFile": "yarn.png",
+      "audioFile": "yarn.mp3",
+      "category": "initial_sound_y",
+      "notes": "Initial sound /y/"
+    },
+    {
+      "word": "yo-yo",
+      "imageFile": "yo-yo.png",
+      "audioFile": "yo-yo.mp3",
+      "category": "initial_sound_y",
+      "notes": "Initial sound /y/"
+    },
+    {
+      "word": "zebra",
+      "imageFile": "zebra.png",
+      "audioFile": "zebra.mp3",
+      "category": "initial_sound_z",
+      "notes": "Initial sound /z/"
+    },
+    {
+      "word": "zoo",
+      "imageFile": "zoo.png",
+      "audioFile": "zoo.mp3",
+      "category": "initial_sound_z",
+      "notes": "Initial sound /z/"
+    },
+    {
+      "word": "bad",
+      "imageFile": "bad.png",
+      "audioFile": "bad.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "bid",
+      "imageFile": "bid.png",
+      "audioFile": "bid.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "bud",
+      "imageFile": "bud.png",
+      "audioFile": "bud.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "cot",
+      "imageFile": "cot.png",
+      "audioFile": "cot.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "cut",
+      "imageFile": "cut.png",
+      "audioFile": "cut.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "dug",
+      "imageFile": "dug.png",
+      "audioFile": "dug.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "hit",
+      "imageFile": "hit.png",
+      "audioFile": "hit.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "hot",
+      "imageFile": "hot.png",
+      "audioFile": "hot.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "hut",
+      "imageFile": "hut.png",
+      "audioFile": "hut.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "pen",
+      "imageFile": "pen.png",
+      "audioFile": "pen.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "pin",
+      "imageFile": "pin.png",
+      "audioFile": "pin.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "pun",
+      "imageFile": "pun.png",
+      "audioFile": "pun.mp3",
+      "category": "minimal_pair",
+      "notes": "Minimal pair contrast word"
+    },
+    {
+      "word": "big",
+      "imageFile": "big.png",
+      "audioFile": "big.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "black",
+      "imageFile": null,
+      "audioFile": "black.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "blue",
+      "imageFile": null,
+      "audioFile": "blue.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "brush",
+      "imageFile": "brush.png",
+      "audioFile": "brush.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "dish",
+      "imageFile": "dish.png",
+      "audioFile": "dish.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "leg",
+      "imageFile": "leg.png",
+      "audioFile": "leg.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "mug",
+      "imageFile": "mug.png",
+      "audioFile": "mug.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "phone",
+      "imageFile": null,
+      "audioFile": "phone.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "rock",
+      "imageFile": null,
+      "audioFile": "rock.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "thumb",
+      "imageFile": null,
+      "audioFile": "thumb.mp3",
+      "category": "misc",
+      "notes": ""
+    },
+    {
+      "word": "books",
+      "imageFile": "books.png",
+      "audioFile": "books.mp3",
+      "category": "plural",
+      "notes": "Plural form -- shows more than one object"
+    },
+    {
+      "word": "boxes",
+      "imageFile": "boxes.png",
+      "audioFile": "boxes.mp3",
+      "category": "plural",
+      "notes": "Plural form -- shows more than one object"
+    },
+    {
+      "word": "brushes",
+      "imageFile": "brushes.png",
+      "audioFile": "brushes.mp3",
+      "category": "plural",
+      "notes": "Plural form -- shows more than one object"
+    },
+    {
+      "word": "cats",
+      "imageFile": "cats.png",
+      "audioFile": "cats.mp3",
+      "category": "plural",
+      "notes": "Plural form -- shows more than one object"
+    },
+    {
+      "word": "cups",
+      "imageFile": "cups.png",
+      "audioFile": "cups.mp3",
+      "category": "plural",
+      "notes": "Plural form -- shows more than one object"
+    },
+    {
+      "word": "dishes",
+      "imageFile": "dishes.png",
+      "audioFile": "dishes.mp3",
+      "category": "plural",
+      "notes": "Plural form -- shows more than one object"
+    },
+    {
+      "word": "dogs",
+      "imageFile": "dogs.png",
+      "audioFile": "dogs.mp3",
+      "category": "plural",
+      "notes": "Plural form -- shows more than one object"
+    },
+    {
+      "word": "hats",
+      "imageFile": "hats.png",
+      "audioFile": "hats.mp3",
+      "category": "plural",
+      "notes": "Plural form -- shows more than one object"
+    },
+    {
+      "word": "bird",
+      "imageFile": "bird.png",
+      "audioFile": "bird.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "car",
+      "imageFile": "car.png",
+      "audioFile": "car.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "corn",
+      "imageFile": "corn.png",
+      "audioFile": "corn.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "deer",
+      "imageFile": "deer.png",
+      "audioFile": "deer.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "farm",
+      "imageFile": "farm.png",
+      "audioFile": "farm.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "fork",
+      "imageFile": "fork.png",
+      "audioFile": "fork.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "girl",
+      "imageFile": "girl.png",
+      "audioFile": "girl.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "horse",
+      "imageFile": "horse.png",
+      "audioFile": "horse.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "park",
+      "imageFile": "park.png",
+      "audioFile": "park.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "star",
+      "imageFile": "star.png",
+      "audioFile": "star.mp3",
+      "category": "r_controlled",
+      "notes": "R-controlled vowel"
+    },
+    {
+      "word": "listen-icon",
+      "imageFile": "listen-icon.png",
+      "audioFile": "listen-icon.mp3",
+      "category": "ui_icon",
+      "notes": "UI icon"
+    },
+    {
+      "word": "bee",
+      "imageFile": "bee.png",
+      "audioFile": "bee.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "boat",
+      "imageFile": "boat.png",
+      "audioFile": "boat.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "cake",
+      "imageFile": "cake.png",
+      "audioFile": "cake.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "coat",
+      "imageFile": "coat.png",
+      "audioFile": "coat.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "feet",
+      "imageFile": "feet.png",
+      "audioFile": "feet.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "goat",
+      "imageFile": null,
+      "audioFile": "goat.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "home",
+      "imageFile": "home.png",
+      "audioFile": "home.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "leaf",
+      "imageFile": "leaf.png",
+      "audioFile": "leaf.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "nose",
+      "imageFile": "nose.png",
+      "audioFile": "nose.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "rain",
+      "imageFile": "rain.png",
+      "audioFile": "rain.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "seed",
+      "imageFile": "seed.png",
+      "audioFile": "seed.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "train",
+      "imageFile": "train.png",
+      "audioFile": "train.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    },
+    {
+      "word": "tree",
+      "imageFile": "tree.png",
+      "audioFile": "tree.mp3",
+      "category": "vowel_team",
+      "notes": "Vowel team (long vowel)"
+    }
+  ]
+}

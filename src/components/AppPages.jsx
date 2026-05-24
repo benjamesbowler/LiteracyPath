@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
   guidedReadingBooks,
@@ -1564,6 +1564,20 @@ function GuidedReadingImage({ src, alt, className = "" }) {
   );
 }
 
+function tokenizeReadingText(text = "") {
+  const tokens = text.match(/[A-Za-z0-9'-]+|[^A-Za-z0-9'-]+/g) || [];
+  let wordIndex = -1;
+
+  return tokens.map((token, index) => {
+    if (/^[A-Za-z0-9'-]+$/.test(token)) {
+      wordIndex += 1;
+      return { token, index, type: "word", wordIndex };
+    }
+
+    return { token, index, type: "text", wordIndex: null };
+  });
+}
+
 export function GuidedReadingPage({
   studentName,
   guidedReadingRecords = {},
@@ -1575,6 +1589,15 @@ export function GuidedReadingPage({
   const [selectedBookId, setSelectedBookId] = useState(guidedReadingBooks[0]?.id || "");
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
+  const [readerOpen, setReaderOpen] = useState(false);
+  const [readingMode, setReadingMode] = useState("reading");
+  const [highlightedWordIndex, setHighlightedWordIndex] = useState(null);
+  const [audioNotice, setAudioNotice] = useState("");
+  const [isPageAudioPlaying, setIsPageAudioPlaying] = useState(false);
+  const pageAudioRef = useRef(null);
+  const highlightTimerRef = useRef(null);
+  const touchStartRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
   const selectedBook = guidedReadingBooks.find(book => book.id === selectedBookId) || guidedReadingBooks[0];
   const page = selectedBook?.pages?.[pageIndex];
   const record = guidedReadingRecords[selectedBook?.id] || {
@@ -1591,6 +1614,47 @@ export function GuidedReadingPage({
     note: ""
   };
   const summary = summarizeGuidedReadingRecord(record);
+  const readingTokens = tokenizeReadingText(page?.text || "");
+
+  useEffect(() => {
+    return () => {
+      if (pageAudioRef.current) {
+        pageAudioRef.current.pause();
+        pageAudioRef.current = null;
+      }
+      if (highlightTimerRef.current) {
+        clearTimeout(highlightTimerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    setAudioNotice("");
+    setHighlightedWordIndex(null);
+    stopPageAudio();
+  }, [selectedBookId, pageIndex]);
+
+  useEffect(() => {
+    if (!readerOpen || showSummary) return undefined;
+
+    function handleKeyDown(event) {
+      const tagName = event.target?.tagName?.toLowerCase();
+      if (tagName === "textarea" || tagName === "input" || tagName === "select") return;
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        goToPreviousPage();
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        goToNextPage();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [readerOpen, showSummary, pageIndex, selectedBook?.pages?.length]);
 
   function updateRecord(patch) {
     saveGuidedReadingRecord(selectedBook.id, {
@@ -1642,6 +1706,7 @@ export function GuidedReadingPage({
   }
 
   function completeBook() {
+    stopPageAudio();
     updateRecord({ completedAt: new Date().toISOString() });
     setShowSummary(true);
   }
@@ -1650,12 +1715,124 @@ export function GuidedReadingPage({
     setSelectedBookId(bookId);
     setPageIndex(0);
     setShowSummary(false);
+    setReaderOpen(true);
+    setReadingMode("reading");
+  }
+
+  function closeReader() {
+    stopPageAudio();
+    setReaderOpen(false);
+    setShowSummary(false);
+  }
+
+  function goToPreviousPage() {
+    setPageIndex(index => Math.max(0, index - 1));
+  }
+
+  function goToNextPage() {
+    setPageIndex(index => Math.min(selectedBook.pages.length - 1, index + 1));
+  }
+
+  function handlePageTouchStart(event) {
+    const touch = event.touches?.[0];
+    if (!touch) return;
+    touchStartRef.current = {
+      x: touch.clientX,
+      y: touch.clientY
+    };
+  }
+
+  function handlePageTouchEnd(event) {
+    const start = touchStartRef.current;
+    const touch = event.changedTouches?.[0];
+    touchStartRef.current = null;
+    if (!start || !touch) return;
+
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+    if (Math.abs(deltaX) < 54 || Math.abs(deltaY) > 70) return;
+
+    if (deltaX < 0) goToNextPage();
+    else goToPreviousPage();
+  }
+
+  function stopPageAudio() {
+    if (pageAudioRef.current) {
+      pageAudioRef.current.pause();
+      pageAudioRef.current.currentTime = 0;
+      pageAudioRef.current = null;
+    }
+    setIsPageAudioPlaying(false);
+  }
+
+  async function togglePageAudio() {
+    if (!page?.pageAudio) return;
+
+    if (pageAudioRef.current && isPageAudioPlaying) {
+      stopPageAudio();
+      return;
+    }
+
+    stopPageAudio();
+    try {
+      const audio = new Audio(page.pageAudio);
+      pageAudioRef.current = audio;
+      setIsPageAudioPlaying(true);
+      audio.onended = () => {
+        pageAudioRef.current = null;
+        setIsPageAudioPlaying(false);
+      };
+      audio.onerror = () => {
+        pageAudioRef.current = null;
+        setIsPageAudioPlaying(false);
+        setAudioNotice("Page audio is not available for this page.");
+      };
+      await audio.play();
+    } catch (error) {
+      console.warn("Guided Reading page audio unavailable.", error);
+      pageAudioRef.current = null;
+      setIsPageAudioPlaying(false);
+      setAudioNotice("Page audio is not available for this page.");
+    }
+  }
+
+  function brieflyHighlightWord(wordIndex) {
+    setHighlightedWordIndex(wordIndex);
+    if (highlightTimerRef.current) clearTimeout(highlightTimerRef.current);
+    highlightTimerRef.current = setTimeout(() => setHighlightedWordIndex(null), 700);
+  }
+
+  function playWordAudio(word, wordIndex) {
+    const approvedAudioPath = getApprovedAudioPath(word?.text, word?.audioPath);
+    if (!approvedAudioPath) {
+      setAudioNotice("Word audio is not available yet.");
+      return;
+    }
+
+    setAudioNotice("");
+    brieflyHighlightWord(wordIndex);
+    speakText(word.text, approvedAudioPath, {
+      allowBrowserFallback: false,
+      requireApprovedAudio: true
+    });
+  }
+
+  function handleWordClick(wordIndex, event) {
+    const word = page.words[wordIndex];
+    if (!word) return;
+
+    if (readingMode === "marking" && !event.altKey) {
+      cycleWordMark(wordIndex);
+      return;
+    }
+
+    playWordAudio(word, wordIndex);
   }
 
   const recordSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
 
   return (
-    <div className="teacher-product-page guided-reading-page">
+    <div className={readerOpen ? "guided-reading-page guided-reading-reader-open" : "teacher-product-page guided-reading-page"}>
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Guided Reading</p>
@@ -1688,8 +1865,8 @@ export function GuidedReadingPage({
         ))}
       </section>
 
-      {!showSummary ? (
-        <section className="guided-reader-shell">
+      {readerOpen && !showSummary ? (
+        <section className="guided-reader-shell" aria-label={`${selectedBook.title} full-screen reader`}>
           <div className="guided-reader-card">
             <div className="guided-reader-header">
               <div>
@@ -1700,85 +1877,116 @@ export function GuidedReadingPage({
               <div className="guided-page-controls">
                 {page.pageAudio && (
                   <button
-                    className="lp-button lp-button-secondary"
-                    onClick={() =>
-                      speakText(page.text, page.pageAudio, {
-                        allowBrowserFallback: false,
-                        requireApprovedAudio: false
-                      })
-                    }
+                    className={isPageAudioPlaying ? "lp-button lp-button-secondary active" : "lp-button lp-button-secondary"}
+                    onClick={togglePageAudio}
                     type="button"
                   >
-                    Read Page Aloud
+                    {isPageAudioPlaying ? "Stop Reading" : "Read Page"}
                   </button>
                 )}
                 <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>
+                <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
+                  Close Reader
+                </button>
               </div>
             </div>
 
-            <div className="guided-page-layout">
-              <div className="guided-page-image-card">
-                <GuidedReadingImage alt="" className="guided-page-image" src={page.image} />
+            <div className="guided-reader-modebar" aria-label="Guided Reading mode">
+              <div className="guided-mode-toggle" role="group" aria-label="Reader mode">
+                <button
+                  className={readingMode === "reading" ? "active" : ""}
+                  onClick={() => setReadingMode("reading")}
+                  type="button"
+                >
+                  Reading Mode
+                </button>
+                <button
+                  className={readingMode === "marking" ? "active" : ""}
+                  onClick={() => setReadingMode("marking")}
+                  type="button"
+                >
+                  Marking Mode
+                </button>
               </div>
+              <p>
+                {readingMode === "reading"
+                  ? "Tap a word to hear it when approved word audio is available."
+                  : "Tap words to cycle neutral, read correctly, and needs support. Alt-click a word to hear it."}
+              </p>
+            </div>
 
-              <div className="guided-page-reading">
-                <div className="guided-page-text" aria-label="Page text">
-                  {page.words.map((word, index) => {
-                    const mark = currentPageRecord.wordMarks?.[index] || "";
-                    const approvedAudioPath = getApprovedAudioPath(word.text, word.audioPath);
+            <AnimatePresence mode="wait">
+              <motion.div
+                animate={{ opacity: 1, x: 0 }}
+                className="guided-page-layout"
+                exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: -18 }}
+                initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, x: 18 }}
+                key={`${selectedBook.id}-${pageIndex}`}
+                onTouchEnd={handlePageTouchEnd}
+                onTouchStart={handlePageTouchStart}
+                transition={{ duration: prefersReducedMotion ? 0.01 : 0.18, ease: "easeOut" }}
+              >
+                <div className="guided-page-image-card">
+                  <GuidedReadingImage alt="" className="guided-page-image" src={page.image} />
+                </div>
 
-                    return (
-                      <span className={`guided-word-wrap ${mark || "neutral"}`} key={`${word.text}-${index}`}>
+                <div className="guided-page-reading">
+                  <div className={`guided-page-text ${readingMode}`} aria-label="Page text">
+                    {readingTokens.map(item => {
+                      if (item.type === "text") {
+                        return <span aria-hidden="true" key={`text-${item.index}`}>{item.token}</span>;
+                      }
+
+                      const mark = currentPageRecord.wordMarks?.[item.wordIndex] || "";
+                      const isHighlighted = highlightedWordIndex === item.wordIndex;
+
+                      return (
                         <button
-                          className={`guided-word ${mark || "neutral"}`}
-                          onClick={() => cycleWordMark(index)}
-                          title="Click once for read correctly, twice for needs support, three times to clear."
+                          aria-label={`${readingMode === "marking" ? "Mark" : "Hear"} ${item.token}`}
+                          className={`guided-word ${readingMode} ${mark || "neutral"} ${isHighlighted ? "heard" : ""}`}
+                          key={`word-${item.index}-${item.wordIndex}`}
+                          onClick={event => handleWordClick(item.wordIndex, event)}
+                          onContextMenu={event => {
+                            event.preventDefault();
+                            playWordAudio(page.words[item.wordIndex], item.wordIndex);
+                          }}
+                          title={readingMode === "marking" ? "Mark word. Right-click or Alt-click to hear audio if available." : "Tap to hear word audio if available."}
                           type="button"
                         >
-                          {word.text}
+                          {item.token}
                         </button>
-                        {approvedAudioPath && (
-                          <button
-                            aria-label={`Play ${word.text}`}
-                            className="guided-word-audio"
-                            onClick={() =>
-                              speakText(word.text, approvedAudioPath, {
-                                allowBrowserFallback: false,
-                                requireApprovedAudio: true
-                              })
-                            }
-                            type="button"
-                          >
-                            🔊
-                          </button>
-                        )}
-                      </span>
-                    );
-                  })}
-                </div>
+                      );
+                    })}
+                  </div>
 
-                <div className="guided-mark-legend" aria-label="Word marking legend">
-                  <span><b className="legend-dot correct"></b> Read correctly</span>
-                  <span><b className="legend-dot support"></b> Needs support</span>
-                  <span><b className="legend-dot neutral"></b> Unmarked</span>
-                </div>
+                  {audioNotice && <p className="guided-audio-notice">{audioNotice}</p>}
 
-                <label className="guided-note-field">
-                  <strong>Page note</strong>
-                  <textarea
-                    value={currentPageRecord.note || ""}
-                    onChange={event => updatePageNote(event.target.value)}
-                    placeholder="Add miscues, strategy use, fluency notes, or comprehension observations."
-                  />
-                </label>
-              </div>
-            </div>
+                  <div className="guided-mark-legend" aria-label="Word marking legend">
+                    <span><b className="legend-dot correct"></b> Read correctly</span>
+                    <span><b className="legend-dot support"></b> Needs support</span>
+                    <span><b className="legend-dot neutral"></b> Unmarked</span>
+                  </div>
+
+                  <details className="guided-note-drawer">
+                    <summary>Page notes</summary>
+                    <label className="guided-note-field">
+                      <strong>Page note</strong>
+                      <textarea
+                        value={currentPageRecord.note || ""}
+                        onChange={event => updatePageNote(event.target.value)}
+                        placeholder="Add miscues, strategy use, fluency notes, or comprehension observations."
+                      />
+                    </label>
+                  </details>
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
             <div className="guided-reader-actions">
               <button
                 className="lp-button lp-button-secondary"
                 disabled={pageIndex === 0}
-                onClick={() => setPageIndex(index => Math.max(0, index - 1))}
+                onClick={goToPreviousPage}
                 type="button"
               >
                 Previous Page
@@ -1786,7 +1994,7 @@ export function GuidedReadingPage({
               {pageIndex < selectedBook.pages.length - 1 ? (
                 <button
                   className="lp-button lp-button-primary"
-                  onClick={() => setPageIndex(index => Math.min(selectedBook.pages.length - 1, index + 1))}
+                  onClick={goToNextPage}
                   type="button"
                 >
                   Next Page
@@ -1800,7 +2008,7 @@ export function GuidedReadingPage({
           </div>
 
           <aside className="guided-notes-panel">
-            <h3>Whole-book note</h3>
+            <h3>Teacher Notes</h3>
             <textarea
               value={record.wholeBookNote || ""}
               onChange={event => updateWholeBookNote(event.target.value)}
@@ -1814,7 +2022,7 @@ export function GuidedReadingPage({
             </div>
           </aside>
         </section>
-      ) : (
+      ) : showSummary ? (
         <section className="guided-reading-summary">
           <div>
             <p className="panel-label">Book Complete</p>
@@ -1852,13 +2060,24 @@ export function GuidedReadingPage({
           </div>
 
           <div className="teacher-action-list">
-            <button className="lp-button lp-button-primary" onClick={() => setShowSummary(false)} type="button">
+            <button className="lp-button lp-button-primary" onClick={() => {
+              setReaderOpen(true);
+              setShowSummary(false);
+            }} type="button">
               Continue Marking
             </button>
             <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
               View Reports
             </button>
+            <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
+              Back to Library
+            </button>
           </div>
+        </section>
+      ) : (
+        <section className="guided-reader-empty">
+          <h3>Select a book to open the reader.</h3>
+          <p>Books open in a focused reader with large images, page narration, normal reading text, and optional teacher marking tools.</p>
         </section>
       )}
 

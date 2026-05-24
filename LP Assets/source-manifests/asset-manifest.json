@@ -1,0 +1,115 @@
+{
+  "app": "LiteracyPath",
+  "world": "Echo Caves",
+  "theme": "Short-A Phonics World",
+  "generatedAt": "2026-05-22",
+  "totals": {
+    "images": 83,
+    "audio": 58,
+    "totalAssets": 141
+  },
+  "images": {
+    "shortA": {
+      "path": "/images/short_a",
+      "count": 12,
+      "words": ["cat", "bat", "hat", "map", "cap", "pan", "man", "nap", "bag", "jam", "ham", "ram"]
+    },
+    "shortI": {
+      "path": "/images/short_i",
+      "count": 9,
+      "words": ["pig", "dig", "big", "wig", "lid", "fin", "sit", "zip", "fish"]
+    },
+    "shortO": {
+      "path": "/images/short_o",
+      "count": 8,
+      "words": ["dog", "log", "pot", "mop", "fox", "rock", "sock", "box"]
+    },
+    "shortU": {
+      "path": "/images/short_u",
+      "count": 8,
+      "words": ["sun", "bug", "mug", "cup", "bus", "duck", "mud", "nut"]
+    },
+    "shortE": {
+      "path": "/images/short_e",
+      "count": 7,
+      "words": ["bed", "red", "pen", "net", "leg", "jet", "web"]
+    },
+    "minimalPairs": {
+      "path": "/images/minimal_pairs",
+      "count": 13,
+      "words": ["cot", "cut", "bad", "bid", "bud", "dig", "dug", "hot", "hit", "hut", "pin", "pen", "pun"],
+      "groups": {
+        "group1": ["cat", "cot", "cut", "cap"],
+        "group2": ["bed", "bad", "bid", "bud"],
+        "group3": ["dog", "dig", "dug", "dot"],
+        "group4": ["hat", "hot", "hit", "hut"],
+        "group5": ["pan", "pin", "pen", "pun"]
+      },
+      "note": "Cross-referenced words (cat, cap, bed, dog, dot, hat, pan) exist in short vowel folders"
+    },
+    "digraphs": {
+      "path": "/images/digraphs",
+      "count": 6,
+      "words": ["ship", "shell", "chair", "thumb", "whale", "phone"]
+    },
+    "blends": {
+      "path": "/images/blends",
+      "count": 10,
+      "words": ["frog", "flag", "blue", "black", "drum", "tree", "snake", "star", "slide", "cloud"]
+    },
+    "ui": {
+      "path": "/images/ui",
+      "count": 10,
+      "files": [
+        "crystal_sparkle_particles.png",
+        "glow_burst.png",
+        "reward_star.png",
+        "crystal_shards.png",
+        "mastery_badge.png",
+        "cave_reward_icon.png",
+        "success_sparkle.png",
+        "magical_particles.png",
+        "cave_button_panel.png",
+        "floating_crystal.png"
+      ]
+    }
+  },
+  "audio": {
+    "words": {
+      "path": "/audio/words",
+      "count": 51,
+      "shortA": ["cat", "bat", "hat", "map", "cap", "pan", "man", "nap", "bag", "jam", "ham", "ram"],
+      "shortI": ["pig", "dig", "big", "wig", "lid", "fin", "sit", "zip"],
+      "shortO": ["dog", "log", "pot", "mop", "sock", "rock"],
+      "shortU": ["sun", "bug", "mug", "cup", "mud", "nut"],
+      "shortE": ["bed", "red", "pen", "net", "leg"],
+      "digraphs": ["ship", "shell", "chair", "thumb", "whale", "phone"],
+      "blends": ["frog", "flag", "blue", "black", "drum", "tree", "snake", "star"]
+    },
+    "phrases": {
+      "path": "/audio/phrases",
+      "count": 7,
+      "files": {
+        "which_word_matches.mp3": "Which word matches the picture?",
+        "listen_carefully.mp3": "Listen carefully.",
+        "great_job.mp3": "Great job!",
+        "you_found_it.mp3": "You found it!",
+        "try_again.mp3": "Try again.",
+        "excellent_listening.mp3": "Excellent listening!",
+        "tap_rumble.mp3": "Tap Rumble to hear it again."
+      }
+    }
+  },
+  "style": {
+    "description": "Kindergarten-friendly, warm and playful, educational illustration",
+    "features": ["thick readable silhouettes", "soft shading", "rounded shapes", "emotionally friendly", "minimal clutter", "high mobile readability"],
+    "backgrounds": "Transparent PNG for all images",
+    "format": "Square 1:1 ratio",
+    "voice": "Warm, calm female voice. Clear pronunciation, ESL-friendly, no background noise"
+  },
+  "usage": {
+    "framework": "React / Vite",
+    "importPattern": "Import images and audio directly from their respective folders",
+    "dynamicLoading": "Use the asset-manifest.json to dynamically load assets by word or category"
+  }
+}

@@ -1,0 +1,2178 @@
+[
+  {
+    "key": "alligator",
+    "textSpoken": "alligator",
+    "audioFile": "words/alligator.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "ambulance",
+    "textSpoken": "ambulance",
+    "audioFile": "words/ambulance.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "anchor",
+    "textSpoken": "anchor",
+    "audioFile": "words/anchor.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "ant",
+    "textSpoken": "ant",
+    "audioFile": "words/ant.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "apple",
+    "textSpoken": "apple",
+    "audioFile": "words/apple.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "arrow",
+    "textSpoken": "arrow",
+    "audioFile": "words/arrow.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "astronaut",
+    "textSpoken": "astronaut",
+    "audioFile": "words/astronaut.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "ax",
+    "textSpoken": "ax",
+    "audioFile": "words/ax.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "bag",
+    "textSpoken": "bag",
+    "audioFile": "words/bag.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "ball",
+    "textSpoken": "ball",
+    "audioFile": "words/ball.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "barn",
+    "textSpoken": "barn",
+    "audioFile": "words/barn.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "bat",
+    "textSpoken": "bat",
+    "audioFile": "words/bat.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "bed",
+    "textSpoken": "bed",
+    "audioFile": "words/bed.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "bee",
+    "textSpoken": "bee",
+    "audioFile": "words/bee.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "bell",
+    "textSpoken": "bell",
+    "audioFile": "words/bell.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "bird",
+    "textSpoken": "bird",
+    "audioFile": "words/bird.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "boat",
+    "textSpoken": "boat",
+    "audioFile": "words/boat.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "books",
+    "textSpoken": "books",
+    "audioFile": "words/books.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "box",
+    "textSpoken": "box",
+    "audioFile": "words/box.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "boxes",
+    "textSpoken": "boxes",
+    "audioFile": "words/boxes.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "brush",
+    "textSpoken": "brush",
+    "audioFile": "words/brush.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "brushes",
+    "textSpoken": "brushes",
+    "audioFile": "words/brushes.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "bug",
+    "textSpoken": "bug",
+    "audioFile": "words/bug.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "bun",
+    "textSpoken": "bun",
+    "audioFile": "words/bun.mp3",
+    "category": "rhyme",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Rhyming word"
+  },
+  {
+    "key": "bus",
+    "textSpoken": "bus",
+    "audioFile": "words/bus.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "cake",
+    "textSpoken": "cake",
+    "audioFile": "words/cake.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "cap",
+    "textSpoken": "cap",
+    "audioFile": "words/cap.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "car",
+    "textSpoken": "car",
+    "audioFile": "words/car.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "cat",
+    "textSpoken": "cat",
+    "audioFile": "words/cat.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "cats",
+    "textSpoken": "cats",
+    "audioFile": "words/cats.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "chair",
+    "textSpoken": "chair",
+    "audioFile": "words/chair.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "cheese",
+    "textSpoken": "cheese",
+    "audioFile": "words/cheese.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "chick",
+    "textSpoken": "chick",
+    "audioFile": "words/chick.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "children",
+    "textSpoken": "children",
+    "audioFile": "words/children.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "chip",
+    "textSpoken": "chip",
+    "audioFile": "words/chip.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "clap",
+    "textSpoken": "clap",
+    "audioFile": "words/clap.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "clip",
+    "textSpoken": "clip",
+    "audioFile": "words/clip.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "coat",
+    "textSpoken": "coat",
+    "audioFile": "words/coat.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "corn",
+    "textSpoken": "corn",
+    "audioFile": "words/corn.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "cot",
+    "textSpoken": "cot",
+    "audioFile": "words/cot.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "crab",
+    "textSpoken": "crab",
+    "audioFile": "words/crab.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "crown",
+    "textSpoken": "crown",
+    "audioFile": "words/crown.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "cup",
+    "textSpoken": "cup",
+    "audioFile": "words/cup.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "cups",
+    "textSpoken": "cups",
+    "audioFile": "words/cups.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "cut",
+    "textSpoken": "cut",
+    "audioFile": "words/cut.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "dig",
+    "textSpoken": "dig",
+    "audioFile": "words/dig.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "dish",
+    "textSpoken": "dish",
+    "audioFile": "words/dish.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "dishes",
+    "textSpoken": "dishes",
+    "audioFile": "words/dishes.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "dog",
+    "textSpoken": "dog",
+    "audioFile": "words/dog.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "dogs",
+    "textSpoken": "dogs",
+    "audioFile": "words/dogs.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "door",
+    "textSpoken": "door",
+    "audioFile": "words/door.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "dot",
+    "textSpoken": "dot",
+    "audioFile": "words/dot.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "dress",
+    "textSpoken": "dress",
+    "audioFile": "words/dress.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "drum",
+    "textSpoken": "drum",
+    "audioFile": "words/drum.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "dug",
+    "textSpoken": "dug",
+    "audioFile": "words/dug.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "egg",
+    "textSpoken": "egg",
+    "audioFile": "words/egg.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "elephant",
+    "textSpoken": "elephant",
+    "audioFile": "words/elephant.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "elk",
+    "textSpoken": "elk",
+    "audioFile": "words/elk.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "fan",
+    "textSpoken": "fan",
+    "audioFile": "words/fan.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "farm",
+    "textSpoken": "farm",
+    "audioFile": "words/farm.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "feet",
+    "textSpoken": "feet",
+    "audioFile": "words/feet.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "fin",
+    "textSpoken": "fin",
+    "audioFile": "words/fin.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "flag",
+    "textSpoken": "flag",
+    "audioFile": "words/flag.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "flame",
+    "textSpoken": "flame",
+    "audioFile": "words/flame.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "fork",
+    "textSpoken": "fork",
+    "audioFile": "words/fork.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "fox",
+    "textSpoken": "fox",
+    "audioFile": "words/fox.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "frog",
+    "textSpoken": "frog",
+    "audioFile": "words/frog.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "geese",
+    "textSpoken": "geese",
+    "audioFile": "words/geese.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "girl",
+    "textSpoken": "girl",
+    "audioFile": "words/girl.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "goat",
+    "textSpoken": "goat",
+    "audioFile": "words/goat.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "ham",
+    "textSpoken": "ham",
+    "audioFile": "words/ham.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "hat",
+    "textSpoken": "hat",
+    "audioFile": "words/hat.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "hats",
+    "textSpoken": "hats",
+    "audioFile": "words/hats.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "hen",
+    "textSpoken": "hen",
+    "audioFile": "words/hen.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "hit",
+    "textSpoken": "hit",
+    "audioFile": "words/hit.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "hook",
+    "textSpoken": "hook",
+    "audioFile": "words/hook.mp3",
+    "category": "rhyme",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Rhyming word"
+  },
+  {
+    "key": "horse",
+    "textSpoken": "horse",
+    "audioFile": "words/horse.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "hot",
+    "textSpoken": "hot",
+    "audioFile": "words/hot.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "igloo",
+    "textSpoken": "igloo",
+    "audioFile": "words/igloo.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "iguana",
+    "textSpoken": "iguana",
+    "audioFile": "words/iguana.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "insect",
+    "textSpoken": "insect",
+    "audioFile": "words/insect.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "jam",
+    "textSpoken": "jam",
+    "audioFile": "words/jam.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "jet",
+    "textSpoken": "jet",
+    "audioFile": "words/jet.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "kid",
+    "textSpoken": "kid",
+    "audioFile": "words/kid.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "knife",
+    "textSpoken": "knife",
+    "audioFile": "words/knife.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "leaf",
+    "textSpoken": "leaf",
+    "audioFile": "words/leaf.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "leg",
+    "textSpoken": "leg",
+    "audioFile": "words/leg.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "lid",
+    "textSpoken": "lid",
+    "audioFile": "words/lid.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "log",
+    "textSpoken": "log",
+    "audioFile": "words/log.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "mail",
+    "textSpoken": "mail",
+    "audioFile": "words/mail.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "man",
+    "textSpoken": "man",
+    "audioFile": "words/man.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "map",
+    "textSpoken": "map",
+    "audioFile": "words/map.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "mat",
+    "textSpoken": "mat",
+    "audioFile": "words/mat.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "mice",
+    "textSpoken": "mice",
+    "audioFile": "words/mice.mp3",
+    "category": "plural",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Plural form word"
+  },
+  {
+    "key": "moon",
+    "textSpoken": "moon",
+    "audioFile": "words/moon.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "mop",
+    "textSpoken": "mop",
+    "audioFile": "words/mop.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "mud",
+    "textSpoken": "mud",
+    "audioFile": "words/mud.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "mug",
+    "textSpoken": "mug",
+    "audioFile": "words/mug.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "nail",
+    "textSpoken": "nail",
+    "audioFile": "words/nail.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "nap",
+    "textSpoken": "nap",
+    "audioFile": "words/nap.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "net",
+    "textSpoken": "net",
+    "audioFile": "words/net.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "nut",
+    "textSpoken": "nut",
+    "audioFile": "words/nut.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "octopus",
+    "textSpoken": "octopus",
+    "audioFile": "words/octopus.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "ostrich",
+    "textSpoken": "ostrich",
+    "audioFile": "words/ostrich.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "ox",
+    "textSpoken": "ox",
+    "audioFile": "words/ox.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "pail",
+    "textSpoken": "pail",
+    "audioFile": "words/pail.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "pan",
+    "textSpoken": "pan",
+    "audioFile": "words/pan.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "park",
+    "textSpoken": "park",
+    "audioFile": "words/park.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "pen",
+    "textSpoken": "pen",
+    "audioFile": "words/pen.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "pie",
+    "textSpoken": "pie",
+    "audioFile": "words/pie.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "pig",
+    "textSpoken": "pig",
+    "audioFile": "words/pig.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "pin",
+    "textSpoken": "pin",
+    "audioFile": "words/pin.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "pot",
+    "textSpoken": "pot",
+    "audioFile": "words/pot.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "print",
+    "textSpoken": "print",
+    "audioFile": "words/print.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "rain",
+    "textSpoken": "rain",
+    "audioFile": "words/rain.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "ram",
+    "textSpoken": "ram",
+    "audioFile": "words/ram.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "rat",
+    "textSpoken": "rat",
+    "audioFile": "words/rat.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "red",
+    "textSpoken": "red",
+    "audioFile": "words/red.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "roof",
+    "textSpoken": "roof",
+    "audioFile": "words/roof.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "rug",
+    "textSpoken": "rug",
+    "audioFile": "words/rug.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "run",
+    "textSpoken": "run",
+    "audioFile": "words/run.mp3",
+    "category": "rhyme",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Rhyming word"
+  },
+  {
+    "key": "sea",
+    "textSpoken": "sea",
+    "audioFile": "words/sea.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "seed",
+    "textSpoken": "seed",
+    "audioFile": "words/seed.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "shark",
+    "textSpoken": "shark",
+    "audioFile": "words/shark.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "sheep",
+    "textSpoken": "sheep",
+    "audioFile": "words/sheep.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "shell",
+    "textSpoken": "shell",
+    "audioFile": "words/shell.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "ship",
+    "textSpoken": "ship",
+    "audioFile": "words/ship.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "shop",
+    "textSpoken": "shop",
+    "audioFile": "words/shop.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "sit",
+    "textSpoken": "sit",
+    "audioFile": "words/sit.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "sled",
+    "textSpoken": "sled",
+    "audioFile": "words/sled.mp3",
+    "category": "rhyme",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Rhyming word"
+  },
+  {
+    "key": "slide",
+    "textSpoken": "slide",
+    "audioFile": "words/slide.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "snake",
+    "textSpoken": "snake",
+    "audioFile": "words/snake.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "spin",
+    "textSpoken": "spin",
+    "audioFile": "words/spin.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "star",
+    "textSpoken": "star",
+    "audioFile": "words/star.mp3",
+    "category": "r_controlled",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "R-controlled vowel word"
+  },
+  {
+    "key": "stop",
+    "textSpoken": "stop",
+    "audioFile": "words/stop.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "sun",
+    "textSpoken": "sun",
+    "audioFile": "words/sun.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "tail",
+    "textSpoken": "tail",
+    "audioFile": "words/tail.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "tap",
+    "textSpoken": "tap",
+    "audioFile": "words/tap.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "tea",
+    "textSpoken": "tea",
+    "audioFile": "words/tea.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "ten",
+    "textSpoken": "ten",
+    "audioFile": "words/ten.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "thin",
+    "textSpoken": "thin",
+    "audioFile": "words/thin.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "this",
+    "textSpoken": "this",
+    "audioFile": "words/this.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "thumb",
+    "textSpoken": "thumb",
+    "audioFile": "words/thumb.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "toe",
+    "textSpoken": "toe",
+    "audioFile": "words/toe.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "train",
+    "textSpoken": "train",
+    "audioFile": "words/train.mp3",
+    "category": "vowel_team",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Vowel team / long vowel word"
+  },
+  {
+    "key": "tree",
+    "textSpoken": "tree",
+    "audioFile": "words/tree.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "truck",
+    "textSpoken": "truck",
+    "audioFile": "words/truck.mp3",
+    "category": "blend",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant blend word"
+  },
+  {
+    "key": "tub",
+    "textSpoken": "tub",
+    "audioFile": "words/tub.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "umbrella",
+    "textSpoken": "umbrella",
+    "audioFile": "words/umbrella.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "uncle",
+    "textSpoken": "uncle",
+    "audioFile": "words/uncle.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "unicorn",
+    "textSpoken": "unicorn",
+    "audioFile": "words/unicorn.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "vest",
+    "textSpoken": "vest",
+    "audioFile": "words/vest.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "vet",
+    "textSpoken": "vet",
+    "audioFile": "words/vet.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "violin",
+    "textSpoken": "violin",
+    "audioFile": "words/violin.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "volcano",
+    "textSpoken": "volcano",
+    "audioFile": "words/volcano.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "web",
+    "textSpoken": "web",
+    "audioFile": "words/web.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "whale",
+    "textSpoken": "whale",
+    "audioFile": "words/whale.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "wheel",
+    "textSpoken": "wheel",
+    "audioFile": "words/wheel.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "whisk",
+    "textSpoken": "whisk",
+    "audioFile": "words/whisk.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "white",
+    "textSpoken": "white",
+    "audioFile": "words/white.mp3",
+    "category": "digraph",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Consonant digraph word"
+  },
+  {
+    "key": "wig",
+    "textSpoken": "wig",
+    "audioFile": "words/wig.mp3",
+    "category": "cvc",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "CVC short vowel word"
+  },
+  {
+    "key": "yacht",
+    "textSpoken": "yacht",
+    "audioFile": "words/yacht.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "yak",
+    "textSpoken": "yak",
+    "audioFile": "words/yak.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "yellow",
+    "textSpoken": "yellow",
+    "audioFile": "words/yellow.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "yo-yo",
+    "textSpoken": "yo-yo",
+    "audioFile": "words/yo-yo.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "yogurt",
+    "textSpoken": "yogurt",
+    "audioFile": "words/yogurt.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "zebra",
+    "textSpoken": "zebra",
+    "audioFile": "words/zebra.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "zip",
+    "textSpoken": "zip",
+    "audioFile": "words/zip.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "zoo",
+    "textSpoken": "zoo",
+    "audioFile": "words/zoo.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "zucchini",
+    "textSpoken": "zucchini",
+    "audioFile": "words/zucchini.mp3",
+    "category": "initial_sound",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "a",
+    "textSpoken": "a",
+    "audioFile": "hfw/a.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "about",
+    "textSpoken": "about",
+    "audioFile": "hfw/about.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "all",
+    "textSpoken": "all",
+    "audioFile": "hfw/all.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "an",
+    "textSpoken": "an",
+    "audioFile": "hfw/an.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "and",
+    "textSpoken": "and",
+    "audioFile": "hfw/and.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "are",
+    "textSpoken": "are",
+    "audioFile": "hfw/are.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "as",
+    "textSpoken": "as",
+    "audioFile": "hfw/as.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "at",
+    "textSpoken": "at",
+    "audioFile": "hfw/at.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "be",
+    "textSpoken": "be",
+    "audioFile": "hfw/be.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "been",
+    "textSpoken": "been",
+    "audioFile": "hfw/been.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "but",
+    "textSpoken": "but",
+    "audioFile": "hfw/but.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "by",
+    "textSpoken": "by",
+    "audioFile": "hfw/by.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "can",
+    "textSpoken": "can",
+    "audioFile": "hfw/can.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "come",
+    "textSpoken": "come",
+    "audioFile": "hfw/come.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "could",
+    "textSpoken": "could",
+    "audioFile": "hfw/could.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "did",
+    "textSpoken": "did",
+    "audioFile": "hfw/did.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "do",
+    "textSpoken": "do",
+    "audioFile": "hfw/do.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "down",
+    "textSpoken": "down",
+    "audioFile": "hfw/down.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "for",
+    "textSpoken": "for",
+    "audioFile": "hfw/for.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "from",
+    "textSpoken": "from",
+    "audioFile": "hfw/from.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "get",
+    "textSpoken": "get",
+    "audioFile": "hfw/get.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "go",
+    "textSpoken": "go",
+    "audioFile": "hfw/go.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "had",
+    "textSpoken": "had",
+    "audioFile": "hfw/had.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "has",
+    "textSpoken": "has",
+    "audioFile": "hfw/has.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "have",
+    "textSpoken": "have",
+    "audioFile": "hfw/have.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "he",
+    "textSpoken": "he",
+    "audioFile": "hfw/he.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "her",
+    "textSpoken": "her",
+    "audioFile": "hfw/her.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "his",
+    "textSpoken": "his",
+    "audioFile": "hfw/his.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "how",
+    "textSpoken": "how",
+    "audioFile": "hfw/how.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "if",
+    "textSpoken": "if",
+    "audioFile": "hfw/if.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "in",
+    "textSpoken": "in",
+    "audioFile": "hfw/in.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "into",
+    "textSpoken": "into",
+    "audioFile": "hfw/into.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "is",
+    "textSpoken": "is",
+    "audioFile": "hfw/is.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "it",
+    "textSpoken": "it",
+    "audioFile": "hfw/it.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "just",
+    "textSpoken": "just",
+    "audioFile": "hfw/just.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "know",
+    "textSpoken": "know",
+    "audioFile": "hfw/know.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "like",
+    "textSpoken": "like",
+    "audioFile": "hfw/like.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "little",
+    "textSpoken": "little",
+    "audioFile": "hfw/little.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "look",
+    "textSpoken": "look",
+    "audioFile": "hfw/look.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "make",
+    "textSpoken": "make",
+    "audioFile": "hfw/make.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "me",
+    "textSpoken": "me",
+    "audioFile": "hfw/me.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "more",
+    "textSpoken": "more",
+    "audioFile": "hfw/more.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "my",
+    "textSpoken": "my",
+    "audioFile": "hfw/my.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "no",
+    "textSpoken": "no",
+    "audioFile": "hfw/no.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "not",
+    "textSpoken": "not",
+    "audioFile": "hfw/not.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "now",
+    "textSpoken": "now",
+    "audioFile": "hfw/now.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "of",
+    "textSpoken": "of",
+    "audioFile": "hfw/of.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "on",
+    "textSpoken": "on",
+    "audioFile": "hfw/on.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "one",
+    "textSpoken": "one",
+    "audioFile": "hfw/one.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "only",
+    "textSpoken": "only",
+    "audioFile": "hfw/only.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "or",
+    "textSpoken": "or",
+    "audioFile": "hfw/or.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "other",
+    "textSpoken": "other",
+    "audioFile": "hfw/other.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "out",
+    "textSpoken": "out",
+    "audioFile": "hfw/out.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "over",
+    "textSpoken": "over",
+    "audioFile": "hfw/over.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "people",
+    "textSpoken": "people",
+    "audioFile": "hfw/people.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "said",
+    "textSpoken": "said",
+    "audioFile": "hfw/said.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "see",
+    "textSpoken": "see",
+    "audioFile": "hfw/see.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "she",
+    "textSpoken": "she",
+    "audioFile": "hfw/she.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "should",
+    "textSpoken": "should",
+    "audioFile": "hfw/should.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "so",
+    "textSpoken": "so",
+    "audioFile": "hfw/so.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "some",
+    "textSpoken": "some",
+    "audioFile": "hfw/some.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "than",
+    "textSpoken": "than",
+    "audioFile": "hfw/than.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "that",
+    "textSpoken": "that",
+    "audioFile": "hfw/that.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "the",
+    "textSpoken": "the",
+    "audioFile": "hfw/the.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "their",
+    "textSpoken": "their",
+    "audioFile": "hfw/their.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "them",
+    "textSpoken": "them",
+    "audioFile": "hfw/them.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "then",
+    "textSpoken": "then",
+    "audioFile": "hfw/then.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "there",
+    "textSpoken": "there",
+    "audioFile": "hfw/there.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "they",
+    "textSpoken": "they",
+    "audioFile": "hfw/they.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "this",
+    "textSpoken": "this",
+    "audioFile": "hfw/this.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "time",
+    "textSpoken": "time",
+    "audioFile": "hfw/time.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "to",
+    "textSpoken": "to",
+    "audioFile": "hfw/to.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "up",
+    "textSpoken": "up",
+    "audioFile": "hfw/up.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "use",
+    "textSpoken": "use",
+    "audioFile": "hfw/use.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "very",
+    "textSpoken": "very",
+    "audioFile": "hfw/very.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "want",
+    "textSpoken": "want",
+    "audioFile": "hfw/want.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "was",
+    "textSpoken": "was",
+    "audioFile": "hfw/was.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "way",
+    "textSpoken": "way",
+    "audioFile": "hfw/way.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "we",
+    "textSpoken": "we",
+    "audioFile": "hfw/we.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "were",
+    "textSpoken": "were",
+    "audioFile": "hfw/were.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "what",
+    "textSpoken": "what",
+    "audioFile": "hfw/what.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "when",
+    "textSpoken": "when",
+    "audioFile": "hfw/when.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "which",
+    "textSpoken": "which",
+    "audioFile": "hfw/which.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "who",
+    "textSpoken": "who",
+    "audioFile": "hfw/who.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "will",
+    "textSpoken": "will",
+    "audioFile": "hfw/will.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "with",
+    "textSpoken": "with",
+    "audioFile": "hfw/with.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "would",
+    "textSpoken": "would",
+    "audioFile": "hfw/would.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "yes",
+    "textSpoken": "yes",
+    "audioFile": "hfw/yes.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "you",
+    "textSpoken": "you",
+    "audioFile": "hfw/you.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "your",
+    "textSpoken": "your",
+    "audioFile": "hfw/your.mp3",
+    "category": "hfw",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "High-frequency sight word"
+  },
+  {
+    "key": "amazing-work",
+    "textSpoken": "Amazing work! Keep going.",
+    "audioFile": "phrases/amazing-work.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "find-the-rhyme",
+    "textSpoken": "Find the word that rhymes.",
+    "audioFile": "phrases/find-the-rhyme.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "finished-section",
+    "textSpoken": "You have finished this section. Great job!",
+    "audioFile": "phrases/finished-section.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "listen-and-choose",
+    "textSpoken": "Listen carefully and choose the correct picture.",
+    "audioFile": "phrases/listen-and-choose.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "listen-and-repeat",
+    "textSpoken": "Listen and repeat after me.",
+    "audioFile": "phrases/listen-and-repeat.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "pick-the-letter",
+    "textSpoken": "Listen to the sound and pick the right letter.",
+    "audioFile": "phrases/pick-the-letter.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "same-sound",
+    "textSpoken": "Choose the picture that starts with the same sound.",
+    "audioFile": "phrases/same-sound.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "touch-the-word",
+    "textSpoken": "Touch the word you hear.",
+    "audioFile": "phrases/touch-the-word.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "try-again",
+    "textSpoken": "Try again, you can do it.",
+    "audioFile": "phrases/try-again.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "well-done",
+    "textSpoken": "Well done! You are doing great.",
+    "audioFile": "phrases/well-done.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "what-sound-letter",
+    "textSpoken": "What sound does this letter make?",
+    "audioFile": "phrases/what-sound-letter.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  },
+  {
+    "key": "which-matches-sound",
+    "textSpoken": "Which picture matches the sound?",
+    "audioFile": "phrases/which-matches-sound.mp3",
+    "category": "instruction_phrase",
+    "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
+    "notes": "Assessment instruction phrase"
+  }
+]

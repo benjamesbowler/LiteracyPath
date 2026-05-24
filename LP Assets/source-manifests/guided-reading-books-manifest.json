@@ -1,0 +1,6438 @@
+{
+  "metadata": {
+    "title": "LiteracyPath Guided Reading Pack 1",
+    "version": "1.0.0",
+    "total_books": 50,
+    "fiction_count": 25,
+    "nonfiction_count": 25,
+    "levels": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "books_per_level": 10,
+    "pages_per_book": 6,
+    "asset_types": [
+      "cover_image",
+      "page_image",
+      "page_narration",
+      "word_audio"
+    ],
+    "description": "50 original leveled books for guided reading, K-3 progression"
+  },
+  "books": {
+    "gr-a-01": {
+      "book_id": "gr-a-01",
+      "title": "The Red Hat Plan",
+      "type": "fiction",
+      "level": "A",
+      "target_skills": "short a CVC, simple HFW",
+      "theme": "solving a small classroom problem",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Nan has a red hat.",
+          "hfw": [
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "Nan",
+            "red",
+            "hat"
+          ],
+          "image_file": "gr-a-01-page-1.png",
+          "audio_file": "gr-a-01-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The hat is on the mat.",
+          "hfw": [
+            "The",
+            "is",
+            "on",
+            "the"
+          ],
+          "decodable": [
+            "hat",
+            "mat"
+          ],
+          "image_file": "gr-a-01-page-2.png",
+          "audio_file": "gr-a-01-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Nan can not get the hat.",
+          "hfw": [
+            "can",
+            "not",
+            "get",
+            "the"
+          ],
+          "decodable": [
+            "Nan",
+            "hat"
+          ],
+          "image_file": "gr-a-01-page-3.png",
+          "audio_file": "gr-a-01-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Sam has a plan.",
+          "hfw": [
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "Sam",
+            "plan"
+          ],
+          "image_file": "gr-a-01-page-4.png",
+          "audio_file": "gr-a-01-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Sam can tap the mat.",
+          "hfw": [
+            "can",
+            "the"
+          ],
+          "decodable": [
+            "Sam",
+            "tap",
+            "mat"
+          ],
+          "image_file": "gr-a-01-page-5.png",
+          "audio_file": "gr-a-01-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Nan can get the hat!",
+          "hfw": [
+            "can",
+            "get",
+            "the"
+          ],
+          "decodable": [
+            "Nan",
+            "hat"
+          ],
+          "image_file": "gr-a-01-page-6.png",
+          "audio_file": "gr-a-01-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-01-cover.png",
+      "word_audio_prefix": "gr-a-01"
+    },
+    "gr-a-02": {
+      "book_id": "gr-a-02",
+      "title": "Sam Can Help",
+      "type": "fiction",
+      "level": "A",
+      "target_skills": "CVC, can, help",
+      "theme": "kindness during cleanup",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The class has a mess.",
+          "hfw": [
+            "The",
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "class",
+            "mess"
+          ],
+          "image_file": "gr-a-02-page-1.png",
+          "audio_file": "gr-a-02-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Cans and bags are on the rug.",
+          "hfw": [
+            "and",
+            "are",
+            "on",
+            "the"
+          ],
+          "decodable": [
+            "Cans",
+            "bags",
+            "rug"
+          ],
+          "image_file": "gr-a-02-page-2.png",
+          "audio_file": "gr-a-02-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Sam can pick up the cans.",
+          "hfw": [
+            "can",
+            "up",
+            "the"
+          ],
+          "decodable": [
+            "Sam",
+            "pick",
+            "cans"
+          ],
+          "image_file": "gr-a-02-page-3.png",
+          "audio_file": "gr-a-02-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Sam can pick up the bags.",
+          "hfw": [
+            "can",
+            "up",
+            "the"
+          ],
+          "decodable": [
+            "Sam",
+            "pick",
+            "bags"
+          ],
+          "image_file": "gr-a-02-page-4.png",
+          "audio_file": "gr-a-02-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "I can help, says Nan.",
+          "hfw": [
+            "can",
+            "help",
+            "says"
+          ],
+          "decodable": [
+            "Nan"
+          ],
+          "image_file": "gr-a-02-page-5.png",
+          "audio_file": "gr-a-02-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "The class is clean!",
+          "hfw": [
+            "The",
+            "is"
+          ],
+          "decodable": [
+            "class",
+            "clean"
+          ],
+          "image_file": "gr-a-02-page-6.png",
+          "audio_file": "gr-a-02-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-02-cover.png",
+      "word_audio_prefix": "gr-a-02"
+    },
+    "gr-a-03": {
+      "book_id": "gr-a-03",
+      "title": "The Map in the Bag",
+      "type": "fiction",
+      "level": "A",
+      "target_skills": "short a, map, bag",
+      "theme": "using a map to find a lost item",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Nan and Sam see a bag.",
+          "hfw": [
+            "and",
+            "see",
+            "a"
+          ],
+          "decodable": [
+            "Nan",
+            "Sam",
+            "bag"
+          ],
+          "image_file": "gr-a-03-page-1.png",
+          "audio_file": "gr-a-03-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A map is in the bag!",
+          "hfw": [
+            "is",
+            "in",
+            "the"
+          ],
+          "decodable": [
+            "map",
+            "bag"
+          ],
+          "image_file": "gr-a-03-page-2.png",
+          "audio_file": "gr-a-03-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "The map has an X.",
+          "hfw": [
+            "The",
+            "has",
+            "an"
+          ],
+          "decodable": [
+            "map"
+          ],
+          "image_file": "gr-a-03-page-3.png",
+          "audio_file": "gr-a-03-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Nan and Sam run to the X.",
+          "hfw": [
+            "and",
+            "to",
+            "the"
+          ],
+          "decodable": [
+            "Nan",
+            "Sam",
+            "run"
+          ],
+          "image_file": "gr-a-03-page-4.png",
+          "audio_file": "gr-a-03-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The X is on a mat.",
+          "hfw": [
+            "is",
+            "on",
+            "a"
+          ],
+          "decodable": [
+            "mat"
+          ],
+          "image_file": "gr-a-03-page-5.png",
+          "audio_file": "gr-a-03-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "A red pen is on the mat!",
+          "hfw": [
+            "is",
+            "on",
+            "the"
+          ],
+          "decodable": [
+            "red",
+            "pen",
+            "mat"
+          ],
+          "image_file": "gr-a-03-page-6.png",
+          "audio_file": "gr-a-03-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-03-cover.png",
+      "word_audio_prefix": "gr-a-03"
+    },
+    "gr-a-04": {
+      "book_id": "gr-a-04",
+      "title": "Kit and the Big Box",
+      "type": "fiction",
+      "level": "A",
+      "target_skills": "short i/o, big, box",
+      "theme": "sharing space and taking turns",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Kit sees a big box.",
+          "hfw": [
+            "sees",
+            "a",
+            "big"
+          ],
+          "decodable": [
+            "Kit",
+            "box"
+          ],
+          "image_file": "gr-a-04-page-1.png",
+          "audio_file": "gr-a-04-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "I sit in the box, says Kit.",
+          "hfw": [
+            "in",
+            "the",
+            "says"
+          ],
+          "decodable": [
+            "sit",
+            "box",
+            "Kit"
+          ],
+          "image_file": "gr-a-04-page-2.png",
+          "audio_file": "gr-a-04-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Dot sees the big box.",
+          "hfw": [
+            "sees",
+            "the",
+            "big"
+          ],
+          "decodable": [
+            "Dot",
+            "box"
+          ],
+          "image_file": "gr-a-04-page-3.png",
+          "audio_file": "gr-a-04-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "I sit in the box, says Dot.",
+          "hfw": [
+            "in",
+            "the",
+            "says"
+          ],
+          "decodable": [
+            "sit",
+            "box",
+            "Dot"
+          ],
+          "image_file": "gr-a-04-page-4.png",
+          "audio_file": "gr-a-04-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "You sit. I sit. We sit!",
+          "hfw": [
+            "You",
+            "sit",
+            "We"
+          ],
+          "decodable": [],
+          "image_file": "gr-a-04-page-5.png",
+          "audio_file": "gr-a-04-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "The box is fun for Kit and Dot!",
+          "hfw": [
+            "The",
+            "is",
+            "fun",
+            "for",
+            "and"
+          ],
+          "decodable": [
+            "box",
+            "Kit",
+            "Dot"
+          ],
+          "image_file": "gr-a-04-page-6.png",
+          "audio_file": "gr-a-04-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-04-cover.png",
+      "word_audio_prefix": "gr-a-04"
+    },
+    "gr-a-05": {
+      "book_id": "gr-a-05",
+      "title": "Nan and the Seed",
+      "type": "fiction",
+      "level": "A",
+      "target_skills": "short e, seed vocabulary in context",
+      "theme": "patience as a seed sprouts",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Nan has a seed.",
+          "hfw": [
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "Nan",
+            "seed"
+          ],
+          "image_file": "gr-a-05-page-1.png",
+          "audio_file": "gr-a-05-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Nan puts the seed in a pot.",
+          "hfw": [
+            "the",
+            "in",
+            "a"
+          ],
+          "decodable": [
+            "Nan",
+            "puts",
+            "seed",
+            "pot"
+          ],
+          "image_file": "gr-a-05-page-2.png",
+          "audio_file": "gr-a-05-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Nan gets a wet rag.",
+          "hfw": [
+            "gets",
+            "a"
+          ],
+          "decodable": [
+            "Nan",
+            "wet",
+            "rag"
+          ],
+          "image_file": "gr-a-05-page-3.png",
+          "audio_file": "gr-a-05-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "The seed is in the wet rag.",
+          "hfw": [
+            "The",
+            "is",
+            "in",
+            "the"
+          ],
+          "decodable": [
+            "seed",
+            "wet",
+            "rag"
+          ],
+          "image_file": "gr-a-05-page-4.png",
+          "audio_file": "gr-a-05-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Nan lets the seed rest.",
+          "hfw": [
+            "lets",
+            "the",
+            "rest"
+          ],
+          "decodable": [
+            "Nan",
+            "seed"
+          ],
+          "image_file": "gr-a-05-page-5.png",
+          "audio_file": "gr-a-05-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "The seed is a plant!",
+          "hfw": [
+            "The",
+            "is",
+            "a"
+          ],
+          "decodable": [
+            "seed",
+            "plant"
+          ],
+          "image_file": "gr-a-05-page-6.png",
+          "audio_file": "gr-a-05-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-05-cover.png",
+      "word_audio_prefix": "gr-a-05"
+    },
+    "gr-a-26": {
+      "book_id": "gr-a-26",
+      "title": "What Is a Map?",
+      "type": "nonfiction",
+      "level": "A",
+      "target_skills": "map, road, park",
+      "theme": "maps show places",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "A map shows a place.",
+          "hfw": [
+            "A",
+            "shows",
+            "a"
+          ],
+          "decodable": [
+            "map",
+            "place"
+          ],
+          "image_file": "gr-a-26-page-1.png",
+          "audio_file": "gr-a-26-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "This map shows a park.",
+          "hfw": [
+            "This",
+            "shows",
+            "a"
+          ],
+          "decodable": [
+            "map",
+            "park"
+          ],
+          "image_file": "gr-a-26-page-2.png",
+          "audio_file": "gr-a-26-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "The park has a road.",
+          "hfw": [
+            "The",
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "park",
+            "road"
+          ],
+          "image_file": "gr-a-26-page-3.png",
+          "audio_file": "gr-a-26-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "The road has a path.",
+          "hfw": [
+            "The",
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "road",
+            "path"
+          ],
+          "image_file": "gr-a-26-page-4.png",
+          "audio_file": "gr-a-26-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The path has a pond.",
+          "hfw": [
+            "The",
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "path",
+            "pond"
+          ],
+          "image_file": "gr-a-26-page-5.png",
+          "audio_file": "gr-a-26-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "A map helps you see a place!",
+          "hfw": [
+            "A",
+            "helps",
+            "you",
+            "see",
+            "a"
+          ],
+          "decodable": [
+            "map",
+            "place"
+          ],
+          "image_file": "gr-a-26-page-6.png",
+          "audio_file": "gr-a-26-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-26-cover.png",
+      "word_audio_prefix": "gr-a-26"
+    },
+    "gr-a-27": {
+      "book_id": "gr-a-27",
+      "title": "Day and Night",
+      "type": "nonfiction",
+      "level": "A",
+      "target_skills": "sun, moon, sky",
+      "theme": "basic day/night cycle",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The sun is in the sky.",
+          "hfw": [
+            "The",
+            "is",
+            "in",
+            "the"
+          ],
+          "decodable": [
+            "sun",
+            "sky"
+          ],
+          "image_file": "gr-a-27-page-1.png",
+          "audio_file": "gr-a-27-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "It is day.",
+          "hfw": [
+            "It",
+            "is"
+          ],
+          "decodable": [
+            "day"
+          ],
+          "image_file": "gr-a-27-page-2.png",
+          "audio_file": "gr-a-27-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "The sun goes down.",
+          "hfw": [
+            "The",
+            "goes",
+            "down"
+          ],
+          "decodable": [
+            "sun"
+          ],
+          "image_file": "gr-a-27-page-3.png",
+          "audio_file": "gr-a-27-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "The moon is in the sky.",
+          "hfw": [
+            "The",
+            "is",
+            "in",
+            "the"
+          ],
+          "decodable": [
+            "moon",
+            "sky"
+          ],
+          "image_file": "gr-a-27-page-4.png",
+          "audio_file": "gr-a-27-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "It is night.",
+          "hfw": [
+            "It",
+            "is"
+          ],
+          "decodable": [
+            "night"
+          ],
+          "image_file": "gr-a-27-page-5.png",
+          "audio_file": "gr-a-27-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Day and night go round and round!",
+          "hfw": [
+            "and",
+            "go",
+            "round"
+          ],
+          "decodable": [
+            "Day",
+            "night"
+          ],
+          "image_file": "gr-a-27-page-6.png",
+          "audio_file": "gr-a-27-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-27-cover.png",
+      "word_audio_prefix": "gr-a-27"
+    },
+    "gr-a-28": {
+      "book_id": "gr-a-28",
+      "title": "How Rain Helps",
+      "type": "nonfiction",
+      "level": "A",
+      "target_skills": "rain, plant, grow",
+      "theme": "rain supports plants",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Rain comes down from the sky.",
+          "hfw": [
+            "down",
+            "from",
+            "the"
+          ],
+          "decodable": [
+            "Rain",
+            "comes",
+            "sky"
+          ],
+          "image_file": "gr-a-28-page-1.png",
+          "audio_file": "gr-a-28-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Rain helps the plants.",
+          "hfw": [
+            "helps",
+            "the"
+          ],
+          "decodable": [
+            "Rain",
+            "plants"
+          ],
+          "image_file": "gr-a-28-page-2.png",
+          "audio_file": "gr-a-28-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "The plants get a drink.",
+          "hfw": [
+            "The",
+            "get",
+            "a",
+            "drink"
+          ],
+          "decodable": [
+            "plants"
+          ],
+          "image_file": "gr-a-28-page-3.png",
+          "audio_file": "gr-a-28-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "The plants grow up.",
+          "hfw": [
+            "The",
+            "grow",
+            "up"
+          ],
+          "decodable": [
+            "plants"
+          ],
+          "image_file": "gr-a-28-page-4.png",
+          "audio_file": "gr-a-28-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The sun helps the plants too.",
+          "hfw": [
+            "The",
+            "helps",
+            "too"
+          ],
+          "decodable": [
+            "sun",
+            "plants"
+          ],
+          "image_file": "gr-a-28-page-5.png",
+          "audio_file": "gr-a-28-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Rain and sun help plants grow!",
+          "hfw": [
+            "and",
+            "help",
+            "grow"
+          ],
+          "decodable": [
+            "Rain",
+            "sun",
+            "plants"
+          ],
+          "image_file": "gr-a-28-page-6.png",
+          "audio_file": "gr-a-28-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-28-cover.png",
+      "word_audio_prefix": "gr-a-28"
+    },
+    "gr-a-29": {
+      "book_id": "gr-a-29",
+      "title": "Animal Homes",
+      "type": "nonfiction",
+      "level": "A",
+      "target_skills": "nest, den, pond",
+      "theme": "animals need safe homes",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Animals need homes.",
+          "hfw": [
+            "need"
+          ],
+          "decodable": [
+            "Animals",
+            "homes"
+          ],
+          "image_file": "gr-a-29-page-1.png",
+          "audio_file": "gr-a-29-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A bird has a nest in a tree.",
+          "hfw": [
+            "A",
+            "has",
+            "in",
+            "a"
+          ],
+          "decodable": [
+            "bird",
+            "nest",
+            "tree"
+          ],
+          "image_file": "gr-a-29-page-2.png",
+          "audio_file": "gr-a-29-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "A fox has a den in a hill.",
+          "hfw": [
+            "A",
+            "has",
+            "in",
+            "a"
+          ],
+          "decodable": [
+            "fox",
+            "den",
+            "hill"
+          ],
+          "image_file": "gr-a-29-page-3.png",
+          "audio_file": "gr-a-29-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "A fish has a pond.",
+          "hfw": [
+            "A",
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "fish",
+            "pond"
+          ],
+          "image_file": "gr-a-29-page-4.png",
+          "audio_file": "gr-a-29-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "A bug has a log.",
+          "hfw": [
+            "A",
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "bug",
+            "log"
+          ],
+          "image_file": "gr-a-29-page-5.png",
+          "audio_file": "gr-a-29-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Each animal has a safe home!",
+          "hfw": [
+            "Each",
+            "has",
+            "a",
+            "safe"
+          ],
+          "decodable": [
+            "animal",
+            "home"
+          ],
+          "image_file": "gr-a-29-page-6.png",
+          "audio_file": "gr-a-29-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-29-cover.png",
+      "word_audio_prefix": "gr-a-29"
+    },
+    "gr-a-30": {
+      "book_id": "gr-a-30",
+      "title": "We Take Care of Books",
+      "type": "nonfiction",
+      "level": "A",
+      "target_skills": "book, page, shelf",
+      "theme": "book care routines",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Books are for us.",
+          "hfw": [
+            "are",
+            "for",
+            "us"
+          ],
+          "decodable": [
+            "Books"
+          ],
+          "image_file": "gr-a-30-page-1.png",
+          "audio_file": "gr-a-30-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "We turn the pages with care.",
+          "hfw": [
+            "We",
+            "turn",
+            "the",
+            "with",
+            "care"
+          ],
+          "decodable": [
+            "pages"
+          ],
+          "image_file": "gr-a-30-page-2.png",
+          "audio_file": "gr-a-30-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "We keep books dry.",
+          "hfw": [
+            "We",
+            "keep",
+            "dry"
+          ],
+          "decodable": [
+            "books"
+          ],
+          "image_file": "gr-a-30-page-3.png",
+          "audio_file": "gr-a-30-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "We put books on the shelf.",
+          "hfw": [
+            "We",
+            "put",
+            "on",
+            "the"
+          ],
+          "decodable": [
+            "books",
+            "shelf"
+          ],
+          "image_file": "gr-a-30-page-4.png",
+          "audio_file": "gr-a-30-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "We share books with friends.",
+          "hfw": [
+            "We",
+            "share",
+            "with"
+          ],
+          "decodable": [
+            "books",
+            "friends"
+          ],
+          "image_file": "gr-a-30-page-5.png",
+          "audio_file": "gr-a-30-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "We love our books!",
+          "hfw": [
+            "We",
+            "love",
+            "our"
+          ],
+          "decodable": [
+            "books"
+          ],
+          "image_file": "gr-a-30-page-6.png",
+          "audio_file": "gr-a-30-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-a-30-cover.png",
+      "word_audio_prefix": "gr-a-30"
+    },
+    "gr-b-06": {
+      "book_id": "gr-b-06",
+      "title": "Mina Fixes the Gate",
+      "type": "fiction",
+      "level": "B",
+      "target_skills": "short vowels, silent e preview, blends (st, nd), persistence",
+      "theme": "persistence and teamwork",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Mina sees a broken gate.",
+          "hfw": [
+            "a"
+          ],
+          "decodable": [
+            "Mina",
+            "sees",
+            "broken",
+            "gate"
+          ],
+          "image_file": "gr-b-06-page-1.png",
+          "audio_file": "gr-b-06-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The gate will not stay shut.",
+          "hfw": [
+            "The",
+            "will",
+            "not"
+          ],
+          "decodable": [
+            "gate",
+            "stay",
+            "shut"
+          ],
+          "image_file": "gr-b-06-page-2.png",
+          "audio_file": "gr-b-06-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Mina gets a stick and some string.",
+          "hfw": [
+            "and",
+            "some"
+          ],
+          "decodable": [
+            "Mina",
+            "gets",
+            "stick",
+            "string"
+          ],
+          "image_file": "gr-b-06-page-3.png",
+          "audio_file": "gr-b-06-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "She ties the stick to the gate.",
+          "hfw": [
+            "the",
+            "to"
+          ],
+          "decodable": [
+            "She",
+            "ties",
+            "stick",
+            "gate"
+          ],
+          "image_file": "gr-b-06-page-4.png",
+          "audio_file": "gr-b-06-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The stick breaks! Mina tries again.",
+          "hfw": [
+            "The"
+          ],
+          "decodable": [
+            "stick",
+            "breaks",
+            "Mina",
+            "tries",
+            "again"
+          ],
+          "image_file": "gr-b-06-page-5.png",
+          "audio_file": "gr-b-06-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "This time, Mina uses a plank and nails. The gate stays shut!",
+          "hfw": [
+            "The"
+          ],
+          "decodable": [
+            "This",
+            "time",
+            "Mina",
+            "uses",
+            "plank",
+            "and",
+            "nails",
+            "gate",
+            "stays",
+            "shut"
+          ],
+          "image_file": "gr-b-06-page-6.png",
+          "audio_file": "gr-b-06-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-06-cover.png",
+      "word_audio_prefix": "gr-b-06"
+    },
+    "gr-b-07": {
+      "book_id": "gr-b-07",
+      "title": "The Quiet Bell",
+      "type": "fiction",
+      "level": "B",
+      "target_skills": "short vowels, -ell word family, community awareness",
+      "theme": "noticing needs in a community",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Tess has a bell on her desk.",
+          "hfw": [
+            "has",
+            "a",
+            "her"
+          ],
+          "decodable": [
+            "Tess",
+            "bell",
+            "on",
+            "desk"
+          ],
+          "image_file": "gr-b-07-page-1.png",
+          "audio_file": "gr-b-07-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The bell is too quiet.",
+          "hfw": [
+            "The",
+            "is",
+            "too"
+          ],
+          "decodable": [
+            "bell",
+            "quiet"
+          ],
+          "image_file": "gr-b-07-page-2.png",
+          "audio_file": "gr-b-07-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "No one can hear the bell ring.",
+          "hfw": [
+            "No",
+            "one",
+            "can",
+            "the"
+          ],
+          "decodable": [
+            "hear",
+            "bell",
+            "ring"
+          ],
+          "image_file": "gr-b-07-page-3.png",
+          "audio_file": "gr-b-07-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Tess gets a shell and a spoon.",
+          "hfw": [
+            "a",
+            "and"
+          ],
+          "decodable": [
+            "Tess",
+            "gets",
+            "shell",
+            "spoon"
+          ],
+          "image_file": "gr-b-07-page-4.png",
+          "audio_file": "gr-b-07-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "She bangs the spoon on the shell.",
+          "hfw": [
+            "the",
+            "on"
+          ],
+          "decodable": [
+            "She",
+            "bangs",
+            "spoon",
+            "shell"
+          ],
+          "image_file": "gr-b-07-page-5.png",
+          "audio_file": "gr-b-07-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Now the class can hear! Tess made a new bell.",
+          "hfw": [
+            "the",
+            "can",
+            "hear",
+            "made",
+            "a"
+          ],
+          "decodable": [
+            "Now",
+            "class",
+            "Tess",
+            "new",
+            "bell"
+          ],
+          "image_file": "gr-b-07-page-6.png",
+          "audio_file": "gr-b-07-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-07-cover.png",
+      "word_audio_prefix": "gr-b-07"
+    },
+    "gr-b-08": {
+      "book_id": "gr-b-08",
+      "title": "A Lunch for Two",
+      "type": "fiction",
+      "level": "B",
+      "target_skills": "HFW practice, simple dialogue, friendship",
+      "theme": "generosity and friendship",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Dell has a big lunch bag.",
+          "hfw": [
+            "has",
+            "a",
+            "big"
+          ],
+          "decodable": [
+            "Dell",
+            "lunch",
+            "bag"
+          ],
+          "image_file": "gr-b-08-page-1.png",
+          "audio_file": "gr-b-08-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "She sees Nell with no lunch.",
+          "hfw": [
+            "with",
+            "no"
+          ],
+          "decodable": [
+            "She",
+            "sees",
+            "Nell",
+            "lunch"
+          ],
+          "image_file": "gr-b-08-page-2.png",
+          "audio_file": "gr-b-08-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Will you share? asks Nell.",
+          "hfw": [
+            "you",
+            "asks"
+          ],
+          "decodable": [
+            "Will",
+            "share",
+            "Nell"
+          ],
+          "image_file": "gr-b-08-page-3.png",
+          "audio_file": "gr-b-08-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Yes! says Dell. She splits the sandwich.",
+          "hfw": [
+            "says",
+            "She",
+            "the"
+          ],
+          "decodable": [
+            "Yes",
+            "Dell",
+            "splits",
+            "sandwich"
+          ],
+          "image_file": "gr-b-08-page-4.png",
+          "audio_file": "gr-b-08-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "They share the chips and the drink.",
+          "hfw": [
+            "the",
+            "and"
+          ],
+          "decodable": [
+            "They",
+            "share",
+            "chips",
+            "drink"
+          ],
+          "image_file": "gr-b-08-page-5.png",
+          "audio_file": "gr-b-08-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Two friends, one lunch. It is the best lunch ever!",
+          "hfw": [
+            "one",
+            "It",
+            "is",
+            "the",
+            "best"
+          ],
+          "decodable": [
+            "Two",
+            "friends",
+            "lunch",
+            "ever"
+          ],
+          "image_file": "gr-b-08-page-6.png",
+          "audio_file": "gr-b-08-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-08-cover.png",
+      "word_audio_prefix": "gr-b-08"
+    },
+    "gr-b-09": {
+      "book_id": "gr-b-09",
+      "title": "The Kite That Waited",
+      "type": "fiction",
+      "level": "B",
+      "target_skills": "long i preview, short vowels, patience",
+      "theme": "waiting for the right conditions",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Finn has a red kite.",
+          "hfw": [
+            "has",
+            "a"
+          ],
+          "decodable": [
+            "Finn",
+            "red",
+            "kite"
+          ],
+          "image_file": "gr-b-09-page-1.png",
+          "audio_file": "gr-b-09-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "He runs with the kite. It will not fly.",
+          "hfw": [
+            "with",
+            "the",
+            "It",
+            "will",
+            "not"
+          ],
+          "decodable": [
+            "He",
+            "runs",
+            "kite",
+            "fly"
+          ],
+          "image_file": "gr-b-09-page-2.png",
+          "audio_file": "gr-b-09-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "No wind, says Finn. He sits and waits.",
+          "hfw": [
+            "says",
+            "He",
+            "and"
+          ],
+          "decodable": [
+            "No",
+            "wind",
+            "Finn",
+            "sits",
+            "waits"
+          ],
+          "image_file": "gr-b-09-page-3.png",
+          "audio_file": "gr-b-09-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "The trees start to sway. The wind is here!",
+          "hfw": [
+            "The",
+            "to",
+            "is",
+            "here"
+          ],
+          "decodable": [
+            "trees",
+            "start",
+            "sway",
+            "wind"
+          ],
+          "image_file": "gr-b-09-page-4.png",
+          "audio_file": "gr-b-09-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Finn runs fast. The kite goes up, up, up!",
+          "hfw": [
+            "The",
+            "up"
+          ],
+          "decodable": [
+            "Finn",
+            "runs",
+            "fast",
+            "kite",
+            "goes"
+          ],
+          "image_file": "gr-b-09-page-5.png",
+          "audio_file": "gr-b-09-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "The kite flies high in the sky. Waiting was worth it!",
+          "hfw": [
+            "The",
+            "in",
+            "the",
+            "it"
+          ],
+          "decodable": [
+            "kite",
+            "flies",
+            "high",
+            "sky",
+            "Waiting",
+            "was",
+            "worth"
+          ],
+          "image_file": "gr-b-09-page-6.png",
+          "audio_file": "gr-b-09-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-09-cover.png",
+      "word_audio_prefix": "gr-b-09"
+    },
+    "gr-b-10": {
+      "book_id": "gr-b-10",
+      "title": "Omar's Bright Idea",
+      "type": "fiction",
+      "level": "B",
+      "target_skills": "CVC and HFW mix, creative problem solving",
+      "theme": "creative problem solving",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The classroom is dark and gloomy.",
+          "hfw": [
+            "The",
+            "is",
+            "and"
+          ],
+          "decodable": [
+            "classroom",
+            "dark",
+            "gloomy"
+          ],
+          "image_file": "gr-b-10-page-1.png",
+          "audio_file": "gr-b-10-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The bulb is burned out.",
+          "hfw": [
+            "The",
+            "is",
+            "out"
+          ],
+          "decodable": [
+            "bulb",
+            "burned"
+          ],
+          "image_file": "gr-b-10-page-2.png",
+          "audio_file": "gr-b-10-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Omar looks at the sun-filled windows.",
+          "hfw": [
+            "at",
+            "the"
+          ],
+          "decodable": [
+            "Omar",
+            "looks",
+            "sun",
+            "filled",
+            "windows"
+          ],
+          "image_file": "gr-b-10-page-3.png",
+          "audio_file": "gr-b-10-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "He gets foil and tape. He makes a reflector.",
+          "hfw": [
+            "He",
+            "and",
+            "a"
+          ],
+          "decodable": [
+            "gets",
+            "foil",
+            "tape",
+            "makes",
+            "reflector"
+          ],
+          "image_file": "gr-b-10-page-4.png",
+          "audio_file": "gr-b-10-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Omar puts the reflector by the window.",
+          "hfw": [
+            "the",
+            "by"
+          ],
+          "decodable": [
+            "Omar",
+            "puts",
+            "reflector",
+            "window"
+          ],
+          "image_file": "gr-b-10-page-5.png",
+          "audio_file": "gr-b-10-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Sunlight bounces in! The room is bright. Omar saved the day!",
+          "hfw": [
+            "The",
+            "is"
+          ],
+          "decodable": [
+            "Sunlight",
+            "bounces",
+            "in",
+            "room",
+            "bright",
+            "Omar",
+            "saved",
+            "day"
+          ],
+          "image_file": "gr-b-10-page-6.png",
+          "audio_file": "gr-b-10-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-10-cover.png",
+      "word_audio_prefix": "gr-b-10"
+    },
+    "gr-c-11": {
+      "book_id": "gr-c-11",
+      "title": "The Bridge of Sticks",
+      "type": "fiction",
+      "level": "C",
+      "target_skills": "silent e, teamwork, engineering thinking",
+      "theme": "cooperation and creative engineering",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The creek is wide. The friends need to cross.",
+          "hfw": [
+            "The",
+            "is",
+            "to"
+          ],
+          "decodable": [
+            "creek",
+            "wide",
+            "friends",
+            "need",
+            "cross"
+          ],
+          "image_file": "gr-c-11-page-1.png",
+          "audio_file": "gr-c-11-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Jade piles stones in the water. They wobble and sink.",
+          "hfw": [
+            "the",
+            "and"
+          ],
+          "decodable": [
+            "Jade",
+            "piles",
+            "stones",
+            "water",
+            "wobble",
+            "sink"
+          ],
+          "image_file": "gr-c-11-page-2.png",
+          "audio_file": "gr-c-11-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "We need a plan, says Blake. Let us use sticks.",
+          "hfw": [
+            "a",
+            "says",
+            "us",
+            "use"
+          ],
+          "decodable": [
+            "We",
+            "need",
+            "plan",
+            "Blake",
+            "Let",
+            "sticks"
+          ],
+          "image_file": "gr-c-11-page-3.png",
+          "audio_file": "gr-c-11-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "They weave long sticks over the stones.",
+          "hfw": [
+            "over",
+            "the"
+          ],
+          "decodable": [
+            "They",
+            "weave",
+            "long",
+            "sticks",
+            "stones"
+          ],
+          "image_file": "gr-c-11-page-4.png",
+          "audio_file": "gr-c-11-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Mud seals the cracks. Leaves cover the top.",
+          "hfw": [
+            "the"
+          ],
+          "decodable": [
+            "Mud",
+            "seals",
+            "cracks",
+            "Leaves",
+            "cover",
+            "top"
+          ],
+          "image_file": "gr-c-11-page-5.png",
+          "audio_file": "gr-c-11-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "The bridge holds! Together, they made a safe path.",
+          "hfw": [
+            "The",
+            "a"
+          ],
+          "decodable": [
+            "bridge",
+            "holds",
+            "Together",
+            "They",
+            "made",
+            "safe",
+            "path"
+          ],
+          "image_file": "gr-c-11-page-6.png",
+          "audio_file": "gr-c-11-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-11-cover.png",
+      "word_audio_prefix": "gr-c-11"
+    },
+    "gr-c-12": {
+      "book_id": "gr-c-12",
+      "title": "The Lost Paintbrush",
+      "type": "fiction",
+      "level": "C",
+      "target_skills": "silent e, problem-solution structure, descriptive language",
+      "theme": "resourcefulness when things go missing",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Rosa needs her paintbrush for art class.",
+          "hfw": [
+            "her",
+            "for"
+          ],
+          "decodable": [
+            "Rosa",
+            "needs",
+            "paintbrush",
+            "art",
+            "class"
+          ],
+          "image_file": "gr-c-12-page-1.png",
+          "audio_file": "gr-c-12-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "She looks in her desk. She looks in her bag.",
+          "hfw": [
+            "She",
+            "in",
+            "her"
+          ],
+          "decodable": [
+            "looks",
+            "desk",
+            "bag"
+          ],
+          "image_file": "gr-c-12-page-2.png",
+          "audio_file": "gr-c-12-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "The brush is gone! Rosa feels upset.",
+          "hfw": [
+            "The",
+            "is",
+            "feels"
+          ],
+          "decodable": [
+            "brush",
+            "gone",
+            "Rosa",
+            "upset"
+          ],
+          "image_file": "gr-c-12-page-3.png",
+          "audio_file": "gr-c-12-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "She sees a feather on the floor.",
+          "hfw": [
+            "a",
+            "on",
+            "the"
+          ],
+          "decodable": [
+            "She",
+            "sees",
+            "feather",
+            "floor"
+          ],
+          "image_file": "gr-c-12-page-4.png",
+          "audio_file": "gr-c-12-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Rosa dips the feather in paint. It makes fine lines!",
+          "hfw": [
+            "the",
+            "in",
+            "It"
+          ],
+          "decodable": [
+            "Rosa",
+            "dips",
+            "feather",
+            "paint",
+            "makes",
+            "fine",
+            "lines"
+          ],
+          "image_file": "gr-c-12-page-5.png",
+          "audio_file": "gr-c-12-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Sometimes the best tools are the ones you find.",
+          "hfw": [
+            "the",
+            "best",
+            "are",
+            "the",
+            "ones",
+            "you"
+          ],
+          "decodable": [
+            "Sometimes",
+            "tools",
+            "find"
+          ],
+          "image_file": "gr-c-12-page-6.png",
+          "audio_file": "gr-c-12-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-12-cover.png",
+      "word_audio_prefix": "gr-c-12"
+    },
+    "gr-c-13": {
+      "book_id": "gr-c-13",
+      "title": "A Garden for Everyone",
+      "type": "fiction",
+      "level": "C",
+      "target_skills": "silent e, vowel teams (ea, oo), community theme",
+      "theme": "inclusive community projects",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The playground has a bare spot by the fence.",
+          "hfw": [
+            "The",
+            "has",
+            "a",
+            "by",
+            "the"
+          ],
+          "decodable": [
+            "playground",
+            "bare",
+            "spot",
+            "fence"
+          ],
+          "image_file": "gr-c-13-page-1.png",
+          "audio_file": "gr-c-13-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Ivy has an idea. We can plant a garden here!",
+          "hfw": [
+            "an",
+            "idea",
+            "We",
+            "can",
+            "a",
+            "here"
+          ],
+          "decodable": [
+            "Ivy",
+            "plant",
+            "garden"
+          ],
+          "image_file": "gr-c-13-page-2.png",
+          "audio_file": "gr-c-13-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Some kids bring seeds. Some bring tools.",
+          "hfw": [
+            "Some",
+            "bring"
+          ],
+          "decodable": [
+            "kids",
+            "seeds",
+            "tools"
+          ],
+          "image_file": "gr-c-13-page-3.png",
+          "audio_file": "gr-c-13-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "They dig the soil. They drop in seeds.",
+          "hfw": [
+            "the"
+          ],
+          "decodable": [
+            "They",
+            "dig",
+            "soil",
+            "drop",
+            "in",
+            "seeds"
+          ],
+          "image_file": "gr-c-13-page-4.png",
+          "audio_file": "gr-c-13-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Each day they water and weed. Green shoots peek up!",
+          "hfw": [
+            "they",
+            "and",
+            "up"
+          ],
+          "decodable": [
+            "Each",
+            "day",
+            "water",
+            "weed",
+            "Green",
+            "shoots",
+            "peek"
+          ],
+          "image_file": "gr-c-13-page-5.png",
+          "audio_file": "gr-c-13-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Soon the garden blooms. It is bright and beautiful and ours.",
+          "hfw": [
+            "the",
+            "It",
+            "is",
+            "and",
+            "and",
+            "ours"
+          ],
+          "decodable": [
+            "Soon",
+            "garden",
+            "blooms",
+            "bright",
+            "beautiful"
+          ],
+          "image_file": "gr-c-13-page-6.png",
+          "audio_file": "gr-c-13-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-13-cover.png",
+      "word_audio_prefix": "gr-c-13"
+    },
+    "gr-c-14": {
+      "book_id": "gr-c-14",
+      "title": "The Rain Jar",
+      "type": "fiction",
+      "level": "C",
+      "target_skills": "silent e, cause and effect, environmental awareness",
+      "theme": "observing nature and resourcefulness",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The sun bakes the school garden. The leaves droop.",
+          "hfw": [
+            "The",
+            "the",
+            "school"
+          ],
+          "decodable": [
+            "sun",
+            "bakes",
+            "garden",
+            "leaves",
+            "droop"
+          ],
+          "image_file": "gr-c-14-page-1.png",
+          "audio_file": "gr-c-14-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "We need water, says Chen. But the hose is off.",
+          "hfw": [
+            "We",
+            "need",
+            "says",
+            "But",
+            "the",
+            "is",
+            "off"
+          ],
+          "decodable": [
+            "water",
+            "Chen",
+            "hose"
+          ],
+          "image_file": "gr-c-14-page-2.png",
+          "audio_file": "gr-c-14-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Chen looks at the dark clouds. Rain is coming!",
+          "hfw": [
+            "the",
+            "is",
+            "coming"
+          ],
+          "decodable": [
+            "Chen",
+            "looks",
+            "dark",
+            "clouds",
+            "Rain"
+          ],
+          "image_file": "gr-c-14-page-3.png",
+          "audio_file": "gr-c-14-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "He places a big jar by the garden bed.",
+          "hfw": [
+            "a",
+            "by",
+            "the"
+          ],
+          "decodable": [
+            "He",
+            "places",
+            "big",
+            "jar",
+            "garden",
+            "bed"
+          ],
+          "image_file": "gr-c-14-page-4.png",
+          "audio_file": "gr-c-14-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Plop, plop, plop! Rain fills the jar.",
+          "hfw": [
+            "the"
+          ],
+          "decodable": [
+            "Plop",
+            "Rain",
+            "fills",
+            "jar"
+          ],
+          "image_file": "gr-c-14-page-5.png",
+          "audio_file": "gr-c-14-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Chen pours the rain on the plants. Nature gave them a drink!",
+          "hfw": [
+            "the",
+            "on",
+            "the",
+            "them",
+            "a"
+          ],
+          "decodable": [
+            "Chen",
+            "pours",
+            "rain",
+            "plants",
+            "Nature",
+            "gave",
+            "drink"
+          ],
+          "image_file": "gr-c-14-page-6.png",
+          "audio_file": "gr-c-14-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-14-cover.png",
+      "word_audio_prefix": "gr-c-14"
+    },
+    "gr-c-15": {
+      "book_id": "gr-c-15",
+      "title": "The Lantern Path",
+      "type": "fiction",
+      "level": "C",
+      "target_skills": "silent e, vowel teams, empathy and courage",
+      "theme": "kindness and bravery",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The power goes out at school. The halls go dark.",
+          "hfw": [
+            "The",
+            "at",
+            "school",
+            "The",
+            "go",
+            "dark"
+          ],
+          "decodable": [
+            "power",
+            "goes",
+            "out",
+            "halls"
+          ],
+          "image_file": "gr-c-15-page-1.png",
+          "audio_file": "gr-c-15-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Some kids are scared. Mei sees their worried faces.",
+          "hfw": [
+            "Some",
+            "are",
+            "sees",
+            "their"
+          ],
+          "decodable": [
+            "kids",
+            "scared",
+            "Mei",
+            "worried",
+            "faces"
+          ],
+          "image_file": "gr-c-15-page-2.png",
+          "audio_file": "gr-c-15-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "She finds paper lanterns in the art room.",
+          "hfw": [
+            "in",
+            "the",
+            "art",
+            "room"
+          ],
+          "decodable": [
+            "She",
+            "finds",
+            "paper",
+            "lanterns"
+          ],
+          "image_file": "gr-c-15-page-3.png",
+          "audio_file": "gr-c-15-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Mei lights each one with a small candle.",
+          "hfw": [
+            "each",
+            "one",
+            "with",
+            "a"
+          ],
+          "decodable": [
+            "Mei",
+            "lights",
+            "small",
+            "candle"
+          ],
+          "image_file": "gr-c-15-page-4.png",
+          "audio_file": "gr-c-15-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "She places them along the hallway floor.",
+          "hfw": [
+            "them",
+            "along",
+            "the",
+            "floor"
+          ],
+          "decodable": [
+            "She",
+            "places",
+            "hallway"
+          ],
+          "image_file": "gr-c-15-page-5.png",
+          "audio_file": "gr-c-15-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "A warm path glows. No one is scared now. Mei led the way.",
+          "hfw": [
+            "A",
+            "is",
+            "now",
+            "the",
+            "way"
+          ],
+          "decodable": [
+            "warm",
+            "path",
+            "glows",
+            "No",
+            "one",
+            "scared",
+            "Mei",
+            "led"
+          ],
+          "image_file": "gr-c-15-page-6.png",
+          "audio_file": "gr-c-15-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-15-cover.png",
+      "word_audio_prefix": "gr-c-15"
+    },
+    "gr-d-16": {
+      "book_id": "gr-d-16",
+      "title": "Maya and the Broken Bridge",
+      "type": "fiction",
+      "level": "D",
+      "target_skills": "vowel teams (ai, ay), problem-solving, perseverance",
+      "theme": "perseverance through setbacks",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Maya and her friends build a bridge of blocks.",
+          "hfw": [
+            "and",
+            "her"
+          ],
+          "decodable": [
+            "Maya",
+            "friends",
+            "build",
+            "bridge",
+            "blocks"
+          ],
+          "image_file": "gr-d-16-page-1.png",
+          "audio_file": "gr-d-16-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "They test it with a toy car. Crash! The bridge falls.",
+          "hfw": [
+            "it",
+            "with",
+            "a",
+            "The",
+            "falls"
+          ],
+          "decodable": [
+            "They",
+            "test",
+            "toy",
+            "car",
+            "Crash",
+            "bridge"
+          ],
+          "image_file": "gr-d-16-page-2.png",
+          "audio_file": "gr-d-16-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "\"It is ruined!\" stamps Leo. Maya shakes her head.",
+          "hfw": [
+            "It",
+            "is",
+            "her"
+          ],
+          "decodable": [
+            "ruined",
+            "stamps",
+            "Leo",
+            "Maya",
+            "shakes",
+            "head"
+          ],
+          "image_file": "gr-d-16-page-3.png",
+          "audio_file": "gr-d-16-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "We need a base, says Maya. Wide and flat and strong.",
+          "hfw": [
+            "a",
+            "says",
+            "and",
+            "and"
+          ],
+          "decodable": [
+            "We",
+            "need",
+            "base",
+            "Maya",
+            "Wide",
+            "flat",
+            "strong"
+          ],
+          "image_file": "gr-d-16-page-4.png",
+          "audio_file": "gr-d-16-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "They slide a book under the blocks. The bridge stands tall.",
+          "hfw": [
+            "a",
+            "under",
+            "the",
+            "The",
+            "stands"
+          ],
+          "decodable": [
+            "They",
+            "slide",
+            "book",
+            "blocks",
+            "bridge",
+            "tall"
+          ],
+          "image_file": "gr-d-16-page-5.png",
+          "audio_file": "gr-d-16-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "The toy car rolls across. Maya smiles. Never give up!",
+          "hfw": [
+            "The",
+            "toy",
+            "across",
+            "up"
+          ],
+          "decodable": [
+            "car",
+            "rolls",
+            "Maya",
+            "smiles",
+            "Never",
+            "give"
+          ],
+          "image_file": "gr-d-16-page-6.png",
+          "audio_file": "gr-d-16-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-16-cover.png",
+      "word_audio_prefix": "gr-d-16"
+    },
+    "gr-d-17": {
+      "book_id": "gr-d-17",
+      "title": "The Honest Choice",
+      "type": "fiction",
+      "level": "D",
+      "target_skills": "vowel teams (oa, ow), character moral decisions",
+      "theme": "honesty and integrity",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Zoe finds a shiny coin in the lunch line.",
+          "hfw": [
+            "a",
+            "in",
+            "the",
+            "line"
+          ],
+          "decodable": [
+            "Zoe",
+            "finds",
+            "shiny",
+            "coin",
+            "lunch"
+          ],
+          "image_file": "gr-d-17-page-1.png",
+          "audio_file": "gr-d-17-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "She looks around. No one seems to notice.",
+          "hfw": [
+            "around",
+            "No",
+            "one",
+            "seems",
+            "to"
+          ],
+          "decodable": [
+            "She",
+            "looks",
+            "notice"
+          ],
+          "image_file": "gr-d-17-page-2.png",
+          "audio_file": "gr-d-17-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Zoe clutches the coin. She thinks of the bake sale.",
+          "hfw": [
+            "the",
+            "She",
+            "of",
+            "the"
+          ],
+          "decodable": [
+            "Zoe",
+            "clutches",
+            "coin",
+            "thinks",
+            "bake",
+            "sale"
+          ],
+          "image_file": "gr-d-17-page-3.png",
+          "audio_file": "gr-d-17-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Then she sees a younger child crying by the door.",
+          "hfw": [
+            "she",
+            "sees",
+            "a",
+            "by",
+            "the"
+          ],
+          "decodable": [
+            "Then",
+            "younger",
+            "child",
+            "crying",
+            "door"
+          ],
+          "image_file": "gr-d-17-page-4.png",
+          "audio_file": "gr-d-17-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "\"Did you lose this?\" Zoe asks. The child nods and beams.",
+          "hfw": [
+            "you",
+            "this",
+            "The",
+            "child",
+            "and"
+          ],
+          "decodable": [
+            "Did",
+            "lose",
+            "Zoe",
+            "asks",
+            "nods",
+            "beams"
+          ],
+          "image_file": "gr-d-17-page-5.png",
+          "audio_file": "gr-d-17-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Zoe feels warm inside. Doing the right thing is its own reward.",
+          "hfw": [
+            "the",
+            "right",
+            "thing",
+            "is",
+            "its",
+            "own"
+          ],
+          "decodable": [
+            "Zoe",
+            "feels",
+            "warm",
+            "inside",
+            "Doing",
+            "reward"
+          ],
+          "image_file": "gr-d-17-page-6.png",
+          "audio_file": "gr-d-17-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-17-cover.png",
+      "word_audio_prefix": "gr-d-17"
+    },
+    "gr-d-18": {
+      "book_id": "gr-d-18",
+      "title": "The Smallest Seed",
+      "type": "fiction",
+      "level": "D",
+      "target_skills": "vowel teams (ee, ea), growth mindset metaphor",
+      "theme": "patience and believing in small beginnings",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "In a garden of giants, one seed is tiny.",
+          "hfw": [
+            "In",
+            "a",
+            "of",
+            "one",
+            "is"
+          ],
+          "decodable": [
+            "garden",
+            "giants",
+            "seed",
+            "tiny"
+          ],
+          "image_file": "gr-d-18-page-1.png",
+          "audio_file": "gr-d-18-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The other seeds tease it. You are too small to grow!",
+          "hfw": [
+            "The",
+            "other",
+            "it",
+            "You",
+            "are",
+            "too",
+            "to"
+          ],
+          "decodable": [
+            "seeds",
+            "tease",
+            "small",
+            "grow"
+          ],
+          "image_file": "gr-d-18-page-2.png",
+          "audio_file": "gr-d-18-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "A gust of wind blows the tiny seed far away.",
+          "hfw": [
+            "A",
+            "of",
+            "away"
+          ],
+          "decodable": [
+            "gust",
+            "wind",
+            "blows",
+            "tiny",
+            "seed",
+            "far"
+          ],
+          "image_file": "gr-d-18-page-3.png",
+          "audio_file": "gr-d-18-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "It lands in rich soil. Rain falls. Sun beams down.",
+          "hfw": [
+            "It",
+            "in",
+            "soil",
+            "Rain",
+            "falls",
+            "Sun",
+            "down"
+          ],
+          "decodable": [
+            "lands",
+            "rich",
+            "beams"
+          ],
+          "image_file": "gr-d-18-page-4.png",
+          "audio_file": "gr-d-18-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "A green leaf peeks out. Then two. Then ten!",
+          "hfw": [
+            "out",
+            "Then",
+            "Then"
+          ],
+          "decodable": [
+            "green",
+            "leaf",
+            "peeks",
+            "two",
+            "ten"
+          ],
+          "image_file": "gr-d-18-page-5.png",
+          "audio_file": "gr-d-18-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "The tiny seed becomes the tallest sunflower. Small starts matter.",
+          "hfw": [
+            "The",
+            "seed",
+            "the",
+            "matter"
+          ],
+          "decodable": [
+            "tiny",
+            "becomes",
+            "tallest",
+            "sunflower",
+            "Small",
+            "starts"
+          ],
+          "image_file": "gr-d-18-page-6.png",
+          "audio_file": "gr-d-18-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-18-cover.png",
+      "word_audio_prefix": "gr-d-18"
+    },
+    "gr-d-19": {
+      "book_id": "gr-d-19",
+      "title": "The Team With No Captain",
+      "type": "fiction",
+      "level": "D",
+      "target_skills": "r-controlled vowels, leadership and shared responsibility",
+      "theme": "shared leadership and collaboration",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The soccer team has no captain. Everyone wants to lead.",
+          "hfw": [
+            "The",
+            "has",
+            "no",
+            "Everyone",
+            "wants",
+            "to",
+            "lead"
+          ],
+          "decodable": [
+            "soccer",
+            "team",
+            "captain"
+          ],
+          "image_file": "gr-d-19-page-1.png",
+          "audio_file": "gr-d-19-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "We need one voice, says Coach Verra. Not five.",
+          "hfw": [
+            "one",
+            "says",
+            "Not"
+          ],
+          "decodable": [
+            "We",
+            "need",
+            "voice",
+            "Coach",
+            "Verra",
+            "five"
+          ],
+          "image_file": "gr-d-19-page-2.png",
+          "audio_file": "gr-d-19-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "During practice, each player calls a different play.",
+          "hfw": [
+            "each",
+            "a",
+            "different"
+          ],
+          "decodable": [
+            "During",
+            "practice",
+            "player",
+            "calls",
+            "play"
+          ],
+          "image_file": "gr-d-19-page-3.png",
+          "audio_file": "gr-d-19-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "They trip and tangle. No goal. No score. Just chaos.",
+          "hfw": [
+            "No",
+            "No",
+            "Just"
+          ],
+          "decodable": [
+            "They",
+            "trip",
+            "tangle",
+            "goal",
+            "score",
+            "chaos"
+          ],
+          "image_file": "gr-d-19-page-4.png",
+          "audio_file": "gr-d-19-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Then Stan speaks up. What if we take turns leading?",
+          "hfw": [
+            "Then",
+            "speaks",
+            "up",
+            "if",
+            "we",
+            "take",
+            "turns"
+          ],
+          "decodable": [
+            "Stan",
+            "What",
+            "leading"
+          ],
+          "image_file": "gr-d-19-page-5.png",
+          "audio_file": "gr-d-19-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "They win the game. Every player scored. Together, they were the captain.",
+          "hfw": [
+            "the",
+            "game",
+            "Every",
+            "scored",
+            "they",
+            "were",
+            "the"
+          ],
+          "decodable": [
+            "They",
+            "win",
+            "player",
+            "Together",
+            "captain"
+          ],
+          "image_file": "gr-d-19-page-6.png",
+          "audio_file": "gr-d-19-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-19-cover.png",
+      "word_audio_prefix": "gr-d-19"
+    },
+    "gr-d-20": {
+      "book_id": "gr-d-20",
+      "title": "The Window Garden",
+      "type": "fiction",
+      "level": "D",
+      "target_skills": "multisyllabic words, vowel teams, urban nature theme",
+      "theme": "finding nature in unexpected places",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Ava lives in a tall building. There is no yard to tend.",
+          "hfw": [
+            "in",
+            "a",
+            "tall",
+            "There",
+            "is",
+            "no",
+            "to"
+          ],
+          "decodable": [
+            "Ava",
+            "lives",
+            "building",
+            "yard",
+            "tend"
+          ],
+          "image_file": "gr-d-20-page-1.png",
+          "audio_file": "gr-d-20-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "She looks out the window at the brick wall.",
+          "hfw": [
+            "out",
+            "the",
+            "window",
+            "at",
+            "the",
+            "wall"
+          ],
+          "decodable": [
+            "She",
+            "looks",
+            "brick"
+          ],
+          "image_file": "gr-d-20-page-2.png",
+          "audio_file": "gr-d-20-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Ava fills small pots with soil. She places them on the sill.",
+          "hfw": [
+            "with",
+            "She",
+            "them",
+            "on",
+            "the"
+          ],
+          "decodable": [
+            "Ava",
+            "fills",
+            "small",
+            "pots",
+            "soil",
+            "places",
+            "sill"
+          ],
+          "image_file": "gr-d-20-page-3.png",
+          "audio_file": "gr-d-20-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "She plants basil, mint, and a tiny tomato vine.",
+          "hfw": [
+            "and",
+            "a",
+            "tiny"
+          ],
+          "decodable": [
+            "She",
+            "plants",
+            "basil",
+            "mint",
+            "tomato",
+            "vine"
+          ],
+          "image_file": "gr-d-20-page-4.png",
+          "audio_file": "gr-d-20-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Each morning she waters. Each evening she checks for sprouts.",
+          "hfw": [
+            "she",
+            "she",
+            "for"
+          ],
+          "decodable": [
+            "Each",
+            "morning",
+            "waters",
+            "Each",
+            "evening",
+            "checks",
+            "sprouts"
+          ],
+          "image_file": "gr-d-20-page-5.png",
+          "audio_file": "gr-d-20-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Green leaves reach for the sky. A garden can grow anywhere.",
+          "hfw": [
+            "for",
+            "the",
+            "A",
+            "can",
+            "grow",
+            "anywhere"
+          ],
+          "decodable": [
+            "Green",
+            "leaves",
+            "reach",
+            "sky",
+            "garden"
+          ],
+          "image_file": "gr-d-20-page-6.png",
+          "audio_file": "gr-d-20-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-20-cover.png",
+      "word_audio_prefix": "gr-d-20"
+    },
+    "gr-e-21": {
+      "book_id": "gr-e-21",
+      "title": "The Long Way Home",
+      "type": "fiction",
+      "level": "E",
+      "target_skills": "long vowel teams (ai, ee, oa), narrative sequencing, problem solving",
+      "theme": "adaptability when plans change",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The school bus breaks down far from home.",
+          "hfw": [
+            "The",
+            "school",
+            "bus",
+            "down",
+            "far",
+            "from",
+            "home"
+          ],
+          "decodable": [
+            "breaks"
+          ],
+          "image_file": "gr-e-21-page-1.png",
+          "audio_file": "gr-e-21-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The driver calls for help. We must wait, she says.",
+          "hfw": [
+            "The",
+            "for",
+            "help",
+            "We",
+            "must",
+            "wait",
+            "she",
+            "says"
+          ],
+          "decodable": [
+            "driver",
+            "calls"
+          ],
+          "image_file": "gr-e-21-page-2.png",
+          "audio_file": "gr-e-21-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Eli looks at the map on his phone. There is a path through the park.",
+          "hfw": [
+            "at",
+            "the",
+            "map",
+            "on",
+            "his",
+            "There",
+            "is",
+            "a",
+            "through",
+            "the"
+          ],
+          "decodable": [
+            "Eli",
+            "looks",
+            "phone",
+            "path",
+            "park"
+          ],
+          "image_file": "gr-e-21-page-3.png",
+          "audio_file": "gr-e-21-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Who wants to walk? he asks. Five friends raise their hands.",
+          "hfw": [
+            "Who",
+            "wants",
+            "to",
+            "he",
+            "asks",
+            "Five",
+            "their"
+          ],
+          "decodable": [
+            "walk",
+            "friends",
+            "raise",
+            "hands"
+          ],
+          "image_file": "gr-e-21-page-4.png",
+          "audio_file": "gr-e-21-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "They hike past ponds and meadows. They spot birds and deer.",
+          "hfw": [
+            "past",
+            "and",
+            "and"
+          ],
+          "decodable": [
+            "They",
+            "hike",
+            "ponds",
+            "meadows",
+            "spot",
+            "birds",
+            "deer"
+          ],
+          "image_file": "gr-e-21-page-5.png",
+          "audio_file": "gr-e-21-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "They reach home at sunset. Sometimes the long way is the best way.",
+          "hfw": [
+            "They",
+            "home",
+            "at",
+            "Sometimes",
+            "the",
+            "way",
+            "is",
+            "the",
+            "best",
+            "way"
+          ],
+          "decodable": [
+            "reach",
+            "sunset",
+            "long"
+          ],
+          "image_file": "gr-e-21-page-6.png",
+          "audio_file": "gr-e-21-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-21-cover.png",
+      "word_audio_prefix": "gr-e-21"
+    },
+    "gr-e-22": {
+      "book_id": "gr-e-22",
+      "title": "The Debate at Table Four",
+      "type": "fiction",
+      "level": "E",
+      "target_skills": "complex vowel teams, persuasive language, respectful disagreement",
+      "theme": "learning to disagree respectfully",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "At lunch, table four has a big debate. Which season is best?",
+          "hfw": [
+            "At",
+            "table",
+            "four",
+            "has",
+            "a",
+            "big",
+            "Which",
+            "is",
+            "best"
+          ],
+          "decodable": [
+            "lunch",
+            "debate",
+            "season"
+          ],
+          "image_file": "gr-e-22-page-1.png",
+          "audio_file": "gr-e-22-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Winter! shouts Nia. Snow days and hot cocoa by the fire!",
+          "hfw": [
+            "by",
+            "the",
+            "fire"
+          ],
+          "decodable": [
+            "Winter",
+            "shouts",
+            "Nia",
+            "Snow",
+            "days",
+            "hot",
+            "cocoa"
+          ],
+          "image_file": "gr-e-22-page-2.png",
+          "audio_file": "gr-e-22-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Spring! cries Jules. Flowers bloom and birds return to sing!",
+          "hfw": [
+            "to"
+          ],
+          "decodable": [
+            "Spring",
+            "cries",
+            "Jules",
+            "Flowers",
+            "bloom",
+            "birds",
+            "return",
+            "sing"
+          ],
+          "image_file": "gr-e-22-page-3.png",
+          "audio_file": "gr-e-22-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Voices rise. Faces flush. No one will change their mind.",
+          "hfw": [
+            "No",
+            "one",
+            "will",
+            "change",
+            "their",
+            "mind"
+          ],
+          "decodable": [
+            "Voices",
+            "rise",
+            "Faces",
+            "flush"
+          ],
+          "image_file": "gr-e-22-page-4.png",
+          "audio_file": "gr-e-22-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Then Kira speaks. What if each season teaches us something?",
+          "hfw": [
+            "Then",
+            "speaks",
+            "What",
+            "if",
+            "each",
+            "us",
+            "something"
+          ],
+          "decodable": [
+            "Kira",
+            "season",
+            "teaches"
+          ],
+          "image_file": "gr-e-22-page-5.png",
+          "audio_file": "gr-e-22-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Table four grows quiet. Maybe being right is less important than being kind.",
+          "hfw": [
+            "Table",
+            "four",
+            "grows",
+            "quiet",
+            "being",
+            "is",
+            "less",
+            "than",
+            "being",
+            "kind"
+          ],
+          "decodable": [
+            "Maybe",
+            "right",
+            "important"
+          ],
+          "image_file": "gr-e-22-page-6.png",
+          "audio_file": "gr-e-22-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-22-cover.png",
+      "word_audio_prefix": "gr-e-22"
+    },
+    "gr-e-23": {
+      "book_id": "gr-e-23",
+      "title": "The Day the Lights Went Out",
+      "type": "fiction",
+      "level": "E",
+      "target_skills": "complex phonics, community resilience, descriptive language",
+      "theme": "community coming together during hardship",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "A storm knocks out the power on Maple Street.",
+          "hfw": [
+            "out",
+            "the",
+            "power",
+            "on"
+          ],
+          "decodable": [
+            "storm",
+            "knocks",
+            "Maple",
+            "Street"
+          ],
+          "image_file": "gr-e-23-page-1.png",
+          "audio_file": "gr-e-23-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Screens go black. Clocks blink. The fridge hums to silence.",
+          "hfw": [
+            "go",
+            "black",
+            "Clocks",
+            "blink",
+            "The",
+            "to",
+            "silence"
+          ],
+          "decodable": [
+            "Screens",
+            "fridge",
+            "hums"
+          ],
+          "image_file": "gr-e-23-page-2.png",
+          "audio_file": "gr-e-23-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Mr. Cruz brings flashlights. Ms. Reed shares candles from her pantry.",
+          "hfw": [
+            "from",
+            "her"
+          ],
+          "decodable": [
+            "Mr",
+            "Cruz",
+            "brings",
+            "flashlights",
+            "Ms",
+            "Reed",
+            "shares",
+            "candles",
+            "pantry"
+          ],
+          "image_file": "gr-e-23-page-3.png",
+          "audio_file": "gr-e-23-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Neighbors gather in the street. They share food from warming grills.",
+          "hfw": [
+            "in",
+            "the",
+            "They",
+            "share",
+            "food",
+            "from"
+          ],
+          "decodable": [
+            "Neighbors",
+            "gather",
+            "street",
+            "warming",
+            "grills"
+          ],
+          "image_file": "gr-e-23-page-4.png",
+          "audio_file": "gr-e-23-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Children play tag in the moonlight. Stories pass from porch to porch.",
+          "hfw": [
+            "play",
+            "tag",
+            "in",
+            "the",
+            "from",
+            "to"
+          ],
+          "decodable": [
+            "Children",
+            "moonlight",
+            "Stories",
+            "pass",
+            "porch",
+            "porch"
+          ],
+          "image_file": "gr-e-23-page-5.png",
+          "audio_file": "gr-e-23-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "When the lights return, no one rushes inside. The dark brought them together.",
+          "hfw": [
+            "When",
+            "the",
+            "lights",
+            "no",
+            "one",
+            "rushes",
+            "inside",
+            "The",
+            "them",
+            "together"
+          ],
+          "decodable": [
+            "return",
+            "dark",
+            "brought"
+          ],
+          "image_file": "gr-e-23-page-6.png",
+          "audio_file": "gr-e-23-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-23-cover.png",
+      "word_audio_prefix": "gr-e-23"
+    },
+    "gr-e-24": {
+      "book_id": "gr-e-24",
+      "title": "The Community Mural",
+      "type": "fiction",
+      "level": "E",
+      "target_skills": "complex multisyllabic words, collaborative creativity, cultural celebration",
+      "theme": "collective art and community identity",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "A gray wall sits at the edge of the playground. It needs color.",
+          "hfw": [
+            "A",
+            "at",
+            "the",
+            "of",
+            "the",
+            "It",
+            "needs",
+            "color"
+          ],
+          "decodable": [
+            "gray",
+            "wall",
+            "sits",
+            "edge",
+            "playground"
+          ],
+          "image_file": "gr-e-24-page-1.png",
+          "audio_file": "gr-e-24-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Ms. Park asks each student to paint one thing they love about their town.",
+          "hfw": [
+            "each",
+            "student",
+            "to",
+            "paint",
+            "one",
+            "thing",
+            "they",
+            "love",
+            "about",
+            "their",
+            "town"
+          ],
+          "decodable": [
+            "Ms",
+            "Park",
+            "asks"
+          ],
+          "image_file": "gr-e-24-page-2.png",
+          "audio_file": "gr-e-24-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Diego paints the library. Amara paints the farmers market. Lena paints the river.",
+          "hfw": [
+            "the",
+            "the",
+            "the"
+          ],
+          "decodable": [
+            "Diego",
+            "paints",
+            "library",
+            "Amara",
+            "farmers",
+            "market",
+            "Lena",
+            "river"
+          ],
+          "image_file": "gr-e-24-page-3.png",
+          "audio_file": "gr-e-24-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "They paint families, pets, and trees. Each brushstroke tells a story.",
+          "hfw": [
+            "and",
+            "Each",
+            "a",
+            "story"
+          ],
+          "decodable": [
+            "They",
+            "paint",
+            "families",
+            "pets",
+            "trees",
+            "brushstroke",
+            "tells"
+          ],
+          "image_file": "gr-e-24-page-4.png",
+          "audio_file": "gr-e-24-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The mural grows. Faces, places, memories blend into one big picture.",
+          "hfw": [
+            "The",
+            "big"
+          ],
+          "decodable": [
+            "mural",
+            "grows",
+            "Faces",
+            "places",
+            "memories",
+            "blend",
+            "picture"
+          ],
+          "image_file": "gr-e-24-page-5.png",
+          "audio_file": "gr-e-24-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "The whole town gathers to see. This wall belongs to everyone.",
+          "hfw": [
+            "The",
+            "whole",
+            "town",
+            "to",
+            "see",
+            "This",
+            "wall",
+            "belongs",
+            "to",
+            "everyone"
+          ],
+          "decodable": [
+            "gathers"
+          ],
+          "image_file": "gr-e-24-page-6.png",
+          "audio_file": "gr-e-24-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-24-cover.png",
+      "word_audio_prefix": "gr-e-24"
+    },
+    "gr-e-25": {
+      "book_id": "gr-e-25",
+      "title": "A Promise to the Pond",
+      "type": "fiction",
+      "level": "E",
+      "target_skills": "complex vowels, environmental stewardship, narrative arc",
+      "theme": "protecting nature through commitment",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "The pond behind school is full of trash. The water smells foul.",
+          "hfw": [
+            "The",
+            "behind",
+            "school",
+            "is",
+            "full",
+            "of",
+            "trash",
+            "The",
+            "water",
+            "smells",
+            "foul"
+          ],
+          "decodable": [
+            "pond"
+          ],
+          "image_file": "gr-e-25-page-1.png",
+          "audio_file": "gr-e-25-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "No frogs croak. No dragonflies hover. The pond is dying.",
+          "hfw": [
+            "No",
+            "No",
+            "The",
+            "pond",
+            "is",
+            "dying"
+          ],
+          "decodable": [
+            "frogs",
+            "croak",
+            "dragonflies",
+            "hover"
+          ],
+          "image_file": "gr-e-25-page-2.png",
+          "audio_file": "gr-e-25-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Tara makes a pledge. We will clean this pond. We will save it.",
+          "hfw": [
+            "a",
+            "We",
+            "will",
+            "this",
+            "pond",
+            "We",
+            "will",
+            "it"
+          ],
+          "decodable": [
+            "Tara",
+            "makes",
+            "pledge",
+            "clean",
+            "save"
+          ],
+          "image_file": "gr-e-25-page-3.png",
+          "audio_file": "gr-e-25-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Every Friday, they pull out bottles and bags. They scoop mud.",
+          "hfw": [
+            "out",
+            "and",
+            "They"
+          ],
+          "decodable": [
+            "Every",
+            "Friday",
+            "pull",
+            "bottles",
+            "bags",
+            "scoop",
+            "mud"
+          ],
+          "image_file": "gr-e-25-page-4.png",
+          "audio_file": "gr-e-25-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Week by week, the water clears. Green moss returns. Tadpoles wriggle.",
+          "hfw": [
+            "by",
+            "the"
+          ],
+          "decodable": [
+            "Week",
+            "week",
+            "water",
+            "clears",
+            "Green",
+            "moss",
+            "returns",
+            "Tadpoles",
+            "wriggle"
+          ],
+          "image_file": "gr-e-25-page-5.png",
+          "audio_file": "gr-e-25-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "At last, a frog croaks. Tara keeps her promise. Nature keeps its promise too.",
+          "hfw": [
+            "At",
+            "a",
+            "keeps",
+            "her",
+            "promise",
+            "keeps",
+            "its",
+            "promise",
+            "too"
+          ],
+          "decodable": [
+            "last",
+            "frog",
+            "croaks",
+            "Tara",
+            "Nature"
+          ],
+          "image_file": "gr-e-25-page-6.png",
+          "audio_file": "gr-e-25-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-25-cover.png",
+      "word_audio_prefix": "gr-e-25"
+    },
+    "gr-b-31": {
+      "book_id": "gr-b-31",
+      "title": "How Seeds Become Plants",
+      "type": "nonfiction",
+      "level": "B",
+      "target_skills": "science vocabulary, sequence words, short vowels",
+      "theme": "plant life cycle",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "A seed is small. But it has a big job.",
+          "hfw": [
+            "A",
+            "is",
+            "small",
+            "But",
+            "it",
+            "has",
+            "a",
+            "big"
+          ],
+          "decodable": [
+            "seed",
+            "job"
+          ],
+          "image_file": "gr-b-31-page-1.png",
+          "audio_file": "gr-b-31-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The seed sits in soil. It drinks up water.",
+          "hfw": [
+            "The",
+            "in",
+            "It",
+            "up",
+            "water"
+          ],
+          "decodable": [
+            "seed",
+            "sits",
+            "soil",
+            "drinks"
+          ],
+          "image_file": "gr-b-31-page-2.png",
+          "audio_file": "gr-b-31-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "A root pops out. It digs deep down.",
+          "hfw": [
+            "out",
+            "It",
+            "down"
+          ],
+          "decodable": [
+            "root",
+            "pops",
+            "digs",
+            "deep"
+          ],
+          "image_file": "gr-b-31-page-3.png",
+          "audio_file": "gr-b-31-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "A stem reaches up. A leaf opens wide.",
+          "hfw": [
+            "up",
+            "A"
+          ],
+          "decodable": [
+            "stem",
+            "reaches",
+            "leaf",
+            "opens",
+            "wide"
+          ],
+          "image_file": "gr-b-31-page-4.png",
+          "audio_file": "gr-b-31-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The sun gives the plant food. It grows tall.",
+          "hfw": [
+            "The",
+            "sun",
+            "gives",
+            "the",
+            "food",
+            "It",
+            "tall"
+          ],
+          "decodable": [
+            "plant",
+            "grows"
+          ],
+          "image_file": "gr-b-31-page-5.png",
+          "audio_file": "gr-b-31-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "A tiny seed can become a huge plant. Nature is amazing!",
+          "hfw": [
+            "A",
+            "can",
+            "become",
+            "a",
+            "is",
+            "amazing"
+          ],
+          "decodable": [
+            "tiny",
+            "seed",
+            "huge",
+            "plant",
+            "Nature"
+          ],
+          "image_file": "gr-b-31-page-6.png",
+          "audio_file": "gr-b-31-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-31-cover.png",
+      "word_audio_prefix": "gr-b-31"
+    },
+    "gr-b-32": {
+      "book_id": "gr-b-32",
+      "title": "Why Bees Visit Flowers",
+      "type": "nonfiction",
+      "level": "B",
+      "target_skills": "science concepts, pollination intro, simple cause-effect",
+      "theme": "pollination and nature's partnerships",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Bees buzz from flower to flower. They are not just playing.",
+          "hfw": [
+            "from",
+            "to",
+            "They",
+            "are",
+            "not",
+            "just",
+            "playing"
+          ],
+          "decodable": [
+            "Bees",
+            "buzz",
+            "flower",
+            "flower"
+          ],
+          "image_file": "gr-b-32-page-1.png",
+          "audio_file": "gr-b-32-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A flower has sweet nectar inside. The bee wants a sip.",
+          "hfw": [
+            "A",
+            "has",
+            "nectar",
+            "inside",
+            "The",
+            "wants",
+            "a"
+          ],
+          "decodable": [
+            "flower",
+            "sweet",
+            "bee",
+            "sip"
+          ],
+          "image_file": "gr-b-32-page-2.png",
+          "audio_file": "gr-b-32-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "The bee lands on a petal. Dust sticks to its legs.",
+          "hfw": [
+            "The",
+            "on",
+            "a",
+            "its"
+          ],
+          "decodable": [
+            "bee",
+            "lands",
+            "petal",
+            "Dust",
+            "sticks",
+            "legs"
+          ],
+          "image_file": "gr-b-32-page-3.png",
+          "audio_file": "gr-b-32-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "That dust is pollen. It helps plants make seeds.",
+          "hfw": [
+            "That",
+            "is",
+            "helps",
+            "plants",
+            "make",
+            "seeds"
+          ],
+          "decodable": [
+            "dust",
+            "pollen"
+          ],
+          "image_file": "gr-b-32-page-4.png",
+          "audio_file": "gr-b-32-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The bee flies to the next bloom. Pollen drops off.",
+          "hfw": [
+            "The",
+            "to",
+            "the",
+            "next",
+            "off"
+          ],
+          "decodable": [
+            "bee",
+            "flies",
+            "bloom",
+            "Pollen",
+            "drops"
+          ],
+          "image_file": "gr-b-32-page-5.png",
+          "audio_file": "gr-b-32-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Bees get food. Flowers get help. They need each other!",
+          "hfw": [
+            "get",
+            "food",
+            "get",
+            "help",
+            "They",
+            "need",
+            "each",
+            "other"
+          ],
+          "decodable": [
+            "Bees",
+            "Flowers"
+          ],
+          "image_file": "gr-b-32-page-6.png",
+          "audio_file": "gr-b-32-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-32-cover.png",
+      "word_audio_prefix": "gr-b-32"
+    },
+    "gr-b-33": {
+      "book_id": "gr-b-33",
+      "title": "What Makes Shadows?",
+      "type": "nonfiction",
+      "level": "B",
+      "target_skills": "light and shadow science, question-answer format",
+      "theme": "physics of light and shadows",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Look at your shadow! It moves when you move.",
+          "hfw": [
+            "at",
+            "your",
+            "It",
+            "when",
+            "you",
+            "move"
+          ],
+          "decodable": [
+            "Look",
+            "shadow",
+            "moves"
+          ],
+          "image_file": "gr-b-33-page-1.png",
+          "audio_file": "gr-b-33-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A shadow needs light. It also needs something solid.",
+          "hfw": [
+            "A",
+            "needs",
+            "light",
+            "It",
+            "also",
+            "needs",
+            "something"
+          ],
+          "decodable": [
+            "shadow",
+            "solid"
+          ],
+          "image_file": "gr-b-33-page-2.png",
+          "audio_file": "gr-b-33-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "When light hits you, it stops. It cannot pass through.",
+          "hfw": [
+            "When",
+            "light",
+            "it",
+            "stops",
+            "It",
+            "cannot",
+            "pass",
+            "through"
+          ],
+          "decodable": [
+            "hits"
+          ],
+          "image_file": "gr-b-33-page-3.png",
+          "audio_file": "gr-b-33-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "The dark spot behind you is the shadow.",
+          "hfw": [
+            "The",
+            "dark",
+            "spot",
+            "behind",
+            "you",
+            "is",
+            "the"
+          ],
+          "decodable": [
+            "shadow"
+          ],
+          "image_file": "gr-b-33-page-4.png",
+          "audio_file": "gr-b-33-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "A big object makes a big shadow. A small object makes a small one.",
+          "hfw": [
+            "A",
+            "makes",
+            "a",
+            "A",
+            "makes",
+            "a",
+            "one"
+          ],
+          "decodable": [
+            "big",
+            "object",
+            "big",
+            "shadow",
+            "small",
+            "object",
+            "small"
+          ],
+          "image_file": "gr-b-33-page-5.png",
+          "audio_file": "gr-b-33-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Try it! Stand in the sun. Watch your shadow dance.",
+          "hfw": [
+            "in",
+            "the",
+            "sun",
+            "Watch",
+            "your"
+          ],
+          "decodable": [
+            "Stand",
+            "shadow",
+            "dance"
+          ],
+          "image_file": "gr-b-33-page-6.png",
+          "audio_file": "gr-b-33-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-33-cover.png",
+      "word_audio_prefix": "gr-b-33"
+    },
+    "gr-b-34": {
+      "book_id": "gr-b-34",
+      "title": "How Bread Is Made",
+      "type": "nonfiction",
+      "level": "B",
+      "target_skills": "sequence and process, food science vocabulary",
+      "theme": "from wheat to bread",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Bread starts as a tiny seed. The seed is wheat.",
+          "hfw": [
+            "as",
+            "a",
+            "The",
+            "is"
+          ],
+          "decodable": [
+            "Bread",
+            "starts",
+            "tiny",
+            "seed",
+            "seed",
+            "wheat"
+          ],
+          "image_file": "gr-b-34-page-1.png",
+          "audio_file": "gr-b-34-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Farmers plant wheat in fields. The sun and rain help it grow.",
+          "hfw": [
+            "in",
+            "The",
+            "and",
+            "help",
+            "it",
+            "grow"
+          ],
+          "decodable": [
+            "Farmers",
+            "plant",
+            "wheat",
+            "fields",
+            "sun",
+            "rain"
+          ],
+          "image_file": "gr-b-34-page-2.png",
+          "audio_file": "gr-b-34-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "When wheat is dry, it turns to grain. Mills grind the grain into flour.",
+          "hfw": [
+            "When",
+            "is",
+            "dry",
+            "it",
+            "turns",
+            "to",
+            "grain",
+            "grind",
+            "the",
+            "into"
+          ],
+          "decodable": [
+            "wheat",
+            "Mills",
+            "grain",
+            "flour"
+          ],
+          "image_file": "gr-b-34-page-3.png",
+          "audio_file": "gr-b-34-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Bakers mix flour with water and yeast. The dough gets soft and puffy.",
+          "hfw": [
+            "with",
+            "and",
+            "The",
+            "gets",
+            "soft",
+            "and"
+          ],
+          "decodable": [
+            "Bakers",
+            "mix",
+            "flour",
+            "water",
+            "yeast",
+            "dough",
+            "puffy"
+          ],
+          "image_file": "gr-b-34-page-4.png",
+          "audio_file": "gr-b-34-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "They bake the dough in a hot oven. The smell fills the room!",
+          "hfw": [
+            "the",
+            "in",
+            "a",
+            "hot",
+            "oven",
+            "The",
+            "smell",
+            "fills",
+            "the",
+            "room"
+          ],
+          "decodable": [
+            "They",
+            "bake",
+            "dough"
+          ],
+          "image_file": "gr-b-34-page-5.png",
+          "audio_file": "gr-b-34-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "From seed to loaf, many hands help. Bread is a team effort!",
+          "hfw": [
+            "From",
+            "to",
+            "many",
+            "hands",
+            "help",
+            "is",
+            "a",
+            "team",
+            "effort"
+          ],
+          "decodable": [
+            "seed",
+            "loaf",
+            "Bread"
+          ],
+          "image_file": "gr-b-34-page-6.png",
+          "audio_file": "gr-b-34-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-34-cover.png",
+      "word_audio_prefix": "gr-b-34"
+    },
+    "gr-b-35": {
+      "book_id": "gr-b-35",
+      "title": "Big Machines at Work",
+      "type": "nonfiction",
+      "level": "B",
+      "target_skills": "machine vocabulary, descriptive features, action words",
+      "theme": "construction vehicles and their jobs",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Look at the big machines! Each one has a special job.",
+          "hfw": [
+            "at",
+            "the",
+            "big",
+            "Each",
+            "one",
+            "has",
+            "a",
+            "special",
+            "job"
+          ],
+          "decodable": [
+            "Look",
+            "machines"
+          ],
+          "image_file": "gr-b-35-page-1.png",
+          "audio_file": "gr-b-35-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The bulldozer pushes piles of dirt. It clears the land.",
+          "hfw": [
+            "The",
+            "pushes",
+            "piles",
+            "of",
+            "dirt",
+            "It",
+            "clears",
+            "the"
+          ],
+          "decodable": [
+            "bulldozer",
+            "land"
+          ],
+          "image_file": "gr-b-35-page-2.png",
+          "audio_file": "gr-b-35-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "The crane lifts steel beams up high. It builds towers.",
+          "hfw": [
+            "The",
+            "up",
+            "high",
+            "It",
+            "builds"
+          ],
+          "decodable": [
+            "crane",
+            "lifts",
+            "steel",
+            "beams",
+            "towers"
+          ],
+          "image_file": "gr-b-35-page-3.png",
+          "audio_file": "gr-b-35-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "The dump truck hauls rocks and sand. Its bed tips way back.",
+          "hfw": [
+            "and",
+            "Its",
+            "bed",
+            "tips",
+            "way",
+            "back"
+          ],
+          "decodable": [
+            "dump",
+            "truck",
+            "hauls",
+            "rocks",
+            "sand"
+          ],
+          "image_file": "gr-b-35-page-4.png",
+          "audio_file": "gr-b-35-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The cement mixer spins and spins. It keeps concrete smooth.",
+          "hfw": [
+            "and",
+            "keeps",
+            "smooth"
+          ],
+          "decodable": [
+            "cement",
+            "mixer",
+            "spins",
+            "spins",
+            "concrete"
+          ],
+          "image_file": "gr-b-35-page-5.png",
+          "audio_file": "gr-b-35-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Big machines work hard. They help build our roads and homes!",
+          "hfw": [
+            "work",
+            "hard",
+            "They",
+            "help",
+            "build",
+            "our",
+            "roads",
+            "and",
+            "homes"
+          ],
+          "decodable": [
+            "Big",
+            "machines"
+          ],
+          "image_file": "gr-b-35-page-6.png",
+          "audio_file": "gr-b-35-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-b-35-cover.png",
+      "word_audio_prefix": "gr-b-35"
+    },
+    "gr-c-36": {
+      "book_id": "gr-c-36",
+      "title": "Weather Tools",
+      "type": "nonfiction",
+      "level": "C",
+      "target_skills": "science tools vocabulary, how things work, silent e",
+      "theme": "tools meteorologists use",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "How do we know what the weather will be? We use tools!",
+          "hfw": [
+            "do",
+            "we",
+            "know",
+            "what",
+            "the",
+            "weather",
+            "will",
+            "be",
+            "We",
+            "use"
+          ],
+          "decodable": [
+            "tools"
+          ],
+          "image_file": "gr-c-36-page-1.png",
+          "audio_file": "gr-c-36-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A thermometer measures heat. The red line rises on a hot day.",
+          "hfw": [
+            "measures",
+            "heat",
+            "The",
+            "red",
+            "line",
+            "on",
+            "a",
+            "hot",
+            "day"
+          ],
+          "decodable": [
+            "thermometer",
+            "rises"
+          ],
+          "image_file": "gr-c-36-page-2.png",
+          "audio_file": "gr-c-36-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "A rain gauge collects drops. It shows how much rain fell.",
+          "hfw": [
+            "drops",
+            "It",
+            "shows",
+            "how",
+            "much",
+            "rain",
+            "fell"
+          ],
+          "decodable": [
+            "gauge",
+            "collects"
+          ],
+          "image_file": "gr-c-36-page-3.png",
+          "audio_file": "gr-c-36-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "A wind vane points where wind blows. It spins on top of a pole.",
+          "hfw": [
+            "where",
+            "wind",
+            "blows",
+            "It",
+            "spins",
+            "on",
+            "top",
+            "of",
+            "a",
+            "pole"
+          ],
+          "decodable": [
+            "vane",
+            "points"
+          ],
+          "image_file": "gr-c-36-page-4.png",
+          "audio_file": "gr-c-36-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "A barometer measures air pressure. It helps predict storms.",
+          "hfw": [
+            "air",
+            "pressure",
+            "It",
+            "helps",
+            "predict",
+            "storms"
+          ],
+          "decodable": [
+            "barometer",
+            "measures"
+          ],
+          "image_file": "gr-c-36-page-5.png",
+          "audio_file": "gr-c-36-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "With these tools, we can read the sky. Weather is no mystery!",
+          "hfw": [
+            "With",
+            "these",
+            "tools",
+            "we",
+            "can",
+            "read",
+            "the",
+            "sky",
+            "Weather",
+            "is",
+            "no",
+            "mystery"
+          ],
+          "decodable": [],
+          "image_file": "gr-c-36-page-6.png",
+          "audio_file": "gr-c-36-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-36-cover.png",
+      "word_audio_prefix": "gr-c-36"
+    },
+    "gr-c-37": {
+      "book_id": "gr-c-37",
+      "title": "How We Use Water",
+      "type": "nonfiction",
+      "level": "C",
+      "target_skills": "everyday science, conservation awareness, descriptive language",
+      "theme": "water in our daily lives",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Water is everywhere. It is in our lakes, sinks, and bodies.",
+          "hfw": [
+            "is",
+            "everywhere",
+            "It",
+            "is",
+            "in",
+            "our",
+            "and"
+          ],
+          "decodable": [
+            "Water",
+            "lakes",
+            "sinks",
+            "bodies"
+          ],
+          "image_file": "gr-c-37-page-1.png",
+          "audio_file": "gr-c-37-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "We drink water to stay healthy. It keeps our skin clear.",
+          "hfw": [
+            "We",
+            "water",
+            "to",
+            "stay",
+            "healthy",
+            "It",
+            "keeps",
+            "our",
+            "skin",
+            "clear"
+          ],
+          "decodable": [
+            "drink"
+          ],
+          "image_file": "gr-c-37-page-2.png",
+          "audio_file": "gr-c-37-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Farmers use water to grow food. Without it, crops would wilt.",
+          "hfw": [
+            "use",
+            "water",
+            "to",
+            "grow",
+            "food",
+            "Without",
+            "it",
+            "crops",
+            "would"
+          ],
+          "decodable": [
+            "Farmers",
+            "wilt"
+          ],
+          "image_file": "gr-c-37-page-3.png",
+          "audio_file": "gr-c-37-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Factories need water too. It cools hot machines.",
+          "hfw": [
+            "need",
+            "water",
+            "too",
+            "It",
+            "hot",
+            "machines"
+          ],
+          "decodable": [
+            "Factories",
+            "cools"
+          ],
+          "image_file": "gr-c-37-page-4.png",
+          "audio_file": "gr-c-37-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Water helps us clean. We wash hands, clothes, and floors.",
+          "hfw": [
+            "helps",
+            "us",
+            "clean",
+            "We",
+            "wash",
+            "hands",
+            "clothes",
+            "and"
+          ],
+          "decodable": [
+            "Water",
+            "floors"
+          ],
+          "image_file": "gr-c-37-page-5.png",
+          "audio_file": "gr-c-37-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Clean water is precious. We must use it wisely and keep it pure.",
+          "hfw": [
+            "is",
+            "precious",
+            "We",
+            "must",
+            "use",
+            "it",
+            "wisely",
+            "and",
+            "keep",
+            "it",
+            "pure"
+          ],
+          "decodable": [
+            "Clean",
+            "water"
+          ],
+          "image_file": "gr-c-37-page-6.png",
+          "audio_file": "gr-c-37-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-37-cover.png",
+      "word_audio_prefix": "gr-c-37"
+    },
+    "gr-c-38": {
+      "book_id": "gr-c-38",
+      "title": "Birds Build Nests",
+      "type": "nonfiction",
+      "level": "C",
+      "target_skills": "animal behavior, process description, nature vocabulary",
+      "theme": "how birds construct homes",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Birds need safe homes for their eggs. So they build nests!",
+          "hfw": [
+            "need",
+            "safe",
+            "homes",
+            "for",
+            "their",
+            "eggs",
+            "So",
+            "they",
+            "build"
+          ],
+          "decodable": [
+            "Birds",
+            "nests"
+          ],
+          "image_file": "gr-c-38-page-1.png",
+          "audio_file": "gr-c-38-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A robin weaves grass and twigs. She makes a round cup.",
+          "hfw": [
+            "A",
+            "and",
+            "She",
+            "makes",
+            "a",
+            "round",
+            "cup"
+          ],
+          "decodable": [
+            "robin",
+            "weaves",
+            "grass",
+            "twigs"
+          ],
+          "image_file": "gr-c-38-page-2.png",
+          "audio_file": "gr-c-38-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "A hummingbird uses spider silk. The silk holds the nest to a branch.",
+          "hfw": [
+            "uses",
+            "silk",
+            "The",
+            "silk",
+            "holds",
+            "the",
+            "nest",
+            "to",
+            "a",
+            "branch"
+          ],
+          "decodable": [
+            "hummingbird",
+            "spider"
+          ],
+          "image_file": "gr-c-38-page-3.png",
+          "audio_file": "gr-c-38-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "An eagle builds a huge pile of sticks. It can weigh a ton!",
+          "hfw": [
+            "An",
+            "of",
+            "sticks",
+            "It",
+            "can",
+            "weigh",
+            "a",
+            "ton"
+          ],
+          "decodable": [
+            "eagle",
+            "builds",
+            "huge",
+            "pile"
+          ],
+          "image_file": "gr-c-38-page-4.png",
+          "audio_file": "gr-c-38-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "A woodpecker carves a hole in a tree. No sticks needed!",
+          "hfw": [
+            "in",
+            "a",
+            "tree",
+            "No",
+            "sticks",
+            "needed"
+          ],
+          "decodable": [
+            "woodpecker",
+            "carves",
+            "hole"
+          ],
+          "image_file": "gr-c-38-page-5.png",
+          "audio_file": "gr-c-38-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Each nest is just right for its bird. Nature is a clever builder!",
+          "hfw": [
+            "Each",
+            "nest",
+            "is",
+            "just",
+            "right",
+            "for",
+            "its",
+            "bird",
+            "is",
+            "a",
+            "clever",
+            "builder"
+          ],
+          "decodable": [
+            "Nature"
+          ],
+          "image_file": "gr-c-38-page-6.png",
+          "audio_file": "gr-c-38-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-38-cover.png",
+      "word_audio_prefix": "gr-c-38"
+    },
+    "gr-c-39": {
+      "book_id": "gr-c-39",
+      "title": "From Caterpillar to Butterfly",
+      "type": "nonfiction",
+      "level": "C",
+      "target_skills": "life cycle sequence, transformation vocabulary, nature science",
+      "theme": "complete metamorphosis",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "A butterfly starts as an egg. The egg is no bigger than a dot!",
+          "hfw": [
+            "A",
+            "starts",
+            "as",
+            "an",
+            "egg",
+            "The",
+            "egg",
+            "is",
+            "no",
+            "bigger",
+            "than",
+            "a"
+          ],
+          "decodable": [
+            "butterfly"
+          ],
+          "image_file": "gr-c-39-page-1.png",
+          "audio_file": "gr-c-39-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "The egg hatches. A tiny caterpillar crawls out. It is very hungry!",
+          "hfw": [
+            "The",
+            "egg",
+            "hatches",
+            "A",
+            "tiny",
+            "out",
+            "It",
+            "is",
+            "very",
+            "hungry"
+          ],
+          "decodable": [
+            "caterpillar",
+            "crawls"
+          ],
+          "image_file": "gr-c-39-page-2.png",
+          "audio_file": "gr-c-39-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "The caterpillar eats leaves. It grows bigger each day.",
+          "hfw": [
+            "The",
+            "eats",
+            "leaves",
+            "It",
+            "grows",
+            "bigger",
+            "each",
+            "day"
+          ],
+          "decodable": [
+            "caterpillar"
+          ],
+          "image_file": "gr-c-39-page-3.png",
+          "audio_file": "gr-c-39-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Then it spins a chrysalis. It hangs like a jewel on a stem.",
+          "hfw": [
+            "Then",
+            "it",
+            "spins",
+            "a",
+            "It",
+            "like",
+            "a",
+            "jewel",
+            "on",
+            "a",
+            "stem"
+          ],
+          "decodable": [
+            "chrysalis",
+            "hangs"
+          ],
+          "image_file": "gr-c-39-page-4.png",
+          "audio_file": "gr-c-39-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Inside, big changes happen. The caterpillar turns to soup!",
+          "hfw": [
+            "Inside",
+            "big",
+            "changes",
+            "happen",
+            "The",
+            "turns",
+            "to"
+          ],
+          "decodable": [
+            "caterpillar",
+            "soup"
+          ],
+          "image_file": "gr-c-39-page-5.png",
+          "audio_file": "gr-c-39-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "At last, a winged beauty breaks free. Hello, butterfly!",
+          "hfw": [
+            "At",
+            "last",
+            "a",
+            "winged",
+            "beauty",
+            "breaks",
+            "free",
+            "Hello"
+          ],
+          "decodable": [
+            "butterfly"
+          ],
+          "image_file": "gr-c-39-page-6.png",
+          "audio_file": "gr-c-39-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-39-cover.png",
+      "word_audio_prefix": "gr-c-39"
+    },
+    "gr-c-40": {
+      "book_id": "gr-c-40",
+      "title": "Healthy Hands",
+      "type": "nonfiction",
+      "level": "C",
+      "target_skills": "health habits, procedural text, hygiene vocabulary",
+      "theme": "proper handwashing and health",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Your hands touch many things. They pick up germs you cannot see.",
+          "hfw": [
+            "Your",
+            "hands",
+            "touch",
+            "many",
+            "things",
+            "They",
+            "pick",
+            "up",
+            "germs",
+            "you",
+            "cannot",
+            "see"
+          ],
+          "decodable": [],
+          "image_file": "gr-c-40-page-1.png",
+          "audio_file": "gr-c-40-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Germs can make you sick. Washing hands keeps them away.",
+          "hfw": [
+            "can",
+            "make",
+            "you",
+            "sick",
+            "Washing",
+            "hands",
+            "keeps",
+            "them",
+            "away"
+          ],
+          "decodable": [
+            "Germs"
+          ],
+          "image_file": "gr-c-40-page-2.png",
+          "audio_file": "gr-c-40-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "First, wet your hands under warm water.",
+          "hfw": [
+            "First",
+            "wet",
+            "your",
+            "hands",
+            "under",
+            "warm",
+            "water"
+          ],
+          "decodable": [],
+          "image_file": "gr-c-40-page-3.png",
+          "audio_file": "gr-c-40-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Next, add soap. Rub your palms, backs, and between fingers.",
+          "hfw": [
+            "Next",
+            "add",
+            "soap",
+            "your",
+            "and",
+            "between",
+            "fingers"
+          ],
+          "decodable": [
+            "Rub",
+            "palms",
+            "backs"
+          ],
+          "image_file": "gr-c-40-page-4.png",
+          "audio_file": "gr-c-40-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Scrub for twenty seconds. Sing a song to keep time!",
+          "hfw": [
+            "for",
+            "twenty",
+            "seconds",
+            "Sing",
+            "a",
+            "song",
+            "to",
+            "keep",
+            "time"
+          ],
+          "decodable": [
+            "Scrub"
+          ],
+          "image_file": "gr-c-40-page-5.png",
+          "audio_file": "gr-c-40-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Rinse and dry. Now your hands are clean. Good job!",
+          "hfw": [
+            "and",
+            "dry",
+            "Now",
+            "your",
+            "hands",
+            "are",
+            "clean",
+            "Good",
+            "job"
+          ],
+          "decodable": [
+            "Rinse"
+          ],
+          "image_file": "gr-c-40-page-6.png",
+          "audio_file": "gr-c-40-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-c-40-cover.png",
+      "word_audio_prefix": "gr-c-40"
+    },
+    "gr-d-41": {
+      "book_id": "gr-d-41",
+      "title": "How Bridges Hold Weight",
+      "type": "nonfiction",
+      "level": "D",
+      "target_skills": "engineering concepts, structural vocabulary, cause-effect",
+      "theme": "bridge engineering basics",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Bridges carry people and cars across rivers and valleys. How do they stay up?",
+          "hfw": [
+            "carry",
+            "people",
+            "and",
+            "cars",
+            "across",
+            "rivers",
+            "and",
+            "valleys",
+            "How",
+            "do",
+            "they",
+            "stay",
+            "up"
+          ],
+          "decodable": [
+            "Bridges"
+          ],
+          "image_file": "gr-d-41-page-1.png",
+          "audio_file": "gr-d-41-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A beam bridge is flat and simple. The beam pushes down on two strong posts called piers.",
+          "hfw": [
+            "is",
+            "flat",
+            "and",
+            "simple",
+            "The",
+            "pushes",
+            "down",
+            "on",
+            "two",
+            "strong",
+            "posts",
+            "called"
+          ],
+          "decodable": [
+            "beam",
+            "bridge",
+            "beam",
+            "piers"
+          ],
+          "image_file": "gr-d-41-page-2.png",
+          "audio_file": "gr-d-41-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "An arch bridge curves up. The curve spreads weight to both ends.",
+          "hfw": [
+            "An",
+            "up",
+            "The",
+            "curve",
+            "spreads",
+            "weight",
+            "to",
+            "both",
+            "ends"
+          ],
+          "decodable": [
+            "arch",
+            "bridge",
+            "curves"
+          ],
+          "image_file": "gr-d-41-page-3.png",
+          "audio_file": "gr-d-41-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "A suspension bridge hangs from cables. Towers hold the cables tight.",
+          "hfw": [
+            "A",
+            "from",
+            "cables",
+            "hold",
+            "the",
+            "cables",
+            "tight"
+          ],
+          "decodable": [
+            "suspension",
+            "bridge",
+            "hangs",
+            "Towers"
+          ],
+          "image_file": "gr-d-41-page-4.png",
+          "audio_file": "gr-d-41-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "The key is balance. Every part shares the load. Engineers test each bridge.",
+          "hfw": [
+            "The",
+            "key",
+            "is",
+            "balance",
+            "Every",
+            "part",
+            "shares",
+            "the",
+            "load",
+            "Each",
+            "bridge"
+          ],
+          "decodable": [
+            "Engineers",
+            "test"
+          ],
+          "image_file": "gr-d-41-page-5.png",
+          "audio_file": "gr-d-41-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Next time you cross a bridge, look at its shape. Smart design keeps you safe!",
+          "hfw": [
+            "Next",
+            "time",
+            "you",
+            "cross",
+            "a",
+            "bridge",
+            "look",
+            "at",
+            "its",
+            "shape",
+            "keeps",
+            "you",
+            "safe"
+          ],
+          "decodable": [
+            "Smart",
+            "design"
+          ],
+          "image_file": "gr-d-41-page-6.png",
+          "audio_file": "gr-d-41-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-41-cover.png",
+      "word_audio_prefix": "gr-d-41"
+    },
+    "gr-d-42": {
+      "book_id": "gr-d-42",
+      "title": "Why Leaves Change",
+      "type": "nonfiction",
+      "level": "D",
+      "target_skills": "seasonal science, chlorophyll concept, nature cycles",
+      "theme": "the science of autumn leaf color",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "In summer, leaves are green. But hidden colors wait inside.",
+          "hfw": [
+            "In",
+            "summer",
+            "leaves",
+            "are",
+            "green",
+            "But",
+            "hidden",
+            "colors",
+            "wait",
+            "inside"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-42-page-1.png",
+          "audio_file": "gr-d-42-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A green chemical called chlorophyll helps leaves catch sunlight.",
+          "hfw": [
+            "A",
+            "green",
+            "chemical",
+            "called",
+            "helps",
+            "leaves",
+            "catch",
+            "sunlight"
+          ],
+          "decodable": [
+            "chlorophyll"
+          ],
+          "image_file": "gr-d-42-page-2.png",
+          "audio_file": "gr-d-42-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "As days get shorter, trees make less chlorophyll. The green fades away.",
+          "hfw": [
+            "As",
+            "days",
+            "get",
+            "shorter",
+            "trees",
+            "make",
+            "less",
+            "The",
+            "green",
+            "fades",
+            "away"
+          ],
+          "decodable": [
+            "chlorophyll"
+          ],
+          "image_file": "gr-d-42-page-3.png",
+          "audio_file": "gr-d-42-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Then yellow and orange shine through. These colors were there all along!",
+          "hfw": [
+            "Then",
+            "yellow",
+            "and",
+            "orange",
+            "shine",
+            "through",
+            "These",
+            "colors",
+            "were",
+            "there",
+            "all",
+            "along"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-42-page-4.png",
+          "audio_file": "gr-d-42-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Some trees make red and purple too. Sugar trapped in leaves makes these hues.",
+          "hfw": [
+            "Some",
+            "trees",
+            "make",
+            "red",
+            "and",
+            "too",
+            "Sugar",
+            "trapped",
+            "in",
+            "leaves",
+            "makes",
+            "these"
+          ],
+          "decodable": [
+            "hues"
+          ],
+          "image_file": "gr-d-42-page-5.png",
+          "audio_file": "gr-d-42-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "When leaves fall, they feed the soil. New green leaves will come in spring!",
+          "hfw": [
+            "When",
+            "leaves",
+            "fall",
+            "they",
+            "feed",
+            "the",
+            "soil",
+            "New",
+            "green",
+            "leaves",
+            "will",
+            "come",
+            "in",
+            "spring"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-42-page-6.png",
+          "audio_file": "gr-d-42-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-42-cover.png",
+      "word_audio_prefix": "gr-d-42"
+    },
+    "gr-d-43": {
+      "book_id": "gr-d-43",
+      "title": "The Work of Pollinators",
+      "type": "nonfiction",
+      "level": "D",
+      "target_skills": "ecosystem science, animal roles, cause-effect",
+      "theme": "pollinators and food production",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "One out of every three bites of food exists because of pollinators.",
+          "hfw": [
+            "one",
+            "out",
+            "of",
+            "every",
+            "three",
+            "bites",
+            "of",
+            "food",
+            "exists",
+            "because",
+            "of"
+          ],
+          "decodable": [
+            "pollinators"
+          ],
+          "image_file": "gr-d-43-page-1.png",
+          "audio_file": "gr-d-43-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Bees are the most famous pollinators. But butterflies, birds, and bats help too.",
+          "hfw": [
+            "are",
+            "the",
+            "most",
+            "famous",
+            "But",
+            "and",
+            "and",
+            "help",
+            "too"
+          ],
+          "decodable": [
+            "Bees",
+            "pollinators",
+            "butterflies",
+            "birds",
+            "bats"
+          ],
+          "image_file": "gr-d-43-page-2.png",
+          "audio_file": "gr-d-43-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "When a bee visits a bloom, pollen dusts its fuzzy body.",
+          "hfw": [
+            "When",
+            "a",
+            "bee",
+            "visits",
+            "a",
+            "bloom",
+            "pollen",
+            "dusts",
+            "its",
+            "fuzzy",
+            "body"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-43-page-3.png",
+          "audio_file": "gr-d-43-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "The bee flies to the next flower. Pollen rubs off. The flower can now make fruit.",
+          "hfw": [
+            "The",
+            "bee",
+            "flies",
+            "to",
+            "the",
+            "next",
+            "flower",
+            "Pollen",
+            "rubs",
+            "off",
+            "The",
+            "flower",
+            "can",
+            "now",
+            "make",
+            "fruit"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-43-page-4.png",
+          "audio_file": "gr-d-43-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Without pollinators, apples, berries, and almonds would vanish.",
+          "hfw": [
+            "Without",
+            "apples",
+            "berries",
+            "and",
+            "almonds",
+            "would",
+            "vanish"
+          ],
+          "decodable": [
+            "pollinators"
+          ],
+          "image_file": "gr-d-43-page-5.png",
+          "audio_file": "gr-d-43-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Planting flowers helps pollinators thrive. They feed us. We should feed them too.",
+          "hfw": [
+            "Planting",
+            "flowers",
+            "helps",
+            "pollinators",
+            "thrive",
+            "They",
+            "feed",
+            "us",
+            "We",
+            "should",
+            "feed",
+            "them",
+            "too"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-43-page-6.png",
+          "audio_file": "gr-d-43-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-43-cover.png",
+      "word_audio_prefix": "gr-d-43"
+    },
+    "gr-d-44": {
+      "book_id": "gr-d-44",
+      "title": "How Communities Share Spaces",
+      "type": "nonfiction",
+      "level": "D",
+      "target_skills": "social studies, community concepts, compare-contrast",
+      "theme": "shared community places and their purposes",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "A community is a group of people living in the same area. They share many spaces.",
+          "hfw": [
+            "is",
+            "a",
+            "group",
+            "of",
+            "people",
+            "living",
+            "in",
+            "the",
+            "same",
+            "area",
+            "They",
+            "share",
+            "many",
+            "spaces"
+          ],
+          "decodable": [
+            "community"
+          ],
+          "image_file": "gr-d-44-page-1.png",
+          "audio_file": "gr-d-44-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A park gives people a place to play and rest. It has grass, trees, and paths.",
+          "hfw": [
+            "gives",
+            "people",
+            "a",
+            "place",
+            "to",
+            "play",
+            "and",
+            "rest",
+            "It",
+            "has",
+            "and",
+            "and"
+          ],
+          "decodable": [
+            "park",
+            "grass",
+            "trees",
+            "paths"
+          ],
+          "image_file": "gr-d-44-page-2.png",
+          "audio_file": "gr-d-44-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "A library holds books for everyone. You can borrow stories and learn new facts.",
+          "hfw": [
+            "holds",
+            "books",
+            "for",
+            "everyone",
+            "You",
+            "can",
+            "borrow",
+            "stories",
+            "and",
+            "learn",
+            "new",
+            "facts"
+          ],
+          "decodable": [
+            "library"
+          ],
+          "image_file": "gr-d-44-page-3.png",
+          "audio_file": "gr-d-44-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "A market lets people buy fresh food. Farmers sell fruits and vegetables there.",
+          "hfw": [
+            "lets",
+            "people",
+            "buy",
+            "fresh",
+            "food",
+            "sell",
+            "and",
+            "there"
+          ],
+          "decodable": [
+            "market",
+            "Farmers",
+            "fruits",
+            "vegetables"
+          ],
+          "image_file": "gr-d-44-page-4.png",
+          "audio_file": "gr-d-44-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "A school is where children learn. Teachers help them read, write, and think.",
+          "hfw": [
+            "is",
+            "where",
+            "children",
+            "learn",
+            "Teachers",
+            "help",
+            "them",
+            "read",
+            "write",
+            "and",
+            "think"
+          ],
+          "decodable": [
+            "school"
+          ],
+          "image_file": "gr-d-44-page-5.png",
+          "audio_file": "gr-d-44-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "These spaces bring people together. When we share, our community grows stronger.",
+          "hfw": [
+            "These",
+            "spaces",
+            "bring",
+            "people",
+            "together",
+            "When",
+            "we",
+            "share",
+            "our",
+            "community",
+            "grows",
+            "stronger"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-44-page-6.png",
+          "audio_file": "gr-d-44-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-44-cover.png",
+      "word_audio_prefix": "gr-d-44"
+    },
+    "gr-d-45": {
+      "book_id": "gr-d-45",
+      "title": "What Soil Is Made Of",
+      "type": "nonfiction",
+      "level": "D",
+      "target_skills": "earth science, layers and composition, scientific vocabulary",
+      "theme": "soil composition and importance",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Look down at the ground beneath your feet. That brown matter is soil.",
+          "hfw": [
+            "down",
+            "at",
+            "the",
+            "ground",
+            "beneath",
+            "your",
+            "feet",
+            "That",
+            "brown",
+            "matter",
+            "is",
+            "soil"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-45-page-1.png",
+          "audio_file": "gr-d-45-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Soil is a mix of many things. It has rock bits, water, air, and living matter.",
+          "hfw": [
+            "is",
+            "a",
+            "mix",
+            "of",
+            "many",
+            "things",
+            "It",
+            "has",
+            "rock",
+            "bits",
+            "water",
+            "air",
+            "and",
+            "living",
+            "matter"
+          ],
+          "decodable": [
+            "soil"
+          ],
+          "image_file": "gr-d-45-page-2.png",
+          "audio_file": "gr-d-45-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Tiny rocks in soil come from big rocks that broke apart over time.",
+          "hfw": [
+            "Tiny",
+            "rocks",
+            "in",
+            "soil",
+            "come",
+            "from",
+            "big",
+            "rocks",
+            "that",
+            "broke",
+            "apart",
+            "over",
+            "time"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-45-page-3.png",
+          "audio_file": "gr-d-45-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Dead leaves and plants rot in the soil. They add nutrients that help new plants grow.",
+          "hfw": [
+            "Dead",
+            "leaves",
+            "and",
+            "plants",
+            "rot",
+            "in",
+            "the",
+            "soil",
+            "They",
+            "add",
+            "that",
+            "help",
+            "new",
+            "plants",
+            "grow"
+          ],
+          "decodable": [
+            "nutrients"
+          ],
+          "image_file": "gr-d-45-page-4.png",
+          "audio_file": "gr-d-45-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Worms and bugs live in soil. They dig tunnels that let air and water move through.",
+          "hfw": [
+            "and",
+            "bugs",
+            "live",
+            "in",
+            "soil",
+            "They",
+            "dig",
+            "that",
+            "let",
+            "air",
+            "and",
+            "water",
+            "move",
+            "through"
+          ],
+          "decodable": [
+            "Worms",
+            "tunnels"
+          ],
+          "image_file": "gr-d-45-page-5.png",
+          "audio_file": "gr-d-45-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Without soil, most plants could not grow. Soil keeps our world green and fed.",
+          "hfw": [
+            "Without",
+            "soil",
+            "most",
+            "plants",
+            "could",
+            "not",
+            "grow",
+            "soil",
+            "keeps",
+            "our",
+            "world",
+            "green",
+            "and",
+            "fed"
+          ],
+          "decodable": [],
+          "image_file": "gr-d-45-page-6.png",
+          "audio_file": "gr-d-45-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-d-45-cover.png",
+      "word_audio_prefix": "gr-d-45"
+    },
+    "gr-e-46": {
+      "book_id": "gr-e-46",
+      "title": "How Water Changes the Land",
+      "type": "nonfiction",
+      "level": "E",
+      "target_skills": "earth science, erosion and weathering, process description",
+      "theme": "water as a force that shapes landscapes",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Water is patient and powerful. Over time, it changes the shape of the land.",
+          "hfw": [
+            "is",
+            "patient",
+            "and",
+            "powerful",
+            "Over",
+            "time",
+            "it",
+            "changes",
+            "the",
+            "shape",
+            "of",
+            "the",
+            "land"
+          ],
+          "decodable": [
+            "Water"
+          ],
+          "image_file": "gr-e-46-page-1.png",
+          "audio_file": "gr-e-46-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Rain falls on mountains. Tiny drops find cracks in the rock and freeze.",
+          "hfw": [
+            "falls",
+            "on",
+            "mountains",
+            "Tiny",
+            "drops",
+            "find",
+            "cracks",
+            "in",
+            "the",
+            "rock",
+            "and",
+            "freeze"
+          ],
+          "decodable": [
+            "Rain"
+          ],
+          "image_file": "gr-e-46-page-2.png",
+          "audio_file": "gr-e-46-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Frozen water expands. The cracks grow wider. Bits of rock break off.",
+          "hfw": [
+            "water",
+            "expands",
+            "The",
+            "cracks",
+            "grow",
+            "wider",
+            "Bits",
+            "of",
+            "rock",
+            "break",
+            "off"
+          ],
+          "decodable": [
+            "Frozen"
+          ],
+          "image_file": "gr-e-46-page-3.png",
+          "audio_file": "gr-e-46-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Rivers carry sand and stone. They grind against canyon walls, carving deep paths.",
+          "hfw": [
+            "carry",
+            "sand",
+            "and",
+            "stone",
+            "They",
+            "grind",
+            "against",
+            "canyon",
+            "walls",
+            "carving",
+            "deep",
+            "paths"
+          ],
+          "decodable": [
+            "Rivers"
+          ],
+          "image_file": "gr-e-46-page-4.png",
+          "audio_file": "gr-e-46-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Waves hit the shore again and again. They smooth rocks and shape beaches.",
+          "hfw": [
+            "hit",
+            "the",
+            "shore",
+            "again",
+            "and",
+            "again",
+            "They",
+            "smooth",
+            "rocks",
+            "and",
+            "shape",
+            "beaches"
+          ],
+          "decodable": [
+            "Waves"
+          ],
+          "image_file": "gr-e-46-page-5.png",
+          "audio_file": "gr-e-46-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Every river valley, every canyon, every beach tells a water story.",
+          "hfw": [
+            "Every",
+            "river",
+            "valley",
+            "every",
+            "canyon",
+            "every",
+            "beach",
+            "tells",
+            "a",
+            "water",
+            "story"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-46-page-6.png",
+          "audio_file": "gr-e-46-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-46-cover.png",
+      "word_audio_prefix": "gr-e-46"
+    },
+    "gr-e-47": {
+      "book_id": "gr-e-47",
+      "title": "Planning a Safe Route",
+      "type": "nonfiction",
+      "level": "E",
+      "target_skills": "spatial reasoning, safety concepts, procedural planning",
+      "theme": "how to plan safe walking routes",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Getting from one place to another takes planning. A safe route keeps you out of danger.",
+          "hfw": [
+            "Getting",
+            "from",
+            "one",
+            "place",
+            "to",
+            "another",
+            "takes",
+            "planning",
+            "A",
+            "safe",
+            "route",
+            "keeps",
+            "you",
+            "out",
+            "of",
+            "danger"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-47-page-1.png",
+          "audio_file": "gr-e-47-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Start by looking at a map. Find your home and your goal. Trace the streets between them.",
+          "hfw": [
+            "by",
+            "looking",
+            "at",
+            "a",
+            "map",
+            "Find",
+            "your",
+            "home",
+            "and",
+            "your",
+            "goal",
+            "Trace",
+            "the",
+            "streets",
+            "between",
+            "them"
+          ],
+          "decodable": [
+            "Start"
+          ],
+          "image_file": "gr-e-47-page-2.png",
+          "audio_file": "gr-e-47-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Pick paths with sidewalks. Walking on the street is risky. Sidewolds separate you from cars.",
+          "hfw": [
+            "with",
+            "sidewalks",
+            "Walking",
+            "on",
+            "the",
+            "street",
+            "is",
+            "risky",
+            "you",
+            "from",
+            "cars"
+          ],
+          "decodable": [
+            "paths"
+          ],
+          "image_file": "gr-e-47-page-3.png",
+          "audio_file": "gr-e-47-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Choose well-lit streets. Darkness hides tripe and other hazards. Light helps you see.",
+          "hfw": [
+            "well",
+            "lit",
+            "streets",
+            "Darkness",
+            "hides",
+            "and",
+            "other",
+            "Light",
+            "helps",
+            "you",
+            "see"
+          ],
+          "decodable": [
+            "Choose",
+            "hazards"
+          ],
+          "image_file": "gr-e-47-page-4.png",
+          "audio_file": "gr-e-47-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Cross at corners and use crosswalks. Drivers expect walkers there. Always look both ways.",
+          "hfw": [
+            "at",
+            "corners",
+            "and",
+            "use",
+            "crosswalks",
+            "Drivers",
+            "expect",
+            "walkers",
+            "there",
+            "Always",
+            "look",
+            "both",
+            "ways"
+          ],
+          "decodable": [
+            "Cross"
+          ],
+          "image_file": "gr-e-47-page-5.png",
+          "audio_file": "gr-e-47-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "A good route is safe, short, and simple. Plan ahead, walk smart, and stay alert.",
+          "hfw": [
+            "A",
+            "good",
+            "route",
+            "is",
+            "safe",
+            "short",
+            "and",
+            "simple",
+            "Plan",
+            "ahead",
+            "walk",
+            "smart",
+            "and",
+            "stay",
+            "alert"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-47-page-6.png",
+          "audio_file": "gr-e-47-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-47-cover.png",
+      "word_audio_prefix": "gr-e-47"
+    },
+    "gr-e-48": {
+      "book_id": "gr-e-48",
+      "title": "Why Animals Migrate",
+      "type": "nonfiction",
+      "level": "E",
+      "target_skills": "animal behavior, seasonal adaptation, ecosystem connections",
+      "theme": "the reasons and methods of animal migration",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Every year, billions of animals travel long distances. This journey is called migration.",
+          "hfw": [
+            "Every",
+            "year",
+            "billions",
+            "of",
+            "animals",
+            "travel",
+            "long",
+            "distances",
+            "This",
+            "journey",
+            "is",
+            "called"
+          ],
+          "decodable": [
+            "migration"
+          ],
+          "image_file": "gr-e-48-page-1.png",
+          "audio_file": "gr-e-48-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Most animals migrate to find food. When winter comes, insects and plants disappear.",
+          "hfw": [
+            "Most",
+            "animals",
+            "migrate",
+            "to",
+            "find",
+            "food",
+            "When",
+            "winter",
+            "comes",
+            "insects",
+            "and",
+            "plants",
+            "disappear"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-48-page-2.png",
+          "audio_file": "gr-e-48-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "Birds fly south to warm places. They follow the same paths their parents used.",
+          "hfw": [
+            "fly",
+            "south",
+            "to",
+            "warm",
+            "places",
+            "They",
+            "follow",
+            "the",
+            "same",
+            "paths",
+            "their",
+            "parents",
+            "used"
+          ],
+          "decodable": [
+            "Birds"
+          ],
+          "image_file": "gr-e-48-page-3.png",
+          "audio_file": "gr-e-48-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "Some whales swim to cold waters to feed. There, tiny sea creatures bloom in summer.",
+          "hfw": [
+            "Some",
+            "whales",
+            "swim",
+            "to",
+            "cold",
+            "waters",
+            "to",
+            "feed",
+            "There",
+            "tiny",
+            "sea",
+            "creatures",
+            "bloom",
+            "in",
+            "summer"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-48-page-4.png",
+          "audio_file": "gr-e-48-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Monarch butterflies travel thousands of miles. It takes four generations to complete the round trip!",
+          "hfw": [
+            "travel",
+            "thousands",
+            "of",
+            "miles",
+            "It",
+            "takes",
+            "four",
+            "generations",
+            "to",
+            "complete",
+            "the",
+            "round",
+            "trip"
+          ],
+          "decodable": [
+            "Monarch",
+            "butterflies"
+          ],
+          "image_file": "gr-e-48-page-5.png",
+          "audio_file": "gr-e-48-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Migrating animals do not use maps. They use the sun, stars, and Earths magnetic field to guide them.",
+          "hfw": [
+            "animals",
+            "do",
+            "not",
+            "use",
+            "maps",
+            "They",
+            "use",
+            "the",
+            "sun",
+            "stars",
+            "and",
+            "magnetic",
+            "field",
+            "to",
+            "guide",
+            "them"
+          ],
+          "decodable": [
+            "Migrating",
+            "Earths"
+          ],
+          "image_file": "gr-e-48-page-6.png",
+          "audio_file": "gr-e-48-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-48-cover.png",
+      "word_audio_prefix": "gr-e-48"
+    },
+    "gr-e-49": {
+      "book_id": "gr-e-49",
+      "title": "How Simple Machines Help",
+      "type": "nonfiction",
+      "level": "E",
+      "target_skills": "physics basics, six simple machines, real-world applications",
+      "theme": "simple machines and their uses",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "A simple machine is a tool that makes work easier. There are six kinds.",
+          "hfw": [
+            "is",
+            "a",
+            "tool",
+            "that",
+            "makes",
+            "work",
+            "easier",
+            "There",
+            "are",
+            "six",
+            "kinds"
+          ],
+          "decodable": [
+            "simple",
+            "machine"
+          ],
+          "image_file": "gr-e-49-page-1.png",
+          "audio_file": "gr-e-49-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "A lever helps you lift heavy things. A seesaw on the playground is a lever.",
+          "hfw": [
+            "helps",
+            "you",
+            "lift",
+            "heavy",
+            "things",
+            "A",
+            "on",
+            "the",
+            "playground",
+            "is",
+            "a",
+            "lever"
+          ],
+          "decodable": [
+            "lever",
+            "seesaw"
+          ],
+          "image_file": "gr-e-49-page-2.png",
+          "audio_file": "gr-e-49-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "A wheel and axle let things roll. Bikes, cars, and scooters all use this pair.",
+          "hfw": [
+            "and",
+            "axle",
+            "let",
+            "things",
+            "roll",
+            "and",
+            "all",
+            "use",
+            "this"
+          ],
+          "decodable": [
+            "wheel",
+            "Bikes",
+            "cars",
+            "scooters"
+          ],
+          "image_file": "gr-e-49-page-3.png",
+          "audio_file": "gr-e-49-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "A pulley uses a rope and wheel to lift loads up high. Flagpoles use pulleys.",
+          "hfw": [
+            "uses",
+            "a",
+            "rope",
+            "and",
+            "wheel",
+            "to",
+            "lift",
+            "loads",
+            "up",
+            "high",
+            "Flagpoles",
+            "use"
+          ],
+          "decodable": [
+            "pulley",
+            "pulleys"
+          ],
+          "image_file": "gr-e-49-page-4.png",
+          "audio_file": "gr-e-49-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "An inclined plane is a slanted surface. Ramps help wheelchairs roll up stairs.",
+          "hfw": [
+            "is",
+            "a",
+            "slanted",
+            "surface",
+            "help",
+            "wheelchairs",
+            "roll",
+            "up"
+          ],
+          "decodable": [
+            "inclined",
+            "plane",
+            "Ramps",
+            "stairs"
+          ],
+          "image_file": "gr-e-49-page-5.png",
+          "audio_file": "gr-e-49-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Simple machines are everywhere. They make our daily tasks possible.",
+          "hfw": [
+            "are",
+            "everywhere",
+            "They",
+            "make",
+            "our",
+            "daily",
+            "tasks",
+            "possible"
+          ],
+          "decodable": [
+            "simple",
+            "machines"
+          ],
+          "image_file": "gr-e-49-page-6.png",
+          "audio_file": "gr-e-49-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-49-cover.png",
+      "word_audio_prefix": "gr-e-49"
+    },
+    "gr-e-50": {
+      "book_id": "gr-e-50",
+      "title": "Reading Like a Researcher",
+      "type": "nonfiction",
+      "level": "E",
+      "target_skills": "research habits, active reading, literacy metacognition",
+      "theme": "how to read and learn like a researcher",
+      "pages": [
+        {
+          "page_num": 1,
+          "text": "Researchers do not just read words. They ask questions, make connections, and dig deeper.",
+          "hfw": [
+            "do",
+            "not",
+            "just",
+            "read",
+            "words",
+            "They",
+            "ask",
+            "questions",
+            "make",
+            "connections",
+            "and",
+            "dig",
+            "deeper"
+          ],
+          "decodable": [
+            "Researchers"
+          ],
+          "image_file": "gr-e-50-page-1.png",
+          "audio_file": "gr-e-50-page-1.mp3"
+        },
+        {
+          "page_num": 2,
+          "text": "Before reading, look at the title and pictures. What do you already know? What do you hope to learn?",
+          "hfw": [
+            "Before",
+            "reading",
+            "look",
+            "at",
+            "the",
+            "title",
+            "and",
+            "pictures",
+            "What",
+            "do",
+            "you",
+            "already",
+            "know",
+            "What",
+            "do",
+            "you",
+            "hope",
+            "to",
+            "learn"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-50-page-2.png",
+          "audio_file": "gr-e-50-page-2.mp3"
+        },
+        {
+          "page_num": 3,
+          "text": "While reading, pause to think. Does this make sense? Highlight important facts.",
+          "hfw": [
+            "While",
+            "reading",
+            "pause",
+            "to",
+            "think",
+            "Does",
+            "this",
+            "make",
+            "sense",
+            "Highlight",
+            "important",
+            "facts"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-50-page-3.png",
+          "audio_file": "gr-e-50-page-3.mp3"
+        },
+        {
+          "page_num": 4,
+          "text": "After reading, summarize what you learned. Say it in your own words.",
+          "hfw": [
+            "After",
+            "reading",
+            "summarize",
+            "what",
+            "you",
+            "learned",
+            "Say",
+            "it",
+            "in",
+            "your",
+            "own",
+            "words"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-50-page-4.png",
+          "audio_file": "gr-e-50-page-4.mp3"
+        },
+        {
+          "page_num": 5,
+          "text": "Good readers check sources. Is the author an expert? Is the information current?",
+          "hfw": [
+            "Good",
+            "readers",
+            "check",
+            "sources",
+            "Is",
+            "the",
+            "author",
+            "an",
+            "expert",
+            "Is",
+            "the",
+            "information",
+            "current"
+          ],
+          "decodable": [],
+          "image_file": "gr-e-50-page-5.png",
+          "audio_file": "gr-e-50-page-5.mp3"
+        },
+        {
+          "page_num": 6,
+          "text": "Reading is not just looking at words. It is thinking, wondering, and growing your mind.",
+          "hfw": [
+            "is",
+            "not",
+            "just",
+            "looking",
+            "at",
+            "words",
+            "It",
+            "is",
+            "thinking",
+            "wondering",
+            "and",
+            "growing",
+            "your",
+            "mind"
+          ],
+          "decodable": [
+            "Reading"
+          ],
+          "image_file": "gr-e-50-page-6.png",
+          "audio_file": "gr-e-50-page-6.mp3"
+        }
+      ],
+      "cover_image": "gr-e-50-cover.png",
+      "word_audio_prefix": "gr-e-50"
+    }
+  }
+}
