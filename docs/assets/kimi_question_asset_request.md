@@ -17,14 +17,11 @@ No active validated runtime questions are currently blocked by missing required 
 
 ## Guided Reading Pack Requests
 
-### Current MVP Samples To Supersede
+### Pack 8 Guided Reading Status
 
-| Skill | Book ID | Title | Type | Level | Current scope | Request | Priority | Reason needed |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Guided Reading MVP sample | max-map | Max and the Map | fiction | A | 4 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
-| Guided Reading MVP sample | the-little-bag | The Little Bag | fiction | A | 4 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
-| Guided Reading MVP sample | ducks-in-water | Ducks in Water | nonfiction | B | 4 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
-| Guided Reading MVP sample | fish-live-in-water | Fish Live in Water | nonfiction | B | 4 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+Pack 8 has been imported for Guided Reading: 50 approved books, 300 page images, 50 covers, and 300 static page-narration MP3 files now live under `/public/guided-reading/`.
+
+Remaining Guided Reading request: Pack 8 did **not** include word-level audio files, even though its manifest claimed word-audio support. Word-tap audio will appear only when an existing approved LiteracyPath word MP3 is available. A future Kimi request should provide neutral human word-level MP3s for unique words in the 50-book pack.
 
 ### New 50-Book Pack
 

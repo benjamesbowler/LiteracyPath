@@ -1697,7 +1697,23 @@ export function GuidedReadingPage({
                 <h3>{selectedBook.title}</h3>
                 <p>{selectedBook.targetSkills.join(" · ")}</p>
               </div>
-              <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>
+              <div className="guided-page-controls">
+                {page.pageAudio && (
+                  <button
+                    className="lp-button lp-button-secondary"
+                    onClick={() =>
+                      speakText(page.text, page.pageAudio, {
+                        allowBrowserFallback: false,
+                        requireApprovedAudio: false
+                      })
+                    }
+                    type="button"
+                  >
+                    Read Page Aloud
+                  </button>
+                )}
+                <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>
+              </div>
             </div>
 
             <div className="guided-page-layout">

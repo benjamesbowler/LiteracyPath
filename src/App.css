@@ -1100,6 +1100,20 @@ body {
   font-weight: 700;
 }
 
+.guided-page-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.guided-page-controls .lp-button {
+  min-height: 38px;
+  padding: 9px 12px;
+  font-size: 0.86rem;
+}
+
 .guided-page-layout {
   display: grid;
   grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
