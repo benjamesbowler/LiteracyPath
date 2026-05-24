@@ -36,7 +36,11 @@ import { kimiDataset7RuntimeQuestions } from "./data/kimiDataset7RuntimeQuestion
 import { ixlStyleSeedQuestions } from "./data/ixlStyleSeedQuestions";
 import { safeContentExpansionQuestions } from "./data/safeContentExpansionQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
-import { summarizeGuidedReadingRecords } from "./data/guidedReadingBooks";
+import {
+  formatGuidedReadingType,
+  summarizeGuidedReadingProgress,
+  summarizeGuidedReadingRecords
+} from "./data/guidedReadingBooks";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
   enrichInitialSoundPairQuestion,
@@ -317,6 +321,27 @@ function downloadBlob(blob, filename) {
   link.remove();
 
   window.setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+function safeExportFilename(value = "Student") {
+  return String(value || "Student")
+    .replace(/[<>:"/\\|?*\u0000-\u001F]/g, "")
+    .replace(/\s+/g, " ")
+    .trim() || "Student";
+}
+
+function formatExportDateForFilename(date = new Date()) {
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+  return `${day}-${month}-${year}`;
+}
+
+function formatReportDate(value = "") {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toLocaleString();
 }
 
 function isWordRecognitionQuestion(question) {
@@ -4355,6 +4380,101 @@ export default function App() {
     downloadBlob(blob, `${safeName}_reading_data_${today}.csv`);
   }
 
+  async function exportReadingReport() {
+    try {
+      const workbook = await createExcelWorkbook();
+      const progress = summarizeGuidedReadingProgress(guidedReadingRecords);
+      const studentLabel = studentName || "Student";
+      const filenameDate = formatExportDateForFilename(new Date());
+      const filename = `${safeExportFilename(studentLabel)} - ${filenameDate} - Reading Report.xlsx`;
+
+      workbook.creator = "LiteracyPath";
+      workbook.created = new Date();
+
+      const summarySheet = workbook.addWorksheet("Summary");
+      summarySheet.columns = [
+        { header: "Metric", key: "metric", width: 28 },
+        { header: "Value", key: "value", width: 36 }
+      ];
+      [
+        ["Student Name", studentLabel],
+        ["Total Books Read", progress.totalBooksRead],
+        ["Total Fiction", progress.fictionCount],
+        ["Total Non-Fiction", progress.nonfictionCount],
+        ["Level A count", progress.byLevel.A || 0],
+        ["Level B count", progress.byLevel.B || 0],
+        ["Level C count", progress.byLevel.C || 0],
+        ["Level D count", progress.byLevel.D || 0],
+        ["Level E count", progress.byLevel.E || 0],
+        ["Level F count", progress.byLevel.F || 0],
+        ["Total Rereads", progress.totalRereads],
+        ["Latest Reading Date", formatReportDate(progress.latestReadingDate)]
+      ].forEach(([metric, value]) => summarySheet.addRow({ metric, value }));
+
+      const completedSheet = workbook.addWorksheet("Completed Books");
+      completedSheet.columns = [
+        { header: "First Read Date", key: "firstReadAt", width: 24 },
+        { header: "Last Read Date", key: "lastReadAt", width: 24 },
+        { header: "Title", key: "title", width: 32 },
+        { header: "Level", key: "level", width: 10 },
+        { header: "Type", key: "type", width: 16 },
+        { header: "Read Count", key: "readCount", width: 12 },
+        { header: "Pages Completed", key: "completedPages", width: 18 },
+        { header: "Total Pages", key: "totalPages", width: 14 }
+      ];
+      progress.completedBooks.forEach(row => completedSheet.addRow({
+        firstReadAt: formatReportDate(row.firstReadAt),
+        lastReadAt: formatReportDate(row.lastReadAt),
+        title: row.title,
+        level: row.level,
+        type: formatGuidedReadingType(row.type),
+        readCount: row.readCount,
+        completedPages: row.completedPages,
+        totalPages: row.totalPages
+      }));
+
+      const inProgressSheet = workbook.addWorksheet("In Progress Books");
+      inProgressSheet.columns = [
+        { header: "Last Opened Date", key: "lastReadAt", width: 24 },
+        { header: "Title", key: "title", width: 32 },
+        { header: "Level", key: "level", width: 10 },
+        { header: "Type", key: "type", width: 16 },
+        { header: "Pages Completed", key: "completedPages", width: 18 },
+        { header: "Total Pages", key: "totalPages", width: 14 }
+      ];
+      progress.inProgressBooks.forEach(row => inProgressSheet.addRow({
+        lastReadAt: formatReportDate(row.lastReadAt),
+        title: row.title,
+        level: row.level,
+        type: formatGuidedReadingType(row.type),
+        completedPages: row.completedPages,
+        totalPages: row.totalPages
+      }));
+
+      [summarySheet, completedSheet, inProgressSheet].forEach(sheet => {
+        sheet.getRow(1).font = { bold: true };
+        sheet.getRow(1).fill = {
+          type: "pattern",
+          pattern: "solid",
+          fgColor: { argb: "FFEFF6FF" }
+        };
+        sheet.views = [{ state: "frozen", ySplit: 1 }];
+      });
+
+      const buffer = await workbook.xlsx.writeBuffer();
+      downloadBlob(
+        new Blob([buffer], {
+          type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        }),
+        filename
+      );
+      setMessage("Reading report Excel exported.");
+    } catch (error) {
+      console.error("Reading report Excel export failed:", error);
+      setMessage("Could not export the reading report.");
+    }
+  }
+
 
   function startAssessment(stageIndex = currentSkillIndex) {
     answerInFlightRef.current = false;
@@ -4810,6 +4930,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === "guidedReading" && nameSaved && (
         <GuidedReadingPage
+          studentId={studentId}
           studentName={studentName}
           guidedReadingRecords={guidedReadingRecords}
           saveGuidedReadingRecord={saveGuidedReadingRecord}
@@ -4827,6 +4948,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           guidedReadingRecords={guidedReadingRecords}
           exportData={exportData}
           exportCSVData={exportCSVData}
+          exportReadingReport={exportReadingReport}
           letterAssessment={letterAssessment}
           patternAssessment={patternAssessment}
           exportLetterAssessment={exportLetterAssessment}

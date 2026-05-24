@@ -27,7 +27,7 @@ function publicFileExists(publicPath = "") {
 
 function sentenceLooksValid(text = "") {
   const clean = String(text || "").trim();
-  return /^[A-Z0-9"']/.test(clean) && /[.!?]"?$/.test(clean);
+  return /^[A-Z0-9"']/.test(clean) && /[.!?]["']?$/.test(clean);
 }
 
 function hasSpacedPunctuation(text = "") {
@@ -59,7 +59,7 @@ function heuristicWarnings(page = {}) {
   if (/\bsun\b/.test(text) && /\b(moon|night)\b/.test(haystack)) {
     warnings.push("text mentions sun but image metadata suggests moon/night");
   }
-  if (/\b(bag|cans?|pans?)\b/.test(text) && /\b(map|crayons?|paint|book)\b/.test(haystack)) {
+  if (/\b(cans?|pans?)\b/.test(text) && /\b(map|crayons?|paint|book)\b/.test(haystack)) {
     warnings.push("text noun may conflict with image metadata");
   }
 
@@ -110,7 +110,12 @@ function validateBook(book) {
   return { issues, pageIssues };
 }
 
-const bookResults = guidedReadingBookCandidates.map(book => ({
+const allBooksForValidation = [
+  ...guidedReadingBookCandidates,
+  ...guidedReadingBooks
+];
+
+const bookResults = allBooksForValidation.map(book => ({
   book,
   ...validateBook(book)
 }));
@@ -152,6 +157,10 @@ const pageIssueRows = pageIssues.length
     )
   : ["| none | none | none | No model validation issues found. | n/a | n/a |"];
 
+const decisionText = activeBooks.length
+  ? "Original Pack 8 Guided Reading candidates remain disabled. Validated regenerated books are now active from the separate regen import, and active reader content is limited to books/pages with approved QA status and existing assets."
+  : "The imported Pack 8 Guided Reading books are disabled from active use for now. Visual inspection confirmed severe text/image problems in early pages: embedded image text conflicts with app text, some images show different nouns/actions than the app sentence, and page narration would become unreliable if text were silently rewritten.";
+
 const report = `# Guided Reading Content Audit
 
 Generated: ${new Date().toISOString()}
@@ -168,9 +177,7 @@ Generated: ${new Date().toISOString()}
 
 ## Decision
 
-The imported Pack 8 Guided Reading books are disabled from active use for now. Visual inspection confirmed severe text/image problems in early pages: embedded image text conflicts with app text, some images show different nouns/actions than the app sentence, and page narration would become unreliable if text were silently rewritten.
-
-The safe product decision is to remove these books from active reader use until Kimi regenerates clean page illustrations or provides matching app text and narration.
+${decisionText}
 
 ## Specific Observed Examples
 

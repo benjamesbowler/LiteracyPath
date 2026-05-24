@@ -6377,6 +6377,80 @@ export const guidedReadingBooks = [
     }))
 ].filter(book => book.pages.length >= 4);
 
+export function normalizeGuidedReadingType(type = "") {
+  const normalized = String(type || "").toLowerCase().replace(/[^a-z]/g, "");
+  return normalized === "nonfiction" ? "nonfiction" : "fiction";
+}
+
+export function formatGuidedReadingType(type = "") {
+  return normalizeGuidedReadingType(type) === "nonfiction" ? "Non-Fiction" : "Fiction";
+}
+
+export function getGuidedReadingProgress(book = {}, record = {}) {
+  const totalPages = book.pages?.length || record.totalPages || 0;
+  const completedPages = Math.min(
+    totalPages,
+    Math.max(
+      Number(record.completedPages || 0),
+      Object.keys(record.pages || {}).length
+    )
+  );
+  const completed = Boolean(record.completed || record.completedAt || (totalPages && completedPages >= totalPages));
+  const firstReadAt = record.firstReadAt || record.completedAt || "";
+  const lastReadAt = record.lastReadAt || record.completedAt || record.updatedAt || "";
+  const readCount = Math.max(Number(record.readCount || 0), completed ? 1 : 0);
+
+  return {
+    studentId: record.studentId || "",
+    bookId: book.id || record.bookId || "",
+    title: book.title || record.title || "",
+    level: book.level || record.level || "",
+    type: normalizeGuidedReadingType(book.type || record.type || ""),
+    firstReadAt,
+    lastReadAt,
+    readCount,
+    completedPages,
+    totalPages,
+    completed
+  };
+}
+
+export function summarizeGuidedReadingProgress(records = {}) {
+  const rows = guidedReadingBooks
+    .map(book => {
+      const record = records[book.id];
+      if (!record) return null;
+      return getGuidedReadingProgress(book, record);
+    })
+    .filter(Boolean);
+  const completedBooks = rows.filter(row => row.completed);
+  const inProgressBooks = rows.filter(row => !row.completed && row.completedPages > 0);
+  const byLevel = ["A", "B", "C", "D", "E", "F"].reduce((acc, level) => {
+    acc[level] = completedBooks.filter(row => row.level === level).length;
+    return acc;
+  }, {});
+  const fictionCount = completedBooks.filter(row => row.type === "fiction").length;
+  const nonfictionCount = completedBooks.filter(row => row.type === "nonfiction").length;
+  const totalRereads = completedBooks.reduce((sum, row) => sum + Math.max(0, row.readCount - 1), 0);
+  const latestReadingDate = rows
+    .map(row => row.lastReadAt)
+    .filter(Boolean)
+    .sort()
+    .at(-1) || "";
+
+  return {
+    rows,
+    completedBooks,
+    inProgressBooks,
+    totalBooksRead: completedBooks.length,
+    fictionCount,
+    nonfictionCount,
+    byLevel,
+    totalRereads,
+    latestReadingDate
+  };
+}
+
 export function summarizeGuidedReadingRecord(record) {
   const pages = Object.values(record?.pages || {});
   const markEntries = pages.flatMap(page => Object.entries(page.wordMarks || {}));

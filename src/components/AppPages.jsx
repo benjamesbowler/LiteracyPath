@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
+  formatGuidedReadingType,
+  getGuidedReadingProgress,
   guidedReadingBooks,
+  normalizeGuidedReadingType,
+  summarizeGuidedReadingProgress,
   summarizeGuidedReadingRecord,
   summarizeGuidedReadingRecords
 } from "../data/guidedReadingBooks";
@@ -1582,7 +1586,29 @@ function tokenizeReadingText(text = "") {
   });
 }
 
+const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
+
+function getGuidedReadingTypeStats(type) {
+  const normalizedType = normalizeGuidedReadingType(type);
+  const books = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
+  return {
+    type: normalizedType,
+    label: formatGuidedReadingType(normalizedType),
+    books,
+    count: books.length,
+    levels: [...new Set(books.map(book => book.level).filter(Boolean))].sort()
+  };
+}
+
+function getGuidedReadingLevelBooks(type, level) {
+  return guidedReadingBooks.filter(book =>
+    normalizeGuidedReadingType(book.type) === normalizeGuidedReadingType(type) &&
+    book.level === level
+  );
+}
+
 export function GuidedReadingPage({
+  studentId,
   studentName,
   guidedReadingRecords = {},
   saveGuidedReadingRecord,
@@ -1591,6 +1617,8 @@ export function GuidedReadingPage({
   viewReports
 }) {
   const [selectedBookId, setSelectedBookId] = useState(guidedReadingBooks[0]?.id || "");
+  const [selectedLibraryType, setSelectedLibraryType] = useState("");
+  const [selectedLibraryLevel, setSelectedLibraryLevel] = useState("");
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const [readerOpen, setReaderOpen] = useState(false);
@@ -1618,7 +1646,17 @@ export function GuidedReadingPage({
     note: ""
   };
   const summary = summarizeGuidedReadingRecord(record);
+  const readingProgress = selectedBook ? getGuidedReadingProgress(selectedBook, record) : null;
   const readingTokens = tokenizeReadingText(page?.text || "");
+  const typeCards = ["fiction", "nonfiction"]
+    .map(getGuidedReadingTypeStats)
+    .filter(card => card.count > 0);
+  const availableLevels = selectedLibraryType
+    ? guidedReadingLevels.filter(level => getGuidedReadingLevelBooks(selectedLibraryType, level).length > 0)
+    : [];
+  const visibleLibraryBooks = selectedLibraryType && selectedLibraryLevel
+    ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel)
+    : [];
 
   useEffect(() => {
     return () => {
@@ -1637,6 +1675,11 @@ export function GuidedReadingPage({
     setHighlightedWordIndex(null);
     stopPageAudio();
   }, [selectedBookId, pageIndex]);
+
+  useEffect(() => {
+    if (!readerOpen || !selectedBook || !page) return;
+    touchBookProgress(pageIndex);
+  }, [readerOpen, selectedBookId, pageIndex]);
 
   useEffect(() => {
     if (!readerOpen || showSummary) return undefined;
@@ -1661,8 +1704,10 @@ export function GuidedReadingPage({
   }, [readerOpen, showSummary, pageIndex, selectedBook?.pages?.length]);
 
   function updateRecord(patch) {
+    if (!selectedBook) return;
     saveGuidedReadingRecord(selectedBook.id, {
       ...record,
+      studentId,
       bookId: selectedBook.id,
       title: selectedBook.title,
       type: selectedBook.type,
@@ -1672,7 +1717,32 @@ export function GuidedReadingPage({
     });
   }
 
+  function touchBookProgress(nextPageIndex = pageIndex, patch = {}) {
+    if (!selectedBook) return;
+    const now = new Date().toISOString();
+    const totalPages = selectedBook.pages.length;
+    const previous = guidedReadingRecords[selectedBook.id] || record || {};
+
+    saveGuidedReadingRecord(selectedBook.id, {
+      ...previous,
+      studentId,
+      bookId: selectedBook.id,
+      title: selectedBook.title,
+      type: normalizeGuidedReadingType(selectedBook.type),
+      level: selectedBook.level,
+      firstReadAt: previous.firstReadAt || now,
+      lastReadAt: now,
+      completedPages: Math.min(totalPages, Math.max(Number(previous.completedPages || 0), nextPageIndex + 1)),
+      totalPages,
+      completed: Boolean(previous.completed || previous.completedAt),
+      readCount: Number(previous.readCount || (previous.completed || previous.completedAt ? 1 : 0)),
+      updatedAt: now,
+      ...patch
+    });
+  }
+
   function updatePageRecord(nextPageRecord) {
+    if (!page) return;
     updateRecord({
       pages: {
         ...record.pages,
@@ -1710,8 +1780,22 @@ export function GuidedReadingPage({
   }
 
   function completeBook() {
+    if (!selectedBook) return;
     stopPageAudio();
-    updateRecord({ completedAt: new Date().toISOString() });
+    const now = new Date().toISOString();
+    const wasCompleted = Boolean(record.completed || record.completedAt);
+    const nextReadCount = wasCompleted
+      ? Number(record.readCount || 1) + 1
+      : Math.max(1, Number(record.readCount || 0) + 1);
+
+    touchBookProgress(selectedBook.pages.length - 1, {
+      completed: true,
+      completedAt: record.completedAt || now,
+      lastReadAt: now,
+      readCount: nextReadCount,
+      completedPages: selectedBook.pages.length,
+      totalPages: selectedBook.pages.length
+    });
     setShowSummary(true);
   }
 
@@ -1900,19 +1984,104 @@ export function GuidedReadingPage({
         </div>
       </section>
 
-      <section className="guided-reading-library" aria-label="Guided reading book library">
-        {guidedReadingBooks.map(book => (
-          <button
-            className={book.id === selectedBook.id ? "guided-book-card active" : "guided-book-card"}
-            key={book.id}
-            onClick={() => changeBook(book.id)}
-            type="button"
-          >
-            <GuidedReadingImage alt={`${book.title} cover`} className="guided-book-cover" src={book.coverImage} />
-            <span>{book.title}</span>
-            <small>{book.type} · Level {book.level}</small>
-          </button>
-        ))}
+      <section className="guided-library-breadcrumb" aria-label="Guided reading library path">
+        <button
+          className={!selectedLibraryType ? "active" : ""}
+          onClick={() => {
+            setSelectedLibraryType("");
+            setSelectedLibraryLevel("");
+          }}
+          type="button"
+        >
+          Guided Reading
+        </button>
+        {selectedLibraryType && (
+          <>
+            <span>/</span>
+            <button
+              className={!selectedLibraryLevel ? "active" : ""}
+              onClick={() => setSelectedLibraryLevel("")}
+              type="button"
+            >
+              {formatGuidedReadingType(selectedLibraryType)}
+            </button>
+          </>
+        )}
+        {selectedLibraryLevel && (
+          <>
+            <span>/</span>
+            <strong>Level {selectedLibraryLevel}</strong>
+          </>
+        )}
+      </section>
+
+      <section className="guided-reading-library" aria-label="Guided reading library">
+        {!selectedLibraryType && (
+          <div className="guided-category-grid">
+            {typeCards.map(card => (
+              <button
+                className="guided-category-card"
+                key={card.type}
+                onClick={() => {
+                  setSelectedLibraryType(card.type);
+                  setSelectedLibraryLevel("");
+                }}
+                type="button"
+              >
+                <span className="guided-category-icon">{card.type === "fiction" ? "F" : "N"}</span>
+                <strong>{card.label}</strong>
+                <small>{card.count} books · Levels {card.levels.join(", ")}</small>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {selectedLibraryType && !selectedLibraryLevel && (
+          <div className="guided-level-grid">
+            {availableLevels.map(level => {
+              const books = getGuidedReadingLevelBooks(selectedLibraryType, level);
+              const completedCount = books.filter(book =>
+                getGuidedReadingProgress(book, guidedReadingRecords[book.id]).completed
+              ).length;
+
+              return (
+                <button
+                  className="guided-level-card"
+                  key={level}
+                  onClick={() => setSelectedLibraryLevel(level)}
+                  type="button"
+                >
+                  <strong>Level {level}</strong>
+                  <span>{books.length} books</span>
+                  <small>{completedCount}/{books.length} completed</small>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {selectedLibraryType && selectedLibraryLevel && (
+          <div className="guided-book-grid">
+            {visibleLibraryBooks.map(book => {
+              const progress = getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
+
+              return (
+                <button
+                  className={book.id === selectedBook.id ? "guided-book-card active" : "guided-book-card"}
+                  key={book.id}
+                  onClick={() => changeBook(book.id)}
+                  type="button"
+                >
+                  {progress.completed && <span className="guided-complete-badge" aria-label="Completed">✓</span>}
+                  <GuidedReadingImage alt={`${book.title} cover`} className="guided-book-cover" src={book.coverImage} />
+                  <span>{book.title}</span>
+                  <small>{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</small>
+                  <b>{progress.completed ? "Read Again" : "Read"}</b>
+                </button>
+              );
+            })}
+          </div>
+        )}
       </section>
 
       {readerOpen && !showSummary ? (
@@ -2010,6 +2179,9 @@ export function GuidedReadingPage({
                   </div>
 
                   {audioNotice && <p className="guided-audio-notice">{audioNotice}</p>}
+                  {pageIndex === selectedBook.pages.length - 1 && readingProgress?.completed && (
+                    <p className="guided-complete-message">Book completed. You can finish again to record a reread.</p>
+                  )}
 
                   <div className="guided-mark-legend" aria-label="Word marking legend">
                     <span><b className="legend-dot correct"></b> Read correctly</span>
@@ -2077,10 +2249,18 @@ export function GuidedReadingPage({
           <div>
             <p className="panel-label">Book Complete</p>
             <h3>{selectedBook.title}</h3>
-            <p>{summary.completedAt ? `Completed ${new Date(summary.completedAt).toLocaleString()}` : "Summary saved locally."}</p>
+            <p>{readingProgress?.lastReadAt ? `Last read ${new Date(readingProgress.lastReadAt).toLocaleString()}` : "Summary saved locally."}</p>
           </div>
 
           <div className="checkpoint-result-grid">
+            <div>
+              <span>Read count</span>
+              <strong>{readingProgress?.readCount || 1}</strong>
+            </div>
+            <div>
+              <span>Pages completed</span>
+              <strong>{readingProgress?.completedPages || selectedBook.pages.length}/{selectedBook.pages.length}</strong>
+            </div>
             <div>
               <span>Total words attempted</span>
               <strong>{summary.attempted}</strong>
@@ -2156,11 +2336,15 @@ export function TeacherReportsPage({
   guidedReadingRecords = {},
   exportData,
   exportCSVData,
+  exportReadingReport,
   letterAssessment = [],
   patternAssessment = [],
   exportLetterAssessment,
   exportPatternAssessment
 }) {
+  const readingProgress = summarizeGuidedReadingProgress(guidedReadingRecords);
+  const guidedSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
+
   return (
     <div className="teacher-product-page">
       <section className="teacher-page-header">
@@ -2181,10 +2365,40 @@ export function TeacherReportsPage({
         </article>
 
         <article className="teacher-action-panel">
-          <h3>Guided Reading Summary</h3>
-          {summarizeGuidedReadingRecords(guidedReadingRecords).length > 0 ? (
+          <h3>Reading Report</h3>
+          <p>
+            {readingProgress.totalBooksRead} books completed · {readingProgress.inProgressBooks.length} in progress · {readingProgress.totalRereads} rereads
+          </p>
+          <div className="guided-reading-report-mini">
+            <span>Fiction: {readingProgress.fictionCount}</span>
+            <span>Non-Fiction: {readingProgress.nonfictionCount}</span>
+            <span>Latest: {readingProgress.latestReadingDate ? new Date(readingProgress.latestReadingDate).toLocaleDateString() : "Not yet"}</span>
+          </div>
+          {readingProgress.completedBooks.length > 0 && (
+            <div className="reading-report-table compact">
+              {readingProgress.completedBooks.slice(0, 6).map(row => (
+                <article key={row.bookId}>
+                  <strong>{row.title}</strong>
+                  <span>Level {row.level} · {formatGuidedReadingType(row.type)} · read {row.readCount}x</span>
+                </article>
+              ))}
+            </div>
+          )}
+          <div className="teacher-action-list">
+            <button className="lp-button lp-button-primary" onClick={exportReadingReport} type="button">
+              Export Reading Report
+            </button>
+            <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
+              Open Guided Reading
+            </button>
+          </div>
+        </article>
+
+        <article className="teacher-action-panel">
+          <h3>Guided Reading Conference Notes</h3>
+          {guidedSummaries.length > 0 ? (
             <div className="guided-record-list compact">
-              {summarizeGuidedReadingRecords(guidedReadingRecords).map(item => (
+              {guidedSummaries.map(item => (
                 <article key={item.bookId}>
                   <strong>{item.title}</strong>
                   <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
@@ -2195,9 +2409,6 @@ export function TeacherReportsPage({
           ) : (
             <p>No guided reading records saved for this student yet.</p>
           )}
-          <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
-            Open Guided Reading
-          </button>
         </article>
 
         <article className="teacher-action-panel">
