@@ -1,3 +1,5 @@
+import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
+
 const wordAudio = word => `/audio/child-mode/words/${word.toLowerCase().replace(/[^a-z0-9'-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
 
 const normalizeReadingText = text =>
@@ -6357,13 +6359,23 @@ export const guidedReadingBookCandidates = rawGuidedReadingBooks.map(book => ({
   }))
 }));
 
-export const guidedReadingBooks = guidedReadingBookCandidates
+const approvedGuidedReadingCandidates = guidedReadingBookCandidates
   .filter(book => book.active !== false && book.qaStatus === "approved")
   .map(book => ({
     ...book,
     pages: book.pages.filter(page => page.active !== false && page.qaStatus === "approved")
   }))
   .filter(book => book.pages.length >= 4);
+
+export const guidedReadingBooks = [
+  ...approvedGuidedReadingCandidates,
+  ...guidedReadingRegenBooks
+    .filter(book => book.active !== false && book.qaStatus === "approved")
+    .map(book => ({
+      ...book,
+      pages: (book.pages || []).filter(page => page.active !== false && page.qaStatus === "approved")
+    }))
+].filter(book => book.pages.length >= 4);
 
 export function summarizeGuidedReadingRecord(record) {
   const pages = Object.values(record?.pages || {});

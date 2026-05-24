@@ -1,22 +1,20 @@
 # Guided Reading Content Audit
 
-Generated: 2026-05-24T04:05:03.845Z
+Generated: 2026-05-24T07:28:22.161Z
 
 ## Summary
 
 - Candidate books checked: 50
 - Candidate pages checked: 300
-- Active approved books: 0
-- Active approved pages: 0
+- Active approved books: 46
+- Active approved pages: 276
 - Disabled books: 50
 - Disabled pages: 300
 - Active validation errors: 0
 
 ## Decision
 
-The imported Pack 8 Guided Reading books are disabled from active use for now. Visual inspection confirmed severe text/image problems in early pages: embedded image text conflicts with app text, some images show different nouns/actions than the app sentence, and page narration would become unreliable if text were silently rewritten.
-
-The safe product decision is to remove these books from active reader use until Kimi regenerates clean page illustrations or provides matching app text and narration.
+Original Pack 8 Guided Reading candidates remain disabled. Validated regenerated books are now active from the separate regen import, and active reader content is limited to books/pages with approved QA status and existing assets.
 
 ## Specific Observed Examples
 
@@ -43,8 +41,8 @@ The safe product decision is to remove these books from active reader use until 
 | gr-a-02 | Sam Can Help | 4 | missing pageDescription metadata; text noun may conflict with image metadata | Sam can pick up the bags. | needs_regeneration |
 | gr-a-02 | Sam Can Help | 5 | missing pageDescription metadata; text noun may conflict with image metadata | I can help, says Nan. | needs_regeneration |
 | gr-a-02 | Sam Can Help | 6 | missing pageDescription metadata | The class is clean! | needs_regeneration |
-| gr-a-03 | The Map in the Bag | 1 | missing pageDescription metadata; text noun may conflict with image metadata | Nan and Sam see a bag. | needs_regeneration |
-| gr-a-03 | The Map in the Bag | 2 | missing pageDescription metadata; text noun may conflict with image metadata | A map is in the bag! | needs_regeneration |
+| gr-a-03 | The Map in the Bag | 1 | missing pageDescription metadata | Nan and Sam see a bag. | needs_regeneration |
+| gr-a-03 | The Map in the Bag | 2 | missing pageDescription metadata | A map is in the bag! | needs_regeneration |
 | gr-a-03 | The Map in the Bag | 3 | missing pageDescription metadata | The map has an X. | needs_regeneration |
 | gr-a-03 | The Map in the Bag | 4 | missing pageDescription metadata | Nan and Sam run to the X. | needs_regeneration |
 | gr-a-03 | The Map in the Bag | 5 | missing pageDescription metadata | The X is on a mat. | needs_regeneration |
@@ -103,7 +101,7 @@ The safe product decision is to remove these books from active reader use until 
 | gr-b-07 | The Quiet Bell | 4 | missing pageDescription metadata | Tess gets a shell and a spoon. | needs_regeneration |
 | gr-b-07 | The Quiet Bell | 5 | missing pageDescription metadata | She bangs the spoon on the shell. | needs_regeneration |
 | gr-b-07 | The Quiet Bell | 6 | missing pageDescription metadata; text noun may conflict with image metadata | Now the class can hear! Tess made a new bell. | needs_regeneration |
-| gr-b-08 | A Lunch for Two | 1 | missing pageDescription metadata; text noun may conflict with image metadata | Dell has a big lunch bag. | needs_regeneration |
+| gr-b-08 | A Lunch for Two | 1 | missing pageDescription metadata | Dell has a big lunch bag. | needs_regeneration |
 | gr-b-08 | A Lunch for Two | 2 | missing pageDescription metadata | She sees Nell with no lunch. | needs_regeneration |
 | gr-b-08 | A Lunch for Two | 3 | missing pageDescription metadata | Will you share? asks Nell. | needs_regeneration |
 | gr-b-08 | A Lunch for Two | 4 | missing pageDescription metadata | Yes! says Dell. She splits the sandwich. | needs_regeneration |
@@ -128,7 +126,7 @@ The safe product decision is to remove these books from active reader use until 
 | gr-c-11 | The Bridge of Sticks | 5 | missing pageDescription metadata | Mud seals the cracks. Leaves cover the top. | needs_regeneration |
 | gr-c-11 | The Bridge of Sticks | 6 | missing pageDescription metadata | The bridge holds! Together, they made a safe path. | needs_regeneration |
 | gr-c-12 | The Lost Paintbrush | 1 | missing pageDescription metadata | Rosa needs her paintbrush for art class. | needs_regeneration |
-| gr-c-12 | The Lost Paintbrush | 2 | missing pageDescription metadata; text noun may conflict with image metadata | She looks in her desk. She looks in her bag. | needs_regeneration |
+| gr-c-12 | The Lost Paintbrush | 2 | missing pageDescription metadata | She looks in her desk. She looks in her bag. | needs_regeneration |
 | gr-c-12 | The Lost Paintbrush | 3 | missing pageDescription metadata | The brush is gone! Rosa feels upset. | needs_regeneration |
 | gr-c-12 | The Lost Paintbrush | 4 | missing pageDescription metadata | She sees a feather on the floor. | needs_regeneration |
 | gr-c-12 | The Lost Paintbrush | 5 | missing pageDescription metadata | Rosa dips the feather in paint. It makes fine lines! | needs_regeneration |

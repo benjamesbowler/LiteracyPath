@@ -9,7 +9,8 @@
     "analyze": "ANALYZE_BUNDLE=true vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "validate:guided-reading": "node tools/auditGuidedReadingContent.js"
+    "validate:guided-reading": "node tools/auditGuidedReadingContent.js",
+    "validate:guided-reading-regen": "node tools/validateGuidedReadingRegenPack.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",
