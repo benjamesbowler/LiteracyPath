@@ -1,6 +1,7 @@
 import { getApprovedAudioPath } from "./data/audioPreferenceManifest.js";
 import { validateQuestionTemplate } from "./data/templateValidationRules.js";
 import { getEarlyPhonicsAndAudioIssues } from "./data/earlyPhonicsValidation.js";
+import { getRhymeGroup, getRhymeOptionMatches, getRhymePairMatches } from "./data/rhymeGroups.js";
 
 const BLEND_PATTERNS = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];
 const DIGRAPH_PATTERNS = ["sh", "ch", "th", "wh", "ph", "ck"];
@@ -34,11 +35,6 @@ function finalUnit(word) {
   if (normalized.endsWith("se")) return "s";
   if (normalized.length > 2 && normalized.endsWith("e")) return normalized.at(-2) || "";
   return normalized.at(-1) || "";
-}
-
-function rhymeFamily(word) {
-  const normalized = normalizedWord(word);
-  return normalized.slice(-2);
 }
 
 function shortVowel(word) {
@@ -95,9 +91,9 @@ function phonicsAmbiguityIssue(question) {
   }
 
   if ((formatType === "LISTEN_FIND_RHYME" || formatType === "READ_FIND_RHYME") && question?.targetWord) {
-    const targetFamily = rhymeFamily(question.targetWord);
-    const matchCount = countMatchingChoices(question, choice => rhymeFamily(choice) === targetFamily);
-    return matchCount === 1 ? "" : `expected exactly one ${targetFamily} rhyme answer, found ${matchCount}`;
+    const { targetGroup, matches } = getRhymeOptionMatches(question.targetWord, choices(question));
+    if (!targetGroup) return `unknown rhyme group for target word "${question.targetWord}"`;
+    return matches.length === 1 ? "" : `expected exactly one ${targetGroup} rhyme answer, found ${matches.length}`;
   }
 
   if (formatType === "LISTEN_CHOOSE_VOWEL") {
@@ -123,8 +119,19 @@ function phonicsAmbiguityIssue(question) {
   }
 
   if (qType === "rhyme_pair" && target) {
-    const matched = choices(question).filter(choice => rhymeFamily(choice) === target);
+    const matched = getRhymePairMatches(target, choices(question));
     return matched.length === 2 ? "" : `expected exactly two ${target} rhyme pair answers, found ${matched.length}`;
+  }
+
+  if (normalize(question?.skill).includes("rhym") && question?.targetWord) {
+    const { targetGroup, matches } = getRhymeOptionMatches(question.targetWord, choices(question));
+    if (!targetGroup) return `unknown rhyme group for target word "${question.targetWord}"`;
+    return matches.length === 1 ? "" : `expected exactly one ${targetGroup} rhyme answer, found ${matches.length}`;
+  }
+
+  if (normalize(question?.skill).includes("rhym") && question?.answer) {
+    const answerGroup = getRhymeGroup(question.answer);
+    if (!answerGroup) return `unknown rhyme group for answer "${question.answer}"`;
   }
 
   const patternPrompt = text.match(/\b(?:starts with|has the|contains the) ([a-z]{2,3})\b/)?.[1];
@@ -140,6 +147,7 @@ function phonicsAmbiguityIssue(question) {
 
 function imageIssue(question, assetExists) {
   const formatType = String(question?.formatType || "").toUpperCase();
+  const templateType = String(question?.templateType || "").toUpperCase();
   const requiresMainImage =
     formatType === "PICTURE_TO_PRINT_MATCH" ||
     formatType === "PLURAL_IMAGE_SPELLING" ||
@@ -156,11 +164,22 @@ function imageIssue(question, assetExists) {
     if (missing.length) return `missing card images: ${missing.map(card => card.word).join(", ")}`;
   }
 
+  if (["RHYMING_PICTURE", "SHORT_VOWEL_WORD", "BLEND_SOUNDS", "SENTENCE_MATCHES_PICTURE", "VOCABULARY_CATEGORY"].includes(templateType)) {
+    const optionObjects = question?.answerOptions || [];
+    const missingImageOptions = optionObjects.filter(option =>
+      option && typeof option === "object" && !option.image && !option.imageUrl && !option.imagePath
+    );
+    if (missingImageOptions.length) {
+      return `missing answer option images: ${missingImageOptions.map(option => option.word || option.label || option.value).join(", ")}`;
+    }
+  }
+
   if (assetExists) {
     const paths = [
       question?.imagePath,
       ...(question?.imageCards || []).map(card => card.image),
       ...(question?.promptImageCards || []).map(card => card.image),
+      ...(question?.answerOptions || []).map(option => option?.image || option?.imageUrl || option?.imagePath),
       ...Object.values(question?.choiceImages || {}).map(asset => asset?.image)
     ].filter(Boolean);
 

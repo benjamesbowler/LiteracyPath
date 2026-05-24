@@ -3095,8 +3095,12 @@ select:focus {
     min-width: 30px;
   }
 
-  .choices {
-    grid-template-columns: 1fr;
+  .choices,
+  .assessment-card .choices,
+  .visual-word-choices,
+  .initial-sound-card-grid,
+  .visual-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .assessment-shell {
@@ -3173,10 +3177,6 @@ select:focus {
     max-height: 112px;
   }
 
-  .initial-sound-card-grid {
-    grid-template-columns: 1fr;
-  }
-
   .initial-sound-card {
     grid-template-rows: minmax(92px, 1fr) auto;
     padding: 8px;
@@ -3188,10 +3188,6 @@ select:focus {
 
   .initial-sound-image-button img {
     height: 92px;
-  }
-
-  .visual-card-grid {
-    grid-template-columns: 1fr;
   }
 
   .visual-assessment-card {

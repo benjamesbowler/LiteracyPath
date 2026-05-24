@@ -1622,6 +1622,65 @@ function activeAssetGapRows() {
   );
 }
 
+function disabledAssessmentCandidateRows() {
+  return [
+    [
+      "high",
+      "Rhyming",
+      "`ixl_rhyming_picture_30` (`house`/`mouse`)",
+      "Mouse image",
+      "`mouse.png`",
+      "Image: clear child-friendly mouse, no text, neutral background. Audio: `mouse` if not already approved.",
+      "`mouse` currently has no reliable image, so the image-choice rhyme candidate is disabled."
+    ],
+    [
+      "high",
+      "Rhyming",
+      "future `ee` / `eed` group",
+      "Images + clean word audio",
+      "`seed.png`, `feed.png`, `bead.png`, `weed.png`, `need.png`; matching `.mp3` files",
+      "Audio must speak each whole word naturally: seed, feed, bead, weed, need.",
+      "Prevents wrong `seed`/`bed` substitutions. Only true `eed` rhymes should be activated."
+    ],
+    [
+      "high",
+      "Rhyming",
+      "future `ain` group",
+      "Images + clean word audio",
+      "`rain.png`, `train.png`, `chain.png`, `pain.png`, `gain.png`; matching `.mp3` files",
+      "Audio must speak each whole word naturally: rain, train, chain, pain, gain.",
+      "Prevents wrong `rain`/`pan` substitutions. Only true `ain` rhymes should be activated."
+    ],
+    [
+      "medium",
+      "Rhyming",
+      "future `ock` group",
+      "Images + clean word audio",
+      "`sock.png`, `rock.png`, `lock.png`, `dock.png`; matching `.mp3` files",
+      "Audio must speak each whole word naturally: sock, rock, lock, dock.",
+      "Keeps `sock` separate from `duck`; these are not rhymes."
+    ],
+    [
+      "medium",
+      "Rhyming",
+      "future `uck` group",
+      "Images + clean word audio",
+      "`duck.png`, `truck.png`, `luck.png`, `muck.png`; matching `.mp3` files",
+      "Audio must speak each whole word naturally: duck, truck, luck, muck.",
+      "Keeps `duck` separate from `sock`; these are not rhymes."
+    ],
+    [
+      "medium",
+      "Rhyming",
+      "`coverage_rhyme_an_003`",
+      "Can image",
+      "`can.png`",
+      "Image: a plain food/drink can or metal can, no text/brand. Audio: `can` if not already approved.",
+      "Pair-select candidate is disabled because one card image is missing."
+    ]
+  ];
+}
+
 function writeKimiQuestionAssetRequestDoc() {
   const docPath = path.join(rootDir, "docs", "assets", "kimi_question_asset_request.md");
   fs.mkdirSync(path.dirname(docPath), { recursive: true });
@@ -1672,6 +1731,12 @@ function writeKimiQuestionAssetRequestDoc() {
     activeAssetGapRows().length
       ? markdownTable(["Skill", "Question ID", "Target", "Asset role", "Current path", "Priority", "Reason needed"], activeAssetGapRows())
       : "No active validated runtime questions are currently blocked by missing required image/audio assets. Future asset work should focus on Guided Reading and richer optional visual/audio coverage.",
+    "",
+    "## Disabled Assessment Candidates Needing Assets Before Activation",
+    "",
+    "These requests are **not active runtime content**. The app now blocks these questions rather than showing wrong or missing assets. Generate these only if we want to promote the listed candidates back into the active bank.",
+    "",
+    markdownTable(["Priority", "Skill", "Blocked question ID / pattern", "Needed asset", "Exact filename requested", "Prompt / audio text", "Reason"], disabledAssessmentCandidateRows()),
     "",
     "## Guided Reading Pack Requests",
     "",

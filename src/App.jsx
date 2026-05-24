@@ -76,6 +76,7 @@ import {
 } from "./questionFormatFramework";
 import { isAssessmentContentValid } from "./assessmentContentValidation";
 import { prepareNaturalSpeechText } from "./audioSpeechPolicy";
+import { getRhymeGroup } from "./data/rhymeGroups";
 import {
   getAnswerRecordPromptAnswerSignature,
   getAnswerRecordSignature,
@@ -480,7 +481,7 @@ function inferItemMetadata(question) {
 
   if (skill.includes("rhym")) {
     const rhymeMatch = text.match(/rhymes? with ([a-z]+)/);
-    const family = rhymeMatch?.[1]?.slice(-2) || answer.slice(-2);
+    const family = question.itemKey || getRhymeGroup(rhymeMatch?.[1]) || getRhymeGroup(question.targetWord) || getRhymeGroup(answer);
     return family ? { itemKey: family, itemType: "rhyming_family" } : null;
   }
 
@@ -1064,6 +1065,9 @@ export default function App() {
   const [resetProgressDialogOpen, setResetProgressDialogOpen] = useState(false);
   const [resettingProgress, setResettingProgress] = useState(false);
   const answerInFlightRef = useRef(false);
+  const answerHistoryRef = useRef(answerHistory);
+  const roundItemKeysRef = useRef(roundItemKeys);
+  const roundQuestionIdsRef = useRef(roundQuestionIds);
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -1086,6 +1090,18 @@ export default function App() {
 
   const teacherId =
     teacherUser?.id || null;
+
+  useEffect(() => {
+    answerHistoryRef.current = answerHistory;
+  }, [answerHistory]);
+
+  useEffect(() => {
+    roundItemKeysRef.current = roundItemKeys;
+  }, [roundItemKeys]);
+
+  useEffect(() => {
+    roundQuestionIdsRef.current = roundQuestionIds;
+  }, [roundQuestionIds]);
 
   const profileStorageKey =
     teacherId ? `readingMasteryProfile:${teacherId}` : null;
@@ -2366,7 +2382,7 @@ export default function App() {
   }
 
   function getRecentStageItemKeys(stageLabel, limit = ROUND_LENGTH * 3) {
-    return answerHistory
+    return answerHistoryRef.current
       .filter(record => record.stage === stageLabel)
       .slice(-limit)
       .map(inferAnswerRecordMetadata)
@@ -2376,7 +2392,7 @@ export default function App() {
 
   function getAnyStageItemKeys(stageLabel) {
     return new Set(
-      answerHistory
+      answerHistoryRef.current
         .filter(record => record.stage === stageLabel)
         .map(inferAnswerRecordMetadata)
         .filter(metadata => metadata?.itemKey && metadata?.itemType)
@@ -2385,7 +2401,7 @@ export default function App() {
   }
 
   function getRecentStageQuestionIds(stageLabel, limit = ROUND_LENGTH * 3) {
-    return answerHistory
+    return answerHistoryRef.current
       .filter(record => record.stage === stageLabel)
       .slice(-limit)
       .map(record => record.questionId)
@@ -2393,7 +2409,7 @@ export default function App() {
   }
 
   function getStageAnswerRecords(stageLabel) {
-    return answerHistory.filter(record => record.stage === stageLabel);
+    return answerHistoryRef.current.filter(record => record.stage === stageLabel);
   }
 
   function getStageRepeatMemory(stageLabel, { correctOnly = false, limit = null } = {}) {
@@ -2493,10 +2509,10 @@ export default function App() {
 
     const key = getItemMasteryStateKey(metadata.itemKey, metadata.itemType);
     const row = itemMastery[key];
-    const currentRoundKeys = new Set(roundItemKeys);
-    const currentRoundQuestionIds = new Set(roundQuestionIds);
+    const currentRoundKeys = new Set(roundItemKeysRef.current);
+    const currentRoundQuestionIds = new Set(roundQuestionIdsRef.current);
     const currentRoundTargetWords = new Set(
-      roundQuestionIds
+      roundQuestionIdsRef.current
         .map(id => allQuestions.find(item => item.id === id))
         .filter(Boolean)
         .map(getQuestionTargetWord)
@@ -2518,7 +2534,7 @@ export default function App() {
   }
 
   function getCurrentRoundQuestionObjects() {
-    return roundQuestionIds
+    return roundQuestionIdsRef.current
       .map(id => allQuestions.find(item => item.id === id))
       .filter(Boolean);
   }
@@ -2531,9 +2547,9 @@ export default function App() {
     const currentRoundQuestions = getCurrentRoundQuestionObjects();
 
     return {
-      questionIds: new Set(roundQuestionIds.filter(Boolean)),
+      questionIds: new Set(roundQuestionIdsRef.current.filter(Boolean)),
       targetWords: new Set(currentRoundQuestions.map(getQuestionTargetWord).filter(Boolean)),
-      itemKeys: new Set(roundItemKeys.filter(Boolean)),
+      itemKeys: new Set(roundItemKeysRef.current.filter(Boolean)),
       correctAnswers: new Set(currentRoundQuestions.map(getQuestionAnswer).map(normalizeItemKey).filter(Boolean)),
       promptAnswers: new Set(currentRoundQuestions.map(getRuntimeQuestionPromptAnswerSignature).filter(Boolean)),
       optionSets: new Set(currentRoundQuestions.map(getRepeatOptionSetSignature).filter(Boolean)),
@@ -2579,8 +2595,8 @@ export default function App() {
         studentId,
         skill: activeStage.label,
         poolSize: prioritized.length,
-        currentRoundQuestionIds: roundQuestionIds,
-        currentRoundItemKeys: roundItemKeys
+        currentRoundQuestionIds: roundQuestionIdsRef.current,
+        currentRoundItemKeys: roundItemKeysRef.current
       });
       return null;
     }
@@ -2724,7 +2740,7 @@ export default function App() {
     }
 
     const keysAlreadyInRound =
-      new Set(roundItemKeys);
+      new Set(roundItemKeysRef.current);
 
     const unusedItemKeys =
       available.filter(question => {
@@ -2755,7 +2771,7 @@ export default function App() {
       selectedItemKeys: prioritized.slice(0, ROUND_LENGTH).map(getQuestionItemKey).filter(Boolean),
       selectedQuestionIds: prioritized.slice(0, ROUND_LENGTH).map(question => question.id),
       selectedSignatures: prioritized.slice(0, ROUND_LENGTH).map(getRuntimeQuestionSignature),
-      currentRoundItemKeys: roundItemKeys,
+      currentRoundItemKeys: roundItemKeysRef.current,
       recentItemKeys: getRecentStageItemKeys(activeStage.label)
     });
 
@@ -3162,16 +3178,21 @@ export default function App() {
     const nextRoundItemKeys = itemStateKey
       ? [...roundItemKeys, itemStateKey]
       : [...roundItemKeys];
+    const nextRoundQuestionIds = currentQuestion.id
+      ? [...roundQuestionIdsRef.current, currentQuestion.id]
+      : [...roundQuestionIdsRef.current];
 
     setUsedByStage(prev => ({
       ...prev,
       [questionStage.id]: [...(prev[questionStage.id] || []), currentQuestion.id]
     }));
 
-    setRoundQuestionIds(prev => [...prev, currentQuestion.id].filter(Boolean));
+    roundQuestionIdsRef.current = nextRoundQuestionIds.filter(Boolean);
+    setRoundQuestionIds(roundQuestionIdsRef.current);
 
     if (itemStateKey) {
-      setRoundItemKeys(prev => [...prev, itemStateKey]);
+      roundItemKeysRef.current = nextRoundItemKeys;
+      setRoundItemKeys(nextRoundItemKeys);
     }
 
     setTotalAnswered(n => n + 1);
@@ -3205,10 +3226,8 @@ export default function App() {
       isCorrect
     });
 
-    setAnswerHistory(prev => [
-      ...prev,
-      answerRecord
-    ]);
+    answerHistoryRef.current = [...answerHistoryRef.current, answerRecord];
+    setAnswerHistory(answerHistoryRef.current);
 
     saveAnswerToSupabase(answerRecord);
     updateItemMastery(currentQuestion, isCorrect);
@@ -3225,6 +3244,8 @@ export default function App() {
         setRoundAnswers([]);
         setRoundItemKeys([]);
         setRoundQuestionIds([]);
+        roundItemKeysRef.current = [];
+        roundQuestionIdsRef.current = [];
         setTimeout(() => {
           answerInFlightRef.current = false;
           setAppView("finished");
@@ -3277,6 +3298,8 @@ export default function App() {
       setRoundAnswers([]);
       setRoundItemKeys([]);
       setRoundQuestionIds([]);
+      roundItemKeysRef.current = [];
+      roundQuestionIdsRef.current = [];
       setCurrentQuestion(null);
       setFeedback(null);
       setAppView("checkpoint");
@@ -4341,6 +4364,8 @@ export default function App() {
     setRoundAnswers([]);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
+    roundItemKeysRef.current = [];
+    roundQuestionIdsRef.current = [];
     setMessage("");
     setAppView("assessment");
     pickQuestion("mastery", 0, nextStageIndex);
