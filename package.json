@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "validate:guided-reading": "node tools/auditGuidedReadingContent.js",
-    "validate:guided-reading-regen": "node tools/validateGuidedReadingRegenPack.js"
+    "validate:guided-reading-regen": "node tools/validateGuidedReadingRegenPack.js",
+    "validate:guided-stories": "node tools/auditGuidedStoryBooks.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

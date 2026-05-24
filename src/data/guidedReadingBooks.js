@@ -1,4 +1,5 @@
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
+import { guidedStoryBooks } from "./guidedStoryBooks.js";
 
 const wordAudio = word => `/audio/child-mode/words/${word.toLowerCase().replace(/[^a-z0-9'-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
 
@@ -17,6 +18,40 @@ const words = text =>
       text: word,
       audioPath: wordAudio(word)
     }));
+
+const countReadingWords = text =>
+  normalizeReadingText(text)
+    .replace(/[.,!?;:()"]/g, "")
+    .split(/\s+/)
+    .filter(Boolean).length;
+
+const countReadingSentences = text => (normalizeReadingText(text).match(/[.!?]+/g) || []).length;
+
+function getHonestGuidedReadingLevel(book) {
+  const pages = (book.pages || []).filter(page => page.active !== false && page.qaStatus === "approved");
+  const originalLevel = String(book.level || "").toUpperCase();
+  if (!["C", "D", "E", "F"].includes(originalLevel) || !pages.length) return originalLevel;
+
+  const averageWordsPerPage = pages.reduce((sum, page) => sum + countReadingWords(page.text), 0) / pages.length;
+  const oneSentencePageCount = pages.filter(page => countReadingSentences(page.text) <= 1).length;
+  const mostlyOneSentence = oneSentencePageCount / pages.length >= 0.6;
+
+  if (mostlyOneSentence || averageWordsPerPage < 12) return "B";
+  return originalLevel;
+}
+
+function relevelGuidedReadingBook(book) {
+  const originalLevel = String(book.level || "").toUpperCase();
+  const honestLevel = getHonestGuidedReadingLevel(book);
+  if (honestLevel === originalLevel) return book;
+
+  return {
+    ...book,
+    originalLevel,
+    level: honestLevel,
+    relevelReason: `Reclassified from Level ${originalLevel} to Level ${honestLevel}: active pages average below Level C-F text length and are mostly one sentence per page.`
+  };
+}
 
 const rawGuidedReadingBooks = [
   {
@@ -6367,15 +6402,47 @@ const approvedGuidedReadingCandidates = guidedReadingBookCandidates
   }))
   .filter(book => book.pages.length >= 4);
 
-export const guidedReadingBooks = [
+const approvedRegeneratedGuidedReadingBooks = guidedReadingRegenBooks
+  .filter(book => book.active !== false && book.qaStatus === "approved")
+  .map(book => ({
+    ...book,
+    pages: (book.pages || []).filter(page => page.active !== false && page.qaStatus === "approved")
+  }))
+  .filter(book => book.pages.length >= 4);
+
+const activeGuidedReadingBaseBooks = [
   ...approvedGuidedReadingCandidates,
-  ...guidedReadingRegenBooks
-    .filter(book => book.active !== false && book.qaStatus === "approved")
-    .map(book => ({
-      ...book,
-      pages: (book.pages || []).filter(page => page.active !== false && page.qaStatus === "approved")
-    }))
-].filter(book => book.pages.length >= 4);
+  ...approvedRegeneratedGuidedReadingBooks
+];
+
+export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {
+  const pages = (book.pages || []).filter(page => page.active !== false && page.qaStatus === "approved");
+  const averageWordsPerPage = pages.length
+    ? pages.reduce((sum, page) => sum + countReadingWords(page.text), 0) / pages.length
+    : 0;
+  const oneSentencePageCount = pages.filter(page => countReadingSentences(page.text) <= 1).length;
+  const newLevel = getHonestGuidedReadingLevel(book);
+
+  return {
+    id: book.id,
+    title: book.title,
+    type: normalizeGuidedReadingType(book.type),
+    oldLevel: book.level,
+    newLevel,
+    pageCount: pages.length,
+    averageWordsPerPage: Number(averageWordsPerPage.toFixed(1)),
+    oneSentencePageCount,
+    reason: newLevel === book.level
+      ? "Level remains appropriate for current text length."
+      : `Mostly one-sentence pages with ${Number(averageWordsPerPage.toFixed(1))} average words per page; not appropriate for Level ${book.level}.`
+  };
+});
+
+export const guidedStoryBookDrafts = guidedStoryBooks;
+
+export const guidedReadingBooks = activeGuidedReadingBaseBooks
+  .map(relevelGuidedReadingBook)
+  .filter(book => book.pages.length >= 4);
 
 export function normalizeGuidedReadingType(type = "") {
   const normalized = String(type || "").toLowerCase().replace(/[^a-z]/g, "");
@@ -6458,10 +6525,15 @@ export function summarizeGuidedReadingRecord(record) {
   const support = markEntries.filter(([, mark]) => mark === "support").length;
   const attempted = correct + support;
   const accuracy = attempted ? Math.round((correct / attempted) * 100) : 0;
+  const correctWords = [];
   const supportWords = [];
 
   pages.forEach((page, pageIndex) => {
     Object.entries(page.wordMarks || {}).forEach(([wordIndex, mark]) => {
+      if (mark === "correct") {
+        const word = page.words?.[wordIndex] || page.wordTexts?.[wordIndex] || "";
+        if (word) correctWords.push(word);
+      }
       if (mark === "support") {
         const word = page.words?.[wordIndex] || page.wordTexts?.[wordIndex] || "";
         if (word) supportWords.push(word);
@@ -6474,6 +6546,7 @@ export function summarizeGuidedReadingRecord(record) {
     correct,
     support,
     accuracy,
+    correctWords: [...new Set(correctWords.map(word => String(word).toLowerCase()))],
     supportWords: [...new Set(supportWords.map(word => String(word).toLowerCase()))],
     pageNotes: pages
       .map((page, index) => ({ page: index + 1, note: page.note || "" }))
@@ -6481,6 +6554,48 @@ export function summarizeGuidedReadingRecord(record) {
     wholeBookNote: record?.wholeBookNote || "",
     completedAt: record?.completedAt || ""
   };
+}
+
+export function getGuidedReadingWordStatusRows(records = {}) {
+  const aggregate = new Map();
+
+  Object.entries(records || {}).forEach(([bookId, record]) => {
+    const book = guidedReadingBooks.find(item => item.id === bookId);
+    const title = book?.title || record.title || bookId;
+    const level = book?.level || record.level || "";
+    const type = normalizeGuidedReadingType(book?.type || record.type || "");
+    Object.entries(record.pages || {}).forEach(([pageIndex, page]) => {
+      const pageNumber = Number(pageIndex) + 1;
+      Object.entries(page.wordMarks || {}).forEach(([wordIndex, mark]) => {
+        if (mark !== "correct" && mark !== "support") return;
+        const word = page.words?.[wordIndex] || page.wordTexts?.[wordIndex] || "";
+        if (!word) return;
+        const date = page.updatedAt || record.lastReadAt || record.completedAt || record.updatedAt || "";
+        const status = mark === "correct" ? "Read Correctly" : "Needs Support";
+        const key = [date, bookId, pageNumber, String(word).toLowerCase(), status].join("::");
+        const previous = aggregate.get(key) || {
+          date,
+          bookId,
+          title,
+          level,
+          type,
+          page: pageNumber,
+          word: String(word).toLowerCase(),
+          status,
+          count: 0
+        };
+        previous.count += 1;
+        aggregate.set(key, previous);
+      });
+    });
+  });
+
+  return [...aggregate.values()].sort((a, b) =>
+    String(b.date).localeCompare(String(a.date)) ||
+    a.title.localeCompare(b.title) ||
+    a.page - b.page ||
+    a.word.localeCompare(b.word)
+  );
 }
 
 export function summarizeGuidedReadingRecords(records = {}) {

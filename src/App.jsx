@@ -38,6 +38,7 @@ import { safeContentExpansionQuestions } from "./data/safeContentExpansionQuesti
 import { coverageExpectations } from "./data/coverageExpectations";
 import {
   formatGuidedReadingType,
+  getGuidedReadingWordStatusRows,
   summarizeGuidedReadingProgress,
   summarizeGuidedReadingRecords
 } from "./data/guidedReadingBooks";
@@ -4384,6 +4385,7 @@ export default function App() {
     try {
       const workbook = await createExcelWorkbook();
       const progress = summarizeGuidedReadingProgress(guidedReadingRecords);
+      const wordStatusRows = getGuidedReadingWordStatusRows(guidedReadingRecords);
       const studentLabel = studentName || "Student";
       const filenameDate = formatExportDateForFilename(new Date());
       const filename = `${safeExportFilename(studentLabel)} - ${filenameDate} - Reading Report.xlsx`;
@@ -4451,7 +4453,45 @@ export default function App() {
         totalPages: row.totalPages
       }));
 
-      [summarySheet, completedSheet, inProgressSheet].forEach(sheet => {
+      const wordSheetColumns = [
+        { header: "Date", key: "date", width: 24 },
+        { header: "Book Title", key: "title", width: 32 },
+        { header: "Level", key: "level", width: 10 },
+        { header: "Page", key: "page", width: 10 },
+        { header: "Word", key: "word", width: 18 },
+        { header: "Status", key: "status", width: 18 },
+        { header: "Count", key: "count", width: 10 }
+      ];
+
+      const greenWordsSheet = workbook.addWorksheet("Green Words - Read Correctly");
+      greenWordsSheet.columns = wordSheetColumns;
+      wordStatusRows
+        .filter(row => row.status === "Read Correctly")
+        .forEach(row => greenWordsSheet.addRow({
+          date: formatReportDate(row.date),
+          title: row.title,
+          level: row.level,
+          page: row.page,
+          word: row.word,
+          status: row.status,
+          count: row.count
+        }));
+
+      const orangeWordsSheet = workbook.addWorksheet("Orange Words - Needs Support");
+      orangeWordsSheet.columns = wordSheetColumns;
+      wordStatusRows
+        .filter(row => row.status === "Needs Support")
+        .forEach(row => orangeWordsSheet.addRow({
+          date: formatReportDate(row.date),
+          title: row.title,
+          level: row.level,
+          page: row.page,
+          word: row.word,
+          status: row.status,
+          count: row.count
+        }));
+
+      [summarySheet, completedSheet, inProgressSheet, greenWordsSheet, orangeWordsSheet].forEach(sheet => {
         sheet.getRow(1).font = { bold: true };
         sheet.getRow(1).fill = {
           type: "pattern",

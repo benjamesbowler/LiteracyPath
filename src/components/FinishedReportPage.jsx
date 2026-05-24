@@ -74,6 +74,7 @@ export function FinishedReportPage({
               <article key={item.bookId}>
                 <strong>{item.title}</strong>
                 <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
+                <span>{item.correctWords.length ? `Read correctly: ${item.correctWords.join(", ")}` : "No green words marked"}</span>
                 <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
               </article>
             ))}

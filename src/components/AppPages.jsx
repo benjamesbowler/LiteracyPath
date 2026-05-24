@@ -4,6 +4,7 @@ import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
   formatGuidedReadingType,
   getGuidedReadingProgress,
+  getGuidedReadingWordStatusRows,
   guidedReadingBooks,
   normalizeGuidedReadingType,
   summarizeGuidedReadingProgress,
@@ -1749,6 +1750,7 @@ export function GuidedReadingPage({
         [pageIndex]: {
           ...currentPageRecord,
           wordTexts: page.words.map(word => word.text),
+          updatedAt: new Date().toISOString(),
           ...nextPageRecord
         }
       }
@@ -2344,6 +2346,9 @@ export function TeacherReportsPage({
 }) {
   const readingProgress = summarizeGuidedReadingProgress(guidedReadingRecords);
   const guidedSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
+  const wordStatusRows = getGuidedReadingWordStatusRows(guidedReadingRecords);
+  const greenWordRows = wordStatusRows.filter(row => row.status === "Read Correctly");
+  const orangeWordRows = wordStatusRows.filter(row => row.status === "Needs Support");
 
   return (
     <div className="teacher-product-page">
@@ -2392,6 +2397,40 @@ export function TeacherReportsPage({
               Open Guided Reading
             </button>
           </div>
+        </article>
+
+        <article className="teacher-action-panel">
+          <h3>Words Read Correctly</h3>
+          {greenWordRows.length > 0 ? (
+            <div className="guided-record-list compact">
+              {greenWordRows.slice(0, 10).map(row => (
+                <article key={`${row.bookId}-${row.page}-${row.word}-${row.date}-green`}>
+                  <strong>{row.word}</strong>
+                  <span>{row.title} · Level {row.level} · Page {row.page}</span>
+                  <span>Count: {row.count}</span>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p>No green words marked yet.</p>
+          )}
+        </article>
+
+        <article className="teacher-action-panel">
+          <h3>Words Needing Support</h3>
+          {orangeWordRows.length > 0 ? (
+            <div className="guided-record-list compact">
+              {orangeWordRows.slice(0, 10).map(row => (
+                <article key={`${row.bookId}-${row.page}-${row.word}-${row.date}-orange`}>
+                  <strong>{row.word}</strong>
+                  <span>{row.title} · Level {row.level} · Page {row.page}</span>
+                  <span>Count: {row.count}</span>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p>No orange support words marked yet.</p>
+          )}
         </article>
 
         <article className="teacher-action-panel">
