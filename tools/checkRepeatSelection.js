@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import { skillTree } from "../src/skillTree.js";
+import { questions } from "../src/questions.js";
 import { masteryCoreQuestions } from "../src/data/masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "../src/data/masteryExtraQuestions.js";
 import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQuestions.js";
@@ -43,6 +44,7 @@ const roundLength = 15;
 const simulatedRounds = 3;
 
 const runtimeQuestionBanks = [
+  ["questions", questions],
   ["masteryCoreQuestions", masteryCoreQuestions],
   ["masteryExtraQuestions", masteryExtraQuestions],
   ["initialSoundCoverageQuestions", initialSoundCoverageQuestions],
@@ -288,11 +290,23 @@ function isRuntimeQuestionValid(question = {}) {
 }
 
 function getActiveRuntimeQuestions() {
-  return runtimeQuestionBanks
+  const active = runtimeQuestionBanks
     .flatMap(([source, questions]) =>
       questions.map((question, index) => prepareQuestion(question, source, index))
     )
     .filter(isRuntimeQuestionValid);
+  const seen = new Set();
+  const canonical = [];
+
+  for (const question of active) {
+    const signature = getQuestionSignature(question);
+    const key = signature || question.id;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    canonical.push(question);
+  }
+
+  return canonical;
 }
 
 function hasDuplicateInRound(question, round) {

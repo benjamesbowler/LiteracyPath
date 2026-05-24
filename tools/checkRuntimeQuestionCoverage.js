@@ -58,6 +58,7 @@ import {
   isReviewNeededAudioPath
 } from "../src/data/audioPreferenceManifest.js";
 import { getAssessmentContentIssues } from "../src/assessmentContentValidation.js";
+import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -687,7 +688,28 @@ const runtimeQuestions =
     }))
   );
 
-const matchedQuestions = runtimeQuestions.filter(isQuestionValid);
+function runtimeSignature(question) {
+  const stage = skillTree[getStageIndex(question)];
+  return getQuestionSignature(question, stage ? inferCoverageMetadata(question, stage.label) : null);
+}
+
+function dedupeRuntimeQuestionsBySignature(questions) {
+  const seen = new Set();
+  const canonical = [];
+
+  for (const question of questions) {
+    const key = runtimeSignature(question) || question.id;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    canonical.push(question);
+  }
+
+  return canonical;
+}
+
+const rawMatchedQuestions = runtimeQuestions.filter(isQuestionValid);
+const matchedQuestions = dedupeRuntimeQuestionsBySignature(rawMatchedQuestions);
+const duplicateCanonicalizedQuestions = rawMatchedQuestions.length - matchedQuestions.length;
 const kimiDataset7SourceQuestions = runtimeQuestions.filter(question => question.source === "kimiDataset7RuntimeQuestions");
 const validKimiDataset7RuntimeQuestions = matchedQuestions.filter(question => question.source === "kimiDataset7RuntimeQuestions");
 const approvedAudioExcludedQuestions = runtimeQuestions
@@ -864,6 +886,7 @@ const stageAudits = skillTree.map((stage, index) => buildStageAudit(stage, index
 
 console.log(`Runtime questions scanned: ${runtimeQuestions.length}`);
 console.log(`Runtime questions matched and valid: ${matchedQuestions.length}`);
+console.log(`Duplicate-equivalent valid questions canonicalized out of runtime: ${duplicateCanonicalizedQuestions}`);
 console.log(`Questions excluded due to missing approved audio: ${approvedAudioExcludedQuestions.length}`);
 console.log(`Questions excluded by content validation: ${contentValidationExcludedQuestions.length}`);
 console.log(`Legacy text-only phonics questions excluded: ${runtimeQualityWarnings.removedLegacy.length}`);
@@ -988,10 +1011,7 @@ function duplicateAuditTarget(question) {
 }
 
 function duplicateAuditSignature(question) {
-  return [
-    normalize(question.prompt || question.question || ""),
-    normalize(question.answer || question.correctAnswer || "")
-  ].join("::");
+  return runtimeSignature(question);
 }
 
 function duplicateAuditOptionSet(question) {
@@ -2498,6 +2518,9 @@ console.log(`Wrote Kimi image request: ${path.relative(rootDir, kimiImageRequest
 console.log(`Wrote Kimi audio request: ${path.relative(rootDir, kimiAudioRequestDocPath)}`);
 
 const emptyStages = counts.filter(({ count }) => count === 0);
+const startEndMinimumFailures = stageAudits
+  .filter(audit => ["initial_sounds", "final_sounds"].includes(audit.stage.id))
+  .filter(audit => audit.questions.length < 25);
 const missingCoverageMetadata = matchedQuestions
   .map(question => {
     const stage = skillTree[getStageIndex(question)];
@@ -2534,6 +2557,16 @@ if (activeOldInitialSoundQuestions.length > 0) {
   console.error("Initial Sounds runtime guard failed: old text-choice format is still active.");
   for (const question of activeOldInitialSoundQuestions.slice(0, 25)) {
     console.error(`- ${question.id}: "${question.question || question.prompt}"`);
+  }
+
+  process.exit(1);
+}
+
+if (startEndMinimumFailures.length > 0) {
+  console.log("");
+  console.error("Start/Ending Sound minimum guard failed:");
+  for (const audit of startEndMinimumFailures) {
+    console.error(`- ${audit.stage.label}: ${audit.questions.length} valid canonical runtime questions; expected at least 25.`);
   }
 
   process.exit(1);

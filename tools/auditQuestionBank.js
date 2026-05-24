@@ -68,6 +68,18 @@ import {
   shortVowelAnchors
 } from "../src/data/phonicsAnchors.js";
 import { getRhymeGroup, getRhymeOptionMatches } from "../src/data/rhymeGroups.js";
+import {
+  getAudioPronunciationIssues,
+  getEarlyPhonicsValidityIssues,
+  isValidFinalSoundWordForEarlyLevel,
+  isValidInitialSoundWordForEarlyLevel
+} from "../src/data/earlyPhonicsValidation.js";
+import {
+  getQuestionPromptAnswerSignature,
+  getQuestionSignature,
+  getRepeatOptionSetSignature,
+  getRepeatTargetWord
+} from "../src/questionRepeatGuards.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -932,6 +944,38 @@ function isActiveRuntimeQuestion(question) {
   return new Set(choices).size === choices.length;
 }
 
+function getRuntimeQuestionSignature(question) {
+  return getQuestionSignature(question, inferCoverageMetadata(question, getStage(question)));
+}
+
+function getCanonicalRuntimeItems() {
+  const canonical = [];
+  const duplicates = [];
+  const seen = new Map();
+
+  for (const item of allQuestions) {
+    if (!isActiveRuntimeQuestion(item.question)) continue;
+
+    const signature = getRuntimeQuestionSignature(item.question);
+    const key = signature || item.question.id;
+    if (!key) continue;
+
+    if (seen.has(key)) {
+      duplicates.push({
+        signature: key,
+        kept: seen.get(key),
+        duplicate: item
+      });
+      continue;
+    }
+
+    seen.set(key, item);
+    canonical.push(item);
+  }
+
+  return { canonical, duplicates };
+}
+
 function addProblem(problems, type, item, detail) {
   problems.push({
     type,
@@ -1753,8 +1797,250 @@ function printProblems(problems) {
   }
 }
 
+function getStartEndSoundStrictIssues(question, stage) {
+  const issues = [
+    ...getEarlyPhonicsValidityIssues(question),
+    ...getAudioPronunciationIssues(question)
+  ];
+  const format = String(question.templateType || question.formatType || "").toUpperCase();
+  const choices = normalizedChoices(question.choices || []);
+  const uniqueChoices = new Set(choices);
+
+  if (uniqueChoices.size !== choices.length) {
+    issues.push("answer options are not unique");
+  }
+
+  if (isPairSelectionQuestion(question)) {
+    if ((question.correctAnswers || []).length !== 2) {
+      issues.push("pair-select sound question must have exactly two correct answers");
+    }
+    if ((question.choices || []).length < 3) {
+      issues.push("pair-select sound question needs at least three card choices");
+    }
+    if (!(question.imageCards || []).every(card => card.image && imagePathExists(card.image))) {
+      issues.push("pair-select sound question has a missing card image");
+    }
+    if (!(question.imageCards || []).every(card => card.audio)) {
+      issues.push("pair-select sound question has a missing card audio");
+    }
+    const key = normalize(question.itemKey || question.targetSound || "");
+    const correctWords = (question.correctAnswers || []).map(normalize).filter(Boolean);
+    const distractorWords = (question.choices || [])
+      .map(normalize)
+      .filter(word => word && !correctWords.includes(word));
+
+    if (stage === "Initial Sounds") {
+      const badCorrect = correctWords.filter(word => !isValidInitialSoundWordForEarlyLevel(word, key));
+      const badDistractors = distractorWords.filter(word => isValidInitialSoundWordForEarlyLevel(word, key));
+      if (badCorrect.length > 0) issues.push(`correct words do not match initial sound "${key}": ${badCorrect.join(", ")}`);
+      if (badDistractors.length > 0) issues.push(`distractors also match initial sound "${key}": ${badDistractors.join(", ")}`);
+    }
+
+    if (stage === "Final Sounds") {
+      const badCorrect = correctWords.filter(word => !isValidFinalSoundWordForEarlyLevel(word, key));
+      const badDistractors = distractorWords.filter(word => isValidFinalSoundWordForEarlyLevel(word, key));
+      if (badCorrect.length > 0) issues.push(`correct words do not match final sound "${key}": ${badCorrect.join(", ")}`);
+      if (badDistractors.length > 0) issues.push(`distractors also match final sound "${key}": ${badDistractors.join(", ")}`);
+    }
+  } else {
+    const answer = normalize(question.answer);
+    const answerCount = choices.filter(choice => choice === answer).length;
+    const targetWord = normalize(question.targetWord || question.audioText || question.imageKey || "");
+
+    if (answerCount !== 1) {
+      issues.push(`correct answer must appear exactly once, found ${answerCount}`);
+    }
+    if (!question.imagePath || !imagePathExists(question.imagePath)) {
+      issues.push("single-target sound question has a missing target image");
+    }
+    if (/listen/i.test(question.question || question.prompt || "") && !question.audioPath) {
+      issues.push("listen sound question has a missing target audio");
+    }
+
+    if (stage === "Initial Sounds") {
+      if (!isValidInitialSoundWordForEarlyLevel(targetWord, answer)) {
+        issues.push(`target word "${targetWord || "(missing)"}" does not match initial sound "${answer}"`);
+      }
+      const accidentalCorrectDistractors = choices.filter(choice => choice !== answer && choice === answer);
+      if (accidentalCorrectDistractors.length > 0) {
+        issues.push("distractors include another correct initial-sound answer");
+      }
+    }
+
+    if (stage === "Final Sounds") {
+      if (!isValidFinalSoundWordForEarlyLevel(targetWord, answer)) {
+        issues.push(`target word "${targetWord || "(missing)"}" does not match final sound "${answer}"`);
+      }
+      const accidentalCorrectDistractors = choices.filter(choice => choice !== answer && choice === answer);
+      if (accidentalCorrectDistractors.length > 0) {
+        issues.push("distractors include another correct final-sound answer");
+      }
+    }
+  }
+
+  if (!["INITIAL_SOUND_PAIR_SELECT", "FINAL_SOUND_PAIR_SELECT", "FIRST_SOUND", "ENDING_SOUND"].includes(format)) {
+    issues.push(`unsupported Start/Ending Sound runtime format: ${format || "(missing)"}`);
+  }
+
+  return [...new Set(issues)];
+}
+
+function buildStartEndSoundAudit() {
+  const { canonical, duplicates } = getCanonicalRuntimeItems();
+  const stages = ["Initial Sounds", "Final Sounds"];
+  const problems = [];
+  const reportRows = [];
+  const disabledRows = [];
+  const duplicateRows = duplicates
+    .filter(row => stages.includes(getStage(row.duplicate.question)))
+    .map(row => [
+      getStage(row.duplicate.question),
+      row.duplicate.question.id,
+      row.duplicate.file,
+      row.kept.question.id,
+      row.kept.file,
+      row.signature
+    ]);
+
+  for (const stage of stages) {
+    const checked = allQuestions.filter(item => getStage(item.question) === stage);
+    const rawActive = checked.filter(item => isActiveRuntimeQuestion(item.question));
+    const active = canonical.filter(item => getStage(item.question) === stage);
+    const uniqueTargets = new Set(active.map(item => getRepeatTargetWord(item.question)).filter(Boolean));
+    const uniqueSignatures = new Set(active.map(item => getRuntimeQuestionSignature(item.question)).filter(Boolean));
+    const uniqueIds = new Set(active.map(item => item.question.id).filter(Boolean));
+
+    if (active.length < 25) {
+      problems.push({
+        type: `${stage.toLowerCase()} below 25 active questions`,
+        file: "runtime canonical question pool",
+        id: stage,
+        detail: `${stage} has ${active.length} active canonical questions; at least 25 are required.`
+      });
+    }
+
+    if (uniqueIds.size !== active.length) {
+      problems.push({
+        type: `${stage.toLowerCase()} duplicate active ids`,
+        file: "runtime canonical question pool",
+        id: stage,
+        detail: `${stage} canonical active pool has duplicate IDs.`
+      });
+    }
+
+    if (uniqueSignatures.size !== active.length) {
+      problems.push({
+        type: `${stage.toLowerCase()} duplicate active signatures`,
+        file: "runtime canonical question pool",
+        id: stage,
+        detail: `${stage} canonical active pool has duplicate signatures.`
+      });
+    }
+
+    for (const item of active) {
+      const strictIssues = getStartEndSoundStrictIssues(item.question, stage);
+      if (strictIssues.length > 0) {
+        problems.push({
+          type: `${stage.toLowerCase()} strict validation`,
+          file: item.file,
+          id: item.question.id,
+          detail: strictIssues.join("; ")
+        });
+      }
+    }
+
+    for (const item of checked) {
+      if (isActiveRuntimeQuestion(item.question)) continue;
+      const contentIssues = [
+        ...getAssessmentContentIssues(item.question, { assetExists: publicAssetExists }),
+        weakLegacyPhonicsReason(item.question),
+        questionContainsWord(item.question, "pun") ? "contains banned word pun" : ""
+      ].filter(Boolean);
+      if (contentIssues.length > 0) {
+        disabledRows.push([
+          stage,
+          item.question.id || `index ${item.index}`,
+          item.file,
+          contentIssues.join("; ")
+        ]);
+      }
+    }
+
+    reportRows.push([
+      stage,
+      checked.length,
+      rawActive.length,
+      active.length,
+      uniqueTargets.size,
+      uniqueIds.size,
+      uniqueSignatures.size,
+      active.length >= 25 && uniqueIds.size === active.length && uniqueSignatures.size === active.length ? "PASS" : "FAIL"
+    ]);
+  }
+
+  return { problems, reportRows, disabledRows, duplicateRows };
+}
+
+function writeStartEndSoundAudit(audit) {
+  const markdownTable = (headers, rows) => {
+    if (!rows.length) return "_None._";
+    return [
+      `| ${headers.join(" | ")} |`,
+      `| ${headers.map(() => "---").join(" | ")} |`,
+      ...rows.map(row => `| ${row.map(value => String(value ?? "").replace(/\|/g, "\\|")).join(" | ")} |`)
+    ].join("\n");
+  };
+  const status = audit.problems.length === 0 ? "PASS" : "FAIL";
+  const doc = [
+    "# Start / Ending Sound Audit",
+    "",
+    `Generated: ${new Date().toISOString()}`,
+    "",
+    `Final status: **${status}**`,
+    "",
+    "This report is generated by `tools/auditQuestionBank.js`. Active counts use the same canonical repeat-signature dedupe rule as runtime selection, so duplicate-equivalent raw questions are not eligible to be served twice.",
+    "",
+    "## Coverage Summary",
+    "",
+    markdownTable(
+      ["skill", "total checked", "raw active valid", "canonical active valid", "unique target words", "unique ids", "unique signatures", "status"],
+      audit.reportRows
+    ),
+    "",
+    "## Duplicate Raw Questions Disabled By Canonicalization",
+    "",
+    markdownTable(
+      ["skill", "disabled duplicate id", "duplicate source", "kept id", "kept source", "signature"],
+      audit.duplicateRows
+    ),
+    "",
+    "## Disabled / Excluded Start And Ending Sound Questions",
+    "",
+    markdownTable(
+      ["skill", "question id", "source", "reason"],
+      audit.disabledRows.slice(0, 200)
+    ),
+    "",
+    "## Strict Validation Problems",
+    "",
+    markdownTable(
+      ["type", "question id", "source", "detail"],
+      audit.problems.map(problem => [problem.type, problem.id, problem.file, problem.detail])
+    ),
+    "",
+    "## Asset Request Notes",
+    "",
+    "No active Start/Ending Sound question is allowed to serve without its required target image and approved static audio. Missing media stays disabled and should be requested through `docs/assets/kimi_question_asset_request.md`.",
+    ""
+  ].join("\n");
+  const docPath = path.join(rootDir, "docs", "validation", "start_end_sound_audit.md");
+  fs.mkdirSync(path.dirname(docPath), { recursive: true });
+  fs.writeFileSync(docPath, doc);
+  return docPath;
+}
+
 function writeQuestionBankQualityAudit(problems) {
-  const active = allQuestions.filter(item => isActiveRuntimeQuestion(item.question));
+  const { canonical: active, duplicates: duplicateRuntimeItems } = getCanonicalRuntimeItems();
   const activeBySkill = new Map();
   const missingAssetRows = [];
   const rhymingRows = [];
@@ -1850,6 +2136,7 @@ function writeQuestionBankQualityAudit(problems) {
     `- Audit problems: ${problems.length}`,
     `- Invalid/excluded questions with content issues: ${invalidRows.length}`,
     `- Questions with missing asset-related issues: ${missingAssetRows.length}`,
+    `- Duplicate-equivalent raw active candidates disabled by canonicalization: ${duplicateRuntimeItems.length}`,
     "",
     "## Active Runtime Counts",
     "",
@@ -1885,6 +2172,8 @@ function writeQuestionBankQualityAudit(problems) {
 }
 
 const { counts, problems, formatStats } = auditQuestions();
+const startEndAudit = buildStartEndSoundAudit();
+problems.push(...startEndAudit.problems);
 
 printCounts(counts);
 printQuestionFormatStats(formatStats);
@@ -1893,7 +2182,9 @@ printCoverageDiagnostics();
 printListenAndFindDiagnostics();
 printInitialSoundPairDiagnostics();
 printProblems(problems);
+const startEndAuditPath = writeStartEndSoundAudit(startEndAudit);
 const qualityAuditPath = writeQuestionBankQualityAudit(problems);
+console.log(`Wrote start/end sound audit: ${path.relative(rootDir, startEndAuditPath)}`);
 console.log(`Wrote question bank quality audit: ${path.relative(rootDir, qualityAuditPath)}`);
 
 if (problems.length > 0) {

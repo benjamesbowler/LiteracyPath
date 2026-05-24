@@ -842,7 +842,22 @@ function isQuestionValid(q) {
   return getStageIndex(q) !== -1;
 }
 
-const allQuestions = [
+function dedupeQuestionsByRuntimeSignature(questions) {
+  const seen = new Set();
+  const canonical = [];
+
+  for (const question of questions) {
+    const signature = getRuntimeQuestionSignature(question);
+    const key = signature || question.id;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    canonical.push(question);
+  }
+
+  return canonical;
+}
+
+const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...masteryCoreQuestions,
   ...masteryExtraQuestions,
   ...initialSoundCoverageQuestions,
@@ -870,7 +885,7 @@ const allQuestions = [
   applyQuestionFormatMetadata(applyItemMetadata(
     enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(question)))
   ))
-).filter(isQuestionValid);
+).filter(isQuestionValid));
 
 const configuredCoverageTotals = coverageExpectations;
 
