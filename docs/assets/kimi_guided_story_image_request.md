@@ -7,6 +7,15 @@ Generate illustration-only assets for these inactive Guided Story drafts. Do not
 ## Global Rules
 
 - No embedded text, captions, labels, watermarks, or speech bubbles.
+- Kimi is an asset renderer, not the story author.
+- Kimi must follow Codex story text, character bibles, environment bibles, and page prompts exactly.
+- Kimi must never improvise story details, rewrite app text, paraphrase narration, or add new events.
+- Kimi must never redesign characters.
+- Kimi must never alter clothing randomly.
+- Kimi must never alter environments randomly.
+- Kimi must never change time of day, weather, lighting, species, age, body proportions, or recurring props unless the exact page text requires it.
+- Kimi must never add embedded text, labels, captions, watermarks, or speech bubbles.
+- Kimi must preserve visual continuity across every page of each fiction book.
 - Fiction continuity is mandatory. A beautiful image still fails if character, clothing, setting, lighting, weather, props, or art style drift.
 - All pages of a book must look like the same illustrated universe.
 - Character drift is forbidden.
