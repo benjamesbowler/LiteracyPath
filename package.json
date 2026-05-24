@@ -11,7 +11,9 @@
     "preview": "vite preview",
     "validate:guided-reading": "node tools/auditGuidedReadingContent.js",
     "validate:guided-reading-regen": "node tools/validateGuidedReadingRegenPack.js",
-    "validate:guided-stories": "node tools/auditGuidedStoryBooks.js"
+    "validate:guided-stories": "node tools/auditGuidedStoryBooks.js",
+    "validate:initial-sounds": "node tools/auditInitialSoundArchitecture.js",
+    "validate:initial-sounds-media": "node tools/auditInitialSoundsMedia.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",
