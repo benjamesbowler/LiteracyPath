@@ -2074,9 +2074,9 @@ export function GuidedReadingPage({
                 >
                   {progress.completed && <span className="guided-complete-badge" aria-label="Completed">✓</span>}
                   <GuidedReadingImage alt={`${book.title} cover`} className="guided-book-cover" src={book.coverImage} />
-                  <span>{book.title}</span>
-                  <small>{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</small>
-                  <b>{progress.completed ? "Read Again" : "Read"}</b>
+                  <span className="guided-book-title">{book.title}</span>
+                  <small className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</small>
+                  <b className="guided-book-action">{progress.completed ? "Read Again" : "Read"}</b>
                 </button>
               );
             })}
