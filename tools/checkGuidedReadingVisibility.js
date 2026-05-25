@@ -27,7 +27,12 @@ function getGuidedReadingLevelBooks(type, level) {
 function getHiddenReason(book) {
   if (!book) return "missing from guidedReadingBooks export";
   if (book.active === false) return "active is false";
-  if (book.qaStatus !== "approved") return `qaStatus is ${book.qaStatus || "missing"}`;
+  const isVisibleReviewBook =
+    book.reviewMode === true &&
+    ["needs_image_alignment_review", "whole_book_continuity_review"].includes(book.qaStatus);
+  if (book.qaStatus !== "approved" && !isVisibleReviewBook) {
+    return `qaStatus is ${book.qaStatus || "missing"}`;
+  }
   if (!book.pages?.length) return "no pages";
   if (book.pages.length < 4) return "fewer than 4 readable pages";
   const shelfBooks = getGuidedReadingLevelBooks(book.type, book.level);

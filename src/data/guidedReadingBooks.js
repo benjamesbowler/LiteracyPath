@@ -6418,68 +6418,7 @@ const guidedStoryLevelCReviewIds = new Set([
   "gs-c-06"
 ]);
 
-const guidedStoryLevelCImagePageRemap = {
-  "gs-c-01": {
-    1: 2,
-    2: 4,
-    3: 3,
-    4: 8,
-    5: 5,
-    6: 9,
-    7: 7,
-    8: 10,
-    9: 6,
-    10: 10
-  },
-  "gs-c-02": {
-    1: 2,
-    2: 1,
-    3: 3,
-    4: 4,
-    5: 8,
-    6: 6,
-    7: 7,
-    8: 9,
-    9: 10,
-    10: 5
-  },
-  "gs-c-03": {
-    1: 2,
-    2: 3,
-    3: 4,
-    4: 7,
-    5: 5,
-    6: 6,
-    7: 8,
-    8: 9,
-    9: 3,
-    10: 10
-  },
-  "gs-c-04": {
-    1: 9,
-    2: 3,
-    3: 4,
-    4: 5,
-    5: 6,
-    6: 7,
-    7: 5,
-    8: 9,
-    9: 8,
-    10: 10
-  },
-  "gs-c-06": {
-    1: 3,
-    2: 2,
-    3: 1,
-    4: 4,
-    5: 5,
-    6: 6,
-    7: 8,
-    8: 7,
-    9: 9,
-    10: 10
-  }
-};
+const guidedStoryLevelCImagePageRemap = {};
 
 function remapLevelCReviewPageImage(bookId, page = {}) {
   const sourcePageNumber = guidedStoryLevelCImagePageRemap[bookId]?.[page.pageNumber];

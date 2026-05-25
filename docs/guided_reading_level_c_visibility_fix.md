@@ -1,6 +1,6 @@
 # Guided Reading Level C Visibility Fix
 
-Generated: 2026-05-25T05:38:13.024Z
+Generated: 2026-05-25T11:02:36.878Z
 
 ## Root Cause
 
@@ -33,11 +33,11 @@ The Level C pilot books were present in the `guidedReadingBooks` data export and
 
 | ID | Title | Type | Level | Review | QA | Pages | Cover | Missing Page Images | Discoverable | Hidden Reason |
 |---|---|---|---|---:|---|---:|---:|---|---:|---|
-| gs-c-01 | The Lion and the Little Mouse | Fiction | C | yes | approved | 10 | yes | none | yes | none |
-| gs-c-02 | The Crow and the Water Jar | Fiction | C | yes | approved | 10 | yes | none | yes | none |
-| gs-c-03 | The Fox and the High Grapes | Fiction | C | yes | approved | 10 | yes | none | yes | none |
-| gs-c-04 | The Dog and the River Shadow | Fiction | C | yes | approved | 10 | yes | none | yes | none |
-| gs-c-06 | The Bell in the Tree | Fiction | C | yes | approved | 10 | yes | none | yes | none |
+| gs-c-01 | The Lion and the Little Mouse | Fiction | C | yes | needs_image_alignment_review | 10 | yes | none | yes | none |
+| gs-c-02 | The Crow and the Water Jar | Fiction | C | yes | needs_image_alignment_review | 10 | yes | none | yes | none |
+| gs-c-03 | The Fox and the High Grapes | Fiction | C | yes | needs_image_alignment_review | 10 | yes | none | yes | none |
+| gs-c-04 | The Dog and the River Shadow | Fiction | C | yes | needs_image_alignment_review | 10 | yes | none | yes | none |
+| gs-c-06 | The Bell in the Tree | Fiction | C | yes | needs_image_alignment_review | 10 | yes | none | yes | none |
 
 Visible Fiction Level C shelf books: gs-c-01, gs-c-02, gs-c-03, gs-c-04, gs-c-06
 
