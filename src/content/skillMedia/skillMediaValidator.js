@@ -15,6 +15,64 @@ function correctAnswerTokens(item = {}) {
     .filter(Boolean);
 }
 
+const LEVEL_ONE_FINAL_SOUND_BLOCKLIST = new Set([
+  "nd",
+  "sk",
+  "st",
+  "mp",
+  "nk",
+  "ng",
+  "sh",
+  "ch",
+  "th",
+  "ll",
+  "ss",
+  "ff",
+  "ck"
+]);
+
+function promptText(item = {}) {
+  return String([
+    item.raw?.prompt,
+    item.raw?.question,
+    item.raw?.spokenPrompt
+  ].filter(Boolean).join(" ")).toLowerCase();
+}
+
+function finalSoundLevelIssues(item = {}) {
+  if (item.skillId !== "ending_sounds") return [];
+
+  const issues = [];
+  const level = Number(item.level || item.raw?.level || item.raw?.difficulty || 1) >= 2 ? 2 : 1;
+  const finalSound = String(
+    item.targetFinalSound ||
+    item.raw?.targetFinalSound ||
+    item.raw?.targetSound ||
+    item.raw?.itemKey ||
+    item.target ||
+    ""
+  ).toLowerCase().trim();
+  const finalSoundType = String(item.finalSoundType || item.raw?.finalSoundType || "").toLowerCase().trim();
+  const text = promptText(item);
+
+  if (/\b(start|starts|starting|first|beginning|initial)\b/.test(text)) {
+    issues.push("Final Sounds item uses an initial/start-sound prompt");
+  }
+  if (!/\b(end|ending|final)\b/.test(text)) {
+    issues.push("Final Sounds item is missing an ending/final-sound prompt");
+  }
+  if (level === 1) {
+    if (finalSound.length !== 1 || LEVEL_ONE_FINAL_SOUND_BLOCKLIST.has(finalSound)) {
+      issues.push(`Level 1 Final Sounds may only use one-letter final sounds, found "${finalSound || "(missing)"}"`);
+    }
+    if (finalSoundType && finalSoundType !== "single_letter") {
+      issues.push(`Level 1 Final Sounds finalSoundType must be single_letter, found "${finalSoundType}"`);
+    }
+  }
+
+  return issues;
+}
+
 export function validateSkillBankItem(item, { assetExists = () => true } = {}) {
   const issues = [];
   const definition = managedSkillDefinitions[item.skillId];
@@ -41,6 +99,7 @@ export function validateSkillBankItem(item, { assetExists = () => true } = {}) {
     }
   }
   issues.push(...validateExplicitRhymeItem(item));
+  issues.push(...finalSoundLevelIssues(item));
 
   return issues;
 }

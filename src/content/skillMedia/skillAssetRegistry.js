@@ -161,9 +161,12 @@ export function resolveManagedSkillId(question = {}) {
   const direct = normalizeSkillId(question.skillId || question.skill || question.skillName);
   if (managedSkillDefinitions[direct]) return direct;
 
-  const text = String([question.skill, question.skillName, question.prompt, question.question, question.formatType].filter(Boolean).join(" ")).toLowerCase();
-  if (text.includes("initial")) return "initial_sounds";
-  if (text.includes("final") || text.includes("ending")) return "ending_sounds";
+  const skillText = String([question.skill, question.skillName, question.skillId].filter(Boolean).join(" ")).toLowerCase();
+  const formatText = String([question.questionType, question.templateType, question.formatType].filter(Boolean).join(" ")).toLowerCase();
+  const promptText = String([question.prompt, question.question, question.spokenPrompt].filter(Boolean).join(" ")).toLowerCase();
+  const text = String([skillText, promptText, formatText].filter(Boolean).join(" ")).toLowerCase();
+  if (skillText.includes("initial")) return "initial_sounds";
+  if (skillText.includes("final sound") || skillText.includes("ending sound") || formatText.includes("final_sound") || formatText.includes("ending_sound")) return "ending_sounds";
   if (text.includes("rhym")) return "rhyming";
   if (text.includes("short vowel")) return "short_vowels";
   if (text.includes("blend")) return "blends";
@@ -245,6 +248,17 @@ export function runtimeQuestionSignature(question = {}) {
   ].join("::");
 }
 
+function normalizeRuntimeQuestionLevel(question = {}, skillId = "") {
+  if (skillId === "ending_sounds") {
+    if (String(question.id || "").startsWith("ending_l1_")) return 1;
+    if (String(question.id || "").startsWith("ending_l2_")) return 2;
+    if (question.skillId === "final_sounds" && question.finalSoundType !== "single_letter") return 2;
+    if (question.skillId === "final_sounds" && !question.finalSoundType) return 2;
+  }
+
+  return Number(question.level || question.difficulty || 1) || 1;
+}
+
 export function normalizeRuntimeQuestionToSkillItem(question = {}) {
   const skillId = resolveManagedSkillId(question);
   if (!skillId) return null;
@@ -256,12 +270,14 @@ export function normalizeRuntimeQuestionToSkillItem(question = {}) {
     id: question.id || runtimeQuestionSignature(question),
     source: "runtime_question",
     skillId,
-    level: Number(question.level || question.difficulty || 1) || 1,
+    level: normalizeRuntimeQuestionLevel(question, skillId),
     difficulty: question.difficulty || question.level || "unspecified",
     phase: question.phase || question.microphase || "",
     target,
     targetWord,
     targetSound: question.targetSound || "",
+    targetFinalSound: question.targetFinalSound || (skillId === "ending_sounds" ? (question.itemKey || question.targetSound || "") : ""),
+    finalSoundType: question.finalSoundType || "",
     targetPattern: question.targetPattern || question.phonicsPattern || question.itemKey || "",
     targetGroup: skillId === "rhyming" ? target : question.targetGroup || "",
     correctAnswer: question.correctAnswer || question.answer || "",

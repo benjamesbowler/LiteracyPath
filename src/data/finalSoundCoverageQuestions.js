@@ -15,6 +15,18 @@ const finalSoundPairs = {
   t: [["cat", "hat", "dog"], ["bat", "rat", "sun"], ["jet", "net", "fish"], ["pot", "cot", "map"], ["feet", "tent", "dog"], ["kite", "gate", "sun"]]
 };
 
+const FINAL_SOUND_DIGRAPHS = new Set(["sh", "ch", "th", "ck", "ng"]);
+const FINAL_SOUND_DOUBLE_LETTERS = new Set(["ll", "ss", "ff"]);
+const FINAL_SOUND_LEVEL_TWO_REVIEW_KEYS = new Set(["b", "d", "f", "g", "k", "l", "m", "n", "p", "r", "s", "t"]);
+
+export function getFinalSoundType(finalSound = "") {
+  const value = String(finalSound || "").toLowerCase().trim();
+  if (value.length === 1) return "single_letter";
+  if (FINAL_SOUND_DOUBLE_LETTERS.has(value)) return "double_letter";
+  if (FINAL_SOUND_DIGRAPHS.has(value)) return "digraph";
+  return "blend";
+}
+
 export const finalSoundPairCoverageQuestions = Object.entries(finalSoundPairs).flatMap(([itemKey, variants]) =>
   variants.map((words, index) =>
     makePairSelectionQuestion({
@@ -24,11 +36,15 @@ export const finalSoundPairCoverageQuestions = Object.entries(finalSoundPairs).f
       itemType: "final_sound",
       itemKey,
       targetSound: itemKey,
+      targetFinalSound: itemKey,
+      finalSoundType: FINAL_SOUND_LEVEL_TWO_REVIEW_KEYS.has(itemKey) ? "single_letter" : getFinalSoundType(itemKey),
       formatType: "FINAL_SOUND_PAIR_SELECT",
       questionType: "final_sound_pair",
       prompt: "Listen to each word. Which two words end with the same sound?",
       words,
-      pairVariant: index
+      pairVariant: index,
+      level: 2,
+      difficulty: 2
     })
   )
 );
@@ -83,6 +99,8 @@ function makeEndingSoundQuestion([targetWord, finalSound], index, level) {
     itemType: "final_sound",
     itemKey: finalSound,
     targetSound: finalSound,
+    targetFinalSound: finalSound,
+    finalSoundType: getFinalSoundType(finalSound),
     targetWord,
     audioText: targetWord,
     audioPath,

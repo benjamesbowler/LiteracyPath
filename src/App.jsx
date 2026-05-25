@@ -2339,6 +2339,10 @@ export default function App() {
     return stage?.id === "initial_sounds" || stage?.label === "Initial Sounds";
   }
 
+  function isFinalSoundsStage(stage) {
+    return stage?.id === "final_sounds" || stage?.label === "Final Sounds";
+  }
+
   function getInitialSoundStageProgress(records = answerHistoryRef.current) {
     return buildInitialSoundsProgressFromAnswerHistory(records);
   }
@@ -2398,6 +2402,27 @@ export default function App() {
     return next;
   }
 
+  function getFinalSoundQuestionLevel(question = {}) {
+    if (String(question.id || "").startsWith("ending_l1_")) return 1;
+    if (String(question.id || "").startsWith("ending_l2_")) return 2;
+    if (question.skillId === "final_sounds" && question.finalSoundType !== "single_letter") return 2;
+    if (question.skillId === "final_sounds" && !question.finalSoundType) return 2;
+    return Number(question.level || question.difficulty || 1) >= 2 ? 2 : 1;
+  }
+
+  function getNextFinalSoundLevel() {
+    const expectedLevelOneKeys = configuredCoverageTotals.final_sounds?.itemKeys || [];
+    if (!expectedLevelOneKeys.length) return 1;
+
+    const masteredOrCovered = new Set(
+      Object.values(itemMastery || {})
+        .filter(row => row?.itemType === "final_sound" && (row.mastered || row.correct > 0))
+        .map(row => normalizeItemKey(row.itemKey))
+    );
+
+    return expectedLevelOneKeys.every(key => masteredOrCovered.has(normalizeItemKey(key))) ? 2 : 1;
+  }
+
   function getAvailableStageQuestions(stageIndex) {
     const stage = skillTree[stageIndex];
     if (!stage) return [];
@@ -2408,6 +2433,9 @@ export default function App() {
     }
 
     const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex);
+    const levelFilteredStageQuestions = isFinalSoundsStage(stage)
+      ? stageQuestions.filter(question => getFinalSoundQuestionLevel(question) === getNextFinalSoundLevel())
+      : stageQuestions;
     const currentProfile = getRoundDuplicateProfile();
     const anyMemory = getStageRepeatMemory(stage.label);
     const correctMemory = getCorrectStageRepeatMemory(stage.label);
@@ -2416,8 +2444,8 @@ export default function App() {
       const flags = getRoundDuplicateFlags(question, currentProfile);
       return !flags.questionId && !flags.signature;
     };
-    const outsideCurrentRound = stageQuestions.filter(filterCurrentRoundRepeats);
-    const globalUnseenExact = stageQuestions.filter(question =>
+    const outsideCurrentRound = levelFilteredStageQuestions.filter(filterCurrentRoundRepeats);
+    const globalUnseenExact = levelFilteredStageQuestions.filter(question =>
       !wasQuestionSeen(question, anyMemory)
     );
     const unseenExact = outsideCurrentRound.filter(question =>

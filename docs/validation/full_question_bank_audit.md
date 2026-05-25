@@ -9,7 +9,7 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 | Skill | Active valid runtime questions | Unique question signatures | Unique targets | Unique itemKeys/patterns | Duplicate IDs | Duplicate signatures | Repeated distractor sets | Missing image/audio needs | Below 50 unique? | Below 52 runtime? | Unique option sets | Runtime sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 78 | 78 | 77 | 25 | 0 | 0 | 8 | 0 | no | no | 76 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
-| Final Sounds | 126 | 126 | 93 | 19 | 0 | 0 | 11 | 0 | no | no | 84 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
+| Final Sounds | 144 | 144 | 110 | 19 | 0 | 0 | 12 | 0 | no | no | 102 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
 | Rhyming | 91 | 91 | 70 | 24 | 0 | 0 | 9 | 0 | no | no | 78 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
 | CVC and Short Vowels | 88 | 88 | 37 | 42 | 0 | 0 | 8 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | Short Vowel Discrimination | 88 | 88 | 37 | 5 | 0 | 0 | 5 | 0 | no | no | 52 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
@@ -72,16 +72,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Final Sounds
 
-- Active valid runtime questions: 126
-- Unique question signatures: 126
-- Unique target words / answer targets: 93
+- Active valid runtime questions: 144
+- Unique question signatures: 144
+- Unique target words / answer targets: 110
 - Unique itemKeys/patterns: 19 (b, ck, d, f, g, l, m, mp, n, nd, ng, nt, p, r, rk, s, sh, sk, t)
 - Duplicate signatures: 0
-- Repeated distractor sets: 11
+- Repeated distractor sets: 12
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: FINAL_SOUND_PAIR_SELECT:40, ENDING_SOUND:86
+- Formats: FINAL_SOUND_PAIR_SELECT:58, ENDING_SOUND:86
 - Overused targets: none
 - Overused itemKeys: g, n, p, t
 

@@ -24,7 +24,7 @@ const ROUTING_RULES = {
     singleTemplate: false
   },
   final_sounds: {
-    allowedFormats: new Set(["ENDING_SOUND", "FINAL_SOUND_PAIR_SELECT"]),
+    allowedFormats: new Set(["ENDING_SOUND", "ENDING_SOUND_WORD_MATCH", "FINAL_SOUND_PAIR_SELECT"]),
     singleTemplate: false
   },
   rhyming: {
@@ -79,7 +79,11 @@ const ROUTING_RULES = {
 };
 
 export function getQuestionRoutingFormat(question = {}) {
-  return String(question.templateType || question.formatType || question.questionType || "UNKNOWN").toUpperCase();
+  const format = String(question.templateType || question.formatType || question.questionType || "UNKNOWN").toUpperCase();
+  if ((format === "UNKNOWN" || format === "MULTIPLE_CHOICE") && promptLooksLikeEndingSound(question)) {
+    return "ENDING_SOUND_WORD_MATCH";
+  }
+  return format;
 }
 
 export function getSkillRoutingRule(stageId = "") {
@@ -91,7 +95,11 @@ function getQuestionAnswerText(question = {}) {
 }
 
 function promptLooksLikeEndingSound(question = {}) {
-  return /\b(end|ending|final)\b/.test(String([question.prompt, question.question].filter(Boolean).join(" ")).toLowerCase());
+  return /\b(end|ends|ending|final)\b/.test(String([question.prompt, question.question].filter(Boolean).join(" ")).toLowerCase());
+}
+
+function promptLooksLikeInitialSound(question = {}) {
+  return /\b(start|starts|starting|first|beginning|initial)\b/.test(String([question.prompt, question.question, question.spokenPrompt].filter(Boolean).join(" ")).toLowerCase());
 }
 
 function hfwQuestionUsesOnlySightWords(question = {}) {
@@ -108,6 +116,8 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   const format = getQuestionRoutingFormat(question);
   if (rule.blockedFormats?.has(format)) return `${format} is blocked for ${stageId}`;
   if (rule.allowedFormats && !rule.allowedFormats.has(format)) return `${format} is not allowed for ${stageId}`;
+  if (stageId === "final_sounds" && promptLooksLikeInitialSound(question)) return "initial/start-sound prompt is not allowed in Final Sounds";
+  if (stageId === "final_sounds" && !promptLooksLikeEndingSound(question)) return "Final Sounds question must use an ending/final-sound prompt";
   if (stageId === "cvc_short_vowels" && promptLooksLikeEndingSound(question)) return "ending-sound prompt is not allowed in CVC/Short Vowels";
   if (rule.sightWordsOnly && !hfwQuestionUsesOnlySightWords(question)) return "High-Frequency Words must use approved sight words only";
   return "";

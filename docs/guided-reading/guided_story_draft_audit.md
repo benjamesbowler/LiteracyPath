@@ -7,7 +7,7 @@ Date: 2026-05-24
 - Draft fiction guided stories: 20
 - Active drafts exposed to library: 0
 - Validation failures: 0
-- Validation warnings: 0
+- Validation warnings: 50
 
 All guided story drafts are inactive until matching images and narration are generated and validated.
 
@@ -36,6 +36,58 @@ All guided story drafts are inactive until matching images and narration are gen
 | gs-e-06 | The Lantern Path | E | original | Original LiteracyPath fable | 10 | Readers infer courage from quiet helpful actions. |
 | gs-f-06 | The Fox and the Rain Jar | F | original | Original LiteracyPath fable | 12 | Readers explain how a character changes across the story. |
 
+## Warnings
+
+- gs-c-01 page 1 unexpectedly has asset paths while still draft.
+- gs-c-01 page 2 unexpectedly has asset paths while still draft.
+- gs-c-01 page 3 unexpectedly has asset paths while still draft.
+- gs-c-01 page 4 unexpectedly has asset paths while still draft.
+- gs-c-01 page 5 unexpectedly has asset paths while still draft.
+- gs-c-01 page 6 unexpectedly has asset paths while still draft.
+- gs-c-01 page 7 unexpectedly has asset paths while still draft.
+- gs-c-01 page 8 unexpectedly has asset paths while still draft.
+- gs-c-01 page 9 unexpectedly has asset paths while still draft.
+- gs-c-01 page 10 unexpectedly has asset paths while still draft.
+- gs-c-02 page 1 unexpectedly has asset paths while still draft.
+- gs-c-02 page 2 unexpectedly has asset paths while still draft.
+- gs-c-02 page 3 unexpectedly has asset paths while still draft.
+- gs-c-02 page 4 unexpectedly has asset paths while still draft.
+- gs-c-02 page 5 unexpectedly has asset paths while still draft.
+- gs-c-02 page 6 unexpectedly has asset paths while still draft.
+- gs-c-02 page 7 unexpectedly has asset paths while still draft.
+- gs-c-02 page 8 unexpectedly has asset paths while still draft.
+- gs-c-02 page 9 unexpectedly has asset paths while still draft.
+- gs-c-02 page 10 unexpectedly has asset paths while still draft.
+- gs-c-03 page 1 unexpectedly has asset paths while still draft.
+- gs-c-03 page 2 unexpectedly has asset paths while still draft.
+- gs-c-03 page 3 unexpectedly has asset paths while still draft.
+- gs-c-03 page 4 unexpectedly has asset paths while still draft.
+- gs-c-03 page 5 unexpectedly has asset paths while still draft.
+- gs-c-03 page 6 unexpectedly has asset paths while still draft.
+- gs-c-03 page 7 unexpectedly has asset paths while still draft.
+- gs-c-03 page 8 unexpectedly has asset paths while still draft.
+- gs-c-03 page 9 unexpectedly has asset paths while still draft.
+- gs-c-03 page 10 unexpectedly has asset paths while still draft.
+- gs-c-04 page 1 unexpectedly has asset paths while still draft.
+- gs-c-04 page 2 unexpectedly has asset paths while still draft.
+- gs-c-04 page 3 unexpectedly has asset paths while still draft.
+- gs-c-04 page 4 unexpectedly has asset paths while still draft.
+- gs-c-04 page 5 unexpectedly has asset paths while still draft.
+- gs-c-04 page 6 unexpectedly has asset paths while still draft.
+- gs-c-04 page 7 unexpectedly has asset paths while still draft.
+- gs-c-04 page 8 unexpectedly has asset paths while still draft.
+- gs-c-04 page 9 unexpectedly has asset paths while still draft.
+- gs-c-04 page 10 unexpectedly has asset paths while still draft.
+- gs-c-06 page 1 unexpectedly has asset paths while still draft.
+- gs-c-06 page 2 unexpectedly has asset paths while still draft.
+- gs-c-06 page 3 unexpectedly has asset paths while still draft.
+- gs-c-06 page 4 unexpectedly has asset paths while still draft.
+- gs-c-06 page 5 unexpectedly has asset paths while still draft.
+- gs-c-06 page 6 unexpectedly has asset paths while still draft.
+- gs-c-06 page 7 unexpectedly has asset paths while still draft.
+- gs-c-06 page 8 unexpectedly has asset paths while still draft.
+- gs-c-06 page 9 unexpectedly has asset paths while still draft.
+- gs-c-06 page 10 unexpectedly has asset paths while still draft.
 
 ## Status
 

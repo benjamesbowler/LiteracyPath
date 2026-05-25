@@ -9,7 +9,7 @@ This report audits active runtime questions after validation gates are applied. 
 | Skill | Active questions | Unique targets | Duplicate IDs | Duplicate signatures | Repeated option sets | Repeated distractor sets | Overused words | Overused itemKeys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 78 | 77 | 0 | 0 | 2 | 8 | none | none |
-| Final Sounds | 126 | 93 | 0 | 0 | 18 | 11 | none | g:22, p:18, n:16, t:16 |
+| Final Sounds | 144 | 110 | 0 | 0 | 18 | 12 | none | g:22, n:18, p:18, t:17 |
 | Rhyming | 91 | 70 | 0 | 0 | 13 | 9 | none | at:8 |
 | CVC and Short Vowels | 88 | 37 | 0 | 0 | 5 | 8 | none | none |
 | Short Vowel Discrimination | 88 | 37 | 0 | 0 | 12 | 5 | none | none |
@@ -94,34 +94,34 @@ No duplicate prompt+answer signatures.
 
 ## Final Sounds
 
-- Active questions: 126
-- Unique target words / answer targets: 93
+- Active questions: 144
+- Unique target words / answer targets: 110
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 18
-- Repeated distractor sets: 11
+- Repeated distractor sets: 12
 - Overused words: none
-- Overused itemKeys: g:22, p:18, n:16, t:16
+- Overused itemKeys: g:22, n:18, p:18, t:17
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
 | g | 22 |
+| n | 18 |
 | p | 18 |
-| n | 16 |
-| t | 16 |
-| d | 12 |
-| m | 12 |
-| l | 5 |
+| t | 17 |
+| d | 15 |
+| m | 13 |
+| l | 7 |
+| sh | 6 |
+| r | 5 |
 | b | 4 |
+| f | 4 |
+| s | 4 |
 | ck | 3 |
-| r | 3 |
-| sh | 3 |
-| f | 2 |
 | ng | 2 |
 | rk | 2 |
-| s | 2 |
 | mp | 1 |
 | nd | 1 |
 | nt | 1 |

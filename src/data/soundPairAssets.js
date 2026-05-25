@@ -65,7 +65,9 @@ export function makePairSelectionQuestion({
   words,
   pairVariant = 0,
   level = 1,
-  difficulty = level
+  difficulty = level,
+  finalSoundType = "",
+  targetFinalSound = targetSound
 }) {
   const correctWords = words.slice(0, 2);
   const cards = words.map(wordCard);
@@ -89,6 +91,8 @@ export function makePairSelectionQuestion({
     itemType,
     itemKey,
     targetSound,
+    targetFinalSound,
+    finalSoundType,
     answer: pairAnswer(correctWords),
     correctAnswer: pairAnswer(correctWords),
     correctAnswers: correctWords,

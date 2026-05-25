@@ -5,7 +5,7 @@ Date: 2026-05-25
 ## Summary
 
 - Managed skills: 10
-- Skill-bank items scanned: 1804
+- Skill-bank items scanned: 1800
 - Fatal active media-complete failures: 0
 - Expansion/media warnings: 13
 
@@ -14,7 +14,7 @@ Date: 2026-05-25
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
 | Initial Sounds | 615 | 505 | 25 | 25 | L1:378, L2:237 | 110 | 110 | none |
-| Ending Sounds | 212 | 164 | 21 | 20 | L1:182, L2:26, L3:1, L5:3 | 47 | 48 | none |
+| Ending Sounds | 208 | 164 | 20 | 20 | L1:68, L2:140 | 43 | 44 | none |
 | Rhyming Words | 138 | 90 | 32 | 23 | L1:138 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse |
 | Short Vowels | 171 | 107 | 5 | 5 | L1:116, L2:55 | 0 | 64 | none |
 | Blends | 120 | 69 | 36 | 12 | L1:86, L2:34 | 51 | 40 | gl, pl, gr, pr |
@@ -65,16 +65,16 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Active items: 212
+- Active items: 208
 - Media-complete active items: 164
-- Unique active targets: 21
+- Unique active targets: 20
 - Unique media-complete targets: 20
 - Blocked targets: none
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: 10
-- Duplicate target words by level: ending_sounds|1|listen and find, ending_sounds|1|dog, ending_sounds|1|bed, ending_sounds|1|map, ending_sounds|1|jam, ending_sounds|1|sun, ending_sounds|1|hat, ending_sounds|1|cat, ending_sounds|1|pan, ending_sounds|1|pin, ending_sounds|1|bat, ending_sounds|1|bag, ending_sounds|1|cup, ending_sounds|1|web, ending_sounds|1|jet, ending_sounds|1|log, ending_sounds|1|mug, ending_sounds|1|bug, ending_sounds|1|bell, ending_sounds|1|ham, ending_sounds|1|cap, ending_sounds|1|mat, ending_sounds|1|pen, ending_sounds|1|duck, ending_sounds|1|bus, ending_sounds|1|red, ending_sounds|1|ram, ending_sounds|1|pot
+- Duplicate target words by level: ending_sounds|2|listen and find, ending_sounds|1|dog, ending_sounds|1|bed, ending_sounds|1|map, ending_sounds|1|jam, ending_sounds|1|sun, ending_sounds|1|hat, ending_sounds|2|ship, ending_sounds|1|cap, ending_sounds|1|mat, ending_sounds|1|pen, ending_sounds|1|bag, ending_sounds|1|cup, ending_sounds|1|duck, ending_sounds|1|bus, ending_sounds|2|bed, ending_sounds|2|red, ending_sounds|2|web, ending_sounds|2|dog, ending_sounds|2|log, ending_sounds|2|mug, ending_sounds|2|jam, ending_sounds|2|sun, ending_sounds|2|cup, ending_sounds|2|map, ending_sounds|2|hat, ending_sounds|1|bell
 
 ### Rhyming/Phonics Logic Issues
 

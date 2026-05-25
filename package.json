@@ -19,6 +19,7 @@
     "audit:image-quality": "node tools/auditImageQuality.js",
     "validate:skill-banks": "node tools/auditSkillBanks.js",
     "check:skill-progression": "node tools/checkSkillProgression.js",
+    "check:final-sound-progression": "node tools/checkFinalSoundProgression.js",
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all"
   },
   "dependencies": {

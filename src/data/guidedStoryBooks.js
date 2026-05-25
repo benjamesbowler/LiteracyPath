@@ -75,6 +75,26 @@ const continuityChecklist = [
   "story events flow in page order"
 ];
 
+const importedLevelCImageBookIds = new Set([
+  "gs-c-01",
+  "gs-c-02",
+  "gs-c-03",
+  "gs-c-04",
+  "gs-c-06"
+]);
+
+function getImportedDraftCoverImage(bookId) {
+  return importedLevelCImageBookIds.has(bookId)
+    ? `/guided-reading/covers/${bookId}-cover.webp`
+    : "";
+}
+
+function getImportedDraftPageImage(bookId, pageNumber) {
+  return importedLevelCImageBookIds.has(bookId)
+    ? `/guided-reading/pages/${bookId}-page-${String(pageNumber).padStart(2, "0")}.webp`
+    : "";
+}
+
 const ignoredCharacterTerms = new Set(["the", "and", "with", "little", "small", "adult", "young"]);
 const escapeRegExp = value => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -110,7 +130,7 @@ function buildStoryBook(config) {
   const pages = config.pages.map((item, index) => ({
     pageNumber: index + 1,
     text: item.text,
-    image: "",
+    image: getImportedDraftPageImage(config.id, index + 1),
     pageAudio: "",
     imageAlt: `${config.title} page ${index + 1} illustration`,
     requiredAction: item.requiredAction,
@@ -185,7 +205,7 @@ function buildStoryBook(config) {
     sourceCollection: config.sourceCollection,
     active: false,
     qaStatus: "draft_needs_assets",
-    coverImage: "",
+    coverImage: getImportedDraftCoverImage(config.id),
     targetSkills: config.decodableFocus,
     targetVocabulary: config.targetVocabulary,
     decodableFocus: config.decodableFocus,

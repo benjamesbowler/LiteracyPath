@@ -24,7 +24,9 @@ export const kimiDataset7RuntimeQuestions = finalSoundItems.flatMap(([itemKey, .
       questionType: "final_sound_pair",
       prompt: "Listen to each word. Which two words end with the same sound?",
       words,
-      pairVariant: index + 1
+      pairVariant: index + 1,
+      level: 2,
+      difficulty: 2
     })
   )
 ).filter(valid).map(question => ({
