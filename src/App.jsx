@@ -1196,6 +1196,7 @@ export default function App() {
   const initialSoundRoundQueueRef = useRef([]);
   const initialSoundRoundMetaRef = useRef(null);
   const initialSoundForcedLevelRef = useRef(null);
+  const lastAuthUserIdRef = useRef(null);
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -1345,21 +1346,38 @@ export default function App() {
   useEffect(() => {
     let isMounted = true;
 
-    supabase.auth.getSession().then(({ data }) => {
+    function applyAuthSession(session) {
       if (!isMounted) return;
-      setTeacherUser(data.session?.user || null);
+
+      const nextUser = session?.user || null;
+      const nextUserId = nextUser?.id || null;
+
+      if (nextUserId && nextUserId !== lastAuthUserIdRef.current) {
+        resetSelectedStudentOnLogin();
+      }
+
+      lastAuthUserIdRef.current = nextUserId;
+      setTeacherUser(nextUser);
       setAuthReady(true);
-    });
+    }
+
+    supabase.auth.getSession()
+      .then(({ data }) => {
+        applyAuthSession(data?.session || null);
+      })
+      .catch(error => {
+        console.error("Supabase auth session startup failed:", error);
+        applyAuthSession(null);
+      });
 
     const { data: authListener } =
       supabase.auth.onAuthStateChange((_event, session) => {
-        setTeacherUser(session?.user || null);
-        setAuthReady(true);
+        applyAuthSession(session);
       });
 
     return () => {
       isMounted = false;
-      authListener.subscription.unsubscribe();
+      authListener?.subscription?.unsubscribe();
     };
   }, []);
 
