@@ -3549,6 +3549,40 @@ select:focus {
     padding: 22px;
   }
 
+  .assessment-main-image-wrap,
+  .assessment-listening-panel,
+  .assessment-passage-card {
+    width: min(624px, 100%);
+  }
+
+  .assessment-main-image-wrap {
+    min-height: clamp(156px, 24vh, 252px);
+  }
+
+  .assessment-main-image {
+    max-height: clamp(150px, 24vh, 228px) !important;
+  }
+
+  .assessment-card .image-box {
+    max-height: clamp(168px, 29vh, 264px);
+  }
+
+  .assessment-card .question-image {
+    max-height: clamp(150px, 26vh, 240px);
+  }
+
+  .first-sound-question-card {
+    width: min(820px, 100%);
+  }
+
+  .first-sound-image-area {
+    min-height: clamp(204px, 31vh, 300px);
+  }
+
+  .first-sound-image-area img {
+    max-height: clamp(190px, 29vh, 285px);
+  }
+
   .assessment-card .choices,
   .assessment-answer-grid {
     grid-template-columns: repeat(2, minmax(240px, 1fr));

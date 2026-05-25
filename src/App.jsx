@@ -862,7 +862,6 @@ function isQuestionValid(q) {
   if (q.questionType === "listen_and_find_word") {
     const diagnostics = getListenAndFindAssetDiagnostics(q);
     if (
-      diagnostics?.missingAudio ||
       diagnostics?.missingImages.length > 0 ||
       diagnostics?.missingChoiceAssets.length > 0 ||
       !diagnostics?.usesSingleWordAudioText
@@ -1314,6 +1313,35 @@ export default function App() {
     answerInFlightRef.current = false;
   }
 
+  function resetSelectedStudentOnLogin() {
+    setStudentName("");
+    setStudentId(null);
+    setNameSaved(false);
+    setAppView("select");
+    setRoundAnswers([]);
+    setRoundItemKeys([]);
+    setRoundQuestionIds([]);
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setShowReport(false);
+    setGuidedReadingRecords({});
+    setItemSessionSeen({});
+    setCheckpointDecision(null);
+    initialSoundRoundQueueRef.current = [];
+    initialSoundRoundMetaRef.current = null;
+    roundItemKeysRef.current = [];
+    roundQuestionIdsRef.current = [];
+
+    try {
+      ["selectedStudent", "currentStudent", "studentId", "studentName"].forEach(key => {
+        localStorage.removeItem(key);
+        sessionStorage.removeItem(key);
+      });
+    } catch (error) {
+      console.warn("Could not clear stale selected student storage.", error);
+    }
+  }
+
   useEffect(() => {
     let isMounted = true;
 
@@ -1368,17 +1396,12 @@ export default function App() {
     if (saved) {
       try {
         const data = JSON.parse(saved);
-        const savedStudentName = data.studentName || "";
         const savedClassId = data.selectedClassId || null;
 
-        setStudentName(savedStudentName);
-        setStudentId(data.studentId || null);
+        resetSelectedStudentOnLogin();
         setSelectedClassId(savedClassId);
-        setNameSaved(Boolean(savedStudentName));
-        setAppView(data.appView === "checkpoint" ? "overview" : data.appView || (savedStudentName ? "overview" : "select"));
         setAssessmentMode(data.assessmentMode || "mastery");
         setCurrentSkillIndex(data.currentSkillIndex || 0);
-        setRoundAnswers(data.roundAnswers || []);
         setRoundItemKeys([]);
         setRoundQuestionIds([]);
         setUsedByStage(data.usedByStage || {});
@@ -1390,8 +1413,9 @@ export default function App() {
         setPatternIndex(data.patternIndex || 0);
         setPatternAssessment(data.patternAssessment || []);
         setPatternAttempt(data.patternAttempt || 0);
-        setAnswerHistory((data.answerHistory || []).map(hydrateAnswerRecord));
-        setGuidedReadingRecords(loadGuidedReadingRecords(data.studentId || null));
+        setAnswerHistory([]);
+        answerHistoryRef.current = [];
+        setGuidedReadingRecords({});
         setItemMastery(data.itemMastery || {});
         setItemSessionSeen({});
 
@@ -1402,6 +1426,7 @@ export default function App() {
         loadStudents();
       }
     } else {
+      resetSelectedStudentOnLogin();
       loadStudents();
     }
 
@@ -1417,7 +1442,7 @@ export default function App() {
         studentName,
         studentId,
         selectedClassId,
-        appView,
+        appView: studentId ? appView : "select",
         assessmentMode,
         currentSkillIndex,
         roundAnswers,
@@ -1430,7 +1455,7 @@ export default function App() {
         patternIndex,
         patternAssessment,
         patternAttempt,
-    answerHistory,
+    answerHistory: studentId ? answerHistory : [],
     itemMastery
       })
     );
