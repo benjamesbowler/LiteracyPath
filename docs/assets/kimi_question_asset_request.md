@@ -83,6 +83,11 @@ These requests are **not active runtime content**. The app now blocks these ques
 | Guided Reading MVP sample | gr-e-48 | Magnets | nonfiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
 | Guided Reading MVP sample | gr-e-49 | Clothes | nonfiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
 | Guided Reading MVP sample | gr-e-50 | Our Five Senses | nonfiction | B | 6 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gs-c-01 | The Lion and the Little Mouse | fiction | C | 10 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gs-c-02 | The Crow and the Water Jar | fiction | C | 10 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gs-c-03 | The Fox and the High Grapes | fiction | C | 10 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gs-c-04 | The Dog and the River Shadow | fiction | C | 10 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
+| Guided Reading MVP sample | gs-c-06 | The Bell in the Tree | fiction | C | 10 pages | Replace with full pack-quality image/audio coverage | medium | Current MVP books are useful for workflow testing but are intentionally not the final 50-book leveled library. |
 
 ### New 50-Book Pack
 

@@ -6410,9 +6410,37 @@ const approvedRegeneratedGuidedReadingBooks = guidedReadingRegenBooks
   }))
   .filter(book => book.pages.length >= 4);
 
+const guidedStoryLevelCReviewIds = new Set([
+  "gs-c-01",
+  "gs-c-02",
+  "gs-c-03",
+  "gs-c-04",
+  "gs-c-06"
+]);
+
+const guidedStoryLevelCReviewBooks = guidedStoryBooks
+  .filter(book => guidedStoryLevelCReviewIds.has(book.id))
+  .map(book => ({
+    ...book,
+    active: true,
+    qaStatus: "approved",
+    qaNotes: "Activated for teacher review of the Level C Guided Story image pack. Exact narration audio is still pending, so page audio remains optional/hidden when missing.",
+    reviewMode: true,
+    pages: (book.pages || []).map(page => ({
+      ...page,
+      active: true,
+      qaStatus: "approved",
+      qaNotes: "Activated for teacher review. Page image is imported; exact narration audio is pending.",
+      pageDescription: page.pageDescription || page.requiredAction || page.imageAlt || `${book.title} page ${page.pageNumber}`,
+      targetWords: Array.isArray(page.targetWords) ? page.targetWords : book.targetVocabulary || []
+    }))
+  }))
+  .filter(book => book.coverImage && book.pages.length >= 4);
+
 const activeGuidedReadingBaseBooks = [
   ...approvedGuidedReadingCandidates,
-  ...approvedRegeneratedGuidedReadingBooks
+  ...approvedRegeneratedGuidedReadingBooks,
+  ...guidedStoryLevelCReviewBooks
 ];
 
 export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {

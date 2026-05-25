@@ -1,13 +1,13 @@
 # Guided Reading Content Audit
 
-Generated: 2026-05-25T04:46:50.265Z
+Generated: 2026-05-25T05:23:58.313Z
 
 ## Summary
 
 - Candidate books checked: 50
 - Candidate pages checked: 300
-- Active approved books: 46
-- Active approved pages: 276
+- Active approved books: 51
+- Active approved pages: 326
 - Disabled books: 50
 - Disabled pages: 300
 - Active validation errors: 0

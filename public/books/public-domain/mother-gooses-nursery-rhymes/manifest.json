@@ -1,0 +1,47 @@
+{
+  "id": "mother-gooses-nursery-rhymes",
+  "title": "Mother Goose's Nursery Rhymes",
+  "author": "Walter Crane",
+  "illustrator": "",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/search/?query=Mother%20Goose's%20Nursery%20Rhymes",
+  "publicDomain": true,
+  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "gradeBand": "K",
+  "readingType": "guided-reading",
+  "difficulty": "read-aloud",
+  "estimatedPages": 0,
+  "tags": [
+    "rhyme",
+    "nursery",
+    "oral language"
+  ],
+  "skills": [
+    "rhyme",
+    "fluency",
+    "vocabulary"
+  ],
+  "pages": [],
+  "comprehension": [
+    {
+      "type": "open-response",
+      "question": "Who or what is this book mostly about?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What happened first, next, and last?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What is one new or interesting word from this book?",
+      "options": [],
+      "correctAnswer": ""
+    }
+  ],
+  "active": false,
+  "downloadStatus": "pending_network_download",
+  "processingStatus": "not_processed"
+}

@@ -19,17 +19,7 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
-const blockedAssessmentImagePaths = new Set([
-  "/media/initial-sounds/images/a/acorn.webp",
-  "/media/initial-sounds/images/g/gum.webp",
-  "/media/initial-sounds/images/h/hat.webp",
-  "/media/initial-sounds/images/j/jam.webp",
-  "/media/initial-sounds/images/l/leg.webp",
-  "/media/initial-sounds/images/n/nut.webp",
-  "/media/initial-sounds/images/s/sun.webp",
-  "/media/initial-sounds/images/w/wig.webp",
-  "/images/child-mode/short-u/nut.png"
-]);
+const blockedAssessmentImagePaths = new Set([]);
 const excludedAssessmentWords = new Set([
   "zinnia",
   "zinnia flower",

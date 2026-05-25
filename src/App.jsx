@@ -1009,6 +1009,11 @@ function buildCoverageSnapshot(itemMasteryRows = {}, debugContext = null) {
 
 function buildQuestionBankCoverage(questions = []) {
   const rowsBySkill = new Map();
+  const mergeCounts = (target, source, key) => {
+    Object.entries(source[key] || {}).forEach(([name, count]) => {
+      target[key][name] = (target[key][name] || 0) + count;
+    });
+  };
 
   questions.forEach(question => {
     const skill = question.skill || question.skillName || "Unassigned";
@@ -1021,7 +1026,9 @@ function buildQuestionBankCoverage(questions = []) {
       difficulties: {},
       patterns: {},
       missingImage: 0,
-      missingAudio: 0
+      missingAudio: 0,
+      badMedia: 0,
+      runtimeSelectable: 0
     };
     const template = question.templateType || question.formatType || question.questionType || "legacy";
     const difficulty = question.difficulty || "not tagged";
@@ -1033,9 +1040,13 @@ function buildQuestionBankCoverage(questions = []) {
       question.questionType === "ixl_template" &&
       ["FIRST_SOUND", "ENDING_SOUND", "BLEND_SOUNDS", "PUT_SOUNDS_IN_ORDER"].includes(question.templateType);
 
+    const isActive = question.active !== false;
+    const blockedByMedia = ["needs_media_replacement", "needs_image_replacement", "needs_audio_replacement"].includes(question.qaStatus);
     existing.total += 1;
-    existing.active += question.active === false ? 0 : 1;
+    existing.active += isActive ? 1 : 0;
     existing.inactive += question.active === false ? 1 : 0;
+    existing.runtimeSelectable += isActive && !blockedByMedia ? 1 : 0;
+    existing.badMedia += blockedByMedia ? 1 : 0;
     existing.templates[template] = (existing.templates[template] || 0) + 1;
     existing.difficulties[difficulty] = (existing.difficulties[difficulty] || 0) + 1;
     if (pattern) existing.patterns[pattern] = (existing.patterns[pattern] || 0) + 1;
@@ -1045,6 +1056,54 @@ function buildQuestionBankCoverage(questions = []) {
     }
 
     rowsBySkill.set(skill, existing);
+  });
+
+  const hfwRows = Array.from(rowsBySkill.values()).filter(row => row.skill.startsWith("High-Frequency Words"));
+  if (hfwRows.length) {
+    const aggregate = {
+      skill: "High Frequency Words",
+      total: 0,
+      active: 0,
+      inactive: 0,
+      runtimeSelectable: 0,
+      templates: {},
+      difficulties: {},
+      patterns: {},
+      missingImage: 0,
+      missingAudio: 0,
+      badMedia: 0
+    };
+    hfwRows.forEach(row => {
+      aggregate.total += row.total;
+      aggregate.active += row.active;
+      aggregate.inactive += row.inactive;
+      aggregate.runtimeSelectable += row.runtimeSelectable;
+      aggregate.missingImage += row.missingImage;
+      aggregate.missingAudio += row.missingAudio;
+      aggregate.badMedia += row.badMedia;
+      mergeCounts(aggregate, row, "templates");
+      mergeCounts(aggregate, row, "difficulties");
+      mergeCounts(aggregate, row, "patterns");
+    });
+    rowsBySkill.set(aggregate.skill, aggregate);
+  }
+
+  skillTree.forEach(stage => {
+    if (!rowsBySkill.has(stage.label)) {
+      rowsBySkill.set(stage.label, {
+        skill: stage.label,
+        total: 0,
+        active: 0,
+        inactive: 0,
+        runtimeSelectable: 0,
+        templates: {},
+        difficulties: {},
+        patterns: {},
+        missingImage: 0,
+        missingAudio: 0,
+        badMedia: 0
+      });
+    }
   });
 
   return Array.from(rowsBySkill.values()).sort((a, b) => a.skill.localeCompare(b.skill));

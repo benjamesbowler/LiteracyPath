@@ -4,7 +4,7 @@ Date: 2026-05-24
 
 ## Summary
 
-- Active approved books audited: 46
+- Active approved books audited: 51
 - Books reclassified to a lower level: 28
 - Active one-sentence-per-page books remaining above Level B: 0
 
@@ -60,3 +60,8 @@ Existing valid books remain active, but books with mostly one short sentence per
 | gr-e-48 | Magnets | E | B | 6 | 4.5 | Mostly one-sentence pages with 4.5 average words per page; not appropriate for Level E. |
 | gr-e-49 | Clothes | E | B | 6 | 5.8 | Mostly one-sentence pages with 5.8 average words per page; not appropriate for Level E. |
 | gr-e-50 | Our Five Senses | E | B | 6 | 5.8 | Mostly one-sentence pages with 5.8 average words per page; not appropriate for Level E. |
+| gs-c-01 | The Lion and the Little Mouse | C | C | 10 | 19.1 | Level remains appropriate for current text length. |
+| gs-c-02 | The Crow and the Water Jar | C | C | 10 | 16.6 | Level remains appropriate for current text length. |
+| gs-c-03 | The Fox and the High Grapes | C | C | 10 | 16.9 | Level remains appropriate for current text length. |
+| gs-c-04 | The Dog and the River Shadow | C | C | 10 | 16.1 | Level remains appropriate for current text length. |
+| gs-c-06 | The Bell in the Tree | C | C | 10 | 17.3 | Level remains appropriate for current text length. |

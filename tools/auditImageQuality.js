@@ -21,62 +21,7 @@ const semanticConflictPairs = [
   ["seed", "bed"],
   ["rain", "pan"]
 ];
-const knownUnsuitableAssets = [
-  {
-    word: "acorn",
-    imagePath: "/media/initial-sounds/images/a/acorn.webp",
-    reason: "Manual review: rainbow-colored cap/character styling is too stylized for an ordinary acorn assessment image.",
-    prompt: "Create a clean, naturally colored acorn image with a plain background and no face, rainbow cap, embedded text, or extra objects."
-  },
-  {
-    word: "nut",
-    imagePath: "/media/initial-sounds/images/n/nut.webp",
-    reason: "Manual review: rainbow-colored character styling is too stylized and too confusable for a generic nut assessment image.",
-    prompt: "Create a clean, naturally colored generic nut image, such as walnut/peanut/hazelnut or mixed nuts, with no face, rainbow colors, embedded text, or acorn shape."
-  },
-  {
-    word: "nut",
-    imagePath: "/images/child-mode/short-u/nut.png",
-    reason: "Manual review: image is visually an acorn, not a generic nut, so it is blocked from active assessment use.",
-    prompt: "Create a clean, naturally colored generic nut image, such as walnut/peanut/hazelnut or mixed nuts, with no acorn cap, no face, no embedded text, and no rainbow colors."
-  },
-  {
-    word: "gum",
-    imagePath: "/media/initial-sounds/images/g/gum.webp",
-    reason: "Manual review: object image is babyfied with a face/decorative styling. Non-living objects must not have faces.",
-    prompt: "Create a clear, natural-colored piece of chewing gum or pack of gum on a clean white/simple background. No face, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark."
-  },
-  {
-    word: "hat",
-    imagePath: "/media/initial-sounds/images/h/hat.webp",
-    reason: "Manual review: object image is babyfied with a face/decorative shapes. Non-living objects must not have faces.",
-    prompt: "Create one clear, natural-colored cartoon hat on a clean white/simple background. No face, no eyes, no smile, no sparkles, no confetti, no text, no labels, no watermark."
-  },
-  {
-    word: "jam",
-    imagePath: "/media/initial-sounds/images/j/jam.webp",
-    reason: "Manual review: food/object image is babyfied with a face. Non-living food/object targets must not have faces.",
-    prompt: "Create one clear jar of strawberry jam on a clean white/simple background. Natural red jam color, no face, no eyes, no smile, no sparkles, no embedded text, no labels, no watermark."
-  },
-  {
-    word: "leg",
-    imagePath: "/media/initial-sounds/images/l/leg.webp",
-    reason: "Manual review: body-part image is babyfied with a face. Body-part targets should be natural and clear, not character objects.",
-    prompt: "Create one clear, natural cartoon human leg from knee to foot, neutral skin tone, simple shoe optional, clean white/simple background. No face, no eyes, no smile, no sparkles, no text, no labels, no watermark."
-  },
-  {
-    word: "sun",
-    imagePath: "/media/initial-sounds/images/s/sun.webp",
-    reason: "Manual review: nature/object image is babyfied with sunglasses/face. Non-living nature/object targets must not have faces.",
-    prompt: "Create one clear natural yellow sun icon/cartoon on a clean white/simple sky background. No face, no sunglasses, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark."
-  },
-  {
-    word: "wig",
-    imagePath: "/media/initial-sounds/images/w/wig.webp",
-    reason: "Manual review: object image is babyfied with a face/rainbow styling. Non-living objects must not have faces.",
-    prompt: "Create one clear natural-colored wig on a simple wig stand or plain background. No face, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark."
-  }
-];
+const knownUnsuitableAssets = [];
 const excludedTargetWords = [
   {
     word: "zinnia",

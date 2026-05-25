@@ -1,15 +1,15 @@
 # Image Quality Visual Audit
 
-Generated: 2026-05-25T04:30:25.373Z
+Generated: 2026-05-25T05:24:24.197Z
 
 This audit focuses on assessment media. It uses safe static heuristics only: filenames/paths and exact-file hash comparisons. It does not delete or replace assets automatically.
 
 ## Summary
 
-- Public assessment images scanned: 841
-- Active image-backed assessment mappings scanned: 1682
+- Public assessment images scanned: 872
+- Active image-backed assessment mappings scanned: 1690
 - Likely rainbow/over-stylized active mappings: 0
-- Known unsuitable assessment assets blocked/requested: 9
+- Known unsuitable assessment assets blocked/requested: 0
 - Known unsuitable assets still active: 0
 - Excluded weird/unusual targets still active: 0
 - Rainbow/path warnings in public assets: 0
@@ -23,17 +23,7 @@ _None._
 
 ## Known Unsuitable Assessment Assets
 
-| skill | word | image path | reason |
-| --- | --- | --- | --- |
-| initial_sounds | acorn | /media/initial-sounds/images/a/acorn.webp | Manual review: rainbow-colored cap/character styling is too stylized for an ordinary acorn assessment image. |
-| initial_sounds | nut | /media/initial-sounds/images/n/nut.webp | Manual review: rainbow-colored character styling is too stylized and too confusable for a generic nut assessment image. |
-| initial_sounds | nut | /images/child-mode/short-u/nut.png | Manual review: image is visually an acorn, not a generic nut, so it is blocked from active assessment use. |
-| initial_sounds | gum | /media/initial-sounds/images/g/gum.webp | Manual review: object image is babyfied with a face/decorative styling. Non-living objects must not have faces. |
-| initial_sounds | hat | /media/initial-sounds/images/h/hat.webp | Manual review: object image is babyfied with a face/decorative shapes. Non-living objects must not have faces. |
-| initial_sounds | jam | /media/initial-sounds/images/j/jam.webp | Manual review: food/object image is babyfied with a face. Non-living food/object targets must not have faces. |
-| initial_sounds | leg | /media/initial-sounds/images/l/leg.webp | Manual review: body-part image is babyfied with a face. Body-part targets should be natural and clear, not character objects. |
-| initial_sounds | sun | /media/initial-sounds/images/s/sun.webp | Manual review: nature/object image is babyfied with sunglasses/face. Non-living nature/object targets must not have faces. |
-| initial_sounds | wig | /media/initial-sounds/images/w/wig.webp | Manual review: object image is babyfied with a face/rainbow styling. Non-living objects must not have faces. |
+_None._
 
 ## Known Unsuitable Images Still Active
 
@@ -101,7 +91,7 @@ _None._
 
 | word A | word B | status | detail |
 | --- | --- | --- | --- |
-| acorn | nut | not active | No active image-backed items found for one or both words. |
+| acorn | nut | pass | No active shared image path/hash detected. |
 | sock | duck | pass | No active shared image path/hash detected. |
 | seed | bed | pass | No active shared image path/hash detected. |
 | rain | pan | pass | No active shared image path/hash detected. |
@@ -133,17 +123,7 @@ _None._
 
 ## Recommended Replacement Requests
 
-| word | current path/detail | recommended Kimi prompt |
-| --- | --- | --- |
-| acorn | /media/initial-sounds/images/a/acorn.webp | Create a clean, naturally colored acorn image with a plain background and no face, rainbow cap, embedded text, or extra objects. |
-| nut | /media/initial-sounds/images/n/nut.webp | Create a clean, naturally colored generic nut image, such as walnut/peanut/hazelnut or mixed nuts, with no face, rainbow colors, embedded text, or acorn shape. |
-| nut | /images/child-mode/short-u/nut.png | Create a clean, naturally colored generic nut image, such as walnut/peanut/hazelnut or mixed nuts, with no acorn cap, no face, no embedded text, and no rainbow colors. |
-| gum | /media/initial-sounds/images/g/gum.webp | Create a clear, natural-colored piece of chewing gum or pack of gum on a clean white/simple background. No face, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark. |
-| hat | /media/initial-sounds/images/h/hat.webp | Create one clear, natural-colored cartoon hat on a clean white/simple background. No face, no eyes, no smile, no sparkles, no confetti, no text, no labels, no watermark. |
-| jam | /media/initial-sounds/images/j/jam.webp | Create one clear jar of strawberry jam on a clean white/simple background. Natural red jam color, no face, no eyes, no smile, no sparkles, no embedded text, no labels, no watermark. |
-| leg | /media/initial-sounds/images/l/leg.webp | Create one clear, natural cartoon human leg from knee to foot, neutral skin tone, simple shoe optional, clean white/simple background. No face, no eyes, no smile, no sparkles, no text, no labels, no watermark. |
-| sun | /media/initial-sounds/images/s/sun.webp | Create one clear natural yellow sun icon/cartoon on a clean white/simple sky background. No face, no sunglasses, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark. |
-| wig | /media/initial-sounds/images/w/wig.webp | Create one clear natural-colored wig on a simple wig stand or plain background. No face, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark. |
+_None._
 
 ## Kimi Style Rule
 

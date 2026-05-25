@@ -27,7 +27,7 @@ function publicFileExists(publicPath = "") {
 
 function sentenceLooksValid(text = "") {
   const clean = String(text || "").trim();
-  return /^[A-Z0-9"']/.test(clean) && /[.!?]["']?$/.test(clean);
+  return /^[A-Z0-9"'“‘]/.test(clean) && /[.!?]["'”’)]?$/.test(clean);
 }
 
 function hasSpacedPunctuation(text = "") {

@@ -1,0 +1,47 @@
+{
+  "id": "a-apple-pie",
+  "title": "A Apple Pie",
+  "author": "Kate Greenaway",
+  "illustrator": "",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/search/?query=A%20Apple%20Pie",
+  "publicDomain": true,
+  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "gradeBand": "K",
+  "readingType": "guided-reading",
+  "difficulty": "emergent",
+  "estimatedPages": 0,
+  "tags": [
+    "alphabet",
+    "rhyme",
+    "classic"
+  ],
+  "skills": [
+    "rhyme",
+    "fluency",
+    "vocabulary"
+  ],
+  "pages": [],
+  "comprehension": [
+    {
+      "type": "open-response",
+      "question": "Who or what is this book mostly about?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What happened first, next, and last?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What is one new or interesting word from this book?",
+      "options": [],
+      "correctAnswer": ""
+    }
+  ],
+  "active": false,
+  "downloadStatus": "pending_network_download",
+  "processingStatus": "not_processed"
+}

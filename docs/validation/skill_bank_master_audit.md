@@ -7,20 +7,20 @@ Date: 2026-05-25
 - Managed skills: 10
 - Skill-bank items scanned: 1800
 - Fatal active media-complete failures: 0
-- Expansion/media warnings: 13
+- Expansion/media warnings: 11
 
 ## Skill Coverage Table
 
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
-| Initial Sounds | 615 | 505 | 25 | 25 | L1:378, L2:237 | 110 | 110 | none |
+| Initial Sounds | 623 | 513 | 25 | 25 | L1:386, L2:237 | 110 | 110 | none |
 | Ending Sounds | 208 | 164 | 20 | 20 | L1:68, L2:140 | 43 | 44 | none |
 | Rhyming Words | 138 | 90 | 32 | 23 | L1:138 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse |
 | Short Vowels | 171 | 107 | 5 | 5 | L1:116, L2:55 | 0 | 64 | none |
 | Blends | 120 | 69 | 36 | 12 | L1:86, L2:34 | 51 | 40 | gl, pl, gr, pr |
 | Digraphs | 111 | 36 | 30 | 4 | L1:61, L3:50 | 75 | 57 | ck, ng |
 | CVC Words | 148 | 60 | 49 | 35 | L1:148 | 84 | 88 | cab, dot, gum, hen, hop, leg, mud, nap, pet, pig, red, rug, top, van |
-| Sight Words | 194 | 20 | 127 | 20 | L1:84, L2:110 | 0 | 174 | after, again, am, an, any, are, around, as, ask, asked, away, be, before, big, blue, by, came, cold, come, could, down, every, find, fly, found, from, funny, give, go, going, had, has, have, help, helps, her, here, him, his, how, in, into, is, it, jump, just, know, let, like, little, live, look, made, make, may, me, must, my, new, not, now, of, old, on, once, one, open, our, out, over, play, please, pretty, put, read, red, round, run, said, saw, say, see, sleep, some, soon, stop, take, thank, them, think, this, three, two, very, walk, want, well, went, were, what, when, where, white, who, will, yellow, yes |
+| High Frequency Words | 194 | 194 | 127 | 127 | L1:84, L2:110 | 0 | 0 | none |
 | Sentence Picture Matching | 30 | 30 | 15 | 15 | L1:15, L2:15 | 0 | 0 | none |
 | Vocabulary/Categories | 30 | 30 | 14 | 14 | L1:15, L2:15 | 0 | 0 | none |
 
@@ -35,8 +35,6 @@ Date: 2026-05-25
 - Digraphs: 36 media-complete items, below target 52.
 - Digraphs: blocked/missing targets ck, ng.
 - CVC Words: blocked/missing targets cab, dot, gum, hen, hop, leg, mud, nap, pet, pig, red, rug, top, van.
-- Sight Words: 20 media-complete items, below target 50.
-- Sight Words: blocked/missing targets after, again, am, an, any, are, around, as, ask, asked, away, be, before, big, blue, by, came, cold, come, could, down, every, find, fly, found, from, funny, give, go, going, had, has, have, help, helps, her, here, him, his, how, in, into, is, it, jump, just, know, let, like, little, live, look, made, make, may, me, must, my, new, not, now, of, old, on, once, one, open, our, out, over, play, please, pretty, put, read, red, round, run, said, saw, say, see, sleep, some, soon, stop, take, thank, them, think, this, three, two, very, walk, want, well, went, were, what, when, where, white, who, will, yellow, yes.
 - Sentence Picture Matching: 15 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Vocabulary/Categories: 15 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 
@@ -47,8 +45,8 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Active items: 615
-- Media-complete active items: 505
+- Active items: 623
+- Media-complete active items: 513
 - Unique active targets: 25
 - Unique media-complete targets: 25
 - Blocked targets: none
@@ -56,7 +54,7 @@ Date: 2026-05-25
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: 6
-- Duplicate target words by level: initial_sounds|1|map, initial_sounds|1|sock, initial_sounds|1|tub, initial_sounds|1|pan, initial_sounds|1|bat, initial_sounds|1|fan, initial_sounds|1|log, initial_sounds|1|ham, initial_sounds|1|cap, initial_sounds|1|apple, initial_sounds|1|ball, initial_sounds|1|cat, initial_sounds|1|cake, initial_sounds|1|dog, initial_sounds|1|desk, initial_sounds|1|egg, initial_sounds|1|envelope, initial_sounds|1|fork, initial_sounds|1|gate, initial_sounds|1|gum, initial_sounds|1|hen, initial_sounds|1|igloo, initial_sounds|1|insect, initial_sounds|1|jet, initial_sounds|1|king, initial_sounds|1|key, initial_sounds|1|lion, initial_sounds|1|moon, initial_sounds|1|net, initial_sounds|1|nap, initial_sounds|1|ox, initial_sounds|1|orange, initial_sounds|1|pig, initial_sounds|1|pen, initial_sounds|1|queen, initial_sounds|1|quiz, initial_sounds|1|rat, initial_sounds|1|seed, initial_sounds|1|tent, initial_sounds|1|tiger
+- Duplicate target words by level: initial_sounds|1|map, initial_sounds|1|sock, initial_sounds|1|tub, initial_sounds|1|pan, initial_sounds|1|bat, initial_sounds|1|fan, initial_sounds|1|gum, initial_sounds|1|log, initial_sounds|1|ham, initial_sounds|1|cap, initial_sounds|1|wig, initial_sounds|1|apple, initial_sounds|1|ball, initial_sounds|1|cat, initial_sounds|1|cake, initial_sounds|1|dog, initial_sounds|1|desk, initial_sounds|1|egg, initial_sounds|1|envelope, initial_sounds|1|fork, initial_sounds|1|gate, initial_sounds|1|hat, initial_sounds|1|hen, initial_sounds|1|igloo, initial_sounds|1|insect, initial_sounds|1|jam, initial_sounds|1|jet, initial_sounds|1|king, initial_sounds|1|key, initial_sounds|1|lion, initial_sounds|1|leg, initial_sounds|1|moon, initial_sounds|1|net, initial_sounds|1|nap, initial_sounds|1|ox, initial_sounds|1|orange, initial_sounds|1|pig, initial_sounds|1|pen, initial_sounds|1|queen, initial_sounds|1|quiz
 
 ### Rhyming/Phonics Logic Issues
 
@@ -170,19 +168,19 @@ Date: 2026-05-25
 
 - none
 
-## Sight Words
+## High Frequency Words
 
-- Skill ID: sight_words
+- Skill ID: high_frequency_words
 - Active items: 194
-- Media-complete active items: 20
+- Media-complete active items: 194
 - Unique active targets: 127
-- Unique media-complete targets: 20
-- Blocked targets: after, again, am, an, any, are, around, as, ask, asked, away, be, before, big, blue, by, came, cold, come, could, down, every, find, fly, found, from, funny, give, go, going, had, has, have, help, helps, her, here, him, his, how, in, into, is, it, jump, just, know, let, like, little, live, look, made, make, may, me, must, my, new, not, now, of, old, on, once, one, open, our, out, over, play, please, pretty, put, read, red, round, run, said, saw, say, see, sleep, some, soon, stop, take, thank, them, think, this, three, two, very, walk, want, well, went, were, what, when, where, white, who, will, yellow, yes
-- Below minimum warning: yes
+- Unique media-complete targets: 127
+- Blocked targets: none
+- Below minimum warning: no
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: none
-- Duplicate target words by level: sight_words|1|the, sight_words|1|and, sight_words|1|to, sight_words|1|a, sight_words|1|i, sight_words|1|you, sight_words|1|we, sight_words|1|up, sight_words|1|can, sight_words|1|he, sight_words|1|she, sight_words|1|they, sight_words|1|was, sight_words|1|with, sight_words|1|for, sight_words|1|all, sight_words|1|but, sight_words|1|under, sight_words|1|then, sight_words|1|that, sight_words|1|go, sight_words|1|see, sight_words|1|my, sight_words|2|went, sight_words|2|under, sight_words|2|after, sight_words|2|very, sight_words|2|open, sight_words|2|round, sight_words|2|yellow, sight_words|2|two, sight_words|2|give, sight_words|2|know
+- Duplicate target words by level: high_frequency_words|1|the, high_frequency_words|1|and, high_frequency_words|1|to, high_frequency_words|1|a, high_frequency_words|1|i, high_frequency_words|1|you, high_frequency_words|1|we, high_frequency_words|1|up, high_frequency_words|1|can, high_frequency_words|1|he, high_frequency_words|1|she, high_frequency_words|1|they, high_frequency_words|1|was, high_frequency_words|1|with, high_frequency_words|1|for, high_frequency_words|1|all, high_frequency_words|1|but, high_frequency_words|1|under, high_frequency_words|1|then, high_frequency_words|1|that, high_frequency_words|1|go, high_frequency_words|1|see, high_frequency_words|1|my, high_frequency_words|2|went, high_frequency_words|2|under, high_frequency_words|2|after, high_frequency_words|2|very, high_frequency_words|2|open, high_frequency_words|2|round, high_frequency_words|2|yellow, high_frequency_words|2|two, high_frequency_words|2|give, high_frequency_words|2|know
 
 ### Rhyming/Phonics Logic Issues
 

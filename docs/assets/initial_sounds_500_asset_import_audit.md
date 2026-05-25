@@ -11,8 +11,8 @@ Date: 2026-05-25
 ## Summary
 
 - Expected content items: 500
-- Active content items: 477
-- Blocked/excluded content items: 23
+- Active content items: 485
+- Blocked/excluded content items: 15
 - Expected image assets: 500
 - Expected audio assets: 500
 - Source image files in archive: 441
@@ -102,23 +102,15 @@ These items stay out of active assessment use. Existing audio is preserved and s
 
 | Letter | Level | Word | Image | Audio | QA Status | QA Notes |
 |---|---:|---|---|---|---|---|
-| a | 1 | acorn | /media/initial-sounds/images/a/acorn.webp | /media/initial-sounds/audio/a/acorn.mp3 | needs_image_replacement | Current image is overly stylized/rainbow-colored for an ordinary acorn and is blocked from active assessment use. |
-| g | 1 | gum | /media/initial-sounds/images/g/gum.webp | /media/initial-sounds/audio/g/gum.mp3 | needs_image_replacement | Current image is babyfied with a face/decorative styling; ordinary object images must not have faces. |
-| h | 1 | hat | /media/initial-sounds/images/h/hat.webp | /media/initial-sounds/audio/h/hat.mp3 | needs_image_replacement | Current image is babyfied with a face/decorative shapes; ordinary object images must not have faces. |
-| j | 1 | jam | /media/initial-sounds/images/j/jam.webp | /media/initial-sounds/audio/j/jam.mp3 | needs_image_replacement | Current image is babyfied with a face; ordinary food/object images must not have faces. |
-| l | 1 | leg | /media/initial-sounds/images/l/leg.webp | /media/initial-sounds/audio/l/leg.mp3 | needs_image_replacement | Current image is babyfied with a face; body-part images must be clear and natural, not character objects. |
-| n | 1 | nut | /media/initial-sounds/images/n/nut.webp | /media/initial-sounds/audio/n/nut.mp3 | needs_image_replacement | Current image is overly stylized/rainbow-colored and too confusable with acorn-style imagery for a generic nut. |
 | o | 2 | opera | /media/initial-sounds/images/o/opera.webp | /media/initial-sounds/audio/o/opera.mp3 | excluded_unsuitable_word | Opera is culturally specific and too hard to image clearly for early Initial Sounds assessment. |
 | o | 2 | observer | /media/initial-sounds/images/o/observer.webp | /media/initial-sounds/audio/o/observer.mp3 | excluded_unsuitable_word | Observer is abstract/role-based and hard to image clearly for early Initial Sounds assessment. |
 | q | 2 | quartz | /media/initial-sounds/images/q/quartz.webp | /media/initial-sounds/audio/q/quartz.mp3 | excluded_unsuitable_word | Quartz is obscure for K-2 Initial Sounds assessment and should not be active without explicit vocabulary teaching. |
 | q | 2 | quiver | /media/initial-sounds/images/q/quiver.webp | /media/initial-sounds/audio/q/quiver.mp3 | excluded_unsuitable_word | Quiver is potentially ambiguous and not a strong K-2 Initial Sounds assessment target. |
 | q | 2 | quickstep | /media/initial-sounds/images/q/quickstep.webp | /media/initial-sounds/audio/q/quickstep.mp3 | excluded_unsuitable_word | Quickstep is obscure/culturally specific and not a strong K-2 Initial Sounds assessment target. |
-| s | 1 | sun | /media/initial-sounds/images/s/sun.webp | /media/initial-sounds/audio/s/sun.mp3 | needs_image_replacement | Current image is babyfied with sunglasses/face; nature/object images must not have faces unless the target is a living character. |
 | u | 2 | upbeat | /media/initial-sounds/images/u/upbeat.webp | /media/initial-sounds/audio/u/upbeat.mp3 | excluded_unsuitable_word | Upbeat is abstract and hard to image clearly for early Initial Sounds assessment. |
 | u | 2 | uplift | /media/initial-sounds/images/u/uplift.webp | /media/initial-sounds/audio/u/uplift.mp3 | excluded_unsuitable_word | Uplift is abstract and hard to image clearly for early Initial Sounds assessment. |
 | u | 2 | urban garden | /media/initial-sounds/images/u/urban-garden.webp | /media/initial-sounds/audio/u/urban-garden.mp3 | excluded_unsuitable_word | Urban garden is a phrase with a less clear single target object for early Initial Sounds assessment. |
 | v | 2 | velvet | /media/initial-sounds/images/v/velvet.webp | /media/initial-sounds/audio/v/velvet.mp3 | excluded_unsuitable_word | Velvet is texture-based and hard to image unambiguously for early Initial Sounds assessment. |
-| w | 1 | wig | /media/initial-sounds/images/w/wig.webp | /media/initial-sounds/audio/w/wig.mp3 | needs_image_replacement | Current image is babyfied with a face/rainbow styling; ordinary object images must not have faces. |
 | y | 2 | yodeler | /media/initial-sounds/images/y/yodeler.webp | /media/initial-sounds/audio/y/yodeler.mp3 | excluded_unsuitable_word | Yodeler is culturally specific and not a strong K-2 Initial Sounds assessment target. |
 | y | 2 | yucca plant | /media/initial-sounds/images/y/yucca-plant.webp | /media/initial-sounds/audio/y/yucca-plant.mp3 | excluded_unsuitable_word | Yucca plant is less familiar and not a strong early Initial Sounds target. |
 | z | 1 | zone | /media/initial-sounds/images/z/zone.webp | /media/initial-sounds/audio/z/zone.mp3 | excluded_unsuitable_word | Zone is abstract and hard to image clearly for early Initial Sounds assessment. |

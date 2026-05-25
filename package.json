@@ -17,10 +17,15 @@
     "check:initial-sound-progression": "node tools/checkInitialSoundProgression.js",
     "validate:answer-options": "node tools/auditAnswerOptionRendering.js",
     "audit:image-quality": "node tools/auditImageQuality.js",
+    "check:media-quality": "node tools/checkMediaQualityManifest.js",
+    "check:hfw-coverage": "node tools/checkHighFrequencyWordsCoverage.js",
     "validate:skill-banks": "node tools/auditSkillBanks.js",
     "check:skill-progression": "node tools/checkSkillProgression.js",
     "check:final-sound-progression": "node tools/checkFinalSoundProgression.js",
-    "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all"
+    "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all",
+    "download:public-domain-books": "node scripts/downloadPublicDomainBooks.js",
+    "process:public-domain-books": "node scripts/processBookPages.js",
+    "audit:book-library": "node scripts/auditBookLibrary.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

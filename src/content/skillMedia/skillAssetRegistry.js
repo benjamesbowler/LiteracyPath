@@ -90,13 +90,13 @@ export const managedSkillDefinitions = {
     requiredMedia: ["image", "audio"],
     minimumValidItems: 50
   },
-  sight_words: {
-    label: "Sight Words",
-    aliases: ["hfw_1_25", "hfw_26_50", "hfw_51_100"],
+  high_frequency_words: {
+    label: "High Frequency Words",
+    aliases: ["sight_words", "hfw", "highFrequencyWords", "hfw_1_25", "hfw_26_50", "hfw_51_100"],
     itemType: "sight_word",
     levels: [1, 2, 3],
-    requiredMedia: ["audio"],
-    minimumValidItems: 50
+    requiredMedia: [],
+    minimumValidItems: 150
   },
   sentence_picture: {
     label: "Sentence Picture Matching",
@@ -150,7 +150,9 @@ export function normalizeSkillId(value = "") {
   if (["final_sounds", "ending_sound", "ending_sounds"].includes(normalized)) return "ending_sounds";
   if (["rhyming_words", "rhyme_words"].includes(normalized)) return "rhyming";
   if (["cvc_and_short_vowels", "cvc_short_vowels"].includes(normalized)) return "cvc_words";
-  if (normalized.includes("high_frequency") || normalized.includes("sight")) return "sight_words";
+  if (normalized === "hfw" || normalized === "highfrequencywords" || normalized.includes("high_frequency") || normalized.includes("sight")) {
+    return "high_frequency_words";
+  }
   if (normalized.includes("sentence") && normalized.includes("picture")) return "sentence_picture";
   if (normalized.includes("vocabulary") || normalized.includes("categor")) return "vocabulary_categories";
   if (normalized.includes("short_vowel")) return "short_vowels";
@@ -172,7 +174,7 @@ export function resolveManagedSkillId(question = {}) {
   if (text.includes("blend")) return "blends";
   if (text.includes("digraph")) return "digraphs";
   if (text.includes("cvc")) return "cvc_words";
-  if (text.includes("high-frequency") || text.includes("sight word")) return "sight_words";
+  if (text.includes("high-frequency") || text.includes("sight word")) return "high_frequency_words";
   if (text.includes("matches the picture") || text.includes("sentence matches picture")) return "sentence_picture";
   if (text.includes("category") || text.includes("not like the others")) return "vocabulary_categories";
   return "";

@@ -1,0 +1,47 @@
+{
+  "id": "the-burgess-animal-book-for-children",
+  "title": "The Burgess Animal Book for Children",
+  "author": "Thornton W. Burgess",
+  "illustrator": "",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/search/?query=The%20Burgess%20Animal%20Book%20for%20Children",
+  "publicDomain": true,
+  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "gradeBand": "Grade 2",
+  "readingType": "guided-reading",
+  "difficulty": "read-aloud",
+  "estimatedPages": 0,
+  "tags": [
+    "animals",
+    "nature",
+    "science"
+  ],
+  "skills": [
+    "main idea-details",
+    "vocabulary",
+    "compare-contrast"
+  ],
+  "pages": [],
+  "comprehension": [
+    {
+      "type": "open-response",
+      "question": "Who or what is this book mostly about?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What happened first, next, and last?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What is one new or interesting word from this book?",
+      "options": [],
+      "correctAnswer": ""
+    }
+  ],
+  "active": false,
+  "downloadStatus": "pending_network_download",
+  "processingStatus": "not_processed"
+}

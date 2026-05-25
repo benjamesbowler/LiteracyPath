@@ -39,7 +39,8 @@ export function AdminDashboardPage({
       mediaFilter === "all" ||
       (mediaFilter === "missing_image" && row.missingImage > 0) ||
       (mediaFilter === "missing_audio" && row.missingAudio > 0) ||
-      (mediaFilter === "complete_media" && row.missingImage === 0 && row.missingAudio === 0);
+      (mediaFilter === "complete_media" && row.missingImage === 0 && row.missingAudio === 0) ||
+      (mediaFilter === "bad_media" && row.badMedia > 0);
     const matchesStatus =
       statusFilterLocal === "all" ||
       (statusFilterLocal === "active" && row.active > 0) ||
@@ -110,6 +111,7 @@ export function AdminDashboardPage({
             <option value="missing_image">Missing image</option>
             <option value="missing_audio">Missing audio</option>
             <option value="complete_media">Complete media</option>
+            <option value="bad_media">Bad media flagged</option>
           </select>
 
           <select value={statusFilterLocal} onChange={event => setStatusFilterLocal(event.target.value)}>
@@ -125,10 +127,12 @@ export function AdminDashboardPage({
               <tr>
                 <th>Skill</th>
                 <th>Questions</th>
+                <th>Runtime</th>
                 <th>30+</th>
                 <th>Templates</th>
                 <th>Patterns</th>
                 <th>Media gaps</th>
+                <th>Bad media</th>
                 <th>Status</th>
               </tr>
             </thead>
@@ -137,10 +141,12 @@ export function AdminDashboardPage({
                 <tr key={row.skill}>
                   <td><strong>{row.skill}</strong></td>
                   <td>{row.total}</td>
-                  <td>{row.total >= 30 ? "OK" : "Below 30"}</td>
+                  <td>{row.runtimeSelectable ?? row.active}</td>
+                  <td>{(row.runtimeSelectable ?? row.active) >= 30 ? "OK" : "Below 30"}</td>
                   <td>{Object.entries(row.templates).map(([key, count]) => `${key}: ${count}`).join(", ")}</td>
                   <td>{Object.entries(row.patterns).slice(0, 8).map(([key, count]) => `${key}: ${count}`).join(", ") || "Not tagged"}</td>
                   <td>{row.missingImage} image / {row.missingAudio} audio</td>
+                  <td>{row.badMedia || 0}</td>
                   <td>{row.active} active / {row.inactive} inactive</td>
                 </tr>
               ))}

@@ -1,0 +1,47 @@
+{
+  "id": "the-tale-of-jemima-puddle-duck",
+  "title": "The Tale of Jemima Puddle-Duck",
+  "author": "Beatrix Potter",
+  "illustrator": "",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/search/?query=The%20Tale%20of%20Jemima%20Puddle-Duck",
+  "publicDomain": true,
+  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "gradeBand": "Grade 1-2",
+  "readingType": "guided-reading",
+  "difficulty": "developing",
+  "estimatedPages": 0,
+  "tags": [
+    "animals",
+    "farm",
+    "problem-solution"
+  ],
+  "skills": [
+    "prediction",
+    "problem-solution",
+    "retell"
+  ],
+  "pages": [],
+  "comprehension": [
+    {
+      "type": "open-response",
+      "question": "Who or what is this book mostly about?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What happened first, next, and last?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What is one new or interesting word from this book?",
+      "options": [],
+      "correctAnswer": ""
+    }
+  ],
+  "active": false,
+  "downloadStatus": "pending_network_download",
+  "processingStatus": "not_processed"
+}

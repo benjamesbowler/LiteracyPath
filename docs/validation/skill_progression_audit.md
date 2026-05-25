@@ -6,7 +6,7 @@ Date: 2026-05-25
 
 - Managed skills simulated: 10
 - Fatal progression failures: 0
-- Progression warnings: 39
+- Progression warnings: 35
 
 ## Warnings
 
@@ -39,10 +39,6 @@ Date: 2026-05-25
 - Digraphs L1 round 3: selected 9, fewer than available unique target cap 15.
 - CVC Words L1 round 2: reused recent words cat, fin, dog.
 - CVC Words L1 round 3: reused recent words cat, dog, fin.
-- Sight Words L1 round 2: reused recent IDs p3_hfw_1_25_listen_a, p3_hfw_26_50_listen_all, p3_hfw_1_25_listen_and, p3_hfw_26_50_listen_but, p3_hfw_1_25_listen_can, p3_hfw_26_50_listen_for, p3_hfw_26_50_listen_he, p3_hfw_1_25_listen_i, p3_hfw_26_50_listen_she, p3_hfw_26_50_listen_that.
-- Sight Words L1 round 2: reused recent words a, all, and, but, can, for, he, i, she, that.
-- Sight Words L1 round 3: reused recent IDs p3_hfw_1_25_listen_a, p3_hfw_26_50_listen_all, p3_hfw_1_25_listen_and, p3_hfw_26_50_listen_but, p3_hfw_1_25_listen_can, p3_hfw_26_50_listen_for, p3_hfw_26_50_listen_he, p3_hfw_1_25_listen_i, p3_hfw_26_50_listen_she, p3_hfw_26_50_listen_that.
-- Sight Words L1 round 3: reused recent words a, all, and, but, can, for, he, i, she, that.
 - Vocabulary/Categories L1 round 1: selected 14, fewer than available unique target cap 15.
 - Vocabulary/Categories L1 round 2: selected 14, fewer than available unique target cap 15.
 - Vocabulary/Categories L1 round 3: selected 14, fewer than available unique target cap 15.
@@ -57,15 +53,15 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Media-complete items: 505
+- Media-complete items: 513
 - Media-complete targets: 25
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | animal, ball, corn, duck, empty, fish, grape, hat, island, jacket, kiwi, lemon, map, newt, oven |
-| L1 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pen, question, rat, soap, turtle, upstairs, violin, wallet, yellow, zucchini, ax, bat, cake, dish, exit |
-| L1 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | apron, book, cap, daisy, envelope, flower, goat, hill, ink, jeep, kite, ladder, mug, neck, octopus |
+| L1 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | acorn, ball, coat, drum, elephant, fish, gate, hill, iguana, jump, kid, log, milk, needle, owl |
+| L1 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pen, question, rat, sun, truck, umpire, volcano, worm, yard, zoo, anchor, bed, car, dog, elbow |
+| L1 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | arrow, bag, cup, daisy, elf, fox, goat, hand, ivy, jam, kettle, leg, mitten, noodle, ox |
 | L2 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | athlete, banana, cucumber, dolphin, exercise, football, gingerbread, hairbrush, instructor, jigsaw, karate, lollipop, mermaid, nightlight, office |
 | L2 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pajamas, question mark, refrigerator, sunglasses, tractor, umpire mask, vacation, windmill, yo-yo string, zipline, ambulance, beaver, carrot, diamond, earmuffs |
 | L2 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | accordion, butterfly, castle, dictionary, easel, fossil, garbage truck, hummingbird, instrument, jump rope, kiosk, laboratory, motorcycle, notebook, orangutan |
@@ -151,18 +147,21 @@ Date: 2026-05-25
 | L1 R2 | 2 | 15 | 15/15 | lid, log, man, map, mug, pan, pen, pin, pot, ram, short a, short e, short i, short o, short u | lid, log, man, map, mug, pan, pen, pin, pot, ram, cat, red, fin, dog, mud |
 | L1 R3 | 2 | 15 | 15/15 | sit, sock, sun, web, wig, bag, bat, bed, bug, cap, cat, cup, dog, duck, fin | sit, sock, sun, web, wig, bag, bat, bed, bug, cap, cat, cup, dog, duck, fin |
 
-## Sight Words
+## High Frequency Words
 
-- Skill ID: sight_words
-- Media-complete items: 20
-- Media-complete targets: 20
+- Skill ID: high_frequency_words
+- Media-complete items: 194
+- Media-complete targets: 127
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 15/15 | a, all, and, but, can, for, he, i, she, that, the, then, they, to, under | a, all, and, but, can, for, he, i, she, that, the, then, they, to, under |
-| L1 R2 | 2 | 15 | 15/15 | up, was, we, with, you, a, all, and, but, can, for, he, i, she, that | up, was, we, with, you, a, all, and, but, can, for, he, i, she, that |
-| L1 R3 | 3 | 15 | 15/15 | a, all, and, but, can, for, he, i, she, that, the, then, they, to, under | a, all, and, but, can, for, he, i, she, that, the, then, they, to, under |
+| L1 R1 | 1 | 15 | 15/15 | a, all, am, and, are, big, but, can, come, down, for, go, he, i, in | a, all, am, and, are, big, but, can, come, down, for, go, he, i, in |
+| L1 R2 | 2 | 15 | 15/15 | is, it, like, little, look, me, my, not, on, one, play, said, see, she, that | is, it, like, little, look, me, my, not, on, one, play, said, see, she, that |
+| L1 R3 | 2 | 15 | 15/15 | the, then, they, to, under, up, want, was, we, with, you, a, all, am, and | the, then, they, to, under, up, want, was, we, with, you, a, all, am, and |
+| L2 R1 | 1 | 15 | 15/15 | after, again, all, an, any, are, around, as, ask, asked, away, be, before, blue, but | after, again, all, an, any, are, around, as, ask, asked, away, be, before, blue, but |
+| L2 R2 | 2 | 15 | 15/15 | by, came, cold, could, every, find, fly, found, from, funny, give, going, had, has, have | by, came, cold, could, every, find, fly, found, from, funny, give, going, had, has, have |
+| L2 R3 | 2 | 15 | 15/15 | he, help, helps, her, here, him, his, how, into, jump, just, know, let, like, live | he, help, helps, her, here, him, his, how, into, jump, just, know, let, like, live |
 
 ## Sentence Picture Matching
 
