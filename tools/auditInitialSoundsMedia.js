@@ -13,8 +13,18 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
-const sourceDir = "/Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath a-z assets 500class";
-const sourceZip = path.join(sourceDir, "initial-sounds-media-pack.zip");
+function getArg(name, fallback = "") {
+  const index = process.argv.indexOf(`--${name}`);
+  return index >= 0 ? process.argv[index + 1] || fallback : fallback;
+}
+
+const sourceDir = getArg("source", "/Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath a-z assets 500class");
+const preferredZip = getArg("zip", "");
+const sourceZip = preferredZip ||
+  ["initial-sounds-media-pack.zip", "initial-sounds-complete-pack.zip"]
+    .map(fileName => path.join(sourceDir, fileName))
+    .find(filePath => fs.existsSync(filePath)) ||
+  path.join(sourceDir, "initial-sounds-media-pack.zip");
 const shouldImport = process.argv.includes("--import");
 
 const failures = [];
@@ -44,6 +54,25 @@ function readZipEntry(zipPath, entry) {
   return execFileSync("unzip", ["-p", zipPath, entry], { encoding: "buffer", maxBuffer: 50 * 1024 * 1024 });
 }
 
+function walkEntries(dir, baseDir = dir) {
+  if (!pathExists(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) return walkEntries(fullPath, baseDir);
+    return [path.relative(baseDir, fullPath).split(path.sep).join("/")];
+  });
+}
+
+function sourceFolderEntries() {
+  return walkEntries(path.join(sourceDir, "public"), sourceDir);
+}
+
+function readSourceEntry(entry) {
+  const folderPath = path.join(sourceDir, entry);
+  if (pathExists(folderPath)) return fs.readFileSync(folderPath);
+  return readZipEntry(sourceZip, entry);
+}
+
 function projectFileForUrl(url) {
   return path.join(rootDir, "public", String(url || "").replace(/^\//, ""));
 }
@@ -62,14 +91,14 @@ function writeFile(filePath, content) {
 }
 
 function copyZipEntryIfNeeded(entry, destination, kind, item) {
-  const content = readZipEntry(sourceZip, entry);
+  const content = readSourceEntry(entry);
   ensureDir(destination);
 
   const alreadyExists = pathExists(destination);
   const existingHash = alreadyExists ? sha256(fs.readFileSync(destination)) : "";
   const incomingHash = sha256(content);
 
-  if (!alreadyExists || existingHash !== incomingHash) {
+  if (!alreadyExists) {
     fs.writeFileSync(destination, content);
   }
 
@@ -80,8 +109,16 @@ function copyZipEntryIfNeeded(entry, destination, kind, item) {
     targetWord: item.targetWord,
     sourceEntry: entry,
     destination: path.relative(rootDir, destination),
-    status: alreadyExists && existingHash === incomingHash ? "already_present" : "copied"
+    status: alreadyExists
+      ? existingHash === incomingHash
+        ? "already_present"
+        : "conflict_skipped_existing_media"
+      : "copied"
   };
+
+  if (alreadyExists && existingHash !== incomingHash) {
+    manualReview.push(`${item.letter}/${normalizeInitialSoundWord(item.targetWord)} ${kind} exists and differs from source; kept existing approved file.`);
+  }
 
   if (kind === "image") importedImages.push(row);
   if (kind === "audio") importedAudio.push(row);
@@ -176,8 +213,8 @@ function markdownList(items, formatter, limit = 500) {
   return items.slice(0, limit).map(formatter).join("\n");
 }
 
-const entries = zipEntries(sourceZip);
-if (!entries.length) failures.push(`No zip entries found at ${sourceZip}.`);
+const entries = [...new Set([...sourceFolderEntries(), ...zipEntries(sourceZip)])];
+if (!entries.length) failures.push(`No source media entries found in ${sourceDir} or ${sourceZip}.`);
 
 const analysis = analyzeFiles(entries);
 const entrySet = new Set(entries);

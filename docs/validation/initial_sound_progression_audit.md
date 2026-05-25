@@ -5,46 +5,46 @@ Date: 2026-05-25
 ## Summary
 
 - Level 1 media-complete letters: 25/25
-- Level 2 media-complete letters: 21/25
+- Level 2 media-complete letters: 25/25
 - Failures: 0
-- Warnings: 1
+- Warnings: 0
 
 ## Per-Letter Complete Media Coverage
 
 | Letter | Level 1 Complete Items | Level 2 Complete Items | Level 1 Status | Level 2 Status |
 |---|---:|---:|---|---|
 | a | 10 | 10 | available | available |
-| b | 6 | 6 | available | available |
-| c | 6 | 5 | available | available |
-| d | 8 | 6 | available | available |
-| e | 8 | 3 | available | available |
-| f | 8 | 4 | available | available |
-| g | 9 | 2 | available | available |
-| h | 9 | 3 | available | available |
-| i | 6 | 4 | available | available |
-| j | 7 | 3 | available | available |
-| k | 8 | 5 | available | available |
-| l | 9 | 4 | available | available |
-| m | 6 | 3 | available | available |
-| n | 9 | 3 | available | available |
-| o | 8 | 5 | available | available |
-| p | 5 | 1 | available | available |
-| q | 9 | 3 | available | available |
-| r | 6 | 5 | available | available |
-| s | 3 | 2 | available | available |
-| t | 3 | 3 | available | available |
-| u | 4 | 1 | available | available |
-| v | 8 | 0 | available | blocked |
-| w | 7 | 0 | available | blocked |
-| y | 8 | 0 | available | blocked |
-| z | 6 | 0 | available | blocked |
+| b | 10 | 10 | available | available |
+| c | 10 | 10 | available | available |
+| d | 10 | 10 | available | available |
+| e | 10 | 10 | available | available |
+| f | 10 | 10 | available | available |
+| g | 10 | 10 | available | available |
+| h | 10 | 10 | available | available |
+| i | 10 | 10 | available | available |
+| j | 10 | 10 | available | available |
+| k | 10 | 10 | available | available |
+| l | 10 | 10 | available | available |
+| m | 10 | 10 | available | available |
+| n | 10 | 10 | available | available |
+| o | 10 | 10 | available | available |
+| p | 10 | 10 | available | available |
+| q | 10 | 10 | available | available |
+| r | 10 | 10 | available | available |
+| s | 10 | 10 | available | available |
+| t | 10 | 10 | available | available |
+| u | 10 | 8 | available | available |
+| v | 10 | 8 | available | available |
+| w | 10 | 10 | available | available |
+| y | 10 | 10 | available | available |
+| z | 9 | 8 | available | available |
 
 ## Round 1 Level 1
 
 - Level: 1
 - Phase: 1
 - Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Target words: apron, bat, cake, donut, elbow, fan, girl, horse, island, jewel, kangaroo, leaf, muffin, needle, owl
+- Target words: apron, bat, candy, daisy, exit, fork, gum, horse, inside, juice, kangaroo, lock, mug, noodle, ostrich
 - Review letters: none
 - Blocked letters: none
 - Missing expected available letters: none
@@ -54,7 +54,7 @@ Date: 2026-05-25
 - Level: 1
 - Phase: 2
 - Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Target words: pen, quarter, robot, seal, tent, umbrella, vacuum, water, yam, zoo, apple, bus, cow, drum, ear
+- Target words: pumpkin, quiet, rug, shell, tree, ukulele, violin, wallet, yoyo, zebra, ax, book, car, door, egg
 - Review letters: a, b, c, d, e
 - Blocked letters: none
 - Missing expected available letters: none
@@ -64,24 +64,24 @@ Date: 2026-05-25
 - Level: 2
 - Phase: 1
 - Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Target words: asteroid, banana, calculator, dictionary, eraser, fountain, grocery, hospital, instrument, jaguar, kayak, lemonade, mushroom, nurse, observer
+- Target words: asteroid, banana, computer, diamond, elevator, fishing pole, greenhouse, helicopter, icicle, jigsaw, knapsack, lantern, mailbox, newspaper, oatmeal
 - Review letters: none
-- Blocked letters: v, w, y, z
+- Blocked letters: none
 - Missing expected available letters: none
 
 ## Continue Round 4 Level 2
 
 - Level: 2
 - Phase: 2
-- Letters: p, q, r, s, t, u, a, b, c, d, e, f, g, h, i
-- Target words: parachute, quicksand, restaurant, scarecrow, thermometer, uniform, avocado, bicycle, camera, dinosaur, elevator, flashlight, gorilla, hamburger, iron
-- Review letters: a, b, c, d, e, f, g, h, i
-- Blocked letters: v, w, y, z
+- Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
+- Target words: penguin, quiet room, reindeer, strawberry, treasure, uniform, video camera, weather, yawning child, zigzag road, apricot, basket, calculator, domino, engineer
+- Review letters: a, b, c, d, e
+- Blocked letters: none
 - Missing expected available letters: none
 
 ## Warnings
 
-- Level 2 blocked letters due to missing complete media: v, w, y, z.
+- none
 
 ## Failures
 
