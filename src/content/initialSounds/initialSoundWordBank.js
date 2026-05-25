@@ -112,10 +112,110 @@ const distractorLettersFor = (letter, difficulty) => {
   return [letter, ...offsets.map(offset => INITIAL_SOUND_LETTERS[(index + offset) % INITIAL_SOUND_LETTERS.length])];
 };
 
+const blockedInitialSoundTargets = {
+  acorn: {
+    status: "needs_image_replacement",
+    reason: "Current image is overly stylized/rainbow-colored for an ordinary acorn and is blocked from active assessment use."
+  },
+  nut: {
+    status: "needs_image_replacement",
+    reason: "Current image is overly stylized/rainbow-colored and too confusable with acorn-style imagery for a generic nut."
+  },
+  zinnia: {
+    status: "excluded_unsuitable_word",
+    reason: "Zinnia is too unusual for this K-2 Initial Sounds assessment bank and should be replaced with a simpler /z/ word."
+  },
+  "zinnia-flower": {
+    status: "excluded_unsuitable_word",
+    reason: "Zinnia flower is too unusual for this K-2 Initial Sounds assessment bank and should be replaced with a simpler /z/ word."
+  },
+  zannia: {
+    status: "excluded_unsuitable_word",
+    reason: "Zannia appears to be a misspelled/unusual target and is not suitable for active assessment use."
+  },
+  zone: {
+    status: "excluded_unsuitable_word",
+    reason: "Zone is abstract and hard to image clearly for early Initial Sounds assessment."
+  },
+  observer: {
+    status: "excluded_unsuitable_word",
+    reason: "Observer is abstract/role-based and hard to image clearly for early Initial Sounds assessment."
+  },
+  opera: {
+    status: "excluded_unsuitable_word",
+    reason: "Opera is culturally specific and too hard to image clearly for early Initial Sounds assessment."
+  },
+  quartz: {
+    status: "excluded_unsuitable_word",
+    reason: "Quartz is obscure for K-2 Initial Sounds assessment and should not be active without explicit vocabulary teaching."
+  },
+  quiver: {
+    status: "excluded_unsuitable_word",
+    reason: "Quiver is potentially ambiguous and not a strong K-2 Initial Sounds assessment target."
+  },
+  quickstep: {
+    status: "excluded_unsuitable_word",
+    reason: "Quickstep is obscure/culturally specific and not a strong K-2 Initial Sounds assessment target."
+  },
+  upbeat: {
+    status: "excluded_unsuitable_word",
+    reason: "Upbeat is abstract and hard to image clearly for early Initial Sounds assessment."
+  },
+  uplift: {
+    status: "excluded_unsuitable_word",
+    reason: "Uplift is abstract and hard to image clearly for early Initial Sounds assessment."
+  },
+  "urban-garden": {
+    status: "excluded_unsuitable_word",
+    reason: "Urban garden is a phrase with a less clear single target object for early Initial Sounds assessment."
+  },
+  utensils: {
+    status: "needs_media_asset",
+    reason: "Required image and audio are missing, so this item is blocked from active assessment until media exists."
+  },
+  underground: {
+    status: "needs_media_asset",
+    reason: "Required image is missing, so this item is blocked from active assessment until media exists."
+  },
+  vacation: {
+    status: "needs_media_asset",
+    reason: "Required image is missing, so this item is blocked from active assessment until media exists."
+  },
+  velvet: {
+    status: "excluded_unsuitable_word",
+    reason: "Velvet is texture-based and hard to image unambiguously for early Initial Sounds assessment."
+  },
+  village: {
+    status: "needs_media_asset",
+    reason: "Required image is missing, so this item is blocked from active assessment until media exists."
+  },
+  yodeler: {
+    status: "excluded_unsuitable_word",
+    reason: "Yodeler is culturally specific and not a strong K-2 Initial Sounds assessment target."
+  },
+  "yucca-plant": {
+    status: "excluded_unsuitable_word",
+    reason: "Yucca plant is less familiar and not a strong early Initial Sounds target."
+  },
+  zigzag: {
+    status: "needs_media_asset",
+    reason: "Required image is missing, so this item is blocked from active assessment until media exists."
+  },
+  zeppelin: {
+    status: "excluded_unsuitable_word",
+    reason: "Zeppelin is obscure for K-2 Initial Sounds assessment and is blocked from active use."
+  },
+  "zesty-lemon": {
+    status: "needs_media_asset",
+    reason: "Required image and audio are missing, so this item is blocked from active assessment until media exists."
+  }
+};
+
 function makeInitialSoundItem(letter, targetWord, level, index) {
   const wordKey = normalizeInitialSoundWord(targetWord);
   const difficulty = level === 1 ? "easy" : "challenge";
   const syllables = countSyllables(targetWord);
+  const blockedTarget = blockedInitialSoundTargets[wordKey];
 
   return {
     id: `fs_${letter}_${wordKey}_l${level}`,
@@ -141,7 +241,9 @@ function makeInitialSoundItem(letter, targetWord, level, index) {
     choices: distractorLettersFor(letter, difficulty),
     distractorType: level === 1 ? "easy" : "near-letter-review",
     tags: [...new Set([difficulty, level === 1 ? "level-1" : "level-2", ...tagsByWord(targetWord)])],
-    active: true,
+    active: !blockedTarget,
+    qaStatus: blockedTarget?.status || "approved",
+    qaNotes: blockedTarget?.reason || "",
     question: "Listen to the word. What sound does it start with?",
     prompt: "Listen to the word. What sound does it start with?",
     spokenPrompt: "Listen to the word.",

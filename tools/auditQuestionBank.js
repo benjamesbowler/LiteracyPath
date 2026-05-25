@@ -80,9 +80,32 @@ import {
   getRepeatOptionSetSignature,
   getRepeatTargetWord
 } from "../src/questionRepeatGuards.js";
+import { getAnswerOptionLabel } from "../src/utils/answerOptions.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
+const blockedAssessmentImagePaths = new Set([
+  "/media/initial-sounds/images/a/acorn.webp",
+  "/media/initial-sounds/images/n/nut.webp",
+  "/images/child-mode/short-u/nut.png"
+]);
+const excludedAssessmentWords = new Set([
+  "zinnia",
+  "zinnia flower",
+  "zannia",
+  "zone",
+  "observer",
+  "opera",
+  "quartz",
+  "quiver",
+  "quickstep",
+  "upbeat",
+  "uplift",
+  "urban garden",
+  "velvet",
+  "yodeler",
+  "yucca plant"
+]);
 
 function publicAssetExists(assetPath) {
   return Boolean(
@@ -90,6 +113,17 @@ function publicAssetExists(assetPath) {
     String(assetPath).startsWith("/") &&
     fs.existsSync(path.join(rootDir, "public", assetPath))
   );
+}
+
+function questionImagePaths(question = {}) {
+  return [
+    question.imageUrl,
+    question.imagePath,
+    question.image,
+    ...(Array.isArray(question.imageCards) ? question.imageCards.flatMap(card => [card.image, card.imageUrl, card.imagePath]) : []),
+    ...(Array.isArray(question.answerOptions) ? question.answerOptions.flatMap(option => [option.image, option.imageUrl, option.imagePath]) : []),
+    ...(Array.isArray(question.promptImageCards) ? question.promptImageCards.flatMap(card => [card.image, card.imageUrl, card.imagePath]) : [])
+  ].filter(Boolean);
 }
 
 const questionBanks = [
@@ -279,7 +313,7 @@ function normalize(text) {
 }
 
 function normalizedChoices(choices) {
-  return choices.map(choice => normalize(choice));
+  return choices.map(choice => normalize(getAnswerOptionLabel(choice)));
 }
 
 function isFixSentenceQuestion(question) {
@@ -917,6 +951,7 @@ function getStage(question) {
 }
 
 function isActiveRuntimeQuestion(question) {
+  if (question?.active === false) return false;
   if (!question?.id || !question.skill || !(question.question || question.prompt) || !question.answer) return false;
   if (getStage(question) === "UNMATCHED") return false;
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
@@ -1203,6 +1238,26 @@ function auditQuestions() {
     counts[stage] = (counts[stage] || 0) + 1;
     updateQuestionFormatStats(formatStats, question);
 
+    if (question.active === false) continue;
+
+    const targetWordsForQuality = [
+      question.targetWord,
+      question.anchorWord,
+      question.audioText,
+      question.diagnosticTarget,
+      question.correctAnswer,
+      question.answer
+    ].map(value => String(value || "").toLowerCase().trim()).filter(Boolean);
+    const blockedWord = targetWordsForQuality.find(value => excludedAssessmentWords.has(value));
+    if (blockedWord) {
+      addProblem(problems, "excluded target word active", item, `"${blockedWord}" is not suitable for active K-2 assessment use.`);
+    }
+
+    const blockedImagePath = questionImagePaths(question).find(imagePath => blockedAssessmentImagePaths.has(imagePath));
+    if (blockedImagePath) {
+      addProblem(problems, "blocked image active", item, `Active question uses blocked assessment image ${blockedImagePath}.`);
+    }
+
     const formatMetadataProblem = questionFormatMetadataIssue(question);
 
     if (formatMetadataProblem) {
@@ -1256,6 +1311,36 @@ function auditQuestions() {
       continue;
     }
 
+    if (isIxlTemplate(question) && Array.isArray(question.answerOptions) && question.answerOptions.length > 0) {
+      const optionLabels = question.answerOptions.map(getAnswerOptionLabel);
+      const missingOptionLabels = optionLabels
+        .map((label, index) => ({ label, index }))
+        .filter(option => !option.label);
+      if (missingOptionLabels.length) {
+        addProblem(
+          problems,
+          "answer option label missing",
+          item,
+          `IXL-style answer options need visible labels. Missing at indexes: ${missingOptionLabels.map(option => option.index).join(", ")}.`
+        );
+      }
+      const normalizedLabels = optionLabels.map(label => String(label || "").trim());
+      const answer = String(question.correctAnswer || question.answer || "").trim();
+      const answerCount = normalizedLabels.filter(label => label === answer).length;
+      if (answer && answerCount !== 1) {
+        addProblem(
+          problems,
+          "answer label mismatch",
+          item,
+          `Correct answer "${question.correctAnswer || question.answer}" must appear exactly once as a visible answer label; found ${answerCount}.`
+        );
+      }
+      for (const issue of getAssessmentContentIssues(question, { assetExists: publicAssetExists })) {
+        addProblem(problems, "template validation", item, issue);
+      }
+      continue;
+    }
+
     if (!Array.isArray(question.choices)) {
       addProblem(problems, "choices not array", item, "Choices must be an array.");
       continue;
@@ -1270,6 +1355,18 @@ function auditQuestions() {
 
     if (uniqueChoices.size !== choices.length && !(isIxlTemplate(question) && String(question.templateType || question.formatType || "").toUpperCase() === "GRAMMAR_BASICS")) {
       addProblem(problems, "duplicate answer choices", item, question.choices.join(" | "));
+    }
+
+    const missingVisibleChoices = question.choices
+      .map((choice, index) => ({ label: getAnswerOptionLabel(choice), index }))
+      .filter(choice => !choice.label);
+    if (missingVisibleChoices.length) {
+      addProblem(
+        problems,
+        "answer option label missing",
+        item,
+        `Choices need visible labels. Missing at indexes: ${missingVisibleChoices.map(choice => choice.index).join(", ")}.`
+      );
     }
 
     if (!isPairSelectionQuestion(question) && !choices.includes(normalize(question.answer))) {

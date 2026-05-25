@@ -25,6 +25,7 @@ import { questionBankExpansion8 } from "../../data/questionBankExpansion8.js";
 import { generatedQuestions } from "../../data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../../data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../../data/templateComprehensionAdvanced.js";
+import { getAnswerOptionLabel } from "../../utils/answerOptions.js";
 
 export const managedSkillDefinitions = {
   initial_sounds: {
@@ -184,9 +185,9 @@ export function normalizeTargetWord(value = "") {
 export function getQuestionChoices(question = {}) {
   return [...new Set([
     ...(Array.isArray(question.choices) ? question.choices : []),
-    ...(Array.isArray(question.answerOptions) ? question.answerOptions.map(option => option?.word || option?.label || option?.value) : []),
-    ...(Array.isArray(question.imageCards) ? question.imageCards.map(card => card?.word || card?.value) : [])
-  ].filter(Boolean).map(value => typeof value === "string" ? value : String(value)))];
+    ...(Array.isArray(question.answerOptions) ? question.answerOptions : []),
+    ...(Array.isArray(question.imageCards) ? question.imageCards : [])
+  ].map(getAnswerOptionLabel).filter(Boolean))];
 }
 
 export function getQuestionImagePaths(question = {}) {

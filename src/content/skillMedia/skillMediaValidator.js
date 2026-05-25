@@ -1,5 +1,19 @@
 import { hasMediaForItem } from "./skillCoverageUtils.js";
 import { managedSkillDefinitions, validateExplicitRhymeItem } from "./skillAssetRegistry.js";
+import { getAnswerOptionLabel } from "../../utils/answerOptions.js";
+
+function correctAnswerTokens(item = {}) {
+  const rawTokens = [
+    ...(Array.isArray(item.raw?.correctWords) ? item.raw.correctWords : []),
+    ...(Array.isArray(item.raw?.correctAnswers) ? item.raw.correctAnswers : []),
+    item.correctAnswer
+  ];
+
+  return rawTokens
+    .flatMap(token => String(token || "").split("|"))
+    .map(token => token.trim().toLowerCase())
+    .filter(Boolean);
+}
 
 export function validateSkillBankItem(item, { assetExists = () => true } = {}) {
   const issues = [];
@@ -13,8 +27,18 @@ export function validateSkillBankItem(item, { assetExists = () => true } = {}) {
   if (media.missingImage) issues.push("missing required image");
   if (media.missingAudio) issues.push("missing required audio");
   if (item.answerOptions?.length) {
-    const options = item.answerOptions.map(option => String(option || "").toLowerCase());
-    if (new Set(options).size !== options.length) issues.push("duplicate answer options");
+    const options = item.answerOptions.map(getAnswerOptionLabel);
+    const normalizedOptions = options.map(option => option.toLowerCase());
+    const missingLabels = item.answerOptions.filter(option => !getAnswerOptionLabel(option));
+    if (missingLabels.length) issues.push("answer option missing visible label");
+    if (new Set(normalizedOptions).size !== normalizedOptions.length) issues.push("duplicate answer options");
+    const correctTokens = [...new Set(correctAnswerTokens(item))];
+    if (correctTokens.length) {
+      correctTokens.forEach(token => {
+        const correctCount = normalizedOptions.filter(option => option === token).length;
+        if (correctCount !== 1) issues.push(`correct answer label "${token}" must appear exactly once, found ${correctCount}`);
+      });
+    }
   }
   issues.push(...validateExplicitRhymeItem(item));
 
@@ -37,7 +61,7 @@ export function buildMissingMediaRequestRows(summaries) {
       mediaType,
       expectedPath: path || "(missing path)",
       prompt: mediaType === "image"
-        ? `Create a clean, child-safe, imageable illustration for "${item.targetWord || item.target}" with no embedded text.`
+        ? `Create a clean, child-safe, imageable illustration for "${item.targetWord || item.target}" with no embedded text. Use natural object colors; do not make ordinary objects rainbow-colored or visually chaotic unless the target word is "rainbow".`
         : `Record clean American English word audio for "${item.targetWord || item.target}". Speak the word naturally, no spelling, no music, no sound effects.`,
       reason: `Required for ${summary.label} ${item.level ? `Level ${item.level}` : ""} media-backed practice.`
     }));

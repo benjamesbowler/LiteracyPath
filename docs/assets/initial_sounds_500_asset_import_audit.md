@@ -4,25 +4,29 @@ Date: 2026-05-25
 
 ## Source
 
-- Source folder: /Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath missing assets 500
-- Source archive: /Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath missing assets 500/initial-sounds-complete-pack.zip
+- Source folder: /Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath a-z assets 500class
+- Source archive: /Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath a-z assets 500class/initial-sounds-media-pack.zip
 - Import mode used: no
 
 ## Summary
 
 - Expected content items: 500
+- Active content items: 477
+- Blocked/excluded content items: 23
 - Expected image assets: 500
 - Expected audio assets: 500
-- Source image files in archive: 677
-- Source audio files in archive: 698
-- Exact source image matches to word bank: 493
-- Exact source audio matches to word bank: 498
-- Exact source complete image+audio pairs: 493
+- Source image files in archive: 441
+- Source audio files in archive: 468
+- Exact source image matches to word bank: 257
+- Exact source audio matches to word bank: 268
+- Exact source complete image+audio pairs: 257
 - Project imported/present image matches: 493
 - Project imported/present audio matches: 498
 - Project complete image+audio pairs: 493
 - Missing images after import: 7
 - Missing audio after import: 2
+- Active missing images after import: 0
+- Active missing audio after import: 0
 - X items active: no
 - Duplicate archive paths: 0
 - Duplicate archive basenames: 0
@@ -97,6 +101,36 @@ Date: 2026-05-25
 | z | 1 | zigzag | image | /media/initial-sounds/images/z/zigzag.webp | /media/initial-sounds/audio/z/zigzag.mp3 |
 | z | 2 | zeppelin | image | /media/initial-sounds/images/z/zeppelin.webp | /media/initial-sounds/audio/z/zeppelin.mp3 |
 | z | 2 | zesty lemon | image, audio | /media/initial-sounds/images/z/zesty-lemon.webp | /media/initial-sounds/audio/z/zesty-lemon.mp3 |
+
+## Blocked Or Excluded Items
+
+These items stay out of active assessment use. Existing audio is preserved and should not be regenerated unless another audit marks it broken.
+
+| Letter | Level | Word | Image | Audio | QA Status | QA Notes |
+|---|---:|---|---|---|---|---|
+| a | 1 | acorn | /media/initial-sounds/images/a/acorn.webp | /media/initial-sounds/audio/a/acorn.mp3 | needs_image_replacement | Current image is overly stylized/rainbow-colored for an ordinary acorn and is blocked from active assessment use. |
+| n | 1 | nut | /media/initial-sounds/images/n/nut.webp | /media/initial-sounds/audio/n/nut.mp3 | needs_image_replacement | Current image is overly stylized/rainbow-colored and too confusable with acorn-style imagery for a generic nut. |
+| o | 2 | opera | /media/initial-sounds/images/o/opera.webp | /media/initial-sounds/audio/o/opera.mp3 | excluded_unsuitable_word | Opera is culturally specific and too hard to image clearly for early Initial Sounds assessment. |
+| o | 2 | observer | /media/initial-sounds/images/o/observer.webp | /media/initial-sounds/audio/o/observer.mp3 | excluded_unsuitable_word | Observer is abstract/role-based and hard to image clearly for early Initial Sounds assessment. |
+| q | 2 | quartz | /media/initial-sounds/images/q/quartz.webp | /media/initial-sounds/audio/q/quartz.mp3 | excluded_unsuitable_word | Quartz is obscure for K-2 Initial Sounds assessment and should not be active without explicit vocabulary teaching. |
+| q | 2 | quiver | /media/initial-sounds/images/q/quiver.webp | /media/initial-sounds/audio/q/quiver.mp3 | excluded_unsuitable_word | Quiver is potentially ambiguous and not a strong K-2 Initial Sounds assessment target. |
+| q | 2 | quickstep | /media/initial-sounds/images/q/quickstep.webp | /media/initial-sounds/audio/q/quickstep.mp3 | excluded_unsuitable_word | Quickstep is obscure/culturally specific and not a strong K-2 Initial Sounds assessment target. |
+| u | 2 | utensils | /media/initial-sounds/images/u/utensils.webp | /media/initial-sounds/audio/u/utensils.mp3 | needs_media_asset | Required image and audio are missing, so this item is blocked from active assessment until media exists. |
+| u | 2 | underground | /media/initial-sounds/images/u/underground.webp | /media/initial-sounds/audio/u/underground.mp3 | needs_media_asset | Required image is missing, so this item is blocked from active assessment until media exists. |
+| u | 2 | upbeat | /media/initial-sounds/images/u/upbeat.webp | /media/initial-sounds/audio/u/upbeat.mp3 | excluded_unsuitable_word | Upbeat is abstract and hard to image clearly for early Initial Sounds assessment. |
+| u | 2 | uplift | /media/initial-sounds/images/u/uplift.webp | /media/initial-sounds/audio/u/uplift.mp3 | excluded_unsuitable_word | Uplift is abstract and hard to image clearly for early Initial Sounds assessment. |
+| u | 2 | urban garden | /media/initial-sounds/images/u/urban-garden.webp | /media/initial-sounds/audio/u/urban-garden.mp3 | excluded_unsuitable_word | Urban garden is a phrase with a less clear single target object for early Initial Sounds assessment. |
+| v | 2 | vacation | /media/initial-sounds/images/v/vacation.webp | /media/initial-sounds/audio/v/vacation.mp3 | needs_media_asset | Required image is missing, so this item is blocked from active assessment until media exists. |
+| v | 2 | village | /media/initial-sounds/images/v/village.webp | /media/initial-sounds/audio/v/village.mp3 | needs_media_asset | Required image is missing, so this item is blocked from active assessment until media exists. |
+| v | 2 | velvet | /media/initial-sounds/images/v/velvet.webp | /media/initial-sounds/audio/v/velvet.mp3 | excluded_unsuitable_word | Velvet is texture-based and hard to image unambiguously for early Initial Sounds assessment. |
+| y | 2 | yodeler | /media/initial-sounds/images/y/yodeler.webp | /media/initial-sounds/audio/y/yodeler.mp3 | excluded_unsuitable_word | Yodeler is culturally specific and not a strong K-2 Initial Sounds assessment target. |
+| y | 2 | yucca plant | /media/initial-sounds/images/y/yucca-plant.webp | /media/initial-sounds/audio/y/yucca-plant.mp3 | excluded_unsuitable_word | Yucca plant is less familiar and not a strong early Initial Sounds target. |
+| z | 1 | zigzag | /media/initial-sounds/images/z/zigzag.webp | /media/initial-sounds/audio/z/zigzag.mp3 | needs_media_asset | Required image is missing, so this item is blocked from active assessment until media exists. |
+| z | 1 | zone | /media/initial-sounds/images/z/zone.webp | /media/initial-sounds/audio/z/zone.mp3 | excluded_unsuitable_word | Zone is abstract and hard to image clearly for early Initial Sounds assessment. |
+| z | 1 | zinnia | /media/initial-sounds/images/z/zinnia.webp | /media/initial-sounds/audio/z/zinnia.mp3 | excluded_unsuitable_word | Zinnia is too unusual for this K-2 Initial Sounds assessment bank and should be replaced with a simpler /z/ word. |
+| z | 2 | zinnia flower | /media/initial-sounds/images/z/zinnia-flower.webp | /media/initial-sounds/audio/z/zinnia-flower.mp3 | excluded_unsuitable_word | Zinnia flower is too unusual for this K-2 Initial Sounds assessment bank and should be replaced with a simpler /z/ word. |
+| z | 2 | zeppelin | /media/initial-sounds/images/z/zeppelin.webp | /media/initial-sounds/audio/z/zeppelin.mp3 | excluded_unsuitable_word | Zeppelin is obscure for K-2 Initial Sounds assessment and is blocked from active use. |
+| z | 2 | zesty lemon | /media/initial-sounds/images/z/zesty-lemon.webp | /media/initial-sounds/audio/z/zesty-lemon.mp3 | needs_media_asset | Required image and audio are missing, so this item is blocked from active assessment until media exists. |
 
 ## Extra Archive Images Not Used
 
@@ -502,7 +536,4 @@ Date: 2026-05-25
 
 ## Status
 
-FAIL
-
-- 7 active Initial Sounds items are missing images.
-- 2 active Initial Sounds items are missing audio.
+PASS

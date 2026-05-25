@@ -5,7 +5,7 @@ Date: 2026-05-25
 ## Summary
 
 - Managed skills: 10
-- Skill-bank items scanned: 1755
+- Skill-bank items scanned: 1754
 - Fatal active media-complete failures: 0
 - Expansion/media warnings: 13
 
@@ -13,13 +13,13 @@ Date: 2026-05-25
 
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
-| Initial Sounds | 640 | 522 | 25 | 25 | L1:390, L2:250 | 118 | 113 | none |
-| Ending Sounds | 163 | 115 | 14 | 13 | L1:158, L2:1, L3:1, L5:3 | 47 | 48 | none |
-| Rhyming Words | 141 | 93 | 33 | 25 | L1:141 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, uck, ar, ight |
-| Short Vowels | 174 | 110 | 5 | 5 | L1:119, L2:55 | 0 | 64 | none |
-| Blends | 122 | 71 | 36 | 12 | L1:88, L2:34 | 51 | 40 | gl, pl, gr, pr |
+| Initial Sounds | 615 | 505 | 25 | 25 | L1:383, L2:232 | 110 | 110 | none |
+| Ending Sounds | 163 | 114 | 14 | 13 | L1:158, L2:1, L3:1, L5:3 | 48 | 48 | none |
+| Rhyming Words | 139 | 91 | 33 | 24 | L1:139 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, uck, ar, ight, ouse |
+| Short Vowels | 171 | 107 | 5 | 5 | L1:116, L2:55 | 0 | 64 | none |
+| Blends | 120 | 69 | 36 | 12 | L1:86, L2:34 | 51 | 40 | gl, pl, gr, pr |
 | Digraphs | 111 | 36 | 30 | 4 | L1:61, L3:50 | 75 | 57 | ck, ng |
-| CVC Words | 150 | 61 | 49 | 36 | L1:150 | 85 | 89 | cab, dot, gum, hen, hop, leg, mud, pet, pig, red, rug, top, van |
+| CVC Words | 150 | 60 | 49 | 35 | L1:150 | 86 | 89 | cab, dot, gum, hen, hop, leg, mud, nut, pet, pig, red, rug, top, van |
 | Sight Words | 194 | 20 | 127 | 20 | L1:84, L2:110 | 0 | 174 | after, again, am, an, any, are, around, as, ask, asked, away, be, before, big, blue, by, came, cold, come, could, down, every, find, fly, found, from, funny, give, go, going, had, has, have, help, helps, her, here, him, his, how, in, into, is, it, jump, just, know, let, like, little, live, look, made, make, may, me, must, my, new, not, now, of, old, on, once, one, open, our, out, over, play, please, pretty, put, read, red, round, run, said, saw, say, see, sleep, some, soon, stop, take, thank, them, think, this, three, two, very, walk, want, well, went, were, what, when, where, white, who, will, yellow, yes |
 | Sentence Picture Matching | 30 | 30 | 15 | 15 | L1:15, L2:15 | 0 | 0 | none |
 | Vocabulary/Categories | 30 | 30 | 14 | 14 | L1:15, L2:15 | 0 | 0 | none |
@@ -27,14 +27,14 @@ Date: 2026-05-25
 ## Warnings
 
 - Ending Sounds: 2 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
-- Rhyming Words: blocked/missing targets eed, ill, ish, ake, oh, oon, ose, uck, ar, ight.
+- Rhyming Words: blocked/missing targets eed, ill, ish, ake, oh, oon, ose, uck, ar, ight, ouse.
 - Short Vowels: 19 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
-- Blends: 20 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
+- Blends: 19 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Blends: blocked/missing targets gl, pl, gr, pr.
 - Digraphs: 13 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Digraphs: 36 media-complete items, below target 52.
 - Digraphs: blocked/missing targets ck, ng.
-- CVC Words: blocked/missing targets cab, dot, gum, hen, hop, leg, mud, pet, pig, red, rug, top, van.
+- CVC Words: blocked/missing targets cab, dot, gum, hen, hop, leg, mud, nut, pet, pig, red, rug, top, van.
 - Sight Words: 20 media-complete items, below target 50.
 - Sight Words: blocked/missing targets after, again, am, an, any, are, around, as, ask, asked, away, be, before, big, blue, by, came, cold, come, could, down, every, find, fly, found, from, funny, give, go, going, had, has, have, help, helps, her, here, him, his, how, in, into, is, it, jump, just, know, let, like, little, live, look, made, make, may, me, must, my, new, not, now, of, old, on, once, one, open, our, out, over, play, please, pretty, put, read, red, round, run, said, saw, say, see, sleep, some, soon, stop, take, thank, them, think, this, three, two, very, walk, want, well, went, were, what, when, where, white, who, will, yellow, yes.
 - Sentence Picture Matching: 15 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
@@ -47,8 +47,8 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Active items: 640
-- Media-complete active items: 522
+- Active items: 615
+- Media-complete active items: 505
 - Unique active targets: 25
 - Unique media-complete targets: 25
 - Blocked targets: none
@@ -66,7 +66,7 @@ Date: 2026-05-25
 
 - Skill ID: ending_sounds
 - Active items: 163
-- Media-complete active items: 115
+- Media-complete active items: 114
 - Unique active targets: 14
 - Unique media-complete targets: 13
 - Blocked targets: none
@@ -83,16 +83,16 @@ Date: 2026-05-25
 ## Rhyming Words
 
 - Skill ID: rhyming
-- Active items: 141
-- Media-complete active items: 93
+- Active items: 139
+- Media-complete active items: 91
 - Unique active targets: 33
-- Unique media-complete targets: 25
-- Blocked targets: eed, ill, ish, ake, oh, oon, ose, uck, ar, ight
+- Unique media-complete targets: 24
+- Blocked targets: eed, ill, ish, ake, oh, oon, ose, uck, ar, ight, ouse
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: none
-- Duplicate target words by level: rhyming|1|coat, rhyming|1|listen and find, rhyming|1|cat, rhyming|1|cap, rhyming|1|fan, rhyming|1|bed, rhyming|1|pen, rhyming|1|pig, rhyming|1|fin, rhyming|1|sit, rhyming|1|dog, rhyming|1|mop, rhyming|1|pot, rhyming|1|bug, rhyming|1|sun, rhyming|1|hat, rhyming|1|hop, rhyming|1|ring, rhyming|1|tree, rhyming|1|rug, rhyming|1|run, rhyming|1|red, rhyming|1|lake, rhyming|1|dish, rhyming|1|car, rhyming|1|spoon, rhyming|1|night, rhyming|1|bear, rhyming|1|house, rhyming|1|bee
+- Duplicate target words by level: rhyming|1|coat, rhyming|1|listen and find, rhyming|1|cat, rhyming|1|cap, rhyming|1|fan, rhyming|1|bed, rhyming|1|pen, rhyming|1|pig, rhyming|1|fin, rhyming|1|sit, rhyming|1|dog, rhyming|1|mop, rhyming|1|pot, rhyming|1|bug, rhyming|1|sun, rhyming|1|hat, rhyming|1|hop, rhyming|1|ring, rhyming|1|tree, rhyming|1|rug, rhyming|1|run, rhyming|1|red, rhyming|1|lake, rhyming|1|dish, rhyming|1|car, rhyming|1|spoon, rhyming|1|night, rhyming|1|bear, rhyming|1|bee
 
 ### Rhyming/Phonics Logic Issues
 
@@ -101,8 +101,8 @@ Date: 2026-05-25
 ## Short Vowels
 
 - Skill ID: short_vowels
-- Active items: 174
-- Media-complete active items: 110
+- Active items: 171
+- Media-complete active items: 107
 - Unique active targets: 5
 - Unique media-complete targets: 5
 - Blocked targets: none
@@ -110,7 +110,7 @@ Date: 2026-05-25
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: 33
-- Duplicate target words by level: short_vowels|1|cat, short_vowels|1|bag, short_vowels|1|map, short_vowels|1|bed, short_vowels|1|pen, short_vowels|1|red, short_vowels|1|pig, short_vowels|1|fin, short_vowels|1|sit, short_vowels|1|dog, short_vowels|1|pot, short_vowels|1|log, short_vowels|1|cup, short_vowels|1|mud, short_vowels|1|sun, short_vowels|1|hat, short_vowels|1|cap, short_vowels|1|pan, short_vowels|1|net, short_vowels|1|jet, short_vowels|1|wig, short_vowels|1|pin, short_vowels|1|cot, short_vowels|1|mop, short_vowels|1|mug, short_vowels|1|nut, short_vowels|2|mat, short_vowels|2|red, short_vowels|2|sit, short_vowels|2|hop, short_vowels|2|cup, short_vowels|2|pen, short_vowels|2|pin, short_vowels|2|rug, short_vowels|2|map, short_vowels|2|dog, short_vowels|2|tap, short_vowels|2|top
+- Duplicate target words by level: short_vowels|1|cat, short_vowels|1|bag, short_vowels|1|map, short_vowels|1|bed, short_vowels|1|pen, short_vowels|1|red, short_vowels|1|pig, short_vowels|1|fin, short_vowels|1|sit, short_vowels|1|dog, short_vowels|1|pot, short_vowels|1|log, short_vowels|1|cup, short_vowels|1|mud, short_vowels|1|sun, short_vowels|1|hat, short_vowels|1|cap, short_vowels|1|pan, short_vowels|1|net, short_vowels|1|jet, short_vowels|1|wig, short_vowels|1|pin, short_vowels|1|cot, short_vowels|1|mop, short_vowels|1|mug, short_vowels|2|mat, short_vowels|2|red, short_vowels|2|sit, short_vowels|2|hop, short_vowels|2|cup, short_vowels|2|pen, short_vowels|2|pin, short_vowels|2|rug, short_vowels|2|map, short_vowels|2|dog, short_vowels|2|tap, short_vowels|2|top
 
 ### Rhyming/Phonics Logic Issues
 
@@ -119,16 +119,16 @@ Date: 2026-05-25
 ## Blends
 
 - Skill ID: blends
-- Active items: 122
-- Media-complete active items: 71
+- Active items: 120
+- Media-complete active items: 69
 - Unique active targets: 36
 - Unique media-complete targets: 12
 - Blocked targets: gl, pl, gr, pr
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
-- Raw duplicate signatures: 21
-- Duplicate target words by level: blends|1|clap, blends|1|frog, blends|1|slide, blends|1|snake, blends|1|spin, blends|1|stop, blends|1|drum, blends|1|brush, blends|1|black, blends|1|blue, blends|1|flag, blends|1|crab, blends|1|tree, blends|1|train, blends|1|star, blends|1|cloud, blends|2|black, blends|2|brick, blends|2|clip, blends|2|crib, blends|2|drop, blends|2|flip, blends|2|fresh, blends|2|green, blends|2|sleep, blends|2|snap
+- Raw duplicate signatures: 20
+- Duplicate target words by level: blends|1|clap, blends|1|frog, blends|1|slide, blends|1|snake, blends|1|spin, blends|1|stop, blends|1|drum, blends|1|brush, blends|1|black, blends|1|blue, blends|1|flag, blends|1|crab, blends|1|tree, blends|1|train, blends|1|star, blends|2|black, blends|2|brick, blends|2|clip, blends|2|crib, blends|2|drop, blends|2|flip, blends|2|fresh, blends|2|green, blends|2|sleep, blends|2|snap
 
 ### Rhyming/Phonics Logic Issues
 
@@ -156,10 +156,10 @@ Date: 2026-05-25
 
 - Skill ID: cvc_words
 - Active items: 150
-- Media-complete active items: 61
+- Media-complete active items: 60
 - Unique active targets: 49
-- Unique media-complete targets: 36
-- Blocked targets: cab, dot, gum, hen, hop, leg, mud, pet, pig, red, rug, top, van
+- Unique media-complete targets: 35
+- Blocked targets: cab, dot, gum, hen, hop, leg, mud, nut, pet, pig, red, rug, top, van
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
