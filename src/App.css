@@ -2547,7 +2547,7 @@ select:focus {
 }
 
 .assessment-shell {
-  width: min(1040px, 100%);
+  width: min(1240px, 100%);
   min-height: calc(100vh - 16px);
   min-height: calc(100dvh - 16px);
   margin: 0 auto;
@@ -2658,7 +2658,7 @@ select:focus {
 .assessment-card {
   max-height: calc(100dvh - 92px);
   overflow: auto;
-  width: min(920px, 100%);
+  width: min(1120px, 100%);
   align-self: center;
   border: 1px solid #d8ddfb;
   border-radius: 24px;
@@ -2717,8 +2717,8 @@ select:focus {
 
 .ixl-answer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
 }
 
 .ixl-answer-grid.four-options,
@@ -2755,6 +2755,8 @@ select:focus {
   box-shadow: 0 10px 22px rgba(48, 37, 18, 0.08);
   font-size: clamp(20px, 3vw, 30px);
   font-weight: 850;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .ixl-answer-grid.letter-options .ixl-answer-button {
@@ -2773,6 +2775,67 @@ select:focus {
 
 .ixl-answer-card.image-card .ixl-answer-button {
   min-height: clamp(132px, 24vh, 210px);
+}
+
+.level-mastery-callout {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0;
+  padding: 14px 16px;
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-card);
+  background: var(--color-success-soft);
+  color: var(--color-text);
+}
+
+.level-mastery-callout strong {
+  color: var(--color-success);
+  font-size: 1rem;
+}
+
+.level-mastery-callout p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+@media (min-width: 900px) {
+  .assessment-shell {
+    padding-inline: 18px;
+  }
+
+  .assessment-card {
+    padding: 22px;
+  }
+
+  .assessment-card .choices,
+  .assessment-answer-grid {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+
+  .ixl-answer-grid.four-options,
+  .ixl-answer-grid.image-options {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .ixl-answer-grid.letter-options {
+    grid-template-columns: repeat(2, minmax(180px, 280px));
+    justify-content: center;
+  }
+
+  .ixl-answer-card.image-card .ixl-answer-button {
+    min-height: 220px;
+  }
+
+  .ixl-answer-button img {
+    max-width: 210px;
+    height: 150px;
+  }
+
+  .ixl-answer-button strong,
+  .choice-button span,
+  .visual-assessment-card-button strong {
+    white-space: nowrap;
+  }
 }
 
 .first-sound-question-card {

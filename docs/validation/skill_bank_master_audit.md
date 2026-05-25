@@ -5,7 +5,7 @@ Date: 2026-05-25
 ## Summary
 
 - Managed skills: 10
-- Skill-bank items scanned: 1754
+- Skill-bank items scanned: 1804
 - Fatal active media-complete failures: 0
 - Expansion/media warnings: 13
 
@@ -13,13 +13,13 @@ Date: 2026-05-25
 
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
-| Initial Sounds | 615 | 505 | 25 | 25 | L1:383, L2:232 | 110 | 110 | none |
-| Ending Sounds | 163 | 114 | 14 | 13 | L1:158, L2:1, L3:1, L5:3 | 48 | 48 | none |
-| Rhyming Words | 139 | 91 | 33 | 24 | L1:139 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, uck, ar, ight, ouse |
+| Initial Sounds | 621 | 511 | 25 | 25 | L1:384, L2:237 | 110 | 110 | none |
+| Ending Sounds | 212 | 164 | 21 | 20 | L1:182, L2:26, L3:1, L5:3 | 47 | 48 | none |
+| Rhyming Words | 138 | 90 | 32 | 23 | L1:138 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse |
 | Short Vowels | 171 | 107 | 5 | 5 | L1:116, L2:55 | 0 | 64 | none |
 | Blends | 120 | 69 | 36 | 12 | L1:86, L2:34 | 51 | 40 | gl, pl, gr, pr |
 | Digraphs | 111 | 36 | 30 | 4 | L1:61, L3:50 | 75 | 57 | ck, ng |
-| CVC Words | 150 | 60 | 49 | 35 | L1:150 | 86 | 89 | cab, dot, gum, hen, hop, leg, mud, nut, pet, pig, red, rug, top, van |
+| CVC Words | 148 | 60 | 49 | 35 | L1:148 | 84 | 88 | cab, dot, gum, hen, hop, leg, mud, nap, pet, pig, red, rug, top, van |
 | Sight Words | 194 | 20 | 127 | 20 | L1:84, L2:110 | 0 | 174 | after, again, am, an, any, are, around, as, ask, asked, away, be, before, big, blue, by, came, cold, come, could, down, every, find, fly, found, from, funny, give, go, going, had, has, have, help, helps, her, here, him, his, how, in, into, is, it, jump, just, know, let, like, little, live, look, made, make, may, me, must, my, new, not, now, of, old, on, once, one, open, our, out, over, play, please, pretty, put, read, red, round, run, said, saw, say, see, sleep, some, soon, stop, take, thank, them, think, this, three, two, very, walk, want, well, went, were, what, when, where, white, who, will, yellow, yes |
 | Sentence Picture Matching | 30 | 30 | 15 | 15 | L1:15, L2:15 | 0 | 0 | none |
 | Vocabulary/Categories | 30 | 30 | 14 | 14 | L1:15, L2:15 | 0 | 0 | none |
@@ -27,14 +27,14 @@ Date: 2026-05-25
 ## Warnings
 
 - Ending Sounds: 2 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
-- Rhyming Words: blocked/missing targets eed, ill, ish, ake, oh, oon, ose, uck, ar, ight, ouse.
+- Rhyming Words: blocked/missing targets eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse.
 - Short Vowels: 19 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Blends: 19 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Blends: blocked/missing targets gl, pl, gr, pr.
 - Digraphs: 13 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Digraphs: 36 media-complete items, below target 52.
 - Digraphs: blocked/missing targets ck, ng.
-- CVC Words: blocked/missing targets cab, dot, gum, hen, hop, leg, mud, nut, pet, pig, red, rug, top, van.
+- CVC Words: blocked/missing targets cab, dot, gum, hen, hop, leg, mud, nap, pet, pig, red, rug, top, van.
 - Sight Words: 20 media-complete items, below target 50.
 - Sight Words: blocked/missing targets after, again, am, an, any, are, around, as, ask, asked, away, be, before, big, blue, by, came, cold, come, could, down, every, find, fly, found, from, funny, give, go, going, had, has, have, help, helps, her, here, him, his, how, in, into, is, it, jump, just, know, let, like, little, live, look, made, make, may, me, must, my, new, not, now, of, old, on, once, one, open, our, out, over, play, please, pretty, put, read, red, round, run, said, saw, say, see, sleep, some, soon, stop, take, thank, them, think, this, three, two, very, walk, want, well, went, were, what, when, where, white, who, will, yellow, yes.
 - Sentence Picture Matching: 15 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
@@ -47,8 +47,8 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Active items: 615
-- Media-complete active items: 505
+- Active items: 621
+- Media-complete active items: 511
 - Unique active targets: 25
 - Unique media-complete targets: 25
 - Blocked targets: none
@@ -65,16 +65,16 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Active items: 163
-- Media-complete active items: 114
-- Unique active targets: 14
-- Unique media-complete targets: 13
+- Active items: 212
+- Media-complete active items: 164
+- Unique active targets: 21
+- Unique media-complete targets: 20
 - Blocked targets: none
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: 10
-- Duplicate target words by level: ending_sounds|1|listen and find, ending_sounds|1|dog, ending_sounds|1|bed, ending_sounds|1|map, ending_sounds|1|jam, ending_sounds|1|sun, ending_sounds|1|hat, ending_sounds|1|bell, ending_sounds|1|mat, ending_sounds|1|cap, ending_sounds|1|bag, ending_sounds|1|cup, ending_sounds|1|duck, ending_sounds|1|bus, ending_sounds|1|red, ending_sounds|1|web, ending_sounds|1|log, ending_sounds|1|mug, ending_sounds|1|pen
+- Duplicate target words by level: ending_sounds|1|listen and find, ending_sounds|1|dog, ending_sounds|1|bed, ending_sounds|1|map, ending_sounds|1|jam, ending_sounds|1|sun, ending_sounds|1|hat, ending_sounds|1|cat, ending_sounds|1|pan, ending_sounds|1|pin, ending_sounds|1|bat, ending_sounds|1|bag, ending_sounds|1|cup, ending_sounds|1|web, ending_sounds|1|jet, ending_sounds|1|log, ending_sounds|1|mug, ending_sounds|1|bug, ending_sounds|1|bell, ending_sounds|1|ham, ending_sounds|1|cap, ending_sounds|1|mat, ending_sounds|1|pen, ending_sounds|1|duck, ending_sounds|1|bus, ending_sounds|1|red, ending_sounds|1|ram, ending_sounds|1|pot
 
 ### Rhyming/Phonics Logic Issues
 
@@ -83,11 +83,11 @@ Date: 2026-05-25
 ## Rhyming Words
 
 - Skill ID: rhyming
-- Active items: 139
-- Media-complete active items: 91
-- Unique active targets: 33
-- Unique media-complete targets: 24
-- Blocked targets: eed, ill, ish, ake, oh, oon, ose, uck, ar, ight, ouse
+- Active items: 138
+- Media-complete active items: 90
+- Unique active targets: 32
+- Unique media-complete targets: 23
+- Blocked targets: eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
@@ -155,16 +155,16 @@ Date: 2026-05-25
 ## CVC Words
 
 - Skill ID: cvc_words
-- Active items: 150
+- Active items: 148
 - Media-complete active items: 60
 - Unique active targets: 49
 - Unique media-complete targets: 35
-- Blocked targets: cab, dot, gum, hen, hop, leg, mud, nut, pet, pig, red, rug, top, van
+- Blocked targets: cab, dot, gum, hen, hop, leg, mud, nap, pet, pig, red, rug, top, van
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: none
-- Duplicate target words by level: cvc_words|1|bag, cvc_words|1|bat, cvc_words|1|bed, cvc_words|1|cap, cvc_words|1|cat, cvc_words|1|cup, cvc_words|1|dog, cvc_words|1|dot, cvc_words|1|fin, cvc_words|1|hat, cvc_words|1|jam, cvc_words|1|leg, cvc_words|1|log, cvc_words|1|man, cvc_words|1|map, cvc_words|1|mud, cvc_words|1|mug, cvc_words|1|nut, cvc_words|1|pen, cvc_words|1|pig, cvc_words|1|pot, cvc_words|1|ram, cvc_words|1|red, cvc_words|1|sit, cvc_words|1|sun, cvc_words|1|wig, cvc_words|1|lid, cvc_words|1|pan, cvc_words|1|pin, cvc_words|1|web, cvc_words|1|jet
+- Duplicate target words by level: cvc_words|1|bag, cvc_words|1|bat, cvc_words|1|bed, cvc_words|1|cap, cvc_words|1|cat, cvc_words|1|cup, cvc_words|1|dog, cvc_words|1|dot, cvc_words|1|fin, cvc_words|1|hat, cvc_words|1|jam, cvc_words|1|leg, cvc_words|1|log, cvc_words|1|man, cvc_words|1|map, cvc_words|1|mud, cvc_words|1|mug, cvc_words|1|nap, cvc_words|1|pen, cvc_words|1|pig, cvc_words|1|pot, cvc_words|1|ram, cvc_words|1|red, cvc_words|1|sit, cvc_words|1|sun, cvc_words|1|wig, cvc_words|1|lid, cvc_words|1|pan, cvc_words|1|pin, cvc_words|1|web, cvc_words|1|jet
 
 ### Rhyming/Phonics Logic Issues
 

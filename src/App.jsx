@@ -37,6 +37,11 @@ import { ixlStyleSeedQuestions } from "./data/ixlStyleSeedQuestions";
 import { safeContentExpansionQuestions } from "./data/safeContentExpansionQuestions";
 import { coverageExpectations } from "./data/coverageExpectations";
 import {
+  getQuestionRoutingFormat,
+  isQuestionAllowedForSkill,
+  isSingleTemplateSkill
+} from "./data/skillTemplateRouting";
+import {
   formatGuidedReadingType,
   getGuidedReadingWordStatusRows,
   summarizeGuidedReadingProgress,
@@ -255,11 +260,21 @@ function normalizeContentQuestion(question) {
     : answerOptions.map(option => option.value).filter(Boolean);
   const answer = question.answer || question.correctAnswer;
 
+  const formatType = String(question.templateType || question.formatType || "").toUpperCase();
+  const usesWholeWordBlendAudio =
+    formatType === "BLEND_SOUNDS" &&
+    question.audioText &&
+    question.targetWord &&
+    String(question.audioText).toLowerCase().trim() === String(question.targetWord).toLowerCase().trim();
+  const safePrompt = usesWholeWordBlendAudio
+    ? "Which picture shows the word you hear?"
+    : question.prompt || question.question || "";
+
   return {
     ...question,
     skill: question.skill || question.skillName || "",
-    question: question.question || question.prompt || "",
-    prompt: question.prompt || question.question || "",
+    question: safePrompt || question.question || question.prompt || "",
+    prompt: safePrompt || question.prompt || question.question || "",
     answer,
     correctAnswer: question.correctAnswer || answer,
     choices,
@@ -870,7 +885,11 @@ function isQuestionValid(q) {
   if (hasLowQualityPluralDistractors(q)) return false;
   if (!isAssessmentContentValid(q)) return false;
 
-  return getStageIndex(q) !== -1;
+  const stageIndex = getStageIndex(q);
+  const stage = skillTree[stageIndex];
+  if (!stage || !isQuestionAllowedForSkill(q, stage.id)) return false;
+
+  return stageIndex !== -1;
 }
 
 function dedupeQuestionsByRuntimeSignature(questions) {
@@ -1116,6 +1135,7 @@ export default function App() {
   const roundQuestionIdsRef = useRef(roundQuestionIds);
   const initialSoundRoundQueueRef = useRef([]);
   const initialSoundRoundMetaRef = useRef(null);
+  const initialSoundForcedLevelRef = useRef(null);
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -2330,17 +2350,19 @@ export default function App() {
       roundNumber: null,
       seed: 11
     });
-    const levelOneCovered = new Set(progress.level1?.coveredLetters || []);
+    const levelOneMastered = new Set(progress.level1?.masteredLetters || []);
     const levelOneAvailable = levelOneProbe.meta.availableLetters || [];
     const levelOneComplete = levelOneAvailable.length > 0 &&
-      levelOneAvailable.every(letter => levelOneCovered.has(letter));
+      levelOneAvailable.every(letter => levelOneMastered.has(letter));
 
     return levelOneComplete ? 2 : 1;
   }
 
   function buildInitialSoundRoundQueue() {
     const progress = getInitialSoundStageProgress();
-    const level = getNextInitialSoundLevel(progress);
+    const forcedLevel = initialSoundForcedLevelRef.current;
+    const level = forcedLevel || getNextInitialSoundLevel(progress);
+    initialSoundForcedLevelRef.current = null;
     const plan = getInitialSoundRoundPlan({
       studentProgress: { initialSoundsProgress: progress },
       level,
@@ -2697,11 +2719,24 @@ export default function App() {
 
   function selectNonDuplicateRoundCandidate(prioritized, activeStage) {
     const profile = getRoundDuplicateProfile();
+    const currentRoundFormats = getCurrentRoundQuestionObjects()
+      .map(question => getQuestionFormatMetadata(question).formatType || getQuestionRoutingFormat(question));
+    const formatCounts = currentRoundFormats.reduce((counts, format) => ({
+      ...counts,
+      [format]: (counts[format] || 0) + 1
+    }), {});
+    const maxFormatCount = Math.max(1, Math.floor(ROUND_LENGTH * 0.35));
+    const respectsTemplateCap = question => {
+      if (isSingleTemplateSkill(activeStage?.id)) return true;
+      const format = getQuestionFormatMetadata(question).formatType || getQuestionRoutingFormat(question);
+      return (formatCounts[format] || 0) < maxFormatCount;
+    };
+    const underTemplateCap = prioritized.filter(respectsTemplateCap);
+    const routedPrioritized = underTemplateCap.length > 0 ? underTemplateCap : prioritized;
     const roundFormatTypes = new Set(
-      getCurrentRoundQuestionObjects()
-        .map(question => getQuestionFormatMetadata(question).formatType)
+      currentRoundFormats
     );
-    const exactSafe = prioritized.filter(question => {
+    const exactSafe = routedPrioritized.filter(question => {
       const flags = getRoundDuplicateFlags(question, profile);
       return !flags.questionId && !flags.signature;
     });
@@ -2710,7 +2745,7 @@ export default function App() {
       debugAssessmentCoverage("round duplicate guard blocked pool", {
         studentId,
         skill: activeStage.label,
-        poolSize: prioritized.length,
+        poolSize: routedPrioritized.length,
         currentRoundQuestionIds: roundQuestionIdsRef.current,
         currentRoundItemKeys: roundItemKeysRef.current
       });
@@ -2753,10 +2788,11 @@ export default function App() {
     debugAssessmentCoverage("round duplicate guard", {
       studentId,
       skill: activeStage.label,
-      poolSize: prioritized.length,
+      poolSize: routedPrioritized.length,
       exactSafeCandidates: exactSafe.length,
       strictCandidates: strict.length,
       duplicateRelaxation,
+      templateCap: `${maxFormatCount}/${ROUND_LENGTH}`,
       selectedQuestionId: picked?.id || "",
       selectedTargetWord: picked ? getQuestionTargetWord(picked) : "",
       selectedItemKey: picked ? getQuestionItemKey(picked) : "",
@@ -3252,8 +3288,12 @@ export default function App() {
         .slice(0, -nextRound.length);
       const previousProgress = buildInitialSoundsProgressFromAnswerHistory(previousRecords)[currentLevelKey];
       const allProgress = buildInitialSoundsProgressFromAnswerHistory(answerHistoryRef.current)[currentLevelKey];
+      const allInitialProgress = buildInitialSoundsProgressFromAnswerHistory(answerHistoryRef.current);
+      const levelOneMasteredLetters = new Set(allInitialProgress.level1?.masteredLetters || []);
+      const levelOneMastered = INITIAL_SOUND_LETTERS.every(letter => levelOneMasteredLetters.has(letter));
       const alreadyCovered = new Set(previousProgress?.coveredLetters || []);
       const totalCovered = new Set(allProgress?.coveredLetters || []);
+      const totalMastered = new Set(allProgress?.masteredLetters || []);
       const coveredThisRound = Array.from(new Set(
         stageRecords
           .filter(record => Number(record.itemLevel || currentLevel) === currentLevel)
@@ -3283,13 +3323,16 @@ export default function App() {
         totalCoveredItems: Array.from(totalCovered),
         remainingItems,
         coverage: {
-          mastered: totalCovered.size,
+          mastered: totalMastered.size,
           total: INITIAL_SOUND_LETTERS.length,
           unit: "sounds"
         },
         initialSoundDebug: {
           level: currentLevel,
           phase: initialRoundMeta.phase || "",
+          levelOneMastered,
+          currentLevelMastered: INITIAL_SOUND_LETTERS.every(letter => totalMastered.has(letter)),
+          masteredLetters: Array.from(totalMastered),
           blockedLetters,
           reviewLetters,
           selectedTargetWords,
@@ -4773,6 +4816,12 @@ export default function App() {
     startAssessment(stageIndex);
   }
 
+  function reviewInitialSoundLevelOne() {
+    initialSoundForcedLevelRef.current = 1;
+    const stageIndex = skillTree.findIndex(stage => stage.id === "initial_sounds");
+    startAssessment(stageIndex === -1 ? currentSkillIndex : stageIndex);
+  }
+
   function moveToNextCheckpointSkill() {
     const nextStageIndex = Math.min(
       (checkpointDecision?.skillIndex ?? currentSkillIndex) + 1,
@@ -5244,6 +5293,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         <CheckpointDecisionPage
           checkpoint={checkpointDecision}
           continueSkill={continueCheckpointSkill}
+          reviewInitialSoundLevelOne={reviewInitialSoundLevelOne}
           moveToNextSkill={moveToNextCheckpointSkill}
           retrySkill={retryCheckpointSkill}
           reviewMistakes={startTargetedReview}

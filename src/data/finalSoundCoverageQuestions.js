@@ -1,4 +1,6 @@
 import { makePairSelectionQuestion } from "./soundPairAssets.js";
+import { getChildWordAsset } from "./childAssets.js";
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 
 const finalSoundPairs = {
   d: [["bed", "mud", "cat"], ["red", "bud", "fish"], ["bid", "kid", "sun"], ["seed", "hand", "dog"], ["lid", "bird", "map"], ["red", "bed", "cup"], ["hand", "mud", "fish"]],
@@ -13,7 +15,7 @@ const finalSoundPairs = {
   t: [["cat", "hat", "dog"], ["bat", "rat", "sun"], ["jet", "net", "fish"], ["pot", "cot", "map"], ["feet", "tent", "dog"], ["kite", "gate", "sun"]]
 };
 
-export const finalSoundCoverageQuestions = Object.entries(finalSoundPairs).flatMap(([itemKey, variants]) =>
+export const finalSoundPairCoverageQuestions = Object.entries(finalSoundPairs).flatMap(([itemKey, variants]) =>
   variants.map((words, index) =>
     makePairSelectionQuestion({
       id: `coverage_final_${itemKey}_${String(index + 1).padStart(3, "0")}`,
@@ -30,3 +32,74 @@ export const finalSoundCoverageQuestions = Object.entries(finalSoundPairs).flatM
     })
   )
 );
+
+const endingSoundAnswerOptions = {
+  1: ["b", "d", "g", "l", "m", "n", "p", "t"],
+  2: ["sh", "ch", "th", "ck", "ng", "nd", "nt", "st", "mp", "rk", "sk", "l", "r", "f", "p", "s"]
+};
+
+const endingSoundLevelOneTargets = [
+  ["cat", "t"], ["dog", "g"], ["bed", "d"], ["map", "p"], ["pan", "n"],
+  ["pin", "n"], ["bat", "t"], ["bag", "g"], ["cup", "p"], ["web", "b"],
+  ["jet", "t"], ["jam", "m"], ["sun", "n"], ["hat", "t"], ["log", "g"],
+  ["mug", "g"], ["bug", "g"], ["cap", "p"], ["pot", "t"], ["pen", "n"],
+  ["hen", "n"], ["fan", "n"], ["ham", "m"], ["ram", "m"], ["gum", "m"]
+];
+
+const endingSoundLevelTwoTargets = [
+  ["fish", "sh"], ["dish", "sh"], ["brush", "sh"], ["duck", "ck"], ["sock", "ck"],
+  ["rock", "ck"], ["ring", "ng"], ["king", "ng"], ["hand", "nd"], ["tent", "nt"],
+  ["lamp", "mp"], ["park", "rk"], ["fork", "rk"], ["desk", "sk"], ["shell", "l"],
+  ["whale", "l"], ["chair", "r"], ["car", "r"], ["tiger", "r"], ["leaf", "f"],
+  ["roof", "f"], ["ship", "p"], ["bus", "s"], ["octopus", "s"], ["thumb", "m"]
+];
+
+function endingSoundOptionSet(correctAnswer, level) {
+  const source = endingSoundAnswerOptions[level] || endingSoundAnswerOptions[1];
+  return [correctAnswer, ...source.filter(option => option !== correctAnswer)].slice(0, 4).map(value => ({
+    label: value,
+    value
+  }));
+}
+
+function makeEndingSoundQuestion([targetWord, finalSound], index, level) {
+  const asset = getChildWordAsset(targetWord);
+  const audioPath = getApprovedAudioPath(targetWord, asset?.audio || "");
+
+  return {
+    id: `ending_l${level}_${String(index + 1).padStart(3, "0")}_${targetWord.replace(/[^a-z0-9]+/g, "_")}`,
+    grade: level === 1 ? "K" : "1",
+    skill: "Final Sounds",
+    skillId: "final_sounds",
+    level,
+    difficulty: level,
+    passage: "",
+    question: "Listen to the word. Which sound does it end with?",
+    prompt: "Listen to the word. Which sound does it end with?",
+    spokenPrompt: "Listen to the word. Which sound does it end with?",
+    questionType: "ixl_template",
+    templateType: "ENDING_SOUND",
+    formatType: "ENDING_SOUND",
+    itemType: "final_sound",
+    itemKey: finalSound,
+    targetSound: finalSound,
+    targetWord,
+    audioText: targetWord,
+    audioPath,
+    imagePath: asset?.image || asset?.fallbackImage || "",
+    answer: finalSound,
+    correctAnswer: finalSound,
+    choices: endingSoundOptionSet(finalSound, level).map(option => option.value),
+    answerOptions: endingSoundOptionSet(finalSound, level)
+  };
+}
+
+export const endingSoundLevelQuestions = [
+  ...endingSoundLevelOneTargets.map((item, index) => makeEndingSoundQuestion(item, index, 1)),
+  ...endingSoundLevelTwoTargets.map((item, index) => makeEndingSoundQuestion(item, index, 2))
+];
+
+export const finalSoundCoverageQuestions = [
+  ...finalSoundPairCoverageQuestions,
+  ...endingSoundLevelQuestions
+];

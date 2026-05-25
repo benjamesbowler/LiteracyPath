@@ -37,6 +37,15 @@ const AMBIGUOUS_FINAL_WORDS = new Set([
 ]);
 const VOWEL_TEAM_FINAL_WORDS = new Set(["book", "feet", "seed", "seal", "boat", "coat", "rain", "leaf"]);
 const R_CONTROLLED_FINAL_WORDS = new Set(["car", "fork", "park", "star", "farm", "worm", "bird", "corn"]);
+const LEVEL_TWO_FINAL_PATTERNS = [
+  "sh", "ch", "th", "ck", "ng",
+  "nd", "nt", "st", "mp", "nk", "lt", "ft", "sk", "rk",
+  "b", "d", "f", "g", "l", "m", "n", "p", "r", "s", "t"
+];
+const LEVEL_TWO_FINAL_OVERRIDES = new Map([
+  ["whale", "l"],
+  ["thumb", "m"]
+]);
 
 const WORD_LISTENING_FORMATS = new Set([
   "FIRST_SOUND",
@@ -166,6 +175,19 @@ export function isValidFinalSoundWordForEarlyLevel(wordValue, keyValue) {
   return simpleFinalLetter(word) === key;
 }
 
+export function isValidFinalSoundWordForLevelTwo(wordValue, keyValue) {
+  const word = normalizedWord(wordValue);
+  const key = normalizedWord(keyValue);
+
+  if (!word || !key) return false;
+  if (!LEVEL_TWO_FINAL_PATTERNS.includes(key)) return false;
+  if (LEVEL_TWO_FINAL_OVERRIDES.get(word) === key) return true;
+  if (key.length > 1) return word.endsWith(key);
+  if (key === "f" && word.endsWith("ph")) return true;
+  if (word.endsWith("e") && !["l", "r"].includes(key)) return false;
+  return simpleFinalLetter(word) === key;
+}
+
 export function isSegmentedAudioText(value) {
   const text = normalizePhonicsText(value);
   return Boolean(text && SEGMENTED_SPEECH_PATTERN.test(text));
@@ -227,13 +249,20 @@ export function getEarlyPhonicsValidityIssues(question = {}) {
 
   if (isFinalSoundQuestion(question)) {
     const key = itemKey(question);
-    if (!finalSoundExpectedItemKeys.includes(key)) {
-      issues.push(`Final Sounds itemKey "${key || "(missing)"}" is outside configured early final-sound set`);
+    const level = Number(question.level || question.difficulty || 1) || 1;
+    const validKey = level >= 2
+      ? LEVEL_TWO_FINAL_PATTERNS.includes(key)
+      : finalSoundExpectedItemKeys.includes(key);
+    if (!validKey) {
+      issues.push(`Final Sounds itemKey "${key || "(missing)"}" is outside configured Level ${level} final-sound set`);
     }
 
     for (const word of cardWords(question)) {
-      if (word && !isValidFinalSoundWordForEarlyLevel(word, key)) {
-        issues.push(`Final Sounds word "${word}" is not valid for early itemKey "${key}"`);
+      const validWord = level >= 2
+        ? isValidFinalSoundWordForLevelTwo(word, key)
+        : isValidFinalSoundWordForEarlyLevel(word, key);
+      if (word && !validWord) {
+        issues.push(`Final Sounds word "${word}" is not valid for Level ${level} itemKey "${key}"`);
       }
     }
   }

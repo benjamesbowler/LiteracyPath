@@ -2730,6 +2730,7 @@ export function ResetStudentProgressDialog({
 export function CheckpointDecisionPage({
   checkpoint,
   continueSkill,
+  reviewInitialSoundLevelOne,
   moveToNextSkill,
   retrySkill,
   reviewMistakes,
@@ -2741,12 +2742,39 @@ export function CheckpointDecisionPage({
     `${checkpoint.correct}/${checkpoint.total} ${checkpoint.skillLabel}`;
   const canMoveNext =
     checkpoint.passed && checkpoint.nextSkillLabel;
+  const isInitialSoundsCheckpoint = checkpoint.skillId === "initial_sounds";
+  const initialLevel = checkpoint.initialSoundDebug?.level || 1;
+  const currentLevelMastered = Boolean(checkpoint.initialSoundDebug?.currentLevelMastered);
+  const levelOneMastered = Boolean(checkpoint.initialSoundDebug?.levelOneMastered);
+  const initialContinueLabel =
+    isInitialSoundsCheckpoint && currentLevelMastered && initialLevel === 1
+      ? "Start Level 2"
+      : isInitialSoundsCheckpoint && initialLevel === 2
+        ? "Continue Level 2"
+        : "Continue this skill to build mastery";
 
   return (
     <main className="assessment-shell checkpoint-decision-shell">
       <section className="card checkpoint-decision-card">
         <p className="panel-label">Checkpoint complete</p>
         <h2>You completed {completedText}.</h2>
+
+        {isInitialSoundsCheckpoint && (
+          <div className="level-mastery-callout">
+            <strong>
+              {currentLevelMastered
+                ? `Level ${initialLevel} mastered`
+                : `Level ${initialLevel} in progress`}
+            </strong>
+            <p>
+              {currentLevelMastered && initialLevel === 1
+                ? "Ready for Level 2. Level 1 stays available for review."
+                : levelOneMastered && initialLevel === 2
+                  ? "Level 2 is using harder words after Level 1 mastery."
+                  : "Keep Level 1 practice focused on the remaining unmastered sounds before moving up."}
+            </p>
+          </div>
+        )}
 
         <div className="checkpoint-result-grid">
           <div>
@@ -2862,8 +2890,14 @@ export function CheckpointDecisionPage({
           {checkpoint.passed ? (
             <>
               <button className="main-button" onClick={continueSkill} type="button">
-                Continue this skill to build mastery
+                {initialContinueLabel}
               </button>
+
+              {isInitialSoundsCheckpoint && levelOneMastered && (
+                <button className="report-button" onClick={reviewInitialSoundLevelOne} type="button">
+                  Review Level 1
+                </button>
+              )}
 
               <button
                 className="report-button"
