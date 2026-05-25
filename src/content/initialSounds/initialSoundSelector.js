@@ -3,7 +3,7 @@ import {
   INITIAL_SOUND_ROUND_LENGTH,
   initialSoundWordBank
 } from "./initialSoundWordBank.js";
-import { hasImportedInitialSoundMedia } from "./initialSoundMediaManifest.js";
+import { hasImportedInitialSoundImage } from "./initialSoundMediaManifest.js";
 import { buildAdaptiveRound, createSeededRandom, shuffleItems } from "../../utils/adaptiveRoundBuilder.js";
 
 const normalizeSet = value => new Set(Array.isArray(value) ? value.map(String) : []);
@@ -82,23 +82,30 @@ export function buildInitialSoundsProgressFromAnswerHistory(answerHistory = []) 
   return progress;
 }
 
-function getMediaCompleteLetters(level) {
+function getMediaCompleteLetters(level, { includeInactive = false, requireImportedMedia = true, itemFilter = null } = {}) {
   return INITIAL_SOUND_LETTERS.filter(letter =>
-    initialSoundWordBank.some(item => item.letter === letter && item.level === level && item.active !== false && hasImportedInitialSoundMedia(item))
+    initialSoundWordBank.some(item =>
+      item.letter === letter &&
+      item.level === level &&
+      (includeInactive || item.active !== false) &&
+      (!requireImportedMedia || hasImportedInitialSoundImage(item)) &&
+      (!itemFilter || itemFilter(item))
+    )
   );
 }
 
-function itemsForLetter({ letter, level, includeInactive, requireImportedMedia }) {
+function itemsForLetter({ letter, level, includeInactive, requireImportedMedia, itemFilter = null }) {
   return initialSoundWordBank.filter(item =>
     item.letter === letter &&
     item.level === level &&
     (includeInactive || item.active !== false) &&
-    (!requireImportedMedia || hasImportedInitialSoundMedia(item))
+    (!requireImportedMedia || hasImportedInitialSoundImage(item)) &&
+    (!itemFilter || itemFilter(item))
   );
 }
 
-function pickItemForLetter({ letter, level, progress, includeInactive, requireImportedMedia, random }) {
-  const items = itemsForLetter({ letter, level, includeInactive, requireImportedMedia });
+function pickItemForLetter({ letter, level, progress, includeInactive, requireImportedMedia, itemFilter, random }) {
+  const items = itemsForLetter({ letter, level, includeInactive, requireImportedMedia, itemFilter });
   const usedWords = new Set((progress.usedTargetWordsByLetter?.[letter] || []).map(word => String(word).toLowerCase()));
   const unused = items.filter(item => !usedWords.has(String(item.targetWord).toLowerCase()));
   const pool = unused.length ? unused : items;
@@ -198,7 +205,8 @@ export function getInitialSoundRound({
   roundNumber = null,
   seed = Date.now(),
   includeInactive = false,
-  requireImportedMedia = true
+  requireImportedMedia = true,
+  itemFilter = null
 } = {}) {
   const safeLevel = Number(level) === 2 ? 2 : 1;
   const random = createSeededRandom(seed);
@@ -208,7 +216,8 @@ export function getInitialSoundRound({
     roundNumber,
     seed,
     includeInactive,
-    requireImportedMedia
+    requireImportedMedia,
+    itemFilter
   }).items.map(item => randomizeAnswerOptions(item, random));
 }
 
@@ -218,12 +227,17 @@ export function getInitialSoundRoundPlan({
   roundNumber = null,
   seed = Date.now(),
   includeInactive = false,
-  requireImportedMedia = true
+  requireImportedMedia = true,
+  itemFilter = null
 } = {}) {
   const safeLevel = Number(level) === 2 ? 2 : 1;
   const random = createSeededRandom(seed);
   const progress = normalizeInitialSoundsProgress(studentProgress)[levelKey(safeLevel)] || emptyLevelProgress();
-  const availableLetters = getMediaCompleteLetters(safeLevel);
+  const availableLetters = getMediaCompleteLetters(safeLevel, {
+    includeInactive,
+    requireImportedMedia,
+    itemFilter
+  });
   const blockedLetters = INITIAL_SOUND_LETTERS.filter(letter => !availableLetters.includes(letter));
   const phase = inferRoundPhase({ level: safeLevel, progress, roundNumber, availableLetters });
   const covered = new Set(progress.coveredLetters || []);
@@ -249,7 +263,7 @@ export function getInitialSoundRoundPlan({
     const unusedReview = prioritizedLetters
       .filter(letter => !weak.includes(letter))
       .filter(letter => {
-        const items = itemsForLetter({ letter, level: safeLevel, includeInactive, requireImportedMedia });
+        const items = itemsForLetter({ letter, level: safeLevel, includeInactive, requireImportedMedia, itemFilter });
         const used = new Set((progress.usedTargetWordsByLetter?.[letter] || []).map(word => String(word).toLowerCase()));
         return items.some(item => !used.has(String(item.targetWord).toLowerCase()));
       });
@@ -271,6 +285,7 @@ export function getInitialSoundRoundPlan({
         progress,
         includeInactive,
         requireImportedMedia,
+        itemFilter,
         random
       });
       if (!item) return null;
@@ -314,7 +329,7 @@ export function getInitialSoundRoundPlan({
       mediaGaps: blockedLetters.map(letter => ({
         letter,
         level: safeLevel,
-        reason: "no complete imported image+audio pair"
+        reason: "no selectable imported image-backed item"
       }))
     }
   };
