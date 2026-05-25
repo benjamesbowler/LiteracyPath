@@ -4,10 +4,10 @@ Date: 2026-05-25
 
 ## Summary
 
-- Active source Final Sounds questions: 103
-- Level 1 source questions: 25
+- Active source Final Sounds questions: 108
+- Level 1 source questions: 30
 - Level 2 source questions: 78
-- Media-complete managed Level 1 items: 25
+- Media-complete managed Level 1 items: 30
 - Media-complete managed Level 2 items: 139
 - Fatal failures: 0
 - Warnings: 0
@@ -30,7 +30,7 @@ Date: 2026-05-25
 
 | Round | Selected | Targets | Target Words |
 |---|---:|---|---|
-| Level 1 | 15 | b, d, g, m, n, p, t, t, t, m, p, n, g, g, p | web, bed, bug, ram, pin, cap, jet, pot, bat, ham, map, pan, mug, bag, cup |
+| Level 1 | 15 | b, d, g, m, n, p, t, g, m, g, t, m, g, t, d | web, lid, dog, ram, sun, cup, jet, log, jam, mug, cot, ham, bag, cat, bed |
 | Level 2 | 15 | b, ck, d, f, g, l, m, mp, n, nd, ng, nt, p, r, rk | web, rock, listen and find, leaf, wig, whale, thumb, lamp, sun, hand, king, tent, map, chair, fork |
 
 ## Failures

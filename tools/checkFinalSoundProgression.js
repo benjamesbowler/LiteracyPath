@@ -116,11 +116,11 @@ sourceQuestions.forEach(question => {
   if (questionLevel(question) === 1) assertSimpleLevelOne(question, failures);
 });
 
-if (levelOneSource.length < 25) {
-  failures.push(`Final Sounds Level 1 has ${levelOneSource.length} active source questions; expected at least 25.`);
+if (levelOneSource.length < 30) {
+  failures.push(`Final Sounds Level 1 has ${levelOneSource.length} active source questions; expected at least 30.`);
 }
-if (levelTwoSource.length < 25) {
-  failures.push(`Final Sounds Level 2 has ${levelTwoSource.length} active source questions; expected at least 25.`);
+if (levelTwoSource.length < 30) {
+  failures.push(`Final Sounds Level 2 has ${levelTwoSource.length} active source questions; expected at least 30.`);
 }
 
 const allItems = getSkillBankItems();

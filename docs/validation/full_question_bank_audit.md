@@ -9,8 +9,8 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 | Skill | Active valid runtime questions | Unique question signatures | Unique targets | Unique itemKeys/patterns | Duplicate IDs | Duplicate signatures | Repeated distractor sets | Missing image/audio needs | Below 50 unique? | Below 52 runtime? | Unique option sets | Runtime sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 78 | 78 | 77 | 25 | 0 | 0 | 8 | 0 | no | no | 76 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
-| Final Sounds | 144 | 144 | 110 | 19 | 0 | 0 | 12 | 0 | no | no | 102 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
-| Rhyming | 91 | 91 | 70 | 24 | 0 | 0 | 9 | 0 | no | no | 78 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
+| Final Sounds | 149 | 149 | 114 | 19 | 0 | 0 | 13 | 0 | no | no | 102 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
+| Rhyming | 102 | 102 | 81 | 26 | 0 | 0 | 9 | 0 | no | no | 89 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
 | CVC and Short Vowels | 88 | 88 | 37 | 42 | 0 | 0 | 8 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | Short Vowel Discrimination | 88 | 88 | 37 | 5 | 0 | 0 | 5 | 0 | no | no | 52 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | High-Frequency Words 1-25 | 61 | 61 | 32 | 32 | 0 | 0 | 6 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
@@ -72,33 +72,33 @@ No duplicate prompt+answer signatures detected.
 
 ## Final Sounds
 
-- Active valid runtime questions: 144
-- Unique question signatures: 144
-- Unique target words / answer targets: 110
+- Active valid runtime questions: 149
+- Unique question signatures: 149
+- Unique target words / answer targets: 114
 - Unique itemKeys/patterns: 19 (b, ck, d, f, g, l, m, mp, n, nd, ng, nt, p, r, rk, s, sh, sk, t)
 - Duplicate signatures: 0
-- Repeated distractor sets: 12
+- Repeated distractor sets: 13
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: FINAL_SOUND_PAIR_SELECT:58, ENDING_SOUND:86
+- Formats: FINAL_SOUND_PAIR_SELECT:58, ENDING_SOUND:91
 - Overused targets: none
-- Overused itemKeys: g, n, p, t
+- Overused itemKeys: d, g, n, p, t
 
 No duplicate prompt+answer signatures detected.
 
 ## Rhyming
 
-- Active valid runtime questions: 91
-- Unique question signatures: 91
-- Unique target words / answer targets: 70
-- Unique itemKeys/patterns: 24 (ain, air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ox, ug, un, ut)
+- Active valid runtime questions: 102
+- Unique question signatures: 102
+- Unique target words / answer targets: 81
+- Unique itemKeys/patterns: 26 (ain, air, am, an, ap, ar, at, ed, ee, ell, en, et, ig, in, ing, ish, it, oat, ock, og, op, ot, ox, ug, un, ut)
 - Duplicate signatures: 0
 - Repeated distractor sets: 9
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: RHYME_PAIR_SELECT:36, LISTEN_FIND_RHYME:13, READ_FIND_RHYME:13, RHYMING_PICTURE:29
+- Formats: RHYME_PAIR_SELECT:47, LISTEN_FIND_RHYME:13, READ_FIND_RHYME:13, RHYMING_PICTURE:29
 - Overused targets: none
 - Overused itemKeys: at
 

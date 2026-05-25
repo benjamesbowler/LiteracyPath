@@ -10,18 +10,18 @@ Date: 2026-05-25
 
 ## Warnings
 
-- Ending Sounds L1 round 2: reused recent IDs ending_l1_010_web, ending_l1_003_bed, ending_l1_023_ham, ending_l1_025_gum, ending_l1_004_map, ending_l1_007_bat, ending_l1_024_ram.
-- Ending Sounds L1 round 2: reused recent words web, bed, ham, gum, map, bat, ram.
-- Ending Sounds L1 round 3: reused recent IDs ending_l1_010_web, ending_l1_003_bed, ending_l1_023_ham, ending_l1_020_pen, ending_l1_019_pot, ending_l1_004_map, ending_l1_007_bat, ending_l1_022_fan, ending_l1_011_jet.
-- Ending Sounds L1 round 3: reused recent words web, bed, ham, pen, pot, map, bat, fan, jet.
+- Ending Sounds L1 round 2: reused recent IDs ending_l1_010_web, ending_l1_006_pin, ending_l1_027_net, ending_l1_020_pen, ending_l1_028_cot, ending_l1_023_ham.
+- Ending Sounds L1 round 2: reused recent words web, pin, net, pen, cot, ham.
+- Ending Sounds L1 round 3: reused recent IDs ending_l1_010_web, ending_l1_006_pin, ending_l1_026_fin, ending_l1_023_ham, ending_l1_016_mug, ending_l1_027_net, ending_l1_005_pan, ending_l1_018_cap.
+- Ending Sounds L1 round 3: reused recent words web, pin, fin, ham, mug, net, pan, cap.
 - Ending Sounds L2 round 2: reused recent IDs ixl_ending_sound_10, ending_l2_011_lamp, ending_l2_009_hand.
 - Ending Sounds L2 round 2: reused recent words listen and find, web, lamp, hand.
 - Ending Sounds L2 round 3: reused recent IDs ending_l2_011_lamp, ending_l2_009_hand.
 - Ending Sounds L2 round 3: reused recent words listen and find, lamp, hand.
-- Rhyming Words L1 round 2: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24, ixl_rhyming_picture_16, p3_rhyme_read_ed_4.
-- Rhyming Words L1 round 2: reused recent words listen and find, rain, chair, ram, bed.
+- Rhyming Words L1 round 2: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24, ixl_rhyming_picture_16.
+- Rhyming Words L1 round 2: reused recent words listen and find, rain, chair, ram.
 - Rhyming Words L1 round 3: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24, ixl_rhyming_picture_16.
-- Rhyming Words L1 round 3: reused recent words rain, chair, ram, listen and find, bed.
+- Rhyming Words L1 round 3: reused recent words listen and find, rain, chair, ram, cap.
 - Short Vowels L1 round 2: reused recent IDs p3_short_vowel_listen_5, ixl_short_vowel_16, recovery_short_vowel_picture_11.
 - Short Vowels L1 round 2: reused recent words pot, pen, wig, dog, fin, mug, pig, jet.
 - Short Vowels L1 round 3: reused recent IDs recovery_short_vowel_listen_10.
@@ -53,7 +53,7 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Media-complete items: 513
+- Media-complete items: 501
 - Media-complete targets: 25
 - Blocked expected targets: none
 
@@ -63,21 +63,21 @@ Date: 2026-05-25
 | L1 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pen, question, rat, sun, truck, umpire, volcano, worm, yard, zoo, anchor, bed, car, dog, elbow |
 | L1 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | arrow, bag, cup, daisy, elf, fox, goat, hand, ivy, jam, kettle, leg, mitten, noodle, ox |
 | L2 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | athlete, banana, cucumber, dolphin, exercise, football, gingerbread, hairbrush, instructor, jigsaw, karate, lollipop, mermaid, nightlight, office |
-| L2 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pajamas, question mark, refrigerator, sunglasses, tractor, umpire mask, vacation, windmill, yo-yo string, zipline, ambulance, beaver, carrot, diamond, earmuffs |
-| L2 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | accordion, butterfly, castle, dictionary, easel, fossil, garbage truck, hummingbird, instrument, jump rope, kiosk, laboratory, motorcycle, notebook, orangutan |
+| L2 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pajamas, queen bee, rainbow, sailboat, thermometer, unicycle, volleyball, weather, yearbook, zigzag road, apartment, baseball, calendar, delivery, elevator |
+| L2 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | ambulance, butterfly, carrot, dictionary, easel, fossil, garbage truck, hummingbird, instrument, jump rope, kiosk, laboratory, motorcycle, notebook, orangutan |
 
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Media-complete items: 164
+- Media-complete items: 169
 - Media-complete targets: 20
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 7/7 | b, d, g, m, n, p, t, t, g, n, p, m, m, t, g | web, bed, bug, gum, sun, cup, bat, cat, log, hen, map, ram, ham, hat, mug |
-| L1 R2 | 3 | 15 | 7/7 | b, d, g, m, n, p, t, m, m, g, p, t, n, t, m | web, bed, dog, jam, pen, cap, jet, ham, gum, bag, map, bat, fan, pot, ram |
-| L1 R3 | 3 | 15 | 7/7 | b, d, g, m, n, p, t, n, n, t, p, t, n, t, g | web, bed, log, ham, pan, cup, hat, pen, sun, pot, map, bat, fan, jet, bug |
+| L1 R1 | 1 | 15 | 7/7 | b, d, g, m, n, p, t, g, t, n, n, g, n, m, t | web, lid, log, ram, hen, map, net, bag, cot, fan, pen, dog, pin, ham, cat |
+| L1 R2 | 3 | 15 | 7/7 | b, d, g, m, n, p, t, n, t, n, t, n, m, n, p | web, bed, mug, gum, fin, cup, pot, pin, net, pen, cot, sun, ham, pan, cap |
+| L1 R3 | 3 | 15 | 7/7 | b, d, g, m, n, p, t, n, n, m, g, t, n, g, p | web, lid, bug, jam, pin, map, hat, fin, fan, ham, mug, net, pan, dog, cap |
 | L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, g, k, l, m, mp, n, nd, ng, nt, p, r | web, duck, lid, roof, mug, listen and find, shell, jam, lamp, pen, hand, king, tent, ship, car |
 | L2 R2 | 2 | 15 | 15/15 | rk, s, sh, sk, t, b, ck, d, f, g, l, m, mp, n, nd | fork, bus, dish, desk, listen and find, web, rock, red, leaf, dog, whale, thumb, lamp, pin, hand |
 | L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, g, l, m, mp, n, nd, ng, nt, p, r, rk | listen and find, sock, bed, roof, wig, bell, ham, lamp, sun, hand, ring, tent, map, chair, park |
@@ -85,15 +85,15 @@ Date: 2026-05-25
 ## Rhyming Words
 
 - Skill ID: rhyming
-- Media-complete items: 90
-- Media-complete targets: 23
-- Blocked expected targets: eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse
+- Media-complete items: 100
+- Media-complete targets: 26
+- Blocked expected targets: eed, ill, oh, oon, ose, ut, uck, ight, ouse
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 15/15 | ain, air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it | rain, chair, ram, listen and find, cap, cat, bed, bee, bell, pen, jet, pig, pin, ring, sit |
-| L1 R2 | 2 | 15 | 15/15 | oat, ock, og, op, ot, ox, ug, un, ain, air, am, an, ap, at, ed | goat, rock, listen and find, mop, pot, fox, bug, sun, rain, chair, ram, fan, map, hat, bed |
-| L1 R3 | 3 | 15 | 15/15 | ain, air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it | rain, chair, ram, pan, listen and find, cat, bed, tree, bell, ten, jet, wig, fin, ring, sit |
+| L1 R1 | 1 | 15 | 15/15 | ain, air, ake, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing | rain, chair, listen and find, ram, fan, map, cat, bed, bee, bell, pen, jet, pig, fin, ring |
+| L1 R2 | 2 | 15 | 15/15 | ar, it, oat, ock, og, op, ot, ox, ug, un, ain, air, am, an, ap | listen and find, sit, boat, rock, dog, mop, pot, fox, bug, sun, rain, chair, ram, pan, cap |
+| L1 R3 | 2 | 15 | 15/15 | ish, ain, air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing | listen and find, rain, chair, ram, fan, cap, hat, bed, tree, bell, ten, jet, wig, pin, ring |
 
 ## Short Vowels
 

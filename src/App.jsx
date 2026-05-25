@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import "./App.css";
@@ -14,7 +14,6 @@ import {
   ELAssessmentsPage,
   GuidedReadingPage,
   LetterAssessmentPage,
-  QuestionFlagDialog,
   ResetStudentProgressDialog,
   SkillsProgressPage,
   StudentOverviewPage,
@@ -104,12 +103,6 @@ import {
 
 // dynamic mastery system
 
-const ChildModePage = lazy(() =>
-  import("./components/ChildMode").then(module => ({
-    default: module.ChildModePage
-  }))
-);
-
 const AdminDashboardPage = lazy(() =>
   import("@/components/AdminDashboardPage").then(module => ({
     default: module.AdminDashboardPage
@@ -130,63 +123,12 @@ function LazyPageFallback({ label = "Loading..." }) {
   );
 }
 
-function LearningWorldFallback({ returnToTeacher }) {
-  return (
-    <main className="learning-world-fallback" role="alert">
-      <section className="learning-world-fallback-card">
-        <h1>Space Hub could not load</h1>
-        <button
-          className="child-continue-button"
-          onClick={returnToTeacher}
-          type="button"
-        >
-          Back to Teacher
-        </button>
-      </section>
-    </main>
-  );
-}
-
-class LearningWorldErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, info) {
-    console.warn("Space Hub failed to render.", error, info);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <LearningWorldFallback returnToTeacher={this.props.returnToTeacher} />;
-    }
-
-    return this.props.children;
-  }
-}
-
-function LearningWorldShell({ children, returnToTeacher }) {
-  return (
-    <section className="learning-world-shell" aria-label="Space Hub">
-      <button
-        className="learning-world-exit-button"
-        onClick={returnToTeacher}
-        type="button"
-      >
-        Exit Space Hub
-      </button>
-
-      <LearningWorldErrorBoundary returnToTeacher={returnToTeacher}>
-        {children}
-      </LearningWorldErrorBoundary>
-    </section>
-  );
-}
+const PURE_EARLY_PHONICS_SKILL_IDS = new Set([
+  "initial_sounds",
+  "final_sounds",
+  "cvc_short_vowels",
+  "rhyming"
+]);
 
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
@@ -765,7 +707,7 @@ function buildChildLearningEvidence(answerRows = [], itemMasteryRows = [], table
       correct: 0,
       recentAccuracy: null,
       masteredWords: [],
-      focus: "Space Hub practice data is not available yet.",
+      focus: "Practice data is not available yet.",
       supportNeeds: [],
       lastPlayed: null,
       masteryChips: echoCavesWords.map(word => ({ word, status: "not-attempted" }))
@@ -821,7 +763,7 @@ function buildChildLearningEvidence(answerRows = [], itemMasteryRows = [], table
     correct,
     recentAccuracy: recent.length ? Math.round((recentCorrect / recent.length) * 100) : null,
     masteredWords,
-    focus: supportNeeds[0] || (attempted > 0 ? "Ready for more Space Hub practice" : "No Space Hub practice yet"),
+    focus: supportNeeds[0] || (attempted > 0 ? "Ready for more phonics practice" : "No phonics practice yet"),
     supportNeeds,
     lastPlayed,
     masteryChips: allChipWords.map(word => ({
@@ -1149,16 +1091,10 @@ export default function App() {
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
-  const [adminFlagStatusFilter, setAdminFlagStatusFilter] = useState("open");
-  const [adminFlags, setAdminFlags] = useState([]);
   const [adminTeachers, setAdminTeachers] = useState([]);
   const [adminClasses, setAdminClasses] = useState([]);
   const [adminStudents, setAdminStudents] = useState([]);
   const [adminLoading, setAdminLoading] = useState(false);
-  const [flagDialogOpen, setFlagDialogOpen] = useState(false);
-  const [flagIssueType, setFlagIssueType] = useState("Confusing wording");
-  const [flagNote, setFlagNote] = useState("");
-  const [flagSubmitting, setFlagSubmitting] = useState(false);
   const [totalAnswered, setTotalAnswered] = useState(0);
   const [correctAnswered, setCorrectAnswered] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
@@ -1288,8 +1224,6 @@ export default function App() {
     setCurrentQuestion(null);
     setFeedback(null);
     setMessage("");
-    setFlagDialogOpen(false);
-    setAdminFlags([]);
     setAdminTeachers([]);
     setAdminClasses([]);
     setAdminStudents([]);
@@ -1392,7 +1326,7 @@ export default function App() {
 
   useEffect(() => {
     if (isAdmin && appView === "admin") {
-      loadAdminDashboard(adminFlagStatusFilter);
+      loadAdminDashboard();
     }
   }, [isAdmin, appView]);
 
@@ -1526,7 +1460,7 @@ export default function App() {
     return nextIsAdmin;
   }
 
-  function buildTeacherRows(classes = [], students = [], answers = [], flags = []) {
+  function buildTeacherRows(classes = [], students = [], answers = []) {
     const teacherMap = new Map();
 
     function ensureTeacher(id, email = "") {
@@ -1537,8 +1471,7 @@ export default function App() {
           email: email || "Email unavailable",
           classes: 0,
           students: 0,
-          answers: 0,
-          flags: 0
+          answers: 0
         });
       }
 
@@ -1562,28 +1495,15 @@ export default function App() {
       if (teacher) teacher.answers += 1;
     });
 
-    flags.forEach(row => {
-      const teacher = ensureTeacher(row.teacher_id, row.teacher_email);
-      if (teacher) teacher.flags += 1;
-    });
-
     return [...teacherMap.values()].sort((a, b) => a.email.localeCompare(b.email));
   }
 
-  async function loadAdminDashboard(statusFilter = adminFlagStatusFilter) {
+  async function loadAdminDashboard() {
     if (!isAdmin) return;
 
     setAdminLoading(true);
 
-    const flagQuery = supabase
-      .from("question_flags")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (statusFilter !== "all") flagQuery.eq("status", statusFilter);
-
-    const [flagsResult, classesResult, studentsResult, answersResult] = await Promise.all([
-      flagQuery,
+    const [classesResult, studentsResult, answersResult] = await Promise.all([
       supabase.from("classes").select("id, name, teacher_id, created_at").order("created_at", { ascending: false }),
       supabase.from("students").select("id, name, class_id, teacher_id, created_at").order("created_at", { ascending: false }),
       supabase.from("answers").select("id, teacher_id, student_id")
@@ -1591,7 +1511,7 @@ export default function App() {
 
     setAdminLoading(false);
 
-    const firstError = flagsResult.error || classesResult.error || studentsResult.error || answersResult.error;
+    const firstError = classesResult.error || studentsResult.error || answersResult.error;
     if (firstError) {
       console.error("Admin dashboard load error:", firstError);
       setMessage("Could not load admin dashboard. Check admin RLS policies and migration.");
@@ -1600,21 +1520,13 @@ export default function App() {
 
     const classes = classesResult.data || [];
     const students = studentsResult.data || [];
-    const flags = flagsResult.data || [];
     const answers = answersResult.data || [];
     const classById = new Map(classes.map(row => [row.id, row]));
-    const studentById = new Map(students.map(row => [row.id, row]));
     const studentCounts = new Map();
 
     students.forEach(student => {
       studentCounts.set(student.class_id, (studentCounts.get(student.class_id) || 0) + 1);
     });
-
-    const flagsWithNames = flags.map(flag => ({
-      ...flag,
-      class_name: classById.get(flag.class_id)?.name || "Class unavailable",
-      student_name: studentById.get(flag.student_id)?.name || "Student unavailable"
-    }));
 
     const classRows = classes.map(row => ({
       ...row,
@@ -1626,45 +1538,14 @@ export default function App() {
       className: classById.get(row.class_id)?.name || "Class unavailable"
     }));
 
-    setAdminFlags(flagsWithNames);
     setAdminClasses(classRows);
     setAdminStudents(studentRows);
-    setAdminTeachers(buildTeacherRows(classes, students, answers, flags));
+    setAdminTeachers(buildTeacherRows(classes, students, answers));
   }
 
   function openAdminDashboard() {
     setAppView("admin");
-    loadAdminDashboard(adminFlagStatusFilter);
-  }
-
-  async function updateQuestionFlagStatus(flagId, status) {
-    if (!isAdmin || !flagId) return;
-
-    const patch = status === "resolved"
-      ? {
-          status: "resolved",
-          resolved_at: new Date().toISOString(),
-          resolved_by: teacherId
-        }
-      : {
-          status: "open",
-          resolved_at: null,
-          resolved_by: null
-        };
-
-    const { error } = await supabase
-      .from("question_flags")
-      .update(patch)
-      .eq("id", flagId);
-
-    if (error) {
-      console.error("Update question flag error:", error);
-      setMessage("Could not update question flag.");
-      return;
-    }
-
-    await loadAdminDashboard(adminFlagStatusFilter);
-    setMessage(status === "resolved" ? "Flag marked resolved." : "Flag reopened.");
+    loadAdminDashboard();
   }
 
   async function deleteOptionalTableRows(tableName, columnName, values) {
@@ -1695,8 +1576,7 @@ export default function App() {
       ["answers", "student_id"],
       ["mastery", "student_id"],
       ["item_mastery", "student_id"],
-      ["assessment_sessions", "student_id"],
-      ["question_flags", "student_id"]
+      ["assessment_sessions", "student_id"]
     ]) {
       const error = await deleteOptionalTableRows(tableName, columnName, ids);
       if (error) errors.push(error);
@@ -1715,7 +1595,7 @@ export default function App() {
       return;
     }
 
-    await loadAdminDashboard(adminFlagStatusFilter);
+    await loadAdminDashboard();
     setMessage(`Deleted ${selectedStudentName}.`);
   }
 
@@ -1747,20 +1627,12 @@ export default function App() {
         ["answers", "student_id"],
         ["mastery", "student_id"],
         ["item_mastery", "student_id"],
-        ["assessment_sessions", "student_id"],
-        ["question_flags", "student_id"]
+        ["assessment_sessions", "student_id"]
       ]) {
         const error = await deleteOptionalTableRows(tableName, columnName, studentIds);
         if (error) errors.push(error);
       }
     }
-
-    const { error: flagClassError } = await supabase
-      .from("question_flags")
-      .delete()
-      .eq("class_id", classId);
-
-    if (flagClassError && !isMissingTableError(flagClassError, "question_flags")) errors.push(flagClassError);
 
     const { error: studentsError } = await supabase
       .from("students")
@@ -1782,7 +1654,7 @@ export default function App() {
       return;
     }
 
-    await loadAdminDashboard(adminFlagStatusFilter);
+    await loadAdminDashboard();
     setMessage(`Deleted ${className}.`);
   }
 
@@ -2451,6 +2323,10 @@ export default function App() {
     return buildInitialSoundsProgressFromAnswerHistory(records);
   }
 
+  function isPureEarlyPhonicsStage(stage) {
+    return PURE_EARLY_PHONICS_SKILL_IDS.has(stage?.id);
+  }
+
   function getNextInitialSoundLevel(progress = getInitialSoundStageProgress()) {
     const levelOneProbe = getInitialSoundRoundPlan({
       studentProgress: { initialSoundsProgress: progress },
@@ -3041,6 +2917,7 @@ export default function App() {
 
     const shouldInjectReview =
       mode === "mastery" &&
+      !isPureEarlyPhonicsStage(activeStage) &&
       answeredCount > 0 &&
       (answeredCount + 1) % 5 === 0;
 
@@ -3306,8 +3183,8 @@ export default function App() {
       {
         id: record.questionId,
         skill: "CVC and Short Vowels",
-        question: record.prompt || "Space Hub Phonics Lab",
-        prompt: record.prompt || "Space Hub Phonics Lab",
+        question: record.prompt || "Phonics practice",
+        prompt: record.prompt || "Phonics practice",
         answer: correctAnswer,
         audioText: record.audioText || targetWord,
         spokenPrompt: record.spokenPrompt || targetWord,
@@ -3923,84 +3800,6 @@ export default function App() {
     );
   }
 
-
-  function flagCurrentQuestion() {
-    if (!currentQuestion) return;
-
-    setFlagIssueType("Confusing wording");
-    setFlagNote("");
-    setFlagDialogOpen(true);
-  }
-
-  async function submitQuestionFlag() {
-    if (!teacherId || !currentQuestion) {
-      setMessage("Please log in and select a question first.");
-      return;
-    }
-
-    const questionId = currentQuestion.id || getQuestionPrompt(currentQuestion);
-    const choices = currentQuestion.choices || currentQuestion.tiles || [];
-
-    setFlagSubmitting(true);
-
-    const { data: existingFlag, error: existingError } = await supabase
-      .from("question_flags")
-      .select("id")
-      .eq("teacher_id", teacherId)
-      .eq("question_id", questionId)
-      .eq("status", "open")
-      .maybeSingle();
-
-    if (existingError && !isMissingTableError(existingError, "question_flags")) {
-      console.error("Question flag duplicate check error:", existingError);
-      setFlagSubmitting(false);
-      setMessage("Could not check existing question flags.");
-      return;
-    }
-
-    if (existingFlag) {
-      setFlagSubmitting(false);
-      setFlagDialogOpen(false);
-      setMessage("This question is already flagged.");
-      return;
-    }
-
-    const { error } = await supabase
-      .from("question_flags")
-      .insert({
-        teacher_id: teacherId,
-        teacher_email: teacherUser?.email || null,
-        student_id: studentId,
-        class_id: selectedClassId,
-        question_id: questionId,
-        question_text: getQuestionPrompt(currentQuestion),
-        choices,
-        correct_answer: getQuestionAnswer(currentQuestion),
-        skill: currentQuestion.skill || currentStage?.label || "Unknown skill",
-        diagnostic_target: currentQuestion.diagnosticTarget || getDiagnosticTarget(currentQuestion),
-        mode: assessmentMode,
-        issue_type: flagIssueType,
-        note: flagNote.trim(),
-        status: "open"
-      });
-
-    setFlagSubmitting(false);
-
-    if (error) {
-      if (error.code === "23505") {
-        setFlagDialogOpen(false);
-        setMessage("This question is already flagged.");
-        return;
-      }
-
-      console.error("Question flag submit error:", error);
-      setMessage("Could not flag question. Make sure the question flag migration has been run.");
-      return;
-    }
-
-    setFlagDialogOpen(false);
-    setMessage("Question flagged for review.");
-  }
 
   function getDiagnosticTarget(question) {
     const skill =
@@ -4942,9 +4741,6 @@ export default function App() {
     setShowReport(false);
     setAppView("overview");
 
-    if (appView === "childMode" && studentId) {
-      await loadStudentProgress(studentId, studentName || "Unnamed student");
-    }
   }
 
   function continueCheckpointSkill() {
@@ -5110,16 +4906,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     setAppView("finished");
   }
 
-  function openChildMode() {
-    setAppView("childMode");
-  }
-
-  function changeAdminFlagStatusFilter(nextStatus) {
-    setAdminFlagStatusFilter(nextStatus);
-    loadAdminDashboard(nextStatus);
-  }
-
-
   if (!authReady) {
     return (
       <div className="app">
@@ -5164,12 +4950,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     appView === "assessment" ||
     appView === "checkpoint" ||
     appView === "letters" ||
-    appView === "advancedPhonics" ||
-    appView === "childMode";
+    appView === "advancedPhonics";
   const appShellClassName = [
     "app",
-    isFocusedAssessment ? "assessment-app" : "",
-    appView === "childMode" ? "learning-world-app" : ""
+    isFocusedAssessment ? "assessment-app" : ""
   ].filter(Boolean).join(" ");
 
   return (
@@ -5194,7 +4978,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           logOutTeacher={logOutTeacher}
           isAdmin={isAdmin}
           openAdminDashboard={openAdminDashboard}
-          openChildMode={openChildMode}
         />
       )}
 
@@ -5240,16 +5023,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === "admin" && isAdmin && (
         <Suspense fallback={<LazyPageFallback label="Loading admin dashboard..." />}>
           <AdminDashboardPage
-            flags={adminFlags}
             teachers={adminTeachers}
             classes={adminClasses}
             students={adminStudents}
-            statusFilter={adminFlagStatusFilter}
-            setStatusFilter={changeAdminFlagStatusFilter}
             loading={adminLoading}
-            refreshDashboard={() => loadAdminDashboard(adminFlagStatusFilter)}
-            resolveFlag={flagId => updateQuestionFlagStatus(flagId, "resolved")}
-            reopenFlag={flagId => updateQuestionFlagStatus(flagId, "open")}
+            refreshDashboard={loadAdminDashboard}
             deleteClass={adminDeleteClass}
             deleteStudent={adminDeleteStudent}
             questionBankCoverage={questionBankCoverage}
@@ -5284,7 +5062,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             enabled: DEBUG_ASSESSMENT_COVERAGE,
             studentId
           })}
-          childLearningEvidence={childLearningEvidence}
           setAppView={setAppView}
           switchStudent={switchStudent}
           openResetStudentProgress={() => setResetProgressDialogOpen(true)}
@@ -5362,7 +5139,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           switchStudent={switchStudent}
           openResetStudentProgress={() => setResetProgressDialogOpen(true)}
           isAdmin={isAdmin}
-          childLearningEvidence={childLearningEvidence}
           itemMasterySnapshot={getItemMasterySnapshot()}
         />
       )}
@@ -5417,7 +5193,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           roundLength={ROUND_LENGTH}
           roundProgress={roundProgress}
           shouldShowImage={shouldShowImage}
-          flagCurrentQuestion={flagCurrentQuestion}
           answerQuestion={answerQuestion}
           speakText={speakText}
           message={message}
@@ -5437,30 +5212,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           returnToOverview={goToOverview}
         />
       )}
-
-      {appView === "childMode" && (
-        <LearningWorldShell returnToTeacher={goToOverview}>
-          <Suspense fallback={<LearningWorldFallback returnToTeacher={goToOverview} />}>
-            <ChildModePage
-              returnToTeacher={goToOverview}
-              onAnswer={recordChildModeAnswer}
-            />
-          </Suspense>
-        </LearningWorldShell>
-      )}
-
-      <QuestionFlagDialog
-        open={flagDialogOpen}
-        question={currentQuestion}
-        issueType={flagIssueType}
-        setIssueType={setFlagIssueType}
-        note={flagNote}
-        setNote={setFlagNote}
-        submitting={flagSubmitting}
-        onSubmit={submitQuestionFlag}
-        onCancel={() => setFlagDialogOpen(false)}
-        getDiagnosticTarget={getDiagnosticTarget}
-      />
 
       <ResetStudentProgressDialog
         open={resetProgressDialogOpen}

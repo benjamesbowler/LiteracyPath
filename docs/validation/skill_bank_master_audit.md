@@ -5,7 +5,7 @@ Date: 2026-05-25
 ## Summary
 
 - Managed skills: 10
-- Skill-bank items scanned: 1800
+- Skill-bank items scanned: 1816
 - Fatal active media-complete failures: 0
 - Expansion/media warnings: 11
 
@@ -13,9 +13,9 @@ Date: 2026-05-25
 
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
-| Initial Sounds | 623 | 513 | 25 | 25 | L1:386, L2:237 | 110 | 110 | none |
-| Ending Sounds | 208 | 164 | 20 | 20 | L1:68, L2:140 | 43 | 44 | none |
-| Rhyming Words | 138 | 90 | 32 | 23 | L1:138 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse |
+| Initial Sounds | 611 | 501 | 25 | 25 | L1:386, L2:225 | 110 | 110 | none |
+| Ending Sounds | 213 | 169 | 20 | 20 | L1:73, L2:140 | 43 | 44 | none |
+| Rhyming Words | 149 | 101 | 32 | 25 | L1:149 | 48 | 48 | eed, ill, ake, oh, oon, ose, ut, uck, ight, ouse |
 | Short Vowels | 171 | 107 | 5 | 5 | L1:116, L2:55 | 0 | 64 | none |
 | Blends | 120 | 69 | 36 | 12 | L1:86, L2:34 | 51 | 40 | gl, pl, gr, pr |
 | Digraphs | 111 | 36 | 30 | 4 | L1:61, L3:50 | 75 | 57 | ck, ng |
@@ -27,7 +27,7 @@ Date: 2026-05-25
 ## Warnings
 
 - Ending Sounds: 2 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
-- Rhyming Words: blocked/missing targets eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse.
+- Rhyming Words: blocked/missing targets eed, ill, ake, oh, oon, ose, ut, uck, ight, ouse.
 - Short Vowels: 19 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Blends: 19 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Blends: blocked/missing targets gl, pl, gr, pr.
@@ -45,8 +45,8 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Active items: 623
-- Media-complete active items: 513
+- Active items: 611
+- Media-complete active items: 501
 - Unique active targets: 25
 - Unique media-complete targets: 25
 - Blocked targets: none
@@ -63,8 +63,8 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Active items: 208
-- Media-complete active items: 164
+- Active items: 213
+- Media-complete active items: 169
 - Unique active targets: 20
 - Unique media-complete targets: 20
 - Blocked targets: none
@@ -72,7 +72,7 @@ Date: 2026-05-25
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: 10
-- Duplicate target words by level: ending_sounds|2|listen and find, ending_sounds|1|dog, ending_sounds|1|bed, ending_sounds|1|map, ending_sounds|1|jam, ending_sounds|1|sun, ending_sounds|1|hat, ending_sounds|2|ship, ending_sounds|1|cap, ending_sounds|1|mat, ending_sounds|1|pen, ending_sounds|1|bag, ending_sounds|1|cup, ending_sounds|1|duck, ending_sounds|1|bus, ending_sounds|2|bed, ending_sounds|2|red, ending_sounds|2|web, ending_sounds|2|dog, ending_sounds|2|log, ending_sounds|2|mug, ending_sounds|2|jam, ending_sounds|2|sun, ending_sounds|2|cup, ending_sounds|2|map, ending_sounds|2|hat, ending_sounds|1|bell
+- Duplicate target words by level: ending_sounds|2|red, ending_sounds|2|ball, ending_sounds|2|fork, ending_sounds|2|bus, ending_sounds|1|dog, ending_sounds|1|bed, ending_sounds|1|map, ending_sounds|1|jam, ending_sounds|1|sun, ending_sounds|1|hat, ending_sounds|2|sock, ending_sounds|2|rock, ending_sounds|2|hand, ending_sounds|2|desk, ending_sounds|2|shell, ending_sounds|2|car, ending_sounds|2|ship, ending_sounds|2|octopus, ending_sounds|2|thumb, ending_sounds|2|leaf, ending_sounds|2|roof, ending_sounds|2|fish, ending_sounds|2|dish, ending_sounds|2|cat, ending_sounds|2|bat, ending_sounds|2|cap, ending_sounds|2|bed, ending_sounds|2|dog, ending_sounds|2|pig, ending_sounds|2|duck, ending_sounds|2|book, ending_sounds|2|map, ending_sounds|2|pan, ending_sounds|2|pin, ending_sounds|2|bag, ending_sounds|2|cup, ending_sounds|2|jet, ending_sounds|2|sun, ending_sounds|2|log, ending_sounds|2|mug
 
 ### Rhyming/Phonics Logic Issues
 
@@ -81,16 +81,16 @@ Date: 2026-05-25
 ## Rhyming Words
 
 - Skill ID: rhyming
-- Active items: 138
-- Media-complete active items: 90
+- Active items: 149
+- Media-complete active items: 101
 - Unique active targets: 32
-- Unique media-complete targets: 23
-- Blocked targets: eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse
+- Unique media-complete targets: 25
+- Blocked targets: eed, ill, ake, oh, oon, ose, ut, uck, ight, ouse
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: none
-- Duplicate target words by level: rhyming|1|coat, rhyming|1|listen and find, rhyming|1|cat, rhyming|1|cap, rhyming|1|fan, rhyming|1|bed, rhyming|1|pen, rhyming|1|pig, rhyming|1|fin, rhyming|1|sit, rhyming|1|dog, rhyming|1|mop, rhyming|1|pot, rhyming|1|bug, rhyming|1|sun, rhyming|1|hat, rhyming|1|hop, rhyming|1|ring, rhyming|1|tree, rhyming|1|rug, rhyming|1|run, rhyming|1|red, rhyming|1|lake, rhyming|1|dish, rhyming|1|car, rhyming|1|spoon, rhyming|1|night, rhyming|1|bear, rhyming|1|bee
+- Duplicate target words by level: rhyming|1|coat, rhyming|1|hat, rhyming|1|red, rhyming|1|fin, rhyming|1|rug, rhyming|1|car, rhyming|1|bear, rhyming|1|cat, rhyming|1|cap, rhyming|1|fan, rhyming|1|bed, rhyming|1|pen, rhyming|1|pig, rhyming|1|sit, rhyming|1|dog, rhyming|1|mop, rhyming|1|pot, rhyming|1|bug, rhyming|1|sun, rhyming|1|map, rhyming|1|pan, rhyming|1|log, rhyming|1|jet, rhyming|1|sock, rhyming|1|wig, rhyming|1|hop, rhyming|1|ten, rhyming|1|mug, rhyming|1|ring, rhyming|1|bell, rhyming|1|boat, rhyming|1|bee, rhyming|1|tree, rhyming|1|run, rhyming|1|lake, rhyming|1|dish, rhyming|1|spoon, rhyming|1|night, rhyming|1|bat
 
 ### Rhyming/Phonics Logic Issues
 

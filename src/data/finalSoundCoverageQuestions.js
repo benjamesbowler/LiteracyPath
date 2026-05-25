@@ -59,7 +59,8 @@ const endingSoundLevelOneTargets = [
   ["pin", "n"], ["bat", "t"], ["bag", "g"], ["cup", "p"], ["web", "b"],
   ["jet", "t"], ["jam", "m"], ["sun", "n"], ["hat", "t"], ["log", "g"],
   ["mug", "g"], ["bug", "g"], ["cap", "p"], ["pot", "t"], ["pen", "n"],
-  ["hen", "n"], ["fan", "n"], ["ham", "m"], ["ram", "m"], ["gum", "m"]
+  ["hen", "n"], ["fan", "n"], ["ham", "m"], ["ram", "m"], ["gum", "m"],
+  ["fin", "n"], ["net", "t"], ["cot", "t"], ["cut", "t"], ["lid", "d"]
 ];
 
 const endingSoundLevelTwoTargets = [

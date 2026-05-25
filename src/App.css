@@ -2754,13 +2754,6 @@ select:focus {
   color: white !important;
 }
 
-.flag-button {
-  background: #fff7ed !important;
-  color: #c2410c !important;
-  border: 1px solid #fed7aa !important;
-  margin: 8px 0 16px;
-}
-
 .mini-audio-button,
 .choice-audio,
 .initial-sound-card-audio,
@@ -2855,9 +2848,11 @@ select:focus {
   line-height: 1.15;
   max-width: 100%;
   opacity: 1 !important;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
   text-align: center;
   white-space: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .visual-word-choices {
@@ -3431,15 +3426,6 @@ select:focus {
   font-size: clamp(22px, 2.4vw, 30px);
 }
 
-.assessment-card .flag-button {
-  align-self: flex-start;
-  min-height: 38px;
-  margin: 0 0 8px;
-  padding: 7px 10px;
-  border-radius: 12px;
-  font-size: 13px;
-}
-
 .assessment-card .choices {
   margin-top: 12px;
   gap: 14px;
@@ -3498,7 +3484,9 @@ select:focus {
   font-size: clamp(20px, 3vw, 30px);
   font-weight: 850;
   white-space: normal;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .ixl-answer-grid.letter-options .ixl-answer-button {
@@ -3552,23 +3540,23 @@ select:focus {
   .assessment-main-image-wrap,
   .assessment-listening-panel,
   .assessment-passage-card {
-    width: min(624px, 100%);
+    width: min(690px, 100%);
   }
 
   .assessment-main-image-wrap {
-    min-height: clamp(156px, 24vh, 252px);
+    min-height: clamp(188px, 30vh, 320px);
   }
 
   .assessment-main-image {
-    max-height: clamp(150px, 24vh, 228px) !important;
+    max-height: clamp(180px, 30vh, 300px) !important;
   }
 
   .assessment-card .image-box {
-    max-height: clamp(168px, 29vh, 264px);
+    max-height: clamp(202px, 34vh, 330px);
   }
 
   .assessment-card .question-image {
-    max-height: clamp(150px, 26vh, 240px);
+    max-height: clamp(180px, 31vh, 290px);
   }
 
   .first-sound-question-card {
@@ -3576,11 +3564,11 @@ select:focus {
   }
 
   .first-sound-image-area {
-    min-height: clamp(204px, 31vh, 300px);
+    min-height: clamp(245px, 36vh, 360px);
   }
 
   .first-sound-image-area img {
-    max-height: clamp(190px, 29vh, 285px);
+    max-height: clamp(228px, 34vh, 342px);
   }
 
   .assessment-card .choices,
@@ -3599,12 +3587,28 @@ select:focus {
   }
 
   .ixl-answer-card.image-card .ixl-answer-button {
-    min-height: 220px;
+    min-height: 230px;
   }
 
   .ixl-answer-button img {
-    max-width: 210px;
-    height: 150px;
+    max-width: 240px;
+    height: 170px;
+  }
+
+  .visual-word-choice {
+    min-height: clamp(180px, 24vh, 245px) !important;
+  }
+
+  .visual-word-choice-image {
+    max-height: 175px;
+  }
+
+  .visual-assessment-card-button {
+    min-height: clamp(180px, 24vh, 245px);
+  }
+
+  .visual-assessment-card-button img {
+    height: clamp(120px, 18vh, 180px);
   }
 
   .ixl-answer-button strong,
@@ -4114,17 +4118,6 @@ select:focus {
   background: rgba(15, 23, 42, 0.42);
 }
 
-.flag-dialog {
-  width: min(680px, 100%);
-  max-height: min(760px, calc(100vh - 36px));
-  overflow-y: auto;
-  background: var(--lp-color-surface);
-  border: 1px solid var(--lp-color-border);
-  border-radius: 18px;
-  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.28);
-  padding: 24px;
-}
-
 .modal-card {
   width: min(680px, 100%);
   max-height: min(760px, calc(100vh - 36px));
@@ -4155,38 +4148,6 @@ select:focus {
   color: var(--lp-color-text-muted) !important;
   font-size: 13px;
   line-height: 1.45;
-}
-
-.flag-question-summary {
-  display: grid;
-  gap: 8px;
-  padding: 14px;
-  background: var(--lp-color-surface-subtle);
-  border: 1px solid var(--lp-color-border-subtle);
-  border-radius: 14px;
-}
-
-.flag-question-summary p,
-.flag-question-summary ul {
-  margin: 0;
-}
-
-.flag-question-summary ul {
-  padding-left: 20px;
-}
-
-.flag-note-input {
-  width: 100%;
-  resize: vertical;
-  min-height: 110px;
-  border: 1px solid var(--lp-color-border-strong);
-  border-radius: 14px;
-  padding: 12px;
-  font: inherit;
-}
-
-.flag-dialog-actions {
-  justify-content: flex-end;
 }
 
 .admin-dashboard {

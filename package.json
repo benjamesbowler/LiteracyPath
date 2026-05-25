@@ -29,7 +29,8 @@
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all",
     "download:public-domain-books": "node scripts/downloadPublicDomainBooks.js",
     "process:public-domain-books": "node scripts/processBookPages.js",
-    "audit:book-library": "node scripts/auditBookLibrary.js"
+    "audit:book-library": "node scripts/auditBookLibrary.js",
+    "audit:lexicon": "node scripts/auditLexicon.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

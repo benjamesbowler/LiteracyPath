@@ -11,9 +11,9 @@ Initial Sounds was building a 15-question plan first and then filtering QA-block
 | Skill | Image Files/Refs | Audio Files/Refs | Matched Image+Audio Words | Image-Only Words | Audio-Only Words | Active Items | Runtime-Selectable Items | Blocked/Filtered | Duplicate Words | Missing Media References |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Initial Sounds | 500 | 500 | 500 | 0 | 0 | 473 | 473 | 27 | 0 | 0 |
-| Ending Sounds | 101 | 102 | 56 | 1 | 1 | 195 | 195 | 1 | 16 | 0 |
-| CVC Short Vowels | 57 | 47 | 44 | 0 | 0 | 256 | 256 | 4 | 40 | 0 |
-| Rhyming Words | 58 | 72 | 30 | 0 | 0 | 133 | 133 | 2 | 1 | 0 |
+| Ending Sounds | 102 | 103 | 60 | 1 | 1 | 200 | 200 | 1 | 16 | 0 |
+| CVC Short Vowels | 57 | 47 | 44 | 0 | 0 | 256 | 203 | 38 | 40 | 0 |
+| Rhyming Words | 68 | 77 | 30 | 0 | 0 | 143 | 100 | 27 | 1 | 0 |
 
 ## Initial Sounds Progression Samples
 
@@ -61,38 +61,38 @@ Initial Sounds was building a 15-question plan first and then filtering QA-block
 ### CVC Short Vowels
 
 1. - / cat
-2. - / map
-3. - / red
-4. - / sit
-5. - / dog
-6. - / cup
-7. - / mat
-8. - / pen
-9. - / pin
-10. - / hop
-11. - / rug
-12. bag / bag
-13. bat / bat
-14. bed / bed
-15. cap / cap
+2. bag / bag
+3. bat / bat
+4. bed / bed
+5. cap / cap
+6. cup / cup
+7. dog / dog
+8. dot / dot
+9. fin / fin
+10. hat / hat
+11. jam / jam
+12. leg / leg
+13. log / log
+14. man / man
+15. map / map
 
 ### Rhyming Words
 
-1. at / hat
-2. ug / rug
-3. un / run
-4. ed / red
-5. op / hop
-6. ake / lake
-7. ish / dish
-8. ing / ring
-9. oat / coat
-10. ar / car
-11. oon / spoon
-12. ight / night
-13. ee / tree
-14. air / bear
-15. at / listen and find
+1. at / listen and find
+2. ap / cap
+3. an / fan
+4. ed / bed
+5. en / pen
+6. ig / pig
+7. in / fin
+8. it / sit
+9. og / dog
+10. op / mop
+11. ot / pot
+12. ug / bug
+13. un / sun
+14. at / cat
+15. ap / map
 
 ## Remaining Gaps Needing Kimi
 
@@ -124,9 +124,68 @@ Initial Sounds was building a 15-question plan first and then filtering QA-block
 - Initial Sounds: zeppelin (z) - Zeppelin is obscure for K-2 Initial Sounds assessment and is blocked from active use.
 - Initial Sounds: zesty lemon (z) - Zesty lemon is an adjective phrase and visually tests lemon rather than a /z/ target.
 - Ending Sounds: nut (t) - inactive
+- CVC Short Vowels: bag (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: big (pattern unknown) - wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels
+- CVC Short Vowels: cap (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: cot (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: cup (pattern unknown) - wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels
+- CVC Short Vowels: cup (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: did (pattern unknown) - wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels
+- CVC Short Vowels: dig (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: dog (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: ham (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: hat (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: hen (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: hop (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: hut (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: kid (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: leg (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: lip (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: log (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: map (pattern unknown) - wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels
+- CVC Short Vowels: map (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: mat (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: net (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
 - CVC Short Vowels: nut (pattern unknown) - inactive
+- CVC Short Vowels: pen (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: pet (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: pet (pattern unknown) - wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels
+- CVC Short Vowels: pin (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: red (pattern unknown) - wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels
+- CVC Short Vowels: red (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: rod (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: rug (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: sit (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: tap (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: top (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
+- CVC Short Vowels: win (pattern unknown) - wrong skill/template: MULTIPLE_CHOICE is not allowed for cvc_short_vowels
 - CVC Short Vowels: nut (nut) - inactive
 - CVC Short Vowels: net (short_e) - inactive
 - CVC Short Vowels: nut (short_u) - inactive
+- Rhyming Words: bear (air) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: cake (ake) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: lake (ake) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: cap (ap) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: car (ar) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: hat (at) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: bed (ed) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
 - Rhyming Words: fed (ed) - inactive
+- Rhyming Words: red (ed) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: bee (ee) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: tree (ee) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: shell (ell) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: pen (en) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: night (ight) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: will (ill) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: ring (ing) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: dish (ish) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: coat (oat) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: snow (oh) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: spoon (oon) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: hop (op) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: rose (ose) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: house (ouse) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: rug (ug) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: fun (un) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
+- Rhyming Words: run (un) - wrong skill/template: MULTIPLE_CHOICE is not allowed for rhyming
 - Rhyming Words: nut (ut) - inactive

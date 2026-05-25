@@ -213,8 +213,7 @@ export function TopNavigation({
   teacherEmail,
   logOutTeacher,
   isAdmin,
-  openAdminDashboard,
-  openChildMode
+  openAdminDashboard
 }) {
   const activeStep =
     appView === "letters" || appView === "advancedPhonics" ? "assessment" : appView;
@@ -299,15 +298,9 @@ export function TopNavigation({
         </button>
 
         {isAdmin && (
-          <>
-            <button className="nav-button" onClick={openChildMode}>
-              Space Hub
-            </button>
-
-            <button className="nav-button" onClick={openAdminDashboard}>
-              Admin Dashboard
-            </button>
-          </>
+          <button className="nav-button" onClick={openAdminDashboard}>
+            Admin Dashboard
+          </button>
         )}
 
         <button className="nav-button" onClick={logOutTeacher}>
@@ -315,99 +308,6 @@ export function TopNavigation({
         </button>
       </div>
     </nav>
-  );
-}
-
-
-export function QuestionFlagDialog({
-  open,
-  question,
-  issueType,
-  setIssueType,
-  note,
-  setNote,
-  submitting,
-  onSubmit,
-  onCancel,
-  getDiagnosticTarget
-}) {
-  if (!open || !question) return null;
-
-  const choices = question.choices || question.tiles || [];
-  const questionText = question.prompt || question.question || question.brokenSentence || "Untitled question";
-  const correctAnswer = question.questionType === "fix_sentence"
-    ? question.correctSentence
-    : question.answer;
-  const diagnosticTarget = question.diagnosticTarget || getDiagnosticTarget(question);
-  const issueOptions = [
-    "Incorrect answer",
-    "Confusing wording",
-    "Too hard",
-    "Too easy",
-    "Bad audio",
-    "Bad image",
-    "Wrong skill",
-    "Other"
-  ];
-
-  return (
-    <div className="modal-backdrop" role="presentation">
-      <div className="flag-dialog" role="dialog" aria-modal="true" aria-label="Flag question for review">
-        <div className="page-stack">
-          <div>
-            <h2>Flag Question</h2>
-            <p className="muted-text">This sends the item to the app owner for review.</p>
-          </div>
-
-          <div className="flag-question-summary">
-            <p><strong>Question:</strong> {questionText}</p>
-            <p><strong>Skill:</strong> {question.skill || "Unknown skill"}</p>
-            <p><strong>Diagnostic target:</strong> {diagnosticTarget || "General"}</p>
-            <p><strong>Correct answer:</strong> {correctAnswer || "Not set"}</p>
-
-            {choices.length > 0 && (
-              <div>
-                <strong>Answer choices:</strong>
-                <ul>
-                  {choices.map((choice, index) => (
-                    <li key={String(choice) + "-" + index}>{choice}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-
-          <label className="auth-field">
-            <strong>Issue type</strong>
-            <select value={issueType} onChange={event => setIssueType(event.target.value)}>
-              {issueOptions.map(option => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
-          </label>
-
-          <label className="auth-field">
-            <strong>What is wrong with this question?</strong>
-            <textarea
-              className="flag-note-input"
-              value={note}
-              onChange={event => setNote(event.target.value)}
-              placeholder="Optional teacher note"
-              rows={4}
-            />
-          </label>
-
-          <div className="button-row flag-dialog-actions">
-            <button className="reset-button" onClick={onCancel} disabled={submitting} type="button">
-              Cancel
-            </button>
-            <button className="main-button" onClick={onSubmit} disabled={submitting} type="button">
-              {submitting ? "Submitting..." : "Submit Flag"}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -762,16 +662,11 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
 }
 
 export function AdminDashboardPage({
-  flags,
   teachers,
   classes,
   students,
-  statusFilter,
-  setStatusFilter,
   loading,
   refreshDashboard,
-  resolveFlag,
-  reopenFlag,
   deleteClass,
   deleteStudent,
   message
@@ -782,15 +677,10 @@ export function AdminDashboardPage({
         <div className="admin-header">
           <div>
             <h2>Admin Dashboard</h2>
-            <p className="muted-text">Review flagged questions and manage app data.</p>
+            <p className="muted-text">Review content coverage and manage app data.</p>
           </div>
 
           <div className="button-row admin-controls">
-            <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
-              <option value="open">Open flags</option>
-              <option value="resolved">Resolved flags</option>
-              <option value="all">All flags</option>
-            </select>
             <button className="report-button" onClick={refreshDashboard} disabled={loading} type="button">
               {loading ? "Loading..." : "Refresh"}
             </button>
@@ -798,66 +688,6 @@ export function AdminDashboardPage({
         </div>
 
         {message && <p className="message">{message}</p>}
-      </section>
-
-      <section className="report-panel page-stack admin-section">
-        <h3>Flagged Questions</h3>
-
-        {flags.length === 0 ? (
-          <p>No flagged questions for this filter.</p>
-        ) : (
-          <div className="admin-table-wrap">
-            <table className="dashboard-table admin-table">
-              <thead>
-                <tr>
-                  <th>Status</th>
-                  <th>Date</th>
-                  <th>Teacher</th>
-                  <th>Class</th>
-                  <th>Student</th>
-                  <th>Skill</th>
-                  <th>Question</th>
-                  <th>Choices</th>
-                  <th>Correct</th>
-                  <th>Issue</th>
-                  <th>Note</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {flags.map(flag => (
-                  <tr key={flag.id}>
-                    <td>{flag.status}</td>
-                    <td>{flag.created_at ? new Date(flag.created_at).toLocaleString() : ""}</td>
-                    <td>{flag.teacher_email || flag.teacher_id}</td>
-                    <td>{flag.class_name}</td>
-                    <td>{flag.student_name}</td>
-                    <td>
-                      <strong>{flag.skill}</strong>
-                      <div className="muted-text">{flag.diagnostic_target}</div>
-                    </td>
-                    <td className="admin-question-cell">{flag.question_text}</td>
-                    <td>{Array.isArray(flag.choices) ? flag.choices.join(", ") : ""}</td>
-                    <td>{flag.correct_answer}</td>
-                    <td>{flag.issue_type}</td>
-                    <td>{flag.note}</td>
-                    <td>
-                      {flag.status === "resolved" ? (
-                        <button className="report-button" onClick={() => reopenFlag(flag.id)} type="button">
-                          Reopen
-                        </button>
-                      ) : (
-                        <button className="report-button" onClick={() => resolveFlag(flag.id)} type="button">
-                          Resolve
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </section>
 
       <section className="card page-stack admin-section">
@@ -874,7 +704,6 @@ export function AdminDashboardPage({
                   <th>Classes</th>
                   <th>Students</th>
                   <th>Answers</th>
-                  <th>Flags</th>
                 </tr>
               </thead>
               <tbody>
@@ -885,7 +714,6 @@ export function AdminDashboardPage({
                     <td>{teacher.classes}</td>
                     <td>{teacher.students}</td>
                     <td>{teacher.answers}</td>
-                    <td>{teacher.flags}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1184,7 +1012,6 @@ export function StudentOverviewPage({
   weaknessSnapshot,
   itemMasterySnapshot,
   coverageSnapshot,
-  childLearningEvidence,
   setAppView,
   switchStudent,
   openResetStudentProgress,
@@ -1222,19 +1049,6 @@ export function StudentOverviewPage({
     return item.itemKey + " (" + item.itemType.replace(/_/g, " ") + "): formats " + formats + "; PTD " + (item.hadPTDExposure ? "yes" : "no") + "; cross-pattern " + (item.crossPatternExposure ? "yes" : "no") + "; positions " + positions + "; " + blockers;
   };
 
-  const childEvidence = childLearningEvidence || {
-    tableMissing: false,
-    worldsPlayed: [],
-    missionsCompleted: [],
-    attempted: 0,
-    correct: 0,
-    recentAccuracy: null,
-    masteredWords: [],
-    focus: "No Space Hub practice yet",
-    supportNeeds: [],
-    lastPlayed: null,
-    masteryChips: []
-  };
   const currentCoverage = coverageSnapshot?.[currentStage.id] || {
     mastered: 0,
     total: 0,
@@ -2689,7 +2503,6 @@ export function TeacherSettingsToolsPage({
   switchStudent,
   openResetStudentProgress,
   isAdmin,
-  childLearningEvidence,
   itemMasterySnapshot
 }) {
   const itemSnapshot = itemMasterySnapshot || {
@@ -2698,16 +2511,6 @@ export function TeacherSettingsToolsPage({
     evidence: [],
     unseenCount: 0,
     trackedCount: 0
-  };
-  const childEvidence = childLearningEvidence || {
-    tableMissing: false,
-    worldsPlayed: [],
-    attempted: 0,
-    correct: 0,
-    recentAccuracy: null,
-    focus: "No Space Hub practice yet",
-    lastPlayed: null,
-    masteryChips: []
   };
   const formatItemLabel = item =>
     item.itemKey + " (" + item.itemType.replace(/_/g, " ") + ", " + item.correct + "/" + item.attempts + ")";
@@ -2739,35 +2542,6 @@ export function TeacherSettingsToolsPage({
 
       {isAdmin && (
         <section className="admin-tools-stack">
-          <article className="teacher-action-panel">
-            <p className="panel-label">Admin only</p>
-            <h3>Space Hub Progress</h3>
-            {childEvidence.tableMissing ? (
-              <p>Space Hub practice data is not available yet.</p>
-            ) : childEvidence.attempted === 0 ? (
-              <p>No Space Hub practice has been recorded for this student yet.</p>
-            ) : (
-              <div className="child-learning-grid">
-                <div>
-                  <strong>Worlds Played</strong>
-                  <p>{childEvidence.worldsPlayed.join(", ") || "None yet"}</p>
-                </div>
-                <div>
-                  <strong>Child Mode Accuracy</strong>
-                  <p>{childEvidence.attempted} attempted / {childEvidence.correct} correct / {childEvidence.recentAccuracy ?? 0}% recent</p>
-                </div>
-                <div>
-                  <strong>Current Focus / Needs Support</strong>
-                  <p>{childEvidence.focus}</p>
-                </div>
-                <div>
-                  <strong>Last Played</strong>
-                  <p>{childEvidence.lastPlayed ? new Date(childEvidence.lastPlayed).toLocaleString() : "No activity yet"}</p>
-                </div>
-              </div>
-            )}
-          </article>
-
           <details className="item-mastery-debug">
             <summary>Developer item mastery snapshot</summary>
             <div className="item-mastery-grid">
@@ -3352,7 +3126,6 @@ export function AssessmentPage({
   roundLength,
   roundProgress,
   shouldShowImage,
-  flagCurrentQuestion,
   answerQuestion,
   speakText,
   message,
@@ -3476,10 +3249,6 @@ export function AssessmentPage({
               speakText={speakText}
               shouldShowImage={shouldShowImage}
             />
-
-            <button className="flag-button" onClick={flagCurrentQuestion}>
-              ⚠️ Flag Question
-            </button>
 
             {isPairSelection ? (
               <PairSelectionQuestion

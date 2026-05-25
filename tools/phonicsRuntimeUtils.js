@@ -29,6 +29,7 @@ import { enrichListenAndFindWordQuestion } from "../src/data/listenAndFindAssets
 import { enrichInitialSoundPairQuestion } from "../src/data/initialSoundPairAssets.js";
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
+import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
 
 export const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -189,6 +190,11 @@ export function isImageEssential(question = {}) {
 
 export function questionFilterReason(question = {}) {
   if (question.active === false) return "inactive";
+  const skillId = getCoreSkillId(question);
+  if (skillId) {
+    const routeIssue = getQuestionRoutingIssue(question, skillId);
+    if (routeIssue) return `wrong skill/template: ${routeIssue}`;
+  }
   const imagePaths = getQuestionImagePaths(question);
   const audioPaths = getQuestionAudioPaths(question);
   const missingImages = imagePaths.filter(item => !publicPathExists(item));

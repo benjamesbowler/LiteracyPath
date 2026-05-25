@@ -118,7 +118,12 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   if (rule.allowedFormats && !rule.allowedFormats.has(format)) return `${format} is not allowed for ${stageId}`;
   if (stageId === "final_sounds" && promptLooksLikeInitialSound(question)) return "initial/start-sound prompt is not allowed in Final Sounds";
   if (stageId === "final_sounds" && !promptLooksLikeEndingSound(question)) return "Final Sounds question must use an ending/final-sound prompt";
+  if (stageId === "initial_sounds" && promptLooksLikeEndingSound(question)) return "ending/final-sound prompt is not allowed in Initial Sounds";
   if (stageId === "cvc_short_vowels" && promptLooksLikeEndingSound(question)) return "ending-sound prompt is not allowed in CVC/Short Vowels";
+  if (stageId === "cvc_short_vowels" && promptLooksLikeInitialSound(question)) return "initial/start-sound prompt is not allowed in CVC/Short Vowels";
+  if (stageId === "rhyming" && (promptLooksLikeInitialSound(question) || promptLooksLikeEndingSound(question))) {
+    return "initial/final-sound prompt is not allowed in Rhyming";
+  }
   if (rule.sightWordsOnly && !hfwQuestionUsesOnlySightWords(question)) return "High-Frequency Words must use approved sight words only";
   return "";
 }

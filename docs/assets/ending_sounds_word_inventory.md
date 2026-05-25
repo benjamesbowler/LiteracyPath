@@ -2,8 +2,8 @@
 
 Date: 2026-05-25
 
-- Total rows: 92
-- Runtime-selectable rows: 91
+- Total rows: 96
+- Runtime-selectable rows: 95
 - Blocked/filtered rows: 1
 - Duplicate word entries: 16
 
@@ -59,6 +59,7 @@ Date: 2026-05-25
 | moon | moon | 1 |  |  | runtime | yes |  |
 | lamp | mp | 2 | /images/child-mode/initial-sounds/lamp.png | /audio/child-mode/words/lamp.mp3 | runtime | yes |  |
 | fan | n | 1 | /images/child-mode/initial-sounds/fan.png | /audio/child-mode/clean-human/words/fan.mp3 | runtime | yes |  |
+| fin | n | 1 | /images/child-mode/short-i/fin.png | /audio/child-mode/clean-human/words/fin.mp3 | runtime | yes |  |
 | hen | n | 1 | /images/child-mode/initial-sounds/hen.png | /audio/child-mode/clean-human/words/hen.mp3 | runtime | yes |  |
 | listen and find | n | 2 | /images/child-mode/cvc/sun.png | /audio/child-mode/phrases/listen-and-find.mp3 | runtime | yes |  |
 | pan | n | 1 | /images/child-mode/cvc/pan.png | /audio/child-mode/clean-human/words/pan.mp3 | runtime | yes |  |
@@ -95,9 +96,12 @@ Date: 2026-05-25
 | sun | sun | 1 |  |  | runtime | yes |  |
 | bat | t | 1 | /images/child-mode/cvc/bat.png | /audio/child-mode/clean-human/words/bat.mp3 | runtime | yes |  |
 | cat | t | 1 | /images/child-mode/cvc/cat.png | /audio/child-mode/clean-human/words/cat.mp3 | runtime | yes |  |
+| cot | t | 1 | /images/child-mode/minimal-pairs/cot.png | /audio/child-mode/clean-human/words/cot.mp3 | runtime | yes |  |
+| cut | t | 1 | /images/child-mode/minimal-pairs/cut.png | /audio/child-mode/clean-human/words/cut.mp3 | runtime | yes |  |
 | hat | t | 1 | /images/child-mode/cvc/hat.png | /audio/child-mode/clean-human/words/hat.mp3 | runtime | yes |  |
 | jet | t | 1 | /images/child-mode/short-e/jet.png | /audio/child-mode/clean-human/words/jet.mp3 | runtime | yes |  |
 | listen and find | t | 2 | /images/child-mode/initial-sounds/mat.png | /audio/child-mode/phrases/listen-and-find.mp3 | runtime | yes |  |
+| net | t | 1 | /images/child-mode/short-e/net.png | /audio/child-mode/clean-human/words/net.mp3 | runtime | yes |  |
 | nut | t | 1 |  | /audio/child-mode/clean-human/words/nut.mp3 | filtered | no | inactive |
 | pot | t | 1 | /images/child-mode/cvc/pot.png | /audio/child-mode/clean-human/words/pot.mp3 | runtime | yes |  |
 | top | top | 1 |  |  | runtime | yes |  |

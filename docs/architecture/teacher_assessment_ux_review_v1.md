@@ -1031,9 +1031,7 @@ EL assessment exports are tested explicitly at this stage to confirm the new UI 
 
 Redesign the Settings section. Admin tools, class management, student code generation, account management. The underlying logic for all of these is unchanged. The presentation and navigation within Settings uses the new design system.
 
-**3.4 — Question flagging workflow redesign**
-
-The question flagging flow (available during assessment from the "Flag this question" text link) is redesigned. The flag submission flow, the review queue for flagged questions, and the resolution workflow are all implemented with the new design system.
+**3.4 — Question bank management workflow redesign**
 
 The question bank management tools remain in Settings → Advanced, redesigned to the new visual system.
 

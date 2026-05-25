@@ -720,16 +720,11 @@ function GuidedReadingImageQaPage({ onBack }) {
 }
 
 export function AdminDashboardPage({
-  flags,
   teachers,
   classes,
   students,
-  statusFilter,
-  setStatusFilter,
   loading,
   refreshDashboard,
-  resolveFlag,
-  reopenFlag,
   deleteClass,
   deleteStudent,
   questionBankCoverage = [],
@@ -808,7 +803,7 @@ export function AdminDashboardPage({
         <div className="admin-header">
           <div>
             <h2>Admin Dashboard</h2>
-            <p className="muted-text">Review flagged questions and manage app data.</p>
+            <p className="muted-text">Review content coverage and manage app data.</p>
           </div>
 
           <div className="button-row admin-controls">
@@ -821,11 +816,6 @@ export function AdminDashboardPage({
             <button className="report-button" onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
               Guided Reading Image QA
             </button>
-            <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
-              <option value="open">Open flags</option>
-              <option value="resolved">Resolved flags</option>
-              <option value="all">All flags</option>
-            </select>
             <button className="report-button" onClick={refreshDashboard} disabled={loading} type="button">
               {loading ? "Loading..." : "Refresh"}
             </button>
@@ -917,66 +907,6 @@ export function AdminDashboardPage({
         </div>
       </section>
 
-      <section className="report-panel page-stack admin-section">
-        <h3>Flagged Questions</h3>
-
-        {flags.length === 0 ? (
-          <p>No flagged questions for this filter.</p>
-        ) : (
-          <div className="admin-table-wrap">
-            <table className="dashboard-table admin-table">
-              <thead>
-                <tr>
-                  <th>Status</th>
-                  <th>Date</th>
-                  <th>Teacher</th>
-                  <th>Class</th>
-                  <th>Student</th>
-                  <th>Skill</th>
-                  <th>Question</th>
-                  <th>Choices</th>
-                  <th>Correct</th>
-                  <th>Issue</th>
-                  <th>Note</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {flags.map(flag => (
-                  <tr key={flag.id}>
-                    <td>{flag.status}</td>
-                    <td>{flag.created_at ? new Date(flag.created_at).toLocaleString() : ""}</td>
-                    <td>{flag.teacher_email || flag.teacher_id}</td>
-                    <td>{flag.class_name}</td>
-                    <td>{flag.student_name}</td>
-                    <td>
-                      <strong>{flag.skill}</strong>
-                      <div className="muted-text">{flag.diagnostic_target}</div>
-                    </td>
-                    <td className="admin-question-cell">{flag.question_text}</td>
-                    <td>{Array.isArray(flag.choices) ? flag.choices.join(", ") : ""}</td>
-                    <td>{flag.correct_answer}</td>
-                    <td>{flag.issue_type}</td>
-                    <td>{flag.note}</td>
-                    <td>
-                      {flag.status === "resolved" ? (
-                        <button className="report-button" onClick={() => reopenFlag(flag.id)} type="button">
-                          Reopen
-                        </button>
-                      ) : (
-                        <button className="report-button" onClick={() => resolveFlag(flag.id)} type="button">
-                          Resolve
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-
       <section className="card page-stack admin-section">
         <h3>Teachers</h3>
         {teachers.length === 0 ? (
@@ -991,7 +921,6 @@ export function AdminDashboardPage({
                   <th>Classes</th>
                   <th>Students</th>
                   <th>Answers</th>
-                  <th>Flags</th>
                 </tr>
               </thead>
               <tbody>
@@ -1002,7 +931,6 @@ export function AdminDashboardPage({
                     <td>{teacher.classes}</td>
                     <td>{teacher.students}</td>
                     <td>{teacher.answers}</td>
-                    <td>{teacher.flags}</td>
                   </tr>
                 ))}
               </tbody>

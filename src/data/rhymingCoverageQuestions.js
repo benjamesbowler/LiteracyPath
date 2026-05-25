@@ -13,7 +13,17 @@ const rhymePairs = {
   op: [["mop", "top", "dog"], ["shop", "mop", "sun"], ["stop", "top", "fish"]],
   ot: [["pot", "cot", "dog"], ["hot", "pot", "sun"], ["cot", "hot", "map"]],
   ug: [["bug", "rug", "dog"], ["mug", "bug", "sun"], ["rug", "mug", "fish"]],
-  un: [["sun", "bun", "dog"], ["bun", "sun", "map"]]
+  un: [["sun", "bun", "dog"], ["bun", "sun", "map"]],
+  ox: [["box", "fox", "dog"]],
+  et: [["jet", "net", "dog"]],
+  ing: [["king", "ring", "cat"]],
+  ell: [["bell", "shell", "dog"]],
+  ish: [["fish", "dish", "cat"]],
+  oat: [["boat", "goat", "cat"], ["coat", "boat", "dog"]],
+  ee: [["bee", "tree", "cat"]],
+  ar: [["car", "star", "dog"]],
+  air: [["bear", "chair", "dog"]],
+  ock: [["sock", "rock", "cat"]]
 };
 
 export const rhymingCoverageQuestions = Object.entries(rhymePairs).flatMap(([itemKey, variants]) =>

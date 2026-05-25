@@ -90,6 +90,8 @@ export function makePairSelectionQuestion({
     phonicsPosition: itemType === "final_sound" ? "final" : "mixed",
     itemType,
     itemKey,
+    targetWord: correctWords[0],
+    anchorWord: correctWords[0],
     targetSound,
     targetFinalSound,
     finalSoundType,

@@ -90,7 +90,6 @@ Current major areas:
 - teacher reports
 - exports
 - admin tools
-- question flagging
 - Supabase persistence
 
 Current priorities:

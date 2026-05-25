@@ -9,6 +9,7 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 | key | exact filename needed | expected spoken text | category | runtime priority | replacement priority | current clean file exists | current missing | skills using it | formats using it |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | axe | public/audio/child-mode/words/axe.mp3 | axe | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
+| bear | public/audio/child-mode/words/bear.mp3 | bear | word | required | standard | yes | no | Rhyming | RHYME_PAIR_SELECT |
 | bid | public/audio/child-mode/words/bid.mp3 | bid | word | required | standard | yes | no | Final Sounds | FINAL_SOUND_PAIR_SELECT |
 | big | public/audio/child-mode/words/big.mp3 | big | word | required | standard | yes | no | Rhyming | RHYME_PAIR_SELECT |
 | bin | public/audio/child-mode/words/bin.mp3 | bin | word | required | standard | yes | no | Final Sounds, Rhyming | FINAL_SOUND_PAIR_SELECT, RHYME_PAIR_SELECT |
@@ -28,7 +29,7 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 | ink | public/audio/child-mode/words/ink.mp3 | ink | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | jug | public/audio/child-mode/words/jug.mp3 | jug | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | key | public/audio/child-mode/words/key.mp3 | key | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
-| king | public/audio/child-mode/words/king.mp3 | king | word | required | standard | yes | no | Final Sounds, Initial Sounds | ENDING_SOUND, INITIAL_SOUND_PAIR_SELECT |
+| king | public/audio/child-mode/words/king.mp3 | king | word | required | standard | yes | no | Final Sounds, Initial Sounds, Rhyming | ENDING_SOUND, INITIAL_SOUND_PAIR_SELECT, RHYME_PAIR_SELECT |
 | kite | public/audio/child-mode/words/kite.mp3 | kite | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | lamp | public/audio/child-mode/words/lamp.mp3 | lamp | word | required | standard | yes | no | Final Sounds, Initial Sounds | ENDING_SOUND, INITIAL_SOUND_PAIR_SELECT |
 | lion | public/audio/child-mode/words/lion.mp3 | lion | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
@@ -38,10 +39,10 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 | queen | public/audio/child-mode/words/queen.mp3 | queen | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | quilt | public/audio/child-mode/words/quilt.mp3 | quilt | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
 | quiz | public/audio/child-mode/words/quiz.mp3 | quiz | word | required | standard | yes | no | Initial Sounds | INITIAL_SOUND_PAIR_SELECT |
-| ring | public/audio/child-mode/words/ring.mp3 | ring | word | optional | standard | yes | no | Final Sounds, Initial Sounds, Rhyming, Sentence Comprehension | ENDING_SOUND, FIRST_SOUND, RHYMING_PICTURE, SENTENCE_MATCHES_PICTURE |
-| rock | public/audio/child-mode/words/rock.mp3 | rock | word | optional | standard | yes | no | Final Sounds, Rhyming | ENDING_SOUND, RHYMING_PICTURE |
+| ring | public/audio/child-mode/words/ring.mp3 | ring | word | required | standard | yes | no | Final Sounds, Initial Sounds, Rhyming, Sentence Comprehension | ENDING_SOUND, FIRST_SOUND, RHYME_PAIR_SELECT, RHYMING_PICTURE, SENTENCE_MATCHES_PICTURE |
+| rock | public/audio/child-mode/words/rock.mp3 | rock | word | required | standard | yes | no | Final Sounds, Rhyming | ENDING_SOUND, RHYME_PAIR_SELECT, RHYMING_PICTURE |
 | seal | public/audio/child-mode/words/seal.mp3 | seal | word | required | standard | yes | no | Final Sounds, Initial Sounds | FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |
-| sock | public/audio/child-mode/words/sock.mp3 | sock | word | optional | standard | yes | no | CVC and Short Vowels, Final Sounds, Initial Sounds, Rhyming, Sentence Comprehension, Short Vowel Discrimination | ENDING_SOUND, FIRST_SOUND, PUT_SOUNDS_IN_ORDER, RHYMING_PICTURE, SENTENCE_MATCHES_PICTURE, SHORT_VOWEL_WORD |
+| sock | public/audio/child-mode/words/sock.mp3 | sock | word | required | standard | yes | no | CVC and Short Vowels, Final Sounds, Initial Sounds, Rhyming, Sentence Comprehension, Short Vowel Discrimination | ENDING_SOUND, FIRST_SOUND, PUT_SOUNDS_IN_ORDER, RHYME_PAIR_SELECT, RHYMING_PICTURE, SENTENCE_MATCHES_PICTURE, SHORT_VOWEL_WORD |
 | tent | public/audio/child-mode/words/tent.mp3 | tent | word | required | standard | yes | no | Final Sounds, Initial Sounds | ENDING_SOUND, FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |
 | this | public/audio/child-mode/hfw/this.mp3 | this | hfw | required | standard | yes | no | Final Sounds | FINAL_SOUND_PAIR_SELECT |
 | tiger | public/audio/child-mode/words/tiger.mp3 | tiger | word | required | standard | yes | no | Final Sounds, Initial Sounds | ENDING_SOUND, FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |
