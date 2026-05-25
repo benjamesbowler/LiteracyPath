@@ -21,9 +21,9 @@ function compactTemplateType(question = {}) {
 
   if (questionType === "listen_and_find_word") return "LISTEN_FIND_WORD";
   if (["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(questionType)) return "PAIR_SELECT";
-  if (formatType === "PICTURE_TO_PRINT_MATCH" || normalize([question.question, question.prompt].join(" ")).includes("matches the picture")) return "PICTURE_TO_PRINT";
   if (formatType === "READ_FIND_WORD") return "FIND_WORD";
   if (formatType) return formatType;
+  if (normalize([question.question, question.prompt].join(" ")).includes("matches the picture")) return "PICTURE_TO_PRINT";
   return questionType ? questionType.toUpperCase() : "LEGACY";
 }
 

@@ -71,6 +71,14 @@ function countMatchingChoices(question, predicate) {
 }
 
 function repeatedAnswerIssue(question) {
+  const templateType = String(question?.templateType || question?.formatType || "").toUpperCase();
+  if (templateType === "GRAMMAR_BASICS") {
+    const exactChoices = choices(question).map(choice => String(choice || "").trim()).filter(Boolean);
+    return new Set(exactChoices).size === exactChoices.length
+      ? ""
+      : "duplicate or visually identical answer choices";
+  }
+
   const normalizedChoices = choices(question).map(normalizedWord);
   return new Set(normalizedChoices).size === normalizedChoices.length
     ? ""
@@ -164,7 +172,7 @@ function imageIssue(question, assetExists) {
     if (missing.length) return `missing card images: ${missing.map(card => card.word).join(", ")}`;
   }
 
-  if (["RHYMING_PICTURE", "SHORT_VOWEL_WORD", "BLEND_SOUNDS", "SENTENCE_MATCHES_PICTURE", "VOCABULARY_CATEGORY"].includes(templateType)) {
+  if (["RHYMING_PICTURE", "SHORT_VOWEL_WORD", "BLEND_SOUNDS", "VOCABULARY_CATEGORY"].includes(templateType)) {
     const optionObjects = question?.answerOptions || [];
     const missingImageOptions = optionObjects.filter(option =>
       option && typeof option === "object" && !option.image && !option.imageUrl && !option.imagePath

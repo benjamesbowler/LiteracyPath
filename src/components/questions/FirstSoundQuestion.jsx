@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { normalizeAnswerOption } from "../../utils/answerOptions";
 
 export default function FirstSoundQuestion({
   item,
@@ -14,7 +15,10 @@ export default function FirstSoundQuestion({
   const imageUrl = item?.imageUrl || item?.imagePath || "";
   const audioUrl = item?.audioUrl || item?.audioPath || "";
   const hasAudio = Boolean(audioUrl);
-  const answerOptions = useMemo(() => item?.answerOptions || item?.choices || [], [item]);
+  const answerOptions = useMemo(
+    () => (item?.answerOptions || item?.choices || []).map(normalizeAnswerOption),
+    [item]
+  );
 
   useEffect(() => {
     setImageFailed(false);
@@ -41,14 +45,16 @@ export default function FirstSoundQuestion({
     }
   }
 
-  function chooseAnswer(answer) {
+  function chooseAnswer(option) {
     if (disabled) return;
+    const answer = option.value;
     setSelectedAnswer(answer);
     const isCorrect = answer === item.correctAnswer;
     setFeedback(isCorrect ? "correct" : "incorrect");
     onAnswer?.({
       item,
       answer,
+      answerLabel: option.label,
       isCorrect,
       selectedLetter: answer,
       correctLetter: item.correctAnswer
@@ -92,15 +98,15 @@ export default function FirstSoundQuestion({
       </div>
 
       <div className="first-sound-answer-grid">
-        {answerOptions.map(answer => (
+        {answerOptions.map(option => (
           <button
-            className={selectedAnswer === answer ? "selected" : ""}
+            className={selectedAnswer === option.value ? "selected" : ""}
             disabled={disabled}
-            key={answer}
-            onClick={() => chooseAnswer(answer)}
+            key={`${option.value}-${option.label}`}
+            onClick={() => chooseAnswer(option)}
             type="button"
           >
-            {answer}
+            {option.label}
           </button>
         ))}
       </div>

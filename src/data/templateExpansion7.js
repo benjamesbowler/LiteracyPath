@@ -1148,7 +1148,10 @@ export const templateExpansion7 = [
       "not",
       "nap"
     ],
-    "answer": "nut"
+    "answer": "nut",
+    "active": false,
+    "qaStatus": "needs_image_replacement",
+    "qaNotes": "The current nut image is blocked because it looks like an acorn. Keep audio, replace image before reactivating."
   },
   {
     "id": "exp7_cvc_18",

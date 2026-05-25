@@ -44,7 +44,7 @@ Date: 2026-05-25
 - Level: 1
 - Phase: 1
 - Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Target words: apron, bat, candy, daisy, exit, fork, gum, horse, inside, juice, kangaroo, lock, mug, noodle, ostrich
+- Target words: animal, boat, coat, deer, egg, flag, goose, heart, ivy, jacket, koala, lock, mirror, net, otter
 - Review letters: none
 - Blocked letters: none
 - Missing expected available letters: none
@@ -54,7 +54,7 @@ Date: 2026-05-25
 - Level: 1
 - Phase: 2
 - Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Target words: pumpkin, quiet, rug, shell, tree, ukulele, violin, wallet, yoyo, zebra, ax, book, car, door, egg
+- Target words: pumpkin, quiet, rug, shell, tree, ukulele, violin, wallet, yoyo, zebra, ant, ball, candle, doll, empty
 - Review letters: a, b, c, d, e
 - Blocked letters: none
 - Missing expected available letters: none
@@ -64,7 +64,7 @@ Date: 2026-05-25
 - Level: 2
 - Phase: 1
 - Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Target words: asteroid, banana, computer, diamond, elevator, fishing pole, greenhouse, helicopter, icicle, jigsaw, knapsack, lantern, mailbox, newspaper, oatmeal
+- Target words: asteroid, banana, computer, diamond, elevator, fishing pole, greenhouse, helicopter, icicle, jigsaw, knapsack, lantern, mailbox, newspaper, orchard
 - Review letters: none
 - Blocked letters: none
 - Missing expected available letters: none
@@ -74,7 +74,7 @@ Date: 2026-05-25
 - Level: 2
 - Phase: 2
 - Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Target words: penguin, quiet room, reindeer, strawberry, treasure, uniform, video camera, weather, yawning child, zigzag road, apricot, basket, calculator, domino, engineer
+- Target words: penguin, quilted blanket, robotics, suitcase, telephone, uphill, veterinarian, woodpecker, yoga mat, zebra crossing, athlete, balloon, calculator, dinosaur, exercise
 - Review letters: a, b, c, d, e
 - Blocked letters: none
 - Missing expected available letters: none

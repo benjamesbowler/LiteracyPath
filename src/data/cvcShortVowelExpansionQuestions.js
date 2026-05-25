@@ -16,14 +16,14 @@ const cvcTargets = [
   ["map", ["map", "mop", "mug", "man"]],
   ["mud", ["mud", "mug", "map", "bed"]],
   ["mug", ["mug", "mud", "map", "mop"]],
-  ["nut", ["nut", "net", "nap", "pot"]],
+  ["nap", ["nap", "net", "map", "pot"]],
   ["pen", ["pen", "pan", "pin", "bed"]],
   ["pig", ["pig", "pin", "pan", "pen"]],
   ["pot", ["pot", "pan", "pen", "pig"]],
   ["ram", ["ram", "red", "rug", "mug"]],
   ["red", ["red", "ram", "rug", "bed"]],
   ["sit", ["sit", "sun", "hit", "hot"]],
-  ["sun", ["sun", "sit", "nut", "cup"]],
+  ["sun", ["sun", "sit", "mug", "cup"]],
   ["wig", ["wig", "web", "lid", "pig"]],
   ["lid", ["lid", "wig", "sit", "pig"]]
 ];

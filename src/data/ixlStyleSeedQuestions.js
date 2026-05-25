@@ -27,6 +27,8 @@ function pickDistractors(pool, correct, count, offset = 0) {
     .slice(0, count);
 }
 
+const blockedAssessmentImageWords = new Set(["acorn", "nut"]);
+
 function makeTemplateQuestion({
   id,
   skillId,
@@ -50,11 +52,30 @@ function makeTemplateQuestion({
   soundTiles = []
 }) {
   const targetAsset = imageWord ? assetFor(imageWord) : null;
+  const audioAsset = audioWord ? assetFor(audioWord) : null;
   const normalizedOptions = answerOptions.map(option =>
     typeof option === "string"
       ? { label: option, value: option }
       : option
   );
+  const targetAudioTemplates = new Set([
+    "FIRST_SOUND",
+    "ENDING_SOUND",
+    "BLEND_SOUNDS",
+    "PUT_SOUNDS_IN_ORDER",
+    "RHYMING_PICTURE",
+    "SHORT_VOWEL_WORD"
+  ]);
+  const imageOptionTemplates = new Set([
+    "BLEND_SOUNDS",
+    "RHYMING_PICTURE",
+    "SHORT_VOWEL_WORD",
+    "VOCABULARY_CATEGORY"
+  ]);
+  const missingRequiredTargetAudio = targetAudioTemplates.has(templateType) && !audioAsset?.audio;
+  const missingRequiredOptionImage = imageOptionTemplates.has(templateType) &&
+    normalizedOptions.some(option => typeof option === "object" && !option.image);
+  const blockedAssessmentImage = blockedAssessmentImageWords.has(String(targetWord || "").toLowerCase());
 
   return {
     id,
@@ -78,8 +99,8 @@ function makeTemplateQuestion({
     imageUrl: targetAsset?.image || "",
     imagePath: targetAsset?.image || "",
     audioKey: audioWord,
-    audioUrl: targetAsset?.audio || "",
-    audioPath: targetAsset?.audio || "",
+    audioUrl: audioAsset?.audio || "",
+    audioPath: audioAsset?.audio || "",
     audioText: audioWord,
     targetImageAlt: targetAsset?.alt || "",
     explanation,
@@ -90,7 +111,12 @@ function makeTemplateQuestion({
     partialWord,
     soundTiles,
     itemType,
-    itemKey
+    itemKey,
+    active: !(missingRequiredTargetAudio || missingRequiredOptionImage || blockedAssessmentImage),
+    qaStatus: blockedAssessmentImage ? "needs_image_regeneration" : undefined,
+    qaNotes: blockedAssessmentImage
+      ? "Current image is visually unsuitable/confusable for assessment use and is blocked until regenerated."
+      : undefined
   };
 }
 

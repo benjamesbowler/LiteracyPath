@@ -8,11 +8,11 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 
 | Skill | Active valid runtime questions | Unique question signatures | Unique targets | Unique itemKeys/patterns | Duplicate IDs | Duplicate signatures | Repeated distractor sets | Missing image/audio needs | Below 50 unique? | Below 52 runtime? | Unique option sets | Runtime sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Initial Sounds | 79 | 79 | 78 | 25 | 0 | 0 | 8 | 0 | no | no | 77 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
+| Initial Sounds | 78 | 78 | 77 | 25 | 0 | 0 | 8 | 0 | no | no | 76 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
 | Final Sounds | 79 | 79 | 65 | 8 | 0 | 0 | 6 | 0 | no | no | 69 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
 | Rhyming | 91 | 91 | 70 | 24 | 0 | 0 | 9 | 0 | no | no | 78 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
-| CVC and Short Vowels | 88 | 88 | 36 | 41 | 0 | 0 | 8 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
-| Short Vowel Discrimination | 91 | 91 | 37 | 5 | 0 | 0 | 5 | 0 | no | no | 53 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
+| CVC and Short Vowels | 88 | 88 | 37 | 42 | 0 | 0 | 8 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
+| Short Vowel Discrimination | 88 | 88 | 37 | 5 | 0 | 0 | 5 | 0 | no | no | 52 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | High-Frequency Words 1-25 | 61 | 61 | 32 | 32 | 0 | 0 | 6 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
 | High-Frequency Words 26-50 | 63 | 63 | 38 | 38 | 0 | 0 | 7 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
 | High-Frequency Words 51-100 | 70 | 70 | 68 | 68 | 0 | 0 | 1 | 0 | no | no | 70 | templateExpansion2, templateExpansion6, templateExpansion7 |
@@ -22,14 +22,14 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 | Vowel Teams | 67 | 67 | 50 | 8 | 0 | 0 | 0 | 0 | no | no | 60 | questionBankExpansion8, safeContentExpansionQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
 | R-Controlled Vowels | 52 | 52 | 29 | 5 | 0 | 0 | 6 | 0 | no | no | 30 | safeContentExpansionQuestions, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
 | Nouns | 54 | 54 | 46 | 46 | 0 | 0 | 0 | 0 | no | no | 54 | ixlStyleSeedQuestions, templateExpansion, templateExpansion6, templateExpansion7 |
-| Verbs | 57 | 57 | 43 | 43 | 0 | 0 | 0 | 0 | no | no | 56 | ixlStyleSeedQuestions, questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
+| Verbs | 60 | 60 | 46 | 46 | 0 | 0 | 0 | 0 | no | no | 59 | ixlStyleSeedQuestions, questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
 | Adjectives | 61 | 61 | 43 | 43 | 0 | 0 | 0 | 0 | no | no | 61 | questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
 | Prepositions of Place | 61 | 61 | 24 | 24 | 0 | 0 | 0 | 0 | no | no | 52 | questionBankExpansion8, templateExpansion2, templateExpansion4, templateExpansion7, templateQuestions |
 | Plurals | 57 | 57 | 28 | 22 | 0 | 0 | 3 | 0 | no | no | 43 | contentExpansionPass3Questions, generatedQuestions, questionBankExpansion8, safeContentExpansionQuestions, templateExpansion6, templateQuestions |
 | Prefixes and Suffixes | 89 | 89 | 59 | 44 | 0 | 0 | 1 | 0 | no | no | 77 | contentExpansionPass3Questions, questionBankExpansion8, templateExpansion3, templateExpansion6, templateExpansion7, templateQuestions |
 | Antonyms and Synonyms | 64 | 64 | 40 | 40 | 0 | 0 | 1 | 0 | no | no | 59 | generatedQuestions, templateExpansion6 |
 | Homophones and Homonyms | 52 | 52 | 50 | 50 | 0 | 0 | 0 | 0 | no | no | 34 | safeContentExpansionQuestions, templateExpansion3, templateExpansion7 |
-| Sentence Comprehension | 111 | 111 | 98 | 111 | 0 | 0 | 0 | 0 | no | no | 95 | contentExpansionPass3Questions, fixSentenceQuestions, generatedQuestions |
+| Sentence Comprehension | 126 | 126 | 113 | 126 | 0 | 0 | 0 | 0 | no | no | 110 | contentExpansionPass3Questions, fixSentenceQuestions, generatedQuestions, ixlStyleSeedQuestions |
 | Key Details | 59 | 59 | 52 | 59 | 0 | 0 | 0 | 0 | no | no | 57 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
 | Sequencing | 59 | 59 | 57 | 59 | 0 | 0 | 0 | 0 | no | no | 59 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
 | Main Idea | 65 | 65 | 60 | 65 | 0 | 0 | 0 | 0 | no | no | 64 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
@@ -55,16 +55,16 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 
 ## Initial Sounds
 
-- Active valid runtime questions: 79
-- Unique question signatures: 79
-- Unique target words / answer targets: 78
+- Active valid runtime questions: 78
+- Unique question signatures: 78
+- Unique target words / answer targets: 77
 - Unique itemKeys/patterns: 25 (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z)
 - Duplicate signatures: 0
 - Repeated distractor sets: 8
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: INITIAL_SOUND_PAIR_SELECT:50, FIRST_SOUND:29
+- Formats: INITIAL_SOUND_PAIR_SELECT:49, FIRST_SOUND:29
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -108,8 +108,8 @@ No duplicate prompt+answer signatures detected.
 
 - Active valid runtime questions: 88
 - Unique question signatures: 88
-- Unique target words / answer targets: 36
-- Unique itemKeys/patterns: 41 (bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig)
+- Unique target words / answer targets: 37
+- Unique itemKeys/patterns: 42 (bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nap, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig)
 - Duplicate signatures: 0
 - Repeated distractor sets: 8
 - Missing image/audio needs in active runtime: 0
@@ -123,8 +123,8 @@ No duplicate prompt+answer signatures detected.
 
 ## Short Vowel Discrimination
 
-- Active valid runtime questions: 91
-- Unique question signatures: 91
+- Active valid runtime questions: 88
+- Unique question signatures: 88
 - Unique target words / answer targets: 37
 - Unique itemKeys/patterns: 5 (short_a, short_e, short_i, short_o, short_u)
 - Duplicate signatures: 0
@@ -132,7 +132,7 @@ No duplicate prompt+answer signatures detected.
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: LISTEN_CHOOSE_VOWEL:26, PICTURE_TO_PRINT_MATCH:35, SHORT_VOWEL_WORD:30
+- Formats: LISTEN_CHOOSE_VOWEL:26, PICTURE_TO_PRINT_MATCH:34, SHORT_VOWEL_WORD:28
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -293,16 +293,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Verbs
 
-- Active valid runtime questions: 57
-- Unique question signatures: 57
-- Unique target words / answer targets: 43
-- Unique itemKeys/patterns: 43 (asking sentence, build, carry, clap, clean, climb, compare, cook, count, crawl, dance, dig, draw, drive, eat, explain, hop, jump, kick, laugh, listen, look, measure, observe, open, paint, plant, play, predict, pull, push, read, repair, run, share, sleep, stop, swim, telling sentence, think, throw, wash, write)
+- Active valid runtime questions: 60
+- Unique question signatures: 60
+- Unique target words / answer targets: 46
+- Unique itemKeys/patterns: 46 (asking sentence, build, carry, clap, clean, climb, compare, cook, count, crawl, dance, dig, draw, drive, eat, explain, hop, i see a cat., jump, kick, laugh, listen, look, max has a map., measure, observe, open, paint, plant, play, predict, pull, push, read, repair, run, share, sleep, stop, swim, telling sentence, the dog can run., think, throw, wash, write)
 - Duplicate signatures: 0
 - Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: GRAMMAR_BASICS:18, UNKNOWN:39
+- Formats: GRAMMAR_BASICS:21, UNKNOWN:39
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -412,16 +412,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Sentence Comprehension
 
-- Active valid runtime questions: 111
-- Unique question signatures: 111
-- Unique target words / answer targets: 98
-- Unique itemKeys/patterns: 111 (RC015, SC_1_051, SC_1_052, SC_1_053, SC_1_054, SC_1_055, SC_1_056, SC_1_057, SC_1_058, SC_1_059, SC_1_060, SC_1_061, SC_1_062, SC_1_063, SC_1_064, SC_1_065, SC_1_066, SC_1_067, SC_1_068, SC_1_069, SC_1_070, SC_1_071, SC_1_072, SC_1_073, SC_1_074, SC_1_075, SC_1_076, SC_1_077, SC_1_078, SC_1_079, SC_1_080, SC_2_081, SC_2_082, SC_2_083, SC_2_084, SC_2_085, SC_2_086, SC_2_087, SC_2_088, SC_2_089, SC_2_090, SC_2_091, SC_2_092, SC_2_093, SC_2_094, SC_2_095, SC_2_096, SC_2_097, SC_2_098, SC_2_099, SC_2_100, SC_K_001, SC_K_002, SC_K_003, SC_K_004, SC_K_005, SC_K_006, SC_K_007, SC_K_008, SC_K_009, SC_K_010, SC_K_011, SC_K_012, SC_K_013, SC_K_014, SC_K_015, SC_K_016, SC_K_017, SC_K_019, SC_K_020, SC_K_021, SC_K_022, SC_K_023, SC_K_024, SC_K_025, SC_K_026, SC_K_027, SC_K_028, SC_K_029, SC_K_030, SC_K_031, SC_K_032, SC_K_033, SC_K_034, SC_K_035, SC_K_036, SC_K_037, SC_K_038, SC_K_039, SC_K_040, SC_K_041, SC_K_042, SC_K_043, SC_K_044, SC_K_045, SC_K_046, SC_K_047, SC_K_048, SC_K_049, SC_K_050, fix_sentence_cap_1, fix_sentence_cap_2, fix_sentence_cap_3, fix_sentence_order_1, fix_sentence_order_2, fix_sentence_order_3, fix_sentence_order_4, fix_sentence_punc_1, fix_sentence_punc_2, fix_sentence_punc_3, p3_sentence_comp_paragraph_001)
+- Active valid runtime questions: 126
+- Unique question signatures: 126
+- Unique target words / answer targets: 113
+- Unique itemKeys/patterns: 126 (RC015, SC_1_051, SC_1_052, SC_1_053, SC_1_054, SC_1_055, SC_1_056, SC_1_057, SC_1_058, SC_1_059, SC_1_060, SC_1_061, SC_1_062, SC_1_063, SC_1_064, SC_1_065, SC_1_066, SC_1_067, SC_1_068, SC_1_069, SC_1_070, SC_1_071, SC_1_072, SC_1_073, SC_1_074, SC_1_075, SC_1_076, SC_1_077, SC_1_078, SC_1_079, SC_1_080, SC_2_081, SC_2_082, SC_2_083, SC_2_084, SC_2_085, SC_2_086, SC_2_087, SC_2_088, SC_2_089, SC_2_090, SC_2_091, SC_2_092, SC_2_093, SC_2_094, SC_2_095, SC_2_096, SC_2_097, SC_2_098, SC_2_099, SC_2_100, SC_K_001, SC_K_002, SC_K_003, SC_K_004, SC_K_005, SC_K_006, SC_K_007, SC_K_008, SC_K_009, SC_K_010, SC_K_011, SC_K_012, SC_K_013, SC_K_014, SC_K_015, SC_K_016, SC_K_017, SC_K_019, SC_K_020, SC_K_021, SC_K_022, SC_K_023, SC_K_024, SC_K_025, SC_K_026, SC_K_027, SC_K_028, SC_K_029, SC_K_030, SC_K_031, SC_K_032, SC_K_033, SC_K_034, SC_K_035, SC_K_036, SC_K_037, SC_K_038, SC_K_039, SC_K_040, SC_K_041, SC_K_042, SC_K_043, SC_K_044, SC_K_045, SC_K_046, SC_K_047, SC_K_048, SC_K_049, SC_K_050, bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, fix_sentence_cap_1, fix_sentence_cap_2, fix_sentence_cap_3, fix_sentence_order_1, fix_sentence_order_2, fix_sentence_order_3, fix_sentence_order_4, fix_sentence_punc_1, fix_sentence_punc_2, fix_sentence_punc_3, hats, map, p3_sentence_comp_paragraph_001, ring, ship, sock)
 - Duplicate signatures: 0
 - Repeated distractor sets: 0
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:101, FIX_SENTENCE:10
+- Formats: COMPREHENSION:101, SENTENCE_MATCHES_PICTURE:15, FIX_SENTENCE:10
 - Overused targets: none
 - Overused itemKeys: none
 

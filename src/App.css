@@ -2102,6 +2102,22 @@ select:focus {
   box-shadow: 0 8px 22px rgba(79, 99, 215, 0.11);
 }
 
+.choice-button span,
+.visual-assessment-card-button strong,
+.initial-sound-image-button strong,
+.ixl-answer-button strong,
+.first-sound-answer-grid button {
+  color: var(--lp-color-text-strong) !important;
+  display: block;
+  font-size: inherit;
+  line-height: 1.15;
+  max-width: 100%;
+  opacity: 1 !important;
+  overflow-wrap: anywhere;
+  text-align: center;
+  white-space: normal;
+}
+
 .visual-word-choices {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;

@@ -32,6 +32,19 @@ function childModeWordAsset({ word, folder, audio = true, alt = "" }) {
   });
 }
 
+const blockedAssessmentImageAssetKeys = new Set(["nut"]);
+
+function blockAssessmentImageIfNeeded(key, asset) {
+  if (!asset || !blockedAssessmentImageAssetKeys.has(key)) return asset;
+  return {
+    ...asset,
+    image: "",
+    fallbackImage: "",
+    qaStatus: "needs_image_replacement",
+    qaNotes: "The current nut image looks like an acorn and is blocked from active assessment use. Audio is preserved."
+  };
+}
+
 export const childWordAssets = {
   bad: wordAsset({
     word: "bad",
@@ -468,36 +481,37 @@ export function getChildWordAsset(word) {
   const kimi4Asset = kimiAssets4WordAssets[key];
 
   if (!localAsset && !kimiAsset && !kimi3Asset) {
-    return kimi4Asset
+    const resolvedAsset = kimi4Asset
       ? { ...kimi4Asset, audio: getPreferredAudioPath(key, kimi4Asset.audio) }
       : null;
+    return blockAssessmentImageIfNeeded(key, resolvedAsset);
   }
   if (!localAsset && !kimiAsset && kimi3Asset && !kimi4Asset) {
-    return { ...kimi3Asset, audio: getPreferredAudioPath(key, kimi3Asset.audio) };
+    return blockAssessmentImageIfNeeded(key, { ...kimi3Asset, audio: getPreferredAudioPath(key, kimi3Asset.audio) });
   }
   if (!localAsset && kimiAsset && !kimi3Asset && !kimi4Asset) {
-    return { ...kimiAsset, audio: getPreferredAudioPath(key, kimiAsset.audio) };
+    return blockAssessmentImageIfNeeded(key, { ...kimiAsset, audio: getPreferredAudioPath(key, kimiAsset.audio) });
   }
   if (!localAsset && (kimiAsset || kimi3Asset || kimi4Asset)) {
-    return {
+    return blockAssessmentImageIfNeeded(key, {
       ...(kimiAsset || kimi3Asset || kimi4Asset),
       image: kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image,
       audio: getPreferredAudioPath(key, kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio),
       fallbackImage: kimiAsset?.fallbackImage || kimi3Asset?.image || kimi4Asset?.image || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage,
       source: kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source
-    };
+    });
   }
   if (localAsset && !kimiAsset && !kimi3Asset && !kimi4Asset) {
-    return { ...localAsset, audio: getPreferredAudioPath(key, localAsset.audio) };
+    return blockAssessmentImageIfNeeded(key, { ...localAsset, audio: getPreferredAudioPath(key, localAsset.audio) });
   }
 
-  return {
+  return blockAssessmentImageIfNeeded(key, {
     ...localAsset,
     image: localAsset.image || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image,
     audio: getPreferredAudioPath(key, localAsset.audio || kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio),
     fallbackImage: localAsset.fallbackImage || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || kimiAsset?.fallbackImage || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage,
     source: localAsset.source || kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source
-  };
+  });
 }
 
 export function getChildAudioPath(text) {

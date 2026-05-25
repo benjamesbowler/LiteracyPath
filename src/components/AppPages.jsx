@@ -15,6 +15,12 @@ import {
   getApprovedCardAudioPath,
   shouldShowUniformCardAudio
 } from "../assessmentContentValidation";
+import {
+  getAnswerOptionLabel,
+  getAnswerOptionMedia,
+  getAnswerOptionValue,
+  normalizeAnswerOption
+} from "../utils/answerOptions";
 
 export function AuthPage({
   authEmail,
@@ -427,30 +433,33 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
     <div className="initial-sound-pair-panel">
       <div className="initial-sound-card-grid">
         {(currentQuestion.imageCards || []).map(card => {
-          const selected = selectedWords.includes(card.word);
+          const label = getAnswerOptionLabel(card) || card.word;
+          const value = getAnswerOptionValue(card) || label;
+          const selected = selectedWords.includes(value);
+          const image = card.image || card.imageUrl || card.imagePath || "";
 
           return (
             <article
               className={selected ? "initial-sound-card selected" : "initial-sound-card"}
-              key={card.word}
+              key={value}
             >
               <button
                 className="initial-sound-image-button"
-                onClick={() => toggleWord(card.word)}
+                onClick={() => toggleWord(value)}
                 aria-pressed={selected}
-                aria-label={`Select picture for ${card.word}`}
+                aria-label={`Select picture for ${label}`}
                 type="button"
               >
-                <img src={card.image} alt={card.alt || `Picture for ${card.word}`} />
-                {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
+                <img src={image} alt={card.alt || `Picture for ${label}`} />
+                {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
               </button>
 
               {showCardAudio && (
                 <AssessmentAudioButton
-                  text={card.word}
+                  text={label}
                   audioPath={getApprovedCardAudioPath(card)}
                   speakText={speakText}
-                  label={`Hear ${card.word}`}
+                  label={`Hear ${label}`}
                   className="initial-sound-card-audio"
                 />
               )}
@@ -478,26 +487,30 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
     <div className="visual-card-choice-panel">
       <div className="visual-card-grid">
         {(currentQuestion.imageCards || []).map(card => {
+          const label = getAnswerOptionLabel(card) || card.word;
+          const value = getAnswerOptionValue(card) || label;
+          const image = card.image || card.imageUrl || card.imagePath || "";
+
           return (
-            <article className="visual-assessment-card" key={card.id || card.word}>
+            <article className="visual-assessment-card" key={card.id || value}>
               <button
                 className="visual-assessment-card-button"
-                onClick={() => answerQuestion(card.value || card.word)}
-                aria-label={`Choose ${card.word}`}
+                onClick={() => answerQuestion(value)}
+                aria-label={`Choose ${label}`}
                 type="button"
               >
-                {card.image && (
-                  <img src={card.image} alt={card.alt || `Picture for ${card.word}`} />
+                {image && (
+                  <img src={image} alt={card.alt || `Picture for ${label}`} />
                 )}
-                {!currentQuestion.hideWrittenLabels && <strong>{card.word}</strong>}
+                {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
               </button>
 
               {showCardAudio && (
                 <AssessmentAudioButton
-                  text={card.word}
+                  text={label}
                   audioPath={getApprovedCardAudioPath(card)}
                   speakText={speakText}
-                  label={`Hear ${card.word}`}
+                  label={`Hear ${label}`}
                   className="initial-sound-card-audio"
                 />
               )}
@@ -513,20 +526,24 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
   const answerOptions = currentQuestion.answerOptions || [];
-  const hasImageOptions = answerOptions.some(option => Boolean(option.image || option.imageUrl));
+  const normalizedAnswerOptions = answerOptions.map(option => ({
+    ...normalizeAnswerOption(option),
+    media: getAnswerOptionMedia(option)
+  }));
+  const hasImageOptions = normalizedAnswerOptions.some(option => Boolean(option.media.image));
   const isCompactLetterOptions =
     !hasImageOptions &&
-    answerOptions.length <= 4 &&
-    answerOptions.every(option => String(option.label || option.word || option.value || "").length <= 3);
+    normalizedAnswerOptions.length <= 4 &&
+    normalizedAnswerOptions.every(option => option.label.length <= 3);
   const answerGridClassName = [
     "ixl-answer-grid",
-    answerOptions.length === 4 ? "four-options" : "",
+    normalizedAnswerOptions.length === 4 ? "four-options" : "",
     hasImageOptions ? "image-options" : "",
     isCompactLetterOptions ? "letter-options" : ""
   ].filter(Boolean).join(" ");
   const showOptionAudio =
-    answerOptions.length > 0 &&
-    answerOptions.every(option => Boolean(getApprovedAudioPath(option.word || option.label, option.audio || "")));
+    normalizedAnswerOptions.length > 0 &&
+    normalizedAnswerOptions.every(option => Boolean(getApprovedAudioPath(option.label, option.media.audio || "")));
 
   useEffect(() => {
     setSelectedTiles([]);
@@ -607,11 +624,12 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
       )}
 
       <div className={answerGridClassName}>
-        {answerOptions.map((option, index) => {
-          const label = option.label || option.word || option.value;
-          const value = option.value || option.word || label;
-          const image = option.image || option.imageUrl || "";
-          const audioPath = getApprovedAudioPath(option.word || label, option.audio || "");
+        {normalizedAnswerOptions.map((option, index) => {
+          const label = option.label;
+          const value = option.value;
+          const image = option.media.image;
+          const audioPath = getApprovedAudioPath(label, option.media.audio || "");
+          const rawOption = option.raw && typeof option.raw === "object" ? option.raw : {};
 
           return (
             <article className={image ? "ixl-answer-card image-card" : "ixl-answer-card"} key={`${value}-${index}`}>
@@ -621,14 +639,14 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
                 type="button"
               >
                 {image && (
-                  <img src={image} alt={option.alt || `Picture for ${label}`} />
+                  <img src={image} alt={rawOption.alt || rawOption.imageAlt || `Picture for ${label}`} />
                 )}
                 <strong>{label}</strong>
               </button>
 
               {showOptionAudio && audioPath && (
                 <AssessmentAudioButton
-                  text={option.word || label}
+                  text={label}
                   audioPath={audioPath}
                   speakText={speakText}
                   label={`Hear ${label}`}
@@ -3182,10 +3200,14 @@ export function AssessmentPage({
     currentQuestion?.audioText ||
     "";
   const promptAudioPath = getApprovedAudioPath(promptAudioText, isPairSelection ? currentQuestion?.audioPath || "" : "");
+  const normalizedChoices = (currentQuestion?.choices || []).map(choice => ({
+    ...normalizeAnswerOption(choice),
+    media: getAnswerOptionMedia(choice)
+  }));
   const textChoiceAudioPaths = Object.fromEntries(
-    (currentQuestion?.choices || []).map(choice => [
-      choice,
-      getApprovedAudioPath(choice)
+    normalizedChoices.map(choice => [
+      choice.value,
+      getApprovedAudioPath(choice.label, choice.media.audio || "")
     ])
   );
   const showTextChoiceAudio =
@@ -3193,8 +3215,8 @@ export function AssessmentPage({
     !isPairSelection &&
     !isVisualCardChoice &&
     !isIxlStyleTemplate &&
-    currentQuestion?.choices?.length > 0 &&
-    currentQuestion.choices.every(choice => Boolean(textChoiceAudioPaths[choice]));
+    normalizedChoices.length > 0 &&
+    normalizedChoices.every(choice => Boolean(textChoiceAudioPaths[choice.value]));
 
   return (
     <main className="assessment-shell">
@@ -3310,35 +3332,39 @@ export function AssessmentPage({
               />
             ) : (
               <div className={isListenAndFindWord ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid"}>
-                {currentQuestion.choices.map((choice, index) => (
+                {normalizedChoices.map((choice, index) => {
+                  const choiceImage = currentQuestion.choiceImages?.[choice.value] || currentQuestion.choiceImages?.[choice.label] || {};
+
+                  return (
                   <div
                     className={isListenAndFindWord ? "choice-wrap visual-word-choice-wrap" : "choice-wrap"}
                     key={index}
                   >
                     {showTextChoiceAudio && (
                       <AssessmentAudioButton
-                        text={choice}
-                        audioPath={textChoiceAudioPaths[choice]}
+                        text={choice.label}
+                        audioPath={textChoiceAudioPaths[choice.value]}
                         speakText={speakText}
-                        label={`Listen to ${choice}`}
+                        label={`Listen to ${choice.label}`}
                         className="choice-audio"
                       />
                     )}
                     <button
                       className={isListenAndFindWord ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card"}
-                      onClick={() => answerQuestion(choice)}
+                      onClick={() => answerQuestion(choice.value)}
                     >
-                      {isListenAndFindWord && currentQuestion.choiceImages?.[choice]?.image && (
+                      {isListenAndFindWord && choiceImage.image && (
                         <img
-                          src={currentQuestion.choiceImages[choice].image}
-                          alt={currentQuestion.choiceImages[choice].alt || `Picture for ${choice}`}
+                          src={choiceImage.image}
+                          alt={choiceImage.alt || `Picture for ${choice.label}`}
                           className="visual-word-choice-image"
                         />
                       )}
-                      <span>{choice}</span>
+                      <span>{choice.label}</span>
                     </button>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </motion.div>

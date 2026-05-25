@@ -236,8 +236,12 @@ if (shouldImport) {
 
 writeImportedStatus();
 
+const activeInitialSoundItems = initialSoundWordBank.filter(item => item.active !== false);
+const blockedInitialSoundItems = initialSoundWordBank.filter(item => item.active === false);
 const missingImageItems = initialSoundWordBank.filter(item => !fs.existsSync(projectFileForUrl(item.imageUrl)));
 const missingAudioItems = initialSoundWordBank.filter(item => !fs.existsSync(projectFileForUrl(item.audioUrl)));
+const activeMissingImageItems = activeInitialSoundItems.filter(item => !fs.existsSync(projectFileForUrl(item.imageUrl)));
+const activeMissingAudioItems = activeInitialSoundItems.filter(item => !fs.existsSync(projectFileForUrl(item.audioUrl)));
 const completeItems = initialSoundWordBank.filter(item =>
   fs.existsSync(projectFileForUrl(item.imageUrl)) && fs.existsSync(projectFileForUrl(item.audioUrl))
 );
@@ -286,8 +290,8 @@ INITIAL_SOUND_LETTERS.forEach(letter => {
     if (count < 10) failures.push(`${letter.toUpperCase()} Level ${level} has fewer than 10 content items.`);
   });
 });
-if (missingImageItems.length) failures.push(`${missingImageItems.length} active Initial Sounds items are missing images.`);
-if (missingAudioItems.length) failures.push(`${missingAudioItems.length} active Initial Sounds items are missing audio.`);
+if (activeMissingImageItems.length) failures.push(`${activeMissingImageItems.length} active Initial Sounds items are missing images.`);
+if (activeMissingAudioItems.length) failures.push(`${activeMissingAudioItems.length} active Initial Sounds items are missing audio.`);
 
 const perLetterRows = INITIAL_SOUND_LETTERS.flatMap(letter => levelRows(letter).map(row =>
   `| ${letter} | ${row.level} | ${row.expected} | ${row.imageCount} | ${row.audioCount} | ${row.completeCount} | ${row.expected - row.completeCount} | ${row.canAppearInProgression ? "yes" : "no"} | ${row.blockedReason || "none"} |`
@@ -302,6 +306,9 @@ const missingRows = initialSoundWordBank
     ].filter(Boolean).join(", ");
     return `| ${item.letter} | ${item.level} | ${item.targetWord} | ${missing} | ${item.imageUrl} | ${item.audioUrl} |`;
   })
+  .join("\n");
+const blockedRows = blockedInitialSoundItems
+  .map(item => `| ${item.letter} | ${item.level} | ${item.targetWord} | ${item.imageUrl} | ${item.audioUrl} | ${item.qaStatus || "inactive"} | ${item.qaNotes || ""} |`)
   .join("\n");
 
 writeFile(
@@ -319,6 +326,8 @@ Date: 2026-05-25
 ## Summary
 
 - Expected content items: ${initialSoundWordBank.length}
+- Active content items: ${activeInitialSoundItems.length}
+- Blocked/excluded content items: ${blockedInitialSoundItems.length}
 - Expected image assets: 500
 - Expected audio assets: 500
 - Source image files in archive: ${analysis.imageEntries.length}
@@ -331,6 +340,8 @@ Date: 2026-05-25
 - Project complete image+audio pairs: ${completeItems.length}
 - Missing images after import: ${missingImageItems.length}
 - Missing audio after import: ${missingAudioItems.length}
+- Active missing images after import: ${activeMissingImageItems.length}
+- Active missing audio after import: ${activeMissingAudioItems.length}
 - X items active: ${initialSoundWordBank.some(item => item.letter === "x") ? "yes" : "no"}
 - Duplicate archive paths: ${analysis.duplicatePaths.length}
 - Duplicate archive basenames: ${analysis.duplicateBasenames.length}
@@ -350,6 +361,14 @@ ${perLetterRows}
 | Letter | Level | Word | Missing | Expected Image | Expected Audio |
 |---|---:|---|---|---|---|
 ${missingRows || "| - | - | none | none | - | - |"}
+
+## Blocked Or Excluded Items
+
+These items stay out of active assessment use. Existing audio is preserved and should not be regenerated unless another audit marks it broken.
+
+| Letter | Level | Word | Image | Audio | QA Status | QA Notes |
+|---|---:|---|---|---|---|---|
+${blockedRows || "| - | - | none | - | - | - | - |"}
 
 ## Extra Archive Images Not Used
 
@@ -384,6 +403,8 @@ console.log(`Exact audio matches: ${sourceAudioMatches.length}`);
 console.log(`Complete imported/present pairs: ${completeItems.length}`);
 console.log(`Missing images: ${missingImageItems.length}`);
 console.log(`Missing audio: ${missingAudioItems.length}`);
+console.log(`Active missing images: ${activeMissingImageItems.length}`);
+console.log(`Active missing audio: ${activeMissingAudioItems.length}`);
 console.log(`Wrote docs/assets/initial_sounds_500_asset_import_audit.md`);
 console.log(`Wrote src/content/initialSounds/initialSoundImportedMediaStatus.js`);
 

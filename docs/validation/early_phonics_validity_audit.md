@@ -8,11 +8,11 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 
 | Skill | Active valid | Excluded by audio | Excluded by instructional level | Excluded malformed/duplicate | Active itemKeys |
 | --- | --- | --- | --- | --- | --- |
-| Initial Sounds | 119 | 1 | 20 | 1 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z |
+| Initial Sounds | 117 | 1 | 21 | 2 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z |
 | Final Sounds | 66 | 0 | 77 | 0 | b, d, g, l, m, n, p, t |
 | Rhyming | 134 | 0 | 0 | 2 | ain, air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ox, ug, un, ut |
-| CVC and Short Vowels | 120 | 0 | 0 | 30 | bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig |
-| Short Vowel Discrimination | 174 | 0 | 0 | 0 | short_a, short_e, short_i, short_o, short_u |
+| CVC and Short Vowels | 120 | 0 | 0 | 30 | bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nap, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig |
+| Short Vowel Discrimination | 171 | 0 | 0 | 2 | short_a, short_e, short_i, short_o, short_u |
 | Blends | 120 | 2 | 0 | 2 | bl, br, cl, cr, dr, fl, fr, sl, sn, sp, st, tr |
 | Digraphs | 109 | 0 | 0 | 0 | ch, sh, th, wh |
 
@@ -21,6 +21,7 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | Skill | Question ID | Source | ItemKey | Template | Target | Issue |
 | --- | --- | --- | --- | --- | --- | --- |
 | CVC and Short Vowels | core_cvc_001 | masteryCoreQuestions |  | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | cat | template LISTEN_FIND_WORD missing required field: targetWord |
+| Initial Sounds | extra_initial_6 | masteryExtraQuestions |  | UNKNOWN | nap | Initial Sounds itemKey "nap" is outside configured 25-target early set; Initial Sounds word "nap" is not valid for early itemKey "nap" |
 | Final Sounds | extra_final_1 | masteryExtraQuestions |  | UNKNOWN | hat | Final Sounds itemKey "hat" is outside configured early final-sound set; Final Sounds word "hat" is not valid for early itemKey "hat" |
 | Final Sounds | extra_final_2 | masteryExtraQuestions |  | UNKNOWN | map | Final Sounds itemKey "map" is outside configured early final-sound set; Final Sounds word "map" is not valid for early itemKey "map" |
 | Final Sounds | extra_final_3 | masteryExtraQuestions |  | UNKNOWN | sun | Final Sounds itemKey "sun" is outside configured early final-sound set; Final Sounds word "sun" is not valid for early itemKey "sun" |
@@ -31,6 +32,7 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | Final Sounds | extra_final_8 | masteryExtraQuestions |  | UNKNOWN | bell | Final Sounds itemKey "bell" is outside configured early final-sound set; Final Sounds word "bell" is not valid for early itemKey "bell" |
 | Final Sounds | extra_final_9 | masteryExtraQuestions |  | UNKNOWN | bus | Final Sounds itemKey "bus" is outside configured early final-sound set; Final Sounds word "bus" is not valid for early itemKey "bus" |
 | Final Sounds | extra_final_10 | masteryExtraQuestions |  | UNKNOWN | leaf | Final Sounds itemKey "leaf" is outside configured early final-sound set; Final Sounds word "leaf" is not valid for early itemKey "leaf" |
+| Initial Sounds | coverage_initial_n_001 | initialSoundCoverageQuestions | n | INITIAL_SOUND_PAIR_SELECT | net | PAIR_SELECT needs exactly 2 correct answers, found 1; PAIR_SELECT missing required card images; PAIR_SELECT missing approved card audio; expected exactly two initial n pair answers, found 1 |
 | Final Sounds | coverage_final_d_004 | finalSoundCoverageQuestions | d | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds word "seed" is not valid for early itemKey "d"; Final Sounds word "hand" is not valid for early itemKey "d" |
 | Final Sounds | coverage_final_d_005 | finalSoundCoverageQuestions | d | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds word "bird" is not valid for early itemKey "d" |
 | Final Sounds | coverage_final_d_007 | finalSoundCoverageQuestions | d | FINAL_SOUND_PAIR_SELECT | listen and find | Final Sounds word "hand" is not valid for early itemKey "d" |
@@ -72,6 +74,8 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | Blends | ixl_blend_sound_6 | ixlStyleSeedQuestions | cl | BLEND_SOUNDS | cloud | missing approved whole-word audio for "cloud" |
 | Blends | ixl_blend_sound_29 | ixlStyleSeedQuestions | cl | BLEND_SOUNDS | cloud | missing approved whole-word audio for "cloud" |
 | Rhyming | ixl_rhyming_picture_30 | ixlStyleSeedQuestions | ouse | RHYMING_PICTURE | house | missing answer option images: mouse |
+| Short Vowel Discrimination | ixl_short_vowel_12 | ixlStyleSeedQuestions | short_e | SHORT_VOWEL_WORD | net | missing answer option images: nut |
+| Short Vowel Discrimination | ixl_short_vowel_29 | ixlStyleSeedQuestions | short_u | SHORT_VOWEL_WORD | nut | missing answer option images: nut |
 | Initial Sounds | template_initial_1 | templateQuestions |  | UNKNOWN | fan | Initial Sounds itemKey "fan" is outside configured 25-target early set; Initial Sounds word "fan" is not valid for early itemKey "fan" |
 | Initial Sounds | template_initial_2 | templateQuestions |  | UNKNOWN | map | Initial Sounds itemKey "map" is outside configured 25-target early set; Initial Sounds word "map" is not valid for early itemKey "map" |
 | Initial Sounds | template_initial_3 | templateQuestions |  | UNKNOWN | bat | Initial Sounds itemKey "bat" is outside configured 25-target early set; Initial Sounds word "bat" is not valid for early itemKey "bat" |

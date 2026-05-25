@@ -8,11 +8,11 @@ This report audits active runtime questions after validation gates are applied. 
 
 | Skill | Active questions | Unique targets | Duplicate IDs | Duplicate signatures | Repeated option sets | Repeated distractor sets | Overused words | Overused itemKeys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Initial Sounds | 79 | 78 | 0 | 0 | 2 | 8 | none | none |
+| Initial Sounds | 78 | 77 | 0 | 0 | 2 | 8 | none | none |
 | Final Sounds | 79 | 65 | 0 | 0 | 8 | 6 | none | none |
 | Rhyming | 91 | 70 | 0 | 0 | 13 | 9 | none | at:8 |
-| CVC and Short Vowels | 88 | 36 | 0 | 0 | 5 | 8 | none | none |
-| Short Vowel Discrimination | 91 | 37 | 0 | 0 | 14 | 5 | none | none |
+| CVC and Short Vowels | 88 | 37 | 0 | 0 | 5 | 8 | none | none |
+| Short Vowel Discrimination | 88 | 37 | 0 | 0 | 12 | 5 | none | none |
 | High-Frequency Words 1-25 | 61 | 32 | 0 | 0 | 10 | 6 | none | none |
 | High-Frequency Words 26-50 | 63 | 38 | 0 | 0 | 12 | 7 | none | none |
 | High-Frequency Words 51-100 | 70 | 68 | 0 | 0 | 0 | 1 | none | none |
@@ -22,14 +22,14 @@ This report audits active runtime questions after validation gates are applied. 
 | Vowel Teams | 67 | 50 | 0 | 0 | 7 | 0 | none | ea:22 |
 | R-Controlled Vowels | 52 | 29 | 0 | 0 | 12 | 6 | turn:5 | none |
 | Nouns | 54 | 46 | 0 | 0 | 0 | 0 | none | none |
-| Verbs | 57 | 43 | 0 | 0 | 1 | 0 | none | none |
+| Verbs | 60 | 46 | 0 | 0 | 1 | 0 | none | none |
 | Adjectives | 61 | 43 | 0 | 0 | 0 | 0 | none | none |
 | Prepositions of Place | 61 | 24 | 0 | 0 | 9 | 0 | none | none |
 | Plurals | 57 | 28 | 0 | 0 | 9 | 3 | boxes:6, foxes:6, children:5 | es:9 |
 | Prefixes and Suffixes | 89 | 59 | 0 | 0 | 12 | 1 | none | ful:8, un:6, re:6, less:6, er:6 |
 | Antonyms and Synonyms | 64 | 40 | 0 | 0 | 4 | 1 | short:6 | short:6 |
 | Homophones and Homonyms | 52 | 50 | 0 | 0 | 18 | 0 | none | none |
-| Sentence Comprehension | 111 | 98 | 0 | 0 | 2 | 0 | none | none |
+| Sentence Comprehension | 126 | 113 | 0 | 0 | 2 | 0 | none | none |
 | Key Details | 59 | 52 | 0 | 0 | 2 | 0 | none | none |
 | Sequencing | 59 | 57 | 0 | 0 | 0 | 0 | none | none |
 | Main Idea | 65 | 60 | 0 | 0 | 1 | 0 | none | none |
@@ -42,8 +42,8 @@ This report audits active runtime questions after validation gates are applied. 
 
 ## Initial Sounds
 
-- Active questions: 79
-- Unique target words / answer targets: 78
+- Active questions: 78
+- Unique target words / answer targets: 77
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 2
@@ -66,7 +66,6 @@ This report audits active runtime questions after validation gates are applied. 
 | s | 4 |
 | w | 4 |
 | l | 3 |
-| n | 3 |
 | r | 3 |
 | v | 3 |
 | z | 3 |
@@ -75,6 +74,7 @@ This report audits active runtime questions after validation gates are applied. 
 | g | 2 |
 | i | 2 |
 | k | 2 |
+| n | 2 |
 | o | 2 |
 | q | 2 |
 | t | 2 |
@@ -193,7 +193,7 @@ No duplicate prompt+answer signatures.
 ## CVC and Short Vowels
 
 - Active questions: 88
-- Unique target words / answer targets: 36
+- Unique target words / answer targets: 37
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 5
@@ -227,7 +227,6 @@ No duplicate prompt+answer signatures.
 | lid | 2 |
 | man | 2 |
 | mug | 2 |
-| nut | 2 |
 | pan | 2 |
 | pen | 2 |
 | pin | 2 |
@@ -243,6 +242,8 @@ No duplicate prompt+answer signatures.
 | fox | 1 |
 | leg | 1 |
 | mud | 1 |
+| nap | 1 |
+| nut | 1 |
 | pig | 1 |
 | red | 1 |
 | sock | 1 |
@@ -263,11 +264,11 @@ No duplicate prompt+answer signatures.
 
 ## Short Vowel Discrimination
 
-- Active questions: 91
+- Active questions: 88
 - Unique target words / answer targets: 37
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 14
+- Repeated answer option sets: 12
 - Repeated distractor sets: 5
 - Overused words: none
 - Overused itemKeys: none
@@ -278,9 +279,9 @@ No duplicate prompt+answer signatures.
 | --- | --- |
 | short_a | 19 |
 | short_i | 19 |
-| short_u | 19 |
-| short_e | 17 |
 | short_o | 17 |
+| short_u | 17 |
+| short_e | 16 |
 
 ### Duplicate Signatures
 
@@ -296,8 +297,8 @@ No duplicate prompt+answer signatures.
 | map \| mat \| mop \| mug | 2 | recovery_short_vowel_picture_3, recovery_short_vowel_picture_20 |
 | cap \| cat \| cop \| cup | 2 | recovery_short_vowel_picture_4, recovery_short_vowel_picture_21 |
 | pan \| pen \| pin \| pot | 2 | recovery_short_vowel_picture_5, recovery_short_vowel_picture_14 |
-| nap \| net \| not \| nut | 2 | recovery_short_vowel_picture_9, recovery_short_vowel_picture_25 |
 | sat \| set \| sit \| sun | 2 | recovery_short_vowel_picture_15, recovery_short_vowel_picture_24 |
+| pan \| pin | 2 | ixl_short_vowel_3, ixl_short_vowel_13 |
 
 ## High-Frequency Words 1-25
 
@@ -792,8 +793,8 @@ No repeated answer option sets.
 
 ## Verbs
 
-- Active questions: 57
-- Unique target words / answer targets: 43
+- Active questions: 60
+- Unique target words / answer targets: 46
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 1
@@ -830,9 +831,11 @@ No repeated answer option sets.
 | eat | 1 |
 | explain | 1 |
 | hop | 1 |
+| i see a cat. | 1 |
 | kick | 1 |
 | laugh | 1 |
 | look | 1 |
+| max has a map. | 1 |
 | measure | 1 |
 | observe | 1 |
 | open | 1 |
@@ -845,6 +848,7 @@ No repeated answer option sets.
 | share | 1 |
 | stop | 1 |
 | telling sentence | 1 |
+| the dog can run. | 1 |
 | think | 1 |
 | throw | 1 |
 | write | 1 |
@@ -1269,8 +1273,8 @@ No duplicate prompt+answer signatures.
 
 ## Sentence Comprehension
 
-- Active questions: 111
-- Unique target words / answer targets: 98
+- Active questions: 126
+- Unique target words / answer targets: 113
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 2
@@ -1282,6 +1286,16 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
+| bag | 1 |
+| bed | 1 |
+| books | 1 |
+| boxes | 1 |
+| cats | 1 |
+| cup | 1 |
+| cups | 1 |
+| dogs | 1 |
+| duck | 1 |
+| fish | 1 |
 | fix_sentence_cap_1 | 1 |
 | fix_sentence_cap_2 | 1 |
 | fix_sentence_cap_3 | 1 |
@@ -1292,8 +1306,11 @@ No duplicate prompt+answer signatures.
 | fix_sentence_punc_1 | 1 |
 | fix_sentence_punc_2 | 1 |
 | fix_sentence_punc_3 | 1 |
+| hats | 1 |
+| map | 1 |
 | p3_sentence_comp_paragraph_001 | 1 |
 | RC015 | 1 |
+| ring | 1 |
 | SC_1_051 | 1 |
 | SC_1_052 | 1 |
 | SC_1_053 | 1 |
@@ -1393,6 +1410,8 @@ No duplicate prompt+answer signatures.
 | SC_K_048 | 1 |
 | SC_K_049 | 1 |
 | SC_K_050 | 1 |
+| ship | 1 |
+| sock | 1 |
 
 ### Duplicate Signatures
 

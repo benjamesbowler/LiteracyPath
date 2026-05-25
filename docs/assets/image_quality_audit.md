@@ -21,9 +21,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | bat | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
 | bag | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
 | sun | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| net | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/net.png | active asset |  |  |
-| nut | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/nut.png | active asset |  |  |
-| map | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
 | fork | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fork.png | active asset |  |  |
 | farm | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/farm.png | active asset |  |  |
 | sun | Initial Sounds | INITIAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
@@ -179,7 +176,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | h | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | l | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
 | m | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
-| n | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/short-u/nut.png | active asset |  |  |
 | f | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/short-o/fox.png | active asset |  |  |
 | b | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
 | w | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
@@ -325,7 +321,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
-| t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-u/nut.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
 | d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
@@ -626,9 +621,9 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | mud | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-u/mud.png | active asset |  |  |
 | map | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
 | mop | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
-| nut | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-u/nut.png | active asset |  |  |
-| net | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/net.png | active asset |  |  |
 | nap | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| net | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/net.png | active asset |  |  |
+| map | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
 | pot | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
 | pen | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
 | pan | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
@@ -656,7 +651,7 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | hot | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
 | sun | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
 | sit | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
-| nut | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-u/nut.png | active asset |  |  |
+| mug | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
 | cup | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
 | wig | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
 | web | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/web.png | active asset |  |  |
@@ -701,7 +696,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | hat | CVC and Short Vowels | PUT_SOUNDS_IN_ORDER | question image | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | log | CVC and Short Vowels | PUT_SOUNDS_IN_ORDER | question image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
 | mug | CVC and Short Vowels | PUT_SOUNDS_IN_ORDER | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
-| nut | CVC and Short Vowels | PUT_SOUNDS_IN_ORDER | question image | yes | /images/child-mode/short-u/nut.png | active asset |  |  |
 | fox | CVC and Short Vowels | PUT_SOUNDS_IN_ORDER | question image | yes | /images/child-mode/short-o/fox.png | active asset |  |  |
 | bug | CVC and Short Vowels | PUT_SOUNDS_IN_ORDER | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
 | wig | CVC and Short Vowels | PUT_SOUNDS_IN_ORDER | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
@@ -761,7 +755,6 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | mud | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-u/mud.png | active asset |  |  |
 | mug | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
 | sun | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| nut | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-u/nut.png | active asset |  |  |
 | bl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
 | cl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
 | clap | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
@@ -1031,6 +1024,21 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | quiet | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/prepositions/duck_outside_pond.png | active asset |  |  |
 | sad | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/vocabulary/friends.png | active asset |  |  |
 | sour | Antonyms and Synonyms | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
+| Max has two cats. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/cats.png | preferred Pack 4 organized asset |  |  |
+| Sam sees two dogs. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/dogs.png | preferred Pack 4 organized asset |  |  |
+| The cups are on the mat. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/cups.png | preferred Pack 4 organized asset |  |  |
+| The hats are red. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/hats.png | preferred Pack 4 organized asset |  |  |
+| I see two books. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/books.png | preferred Pack 4 organized asset |  |  |
+| The boxes are big. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/plurals/boxes.png | preferred Pack 4 organized asset |  |  |
+| The fish can swim. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| The ship is big. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| The duck is in the pond. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-u/duck.png | active asset |  |  |
+| The cat is on the bed. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| Dad has a map. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| The bag is on the bed. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
+| The cup is blue. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
+| The sock is wet. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/short-o/sock.png | active asset |  |  |
+| The ring is small. | Sentence Comprehension | SENTENCE_MATCHES_PICTURE | question image | yes | /images/child-mode/initial-sounds/ring.png | active asset |  |  |
 | Red | Sentence Comprehension | COMPREHENSION | question image | yes | /images/vocabulary/apple.png | active asset |  |  |
 | On the warm mat | Sentence Comprehension | COMPREHENSION | question image | yes | /images/prepositions/dog_under_table.png | active asset |  |  |
 | Reading a book | Sentence Comprehension | COMPREHENSION | question image | yes | /images/vocabulary/book.png | active asset |  |  |

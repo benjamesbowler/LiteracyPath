@@ -25,6 +25,9 @@ Audio:
 - One centered object or scene representing the target word.
 - White or very clean background.
 - Bright, colorful educational style.
+- Cute cartoon educational images are acceptable, but ordinary objects must use natural/realistic colors.
+- Rainbow-colored ordinary objects are forbidden unless the target word is literally `rainbow`.
+- Examples: apple should be red or green, zebra should be black and white, cat should use natural cat colors, and nut must be a walnut/peanut/hazelnut-style nut rather than an acorn.
 - No embedded text, labels, captions, or watermarks.
 - No multiple objects unless essential to the word.
 - Consistent visual style across the full pack.

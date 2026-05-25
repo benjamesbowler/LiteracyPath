@@ -15,6 +15,8 @@
     "validate:initial-sounds": "node tools/auditInitialSoundArchitecture.js",
     "validate:initial-sounds-media": "node tools/auditInitialSoundsMedia.js",
     "check:initial-sound-progression": "node tools/checkInitialSoundProgression.js",
+    "validate:answer-options": "node tools/auditAnswerOptionRendering.js",
+    "audit:image-quality": "node tools/auditImageQuality.js",
     "validate:skill-banks": "node tools/auditSkillBanks.js",
     "check:skill-progression": "node tools/checkSkillProgression.js",
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all"
