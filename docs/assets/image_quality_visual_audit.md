@@ -1,15 +1,15 @@
 # Image Quality Visual Audit
 
-Generated: 2026-05-25T03:05:16.810Z
+Generated: 2026-05-25T04:30:25.373Z
 
 This audit focuses on assessment media. It uses safe static heuristics only: filenames/paths and exact-file hash comparisons. It does not delete or replace assets automatically.
 
 ## Summary
 
-- Public assessment images scanned: 828
-- Active image-backed assessment mappings scanned: 1688
+- Public assessment images scanned: 841
+- Active image-backed assessment mappings scanned: 1682
 - Likely rainbow/over-stylized active mappings: 0
-- Known unsuitable assessment assets blocked/requested: 3
+- Known unsuitable assessment assets blocked/requested: 9
 - Known unsuitable assets still active: 0
 - Excluded weird/unusual targets still active: 0
 - Rainbow/path warnings in public assets: 0
@@ -28,6 +28,12 @@ _None._
 | initial_sounds | acorn | /media/initial-sounds/images/a/acorn.webp | Manual review: rainbow-colored cap/character styling is too stylized for an ordinary acorn assessment image. |
 | initial_sounds | nut | /media/initial-sounds/images/n/nut.webp | Manual review: rainbow-colored character styling is too stylized and too confusable for a generic nut assessment image. |
 | initial_sounds | nut | /images/child-mode/short-u/nut.png | Manual review: image is visually an acorn, not a generic nut, so it is blocked from active assessment use. |
+| initial_sounds | gum | /media/initial-sounds/images/g/gum.webp | Manual review: object image is babyfied with a face/decorative styling. Non-living objects must not have faces. |
+| initial_sounds | hat | /media/initial-sounds/images/h/hat.webp | Manual review: object image is babyfied with a face/decorative shapes. Non-living objects must not have faces. |
+| initial_sounds | jam | /media/initial-sounds/images/j/jam.webp | Manual review: food/object image is babyfied with a face. Non-living food/object targets must not have faces. |
+| initial_sounds | leg | /media/initial-sounds/images/l/leg.webp | Manual review: body-part image is babyfied with a face. Body-part targets should be natural and clear, not character objects. |
+| initial_sounds | sun | /media/initial-sounds/images/s/sun.webp | Manual review: nature/object image is babyfied with sunglasses/face. Non-living nature/object targets must not have faces. |
+| initial_sounds | wig | /media/initial-sounds/images/w/wig.webp | Manual review: object image is babyfied with a face/rainbow styling. Non-living objects must not have faces. |
 
 ## Known Unsuitable Images Still Active
 
@@ -46,7 +52,6 @@ _None._
 | animal | /media/initial-sounds/images/a/animal.webp | 0.599 | 0.528 | 10 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | accordion | /media/initial-sounds/images/a/accordion.webp | 0.701 | 0.527 | 6 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | antenna | /media/initial-sounds/images/a/antenna.webp | 0.614 | 0.45 | 7 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
-| bat | /media/initial-sounds/images/b/bat.webp | 0.555 | 0.09 | 7 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | bell | /media/initial-sounds/images/b/bell.webp | 0.584 | 0.365 | 9 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | bird | /media/initial-sounds/images/b/bird.webp | 0.576 | 0.361 | 8 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | boat | /media/initial-sounds/images/b/boat.webp | 0.727 | 0.411 | 9 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
@@ -88,6 +93,7 @@ _None._
 | yoyo | /media/initial-sounds/images/y/yoyo.webp | 0.664 | 0.539 | 6 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | yo-yo | /media/initial-sounds/images/y/yo-yo.webp | 0.609 | 0.457 | 8 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | yarn basket | /media/initial-sounds/images/y/yarn-basket.webp | 0.729 | 0.2 | 10 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
+| zoo | /media/initial-sounds/images/z/zoo.webp | 0.585 | 0.095 | 6 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | zucchini | /media/initial-sounds/images/z/zucchini.webp | 0.676 | 0.403 | 6 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | clap, flag, frog, slide, black | /images/child-mode/blends/flag.png | 0.635 | 0.406 | 9 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 
@@ -132,7 +138,13 @@ _None._
 | acorn | /media/initial-sounds/images/a/acorn.webp | Create a clean, naturally colored acorn image with a plain background and no face, rainbow cap, embedded text, or extra objects. |
 | nut | /media/initial-sounds/images/n/nut.webp | Create a clean, naturally colored generic nut image, such as walnut/peanut/hazelnut or mixed nuts, with no face, rainbow colors, embedded text, or acorn shape. |
 | nut | /images/child-mode/short-u/nut.png | Create a clean, naturally colored generic nut image, such as walnut/peanut/hazelnut or mixed nuts, with no acorn cap, no face, no embedded text, and no rainbow colors. |
+| gum | /media/initial-sounds/images/g/gum.webp | Create a clear, natural-colored piece of chewing gum or pack of gum on a clean white/simple background. No face, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark. |
+| hat | /media/initial-sounds/images/h/hat.webp | Create one clear, natural-colored cartoon hat on a clean white/simple background. No face, no eyes, no smile, no sparkles, no confetti, no text, no labels, no watermark. |
+| jam | /media/initial-sounds/images/j/jam.webp | Create one clear jar of strawberry jam on a clean white/simple background. Natural red jam color, no face, no eyes, no smile, no sparkles, no embedded text, no labels, no watermark. |
+| leg | /media/initial-sounds/images/l/leg.webp | Create one clear, natural cartoon human leg from knee to foot, neutral skin tone, simple shoe optional, clean white/simple background. No face, no eyes, no smile, no sparkles, no text, no labels, no watermark. |
+| sun | /media/initial-sounds/images/s/sun.webp | Create one clear natural yellow sun icon/cartoon on a clean white/simple sky background. No face, no sunglasses, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark. |
+| wig | /media/initial-sounds/images/w/wig.webp | Create one clear natural-colored wig on a simple wig stand or plain background. No face, no eyes, no smile, no rainbow colors, no sparkles, no text, no labels, no watermark. |
 
 ## Kimi Style Rule
 
-Cute cartoon educational images are acceptable. Rainbow-colored ordinary objects are not acceptable. Use natural colors unless the target word itself requires color, such as `rainbow`. A `nut` image should show a generic nut such as a walnut, peanut, or hazelnut, not an acorn unless the target word is `acorn`.
+Cute cartoon educational images are acceptable. Rainbow-colored ordinary objects are not acceptable. Use natural colors unless the target word itself requires color, such as `rainbow`. Non-living objects, foods, body parts, tools, vehicles, and nature objects must not have faces, eyes, smiles, character expressions, sparkles, confetti, magical glow, or baby/kawaii styling. A `nut` image should show a generic nut such as a walnut, peanut, or hazelnut, not an acorn unless the target word is `acorn`.

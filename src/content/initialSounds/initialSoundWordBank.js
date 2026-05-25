@@ -239,9 +239,33 @@ const blockedInitialSoundTargets = {
     status: "needs_image_replacement",
     reason: "Current image is overly stylized/rainbow-colored for an ordinary acorn and is blocked from active assessment use."
   },
+  gum: {
+    status: "needs_image_replacement",
+    reason: "Current image is babyfied with a face/decorative styling; ordinary object images must not have faces."
+  },
+  hat: {
+    status: "needs_image_replacement",
+    reason: "Current image is babyfied with a face/decorative shapes; ordinary object images must not have faces."
+  },
+  jam: {
+    status: "needs_image_replacement",
+    reason: "Current image is babyfied with a face; ordinary food/object images must not have faces."
+  },
+  leg: {
+    status: "needs_image_replacement",
+    reason: "Current image is babyfied with a face; body-part images must be clear and natural, not character objects."
+  },
   nut: {
     status: "needs_image_replacement",
     reason: "Current image is overly stylized/rainbow-colored and too confusable with acorn-style imagery for a generic nut."
+  },
+  sun: {
+    status: "needs_image_replacement",
+    reason: "Current image is babyfied with sunglasses/face; nature/object images must not have faces unless the target is a living character."
+  },
+  wig: {
+    status: "needs_image_replacement",
+    reason: "Current image is babyfied with a face/rainbow styling; ordinary object images must not have faces."
   },
   zinnia: {
     status: "excluded_unsuitable_word",

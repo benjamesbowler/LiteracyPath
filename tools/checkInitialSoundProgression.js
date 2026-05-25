@@ -81,7 +81,13 @@ function simulateRound({ label, level, expectedNewLetters = [] }) {
   const expectedCoreFailures = expectedNewLetters
     .filter(letter => {
       const selectedIndex = letters.indexOf(letter);
-      return selectedIndex >= 0 && words[selectedIndex] !== coreWord(letter, level);
+      if (selectedIndex < 0 || words[selectedIndex] === coreWord(letter, level)) return false;
+      const coreItem = initialSoundWordBank.find(item =>
+        item.letter === letter &&
+        item.level === level &&
+        item.targetWord.toLowerCase() === coreWord(letter, level)
+      );
+      return coreItem?.active !== false && hasImportedInitialSoundMedia(coreItem);
     })
     .map(letter => `${letter}: expected ${coreWord(letter, level)}, got ${words[letters.indexOf(letter)]}`);
 

@@ -126,7 +126,7 @@ Date: 2026-05-25
 - Level: 1
 - Phase: 1
 - Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Target words: ant, bat, cat, dog, egg, fan, gum, hat, ink, jam, king, leg, map, nest, ox
+- Target words: ant, bat, cat, dog, egg, fan, goat, hand, ink, jet, king, log, map, nest, ox
 - Review letters: none
 - Blocked letters: none
 - Missing expected available letters: none
@@ -139,12 +139,12 @@ Date: 2026-05-25
 | 4 | d | dog | new | as requested |
 | 5 | e | egg | new | as requested |
 | 6 | f | fan | new | as requested |
-| 7 | g | gum | new | substituted because requested word "gun" is not in Level 1 bank |
-| 8 | h | hat | new | as requested |
+| 7 | g | goat | new | substituted because requested word "gun" is not in Level 1 bank |
+| 8 | h | hand | new | as requested |
 | 9 | i | ink | new | as requested |
-| 10 | j | jam | new | as requested |
+| 10 | j | jet | new | as requested |
 | 11 | k | king | new | as requested |
-| 12 | l | leg | new | as requested |
+| 12 | l | log | new | as requested |
 | 13 | m | map | new | substituted because requested word "man" is not in Level 1 bank |
 | 14 | n | nest | new | substituted because requested word "nut" is blocked: Current image is overly stylized/rainbow-colored and too confusable with acorn-style imagery for a generic nut. |
 | 15 | o | ox | new | as requested |
@@ -154,7 +154,7 @@ Date: 2026-05-25
 - Level: 1
 - Phase: 2
 - Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Target words: pig, queen, ring, sun, tent, up, van, wig, yak, zoo, apple, ball, cup, duck, elf
+- Target words: pig, queen, ring, sock, tent, up, van, web, yak, zoo, apple, ball, cup, duck, elf
 - Review letters: a, b, c, d, e
 - Blocked letters: none
 - Missing expected available letters: none
@@ -164,11 +164,11 @@ Date: 2026-05-25
 | 1 | p | pig | new | as requested |
 | 2 | q | queen | new | as requested |
 | 3 | r | ring | new | substituted because requested word "red" is not in Level 1 bank |
-| 4 | s | sun | new | as requested |
+| 4 | s | sock | new | as requested |
 | 5 | t | tent | new | as requested |
 | 6 | u | up | new | as requested |
 | 7 | v | van | new | as requested |
-| 8 | w | wig | new | as requested |
+| 8 | w | web | new | as requested |
 | 9 | y | yak | new | as requested |
 | 10 | z | zoo | new | as requested |
 | 11 | a | apple | review | as requested |

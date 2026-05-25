@@ -13,7 +13,7 @@ Date: 2026-05-25
 
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
-| Initial Sounds | 621 | 511 | 25 | 25 | L1:384, L2:237 | 110 | 110 | none |
+| Initial Sounds | 615 | 505 | 25 | 25 | L1:378, L2:237 | 110 | 110 | none |
 | Ending Sounds | 212 | 164 | 21 | 20 | L1:182, L2:26, L3:1, L5:3 | 47 | 48 | none |
 | Rhyming Words | 138 | 90 | 32 | 23 | L1:138 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, ut, uck, ar, ight, ouse |
 | Short Vowels | 171 | 107 | 5 | 5 | L1:116, L2:55 | 0 | 64 | none |
@@ -47,8 +47,8 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Active items: 621
-- Media-complete active items: 511
+- Active items: 615
+- Media-complete active items: 505
 - Unique active targets: 25
 - Unique media-complete targets: 25
 - Blocked targets: none
@@ -56,7 +56,7 @@ Date: 2026-05-25
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: 6
-- Duplicate target words by level: initial_sounds|1|map, initial_sounds|1|sock, initial_sounds|1|tub, initial_sounds|1|pan, initial_sounds|1|bat, initial_sounds|1|fan, initial_sounds|1|gum, initial_sounds|1|log, initial_sounds|1|ham, initial_sounds|1|cap, initial_sounds|1|wig, initial_sounds|1|apple, initial_sounds|1|ball, initial_sounds|1|cat, initial_sounds|1|cake, initial_sounds|1|dog, initial_sounds|1|desk, initial_sounds|1|egg, initial_sounds|1|envelope, initial_sounds|1|fork, initial_sounds|1|gate, initial_sounds|1|hat, initial_sounds|1|hen, initial_sounds|1|igloo, initial_sounds|1|insect, initial_sounds|1|jam, initial_sounds|1|jet, initial_sounds|1|king, initial_sounds|1|key, initial_sounds|1|lion, initial_sounds|1|leg, initial_sounds|1|moon, initial_sounds|1|net, initial_sounds|1|nap, initial_sounds|1|ox, initial_sounds|1|orange, initial_sounds|1|pig, initial_sounds|1|pen, initial_sounds|1|queen, initial_sounds|1|quiz
+- Duplicate target words by level: initial_sounds|1|map, initial_sounds|1|sock, initial_sounds|1|tub, initial_sounds|1|pan, initial_sounds|1|bat, initial_sounds|1|fan, initial_sounds|1|log, initial_sounds|1|ham, initial_sounds|1|cap, initial_sounds|1|apple, initial_sounds|1|ball, initial_sounds|1|cat, initial_sounds|1|cake, initial_sounds|1|dog, initial_sounds|1|desk, initial_sounds|1|egg, initial_sounds|1|envelope, initial_sounds|1|fork, initial_sounds|1|gate, initial_sounds|1|gum, initial_sounds|1|hen, initial_sounds|1|igloo, initial_sounds|1|insect, initial_sounds|1|jet, initial_sounds|1|king, initial_sounds|1|key, initial_sounds|1|lion, initial_sounds|1|moon, initial_sounds|1|net, initial_sounds|1|nap, initial_sounds|1|ox, initial_sounds|1|orange, initial_sounds|1|pig, initial_sounds|1|pen, initial_sounds|1|queen, initial_sounds|1|quiz, initial_sounds|1|rat, initial_sounds|1|seed, initial_sounds|1|tent, initial_sounds|1|tiger
 
 ### Rhyming/Phonics Logic Issues
 

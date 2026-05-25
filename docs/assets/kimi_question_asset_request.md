@@ -6,7 +6,7 @@ Use this with the separate Guided Reading book-pack prompt. Do not create placeh
 
 ## Assessment Image Style Rule
 
-Cute cartoon educational images are good. Rainbow-colored ordinary objects are not acceptable. Use realistic/natural colors unless the target word itself requires color. Examples: apple should be red or green, cat should use natural cat colors, nut should be a walnut/peanut/hazelnut-style nut and not an acorn, and rainbow should only be used when the target word is `rainbow`.
+Cute cartoon educational images are good. Rainbow-colored ordinary objects are not acceptable. Use realistic/natural colors unless the target word itself requires color. Non-living objects, foods, body parts, tools, vehicles, and nature objects must not have faces, eyes, smiles, character expressions, sparkles, confetti, magical glow, or baby/kawaii styling. Examples: apple should be red or green, cat should use natural cat colors, egg should be a plain egg with no face, nut should be a walnut/peanut/hazelnut-style nut and not an acorn, and rainbow should only be used when the target word is `rainbow`.
 
 ## Current Assessment Bank Gaps
 
