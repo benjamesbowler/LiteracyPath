@@ -6,7 +6,7 @@ Date: 2026-05-25
 
 - Source folder: /Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath a-z assets 500class
 - Source archive: /Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath a-z assets 500class/initial-sounds-media-pack.zip
-- Import mode used: yes
+- Import mode used: no
 
 ## Summary
 
@@ -33,58 +33,58 @@ Date: 2026-05-25
 
 ## Per-Letter Coverage
 
-| Letter | Level | Expected Items | Images Present | Audio Present | Complete Pairs | Missing Complete Pairs |
-|---|---:|---:|---:|---:|---:|---:|
-| a | 1 | 10 | 10 | 10 | 10 | 0 |
-| a | 2 | 10 | 10 | 10 | 10 | 0 |
-| b | 1 | 10 | 6 | 6 | 6 | 4 |
-| b | 2 | 10 | 6 | 6 | 6 | 4 |
-| c | 1 | 10 | 6 | 6 | 6 | 4 |
-| c | 2 | 10 | 5 | 5 | 5 | 5 |
-| d | 1 | 10 | 8 | 8 | 8 | 2 |
-| d | 2 | 10 | 6 | 6 | 6 | 4 |
-| e | 1 | 10 | 8 | 8 | 8 | 2 |
-| e | 2 | 10 | 3 | 3 | 3 | 7 |
-| f | 1 | 10 | 8 | 8 | 8 | 2 |
-| f | 2 | 10 | 4 | 4 | 4 | 6 |
-| g | 1 | 10 | 9 | 9 | 9 | 1 |
-| g | 2 | 10 | 2 | 2 | 2 | 8 |
-| h | 1 | 10 | 9 | 9 | 9 | 1 |
-| h | 2 | 10 | 3 | 3 | 3 | 7 |
-| i | 1 | 10 | 6 | 6 | 6 | 4 |
-| i | 2 | 10 | 4 | 4 | 4 | 6 |
-| j | 1 | 10 | 7 | 7 | 7 | 3 |
-| j | 2 | 10 | 3 | 3 | 3 | 7 |
-| k | 1 | 10 | 8 | 8 | 8 | 2 |
-| k | 2 | 10 | 5 | 5 | 5 | 5 |
-| l | 1 | 10 | 9 | 9 | 9 | 1 |
-| l | 2 | 10 | 4 | 4 | 4 | 6 |
-| m | 1 | 10 | 6 | 6 | 6 | 4 |
-| m | 2 | 10 | 3 | 3 | 3 | 7 |
-| n | 1 | 10 | 9 | 9 | 9 | 1 |
-| n | 2 | 10 | 3 | 3 | 3 | 7 |
-| o | 1 | 10 | 8 | 8 | 8 | 2 |
-| o | 2 | 10 | 5 | 5 | 5 | 5 |
-| p | 1 | 10 | 5 | 5 | 5 | 5 |
-| p | 2 | 10 | 1 | 1 | 1 | 9 |
-| q | 1 | 10 | 9 | 9 | 9 | 1 |
-| q | 2 | 10 | 3 | 3 | 3 | 7 |
-| r | 1 | 10 | 6 | 6 | 6 | 4 |
-| r | 2 | 10 | 5 | 5 | 5 | 5 |
-| s | 1 | 10 | 3 | 3 | 3 | 7 |
-| s | 2 | 10 | 2 | 2 | 2 | 8 |
-| t | 1 | 10 | 3 | 3 | 3 | 7 |
-| t | 2 | 10 | 3 | 3 | 3 | 7 |
-| u | 1 | 10 | 4 | 6 | 4 | 6 |
-| u | 2 | 10 | 1 | 3 | 1 | 9 |
-| v | 1 | 10 | 8 | 8 | 8 | 2 |
-| v | 2 | 10 | 0 | 2 | 0 | 10 |
-| w | 1 | 10 | 7 | 8 | 7 | 3 |
-| w | 2 | 10 | 0 | 2 | 0 | 10 |
-| y | 1 | 10 | 8 | 8 | 8 | 2 |
-| y | 2 | 10 | 0 | 0 | 0 | 10 |
-| z | 1 | 10 | 6 | 7 | 6 | 4 |
-| z | 2 | 10 | 0 | 1 | 0 | 10 |
+| Letter | Level | Expected Items | Images Present | Audio Present | Complete Pairs | Missing Complete Pairs | Can Appear In Rounds | Blocked Reason |
+|---|---:|---:|---:|---:|---:|---:|---|---|
+| a | 1 | 10 | 10 | 10 | 10 | 0 | yes | none |
+| a | 2 | 10 | 10 | 10 | 10 | 0 | yes | none |
+| b | 1 | 10 | 6 | 6 | 6 | 4 | yes | none |
+| b | 2 | 10 | 6 | 6 | 6 | 4 | yes | none |
+| c | 1 | 10 | 6 | 6 | 6 | 4 | yes | none |
+| c | 2 | 10 | 5 | 5 | 5 | 5 | yes | none |
+| d | 1 | 10 | 8 | 8 | 8 | 2 | yes | none |
+| d | 2 | 10 | 6 | 6 | 6 | 4 | yes | none |
+| e | 1 | 10 | 8 | 8 | 8 | 2 | yes | none |
+| e | 2 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| f | 1 | 10 | 8 | 8 | 8 | 2 | yes | none |
+| f | 2 | 10 | 4 | 4 | 4 | 6 | yes | none |
+| g | 1 | 10 | 9 | 9 | 9 | 1 | yes | none |
+| g | 2 | 10 | 2 | 2 | 2 | 8 | yes | none |
+| h | 1 | 10 | 9 | 9 | 9 | 1 | yes | none |
+| h | 2 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| i | 1 | 10 | 6 | 6 | 6 | 4 | yes | none |
+| i | 2 | 10 | 4 | 4 | 4 | 6 | yes | none |
+| j | 1 | 10 | 7 | 7 | 7 | 3 | yes | none |
+| j | 2 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| k | 1 | 10 | 8 | 8 | 8 | 2 | yes | none |
+| k | 2 | 10 | 5 | 5 | 5 | 5 | yes | none |
+| l | 1 | 10 | 9 | 9 | 9 | 1 | yes | none |
+| l | 2 | 10 | 4 | 4 | 4 | 6 | yes | none |
+| m | 1 | 10 | 6 | 6 | 6 | 4 | yes | none |
+| m | 2 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| n | 1 | 10 | 9 | 9 | 9 | 1 | yes | none |
+| n | 2 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| o | 1 | 10 | 8 | 8 | 8 | 2 | yes | none |
+| o | 2 | 10 | 5 | 5 | 5 | 5 | yes | none |
+| p | 1 | 10 | 5 | 5 | 5 | 5 | yes | none |
+| p | 2 | 10 | 1 | 1 | 1 | 9 | yes | none |
+| q | 1 | 10 | 9 | 9 | 9 | 1 | yes | none |
+| q | 2 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| r | 1 | 10 | 6 | 6 | 6 | 4 | yes | none |
+| r | 2 | 10 | 5 | 5 | 5 | 5 | yes | none |
+| s | 1 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| s | 2 | 10 | 2 | 2 | 2 | 8 | yes | none |
+| t | 1 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| t | 2 | 10 | 3 | 3 | 3 | 7 | yes | none |
+| u | 1 | 10 | 4 | 6 | 4 | 6 | yes | none |
+| u | 2 | 10 | 1 | 3 | 1 | 9 | yes | none |
+| v | 1 | 10 | 8 | 8 | 8 | 2 | yes | none |
+| v | 2 | 10 | 0 | 2 | 0 | 10 | no | blocked: no complete image+audio pair |
+| w | 1 | 10 | 7 | 8 | 7 | 3 | yes | none |
+| w | 2 | 10 | 0 | 2 | 0 | 10 | no | blocked: no complete image+audio pair |
+| y | 1 | 10 | 8 | 8 | 8 | 2 | yes | none |
+| y | 2 | 10 | 0 | 0 | 0 | 10 | no | blocked: no complete image+audio pair |
+| z | 1 | 10 | 6 | 7 | 6 | 4 | yes | none |
+| z | 2 | 10 | 0 | 1 | 0 | 10 | no | blocked: no complete image+audio pair |
 
 ## Missing Required Assets
 
