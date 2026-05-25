@@ -1,4 +1,289 @@
 import { useMemo, useState } from "react";
+import {
+  buildMediaQaRecords,
+  MEDIA_QA_STATUSES,
+  readMediaQaOverrides,
+  updateMediaQaRecords
+} from "../data/mediaQaManifest";
+
+function downloadTextFile(filename, content, type = "text/plain") {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  anchor.click();
+  URL.revokeObjectURL(url);
+}
+
+function csvEscape(value) {
+  return `"${String(value ?? "").replace(/"/g, '""')}"`;
+}
+
+function mediaQaToCsv(records) {
+  const headers = [
+    "mediaType",
+    "targetWord",
+    "skillId",
+    "skillName",
+    "level",
+    "filePath",
+    "status",
+    "rejectionReason",
+    "reviewerNotes",
+    "replacementPath",
+    "linkedQuestionCount",
+    "heuristicFlags"
+  ];
+  return [
+    headers.join(","),
+    ...records.map(record => [
+      record.mediaType,
+      record.targetWord,
+      record.skillId,
+      record.skillName,
+      record.level,
+      record.filePath,
+      record.status,
+      record.rejectionReason,
+      record.reviewerNotes,
+      record.replacementPath,
+      record.linkedQuestionIds?.length || 0,
+      (record.heuristicFlags || []).join("; ")
+    ].map(csvEscape).join(","))
+  ].join("\n");
+}
+
+function mediaQaToKimiMarkdown(records, mediaType) {
+  const title = mediaType === "image" ? "Kimi Image Replacement Request" : "Kimi Audio Replacement Request";
+  const globalRules = mediaType === "image"
+    ? "Create a clean educational flashcard-style cartoon illustration of a single target object. Plain pure white background. Centered object only. No shadow, glow, aura, sparkles, rainbow coloring, face, eyes, smile, arms, legs, text, or background scene. Use natural realistic colors and high readability at small size."
+    : "Record a clear spoken word or phrase only. Use neutral adult female American English, correct pronunciation, normalized volume, no music, no sound effects, no clipping, no background noise, and short silence before/after.";
+
+  const grouped = records.reduce((map, record) => {
+    const key = record.skillName || record.skillId || "Uncategorized";
+    map.set(key, [...(map.get(key) || []), record]);
+    return map;
+  }, new Map());
+
+  return [
+    `# ${title}`,
+    "",
+    "## Global Rules",
+    "",
+    globalRules,
+    "",
+    ...[...grouped.entries()].flatMap(([skill, rows]) => [
+      `## ${skill}`,
+      "",
+      ...rows.map(record => [
+        `### ${record.targetWord || record.filePath}`,
+        "",
+        `- Target word/text: ${record.targetWord || ""}`,
+        `- Required path: ${record.replacementPath || record.filePath}`,
+        `- Current path: ${record.filePath}`,
+        `- Reason: ${record.rejectionReason || record.reviewerNotes || (record.heuristicFlags || []).join(", ") || "Needs QA replacement."}`,
+        `- Prompt: ${mediaType === "image"
+          ? `Create one clear, natural-colored, cute educational cartoon image of ${record.targetWord || "the target object"}. ${globalRules}`
+          : `Record "${record.targetWord || "target audio"}". ${globalRules}`}`,
+        ""
+      ].join("\n"))
+    ])
+  ].join("\n");
+}
+
+function statusLabel(status) {
+  return status.replace("_", " ");
+}
+
+function MediaQaPage({ mediaType, questions = [], onBack }) {
+  const [overrides, setOverrides] = useState(() => readMediaQaOverrides());
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [skillFilter, setSkillFilter] = useState("all");
+  const [search, setSearch] = useState("");
+  const [selectedIds, setSelectedIds] = useState([]);
+  const allRecords = useMemo(() => buildMediaQaRecords(questions, overrides).filter(record => record.mediaType === mediaType), [questions, overrides, mediaType]);
+  const skillOptions = useMemo(() => [...new Set(allRecords.map(record => record.skillName || record.skillId).filter(Boolean))].sort(), [allRecords]);
+  const visibleRecords = allRecords.filter(record => {
+    const q = search.toLowerCase().trim();
+    const matchesSearch = !q || [record.targetWord, record.filePath, record.skillName].some(value => String(value || "").toLowerCase().includes(q));
+    const matchesStatus =
+      statusFilter === "all" ||
+      record.status === statusFilter ||
+      (statusFilter === "missing" && !record.filePath) ||
+      (statusFilter === "suspected" && (record.heuristicFlags || []).length > 0);
+    const matchesSkill = skillFilter === "all" || (record.skillName || record.skillId) === skillFilter;
+    return matchesSearch && matchesStatus && matchesSkill;
+  });
+  const selectedSet = new Set(selectedIds);
+  const qaRules = mediaType === "image"
+    ? [
+      "white background only",
+      "single centered object",
+      "no faces/eyes/smiles",
+      "no sparkles/glow/aura",
+      "no rainbow/fantasy colors",
+      "no dark backgrounds",
+      "no shadows",
+      "no text",
+      "no cluttered scenes",
+      "natural object colors",
+      "kindergarten-readable"
+    ]
+    : [
+      "clear pronunciation",
+      "correct target word",
+      "neutral adult female voice preferred",
+      "no music",
+      "no sound effects",
+      "no clipping",
+      "no background noise",
+      "normalized volume",
+      "no wrong accent/pronunciation",
+      "short silence before/after only"
+    ];
+
+  function applyStatus(ids, status) {
+    if (!ids.length) return;
+    const next = updateMediaQaRecords(ids, { status });
+    setOverrides(next);
+    setSelectedIds([]);
+  }
+
+  function exportRecords(format) {
+    const base = `literacypath-${mediaType}-qa`;
+    if (format === "csv") downloadTextFile(`${base}.csv`, mediaQaToCsv(visibleRecords), "text/csv");
+    if (format === "json") downloadTextFile(`${base}.json`, JSON.stringify(visibleRecords, null, 2), "application/json");
+    if (format === "kimi") {
+      const rows = visibleRecords.filter(record => ["rejected", "needs_kimi", "blocked"].includes(record.status) || (record.heuristicFlags || []).length);
+      downloadTextFile(`${base}-kimi-request.md`, mediaQaToKimiMarkdown(rows, mediaType), "text/markdown");
+    }
+  }
+
+  return (
+    <main className="admin-dashboard page-stack media-qa-page">
+      <section className="card page-stack">
+        <div className="admin-header">
+          <div>
+            <h2>{mediaType === "image" ? "Image QA" : "Audio QA"}</h2>
+            <p className="muted-text">Moderate app-served {mediaType} assets. Blocking or rejecting image assets removes linked questions from student runtime after reload.</p>
+          </div>
+          <div className="button-row admin-controls">
+            <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
+            <button className="report-button" onClick={() => exportRecords("csv")} type="button">Export CSV</button>
+            <button className="report-button" onClick={() => exportRecords("json")} type="button">Export JSON</button>
+            <button className="report-button" onClick={() => exportRecords("kimi")} type="button">Export Kimi Markdown</button>
+          </div>
+        </div>
+
+        <div className="media-qa-rules">
+          {qaRules.map(rule => <span key={rule}>{rule}</span>)}
+        </div>
+      </section>
+
+      <section className="report-panel page-stack">
+        <div className="admin-content-filters">
+          <input value={search} onChange={event => setSearch(event.target.value)} placeholder="Search target word or filename" type="search" />
+          <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
+            <option value="all">All statuses</option>
+            {MEDIA_QA_STATUSES.map(status => <option key={status} value={status}>{statusLabel(status)}</option>)}
+            <option value="suspected">Suspected bad media</option>
+            <option value="missing">Missing file path</option>
+          </select>
+          <select value={skillFilter} onChange={event => setSkillFilter(event.target.value)}>
+            <option value="all">All skills</option>
+            {skillOptions.map(skill => <option key={skill} value={skill}>{skill}</option>)}
+          </select>
+        </div>
+
+        <div className="button-row media-qa-bulk-actions">
+          {MEDIA_QA_STATUSES.filter(status => status !== "unreviewed").map(status => (
+            <button className="report-button" disabled={!selectedIds.length} key={status} onClick={() => applyStatus(selectedIds, status)} type="button">
+              Mark selected {statusLabel(status)}
+            </button>
+          ))}
+          <button className="report-button" disabled={!selectedIds.length} onClick={() => applyStatus(selectedIds, "unreviewed")} type="button">
+            Undo selected
+          </button>
+        </div>
+      </section>
+
+      {mediaType === "image" ? (
+        <section className="media-qa-grid">
+          {visibleRecords.map(record => (
+            <article className={`media-qa-card status-${record.status}`} key={record.id}>
+              <label className="media-qa-select">
+                <input
+                  checked={selectedSet.has(record.id)}
+                  onChange={event => setSelectedIds(ids => event.target.checked ? [...ids, record.id] : ids.filter(id => id !== record.id))}
+                  type="checkbox"
+                />
+                Select
+              </label>
+              <img alt={record.targetWord || record.filePath} src={record.filePath} />
+              <div>
+                <h3>{record.targetWord || "Untitled"}</h3>
+                <p>{record.skillName || "Unknown skill"} {record.level ? `· Level ${record.level}` : ""}</p>
+                <span>{statusLabel(record.status)}</span>
+                <small>{record.filePath}</small>
+                <small>{record.linkedQuestionIds.length} linked questions</small>
+                {(record.heuristicFlags || []).length > 0 && <small>Flags: {record.heuristicFlags.join(", ")}</small>}
+              </div>
+              <div className="media-qa-card-actions">
+                {MEDIA_QA_STATUSES.filter(status => status !== record.status).map(status => (
+                  <button key={status} onClick={() => applyStatus([record.id], status)} type="button">{statusLabel(status)}</button>
+                ))}
+              </div>
+            </article>
+          ))}
+        </section>
+      ) : (
+        <section className="admin-table-wrap">
+          <table className="dashboard-table admin-table media-qa-table">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Play</th>
+                <th>Target</th>
+                <th>Skill</th>
+                <th>Status</th>
+                <th>Path</th>
+                <th>Linked</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibleRecords.map(record => (
+                <tr key={record.id}>
+                  <td>
+                    <input
+                      checked={selectedSet.has(record.id)}
+                      onChange={event => setSelectedIds(ids => event.target.checked ? [...ids, record.id] : ids.filter(id => id !== record.id))}
+                      type="checkbox"
+                    />
+                  </td>
+                  <td><audio controls src={record.filePath} preload="none" /></td>
+                  <td>{record.targetWord}</td>
+                  <td>{record.skillName}{record.level ? ` · Level ${record.level}` : ""}</td>
+                  <td>{statusLabel(record.status)}</td>
+                  <td>{record.filePath}</td>
+                  <td>{record.linkedQuestionIds.length}</td>
+                  <td>
+                    <div className="button-row">
+                      {MEDIA_QA_STATUSES.filter(status => status !== record.status).map(status => (
+                        <button className="report-button" key={status} onClick={() => applyStatus([record.id], status)} type="button">{statusLabel(status)}</button>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      )}
+    </main>
+  );
+}
 
 export function AdminDashboardPage({
   flags,
@@ -14,9 +299,16 @@ export function AdminDashboardPage({
   deleteClass,
   deleteStudent,
   questionBankCoverage = [],
+  mediaQuestions = [],
   message
 }) {
   const [skillFilter, setSkillFilter] = useState("all");
+  const [adminQaPage, setAdminQaPage] = useState(() => {
+    if (typeof window === "undefined") return "dashboard";
+    if (window.location.pathname.includes("/admin/media/images")) return "images";
+    if (window.location.pathname.includes("/admin/media/audio")) return "audio";
+    return "dashboard";
+  });
   const [templateFilter, setTemplateFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [patternFilter, setPatternFilter] = useState("");
@@ -49,6 +341,22 @@ export function AdminDashboardPage({
     return matchesSkill && matchesTemplate && matchesDifficulty && matchesPattern && matchesMedia && matchesStatus;
   });
 
+  function openAdminQaPage(page) {
+    setAdminQaPage(page);
+    if (typeof window !== "undefined") {
+      const path = page === "images" ? "/admin/media/images" : page === "audio" ? "/admin/media/audio" : "/";
+      window.history.pushState({}, "", path);
+    }
+  }
+
+  if (adminQaPage === "images") {
+    return <MediaQaPage mediaType="image" questions={mediaQuestions} onBack={() => openAdminQaPage("dashboard")} />;
+  }
+
+  if (adminQaPage === "audio") {
+    return <MediaQaPage mediaType="audio" questions={mediaQuestions} onBack={() => openAdminQaPage("dashboard")} />;
+  }
+
   return (
     <main className="admin-dashboard page-stack">
       <section className="card page-stack">
@@ -59,6 +367,12 @@ export function AdminDashboardPage({
           </div>
 
           <div className="button-row admin-controls">
+            <button className="report-button" onClick={() => openAdminQaPage("images")} type="button">
+              Image QA
+            </button>
+            <button className="report-button" onClick={() => openAdminQaPage("audio")} type="button">
+              Audio QA
+            </button>
             <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
               <option value="open">Open flags</option>
               <option value="resolved">Resolved flags</option>

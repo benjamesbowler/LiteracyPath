@@ -2,6 +2,8 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildMediaQaRecords, isQuestionBlockedByMediaQa } from "../src/data/mediaQaManifest.js";
+import { runtimeQuestionSources } from "../src/content/skillMedia/skillAssetRegistry.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -91,6 +93,35 @@ const replacementRows = [
   ["nut", "Shared Short Vowel", "/images/child-mode/short-u/nut.png", "acorn-like prior version", "replaced"]
 ];
 
+function publicFileExists(filePath = "") {
+  if (!filePath) return false;
+  return fs.existsSync(path.join(rootDir, "public", filePath.replace(/^\//, "")));
+}
+
+const mediaQaRecords = buildMediaQaRecords(runtimeQuestionSources, {});
+const mediaQaCounts = mediaQaRecords.reduce((counts, record) => {
+  counts.total += 1;
+  counts[record.mediaType] = (counts[record.mediaType] || 0) + 1;
+  counts[record.status] = (counts[record.status] || 0) + 1;
+  if (!publicFileExists(record.filePath)) counts.missingFile += 1;
+  return counts;
+}, {
+  total: 0,
+  image: 0,
+  audio: 0,
+  unreviewed: 0,
+  approved: 0,
+  rejected: 0,
+  blocked: 0,
+  needs_kimi: 0,
+  missingFile: 0
+});
+const blockedRuntimeQuestions = runtimeQuestionSources.filter(question => isQuestionBlockedByMediaQa(question));
+
+if (blockedRuntimeQuestions.length) {
+  failures.push(`${blockedRuntimeQuestions.length} runtime source questions use blocked/rejected/needs_kimi image media.`);
+}
+
 const strictRequestRows = heuristicRows.map(row => [
   row.word,
   "assessment media manual review",
@@ -151,11 +182,79 @@ ${markdownTable(["Target Word", "Skill", "Exact Output Path", "Reason", "Prompt"
 No audio replacement is requested unless a future audio audit marks a file missing or genuinely broken.
 `);
 
+write(path.join(rootDir, "docs", "assets", "media_qa_admin_pages_report.md"), `# Media QA Admin Pages Report
+
+Date: ${dateStamp}
+
+## Routes Added
+
+- /admin/media/images
+- /admin/media/audio
+
+These routes are available from the admin dashboard buttons and remain behind the existing admin-only app view.
+
+## Data Structure Used
+
+Runtime-friendly QA records are defined by \`src/data/mediaQaManifest.js\`.
+
+Each record supports:
+
+- id
+- mediaType
+- targetWord
+- skillId
+- skillName
+- level
+- filePath
+- linkedQuestionIds
+- status
+- rejectionReason
+- reviewerNotes
+- reviewedAt
+- reviewedBy
+- heuristicFlags
+- replacementPath
+
+Admin status changes are saved locally in \`localStorage\` as \`lpMediaQaOverrides\`. The static seed manifest remains the permanent source-code gate for shipped blocks/rejections.
+
+## Export Behavior
+
+Both Image QA and Audio QA pages export:
+
+- CSV
+- JSON
+- Kimi markdown replacement request
+
+Kimi markdown groups records by skill and includes strict image/audio rules.
+
+## Validation Results
+
+- Total QA records: ${mediaQaCounts.total}
+- Total images: ${mediaQaCounts.image}
+- Total audio: ${mediaQaCounts.audio}
+- Unreviewed: ${mediaQaCounts.unreviewed}
+- Approved: ${mediaQaCounts.approved}
+- Rejected: ${mediaQaCounts.rejected}
+- Blocked: ${mediaQaCounts.blocked}
+- Needs Kimi: ${mediaQaCounts.needs_kimi}
+- Missing file paths/files: ${mediaQaCounts.missingFile}
+- Runtime source questions using blocked/rejected media: ${blockedRuntimeQuestions.length}
+- Confirmed active bad image mappings from visual audit: ${likelyRainbow + knownStillActive + excludedStillActive + semanticFailures}
+
+## Remaining Limitations
+
+- Admin moderation is local-first until a Supabase-backed media QA table is approved.
+- Image blocking takes effect for future question selection in the current browser; source-code seed manifest entries are needed for permanent team-wide blocks.
+- Audio marked blocked/rejected is reported and can be exported, but text-valid questions should degrade by disabling audio rather than crashing.
+`);
+
 console.log("Media quality manifest check complete.");
+console.log(`Media QA records: ${mediaQaCounts.total} (${mediaQaCounts.image} images, ${mediaQaCounts.audio} audio)`);
 console.log(`Manual review image candidates: ${heuristicRows.length}`);
 console.log("Wrote docs/assets/media_replacement_log.md");
 console.log("Wrote docs/assets/rejected_media_manifest.md");
 console.log("Wrote docs/assets/kimi_strict_media_replacement_request.md");
+console.log("Wrote docs/assets/media_qa_admin_pages_report.md");
 
 if (failures.length) {
   failures.forEach(failure => console.error(`- ${failure}`));

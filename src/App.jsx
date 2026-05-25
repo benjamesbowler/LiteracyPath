@@ -79,7 +79,7 @@ import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { shortAEchoCavesQuestions } from "./data/childActivityModels";
 import { audioManifest, audioTextIndex } from "./data/audioManifest";
 import { getApprovedAudioPath, getPreferredAudioPath } from "./data/audioPreferenceManifest";
-import { isQuestionBlockedByMediaQa } from "./data/mediaQaManifest";
+import { isMediaQaRuntimeAllowed, isQuestionBlockedByMediaQa } from "./data/mediaQaManifest";
 import {
   applyQuestionFormatMetadata,
   getQuestionFormatMetadata,
@@ -2435,7 +2435,9 @@ export default function App() {
       seed: Date.now()
     });
 
-    initialSoundRoundQueueRef.current = plan.items;
+    initialSoundRoundQueueRef.current = plan.items.filter(item =>
+      !item.imageUrl || isMediaQaRuntimeAllowed(item.imageUrl, "image")
+    );
     initialSoundRoundMetaRef.current = plan.meta;
 
     debugAssessmentCoverage("initial sound round plan", {
@@ -2493,7 +2495,7 @@ export default function App() {
         : buildInitialSoundRoundQueue().items;
     }
 
-    const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex);
+    const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex && !isQuestionBlockedByMediaQa(q));
     const levelFilteredStageQuestions = isFinalSoundsStage(stage)
       ? stageQuestions.filter(question => getFinalSoundQuestionLevel(question) === getNextFinalSoundLevel())
       : stageQuestions;
@@ -2582,6 +2584,7 @@ export default function App() {
             allowedStageLabels.has(stage.label) &&
             getDiagnosticTarget(question) === weakness.target &&
             !usedQuestionIds.has(question.id) &&
+            !isQuestionBlockedByMediaQa(question) &&
             !wasQuestionAnsweredCorrectly(question, correctMemory)
           );
         });
@@ -3811,6 +3814,7 @@ export default function App() {
       : getPreferredAudioPath(text, audioPath);
 
     if (requireApprovedAudio && !preferredAudioPath) return;
+    if (preferredAudioPath && !isMediaQaRuntimeAllowed(preferredAudioPath, "audio", options)) return;
 
     if (preferredAudioPath) {
       try {
@@ -3835,6 +3839,7 @@ export default function App() {
 
     if (audioEntry?.path) {
       const preferredManifestPath = getPreferredAudioPath(text, audioEntry.path);
+      if (preferredManifestPath && !isMediaQaRuntimeAllowed(preferredManifestPath, "audio", options)) return;
       const audioPaths = audioEntry.kinds?.includes("choice")
         ? [`/audio/choices/${audioKey}.mp3`, preferredManifestPath]
         : [preferredManifestPath];
@@ -5206,6 +5211,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             deleteClass={adminDeleteClass}
             deleteStudent={adminDeleteStudent}
             questionBankCoverage={questionBankCoverage}
+            mediaQuestions={allQuestions}
             message={message}
           />
         </Suspense>

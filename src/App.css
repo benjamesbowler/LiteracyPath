@@ -2176,6 +2176,130 @@ body {
   font-weight: 750;
 }
 
+.media-qa-page {
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+.media-qa-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.media-qa-rules span {
+  padding: 7px 10px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lp-color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.media-qa-bulk-actions {
+  justify-content: center;
+}
+
+.media-qa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.media-qa-card {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+}
+
+.media-qa-card.status-rejected,
+.media-qa-card.status-blocked {
+  border-color: rgba(225, 29, 72, 0.28);
+}
+
+.media-qa-card.status-needs_kimi {
+  border-color: rgba(245, 158, 11, 0.34);
+}
+
+.media-qa-select {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--lp-color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.media-qa-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.media-qa-card h3,
+.media-qa-card p {
+  margin: 0;
+}
+
+.media-qa-card h3 {
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
+  font-size: 1rem;
+}
+
+.media-qa-card p,
+.media-qa-card small {
+  color: var(--lp-color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.media-qa-card span {
+  display: inline-flex;
+  width: fit-content;
+  margin: 6px 0;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.media-qa-card-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.media-qa-card-actions button {
+  min-height: 32px;
+  padding: 6px 8px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 10px;
+  background: #f8fafc;
+  color: var(--lp-color-text-strong);
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+.media-qa-table audio {
+  width: 180px;
+  max-width: 100%;
+}
+
 .guided-reading-image-fallback {
   display: grid;
   place-items: center;
