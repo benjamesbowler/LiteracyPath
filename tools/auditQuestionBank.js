@@ -72,6 +72,7 @@ import {
   getAudioPronunciationIssues,
   getEarlyPhonicsValidityIssues,
   isValidFinalSoundWordForEarlyLevel,
+  isValidFinalSoundWordForLevelTwo,
   isValidInitialSoundWordForEarlyLevel
 } from "../src/data/earlyPhonicsValidation.js";
 import {
@@ -1902,6 +1903,9 @@ function getStartEndSoundStrictIssues(question, stage) {
   const format = String(question.templateType || question.formatType || "").toUpperCase();
   const choices = normalizedChoices(question.choices || []);
   const uniqueChoices = new Set(choices);
+  const level = Number(question.level || question.difficulty || 1);
+  const isValidFinalSoundWord =
+    level >= 2 ? isValidFinalSoundWordForLevelTwo : isValidFinalSoundWordForEarlyLevel;
 
   if (uniqueChoices.size !== choices.length) {
     issues.push("answer options are not unique");
@@ -1934,8 +1938,8 @@ function getStartEndSoundStrictIssues(question, stage) {
     }
 
     if (stage === "Final Sounds") {
-      const badCorrect = correctWords.filter(word => !isValidFinalSoundWordForEarlyLevel(word, key));
-      const badDistractors = distractorWords.filter(word => isValidFinalSoundWordForEarlyLevel(word, key));
+      const badCorrect = correctWords.filter(word => !isValidFinalSoundWord(word, key));
+      const badDistractors = distractorWords.filter(word => isValidFinalSoundWord(word, key));
       if (badCorrect.length > 0) issues.push(`correct words do not match final sound "${key}": ${badCorrect.join(", ")}`);
       if (badDistractors.length > 0) issues.push(`distractors also match final sound "${key}": ${badDistractors.join(", ")}`);
     }
@@ -1965,7 +1969,7 @@ function getStartEndSoundStrictIssues(question, stage) {
     }
 
     if (stage === "Final Sounds") {
-      if (!isValidFinalSoundWordForEarlyLevel(targetWord, answer)) {
+      if (!isValidFinalSoundWord(targetWord, answer)) {
         issues.push(`target word "${targetWord || "(missing)"}" does not match final sound "${answer}"`);
       }
       const accidentalCorrectDistractors = choices.filter(choice => choice !== answer && choice === answer);

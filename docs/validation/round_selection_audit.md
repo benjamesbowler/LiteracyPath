@@ -28,18 +28,25 @@ Runtime selection now rejects duplicate question IDs, target words, itemKeys, co
 
 ## Final Sounds
 
-- Warning: Only 8/15 strict non-duplicate questions are available before a relaxed fallback would be needed.
+- No duplicate warnings in simulated strict selection.
 
 | Selected question ID | Target word | ItemKey | Correct answer | Prompt + answer signature |
 | --- | --- | --- | --- | --- |
 | coverage_final_d_001 | listen and find | d | bed\|mud | listen to each word. which two words end with the same sound?::bed\|mud |
-| ixl_ending_sound_1 | cat | t | t | listen to the word. which sound does it end with?::t |
-| ixl_ending_sound_2 | dog | g | g | listen to the word. which sound does it end with?::g |
-| ixl_ending_sound_4 | map | p | p | listen to the word. which sound does it end with?::p |
-| ixl_ending_sound_5 | pan | n | n | listen to the word. which sound does it end with?::n |
-| ixl_ending_sound_10 | web | b | b | listen to the word. which sound does it end with?::b |
-| ixl_ending_sound_12 | jam | m | m | listen to the word. which sound does it end with?::m |
-| ixl_ending_sound_23 | bell | l | l | listen to the word. which sound does it end with?::l |
+| ending_l1_001_cat | cat | t | t | listen to the word. which sound does it end with?::t |
+| ending_l1_002_dog | dog | g | g | listen to the word. which sound does it end with?::g |
+| ending_l1_004_map | map | p | p | listen to the word. which sound does it end with?::p |
+| ending_l1_005_pan | pan | n | n | listen to the word. which sound does it end with?::n |
+| ending_l1_010_web | web | b | b | listen to the word. which sound does it end with?::b |
+| ending_l1_012_jam | jam | m | m | listen to the word. which sound does it end with?::m |
+| ending_l2_001_fish | fish | sh | sh | listen to the word. which sound does it end with?::sh |
+| ending_l2_004_duck | duck | ck | ck | listen to the word. which sound does it end with?::ck |
+| ending_l2_007_ring | ring | ng | ng | listen to the word. which sound does it end with?::ng |
+| ending_l2_009_hand | hand | nd | nd | listen to the word. which sound does it end with?::nd |
+| ending_l2_010_tent | tent | nt | nt | listen to the word. which sound does it end with?::nt |
+| ending_l2_011_lamp | lamp | mp | mp | listen to the word. which sound does it end with?::mp |
+| ending_l2_012_park | park | rk | rk | listen to the word. which sound does it end with?::rk |
+| ending_l2_014_desk | desk | sk | sk | listen to the word. which sound does it end with?::sk |
 
 ## Rhyming
 

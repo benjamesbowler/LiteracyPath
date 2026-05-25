@@ -4,12 +4,19 @@ import { fileURLToPath } from "node:url";
 import {
   INITIAL_SOUND_LETTERS,
   INITIAL_SOUND_ROUND_LENGTH,
+  initialSoundCoreWords,
+  initialSoundPrioritySubstitutions,
   initialSoundRawWordBank,
+  initialSoundRequestedCoreWords,
   initialSoundWordBank,
   normalizeInitialSoundWord
 } from "../src/content/initialSounds/initialSoundWordBank.js";
 import { getInitialSoundCoverage } from "../src/content/initialSounds/initialSoundCoverage.js";
-import { getInitialSoundRound, getInitialSoundRoundPlan } from "../src/content/initialSounds/initialSoundSelector.js";
+import {
+  buildInitialSoundsProgressFromAnswerHistory,
+  getInitialSoundRound,
+  getInitialSoundRoundPlan
+} from "../src/content/initialSounds/initialSoundSelector.js";
 import { hasImportedInitialSoundMedia } from "../src/content/initialSounds/initialSoundMediaManifest.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -42,12 +49,22 @@ const roundOne = getInitialSoundRound({
   seed: 101
 });
 
+const roundOneHistory = roundOne.map(item => ({
+  skillId: "initial_sounds",
+  stage: "Initial Sounds",
+  skill: "Initial Sounds",
+  questionId: item.id,
+  itemKey: item.letter,
+  itemType: "initial_sound",
+  itemLevel: item.level,
+  targetWord: item.targetWord,
+  diagnosticTarget: item.targetWord,
+  isCorrect: true
+}));
+
 const roundTwo = getInitialSoundRound({
   studentProgress: {
-    assessedLetters: roundOne.map(item => item.letter),
-    masteredLetters: roundOne.slice(0, 8).map(item => item.letter),
-    answeredCorrectWords: roundOne.slice(0, 8).map(item => item.targetWord),
-    answeredCorrectItemIds: roundOne.slice(0, 8).map(item => item.id)
+    initialSoundsProgress: buildInitialSoundsProgressFromAnswerHistory(roundOneHistory)
   },
   level: 1,
   roundNumber: 2,
@@ -127,6 +144,9 @@ Audio:
 - One centered object or scene representing the target word.
 - White or very clean background.
 - Bright, colorful educational style.
+- Cute cartoon educational images are acceptable, but ordinary objects must use natural/realistic colors.
+- Rainbow-colored ordinary objects are forbidden unless the target word is literally \`rainbow\`.
+- Examples: apple should be red or green, zebra should be black and white, cat should use natural cat colors, and nut must be a walnut/peanut/hazelnut-style nut rather than an acorn.
 - No embedded text, labels, captions, or watermarks.
 - No multiple objects unless essential to the word.
 - Consistent visual style across the full pack.
@@ -155,6 +175,19 @@ const coverageRows = coverage.rows.map(row =>
     return `| ${row.letter} | ${row.level1} | ${row.level2} | ${level1Complete} | ${level2Complete} | ${level1Complete ? "yes" : "no"} | ${level2Complete ? "yes" : "no"} | ${row.missingImageCount} | ${row.missingAudioCount} | ${row.inactiveCount} | ${row.warnings.join("; ") || "none"} |`;
   }
 ).join("\n");
+const priorityRows = INITIAL_SOUND_LETTERS.flatMap(letter => [1, 2].map(level => {
+  const requested = initialSoundRequestedCoreWords[level]?.[letter] || "";
+  const selected = initialSoundCoreWords[level]?.[letter] || "";
+  const selectedItem = initialSoundWordBank.find(item =>
+    item.letter === letter &&
+    item.level === level &&
+    normalizeInitialSoundWord(item.targetWord) === normalizeInitialSoundWord(selected)
+  );
+  return `| ${level} | ${letter} | ${requested} | ${selected} | ${selectedItem?.progressionBand || ""} | ${selectedItem?.roundPriority || ""} | ${selectedItem?.active === false ? "blocked" : "active"} |`;
+})).join("\n");
+const substitutionRows = initialSoundPrioritySubstitutions
+  .map(item => `| ${item.level} | ${item.letter} | ${item.requested} | ${item.selected} |`)
+  .join("\n");
 
 write(
   path.join(rootDir, "docs", "validation", "initial_sounds_level_architecture_audit.md"),
@@ -170,7 +203,9 @@ Date: 2026-05-24
 - Duplicate target words: ${duplicateWords.length}
 - Round length: ${INITIAL_SOUND_ROUND_LENGTH}
 - Round 1 sample letters: ${roundOne.map(item => item.letter).join(", ")}
+- Round 1 sample words: ${roundOne.map(item => item.targetWord).join(", ")}
 - Round 2 sample letters: ${roundTwo.map(item => item.letter).join(", ")}
+- Round 2 sample words: ${roundTwo.map(item => item.targetWord).join(", ")}
 - Level 1 available media-complete letters: ${levelOneRoundPlan.meta.availableLetters.join(", ")}
 - Level 1 blocked letters: ${levelOneRoundPlan.meta.blockedLetters.join(", ") || "none"}
 - Level 2 available media-complete letters: ${levelTwoRoundPlan.meta.availableLetters.join(", ")}
@@ -183,6 +218,18 @@ Date: 2026-05-24
 | Letter | Level 1 Items | Level 2 Items | Level 1 Complete | Level 2 Complete | Round 1/2 Eligible | Round 3/4 Eligible | Missing Images | Missing Audio | Inactive | Warnings |
 |---|---:|---:|---:|---:|---|---|---:|---:|---:|---|
 ${coverageRows}
+
+## Initial Sounds Priority Metadata
+
+| Level | Letter | Requested Core Word | Active Core Word | Progression Band | Round Priority | Status |
+|---:|---|---|---|---|---:|---|
+${priorityRows}
+
+## Core Word Substitutions
+
+| Level | Letter | Requested | Selected |
+|---:|---|---|---|
+${substitutionRows || "| - | - | none | none |"}
 
 ${warnings.length ? `## Warnings\n\n${warnings.map(warning => `- ${warning}`).join("\n")}\n` : ""}
 ${failures.length ? `## Failures\n\n${failures.map(failure => `- ${failure}`).join("\n")}\n` : "## Status\n\nPASS\n"}

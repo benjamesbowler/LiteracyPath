@@ -63,7 +63,9 @@ export function makePairSelectionQuestion({
   questionType,
   prompt,
   words,
-  pairVariant = 0
+  pairVariant = 0,
+  level = 1,
+  difficulty = level
 }) {
   const correctWords = words.slice(0, 2);
   const cards = words.map(wordCard);
@@ -73,7 +75,8 @@ export function makePairSelectionQuestion({
     grade: "K",
     skill,
     skillId,
-    difficulty: 1,
+    level,
+    difficulty,
     passage: "",
     question: prompt,
     prompt,
