@@ -1,6 +1,6 @@
 # Image Quality Visual Audit
 
-Generated: 2026-05-25T10:54:08.816Z
+Generated: 2026-05-25T11:13:07.796Z
 
 This audit focuses on assessment media. It uses safe static heuristics only: filenames/paths and exact-file hash comparisons. It does not delete or replace assets automatically.
 

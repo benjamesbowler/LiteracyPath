@@ -13,7 +13,7 @@ import {
   initialSoundRequestedCoreWords,
   initialSoundWordBank
 } from "../src/content/initialSounds/initialSoundWordBank.js";
-import { hasImportedInitialSoundMedia } from "../src/content/initialSounds/initialSoundMediaManifest.js";
+import { hasImportedInitialSoundImage } from "../src/content/initialSounds/initialSoundMediaManifest.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,12 +29,22 @@ function write(filePath, content) {
 
 function completeLetters(level) {
   return INITIAL_SOUND_LETTERS.filter(letter =>
-    initialSoundWordBank.some(item => item.letter === letter && item.level === level && hasImportedInitialSoundMedia(item))
+    initialSoundWordBank.some(item =>
+      item.letter === letter &&
+      item.level === level &&
+      item.active !== false &&
+      hasImportedInitialSoundImage(item)
+    )
   );
 }
 
 function completeCount(letter, level) {
-  return initialSoundWordBank.filter(item => item.letter === letter && item.level === level && hasImportedInitialSoundMedia(item)).length;
+  return initialSoundWordBank.filter(item =>
+    item.letter === letter &&
+    item.level === level &&
+    item.active !== false &&
+    hasImportedInitialSoundImage(item)
+  ).length;
 }
 
 function coreWord(letter, level) {
@@ -57,7 +67,7 @@ function coreWordStatus(letter, level) {
   if (requested === selected) return "as requested";
   if (!requestedItem) return `substituted because requested word "${requested}" is not in Level ${level} bank`;
   if (requestedItem.active === false) return `substituted because requested word "${requested}" is blocked: ${requestedItem.qaNotes || requestedItem.qaStatus || "inactive"}`;
-  if (!hasImportedInitialSoundMedia(requestedItem)) return `substituted because requested word "${requested}" is missing complete media`;
+  if (!hasImportedInitialSoundImage(requestedItem)) return `substituted because requested word "${requested}" is missing imported image`;
   return `substituted to keep Level ${level} difficulty and media safety`;
 }
 
@@ -87,7 +97,7 @@ function simulateRound({ label, level, expectedNewLetters = [] }) {
         item.level === level &&
         item.targetWord.toLowerCase() === coreWord(letter, level)
       );
-      return coreItem?.active !== false && hasImportedInitialSoundMedia(coreItem);
+      return coreItem?.active !== false && hasImportedInitialSoundImage(coreItem);
     })
     .map(letter => `${letter}: expected ${coreWord(letter, level)}, got ${words[letters.indexOf(letter)]}`);
 
@@ -133,8 +143,8 @@ const level2Available = completeLetters(2);
 const level1Blocked = INITIAL_SOUND_LETTERS.filter(letter => !level1Available.includes(letter));
 const level2Blocked = INITIAL_SOUND_LETTERS.filter(letter => !level2Available.includes(letter));
 
-if (level1Blocked.length) warnings.push(`Level 1 blocked letters due to missing complete media: ${level1Blocked.join(", ")}.`);
-if (level2Blocked.length) warnings.push(`Level 2 blocked letters due to missing complete media: ${level2Blocked.join(", ")}.`);
+if (level1Blocked.length) warnings.push(`Level 1 blocked letters due to missing imported image: ${level1Blocked.join(", ")}.`);
+if (level2Blocked.length) warnings.push(`Level 2 blocked letters due to missing imported image: ${level2Blocked.join(", ")}.`);
 
 const round1L1 = simulateRound({
   label: "Round 1 Level 1",

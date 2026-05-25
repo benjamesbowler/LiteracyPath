@@ -45,10 +45,10 @@ Kimi markdown groups records by skill and includes strict image/audio rules.
 
 ## Validation Results
 
-- Total QA records: 4053
-- Total images: 2312
+- Total QA records: 4103
+- Total images: 2362
 - Total audio: 1741
-- Unreviewed: 4053
+- Unreviewed: 4103
 - Approved: 0
 - Rejected: 0
 - Blocked: 0

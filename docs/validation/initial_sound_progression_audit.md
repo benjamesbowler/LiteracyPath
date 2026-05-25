@@ -27,17 +27,17 @@ Date: 2026-05-25
 | l | 10 | 10 | available | available |
 | m | 10 | 10 | available | available |
 | n | 10 | 10 | available | available |
-| o | 10 | 10 | available | available |
+| o | 10 | 8 | available | available |
 | p | 10 | 10 | available | available |
-| q | 10 | 10 | available | available |
+| q | 10 | 4 | available | available |
 | r | 10 | 10 | available | available |
 | s | 10 | 10 | available | available |
 | t | 10 | 10 | available | available |
-| u | 10 | 10 | available | available |
-| v | 10 | 10 | available | available |
+| u | 10 | 6 | available | available |
+| v | 10 | 8 | available | available |
 | w | 10 | 10 | available | available |
-| y | 10 | 10 | available | available |
-| z | 10 | 10 | available | available |
+| y | 10 | 6 | available | available |
+| z | 8 | 3 | available | available |
 
 ## Core Priority Words
 

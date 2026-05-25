@@ -2432,12 +2432,11 @@ export default function App() {
       studentProgress: { initialSoundsProgress: progress },
       level,
       roundNumber: null,
-      seed: Date.now()
+      seed: Date.now(),
+      itemFilter: item => !item.imageUrl || isMediaQaRuntimeAllowed(item.imageUrl, "image")
     });
 
-    initialSoundRoundQueueRef.current = plan.items.filter(item =>
-      !item.imageUrl || isMediaQaRuntimeAllowed(item.imageUrl, "image")
-    );
+    initialSoundRoundQueueRef.current = plan.items;
     initialSoundRoundMetaRef.current = plan.meta;
 
     debugAssessmentCoverage("initial sound round plan", {
