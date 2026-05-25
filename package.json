@@ -14,7 +14,10 @@
     "validate:guided-stories": "node tools/auditGuidedStoryBooks.js",
     "validate:initial-sounds": "node tools/auditInitialSoundArchitecture.js",
     "validate:initial-sounds-media": "node tools/auditInitialSoundsMedia.js",
-    "check:initial-sound-progression": "node tools/checkInitialSoundProgression.js"
+    "check:initial-sound-progression": "node tools/checkInitialSoundProgression.js",
+    "validate:skill-banks": "node tools/auditSkillBanks.js",
+    "check:skill-progression": "node tools/checkSkillProgression.js",
+    "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

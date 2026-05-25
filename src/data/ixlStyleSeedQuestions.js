@@ -137,10 +137,10 @@ const rhymePairs = [
   ["sock", "rock", "bed", "ock"], ["hat", "bat", "fish", "at"], ["nut", "cut", "map", "ut"],
   ["wig", "pig", "sun", "ig"], ["hop", "mop", "bed", "op"], ["ten", "hen", "cup", "en"],
   ["ram", "jam", "fish", "am"], ["cap", "map", "dog", "ap"], ["fin", "pin", "cat", "in"],
-  ["mug", "bug", "dog", "ug"], ["fox", "box", "pan", "ox"], ["duck", "sock", "bed", "ck"],
+  ["mug", "bug", "dog", "ug"], ["fox", "box", "pan", "ox"], ["rock", "sock", "bed", "ock"],
   ["ring", "king", "cat", "ing"], ["bell", "shell", "mop", "ell"], ["chair", "bear", "sun", "air"],
-  ["boat", "coat", "cat", "oat"], ["goat", "coat", "fish", "oat"], ["seed", "bed", "cat", "ed"],
-  ["rain", "pan", "dog", "an"], ["tree", "bee", "cup", "ee"], ["house", "mouse", "cat", "ouse"]
+  ["boat", "coat", "cat", "oat"], ["goat", "coat", "fish", "oat"], ["bee", "tree", "cat", "ee"],
+  ["rain", "train", "dog", "ain"], ["tree", "bee", "cup", "ee"], ["house", "mouse", "cat", "ouse"]
 ];
 
 const shortVowelItems = [
