@@ -15,8 +15,8 @@ Date: 2026-05-24
 - Level 1 blocked letters: none
 - Level 2 available media-complete letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z
 - Level 2 blocked letters: none
-- Missing image files: 7
-- Missing audio files: 2
+- Missing image files: 0
+- Missing audio files: 0
 
 ## Coverage Table
 
@@ -42,19 +42,12 @@ Date: 2026-05-24
 | r | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
 | s | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
 | t | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
-| u | 10 | 10 | 10 | 8 | yes | yes | 2 | 1 | 5 | 2 missing images; 1 missing audio files |
-| v | 10 | 10 | 10 | 8 | yes | yes | 2 | 0 | 3 | 2 missing images |
+| u | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 3 | none |
+| v | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 1 | none |
 | w | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
 | y | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 2 | none |
-| z | 10 | 10 | 9 | 8 | yes | yes | 3 | 1 | 6 | 3 missing images; 1 missing audio files |
+| z | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 4 | none |
 
-## Warnings
-
-- u: 2 missing image files.
-- u: 1 missing audio files.
-- v: 2 missing image files.
-- z: 3 missing image files.
-- z: 1 missing audio files.
 
 ## Status
 

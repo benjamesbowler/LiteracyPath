@@ -1,13 +1,13 @@
 # Image Quality Visual Audit
 
-Generated: 2026-05-25T01:03:40.876Z
+Generated: 2026-05-25T01:56:47.475Z
 
 This audit focuses on assessment media. It uses safe static heuristics only: filenames/paths and exact-file hash comparisons. It does not delete or replace assets automatically.
 
 ## Summary
 
-- Public assessment images scanned: 821
-- Active image-backed assessment mappings scanned: 1632
+- Public assessment images scanned: 828
+- Active image-backed assessment mappings scanned: 1638
 - Likely rainbow/over-stylized active mappings: 0
 - Known unsuitable assessment assets blocked/requested: 3
 - Known unsuitable assets still active: 0

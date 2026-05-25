@@ -33,11 +33,11 @@ Date: 2026-05-25
 | r | 10 | 10 | available | available |
 | s | 10 | 10 | available | available |
 | t | 10 | 10 | available | available |
-| u | 10 | 8 | available | available |
-| v | 10 | 8 | available | available |
+| u | 10 | 10 | available | available |
+| v | 10 | 10 | available | available |
 | w | 10 | 10 | available | available |
 | y | 10 | 10 | available | available |
-| z | 9 | 8 | available | available |
+| z | 10 | 10 | available | available |
 
 ## Round 1 Level 1
 
@@ -54,7 +54,7 @@ Date: 2026-05-25
 - Level: 1
 - Phase: 2
 - Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Target words: pumpkin, quiet, rug, shell, tree, ukulele, violin, wallet, yoyo, zebra, ant, ball, candle, doll, empty
+- Target words: pumpkin, quiet, rug, shell, tree, ukulele, violin, wallet, yoyo, zebra, anchor, box, cup, duck, elf
 - Review letters: a, b, c, d, e
 - Blocked letters: none
 - Missing expected available letters: none
@@ -74,7 +74,7 @@ Date: 2026-05-25
 - Level: 2
 - Phase: 2
 - Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Target words: penguin, quilted blanket, robotics, suitcase, telephone, uphill, veterinarian, woodpecker, yoga mat, zebra crossing, athlete, balloon, calculator, dinosaur, exercise
+- Target words: penguin, quilted blanket, robotics, suitcase, telephone, uniform, vegetable soup, wetsuit, yawning child, zebra mask, apricot, basket, carrot, dinosaur, eggplant
 - Review letters: a, b, c, d, e
 - Blocked letters: none
 - Missing expected available letters: none

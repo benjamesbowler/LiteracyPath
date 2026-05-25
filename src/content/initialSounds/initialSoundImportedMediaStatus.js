@@ -413,6 +413,8 @@ export const initialSoundImageMediaIds = new Set([
   "fs_u_unicycle_l2",
   "fs_u_uniform_l2",
   "fs_u_uphill_l2",
+  "fs_u_utensils_l2",
+  "fs_u_underground_l2",
   "fs_u_unpacking_l2",
   "fs_u_upbeat_l2",
   "fs_u_uplift_l2",
@@ -431,6 +433,8 @@ export const initialSoundImageMediaIds = new Set([
   "fs_v_volleyball_l2",
   "fs_v_veterinarian_l2",
   "fs_v_vegetable-soup_l2",
+  "fs_v_vacation_l2",
+  "fs_v_village_l2",
   "fs_v_video-camera_l2",
   "fs_v_violinist_l2",
   "fs_v_velvet_l2",
@@ -481,6 +485,7 @@ export const initialSoundImageMediaIds = new Set([
   "fs_z_zoo_l1",
   "fs_z_zero_l1",
   "fs_z_zucchini_l1",
+  "fs_z_zigzag_l1",
   "fs_z_zip_l1",
   "fs_z_zone_l1",
   "fs_z_zinnia_l1",
@@ -492,7 +497,9 @@ export const initialSoundImageMediaIds = new Set([
   "fs_z_zinnia-flower_l2",
   "fs_z_zoo-gate_l2",
   "fs_z_zebra-mask_l2",
-  "fs_z_zoo-train_l2"
+  "fs_z_zoo-train_l2",
+  "fs_z_zeppelin_l2",
+  "fs_z_zesty-lemon_l2"
 ]);
 export const initialSoundAudioMediaIds = new Set([
   "fs_a_ant_l1",
@@ -908,6 +915,7 @@ export const initialSoundAudioMediaIds = new Set([
   "fs_u_unicycle_l2",
   "fs_u_uniform_l2",
   "fs_u_uphill_l2",
+  "fs_u_utensils_l2",
   "fs_u_underground_l2",
   "fs_u_unpacking_l2",
   "fs_u_upbeat_l2",
@@ -992,7 +1000,8 @@ export const initialSoundAudioMediaIds = new Set([
   "fs_z_zoo-gate_l2",
   "fs_z_zebra-mask_l2",
   "fs_z_zoo-train_l2",
-  "fs_z_zeppelin_l2"
+  "fs_z_zeppelin_l2",
+  "fs_z_zesty-lemon_l2"
 ]);
 export const initialSoundCompleteMediaIds = new Set([
   "fs_a_ant_l1",
@@ -1408,6 +1417,8 @@ export const initialSoundCompleteMediaIds = new Set([
   "fs_u_unicycle_l2",
   "fs_u_uniform_l2",
   "fs_u_uphill_l2",
+  "fs_u_utensils_l2",
+  "fs_u_underground_l2",
   "fs_u_unpacking_l2",
   "fs_u_upbeat_l2",
   "fs_u_uplift_l2",
@@ -1426,6 +1437,8 @@ export const initialSoundCompleteMediaIds = new Set([
   "fs_v_volleyball_l2",
   "fs_v_veterinarian_l2",
   "fs_v_vegetable-soup_l2",
+  "fs_v_vacation_l2",
+  "fs_v_village_l2",
   "fs_v_video-camera_l2",
   "fs_v_violinist_l2",
   "fs_v_velvet_l2",
@@ -1476,6 +1489,7 @@ export const initialSoundCompleteMediaIds = new Set([
   "fs_z_zoo_l1",
   "fs_z_zero_l1",
   "fs_z_zucchini_l1",
+  "fs_z_zigzag_l1",
   "fs_z_zip_l1",
   "fs_z_zone_l1",
   "fs_z_zinnia_l1",
@@ -1487,5 +1501,7 @@ export const initialSoundCompleteMediaIds = new Set([
   "fs_z_zinnia-flower_l2",
   "fs_z_zoo-gate_l2",
   "fs_z_zebra-mask_l2",
-  "fs_z_zoo-train_l2"
+  "fs_z_zoo-train_l2",
+  "fs_z_zeppelin_l2",
+  "fs_z_zesty-lemon_l2"
 ]);
