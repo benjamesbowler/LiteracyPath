@@ -11,8 +11,8 @@ Date: 2026-05-25
 ## Summary
 
 - Expected content items: 500
-- Active content items: 485
-- Blocked/excluded content items: 15
+- Active content items: 472
+- Blocked/excluded content items: 28
 - Expected image assets: 500
 - Expected audio assets: 500
 - Source image files in archive: 441
@@ -104,19 +104,32 @@ These items stay out of active assessment use. Existing audio is preserved and s
 |---|---:|---|---|---|---|---|
 | o | 2 | opera | /media/initial-sounds/images/o/opera.webp | /media/initial-sounds/audio/o/opera.mp3 | excluded_unsuitable_word | Opera is culturally specific and too hard to image clearly for early Initial Sounds assessment. |
 | o | 2 | observer | /media/initial-sounds/images/o/observer.webp | /media/initial-sounds/audio/o/observer.mp3 | excluded_unsuitable_word | Observer is abstract/role-based and hard to image clearly for early Initial Sounds assessment. |
+| q | 2 | question mark | /media/initial-sounds/images/q/question-mark.webp | /media/initial-sounds/audio/q/question-mark.mp3 | excluded_phrase_target | Question mark is a symbol phrase rather than a clean object target; use question only if explicitly taught. |
+| q | 2 | quilted blanket | /media/initial-sounds/images/q/quilted-blanket.webp | /media/initial-sounds/audio/q/quilted-blanket.mp3 | excluded_phrase_target | Quilted blanket is an adjective phrase; use quilt or blanket in a more appropriate skill. |
+| q | 2 | quail nest | /media/initial-sounds/images/q/quail-nest.webp | /media/initial-sounds/audio/q/quail-nest.mp3 | excluded_phrase_target | Quail nest adds a second object/scene; use quail as the target if needed. |
+| q | 2 | quiet room | /media/initial-sounds/images/q/quiet-room.webp | /media/initial-sounds/audio/q/quiet-room.mp3 | excluded_phrase_target | Quiet room is an abstract setting phrase, not a single concrete Initial Sounds object. |
 | q | 2 | quartz | /media/initial-sounds/images/q/quartz.webp | /media/initial-sounds/audio/q/quartz.mp3 | excluded_unsuitable_word | Quartz is obscure for K-2 Initial Sounds assessment and should not be active without explicit vocabulary teaching. |
 | q | 2 | quiver | /media/initial-sounds/images/q/quiver.webp | /media/initial-sounds/audio/q/quiver.mp3 | excluded_unsuitable_word | Quiver is potentially ambiguous and not a strong K-2 Initial Sounds assessment target. |
 | q | 2 | quickstep | /media/initial-sounds/images/q/quickstep.webp | /media/initial-sounds/audio/q/quickstep.mp3 | excluded_unsuitable_word | Quickstep is obscure/culturally specific and not a strong K-2 Initial Sounds assessment target. |
 | u | 2 | upbeat | /media/initial-sounds/images/u/upbeat.webp | /media/initial-sounds/audio/u/upbeat.mp3 | excluded_unsuitable_word | Upbeat is abstract and hard to image clearly for early Initial Sounds assessment. |
 | u | 2 | uplift | /media/initial-sounds/images/u/uplift.webp | /media/initial-sounds/audio/u/uplift.mp3 | excluded_unsuitable_word | Uplift is abstract and hard to image clearly for early Initial Sounds assessment. |
+| u | 2 | umpire mask | /media/initial-sounds/images/u/umpire-mask.webp | /media/initial-sounds/audio/u/umpire-mask.mp3 | excluded_phrase_target | Umpire mask is a niche object phrase and not a strong early Initial Sounds target. |
 | u | 2 | urban garden | /media/initial-sounds/images/u/urban-garden.webp | /media/initial-sounds/audio/u/urban-garden.mp3 | excluded_unsuitable_word | Urban garden is a phrase with a less clear single target object for early Initial Sounds assessment. |
+| v | 2 | vegetable soup | /media/initial-sounds/images/v/vegetable-soup.webp | /media/initial-sounds/audio/v/vegetable-soup.mp3 | excluded_phrase_target | Vegetable soup is a phrase/meal scene; use vegetable or another single V object. |
 | v | 2 | velvet | /media/initial-sounds/images/v/velvet.webp | /media/initial-sounds/audio/v/velvet.mp3 | excluded_unsuitable_word | Velvet is texture-based and hard to image unambiguously for early Initial Sounds assessment. |
+| y | 2 | yellow jacket | /media/initial-sounds/images/y/yellow-jacket.webp | /media/initial-sounds/audio/y/yellow-jacket.mp3 | excluded_ambiguous_word | Yellow jacket is ambiguous between clothing and insect and is not a clean Initial Sounds target. |
+| y | 2 | yo-yo string | /media/initial-sounds/images/y/yo-yo-string.webp | /media/initial-sounds/audio/y/yo-yo-string.mp3 | excluded_phrase_target | Yo-yo string is an object-part phrase; use yo-yo/yoyo as the target instead. |
 | y | 2 | yodeler | /media/initial-sounds/images/y/yodeler.webp | /media/initial-sounds/audio/y/yodeler.mp3 | excluded_unsuitable_word | Yodeler is culturally specific and not a strong K-2 Initial Sounds assessment target. |
 | y | 2 | yucca plant | /media/initial-sounds/images/y/yucca-plant.webp | /media/initial-sounds/audio/y/yucca-plant.mp3 | excluded_unsuitable_word | Yucca plant is less familiar and not a strong early Initial Sounds target. |
 | z | 1 | zone | /media/initial-sounds/images/z/zone.webp | /media/initial-sounds/audio/z/zone.mp3 | excluded_unsuitable_word | Zone is abstract and hard to image clearly for early Initial Sounds assessment. |
 | z | 1 | zinnia | /media/initial-sounds/images/z/zinnia.webp | /media/initial-sounds/audio/z/zinnia.mp3 | excluded_unsuitable_word | Zinnia is too unusual for this K-2 Initial Sounds assessment bank and should be replaced with a simpler /z/ word. |
+| z | 2 | zebra crossing | /media/initial-sounds/images/z/zebra-crossing.webp | /media/initial-sounds/audio/z/zebra-crossing.mp3 | excluded_phrase_target | Zebra crossing is a culturally variable road-marking phrase, not a single concrete Initial Sounds object. |
 | z | 2 | zinnia flower | /media/initial-sounds/images/z/zinnia-flower.webp | /media/initial-sounds/audio/z/zinnia-flower.mp3 | excluded_unsuitable_word | Zinnia flower is too unusual for this K-2 Initial Sounds assessment bank and should be replaced with a simpler /z/ word. |
+| z | 2 | zoo gate | /media/initial-sounds/images/z/zoo-gate.webp | /media/initial-sounds/audio/z/zoo-gate.mp3 | excluded_phrase_target | Zoo gate is a location/entrance phrase, not a single concrete Initial Sounds object. |
+| z | 2 | zebra mask | /media/initial-sounds/images/z/zebra-mask.webp | /media/initial-sounds/audio/z/zebra-mask.mp3 | excluded_phrase_target | Zebra mask tests mask more than zebra and is visually confusing for Initial Sounds. |
+| z | 2 | zoo train | /media/initial-sounds/images/z/zoo-train.webp | /media/initial-sounds/audio/z/zoo-train.mp3 | excluded_phrase_target | Zoo train is a niche scene/vehicle phrase and not a strong clean /z/ target. |
 | z | 2 | zeppelin | /media/initial-sounds/images/z/zeppelin.webp | /media/initial-sounds/audio/z/zeppelin.mp3 | excluded_unsuitable_word | Zeppelin is obscure for K-2 Initial Sounds assessment and is blocked from active use. |
+| z | 2 | zesty lemon | /media/initial-sounds/images/z/zesty-lemon.webp | /media/initial-sounds/audio/z/zesty-lemon.mp3 | excluded_phrase_target | Zesty lemon is an adjective phrase and visually tests lemon rather than a /z/ target. |
 
 ## Extra Archive Images Not Used
 

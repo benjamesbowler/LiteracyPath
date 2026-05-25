@@ -8,7 +8,13 @@ import {
 import { guidedReadingBooks } from "../data/guidedReadingBooks";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
-const GUIDED_IMAGE_QA_STATUSES = ["unreviewed", "match", "no_match_remake"];
+const GUIDED_IMAGE_QA_STATUSES = [
+  "unreviewed",
+  "match",
+  "no_match_remake",
+  "whole_book_continuity_remake",
+  "whole_book_reject_story"
+];
 
 function downloadTextFile(filename, content, type = "text/plain") {
   const blob = new Blob([content], { type });
@@ -194,10 +200,23 @@ function guidedImageQaToCsv(records) {
 
 function guidedImageQaToKimiMarkdown(records) {
   const remakeRecords = records.filter(record => record.status === "no_match_remake");
+  const wholeBookRecords = records.filter(record => record.status === "whole_book_continuity_remake");
+  const rejectedStoryRecords = records.filter(record => record.status === "whole_book_reject_story");
+  const wholeBookGroups = wholeBookRecords.reduce((map, record) => {
+    const key = record.bookId;
+    map.set(key, [...(map.get(key) || []), record]);
+    return map;
+  }, new Map());
+  const rejectedStoryGroups = rejectedStoryRecords.reduce((map, record) => {
+    const key = record.bookId;
+    map.set(key, [...(map.get(key) || []), record]);
+    return map;
+  }, new Map());
+
   return [
-    "# Kimi Guided Reading Text-Picture Remake Request",
+    "# Kimi Guided Reading Image Remake Request",
     "",
-    "These pages were marked `no match remake image using text` by admin QA.",
+    "These pages/books were marked by admin QA for image remake.",
     "",
     "## Global Image Rules",
     "",
@@ -206,7 +225,69 @@ function guidedImageQaToKimiMarkdown(records) {
     "- Do not illustrate the previous page or the next page.",
     "- No embedded text, captions, labels, or speech bubbles.",
     "- Keep character appearance, clothing, setting, time of day, and art style consistent across the book.",
+    "- For whole-book continuity remakes, generate a completely new matching image set for the full book. Every page must share complete continuity of characters, setting, scene logic, season, time, lighting, props, and style.",
+    "- Do not reuse the previous mismatched image set for whole-book continuity remakes.",
+    "- Whole-book story rejections are not image requests. Do not render images for rejected stories; add replacement books to the next Codex book-development round.",
     "- Use warm, natural colors. No rainbow/fantasy effects unless the text explicitly requires them.",
+    "",
+    "## Whole-Book Story Rejections",
+    "",
+    "These books were rejected because the writing/story was judged weak, lame, nonsensical, or not worth salvaging. Do not create images for these books. Add one replacement book to the next guided story development round for each rejected book.",
+    "",
+    ...[...rejectedStoryGroups.entries()].flatMap(([bookId, rows]) => {
+      const sortedRows = [...rows].sort((a, b) => Number(a.pageNumber || 0) - Number(b.pageNumber || 0));
+      const first = sortedRows[0] || {};
+      return [
+        `## ${first.title || bookId} - Reject Entire Book`,
+        "",
+        `- Book ID: ${bookId}`,
+        `- Level: ${first.level || ""}`,
+        `- Type: ${first.type || ""}`,
+        "- Decision: Reject this whole book from the production queue.",
+        "- Development action: Add `+1 replacement book` to the next guided story development round at the same level/type.",
+        `- Admin notes: ${sortedRows.find(record => record.reviewerNotes)?.reviewerNotes || "Story/writing rejected by admin QA."}`,
+        "",
+        "### Existing Page Text For Reference",
+        "",
+        ...sortedRows.map(record => `- Page ${record.pageNumber}: ${record.text}`)
+      ];
+    }),
+    rejectedStoryGroups.size ? "" : "_None._",
+    "",
+    "## Whole-Book Continuity Remakes",
+    "",
+    ...[...wholeBookGroups.entries()].flatMap(([bookId, rows]) => {
+      const sortedRows = [...rows].sort((a, b) => Number(a.pageNumber || 0) - Number(b.pageNumber || 0));
+      const first = sortedRows[0] || {};
+      return [
+        `## ${first.title || bookId} - Whole New Image Set`,
+        "",
+        `- Book ID: ${bookId}`,
+        `- Level: ${first.level || ""}`,
+        `- Type: ${first.type || ""}`,
+        "- Reason: Admin requested a whole new image set because the current book lacks complete visual continuity.",
+        "- Required continuity: all new images must have complete continuity of characters, setting, scene, season, time of day, lighting, recurring props, and illustration style across the whole book.",
+        "- Kimi instruction: remake the full cover/page image set from the exact app text below. Do not improvise new story details.",
+        "",
+        "### Page Requirements",
+        "",
+        ...sortedRows.map(record => [
+          `#### Page ${record.pageNumber}`,
+          "",
+          `- Current image path: ${record.image}`,
+          `- Required replacement path: ${record.image}`,
+          `- Exact app text: ${record.text}`,
+          `- Admin notes: ${record.reviewerNotes || "Whole-book continuity remake requested."}`,
+          `- Prompt: Create one warm child-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". This page must be part of a completely continuous full-book image set with the same characters, same setting logic, same season/time/lighting continuity, same recurring props, and same art style as all other pages in the book. No embedded text, captions, labels, watermarks, or speech bubbles.`,
+          ""
+        ].join("\n"))
+      ];
+    }),
+    wholeBookGroups.size ? "" : "_None._",
+    "",
+    "## Single-Page Text-Picture Remakes",
+    "",
+    "These pages were marked `no match remake image using text` by admin QA.",
     "",
     ...remakeRecords.map(record => [
       `## ${record.title} - Page ${record.pageNumber}`,
@@ -502,6 +583,22 @@ function GuidedReadingImageQaPage({ onBack }) {
     setOverrides(next);
   }
 
+  function applyWholeBookStatus(bookId, status, defaultNotes) {
+    const next = { ...overrides };
+    records
+      .filter(record => record.bookId === bookId)
+      .forEach(record => {
+        next[record.id] = {
+          ...(next[record.id] || {}),
+          status,
+          reviewerNotes: next[record.id]?.reviewerNotes || defaultNotes,
+          reviewedAt: new Date().toISOString()
+        };
+      });
+    writeGuidedImageQaOverrides(next);
+    setOverrides(next);
+  }
+
   function updateNotes(recordId, reviewerNotes) {
     const next = {
       ...overrides,
@@ -545,12 +642,14 @@ function GuidedReadingImageQaPage({ onBack }) {
         <div className="media-qa-rules">
           <span>text-picture match = keep image</span>
           <span>no match remake image using text = send to Kimi</span>
+          <span>whole book continuity remake = new full image set</span>
+          <span>reject whole book = add +1 replacement book next round</span>
           <span>exact app text is the source of truth</span>
           <span>no embedded text or speech bubbles</span>
           <span>preserve character continuity</span>
         </div>
         <p className="muted-text">
-          {counts.match || 0} matched · {counts.no_match_remake || 0} remake needed · {counts.unreviewed || 0} unreviewed
+          {counts.match || 0} matched · {counts.no_match_remake || 0} page remakes · {counts.whole_book_continuity_remake || 0} continuity remakes · {counts.whole_book_reject_story || 0} story rejections · {counts.unreviewed || 0} unreviewed
         </p>
       </section>
 
@@ -601,6 +700,12 @@ function GuidedReadingImageQaPage({ onBack }) {
                 </button>
                 <button className="report-button danger" onClick={() => applyGuidedStatus(record.id, "no_match_remake")} type="button">
                   No match remake image using text
+                </button>
+                <button className="report-button danger" onClick={() => applyWholeBookStatus(record.bookId, "whole_book_continuity_remake", "Whole-book continuity remake requested.")} type="button">
+                  Whole book continuity remake
+                </button>
+                <button className="report-button danger" onClick={() => applyWholeBookStatus(record.bookId, "whole_book_reject_story", "Whole book rejected; add +1 replacement book to next development round.")} type="button">
+                  Reject whole book/story
                 </button>
                 <button className="report-button" onClick={() => applyGuidedStatus(record.id, "unreviewed")} type="button">
                   Undo

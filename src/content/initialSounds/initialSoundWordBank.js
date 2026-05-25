@@ -271,6 +271,18 @@ const blockedInitialSoundTargets = {
     status: "excluded_unsuitable_word",
     reason: "Quickstep is obscure/culturally specific and not a strong K-2 Initial Sounds assessment target."
   },
+  "quiet-room": {
+    status: "excluded_phrase_target",
+    reason: "Quiet room is an abstract setting phrase, not a single concrete Initial Sounds object."
+  },
+  "quail-nest": {
+    status: "excluded_phrase_target",
+    reason: "Quail nest adds a second object/scene; use quail as the target if needed."
+  },
+  "quilted-blanket": {
+    status: "excluded_phrase_target",
+    reason: "Quilted blanket is an adjective phrase; use quilt or blanket in a more appropriate skill."
+  },
   upbeat: {
     status: "excluded_unsuitable_word",
     reason: "Upbeat is abstract and hard to image clearly for early Initial Sounds assessment."
@@ -283,9 +295,25 @@ const blockedInitialSoundTargets = {
     status: "excluded_unsuitable_word",
     reason: "Urban garden is a phrase with a less clear single target object for early Initial Sounds assessment."
   },
+  "umpire-mask": {
+    status: "excluded_phrase_target",
+    reason: "Umpire mask is a niche object phrase and not a strong early Initial Sounds target."
+  },
   velvet: {
     status: "excluded_unsuitable_word",
     reason: "Velvet is texture-based and hard to image unambiguously for early Initial Sounds assessment."
+  },
+  "vegetable-soup": {
+    status: "excluded_phrase_target",
+    reason: "Vegetable soup is a phrase/meal scene; use vegetable or another single V object."
+  },
+  "yellow-jacket": {
+    status: "excluded_ambiguous_word",
+    reason: "Yellow jacket is ambiguous between clothing and insect and is not a clean Initial Sounds target."
+  },
+  "yo-yo-string": {
+    status: "excluded_phrase_target",
+    reason: "Yo-yo string is an object-part phrase; use yo-yo/yoyo as the target instead."
   },
   yodeler: {
     status: "excluded_unsuitable_word",
@@ -298,6 +326,26 @@ const blockedInitialSoundTargets = {
   zeppelin: {
     status: "excluded_unsuitable_word",
     reason: "Zeppelin is obscure for K-2 Initial Sounds assessment and is blocked from active use."
+  },
+  "zebra-crossing": {
+    status: "excluded_phrase_target",
+    reason: "Zebra crossing is a culturally variable road-marking phrase, not a single concrete Initial Sounds object."
+  },
+  "zebra-mask": {
+    status: "excluded_phrase_target",
+    reason: "Zebra mask tests mask more than zebra and is visually confusing for Initial Sounds."
+  },
+  "zesty-lemon": {
+    status: "excluded_phrase_target",
+    reason: "Zesty lemon is an adjective phrase and visually tests lemon rather than a /z/ target."
+  },
+  "zoo-gate": {
+    status: "excluded_phrase_target",
+    reason: "Zoo gate is a location/entrance phrase, not a single concrete Initial Sounds object."
+  },
+  "zoo-train": {
+    status: "excluded_phrase_target",
+    reason: "Zoo train is a niche scene/vehicle phrase and not a strong clean /z/ target."
   }
 };
 

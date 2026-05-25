@@ -2447,6 +2447,16 @@ body {
   border-color: rgba(225, 29, 72, 0.34);
 }
 
+.guided-image-qa-card.status-whole_book_continuity_remake {
+  border-color: rgba(124, 58, 237, 0.36);
+  background: #fbf7ff;
+}
+
+.guided-image-qa-card.status-whole_book_reject_story {
+  border-color: rgba(180, 83, 9, 0.4);
+  background: #fffbeb;
+}
+
 .guided-image-qa-preview {
   display: grid;
   min-height: 220px;

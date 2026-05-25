@@ -141,17 +141,20 @@ Audio:
 
 ## Image Requirements
 
-- One centered object or scene representing the target word.
-- White or very clean background.
-- Bright, colorful educational style.
-- Cute cartoon educational images are acceptable, but ordinary objects must use natural/realistic colors.
+- One centered target object only unless the word itself is a familiar single-concept compound object.
+- Plain pure white background only (#ffffff).
+- No shadow.
+- No glow, aura, sparkles, confetti, magical effects, or decorative shapes.
+- Cute cartoon educational style is acceptable, but ordinary objects must use natural/original colors.
 - Rainbow-colored ordinary objects are forbidden unless the target word is literally \`rainbow\`.
-- Examples: apple should be red or green, zebra should be black and white, cat should use natural cat colors, and nut must be a walnut/peanut/hazelnut-style nut rather than an acorn.
-- No embedded text, labels, captions, or watermarks.
-- No multiple objects unless essential to the word.
-- Consistent visual style across the full pack.
-- Kindergarten-safe visuals.
-- Use portrait/thumbnail-friendly composition.
+- No faces, eyes, smiles, arms, or legs on objects, food, fruit, vehicles, clothing, tools, body parts, or household items.
+- Animals and people may have normal faces because they naturally have faces.
+- No embedded text, labels, captions, speech bubbles, or watermarks.
+- No dark, black, patterned, scenic, or cluttered backgrounds.
+- The target must be immediately recognizable to a kindergarten child at thumbnail size.
+- Examples: apple should be red or green, zebra should be black and white, egg should be a plain egg with no face, and nut must be a walnut/peanut/hazelnut-style nut rather than an acorn.
+- Do not generate weak phrase targets such as \`zoo gate\`; Codex must replace those targets first.
+- Use one consistent clean cartoon flashcard style across the full pack.
 
 ## Audio Requirements
 

@@ -40,15 +40,15 @@ Date: 2026-05-24
 | n | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
 | o | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 2 | none |
 | p | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
-| q | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 3 | none |
+| q | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 6 | none |
 | r | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
 | s | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
 | t | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
-| u | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 3 | none |
-| v | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 1 | none |
+| u | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 4 | none |
+| v | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 2 | none |
 | w | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 0 | none |
-| y | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 2 | none |
-| z | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 4 | none |
+| y | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 4 | none |
+| z | 10 | 10 | 10 | 10 | yes | yes | 0 | 0 | 9 | none |
 
 ## Initial Sounds Priority Metadata
 
