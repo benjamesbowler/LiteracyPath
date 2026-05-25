@@ -3,9 +3,9 @@
   "title": "Denslow's Three Bears",
   "author": "W. W. Denslow",
   "illustrator": "",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/19772",
+  "sourceUrl": "https://www.loc.gov/item/96779493/",
   "publicDomain": true,
-  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "licenseNote": "Library of Congress public-domain scan of W. W. Denslow's edition. LOC provides a complete PDF/download view; verify the downloaded file before activation.",
   "gradeBand": "K-1",
   "readingType": "guided-reading",
   "difficulty": "early",
@@ -42,6 +42,12 @@
     }
   ],
   "active": false,
-  "downloadStatus": "pending_network_download",
-  "processingStatus": "not_processed"
+  "downloadStatus": "needs_pdf",
+  "processingStatus": "not_processed",
+  "sourcePdfUrl": "https://filecabinet9.eschoolview.com/D64E465C-E09E-4F7D-96F6-C12A63B1F126/ChildrensBookswithNoCopyright.pdf",
+  "pdfUrl": "https://www.loc.gov/resource/rbc0001.2003juv96794/?st=pdf",
+  "downloadPageUrl": "https://www.loc.gov/item/96779493/",
+  "localPdfPath": "/books/public-domain/denslows-three-bears/original.pdf",
+  "pilot": true,
+  "libraryStatus": "needs_pdf"
 }

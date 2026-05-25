@@ -3,9 +3,9 @@
   "title": "A Apple Pie",
   "author": "Kate Greenaway",
   "illustrator": "",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/15809",
+  "sourceUrl": "https://archive.org/details/applepie00gree2",
   "publicDomain": true,
-  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "licenseNote": "Internet Archive scan of Kate Greenaway's public-domain A Apple Pie. Selected from the no-copyright source list and still requires final classroom-use review after page rendering.",
   "gradeBand": "K",
   "readingType": "guided-reading",
   "difficulty": "emergent",
@@ -42,6 +42,12 @@
     }
   ],
   "active": false,
-  "downloadStatus": "pending_network_download",
-  "processingStatus": "not_processed"
+  "downloadStatus": "needs_pdf",
+  "processingStatus": "not_processed",
+  "sourcePdfUrl": "https://filecabinet9.eschoolview.com/D64E465C-E09E-4F7D-96F6-C12A63B1F126/ChildrensBookswithNoCopyright.pdf",
+  "pdfUrl": "https://archive.org/download/applepie00gree2/applepie00gree2.pdf",
+  "downloadPageUrl": "https://archive.org/details/applepie00gree2",
+  "localPdfPath": "/books/public-domain/a-apple-pie/original.pdf",
+  "pilot": true,
+  "libraryStatus": "needs_pdf"
 }

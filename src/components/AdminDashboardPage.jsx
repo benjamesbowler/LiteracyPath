@@ -1,10 +1,14 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   buildMediaQaRecords,
   MEDIA_QA_STATUSES,
   readMediaQaOverrides,
   updateMediaQaRecords
 } from "../data/mediaQaManifest";
+import { guidedReadingBooks } from "../data/guidedReadingBooks";
+
+const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
+const GUIDED_IMAGE_QA_STATUSES = ["unreviewed", "match", "no_match_remake"];
 
 function downloadTextFile(filename, content, type = "text/plain") {
   const blob = new Blob([content], { type });
@@ -69,6 +73,12 @@ function mediaQaToKimiMarkdown(records, mediaType) {
   return [
     `# ${title}`,
     "",
+    "## Status Meanings",
+    "",
+    "- `needs_kimi`: no usable asset is available, so Kimi must create one.",
+    "- `rejected`: an existing asset failed QA and must be replaced with a new asset that meets the rules.",
+    "- `blocked`: do not serve this asset to students; regenerate only if this target should remain active.",
+    "",
     "## Global Rules",
     "",
     globalRules,
@@ -80,9 +90,10 @@ function mediaQaToKimiMarkdown(records, mediaType) {
         `### ${record.targetWord || record.filePath}`,
         "",
         `- Target word/text: ${record.targetWord || ""}`,
+        `- QA status: ${record.status}`,
         `- Required path: ${record.replacementPath || record.filePath}`,
         `- Current path: ${record.filePath}`,
-        `- Reason: ${record.rejectionReason || record.reviewerNotes || (record.heuristicFlags || []).join(", ") || "Needs QA replacement."}`,
+        `- Reason: ${getKimiRequestReason(record)}`,
         `- Prompt: ${mediaType === "image"
           ? `Create one clear, natural-colored, cute educational cartoon image of ${record.targetWord || "the target object"}. ${globalRules}`
           : `Record "${record.targetWord || "target audio"}". ${globalRules}`}`,
@@ -93,7 +104,125 @@ function mediaQaToKimiMarkdown(records, mediaType) {
 }
 
 function statusLabel(status) {
-  return status.replace("_", " ");
+  return status.replaceAll("_", " ");
+}
+
+function getKimiRequestReason(record) {
+  if (record.rejectionReason) return record.rejectionReason;
+  if (record.reviewerNotes) return record.reviewerNotes;
+  if ((record.heuristicFlags || []).length) return record.heuristicFlags.join(", ");
+  if (record.status === "needs_kimi") return "No usable asset is available; create this asset from scratch.";
+  if (record.status === "rejected") return "Existing asset was rejected in QA; replace it with an up-to-spec asset.";
+  if (record.status === "blocked") return "Asset is blocked from student runtime; regenerate only if this target should remain active.";
+  return "Needs QA replacement.";
+}
+
+function readGuidedImageQaOverrides() {
+  if (typeof localStorage === "undefined") return {};
+  try {
+    return JSON.parse(localStorage.getItem(GUIDED_IMAGE_QA_STORAGE_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function writeGuidedImageQaOverrides(overrides = {}) {
+  if (typeof localStorage === "undefined") return;
+  localStorage.setItem(GUIDED_IMAGE_QA_STORAGE_KEY, JSON.stringify(overrides));
+}
+
+function buildGuidedImageQaRecords(overrides = readGuidedImageQaOverrides()) {
+  return guidedReadingBooks.flatMap(book =>
+    (book.pages || []).map(page => {
+      const id = `${book.id}:page-${String(page.pageNumber || 0).padStart(3, "0")}`;
+      return {
+        id,
+        bookId: book.id,
+        title: book.title,
+        level: book.level,
+        type: book.type,
+        reviewMode: Boolean(book.reviewMode),
+        pageNumber: page.pageNumber,
+        text: page.text || "",
+        image: page.image || "",
+        originalImage: page.originalImage || "",
+        imageRemapSourcePage: page.imageRemapSourcePage || "",
+        qaStatus: page.qaStatus || book.qaStatus || "",
+        qaNotes: page.qaNotes || book.qaNotes || "",
+        status: "unreviewed",
+        reviewerNotes: "",
+        reviewedAt: "",
+        ...overrides[id]
+      };
+    })
+  );
+}
+
+function guidedImageQaToCsv(records) {
+  const headers = [
+    "bookId",
+    "title",
+    "level",
+    "type",
+    "pageNumber",
+    "status",
+    "image",
+    "originalImage",
+    "imageRemapSourcePage",
+    "text",
+    "qaStatus",
+    "reviewerNotes"
+  ];
+  return [
+    headers.join(","),
+    ...records.map(record => [
+      record.bookId,
+      record.title,
+      record.level,
+      record.type,
+      record.pageNumber,
+      record.status,
+      record.image,
+      record.originalImage,
+      record.imageRemapSourcePage,
+      record.text,
+      record.qaStatus,
+      record.reviewerNotes
+    ].map(csvEscape).join(","))
+  ].join("\n");
+}
+
+function guidedImageQaToKimiMarkdown(records) {
+  const remakeRecords = records.filter(record => record.status === "no_match_remake");
+  return [
+    "# Kimi Guided Reading Text-Picture Remake Request",
+    "",
+    "These pages were marked `no match remake image using text` by admin QA.",
+    "",
+    "## Global Image Rules",
+    "",
+    "- Use the exact app text as the source of truth.",
+    "- Create a new image that clearly shows the main idea/action of that exact page text.",
+    "- Do not illustrate the previous page or the next page.",
+    "- No embedded text, captions, labels, or speech bubbles.",
+    "- Keep character appearance, clothing, setting, time of day, and art style consistent across the book.",
+    "- Use warm, natural colors. No rainbow/fantasy effects unless the text explicitly requires them.",
+    "",
+    ...remakeRecords.map(record => [
+      `## ${record.title} - Page ${record.pageNumber}`,
+      "",
+      `- Book ID: ${record.bookId}`,
+      `- Level: ${record.level}`,
+      `- Current image path: ${record.image}`,
+      `- Original generated image path: ${record.originalImage || "same as current"}`,
+      `- Image remapped from generated page: ${record.imageRemapSourcePage || "not remapped"}`,
+      `- Required replacement path: ${record.image}`,
+      `- Exact app text: ${record.text}`,
+      `- Admin notes: ${record.reviewerNotes || "Image does not match the page text."}`,
+      `- Prompt: Create one warm child-friendly guided reading illustration for "${record.title}", page ${record.pageNumber}. The image must match this exact page text: "${record.text}". Show the main character(s), setting, and action from this text only. Do not include embedded text, captions, labels, or speech bubbles. Preserve book continuity and natural colors.`,
+      ""
+    ].join("\n"))
+  ].join("\n");
 }
 
 function MediaQaPage({ mediaType, questions = [], onBack }) {
@@ -102,6 +231,7 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
   const [skillFilter, setSkillFilter] = useState("all");
   const [search, setSearch] = useState("");
   const [selectedIds, setSelectedIds] = useState([]);
+  const audioPreviewRef = useRef(null);
   const allRecords = useMemo(() => buildMediaQaRecords(questions, overrides).filter(record => record.mediaType === mediaType), [questions, overrides, mediaType]);
   const skillOptions = useMemo(() => [...new Set(allRecords.map(record => record.skillName || record.skillId).filter(Boolean))].sort(), [allRecords]);
   const visibleRecords = allRecords.filter(record => {
@@ -143,6 +273,19 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
       "short silence before/after only"
     ];
 
+  function playPreviewAudio(filePath) {
+    if (!filePath) return;
+    if (audioPreviewRef.current) {
+      audioPreviewRef.current.pause();
+      audioPreviewRef.current.currentTime = 0;
+    }
+    const audio = new Audio(filePath);
+    audioPreviewRef.current = audio;
+    audio.play().catch(error => {
+      console.warn("Audio QA preview failed", error);
+    });
+  }
+
   function applyStatus(ids, status) {
     if (!ids.length) return;
     const next = updateMediaQaRecords(ids, { status });
@@ -178,6 +321,8 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
 
         <div className="media-qa-rules">
           {qaRules.map(rule => <span key={rule}>{rule}</span>)}
+          <span>needs kimi = no usable asset exists</span>
+          <span>rejected = remake to spec</span>
         </div>
       </section>
 
@@ -262,7 +407,16 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
                       type="checkbox"
                     />
                   </td>
-                  <td><audio controls src={record.filePath} preload="none" /></td>
+                  <td>
+                    <button
+                      aria-label={`Play ${record.targetWord || record.filePath}`}
+                      className="media-qa-play-button"
+                      onClick={() => playPreviewAudio(record.filePath)}
+                      type="button"
+                    >
+                      ▶
+                    </button>
+                  </td>
                   <td>{record.targetWord}</td>
                   <td>{record.skillName}{record.level ? ` · Level ${record.level}` : ""}</td>
                   <td>{statusLabel(record.status)}</td>
@@ -281,6 +435,151 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
           </table>
         </section>
       )}
+    </main>
+  );
+}
+
+function GuidedReadingImageQaPage({ onBack }) {
+  const [overrides, setOverrides] = useState(() => readGuidedImageQaOverrides());
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [bookFilter, setBookFilter] = useState("all");
+  const [levelFilter, setLevelFilter] = useState("all");
+  const [search, setSearch] = useState("");
+  const records = useMemo(() => buildGuidedImageQaRecords(overrides), [overrides]);
+  const bookOptions = useMemo(() => [...new Set(records.map(record => record.title))].sort(), [records]);
+  const levelOptions = useMemo(() => [...new Set(records.map(record => record.level).filter(Boolean))].sort(), [records]);
+  const visibleRecords = records.filter(record => {
+    const query = search.toLowerCase().trim();
+    const matchesSearch = !query || [record.title, record.bookId, record.text, record.image].some(value =>
+      String(value || "").toLowerCase().includes(query)
+    );
+    const matchesStatus = statusFilter === "all" || record.status === statusFilter;
+    const matchesBook = bookFilter === "all" || record.title === bookFilter;
+    const matchesLevel = levelFilter === "all" || record.level === levelFilter;
+    return matchesSearch && matchesStatus && matchesBook && matchesLevel;
+  });
+
+  function applyGuidedStatus(recordId, status) {
+    const next = {
+      ...overrides,
+      [recordId]: {
+        ...(overrides[recordId] || {}),
+        status,
+        reviewedAt: new Date().toISOString()
+      }
+    };
+    writeGuidedImageQaOverrides(next);
+    setOverrides(next);
+  }
+
+  function updateNotes(recordId, reviewerNotes) {
+    const next = {
+      ...overrides,
+      [recordId]: {
+        ...(overrides[recordId] || {}),
+        reviewerNotes,
+        reviewedAt: new Date().toISOString()
+      }
+    };
+    writeGuidedImageQaOverrides(next);
+    setOverrides(next);
+  }
+
+  function exportGuidedQa(format) {
+    const base = "literacypath-guided-reading-image-qa";
+    if (format === "csv") downloadTextFile(`${base}.csv`, guidedImageQaToCsv(visibleRecords), "text/csv");
+    if (format === "json") downloadTextFile(`${base}.json`, JSON.stringify(visibleRecords, null, 2), "application/json");
+    if (format === "kimi") downloadTextFile(`${base}-kimi-remake-request.md`, guidedImageQaToKimiMarkdown(visibleRecords), "text/markdown");
+  }
+
+  const counts = records.reduce((map, record) => {
+    map[record.status] = (map[record.status] || 0) + 1;
+    return map;
+  }, {});
+
+  return (
+    <main className="admin-dashboard page-stack media-qa-page guided-image-qa-page">
+      <section className="card page-stack">
+        <div className="admin-header">
+          <div>
+            <h2>Guided Reading Image QA</h2>
+            <p className="muted-text">Check whether each page picture matches the exact app text. Pages marked no match export as Kimi remake requests.</p>
+          </div>
+          <div className="button-row admin-controls">
+            <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
+            <button className="report-button" onClick={() => exportGuidedQa("csv")} type="button">Export CSV</button>
+            <button className="report-button" onClick={() => exportGuidedQa("json")} type="button">Export JSON</button>
+            <button className="report-button" onClick={() => exportGuidedQa("kimi")} type="button">Export Kimi Remake Request</button>
+          </div>
+        </div>
+        <div className="media-qa-rules">
+          <span>text-picture match = keep image</span>
+          <span>no match remake image using text = send to Kimi</span>
+          <span>exact app text is the source of truth</span>
+          <span>no embedded text or speech bubbles</span>
+          <span>preserve character continuity</span>
+        </div>
+        <p className="muted-text">
+          {counts.match || 0} matched · {counts.no_match_remake || 0} remake needed · {counts.unreviewed || 0} unreviewed
+        </p>
+      </section>
+
+      <section className="report-panel page-stack">
+        <div className="admin-content-filters">
+          <input value={search} onChange={event => setSearch(event.target.value)} placeholder="Search book, page text, or image path" type="search" />
+          <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
+            <option value="all">All statuses</option>
+            {GUIDED_IMAGE_QA_STATUSES.map(status => <option key={status} value={status}>{statusLabel(status)}</option>)}
+          </select>
+          <select value={bookFilter} onChange={event => setBookFilter(event.target.value)}>
+            <option value="all">All books</option>
+            {bookOptions.map(title => <option key={title} value={title}>{title}</option>)}
+          </select>
+          <select value={levelFilter} onChange={event => setLevelFilter(event.target.value)}>
+            <option value="all">All levels</option>
+            {levelOptions.map(level => <option key={level} value={level}>Level {level}</option>)}
+          </select>
+        </div>
+      </section>
+
+      <section className="guided-image-qa-grid">
+        {visibleRecords.map(record => (
+          <article className={`guided-image-qa-card status-${record.status}`} key={record.id}>
+            <div className="guided-image-qa-preview">
+              {record.image ? <img alt={`${record.title} page ${record.pageNumber}`} src={record.image} /> : <span>Missing image</span>}
+            </div>
+            <div className="guided-image-qa-body">
+              <div>
+                <p className="panel-label">{record.bookId} · Level {record.level} · Page {record.pageNumber}</p>
+                <h3>{record.title}</h3>
+                <p className="guided-image-qa-text">{record.text}</p>
+              </div>
+              <small>{record.image}</small>
+              {record.imageRemapSourcePage && (
+                <small>Remapped from generated page {record.imageRemapSourcePage}{record.originalImage ? ` (${record.originalImage})` : ""}</small>
+              )}
+              <span>{statusLabel(record.status)}</span>
+              <textarea
+                aria-label={`Notes for ${record.title} page ${record.pageNumber}`}
+                onChange={event => updateNotes(record.id, event.target.value)}
+                placeholder="Optional notes for Kimi or QA..."
+                value={record.reviewerNotes || ""}
+              />
+              <div className="guided-image-qa-actions">
+                <button className="report-button" onClick={() => applyGuidedStatus(record.id, "match")} type="button">
+                  Text-picture match
+                </button>
+                <button className="report-button danger" onClick={() => applyGuidedStatus(record.id, "no_match_remake")} type="button">
+                  No match remake image using text
+                </button>
+                <button className="report-button" onClick={() => applyGuidedStatus(record.id, "unreviewed")} type="button">
+                  Undo
+                </button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </section>
     </main>
   );
 }
@@ -307,6 +606,7 @@ export function AdminDashboardPage({
     if (typeof window === "undefined") return "dashboard";
     if (window.location.pathname.includes("/admin/media/images")) return "images";
     if (window.location.pathname.includes("/admin/media/audio")) return "audio";
+    if (window.location.pathname.includes("/admin/guided-reading/image-qa")) return "guidedReadingImages";
     return "dashboard";
   });
   const [templateFilter, setTemplateFilter] = useState("all");
@@ -344,7 +644,13 @@ export function AdminDashboardPage({
   function openAdminQaPage(page) {
     setAdminQaPage(page);
     if (typeof window !== "undefined") {
-      const path = page === "images" ? "/admin/media/images" : page === "audio" ? "/admin/media/audio" : "/";
+      const path = page === "images"
+        ? "/admin/media/images"
+        : page === "audio"
+          ? "/admin/media/audio"
+          : page === "guidedReadingImages"
+            ? "/admin/guided-reading/image-qa"
+            : "/";
       window.history.pushState({}, "", path);
     }
   }
@@ -355,6 +661,10 @@ export function AdminDashboardPage({
 
   if (adminQaPage === "audio") {
     return <MediaQaPage mediaType="audio" questions={mediaQuestions} onBack={() => openAdminQaPage("dashboard")} />;
+  }
+
+  if (adminQaPage === "guidedReadingImages") {
+    return <GuidedReadingImageQaPage onBack={() => openAdminQaPage("dashboard")} />;
   }
 
   return (
@@ -372,6 +682,9 @@ export function AdminDashboardPage({
             </button>
             <button className="report-button" onClick={() => openAdminQaPage("audio")} type="button">
               Audio QA
+            </button>
+            <button className="report-button" onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
+              Guided Reading Image QA
             </button>
             <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
               <option value="open">Open flags</option>

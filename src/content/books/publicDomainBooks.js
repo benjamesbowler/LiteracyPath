@@ -1,3 +1,5 @@
+import { publicDomainRuntimeManifest } from "./publicDomainRuntimeManifest.js";
+
 export const publicDomainBookSourcePdf = "https://filecabinet9.eschoolview.com/D64E465C-E09E-4F7D-96F6-C12A63B1F126/ChildrensBookswithNoCopyright.pdf";
 
 const selectedBooks = [
@@ -39,6 +41,33 @@ const selectedBooks = [
   ["willie-mouse", "Willie Mouse", "Alta Tabor", "https://www.gutenberg.org/ebooks/18742", "K-1", "early", ["animals", "family"], ["characters-setting", "retell", "sequencing"], 3]
 ];
 
+const pilotDownloadMetadata = {
+  "a-apple-pie": {
+    pilot: true,
+    sourceUrl: "https://archive.org/details/applepie00gree2",
+    pdfUrl: "https://archive.org/download/applepie00gree2/applepie00gree2.pdf",
+    downloadPageUrl: "https://archive.org/details/applepie00gree2",
+    copyrightNote: "Internet Archive scan of Kate Greenaway's public-domain A Apple Pie. Selected from the no-copyright source list and still requires final classroom-use review after page rendering.",
+    libraryStatus: "needs_pdf"
+  },
+  "the-story-of-the-three-little-pigs": {
+    pilot: true,
+    sourceUrl: "https://www.loc.gov/item/84181093/",
+    pdfUrl: "https://www.loc.gov/resource/rbc0001.2003juv81093/?st=pdf",
+    downloadPageUrl: "https://www.loc.gov/item/84181093/",
+    copyrightNote: "Library of Congress public-domain scan of L. Leslie Brooke's edition. LOC provides a complete PDF/download view; verify the downloaded file before activation.",
+    libraryStatus: "needs_pdf"
+  },
+  "denslows-three-bears": {
+    pilot: true,
+    sourceUrl: "https://www.loc.gov/item/96779493/",
+    pdfUrl: "https://www.loc.gov/resource/rbc0001.2003juv96794/?st=pdf",
+    downloadPageUrl: "https://www.loc.gov/item/96779493/",
+    copyrightNote: "Library of Congress public-domain scan of W. W. Denslow's edition. LOC provides a complete PDF/download view; verify the downloaded file before activation.",
+    libraryStatus: "needs_pdf"
+  }
+};
+
 export const publicDomainBooks = selectedBooks.map(([
   id,
   title,
@@ -49,49 +78,61 @@ export const publicDomainBooks = selectedBooks.map(([
   tags,
   skills,
   suitabilityScore
-]) => ({
-  id,
-  title,
-  author,
-  illustrator: "",
-  sourceUrl,
-  sourcePdfUrl: publicDomainBookSourcePdf,
-  publicDomain: true,
-  licenseNote: "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
-  gradeBand,
-  readingType: "guided-reading",
-  difficulty,
-  tags,
-  skills,
-  suitabilityScore,
-  cover: `/books/public-domain/${id}/cover.webp`,
-  pageCount: 0,
-  estimatedPages: 0,
-  active: false,
-  downloadStatus: "pending_network_download",
-  processingStatus: "not_processed",
-  pages: [],
-  comprehension: [
-    {
-      type: "open-response",
-      question: "Who or what is this book mostly about?",
-      options: [],
-      correctAnswer: ""
-    },
-    {
-      type: "open-response",
-      question: "What happened first, next, and last?",
-      options: [],
-      correctAnswer: ""
-    },
-    {
-      type: "open-response",
-      question: "What is one new or interesting word from this book?",
-      options: [],
-      correctAnswer: ""
-    }
-  ]
-}));
+]) => {
+  const pilot = pilotDownloadMetadata[id] || {};
+  const runtime = publicDomainRuntimeManifest[id] || {};
+  const downloadStatus = pilot.pdfUrl ? "needs_pdf" : "needs_pdf_url";
+  const pages = runtime.pages || [];
+
+  return {
+    id,
+    title,
+    author,
+    illustrator: "",
+    sourceUrl: pilot.sourceUrl || sourceUrl,
+    sourcePdfUrl: publicDomainBookSourcePdf,
+    pdfUrl: pilot.pdfUrl || "",
+    downloadPageUrl: pilot.downloadPageUrl || sourceUrl,
+    localPdfPath: `/books/public-domain/${id}/original.pdf`,
+    publicDomain: true,
+    licenseNote: pilot.copyrightNote || "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+    gradeBand,
+    readingType: "guided-reading",
+    difficulty,
+    tags,
+    skills,
+    suitabilityScore,
+    cover: runtime.cover || `/books/public-domain/${id}/cover.webp`,
+    pageCount: runtime.pageCount || pages.length,
+    estimatedPages: runtime.estimatedPages || pages.length,
+    active: Boolean(runtime.active && pages.length > 0),
+    pilot: Boolean(pilot.pilot),
+    libraryStatus: runtime.libraryStatus || pilot.libraryStatus || downloadStatus,
+    downloadStatus: runtime.downloadStatus || downloadStatus,
+    processingStatus: runtime.processingStatus || "not_processed",
+    pages,
+    comprehension: [
+      {
+        type: "open-response",
+        question: "Who or what is this book mostly about?",
+        options: [],
+        correctAnswer: ""
+      },
+      {
+        type: "open-response",
+        question: "What happened first, next, and last?",
+        options: [],
+        correctAnswer: ""
+      },
+      {
+        type: "open-response",
+        question: "What is one new or interesting word from this book?",
+        options: [],
+        correctAnswer: ""
+      }
+    ]
+  };
+});
 
 export const publicDomainBookSummary = {
   sourcePdfUrl: publicDomainBookSourcePdf,

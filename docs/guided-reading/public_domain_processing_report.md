@@ -1,11 +1,10 @@
 # Public-Domain Book Page Processing Report
 
-Generated: 2026-05-25T05:33:49.158Z
+Generated: 2026-05-25T06:08:36.746Z
 
-Summary: 0 processed, 36 pending.
-Renderer availability: pdftoppm=false, magick=false, convert=false
+Summary: 0 processed, 36 pending, 0 activated.
+Renderer availability: pdftoppm=true, magick=true, convert=true
 
-No PDF/page rendering tool is available in this environment. Install poppler or ImageMagick, then rerun this script.
 - the-tale-of-peter-rabbit: skipped, original.pdf is missing.
 - the-tale-of-benjamin-bunny: skipped, original.pdf is missing.
 - the-tale-of-squirrel-nutkin: skipped, original.pdf is missing.

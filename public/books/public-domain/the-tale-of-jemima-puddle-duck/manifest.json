@@ -42,6 +42,12 @@
     }
   ],
   "active": false,
-  "downloadStatus": "pending_network_download",
-  "processingStatus": "not_processed"
+  "downloadStatus": "needs_pdf_url",
+  "processingStatus": "not_processed",
+  "sourcePdfUrl": "https://filecabinet9.eschoolview.com/D64E465C-E09E-4F7D-96F6-C12A63B1F126/ChildrensBookswithNoCopyright.pdf",
+  "pdfUrl": "",
+  "downloadPageUrl": "https://www.gutenberg.org/ebooks/572",
+  "localPdfPath": "/books/public-domain/the-tale-of-jemima-puddle-duck/original.pdf",
+  "pilot": false,
+  "libraryStatus": "needs_pdf_url"
 }

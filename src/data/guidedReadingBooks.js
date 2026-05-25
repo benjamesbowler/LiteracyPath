@@ -6418,22 +6418,103 @@ const guidedStoryLevelCReviewIds = new Set([
   "gs-c-06"
 ]);
 
+const guidedStoryLevelCImagePageRemap = {
+  "gs-c-01": {
+    1: 2,
+    2: 4,
+    3: 3,
+    4: 8,
+    5: 5,
+    6: 9,
+    7: 7,
+    8: 10,
+    9: 6,
+    10: 10
+  },
+  "gs-c-02": {
+    1: 2,
+    2: 1,
+    3: 3,
+    4: 4,
+    5: 8,
+    6: 6,
+    7: 7,
+    8: 9,
+    9: 10,
+    10: 5
+  },
+  "gs-c-03": {
+    1: 2,
+    2: 3,
+    3: 4,
+    4: 7,
+    5: 5,
+    6: 6,
+    7: 8,
+    8: 9,
+    9: 3,
+    10: 10
+  },
+  "gs-c-04": {
+    1: 9,
+    2: 3,
+    3: 4,
+    4: 5,
+    5: 6,
+    6: 7,
+    7: 5,
+    8: 9,
+    9: 8,
+    10: 10
+  },
+  "gs-c-06": {
+    1: 3,
+    2: 2,
+    3: 1,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 8,
+    8: 7,
+    9: 9,
+    10: 10
+  }
+};
+
+function remapLevelCReviewPageImage(bookId, page = {}) {
+  const sourcePageNumber = guidedStoryLevelCImagePageRemap[bookId]?.[page.pageNumber];
+  if (!sourcePageNumber || sourcePageNumber === page.pageNumber) return page;
+
+  return {
+    ...page,
+    originalImage: page.image,
+    image: `/guided-reading/pages/${bookId}-page-${String(sourcePageNumber).padStart(2, "0")}.webp`,
+    imageRemapSourcePage: sourcePageNumber
+  };
+}
+
 const guidedStoryLevelCReviewBooks = guidedStoryBooks
   .filter(book => guidedStoryLevelCReviewIds.has(book.id))
   .map(book => ({
     ...book,
     active: true,
-    qaStatus: "approved",
-    qaNotes: "Activated for teacher review of the Level C Guided Story image pack. Exact narration audio is still pending, so page audio remains optional/hidden when missing.",
+    qaStatus: "needs_image_alignment_review",
+    qaNotes: "Visible for teacher review only. The first visual audit found page-image sequencing/alignment issues; exact narration audio is still pending.",
+    imageAlignmentStatus: "needs_review",
     reviewMode: true,
-    pages: (book.pages || []).map(page => ({
-      ...page,
-      active: true,
-      qaStatus: "approved",
-      qaNotes: "Activated for teacher review. Page image is imported; exact narration audio is pending.",
-      pageDescription: page.pageDescription || page.requiredAction || page.imageAlt || `${book.title} page ${page.pageNumber}`,
-      targetWords: Array.isArray(page.targetWords) ? page.targetWords : book.targetVocabulary || []
-    }))
+    pages: (book.pages || []).map(page => {
+      const remappedPage = remapLevelCReviewPageImage(book.id, page);
+      return {
+        ...remappedPage,
+        active: true,
+        qaStatus: "needs_image_alignment_review",
+        qaNotes: remappedPage.imageRemapSourcePage
+          ? `Visible for teacher review. Image remapped from generated page ${remappedPage.imageRemapSourcePage}; confirm text-picture alignment.`
+          : "Visible for teacher review. Page image needs alignment review against page text; exact narration audio is pending.",
+        pageDescription: page.pageDescription || page.requiredAction || page.imageAlt || `${book.title} page ${page.pageNumber}`,
+        targetWords: Array.isArray(page.targetWords) ? page.targetWords : book.targetVocabulary || []
+      };
+    })
   }))
   .filter(book => book.coverImage && book.pages.length >= 4);
 

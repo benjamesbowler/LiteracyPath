@@ -3,9 +3,9 @@
   "title": "The Story of the Three Little Pigs",
   "author": "L. Leslie Brooke",
   "illustrator": "",
-  "sourceUrl": "https://www.gutenberg.org/ebooks/18155",
+  "sourceUrl": "https://www.loc.gov/item/84181093/",
   "publicDomain": true,
-  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "licenseNote": "Library of Congress public-domain scan of L. Leslie Brooke's edition. LOC provides a complete PDF/download view; verify the downloaded file before activation.",
   "gradeBand": "K-1",
   "readingType": "guided-reading",
   "difficulty": "early",
@@ -42,6 +42,12 @@
     }
   ],
   "active": false,
-  "downloadStatus": "pending_network_download",
-  "processingStatus": "not_processed"
+  "downloadStatus": "needs_pdf",
+  "processingStatus": "not_processed",
+  "sourcePdfUrl": "https://filecabinet9.eschoolview.com/D64E465C-E09E-4F7D-96F6-C12A63B1F126/ChildrensBookswithNoCopyright.pdf",
+  "pdfUrl": "https://www.loc.gov/resource/rbc0001.2003juv81093/?st=pdf",
+  "downloadPageUrl": "https://www.loc.gov/item/84181093/",
+  "localPdfPath": "/books/public-domain/the-story-of-the-three-little-pigs/original.pdf",
+  "pilot": true,
+  "libraryStatus": "needs_pdf"
 }

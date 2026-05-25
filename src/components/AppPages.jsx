@@ -1686,6 +1686,7 @@ export function GuidedReadingPage({
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const [readerOpen, setReaderOpen] = useState(false);
+  const [libraryShelfMode, setLibraryShelfMode] = useState("guided");
   const [publicDomainFilters, setPublicDomainFilters] = useState({});
   const [publicDomainReaderBook, setPublicDomainReaderBook] = useState(null);
   const [publicDomainProgress, setPublicDomainProgress] = useState(() => loadPublicDomainReadingProgress());
@@ -2088,13 +2089,32 @@ export function GuidedReadingPage({
         </div>
       </section>
 
-      {!readerOpen && reviewModeBooks.length > 0 && (
+      {!readerOpen && (
+        <nav className="guided-reading-submenu" aria-label="Guided reading shelves">
+          <button
+            className={libraryShelfMode === "guided" ? "active" : ""}
+            onClick={() => setLibraryShelfMode("guided")}
+            type="button"
+          >
+            Guided Reading
+          </button>
+          <button
+            className={libraryShelfMode === "public-domain" ? "active" : ""}
+            onClick={() => setLibraryShelfMode("public-domain")}
+            type="button"
+          >
+            Public-Domain Shelf
+          </button>
+        </nav>
+      )}
+
+      {!readerOpen && libraryShelfMode === "guided" && reviewModeBooks.length > 0 && (
         <section className="guided-review-shelf" aria-label="Level C pilot review books">
           <div className="guided-review-shelf-header">
             <div>
               <p className="panel-label">Pilot Review</p>
               <h3>Level C Guided Story Pilot</h3>
-              <p>These books are visible for teacher review. Page art is loaded; narration may still be pending and will not hide the books.</p>
+              <p>These books are visible for teacher review. Page art is loaded, but image/text alignment still needs review and narration may be pending.</p>
             </div>
             <span>{reviewModeBooks.length} books</span>
           </div>
@@ -2116,7 +2136,7 @@ export function GuidedReadingPage({
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
                     <p className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
-                    <p className="guided-book-status">Audio Pending</p>
+                    <p className="guided-book-status">{book.imageAlignmentStatus === "needs_review" ? "Image Review" : "Audio Pending"}</p>
                     <button
                       className="guided-book-action"
                       onClick={() => changeBook(book.id)}
@@ -2132,7 +2152,7 @@ export function GuidedReadingPage({
         </section>
       )}
 
-      {!readerOpen && (
+      {!readerOpen && libraryShelfMode === "public-domain" && (
         <section className="public-domain-library" aria-label="Public-domain guided reading library">
           <div className="public-domain-library-header">
             <div>
@@ -2159,6 +2179,7 @@ export function GuidedReadingPage({
         </section>
       )}
 
+      {!readerOpen && libraryShelfMode === "guided" && (
       <section className="guided-library-breadcrumb" aria-label="Guided reading library path">
         <button
           className={!selectedLibraryType ? "active" : ""}
@@ -2185,11 +2206,13 @@ export function GuidedReadingPage({
         {selectedLibraryLevel && (
           <>
             <span>/</span>
-            <strong>Level {selectedLibraryLevel}</strong>
+          <strong>Level {selectedLibraryLevel}</strong>
           </>
         )}
       </section>
+      )}
 
+      {!readerOpen && libraryShelfMode === "guided" && (
       <section className="guided-reading-library" aria-label="Guided reading library">
         {!selectedLibraryType && (
           <div className="guided-category-grid">
@@ -2253,7 +2276,7 @@ export function GuidedReadingPage({
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
                     <p className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
-                    {book.reviewMode && <p className="guided-book-status">Audio Pending</p>}
+                    {book.reviewMode && <p className="guided-book-status">{book.imageAlignmentStatus === "needs_review" ? "Image Review" : "Audio Pending"}</p>}
                     <button
                       className="guided-book-action"
                       onClick={() => changeBook(book.id)}
@@ -2268,6 +2291,7 @@ export function GuidedReadingPage({
           </div>
         )}
       </section>
+      )}
 
       {readerOpen && !showSummary ? (
         <section className="guided-reader-shell" aria-label={`${selectedBook.title} full-screen reader`}>

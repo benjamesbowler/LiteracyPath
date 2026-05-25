@@ -1,10 +1,10 @@
+import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
+
 export const MEDIA_QA_STATUSES = ["unreviewed", "approved", "rejected", "needs_kimi", "blocked"];
 
 const STORAGE_KEY = "lpMediaQaOverrides";
 const BAD_IMAGE_WORDS = ["rainbow", "sparkle", "sparkly", "glow", "aura", "multicolor", "psychedelic"];
 const BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_kimi"]);
-
-export const mediaQaSeedManifest = [];
 
 export function normalizeMediaPath(filePath = "") {
   return String(filePath || "").trim();
@@ -13,6 +13,43 @@ export function normalizeMediaPath(filePath = "") {
 export function getMediaQaId(mediaType, filePath) {
   return `${mediaType}:${normalizeMediaPath(filePath)}`;
 }
+
+function buildInitialSoundMediaQaSeedManifest() {
+  return initialSoundWordBank.flatMap(item => {
+    const base = {
+      targetWord: item.targetWord,
+      skillId: "initial_sounds",
+      skillName: "Initial Sounds",
+      level: item.level,
+      linkedQuestionIds: [item.id],
+      status: item.active === false ? "blocked" : "unreviewed",
+      rejectionReason: item.active === false ? item.qaNotes || "Inactive Initial Sounds target." : "",
+      reviewerNotes: item.active === false ? item.qaStatus || "" : "",
+      reviewedAt: "",
+      reviewedBy: "",
+      replacementPath: ""
+    };
+
+    return [
+      {
+        ...base,
+        id: getMediaQaId("image", item.imageUrl),
+        mediaType: "image",
+        filePath: item.imageUrl,
+        heuristicFlags: getHeuristicFlags("image", item.imageUrl)
+      },
+      {
+        ...base,
+        id: getMediaQaId("audio", item.audioUrl),
+        mediaType: "audio",
+        filePath: item.audioUrl,
+        heuristicFlags: []
+      }
+    ];
+  });
+}
+
+export const mediaQaSeedManifest = buildInitialSoundMediaQaSeedManifest();
 
 export function readMediaQaOverrides() {
   if (typeof localStorage === "undefined") return {};
@@ -101,7 +138,27 @@ export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverr
   }
 
   for (const seed of mediaQaSeedManifest) {
-    records.set(seed.id, { ...records.get(seed.id), ...seed });
+    const existing = records.get(seed.id);
+    records.set(seed.id, {
+      ...seed,
+      ...(existing || {}),
+      targetWord: existing?.targetWord || seed.targetWord,
+      skillId: existing?.skillId || seed.skillId,
+      skillName: existing?.skillName || seed.skillName,
+      level: existing?.level || seed.level,
+      linkedQuestionIds: [
+        ...new Set([
+          ...(seed.linkedQuestionIds || []),
+          ...(existing?.linkedQuestionIds || [])
+        ])
+      ],
+      heuristicFlags: [
+        ...new Set([
+          ...(seed.heuristicFlags || []),
+          ...(existing?.heuristicFlags || [])
+        ])
+      ]
+    });
   }
 
   return [...records.values()].map(record => ({

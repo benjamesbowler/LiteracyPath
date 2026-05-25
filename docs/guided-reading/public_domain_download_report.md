@@ -1,8 +1,8 @@
 # Public-Domain Book Download Report
 
-Generated: 2026-05-25T05:33:48.744Z
+Generated: 2026-05-25T06:07:26.360Z
 
-Summary: 0 downloaded, 36 pending exact URLs, 0 failed.
+Summary: 0 downloaded/already local, 33 pending exact URLs, 3 failed, 3 exact pilot URL(s) available.
 This script creates book folders and manifests first, then attempts downloads when a verified source URL is available.
 
 - The Tale of Peter Rabbit: manifest created, PDF URL pending exact edition verification.
@@ -13,11 +13,11 @@ This script creates book folders and manifests first, then attempts downloads wh
 - The Tale of Tom Kitten: manifest created, PDF URL pending exact edition verification.
 - The Tale of Mrs. Tiggy-Winkle: manifest created, PDF URL pending exact edition verification.
 - The Tale of Mr. Jeremy Fisher: manifest created, PDF URL pending exact edition verification.
-- The Story of the Three Little Pigs: manifest created, PDF URL pending exact edition verification.
+- The Story of the Three Little Pigs: download failed from https://www.loc.gov/resource/rbc0001.2003juv81093/?st=pdf (fetch failed)
 - The Little Red Hen: manifest created, PDF URL pending exact edition verification.
-- Denslow's Three Bears: manifest created, PDF URL pending exact edition verification.
+- Denslow's Three Bears: download failed from https://www.loc.gov/resource/rbc0001.2003juv96794/?st=pdf (fetch failed)
 - The Gingerbread Man: manifest created, PDF URL pending exact edition verification.
-- A Apple Pie: manifest created, PDF URL pending exact edition verification.
+- A Apple Pie: download failed from https://archive.org/download/applepie00gree2/applepie00gree2.pdf (fetch failed)
 - The Funny Alphabet: manifest created, PDF URL pending exact edition verification.
 - The Absurd ABC: manifest created, PDF URL pending exact edition verification.
 - Johnny Crow's Garden: manifest created, PDF URL pending exact edition verification.
