@@ -13,7 +13,8 @@
     "validate:guided-reading-regen": "node tools/validateGuidedReadingRegenPack.js",
     "validate:guided-stories": "node tools/auditGuidedStoryBooks.js",
     "validate:initial-sounds": "node tools/auditInitialSoundArchitecture.js",
-    "validate:initial-sounds-media": "node tools/auditInitialSoundsMedia.js"
+    "validate:initial-sounds-media": "node tools/auditInitialSoundsMedia.js",
+    "check:initial-sound-progression": "node tools/checkInitialSoundProgression.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

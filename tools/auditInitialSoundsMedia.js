@@ -136,7 +136,15 @@ function levelRows(letter) {
       fs.existsSync(projectFileForUrl(item.imageUrl)) && fs.existsSync(projectFileForUrl(item.audioUrl))
     ).length;
 
-    return { level, expected: items.length, imageCount, audioCount, completeCount };
+    return {
+      level,
+      expected: items.length,
+      imageCount,
+      audioCount,
+      completeCount,
+      canAppearInProgression: completeCount > 0,
+      blockedReason: completeCount > 0 ? "" : "blocked: no complete image+audio pair"
+    };
   });
 
   return rows;
@@ -245,7 +253,7 @@ if (missingImageItems.length) failures.push(`${missingImageItems.length} active 
 if (missingAudioItems.length) failures.push(`${missingAudioItems.length} active Initial Sounds items are missing audio.`);
 
 const perLetterRows = INITIAL_SOUND_LETTERS.flatMap(letter => levelRows(letter).map(row =>
-  `| ${letter} | ${row.level} | ${row.expected} | ${row.imageCount} | ${row.audioCount} | ${row.completeCount} | ${row.expected - row.completeCount} |`
+  `| ${letter} | ${row.level} | ${row.expected} | ${row.imageCount} | ${row.audioCount} | ${row.completeCount} | ${row.expected - row.completeCount} | ${row.canAppearInProgression ? "yes" : "no"} | ${row.blockedReason || "none"} |`
 )).join("\n");
 
 const missingRows = initialSoundWordBank
@@ -296,8 +304,8 @@ Date: 2026-05-25
 
 ## Per-Letter Coverage
 
-| Letter | Level | Expected Items | Images Present | Audio Present | Complete Pairs | Missing Complete Pairs |
-|---|---:|---:|---:|---:|---:|---:|
+| Letter | Level | Expected Items | Images Present | Audio Present | Complete Pairs | Missing Complete Pairs | Can Appear In Rounds | Blocked Reason |
+|---|---:|---:|---:|---:|---:|---:|---|---|
 ${perLetterRows}
 
 ## Missing Required Assets

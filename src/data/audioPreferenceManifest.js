@@ -1,4 +1,6 @@
 import { getKimiCleanAudio } from "./kimiCleanAudioManifest.js";
+import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
+import { initialSoundAudioMediaIds } from "../content/initialSounds/initialSoundImportedMediaStatus.js";
 
 function normalizeAudioPreferenceKey(value) {
   return String(value || "")
@@ -236,6 +238,11 @@ export const audioPreferenceManifest = Object.fromEntries([
 ]);
 
 const pathToPreference = new Map();
+const approvedInitialSoundAudioPaths = new Set(
+  initialSoundWordBank
+    .filter(item => initialSoundAudioMediaIds.has(item.id))
+    .map(item => item.audioUrl)
+);
 
 for (const preference of Object.values(audioPreferenceManifest)) {
   for (const deprecatedPath of preference.deprecatedAudioPaths || []) {
@@ -274,6 +281,8 @@ export function getPreferredAudioPath(keyOrText, fallbackPath = "") {
 }
 
 export function getApprovedAudioPath(keyOrText, fallbackPath = "") {
+  if (fallbackPath && approvedInitialSoundAudioPaths.has(fallbackPath)) return fallbackPath;
+
   const preference = getAudioPreferenceForPath(fallbackPath) || getAudioPreference(keyOrText);
 
   if (!preference || preference.status !== "approved") return "";

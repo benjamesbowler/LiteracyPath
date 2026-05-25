@@ -9,7 +9,8 @@ import {
   normalizeInitialSoundWord
 } from "../src/content/initialSounds/initialSoundWordBank.js";
 import { getInitialSoundCoverage } from "../src/content/initialSounds/initialSoundCoverage.js";
-import { getInitialSoundRound } from "../src/content/initialSounds/initialSoundSelector.js";
+import { getInitialSoundRound, getInitialSoundRoundPlan } from "../src/content/initialSounds/initialSoundSelector.js";
+import { hasImportedInitialSoundMedia } from "../src/content/initialSounds/initialSoundMediaManifest.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -52,6 +53,8 @@ const roundTwo = getInitialSoundRound({
   roundNumber: 2,
   seed: 202
 });
+const levelOneRoundPlan = getInitialSoundRoundPlan({ studentProgress: {}, level: 1, roundNumber: null, seed: 303 });
+const levelTwoRoundPlan = getInitialSoundRoundPlan({ studentProgress: {}, level: 2, roundNumber: null, seed: 404 });
 
 if (roundOne.length !== INITIAL_SOUND_ROUND_LENGTH) failures.push(`Round 1 length is ${roundOne.length}, expected ${INITIAL_SOUND_ROUND_LENGTH}.`);
 if (roundTwo.length !== INITIAL_SOUND_ROUND_LENGTH) failures.push(`Round 2 length is ${roundTwo.length}, expected ${INITIAL_SOUND_ROUND_LENGTH}.`);
@@ -146,7 +149,11 @@ ${mediaRequestSections}
 );
 
 const coverageRows = coverage.rows.map(row =>
-  `| ${row.letter} | ${row.level1} | ${row.level2} | ${row.total} | ${row.missingImageCount} | ${row.missingAudioCount} | ${row.inactiveCount} | ${row.warnings.join("; ") || "none"} |`
+  {
+    const level1Complete = initialSoundWordBank.filter(item => item.letter === row.letter && item.level === 1 && hasImportedInitialSoundMedia(item)).length;
+    const level2Complete = initialSoundWordBank.filter(item => item.letter === row.letter && item.level === 2 && hasImportedInitialSoundMedia(item)).length;
+    return `| ${row.letter} | ${row.level1} | ${row.level2} | ${level1Complete} | ${level2Complete} | ${level1Complete ? "yes" : "no"} | ${level2Complete ? "yes" : "no"} | ${row.missingImageCount} | ${row.missingAudioCount} | ${row.inactiveCount} | ${row.warnings.join("; ") || "none"} |`;
+  }
 ).join("\n");
 
 write(
@@ -164,13 +171,17 @@ Date: 2026-05-24
 - Round length: ${INITIAL_SOUND_ROUND_LENGTH}
 - Round 1 sample letters: ${roundOne.map(item => item.letter).join(", ")}
 - Round 2 sample letters: ${roundTwo.map(item => item.letter).join(", ")}
+- Level 1 available media-complete letters: ${levelOneRoundPlan.meta.availableLetters.join(", ")}
+- Level 1 blocked letters: ${levelOneRoundPlan.meta.blockedLetters.join(", ") || "none"}
+- Level 2 available media-complete letters: ${levelTwoRoundPlan.meta.availableLetters.join(", ")}
+- Level 2 blocked letters: ${levelTwoRoundPlan.meta.blockedLetters.join(", ") || "none"}
 - Missing image files: ${coverage.missingImages}
 - Missing audio files: ${coverage.missingAudio}
 
 ## Coverage Table
 
-| Letter | Level 1 | Level 2 | Total | Missing Images | Missing Audio | Inactive | Warnings |
-|---|---:|---:|---:|---:|---:|---:|---|
+| Letter | Level 1 Items | Level 2 Items | Level 1 Complete | Level 2 Complete | Round 1/2 Eligible | Round 3/4 Eligible | Missing Images | Missing Audio | Inactive | Warnings |
+|---|---:|---:|---:|---:|---|---|---:|---:|---:|---|
 ${coverageRows}
 
 ${warnings.length ? `## Warnings\n\n${warnings.map(warning => `- ${warning}`).join("\n")}\n` : ""}

@@ -7,6 +7,123 @@ import { hasImportedInitialSoundMedia } from "./initialSoundMediaManifest.js";
 import { buildAdaptiveRound, createSeededRandom, shuffleItems } from "../../utils/adaptiveRoundBuilder.js";
 
 const normalizeSet = value => new Set(Array.isArray(value) ? value.map(String) : []);
+const levelKey = level => `level${Number(level) === 2 ? 2 : 1}`;
+const emptyLevelProgress = () => ({
+  coveredLetters: [],
+  masteredLetters: [],
+  usedTargetWordsByLetter: {},
+  incorrectLetters: [],
+  recentlySeenWords: []
+});
+
+function normalizeUsedWords(value = {}) {
+  return Object.fromEntries(
+    Object.entries(value || {}).map(([letter, words]) => [
+      String(letter),
+      Array.isArray(words) ? words.map(String) : []
+    ])
+  );
+}
+
+export function normalizeInitialSoundsProgress(studentProgress = {}) {
+  const provided = studentProgress.initialSoundsProgress || {};
+  const legacyCovered = studentProgress.assessedLetters || studentProgress.seenItemKeys || [];
+  const legacyMastered = studentProgress.masteredLetters || studentProgress.masteredItemKeys || [];
+  const legacyIncorrect = studentProgress.incorrectLetters || studentProgress.unmasteredLetters || [];
+
+  return [1, 2].reduce((progress, level) => {
+    const key = levelKey(level);
+    const source = provided[key] || {};
+    const shouldUseLegacy = level === 1 && Object.keys(provided).length === 0;
+
+    progress[key] = {
+      coveredLetters: [...normalizeSet(source.coveredLetters || (shouldUseLegacy ? legacyCovered : []))],
+      masteredLetters: [...normalizeSet(source.masteredLetters || (shouldUseLegacy ? legacyMastered : []))],
+      usedTargetWordsByLetter: normalizeUsedWords(source.usedTargetWordsByLetter || {}),
+      incorrectLetters: [...normalizeSet(source.incorrectLetters || (shouldUseLegacy ? legacyIncorrect : []))],
+      recentlySeenWords: Array.isArray(source.recentlySeenWords) ? source.recentlySeenWords.map(String) : []
+    };
+
+    return progress;
+  }, {});
+}
+
+export function buildInitialSoundsProgressFromAnswerHistory(answerHistory = []) {
+  const progress = {
+    level1: emptyLevelProgress(),
+    level2: emptyLevelProgress()
+  };
+
+  (answerHistory || [])
+    .filter(record =>
+      (record.skillId === "initial_sounds" || record.stage === "Initial Sounds" || record.skill === "Initial Sounds" || record.skill === "initial sounds") &&
+      record.itemKey
+    )
+    .forEach(record => {
+      const level = Number(record.itemLevel || record.level) === 2 ? 2 : 1;
+      const key = levelKey(level);
+      const letter = String(record.itemKey || "").toLowerCase();
+      const word = String(record.targetWord || record.diagnosticTarget || "").toLowerCase();
+      if (!INITIAL_SOUND_LETTERS.includes(letter)) return;
+
+      const levelProgress = progress[key];
+      if (!levelProgress.coveredLetters.includes(letter)) levelProgress.coveredLetters.push(letter);
+      if (record.isCorrect && !levelProgress.masteredLetters.includes(letter)) levelProgress.masteredLetters.push(letter);
+      if (!record.isCorrect && !levelProgress.incorrectLetters.includes(letter)) levelProgress.incorrectLetters.push(letter);
+      if (word) {
+        levelProgress.usedTargetWordsByLetter[letter] = [
+          ...(levelProgress.usedTargetWordsByLetter[letter] || []),
+          word
+        ].filter((item, index, list) => list.indexOf(item) === index);
+        levelProgress.recentlySeenWords = [...levelProgress.recentlySeenWords, word].slice(-45);
+      }
+    });
+
+  return progress;
+}
+
+function getMediaCompleteLetters(level) {
+  return INITIAL_SOUND_LETTERS.filter(letter =>
+    initialSoundWordBank.some(item => item.letter === letter && item.level === level && item.active !== false && hasImportedInitialSoundMedia(item))
+  );
+}
+
+function itemsForLetter({ letter, level, includeInactive, requireImportedMedia }) {
+  return initialSoundWordBank.filter(item =>
+    item.letter === letter &&
+    item.level === level &&
+    (includeInactive || item.active !== false) &&
+    (!requireImportedMedia || hasImportedInitialSoundMedia(item))
+  );
+}
+
+function pickItemForLetter({ letter, level, progress, includeInactive, requireImportedMedia, random }) {
+  const items = itemsForLetter({ letter, level, includeInactive, requireImportedMedia });
+  const usedWords = new Set((progress.usedTargetWordsByLetter?.[letter] || []).map(word => String(word).toLowerCase()));
+  const unused = items.filter(item => !usedWords.has(String(item.targetWord).toLowerCase()));
+  const pool = unused.length ? unused : items;
+  if (!pool.length) return null;
+  return shuffleItems(pool, random)[0];
+}
+
+function inferRoundPhase({ level, progress, roundNumber, availableLetters }) {
+  if (Number.isFinite(Number(roundNumber)) && Number(roundNumber) > 0) {
+    return Number(roundNumber);
+  }
+
+  const coveredAvailableCount = availableLetters.filter(letter => progress.coveredLetters.includes(letter)).length;
+  if (coveredAvailableCount < INITIAL_SOUND_ROUND_LENGTH) return 1;
+  if (coveredAvailableCount < availableLetters.length) return 2;
+  return 3;
+}
+
+function stableShuffleLetters(letters, random) {
+  return shuffleItems(letters, random).sort((a, b) => {
+    const ai = INITIAL_SOUND_LETTERS.indexOf(a);
+    const bi = INITIAL_SOUND_LETTERS.indexOf(b);
+    return ai - bi;
+  });
+}
 
 function getProgressSets(studentProgress = {}) {
   return {
@@ -69,59 +186,128 @@ function randomizeAnswerOptions(item, random) {
 export function getInitialSoundRound({
   studentProgress = {},
   level = 1,
-  roundNumber = 1,
+  roundNumber = null,
   seed = Date.now(),
   includeInactive = false,
   requireImportedMedia = true
 } = {}) {
   const safeLevel = Number(level) === 2 ? 2 : 1;
-  const sets = getProgressSets(studentProgress);
   const random = createSeededRandom(seed);
-  const baseItems = initialSoundWordBank.filter(item => {
-    const isCurrentLevel = item.level === safeLevel;
-    const isHarderReview =
-      safeLevel === 1 &&
-      roundNumber > 1 &&
-      item.level === 2 &&
-      sets.assessedLetters.has(item.letter);
-    return (isCurrentLevel || isHarderReview) &&
-      (includeInactive || item.active !== false) &&
-      (!requireImportedMedia || hasImportedInitialSoundMedia(item)) &&
-      INITIAL_SOUND_LETTERS.includes(item.letter);
-  });
+  return getInitialSoundRoundPlan({
+    studentProgress,
+    level: safeLevel,
+    roundNumber,
+    seed,
+    includeInactive,
+    requireImportedMedia
+  }).items.map(item => randomizeAnswerOptions(item, random));
+}
 
-  const remainingUnmasteredLetters = INITIAL_SOUND_LETTERS.filter(letter => !sets.masteredLetters.has(letter));
-  const unseenLetters = remainingUnmasteredLetters.filter(letter => !sets.assessedLetters.has(letter));
-  const reviewLetters = INITIAL_SOUND_LETTERS.filter(letter => sets.assessedLetters.has(letter));
-  const roundTwoReviewLetters = roundNumber === 2 ? reviewLetters.slice(0, 5) : [];
-  const preferredLetters = new Set(roundNumber === 1
-    ? unseenLetters.slice(0, INITIAL_SOUND_ROUND_LENGTH)
-    : [...unseenLetters, ...roundTwoReviewLetters]
-  );
+export function getInitialSoundRoundPlan({
+  studentProgress = {},
+  level = 1,
+  roundNumber = null,
+  seed = Date.now(),
+  includeInactive = false,
+  requireImportedMedia = true
+} = {}) {
+  const safeLevel = Number(level) === 2 ? 2 : 1;
+  const random = createSeededRandom(seed);
+  const progress = normalizeInitialSoundsProgress(studentProgress)[levelKey(safeLevel)] || emptyLevelProgress();
+  const availableLetters = getMediaCompleteLetters(safeLevel);
+  const blockedLetters = INITIAL_SOUND_LETTERS.filter(letter => !availableLetters.includes(letter));
+  const phase = inferRoundPhase({ level: safeLevel, progress, roundNumber, availableLetters });
+  const covered = new Set(progress.coveredLetters || []);
+  const mastered = new Set(progress.masteredLetters || []);
+  const incorrect = new Set(progress.incorrectLetters || []);
+  const uncoveredLetters = availableLetters.filter(letter => !covered.has(letter));
+  const reviewLetters = availableLetters.filter(letter => covered.has(letter));
+  const weakLetters = availableLetters.filter(letter => incorrect.has(letter) || (covered.has(letter) && !mastered.has(letter)));
 
-  const scored = baseItems
-    .map(item => ({
-      ...item,
-      selectionReason: selectionReasonFor(item, sets, { level: safeLevel, roundNumber }),
-      selectionScore:
-        scoreItem(item, sets, { level: safeLevel, roundNumber }) +
-        (preferredLetters.has(item.letter) ? 22 : 0) +
-        (item.level > safeLevel ? 45 : 0) +
-        random() * 0.01
-    }))
-    .sort((a, b) => b.selectionScore - a.selectionScore || a.letter.localeCompare(b.letter));
+  let selectedLetters = [];
+  let reviewSelected = [];
 
-  const selected = buildAdaptiveRound({
-    candidates: scored,
-    roundLength: INITIAL_SOUND_ROUND_LENGTH,
-    random,
-    itemKey: item => item.letter,
-    targetKey: item => item.targetWord,
-    canRepeatItemKey: false,
-    preserveCandidateOrder: true
-  });
+  if (phase === 1) {
+    selectedLetters = uncoveredLetters.slice(0, INITIAL_SOUND_ROUND_LENGTH);
+  } else if (phase === 2) {
+    const remaining = uncoveredLetters;
+    const reviewNeeded = Math.max(0, INITIAL_SOUND_ROUND_LENGTH - remaining.length);
+    reviewSelected = reviewLetters.slice(0, reviewNeeded);
+    selectedLetters = [...remaining, ...reviewSelected];
+  } else {
+    const weak = weakLetters.slice(0, INITIAL_SOUND_ROUND_LENGTH);
+    const unusedReview = availableLetters
+      .filter(letter => !weak.includes(letter))
+      .filter(letter => {
+        const items = itemsForLetter({ letter, level: safeLevel, includeInactive, requireImportedMedia });
+        const used = new Set((progress.usedTargetWordsByLetter?.[letter] || []).map(word => String(word).toLowerCase()));
+        return items.some(item => !used.has(String(item.targetWord).toLowerCase()));
+      });
+    const filler = availableLetters.filter(letter => !weak.includes(letter) && !unusedReview.includes(letter));
+    selectedLetters = [...weak, ...unusedReview, ...filler].slice(0, INITIAL_SOUND_ROUND_LENGTH);
+    reviewSelected = selectedLetters.filter(letter => covered.has(letter));
+  }
 
-  return selected.map(item => randomizeAnswerOptions(item, random));
+  if (selectedLetters.length < INITIAL_SOUND_ROUND_LENGTH) {
+    const fallback = availableLetters.filter(letter => !selectedLetters.includes(letter));
+    selectedLetters = [...selectedLetters, ...fallback].slice(0, INITIAL_SOUND_ROUND_LENGTH);
+  }
+
+  const selected = selectedLetters
+    .map(letter => {
+      const item = pickItemForLetter({
+        letter,
+        level: safeLevel,
+        progress,
+        includeInactive,
+        requireImportedMedia,
+        random
+      });
+      if (!item) return null;
+      const wasCovered = covered.has(letter);
+      const reason =
+        !wasCovered
+          ? "new"
+          : phase <= 2
+            ? "review"
+            : weakLetters.includes(letter)
+              ? "unmastered"
+              : "spaced-review";
+      return {
+        ...item,
+        selectionReason: reason,
+        initialSoundLevel: safeLevel,
+        initialSoundRoundPhase: phase
+      };
+    })
+    .filter(Boolean);
+
+  return {
+    items: selected.map(item => randomizeAnswerOptions(item, random)),
+    meta: {
+      level: safeLevel,
+      phase,
+      availableLetters,
+      blockedLetters,
+      coveredLetters: progress.coveredLetters || [],
+      masteredLetters: progress.masteredLetters || [],
+      uncoveredLetters,
+      reviewLetters: reviewSelected,
+      selectedLetters: selected.map(item => item.letter),
+      selectedTargetWords: selected.map(item => item.targetWord),
+      selectedReasons: selected.map(item => ({
+        id: item.id,
+        letter: item.letter,
+        targetWord: item.targetWord,
+        reason: item.selectionReason
+      })),
+      mediaGaps: blockedLetters.map(letter => ({
+        letter,
+        level: safeLevel,
+        reason: "no complete imported image+audio pair"
+      }))
+    }
+  };
 }
 
 export function summarizeInitialSoundProgress(studentProgress = {}) {

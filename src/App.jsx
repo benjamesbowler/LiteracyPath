@@ -83,6 +83,11 @@ import { isAssessmentContentValid } from "./assessmentContentValidation";
 import { prepareNaturalSpeechText } from "./audioSpeechPolicy";
 import { getRhymeGroup } from "./data/rhymeGroups";
 import {
+  buildInitialSoundsProgressFromAnswerHistory,
+  getInitialSoundRoundPlan
+} from "./content/initialSounds/initialSoundSelector";
+import { INITIAL_SOUND_LETTERS, INITIAL_SOUND_ROUND_LENGTH } from "./content/initialSounds/initialSoundWordBank";
+import {
   getAnswerRecordPromptAnswerSignature,
   getAnswerRecordSignature,
   getQuestionPromptAnswerSignature,
@@ -1109,6 +1114,8 @@ export default function App() {
   const answerHistoryRef = useRef(answerHistory);
   const roundItemKeysRef = useRef(roundItemKeys);
   const roundQuestionIdsRef = useRef(roundQuestionIds);
+  const initialSoundRoundQueueRef = useRef([]);
+  const initialSoundRoundMetaRef = useRef(null);
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -1221,6 +1228,8 @@ export default function App() {
     setCheckpointDecision(null);
     setResetProgressDialogOpen(false);
     setResettingProgress(false);
+    initialSoundRoundQueueRef.current = [];
+    initialSoundRoundMetaRef.current = null;
     answerInFlightRef.current = false;
   }
 
@@ -2306,9 +2315,75 @@ export default function App() {
     setNameSaved(true);
   }
 
+  function isInitialSoundsStage(stage) {
+    return stage?.id === "initial_sounds" || stage?.label === "Initial Sounds";
+  }
+
+  function getInitialSoundStageProgress(records = answerHistoryRef.current) {
+    return buildInitialSoundsProgressFromAnswerHistory(records);
+  }
+
+  function getNextInitialSoundLevel(progress = getInitialSoundStageProgress()) {
+    const levelOneProbe = getInitialSoundRoundPlan({
+      studentProgress: { initialSoundsProgress: progress },
+      level: 1,
+      roundNumber: null,
+      seed: 11
+    });
+    const levelOneCovered = new Set(progress.level1?.coveredLetters || []);
+    const levelOneAvailable = levelOneProbe.meta.availableLetters || [];
+    const levelOneComplete = levelOneAvailable.length > 0 &&
+      levelOneAvailable.every(letter => levelOneCovered.has(letter));
+
+    return levelOneComplete ? 2 : 1;
+  }
+
+  function buildInitialSoundRoundQueue() {
+    const progress = getInitialSoundStageProgress();
+    const level = getNextInitialSoundLevel(progress);
+    const plan = getInitialSoundRoundPlan({
+      studentProgress: { initialSoundsProgress: progress },
+      level,
+      roundNumber: null,
+      seed: Date.now()
+    });
+
+    initialSoundRoundQueueRef.current = plan.items;
+    initialSoundRoundMetaRef.current = plan.meta;
+
+    debugAssessmentCoverage("initial sound round plan", {
+      studentId,
+      level: plan.meta.level,
+      phase: plan.meta.phase,
+      selectedLetters: plan.meta.selectedLetters,
+      selectedTargetWords: plan.meta.selectedTargetWords,
+      reviewLetters: plan.meta.reviewLetters,
+      blockedLetters: plan.meta.blockedLetters,
+      coveredLetters: plan.meta.coveredLetters
+    });
+
+    return plan;
+  }
+
+  function getNextInitialSoundQuestion() {
+    if (initialSoundRoundQueueRef.current.length === 0) {
+      buildInitialSoundRoundQueue();
+    }
+
+    const next = initialSoundRoundQueueRef.current.shift();
+    if (!next) return null;
+
+    return next;
+  }
+
   function getAvailableStageQuestions(stageIndex) {
     const stage = skillTree[stageIndex];
     if (!stage) return [];
+    if (isInitialSoundsStage(stage)) {
+      return initialSoundRoundQueueRef.current.length
+        ? [...initialSoundRoundQueueRef.current]
+        : buildInitialSoundRoundQueue().items;
+    }
 
     const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex);
     const currentProfile = getRoundDuplicateProfile();
@@ -2758,6 +2833,35 @@ export default function App() {
 
     const activeStageIndex = stageIndexOverride;
     const activeStage = skillTree[activeStageIndex] || currentStage;
+
+    if (isInitialSoundsStage(activeStage)) {
+      const picked = getNextInitialSoundQuestion();
+      if (!picked) {
+        const meta = initialSoundRoundMetaRef.current;
+        setCurrentQuestion(null);
+        setMessage(
+          meta?.blockedLetters?.length
+            ? `Initial Sounds needs more media before this round can continue. Blocked letters: ${meta.blockedLetters.join(", ")}.`
+            : "No valid Initial Sounds questions are available for this round."
+        );
+        answerInFlightRef.current = false;
+        return;
+      }
+
+      debugAssessmentCoverage("initial sound question selection", {
+        studentId,
+        level: picked.level,
+        phase: picked.initialSoundRoundPhase,
+        letter: picked.letter,
+        targetWord: picked.targetWord,
+        reason: picked.selectionReason,
+        remainingQueue: initialSoundRoundQueueRef.current.map(item => `${item.letter}:${item.targetWord}`)
+      });
+
+      setCurrentQuestion(prepareQuestion(picked));
+      return;
+    }
+
     const available = getAvailableStageQuestions(activeStageIndex);
 
     if (available.length === 0) {
@@ -3136,6 +3240,64 @@ export default function App() {
   }
 
   function buildCheckpointDecision(stage, stageIndex, nextRound, nextRoundItemKeys, passed) {
+    if (stage?.id === "initial_sounds") {
+      const initialRoundMeta = initialSoundRoundMetaRef.current || {};
+      const stageRecords = answerHistoryRef.current
+        .filter(record => record.stage === stage.label || record.skillId === "initial_sounds")
+        .slice(-nextRound.length);
+      const currentLevel = Number(stageRecords.at(-1)?.itemLevel || initialRoundMeta.level) === 2 ? 2 : 1;
+      const currentLevelKey = currentLevel === 2 ? "level2" : "level1";
+      const previousRecords = answerHistoryRef.current
+        .filter(record => record.stage === stage.label || record.skillId === "initial_sounds")
+        .slice(0, -nextRound.length);
+      const previousProgress = buildInitialSoundsProgressFromAnswerHistory(previousRecords)[currentLevelKey];
+      const allProgress = buildInitialSoundsProgressFromAnswerHistory(answerHistoryRef.current)[currentLevelKey];
+      const alreadyCovered = new Set(previousProgress?.coveredLetters || []);
+      const totalCovered = new Set(allProgress?.coveredLetters || []);
+      const coveredThisRound = Array.from(new Set(
+        stageRecords
+          .filter(record => Number(record.itemLevel || currentLevel) === currentLevel)
+          .map(record => normalizeItemKey(record.itemKey))
+          .filter(letter => INITIAL_SOUND_LETTERS.includes(letter))
+      ));
+      const remainingItems = INITIAL_SOUND_LETTERS.filter(letter => !totalCovered.has(letter));
+      const blockedLetters = initialRoundMeta.blockedLetters || [];
+      const selectedTargetWords = stageRecords
+        .filter(record => Number(record.itemLevel || currentLevel) === currentLevel)
+        .map(record => record.targetWord)
+        .filter(Boolean);
+      const reviewLetters = coveredThisRound.filter(letter => alreadyCovered.has(letter));
+      const score = nextRound.filter(Boolean).length;
+
+      return {
+        skillId: stage.id,
+        skillIndex: stageIndex,
+        skillLabel: `${stage.label} Level ${currentLevel}`,
+        correct: score,
+        total: ROUND_LENGTH,
+        accuracy: Math.round((score / ROUND_LENGTH) * 100),
+        passed,
+        nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
+        coveredThisRound,
+        alreadyMastered: Array.from(alreadyCovered).filter(letter => !coveredThisRound.includes(letter)),
+        totalCoveredItems: Array.from(totalCovered),
+        remainingItems,
+        coverage: {
+          mastered: totalCovered.size,
+          total: INITIAL_SOUND_LETTERS.length,
+          unit: "sounds"
+        },
+        initialSoundDebug: {
+          level: currentLevel,
+          phase: initialRoundMeta.phase || "",
+          blockedLetters,
+          reviewLetters,
+          selectedTargetWords,
+          selectedReasons: initialRoundMeta.selectedReasons || []
+        }
+      };
+    }
+
     const expectedKeys = Array.from(getCoverageItemKeysForStage(stage));
     const expectedKeySet = new Set(expectedKeys);
     const alreadyCoveredKeys = new Set(
@@ -3245,6 +3407,7 @@ export default function App() {
       optionSetSignature: getRepeatOptionSetSignature(currentQuestion),
       targetWord: getQuestionTargetWord(currentQuestion),
       date: new Date().toLocaleString(),
+      skillId: currentQuestion.skillId || questionStage.id,
       skill: currentQuestion.skill,
       stage: questionStage.label,
       question: getQuestionPrompt(currentQuestion),
@@ -3254,7 +3417,11 @@ export default function App() {
       isCorrect,
       diagnosticTarget: getDiagnosticTarget(currentQuestion),
       itemType: itemMetadata?.itemType || "",
-      itemKey: itemMetadata?.itemKey || ""
+      itemKey: itemMetadata?.itemKey || "",
+      itemLevel: currentQuestion.skillId === "initial_sounds" || questionStage.id === "initial_sounds"
+        ? currentQuestion.level
+        : currentQuestion.level || "",
+      selectionReason: currentQuestion.selectionReason || ""
     };
 
     debugAssessmentCoverage("assessment answer", {
@@ -4520,8 +4687,11 @@ export default function App() {
     answerInFlightRef.current = false;
     const nextStageIndex = Number.isFinite(stageIndex) ? stageIndex : currentSkillIndex;
     const nextStage = skillTree[nextStageIndex] || currentStage;
-    const previewQuestions =
-      prioritizeCoverageQuestions(getAvailableStageQuestions(nextStageIndex), nextStage).slice(0, ROUND_LENGTH);
+    initialSoundRoundQueueRef.current = [];
+    initialSoundRoundMetaRef.current = null;
+    const previewQuestions = isInitialSoundsStage(nextStage)
+      ? buildInitialSoundRoundQueue().items
+      : prioritizeCoverageQuestions(getAvailableStageQuestions(nextStageIndex), nextStage).slice(0, ROUND_LENGTH);
 
     debugAssessmentCoverage("start assessment", {
       studentId,
@@ -4565,6 +4735,8 @@ export default function App() {
     setRoundAnswers([]);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
+    initialSoundRoundQueueRef.current = [];
+    initialSoundRoundMetaRef.current = null;
     setMessage("");
     setAppView("assessment");
     pickQuestion("targetedReview", 0);
@@ -4577,6 +4749,8 @@ export default function App() {
     setCheckpointDecision(null);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
+    initialSoundRoundQueueRef.current = [];
+    initialSoundRoundMetaRef.current = null;
     setShowReport(true);
     setAppView("finished");
   }

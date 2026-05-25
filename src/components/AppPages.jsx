@@ -2799,6 +2799,45 @@ export function CheckpointDecisionPage({
               <p className="muted-text">All configured items for this skill are covered.</p>
             )}
           </section>
+
+          {checkpoint.initialSoundDebug && (
+            <section>
+              <h3>Initial Sounds round details</h3>
+              <p className="muted-text">
+                Level {checkpoint.initialSoundDebug.level}, phase {checkpoint.initialSoundDebug.phase || "review"}.
+              </p>
+              {checkpoint.initialSoundDebug.reviewLetters?.length > 0 && (
+                <>
+                  <strong>Review letters selected</strong>
+                  <div className="word-chip-row">
+                    {checkpoint.initialSoundDebug.reviewLetters.map(item => (
+                      <span className="word-chip" key={item}>{item}</span>
+                    ))}
+                  </div>
+                </>
+              )}
+              {checkpoint.initialSoundDebug.selectedTargetWords?.length > 0 && (
+                <>
+                  <strong>Selected target words</strong>
+                  <div className="word-chip-row">
+                    {checkpoint.initialSoundDebug.selectedTargetWords.map(item => (
+                      <span className="word-chip mastered" key={item}>{item}</span>
+                    ))}
+                  </div>
+                </>
+              )}
+              {checkpoint.initialSoundDebug.blockedLetters?.length > 0 && (
+                <>
+                  <strong>Blocked because media is missing</strong>
+                  <div className="word-chip-row">
+                    {checkpoint.initialSoundDebug.blockedLetters.map(item => (
+                      <span className="word-chip" key={item}>{item}</span>
+                    ))}
+                  </div>
+                </>
+              )}
+            </section>
+          )}
         </div>
 
         <div className="button-row checkpoint-decision-actions">
