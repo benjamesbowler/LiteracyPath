@@ -13,7 +13,7 @@ Date: 2026-05-25
 
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
-| Initial Sounds | 640 | 286 | 25 | 25 | L1:390, L2:250 | 354 | 343 | none |
+| Initial Sounds | 640 | 522 | 25 | 25 | L1:390, L2:250 | 118 | 113 | none |
 | Ending Sounds | 163 | 115 | 14 | 13 | L1:158, L2:1, L3:1, L5:3 | 47 | 48 | none |
 | Rhyming Words | 141 | 93 | 33 | 25 | L1:141 | 48 | 48 | eed, ill, ish, ake, oh, oon, ose, uck, ar, ight |
 | Short Vowels | 174 | 110 | 5 | 5 | L1:119, L2:55 | 0 | 64 | none |
@@ -48,7 +48,7 @@ Date: 2026-05-25
 
 - Skill ID: initial_sounds
 - Active items: 640
-- Media-complete active items: 286
+- Media-complete active items: 522
 - Unique active targets: 25
 - Unique media-complete targets: 25
 - Blocked targets: none

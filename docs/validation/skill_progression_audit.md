@@ -54,18 +54,18 @@ Date: 2026-05-25
 ## Initial Sounds
 
 - Skill ID: initial_sounds
-- Media-complete items: 286
+- Media-complete items: 522
 - Media-complete targets: 25
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | acorn, bag, cup, drum, egg, flower, green, honey, inch, jet, kitten, lock, monkey, nail, octopus |
-| L1 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pen, quilt, ring, sock, tent, under, vegetable, watch, yard, zookeeper, arrow, bed, car, donut, engine |
-| L1 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | anchor, bell, cat, dog, elbow, fork, garden, hammer, igloo, jacket, kite, log, muffin, nose, orange |
-| L2 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | athlete, butterfly, calculator, dictionary, engineer, flashlight, grocery, hospital, iceberg, journal, kingdom, library, medicine, newspaper, omelet |
-| L2 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, a, b, c, d, e, f, g, h, i | parachute, quarterback, restaurant, sandwich, thermometer, uniform, astronaut, banana, computer, dessert, eraser, fountain, gorilla, helicopter, instrument |
-| L2 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | ambulance, bicycle, camera, dolphin, elevator, furniture, grocery, hamburger, iron, jaguar, ketchup, lighthouse, mailbox, nurse, opera |
+| L1 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | acorn, ball, coat, drum, elephant, fish, gate, hill, iguana, jump, kid, log, milk, nut, ocean |
+| L1 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pen, question, rat, sun, truck, umpire, volcano, worm, yard, zone, apple, bat, cow, dish, elbow |
+| L1 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | anchor, bag, cup, daisy, elf, fox, goat, hand, ivy, jam, kettle, leg, mitten, noodle, orange |
+| L2 R1 | 1 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | athlete, banana, cucumber, dolphin, exercise, football, gingerbread, hairbrush, instructor, jigsaw, karate, lollipop, mermaid, nightlight, oatmeal |
+| L2 R2 | 2 | 15 | 15/15 | p, q, r, s, t, u, v, w, y, z, a, b, c, d, e | pajamas, question mark, rainbow, submarine, tornado, unicycle, velvet, woodpecker, yarn basket, zoo train, accordion, baseball, computer, dandelion, easel |
+| L2 R3 | 3 | 15 | 15/15 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o | ambulance, butterfly, carrot, dictionary, eraser, fossil, garbage truck, hummingbird, instrument, jump rope, kiosk, laboratory, motorcycle, notebook, opera |
 
 ## Ending Sounds
 
