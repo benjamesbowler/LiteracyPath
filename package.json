@@ -19,6 +19,7 @@
     "audit:image-quality": "node tools/auditImageQuality.js",
     "check:media-quality": "node tools/checkMediaQualityManifest.js",
     "check:hfw-coverage": "node tools/checkHighFrequencyWordsCoverage.js",
+    "check:guided-reading-visibility": "node tools/checkGuidedReadingVisibility.js",
     "validate:skill-banks": "node tools/auditSkillBanks.js",
     "check:skill-progression": "node tools/checkSkillProgression.js",
     "check:final-sound-progression": "node tools/checkFinalSoundProgression.js",

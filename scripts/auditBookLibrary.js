@@ -1,11 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { publicDomainBooks } from "../src/content/books/publicDomainBooks.js";
+import { publicDomainBookSourcePdf, publicDomainBooks } from "../src/content/books/publicDomainBooks.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const bookRoot = path.join(repoRoot, "public", "books", "public-domain");
 const reportPath = path.join(repoRoot, "docs", "guided-reading", "library_coverage_report.md");
+const selectionAuditPath = path.join(repoRoot, "docs", "guided-reading", "public_domain_book_audit.md");
 
 function exists(relativePath) {
   return fs.existsSync(path.join(repoRoot, relativePath.replace(/^\//, "public/")));
@@ -84,6 +85,65 @@ const lines = [
 ];
 
 fs.writeFileSync(reportPath, `${lines.join("\n")}\n`);
+
+const selectionLines = [
+  "# Public-Domain Guided Reading Book Audit",
+  "",
+  `Source URL: ${publicDomainBookSourcePdf}`,
+  `Date checked: ${new Date().toISOString().slice(0, 10)}`,
+  "",
+  "## Selection Methodology",
+  "",
+  "This pass curates a source-verified starter shelf rather than dumping every title from the no-copyright PDF into the app. Books were selected for K-2 usefulness, page-based reading suitability, visual clarity, child appeal, and instructional value for guided reading, read aloud, fluency, vocabulary, and comprehension.",
+  "",
+  "Network access from this workspace could not resolve the external book hosts, so exact PDF downloads remain pending. The selected books are staged as inactive manifests until source files and rendered page images are present and manually reviewed.",
+  "",
+  "## Copyright/Public-Domain Note",
+  "",
+  "The books below are source-verified against the provided no-copyright/public-domain list and mapped to their Project Gutenberg source pages where available. Exact scans/editions should still be manually verified before commercial deployment.",
+  "",
+  "## Rejected Categories",
+  "",
+  "- Dense chapter books with too much text for K-2 guided reading.",
+  "- Books with poor page-image suitability or likely difficult scan quality.",
+  "- Titles likely to contain dated racial, cultural, or social stereotypes.",
+  "- Religious or moralizing books that would need heavy adaptation.",
+  "- Books with violent, frightening, or confusing plot material for young readers.",
+  "- Books requiring older background knowledge or archaic language on most pages.",
+  "",
+  "## Final Selected List",
+  "",
+  "| Title | Author/Illustrator | Source URL | Public-Domain Status Note | Grade Band | Difficulty | Score | Reason Selected | Possible Concerns | Tags | Skills |",
+  "|---|---|---|---|---|---|---:|---|---|---|---|",
+  ...publicDomainBooks.map(book => {
+    const reason = (book.tags || []).includes("alphabet")
+      ? "Alphabet/rhyme support and simple page turns."
+      : (book.tags || []).includes("fables")
+        ? "Short moral stories support main idea, inference, and retell."
+        : (book.tags || []).includes("rhyme")
+          ? "Rhyme and repeated language support fluency."
+          : "Strong picture-book candidate for guided reading and retell.";
+    const concerns = book.difficulty === "read-aloud"
+      ? "Better for teacher read aloud/shared reading than independent early reading."
+      : "Review exact scan for dated language and page clarity before activation.";
+    return `| ${book.title} | ${book.author || ""} | ${book.sourceUrl} | Listed in source PDF; exact edition pending final verification. | ${book.gradeBand} | ${book.difficulty} | ${book.suitabilityScore} | ${reason} | ${concerns} | ${(book.tags || []).join(", ")} | ${(book.skills || []).join(", ")} |`;
+  }),
+  "",
+  "## Rejected But Reviewed",
+  "",
+  "| Title/Category | Reason |",
+  "|---|---|",
+  "| Long dense fairy-tale collections | Useful as source material, but too text-heavy as full page-image guided readers. |",
+  "| Heavily moral/religious primers | Not appropriate for broad classroom deployment without adaptation. |",
+  "| Older geography/history readers | Often rely on outdated context and may include cultural stereotypes. |",
+  "| Scary or violent fairy-tale editions | Not ideal for K-2 guided reading without substantial teacher mediation. |",
+  "| Poor-scan alphabet/nursery books | Rejected unless page images are clear enough after processing. |",
+  "| Very archaic verse collections | Useful for read aloud excerpts, but weak for independent guided reading. |",
+  "| Older school readers with mixed selections | Too inconsistent; individual selections may be curated later. |",
+  "| Large chapter novels for older children | Better suited for Grade 3+ read aloud, not K-2 library cards. |"
+];
+
+fs.writeFileSync(selectionAuditPath, `${selectionLines.join("\n")}\n`);
 
 if (missingManifest > 0) {
   console.error(`Book library audit failed: ${missingManifest} manifests are missing.`);

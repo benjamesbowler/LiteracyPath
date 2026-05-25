@@ -1724,6 +1724,7 @@ export function GuidedReadingPage({
   const visibleLibraryBooks = selectedLibraryType && selectedLibraryLevel
     ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel)
     : [];
+  const reviewModeBooks = guidedReadingBooks.filter(book => book.reviewMode);
 
   useEffect(() => {
     return () => {
@@ -1769,6 +1770,29 @@ export function GuidedReadingPage({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [readerOpen, showSummary, pageIndex, selectedBook?.pages?.length]);
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    const hiddenReviewBooks = reviewModeBooks.filter(book =>
+      !getGuidedReadingLevelBooks(book.type, book.level).some(item => item.id === book.id)
+    );
+    console.info("[Guided Reading] visible book audit", {
+      totalBooks: guidedReadingBooks.length,
+      reviewModeBooks: reviewModeBooks.map(book => ({
+        id: book.id,
+        title: book.title,
+        type: book.type,
+        level: book.level,
+        pages: book.pages?.length || 0,
+        hasCover: Boolean(book.coverImage),
+        qaStatus: book.qaStatus
+      })),
+      hiddenReviewBooks: hiddenReviewBooks.map(book => ({
+        id: book.id,
+        reason: "Not returned by type/level shelf lookup"
+      }))
+    });
+  }, []);
 
   function updateRecord(patch) {
     if (!selectedBook) return;
@@ -2064,6 +2088,50 @@ export function GuidedReadingPage({
         </div>
       </section>
 
+      {!readerOpen && reviewModeBooks.length > 0 && (
+        <section className="guided-review-shelf" aria-label="Level C pilot review books">
+          <div className="guided-review-shelf-header">
+            <div>
+              <p className="panel-label">Pilot Review</p>
+              <h3>Level C Guided Story Pilot</h3>
+              <p>These books are visible for teacher review. Page art is loaded; narration may still be pending and will not hide the books.</p>
+            </div>
+            <span>{reviewModeBooks.length} books</span>
+          </div>
+
+          <div className="guided-book-grid">
+            {reviewModeBooks.map(book => {
+              const progress = getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
+
+              return (
+                <article
+                  className={book.id === selectedBook.id ? "guided-book-card active review-mode" : "guided-book-card review-mode"}
+                  key={book.id}
+                >
+                  <span className="guided-review-badge">Review</span>
+                  {progress.completed && <span className="guided-complete-badge" aria-label="Completed">✓</span>}
+                  <div className="guided-book-cover-wrap">
+                    <GuidedBookCover book={book} />
+                  </div>
+                  <div className="guided-book-info">
+                    <h3 className="guided-book-title">{book.title}</h3>
+                    <p className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
+                    <p className="guided-book-status">Audio Pending</p>
+                    <button
+                      className="guided-book-action"
+                      onClick={() => changeBook(book.id)}
+                      type="button"
+                    >
+                      {progress.completed ? "Read Again" : "Read"}
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       {!readerOpen && (
         <section className="public-domain-library" aria-label="Public-domain guided reading library">
           <div className="public-domain-library-header">
@@ -2178,12 +2246,14 @@ export function GuidedReadingPage({
                   key={book.id}
                 >
                   {progress.completed && <span className="guided-complete-badge" aria-label="Completed">✓</span>}
+                  {book.reviewMode && <span className="guided-review-badge">Review</span>}
                   <div className="guided-book-cover-wrap">
                     <GuidedBookCover book={book} />
                   </div>
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
                     <p className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
+                    {book.reviewMode && <p className="guided-book-status">Audio Pending</p>}
                     <button
                       className="guided-book-action"
                       onClick={() => changeBook(book.id)}

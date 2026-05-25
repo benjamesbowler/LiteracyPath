@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { publicDomainBooks } from "../src/content/books/publicDomainBooks.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const bookRoot = path.join(repoRoot, "public", "books", "public-domain");
@@ -14,13 +15,6 @@ function commandExists(command) {
   } catch {
     return false;
   }
-}
-
-function listBookDirs() {
-  if (!fs.existsSync(bookRoot)) return [];
-  return fs.readdirSync(bookRoot)
-    .map(name => path.join(bookRoot, name))
-    .filter(filePath => fs.statSync(filePath).isDirectory());
 }
 
 const hasPdfToPpm = commandExists("pdftoppm");
@@ -42,7 +36,8 @@ if (!hasPdfToPpm && !hasMagick && !hasConvert) {
 let processed = 0;
 let pending = 0;
 
-for (const bookDir of listBookDirs()) {
+for (const book of publicDomainBooks) {
+  const bookDir = path.join(bookRoot, book.id);
   const pdfPath = path.join(bookDir, "original.pdf");
   const pagesDir = path.join(bookDir, "pages");
   fs.mkdirSync(pagesDir, { recursive: true });

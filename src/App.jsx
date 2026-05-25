@@ -79,6 +79,7 @@ import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { shortAEchoCavesQuestions } from "./data/childActivityModels";
 import { audioManifest, audioTextIndex } from "./data/audioManifest";
 import { getApprovedAudioPath, getPreferredAudioPath } from "./data/audioPreferenceManifest";
+import { isQuestionBlockedByMediaQa } from "./data/mediaQaManifest";
 import {
   applyQuestionFormatMetadata,
   getQuestionFormatMetadata,
@@ -884,6 +885,7 @@ function isQuestionValid(q) {
   if (hasWeakLegacyPhonicsFormat(q)) return false;
   if (hasLowQualityPluralDistractors(q)) return false;
   if (!isAssessmentContentValid(q)) return false;
+  if (isQuestionBlockedByMediaQa(q)) return false;
 
   const stageIndex = getStageIndex(q);
   const stage = skillTree[stageIndex];

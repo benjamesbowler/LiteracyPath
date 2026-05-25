@@ -1,0 +1,47 @@
+{
+  "id": "the-aesop-for-children",
+  "title": "The Aesop for Children",
+  "author": "Milo Winter",
+  "illustrator": "",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/19994",
+  "publicDomain": true,
+  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "gradeBand": "Grade 2",
+  "readingType": "guided-reading",
+  "difficulty": "developing",
+  "estimatedPages": 0,
+  "tags": [
+    "fables",
+    "animals",
+    "moral"
+  ],
+  "skills": [
+    "main idea-details",
+    "problem-solution",
+    "compare-contrast"
+  ],
+  "pages": [],
+  "comprehension": [
+    {
+      "type": "open-response",
+      "question": "Who or what is this book mostly about?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What happened first, next, and last?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What is one new or interesting word from this book?",
+      "options": [],
+      "correctAnswer": ""
+    }
+  ],
+  "active": false,
+  "downloadStatus": "pending_network_download",
+  "processingStatus": "not_processed"
+}

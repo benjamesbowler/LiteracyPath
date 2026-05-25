@@ -1,0 +1,47 @@
+{
+  "id": "finger-plays-for-nursery-and-kindergarten",
+  "title": "Finger Plays for Nursery and Kindergarten",
+  "author": "Emilie Poulsson",
+  "illustrator": "",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/24912",
+  "publicDomain": true,
+  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "gradeBand": "K",
+  "readingType": "guided-reading",
+  "difficulty": "read-aloud",
+  "estimatedPages": 0,
+  "tags": [
+    "movement",
+    "rhyme",
+    "oral language"
+  ],
+  "skills": [
+    "fluency",
+    "vocabulary",
+    "rhyme"
+  ],
+  "pages": [],
+  "comprehension": [
+    {
+      "type": "open-response",
+      "question": "Who or what is this book mostly about?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What happened first, next, and last?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What is one new or interesting word from this book?",
+      "options": [],
+      "correctAnswer": ""
+    }
+  ],
+  "active": false,
+  "downloadStatus": "pending_network_download",
+  "processingStatus": "not_processed"
+}

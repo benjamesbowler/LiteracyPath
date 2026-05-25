@@ -1,0 +1,47 @@
+{
+  "id": "old-mother-hubbard-and-her-dog",
+  "title": "Old Mother Hubbard and Her Dog",
+  "author": "Sarah Catherine Martin",
+  "illustrator": "",
+  "sourceUrl": "https://www.gutenberg.org/ebooks/23348",
+  "publicDomain": true,
+  "licenseNote": "Selected from the Children's Books with No Copyright source list; verify exact edition before commercial deployment.",
+  "gradeBand": "K-1",
+  "readingType": "guided-reading",
+  "difficulty": "early",
+  "estimatedPages": 0,
+  "tags": [
+    "rhyme",
+    "humor",
+    "animals"
+  ],
+  "skills": [
+    "rhyme",
+    "sequencing",
+    "fluency"
+  ],
+  "pages": [],
+  "comprehension": [
+    {
+      "type": "open-response",
+      "question": "Who or what is this book mostly about?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What happened first, next, and last?",
+      "options": [],
+      "correctAnswer": ""
+    },
+    {
+      "type": "open-response",
+      "question": "What is one new or interesting word from this book?",
+      "options": [],
+      "correctAnswer": ""
+    }
+  ],
+  "active": false,
+  "downloadStatus": "pending_network_download",
+  "processingStatus": "not_processed"
+}
