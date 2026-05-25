@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -138,6 +139,68 @@ function write(filePath, content) {
   fs.writeFileSync(filePath, content);
 }
 
+function analyzeImageColors(publicPaths = []) {
+  const candidates = publicPaths
+    .filter(assetPath => /\.(webp|png|jpe?g)$/i.test(assetPath))
+    .map(assetPath => ({
+      publicPath: assetPath,
+      filePath: path.join(publicDir, assetPath.replace(/^\//, ""))
+    }))
+    .filter(entry => fs.existsSync(entry.filePath));
+
+  if (!candidates.length) return [];
+
+  const python = `
+import colorsys, json, sys
+from PIL import Image
+
+items = json.load(sys.stdin)
+rows = []
+for item in items:
+    try:
+        img = Image.open(item["filePath"]).convert("RGB")
+        img.thumbnail((96, 96))
+        total = 0
+        saturated = 0
+        bright = 0
+        hue_buckets = set()
+        for r, g, b in img.getdata():
+            # Ignore white/near-white backgrounds and dark outline pixels.
+            if r > 238 and g > 238 and b > 238:
+                continue
+            if r < 35 and g < 35 and b < 35:
+                continue
+            h, s, v = colorsys.rgb_to_hsv(r / 255.0, g / 255.0, b / 255.0)
+            total += 1
+            if s > 0.55 and v > 0.45:
+                saturated += 1
+                hue_buckets.add(int(h * 12))
+            if s > 0.65 and v > 0.70:
+                bright += 1
+        if total:
+            rows.append({
+                "publicPath": item["publicPath"],
+                "samplePixels": total,
+                "saturatedRatio": round(saturated / total, 3),
+                "brightRatio": round(bright / total, 3),
+                "hueBuckets": len(hue_buckets),
+            })
+    except Exception as exc:
+        rows.append({"publicPath": item["publicPath"], "error": str(exc)})
+print(json.dumps(rows))
+`;
+
+  try {
+    return JSON.parse(execFileSync("python3", ["-c", python], {
+      input: JSON.stringify(candidates),
+      encoding: "utf8",
+      maxBuffer: 10 * 1024 * 1024
+    }));
+  } catch {
+    return [];
+  }
+}
+
 const imageFiles = scanRoots.flatMap(walk);
 const imageHashByPublicPath = new Map();
 const allItems = getSkillBankItems();
@@ -203,6 +266,27 @@ const publicRainbowRows = imageFiles
     imageHashByPublicPath.get(assetPath)?.slice(0, 12) || "",
     "Filename/path suggests rainbow or overly colorful asset."
   ]);
+const activeUniqueImagePaths = [...new Set(activeImageRows.map(row => row.imagePath).filter(Boolean))];
+const colorAnalysisRows = analyzeImageColors(activeUniqueImagePaths);
+const saturatedReviewRows = colorAnalysisRows
+  .filter(row =>
+    !row.error &&
+    !String(row.publicPath).endsWith("/rainbow.webp") &&
+    row.saturatedRatio > 0.55 &&
+    row.hueBuckets >= 6
+  )
+  .map(row => {
+    const matchingItems = activeImageRows.filter(item => item.imagePath === row.publicPath);
+    const words = [...new Set(matchingItems.map(item => item.word).filter(Boolean))].join(", ");
+    return [
+      words || "-",
+      row.publicPath,
+      row.saturatedRatio,
+      row.brightRatio,
+      row.hueBuckets,
+      "Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking."
+    ];
+  });
 
 const semanticConflictRows = [];
 for (const [wordA, wordB] of semanticConflictPairs) {
@@ -288,6 +372,7 @@ This audit focuses on assessment media. It uses safe static heuristics only: fil
 - Known unsuitable assets still active: ${activeKnownUnsuitableRows.length}
 - Excluded weird/unusual targets still active: ${activeExcludedWordRows.length}
 - Rainbow/path warnings in public assets: ${publicRainbowRows.length}
+- Over-saturated active image manual-review warnings: ${saturatedReviewRows.length}
 - Known semantic conflict failures: ${fatalConflicts.length}
 - Audio replacement requests: 0
 
@@ -306,6 +391,10 @@ ${markdownTable(["skill", "question id", "word", "image path", "reason"], active
 ## Rainbow/Colorful Filename Warnings In Public Assets
 
 ${markdownTable(["asset path", "hash", "warning"], publicRainbowRows.slice(0, 160))}
+
+## Color-Heuristic Manual Review Warnings
+
+${markdownTable(["word(s)", "image path", "saturated ratio", "bright ratio", "hue buckets", "warning"], saturatedReviewRows.slice(0, 160))}
 
 ## Known Semantic Conflict Checks
 

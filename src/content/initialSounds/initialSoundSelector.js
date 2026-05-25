@@ -103,12 +103,21 @@ function pickItemForLetter({ letter, level, progress, includeInactive, requireIm
   const unused = items.filter(item => !usedWords.has(String(item.targetWord).toLowerCase()));
   const pool = unused.length ? unused : items;
   if (!pool.length) return null;
-  return shuffleItems(pool, random)[0];
+  return shuffleItems(pool, random)
+    .sort((a, b) => {
+      const bandRank = band => String(band || "").includes("core") ? 0 : 1;
+      const bandDelta = bandRank(a.progressionBand) - bandRank(b.progressionBand);
+      if (bandDelta) return bandDelta;
+      return Number(a.roundPriority || 999) - Number(b.roundPriority || 999);
+    })[0];
 }
 
 function inferRoundPhase({ level, progress, roundNumber, availableLetters }) {
   if (Number.isFinite(Number(roundNumber)) && Number(roundNumber) > 0) {
-    return Number(roundNumber);
+    const numericRound = Number(roundNumber);
+    if (Number(level) === 2 && numericRound >= 3 && numericRound <= 4) return numericRound - 2;
+    if (numericRound <= 2) return numericRound;
+    return 3;
   }
 
   const coveredAvailableCount = availableLetters.filter(letter => progress.coveredLetters.includes(letter)).length;
@@ -220,9 +229,10 @@ export function getInitialSoundRoundPlan({
   const covered = new Set(progress.coveredLetters || []);
   const mastered = new Set(progress.masteredLetters || []);
   const incorrect = new Set(progress.incorrectLetters || []);
-  const uncoveredLetters = availableLetters.filter(letter => !covered.has(letter));
-  const reviewLetters = availableLetters.filter(letter => covered.has(letter));
-  const weakLetters = availableLetters.filter(letter => incorrect.has(letter) || (covered.has(letter) && !mastered.has(letter)));
+  const prioritizedLetters = stableShuffleLetters(availableLetters, random);
+  const uncoveredLetters = prioritizedLetters.filter(letter => !covered.has(letter));
+  const reviewLetters = prioritizedLetters.filter(letter => covered.has(letter));
+  const weakLetters = prioritizedLetters.filter(letter => incorrect.has(letter) || (covered.has(letter) && !mastered.has(letter)));
 
   let selectedLetters = [];
   let reviewSelected = [];
@@ -236,20 +246,20 @@ export function getInitialSoundRoundPlan({
     selectedLetters = [...remaining, ...reviewSelected];
   } else {
     const weak = weakLetters.slice(0, INITIAL_SOUND_ROUND_LENGTH);
-    const unusedReview = availableLetters
+    const unusedReview = prioritizedLetters
       .filter(letter => !weak.includes(letter))
       .filter(letter => {
         const items = itemsForLetter({ letter, level: safeLevel, includeInactive, requireImportedMedia });
         const used = new Set((progress.usedTargetWordsByLetter?.[letter] || []).map(word => String(word).toLowerCase()));
         return items.some(item => !used.has(String(item.targetWord).toLowerCase()));
       });
-    const filler = availableLetters.filter(letter => !weak.includes(letter) && !unusedReview.includes(letter));
+    const filler = prioritizedLetters.filter(letter => !weak.includes(letter) && !unusedReview.includes(letter));
     selectedLetters = [...weak, ...unusedReview, ...filler].slice(0, INITIAL_SOUND_ROUND_LENGTH);
     reviewSelected = selectedLetters.filter(letter => covered.has(letter));
   }
 
   if (selectedLetters.length < INITIAL_SOUND_ROUND_LENGTH) {
-    const fallback = availableLetters.filter(letter => !selectedLetters.includes(letter));
+    const fallback = prioritizedLetters.filter(letter => !selectedLetters.includes(letter));
     selectedLetters = [...selectedLetters, ...fallback].slice(0, INITIAL_SOUND_ROUND_LENGTH);
   }
 

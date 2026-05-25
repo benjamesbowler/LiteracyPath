@@ -80,6 +80,120 @@ const syllableOverrides = {
   "vegetable soup": 4
 };
 
+export const initialSoundRequestedCoreWords = {
+  1: {
+    a: "ant",
+    b: "bat",
+    c: "cat",
+    d: "dog",
+    e: "egg",
+    f: "fan",
+    g: "gun",
+    h: "hat",
+    i: "ink",
+    j: "jam",
+    k: "king",
+    l: "leg",
+    m: "man",
+    n: "nut",
+    o: "ox",
+    p: "pig",
+    q: "queen",
+    r: "red",
+    s: "sun",
+    t: "tent",
+    u: "up",
+    v: "van",
+    w: "wig",
+    y: "yak",
+    z: "zoo"
+  },
+  2: {
+    a: "astronaut",
+    b: "banana",
+    c: "crayon",
+    d: "doctor",
+    e: "elephant",
+    f: "fish",
+    g: "girl",
+    h: "hospital",
+    i: "igloo",
+    j: "jellyfish",
+    k: "koala",
+    l: "ladder",
+    m: "mushroom",
+    n: "nose",
+    o: "octopus",
+    p: "pineapple",
+    q: "question",
+    r: "rabbit",
+    s: "snake",
+    t: "tiger",
+    u: "umbrella",
+    v: "vegetable",
+    w: "watch",
+    y: "yellow",
+    z: "zebra"
+  }
+};
+
+export const initialSoundCoreWords = {
+  1: {
+    a: "ant",
+    b: "bat",
+    c: "cat",
+    d: "dog",
+    e: "egg",
+    f: "fan",
+    g: "gum",
+    h: "hat",
+    i: "ink",
+    j: "jam",
+    k: "king",
+    l: "leg",
+    m: "map",
+    n: "nest",
+    o: "ox",
+    p: "pig",
+    q: "queen",
+    r: "ring",
+    s: "sun",
+    t: "tent",
+    u: "up",
+    v: "van",
+    w: "wig",
+    y: "yak",
+    z: "zoo"
+  },
+  2: {
+    a: "astronaut",
+    b: "banana",
+    c: "calculator",
+    d: "doctor",
+    e: "elevator",
+    f: "firefighter",
+    g: "gorilla",
+    h: "hospital",
+    i: "iceberg",
+    j: "jellyfish",
+    k: "kitchen",
+    l: "lighthouse",
+    m: "mushroom",
+    n: "newspaper",
+    o: "orangutan",
+    p: "pineapple",
+    q: "question mark",
+    r: "rainbow",
+    s: "sandwich",
+    t: "telescope",
+    u: "unicycle",
+    v: "volleyball",
+    w: "watermelon",
+    y: "yogurt cup",
+    z: "zipline"
+  }
+};
+
 const tagsByWord = word => {
   const text = String(word);
   const tags = [];
@@ -105,6 +219,14 @@ export const normalizeInitialSoundWord = word =>
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+
+export const initialSoundPrioritySubstitutions = INITIAL_SOUND_LETTERS.flatMap(letter => [1, 2].flatMap(level => {
+  const requested = initialSoundRequestedCoreWords[level][letter];
+  const selected = initialSoundCoreWords[level][letter];
+  return requested && selected && normalizeInitialSoundWord(requested) !== normalizeInitialSoundWord(selected)
+    ? [{ level, letter, requested, selected }]
+    : [];
+}));
 
 const distractorLettersFor = (letter, difficulty) => {
   const index = INITIAL_SOUND_LETTERS.indexOf(letter);
@@ -169,25 +291,9 @@ const blockedInitialSoundTargets = {
     status: "excluded_unsuitable_word",
     reason: "Urban garden is a phrase with a less clear single target object for early Initial Sounds assessment."
   },
-  utensils: {
-    status: "needs_media_asset",
-    reason: "Required image and audio are missing, so this item is blocked from active assessment until media exists."
-  },
-  underground: {
-    status: "needs_media_asset",
-    reason: "Required image is missing, so this item is blocked from active assessment until media exists."
-  },
-  vacation: {
-    status: "needs_media_asset",
-    reason: "Required image is missing, so this item is blocked from active assessment until media exists."
-  },
   velvet: {
     status: "excluded_unsuitable_word",
     reason: "Velvet is texture-based and hard to image unambiguously for early Initial Sounds assessment."
-  },
-  village: {
-    status: "needs_media_asset",
-    reason: "Required image is missing, so this item is blocked from active assessment until media exists."
   },
   yodeler: {
     status: "excluded_unsuitable_word",
@@ -197,17 +303,9 @@ const blockedInitialSoundTargets = {
     status: "excluded_unsuitable_word",
     reason: "Yucca plant is less familiar and not a strong early Initial Sounds target."
   },
-  zigzag: {
-    status: "needs_media_asset",
-    reason: "Required image is missing, so this item is blocked from active assessment until media exists."
-  },
   zeppelin: {
     status: "excluded_unsuitable_word",
     reason: "Zeppelin is obscure for K-2 Initial Sounds assessment and is blocked from active use."
-  },
-  "zesty-lemon": {
-    status: "needs_media_asset",
-    reason: "Required image and audio are missing, so this item is blocked from active assessment until media exists."
   }
 };
 
@@ -216,6 +314,11 @@ function makeInitialSoundItem(letter, targetWord, level, index) {
   const difficulty = level === 1 ? "easy" : "challenge";
   const syllables = countSyllables(targetWord);
   const blockedTarget = blockedInitialSoundTargets[wordKey];
+  const coreWord = initialSoundCoreWords[level]?.[letter];
+  const isCoreWord = normalizeInitialSoundWord(coreWord) === wordKey;
+  const roundPriority = isCoreWord
+    ? INITIAL_SOUND_LETTERS.indexOf(letter) + 1
+    : 100 + index;
 
   return {
     id: `fs_${letter}_${wordKey}_l${level}`,
@@ -240,7 +343,9 @@ function makeInitialSoundItem(letter, targetWord, level, index) {
     answerOptions: distractorLettersFor(letter, difficulty),
     choices: distractorLettersFor(letter, difficulty),
     distractorType: level === 1 ? "easy" : "near-letter-review",
-    tags: [...new Set([difficulty, level === 1 ? "level-1" : "level-2", ...tagsByWord(targetWord)])],
+    roundPriority,
+    progressionBand: isCoreWord ? `level${level}-core` : `level${level}-review`,
+    tags: [...new Set([difficulty, level === 1 ? "level-1" : "level-2", isCoreWord ? "core-priority" : "review-bank", ...tagsByWord(targetWord)])],
     active: !blockedTarget,
     qaStatus: blockedTarget?.status || "approved",
     qaNotes: blockedTarget?.reason || "",

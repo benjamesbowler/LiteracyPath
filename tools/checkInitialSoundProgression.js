@@ -8,6 +8,9 @@ import {
 import {
   INITIAL_SOUND_LETTERS,
   INITIAL_SOUND_ROUND_LENGTH,
+  initialSoundCoreWords,
+  initialSoundPrioritySubstitutions,
+  initialSoundRequestedCoreWords,
   initialSoundWordBank
 } from "../src/content/initialSounds/initialSoundWordBank.js";
 import { hasImportedInitialSoundMedia } from "../src/content/initialSounds/initialSoundMediaManifest.js";
@@ -34,6 +37,30 @@ function completeCount(letter, level) {
   return initialSoundWordBank.filter(item => item.letter === letter && item.level === level && hasImportedInitialSoundMedia(item)).length;
 }
 
+function coreWord(letter, level) {
+  return String(initialSoundCoreWords[level]?.[letter] || "").toLowerCase();
+}
+
+function requestedCoreWord(letter, level) {
+  return String(initialSoundRequestedCoreWords[level]?.[letter] || "").toLowerCase();
+}
+
+function coreWordStatus(letter, level) {
+  const requested = requestedCoreWord(letter, level);
+  const selected = coreWord(letter, level);
+  const requestedItem = initialSoundWordBank.find(item =>
+    item.letter === letter &&
+    item.level === level &&
+    item.targetWord.toLowerCase() === requested
+  );
+
+  if (requested === selected) return "as requested";
+  if (!requestedItem) return `substituted because requested word "${requested}" is not in Level ${level} bank`;
+  if (requestedItem.active === false) return `substituted because requested word "${requested}" is blocked: ${requestedItem.qaNotes || requestedItem.qaStatus || "inactive"}`;
+  if (!hasImportedInitialSoundMedia(requestedItem)) return `substituted because requested word "${requested}" is missing complete media`;
+  return `substituted to keep Level ${level} difficulty and media safety`;
+}
+
 function duplicateValues(values) {
   return [...new Set(values.filter((value, index) => values.indexOf(value) !== index))];
 }
@@ -51,6 +78,12 @@ function simulateRound({ label, level, expectedNewLetters = [] }) {
   const duplicateLetters = duplicateValues(letters);
   const duplicateWords = duplicateValues(words);
   const missingExpected = expectedNewLetters.filter(letter => !letters.includes(letter));
+  const expectedCoreFailures = expectedNewLetters
+    .filter(letter => {
+      const selectedIndex = letters.indexOf(letter);
+      return selectedIndex >= 0 && words[selectedIndex] !== coreWord(letter, level);
+    })
+    .map(letter => `${letter}: expected ${coreWord(letter, level)}, got ${words[letters.indexOf(letter)]}`);
 
   if (plan.items.length !== INITIAL_SOUND_ROUND_LENGTH) {
     failures.push(`${label}: selected ${plan.items.length}, expected ${INITIAL_SOUND_ROUND_LENGTH}.`);
@@ -59,6 +92,7 @@ function simulateRound({ label, level, expectedNewLetters = [] }) {
   if (duplicateLetters.length) failures.push(`${label}: repeated letters ${duplicateLetters.join(", ")}.`);
   if (duplicateWords.length) failures.push(`${label}: repeated target words ${duplicateWords.join(", ")}.`);
   if (missingExpected.length) failures.push(`${label}: missing expected media-complete letters ${missingExpected.join(", ")}.`);
+  if (expectedCoreFailures.length) failures.push(`${label}: core priority mismatch (${expectedCoreFailures.join("; ")}).`);
 
   plan.items.forEach(item => {
     simulatedHistory.push({
@@ -129,16 +163,25 @@ const missingAfterTwoL2 = level2Available.filter(letter => !coveredL2.has(letter
 if (missingAfterTwoL2.length) failures.push(`Level 2 first two rounds did not cover available letters: ${missingAfterTwoL2.join(", ")}.`);
 
 function roundSummary(round) {
-  return `## ${round.label}\n\n- Level: ${round.level}\n- Phase: ${round.phase}\n- Letters: ${round.selectedLetters.join(", ")}\n- Target words: ${round.selectedTargetWords.join(", ")}\n- Review letters: ${round.reviewLetters.join(", ") || "none"}\n- Blocked letters: ${round.blockedLetters.join(", ") || "none"}\n- Missing expected available letters: ${round.missingExpected.join(", ") || "none"}`;
+  const rows = round.selectedLetters.map((letter, index) =>
+    `| ${index + 1} | ${letter} | ${round.selectedTargetWords[index]} | ${round.selectedReasons[index]?.reason || ""} | ${coreWordStatus(letter, round.level)} |`
+  ).join("\n");
+  return `## ${round.label}\n\n- Level: ${round.level}\n- Phase: ${round.phase}\n- Letters: ${round.selectedLetters.join(", ")}\n- Target words: ${round.selectedTargetWords.join(", ")}\n- Review letters: ${round.reviewLetters.join(", ") || "none"}\n- Blocked letters: ${round.blockedLetters.join(", ") || "none"}\n- Missing expected available letters: ${round.missingExpected.join(", ") || "none"}\n\n| # | Letter | Target Word | Reason | Priority/Substitution Note |\n|---:|---|---|---|---|\n${rows}`;
 }
 
 const coverageRows = INITIAL_SOUND_LETTERS.map(letter =>
   `| ${letter} | ${completeCount(letter, 1)} | ${completeCount(letter, 2)} | ${level1Blocked.includes(letter) ? "blocked" : "available"} | ${level2Blocked.includes(letter) ? "blocked" : "available"} |`
 ).join("\n");
+const priorityRows = INITIAL_SOUND_LETTERS.flatMap(letter => [1, 2].map(level =>
+  `| ${level} | ${letter} | ${requestedCoreWord(letter, level)} | ${coreWord(letter, level)} | ${coreWordStatus(letter, level)} |`
+)).join("\n");
+const substitutionRows = initialSoundPrioritySubstitutions
+  .map(item => `| ${item.level} | ${item.letter} | ${item.requested} | ${item.selected} | ${coreWordStatus(item.letter, item.level)} |`)
+  .join("\n");
 
 write(
   path.join(rootDir, "docs", "validation", "initial_sound_progression_audit.md"),
-  `# Initial Sound Progression Audit\n\nDate: 2026-05-25\n\n## Summary\n\n- Level 1 media-complete letters: ${level1Available.length}/${INITIAL_SOUND_LETTERS.length}\n- Level 2 media-complete letters: ${level2Available.length}/${INITIAL_SOUND_LETTERS.length}\n- Failures: ${failures.length}\n- Warnings: ${warnings.length}\n\n## Per-Letter Complete Media Coverage\n\n| Letter | Level 1 Complete Items | Level 2 Complete Items | Level 1 Status | Level 2 Status |\n|---|---:|---:|---|---|\n${coverageRows}\n\n${[round1L1, round2L1, round1L2, round2L2].map(roundSummary).join("\n\n")}\n\n## Warnings\n\n${warnings.length ? warnings.map(item => `- ${item}`).join("\n") : "- none"}\n\n## Failures\n\n${failures.length ? failures.map(item => `- ${item}`).join("\n") : "- none"}\n`
+  `# Initial Sound Progression Audit\n\nDate: 2026-05-25\n\n## Summary\n\n- Level 1 media-complete letters: ${level1Available.length}/${INITIAL_SOUND_LETTERS.length}\n- Level 2 media-complete letters: ${level2Available.length}/${INITIAL_SOUND_LETTERS.length}\n- Failures: ${failures.length}\n- Warnings: ${warnings.length}\n\n## Per-Letter Complete Media Coverage\n\n| Letter | Level 1 Complete Items | Level 2 Complete Items | Level 1 Status | Level 2 Status |\n|---|---:|---:|---|---|\n${coverageRows}\n\n## Core Priority Words\n\n| Level | Letter | Requested Core Word | Active Core Word | Note |\n|---:|---|---|---|---|\n${priorityRows}\n\n## Substitutions\n\n| Level | Letter | Requested | Selected | Reason |\n|---:|---|---|---|---|\n${substitutionRows || "| - | - | none | none | none |"}\n\n${[round1L1, round2L1, round1L2, round2L2].map(roundSummary).join("\n\n")}\n\n## Warnings\n\n${warnings.length ? warnings.map(item => `- ${item}`).join("\n") : "- none"}\n\n## Failures\n\n${failures.length ? failures.map(item => `- ${item}`).join("\n") : "- none"}\n`
 );
 
 console.log(`Level 1 available letters: ${level1Available.length}/${INITIAL_SOUND_LETTERS.length}`);

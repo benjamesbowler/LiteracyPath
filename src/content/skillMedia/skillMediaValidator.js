@@ -47,9 +47,15 @@ export function validateSkillBankItem(item, { assetExists = () => true } = {}) {
 
 export function buildMissingMediaRequestRows(summaries) {
   return Object.values(summaries).flatMap(summary => {
+    const requestableMissingImages = summary.skillId === "initial_sounds"
+      ? summary.missingImages.filter(item => item.source === "initial_sound_word_bank")
+      : summary.missingImages;
+    const requestableMissingAudio = summary.skillId === "initial_sounds"
+      ? summary.missingAudio.filter(item => item.source === "initial_sound_word_bank")
+      : summary.missingAudio;
     const missing = [
-      ...summary.missingImages.map(item => ({ item, mediaType: "image", path: item.imageUrl })),
-      ...summary.missingAudio.map(item => ({ item, mediaType: "audio", path: item.audioUrl }))
+      ...requestableMissingImages.map(item => ({ item, mediaType: "image", path: item.imageUrl })),
+      ...requestableMissingAudio.map(item => ({ item, mediaType: "audio", path: item.audioUrl }))
     ];
 
     return missing.map(({ item, mediaType, path }) => ({
