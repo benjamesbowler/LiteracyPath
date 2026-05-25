@@ -1,5 +1,6 @@
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
 import { guidedStoryBooks } from "./guidedStoryBooks.js";
+import { publicDomainGuidedReadingBooks } from "./generated/publicDomainGuidedReadingBooks.generated.js";
 
 const wordAudio = word => `/audio/child-mode/words/${word.toLowerCase().replace(/[^a-z0-9'-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
 
@@ -6460,7 +6461,8 @@ const guidedStoryLevelCReviewBooks = guidedStoryBooks
 const activeGuidedReadingBaseBooks = [
   ...approvedGuidedReadingCandidates,
   ...approvedRegeneratedGuidedReadingBooks,
-  ...guidedStoryLevelCReviewBooks
+  ...guidedStoryLevelCReviewBooks,
+  ...publicDomainGuidedReadingBooks
 ];
 
 export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {

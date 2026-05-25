@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-05-25T23:40:40.681Z",
+  "rows": [
+    {
+      "bookId": "a-apple-pie",
+      "wordCount": 0,
+      "sentenceCount": 0,
+      "averageSentenceLength": 0,
+      "weirdSymbolDensity": 0,
+      "malformedWordRate": 0,
+      "dictionaryLikeRate": 0,
+      "uppercaseCorruptionRate": 0,
+      "punctuationCorruptionRate": 0,
+      "riskScore": 70.4,
+      "needsManualCleanup": true,
+      "readabilityBand": "emergent",
+      "error": ""
+    },
+    {
+      "bookId": "mcguffeys-eclectic-primer",
+      "wordCount": 0,
+      "sentenceCount": 0,
+      "averageSentenceLength": 0,
+      "weirdSymbolDensity": 0,
+      "malformedWordRate": 0,
+      "dictionaryLikeRate": 0,
+      "uppercaseCorruptionRate": 0,
+      "punctuationCorruptionRate": 0,
+      "riskScore": 70.4,
+      "needsManualCleanup": true,
+      "readabilityBand": "emergent",
+      "error": ""
+    },
+    {
+      "bookId": "tale-of-benjamin-bunny",
+      "wordCount": 0,
+      "sentenceCount": 0,
+      "averageSentenceLength": 0,
+      "weirdSymbolDensity": 0,
+      "malformedWordRate": 0,
+      "dictionaryLikeRate": 0,
+      "uppercaseCorruptionRate": 0,
+      "punctuationCorruptionRate": 0,
+      "riskScore": 70.4,
+      "needsManualCleanup": true,
+      "readabilityBand": "emergent",
+      "error": ""
+    },
+    {
+      "bookId": "tale-of-peter-rabbit",
+      "wordCount": 0,
+      "sentenceCount": 0,
+      "averageSentenceLength": 0,
+      "weirdSymbolDensity": 0,
+      "malformedWordRate": 0,
+      "dictionaryLikeRate": 0,
+      "uppercaseCorruptionRate": 0,
+      "punctuationCorruptionRate": 0,
+      "riskScore": 70.4,
+      "needsManualCleanup": true,
+      "readabilityBand": "emergent",
+      "error": ""
+    },
+    {
+      "bookId": "tale-of-squirrel-nutkin",
+      "wordCount": 0,
+      "sentenceCount": 0,
+      "averageSentenceLength": 0,
+      "weirdSymbolDensity": 0,
+      "malformedWordRate": 0,
+      "dictionaryLikeRate": 0,
+      "uppercaseCorruptionRate": 0,
+      "punctuationCorruptionRate": 0,
+      "riskScore": 70.4,
+      "needsManualCleanup": true,
+      "readabilityBand": "emergent",
+      "error": ""
+    }
+  ]
+}
