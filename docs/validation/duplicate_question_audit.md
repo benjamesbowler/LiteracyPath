@@ -10,7 +10,7 @@ This report audits active runtime questions after validation gates are applied. 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 79 | 78 | 0 | 0 | 2 | 8 | none | none |
 | Final Sounds | 79 | 65 | 0 | 0 | 8 | 6 | none | none |
-| Rhyming | 88 | 67 | 0 | 0 | 13 | 8 | none | at:8 |
+| Rhyming | 91 | 70 | 0 | 0 | 13 | 9 | none | at:8 |
 | CVC and Short Vowels | 88 | 36 | 0 | 0 | 5 | 8 | none | none |
 | Short Vowel Discrimination | 91 | 37 | 0 | 0 | 14 | 5 | none | none |
 | High-Frequency Words 1-25 | 61 | 32 | 0 | 0 | 10 | 6 | none | none |
@@ -135,12 +135,12 @@ No duplicate prompt+answer signatures.
 
 ## Rhyming
 
-- Active questions: 88
-- Unique target words / answer targets: 67
+- Active questions: 91
+- Unique target words / answer targets: 70
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 13
-- Repeated distractor sets: 8
+- Repeated distractor sets: 9
 - Overused words: none
 - Overused itemKeys: at:8
 
@@ -161,14 +161,15 @@ No duplicate prompt+answer signatures.
 | ot | 5 |
 | un | 5 |
 | it | 4 |
+| ee | 2 |
 | oat | 2 |
+| ock | 2 |
+| ain | 1 |
 | air | 1 |
 | am | 1 |
-| ee | 1 |
 | ell | 1 |
 | et | 1 |
 | ing | 1 |
-| ock | 1 |
 | ox | 1 |
 | ut | 1 |
 

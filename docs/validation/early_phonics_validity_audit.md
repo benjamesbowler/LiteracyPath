@@ -10,7 +10,7 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 119 | 1 | 20 | 1 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z |
 | Final Sounds | 66 | 0 | 77 | 0 | b, d, g, l, m, n, p, t |
-| Rhyming | 131 | 0 | 0 | 2 | air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ox, ug, un, ut |
+| Rhyming | 134 | 0 | 0 | 2 | ain, air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ox, ug, un, ut |
 | CVC and Short Vowels | 120 | 0 | 0 | 30 | bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig |
 | Short Vowel Discrimination | 174 | 0 | 0 | 0 | short_a, short_e, short_i, short_o, short_u |
 | Blends | 120 | 2 | 0 | 2 | bl, br, cl, cr, dr, fl, fr, sl, sn, sp, st, tr |
@@ -71,9 +71,6 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | Initial Sounds | ixl_first_sound_20 | ixlStyleSeedQuestions | m | FIRST_SOUND | milk | prompt says listen but no approved prompt or card audio exists; missing approved whole-word audio for "milk" |
 | Blends | ixl_blend_sound_6 | ixlStyleSeedQuestions | cl | BLEND_SOUNDS | cloud | missing approved whole-word audio for "cloud" |
 | Blends | ixl_blend_sound_29 | ixlStyleSeedQuestions | cl | BLEND_SOUNDS | cloud | missing approved whole-word audio for "cloud" |
-| Rhyming | ixl_rhyming_picture_21 | ixlStyleSeedQuestions | ck | RHYMING_PICTURE | duck | expected exactly one uck rhyme answer, found 0 |
-| Rhyming | ixl_rhyming_picture_27 | ixlStyleSeedQuestions | ed | RHYMING_PICTURE | seed | expected exactly one eed rhyme answer, found 0 |
-| Rhyming | ixl_rhyming_picture_28 | ixlStyleSeedQuestions | an | RHYMING_PICTURE | rain | expected exactly one ain rhyme answer, found 0 |
 | Rhyming | ixl_rhyming_picture_30 | ixlStyleSeedQuestions | ouse | RHYMING_PICTURE | house | missing answer option images: mouse |
 | Initial Sounds | template_initial_1 | templateQuestions |  | UNKNOWN | fan | Initial Sounds itemKey "fan" is outside configured 25-target early set; Initial Sounds word "fan" is not valid for early itemKey "fan" |
 | Initial Sounds | template_initial_2 | templateQuestions |  | UNKNOWN | map | Initial Sounds itemKey "map" is outside configured 25-target early set; Initial Sounds word "map" is not valid for early itemKey "map" |

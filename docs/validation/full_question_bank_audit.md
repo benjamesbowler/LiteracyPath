@@ -10,7 +10,7 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 79 | 79 | 78 | 25 | 0 | 0 | 8 | 0 | no | no | 77 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
 | Final Sounds | 79 | 79 | 65 | 8 | 0 | 0 | 6 | 0 | no | no | 69 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
-| Rhyming | 88 | 88 | 67 | 23 | 0 | 0 | 8 | 0 | no | no | 75 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
+| Rhyming | 91 | 91 | 70 | 24 | 0 | 0 | 9 | 0 | no | no | 78 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
 | CVC and Short Vowels | 88 | 88 | 36 | 41 | 0 | 0 | 8 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | Short Vowel Discrimination | 91 | 91 | 37 | 5 | 0 | 0 | 5 | 0 | no | no | 53 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | High-Frequency Words 1-25 | 61 | 61 | 32 | 32 | 0 | 0 | 6 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
@@ -89,16 +89,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Rhyming
 
-- Active valid runtime questions: 88
-- Unique question signatures: 88
-- Unique target words / answer targets: 67
-- Unique itemKeys/patterns: 23 (air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ox, ug, un, ut)
+- Active valid runtime questions: 91
+- Unique question signatures: 91
+- Unique target words / answer targets: 70
+- Unique itemKeys/patterns: 24 (ain, air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing, it, oat, ock, og, op, ot, ox, ug, un, ut)
 - Duplicate signatures: 0
-- Repeated distractor sets: 8
+- Repeated distractor sets: 9
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: RHYME_PAIR_SELECT:36, LISTEN_FIND_RHYME:13, READ_FIND_RHYME:13, RHYMING_PICTURE:26
+- Formats: RHYME_PAIR_SELECT:36, LISTEN_FIND_RHYME:13, READ_FIND_RHYME:13, RHYMING_PICTURE:29
 - Overused targets: none
 - Overused itemKeys: at
 
