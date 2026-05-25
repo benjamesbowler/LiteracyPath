@@ -234,15 +234,26 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
   const audioPreviewRef = useRef(null);
   const allRecords = useMemo(() => buildMediaQaRecords(questions, overrides).filter(record => record.mediaType === mediaType), [questions, overrides, mediaType]);
   const skillOptions = useMemo(() => [...new Set(allRecords.map(record => record.skillName || record.skillId).filter(Boolean))].sort(), [allRecords]);
+  const statusCounts = useMemo(() => allRecords.reduce((counts, record) => {
+    counts.all += 1;
+    counts[record.status] = (counts[record.status] || 0) + 1;
+    if (!record.exists || !record.filePath) counts.missing += 1;
+    if ((record.heuristicFlags || []).length > 0) counts.suspected += 1;
+    return counts;
+  }, {
+    all: 0,
+    missing: 0,
+    suspected: 0
+  }), [allRecords]);
   const visibleRecords = allRecords.filter(record => {
     const q = search.toLowerCase().trim();
-    const matchesSearch = !q || [record.targetWord, record.filePath, record.skillName].some(value => String(value || "").toLowerCase().includes(q));
+    const matchesSearch = !q || [record.targetWord, record.filePath, record.skillName, record.skillId].some(value => String(value || "").toLowerCase().includes(q));
     const matchesStatus =
       statusFilter === "all" ||
       record.status === statusFilter ||
-      (statusFilter === "missing" && !record.filePath) ||
+      (statusFilter === "missing" && (!record.exists || !record.filePath)) ||
       (statusFilter === "suspected" && (record.heuristicFlags || []).length > 0);
-    const matchesSkill = skillFilter === "all" || (record.skillName || record.skillId) === skillFilter;
+    const matchesSkill = skillFilter === "all" || record.skillName === skillFilter || record.skillId === skillFilter;
     return matchesSearch && matchesStatus && matchesSkill;
   });
   const selectedSet = new Set(selectedIds);
@@ -309,7 +320,9 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
         <div className="admin-header">
           <div>
             <h2>{mediaType === "image" ? "Image QA" : "Audio QA"}</h2>
-            <p className="muted-text">Moderate app-served {mediaType} assets. Blocking or rejecting image assets removes linked questions from student runtime after reload.</p>
+            <p className="muted-text">
+              Moderate every public {mediaType} asset the app can serve. Showing {visibleRecords.length} of {allRecords.length} records.
+            </p>
           </div>
           <div className="button-row admin-controls">
             <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
@@ -327,6 +340,19 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
       </section>
 
       <section className="report-panel page-stack">
+        <div className="media-qa-status-tabs" role="tablist" aria-label={`${mediaType} QA status filters`}>
+          {["all", ...MEDIA_QA_STATUSES, "suspected", "missing"].map(status => (
+            <button
+              className={statusFilter === status ? "active" : ""}
+              key={status}
+              onClick={() => setStatusFilter(status)}
+              type="button"
+            >
+              {statusLabel(status)} <span>{statusCounts[status] || 0}</span>
+            </button>
+          ))}
+        </div>
+
         <div className="admin-content-filters">
           <input value={search} onChange={event => setSearch(event.target.value)} placeholder="Search target word or filename" type="search" />
           <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
@@ -372,6 +398,8 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
                 <span>{statusLabel(record.status)}</span>
                 <small>{record.filePath}</small>
                 <small>{record.linkedQuestionIds.length} linked questions</small>
+                {record.source === "public_file_inventory" && <small>Public file inventory</small>}
+                {!record.exists && <small>Missing file</small>}
                 {(record.heuristicFlags || []).length > 0 && <small>Flags: {record.heuristicFlags.join(", ")}</small>}
               </div>
               <div className="media-qa-card-actions">
@@ -394,6 +422,7 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
                 <th>Status</th>
                 <th>Path</th>
                 <th>Linked</th>
+                <th>Source</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -422,6 +451,7 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
                   <td>{statusLabel(record.status)}</td>
                   <td>{record.filePath}</td>
                   <td>{record.linkedQuestionIds.length}</td>
+                  <td>{record.source || ""}</td>
                   <td>
                     <div className="button-row">
                       {MEDIA_QA_STATUSES.filter(status => status !== record.status).map(status => (

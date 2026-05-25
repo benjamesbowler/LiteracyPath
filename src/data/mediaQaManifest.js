@@ -1,4 +1,5 @@
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
+import { publicMediaInventory } from "./publicMediaInventory.js";
 
 export const MEDIA_QA_STATUSES = ["unreviewed", "approved", "rejected", "needs_kimi", "blocked"];
 
@@ -49,7 +50,10 @@ function buildInitialSoundMediaQaSeedManifest() {
   });
 }
 
-export const mediaQaSeedManifest = buildInitialSoundMediaQaSeedManifest();
+export const mediaQaSeedManifest = [
+  ...publicMediaInventory,
+  ...buildInitialSoundMediaQaSeedManifest()
+];
 
 export function readMediaQaOverrides() {
   if (typeof localStorage === "undefined") return {};
@@ -126,7 +130,10 @@ export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverr
           reviewedAt: "",
           reviewedBy: "",
           heuristicFlags: getHeuristicFlags(mediaType, filePath),
-          replacementPath: ""
+          replacementPath: "",
+          exists: true,
+          source: "runtime_question",
+          fileSizeBytes: 0
         };
 
         existing.linkedQuestionIds.push(question.id);
@@ -157,7 +164,11 @@ export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverr
           ...(seed.heuristicFlags || []),
           ...(existing?.heuristicFlags || [])
         ])
-      ]
+      ],
+      replacementPath: existing?.replacementPath || seed.replacementPath || "",
+      exists: existing?.exists ?? seed.exists ?? true,
+      source: existing?.source || seed.source || "seed_manifest",
+      fileSizeBytes: existing?.fileSizeBytes || seed.fileSizeBytes || 0
     });
   }
 

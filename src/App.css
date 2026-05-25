@@ -2260,6 +2260,51 @@ body {
   justify-content: center;
 }
 
+.media-qa-status-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.media-qa-status-tabs button {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 11px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lp-color-text-muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.media-qa-status-tabs button.active {
+  border-color: rgba(79, 99, 215, 0.38);
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.media-qa-status-tabs span {
+  display: inline-grid;
+  min-width: 24px;
+  min-height: 22px;
+  place-items: center;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--color-primary);
+  font-size: 0.74rem;
+}
+
+.media-qa-status-tabs button:not(.active) span {
+  background: var(--color-primary-soft);
+}
+
 .media-qa-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
