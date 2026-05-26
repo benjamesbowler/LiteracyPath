@@ -3922,8 +3922,15 @@ export default function App() {
 
   function shouldShowImage(question) {
     const skill = normalize(question.skill);
+    const imagePath =
+      question.imagePath ||
+      question.imageUrl ||
+      question.targetImage ||
+      question.targetImagePath ||
+      question.targetImageUrl ||
+      question.image;
 
-    return Boolean(question.imagePath) && (
+    return Boolean(imagePath) && (
       question.questionType === "ixl_template" ||
       question.question === "Listen and find the word." ||
       skill.includes("vocabulary") ||

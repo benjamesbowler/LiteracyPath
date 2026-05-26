@@ -12,6 +12,8 @@ import {
 import { initialSoundWordBank } from "../src/content/initialSounds/initialSoundWordBank.js";
 import {
   getEarlySkillRuntimeEligibilityIssues,
+  hasRuntimeImage,
+  hasRuntimeTargetImage,
   isRuntimeEligibleEarlySkillQuestion
 } from "../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 import { getQuestionMediaPaths } from "../src/data/mediaQaManifest.js";
@@ -112,6 +114,41 @@ function validateRound(skillId, level, round, label, failures) {
 const report = [];
 const failures = [];
 
+const fakeSpeakerIconQuestion = {
+  id: "regression_final_sounds_speaker_icon_only",
+  skill: "Final Sounds",
+  skillId: "final_sounds",
+  level: 1,
+  question: "Listen to the word. What sound does \"gum\" end with?",
+  prompt: "Listen to the word. What sound does \"gum\" end with?",
+  questionType: "ixl_template",
+  formatType: "ENDING_SOUND",
+  targetWord: "gum",
+  audioText: "gum",
+  imagePath: "/icons/speaker.svg",
+  audioPath: "/media/initial-sounds/audio/g/gum.mp3",
+  itemType: "final_sound",
+  itemKey: "m",
+  targetFinalSound: "m",
+  answer: "m",
+  correctAnswer: "m",
+  choices: ["g", "m", "b", "d"]
+};
+
+if (hasRuntimeImage(fakeSpeakerIconQuestion, { pathExists: () => true })) {
+  failures.push("speaker/audio icon incorrectly satisfied hasRuntimeImage.");
+}
+if (hasRuntimeTargetImage(fakeSpeakerIconQuestion, { pathExists: () => true })) {
+  failures.push("speaker/audio icon incorrectly satisfied Final Sounds target image.");
+}
+if (!getEarlySkillRuntimeEligibilityIssues(fakeSpeakerIconQuestion, {
+  skillId: "final_sounds",
+  level: 1,
+  pathExists: () => true
+}).includes("Final Sounds question is missing a real target-word object image")) {
+  failures.push("speaker-icon-only Final Sounds regression case did not fail target-image eligibility.");
+}
+
 report.push("# Early Skill Runtime Eligibility Audit");
 report.push("");
 report.push(`Generated: ${new Date().toISOString()}`);
@@ -144,6 +181,16 @@ for (const [skillId, levels] of Object.entries(SKILL_LEVELS)) {
       }
       return levelOf(question) === level && isRuntimeEligibleEarlySkillQuestion(question, { skillId, level, pathExists: publicPathExists });
     });
+    if (skillId === "final_sounds") {
+      const gumQuestions = source.filter(question => String(question.targetWord || question.audioText || "").toLowerCase().trim() === "gum");
+      if (level === 1 && !gumQuestions.some(question => hasRuntimeTargetImage(question, { pathExists: publicPathExists }))) {
+        failures.push("Final Sounds Level 1 gum regression: no eligible gum question has a real gum object image.");
+      }
+      const noObjectImage = source.filter(question => !hasRuntimeTargetImage(question, { pathExists: publicPathExists }));
+      if (noObjectImage.length) {
+        failures.push(`Final Sounds Level ${level} has ${noObjectImage.length} accepted questions without target object images: ${noObjectImage.slice(0, 8).map(question => question.id).join(", ")}`);
+      }
+    }
     const patterns = new Set(source.map(question => inferPatternForSkill(skillId, question)).filter(Boolean));
     const missingImages = source
       .flatMap(question => getQuestionMediaPaths(question).image)

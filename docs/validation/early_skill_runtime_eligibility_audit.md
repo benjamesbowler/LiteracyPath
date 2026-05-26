@@ -1,6 +1,6 @@
 # Early Skill Runtime Eligibility Audit
 
-Generated: 2026-05-26T04:41:00.628Z
+Generated: 2026-05-26T05:21:37.165Z
 
 ## initial_sounds
 
@@ -46,7 +46,7 @@ Generated: 2026-05-26T04:41:00.628Z
 ## final_sounds
 
 - Total candidate questions: 351
-- Runtime eligible questions: 248
+- Runtime eligible questions: 172
 
 ### Level 1
 
@@ -58,6 +58,7 @@ Generated: 2026-05-26T04:41:00.628Z
 | Rejection reason | Count |
 |---|---:|
 | question failed canonical Final Sounds Level 1 purity check | 243 |
+| Final Sounds question is missing a real target-word object image | 167 |
 | missing required runtime image | 91 |
 | question would render with an empty or broken visual area | 91 |
 | pair-selection questions are not allowed in Final Sounds Level 1 runtime | 74 |
@@ -68,27 +69,27 @@ Generated: 2026-05-26T04:41:00.628Z
 | answer option "accordion" is not an allowed one-letter Level 1 final sound | 53 |
 | answer option "acorn" is not an allowed one-letter Level 1 final sound | 53 |
 | Final Sounds Level 1 answer option "accordion" is not an allowed single letter | 53 |
-| Final Sounds Level 1 answer option "acorn" is not an allowed single letter | 53 |
 
 - Fresh round proof: ending_l1_002_dog (dog), ending_l1_022_fan (fan), qb8_final_15 (pot), gen_final_l1_b_web_1_sound (web), ending_l1_012_jam (jam), gen_final_l1_l_oval_1_sound (oval), gen_final_l1_p_cap_0_sound (cap), ixl_ending_sound_3 (bed), ixl_ending_sound_6 (pin), ending_l1_005_pan (pan), ending_l1_008_bag (bag), ending_l1_016_mug (mug), qb8_final_05 (dog), qb8_final_06 (log), ixl_ending_sound_8 (bag)
 - Review round proof: ixl_ending_sound_16 (hat), gen_final_l1_g_dog_4_sound (dog), ending_l1_004_map (map), qb8_final_02 (red), ending_l1_022_fan (fan), gen_final_l1_m_gum_0_sound (gum), ending_l1_010_web (web), gen_final_l1_l_oval_1_sound (oval), ending_l1_014_hat (hat), gen_final_l1_t_mat_9_sound (mat), gen_final_l1_t_newt_10_sound (newt), gen_final_l1_g_leg_8_sound (leg), ending_l1_002_dog (dog), gen_final_l1_t_rat_12_sound (rat), gen_final_l1_p_up_7_sound (up)
 
 ### Level 2
 
-- Accepted count: 146
-- Coverage targets: 27
+- Accepted count: 70
+- Coverage targets: 20
 - Missing image references among accepted: 0
 - Missing audio references among accepted: 0
 
 | Rejection reason | Count |
 |---|---:|
+| Final Sounds question is missing a real target-word object image | 167 |
 | missing required runtime image | 91 |
 | question would render with an empty or broken visual area | 91 |
 | listen prompt is missing required runtime audio | 2 |
 | question is inactive | 1 |
 
-- Fresh round proof: gen_final_l2_nd_pond_5_sound (pond), coverage_final_t_006 (kite), gen_final_l2_sh_fish_3_sound (fish), coverage_final_g_002 (bug), recovery_final_p_2 (nap), ending_l2_015_shell (shell), coverage_final_k_003 (cake), coverage_final_r_004 (fork), gen_final_l2_st_goalpost_0_sound (goalpost), coverage_final_m_004 (thumb), gen_final_l2_sk_kiosk_2_sound (kiosk), gen_final_l2_nk_ink_0_sound (ink), recovery_final_p_3 (cap), coverage_final_n_004 (lion), gen_final_l2_sk_sk_3_sound (sk)
-- Review round proof: coverage_final_p_001 (cap), ending_l2_009_hand (hand), coverage_final_g_003 (bag), recovery_final_d_2 (mud), gen_final_l2_sh_brush_0_sound (brush), coverage_final_k_003 (cake), coverage_final_n_004 (lion), gen_final_l2_lt_quilt_0_sound (quilt), coverage_final_l_004 (ball), gen_final_l2_ll_football_6_sound (football), coverage_final_r_001 (car), coverage_final_s_003 (octopus), gen_final_l2_nd_nd_3_sound (nd), coverage_final_p_002 (mop), ending_l2_013_fork (fork)
+- Fresh round proof: ending_l2_014_desk (desk), gen_final_l2_ll_football_6_sound (football), ending_l2_020_leaf (leaf), ending_l2_017_chair (chair), ending_l2_004_duck (duck), ending_l2_025_thumb (thumb), ending_l2_015_shell (shell), ending_l2_009_hand (hand), ending_l2_002_dish (dish), gen_final_l2_ng_building_0_sound (building), ending_l2_012_park (park), gen_final_l2_st_violinist_3_sound (violinist), gen_final_l2_sh_fish_3_sound (fish), gen_final_l2_sh_paintbrush_7_sound (paintbrush), gen_final_l2_lt_quilt_0_sound (quilt)
+- Review round proof: ending_l2_002_dish (dish), ending_l2_004_duck (duck), ending_l2_009_hand (hand), gen_final_l2_st_violinist_3_sound (violinist), gen_final_l2_ng_ring_4_sound (ring), gen_final_l2_sk_sk_3_sound (sk), ending_l2_020_leaf (leaf), gen_final_l2_ll_doll_5_sound (doll), ending_l2_017_chair (chair), ending_l2_012_park (park), ending_l2_022_ship (ship), ending_l2_024_octopus (octopus), gen_final_l2_ll_quill_9_sound (quill), ending_l2_006_rock (rock), gen_final_l2_sh_toothbrush_9_sound (toothbrush)
 
 ## cvc_short_vowels
 

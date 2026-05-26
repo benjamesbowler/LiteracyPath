@@ -37,6 +37,7 @@ const FINAL_SOUNDS_LEVEL_ONE_FORBIDDEN = [
   "ll", "ck", "ss", "ff", "zz", "mp", "rk", "lk"
 ];
 const PLACEHOLDER_PATTERN = /(?:placeholder|fallback|missing|unavailable|coming-soon|blank)/i;
+const UI_IMAGE_PATH_PATTERN = /(?:speaker|audio-button|volume|question-visual|\/ui\/|\/icons?\/|speaker-icon|\.svg$)/i;
 
 function normalize(value = "") {
   return String(value || "").toLowerCase().trim();
@@ -68,7 +69,12 @@ function getQuestionLevel(question = {}) {
 
 function isPublicRuntimePath(path = "") {
   const value = String(path || "").trim();
-  return Boolean(value && value.startsWith("/") && !PLACEHOLDER_PATTERN.test(value));
+  return Boolean(
+    value &&
+    value.startsWith("/") &&
+    !PLACEHOLDER_PATTERN.test(value) &&
+    !UI_IMAGE_PATH_PATTERN.test(value)
+  );
 }
 
 function pathAllowed(path = "", mediaType = "image", options = {}) {
@@ -122,6 +128,24 @@ function getTargetWord(question = {}) {
   );
 }
 
+function slugText(value = "") {
+  return normalize(value)
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function getDirectTargetImagePaths(question = {}) {
+  return [
+    question.imagePath,
+    question.imageUrl,
+    question.targetImage,
+    question.targetImagePath,
+    question.targetImageUrl,
+    question.image
+  ].filter(Boolean);
+}
+
 export function isListenPrompt(question = {}) {
   const text = getQuestionText(question);
   return Boolean(
@@ -134,6 +158,25 @@ export function isListenPrompt(question = {}) {
 export function hasRuntimeImage(question = {}, options = {}) {
   const paths = getQuestionMediaPaths(question).image;
   return paths.some(path => pathAllowed(path, "image", options));
+}
+
+export function hasRuntimeTargetImage(question = {}, options = {}) {
+  const paths = getDirectTargetImagePaths(question);
+  if (!paths.some(path => pathAllowed(path, "image", options))) return false;
+
+  const target = slugText(getTargetWord(question));
+  if (!target || target.length < 2) return true;
+
+  return paths.some(path => {
+    if (!pathAllowed(path, "image", options)) return false;
+    const normalizedPath = slugText(String(path).split("/").pop()?.replace(/\.[a-z0-9]+$/i, "") || path);
+    return normalizedPath === target ||
+      normalizedPath.includes(target) ||
+      String(path).toLowerCase().includes(`/${target}.`) ||
+      String(path).toLowerCase().includes(`/${target}/`) ||
+      String(path).toLowerCase().includes(`-${target}.`) ||
+      String(path).toLowerCase().includes(`${target}-`);
+  });
 }
 
 export function hasRuntimeAudio(question = {}, options = {}) {
@@ -248,6 +291,15 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
 
   if (skillId === "final_sounds" && level === 1) {
     addFinalSoundsLevelOneIssues(question, issues);
+  }
+
+  if (skillId === "final_sounds") {
+    if (!getTargetWord(question)) {
+      issues.push("Final Sounds question is missing targetWord");
+    }
+    if (!hasRuntimeTargetImage(question, context)) {
+      issues.push("Final Sounds question is missing a real target-word object image");
+    }
   }
 
   if (question.hideWrittenLabels === true && !hasRuntimeImage(question, context)) {
