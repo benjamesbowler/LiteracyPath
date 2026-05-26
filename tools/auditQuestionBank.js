@@ -40,6 +40,7 @@ import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
+import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
@@ -149,6 +150,7 @@ const questionBanks = [
   ["src/data/templateExpansion6.js", templateExpansion6],
   ["src/data/templateExpansion7.js", templateExpansion7],
   ["src/data/questionBankExpansion8.js", questionBankExpansion8],
+  ["src/data/generated/earlySkillQuestions.generated.js", generatedEarlySkillQuestions],
   ["src/data/generatedQuestions.js", generatedQuestions],
   ["src/data/fixSentenceQuestions.js", fixSentenceQuestions],
   ["src/data/templateComprehensionAdvanced.js", templateComprehensionAdvanced]
@@ -654,7 +656,8 @@ function phonicsWordingIssue(question, stage) {
 
   if (stage === "Final Sounds" && !isPairSelect) {
     const answer = normalize(question.answer);
-    const anchor = finalSoundAnchors[answer.at(-1)];
+    const finalPattern = normalize(question.itemKey || question.targetFinalSound || question.targetSound || question.phonicsPattern || answer.at(-1));
+    const anchor = finalPattern.length === 1 ? finalSoundAnchors[finalPattern] : null;
     if (anchor) {
       const expectedPrompt = "Which word ends the same as " + anchor + "?";
       const expectedSpoken = "Which word ends like " + anchor + "?";

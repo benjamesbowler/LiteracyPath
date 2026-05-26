@@ -1,31 +1,31 @@
 # Lexicon Validation Report
 
-Generated: 2026-05-25T23:16:19.696Z
+Generated: 2026-05-26T00:05:04.224Z
 
 ## Summary
 
-- Total deduplicated words: 713
+- Total deduplicated words: 721
 - Duplicate normalized words after merge: 0
 - Missing core phonics tags: 0
 - No linked image or audio: 20
-- Unknown syllable type: 306
+- Unknown syllable type: 310
 
 ## Initial Sound Coverage
 
 | Initial Sound | Count |
 | --- | ---: |
 | a | 23 |
-| b | 57 |
+| b | 63 |
 | c | 45 |
 | ch | 2 |
-| d | 33 |
+| d | 34 |
 | e | 22 |
 | f | 32 |
 | g | 23 |
 | h | 35 |
 | i | 24 |
 | j | 23 |
-| k | 20 |
+| k | 21 |
 | kn | 1 |
 | l | 27 |
 | m | 32 |
@@ -55,7 +55,7 @@ Generated: 2026-05-25T23:16:19.696Z
 | ch | 8 |
 | ck | 19 |
 | d | 38 |
-| e | 94 |
+| e | 95 |
 | f | 4 |
 | ft | 2 |
 | g | 38 |
@@ -64,29 +64,29 @@ Generated: 2026-05-25T23:16:19.696Z
 | j | 1 |
 | k | 15 |
 | l | 22 |
-| ll | 18 |
+| ll | 19 |
 | lt | 1 |
 | m | 23 |
 | mp | 3 |
 | n | 83 |
 | nd | 12 |
-| ng | 7 |
+| ng | 8 |
 | nk | 1 |
 | nt | 10 |
 | o | 15 |
 | p | 39 |
 | q | 1 |
-| r | 66 |
+| r | 67 |
 | s | 30 |
-| sh | 9 |
+| sh | 10 |
 | sk | 6 |
 | st | 5 |
-| t | 69 |
+| t | 71 |
 | th | 2 |
 | u | 1 |
 | v | 1 |
 | w | 11 |
-| x | 6 |
+| x | 7 |
 | y | 22 |
 | z | 3 |
 
@@ -94,12 +94,12 @@ Generated: 2026-05-25T23:16:19.696Z
 
 | Vowel Pattern | Count |
 | --- | ---: |
-| bossy-r | 178 |
+| bossy-r | 179 |
 | diphthong | 3 |
-| other | 303 |
+| other | 307 |
 | short-vowel-cvc | 76 |
 | silent-e | 38 |
-| vowel-team | 115 |
+| vowel-team | 118 |
 
 ## Words Needing Manual QA
 

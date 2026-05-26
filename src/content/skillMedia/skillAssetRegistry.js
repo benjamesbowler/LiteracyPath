@@ -22,6 +22,7 @@ import { templateExpansion5 } from "../../data/templateExpansion5.js";
 import { templateExpansion6 } from "../../data/templateExpansion6.js";
 import { templateExpansion7 } from "../../data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../../data/questionBankExpansion8.js";
+import { generatedEarlySkillQuestions } from "../../data/generated/earlySkillQuestions.generated.js";
 import { generatedQuestions } from "../../data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../../data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../../data/templateComprehensionAdvanced.js";
@@ -135,6 +136,7 @@ export const runtimeQuestionSources = [
   ...templateExpansion6,
   ...templateExpansion7,
   ...questionBankExpansion8,
+  ...generatedEarlySkillQuestions,
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced

@@ -21,6 +21,7 @@ import { templateExpansion4 } from "../src/data/templateExpansion4.js";
 import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
+import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
@@ -54,6 +55,7 @@ const banks = [
   ["templateExpansion5", templateExpansion5],
   ["templateExpansion6", templateExpansion6],
   ["templateExpansion7", templateExpansion7],
+  ["generatedEarlySkillQuestions", generatedEarlySkillQuestions],
   ["generatedQuestions", generatedQuestions],
   ["fixSentenceQuestions", fixSentenceQuestions],
   ["templateComprehensionAdvanced", templateComprehensionAdvanced]
