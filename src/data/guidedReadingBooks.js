@@ -1,6 +1,7 @@
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
 import { guidedStoryBooks } from "./guidedStoryBooks.js";
 import { publicDomainGuidedReadingBooks } from "./generated/publicDomainGuidedReadingBooks.generated.js";
+import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 
 const wordAudio = word => `/audio/child-mode/words/${word.toLowerCase().replace(/[^a-z0-9'-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
 
@@ -6419,11 +6420,72 @@ const guidedStoryLevelCReviewIds = new Set([
   "gs-c-06"
 ]);
 
-const guidedStoryLevelCImagePageRemap = {};
+const guidedStoryLevelCImagePageRemap = {
+  "gs-c-01": {
+    1: 2,
+    2: 4,
+    3: 3,
+    4: 8,
+    5: 5,
+    6: 9,
+    7: 9,
+    8: 10,
+    9: 7,
+    10: 6
+  },
+  "gs-c-02": {
+    1: 2,
+    2: 3,
+    3: 3,
+    4: 4,
+    5: 6,
+    6: 8,
+    7: 6,
+    8: 10,
+    9: 4,
+    10: 10
+  },
+  "gs-c-03": {
+    1: 2,
+    2: 3,
+    3: 4,
+    4: 7,
+    5: 8,
+    6: 5,
+    7: 5,
+    8: 8,
+    9: 9,
+    10: 5
+  },
+  "gs-c-04": {
+    1: 2,
+    2: 3,
+    3: 4,
+    4: 5,
+    5: 6,
+    6: 7,
+    7: 7,
+    8: 9,
+    9: 8,
+    10: 10
+  },
+  "gs-c-06": {
+    1: 3,
+    2: 1,
+    3: 4,
+    4: 6,
+    5: 6,
+    6: 6,
+    7: 7,
+    8: 5,
+    9: 9,
+    10: 10
+  }
+};
 
 function remapLevelCReviewPageImage(bookId, page = {}) {
   const sourcePageNumber = guidedStoryLevelCImagePageRemap[bookId]?.[page.pageNumber];
-  if (!sourcePageNumber || sourcePageNumber === page.pageNumber) return page;
+  if (!sourcePageNumber) return page;
 
   return {
     ...page,
@@ -6493,6 +6555,8 @@ export const guidedStoryBookDrafts = guidedStoryBooks;
 export const guidedReadingBooks = activeGuidedReadingBaseBooks
   .map(relevelGuidedReadingBook)
   .filter(book => book.pages.length >= 4);
+
+export const enrichedGuidedReadingBooks = guidedReadingBooks.map(enrichGuidedReadingBook);
 
 export function normalizeGuidedReadingType(type = "") {
   const normalized = String(type || "").toLowerCase().replace(/[^a-z]/g, "");

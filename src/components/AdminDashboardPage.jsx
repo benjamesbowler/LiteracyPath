@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   buildMediaQaRecords,
   MEDIA_QA_STATUSES,
@@ -6,8 +6,12 @@ import {
   updateMediaQaRecords
 } from "../data/mediaQaManifest";
 import { guidedReadingBooks } from "../data/guidedReadingBooks";
+import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer";
+import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
+const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
+const GUIDED_IMAGE_QA_RESET_VERSION = "2026-05-26-level-c-page-alignment-reset";
 const GUIDED_IMAGE_QA_STATUSES = [
   "unreviewed",
   "match",
@@ -125,6 +129,12 @@ function getKimiRequestReason(record) {
 
 function readGuidedImageQaOverrides() {
   if (typeof localStorage === "undefined") return {};
+  const resetVersion = localStorage.getItem(GUIDED_IMAGE_QA_RESET_KEY);
+  if (resetVersion !== GUIDED_IMAGE_QA_RESET_VERSION) {
+    localStorage.removeItem(GUIDED_IMAGE_QA_STORAGE_KEY);
+    localStorage.setItem(GUIDED_IMAGE_QA_RESET_KEY, GUIDED_IMAGE_QA_RESET_VERSION);
+    return {};
+  }
   try {
     return JSON.parse(localStorage.getItem(GUIDED_IMAGE_QA_STORAGE_KEY) || "{}");
   } catch {
@@ -135,6 +145,12 @@ function readGuidedImageQaOverrides() {
 function writeGuidedImageQaOverrides(overrides = {}) {
   if (typeof localStorage === "undefined") return;
   localStorage.setItem(GUIDED_IMAGE_QA_STORAGE_KEY, JSON.stringify(overrides));
+}
+
+function resetGuidedImageQaOverrides() {
+  if (typeof localStorage === "undefined") return;
+  localStorage.removeItem(GUIDED_IMAGE_QA_STORAGE_KEY);
+  localStorage.setItem(GUIDED_IMAGE_QA_RESET_KEY, GUIDED_IMAGE_QA_RESET_VERSION);
 }
 
 function buildGuidedImageQaRecords(overrides = readGuidedImageQaOverrides()) {
@@ -570,6 +586,10 @@ function GuidedReadingImageQaPage({ onBack }) {
     return matchesSearch && matchesStatus && matchesBook && matchesLevel;
   });
 
+  useEffect(() => {
+    setOverrides(readGuidedImageQaOverrides());
+  }, []);
+
   function applyGuidedStatus(recordId, status) {
     const next = {
       ...overrides,
@@ -619,6 +639,11 @@ function GuidedReadingImageQaPage({ onBack }) {
     if (format === "kimi") downloadTextFile(`${base}-kimi-remake-request.md`, guidedImageQaToKimiMarkdown(visibleRecords), "text/markdown");
   }
 
+  function resetGuidedQa() {
+    resetGuidedImageQaOverrides();
+    setOverrides({});
+  }
+
   const counts = records.reduce((map, record) => {
     map[record.status] = (map[record.status] || 0) + 1;
     return map;
@@ -637,6 +662,7 @@ function GuidedReadingImageQaPage({ onBack }) {
             <button className="report-button" onClick={() => exportGuidedQa("csv")} type="button">Export CSV</button>
             <button className="report-button" onClick={() => exportGuidedQa("json")} type="button">Export JSON</button>
             <button className="report-button" onClick={() => exportGuidedQa("kimi")} type="button">Export Kimi Remake Request</button>
+            <button className="report-button" onClick={resetGuidedQa} type="button">Reset QA</button>
           </div>
         </div>
         <div className="media-qa-rules">
@@ -770,6 +796,46 @@ export function AdminDashboardPage({
 
     return matchesSkill && matchesTemplate && matchesDifficulty && matchesPattern && matchesMedia && matchesStatus;
   });
+  const guidedReadingInsight = useMemo(() => {
+    const enriched = guidedReadingBooks.map(enrichGuidedReadingBook);
+    const byStatus = enriched.reduce((map, book) => {
+      const status = book.qaStatus || "unknown";
+      map[status] = (map[status] || 0) + 1;
+      return map;
+    }, {});
+    const byLevel = enriched.reduce((map, book) => {
+      const level = book.level || "Unleveled";
+      map[level] = (map[level] || 0) + 1;
+      return map;
+    }, {});
+    const patternCounts = enriched.flatMap(book => book.dominantPhonicsPatterns || []).reduce((map, pattern) => {
+      map[pattern] = (map[pattern] || 0) + 1;
+      return map;
+    }, {});
+    const microphaseCounts = enriched.reduce((map, book) => {
+      const key = book.recommendedMicrophase || "early-reading";
+      map[key] = (map[key] || 0) + 1;
+      return map;
+    }, {});
+    const recommendations = recommendBooksForStudent({
+      books: guidedReadingBooks,
+      studentProgress: { needs: ["cvc", "short-a", "final-sounds", "digraphs"] },
+      readingHistory: {}
+    }).slice(0, 6);
+
+    return {
+      total: enriched.length,
+      active: enriched.filter(book => book.active !== false).length,
+      draft: enriched.filter(book => book.qaStatus !== "approved").length,
+      missingImages: enriched.reduce((sum, book) => sum + (book.pages || []).filter(page => !page.image).length, 0),
+      missingText: enriched.reduce((sum, book) => sum + (book.pages || []).filter(page => !page.text).length, 0),
+      byStatus,
+      byLevel,
+      patternCounts,
+      microphaseCounts,
+      recommendations
+    };
+  }, []);
 
   function openAdminQaPage(page) {
     setAdminQaPage(page);
@@ -823,6 +889,52 @@ export function AdminDashboardPage({
         </div>
 
         {message && <p className="message">{message}</p>}
+      </section>
+
+      <section className="report-panel page-stack admin-section guided-insight-panel">
+        <div className="admin-header">
+          <div>
+            <h3>Guided Reading Insight</h3>
+            <p className="muted-text">Book availability, phonics patterns, microphase recommendations, and QA warnings for assignment planning.</p>
+          </div>
+          <span className="pd-book-status available">{guidedReadingInsight.active}/{guidedReadingInsight.total} visible</span>
+        </div>
+        <div className="guided-insight-grid">
+          <article>
+            <strong>QA Status</strong>
+            {Object.entries(guidedReadingInsight.byStatus).map(([status, count]) => (
+              <span key={status}>{status}: {count}</span>
+            ))}
+            {guidedReadingInsight.draft > 0 && <small>{guidedReadingInsight.draft} draft/review books should not be assigned by default.</small>}
+          </article>
+          <article>
+            <strong>Levels</strong>
+            {Object.entries(guidedReadingInsight.byLevel).map(([level, count]) => (
+              <span key={level}>Level {level}: {count}</span>
+            ))}
+          </article>
+          <article>
+            <strong>Microphases</strong>
+            {Object.entries(guidedReadingInsight.microphaseCounts).slice(0, 6).map(([phase, count]) => (
+              <span key={phase}>{phase.replace(/-/g, " ")}: {count}</span>
+            ))}
+          </article>
+          <article>
+            <strong>Top Patterns</strong>
+            {Object.entries(guidedReadingInsight.patternCounts).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([pattern, count]) => (
+              <span key={pattern}>{pattern.replace(/-/g, " ")}: {count}</span>
+            ))}
+          </article>
+        </div>
+        <div className="guided-insight-recommendations">
+          <strong>Sample targeted recommendations</strong>
+          {guidedReadingInsight.recommendations.map(item => (
+            <span key={item.book.id}>{item.book.title} · Level {item.book.level} · {item.reasons.slice(0, 2).join(" · ")}</span>
+          ))}
+        </div>
+        {(guidedReadingInsight.missingImages > 0 || guidedReadingInsight.missingText > 0) && (
+          <p className="message warning">Guided Reading warning: {guidedReadingInsight.missingImages} missing page images and {guidedReadingInsight.missingText} missing text fields.</p>
+        )}
       </section>
 
       <section className="report-panel page-stack admin-section">
