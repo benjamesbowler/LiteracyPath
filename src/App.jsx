@@ -85,7 +85,6 @@ import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { shortAEchoCavesQuestions } from "./data/childActivityModels";
-import { audioManifest, audioTextIndex } from "./data/audioManifest";
 import { getApprovedAudioPath, getPreferredAudioPath } from "./data/audioPreferenceManifest";
 import { isMediaQaRuntimeAllowed, isQuestionBlockedByMediaQa } from "./data/mediaQaManifest";
 import {
@@ -109,6 +108,11 @@ import {
   getRepeatOptionSetSignature,
   getRepeatTargetWord
 } from "./questionRepeatGuards";
+import {
+  getEarlySkillRuntimeEligibilityIssues,
+  isRuntimeEligibleEarlySkillQuestion,
+  normalizeEarlySkillId
+} from "./utils/earlySkills/isRuntimeEligibleEarlySkillQuestion";
 
 // dynamic mastery system
 
@@ -117,6 +121,15 @@ const AdminDashboardPage = lazy(() =>
     default: module.AdminDashboardPage
   }))
 );
+
+let audioManifestModulePromise = null;
+
+function loadAudioManifestModule() {
+  if (!audioManifestModulePromise) {
+    audioManifestModulePromise = import("./data/audioManifest");
+  }
+  return audioManifestModulePromise;
+}
 
 const FinishedReportPage = lazy(() =>
   import("@/components/FinishedReportPage").then(module => ({
@@ -136,7 +149,8 @@ const PURE_EARLY_PHONICS_SKILL_IDS = new Set([
   "initial_sounds",
   "final_sounds",
   "cvc_short_vowels",
-  "rhyming"
+  "rhyming",
+  "short_vowel_discrimination"
 ]);
 
 function shuffleArray(array) {
@@ -810,6 +824,17 @@ function isQuestionValid(q) {
   if (q.questionType === "initial_sound_pair" && isInitialSoundQuestion(q) && !hasCompleteInitialSoundPairAssets(q)) return false;
   if (isPairSelectionQuestion(q) && !hasCompletePairSelectionAssets(q)) return false;
   if (isVisualCardChoiceQuestion(q) && !hasCompleteVisualQuestionAssets(q)) return false;
+  const candidateStageIndex = getStageIndex(q);
+  const candidateStage = skillTree[candidateStageIndex];
+  const candidateSkillId = normalizeEarlySkillId(candidateStage?.id || q.skillId || q.skill);
+  if (
+    PURE_EARLY_PHONICS_SKILL_IDS.has(candidateSkillId) &&
+    !isRuntimeEligibleEarlySkillQuestion(q, {
+      skillId: candidateSkillId,
+      level: q.level || q.difficulty || 1
+    })
+  ) return false;
+
   if (q.skillId === "rhyming" && !(
     q.imagePath ||
     q.imageUrl ||
@@ -845,8 +870,8 @@ function isQuestionValid(q) {
   if (!isAssessmentContentValid(q)) return false;
   if (isQuestionBlockedByMediaQa(q)) return false;
 
-  const stageIndex = getStageIndex(q);
-  const stage = skillTree[stageIndex];
+  const stageIndex = candidateStageIndex;
+  const stage = candidateStage;
   if (!stage || !isQuestionAllowedForSkill(q, stage.id)) return false;
 
   return stageIndex !== -1;
@@ -2377,7 +2402,10 @@ export default function App() {
       level,
       roundNumber: null,
       seed: Date.now(),
-      itemFilter: item => !item.imageUrl || isMediaQaRuntimeAllowed(item.imageUrl, "image")
+      itemFilter: item => isRuntimeEligibleEarlySkillQuestion(item, {
+        skillId: "initial_sounds",
+        level
+      })
     });
 
     initialSoundRoundQueueRef.current = plan.items;
@@ -2461,18 +2489,24 @@ export default function App() {
     const levelFilteredStageQuestions = isFinalSoundsStage(stage)
       ? stageQuestions.filter(question => getFinalSoundQuestionLevel(question) === finalSoundLevel)
       : stageQuestions;
-    const runtimeFilteredStageQuestions = isFinalSoundsStage(stage) && finalSoundLevel === 1
+    const runtimeContext = {
+      skillId: normalizeEarlySkillId(stage.id),
+      level: finalSoundLevel || 1
+    };
+    const runtimeFilteredStageQuestions = isPureEarlyPhonicsStage(stage)
       ? levelFilteredStageQuestions.filter(question => {
-        const allowed = isFinalSoundsLevel1Question(question);
-        if (!allowed && import.meta.env.DEV) {
-          console.warn("Blocked non-Level-1 Final Sounds question before runtime selection", {
+        const issues = getEarlySkillRuntimeEligibilityIssues(question, runtimeContext);
+        if (issues.length > 0 && import.meta.env.DEV) {
+          console.warn("Blocked early phonics question before runtime selection", {
             id: question.id,
+            skillId: runtimeContext.skillId,
+            level: runtimeContext.level,
             source: question.source || question._source || "unknown",
-            issues: getFinalSoundsLevel1QuestionIssues(question),
+            issues,
             question
           });
         }
-        return allowed;
+        return issues.length === 0;
       })
       : levelFilteredStageQuestions;
     const currentProfile = getRoundDuplicateProfile();
@@ -2561,6 +2595,13 @@ export default function App() {
             getDiagnosticTarget(question) === weakness.target &&
             !usedQuestionIds.has(question.id) &&
             !isQuestionBlockedByMediaQa(question) &&
+            (
+              !isPureEarlyPhonicsStage(stage) ||
+              isRuntimeEligibleEarlySkillQuestion(question, {
+                skillId: normalizeEarlySkillId(stage.id),
+                level: isFinalSoundsStage(stage) ? getFinalSoundQuestionLevel(question) : (question.level || question.difficulty || 1)
+              })
+            ) &&
             !wasQuestionAnsweredCorrectly(question, correctMemory)
           );
         });
@@ -2892,6 +2933,18 @@ export default function App() {
   }
 
   function prepareQuestion(question, isTargetedReview = false) {
+    const stage = skillTree[getStageIndex(question)];
+    if (isPureEarlyPhonicsStage(stage)) {
+      const context = {
+        skillId: normalizeEarlySkillId(stage.id),
+        level: isFinalSoundsStage(stage) ? getFinalSoundQuestionLevel(question) : (question.level || question.difficulty || 1)
+      };
+      const issues = getEarlySkillRuntimeEligibilityIssues(question, context);
+      if (issues.length > 0 && import.meta.env.DEV) {
+        throw new Error(`Blocked ineligible early phonics question at render boundary: ${question.id || "(missing id)"} :: ${issues.join("; ")}`);
+      }
+    }
+
     const preparedChoices = Array.isArray(question.choices)
       ? (isPairSelectionQuestion(question) ? question.choices : shuffleArray(question.choices))
       : question.choices;
@@ -3830,6 +3883,7 @@ export default function App() {
     }
 
     const normalizedText = normalizeAudioText(text);
+    const { audioManifest, audioTextIndex } = await loadAudioManifestModule();
     const audioKey = audioTextIndex[normalizedText];
     const audioEntry = audioKey ? audioManifest[audioKey] : null;
 

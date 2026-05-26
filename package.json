@@ -23,6 +23,8 @@
     "validate:skill-banks": "node tools/auditSkillBanks.js",
     "check:skill-progression": "node tools/checkSkillProgression.js",
     "check:final-sound-progression": "node tools/checkFinalSoundProgression.js",
+    "check:final-sounds-level1-purity": "node tools/checkFinalSoundsLevel1Purity.js",
+    "check:early-skill-runtime-eligibility": "node tools/checkEarlySkillRuntimeEligibility.js",
     "audit:phonics-media": "node tools/auditPhonicsMediaInventory.js",
     "check:initial-sounds-depth": "node tools/checkInitialSoundsRuntimeDepth.js",
     "check:core-skill-depth": "node tools/checkCoreSkillRuntimeDepth.js",
