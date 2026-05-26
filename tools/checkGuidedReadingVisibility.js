@@ -27,10 +27,7 @@ function getGuidedReadingLevelBooks(type, level) {
 function getHiddenReason(book) {
   if (!book) return "missing from guidedReadingBooks export";
   if (book.active === false) return "active is false";
-  const isVisibleReviewBook =
-    book.reviewMode === true &&
-    ["needs_image_alignment_review", "whole_book_continuity_review"].includes(book.qaStatus);
-  if (book.qaStatus !== "approved" && !isVisibleReviewBook) {
+  if (book.qaStatus !== "approved") {
     return `qaStatus is ${book.qaStatus || "missing"}`;
   }
   if (!book.pages?.length) return "no pages";
@@ -68,7 +65,7 @@ const failures = [];
 
 for (const row of rows) {
   if (row.hiddenReason) failures.push(`${row.id}: ${row.hiddenReason}`);
-  if (!row.reviewMode) failures.push(`${row.id}: reviewMode is not true`);
+  if (row.reviewMode) failures.push(`${row.id}: reviewMode should be false for approved Level C placement`);
   if (row.level !== "C") failures.push(`${row.id}: expected Level C, found ${row.level || "missing"}`);
   if (row.type !== "fiction") failures.push(`${row.id}: expected fiction, found ${row.type || "missing"}`);
   if (!row.coverExists) failures.push(`${row.id}: cover image missing`);
@@ -84,18 +81,18 @@ const report = [
   "",
   "## Root Cause",
   "",
-  "The Level C pilot books were present in the `guidedReadingBooks` data export and passed the basic approved/page filters, but they were easy to miss because they only appeared after navigating Fiction > Level C. Review-mode state had no dedicated shelf or badge, so content could be technically loaded while feeling invisible in the UI.",
+  "The Level C pilot books were present in the `guidedReadingBooks` data export. They are now approved app-guided-reading books and should appear as normal Fiction Level C books, not as public-domain, draft, current, or pilot-only entries.",
   "",
   "## Filters Fixed",
   "",
-  "- Added a dedicated Level C Guided Story Pilot shelf above the normal category/level flow.",
-  "- Review-mode books still remain in the regular Fiction > Level C shelf.",
+  "- Level C pilot books remain in the regular Fiction > Level C shelf.",
+  "- Approved Level C books no longer require review-mode visibility to be discoverable.",
   "- Missing page narration no longer affects shelf visibility; page audio remains optional and hidden when absent.",
   "- Cover fallback logic remains in place, but the five pilot covers are required and checked.",
   "",
   "## Routing Fixes",
   "",
-  "- Pilot cards call the same reader-opening path as the regular shelf.",
+  "- Level C cards call the same reader-opening path as the regular shelf.",
   "- The reader receives the same page data, page images, notes, marking, and navigation controls.",
   "",
   "## Fallback Behavior",
@@ -104,14 +101,14 @@ const report = [
   "- Missing narration/page audio: book remains visible; Read Page button is hidden for pages without audio.",
   "- Missing page image: book remains diagnosable, but this audit fails because review books must have page art.",
   "",
-  "## Remaining Review-Mode Limitations",
+  "## Remaining Limitations",
   "",
   "- Exact page narration audio is still pending for these pilot stories.",
-  "- These are labeled Review/Audio Pending in the UI until narration is approved.",
+  "- These books are not labeled as Current/Pilot/Draft in the student shelf.",
   "",
   "## Level C Pilot Visibility",
   "",
-  "| ID | Title | Type | Level | Review | QA | Pages | Cover | Missing Page Images | Discoverable | Hidden Reason |",
+  "| ID | Title | Type | Level | Review Mode | QA | Pages | Cover | Missing Page Images | Discoverable | Hidden Reason |",
   "|---|---|---|---|---:|---|---:|---:|---|---:|---|",
   ...rows.map(row => `| ${row.id} | ${row.title} | ${row.typeLabel} | ${row.level} | ${row.reviewMode ? "yes" : "no"} | ${row.qaStatus} | ${row.pages} | ${row.coverExists ? "yes" : "no"} | ${row.pageImagesMissing.length ? row.pageImagesMissing.join(", ") : "none"} | ${row.discoverable ? "yes" : "no"} | ${row.hiddenReason || "none"} |`),
   "",
@@ -119,7 +116,7 @@ const report = [
   "",
   failures.length
     ? `## Failures\n\n${failures.map(item => `- ${item}`).join("\n")}`
-    : "## Result\n\nPASS: all five Level C pilot books are discoverable, have covers, have page images, and can route through the reader."
+    : "## Result\n\nPASS: all five Level C books are approved Fiction Level C entries, discoverable, have covers, have page images, and can route through the reader."
 ];
 
 fs.writeFileSync(reportPath, `${report.join("\n")}\n`);
