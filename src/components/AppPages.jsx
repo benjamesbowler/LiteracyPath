@@ -27,6 +27,7 @@ import {
   isGuidedReadingAssetDeleted,
   isGuidedReadingBookDeleted
 } from "../data/deletedMediaManifest.js";
+import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation.js";
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
 export function AuthPage({
@@ -3340,6 +3341,24 @@ export function AssessmentPage({
     currentQuestion?.questionType === "visual_card_choice";
   const isIxlStyleTemplate =
     currentQuestion?.questionType === "ixl_template";
+  if (
+    import.meta.env.DEV &&
+    currentQuestion &&
+    String(currentQuestion.skillId || "").toLowerCase() === "final_sounds" &&
+    Number(currentQuestion.level || currentQuestion.difficulty || 1) === 1
+  ) {
+    const levelOneIssues = getFinalSoundsLevel1QuestionIssues(currentQuestion);
+    if (levelOneIssues.length > 0) {
+      console.warn("Final Sounds Level 1 question reached render with invalid options or target", {
+        id: currentQuestion.id,
+        targetWord: currentQuestion.targetWord || currentQuestion.audioText,
+        level: currentQuestion.level,
+        source: currentQuestion.source || currentQuestion._source || "unknown",
+        issues: levelOneIssues,
+        question: currentQuestion
+      });
+    }
+  }
   const promptAudioText =
     currentQuestion?.spokenPrompt ||
     currentQuestion?.prompt ||

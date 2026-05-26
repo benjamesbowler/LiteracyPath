@@ -417,59 +417,7 @@ export const finalSoundsGeneratedQuestions = [
     "sourceLexiconId": "lex_dog"
   },
   {
-    "id": "gen_final_l1_g_egg_6_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"egg\" end with?",
-    "question": "Listen to the word. What sound does \"egg\" end with?",
-    "spokenPrompt": "Listen to egg. What sound does it end with?",
-    "audioText": "egg",
-    "targetWord": "egg",
-    "correctAnswer": "g",
-    "answer": "g",
-    "choices": [
-      "g",
-      "b",
-      "d",
-      "l"
-    ],
-    "answerOptions": [
-      "g",
-      "b",
-      "d",
-      "l"
-    ],
-    "imageKey": "egg",
-    "imageUrl": "/media/initial-sounds/images/e/egg.webp",
-    "imagePath": "/media/initial-sounds/images/e/egg.webp",
-    "audioKey": "egg",
-    "audioUrl": "/media/initial-sounds/audio/e/egg.mp3",
-    "audioPath": "/media/initial-sounds/audio/e/egg.mp3",
-    "phonicsPattern": "g",
-    "targetSound": "g",
-    "targetFinalSound": "g",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "g",
-    "itemKey": "g",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_egg"
-  },
-  {
-    "id": "gen_final_l1_g_leg_8_sound",
+    "id": "gen_final_l1_g_leg_7_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -521,7 +469,7 @@ export const finalSoundsGeneratedQuestions = [
     "sourceLexiconId": "lex_leg"
   },
   {
-    "id": "gen_final_l1_g_log_9_sound",
+    "id": "gen_final_l1_g_log_8_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -573,7 +521,7 @@ export const finalSoundsGeneratedQuestions = [
     "sourceLexiconId": "lex_log"
   },
   {
-    "id": "gen_final_l1_g_mug_10_sound",
+    "id": "gen_final_l1_g_mug_9_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -625,7 +573,7 @@ export const finalSoundsGeneratedQuestions = [
     "sourceLexiconId": "lex_mug"
   },
   {
-    "id": "gen_final_l1_g_pig_11_sound",
+    "id": "gen_final_l1_g_pig_10_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -677,7 +625,7 @@ export const finalSoundsGeneratedQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_final_l1_g_rug_12_sound",
+    "id": "gen_final_l1_g_rug_11_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -729,7 +677,7 @@ export const finalSoundsGeneratedQuestions = [
     "sourceLexiconId": "lex_rug"
   },
   {
-    "id": "gen_final_l1_g_wig_13_sound",
+    "id": "gen_final_l1_g_wig_12_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -781,7 +729,7 @@ export const finalSoundsGeneratedQuestions = [
     "sourceLexiconId": "lex_wig"
   },
   {
-    "id": "gen_final_l1_l_girl_0_sound",
+    "id": "gen_final_l1_l_seal_0_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -789,11 +737,11 @@ export const finalSoundsGeneratedQuestions = [
     "templateType": "ENDING_SOUND",
     "formatType": "ENDING_SOUND",
     "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"girl\" end with?",
-    "question": "Listen to the word. What sound does \"girl\" end with?",
-    "spokenPrompt": "Listen to girl. What sound does it end with?",
-    "audioText": "girl",
-    "targetWord": "girl",
+    "prompt": "Listen to the word. What sound does \"seal\" end with?",
+    "question": "Listen to the word. What sound does \"seal\" end with?",
+    "spokenPrompt": "Listen to seal. What sound does it end with?",
+    "audioText": "seal",
+    "targetWord": "seal",
     "correctAnswer": "l",
     "answer": "l",
     "choices": [
@@ -808,12 +756,12 @@ export const finalSoundsGeneratedQuestions = [
       "d",
       "g"
     ],
-    "imageKey": "girl",
-    "imageUrl": "/media/initial-sounds/images/g/girl.webp",
-    "imagePath": "/media/initial-sounds/images/g/girl.webp",
-    "audioKey": "girl",
-    "audioUrl": "/media/initial-sounds/audio/g/girl.mp3",
-    "audioPath": "/media/initial-sounds/audio/g/girl.mp3",
+    "imageKey": "seal",
+    "imageUrl": "/media/initial-sounds/images/s/seal.webp",
+    "imagePath": "/media/initial-sounds/images/s/seal.webp",
+    "audioKey": "seal",
+    "audioUrl": "/media/initial-sounds/audio/s/seal.mp3",
+    "audioPath": "/media/initial-sounds/audio/s/seal.mp3",
     "phonicsPattern": "l",
     "targetSound": "l",
     "targetFinalSound": "l",
@@ -830,59 +778,7 @@ export const finalSoundsGeneratedQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_girl"
-  },
-  {
-    "id": "gen_final_l1_l_oval_1_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"oval\" end with?",
-    "question": "Listen to the word. What sound does \"oval\" end with?",
-    "spokenPrompt": "Listen to oval. What sound does it end with?",
-    "audioText": "oval",
-    "targetWord": "oval",
-    "correctAnswer": "l",
-    "answer": "l",
-    "choices": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "oval",
-    "imageUrl": "/media/initial-sounds/images/o/oval.webp",
-    "imagePath": "/media/initial-sounds/images/o/oval.webp",
-    "audioKey": "oval",
-    "audioUrl": "/media/initial-sounds/audio/o/oval.mp3",
-    "audioPath": "/media/initial-sounds/audio/o/oval.mp3",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_oval"
+    "sourceLexiconId": "lex_seal"
   },
   {
     "id": "gen_final_l1_m_gum_0_sound",

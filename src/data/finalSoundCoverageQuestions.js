@@ -61,7 +61,7 @@ const endingSoundLevelOneTargets = [
   ["mug", "g"], ["bug", "g"], ["cap", "p"], ["pot", "t"], ["pen", "n"],
   ["hen", "n"], ["fan", "n"], ["ham", "m"], ["ram", "m"], ["gum", "m"],
   ["fin", "n"], ["net", "t"], ["cot", "t"], ["cut", "t"], ["lid", "d"],
-  ["bell", "l"], ["ball", "l"], ["hill", "l"], ["doll", "l"]
+  ["seal", "l"]
 ];
 
 const endingSoundLevelTwoTargets = [

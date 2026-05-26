@@ -2490,12 +2490,28 @@ export default function App() {
     const levelFilteredStageQuestions = isFinalSoundsStage(stage)
       ? stageQuestions.filter(question => getFinalSoundQuestionLevel(question) === finalSoundLevel)
       : stageQuestions;
+    const finalSoundLevelOneGuardedQuestions = isFinalSoundsStage(stage) && finalSoundLevel === 1
+      ? levelFilteredStageQuestions.filter(question => {
+        const issues = getFinalSoundsLevel1QuestionIssues(question);
+        if (issues.length > 0 && import.meta.env.DEV) {
+          console.warn("Blocked Final Sounds Level 1 question by final runtime guard", {
+            id: question.id,
+            targetWord: question.targetWord || question.audioText,
+            level: question.level,
+            source: question.source || question._source || "unknown",
+            issues,
+            question
+          });
+        }
+        return issues.length === 0;
+      })
+      : levelFilteredStageQuestions;
     const runtimeContext = {
       skillId: normalizeEarlySkillId(stage.id),
       level: finalSoundLevel || 1
     };
     const runtimeFilteredStageQuestions = isPureEarlyPhonicsStage(stage)
-      ? levelFilteredStageQuestions.filter(question => {
+      ? finalSoundLevelOneGuardedQuestions.filter(question => {
         const issues = getEarlySkillRuntimeEligibilityIssues(question, runtimeContext);
         if (issues.length > 0 && import.meta.env.DEV) {
           console.warn("Blocked early phonics question before runtime selection", {
@@ -2509,7 +2525,7 @@ export default function App() {
         }
         return issues.length === 0;
       })
-      : levelFilteredStageQuestions;
+      : finalSoundLevelOneGuardedQuestions;
     const currentProfile = getRoundDuplicateProfile();
     const anyMemory = getStageRepeatMemory(stage.label);
     const correctMemory = getCorrectStageRepeatMemory(stage.label);

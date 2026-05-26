@@ -27,12 +27,15 @@ const ALLOWED_Q_WORDS = new Set(["queen", "quilt", "quiz", "quick"]);
 
 const INVALID_FINAL_ENDINGS = [
   "ck", "sh", "ch", "th", "ng",
-  "nd", "st", "mp", "sk", "nt", "lk", "rk", "rn", "rm", "rd", "ft", "pt", "lt", "ld"
+  "nd", "st", "mp", "sk", "nt", "lk", "rk", "rn", "rm", "rd", "ft", "pt", "lt", "ld",
+  "ll", "ss", "ff", "zz"
 ];
 const AMBIGUOUS_FINAL_WORDS = new Set([
   "thumb",
   "lamb",
   "comb",
+  "girl",
+  "oval",
   "album",
   "apron",
   "donut",
@@ -62,6 +65,9 @@ const LEVEL_TWO_FINAL_PATTERNS = [
 const LEVEL_TWO_FINAL_OVERRIDES = new Map([
   ["whale", "l"],
   ["thumb", "m"]
+]);
+const LEVEL_ONE_FINAL_OVERRIDES = new Map([
+  ["seal", "l"]
 ]);
 
 const LEVEL_ONE_FINAL_SOUND_ALLOWED = new Set(finalSoundExpectedItemKeys);
@@ -243,12 +249,14 @@ export function isValidFinalSoundWordForEarlyLevel(wordValue, keyValue) {
   if (!word || !key) return false;
   if (!finalSoundExpectedItemKeys.includes(key)) return false;
   if (key.length !== 1 || key === "x") return false;
+  if (LEVEL_ONE_FINAL_OVERRIDES.get(word) === key) return true;
   if (word.length > 4) return false;
   if (AMBIGUOUS_FINAL_WORDS.has(word)) return false;
   if (startsWithAny(word, INITIAL_DIGRAPHS) || startsWithAny(word, INITIAL_CLUSTERS)) return false;
   if (VOWEL_TEAM_PATTERN.test(word)) return false;
   if (VOWEL_TEAM_FINAL_WORDS.has(word) || R_CONTROLLED_FINAL_WORDS.has(word)) return false;
   if (word.length > 2 && word.endsWith("e")) return false;
+  if (/(.)\1$/.test(word)) return false;
   if (endsWithAny(word, INVALID_FINAL_ENDINGS)) return false;
   if (word.endsWith("s") && word.length > 3) return false;
   return simpleFinalLetter(word) === key;
