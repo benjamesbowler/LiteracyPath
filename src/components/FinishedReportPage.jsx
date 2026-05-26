@@ -18,6 +18,7 @@ export function FinishedReportPage({
   currentStageQuestions,
   mastery,
   coverageSnapshot,
+  skillMasterySummary = [],
   allowPassageAudio,
   setAllowPassageAudio,
   exportData,
@@ -172,6 +173,23 @@ export function FinishedReportPage({
           </div>
         );
       })}
+
+      <section className="mastery-detail-panel">
+        <h3>Mastered Words and Items</h3>
+        <div className="mastery-detail-list">
+          {skillMasterySummary
+            .filter(summary => summary.masteredCount > 0)
+            .map(summary => (
+              <article key={summary.skillId}>
+                <strong>{summary.skillName}</strong>
+                <span>{summary.displayText}</span>
+              </article>
+            ))}
+          {skillMasterySummary.every(summary => summary.masteredCount === 0) && (
+            <p>Item-level word lists will build from new correct answers.</p>
+          )}
+        </div>
+      </section>
 
       <label className="teacher-toggle">
         <input

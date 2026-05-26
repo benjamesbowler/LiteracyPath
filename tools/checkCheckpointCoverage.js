@@ -4,7 +4,8 @@ import { coverageExpectations } from "../src/data/coverageExpectations.js";
 import {
   evaluateFinalSoundLevelOneMasteryDepth,
   finalSoundLevelOneTargets,
-  FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS
+  FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS,
+  getFinalSoundLevelOneRequiredContentWords
 } from "../src/data/finalSoundMasteryDepth.js";
 import { repoRoot, writeFile } from "./phonicsRuntimeUtils.js";
 
@@ -38,7 +39,10 @@ function finalRecord(target, word, isCorrect = true) {
 function evaluateFinalLevelOneDepthCheckpoint(records, accuracyPassed) {
   const availableWordsBySound = Object.fromEntries(finalSoundLevelOneTargets.map(target => [
     target,
-    new Set([`${target}one`, `${target}two`, `${target}three`])
+    new Set(Array.from(
+      { length: getFinalSoundLevelOneRequiredContentWords(target) },
+      (_, index) => `${target}word${index + 1}`
+    ))
   ]));
   const depth = evaluateFinalSoundLevelOneMasteryDepth(records, {
     availableWordsBySound,
@@ -160,7 +164,7 @@ Checkpoint pass decisions now require:
 
 - accuracy pass
 - complete required target coverage for the current skill/level
-- for Final Sounds Level 1, mastery depth: three correct unique words per sound and ${FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS} successful rounds
+- for Final Sounds Level 1, mastery depth: three correct unique words per sound, sufficient distinct usable content, and ${FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS} successful rounds
 
 ## Required Targets
 

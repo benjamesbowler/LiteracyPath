@@ -256,6 +256,12 @@ export const childWordAssets = {
     word: "leg",
     folder: "short-e"
   }),
+  lip: wordAsset({
+    word: "lip",
+    image: "/media/rhyming/images/lip.webp",
+    audio: "/media/rhyming/audio/lip.mp3",
+    alt: "Lips"
+  }),
   lid: childModeWordAsset({
     word: "lid",
     folder: "short-i"
@@ -374,6 +380,13 @@ export const childWordAssets = {
     word: "sit",
     folder: "short-i"
   }),
+  sad: wordAsset({
+    word: "sad",
+    image: "/media/rhyming/images/sad.webp",
+    audio: "/media/rhyming/audio/sad.mp3",
+    fallbackImage: "/images/emotions/sad_child.png",
+    alt: "A sad child"
+  }),
   slide: childModeWordAsset({
     word: "slide",
     folder: "blends",
@@ -396,6 +409,12 @@ export const childWordAssets = {
     image: "/images/child-mode/cvc/sun.png",
     audio: "/audio/child-mode/words/sun.mp3",
     fallbackImage: "/images/child-mode/short-u/sun.png"
+  }),
+  tag: wordAsset({
+    word: "tag",
+    image: "/media/rhyming/images/tag.webp",
+    audio: "/media/rhyming/audio/tag.mp3",
+    alt: "A tag"
   }),
   thumb: childModeWordAsset({
     word: "thumb",

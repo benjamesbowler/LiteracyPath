@@ -957,6 +957,11 @@ function isQuestionValid(q) {
     ) return false;
   }
 
+  if (
+    q.skillId === "rhyming" &&
+    String(q.formatType || q.templateType || "").toUpperCase() !== "RHYMING_PICTURE"
+  ) return false;
+
   const lowerChoices = q.choices.map(c => normalize(c));
   if (new Set(lowerChoices).size !== lowerChoices.length) return false;
 
@@ -3498,6 +3503,106 @@ export default function App() {
     };
   }
 
+  function getSkillIdForMasteryRow(row) {
+    if (row.skillId) return row.skillId;
+    const configuredStage = skillTree.find(stage => {
+      const configured = configuredCoverageTotals[stage.id];
+      return configured?.itemType === row.itemType && configured.itemKeys?.includes(row.itemKey);
+    });
+    if (configuredStage) return configuredStage.id;
+
+    return skillTree.find(stage => {
+      const keys = getCoverageItemKeysForStage(stage);
+      return keys.has(getItemMasteryStateKey(row.itemKey, row.itemType));
+    })?.id || "";
+  }
+
+  function formatMasteryItemLabel(row, stage) {
+    const key = row.itemKey;
+    if (!key) return "";
+    if (row.itemType === "initial_sound") return key;
+    if (row.itemType === "final_sound") return `/${key}/`;
+    if (row.itemType === "rhyming_family") return key;
+    if (row.itemType === "short_vowel") return key.replace(/^short_/, "short ");
+    if (row.itemType === "phonics_pattern") return key;
+    if (row.itemType === "sight_word" || row.itemType === "cvc_word") return key;
+    return stage?.label?.toLowerCase().includes("word") ? key : key.replace(/_/g, " ");
+  }
+
+  function getRepresentativeWordsForItem(stageId, itemType, itemKey) {
+    const normalizedKey = normalizeItemKey(itemKey);
+    const words = new Set();
+
+    answerHistoryRef.current.forEach(record => {
+      if (!record?.isCorrect) return;
+      const metadata = record.itemKey && record.itemType
+        ? { itemKey: record.itemKey, itemType: record.itemType }
+        : inferAnswerRecordMetadata(record);
+      if (normalizeItemKey(metadata?.itemType) !== normalizeItemKey(itemType)) return;
+      if (normalizeItemKey(metadata?.itemKey) !== normalizedKey) return;
+      if (stageId && record.skillId && record.skillId !== stageId) return;
+
+      [record.targetWord, record.correct, record.diagnosticTarget]
+        .map(value => String(value || "").toLowerCase().replace(/[^a-z]/g, ""))
+        .filter(value => value && value !== normalizedKey)
+        .forEach(value => words.add(value));
+    });
+
+    return Array.from(words).slice(0, 4);
+  }
+
+  function buildSkillMasterySummary() {
+    const masteredRows = Object.values(itemMastery || {})
+      .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0));
+    const rowsByStage = new Map();
+
+    masteredRows.forEach(row => {
+      const skillId = getSkillIdForMasteryRow(row);
+      if (!skillId) return;
+      const currentRows = rowsByStage.get(skillId) || [];
+      if (!currentRows.some(existing =>
+        normalizeItemKey(existing.itemType) === normalizeItemKey(row.itemType) &&
+        normalizeItemKey(existing.itemKey) === normalizeItemKey(row.itemKey)
+      )) {
+        currentRows.push(row);
+      }
+      rowsByStage.set(skillId, currentRows);
+    });
+
+    return skillTree.map(stage => {
+      const rows = (rowsByStage.get(stage.id) || []).sort((a, b) =>
+        a.itemType.localeCompare(b.itemType) ||
+        a.itemKey.localeCompare(b.itemKey)
+      );
+      const groups = rows.map(row => ({
+        itemKey: row.itemKey,
+        itemType: row.itemType,
+        label: formatMasteryItemLabel(row, stage),
+        words: getRepresentativeWordsForItem(stage.id, row.itemType, row.itemKey)
+      })).filter(group => group.label);
+      const configured = configuredCoverageTotals[stage.id];
+      const unit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words/items" : "items");
+      const visibleGroups = groups.slice(0, 12);
+      const detail = visibleGroups.map(group =>
+        group.words.length
+          ? `${group.label} (${group.words.join(", ")})`
+          : group.label
+      ).join(", ");
+      const moreCount = Math.max(0, groups.length - visibleGroups.length);
+
+      return {
+        skillId: stage.id,
+        skillName: stage.label,
+        masteredCount: groups.length,
+        unit,
+        groups,
+        displayText: groups.length
+          ? `${stage.label}: ${groups.length} ${unit} mastered - ${detail}${moreCount ? `, + ${moreCount} more` : ""}.`
+          : `${stage.label}: no item-level mastery details yet.`
+      };
+    });
+  }
+
   async function saveAnswerToSupabase(record) {
     if (!studentId || !teacherId) return;
 
@@ -4151,6 +4256,10 @@ export default function App() {
       normalizeEarlySkillId(question.skillId || question.skill || "") === "final_sounds" &&
       String(question.formatType || question.templateType || "").toUpperCase() === "ENDING_SOUND";
     if (isFinalSoundsEndingQuestion) return Boolean(getTargetObjectImage(question));
+    if (
+      normalizeEarlySkillId(question.skillId || question.skill || "") === "rhyming" &&
+      String(question.formatType || question.templateType || "").toUpperCase() === "RHYMING_PICTURE"
+    ) return Boolean(getTargetObjectImage(question));
 
     const imagePath =
       question.imagePath ||
@@ -5492,6 +5601,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           viewFinishedReport={() => setAppView("finished")}
           openGuidedReading={() => setAppView("guidedReading")}
           guidedReadingRecords={guidedReadingRecords}
+          skillMasterySummary={buildSkillMasterySummary()}
           exportData={exportData}
           exportCSVData={exportCSVData}
           exportReadingReport={exportReadingReport}
@@ -5621,6 +5731,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               enabled: DEBUG_ASSESSMENT_COVERAGE,
               studentId
             })}
+            skillMasterySummary={buildSkillMasterySummary()}
             allowPassageAudio={allowPassageAudio}
             setAllowPassageAudio={setAllowPassageAudio}
             exportData={exportData}

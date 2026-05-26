@@ -389,18 +389,25 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
 }
 
 function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }) {
-  const showCardAudio = shouldShowUniformCardAudio(currentQuestion.imageCards || []);
+  const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
+  const showCardAudio = !isRhymingPictureItem && shouldShowUniformCardAudio(currentQuestion.imageCards || []);
+  const panelClassName = isRhymingPictureItem
+    ? "visual-card-choice-panel rhyming-picture-panel"
+    : "visual-card-choice-panel";
+  const gridClassName = isRhymingPictureItem
+    ? "visual-card-grid rhyming-picture-grid"
+    : "visual-card-grid";
 
   return (
-    <div className="visual-card-choice-panel">
-      <div className="visual-card-grid">
+    <div className={panelClassName}>
+      <div className={gridClassName}>
         {(currentQuestion.imageCards || []).map(card => {
           const label = getAnswerOptionLabel(card) || card.word;
           const value = getAnswerOptionValue(card) || label;
           const image = card.image || card.imageUrl || card.imagePath || "";
 
           return (
-            <article className="visual-assessment-card" key={card.id || value}>
+            <article className={isRhymingPictureItem ? "visual-assessment-card rhyming-answer-card" : "visual-assessment-card"} key={card.id || value}>
               <button
                 className="visual-assessment-card-button"
                 onClick={() => answerQuestion(value)}
@@ -584,6 +591,11 @@ function isFinalSoundsEndingQuestion(question = {}) {
     String(question?.formatType || question?.templateType || "").toUpperCase() === "ENDING_SOUND";
 }
 
+function isRhymingPictureQuestion(question = {}) {
+  return String(question?.skillId || "").toLowerCase() === "rhyming" &&
+    String(question?.formatType || question?.templateType || "").toUpperCase() === "RHYMING_PICTURE";
+}
+
 function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
   const safePrompt = String(prompt || "");
   const word = String(targetWord || "").trim();
@@ -603,9 +615,10 @@ function getStudentVisiblePrompt(question = {}) {
 function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, speakText, shouldShowImage }) {
   if (!currentQuestion) return null;
 
+  const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const approvedStimulusAudioPath = getApprovedAudioPath(
     currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
-    currentQuestion.audioPath
+    isRhymingPictureItem ? "" : currentQuestion.audioPath
   );
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const targetObjectImage = getTargetObjectImage(currentQuestion);
@@ -622,7 +635,9 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     );
   const hasPromptImages = currentQuestion.promptImageCards?.length > 0;
   const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
-  const hasMainImage = isFinalSoundsEndingItem
+  const hasMainImage = isRhymingPictureItem
+    ? Boolean(stimulusImage)
+    : isFinalSoundsEndingItem
     ? Boolean(targetObjectImage)
     : shouldShowImage(currentQuestion) || (
     stimulusImage &&
@@ -671,10 +686,13 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
         <div className="image-box assessment-main-image-wrap">
           <img
             src={stimulusImage}
-            alt={isFinalSoundsEndingItem ? "Picture for the listening word" : "question visual"}
-            className="question-image assessment-main-image"
-          />
-          {approvedStimulusAudioPath && (
+              alt={isRhymingPictureItem ? `Picture for ${currentQuestion.targetWord}` : isFinalSoundsEndingItem ? "Picture for the listening word" : "question visual"}
+              className="question-image assessment-main-image"
+            />
+          {isRhymingPictureItem && currentQuestion.targetWord && (
+            <strong className="rhyming-target-word">{currentQuestion.targetWord}</strong>
+          )}
+          {!isRhymingPictureItem && approvedStimulusAudioPath && (
             <AssessmentAudioButton
               text={currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer}
               audioPath={approvedStimulusAudioPath}
@@ -2579,6 +2597,7 @@ export function TeacherReportsPage({
   viewFinishedReport,
   openGuidedReading,
   guidedReadingRecords = {},
+  skillMasterySummary = [],
   exportData,
   exportCSVData,
   exportReadingReport,
@@ -2606,7 +2625,20 @@ export function TeacherReportsPage({
       <section className="teacher-action-panel-grid">
         <article className="teacher-action-panel">
           <h3>Student Report</h3>
-          <p>Open the finished report view for checkpoint summaries, coverage, and teacher notes.</p>
+          <p>Open the finished report view for checkpoint summaries, coverage, mastered items, and teacher notes.</p>
+          {skillMasterySummary.some(summary => summary.masteredCount > 0) && (
+            <div className="mastery-detail-list compact">
+              {skillMasterySummary
+                .filter(summary => summary.masteredCount > 0)
+                .slice(0, 5)
+                .map(summary => (
+                  <article key={summary.skillId}>
+                    <strong>{summary.skillName}</strong>
+                    <span>{summary.displayText}</span>
+                  </article>
+                ))}
+            </div>
+          )}
           <button className="lp-button lp-button-primary" onClick={viewFinishedReport}>
             View Report
           </button>
@@ -3418,6 +3450,7 @@ export function AssessmentPage({
   const isIxlStyleTemplate =
     currentQuestion?.questionType === "ixl_template";
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
+  const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
 
   if (!currentQuestion && !feedback) {
     return (
@@ -3484,7 +3517,9 @@ export function AssessmentPage({
       currentQuestion?.audioText ||
       ""
     );
-  const promptAudioPath = getApprovedAudioPath(promptAudioText, isPairSelection ? currentQuestion?.audioPath || "" : "");
+  const promptAudioPath = isRhymingPictureItem
+    ? ""
+    : getApprovedAudioPath(promptAudioText, isPairSelection ? currentQuestion?.audioPath || "" : "");
   const normalizedChoices = (currentQuestion?.choices || []).map(choice => ({
     ...normalizeAnswerOption(choice),
     media: getAnswerOptionMedia(choice)
@@ -3763,6 +3798,7 @@ export function FinishedReportPage({
   currentStageQuestions,
   mastery,
   coverageSnapshot,
+  skillMasterySummary = [],
   allowPassageAudio,
   setAllowPassageAudio,
   exportData,
@@ -3908,6 +3944,23 @@ export function FinishedReportPage({
           </div>
         );
       })}
+
+      <section className="mastery-detail-panel">
+        <h3>Mastered Words and Items</h3>
+        <div className="mastery-detail-list">
+          {skillMasterySummary
+            .filter(summary => summary.masteredCount > 0)
+            .map(summary => (
+              <article key={summary.skillId}>
+                <strong>{summary.skillName}</strong>
+                <span>{summary.displayText}</span>
+              </article>
+            ))}
+          {skillMasterySummary.every(summary => summary.masteredCount === 0) && (
+            <p>Item-level word lists will build from new correct answers.</p>
+          )}
+        </div>
+      </section>
 
       <label className="teacher-toggle">
         <input

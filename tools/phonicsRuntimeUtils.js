@@ -222,6 +222,12 @@ export function questionFilterReason(question = {}) {
   if (skillId === "rhyming" && (!imagePaths.length || missingImages.length)) {
     return `missing essential rhyming image${missingImages.length ? `: ${missingImages.join(", ")}` : ""}`;
   }
+  if (
+    skillId === "rhyming" &&
+    String(question.formatType || question.templateType || "").toUpperCase() !== "RHYMING_PICTURE"
+  ) {
+    return "rhyming runtime uses image-card RHYMING_PICTURE items only";
+  }
   if (skillId === "final_sounds") {
     const level = Number(question.level || question.difficulty || 1) || 1;
     if (level === 1 && !isFinalSoundsLevel1Question(question)) {
