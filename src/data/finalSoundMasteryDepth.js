@@ -2,6 +2,11 @@ import { finalSoundLevelOneAllowedItemKeys } from "./coverageExpectations.js";
 
 export const FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT = 3;
 export const FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS = 3;
+export const FINAL_SOUND_LEVEL_ONE_DEFAULT_REQUIRED_CONTENT_WORDS = 3;
+export const FINAL_SOUND_LEVEL_ONE_REQUIRED_CONTENT_WORDS_BY_SOUND = {
+  b: 10,
+  l: 10
+};
 export const FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS = 2;
 export const FINAL_SOUND_LEVEL_ONE_ROUND_LENGTH = 15;
 export const FINAL_SOUND_LEVEL_ONE_PASS_SCORE = 12;
@@ -9,6 +14,12 @@ export const FINAL_SOUND_LEVEL_ONE_PASS_SCORE = 12;
 export const finalSoundLevelOneTargets = finalSoundLevelOneAllowedItemKeys;
 
 const targetSet = new Set(finalSoundLevelOneTargets);
+
+export function getFinalSoundLevelOneRequiredContentWords(target) {
+  const normalizedTarget = normalizeFinalSoundValue(target);
+  return FINAL_SOUND_LEVEL_ONE_REQUIRED_CONTENT_WORDS_BY_SOUND[normalizedTarget] ||
+    FINAL_SOUND_LEVEL_ONE_DEFAULT_REQUIRED_CONTENT_WORDS;
+}
 
 export function normalizeFinalSoundValue(value = "") {
   return String(value || "")
@@ -69,6 +80,53 @@ export function buildFinalSoundAvailableWordMap(questions = []) {
   return map;
 }
 
+export function buildFinalSoundAvailabilitySummary(questions = []) {
+  const summary = finalSoundLevelOneTargets.reduce((acc, target) => {
+    acc[target] = {
+      target,
+      distinctTargetWords: new Set(),
+      runtimeVariantCount: 0,
+      activeItemCount: 0,
+      usableImageCount: 0,
+      usableAudioCount: 0,
+      missingImageCount: 0,
+      missingAudioCount: 0
+    };
+    return acc;
+  }, {});
+
+  questions.forEach(question => {
+    const target = getFinalSoundTargetFromEvidence(question);
+    if (!target || !summary[target]) return;
+    const row = summary[target];
+    const word = getFinalSoundTargetWordFromEvidence(question);
+    row.runtimeVariantCount += 1;
+    if (question.active !== false) row.activeItemCount += 1;
+    if (word) row.distinctTargetWords.add(word);
+    if (question.imagePath || question.imageUrl || question.targetImage || question.targetImagePath) {
+      row.usableImageCount += 1;
+    } else {
+      row.missingImageCount += 1;
+    }
+    if (question.audioPath || question.audioUrl) {
+      row.usableAudioCount += 1;
+    } else {
+      row.missingAudioCount += 1;
+    }
+  });
+
+  return Object.fromEntries(Object.entries(summary).map(([target, row]) => [
+    target,
+    {
+      ...row,
+      distinctTargetWords: [...row.distinctTargetWords].sort(),
+      distinctTargetWordCount: row.distinctTargetWords.size,
+      requiredContentWords: getFinalSoundLevelOneRequiredContentWords(target),
+      contentGap: row.distinctTargetWords.size < getFinalSoundLevelOneRequiredContentWords(target)
+    }
+  ]));
+}
+
 export function evaluateFinalSoundLevelOneMasteryDepth(records = [], {
   availableWordsBySound = {},
   roundLength = FINAL_SOUND_LEVEL_ONE_ROUND_LENGTH,
@@ -89,14 +147,18 @@ export function evaluateFinalSoundLevelOneMasteryDepth(records = [], {
     const available = availableWordsBySound[target] instanceof Set
       ? availableWordsBySound[target]
       : new Set(availableWordsBySound[target] || []);
+    const requiredContentWords = getFinalSoundLevelOneRequiredContentWords(target);
     acc[target] = {
       target,
       attempts: 0,
       correctCount: 0,
       uniqueCorrectTargetWords: [],
       availableTargetWords: [...available],
+      requiredCorrect: FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT,
+      requiredUniqueWords: FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS,
+      requiredContentWords,
       mastered: false,
-      contentGap: available.size < FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS
+      contentGap: available.size < requiredContentWords
     };
     return acc;
   }, {});
@@ -130,6 +192,7 @@ export function evaluateFinalSoundLevelOneMasteryDepth(records = [], {
     .map(row => ({
       target: row.target,
       availableWordCount: row.availableTargetWords.length,
+      requiredWordCount: row.requiredContentWords,
       availableTargetWords: row.availableTargetWords
     }));
   const allSoundsCovered = coveredTargets.length === finalSoundLevelOneTargets.length;

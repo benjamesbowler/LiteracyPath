@@ -1,6 +1,7 @@
 import path from "node:path";
 
 import {
+  buildFinalSoundAvailabilitySummary,
   buildFinalSoundAvailableWordMap,
   evaluateFinalSoundLevelOneMasteryDepth,
   finalSoundLevelOneTargets,
@@ -9,6 +10,7 @@ import {
   FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS,
   FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS,
   FINAL_SOUND_LEVEL_ONE_ROUND_LENGTH,
+  getFinalSoundLevelOneRequiredContentWords,
   getFinalSoundTargetFromEvidence,
   getFinalSoundTargetWordFromEvidence
 } from "../src/data/finalSoundMasteryDepth.js";
@@ -67,6 +69,7 @@ function buildSyntheticMasteryRecords() {
 
 const levelOnePool = selectableRuntimeQuestionsForSkill("final_sounds").filter(isFinalSoundsLevel1Question);
 const availableWordsBySound = buildFinalSoundAvailableWordMap(levelOnePool);
+const availabilitySummary = buildFinalSoundAvailabilitySummary(levelOnePool);
 const countsBySound = Object.fromEntries(finalSoundLevelOneTargets.map(target => [
   target,
   [...(availableWordsBySound[target] || [])].sort()
@@ -100,7 +103,10 @@ if (dirtyNextRound.length) {
 
 const syntheticAvailable = Object.fromEntries(finalSoundLevelOneTargets.map(target => [
   target,
-  new Set([`${target}one`, `${target}two`, `${target}three`])
+  new Set(Array.from(
+    { length: getFinalSoundLevelOneRequiredContentWords(target) },
+    (_, index) => `${target}word${index + 1}`
+  ))
 ]));
 const syntheticDepth = evaluateFinalSoundLevelOneMasteryDepth(buildSyntheticMasteryRecords(), {
   availableWordsBySound: syntheticAvailable,
@@ -117,13 +123,15 @@ const realContentGapDepth = evaluateFinalSoundLevelOneMasteryDepth([], {
   passScore: FINAL_SOUND_LEVEL_ONE_PASS_SCORE
 });
 if (realContentGapDepth.contentGaps.length) {
-  warnings.push(`Some Level 1 final sounds do not have ${FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS} usable target words: ${realContentGapDepth.contentGaps.map(gap => `${gap.target}(${gap.availableWordCount})`).join(", ")}.`);
+  warnings.push(`Some Level 1 final sounds do not have enough distinct usable target words: ${realContentGapDepth.contentGaps.map(gap => `${gap.target}(${gap.availableWordCount}/${gap.requiredWordCount})`).join(", ")}.`);
 }
 
 const reportPath = path.join(repoRoot, "docs", "validation", "final_sounds_level1_progression_depth_audit.md");
 const rows = finalSoundLevelOneTargets.map(target => {
   const words = countsBySound[target] || [];
-  return `| ${target} | ${words.length} | ${words.join(", ") || "-"} | ${words.length >= FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS ? "yes" : "no"} |`;
+  const summary = availabilitySummary[target];
+  const requiredContentWords = getFinalSoundLevelOneRequiredContentWords(target);
+  return `| ${target} | ${words.length} | ${summary?.runtimeVariantCount || 0} | ${summary?.activeItemCount || 0} | ${summary?.usableImageCount || 0} | ${summary?.usableAudioCount || 0} | ${summary?.missingImageCount || 0} | ${summary?.missingAudioCount || 0} | ${requiredContentWords} | ${words.join(", ") || "-"} | ${words.length >= requiredContentWords ? "yes" : "no"} |`;
 }).join("\n");
 
 writeFile(reportPath, `# Final Sounds Level 1 Progression Depth Audit
@@ -138,14 +146,15 @@ Each Level 1 final sound must have:
 
 - ${FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT} correct answers
 - ${FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS} different correct target words where possible
+- enough distinct usable media-backed content words for the sound
 - ${FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS} successful Level 1 rounds
 
 Level 1 sounds stay limited to: ${finalSoundLevelOneTargets.join(", ")}.
 
 ## Runtime Depth Inventory
 
-| Sound | Usable target words | Words | Enough depth? |
-|---|---:|---|---|
+| Sound | Distinct usable words | Runtime variants | Active items | Image-backed variants | Audio-backed variants | Missing image | Missing audio | Required content words | Words | Enough content? |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---|
 ${rows}
 
 ## Simulation Results
@@ -158,7 +167,7 @@ ${rows}
 ## Content Gaps
 
 ${realContentGapDepth.contentGaps.length
-  ? realContentGapDepth.contentGaps.map(gap => `- ${gap.target}: ${gap.availableWordCount}/${FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS} usable words (${gap.availableTargetWords.join(", ") || "none"})`).join("\n")
+  ? realContentGapDepth.contentGaps.map(gap => `- ${gap.target}: ${gap.availableWordCount}/${gap.requiredWordCount} distinct usable words (${gap.availableTargetWords.join(", ") || "none"})`).join("\n")
   : "- none"}
 
 ## Warnings

@@ -364,6 +364,10 @@ function isQuestionValid(question) {
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
   if (!isPairSelectionQuestion(question) && !question.choices.includes(question.answer)) return false;
   if (getStageIndex(question) === -1) return false;
+  if (
+    String(question.skillId || "").toLowerCase() === "rhyming" &&
+    String(question.formatType || question.templateType || "").toUpperCase() !== "RHYMING_PICTURE"
+  ) return false;
   if (question.questionType === "initial_sound_pair" && isInitialSoundQuestion(question) && !hasCompleteInitialSoundPairAssets(question)) return false;
   if (isPairSelectionQuestion(question) && !hasCompletePairSelectionAssets(question)) return false;
   if (isVisualCardChoiceQuestion(question) && !hasCompleteVisualQuestionAssets(question)) return false;
