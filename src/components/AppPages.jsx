@@ -1630,7 +1630,7 @@ export function GuidedReadingPage({
       sentenceIndex: 0,
       tokens: readingTokens
     }];
-  const typeCards = ["nonfiction"]
+  const typeCards = ["fiction", "nonfiction"]
     .map(getGuidedReadingTypeStats)
     .filter(card => card.count > 0);
   const availableLevels = selectedLibraryType
@@ -2123,14 +2123,14 @@ export function GuidedReadingPage({
                   </div>
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
-                    <p className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
-                    <p className="guided-book-status">{book.imageAlignmentStatus === "needs_review" ? "Image Review" : "Audio Pending"}</p>
+                    <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
+                    <p className="guided-book-status">{book.teacherPreviewOnly ? "Teacher Preview" : book.imageAlignmentStatus === "needs_review" ? "Image Review" : "Audio Pending"}</p>
                     <button
                       className="guided-book-action"
                       onClick={() => changeBook(book.id)}
                       type="button"
                     >
-                      {progress.completed ? "Read Again" : "Read"}
+                      {book.teacherPreviewOnly ? "Preview" : progress.completed ? "Read Again" : "Read"}
                     </button>
                   </div>
                 </article>
@@ -2230,20 +2230,24 @@ export function GuidedReadingPage({
                   key={book.id}
                 >
                   {progress.completed && <span className="guided-complete-badge" aria-label="Completed">✓</span>}
-                  {book.reviewMode && <span className="guided-review-badge">Review</span>}
+                  {(book.reviewMode || book.teacherPreviewOnly) && <span className="guided-review-badge">{book.teacherPreviewOnly ? "Preview" : "Review"}</span>}
                   <div className="guided-book-cover-wrap">
                     <GuidedBookCover book={book} />
                   </div>
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
-                    <p className="guided-book-meta">{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
-                    {book.reviewMode && <p className="guided-book-status">{book.imageAlignmentStatus === "needs_review" ? "Image Review" : "Audio Pending"}</p>}
+                    <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
+                    {(book.reviewMode || book.teacherPreviewOnly) && (
+                      <p className="guided-book-status">
+                        {book.teacherPreviewOnly ? "Teacher Preview: needs image QA" : book.imageAlignmentStatus === "needs_review" ? "Image Review" : "Audio Pending"}
+                      </p>
+                    )}
                     <button
                       className="guided-book-action"
                       onClick={() => changeBook(book.id)}
                       type="button"
                     >
-                      {progress.completed ? "Read Again" : "Read"}
+                      {book.teacherPreviewOnly ? "Preview" : progress.completed ? "Read Again" : "Read"}
                     </button>
                   </div>
                 </article>

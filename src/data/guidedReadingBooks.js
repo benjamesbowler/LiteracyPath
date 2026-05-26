@@ -1,4 +1,5 @@
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
+import { guidedReadingSeriesBooks } from "./guidedReadingSeriesBooks.js";
 import { guidedStoryBooks } from "./guidedStoryBooks.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 
@@ -3405,9 +3406,18 @@ const approvedRegeneratedGuidedReadingBooks = guidedReadingRegenBooks
   }))
   .filter(book => book.pages.length >= 4);
 
+const teacherPreviewSeriesBooks = guidedReadingSeriesBooks
+  .filter(book => book.teacherPreviewOnly && book.qaStatus === "needs_review")
+  .map(book => ({
+    ...book,
+    pages: (book.pages || []).filter(page => page.active !== false)
+  }))
+  .filter(book => book.pages.length >= 4);
+
 const activeGuidedReadingBaseBooks = [
   ...approvedGuidedReadingCandidates,
-  ...approvedRegeneratedGuidedReadingBooks
+  ...approvedRegeneratedGuidedReadingBooks,
+  ...teacherPreviewSeriesBooks
 ];
 
 export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {
@@ -3434,6 +3444,7 @@ export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book =
 });
 
 export const guidedStoryBookDrafts = guidedStoryBooks;
+export const guidedReadingSeriesBookDrafts = guidedReadingSeriesBooks;
 
 export const guidedReadingBooks = activeGuidedReadingBaseBooks
   .map(relevelGuidedReadingBook)
