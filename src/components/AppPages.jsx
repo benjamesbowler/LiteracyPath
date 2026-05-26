@@ -580,8 +580,8 @@ function ListeningVisual() {
 const FINAL_SOUNDS_STUDENT_PROMPT = "Listen to the word. Which sound does it end with?";
 
 function isFinalSoundsEndingQuestion(question = {}) {
-  return String(question.skillId || "").toLowerCase() === "final_sounds" &&
-    String(question.formatType || question.templateType || "").toUpperCase() === "ENDING_SOUND";
+  return String(question?.skillId || "").toLowerCase() === "final_sounds" &&
+    String(question?.formatType || question?.templateType || "").toUpperCase() === "ENDING_SOUND";
 }
 
 function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
@@ -595,11 +595,14 @@ function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
 }
 
 function getStudentVisiblePrompt(question = {}) {
-  if (isFinalSoundsEndingQuestion(question)) return FINAL_SOUNDS_STUDENT_PROMPT;
-  return question.prompt || question.question || "";
+  const safeQuestion = question || {};
+  if (isFinalSoundsEndingQuestion(safeQuestion)) return FINAL_SOUNDS_STUDENT_PROMPT;
+  return safeQuestion.prompt || safeQuestion.question || "";
 }
 
 function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, speakText, shouldShowImage }) {
+  if (!currentQuestion) return null;
+
   const approvedStimulusAudioPath = getApprovedAudioPath(
     currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
     currentQuestion.audioPath
@@ -2874,7 +2877,7 @@ export function CheckpointDecisionPage({
     `${checkpoint.correct}/${checkpoint.total} ${checkpoint.skillLabel}`;
   const canMoveNext =
     checkpoint.passed && checkpoint.nextSkillLabel;
-  const isInitialSoundsCheckpoint = checkpoint.skillId === "initial_sounds";
+  const isInitialSoundsCheckpoint = checkpoint?.skillId === "initial_sounds";
   const initialLevel = checkpoint.initialSoundDebug?.level || 1;
   const currentLevelMastered = Boolean(checkpoint.initialSoundDebug?.currentLevelMastered);
   const levelOneMastered = Boolean(checkpoint.initialSoundDebug?.levelOneMastered);
@@ -3042,7 +3045,7 @@ export function CheckpointDecisionPage({
               <div className="word-chip-row">
                 {Object.values(checkpoint.masteryDepth.bySound || {}).map(row => (
                   <span className={row.mastered ? "word-chip mastered" : "word-chip"} key={row.target}>
-                    {row.target}: {row.correctCount} correct, {row.uniqueCorrectTargetWords.length} words
+                    {row.target}: {row.correctCount} correct, {row.uniqueCorrectTargetWords.length} words, {row.availableTargetWords?.length || 0}/{row.requiredContentWords || 3} content
                   </span>
                 ))}
               </div>
@@ -3052,7 +3055,7 @@ export function CheckpointDecisionPage({
                   <div className="word-chip-row">
                     {checkpoint.masteryDepth.contentGaps.map(gap => (
                       <span className="word-chip" key={gap.target}>
-                        {gap.target}: {gap.availableWordCount} usable words
+                        {gap.target}: {gap.availableWordCount}/{gap.requiredWordCount} distinct usable words
                       </span>
                     ))}
                   </div>
@@ -3392,8 +3395,20 @@ export function AssessmentPage({
   speakText,
   message,
   endAssessment,
+  returnToStudentOverview,
   assessmentMode
 }) {
+  const safeSkillId =
+    currentQuestion?.skillId ??
+    currentStage?.id ??
+    currentQuestion?.skill ??
+    null;
+  const safeCurrentStage = currentStage || {
+    id: safeSkillId || "unknown_skill",
+    label: currentQuestion?.skillName || currentQuestion?.skill || "Assessment"
+  };
+  const assessmentExit = returnToStudentOverview || endAssessment;
+
   const isListenAndFindWord =
     currentQuestion?.questionType === "listen_and_find_word";
   const isPairSelection =
@@ -3403,6 +3418,45 @@ export function AssessmentPage({
   const isIxlStyleTemplate =
     currentQuestion?.questionType === "ixl_template";
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
+
+  if (!currentQuestion && !feedback) {
+    return (
+      <main className="assessment-shell">
+        <div className="card assessment-card">
+          <h2>Loading assessment...</h2>
+          {message && <p className="message">{message}</p>}
+          <div className="button-row assessment-start-row">
+            <button className="main-button" onClick={pickQuestion} type="button">
+              {roundAnswers.length === 0 ? "Start Skill Round" : "Next Question"}
+            </button>
+            <button className="report-button" onClick={assessmentExit} type="button">
+              Return to Student Overview
+            </button>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  if (currentQuestion && !safeSkillId) {
+    console.error("Assessment missing skillId", {
+      currentQuestion,
+      currentStage
+    });
+
+    return (
+      <main className="assessment-shell">
+        <div className="card assessment-card">
+          <h2>This assessment needs a quick fix.</h2>
+          <p>Please return and try again.</p>
+          <button className="main-button" onClick={assessmentExit} type="button">
+            Return to Student Overview
+          </button>
+        </div>
+      </main>
+    );
+  }
+
   if (
     import.meta.env.DEV &&
     currentQuestion &&
@@ -3457,7 +3511,7 @@ export function AssessmentPage({
           <strong>
             {assessmentMode === "targetedReview"
               ? "Targeted Review"
-              : `${currentSkillIndex + 1}. ${currentStage.label}`}
+              : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}
           </strong>
         </div>
 
