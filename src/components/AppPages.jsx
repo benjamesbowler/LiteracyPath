@@ -27,6 +27,11 @@ import PageTurnReader, { loadPublicDomainReadingProgress } from "./books/PageTur
 import { publicDomainBooks, publicDomainBookSummary } from "../content/books/publicDomainBooks.js";
 import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
+import {
+  isGuidedReadingAssetDeleted,
+  isGuidedReadingBookDeleted
+} from "../data/deletedMediaManifest.js";
+import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
 export function AuthPage({
   authEmail,
@@ -580,10 +585,27 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
     currentQuestion.audioPath
   );
+  const isFinalSoundsEndingQuestion =
+    String(currentQuestion.skillId || "").toLowerCase() === "final_sounds" &&
+    String(currentQuestion.formatType || currentQuestion.templateType || "").toUpperCase() === "ENDING_SOUND";
+  const targetObjectImage = getTargetObjectImage(currentQuestion);
+  const stimulusImage = isFinalSoundsEndingQuestion
+    ? targetObjectImage
+    : (
+      currentQuestion.imagePath ||
+      currentQuestion.imageUrl ||
+      currentQuestion.targetImage ||
+      currentQuestion.targetImagePath ||
+      currentQuestion.targetImageUrl ||
+      currentQuestion.image ||
+      ""
+    );
   const hasPromptImages = currentQuestion.promptImageCards?.length > 0;
   const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
-  const hasMainImage = shouldShowImage(currentQuestion) || (
-    currentQuestion.imagePath &&
+  const hasMainImage = isFinalSoundsEndingQuestion
+    ? Boolean(targetObjectImage)
+    : shouldShowImage(currentQuestion) || (
+    stimulusImage &&
     (
       isIxlStyleTemplate ||
       currentQuestion.formatType === "PICTURE_TO_PRINT_MATCH" ||
@@ -591,11 +613,22 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
       currentQuestion.question?.toLowerCase().includes("matches the picture")
     )
   );
+  if (isFinalSoundsEndingQuestion && !targetObjectImage && import.meta.env.DEV) {
+    console.warn("Blocked Final Sounds stimulus from rendering without a target object image", {
+      id: currentQuestion.id,
+      targetWord: currentQuestion.targetWord,
+      imagePath: currentQuestion.imagePath,
+      imageUrl: currentQuestion.imageUrl,
+      targetImage: currentQuestion.targetImage,
+      targetImagePath: currentQuestion.targetImagePath
+    });
+  }
   const shouldShowListeningVisual =
     !hasPromptImages &&
     !hasPassage &&
     !hasMainImage &&
     !isPairSelection &&
+    !isFinalSoundsEndingQuestion &&
     !isIxlStyleTemplate &&
     Boolean(approvedStimulusAudioPath || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
 
@@ -617,7 +650,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
       {hasMainImage && !hasPromptImages && (
         <div className="image-box assessment-main-image-wrap">
           <img
-            src={currentQuestion.imagePath}
+            src={stimulusImage}
             alt="question visual"
             className="question-image assessment-main-image"
           />
@@ -1420,6 +1453,12 @@ function GuidedReadingImage({ src, alt, className = "" }) {
 
 function getGuidedBookCover(book = {}) {
   const src = book.cover || book.coverImage || book.coverUrl || "";
+  if (src && isGuidedReadingAssetDeleted({ bookId: book.id, path: src, pageNumber: 0 })) {
+    return {
+      src: "",
+      isGenerated: true
+    };
+  }
   return {
     src,
     isGenerated: !src
@@ -1489,9 +1528,25 @@ function sentenceParts(text = "") {
 
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
 
+function getRuntimeGuidedReadingBooks() {
+  return guidedReadingBooks
+    .filter(book => !isGuidedReadingBookDeleted(book.id))
+    .map(book => ({
+      ...book,
+      pages: (book.pages || []).filter(page =>
+        !isGuidedReadingAssetDeleted({
+          bookId: book.id,
+          path: page.image,
+          pageNumber: page.pageNumber
+        })
+      )
+    }))
+    .filter(book => (book.pages || []).length > 0);
+}
+
 function getGuidedReadingTypeStats(type) {
   const normalizedType = normalizeGuidedReadingType(type);
-  const books = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
+  const books = getRuntimeGuidedReadingBooks().filter(book => normalizeGuidedReadingType(book.type) === normalizedType);
   return {
     type: normalizedType,
     label: formatGuidedReadingType(normalizedType),
@@ -1502,7 +1557,7 @@ function getGuidedReadingTypeStats(type) {
 }
 
 function getGuidedReadingLevelBooks(type, level) {
-  return guidedReadingBooks.filter(book =>
+  return getRuntimeGuidedReadingBooks().filter(book =>
     normalizeGuidedReadingType(book.type) === normalizeGuidedReadingType(type) &&
     book.level === level
   );
@@ -1517,7 +1572,7 @@ export function GuidedReadingPage({
   returnToElAssessments,
   viewReports
 }) {
-  const [selectedBookId, setSelectedBookId] = useState(guidedReadingBooks[0]?.id || "");
+  const [selectedBookId, setSelectedBookId] = useState(() => getRuntimeGuidedReadingBooks()[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
   const [selectedLibraryLevel, setSelectedLibraryLevel] = useState("");
   const [pageIndex, setPageIndex] = useState(0);
@@ -1538,7 +1593,8 @@ export function GuidedReadingPage({
   const lastVisitedPageRef = useRef("");
   const touchStartRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
-  const selectedBook = guidedReadingBooks.find(book => book.id === selectedBookId) || guidedReadingBooks[0];
+  const runtimeGuidedReadingBooks = getRuntimeGuidedReadingBooks();
+  const selectedBook = runtimeGuidedReadingBooks.find(book => book.id === selectedBookId) || runtimeGuidedReadingBooks[0];
   const page = selectedBook?.pages?.[pageIndex];
   const record = guidedReadingRecords[selectedBook?.id] || {
     bookId: selectedBook?.id,
@@ -1558,7 +1614,7 @@ export function GuidedReadingPage({
   const enrichedSelectedBook = selectedBook ? enrichGuidedReadingBook(selectedBook) : null;
   const pageAnalysis = page ? analyzeGuidedReadingPage(page) : null;
   const recommendedBooks = recommendBooksForStudent({
-    books: guidedReadingBooks,
+    books: runtimeGuidedReadingBooks,
     studentProgress: {
       currentMicrophase: enrichedSelectedBook?.recommendedMicrophase,
       needs: enrichedSelectedBook?.recommendedSkillsToReinforce || []
@@ -1590,7 +1646,7 @@ export function GuidedReadingPage({
   const visibleLibraryBooks = selectedLibraryType && selectedLibraryLevel
     ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel)
     : [];
-  const reviewModeBooks = guidedReadingBooks.filter(book => book.reviewMode);
+  const reviewModeBooks = runtimeGuidedReadingBooks.filter(book => book.reviewMode);
 
   useEffect(() => {
     return () => {
@@ -1651,7 +1707,7 @@ export function GuidedReadingPage({
       !getGuidedReadingLevelBooks(book.type, book.level).some(item => item.id === book.id)
     );
     console.info("[Guided Reading] visible book audit", {
-      totalBooks: guidedReadingBooks.length,
+      totalBooks: runtimeGuidedReadingBooks.length,
       reviewModeBooks: reviewModeBooks.map(book => ({
         id: book.id,
         title: book.title,

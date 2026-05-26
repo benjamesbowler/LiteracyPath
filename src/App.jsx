@@ -110,6 +110,7 @@ import {
 } from "./questionRepeatGuards";
 import {
   getEarlySkillRuntimeEligibilityIssues,
+  getTargetObjectImage,
   isRuntimeEligibleEarlySkillQuestion,
   normalizeEarlySkillId
 } from "./utils/earlySkills/isRuntimeEligibleEarlySkillQuestion";
@@ -3922,6 +3923,11 @@ export default function App() {
 
   function shouldShowImage(question) {
     const skill = normalize(question.skill);
+    const isFinalSoundsEndingQuestion =
+      normalizeEarlySkillId(question.skillId || question.skill || "") === "final_sounds" &&
+      String(question.formatType || question.templateType || "").toUpperCase() === "ENDING_SOUND";
+    if (isFinalSoundsEndingQuestion) return Boolean(getTargetObjectImage(question));
+
     const imagePath =
       question.imagePath ||
       question.imageUrl ||

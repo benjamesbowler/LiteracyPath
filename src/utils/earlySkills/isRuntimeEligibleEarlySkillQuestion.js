@@ -37,7 +37,7 @@ const FINAL_SOUNDS_LEVEL_ONE_FORBIDDEN = [
   "ll", "ck", "ss", "ff", "zz", "mp", "rk", "lk"
 ];
 const PLACEHOLDER_PATTERN = /(?:placeholder|fallback|missing|unavailable|coming-soon|blank)/i;
-const UI_IMAGE_PATH_PATTERN = /(?:speaker|audio-button|volume|question-visual|\/ui\/|\/icons?\/|speaker-icon|\.svg$)/i;
+const UI_IMAGE_PATH_PATTERN = /(?:speaker|audio-button|volume|question-visual|\/ui\/|\/icons?\/|speaker-icon|(?:^|[\/_-])audio(?:[\/_.-]|$)|(?:^|[\/_-])sound(?:[\/_.-]|$)|\.svg$)/i;
 
 function normalize(value = "") {
   return String(value || "").toLowerCase().trim();
@@ -67,18 +67,18 @@ function getQuestionLevel(question = {}) {
   return Number.isFinite(value) && value > 0 ? value : 1;
 }
 
-function isPublicRuntimePath(path = "") {
+function isPublicRuntimePath(path = "", mediaType = "image") {
   const value = String(path || "").trim();
   return Boolean(
     value &&
     value.startsWith("/") &&
     !PLACEHOLDER_PATTERN.test(value) &&
-    !UI_IMAGE_PATH_PATTERN.test(value)
+    (mediaType !== "image" || !UI_IMAGE_PATH_PATTERN.test(value))
   );
 }
 
 function pathAllowed(path = "", mediaType = "image", options = {}) {
-  if (!isPublicRuntimePath(path)) return false;
+  if (!isPublicRuntimePath(path, mediaType)) return false;
   if (typeof options.pathExists === "function" && !options.pathExists(path)) return false;
   return isMediaQaRuntimeAllowed(path, mediaType, options);
 }
@@ -146,6 +146,30 @@ function getDirectTargetImagePaths(question = {}) {
   ].filter(Boolean);
 }
 
+export function getTargetObjectImage(question = {}, options = {}) {
+  const paths = getDirectTargetImagePaths(question);
+  const target = slugText(getTargetWord(question));
+
+  for (const path of paths) {
+    if (!pathAllowed(path, "image", options)) continue;
+    if (!target || target.length < 2) return path;
+
+    const lowerPath = String(path).toLowerCase();
+    const fileStem = slugText(lowerPath.split("/").pop()?.replace(/\.[a-z0-9]+$/i, "") || "");
+    const targetMatches =
+      fileStem === target ||
+      fileStem.includes(target) ||
+      lowerPath.includes(`/${target}.`) ||
+      lowerPath.includes(`/${target}/`) ||
+      lowerPath.includes(`-${target}.`) ||
+      lowerPath.includes(`${target}-`);
+
+    if (targetMatches) return path;
+  }
+
+  return "";
+}
+
 export function isListenPrompt(question = {}) {
   const text = getQuestionText(question);
   return Boolean(
@@ -161,22 +185,7 @@ export function hasRuntimeImage(question = {}, options = {}) {
 }
 
 export function hasRuntimeTargetImage(question = {}, options = {}) {
-  const paths = getDirectTargetImagePaths(question);
-  if (!paths.some(path => pathAllowed(path, "image", options))) return false;
-
-  const target = slugText(getTargetWord(question));
-  if (!target || target.length < 2) return true;
-
-  return paths.some(path => {
-    if (!pathAllowed(path, "image", options)) return false;
-    const normalizedPath = slugText(String(path).split("/").pop()?.replace(/\.[a-z0-9]+$/i, "") || path);
-    return normalizedPath === target ||
-      normalizedPath.includes(target) ||
-      String(path).toLowerCase().includes(`/${target}.`) ||
-      String(path).toLowerCase().includes(`/${target}/`) ||
-      String(path).toLowerCase().includes(`-${target}.`) ||
-      String(path).toLowerCase().includes(`${target}-`);
-  });
+  return Boolean(getTargetObjectImage(question, options));
 }
 
 export function hasRuntimeAudio(question = {}, options = {}) {

@@ -12,6 +12,7 @@ import {
 import { initialSoundWordBank } from "../src/content/initialSounds/initialSoundWordBank.js";
 import {
   getEarlySkillRuntimeEligibilityIssues,
+  getTargetObjectImage,
   hasRuntimeImage,
   hasRuntimeTargetImage,
   isRuntimeEligibleEarlySkillQuestion
@@ -29,6 +30,7 @@ const SKILL_LEVELS = {
 
 const FINAL_LEVEL_ONE_FORBIDDEN = /^(?:sh|ch|th|ng|nd|nk|nt|st|sk|ft|lt|ll|ck|ss|ff|zz|mp|rk|lk)$/;
 const FINAL_LEVEL_ONE_ALLOWED = new Set(["b", "d", "g", "l", "m", "n", "p", "t"]);
+const UI_ICON_IMAGE_PATTERN = /(?:speaker|audio|icon|volume|placeholder|\/ui\/|\/icons?\/|\.svg$)/i;
 
 function levelOf(question) {
   const level = Number(question.level || question.difficulty || 1);
@@ -189,6 +191,12 @@ for (const [skillId, levels] of Object.entries(SKILL_LEVELS)) {
       const noObjectImage = source.filter(question => !hasRuntimeTargetImage(question, { pathExists: publicPathExists }));
       if (noObjectImage.length) {
         failures.push(`Final Sounds Level ${level} has ${noObjectImage.length} accepted questions without target object images: ${noObjectImage.slice(0, 8).map(question => question.id).join(", ")}`);
+      }
+      const uiIconObjectImages = source
+        .map(question => ({ question, image: getTargetObjectImage(question, { pathExists: publicPathExists }) }))
+        .filter(row => UI_ICON_IMAGE_PATTERN.test(row.image));
+      if (uiIconObjectImages.length) {
+        failures.push(`Final Sounds Level ${level} has accepted speaker/audio/icon target images: ${uiIconObjectImages.slice(0, 8).map(row => `${row.question.id}:${row.image}`).join(", ")}`);
       }
     }
     const patterns = new Set(source.map(question => inferPatternForSkill(skillId, question)).filter(Boolean));
