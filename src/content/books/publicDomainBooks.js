@@ -1,4 +1,5 @@
 import { publicDomainRuntimeManifest } from "./publicDomainRuntimeManifest.js";
+import { publicDomainGuidedReadingBooks } from "../../data/generated/publicDomainGuidedReadingBooks.generated.js";
 
 export const publicDomainBookSourcePdf = "https://filecabinet9.eschoolview.com/D64E465C-E09E-4F7D-96F6-C12A63B1F126/ChildrensBookswithNoCopyright.pdf";
 
@@ -68,6 +69,26 @@ const pilotDownloadMetadata = {
   }
 };
 
+const generatedPublicDomainBooksById = publicDomainGuidedReadingBooks.reduce((map, book) => {
+  map.set(book.id, book);
+  map.set(`the-${book.id}`, book);
+  return map;
+}, new Map());
+
+function getPublicDomainProcessingStatus(generatedBook, runtimePages) {
+  if (!generatedBook && !runtimePages.length) return "not_processed";
+  if ((generatedBook?.pages || runtimePages).length > 0) return "processed";
+  return "downloaded";
+}
+
+function getPublicDomainLibraryStatus({ generatedBook, runtime, pilot, pages, hasCover }) {
+  if (pages.length > 0 && hasCover) return "readable";
+  if (runtime.libraryStatus) return runtime.libraryStatus;
+  if (generatedBook) return "needs_review";
+  if (pilot.pdfUrl) return "needs_pdf";
+  return "candidate";
+}
+
 export const publicDomainBooks = selectedBooks.map(([
   id,
   title,
@@ -80,9 +101,20 @@ export const publicDomainBooks = selectedBooks.map(([
   suitabilityScore
 ]) => {
   const pilot = pilotDownloadMetadata[id] || {};
+  const generatedBook = generatedPublicDomainBooksById.get(id);
   const runtime = publicDomainRuntimeManifest[id] || {};
   const downloadStatus = pilot.pdfUrl ? "needs_pdf" : "needs_pdf_url";
-  const pages = runtime.pages || [];
+  const pages = runtime.pages?.length ? runtime.pages : generatedBook?.pages || [];
+  const cover = runtime.cover || generatedBook?.coverImage || `/books/public-domain/${id}/cover.webp`;
+  const processingStatus = runtime.processingStatus || getPublicDomainProcessingStatus(generatedBook, pages);
+  const libraryStatus = getPublicDomainLibraryStatus({
+    generatedBook,
+    runtime,
+    pilot,
+    pages,
+    hasCover: Boolean(cover)
+  });
+  const readable = libraryStatus === "readable" && processingStatus === "processed" && pages.length > 0;
 
   return {
     id,
@@ -102,14 +134,17 @@ export const publicDomainBooks = selectedBooks.map(([
     tags,
     skills,
     suitabilityScore,
-    cover: runtime.cover || `/books/public-domain/${id}/cover.webp`,
+    cover,
     pageCount: runtime.pageCount || pages.length,
     estimatedPages: runtime.estimatedPages || pages.length,
-    active: Boolean(runtime.active && pages.length > 0),
+    active: readable,
+    readable,
     pilot: Boolean(pilot.pilot),
-    libraryStatus: runtime.libraryStatus || pilot.libraryStatus || downloadStatus,
-    downloadStatus: runtime.downloadStatus || downloadStatus,
-    processingStatus: runtime.processingStatus || "not_processed",
+    libraryStatus,
+    publicDomainStatus: libraryStatus,
+    downloadStatus: runtime.downloadStatus || (generatedBook ? "downloaded" : downloadStatus),
+    processingStatus,
+    qaStatus: generatedBook?.qaStatus || runtime.qaStatus || (readable ? "valid" : "candidate"),
     pages,
     comprehension: [
       {

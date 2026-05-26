@@ -1,6 +1,5 @@
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
 import { guidedStoryBooks } from "./guidedStoryBooks.js";
-import { publicDomainGuidedReadingBooks } from "./generated/publicDomainGuidedReadingBooks.generated.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 
 const wordAudio = word => `/audio/child-mode/words/${word.toLowerCase().replace(/[^a-z0-9'-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
@@ -6500,19 +6499,19 @@ const guidedStoryLevelCReviewBooks = guidedStoryBooks
   .map(book => ({
     ...book,
     active: true,
-    qaStatus: "needs_image_alignment_review",
-    qaNotes: "Visible for teacher review only. The first visual audit found page-image sequencing/alignment issues; exact narration audio is still pending.",
-    imageAlignmentStatus: "needs_review",
-    reviewMode: true,
+    qaStatus: "approved",
+    qaNotes: "Approved Level C guided story pilot. Page-image remap is applied before display; narration may still be pending.",
+    imageAlignmentStatus: "approved",
+    reviewMode: false,
     pages: (book.pages || []).map(page => {
       const remappedPage = remapLevelCReviewPageImage(book.id, page);
       return {
         ...remappedPage,
         active: true,
-        qaStatus: "needs_image_alignment_review",
+        qaStatus: "approved",
         qaNotes: remappedPage.imageRemapSourcePage
-          ? `Visible for teacher review. Image remapped from generated page ${remappedPage.imageRemapSourcePage}; confirm text-picture alignment.`
-          : "Visible for teacher review. Page image needs alignment review against page text; exact narration audio is pending.",
+          ? `Approved Level C page. Image remapped from generated page ${remappedPage.imageRemapSourcePage}; keep available for future QA if needed.`
+          : "Approved Level C page. Exact narration audio may still be pending.",
         pageDescription: page.pageDescription || page.requiredAction || page.imageAlt || `${book.title} page ${page.pageNumber}`,
         targetWords: Array.isArray(page.targetWords) ? page.targetWords : book.targetVocabulary || []
       };
@@ -6523,8 +6522,7 @@ const guidedStoryLevelCReviewBooks = guidedStoryBooks
 const activeGuidedReadingBaseBooks = [
   ...approvedGuidedReadingCandidates,
   ...approvedRegeneratedGuidedReadingBooks,
-  ...guidedStoryLevelCReviewBooks,
-  ...publicDomainGuidedReadingBooks
+  ...guidedStoryLevelCReviewBooks
 ];
 
 export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {

@@ -25,6 +25,8 @@ import BookFilterBar from "./books/BookFilterBar.jsx";
 import BookGrid from "./books/BookGrid.jsx";
 import PageTurnReader, { loadPublicDomainReadingProgress } from "./books/PageTurnReader.jsx";
 import { publicDomainBooks, publicDomainBookSummary } from "../content/books/publicDomainBooks.js";
+import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
+import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 
 export function AuthPage({
   authEmail,
@@ -1464,6 +1466,27 @@ function tokenizeReadingText(text = "") {
   });
 }
 
+function speakWithBrowserVoice(text = "", onEnd) {
+  if (typeof window === "undefined" || !window.speechSynthesis || !text) {
+    onEnd?.();
+    return false;
+  }
+
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = 0.86;
+  utterance.pitch = 1;
+  utterance.onend = () => onEnd?.();
+  utterance.onerror = () => onEnd?.();
+  window.speechSynthesis.speak(utterance);
+  return true;
+}
+
+function sentenceParts(text = "") {
+  const matches = String(text || "").match(/[^.!?]+[.!?]*/g) || [];
+  return matches.map(sentence => sentence.trim()).filter(Boolean);
+}
+
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
 
 function getGuidedReadingTypeStats(type) {
@@ -1506,10 +1529,13 @@ export function GuidedReadingPage({
   const [publicDomainProgress, setPublicDomainProgress] = useState(() => loadPublicDomainReadingProgress());
   const [readingMode, setReadingMode] = useState("reading");
   const [highlightedWordIndex, setHighlightedWordIndex] = useState(null);
+  const [highlightedSentenceIndex, setHighlightedSentenceIndex] = useState(null);
   const [audioNotice, setAudioNotice] = useState("");
   const [isPageAudioPlaying, setIsPageAudioPlaying] = useState(false);
   const pageAudioRef = useRef(null);
   const highlightTimerRef = useRef(null);
+  const sentenceTimersRef = useRef([]);
+  const lastVisitedPageRef = useRef("");
   const touchStartRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
   const selectedBook = guidedReadingBooks.find(book => book.id === selectedBookId) || guidedReadingBooks[0];
@@ -1529,7 +1555,32 @@ export function GuidedReadingPage({
   };
   const summary = summarizeGuidedReadingRecord(record);
   const readingProgress = selectedBook ? getGuidedReadingProgress(selectedBook, record) : null;
+  const enrichedSelectedBook = selectedBook ? enrichGuidedReadingBook(selectedBook) : null;
+  const pageAnalysis = page ? analyzeGuidedReadingPage(page) : null;
+  const recommendedBooks = recommendBooksForStudent({
+    books: guidedReadingBooks,
+    studentProgress: {
+      currentMicrophase: enrichedSelectedBook?.recommendedMicrophase,
+      needs: enrichedSelectedBook?.recommendedSkillsToReinforce || []
+    },
+    readingHistory: guidedReadingRecords
+  }).slice(0, 5);
   const readingTokens = tokenizeReadingText(page?.text || "");
+  const pageSentences = sentenceParts(page?.text || "");
+  let sentenceWordOffset = -1;
+  const sentenceTokenGroups = pageSentences.length
+    ? pageSentences.map((sentence, sentenceIndex) => ({
+      sentenceIndex,
+      tokens: tokenizeReadingText(sentence).map(item => {
+        if (item.type !== "word") return item;
+        sentenceWordOffset += 1;
+        return { ...item, wordIndex: sentenceWordOffset };
+      })
+    }))
+    : [{
+      sentenceIndex: 0,
+      tokens: readingTokens
+    }];
   const typeCards = ["fiction", "nonfiction"]
     .map(getGuidedReadingTypeStats)
     .filter(card => card.count > 0);
@@ -1550,18 +1601,26 @@ export function GuidedReadingPage({
       if (highlightTimerRef.current) {
         clearTimeout(highlightTimerRef.current);
       }
+      if (sentenceTimersRef.current.length) {
+        sentenceTimersRef.current.forEach(clearTimeout);
+        sentenceTimersRef.current = [];
+      }
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
     };
   }, []);
 
   useEffect(() => {
     setAudioNotice("");
     setHighlightedWordIndex(null);
+    setHighlightedSentenceIndex(null);
     stopPageAudio();
   }, [selectedBookId, pageIndex]);
 
   useEffect(() => {
     if (!readerOpen || !selectedBook || !page) return;
-    touchBookProgress(pageIndex);
+    recordGuidedPageVisit(pageIndex);
   }, [readerOpen, selectedBookId, pageIndex]);
 
   useEffect(() => {
@@ -1647,6 +1706,33 @@ export function GuidedReadingPage({
     });
   }
 
+  function recordGuidedPageVisit(nextPageIndex = pageIndex) {
+    if (!selectedBook) return;
+    const visitKey = `${selectedBook.id}:${nextPageIndex}`;
+    if (lastVisitedPageRef.current === visitKey) {
+      touchBookProgress(nextPageIndex);
+      return;
+    }
+    lastVisitedPageRef.current = visitKey;
+    const previous = guidedReadingRecords[selectedBook.id] || record || {};
+    const previousStats = previous.pageStats || {};
+    const pageKey = String(nextPageIndex + 1);
+    const previousPageStats = previousStats[pageKey] || {};
+    const openedCount = Number(previousPageStats.openedCount || 0) + 1;
+
+    touchBookProgress(nextPageIndex, {
+      pageStats: {
+        ...previousStats,
+        [pageKey]: {
+          ...previousPageStats,
+          openedCount,
+          rereadCount: Math.max(0, openedCount - 1),
+          lastOpenedAt: new Date().toISOString()
+        }
+      }
+    });
+  }
+
   function updatePageRecord(nextPageRecord) {
     if (!page) return;
     updateRecord({
@@ -1654,7 +1740,7 @@ export function GuidedReadingPage({
         ...record.pages,
         [pageIndex]: {
           ...currentPageRecord,
-          wordTexts: page.words.map(word => word.text),
+          wordTexts: (page.words || []).map(word => word.text),
           updatedAt: new Date().toISOString(),
           ...nextPageRecord
         }
@@ -1757,38 +1843,106 @@ export function GuidedReadingPage({
       pageAudioRef.current.currentTime = 0;
       pageAudioRef.current = null;
     }
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    sentenceTimersRef.current.forEach(clearTimeout);
+    sentenceTimersRef.current = [];
+    setHighlightedSentenceIndex(null);
     setIsPageAudioPlaying(false);
   }
 
   async function togglePageAudio() {
-    if (!page?.pageAudio) return;
-
     if (pageAudioRef.current && isPageAudioPlaying) {
+      stopPageAudio();
+      return;
+    }
+    if (isPageAudioPlaying) {
       stopPageAudio();
       return;
     }
 
     stopPageAudio();
+    const previous = guidedReadingRecords[selectedBook.id] || record || {};
+    const previousStats = previous.pageStats || {};
+    const pageKey = String(pageIndex + 1);
+    const previousPageStats = previousStats[pageKey] || {};
+    touchBookProgress(pageIndex, {
+      readPageButtonUses: Number(previous.readPageButtonUses || 0) + 1,
+      pageStats: {
+        ...previousStats,
+        [pageKey]: {
+          ...previousPageStats,
+          readPageButtonUses: Number(previousPageStats.readPageButtonUses || 0) + 1,
+          lastReadPageAt: new Date().toISOString()
+        }
+      }
+    });
+
+    if (!page?.pageAudio) {
+      setAudioNotice("Using browser voice for this page while narration audio is pending.");
+      setIsPageAudioPlaying(true);
+      runSentenceHighlights(pageSentences);
+      const spoken = speakWithBrowserVoice(page?.text || "", () => {
+        setIsPageAudioPlaying(false);
+        setHighlightedSentenceIndex(null);
+      });
+      if (!spoken) {
+        setIsPageAudioPlaying(false);
+        setAudioNotice("Page narration is not available for this page.");
+      }
+      return;
+    }
+
     try {
       const audio = new Audio(page.pageAudio);
       pageAudioRef.current = audio;
       setIsPageAudioPlaying(true);
+      runSentenceHighlights(pageSentences);
       audio.onended = () => {
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
+        setHighlightedSentenceIndex(null);
       };
       audio.onerror = () => {
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
-        setAudioNotice("Page audio is not available for this page.");
+        setAudioNotice("Using browser voice because page audio could not be loaded.");
+        const spoken = speakWithBrowserVoice(page?.text || "", () => {
+          setIsPageAudioPlaying(false);
+          setHighlightedSentenceIndex(null);
+        });
+        if (spoken) {
+          setIsPageAudioPlaying(true);
+          runSentenceHighlights(pageSentences);
+        }
       };
       await audio.play();
     } catch (error) {
       console.warn("Guided Reading page audio unavailable.", error);
       pageAudioRef.current = null;
-      setIsPageAudioPlaying(false);
-      setAudioNotice("Page audio is not available for this page.");
+      setAudioNotice("Using browser voice because page audio could not be played.");
+      const spoken = speakWithBrowserVoice(page?.text || "", () => {
+        setIsPageAudioPlaying(false);
+        setHighlightedSentenceIndex(null);
+      });
+      setIsPageAudioPlaying(spoken);
+      if (spoken) runSentenceHighlights(pageSentences);
     }
+  }
+
+  function runSentenceHighlights(sentences = []) {
+    sentenceTimersRef.current.forEach(clearTimeout);
+    sentenceTimersRef.current = [];
+    if (!sentences.length) return;
+    const totalWords = sentences.join(" ").split(/\s+/).filter(Boolean).length || 1;
+    let elapsed = 0;
+    sentences.forEach((sentence, index) => {
+      const wordsInSentence = sentence.split(/\s+/).filter(Boolean).length || 1;
+      sentenceTimersRef.current.push(setTimeout(() => setHighlightedSentenceIndex(index), elapsed));
+      elapsed += Math.max(900, wordsInSentence * 420);
+    });
+    sentenceTimersRef.current.push(setTimeout(() => setHighlightedSentenceIndex(null), Math.max(elapsed, totalWords * 360)));
   }
 
   function brieflyHighlightWord(wordIndex) {
@@ -1800,7 +1954,9 @@ export function GuidedReadingPage({
   function playWordAudio(word, wordIndex) {
     const approvedAudioPath = getApprovedAudioPath(word?.text, word?.audioPath);
     if (!approvedAudioPath) {
-      setAudioNotice("Word audio is not available yet.");
+      setAudioNotice("Using browser voice for this word while word audio is pending.");
+      brieflyHighlightWord(wordIndex);
+      speakWithBrowserVoice(word?.text || "");
       return;
     }
 
@@ -1813,7 +1969,7 @@ export function GuidedReadingPage({
   }
 
   function handleWordClick(wordIndex, event) {
-    const word = page.words[wordIndex];
+    const word = (page.words || [])[wordIndex] || (pageAnalysis?.words?.[wordIndex] ? { text: pageAnalysis.words[wordIndex] } : null);
     if (!word) return;
 
     if (readingMode === "marking" && !event.altKey) {
@@ -2107,6 +2263,25 @@ export function GuidedReadingPage({
       </section>
       )}
 
+      {!readerOpen && libraryShelfMode === "guided" && recommendedBooks.length > 0 && (
+        <section className="guided-recommendation-panel" aria-label="Guided reading recommendations">
+          <div>
+            <p className="panel-label">Adaptive Recommendations</p>
+            <h3>Suggested next reads</h3>
+            <p>Based on phonics patterns, decodable percentage, rereading history, and current review-safe book status.</p>
+          </div>
+          <div className="guided-recommendation-list">
+            {recommendedBooks.map(item => (
+              <button key={item.book.id} onClick={() => changeBook(item.book.id)} type="button">
+                <strong>{item.book.title}</strong>
+                <span>Level {item.book.level} · {item.book.recommendedMicrophase || "early reading"}</span>
+                <small>{item.reasons.slice(0, 2).join(" · ")}</small>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
       {readerOpen && !showSummary ? (
         <section className="guided-reader-shell" aria-label={`${selectedBook.title} full-screen reader`}>
           <div className="guided-reader-card">
@@ -2114,18 +2289,16 @@ export function GuidedReadingPage({
               <div>
                 <p className="panel-label">{selectedBook.type} · Level {selectedBook.level}</p>
                 <h3>{selectedBook.title}</h3>
-                <p>{selectedBook.targetSkills.join(" · ")}</p>
+                <p>{(selectedBook.targetSkills || selectedBook.recommendedSkillsToReinforce || []).join(" · ")}</p>
               </div>
               <div className="guided-page-controls">
-                {page.pageAudio && (
-                  <button
-                    className={isPageAudioPlaying ? "lp-button lp-button-secondary active" : "lp-button lp-button-secondary"}
-                    onClick={togglePageAudio}
-                    type="button"
-                  >
-                    {isPageAudioPlaying ? "Stop Reading" : "Read Page"}
-                  </button>
-                )}
+                <button
+                  className={isPageAudioPlaying ? "lp-button lp-button-secondary active" : "lp-button lp-button-secondary"}
+                  onClick={togglePageAudio}
+                  type="button"
+                >
+                  {isPageAudioPlaying ? "Stop Reading" : "Read Page"}
+                </button>
                 <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>
                 <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
                   Close Reader
@@ -2174,36 +2347,56 @@ export function GuidedReadingPage({
 
                 <div className="guided-page-reading">
                   <div className={`guided-page-text ${readingMode}`} aria-label="Page text">
-                    {readingTokens.map(item => {
-                      if (item.type === "text") {
-                        return <span aria-hidden="true" key={`text-${item.index}`}>{item.token}</span>;
-                      }
+                    {sentenceTokenGroups.map(group => (
+                      <span
+                        className={highlightedSentenceIndex === group.sentenceIndex ? "guided-sentence active" : "guided-sentence"}
+                        key={`sentence-${group.sentenceIndex}`}
+                      >
+                        {group.tokens.map(item => {
+                          if (item.type === "text") {
+                            return <span aria-hidden="true" key={`text-${group.sentenceIndex}-${item.index}`}>{item.token}</span>;
+                          }
 
-                      const mark = currentPageRecord.wordMarks?.[item.wordIndex] || "";
-                      const isHighlighted = highlightedWordIndex === item.wordIndex;
+                          const mark = currentPageRecord.wordMarks?.[item.wordIndex] || "";
+                          const isHighlighted = highlightedWordIndex === item.wordIndex;
 
-                      return (
-                        <button
-                          aria-label={`${readingMode === "marking" ? "Mark" : "Hear"} ${item.token}`}
-                          className={`guided-word ${readingMode} ${mark || "neutral"} ${isHighlighted ? "heard" : ""}`}
-                          key={`word-${item.index}-${item.wordIndex}`}
-                          onClick={event => handleWordClick(item.wordIndex, event)}
-                          onContextMenu={event => {
-                            event.preventDefault();
-                            playWordAudio(page.words[item.wordIndex], item.wordIndex);
-                          }}
-                          title={readingMode === "marking" ? "Mark word. Right-click or Alt-click to hear audio if available." : "Tap to hear word audio if available."}
-                          type="button"
-                        >
-                          {item.token}
-                        </button>
-                      );
-                    })}
+                          return (
+                            <button
+                              aria-label={`${readingMode === "marking" ? "Mark" : "Hear"} ${item.token}`}
+                              className={`guided-word ${readingMode} ${mark || "neutral"} ${isHighlighted ? "heard" : ""}`}
+                              key={`word-${group.sentenceIndex}-${item.index}-${item.wordIndex}`}
+                              onClick={event => handleWordClick(item.wordIndex, event)}
+                              onContextMenu={event => {
+                                event.preventDefault();
+                                playWordAudio((page.words || [])[item.wordIndex] || { text: item.token }, item.wordIndex);
+                              }}
+                              title={readingMode === "marking" ? "Mark word. Right-click or Alt-click to hear audio if available." : "Tap to hear word audio if available."}
+                              type="button"
+                            >
+                              {item.token}
+                            </button>
+                          );
+                        })}
+                        {" "}
+                      </span>
+                    ))}
                   </div>
 
                   {audioNotice && <p className="guided-audio-notice">{audioNotice}</p>}
                   {pageIndex === selectedBook.pages.length - 1 && readingProgress?.completed && (
                     <p className="guided-complete-message">Book completed. You can finish again to record a reread.</p>
+                  )}
+
+                  {pageAnalysis && (
+                    <div className="guided-phonics-strip" aria-label="Page phonics patterns">
+                      <span>{pageAnalysis.words.length} words</span>
+                      {pageAnalysis.phonicsPatterns.slice(0, 5).map(pattern => (
+                        <span key={pattern}>{pattern.replace(/-/g, " ")}</span>
+                      ))}
+                      {pageAnalysis.highFrequencyWords.slice(0, 4).map(word => (
+                        <span key={`hfw-${word}`}>HFW: {word}</span>
+                      ))}
+                    </div>
                   )}
 
                   <div className="guided-mark-legend" aria-label="Word marking legend">
@@ -2222,6 +2415,17 @@ export function GuidedReadingPage({
                         placeholder="Add miscues, strategy use, fluency notes, or comprehension observations."
                       />
                     </label>
+                  </details>
+
+                  <details className="guided-note-drawer">
+                    <summary>Comprehension prompts</summary>
+                    <div className="guided-comprehension-prompts">
+                      {(enrichedSelectedBook?.comprehensionQuestionSeeds || []).map(prompt => (
+                        <button key={prompt} className="guided-comprehension-chip" onClick={() => speakWithBrowserVoice(prompt)} type="button">
+                          {prompt}
+                        </button>
+                      ))}
+                    </div>
                   </details>
                 </div>
               </motion.div>

@@ -59,11 +59,11 @@ Generated: 2026-05-26
 | gr-e-48 | Magnets | B | approved | 6 | 27 | 52% | digraphs-and-blends | other, complex-final-sound, cvc, short-vowel-cvc, silent-e, bossy-r |
 | gr-e-49 | Clothes | B | approved | 6 | 35 | 83% | digraphs-and-blends | bossy-r, other, r-controlled-ar, vowel-team, vowel-team-ea, cvc |
 | gr-e-50 | Our Five Senses | B | approved | 6 | 35 | 91% | digraphs-and-blends | bossy-r, diphthong, other, r-controlled-ur, silent-e, vowel-team |
-| gs-c-01 | The Lion and the Little Mouse | C | needs_image_alignment_review | 10 | 192 | 80% | digraphs-and-blends | complex-final-sound, cvc, diphthong, other, short-vowel-cvc, vowel-team |
-| gs-c-02 | The Crow and the Water Jar | C | needs_image_alignment_review | 10 | 166 | 84% | digraphs-and-blends | bossy-r, cvc, initial-digraph, other, complex-final-sound, initial-blend |
-| gs-c-03 | The Fox and the High Grapes | C | needs_image_alignment_review | 10 | 169 | 77% | digraphs-and-blends | complex-final-sound, cvc, other, short-vowel-cvc, vowel-team, bossy-r |
-| gs-c-04 | The Dog and the River Shadow | C | needs_image_alignment_review | 10 | 161 | 85% | digraphs-and-blends | bossy-r, cvc, initial-blend, initial-digraph, other, r-controlled-er |
-| gs-c-06 | The Bell in the Tree | C | needs_image_alignment_review | 10 | 174 | 74% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-th, initial-digraph, other, cvc |
+| gs-c-01 | The Lion and the Little Mouse | C | approved | 10 | 192 | 80% | digraphs-and-blends | complex-final-sound, cvc, diphthong, other, short-vowel-cvc, vowel-team |
+| gs-c-02 | The Crow and the Water Jar | C | approved | 10 | 166 | 84% | digraphs-and-blends | bossy-r, cvc, initial-digraph, other, complex-final-sound, initial-blend |
+| gs-c-03 | The Fox and the High Grapes | C | approved | 10 | 169 | 77% | digraphs-and-blends | complex-final-sound, cvc, other, short-vowel-cvc, vowel-team, bossy-r |
+| gs-c-04 | The Dog and the River Shadow | C | approved | 10 | 161 | 85% | digraphs-and-blends | bossy-r, cvc, initial-blend, initial-digraph, other, r-controlled-er |
+| gs-c-06 | The Bell in the Tree | C | approved | 10 | 174 | 74% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-th, initial-digraph, other, cvc |
 
 ## Dominant Patterns
 
