@@ -130,6 +130,12 @@ export const templateValidationRules = {
     requiredMedia: [],
     allowedRenderModes: ["main_image_audio_choice", "text_choice"]
   },
+  ENDING_SOUND_WORD_MATCH: {
+    requiredFields: ["targetWord", "answerOptions"],
+    optionalFields: ["targetImage", "approvedAudio"],
+    requiredMedia: [],
+    allowedRenderModes: ["text_choice"]
+  },
   BLEND_SOUNDS: {
     requiredFields: ["targetWord", "answerOptions"],
     optionalFields: ["approvedAudio", "targetImage"],

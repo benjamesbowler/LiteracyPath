@@ -449,6 +449,127 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | p | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
 | t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/t/tub.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/w/web.webp | active asset |  |  |
+| d | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/k/kid.webp | active asset |  |  |
+| d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-i/lid.png | active asset |  |  |
+| d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/b/bag.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/d/dog.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/e/egg.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/f/flag.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/l/leg.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/l/log.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/m/mug.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pig.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/r/rug.webp | active asset |  |  |
+| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/w/wig.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/e/easel.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/girl.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/j/jewel.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/n/nail.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/o/oval.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/o/owl.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/q/quail.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/w/wheel.webp | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/a/album.webp | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/d/drum.webp | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/gum.webp | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/y/yam.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/a/apron.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/f/fan.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/hen.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/i/iron.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/l/lemon.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/l/lion.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/m/moon.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/o/ocean.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/o/oven.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pan.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pen.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pin.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/q/queen.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/s/spoon.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/s/sun.webp | active asset |  |  |
+| n | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/v/van.webp | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/c/cap.webp | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/c/cup.webp | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/j/jeep.webp | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/digraphs/ship.png | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/s/soap.webp | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/t/tap.webp | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/t/top.webp | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/u/up.webp | active asset |  |  |
+| p | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/z/zip.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/b/bat.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/d/donut.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/e/exit.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/goat.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/hat.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/heart.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/j/jet.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/m/mat.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/n/newt.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pot.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/q/quiet.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/r/rat.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/r/robot.webp | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
+| t | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/y/yacht.webp | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/d/dish.webp | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/f/fish.webp | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/goldfish.webp | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/hairbrush.webp | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/j/jellyfish.webp | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/paintbrush.webp | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| sh | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/t/toothbrush.webp | active asset |  |  |
+| th | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| th | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/t/tooth.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/b/baseball.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/b/bell.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/d/doll.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/f/football.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/hill.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/i/inkwell.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/q/quill.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/s/shell.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/u/uphill.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/v/volleyball.webp | active asset |  |  |
+| ll | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/w/waterfall.webp | active asset |  |  |
+| ng | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/b/building.webp | active asset |  |  |
+| ng | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/k/king.webp | active asset |  |  |
+| ng | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/ring.png | active asset |  |  |
+| ng | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/r/ring.webp | active asset |  |  |
+| ng | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/u/unpacking.webp | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/d/diamond.webp | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/hand.webp | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/i/island.webp | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/hand.png | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/playground.webp | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pond.webp | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/q/quicksand.webp | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/s/sand.webp | active asset |  |  |
+| nd | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/u/underground.webp | active asset |  |  |
+| nk | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/i/ink.webp | active asset |  |  |
+| st | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/goalpost.webp | active asset |  |  |
+| st | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/n/nest.webp | active asset |  |  |
+| st | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/v/vest.webp | active asset |  |  |
+| st | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/v/violinist.webp | active asset |  |  |
+| sk | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/d/desk.webp | active asset |  |  |
+| sk | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/k/kiosk.webp | active asset |  |  |
+| sk | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/desk.png | active asset |  |  |
+| ft | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/gift.webp | active asset |  |  |
+| lt | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/q/quilt.webp | active asset |  |  |
 | cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | dog | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
@@ -862,6 +983,90 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | n | CVC and Short Vowels | COMPLETE_WORD | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
 | t | CVC and Short Vowels | COMPLETE_WORD | question image | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | g | CVC and Short Vowels | COMPLETE_WORD | question image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/b/bag.webp | active asset |  |  |
+| bag | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/b/bag.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/b/bat.webp | active asset |  |  |
+| bat | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/b/bat.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/c/cap.webp | active asset |  |  |
+| cap | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/c/cap.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/f/fan.webp | active asset |  |  |
+| fan | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/f/fan.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
+| ham | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/h/hat.webp | active asset |  |  |
+| hat | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/h/hat.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
+| jam | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| man | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/m/mat.webp | active asset |  |  |
+| mat | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/m/mat.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/p/pan.webp | active asset |  |  |
+| pan | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pan.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| ram | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/r/rat.webp | active asset |  |  |
+| rat | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/r/rat.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/t/tap.webp | active asset |  |  |
+| tap | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/t/tap.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/v/van.webp | active asset |  |  |
+| van | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/v/van.webp | active asset |  |  |
+| a | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/y/yak.webp | active asset |  |  |
+| yak | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/y/yak.webp | active asset |  |  |
+| e | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/h/hen.webp | active asset |  |  |
+| hen | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/h/hen.webp | active asset |  |  |
+| e | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/j/jet.webp | active asset |  |  |
+| jet | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/j/jet.webp | active asset |  |  |
+| e | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/l/leg.webp | active asset |  |  |
+| leg | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/l/leg.webp | active asset |  |  |
+| e | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/p/pen.webp | active asset |  |  |
+| pen | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pen.webp | active asset |  |  |
+| e | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| red | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| e | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/w/web.webp | active asset |  |  |
+| web | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/w/web.webp | active asset |  |  |
+| i | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| fin | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| i | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/k/kid.webp | active asset |  |  |
+| kid | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/k/kid.webp | active asset |  |  |
+| i | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/short-i/lid.png | active asset |  |  |
+| lid | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/lid.png | active asset |  |  |
+| i | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/p/pig.webp | active asset |  |  |
+| pig | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pig.webp | active asset |  |  |
+| i | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/p/pin.webp | active asset |  |  |
+| pin | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pin.webp | active asset |  |  |
+| i | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
+| sit | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
+| i | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/w/wig.webp | active asset |  |  |
+| wig | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/w/wig.webp | active asset |  |  |
+| i | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/z/zip.webp | active asset |  |  |
+| zip | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/z/zip.webp | active asset |  |  |
+| o | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
+| cot | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
+| o | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/d/dog.webp | active asset |  |  |
+| dog | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/d/dog.webp | active asset |  |  |
+| o | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/l/log.webp | active asset |  |  |
+| log | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/l/log.webp | active asset |  |  |
+| o | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/p/pot.webp | active asset |  |  |
+| pot | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pot.webp | active asset |  |  |
+| o | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/t/top.webp | active asset |  |  |
+| top | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/t/top.webp | active asset |  |  |
+| u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| bug | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/b/bus.webp | active asset |  |  |
+| bus | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/b/bus.webp | active asset |  |  |
+| u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/c/cup.webp | active asset |  |  |
+| cup | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/c/cup.webp | active asset |  |  |
+| u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/g/gum.webp | active asset |  |  |
+| gum | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/g/gum.webp | active asset |  |  |
+| u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/m/mug.webp | active asset |  |  |
+| mug | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/m/mug.webp | active asset |  |  |
+| u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/r/rug.webp | active asset |  |  |
+| rug | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/r/rug.webp | active asset |  |  |
+| u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/s/sun.webp | active asset |  |  |
+| sun | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/s/sun.webp | active asset |  |  |
+| u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/t/tub.webp | active asset |  |  |
+| tub | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/t/tub.webp | active asset |  |  |
 | cat | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | bag | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
 | map | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
@@ -896,6 +1101,90 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | mud | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-u/mud.png | active asset |  |  |
 | mug | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
 | sun | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/b/bag.webp | active asset |  |  |
+| bag | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/b/bag.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/b/bat.webp | active asset |  |  |
+| bat | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/b/bat.webp | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| bug | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/b/bus.webp | active asset |  |  |
+| bus | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/b/bus.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/c/cap.webp | active asset |  |  |
+| cap | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/c/cap.webp | active asset |  |  |
+| o | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
+| cot | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/c/cup.webp | active asset |  |  |
+| cup | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/c/cup.webp | active asset |  |  |
+| o | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/d/dog.webp | active asset |  |  |
+| dog | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/d/dog.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/f/fan.webp | active asset |  |  |
+| fan | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/f/fan.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| fin | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/g/gum.webp | active asset |  |  |
+| gum | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/g/gum.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
+| ham | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/h/hat.webp | active asset |  |  |
+| hat | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/h/hat.webp | active asset |  |  |
+| e | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/h/hen.webp | active asset |  |  |
+| hen | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/h/hen.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
+| jam | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
+| e | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/j/jet.webp | active asset |  |  |
+| jet | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/j/jet.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/k/kid.webp | active asset |  |  |
+| kid | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/k/kid.webp | active asset |  |  |
+| e | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/l/leg.webp | active asset |  |  |
+| leg | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/l/leg.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /images/child-mode/short-i/lid.png | active asset |  |  |
+| lid | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/lid.png | active asset |  |  |
+| o | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/l/log.webp | active asset |  |  |
+| log | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/l/log.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| man | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/m/mat.webp | active asset |  |  |
+| mat | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/m/mat.webp | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/m/mug.webp | active asset |  |  |
+| mug | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/m/mug.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/p/pan.webp | active asset |  |  |
+| pan | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pan.webp | active asset |  |  |
+| e | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/p/pen.webp | active asset |  |  |
+| pen | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pen.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/p/pig.webp | active asset |  |  |
+| pig | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pig.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/p/pin.webp | active asset |  |  |
+| pin | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pin.webp | active asset |  |  |
+| o | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/p/pot.webp | active asset |  |  |
+| pot | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/p/pot.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| ram | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/r/rat.webp | active asset |  |  |
+| rat | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/r/rat.webp | active asset |  |  |
+| e | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| red | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/r/rug.webp | active asset |  |  |
+| rug | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/r/rug.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
+| sit | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/s/sun.webp | active asset |  |  |
+| sun | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/s/sun.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/t/tap.webp | active asset |  |  |
+| tap | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/t/tap.webp | active asset |  |  |
+| o | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/t/top.webp | active asset |  |  |
+| top | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/t/top.webp | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/t/tub.webp | active asset |  |  |
+| tub | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/t/tub.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/v/van.webp | active asset |  |  |
+| van | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/v/van.webp | active asset |  |  |
+| e | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/w/web.webp | active asset |  |  |
+| web | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/w/web.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/w/wig.webp | active asset |  |  |
+| wig | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/w/wig.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/y/yak.webp | active asset |  |  |
+| yak | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/y/yak.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/z/zip.webp | active asset |  |  |
+| zip | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/z/zip.webp | active asset |  |  |
 | bl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
 | cl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
 | clap | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |

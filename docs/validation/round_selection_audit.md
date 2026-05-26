@@ -32,21 +32,21 @@ Runtime selection now rejects duplicate question IDs, target words, itemKeys, co
 
 | Selected question ID | Target word | ItemKey | Correct answer | Prompt + answer signature |
 | --- | --- | --- | --- | --- |
-| coverage_final_d_001 | listen and find | d | bed\|mud | listen to each word. which two words end with the same sound?::bed\|mud |
-| ending_l1_001_cat | cat | t | t | listen to the word. which sound does it end with?::t |
-| ending_l1_002_dog | dog | g | g | listen to the word. which sound does it end with?::g |
-| ending_l1_004_map | map | p | p | listen to the word. which sound does it end with?::p |
-| ending_l1_005_pan | pan | n | n | listen to the word. which sound does it end with?::n |
+| coverage_final_d_001 | bed | d | bed\|mud | listen to each word. which two words end with the same sound?::bed\|mud |
+| coverage_final_g_001 | dog | g | dog\|frog | listen to each word. which two words end with the same sound?::dog\|frog |
+| coverage_final_l_001 | ball | l | ball\|seal | listen to each word. which two words end with the same sound?::ball\|seal |
+| coverage_final_m_001 | ram | m | ram\|gum | listen to each word. which two words end with the same sound?::ram\|gum |
+| coverage_final_n_001 | fan | n | fan\|ten | listen to each word. which two words end with the same sound?::fan\|ten |
+| coverage_final_p_001 | cap | p | cap\|cup | listen to each word. which two words end with the same sound?::cap\|cup |
+| coverage_final_r_001 | car | r | car\|tiger | listen to each word. which two words end with the same sound?::car\|tiger |
+| coverage_final_s_001 | bus | s | bus\|this | listen to each word. which two words end with the same sound?::bus\|this |
+| coverage_final_t_001 | cat | t | cat\|hat | listen to each word. which two words end with the same sound?::cat\|hat |
 | ending_l1_010_web | web | b | b | listen to the word. which sound does it end with?::b |
-| ending_l1_012_jam | jam | m | m | listen to the word. which sound does it end with?::m |
 | ending_l2_001_fish | fish | sh | sh | listen to the word. which sound does it end with?::sh |
 | ending_l2_004_duck | duck | ck | ck | listen to the word. which sound does it end with?::ck |
 | ending_l2_007_ring | ring | ng | ng | listen to the word. which sound does it end with?::ng |
 | ending_l2_009_hand | hand | nd | nd | listen to the word. which sound does it end with?::nd |
 | ending_l2_010_tent | tent | nt | nt | listen to the word. which sound does it end with?::nt |
-| ending_l2_011_lamp | lamp | mp | mp | listen to the word. which sound does it end with?::mp |
-| ending_l2_012_park | park | rk | rk | listen to the word. which sound does it end with?::rk |
-| ending_l2_014_desk | desk | sk | sk | listen to the word. which sound does it end with?::sk |
 
 ## Rhyming
 
@@ -68,7 +68,7 @@ Runtime selection now rejects duplicate question IDs, target words, itemKeys, co
 | extra_rhyme_12 | night |  | night | which word rhymes with light?::night |
 | extra_rhyme_13 | tree |  | tree | which word rhymes with bee?::tree |
 | extra_rhyme_15 | bear |  | bear | which word rhymes with chair?::bear |
-| coverage_rhyme_at_001 | listen and find | at | cat\|hat | listen to each word. which two words rhyme?::cat\|hat |
+| coverage_rhyme_at_001 | cat | at | cat\|hat | listen to each word. which two words rhyme?::cat\|hat |
 
 ## CVC and Short Vowels
 

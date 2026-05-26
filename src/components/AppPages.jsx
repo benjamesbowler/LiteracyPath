@@ -2707,6 +2707,13 @@ export function CheckpointDecisionPage({
           </div>
         </div>
 
+        {checkpoint.blockedPassReason && (
+          <div className="level-mastery-callout">
+            <strong>More coverage needed</strong>
+            <p>{checkpoint.blockedPassReason}</p>
+          </div>
+        )}
+
         <div className="checkpoint-detail-grid">
           <section>
             <h3>Covered this round</h3>
@@ -2824,8 +2831,8 @@ export function CheckpointDecisionPage({
             </>
           ) : (
             <>
-              <button className="main-button" onClick={retrySkill} type="button">
-                Retry this skill
+              <button className="main-button" onClick={checkpoint.accuracyPassed ? continueSkill : retrySkill} type="button">
+                {checkpoint.accuracyPassed ? "Keep going in this skill" : "Retry this skill"}
               </button>
 
               <button className="report-button" onClick={reviewMistakes} type="button">

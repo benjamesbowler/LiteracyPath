@@ -39,7 +39,7 @@ const VOWEL_TEAM_FINAL_WORDS = new Set(["book", "feet", "seed", "seal", "boat", 
 const R_CONTROLLED_FINAL_WORDS = new Set(["car", "fork", "park", "star", "farm", "worm", "bird", "corn"]);
 const LEVEL_TWO_FINAL_PATTERNS = [
   "sh", "ch", "th", "ck", "ng",
-  "nd", "nt", "st", "mp", "nk", "lt", "ft", "sk", "rk",
+  "nd", "nt", "st", "mp", "nk", "lt", "ft", "sk", "rk", "ll",
   "b", "d", "f", "g", "l", "m", "n", "p", "r", "s", "t"
 ];
 const LEVEL_TWO_FINAL_OVERRIDES = new Map([

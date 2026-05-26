@@ -72,6 +72,7 @@ import { templateExpansion6 } from "./data/templateExpansion6";
 import { templateExpansion7 } from "./data/templateExpansion7";
 import { questionBankExpansion8 } from "./data/questionBankExpansion8";
 import { generatedQuestions } from "./data/generatedQuestions";
+import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
@@ -871,6 +872,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...templateExpansion6,
   ...templateExpansion7,
   ...questionBankExpansion8,
+  ...generatedEarlySkillQuestions,
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
@@ -885,8 +887,15 @@ const configuredCoverageTotals = coverageExpectations;
 function getCoverageItemKeysForStage(stage) {
   const configured = configuredCoverageTotals[stage?.id];
   if (configured?.itemKeys?.length && configured?.itemType) {
+    const level =
+      stage?.id === "final_sounds" && typeof getNextFinalSoundLevel === "function"
+        ? getNextFinalSoundLevel()
+        : null;
+    const itemKeys = level && configured.levels?.[level]
+      ? configured.levels[level]
+      : configured.itemKeys;
     return new Set(
-      configured.itemKeys.map(itemKey =>
+      itemKeys.map(itemKey =>
         getItemMasteryStateKeyForValues(itemKey, configured.itemType)
       )
     );
@@ -3286,7 +3295,7 @@ export default function App() {
     return itemKey;
   }
 
-  function buildCheckpointDecision(stage, stageIndex, nextRound, nextRoundItemKeys, passed) {
+  function buildCheckpointDecision(stage, stageIndex, nextRound, nextRoundItemKeys, passed, nextRoundCorrectItemKeys = []) {
     if (stage?.id === "initial_sounds") {
       const initialRoundMeta = initialSoundRoundMetaRef.current || {};
       const stageRecords = answerHistoryRef.current
@@ -3303,7 +3312,6 @@ export default function App() {
       const levelOneMasteredLetters = new Set(allInitialProgress.level1?.masteredLetters || []);
       const levelOneMastered = INITIAL_SOUND_LETTERS.every(letter => levelOneMasteredLetters.has(letter));
       const alreadyCovered = new Set(previousProgress?.coveredLetters || []);
-      const totalCovered = new Set(allProgress?.coveredLetters || []);
       const totalMastered = new Set(allProgress?.masteredLetters || []);
       const coveredThisRound = Array.from(new Set(
         stageRecords
@@ -3311,7 +3319,7 @@ export default function App() {
           .map(record => normalizeItemKey(record.itemKey))
           .filter(letter => INITIAL_SOUND_LETTERS.includes(letter))
       ));
-      const remainingItems = INITIAL_SOUND_LETTERS.filter(letter => !totalCovered.has(letter));
+      const remainingItems = INITIAL_SOUND_LETTERS.filter(letter => !totalMastered.has(letter));
       const blockedLetters = initialRoundMeta.blockedLetters || [];
       const selectedTargetWords = stageRecords
         .filter(record => Number(record.itemLevel || currentLevel) === currentLevel)
@@ -3319,6 +3327,8 @@ export default function App() {
         .filter(Boolean);
       const reviewLetters = coveredThisRound.filter(letter => alreadyCovered.has(letter));
       const score = nextRound.filter(Boolean).length;
+      const coverageComplete = remainingItems.length === 0;
+      const effectivePassed = passed && coverageComplete;
 
       return {
         skillId: stage.id,
@@ -3327,11 +3337,14 @@ export default function App() {
         correct: score,
         total: ROUND_LENGTH,
         accuracy: Math.round((score / ROUND_LENGTH) * 100),
-        passed,
+        passed: effectivePassed,
+        accuracyPassed: passed,
+        coverageComplete,
+        blockedPassReason: !coverageComplete ? `Great accuracy. Keep going to cover: ${remainingItems.join(", ")}.` : "",
         nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
         coveredThisRound,
         alreadyMastered: Array.from(alreadyCovered).filter(letter => !coveredThisRound.includes(letter)),
-        totalCoveredItems: Array.from(totalCovered),
+        totalCoveredItems: Array.from(totalMastered),
         remainingItems,
         coverage: {
           mastered: totalMastered.size,
@@ -3362,7 +3375,7 @@ export default function App() {
     );
     const coveredKeys = new Set(alreadyCoveredKeys);
 
-    nextRoundItemKeys
+    nextRoundCorrectItemKeys
       .filter(key => expectedKeySet.has(key))
       .forEach(key => coveredKeys.add(key));
 
@@ -3386,6 +3399,10 @@ export default function App() {
       .map(formatCoverageKeyLabel)
       .slice(0, 60);
     const score = nextRound.filter(Boolean).length;
+    const coverageComplete = expectedKeys.length
+      ? expectedKeys.every(key => coveredKeys.has(key))
+      : true;
+    const effectivePassed = passed && coverageComplete;
 
     return {
       skillId: stage.id,
@@ -3394,7 +3411,12 @@ export default function App() {
       correct: score,
       total: ROUND_LENGTH,
       accuracy: Math.round((score / ROUND_LENGTH) * 100),
-      passed,
+      passed: effectivePassed,
+      accuracyPassed: passed,
+      coverageComplete,
+      blockedPassReason: !coverageComplete && remainingItems.length
+        ? `Great accuracy. Keep going to cover: ${remainingItems.join(", ")}.`
+        : "",
       nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
       coveredThisRound,
       alreadyMastered,
@@ -3540,7 +3562,17 @@ export default function App() {
 
     if (nextRound.length >= ROUND_LENGTH) {
       const score = nextRound.filter(Boolean).length;
-      const mastered = score >= PASS_SCORE;
+      const accuracyPassed = score >= PASS_SCORE;
+      const nextRoundCorrectItemKeys = nextRoundItemKeys.filter((key, index) => nextRound[index] && key);
+      const checkpoint = buildCheckpointDecision(
+        stage,
+        getStageIndex(currentQuestion),
+        nextRound,
+        nextRoundItemKeys,
+        accuracyPassed,
+        nextRoundCorrectItemKeys
+      );
+      const mastered = Boolean(checkpoint.passed);
 
       setMastery(prev => ({
         ...prev,
@@ -3554,9 +3586,7 @@ export default function App() {
 
       saveMasteryToSupabase(stage, score, ROUND_LENGTH, mastered);
 
-      setCheckpointDecision(
-        buildCheckpointDecision(stage, getStageIndex(currentQuestion), nextRound, nextRoundItemKeys, mastered)
-      );
+      setCheckpointDecision(checkpoint);
       setRoundAnswers([]);
       setRoundItemKeys([]);
       setRoundQuestionIds([]);

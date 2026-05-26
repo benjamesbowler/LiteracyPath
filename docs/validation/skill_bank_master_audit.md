@@ -5,7 +5,7 @@ Date: 2026-05-25
 ## Summary
 
 - Managed skills: 10
-- Skill-bank items scanned: 1816
+- Skill-bank items scanned: 2528
 - Fatal active media-complete failures: 0
 - Expansion/media warnings: 11
 
@@ -14,12 +14,12 @@ Date: 2026-05-25
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
 | Initial Sounds | 611 | 501 | 25 | 25 | L1:386, L2:225 | 110 | 110 | none |
-| Ending Sounds | 213 | 169 | 20 | 20 | L1:73, L2:140 | 43 | 44 | none |
-| Rhyming Words | 149 | 101 | 32 | 25 | L1:149 | 48 | 48 | eed, ill, ake, oh, oon, ose, ut, uck, ight, ouse |
-| Short Vowels | 171 | 107 | 5 | 5 | L1:116, L2:55 | 0 | 64 | none |
+| Ending Sounds | 489 | 290 | 26 | 26 | L1:250, L2:239 | 198 | 199 | none |
+| Rhyming Words | 267 | 101 | 32 | 25 | L1:267 | 166 | 56 | eed, ill, ake, oh, oon, ose, ut, uck, ight, ouse |
+| Short Vowels | 327 | 263 | 5 | 5 | L1:272, L2:55 | 0 | 64 | none |
 | Blends | 120 | 69 | 36 | 12 | L1:86, L2:34 | 51 | 40 | gl, pl, gr, pr |
 | Digraphs | 111 | 36 | 30 | 4 | L1:61, L3:50 | 75 | 57 | ck, ng |
-| CVC Words | 148 | 60 | 49 | 35 | L1:148 | 84 | 88 | cab, dot, gum, hen, hop, leg, mud, nap, pet, pig, red, rug, top, van |
+| CVC Words | 310 | 144 | 49 | 35 | L1:310 | 162 | 94 | cab, dot, gum, hen, hop, leg, mud, nap, pet, pig, red, rug, top, van |
 | High Frequency Words | 194 | 194 | 127 | 127 | L1:84, L2:110 | 0 | 0 | none |
 | Sentence Picture Matching | 30 | 30 | 15 | 15 | L1:15, L2:15 | 0 | 0 | none |
 | Vocabulary/Categories | 30 | 30 | 14 | 14 | L1:15, L2:15 | 0 | 0 | none |
@@ -63,10 +63,10 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Active items: 213
-- Media-complete active items: 169
-- Unique active targets: 20
-- Unique media-complete targets: 20
+- Active items: 489
+- Media-complete active items: 290
+- Unique active targets: 26
+- Unique media-complete targets: 26
 - Blocked targets: none
 - Below minimum warning: no
 
@@ -81,7 +81,7 @@ Date: 2026-05-25
 ## Rhyming Words
 
 - Skill ID: rhyming
-- Active items: 149
+- Active items: 267
 - Media-complete active items: 101
 - Unique active targets: 32
 - Unique media-complete targets: 25
@@ -90,7 +90,7 @@ Date: 2026-05-25
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: none
-- Duplicate target words by level: rhyming|1|coat, rhyming|1|hat, rhyming|1|red, rhyming|1|fin, rhyming|1|rug, rhyming|1|car, rhyming|1|bear, rhyming|1|cat, rhyming|1|cap, rhyming|1|fan, rhyming|1|bed, rhyming|1|pen, rhyming|1|pig, rhyming|1|sit, rhyming|1|dog, rhyming|1|mop, rhyming|1|pot, rhyming|1|bug, rhyming|1|sun, rhyming|1|map, rhyming|1|pan, rhyming|1|log, rhyming|1|jet, rhyming|1|sock, rhyming|1|wig, rhyming|1|hop, rhyming|1|ten, rhyming|1|mug, rhyming|1|ring, rhyming|1|bell, rhyming|1|boat, rhyming|1|bee, rhyming|1|tree, rhyming|1|run, rhyming|1|lake, rhyming|1|dish, rhyming|1|spoon, rhyming|1|night, rhyming|1|bat
+- Duplicate target words by level: rhyming|1|coat, rhyming|1|hat, rhyming|1|red, rhyming|1|fin, rhyming|1|rug, rhyming|1|car, rhyming|1|bear, rhyming|1|cat, rhyming|1|cap, rhyming|1|fan, rhyming|1|bed, rhyming|1|pen, rhyming|1|pig, rhyming|1|sit, rhyming|1|dog, rhyming|1|mop, rhyming|1|pot, rhyming|1|bug, rhyming|1|sun, rhyming|1|map, rhyming|1|pan, rhyming|1|log, rhyming|1|jet, rhyming|1|sock, rhyming|1|wig, rhyming|1|hop, rhyming|1|ten, rhyming|1|mug, rhyming|1|ring, rhyming|1|bell, rhyming|1|boat, rhyming|1|bee, rhyming|1|tree, rhyming|1|run, rhyming|1|lake, rhyming|1|dish, rhyming|1|spoon, rhyming|1|night, rhyming|1|bat, rhyming|1|mat
 
 ### Rhyming/Phonics Logic Issues
 
@@ -99,8 +99,8 @@ Date: 2026-05-25
 ## Short Vowels
 
 - Skill ID: short_vowels
-- Active items: 171
-- Media-complete active items: 107
+- Active items: 327
+- Media-complete active items: 263
 - Unique active targets: 5
 - Unique media-complete targets: 5
 - Blocked targets: none
@@ -108,7 +108,7 @@ Date: 2026-05-25
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: 33
-- Duplicate target words by level: short_vowels|1|cat, short_vowels|1|bag, short_vowels|1|map, short_vowels|1|bed, short_vowels|1|pen, short_vowels|1|red, short_vowels|1|pig, short_vowels|1|fin, short_vowels|1|sit, short_vowels|1|dog, short_vowels|1|pot, short_vowels|1|log, short_vowels|1|cup, short_vowels|1|mud, short_vowels|1|sun, short_vowels|1|hat, short_vowels|1|cap, short_vowels|1|pan, short_vowels|1|net, short_vowels|1|jet, short_vowels|1|wig, short_vowels|1|pin, short_vowels|1|cot, short_vowels|1|mop, short_vowels|1|mug, short_vowels|2|mat, short_vowels|2|red, short_vowels|2|sit, short_vowels|2|hop, short_vowels|2|cup, short_vowels|2|pen, short_vowels|2|pin, short_vowels|2|rug, short_vowels|2|map, short_vowels|2|dog, short_vowels|2|tap, short_vowels|2|top
+- Duplicate target words by level: short_vowels|1|cat, short_vowels|1|bag, short_vowels|1|map, short_vowels|1|bed, short_vowels|1|pen, short_vowels|1|red, short_vowels|1|pig, short_vowels|1|fin, short_vowels|1|sit, short_vowels|1|dog, short_vowels|1|pot, short_vowels|1|log, short_vowels|1|cup, short_vowels|1|mud, short_vowels|1|sun, short_vowels|1|hat, short_vowels|1|cap, short_vowels|1|pan, short_vowels|1|net, short_vowels|1|jet, short_vowels|1|wig, short_vowels|1|pin, short_vowels|1|cot, short_vowels|1|mop, short_vowels|1|mug, short_vowels|2|mat, short_vowels|2|red, short_vowels|2|sit, short_vowels|2|hop, short_vowels|2|cup, short_vowels|2|pen, short_vowels|2|pin, short_vowels|2|rug, short_vowels|2|map, short_vowels|2|dog, short_vowels|2|tap, short_vowels|2|top, short_vowels|1|bad, short_vowels|1|bat, short_vowels|1|bid
 
 ### Rhyming/Phonics Logic Issues
 
@@ -153,8 +153,8 @@ Date: 2026-05-25
 ## CVC Words
 
 - Skill ID: cvc_words
-- Active items: 148
-- Media-complete active items: 60
+- Active items: 310
+- Media-complete active items: 144
 - Unique active targets: 49
 - Unique media-complete targets: 35
 - Blocked targets: cab, dot, gum, hen, hop, leg, mud, nap, pet, pig, red, rug, top, van
@@ -162,7 +162,7 @@ Date: 2026-05-25
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: none
-- Duplicate target words by level: cvc_words|1|bag, cvc_words|1|bat, cvc_words|1|bed, cvc_words|1|cap, cvc_words|1|cat, cvc_words|1|cup, cvc_words|1|dog, cvc_words|1|dot, cvc_words|1|fin, cvc_words|1|hat, cvc_words|1|jam, cvc_words|1|leg, cvc_words|1|log, cvc_words|1|man, cvc_words|1|map, cvc_words|1|mud, cvc_words|1|mug, cvc_words|1|nap, cvc_words|1|pen, cvc_words|1|pig, cvc_words|1|pot, cvc_words|1|ram, cvc_words|1|red, cvc_words|1|sit, cvc_words|1|sun, cvc_words|1|wig, cvc_words|1|lid, cvc_words|1|pan, cvc_words|1|pin, cvc_words|1|web, cvc_words|1|jet
+- Duplicate target words by level: cvc_words|1|bag, cvc_words|1|bat, cvc_words|1|bed, cvc_words|1|cap, cvc_words|1|cat, cvc_words|1|cup, cvc_words|1|dog, cvc_words|1|dot, cvc_words|1|fin, cvc_words|1|hat, cvc_words|1|jam, cvc_words|1|leg, cvc_words|1|log, cvc_words|1|man, cvc_words|1|map, cvc_words|1|mud, cvc_words|1|mug, cvc_words|1|nap, cvc_words|1|pen, cvc_words|1|pig, cvc_words|1|pot, cvc_words|1|ram, cvc_words|1|red, cvc_words|1|sit, cvc_words|1|sun, cvc_words|1|wig, cvc_words|1|lid, cvc_words|1|pan, cvc_words|1|pin, cvc_words|1|web, cvc_words|1|jet, cvc_words|1|bad, cvc_words|1|can, cvc_words|1|fan, cvc_words|1|ham, cvc_words|1|mat, cvc_words|1|rat, cvc_words|1|tap, cvc_words|1|van, cvc_words|1|yak
 
 ### Rhyming/Phonics Logic Issues
 

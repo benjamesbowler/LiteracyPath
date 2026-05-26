@@ -9,10 +9,10 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 | Skill | Active valid runtime questions | Unique question signatures | Unique targets | Unique itemKeys/patterns | Duplicate IDs | Duplicate signatures | Repeated distractor sets | Missing image/audio needs | Below 50 unique? | Below 52 runtime? | Unique option sets | Runtime sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 78 | 78 | 77 | 25 | 0 | 0 | 8 | 0 | no | no | 76 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
-| Final Sounds | 149 | 149 | 114 | 19 | 0 | 0 | 13 | 0 | no | no | 102 | finalSoundCoverageQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
-| Rhyming | 102 | 102 | 81 | 26 | 0 | 0 | 9 | 0 | no | no | 89 | contentExpansionPass3Questions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
-| CVC and Short Vowels | 88 | 88 | 37 | 42 | 0 | 0 | 8 | 0 | no | no | 61 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
-| Short Vowel Discrimination | 88 | 88 | 37 | 5 | 0 | 0 | 5 | 0 | no | no | 52 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
+| Final Sounds | 270 | 270 | 197 | 25 | 0 | 0 | 16 | 0 | no | no | 109 | finalSoundCoverageQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
+| Rhyming | 219 | 219 | 103 | 26 | 0 | 0 | 11 | 0 | no | no | 128 | contentExpansionPass3Questions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
+| CVC and Short Vowels | 250 | 250 | 71 | 42 | 0 | 0 | 10 | 0 | no | no | 118 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
+| Short Vowel Discrimination | 244 | 244 | 68 | 5 | 0 | 0 | 7 | 0 | no | no | 109 | contentExpansionPass3Questions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
 | High-Frequency Words 1-25 | 61 | 61 | 32 | 32 | 0 | 0 | 6 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
 | High-Frequency Words 26-50 | 63 | 63 | 38 | 38 | 0 | 0 | 7 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
 | High-Frequency Words 51-100 | 70 | 70 | 68 | 68 | 0 | 0 | 1 | 0 | no | no | 70 | templateExpansion2, templateExpansion6, templateExpansion7 |
@@ -72,68 +72,68 @@ No duplicate prompt+answer signatures detected.
 
 ## Final Sounds
 
-- Active valid runtime questions: 149
-- Unique question signatures: 149
-- Unique target words / answer targets: 114
-- Unique itemKeys/patterns: 19 (b, ck, d, f, g, l, m, mp, n, nd, ng, nt, p, r, rk, s, sh, sk, t)
+- Active valid runtime questions: 270
+- Unique question signatures: 270
+- Unique target words / answer targets: 197
+- Unique itemKeys/patterns: 25 (b, ck, d, f, ft, g, l, ll, lt, m, mp, n, nd, ng, nk, nt, p, r, rk, s, sh, sk, st, t, th)
 - Duplicate signatures: 0
-- Repeated distractor sets: 13
+- Repeated distractor sets: 16
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: FINAL_SOUND_PAIR_SELECT:58, ENDING_SOUND:91
+- Formats: FINAL_SOUND_PAIR_SELECT:58, ENDING_SOUND:212
 - Overused targets: none
-- Overused itemKeys: d, g, n, p, t
+- Overused itemKeys: g, n, p, t
 
 No duplicate prompt+answer signatures detected.
 
 ## Rhyming
 
-- Active valid runtime questions: 102
-- Unique question signatures: 102
-- Unique target words / answer targets: 81
+- Active valid runtime questions: 219
+- Unique question signatures: 219
+- Unique target words / answer targets: 103
 - Unique itemKeys/patterns: 26 (ain, air, am, an, ap, ar, at, ed, ee, ell, en, et, ig, in, ing, ish, it, oat, ock, og, op, ot, ox, ug, un, ut)
 - Duplicate signatures: 0
-- Repeated distractor sets: 9
+- Repeated distractor sets: 11
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: RHYME_PAIR_SELECT:47, LISTEN_FIND_RHYME:13, READ_FIND_RHYME:13, RHYMING_PICTURE:29
-- Overused targets: none
-- Overused itemKeys: at
+- Formats: RHYME_PAIR_SELECT:47, LISTEN_FIND_RHYME:61, READ_FIND_RHYME:82, RHYMING_PICTURE:29
+- Overused targets: bug:6, cap:6, fan:6, mop:6, fin:5, hop:5, pan:5, pen:5, pig:5, sun:5
+- Overused itemKeys: an, ap, at, en, ig, op, ug
 
 No duplicate prompt+answer signatures detected.
 
 ## CVC and Short Vowels
 
-- Active valid runtime questions: 88
-- Unique question signatures: 88
-- Unique target words / answer targets: 37
+- Active valid runtime questions: 250
+- Unique question signatures: 250
+- Unique target words / answer targets: 71
 - Unique itemKeys/patterns: 42 (bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nap, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig)
 - Duplicate signatures: 0
-- Repeated distractor sets: 8
+- Repeated distractor sets: 10
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: HEARD_WORD_TO_PRINT_MINIMAL_PAIR:27, MISSING_VOWEL_CVC:15, PICTURE_TO_PRINT_MATCH:1, PUT_SOUNDS_IN_ORDER:30, COMPLETE_WORD:15
-- Overused targets: none
-- Overused itemKeys: none
+- Formats: HEARD_WORD_TO_PRINT_MINIMAL_PAIR:27, MISSING_VOWEL_CVC:78, PICTURE_TO_PRINT_MATCH:43, PUT_SOUNDS_IN_ORDER:30, COMPLETE_WORD:15, SHORT_VOWEL_WORD:57
+- Overused targets: bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6
+- Overused itemKeys: short_a, short_e, short_i, short_o, short_u
 
 No duplicate prompt+answer signatures detected.
 
 ## Short Vowel Discrimination
 
-- Active valid runtime questions: 88
-- Unique question signatures: 88
-- Unique target words / answer targets: 37
+- Active valid runtime questions: 244
+- Unique question signatures: 244
+- Unique target words / answer targets: 68
 - Unique itemKeys/patterns: 5 (short_a, short_e, short_i, short_o, short_u)
 - Duplicate signatures: 0
-- Repeated distractor sets: 5
+- Repeated distractor sets: 7
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: LISTEN_CHOOSE_VOWEL:26, PICTURE_TO_PRINT_MATCH:34, SHORT_VOWEL_WORD:28
-- Overused targets: none
+- Formats: LISTEN_CHOOSE_VOWEL:83, PICTURE_TO_PRINT_MATCH:76, SHORT_VOWEL_WORD:85
+- Overused targets: cup:7, fin:7, red:7, sun:7, bag:6, dog:6, hat:6, jet:6, log:6, mug:6
 - Overused itemKeys: none
 
 No duplicate prompt+answer signatures detected.

@@ -37,6 +37,42 @@ export const finalSoundExpectedItemKeys = [
   "t"
 ];
 
+export const finalSoundLevelTwoExpectedItemKeys = [
+  "sh",
+  "th",
+  "ll",
+  "ng",
+  "nd",
+  "nk",
+  "st",
+  "sk",
+  "ft",
+  "lt"
+];
+
+export const cvcShortVowelExpectedItemKeys = [
+  "short_a",
+  "short_e",
+  "short_i",
+  "short_o",
+  "short_u"
+];
+
+export const rhymingExpectedItemKeys = [
+  "at",
+  "an",
+  "ap",
+  "ed",
+  "en",
+  "et",
+  "ig",
+  "in",
+  "og",
+  "op",
+  "ug",
+  "un"
+];
+
 export const coverageExpectations = {
   initial_sounds: {
     itemType: "initial_sound",
@@ -48,9 +84,27 @@ export const coverageExpectations = {
   final_sounds: {
     itemType: "final_sound",
     itemKeys: finalSoundExpectedItemKeys,
+    levels: {
+      1: finalSoundExpectedItemKeys,
+      2: finalSoundLevelTwoExpectedItemKeys
+    },
     total: finalSoundExpectedItemKeys.length,
     unit: "sounds",
-    note: "Final Sounds is configured for simple early final phonemes only. Digraphs, ck endings, consonant clusters, silent-e words, r-controlled endings, x, and final s/z variants are intentionally excluded from this early checkpoint because they belong in later phonics pattern skills."
+    note: "Final Sounds Level 1 requires simple one-letter final sounds. Level 2 adds harder final digraphs, double letters, and consonant clusters."
+  },
+  cvc_short_vowels: {
+    itemType: "short_vowel",
+    itemKeys: cvcShortVowelExpectedItemKeys,
+    total: cvcShortVowelExpectedItemKeys.length,
+    unit: "vowels",
+    note: "CVC Short Vowels must cover all five medial short-vowel targets and must not cross-fill Initial Sounds questions."
+  },
+  rhyming: {
+    itemType: "rhyming_family",
+    itemKeys: rhymingExpectedItemKeys,
+    total: rhymingExpectedItemKeys.length,
+    unit: "rime families",
+    note: "Rhyming coverage is tracked by rime/rhyme family, never by starting letter."
   },
   hfw_1_25: {
     total: 25,

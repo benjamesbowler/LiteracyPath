@@ -6,26 +6,18 @@ Date: 2026-05-25
 
 - Managed skills simulated: 10
 - Fatal progression failures: 0
-- Progression warnings: 35
+- Progression warnings: 27
 
 ## Warnings
 
-- Ending Sounds L1 round 2: reused recent IDs ending_l1_010_web, ending_l1_006_pin, ending_l1_027_net, ending_l1_020_pen, ending_l1_028_cot, ending_l1_023_ham.
-- Ending Sounds L1 round 2: reused recent words web, pin, net, pen, cot, ham.
-- Ending Sounds L1 round 3: reused recent IDs ending_l1_010_web, ending_l1_006_pin, ending_l1_026_fin, ending_l1_023_ham, ending_l1_016_mug, ending_l1_027_net, ending_l1_005_pan, ending_l1_018_cap.
-- Ending Sounds L1 round 3: reused recent words web, pin, fin, ham, mug, net, pan, cap.
-- Ending Sounds L2 round 2: reused recent IDs ixl_ending_sound_10, ending_l2_011_lamp, ending_l2_009_hand.
-- Ending Sounds L2 round 2: reused recent words listen and find, web, lamp, hand.
-- Ending Sounds L2 round 3: reused recent IDs ending_l2_011_lamp, ending_l2_009_hand.
-- Ending Sounds L2 round 3: reused recent words listen and find, lamp, hand.
-- Rhyming Words L1 round 2: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24, ixl_rhyming_picture_16.
-- Rhyming Words L1 round 2: reused recent words listen and find, rain, chair, ram.
-- Rhyming Words L1 round 3: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24, ixl_rhyming_picture_16.
-- Rhyming Words L1 round 3: reused recent words listen and find, rain, chair, ram, cap.
-- Short Vowels L1 round 2: reused recent IDs p3_short_vowel_listen_5, ixl_short_vowel_16, recovery_short_vowel_picture_11.
-- Short Vowels L1 round 2: reused recent words pot, pen, wig, dog, fin, mug, pig, jet.
-- Short Vowels L1 round 3: reused recent IDs recovery_short_vowel_listen_10.
-- Short Vowels L1 round 3: reused recent words jet, mug, wig.
+- Ending Sounds L1 round 2: reused recent IDs gen_final_l1_p_ship_7_sound.
+- Ending Sounds L1 round 2: reused recent words ship, bat, bag.
+- Rhyming Words L1 round 2: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_16.
+- Rhyming Words L1 round 2: reused recent words rain, ram.
+- Rhyming Words L1 round 3: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_16.
+- Rhyming Words L1 round 3: reused recent words rain, ram.
+- Short Vowels L1 round 2: reused recent IDs recovery_short_vowel_picture_9.
+- Short Vowels L1 round 2: reused recent words net.
 - Blends L1 round 2: reused recent IDs ixl_blend_sound_28, recovery_blend_sound_cr_crab, ixl_blend_sound_25, ixl_blend_sound_12.
 - Blends L1 round 2: reused recent words black, brush, clap, crab, drum, flag, frog, slide, snake, spin, star, tree, blue, train, stop.
 - Blends L1 round 3: reused recent IDs p3_blend_word_br_12, recovery_blend_card_sl_slide, recovery_blend_card_tr_train.
@@ -37,8 +29,8 @@ Date: 2026-05-25
 - Digraphs L1 round 3: reused recent IDs recovery_digraph_sound_wh_whale, recovery_digraph_card_wh_wheel, p3_digraph_word_ch_4, p3_digraph_word_th_6.
 - Digraphs L1 round 3: reused recent words chick, shop, thin, whale, ship, wheel, chair, thumb, shell.
 - Digraphs L1 round 3: selected 9, fewer than available unique target cap 15.
-- CVC Words L1 round 2: reused recent words cat, fin, dog.
-- CVC Words L1 round 3: reused recent words cat, dog, fin.
+- CVC Words L1 round 2: reused recent words bag.
+- CVC Words L1 round 3: reused recent words wig, bag.
 - Vocabulary/Categories L1 round 1: selected 14, fewer than available unique target cap 15.
 - Vocabulary/Categories L1 round 2: selected 14, fewer than available unique target cap 15.
 - Vocabulary/Categories L1 round 3: selected 14, fewer than available unique target cap 15.
@@ -69,44 +61,44 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Media-complete items: 169
-- Media-complete targets: 20
+- Media-complete items: 290
+- Media-complete targets: 26
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 7/7 | b, d, g, m, n, p, t, g, t, n, n, g, n, m, t | web, lid, log, ram, hen, map, net, bag, cot, fan, pen, dog, pin, ham, cat |
-| L1 R2 | 3 | 15 | 7/7 | b, d, g, m, n, p, t, n, t, n, t, n, m, n, p | web, bed, mug, gum, fin, cup, pot, pin, net, pen, cot, sun, ham, pan, cap |
-| L1 R3 | 3 | 15 | 7/7 | b, d, g, m, n, p, t, n, n, m, g, t, n, g, p | web, lid, bug, jam, pin, map, hat, fin, fan, ham, mug, net, pan, dog, cap |
-| L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, g, k, l, m, mp, n, nd, ng, nt, p, r | web, duck, lid, roof, mug, listen and find, shell, jam, lamp, pen, hand, king, tent, ship, car |
-| L2 R2 | 2 | 15 | 15/15 | rk, s, sh, sk, t, b, ck, d, f, g, l, m, mp, n, nd | fork, bus, dish, desk, listen and find, web, rock, red, leaf, dog, whale, thumb, lamp, pin, hand |
-| L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, g, l, m, mp, n, nd, ng, nt, p, r, rk | listen and find, sock, bed, roof, wig, bell, ham, lamp, sun, hand, ring, tent, map, chair, park |
+| L1 R1 | 1 | 15 | 8/8 | b, d, g, l, m, n, p, t, n, t, g, n, t, n, t | tub, lid, dog, owl, ram, van, ship, yacht, pin, bat, bag, pen, pot, lemon, heart |
+| L1 R2 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, p, l, g, l, t, g, p | web, kid, rug, easel, drum, hen, tap, exit, ship, jewel, egg, quail, bat, bag, shop |
+| L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, n, n, n, g, n, p, d | tub, bed, flag, girl, gum, oven, map, cut, pen, fin, sun, dog, pin, cup, lid |
+| L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | web, duck, lid, roof, gift, mug, cake, ball, inkwell, quilt, ram, lamp, ten, hand, king |
+| L2 R2 | 2 | 15 | 15/15 | nk, nt, p, r, rk, s, sh, sk, st, t, th, b, ck, d, f | ink, tent, cap, star, park, bus, brush, desk, nest, cat, th, crab, rock, bed, leaf |
+| L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | web, sock, hand, roof, gift, wig, book, whale, volleyball, quilt, jam, lamp, pan, diamond, building |
 
 ## Rhyming Words
 
 - Skill ID: rhyming
-- Media-complete items: 100
-- Media-complete targets: 26
-- Blocked expected targets: eed, ill, oh, oon, ose, ut, uck, ight, ouse
+- Media-complete items: 101
+- Media-complete targets: 25
+- Blocked expected targets: eed, ill, ake, oh, oon, ose, ut, uck, ight, ouse
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 15/15 | ain, air, ake, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing | rain, chair, listen and find, ram, fan, map, cat, bed, bee, bell, pen, jet, pig, fin, ring |
-| L1 R2 | 2 | 15 | 15/15 | ar, it, oat, ock, og, op, ot, ox, ug, un, ain, air, am, an, ap | listen and find, sit, boat, rock, dog, mop, pot, fox, bug, sun, rain, chair, ram, pan, cap |
-| L1 R3 | 2 | 15 | 15/15 | ish, ain, air, am, an, ap, at, ed, ee, ell, en, et, ig, in, ing | listen and find, rain, chair, ram, fan, cap, hat, bed, tree, bell, ten, jet, wig, pin, ring |
+| L1 R1 | 1 | 15 | 15/15 | ain, air, am, an, ap, ar, at, ed, ee, ell, en, et, ig, in, ing | rain, chair, ram, man, clap, car, cat, bed, bee, bell, pen, jet, pig, bin, king |
+| L1 R2 | 2 | 15 | 15/15 | ish, it, oat, ock, og, op, ot, ox, ug, un, ain, air, am, an, ap | fish, sit, boat, rock, frog, stop, pot, box, mug, sun, rain, bear, ram, fan, cap |
+| L1 R3 | 3 | 15 | 15/15 | ain, air, am, an, ap, ar, at, ed, ee, ell, en, et, ig, in, ing | rain, chair, ram, pan, map, car, mat, red, tree, bell, ten, jet, wig, pin, ring |
 
 ## Short Vowels
 
 - Skill ID: short_vowels
-- Media-complete items: 107
+- Media-complete items: 263
 - Media-complete targets: 5
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short a, short o, short e, short i, short o, short u, short i, short u, short e, short o | bat, bed, wig, pot, sun, cap, dog, pen, fin, mop, mug, pig, mud, jet, log |
-| L1 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short e, short i, short o, short i, short u, short i, short e, short e, short u | pan, net, sit, sock, bug, pot, pen, wig, dog, fin, mug, pig, red, jet, cup |
-| L1 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short a, short o, short e, short i, short u, short e, short o, short o, short i, short u | hat, web, fish, fox, nut, cap, shop, jet, pin, mug, bed, log, mop, wig, sun |
+| L1 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short o, short a, short u, short a, short i, short e, short a, short i, short e | ram, red, fin, log, cup, wig, sock, can, bug, cat, sit, pen, bag, pig, net |
+| L1 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short i, short e, short i, short u, short e, short a, short i, short a, short a | bat, jet, lid, dog, mud, sun, kid, web, big, mug, net, man, pin, hat, jam |
+| L1 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short u, short u, short u, short e, short a, short a, short a, short e, short o | map, hen, fish, mop, gum, pot, bus, cup, bug, red, nap, cap, pan, leg, fox |
 
 ## Blends
 
@@ -137,14 +129,14 @@ Date: 2026-05-25
 ## CVC Words
 
 - Skill ID: cvc_words
-- Media-complete items: 60
+- Media-complete items: 144
 - Media-complete targets: 35
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
 | L1 R1 | 1 | 15 | 15/15 | bag, bat, bed, bug, cap, cat, cup, dog, duck, fin, fish, fox, hat, jam, jet | bag, bat, bed, bug, cap, cat, cup, dog, duck, fin, fish, fox, hat, jam, jet |
-| L1 R2 | 2 | 15 | 15/15 | lid, log, man, map, mug, pan, pen, pin, pot, ram, short a, short e, short i, short o, short u | lid, log, man, map, mug, pan, pen, pin, pot, ram, cat, red, fin, dog, mud |
+| L1 R2 | 2 | 15 | 15/15 | lid, log, man, map, mug, pan, pen, pin, pot, ram, short a, short e, short i, short o, short u | lid, log, man, map, mug, pan, pen, pin, pot, ram, bag, red, wig, cot, bus |
 | L1 R3 | 2 | 15 | 15/15 | sit, sock, sun, web, wig, bag, bat, bed, bug, cap, cat, cup, dog, duck, fin | sit, sock, sun, web, wig, bag, bat, bed, bug, cap, cat, cup, dog, duck, fin |
 
 ## High Frequency Words

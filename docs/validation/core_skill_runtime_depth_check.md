@@ -5,9 +5,9 @@ Date: 2026-05-25
 | Skill | Runtime-Selectable Items | Minimum | Sample Round Size | Status |
 | --- | ---: | ---: | ---: | --- |
 | Initial Sounds | 473 | 100 | 15 | pass |
-| Ending Sounds | 200 | 100 | 15 | pass |
-| CVC Short Vowels | 203 | 100 | 15 | pass |
-| Rhyming Words | 101 | 100 | 15 | pass |
+| Ending Sounds | 476 | 100 | 15 | pass |
+| CVC Short Vowels | 521 | 100 | 15 | pass |
+| Rhyming Words | 219 | 100 | 15 | pass |
 
 ## Sample Rounds
 
@@ -83,8 +83,8 @@ Repeated round simulation:
 
 - Round 1: cat, bag, bat, bed, cap, cup, dog, dot, fin, hat, jam, leg, log, man, map
 - Round 2: mud, mug, nap, pen, pig, pot, ram, red, sit, sun, wig, lid, pan, net, jet
-- Round 3: pin, cot, nut, web, fish, sock, duck, fox, bug, hen, van, mop, ship, shop, pin
-- Round 4: cat, bag, bed, pig, dog, cup, pen, map, pan, pin, bat, jet, jam, sun, hat
+- Round 3: pin, cot, nut, web, fish, sock, duck, fox, bug, hen, van, bad, can, fan, ham
+- Round 4: mop, ship, mat, ten, bud, shop, rat, tap, yak, den, bid, big, bin, dig, hit
 
 ### Rhyming Words
 
@@ -109,7 +109,7 @@ Repeated round simulation:
 - Round 1: cat, cap, fan, bed, pen, pig, fin, sit, dog, mop, pot, bug, mug, rug, sun
 - Round 2: bat, map, man, red, ten, big, bin, hit, frog, shop, hot, bun, box, jet, king
 - Round 3: mat, clap, pan, hen, wig, log, stop, cot, bell, fish, boat, bee, car, bear, sock
-- Round 4: hat, fin, coat, cap, fan, bed, pen, pig, sit, dog, mop, pot, bug, sun, cat
+- Round 4: hat, coat, pin, hop, ram, fox, rock, ring, chair, rain, tree, can, van, nap, tap
 
 ## Failures
 
