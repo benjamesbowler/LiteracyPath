@@ -3423,6 +3423,28 @@ select:focus {
   padding: 12px 14px;
 }
 
+.assessment-card .choice-button.final-sound-choice-button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: clamp(96px, 14vh, 150px);
+  padding: clamp(14px, 2.5vw, 24px);
+}
+
+.assessment-card .choice-button.final-sound-choice-button span {
+  font-size: clamp(3rem, 9vw, 5.25rem);
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (min-width: 760px) {
+  .assessment-card .choice-button.final-sound-choice-button span {
+    font-size: clamp(4rem, 6vw, 6rem);
+  }
+}
+
 .ixl-template-panel {
   display: grid;
   align-content: start;

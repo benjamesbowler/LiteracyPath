@@ -45,7 +45,7 @@ export const rhymeGroups = {
   ock: ["sock", "rock", "lock", "clock"],
   ack: ["back", "pack", "sack", "track"],
   ick: ["kick", "lick", "brick", "stick"],
-  ill: ["hill", "pill", "mill"],
+  ill: ["hill", "pill", "mill", "will"],
   all: ["ball", "wall", "fall", "tall"],
   ash: ["dash", "cash", "trash"],
   ish: ["fish", "dish", "wish"],

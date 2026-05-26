@@ -67,7 +67,19 @@ const LEVEL_TWO_FINAL_OVERRIDES = new Map([
   ["thumb", "m"]
 ]);
 const LEVEL_ONE_FINAL_OVERRIDES = new Map([
-  ["seal", "l"]
+  ["animal", "l"],
+  ["crab", "b"],
+  ["fossil", "l"],
+  ["hospital", "l"],
+  ["jewel", "l"],
+  ["nail", "l"],
+  ["owl", "l"],
+  ["pencil", "l"],
+  ["pretzel", "l"],
+  ["seal", "l"],
+  ["tub", "b"],
+  ["web", "b"],
+  ["wheel", "l"]
 ]);
 
 const LEVEL_ONE_FINAL_SOUND_ALLOWED = new Set(finalSoundExpectedItemKeys);

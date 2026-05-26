@@ -577,16 +577,36 @@ function ListeningVisual() {
   );
 }
 
+const FINAL_SOUNDS_STUDENT_PROMPT = "Listen to the word. Which sound does it end with?";
+
+function isFinalSoundsEndingQuestion(question = {}) {
+  return String(question.skillId || "").toLowerCase() === "final_sounds" &&
+    String(question.formatType || question.templateType || "").toUpperCase() === "ENDING_SOUND";
+}
+
+function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
+  const safePrompt = String(prompt || "");
+  const word = String(targetWord || "").trim();
+  if (!word) return safePrompt;
+  return safePrompt
+    .replace(new RegExp(`["“”']?${word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["“”']?`, "gi"), "the word")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getStudentVisiblePrompt(question = {}) {
+  if (isFinalSoundsEndingQuestion(question)) return FINAL_SOUNDS_STUDENT_PROMPT;
+  return question.prompt || question.question || "";
+}
+
 function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, speakText, shouldShowImage }) {
   const approvedStimulusAudioPath = getApprovedAudioPath(
     currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
     currentQuestion.audioPath
   );
-  const isFinalSoundsEndingQuestion =
-    String(currentQuestion.skillId || "").toLowerCase() === "final_sounds" &&
-    String(currentQuestion.formatType || currentQuestion.templateType || "").toUpperCase() === "ENDING_SOUND";
+  const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const targetObjectImage = getTargetObjectImage(currentQuestion);
-  const stimulusImage = isFinalSoundsEndingQuestion
+  const stimulusImage = isFinalSoundsEndingItem
     ? targetObjectImage
     : (
       currentQuestion.imagePath ||
@@ -599,7 +619,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     );
   const hasPromptImages = currentQuestion.promptImageCards?.length > 0;
   const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
-  const hasMainImage = isFinalSoundsEndingQuestion
+  const hasMainImage = isFinalSoundsEndingItem
     ? Boolean(targetObjectImage)
     : shouldShowImage(currentQuestion) || (
     stimulusImage &&
@@ -610,7 +630,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
       currentQuestion.question?.toLowerCase().includes("matches the picture")
     )
   );
-  if (isFinalSoundsEndingQuestion && !targetObjectImage && import.meta.env.DEV) {
+  if (isFinalSoundsEndingItem && !targetObjectImage && import.meta.env.DEV) {
     console.warn("Blocked Final Sounds stimulus from rendering without a target object image", {
       id: currentQuestion.id,
       targetWord: currentQuestion.targetWord,
@@ -625,7 +645,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     !hasPassage &&
     !hasMainImage &&
     !isPairSelection &&
-    !isFinalSoundsEndingQuestion &&
+    !isFinalSoundsEndingItem &&
     !isIxlStyleTemplate &&
     Boolean(approvedStimulusAudioPath || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
 
@@ -648,7 +668,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
         <div className="image-box assessment-main-image-wrap">
           <img
             src={stimulusImage}
-            alt="question visual"
+            alt={isFinalSoundsEndingItem ? "Picture for the listening word" : "question visual"}
             className="question-image assessment-main-image"
           />
           {approvedStimulusAudioPath && (
@@ -3382,6 +3402,7 @@ export function AssessmentPage({
     currentQuestion?.questionType === "visual_card_choice";
   const isIxlStyleTemplate =
     currentQuestion?.questionType === "ixl_template";
+  const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   if (
     import.meta.env.DEV &&
     currentQuestion &&
@@ -3400,12 +3421,15 @@ export function AssessmentPage({
       });
     }
   }
-  const promptAudioText =
-    currentQuestion?.spokenPrompt ||
-    currentQuestion?.prompt ||
-    currentQuestion?.question ||
-    currentQuestion?.audioText ||
-    "";
+  const visiblePrompt = getStudentVisiblePrompt(currentQuestion);
+  const promptAudioText = isFinalSoundsEndingItem
+    ? visiblePrompt
+    : (
+      currentQuestion?.spokenPrompt ||
+      visiblePrompt ||
+      currentQuestion?.audioText ||
+      ""
+    );
   const promptAudioPath = getApprovedAudioPath(promptAudioText, isPairSelection ? currentQuestion?.audioPath || "" : "");
   const normalizedChoices = (currentQuestion?.choices || []).map(choice => ({
     ...normalizeAnswerOption(choice),
@@ -3497,7 +3521,7 @@ export function AssessmentPage({
                   className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
                 />
               )}
-              <h2>{currentQuestion.prompt || currentQuestion.question}</h2>
+              <h2>{visiblePrompt}</h2>
             </div>
 
             <AssessmentStimulus
@@ -3537,6 +3561,10 @@ export function AssessmentPage({
               <div className={isListenAndFindWord ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid"}>
                 {normalizedChoices.map((choice, index) => {
                   const choiceImage = currentQuestion.choiceImages?.[choice.value] || currentQuestion.choiceImages?.[choice.label] || {};
+                  const choiceButtonClassName = [
+                    isListenAndFindWord ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card",
+                    isFinalSoundsEndingItem ? "final-sound-choice-button" : ""
+                  ].filter(Boolean).join(" ");
 
                   return (
                   <div
@@ -3553,7 +3581,7 @@ export function AssessmentPage({
                       />
                     )}
                     <button
-                      className={isListenAndFindWord ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card"}
+                      className={choiceButtonClassName}
                       onClick={() => answerQuestion(choice.value)}
                     >
                       {isListenAndFindWord && choiceImage.image && (

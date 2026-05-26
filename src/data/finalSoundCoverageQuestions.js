@@ -54,6 +54,49 @@ const endingSoundAnswerOptions = {
   2: ["sh", "ch", "th", "ck", "ng", "nd", "nt", "st", "mp", "rk", "sk", "l", "r", "f", "p", "s"]
 };
 
+const finalSoundMediaOverrides = {
+  animal: {
+    image: "/media/initial-sounds/images/a/animal.webp",
+    audio: "/media/initial-sounds/audio/a/animal.mp3"
+  },
+  fossil: {
+    image: "/media/initial-sounds/images/f/fossil.webp",
+    audio: "/media/initial-sounds/audio/f/fossil.mp3"
+  },
+  hospital: {
+    image: "/media/initial-sounds/images/h/hospital.webp",
+    audio: "/media/initial-sounds/audio/h/hospital.mp3"
+  },
+  jewel: {
+    image: "/media/initial-sounds/images/j/jewel.webp",
+    audio: "/media/initial-sounds/audio/j/jewel.mp3"
+  },
+  nail: {
+    image: "/media/initial-sounds/images/n/nail.webp",
+    audio: "/media/initial-sounds/audio/n/nail.mp3"
+  },
+  owl: {
+    image: "/media/initial-sounds/images/o/owl.webp",
+    audio: "/media/initial-sounds/audio/o/owl.mp3"
+  },
+  pencil: {
+    image: "/media/initial-sounds/images/p/pencil.webp",
+    audio: "/media/initial-sounds/audio/p/pencil.mp3"
+  },
+  pretzel: {
+    image: "/media/initial-sounds/images/p/pretzel.webp",
+    audio: "/media/initial-sounds/audio/p/pretzel.mp3"
+  },
+  seal: {
+    image: "/media/initial-sounds/images/s/seal.webp",
+    audio: "/media/initial-sounds/audio/s/seal.mp3"
+  },
+  wheel: {
+    image: "/media/initial-sounds/images/w/wheel.webp",
+    audio: "/media/initial-sounds/audio/w/wheel.mp3"
+  }
+};
+
 const endingSoundLevelOneTargets = [
   ["cat", "t"], ["dog", "g"], ["bed", "d"], ["map", "p"], ["pan", "n"],
   ["pin", "n"], ["bat", "t"], ["bag", "g"], ["cup", "p"], ["web", "b"],
@@ -61,7 +104,10 @@ const endingSoundLevelOneTargets = [
   ["mug", "g"], ["bug", "g"], ["cap", "p"], ["pot", "t"], ["pen", "n"],
   ["hen", "n"], ["fan", "n"], ["ham", "m"], ["ram", "m"], ["gum", "m"],
   ["fin", "n"], ["net", "t"], ["cot", "t"], ["cut", "t"], ["lid", "d"],
-  ["seal", "l"]
+  ["tub", "b"], ["crab", "b"],
+  ["animal", "l"], ["fossil", "l"], ["hospital", "l"], ["jewel", "l"],
+  ["nail", "l"], ["owl", "l"], ["pencil", "l"], ["pretzel", "l"],
+  ["seal", "l"], ["wheel", "l"]
 ];
 
 const endingSoundLevelTwoTargets = [
@@ -82,7 +128,8 @@ function endingSoundOptionSet(correctAnswer, level) {
 
 function makeEndingSoundQuestion([targetWord, finalSound], index, level) {
   const asset = getChildWordAsset(targetWord);
-  const audioPath = getApprovedAudioPath(targetWord, asset?.audio || "");
+  const override = finalSoundMediaOverrides[targetWord] || {};
+  const audioPath = getApprovedAudioPath(targetWord, override.audio || asset?.audio || "");
 
   return {
     id: `ending_l${level}_${String(index + 1).padStart(3, "0")}_${targetWord.replace(/[^a-z0-9]+/g, "_")}`,
@@ -106,7 +153,7 @@ function makeEndingSoundQuestion([targetWord, finalSound], index, level) {
     targetWord,
     audioText: targetWord,
     audioPath,
-    imagePath: asset?.image || asset?.fallbackImage || "",
+    imagePath: override.image || asset?.image || asset?.fallbackImage || "",
     answer: finalSound,
     correctAnswer: finalSound,
     choices: endingSoundOptionSet(finalSound, level).map(option => option.value),

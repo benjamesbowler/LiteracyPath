@@ -133,9 +133,9 @@ const firstSoundChoices = ["b", "c", "d", "f", "h", "j", "l", "m", "n", "p", "r"
 const endingSoundWords = [
   ["cat", "t"], ["dog", "g"], ["bed", "d"], ["map", "p"], ["pan", "n"],
   ["pin", "n"], ["bat", "t"], ["bag", "g"], ["cup", "p"], ["web", "b"],
-  ["jet", "t"], ["jam", "m"], ["ship", "p"], ["shop", "p"],
+  ["jet", "t"], ["jam", "m"], ["tub", "b"], ["crab", "b"],
   ["sun", "n"], ["hat", "t"], ["log", "g"], ["mug", "g"], ["nut", "t"],
-  ["bug", "g"], ["wig", "g"], ["red", "d"], ["bell", "l"], ["ham", "m"]
+  ["bug", "g"], ["wig", "g"], ["red", "d"], ["seal", "l"], ["ham", "m"]
 ];
 const endingChoices = ["b", "d", "g", "l", "m", "n", "p", "s", "t"];
 

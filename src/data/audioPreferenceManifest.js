@@ -80,7 +80,7 @@ const approvedWordAudioKeys = [
   "gum", "ham", "hand", "hat", "hats", "hen", "hit", "home", "hook", "hop",
   "horse", "hot", "house", "hut", "igloo", "ink", "insect", "jam", "jet", "jug",
   "key", "kid", "king", "kite", "knife", "lamp", "leaf", "leg", "lid", "lion",
-  "listen-icon", "log", "man", "map", "mat", "meat", "moon", "mop", "mud", "mug",
+  "listen-icon", "lock", "log", "man", "map", "mat", "meat", "moon", "mop", "mud", "mug",
   "nap", "net", "nose", "nut", "octopus", "orange", "ox", "pan", "park", "pen",
   "phone", "pig", "pin", "pot", "pun", "queen", "quilt", "quiz", "rain", "ram",
   "rat", "red", "ring", "rock", "roof", "rope", "rug", "run", "sea", "seal",
