@@ -1,41 +1,41 @@
 # Generated Early Skill Question Bank
 
-Generated: 2026-05-26T01:37:30.055Z
+Generated: 2026-05-26T03:45:52.876Z
 
-Total generated questions: 619
+Total generated questions: 552
 
 ## final_sounds
 
-- Generated questions: 213
+- Generated questions: 146
 
 ### Templates
 
 | Template | Count |
 | --- | ---: |
 | ENDING_SOUND | 93 |
-| ENDING_SOUND_WORD_MATCH | 120 |
+| ENDING_SOUND_WORD_MATCH | 53 |
 
 ### Coverage Targets
 
 | Target | Count |
 | --- | ---: |
-| b | 4 |
-| d | 10 |
+| b | 2 |
+| d | 3 |
 | ft | 2 |
-| g | 24 |
-| l | 5 |
+| g | 10 |
+| l | 2 |
 | ll | 26 |
 | lt | 2 |
-| m | 10 |
-| n | 23 |
+| m | 5 |
+| n | 9 |
 | nd | 18 |
 | ng | 11 |
 | nk | 2 |
-| p | 14 |
+| p | 6 |
 | sh | 19 |
 | sk | 7 |
 | st | 8 |
-| t | 24 |
+| t | 10 |
 | th | 4 |
 
 ## cvc_short_vowels

@@ -3,7 +3,7 @@
 ## Purpose
 
 The purpose of this system is to create a high-quality Guided Reading library using:
-- public-domain stories
+- classic-source stories
 - original stories
 - adapted folk tales
 - adapted fairy tales
@@ -240,13 +240,13 @@ Examples:
 
 ---
 
-# Public Domain Adaptation Rules
+# Classic Source Adaptation Rules
 
 Allowed:
-- public-domain fairy tales
-- public-domain folk tales
-- public-domain fables
-- public-domain myths adapted for children
+- classic fairy tales
+- classic folk tales
+- classic fables
+- classic myths adapted for children
 
 Examples:
 - Aesop’s Fables

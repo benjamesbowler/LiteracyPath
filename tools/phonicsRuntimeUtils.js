@@ -31,6 +31,15 @@ import { enrichInitialSoundPairQuestion } from "../src/data/initialSoundPairAsse
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
 import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
+import {
+  getFinalSoundsLevel1QuestionIssues,
+  isFinalSoundsLevel1Question
+} from "../src/data/earlyPhonicsValidation.js";
+import {
+  getEarlySkillRuntimeEligibilityIssues,
+  isRuntimeEligibleEarlySkillQuestion,
+  normalizeEarlySkillId
+} from "../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
 export const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -169,6 +178,7 @@ export function getCoreSkillId(question = {}) {
   if (id === "initial_sounds" || label.includes("initial")) return "initial_sounds";
   if (id === "final_sounds" || label.includes("final") || label.includes("ending")) return "final_sounds";
   if (id === "rhyming" || label.includes("rhyme") || label.includes("rhyming")) return "rhyming";
+  if (id === "short_vowel_discrimination" || label.includes("short vowel discrimination") || label.includes("same middle sound") || label.includes("middle vowel")) return "short_vowel_discrimination";
   if (id.includes("cvc") || label.includes("cvc") || label.includes("short vowel")) return "cvc_short_vowels";
   return "";
 }
@@ -196,6 +206,14 @@ export function questionFilterReason(question = {}) {
   if (skillId) {
     const routeIssue = getQuestionRoutingIssue(question, skillId);
     if (routeIssue) return `wrong skill/template: ${routeIssue}`;
+    const eligibilityIssues = getEarlySkillRuntimeEligibilityIssues(question, {
+      skillId: normalizeEarlySkillId(skillId),
+      level: question.level || question.difficulty || 1,
+      pathExists: publicPathExists
+    });
+    if (eligibilityIssues.length > 0) {
+      return `runtime ineligible: ${eligibilityIssues.join("; ")}`;
+    }
   }
   const imagePaths = getQuestionImagePaths(question);
   const audioPaths = getQuestionAudioPaths(question);
@@ -203,6 +221,12 @@ export function questionFilterReason(question = {}) {
   const missingAudio = audioPaths.filter(item => item && item.startsWith("/") && !publicPathExists(item));
   if (skillId === "rhyming" && (!imagePaths.length || missingImages.length)) {
     return `missing essential rhyming image${missingImages.length ? `: ${missingImages.join(", ")}` : ""}`;
+  }
+  if (skillId === "final_sounds") {
+    const level = Number(question.level || question.difficulty || 1) || 1;
+    if (level === 1 && !isFinalSoundsLevel1Question(question)) {
+      return `not valid for Final Sounds Level 1: ${getFinalSoundsLevel1QuestionIssues(question).join("; ")}`;
+    }
   }
   if (isImageEssential(question) && (!imagePaths.length || missingImages.length)) {
     return `missing essential image${missingImages.length ? `: ${missingImages.join(", ")}` : ""}`;
@@ -230,7 +254,14 @@ export function buildRuntimeQuestionsForSkill(skillId) {
 }
 
 export function selectableRuntimeQuestionsForSkill(skillId) {
-  return buildRuntimeQuestionsForSkill(skillId).filter(question => !question.filterReason || question.filterReason.startsWith("missing optional audio"));
+  return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+    (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
+    isRuntimeEligibleEarlySkillQuestion(question, {
+      skillId,
+      level: question.level || question.difficulty || 1,
+      pathExists: publicPathExists
+    })
+  );
 }
 
 export function sampleRound(items, length = 15) {

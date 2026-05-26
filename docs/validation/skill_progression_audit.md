@@ -6,14 +6,18 @@ Date: 2026-05-25
 
 - Managed skills simulated: 10
 - Fatal progression failures: 0
-- Progression warnings: 33
+- Progression warnings: 37
 
 ## Warnings
 
-- Ending Sounds L1 round 2: reused recent IDs gen_final_l1_p_zip_8_sound, ending_l1_027_net, gen_final_l1_g_rug_12_sound.
-- Ending Sounds L1 round 2: reused recent words zip, mug, net, rug.
-- Ending Sounds L1 round 3: reused recent IDs gen_final_l1_n_man_5_sound, gen_final_l1_m_yam_4_sound.
-- Ending Sounds L1 round 3: reused recent words man, yam.
+- Ending Sounds L1 round 2: reused recent IDs ending_l1_009_cup.
+- Ending Sounds L1 round 2: reused recent words web, cup, pen.
+- Ending Sounds L1 round 3: reused recent IDs gen_final_l1_l_oval_1_sound.
+- Ending Sounds L1 round 3: reused recent words web, oval, log.
+- Ending Sounds L2 round 2: reused recent IDs kimi7_final_b_1.
+- Ending Sounds L2 round 2: reused recent words crab.
+- Ending Sounds L2 round 3: reused recent IDs kimi7_final_b_1.
+- Ending Sounds L2 round 3: reused recent words crab.
 - Rhyming Words L1 round 2: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24.
 - Rhyming Words L1 round 2: reused recent words rain, chair, bed.
 - Rhyming Words L1 round 3: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24.
@@ -73,12 +77,12 @@ Date: 2026-05-25
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 8/8 | b, d, g, l, m, n, p, t, m, p, t, n, p, g, n | tub, lid, rug, ball, gum, van, zip, newt, ram, tap, net, hen, map, mug, pen |
-| L1 R2 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, p, g, l, t, g, n, n | web, kid, bug, bell, yam, fin, cup, jet, zip, mug, oval, net, rug, man, fan |
-| L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, n, n, t, n, m, g, t | tub, bed, wig, girl, ham, pan, cap, cut, pin, man, exit, hen, yam, dog, bat |
-| L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | web, duck, lid, roof, gift, mug, cake, ball, inkwell, quilt, ram, lamp, ten, hand, king |
-| L2 R2 | 2 | 15 | 15/15 | nk, nt, p, r, rk, s, sh, sk, st, t, th, b, ck, d, f | ink, tent, cap, star, park, bus, brush, desk, nest, cat, th, crab, rock, bed, leaf |
-| L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | web, sock, hand, roof, gift, wig, book, whale, volleyball, quilt, jam, lamp, pan, diamond, building |
+| L1 R1 | 1 | 15 | 8/8 | b, d, g, l, m, n, p, t, g, g, n, t, m, t, m | web, red, rug, bell, ham, pan, cup, bat, mug, bag, pen, cot, ram, pot, jam |
+| L1 R2 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, b, p, g, g, p, n, n | tub, lid, bug, oval, gum, sun, zip, rat, web, cup, pig, log, cap, hen, pen |
+| L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, t, t, l, l, p, g, t | web, kid, dog, ball, yam, pin, tap, net, hat, cot, bell, oval, up, log, pot |
+| L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, sock, mud, leaf, gift, pig, desk, shell, doll, quilt, jam, lamp, rain, underground, unpacking |
+| L2 R2 | 2 | 15 | 15/15 | nk, nt, p, r, rk, s, sh, sk, st, t, th, b, ck, d, f | ink, tent, cup, car, park, bus, fish, kiosk, goalpost, cat, th, crab, rock, red, roof |
+| L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, duck, bid, leaf, gift, bag, cake, whale, uphill, quilt, ham, lamp, pan, sand, ring |
 
 ## Rhyming Words
 

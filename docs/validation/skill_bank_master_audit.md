@@ -5,7 +5,7 @@ Date: 2026-05-25
 ## Summary
 
 - Managed skills: 10
-- Skill-bank items scanned: 2461
+- Skill-bank items scanned: 2394
 - Fatal active media-complete failures: 0
 - Expansion/media warnings: 11
 
@@ -14,7 +14,7 @@ Date: 2026-05-25
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
 | Initial Sounds | 611 | 501 | 25 | 25 | L1:386, L2:225 | 110 | 110 | none |
-| Ending Sounds | 430 | 264 | 26 | 26 | L1:148, L2:282 | 165 | 166 | none |
+| Ending Sounds | 363 | 264 | 26 | 26 | L1:110, L2:253 | 98 | 99 | none |
 | Rhyming Words | 251 | 203 | 34 | 29 | L1:193, L2:58 | 48 | 0 | ag, ad, eg, ip |
 | Short Vowels | 333 | 269 | 5 | 5 | L1:278, L2:55 | 0 | 64 | none |
 | Blends | 120 | 69 | 36 | 12 | L1:86, L2:34 | 51 | 40 | gl, pl, gr, pr |
@@ -63,7 +63,7 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Active items: 430
+- Active items: 363
 - Media-complete active items: 264
 - Unique active targets: 26
 - Unique media-complete targets: 26
@@ -72,7 +72,7 @@ Date: 2026-05-25
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: 10
-- Duplicate target words by level: ending_sounds|2|bed, ending_sounds|2|red, ending_sounds|2|dog, ending_sounds|2|ball, ending_sounds|2|fork, ending_sounds|2|bus, ending_sounds|2|duck, ending_sounds|2|sock, ending_sounds|2|rock, ending_sounds|2|hand, ending_sounds|2|desk, ending_sounds|2|shell, ending_sounds|2|car, ending_sounds|2|leaf, ending_sounds|2|ship, ending_sounds|2|octopus, ending_sounds|2|thumb, ending_sounds|2|roof, ending_sounds|2|fish, ending_sounds|2|dish, ending_sounds|2|cat, ending_sounds|2|bat, ending_sounds|2|map, ending_sounds|2|cap, ending_sounds|2|sun, ending_sounds|2|pig, ending_sounds|2|book, ending_sounds|2|pan, ending_sounds|2|pin, ending_sounds|2|bag, ending_sounds|2|cup, ending_sounds|2|jet, ending_sounds|2|jam, ending_sounds|2|hat, ending_sounds|2|log, ending_sounds|2|mug, ending_sounds|2|bug, ending_sounds|2|bell, ending_sounds|2|ham, ending_sounds|2|mat
+- Duplicate target words by level: ending_sounds|2|bed, ending_sounds|2|red, ending_sounds|2|dog, ending_sounds|2|ball, ending_sounds|2|fork, ending_sounds|2|bus, ending_sounds|2|duck, ending_sounds|2|sock, ending_sounds|2|rock, ending_sounds|2|hand, ending_sounds|2|desk, ending_sounds|2|shell, ending_sounds|2|car, ending_sounds|2|leaf, ending_sounds|2|ship, ending_sounds|2|octopus, ending_sounds|2|thumb, ending_sounds|2|roof, ending_sounds|2|fish, ending_sounds|2|dish, ending_sounds|2|cat, ending_sounds|2|bat, ending_sounds|2|map, ending_sounds|2|cap, ending_sounds|2|sun, ending_sounds|2|pig, ending_sounds|2|book, ending_sounds|1|dog, ending_sounds|1|bed, ending_sounds|1|map, ending_sounds|2|pan, ending_sounds|1|pin, ending_sounds|1|bag, ending_sounds|2|cup, ending_sounds|1|web, ending_sounds|1|jet, ending_sounds|2|jam, ending_sounds|1|sun, ending_sounds|1|hat, ending_sounds|1|log
 
 ### Rhyming/Phonics Logic Issues
 

@@ -2,8 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
-import { publicDomainBooks, publicDomainBookSummary } from "../src/content/books/publicDomainBooks.js";
-import { normalizeReadableBook, getReadableBookStatus } from "../src/utils/guidedReading/normalizeReadableBook.js";
+import { normalizeReadableBook } from "../src/utils/guidedReading/normalizeReadableBook.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
@@ -22,34 +21,19 @@ function fail(message, details = "") {
 const failures = [];
 const warnings = [];
 
-const leakedPublicDomain = guidedReadingBooks.filter(book => book.publicDomain || book.sourceType === "public-domain" || book.sourceType === "public_domain");
-if (leakedPublicDomain.length) {
-  fail("Public-domain books leaked into normal Guided Reading", leakedPublicDomain.map(book => book.id).join(", "));
-}
-
-const readablePublicDomain = publicDomainBooks.filter(book => book.active || book.readable || book.libraryStatus === "readable");
-const unreadableWithReadState = publicDomainBooks.filter(book =>
-  !book.active && (book.readable || book.libraryStatus === "readable")
+const removedLibraryBookIds = new Set([
+  "a-apple-pie",
+  "mcguffeys-eclectic-primer",
+  "tale-of-benjamin-bunny",
+  "tale-of-peter-rabbit",
+  "tale-of-squirrel-nutkin"
+]);
+const removedLibraryLeak = guidedReadingBooks.filter(book =>
+  removedLibraryBookIds.has(book.id) ||
+  /external.?library|candidate.?library/i.test(String(book.sourceType || book.readingType || book.category || ""))
 );
-if (unreadableWithReadState.length) {
-  fail("Unprocessed public-domain candidates are marked readable", unreadableWithReadState.map(book => book.id).join(", "));
-}
-
-for (const book of publicDomainBooks) {
-  const normalized = normalizeReadableBook(book);
-  const status = getReadableBookStatus(book);
-  const shouldBeReadable = Boolean(book.active && book.libraryStatus === "readable");
-
-  if (shouldBeReadable) {
-    if (status !== "readable") fail("Readable public-domain book does not normalize", `${book.id} (${status})`);
-    if (!publicPathExists(book.cover)) fail("Readable public-domain book missing cover", `${book.id} ${book.cover}`);
-    for (const page of normalized.pages) {
-      if (!publicPathExists(page.image)) fail("Readable public-domain page image missing", `${book.id} page ${page.pageNumber}: ${page.image}`);
-      if (!page.text) fail("Readable public-domain page text missing", `${book.id} page ${page.pageNumber}`);
-    }
-  } else if (book.pages?.length && !book.active) {
-    warnings.push(`${book.id} has processed pages but is not active/readable.`);
-  }
+if (removedLibraryLeak.length) {
+  fail("Removed external-library books leaked into normal Guided Reading", removedLibraryLeak.map(book => book.id).join(", "));
 }
 
 const levelCPilotBooks = guidedReadingBooks.filter(book => pilotLevelCIds.has(book.id));
@@ -76,9 +60,6 @@ for (const book of guidedReadingBooks) {
 }
 
 console.log(`Normal Guided Reading books: ${guidedReadingBooks.length}`);
-console.log(`Public-domain candidates: ${publicDomainBookSummary.selectedCount}`);
-console.log(`Public-domain readable: ${readablePublicDomain.length}`);
-console.log(`Public-domain pending: ${publicDomainBookSummary.selectedCount - readablePublicDomain.length}`);
 console.log(`Level C pilot books in Fiction Level C: ${levelCPilotBooks.length}/${pilotLevelCIds.size}`);
 if (warnings.length) {
   console.log("\nWarnings:");

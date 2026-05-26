@@ -5,8 +5,8 @@ Date: 2026-05-25
 | Skill | Runtime-Selectable Items | Minimum | Sample Round Size | Status |
 | --- | ---: | ---: | ---: | --- |
 | Initial Sounds | 473 | 100 | 15 | pass |
-| Ending Sounds | 417 | 100 | 15 | pass |
-| CVC Short Vowels | 529 | 100 | 15 | pass |
+| Ending Sounds | 248 | 100 | 15 | pass |
+| CVC Short Vowels | 199 | 100 | 15 | pass |
 | Rhyming Words | 203 | 100 | 15 | pass |
 
 ## Sample Rounds
@@ -38,28 +38,28 @@ Repeated round simulation:
 
 ### Ending Sounds
 
-1. hat
-2. map
-3. sun
-4. dog
-5. jam
-6. bed
-7. duck
-8. bell
+1. bed
+2. dog
+3. book
+4. ball
+5. ram
+6. fan
+7. cap
+8. car
 9. bus
-10. leaf
-11. red
-12. bug
-13. bag
-14. pig
-15. leg
+10. cat
+11. web
+12. fish
+13. dish
+14. brush
+15. duck
 
 Repeated round simulation:
 
-- Round 1: hat, map, sun, dog, jam, bed, duck, bell, bus, leaf, red, bug, bag, pig, leg
-- Round 2: bid, log, book, ball, ram, fan, cap, car, vase, cat, web, fish, dish, brush, sock
-- Round 3: seed, cake, shell, ham, pan, mop, fork, octopus, bat, mug, rock, ring, king, hand, tent
-- Round 4: lid, desk, girl, farm, moon, ship, star, jet, lamp, park, roof, crab, pin, cup, shop
+- Round 1: bed, dog, book, ball, ram, fan, cap, car, bus, cat, web, fish, dish, brush, duck
+- Round 2: red, bug, sock, shell, ham, pan, mop, fork, vase, bat, rock, ring, king, hand, tent
+- Round 3: bid, bag, cake, girl, farm, moon, ship, star, octopus, jet, lamp, park, desk, whale, chair
+- Round 4: seed, pig, snake, thumb, lion, clap, pot, tiger, leaf, crab, oval, goldfish, hairbrush, jellyfish, paintbrush
 
 ### CVC Short Vowels
 
@@ -82,9 +82,9 @@ Repeated round simulation:
 Repeated round simulation:
 
 - Round 1: cat, bag, bat, bed, cap, cup, dog, dot, fin, hat, jam, leg, log, man, map
-- Round 2: mud, mug, nap, pen, pig, pot, ram, red, sit, sun, wig, lid, pan, net, jet
-- Round 3: pin, cot, nut, web, fish, sock, duck, fox, bug, hen, van, bad, fan, ham, mat
-- Round 4: mop, ship, rat, ten, bud, shop, tap, yak, den, bid, big, bin, dig, hit, kid
+- Round 2: mud, mug, nap, pen, pig, pot, ram, red, sit, sun, wig, lid, pan, pin, web
+- Round 3: jet, fish, sock, duck, fox, bug, van, fan, hen, kid, cot, bus, gum, rug, tub
+- Round 4: cat, bag, bed, pig, dog, cup, pen, map, bat, jam, sun, hat, log, mug, wig
 
 ### Rhyming Words
 

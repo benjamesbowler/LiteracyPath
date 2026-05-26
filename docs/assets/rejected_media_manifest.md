@@ -1,6 +1,6 @@
 # Rejected Media Manifest
 
-Date: 2026-05-25
+Date: 2026-05-26
 
 Rejected media is preserved for traceability. These files are not used by active student-facing assessment content.
 

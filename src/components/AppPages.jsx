@@ -21,10 +21,6 @@ import {
   getAnswerOptionValue,
   normalizeAnswerOption
 } from "../utils/answerOptions";
-import BookFilterBar from "./books/BookFilterBar.jsx";
-import BookGrid from "./books/BookGrid.jsx";
-import PageTurnReader, { loadPublicDomainReadingProgress } from "./books/PageTurnReader.jsx";
-import { publicDomainBooks, publicDomainBookSummary } from "../content/books/publicDomainBooks.js";
 import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 import {
@@ -1578,10 +1574,6 @@ export function GuidedReadingPage({
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const [readerOpen, setReaderOpen] = useState(false);
-  const [libraryShelfMode, setLibraryShelfMode] = useState("guided");
-  const [publicDomainFilters, setPublicDomainFilters] = useState({});
-  const [publicDomainReaderBook, setPublicDomainReaderBook] = useState(null);
-  const [publicDomainProgress, setPublicDomainProgress] = useState(() => loadPublicDomainReadingProgress());
   const [readingMode, setReadingMode] = useState("reading");
   const [highlightedWordIndex, setHighlightedWordIndex] = useState(null);
   const [highlightedSentenceIndex, setHighlightedSentenceIndex] = useState(null);
@@ -2084,18 +2076,6 @@ export function GuidedReadingPage({
     );
   }
 
-  if (publicDomainReaderBook) {
-    return (
-      <div className="teacher-product-page guided-reading-page public-domain-reading-page">
-        <PageTurnReader
-          book={publicDomainReaderBook}
-          onClose={() => setPublicDomainReaderBook(null)}
-          onProgressChange={setPublicDomainProgress}
-        />
-      </div>
-    );
-  }
-
   return (
     <div className={readerOpen ? "guided-reading-page guided-reading-reader-open" : "teacher-product-page guided-reading-page"}>
       <section className="teacher-page-header">
@@ -2115,26 +2095,7 @@ export function GuidedReadingPage({
         </div>
       </section>
 
-      {!readerOpen && (
-        <nav className="guided-reading-submenu" aria-label="Guided reading shelves">
-          <button
-            className={libraryShelfMode === "guided" ? "active" : ""}
-            onClick={() => setLibraryShelfMode("guided")}
-            type="button"
-          >
-            Guided Reading
-          </button>
-          <button
-            className={libraryShelfMode === "public-domain" ? "active" : ""}
-            onClick={() => setLibraryShelfMode("public-domain")}
-            type="button"
-          >
-            Public-Domain Shelf
-          </button>
-        </nav>
-      )}
-
-      {!readerOpen && libraryShelfMode === "guided" && reviewModeBooks.length > 0 && (
+      {!readerOpen && reviewModeBooks.length > 0 && (
         <section className="guided-review-shelf" aria-label="Level C pilot review books">
           <div className="guided-review-shelf-header">
             <div>
@@ -2178,34 +2139,7 @@ export function GuidedReadingPage({
         </section>
       )}
 
-      {!readerOpen && libraryShelfMode === "public-domain" && (
-        <section className="public-domain-library" aria-label="Public-domain guided reading library">
-          <div className="public-domain-library-header">
-            <div>
-              <p className="panel-label">Guided Reading Library</p>
-              <h3>Public-Domain Book Shelf</h3>
-              <p>
-                {publicDomainBookSummary.selectedCount} curated public-domain candidates are staged for K–2 guided reading.
-                PDF download and page rendering are pending local network/conversion tools, so these books stay separate from assessments.
-              </p>
-            </div>
-            <span>{publicDomainBookSummary.activeCount} active · {publicDomainBookSummary.pendingCount} pending</span>
-          </div>
-          <BookFilterBar
-            books={publicDomainBooks}
-            filters={publicDomainFilters}
-            onFiltersChange={setPublicDomainFilters}
-          />
-          <BookGrid
-            books={publicDomainBooks}
-            filters={publicDomainFilters}
-            onRead={setPublicDomainReaderBook}
-            progressByBook={publicDomainProgress}
-          />
-        </section>
-      )}
-
-      {!readerOpen && libraryShelfMode === "guided" && (
+      {!readerOpen && (
       <section className="guided-library-breadcrumb" aria-label="Guided reading library path">
         <button
           className={!selectedLibraryType ? "active" : ""}
@@ -2238,7 +2172,7 @@ export function GuidedReadingPage({
       </section>
       )}
 
-      {!readerOpen && libraryShelfMode === "guided" && (
+      {!readerOpen && (
       <section className="guided-reading-library" aria-label="Guided reading library">
         {!selectedLibraryType && (
           <div className="guided-category-grid">
@@ -2319,7 +2253,7 @@ export function GuidedReadingPage({
       </section>
       )}
 
-      {!readerOpen && libraryShelfMode === "guided" && recommendedBooks.length > 0 && (
+      {!readerOpen && recommendedBooks.length > 0 && (
         <section className="guided-recommendation-panel" aria-label="Guided reading recommendations">
           <div>
             <p className="panel-label">Adaptive Recommendations</p>

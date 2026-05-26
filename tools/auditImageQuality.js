@@ -194,12 +194,31 @@ for (const filePath of imageFiles) {
 }
 
 for (const item of activeItems) {
-  const paths = [...new Set([item.imageUrl, ...(item.imagePaths || [])].filter(Boolean))];
-  for (const imagePath of paths) {
+  const rawCards = [
+    ...(item.raw?.imageCards || []),
+    ...(item.raw?.answerOptions || []),
+    ...(item.raw?.promptImageCards || [])
+  ];
+  const cardRows = rawCards
+    .map(card => ({
+      word: card.word || card.label || card.text || card.value || card.answer || item.targetWord || item.target || "",
+      imagePath: card.image || card.imageUrl || card.imagePath || ""
+    }))
+    .filter(row => row.imagePath);
+  const directPaths = [item.imageUrl, ...(item.imagePaths || [])]
+    .filter(Boolean)
+    .filter(imagePath => !cardRows.some(row => row.imagePath === imagePath))
+    .map(imagePath => ({
+      word: item.targetWord || item.target || "",
+      imagePath
+    }));
+  const rowsForItem = [...directPaths, ...cardRows];
+  for (const itemImage of rowsForItem) {
+    const imagePath = itemImage.imagePath;
     const row = {
       skill: item.skillId,
       id: item.id,
-      word: item.targetWord || item.target || "",
+      word: itemImage.word,
       imagePath,
       hash: imageHashByPublicPath.get(imagePath) || ""
     };

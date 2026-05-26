@@ -11,8 +11,8 @@ Date: 2026-05-25
 ## Summary
 
 - Expected content items: 500
-- Active content items: 472
-- Blocked/excluded content items: 28
+- Active content items: 473
+- Blocked/excluded content items: 27
 - Expected image assets: 500
 - Expected audio assets: 500
 - Source image files in archive: 441
@@ -104,7 +104,6 @@ These items stay out of active assessment use. Existing audio is preserved and s
 |---|---:|---|---|---|---|---|
 | o | 2 | opera | /media/initial-sounds/images/o/opera.webp | /media/initial-sounds/audio/o/opera.mp3 | excluded_unsuitable_word | Opera is culturally specific and too hard to image clearly for early Initial Sounds assessment. |
 | o | 2 | observer | /media/initial-sounds/images/o/observer.webp | /media/initial-sounds/audio/o/observer.mp3 | excluded_unsuitable_word | Observer is abstract/role-based and hard to image clearly for early Initial Sounds assessment. |
-| q | 2 | question mark | /media/initial-sounds/images/q/question-mark.webp | /media/initial-sounds/audio/q/question-mark.mp3 | excluded_phrase_target | Question mark is a symbol phrase rather than a clean object target; use question only if explicitly taught. |
 | q | 2 | quilted blanket | /media/initial-sounds/images/q/quilted-blanket.webp | /media/initial-sounds/audio/q/quilted-blanket.mp3 | excluded_phrase_target | Quilted blanket is an adjective phrase; use quilt or blanket in a more appropriate skill. |
 | q | 2 | quail nest | /media/initial-sounds/images/q/quail-nest.webp | /media/initial-sounds/audio/q/quail-nest.mp3 | excluded_phrase_target | Quail nest adds a second object/scene; use quail as the target if needed. |
 | q | 2 | quiet room | /media/initial-sounds/images/q/quiet-room.webp | /media/initial-sounds/audio/q/quiet-room.mp3 | excluded_phrase_target | Quiet room is an abstract setting phrase, not a single concrete Initial Sounds object. |

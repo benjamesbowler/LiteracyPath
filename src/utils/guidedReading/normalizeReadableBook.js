@@ -41,11 +41,6 @@ export function getGuidedReadingCredits(book = {}) {
   };
 }
 
-function isPublicDomainReadableBook(book = {}) {
-  const sourceType = String(book.sourceType || "").toLowerCase().replace(/_/g, "-");
-  return Boolean(book.publicDomain || sourceType === "public-domain");
-}
-
 function normalizePage(page = {}, index = 0, pageNumberOffset = 0) {
   const originalPageNumber = Number(page.pageNumber || index + 1);
 
@@ -61,7 +56,7 @@ function normalizePage(page = {}, index = 0, pageNumberOffset = 0) {
 }
 
 function buildTitlePage(book = {}, pages = []) {
-  if (!pages.length || isPublicDomainReadableBook(book)) return null;
+  if (!pages.length) return null;
 
   const title = String(book.title || "Untitled Book").trim();
   const { author, illustrator } = getGuidedReadingCredits(book);
@@ -82,7 +77,7 @@ function buildTitlePage(book = {}, pages = []) {
 
 export function normalizeReadableBook(book = {}) {
   const sourcePages = Array.isArray(book.pages) ? book.pages : [];
-  const storyPageOffset = sourcePages.length && !isPublicDomainReadableBook(book) ? 1 : 0;
+  const storyPageOffset = sourcePages.length ? 1 : 0;
   const storyPages = sourcePages
     .map((page, index) => normalizePage(page, index, storyPageOffset))
     .filter(page => page.pageNumber && (page.image || page.text));
@@ -95,9 +90,9 @@ export function normalizeReadableBook(book = {}) {
   return {
     id: book.id || "",
     title: book.title || "Untitled Book",
-    author: isPublicDomainReadableBook(book) ? book.author || "" : credits.author,
-    illustrator: isPublicDomainReadableBook(book) ? book.illustrator || "" : credits.illustrator,
-    sourceType: book.sourceType || (book.publicDomain ? "public-domain" : "guided-reading"),
+    author: credits.author,
+    illustrator: credits.illustrator,
+    sourceType: book.sourceType || "guided-reading",
     level: book.level || book.guidedReadingLevel || book.gradeBand || "",
     category: book.category || book.type || book.readingType || "",
     gradeBand: book.gradeBand || "",

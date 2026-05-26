@@ -76,9 +76,7 @@ export default defineConfig({
           if (
             id.includes('/src/data/guidedReadingBooks') ||
             id.includes('/src/data/guidedReadingRegenBooks') ||
-            id.includes('/src/data/guidedStoryBooks') ||
-            id.includes('/src/content/books/publicDomainBooks') ||
-            id.includes('/src/data/generated/publicDomainGuidedReadingBooks.generated')
+            id.includes('/src/data/guidedStoryBooks')
           ) {
             return 'guided-reading-data'
           }

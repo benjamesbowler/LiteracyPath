@@ -36,7 +36,6 @@ function inferSkill(filePath = "", mediaType = "") {
   const parts = filePath.split("/").filter(Boolean);
   if (filePath.includes("/media/initial-sounds/")) return ["initial_sounds", "Initial Sounds"];
   if (filePath.includes("/guided-reading/")) return ["guided_reading", "Guided Reading"];
-  if (filePath.includes("/books/public-domain/")) return ["public_domain_books", "Public-Domain Books"];
   if (filePath.includes("/images/cvc/") || filePath.includes("/audio/child-mode/words/")) return ["assessment_media", "Assessment Media"];
   if (filePath.includes("/images/child-mode/") || filePath.includes("/audio/child-mode/")) return ["child_mode", "Child Mode"];
   if (filePath.includes("/images/comprehension/")) return ["comprehension", "Comprehension"];

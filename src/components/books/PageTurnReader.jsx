@@ -4,22 +4,22 @@ import { normalizeReadableBook } from "../../utils/guidedReading/normalizeReadab
 
 function getStoredProgress() {
   try {
-    return JSON.parse(localStorage.getItem("lpPublicDomainReadingProgress") || "{}");
+    return JSON.parse(localStorage.getItem("lpGuidedReadingPageTurnProgress") || "{}");
   } catch {
     return {};
   }
 }
 
 function saveStoredProgress(records) {
-  localStorage.setItem("lpPublicDomainReadingProgress", JSON.stringify(records));
+  localStorage.setItem("lpGuidedReadingPageTurnProgress", JSON.stringify(records));
 }
 
-export function loadPublicDomainReadingProgress() {
+export function loadPageTurnReadingProgress() {
   if (typeof localStorage === "undefined") return {};
   return getStoredProgress();
 }
 
-export function savePublicDomainPageProgress(book, pageIndex) {
+export function savePageTurnReadingProgress(book, pageIndex) {
   if (!book?.id || typeof localStorage === "undefined") return {};
   const now = new Date().toISOString();
   const records = getStoredProgress();
@@ -58,7 +58,7 @@ export function savePublicDomainPageProgress(book, pageIndex) {
   return records;
 }
 
-function savePublicDomainReadPageUsage(book, pageIndex) {
+function savePageTurnReadPageUsage(book, pageIndex) {
   if (!book?.id || typeof localStorage === "undefined") return {};
   const records = getStoredProgress();
   const previous = records[book.id] || {};
@@ -117,7 +117,7 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
 
   useEffect(() => {
     if (!readableBook?.id || !readableBook.validForReader) return;
-    const records = savePublicDomainPageProgress(readableBook, pageIndex);
+    const records = savePageTurnReadingProgress(readableBook, pageIndex);
     onProgressChange?.(records);
   }, [readableBook?.id, readableBook.validForReader, pageIndex]);
 
@@ -182,7 +182,7 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
       return;
     }
     setIsReadingPage(true);
-    onProgressChange?.(savePublicDomainReadPageUsage(readableBook, pageIndex));
+    onProgressChange?.(savePageTurnReadPageUsage(readableBook, pageIndex));
     setAudioNotice(currentPage.audio ? "" : "Using browser voice while page narration is pending.");
     if (currentPage.audio) {
       const audio = new Audio(currentPage.audio);
@@ -213,7 +213,7 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
       <section className="pd-reader" aria-label="Book not ready">
         <header className="pd-reader-header">
           <div>
-            <p className="panel-label">Public-Domain Library</p>
+            <p className="panel-label">Guided Reading</p>
             <h2>{readableBook.title}</h2>
             <p>{readableBook.sourceType} · {readableBook.id || "missing id"}</p>
           </div>
@@ -235,9 +235,9 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
     <section className="pd-reader" aria-label={`${readableBook?.title || "Book"} reader`}>
       <header className="pd-reader-header">
         <div>
-          <p className="panel-label">{readableBook.sourceType === "public-domain" ? "Public-Domain Library" : "Guided Reading"}</p>
+          <p className="panel-label">Guided Reading</p>
           <h2>{readableBook?.title}</h2>
-          <p>{readableBook?.author || "Public domain"} · {readableBook?.gradeBand} · {readableBook?.difficulty}</p>
+          <p>{readableBook?.author || "Guided Reading"} · {readableBook?.gradeBand} · {readableBook?.difficulty}</p>
         </div>
         <button className="lp-button lp-button-secondary" onClick={onClose} type="button">
           Back to Library

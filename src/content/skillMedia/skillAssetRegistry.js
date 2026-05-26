@@ -32,7 +32,10 @@ import { generatedQuestions } from "../../data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../../data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../../data/templateComprehensionAdvanced.js";
 import { getAnswerOptionLabel } from "../../utils/answerOptions.js";
-import { isValidFinalSoundWordForEarlyLevel } from "../../data/earlyPhonicsValidation.js";
+import {
+  isFinalSoundsLevel1Question,
+  isValidFinalSoundWordForEarlyLevel
+} from "../../data/earlyPhonicsValidation.js";
 
 export const managedSkillDefinitions = {
   initial_sounds: {
@@ -278,8 +281,9 @@ function normalizeRuntimeQuestionLevel(question = {}, skillId = "") {
   if (skillId === "ending_sounds") {
     const finalTarget = inferFinalSoundTarget(question);
     const targetWord = normalizeTargetWord(question.targetWord || question.anchorWord || question.audioText || question.diagnosticTarget);
-    if (String(question.id || "").startsWith("ending_l1_")) return 1;
+    if (String(question.id || "").startsWith("ending_l1_")) return isFinalSoundsLevel1Question(question) ? 1 : 2;
     if (String(question.id || "").startsWith("ending_l2_")) return 2;
+    if (isFinalSoundsLevel1Question(question)) return 1;
     if (finalTarget && !LEVEL_ONE_FINAL_SOUND_TARGETS.has(finalTarget)) return 2;
     if (finalTarget && targetWord && !isValidFinalSoundWordForEarlyLevel(targetWord, finalTarget)) return 2;
     if (question.skillId === "final_sounds" && question.finalSoundType !== "single_letter") return 2;

@@ -1,10 +1,10 @@
 # Guided Reading Level C Visibility Fix
 
-Generated: 2026-05-26T02:25:28.394Z
+Generated: 2026-05-26T06:17:21.699Z
 
 ## Root Cause
 
-The Level C pilot books were present in the `guidedReadingBooks` data export. They are now approved app-guided-reading books and should appear as normal Fiction Level C books, not as public-domain, draft, current, or pilot-only entries.
+The Level C pilot books were present in the `guidedReadingBooks` data export. They are now approved app-guided-reading books and should appear as normal Fiction Level C books, not as draft, current, or pilot-only entries.
 
 ## Filters Fixed
 

@@ -1095,7 +1095,7 @@ export function AdminDashboardPage({
             <h3>Guided Reading Insight</h3>
             <p className="muted-text">Book availability, phonics patterns, microphase recommendations, and QA warnings for assignment planning.</p>
           </div>
-          <span className="pd-book-status available">{guidedReadingInsight.active}/{guidedReadingInsight.total} visible</span>
+          <span className="guided-insight-status">{guidedReadingInsight.active}/{guidedReadingInsight.total} visible</span>
         </div>
         <div className="guided-insight-grid">
           <article>
