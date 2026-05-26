@@ -1,11 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
-import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
+import { guidedReadingBooks, normalizeGuidedReadingType } from "../src/data/guidedReadingBooks.js";
 import { normalizeReadableBook } from "../src/utils/guidedReading/normalizeReadableBook.js";
 
 const rootDir = process.cwd();
 const reportPath = path.join(rootDir, "docs", "guided-reading", "guided_reading_image_text_alignment_audit.md");
-const levelCIds = new Set(["gs-c-01", "gs-c-02", "gs-c-03", "gs-c-04", "gs-c-06"]);
 
 function publicFileExists(publicPath = "") {
   if (!publicPath || /^https?:\/\//.test(publicPath)) return false;
@@ -14,7 +13,9 @@ function publicFileExists(publicPath = "") {
 
 function expectedImagePatterns(bookId, storyPageNumber) {
   return [
+    `/guided-reading/regen/pages/${bookId}-page-${String(storyPageNumber).padStart(2, "0")}.`,
     `/guided-reading/pages/${bookId}/page-${String(storyPageNumber).padStart(3, "0")}.`,
+    `/guided-reading/pages/${bookId}-page-${storyPageNumber}.`,
     `/guided-reading/pages/${bookId}-page-${String(storyPageNumber).padStart(2, "0")}.`
   ];
 }
@@ -25,8 +26,13 @@ function imageMatchesStoryPage(bookId, page) {
 
 const failures = [];
 const rows = [];
+const fictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction");
 
-for (const rawBook of guidedReadingBooks.filter(book => levelCIds.has(book.id))) {
+if (fictionBooks.length) {
+  failures.push(`Fiction Guided Reading books remain after removal: ${fictionBooks.map(book => book.id).join(", ")}`);
+}
+
+for (const rawBook of guidedReadingBooks) {
   const book = normalizeReadableBook(rawBook);
 
   if (book.pages[0]?.type !== "title") {
@@ -34,13 +40,10 @@ for (const rawBook of guidedReadingBooks.filter(book => levelCIds.has(book.id)))
   }
 
   for (const page of book.pages.slice(1)) {
-    const matches = imageMatchesStoryPage(book.id, page);
     const exists = publicFileExists(page.image);
+    const matches = imageMatchesStoryPage(book.id, page);
     if (!exists) failures.push(`${book.id}: reader page ${page.pageNumber} missing image file ${page.image || "none"}`);
-    if (!matches) {
-      failures.push(`${book.id}: reader page ${page.pageNumber} story page ${page.storyPageNumber} uses out-of-sequence image ${page.image || "none"}`);
-    }
-
+    if (!matches) failures.push(`${book.id}: reader page ${page.pageNumber} story page ${page.storyPageNumber} uses out-of-sequence image ${page.image || "none"}`);
     rows.push({
       id: book.id,
       title: book.title,
@@ -61,9 +64,11 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check prevents the global one-page drift by confirming that Level C reader page 1 is a title page and each story page then uses the image with the same story page number. It does not replace human visual QA for whether an illustration is beautiful or semantically strong; it ensures the text and image sequence is no longer mechanically offset.",
+  "Fiction guided-reading books were removed. This check now verifies that every remaining nonfiction book has title-page normalization and that story page images stay mechanically aligned with story page numbers.",
   "",
-  "## Level C Page Sequence",
+  `Visible fiction books: ${fictionBooks.length}`,
+  "",
+  "## Page Sequence",
   "",
   "| Book | Reader Page | Story Page | Image Exists | Sequence Match | Image | Text Start |",
   "|---|---:|---:|---:|---:|---|---|",
@@ -79,8 +84,8 @@ const report = [
 fs.mkdirSync(path.dirname(reportPath), { recursive: true });
 fs.writeFileSync(reportPath, `${report.join("\n")}\n`);
 
-console.log(`Level C books checked: ${new Set(rows.map(row => row.id)).size}`);
-console.log(`Level C story pages checked: ${rows.length}`);
+console.log(`Guided Reading books checked: ${new Set(rows.map(row => row.id)).size}`);
+console.log(`Guided Reading story pages checked: ${rows.length}`);
 console.log(`Image/text alignment failures: ${failures.length}`);
 console.log(`Wrote ${path.relative(rootDir, reportPath)}`);
 

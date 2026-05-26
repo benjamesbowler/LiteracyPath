@@ -183,10 +183,7 @@ ${decisionText}
 
 | Book/Page | Problem | Action |
 |---|---|---|
-| gr-a-03 page 1 | App text says "Nan and Sam see a bag." The image focuses on a child with a map and embedded text "A MAP! WHERE WILL IT LEAD?" | Disabled. Needs clean illustration-only remake or matching text/audio. |
 | gr-a-27 page 2 | App text says "It is day." The image shows sunset/night transition and embedded text "GOODBYE, SUN!" | Disabled. Needs matching text/audio or new illustration. |
-| gr-a-02 page 3 | App text says "Sam can pick up the cans." The image shows crayons and a box labeled "CRAYONS." | Disabled. Needs matching text/audio or new illustration. |
-| gr-a-02 page 5 | App text says "I can help, says Nan." The image shows Sam helping a friend and embedded text "Sam helps a friend." | Disabled. Needs matching text/audio or new illustration. |
 
 ## Validation Issues
 

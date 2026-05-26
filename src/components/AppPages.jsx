@@ -1629,7 +1629,7 @@ export function GuidedReadingPage({
       sentenceIndex: 0,
       tokens: readingTokens
     }];
-  const typeCards = ["fiction", "nonfiction"]
+  const typeCards = ["nonfiction"]
     .map(getGuidedReadingTypeStats)
     .filter(card => card.count > 0);
   const availableLevels = selectedLibraryType
@@ -2096,12 +2096,12 @@ export function GuidedReadingPage({
       </section>
 
       {!readerOpen && reviewModeBooks.length > 0 && (
-        <section className="guided-review-shelf" aria-label="Level C pilot review books">
+        <section className="guided-review-shelf" aria-label="Guided Reading review books">
           <div className="guided-review-shelf-header">
             <div>
-              <p className="panel-label">Pilot Review</p>
-              <h3>Level C Guided Story Pilot</h3>
-              <p>These books are visible for teacher review. Page art is loaded, but image/text alignment still needs review and narration may be pending.</p>
+              <p className="panel-label">Review</p>
+              <h3>Guided Reading Review Books</h3>
+              <p>These books are visible for teacher review when nonfiction content needs image/text or narration checks.</p>
             </div>
             <span>{reviewModeBooks.length} books</span>
           </div>
@@ -2186,7 +2186,7 @@ export function GuidedReadingPage({
                 }}
                 type="button"
               >
-                <span className="guided-category-icon">{card.type === "fiction" ? "F" : "N"}</span>
+                <span className="guided-category-icon">N</span>
                 <strong>{card.label}</strong>
                 <small>{card.count} books · Levels {card.levels.join(", ")}</small>
               </button>
@@ -2590,7 +2590,6 @@ export function TeacherReportsPage({
             {readingProgress.totalBooksRead} books completed · {readingProgress.inProgressBooks.length} in progress · {readingProgress.totalRereads} rereads
           </p>
           <div className="guided-reading-report-mini">
-            <span>Fiction: {readingProgress.fictionCount}</span>
             <span>Non-Fiction: {readingProgress.nonfictionCount}</span>
             <span>Latest: {readingProgress.latestReadingDate ? new Date(readingProgress.latestReadingDate).toLocaleDateString() : "Not yet"}</span>
           </div>

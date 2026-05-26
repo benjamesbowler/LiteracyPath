@@ -1,46 +1,42 @@
-# Guided Reading Level C Visibility Fix
+# Guided Reading Visibility Audit
 
-Generated: 2026-05-26T06:17:21.699Z
+Generated: 2026-05-26T06:48:38.963Z
 
-## Root Cause
+## Current Policy
 
-The Level C pilot books were present in the `guidedReadingBooks` data export. They are now approved app-guided-reading books and should appear as normal Fiction Level C books, not as draft, current, or pilot-only entries.
+Guided Reading fiction books were removed from the active app. The visible Guided Reading shelf now contains nonfiction books only. Reader architecture, title pages, QA tools, and progress handling remain in place.
 
-## Filters Fixed
+Visible fiction books: 0
+Visible nonfiction books: 23
 
-- Level C pilot books remain in the regular Fiction > Level C shelf.
-- Approved Level C books no longer require review-mode visibility to be discoverable.
-- Missing page narration no longer affects shelf visibility; page audio remains optional and hidden when absent.
-- Cover fallback logic remains in place, but the five pilot covers are required and checked.
+## Nonfiction Visibility
 
-## Routing Fixes
-
-- Level C cards call the same reader-opening path as the regular shelf.
-- The reader receives the same page data, page images, notes, marking, and navigation controls.
-
-## Fallback Behavior
-
-- Missing cover: fallback cover renders, but this audit flags it.
-- Missing narration/page audio: book remains visible; Read Page button is hidden for pages without audio.
-- Missing page image: book remains diagnosable, but this audit fails because review books must have page art.
-
-## Remaining Limitations
-
-- Exact page narration audio is still pending for these pilot stories.
-- These books are not labeled as Current/Pilot/Draft in the student shelf.
-
-## Level C Pilot Visibility
-
-| ID | Title | Type | Level | Review Mode | QA | Pages | Cover | Missing Page Images | Discoverable | Hidden Reason |
-|---|---|---|---|---:|---|---:|---:|---|---:|---|
-| gs-c-01 | The Lion and the Little Mouse | Fiction | C | no | approved | 10 | yes | none | yes | none |
-| gs-c-02 | The Crow and the Water Jar | Fiction | C | no | approved | 10 | yes | none | yes | none |
-| gs-c-03 | The Fox and the High Grapes | Fiction | C | no | approved | 10 | yes | none | yes | none |
-| gs-c-04 | The Dog and the River Shadow | Fiction | C | no | approved | 10 | yes | none | yes | none |
-| gs-c-06 | The Bell in the Tree | Fiction | C | no | approved | 10 | yes | none | yes | none |
-
-Visible Fiction Level C shelf books: gs-c-01, gs-c-02, gs-c-03, gs-c-04, gs-c-06
+| ID | Title | Type | Level | QA | Pages | Cover | Missing Page Images |
+|---|---|---|---|---|---:|---:|---|
+| gr-a-26 | Pets | Non-Fiction | A | approved | 6 | yes | none |
+| gr-a-27 | The Sun | Non-Fiction | A | approved | 6 | yes | none |
+| gr-a-28 | Colors | Non-Fiction | A | approved | 6 | yes | none |
+| gr-a-29 | My Body | Non-Fiction | A | approved | 6 | yes | none |
+| gr-b-31 | Seasons | Non-Fiction | B | approved | 6 | yes | none |
+| gr-b-32 | Fruits | Non-Fiction | B | approved | 6 | yes | none |
+| gr-b-33 | Tools | Non-Fiction | B | approved | 6 | yes | none |
+| gr-b-34 | Day and Night | Non-Fiction | B | approved | 6 | yes | none |
+| gr-b-35 | Community Helpers | Non-Fiction | B | approved | 6 | yes | none |
+| gr-c-36 | Bugs | Non-Fiction | B | approved | 6 | yes | none |
+| gr-c-37 | Water | Non-Fiction | B | approved | 6 | yes | none |
+| gr-c-38 | Five Senses | Non-Fiction | B | approved | 6 | yes | none |
+| gr-c-39 | Shapes | Non-Fiction | B | approved | 6 | yes | none |
+| gr-d-41 | Transportation | Non-Fiction | B | approved | 6 | yes | none |
+| gr-d-42 | Our Earth | Non-Fiction | B | approved | 6 | yes | none |
+| gr-d-43 | Healthy Habits | Non-Fiction | B | approved | 6 | yes | none |
+| gr-d-44 | Animal Homes | Non-Fiction | B | approved | 6 | yes | none |
+| gr-d-45 | Space | Non-Fiction | B | approved | 6 | yes | none |
+| gr-e-46 | Reptiles | Non-Fiction | B | approved | 6 | yes | none |
+| gr-e-47 | How Things Grow | Non-Fiction | B | approved | 6 | yes | none |
+| gr-e-48 | Magnets | Non-Fiction | B | approved | 6 | yes | none |
+| gr-e-49 | Clothes | Non-Fiction | B | approved | 6 | yes | none |
+| gr-e-50 | Our Five Senses | Non-Fiction | B | approved | 6 | yes | none |
 
 ## Result
 
-PASS: all five Level C books are approved Fiction Level C entries, discoverable, have covers, have page images, and can route through the reader.
+PASS: no fiction books are visible and nonfiction Guided Reading books remain readable.

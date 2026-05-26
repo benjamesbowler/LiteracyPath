@@ -1,29 +1,24 @@
 import fs from "node:fs";
 import path from "node:path";
-import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
+import { guidedReadingBooks, normalizeGuidedReadingType } from "../src/data/guidedReadingBooks.js";
 import { normalizeReadableBook } from "../src/utils/guidedReading/normalizeReadableBook.js";
 
 const rootDir = process.cwd();
 const reportPath = path.join(rootDir, "docs", "guided-reading", "guided_reading_title_page_audit.md");
-const levelCLionId = "gs-c-01";
 
 function publicFileExists(publicPath = "") {
   if (!publicPath || /^https?:\/\//.test(publicPath)) return false;
   return fs.existsSync(path.join(rootDir, "public", publicPath.replace(/^\//, "")));
 }
 
-function storyPageImageMatches(bookId, storyPageNumber, image = "") {
-  const padded3 = String(storyPageNumber).padStart(3, "0");
-  const padded2 = String(storyPageNumber).padStart(2, "0");
-  return (
-    image.includes(`/guided-reading/pages/${bookId}/page-${padded3}.`) ||
-    image.includes(`/guided-reading/pages/${bookId}-page-${padded2}.`)
-  );
-}
-
 const failures = [];
 const warnings = [];
 const rows = [];
+const fictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction");
+
+if (fictionBooks.length) {
+  failures.push(`Fiction Guided Reading books remain after removal: ${fictionBooks.map(book => book.id).join(", ")}`);
+}
 
 for (const rawBook of guidedReadingBooks) {
   const book = normalizeReadableBook(rawBook);
@@ -68,20 +63,6 @@ for (const rawBook of guidedReadingBooks) {
   });
 }
 
-const lionRaw = guidedReadingBooks.find(book => book.id === levelCLionId);
-if (!lionRaw) {
-  failures.push(`${levelCLionId}: Level C lion book missing from guidedReadingBooks`);
-} else {
-  const lion = normalizeReadableBook(lionRaw);
-  const firstStoryPage = lion.pages[1];
-  if (!firstStoryPage?.text?.startsWith("Luma the lion slept")) {
-    failures.push(`${levelCLionId}: first story text is not the Luma sleeping page`);
-  }
-  if (!storyPageImageMatches(levelCLionId, 1, firstStoryPage?.image || "")) {
-    failures.push(`${levelCLionId}: first story image is not story page 1 (${firstStoryPage?.image || "missing"})`);
-  }
-}
-
 const report = [
   "# Guided Reading Title Page Audit",
   "",
@@ -89,9 +70,10 @@ const report = [
   "",
   "## Strategy",
   "",
-  "Every app-created Guided Reading book is normalized with reader page 1 as a title page. The title page uses the cover image and stable author/illustrator credits. Original story page 1 becomes reader page 2, which prevents cover/title art from shifting story text out of sync.",
+  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading books have been removed from the active app; this check now verifies nonfiction title-page safety only.",
   "",
-  "Public-domain books keep their own manifest/page structure and are not force-shifted by this app-created Guided Reading normalizer.",
+  `Visible fiction books: ${fictionBooks.length}`,
+  `Visible nonfiction books: ${guidedReadingBooks.length - fictionBooks.length}`,
   "",
   "## Books Checked",
   "",
@@ -114,6 +96,7 @@ fs.mkdirSync(path.dirname(reportPath), { recursive: true });
 fs.writeFileSync(reportPath, `${report.join("\n")}\n`);
 
 console.log(`Guided Reading books checked: ${rows.length}`);
+console.log(`Visible fiction books: ${fictionBooks.length}`);
 console.log(`Title page failures: ${failures.length}`);
 console.log(`Wrote ${path.relative(rootDir, reportPath)}`);
 

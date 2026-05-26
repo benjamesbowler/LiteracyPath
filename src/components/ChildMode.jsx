@@ -46,21 +46,9 @@ const echoMissions = [
 
 const SPACE_HUB_STORAGE_KEY = "literacyPath:spaceHub:v1";
 
-const fictionBooks = guidedReadingBooks.filter(book => book.type === "fiction");
 const nonfictionBooks = guidedReadingBooks.filter(book => book.type === "nonfiction");
 
 const spaceZones = [
-  {
-    id: "fiction-galaxy",
-    name: "Fiction Galaxy",
-    shortName: "Fiction",
-    category: "Books",
-    accent: "violet",
-    total: Math.max(fictionBooks.length, 1),
-    actionLabel: "Read a story",
-    recommendation: "Read one story, then answer a quick check.",
-    description: "Original story books, fluency practice, and gentle reading checks."
-  },
   {
     id: "discovery-zone",
     name: "Discovery Zone",
@@ -145,9 +133,9 @@ function createDefaultSpaceHubProgress() {
     completedMissions: {},
     zones: spaceZones.reduce((zones, zone) => {
       zones[zone.id] = {
-        completed: zone.id === "fiction-galaxy" ? Math.min(1, fictionBooks.length) : 0,
+        completed: 0,
         total: zone.total,
-        stars: zone.id === "fiction-galaxy" ? 6 : 0
+        stars: 0
       };
       return zones;
     }, {})
@@ -531,16 +519,6 @@ function SpaceZonePage({ zoneId, progress, startMission, openShop, returnToTeach
         </aside>
 
         <section className="space-zone-content" aria-label={`${zone.name} activities`}>
-          {zone.id === "fiction-galaxy" && (
-            <>
-              <div className="space-section-heading">
-                <h2>Story missions</h2>
-                <p>Books connect to teacher-guided reading now. Independent quizzes can plug in later.</p>
-              </div>
-              <BookMissionList books={fictionBooks} emptyLabel="No fiction books are available yet." />
-            </>
-          )}
-
           {zone.id === "discovery-zone" && (
             <>
               <div className="space-section-heading">

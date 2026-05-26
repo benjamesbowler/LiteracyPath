@@ -1,65 +1,155 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-05-26T05:39:46.081Z
+Generated: 2026-05-26T06:48:49.667Z
 
 ## What This Check Proves
 
-This check prevents the global one-page drift by confirming that Level C reader page 1 is a title page and each story page then uses the image with the same story page number. It does not replace human visual QA for whether an illustration is beautiful or semantically strong; it ensures the text and image sequence is no longer mechanically offset.
+Fiction guided-reading books were removed. This check now verifies that every remaining nonfiction book has title-page normalization and that story page images stay mechanically aligned with story page numbers.
 
-## Level C Page Sequence
+Visible fiction books: 0
+
+## Page Sequence
 
 | Book | Reader Page | Story Page | Image Exists | Sequence Match | Image | Text Start |
 |---|---:|---:|---:|---:|---|---|
-| gs-c-01 | 2 | 1 | yes | yes | /guided-reading/pages/gs-c-01/page-001.webp | Luma the lion slept under a warm tree. Pip the mouse ran over his paw and stoppe |
-| gs-c-01 | 3 | 2 | yes | yes | /guided-reading/pages/gs-c-01/page-002.webp | Luma opened one eye and lifted his head. Pip said, “Please let me go, and I will |
-| gs-c-01 | 4 | 3 | yes | yes | /guided-reading/pages/gs-c-01/page-003.webp | The lion almost laughed at the tiny mouse. Then he saw that Pip was brave, so he |
-| gs-c-01 | 5 | 4 | yes | yes | /guided-reading/pages/gs-c-01/page-004.webp | The next morning, hunters left a rope net in the tall grass. Luma stepped into i |
-| gs-c-01 | 6 | 5 | yes | yes | /guided-reading/pages/gs-c-01/page-005.webp | Luma roared, but the net held tight. Birds flew up, and Pip heard the sound from |
-| gs-c-01 | 7 | 6 | yes | yes | /guided-reading/pages/gs-c-01/page-006.webp | Pip ran to the net and saw the thick ropes. He did not run away, even though the |
-| gs-c-01 | 8 | 7 | yes | yes | /guided-reading/pages/gs-c-01/page-007.webp | Pip bit one rope, then another rope. His small teeth worked slowly, but they wor |
-| gs-c-01 | 9 | 8 | yes | yes | /guided-reading/pages/gs-c-01/page-008.webp | At last, the net opened wide. Luma shook his mane and stepped out carefully. |
-| gs-c-01 | 10 | 9 | yes | yes | /guided-reading/pages/gs-c-01/page-009.webp | Luma bowed his great head to Pip. “You helped me,” said the lion, “just as you p |
-| gs-c-01 | 11 | 10 | yes | yes | /guided-reading/pages/gs-c-01/page-010.webp | Pip smiled and sat beside the lion’s paw. From that day on, Luma remembered that |
-| gs-c-02 | 2 | 1 | yes | yes | /guided-reading/pages/gs-c-02/page-001.webp | Cora the crow flew over a dry garden. Her throat felt scratchy, and she looked f |
-| gs-c-02 | 3 | 2 | yes | yes | /guided-reading/pages/gs-c-02/page-002.webp | She found a tall clay jar beside a wall. Cora hopped close and saw water far dow |
-| gs-c-02 | 4 | 3 | yes | yes | /guided-reading/pages/gs-c-02/page-003.webp | Cora pushed her beak into the jar. The water was too low, and she could not reac |
-| gs-c-02 | 5 | 4 | yes | yes | /guided-reading/pages/gs-c-02/page-004.webp | She looked around the garden path. Small smooth stones lay near the wall. |
-| gs-c-02 | 6 | 5 | yes | yes | /guided-reading/pages/gs-c-02/page-005.webp | Cora picked up one stone and dropped it into the jar. Plink! The water moved a l |
-| gs-c-02 | 7 | 6 | yes | yes | /guided-reading/pages/gs-c-02/page-006.webp | She dropped in another stone, then another. The water rose slowly, just like Cor |
-| gs-c-02 | 8 | 7 | yes | yes | /guided-reading/pages/gs-c-02/page-007.webp | The sun was hot, but Cora did not quit. She carried stone after stone to the jar |
-| gs-c-02 | 9 | 8 | yes | yes | /guided-reading/pages/gs-c-02/page-008.webp | Soon the water was near the top. Cora leaned in and took a cool drink. |
-| gs-c-02 | 10 | 9 | yes | yes | /guided-reading/pages/gs-c-02/page-009.webp | A little sparrow watched from the wall. “You made the water come up!” the sparro |
-| gs-c-02 | 11 | 10 | yes | yes | /guided-reading/pages/gs-c-02/page-010.webp | Cora shook her wings and smiled. “I did not make it come up,” she said. “I made  |
-| gs-c-03 | 2 | 1 | yes | yes | /guided-reading/pages/gs-c-03/page-001.webp | Felix the fox walked by a vine after lunch. Purple grapes hung high above his he |
-| gs-c-03 | 3 | 2 | yes | yes | /guided-reading/pages/gs-c-03/page-002.webp | The grapes looked round and sweet. Felix licked his lips and backed up for a jum |
-| gs-c-03 | 4 | 3 | yes | yes | /guided-reading/pages/gs-c-03/page-003.webp | He jumped once, but his paws touched only air. The grapes swung gently in the wi |
-| gs-c-03 | 5 | 4 | yes | yes | /guided-reading/pages/gs-c-03/page-004.webp | He jumped again and landed in a puff of dust. The grapes still waited high on th |
-| gs-c-03 | 6 | 5 | yes | yes | /guided-reading/pages/gs-c-03/page-005.webp | Felix looked left and right. No one had seen him miss, but his ears felt hot. |
-| gs-c-03 | 7 | 6 | yes | yes | /guided-reading/pages/gs-c-03/page-006.webp | A bird called from the fence, “Those grapes look good.” Felix stood tall and fli |
-| gs-c-03 | 8 | 7 | yes | yes | /guided-reading/pages/gs-c-03/page-007.webp | “They are probably sour,” said Felix. “I did not want them anyway.” |
-| gs-c-03 | 9 | 8 | yes | yes | /guided-reading/pages/gs-c-03/page-008.webp | Felix took three steps, then stopped. His stomach still wanted grapes, and his w |
-| gs-c-03 | 10 | 9 | yes | yes | /guided-reading/pages/gs-c-03/page-009.webp | He looked back and said, “I wanted them, but they were too high for me today.” T |
-| gs-c-03 | 11 | 10 | yes | yes | /guided-reading/pages/gs-c-03/page-010.webp | The bird nodded from the fence. Felix felt lighter as he walked on to find lunch |
-| gs-c-04 | 2 | 1 | yes | yes | /guided-reading/pages/gs-c-04/page-001.webp | Rex the dog found a big treat near the bakery. He carried it proudly toward home |
-| gs-c-04 | 3 | 2 | yes | yes | /guided-reading/pages/gs-c-04/page-002.webp | To get home, Rex had to cross a small bridge. The river below was smooth and bri |
-| gs-c-04 | 4 | 3 | yes | yes | /guided-reading/pages/gs-c-04/page-003.webp | Rex looked down and saw another dog in the water. That dog had a treat too. |
-| gs-c-04 | 5 | 4 | yes | yes | /guided-reading/pages/gs-c-04/page-004.webp | The dog in the water looked close. Rex thought, “If I take that treat, I will ha |
-| gs-c-04 | 6 | 5 | yes | yes | /guided-reading/pages/gs-c-04/page-005.webp | Rex barked at the water dog. The treat fell from his mouth and splashed into the |
-| gs-c-04 | 7 | 6 | yes | yes | /guided-reading/pages/gs-c-04/page-006.webp | The water dog vanished with the ripples. Rex stared at the empty river. |
-| gs-c-04 | 8 | 7 | yes | yes | /guided-reading/pages/gs-c-04/page-007.webp | Rex sniffed the bridge boards. His treat was gone, and there was no other dog. |
-| gs-c-04 | 9 | 8 | yes | yes | /guided-reading/pages/gs-c-04/page-008.webp | A baker waved from the path. “Rex, why do you look so sad?” she asked. |
-| gs-c-04 | 10 | 9 | yes | yes | /guided-reading/pages/gs-c-04/page-009.webp | Rex wagged his tail slowly. He could not answer, but he knew he had made a poor  |
-| gs-c-04 | 11 | 10 | yes | yes | /guided-reading/pages/gs-c-04/page-010.webp | From then on, Rex carried treats straight home. He did not bark at river shadows |
-| gs-c-06 | 2 | 1 | yes | yes | /guided-reading/pages/gs-c-06/page-001.webp | Mina hung a little bell in the garden tree. Taro the dog watched the bell shine  |
-| gs-c-06 | 3 | 2 | yes | yes | /guided-reading/pages/gs-c-06/page-002.webp | After lunch, Taro chased a leaf through the gate. The wind pushed the leaf down  |
-| gs-c-06 | 4 | 3 | yes | yes | /guided-reading/pages/gs-c-06/page-003.webp | Mina called for Taro, but the dog did not come. She stood still and listened to  |
-| gs-c-06 | 5 | 4 | yes | yes | /guided-reading/pages/gs-c-06/page-004.webp | Far away, she heard a tiny ring. The bell in the tree was moving in the wind. |
-| gs-c-06 | 6 | 5 | yes | yes | /guided-reading/pages/gs-c-06/page-005.webp | Taro heard the bell too and lifted his ears. The sound told him which way led ba |
-| gs-c-06 | 7 | 6 | yes | yes | /guided-reading/pages/gs-c-06/page-006.webp | Mina rang the bell again and again. Taro ran toward the sound with muddy paws. |
-| gs-c-06 | 8 | 7 | yes | yes | /guided-reading/pages/gs-c-06/page-007.webp | Taro jumped into Mina’s arms. Mina laughed because the bell had become a helper. |
-| gs-c-06 | 9 | 8 | yes | yes | /guided-reading/pages/gs-c-06/page-008.webp | The next day, Mina made a small rule for herself. She would close the gate befor |
-| gs-c-06 | 10 | 9 | yes | yes | /guided-reading/pages/gs-c-06/page-009.webp | Taro sat under the tree and listened. The bell was quiet now, but he knew its so |
-| gs-c-06 | 11 | 10 | yes | yes | /guided-reading/pages/gs-c-06/page-010.webp | When the wind rang the bell, Mina smiled. It reminded her that careful listening |
+| gr-a-26 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-a-26-page-01.png | A dog is a pet. |
+| gr-a-26 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-a-26-page-02.png | A cat is a pet. |
+| gr-a-26 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-a-26-page-03.png | A fish is a pet. |
+| gr-a-26 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-a-26-page-04.png | A bird is a pet. |
+| gr-a-26 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-a-26-page-05.png | A rabbit is a pet. |
+| gr-a-26 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-a-26-page-06.png | Pets are fun! |
+| gr-a-27 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-01.png | The sun is up. |
+| gr-a-27 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-02.png | The sun is hot. |
+| gr-a-27 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-03.png | The sun helps plants. |
+| gr-a-27 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-04.png | The sun helps us see. |
+| gr-a-27 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-05.png | The sun helps us grow. |
+| gr-a-27 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-a-27-page-06.png | The sun is our friend. |
+| gr-a-28 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-a-28-page-01.png | The apple is red. |
+| gr-a-28 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-a-28-page-02.png | The sky is blue. |
+| gr-a-28 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-a-28-page-03.png | The sun is yellow. |
+| gr-a-28 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-a-28-page-04.png | The grass is green. |
+| gr-a-28 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-a-28-page-05.png | The cloud is white. |
+| gr-a-28 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-a-28-page-06.png | I see all the colors! |
+| gr-a-29 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-a-29-page-01.png | I have two eyes. |
+| gr-a-29 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-a-29-page-02.png | I have two ears. |
+| gr-a-29 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-a-29-page-03.png | I have one nose. |
+| gr-a-29 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-a-29-page-04.png | I have one mouth. |
+| gr-a-29 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-a-29-page-05.png | I have two hands. |
+| gr-a-29 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-a-29-page-06.png | My body is amazing! |
+| gr-b-31 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-b-31-page-01.png | In spring, it rains. |
+| gr-b-31 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-b-31-page-02.png | In summer, it is hot. |
+| gr-b-31 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-b-31-page-03.png | In fall, leaves drop. |
+| gr-b-31 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-b-31-page-04.png | In winter, it snows. |
+| gr-b-31 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-b-31-page-05.png | The seasons change. |
+| gr-b-31 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-b-31-page-06.png | I like all four seasons! |
+| gr-b-32 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-b-32-page-01.png | An apple is a fruit. |
+| gr-b-32 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-b-32-page-02.png | A banana is a fruit. |
+| gr-b-32 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-b-32-page-03.png | A grape is a fruit. |
+| gr-b-32 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-b-32-page-04.png | An orange is a fruit. |
+| gr-b-32 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-b-32-page-05.png | Fruits are good to eat. |
+| gr-b-32 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-b-32-page-06.png | I love fruits! |
+| gr-b-33 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-b-33-page-01.png | A hammer hits nails. |
+| gr-b-33 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-b-33-page-02.png | A saw cuts wood. |
+| gr-b-33 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-b-33-page-03.png | A wrench turns bolts. |
+| gr-b-33 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-b-33-page-04.png | A drill makes holes. |
+| gr-b-33 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-b-33-page-05.png | A ruler measures length. |
+| gr-b-33 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-b-33-page-06.png | Tools help us build! |
+| gr-b-34 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-b-34-page-01.png | The sun is in the sky. |
+| gr-b-34 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-b-34-page-02.png | We play in the day. |
+| gr-b-34 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-b-34-page-03.png | The moon is in the sky. |
+| gr-b-34 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-b-34-page-04.png | We sleep at night. |
+| gr-b-34 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-b-34-page-05.png | The sun goes down. |
+| gr-b-34 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-b-34-page-06.png | The moon comes up. |
+| gr-b-35 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-b-35-page-01.png | A chef cooks food. |
+| gr-b-35 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-b-35-page-02.png | A doctor helps sick people. |
+| gr-b-35 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-b-35-page-03.png | A firefighter stops fires. |
+| gr-b-35 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-b-35-page-04.png | A teacher helps kids learn. |
+| gr-b-35 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-b-35-page-05.png | A police officer keeps us safe. |
+| gr-b-35 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-b-35-page-06.png | Helpers make our town great! |
+| gr-c-36 | 2 | 1 | yes | yes | /guided-reading/pages/gr-c-36/page-001.webp | Bugs have six legs. |
+| gr-c-36 | 3 | 2 | yes | yes | /guided-reading/pages/gr-c-36/page-002.webp | Some bugs can fly. |
+| gr-c-36 | 4 | 3 | yes | yes | /guided-reading/pages/gr-c-36/page-003.webp | Some bugs can crawl. |
+| gr-c-36 | 5 | 4 | yes | yes | /guided-reading/pages/gr-c-36/page-004.webp | Bugs have feelers. |
+| gr-c-36 | 6 | 5 | yes | yes | /guided-reading/pages/gr-c-36/page-005.webp | Bugs come in many hues. |
+| gr-c-36 | 7 | 6 | yes | yes | /guided-reading/pages/gr-c-36/page-006.webp | Look for bugs outside! |
+| gr-c-37 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-c-37-page-01.png | Water can be a liquid. |
+| gr-c-37 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-c-37-page-02.png | Water can be ice. |
+| gr-c-37 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-c-37-page-03.png | Water can be steam. |
+| gr-c-37 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-c-37-page-04.png | Plants need water to grow. |
+| gr-c-37 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-c-37-page-05.png | People need water to live. |
+| gr-c-37 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-c-37-page-06.png | Water is important! |
+| gr-c-38 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-c-38-page-01.png | I see with my eyes. |
+| gr-c-38 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-c-38-page-02.png | I hear with my ears. |
+| gr-c-38 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-c-38-page-03.png | I smell with my nose. |
+| gr-c-38 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-c-38-page-04.png | I taste with my tongue. |
+| gr-c-38 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-c-38-page-05.png | I touch with my hands. |
+| gr-c-38 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-c-38-page-06.png | My five senses help me learn! |
+| gr-c-39 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-c-39-page-01.png | A wheel is a circle. |
+| gr-c-39 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-c-39-page-02.png | A sign is a square. |
+| gr-c-39 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-c-39-page-03.png | A roof is a triangle. |
+| gr-c-39 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-c-39-page-04.png | A book is a rectangle. |
+| gr-c-39 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-c-39-page-05.png | An egg is an oval. |
+| gr-c-39 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-c-39-page-06.png | Shapes are all around! |
+| gr-d-41 | 2 | 1 | yes | yes | /guided-reading/pages/gr-d-41/page-001.webp | A car drives on the road. |
+| gr-d-41 | 3 | 2 | yes | yes | /guided-reading/pages/gr-d-41/page-002.webp | A train runs on the track. |
+| gr-d-41 | 4 | 3 | yes | yes | /guided-reading/pages/gr-d-41/page-003.webp | A boat floats on the water. |
+| gr-d-41 | 5 | 4 | yes | yes | /guided-reading/pages/gr-d-41/page-004.webp | A plane flies in the sky. |
+| gr-d-41 | 6 | 5 | yes | yes | /guided-reading/pages/gr-d-41/page-005.webp | A bike has two wheels. |
+| gr-d-41 | 7 | 6 | yes | yes | /guided-reading/pages/gr-d-41/page-006.webp | How will you travel today? |
+| gr-d-42 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-d-42-page-01.png | Earth is our home. |
+| gr-d-42 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-d-42-page-02.png | Earth has land and water. |
+| gr-d-42 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-d-42-page-03.png | Earth has tall mountains. |
+| gr-d-42 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-d-42-page-04.png | Earth has deep oceans. |
+| gr-d-42 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-d-42-page-05.png | Earth has green forests. |
+| gr-d-42 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-d-42-page-06.png | We must keep Earth clean! |
+| gr-d-43 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-d-43-page-01.png | I wash my hands with soap. |
+| gr-d-43 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-d-43-page-02.png | I eat fruits and vegetables. |
+| gr-d-43 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-d-43-page-03.png | I drink water every day. |
+| gr-d-43 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-d-43-page-04.png | I brush my teeth twice. |
+| gr-d-43 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-d-43-page-05.png | I get lots of rest. |
+| gr-d-43 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-d-43-page-06.png | Healthy habits make me strong! |
+| gr-d-44 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-d-44-page-01.png | A bird lives in a nest. |
+| gr-d-44 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-d-44-page-02.png | A bear sleeps in a cave. |
+| gr-d-44 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-d-44-page-03.png | A fish swims in a pond. |
+| gr-d-44 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-d-44-page-04.png | A rabbit digs a burrow. |
+| gr-d-44 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-d-44-page-05.png | A spider spins a web. |
+| gr-d-44 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-d-44-page-06.png | All animals need a home! |
+| gr-d-45 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-d-45-page-01.png | The sun is a big star. |
+| gr-d-45 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-d-45-page-02.png | Earth moves around the sun. |
+| gr-d-45 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-d-45-page-03.png | The moon moves around Earth. |
+| gr-d-45 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-d-45-page-04.png | Stars twinkle in the sky. |
+| gr-d-45 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-d-45-page-05.png | Astronauts travel to space. |
+| gr-d-45 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-d-45-page-06.png | Space is big and amazing! |
+| gr-e-46 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-e-46-page-01.png | Reptiles have dry skin. |
+| gr-e-46 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-e-46-page-02.png | Most reptiles lay eggs. |
+| gr-e-46 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-e-46-page-03.png | Snakes are long reptiles. |
+| gr-e-46 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-e-46-page-04.png | Turtles have a hard shell. |
+| gr-e-46 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-e-46-page-05.png | Lizards live in warm places. |
+| gr-e-46 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-e-46-page-06.png | Reptiles are cold-blooded animals! |
+| gr-e-47 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-e-47-page-01.png | All living things need food. |
+| gr-e-47 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-e-47-page-02.png | All living things need water. |
+| gr-e-47 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-e-47-page-03.png | A seed grows into a plant. |
+| gr-e-47 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-e-47-page-04.png | A tadpole turns into a frog. |
+| gr-e-47 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-e-47-page-05.png | A caterpillar becomes a butterfly. |
+| gr-e-47 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-e-47-page-06.png | Growing takes time and care! |
+| gr-e-48 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-e-48-page-01.png | A magnet has two poles. |
+| gr-e-48 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-e-48-page-02.png | Magnets pull some metals. |
+| gr-e-48 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-e-48-page-03.png | Magnets do not pull wood. |
+| gr-e-48 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-e-48-page-04.png | Magnets do not pull glass. |
+| gr-e-48 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-e-48-page-05.png | Opposite poles pull together. |
+| gr-e-48 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-e-48-page-06.png | Same poles push apart! |
+| gr-e-49 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-e-49-page-01.png | We wear hats on sunny days. |
+| gr-e-49 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-e-49-page-02.png | We wear coats on cold days. |
+| gr-e-49 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-e-49-page-03.png | We wear boots in the rain. |
+| gr-e-49 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-e-49-page-04.png | We wear gloves to keep warm. |
+| gr-e-49 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-e-49-page-05.png | We wear pajamas to sleep. |
+| gr-e-49 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-e-49-page-06.png | Clothes keep us safe and warm! |
+| gr-e-50 | 2 | 1 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-01.png | We use our eyes to see. |
+| gr-e-50 | 3 | 2 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-02.png | We use our ears to hear. |
+| gr-e-50 | 4 | 3 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-03.png | We use our nose to smell. |
+| gr-e-50 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-04.png | We use our tongue to taste. |
+| gr-e-50 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-05.png | We use our skin to touch. |
+| gr-e-50 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-06.png | Our senses help us explore! |
 
 ## Failures
 

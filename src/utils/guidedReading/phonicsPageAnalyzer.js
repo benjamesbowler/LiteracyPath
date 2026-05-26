@@ -147,7 +147,7 @@ export function enrichGuidedReadingBook(book = {}) {
 }
 
 export function buildComprehensionQuestionSeeds(book = {}) {
-  const type = String(book.type || "fiction").toLowerCase().replace(/[^a-z]/g, "");
+  const type = String(book.type || "nonfiction").toLowerCase().replace(/[^a-z]/g, "");
   if (type === "nonfiction") {
     return [
       "What is the topic?",

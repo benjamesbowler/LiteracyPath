@@ -4692,7 +4692,6 @@ export default function App() {
       [
         ["Student Name", studentLabel],
         ["Total Books Read", progress.totalBooksRead],
-        ["Total Fiction", progress.fictionCount],
         ["Total Non-Fiction", progress.nonfictionCount],
         ["Level A count", progress.byLevel.A || 0],
         ["Level B count", progress.byLevel.B || 0],

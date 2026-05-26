@@ -72,17 +72,9 @@ The admin content coverage table now exposes:
 - zero/below-30 warnings through the runtime-selectable count
 - an aggregate `High Frequency Words` row, so HFW cannot disappear behind split legacy labels
 
-## Guided Reading Level C Review Activation
+## Guided Reading Fiction Status
 
-Activated the five imported Level C guided fiction pilot books for teacher review:
-
-- `gs-c-01` The Lion and the Little Mouse
-- `gs-c-02` The Crow and the Water Jar
-- `gs-c-03` The Fox and the High Grapes
-- `gs-c-04` The Dog and the River Shadow
-- `gs-c-06` The Bell in the Tree
-
-These books are active for review with imported cover/page images. Exact narration audio is still pending and remains optional/hidden when missing.
+This earlier stabilization pass briefly activated imported fiction pilot books for review. That state was superseded on 2026-05-26: all Guided Reading fiction books and fiction-only assets were permanently removed, and the active Guided Reading shelf now uses nonfiction books only. See `docs/guided-reading/fiction_removal_audit.md` for the current source of truth.
 
 ## Validation Results
 
@@ -111,4 +103,3 @@ Passed:
 - Review the 49 image color-heuristic candidates in `docs/assets/kimi_strict_media_replacement_request.md`. They are not confirmed bad by static checks, so they were not blocked automatically.
 - Guided Reading Level C pilot books need exact narration audio before they should be treated as production-ready.
 - Some non-Initial-Sounds skills still have expansion warnings, but no active runtime media failures were found.
-

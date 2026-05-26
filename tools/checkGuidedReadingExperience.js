@@ -14,6 +14,11 @@ const warnings = [];
 const rows = [];
 const patternCounts = new Map();
 const microphaseCounts = new Map();
+const visibleFictionBooks = guidedReadingBooks.filter(book => String(book.type || "").toLowerCase() === "fiction");
+
+if (visibleFictionBooks.length) {
+  failures.push(`Fiction Guided Reading books remain visible: ${visibleFictionBooks.map(book => book.id).join(", ")}`);
+}
 
 for (const book of guidedReadingBooks) {
   const enriched = enrichGuidedReadingBook(book);
