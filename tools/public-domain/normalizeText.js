@@ -2,8 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { ensureDir, parseArgs, repoRoot } from "./shared.js";
 
+function stripGutenbergBoilerplate(text = "") {
+  return String(text)
+    .replace(/^[\s\S]*?\*\*\*\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*\*\*\*/i, "")
+    .replace(/\*\*\*\s*END OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[\s\S]*$/i, "");
+}
+
 export function normalizeText(rawText = "") {
-  return String(rawText)
+  return stripGutenbergBoilerplate(rawText)
     .replace(/\r\n?/g, "\n")
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[\u201c\u201d]/g, '"')
@@ -13,7 +19,12 @@ export function normalizeText(rawText = "") {
     .replace(/\n{3,}/g, "\n\n")
     .replace(/[^\S\n]+([.,!?;:])/g, "$1")
     .replace(/\bPage\s+\d+\b/gi, "")
+    .replace(/\[Illustration[^\]]*\]/gi, "")
     .replace(/\[[^\]]*(ocr|digitized|google|archive)[^\]]*\]/gi, "")
+    .replace(/^\[Transcriber's Notes?:[\s\S]*?\]\s*/i, "")
+    .replace(/^E-text prepared by[\s\S]*?(?=\n\n[A-Z][A-Z '\-]+\n)/i, "")
+    .replace(/^Produced by[^\n]*(?:\n[^\n]*){0,3}\n+/i, "")
+    .replace(/^Note: Project Gutenberg[\s\S]*?(?=\n\n[A-Z][A-Z '\-]+\n)/i, "")
     .split("\n")
     .map(line => line.trim())
     .join("\n")
@@ -57,4 +68,3 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   fs.writeFileSync(output, `${clean}\n`, "utf8");
   console.log(`Wrote normalized text: ${output}`);
 }
-

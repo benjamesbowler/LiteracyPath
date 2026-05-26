@@ -17,6 +17,16 @@ import {
 import { normalizeText, splitTextIntoPages } from "./normalizeText.js";
 
 const IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp"];
+const TEXT_PAGE_FONT_CANDIDATES = [
+  "/System/Library/Fonts/Supplemental/Arial.ttf",
+  "/System/Library/Fonts/Supplemental/Arial Unicode.ttf",
+  "/System/Library/Fonts/HelveticaNeue.ttc",
+  "/System/Library/Fonts/Avenir.ttc"
+];
+
+function getTextPageFont() {
+  return TEXT_PAGE_FONT_CANDIDATES.find(fontPath => fs.existsSync(fontPath)) || "";
+}
 
 function convertImageToWebp(source, target) {
   ensureDir(path.dirname(target));
@@ -99,35 +109,43 @@ function extractTextPages(textFile, outputDir) {
   const pageCount = estimateTextPageCount(cleanText);
   const pages = splitTextIntoPages(cleanText, pageCount);
   const tempDir = path.join(outputDir, "_tmp_text");
+  const fontPath = getTextPageFont();
+  if (!fontPath) {
+    throw new Error("No readable system font found for text-only public-domain page rendering.");
+  }
   emptyDir(tempDir);
 
-  pages.forEach((pageText, index) => {
-    const textPath = path.join(tempDir, `page-${String(index + 1).padStart(3, "0")}.txt`);
-    const target = path.join(outputDir, `page-${String(index + 1).padStart(3, "0")}.webp`);
-    fs.writeFileSync(textPath, pageText || " ", "utf8");
-    runCommand("magick", [
-      "-background",
-      "white",
-      "-fill",
-      "#111827",
-      "-pointsize",
-      "46",
-      "-interline-spacing",
-      "10",
-      "-size",
-      "1008x1408",
-      `caption:@${textPath}`,
-      "-gravity",
-      "center",
-      "-extent",
-      "1200x1600",
-      "-quality",
-      "82",
-      target
-    ]);
-  });
-
-  fs.rmSync(tempDir, { recursive: true, force: true });
+  try {
+    pages.forEach((pageText, index) => {
+      const textPath = path.join(tempDir, `page-${String(index + 1).padStart(3, "0")}.txt`);
+      const target = path.join(outputDir, `page-${String(index + 1).padStart(3, "0")}.webp`);
+      fs.writeFileSync(textPath, pageText || " ", "utf8");
+      runCommand("magick", [
+        "-background",
+        "white",
+        "-fill",
+        "#111827",
+        "-font",
+        fontPath,
+        "-pointsize",
+        "46",
+        "-interline-spacing",
+        "10",
+        "-size",
+        "1008x1408",
+        `caption:@${textPath}`,
+        "-gravity",
+        "center",
+        "-extent",
+        "1200x1600",
+        "-quality",
+        "82",
+        target
+      ]);
+    });
+  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
   return pages.length;
 }
 

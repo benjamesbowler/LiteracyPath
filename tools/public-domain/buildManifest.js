@@ -45,9 +45,12 @@ function buildCover(bookId, pageImages, metadata) {
   const explicitCover = metadata.coverSource ? path.resolve(repoRoot, metadata.coverSource) : "";
   const source = explicitCover && fs.existsSync(explicitCover) ? explicitCover : pageImages[0];
   if (!source) return "";
-  const extension = path.extname(source).toLowerCase() === ".webp" ? ".webp" : path.extname(source);
-  const coverPath = path.join(repoRoot, "public/guided-reading/covers", `${bookId}-cover${extension || ".webp"}`);
-  copyFilePreservingDir(source, coverPath);
+  const coverPath = path.join(repoRoot, "public/guided-reading/covers", `${bookId}.webp`);
+  if (path.extname(source).toLowerCase() === ".webp") {
+    copyFilePreservingDir(source, coverPath);
+  } else {
+    copyFilePreservingDir(source, coverPath);
+  }
   return publicPathFromAbsolute(coverPath);
 }
 
