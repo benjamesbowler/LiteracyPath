@@ -6,8 +6,8 @@ export const masteryRules = {
   },
 
   "Final Sounds": {
-    roundLength: 8,
-    passScore: 7,
+    roundLength: 15,
+    passScore: 12,
     reviewAfter: 15
   },
 

@@ -69,6 +69,15 @@ import {
   isFinalSoundsLevel1Question,
   isValidFinalSoundWordForEarlyLevel
 } from "./data/earlyPhonicsValidation";
+import {
+  buildFinalSoundAvailableWordMap,
+  evaluateFinalSoundLevelOneMasteryDepth,
+  finalSoundLevelOneTargets,
+  getFinalSoundTargetFromEvidence,
+  FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT,
+  FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS,
+  FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS
+} from "./data/finalSoundMasteryDepth";
 
 import { templateQuestions } from "./data/templateQuestions";
 import { templateExpansion } from "./data/templateExpansion";
@@ -2222,6 +2231,7 @@ export default function App() {
         };
 
         const matchedQuestion = findQuestionForAnswerRecord(baseRecord);
+        const matchedMetadata = matchedQuestion ? inferItemMetadata(matchedQuestion) : inferAnswerRecordMetadata(baseRecord);
 
         return {
           ...baseRecord,
@@ -2231,7 +2241,11 @@ export default function App() {
             : getAnswerRecordSignature(baseRecord),
           promptAnswerSignature: getAnswerRecordPromptAnswerSignature(baseRecord),
           optionSetSignature: matchedQuestion ? getRepeatOptionSetSignature(matchedQuestion) : "",
-          targetWord: matchedQuestion ? getQuestionTargetWord(matchedQuestion) : ""
+          targetWord: matchedQuestion ? getQuestionTargetWord(matchedQuestion) : "",
+          skillId: matchedQuestion?.skillId || "",
+          itemType: matchedMetadata?.itemType || "",
+          itemKey: matchedMetadata?.itemKey || "",
+          itemLevel: matchedQuestion?.level || ""
         };
       });
 
@@ -2463,17 +2477,29 @@ export default function App() {
     return Number(question.level || question.difficulty || 1) >= 2 ? 2 : 1;
   }
 
-  function getNextFinalSoundLevel() {
-    const expectedLevelOneKeys = configuredCoverageTotals.final_sounds?.itemKeys || [];
-    if (!expectedLevelOneKeys.length) return 1;
-
-    const masteredOrCovered = new Set(
-      Object.values(itemMastery || {})
-        .filter(row => row?.itemType === "final_sound" && (row.mastered || row.correct > 0))
-        .map(row => normalizeItemKey(row.itemKey))
+  function getFinalSoundsLevelOneAvailableQuestions() {
+    return allQuestions.filter(question =>
+      question.skillId === "final_sounds" &&
+      !isQuestionBlockedByMediaQa(question) &&
+      getFinalSoundQuestionLevel(question) === 1 &&
+      getFinalSoundsLevel1QuestionIssues(question).length === 0 &&
+      isRuntimeEligibleEarlySkillQuestion(question, {
+        skillId: "final_sounds",
+        level: 1
+      })
     );
+  }
 
-    return expectedLevelOneKeys.every(key => masteredOrCovered.has(normalizeItemKey(key))) ? 2 : 1;
+  function getFinalSoundsLevelOneMasteryDepth(records = answerHistoryRef.current) {
+    return evaluateFinalSoundLevelOneMasteryDepth(records, {
+      availableWordsBySound: buildFinalSoundAvailableWordMap(getFinalSoundsLevelOneAvailableQuestions()),
+      roundLength: ROUND_LENGTH,
+      passScore: PASS_SCORE
+    });
+  }
+
+  function getNextFinalSoundLevel() {
+    return getFinalSoundsLevelOneMasteryDepth().levelOneMastered ? 2 : 1;
   }
 
   function getAvailableStageQuestions(stageIndex) {
@@ -3482,6 +3508,65 @@ export default function App() {
           selectedReasons: initialRoundMeta.selectedReasons || []
         }
       };
+    }
+
+    if (stage?.id === "final_sounds") {
+      const stageRecords = answerHistoryRef.current
+        .filter(record => record.stage === stage.label || record.skillId === "final_sounds");
+      const currentRoundRecords = stageRecords.slice(-nextRound.length);
+      const isLevelOneFinalRound = currentRoundRecords.length > 0 &&
+        currentRoundRecords.every(record => finalSoundLevelOneTargets.includes(getFinalSoundTargetFromEvidence(record)));
+
+      if (isLevelOneFinalRound) {
+        const previousDepth = getFinalSoundsLevelOneMasteryDepth(stageRecords.slice(0, -nextRound.length));
+        const depth = getFinalSoundsLevelOneMasteryDepth(stageRecords);
+        const coverageComplete = depth.allSoundsCovered;
+        const depthComplete = depth.allSoundsMastered && depth.enoughSuccessfulRounds;
+        const effectivePassed = passed && coverageComplete && depthComplete;
+        const missingCoverage = finalSoundLevelOneTargets.filter(target => !depth.coveredTargets.includes(target));
+        const stillNeedsPractice = depth.stillNeedsPractice;
+        const contentGapText = depth.contentGaps.length
+          ? ` Content gap: ${depth.contentGaps.map(gap => `${gap.target} has ${gap.availableWordCount}/${FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS} needed words`).join("; ")}.`
+          : "";
+        const blockedPassReason = !coverageComplete
+          ? `Great accuracy. Keep going to cover: ${missingCoverage.join(", ")}.`
+          : !depthComplete
+            ? `Great accuracy. Level 2 stays locked until each Level 1 sound has ${FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT} correct answers across ${FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS} different words and at least ${FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS} successful rounds. Still needs practice: ${stillNeedsPractice.join(", ") || "round depth"}.${contentGapText}`
+            : "";
+
+        return {
+          skillId: stage.id,
+          skillIndex: stageIndex,
+          skillLabel: `${stage.label} Level 1`,
+          correct: nextRound.filter(Boolean).length,
+          total: ROUND_LENGTH,
+          accuracy: Math.round((nextRound.filter(Boolean).length / ROUND_LENGTH) * 100),
+          passed: effectivePassed,
+          accuracyPassed: passed,
+          coverageComplete,
+          blockedPassReason,
+          nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
+          coveredThisRound: Array.from(new Set(currentRoundRecords.map(getFinalSoundTargetFromEvidence).filter(Boolean))),
+          alreadyMastered: previousDepth.coveredTargets.filter(target => !currentRoundRecords.map(getFinalSoundTargetFromEvidence).includes(target)),
+          totalCoveredItems: depth.coveredTargets,
+          remainingItems: missingCoverage.length ? missingCoverage : stillNeedsPractice,
+          coverage: {
+            mastered: depth.coveredTargets.length,
+            total: finalSoundLevelOneTargets.length,
+            unit: "sounds"
+          },
+          masteryDepth: {
+            label: "Final Sounds Level 1",
+            mastered: depth.masteredTargets.length,
+            total: finalSoundLevelOneTargets.length,
+            successfulRounds: depth.successfulRounds,
+            requiredSuccessfulRounds: depth.requiredSuccessfulRounds,
+            stillNeedsPractice,
+            contentGaps: depth.contentGaps,
+            bySound: depth.bySound
+          }
+        };
+      }
     }
 
     const expectedKeys = Array.from(getCoverageItemKeysForStage(stage));

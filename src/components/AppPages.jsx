@@ -2903,6 +2903,14 @@ export function CheckpointDecisionPage({
               {checkpoint.coverage.mastered}/{checkpoint.coverage.total} {checkpoint.coverage.unit} covered
             </strong>
           </div>
+          {checkpoint.masteryDepth && (
+            <div>
+              <span>Mastery depth</span>
+              <strong>
+                {checkpoint.masteryDepth.mastered}/{checkpoint.masteryDepth.total} mastered
+              </strong>
+            </div>
+          )}
         </div>
 
         {checkpoint.blockedPassReason && (
@@ -2997,6 +3005,35 @@ export function CheckpointDecisionPage({
                   <div className="word-chip-row">
                     {checkpoint.initialSoundDebug.blockedLetters.map(item => (
                       <span className="word-chip" key={item}>{item}</span>
+                    ))}
+                  </div>
+                </>
+              )}
+            </section>
+          )}
+
+          {checkpoint.masteryDepth && (
+            <section>
+              <h3>{checkpoint.masteryDepth.label} depth</h3>
+              <p className="muted-text">
+                Successful rounds: {checkpoint.masteryDepth.successfulRounds}/{checkpoint.masteryDepth.requiredSuccessfulRounds}.
+                Level 2 stays locked until every Level 1 sound has enough correct examples.
+              </p>
+              <div className="word-chip-row">
+                {Object.values(checkpoint.masteryDepth.bySound || {}).map(row => (
+                  <span className={row.mastered ? "word-chip mastered" : "word-chip"} key={row.target}>
+                    {row.target}: {row.correctCount} correct, {row.uniqueCorrectTargetWords.length} words
+                  </span>
+                ))}
+              </div>
+              {checkpoint.masteryDepth.contentGaps?.length > 0 && (
+                <>
+                  <strong>Content gaps</strong>
+                  <div className="word-chip-row">
+                    {checkpoint.masteryDepth.contentGaps.map(gap => (
+                      <span className="word-chip" key={gap.target}>
+                        {gap.target}: {gap.availableWordCount} usable words
+                      </span>
                     ))}
                   </div>
                 </>
