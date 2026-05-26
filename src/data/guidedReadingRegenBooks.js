@@ -20,7 +20,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Nan has a red hat.",
-        "image": "/guided-reading/regen/pages/gr-a-01-page-01.png",
+        "image": "/guided-reading/pages/gr-a-01/page-001.webp",
         "imageAlt": "A girl named Nan wearing a bright red hat, smiling.",
         "pageDescription": "A cheerful girl named Nan stands wearing a bright red hat. Simple background.",
         "embeddedImageText": "",
@@ -70,7 +70,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "The hat is on the mat.",
-        "image": "/guided-reading/regen/pages/gr-a-01-page-02.png",
+        "image": "/guided-reading/pages/gr-a-01/page-002.webp",
         "imageAlt": "A red hat sitting on a woven mat on the floor.",
         "pageDescription": "A bright red hat rests on a woven floor mat. Clean simple background.",
         "embeddedImageText": "",
@@ -127,7 +127,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Nan can not get the hat.",
-        "image": "/guided-reading/regen/pages/gr-a-01-page-03.png",
+        "image": "/guided-reading/pages/gr-a-01/page-003.webp",
         "imageAlt": "Nan reaching down but unable to grab her hat on the mat.",
         "pageDescription": "Nan bends down reaching for her red hat on the mat but cannot quite get it.",
         "embeddedImageText": "",
@@ -184,7 +184,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Sam has a plan.",
-        "image": "/guided-reading/regen/pages/gr-a-01-page-04.png",
+        "image": "/guided-reading/pages/gr-a-01/page-004.webp",
         "imageAlt": "A boy named Sam holding up one finger with a thoughtful idea expression.",
         "pageDescription": "A boy named Sam has a thoughtful expression, indicating he has an idea to help.",
         "embeddedImageText": "",
@@ -228,7 +228,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Sam can tap the mat.",
-        "image": "/guided-reading/regen/pages/gr-a-01-page-05.png",
+        "image": "/guided-reading/pages/gr-a-01/page-005.webp",
         "imageAlt": "Sam gently tapping the edge of the mat with his hand.",
         "pageDescription": "Sam taps the edge of the woven mat with his hand to help get the hat.",
         "embeddedImageText": "",
@@ -279,7 +279,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Nan can get the hat!",
-        "image": "/guided-reading/regen/pages/gr-a-01-page-06.png",
+        "image": "/guided-reading/pages/gr-a-01/page-006.webp",
         "imageAlt": "Nan happily holding her red hat, smiling with Sam nearby.",
         "pageDescription": "Nan triumphantly holds her red hat, smiling gratefully while Sam stands nearby smiling.",
         "embeddedImageText": "",
@@ -348,7 +348,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "The class has a mess.",
-        "image": "/guided-reading/regen/pages/gr-a-02-page-01.png",
+        "image": "/guided-reading/pages/gr-a-02/page-001.webp",
         "imageAlt": "A classroom with items scattered on the floor creating a mess.",
         "pageDescription": "A classroom scene showing various items scattered and messy on the floor.",
         "embeddedImageText": "",
@@ -399,7 +399,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Cans and bags are on the rug.",
-        "image": "/guided-reading/regen/pages/gr-a-02-page-02.png",
+        "image": "/guided-reading/pages/gr-a-02/page-002.webp",
         "imageAlt": "Metal cans and paper bags scattered on a classroom rug.",
         "pageDescription": "Cans and bags are scattered across a colorful classroom rug on the floor.",
         "embeddedImageText": "",
@@ -462,7 +462,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Sam picks up the cans.",
-        "image": "/guided-reading/regen/pages/gr-a-02-page-03.png",
+        "image": "/guided-reading/pages/gr-a-02/page-003.webp",
         "imageAlt": "Sam bending down picking up metal cans from the rug.",
         "pageDescription": "Sam bends down to pick up the scattered metal cans from the classroom rug.",
         "embeddedImageText": "",
@@ -513,7 +513,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Nan picks up the bags.",
-        "image": "/guided-reading/regen/pages/gr-a-02-page-04.png",
+        "image": "/guided-reading/pages/gr-a-02/page-004.webp",
         "imageAlt": "Nan gathering paper bags from the classroom rug.",
         "pageDescription": "Nan bends down gathering the paper bags from the classroom rug.",
         "embeddedImageText": "",
@@ -564,7 +564,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "The class is clean.",
-        "image": "/guided-reading/regen/pages/gr-a-02-page-05.png",
+        "image": "/guided-reading/pages/gr-a-02/page-005.webp",
         "imageAlt": "A neat and tidy classroom with everything in its place.",
         "pageDescription": "The classroom now looks neat and tidy with all items put away properly.",
         "embeddedImageText": "",
@@ -609,7 +609,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Good job, Sam and Nan!",
-        "image": "/guided-reading/regen/pages/gr-a-02-page-06.png",
+        "image": "/guided-reading/pages/gr-a-02/page-006.webp",
         "imageAlt": "Sam and Nan smiling together in the clean classroom, looking proud.",
         "pageDescription": "Sam and Nan stand together smiling proudly in the now clean classroom.",
         "embeddedImageText": "",
@@ -678,7 +678,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Nan and Sam see a bag.",
-        "image": "/guided-reading/regen/pages/gr-a-03-page-01.png",
+        "image": "/guided-reading/pages/gr-a-03/page-001.webp",
         "imageAlt": "Nan and Sam looking at a bag on the ground with curiosity.",
         "pageDescription": "Nan and Sam stand looking curiously at a bag they found on the ground.",
         "embeddedImageText": "",
@@ -735,7 +735,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "A map is in the bag!",
-        "image": "/guided-reading/regen/pages/gr-a-03-page-02.png",
+        "image": "/guided-reading/pages/gr-a-03/page-002.webp",
         "imageAlt": "Nan and Sam opening the bag to reveal a folded map inside.",
         "pageDescription": "Nan and Sam open the bag and discover a folded map inside, looking excited.",
         "embeddedImageText": "",
@@ -792,7 +792,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "The map has a big X.",
-        "image": "/guided-reading/regen/pages/gr-a-03-page-03.png",
+        "image": "/guided-reading/pages/gr-a-03/page-003.webp",
         "imageAlt": "A treasure map spread out showing a path leading to a big X mark.",
         "pageDescription": "The map is spread open showing a dotted path leading to a big X mark at the end.",
         "embeddedImageText": "",
@@ -849,7 +849,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Nan and Sam run to the X.",
-        "image": "/guided-reading/regen/pages/gr-a-03-page-04.png",
+        "image": "/guided-reading/pages/gr-a-03/page-004.webp",
         "imageAlt": "Nan and Sam running together following the map to find the X spot.",
         "pageDescription": "Nan and Sam run together following the map path, excited to reach the X spot.",
         "embeddedImageText": "",
@@ -911,7 +911,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "The X is on a mat!",
-        "image": "/guided-reading/regen/pages/gr-a-03-page-05.png",
+        "image": "/guided-reading/pages/gr-a-03/page-005.webp",
         "imageAlt": "Nan and Sam finding the X spot marked on a mat on the ground.",
         "pageDescription": "Nan and Sam arrive at the X spot which is marked on a woven mat on the ground.",
         "embeddedImageText": "",
@@ -968,7 +968,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "A red pen is under the mat.",
-        "image": "/guided-reading/regen/pages/gr-a-03-page-06.png",
+        "image": "/guided-reading/pages/gr-a-03/page-006.webp",
         "imageAlt": "Nan lifting the mat to reveal a shiny red pen hidden underneath.",
         "pageDescription": "Nan lifts the corner of the mat to reveal a shiny red pen hidden underneath, both kids smile.",
         "embeddedImageText": "",
@@ -1049,7 +1049,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Kit sees a box.",
-        "image": "/guided-reading/regen/pages/gr-a-04-page-01.png",
+        "image": "/guided-reading/pages/gr-a-04/page-001.webp",
         "imageAlt": "A child named Kit looking at a large empty cardboard box.",
         "pageDescription": "A child named Kit looks with curiosity at a large empty cardboard box.",
         "embeddedImageText": "",
@@ -1094,7 +1094,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Kit sits in the box.",
-        "image": "/guided-reading/regen/pages/gr-a-04-page-02.png",
+        "image": "/guided-reading/pages/gr-a-04/page-002.webp",
         "imageAlt": "Kit sitting comfortably inside the large cardboard box, smiling.",
         "pageDescription": "Kit sits comfortably inside the large cardboard box with a happy smile.",
         "embeddedImageText": "",
@@ -1145,7 +1145,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Dot sees the box.",
-        "image": "/guided-reading/regen/pages/gr-a-04-page-03.png",
+        "image": "/guided-reading/pages/gr-a-04/page-003.webp",
         "imageAlt": "Another child named Dot looking at Kit in the box with interest.",
         "pageDescription": "A child named Dot looks at Kit sitting in the box with interested curiosity.",
         "embeddedImageText": "",
@@ -1190,7 +1190,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Dot sits in the box too.",
-        "image": "/guided-reading/regen/pages/gr-a-04-page-04.png",
+        "image": "/guided-reading/pages/gr-a-04/page-004.webp",
         "imageAlt": "Dot squeezing into the box alongside Kit, both laughing.",
         "pageDescription": "Dot climbs in and sits in the box alongside Kit, both children laughing together.",
         "embeddedImageText": "",
@@ -1247,7 +1247,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "You sit. I sit. We sit!",
-        "image": "/guided-reading/regen/pages/gr-a-04-page-05.png",
+        "image": "/guided-reading/pages/gr-a-04/page-005.webp",
         "imageAlt": "Kit and Dot sitting together happily in the box, pointing at each other.",
         "pageDescription": "Kit and Dot sit happily together in the box, pointing at each other playfully.",
         "embeddedImageText": "",
@@ -1302,7 +1302,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The box is fun for Kit and Dot.",
-        "image": "/guided-reading/regen/pages/gr-a-04-page-06.png",
+        "image": "/guided-reading/pages/gr-a-04/page-006.webp",
         "imageAlt": "Kit and Dot playing together in and around the box, having fun.",
         "pageDescription": "Kit and Dot play happily together with the box, it is fun for both of them.",
         "embeddedImageText": "",
@@ -2904,7 +2904,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Tim and Jill plan a picnic.",
-        "image": "/guided-reading/regen/pages/gr-b-06-page-01.png",
+        "image": "/guided-reading/pages/gr-b-06/page-001.webp",
         "imageAlt": "Two children, Tim and Jill, sitting at a table planning with a basket.",
         "pageDescription": "Two children, Tim and Jill, sit at a kitchen table planning a picnic with an empty basket nearby.",
         "embeddedImageText": "",
@@ -2961,7 +2961,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "They pack fish and chips.",
-        "image": "/guided-reading/regen/pages/gr-b-06-page-02.png",
+        "image": "/guided-reading/pages/gr-b-06/page-002.webp",
         "imageAlt": "Fish and chips being packed into a picnic basket neatly.",
         "pageDescription": "Fish and chips are being packed neatly into a woven picnic basket.",
         "embeddedImageText": "",
@@ -3012,7 +3012,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "They pack milk and dip.",
-        "image": "/guided-reading/regen/pages/gr-b-06-page-03.png",
+        "image": "/guided-reading/pages/gr-b-06/page-003.webp",
         "imageAlt": "A bottle of milk and a container of dip being placed in the basket.",
         "pageDescription": "A bottle of milk and a small container of dip are placed in the picnic basket.",
         "embeddedImageText": "",
@@ -3063,7 +3063,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "They get to the hill.",
-        "image": "/guided-reading/regen/pages/gr-b-06-page-04.png",
+        "image": "/guided-reading/pages/gr-b-06/page-004.webp",
         "imageAlt": "Tim and Jill walking up a grassy hill with their picnic basket.",
         "pageDescription": "Tim and Jill walk up a grassy hill together carrying their picnic basket.",
         "embeddedImageText": "",
@@ -3114,7 +3114,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "A bug gets in the dip!",
-        "image": "/guided-reading/regen/pages/gr-b-06-page-05.png",
+        "image": "/guided-reading/pages/gr-b-06/page-005.webp",
         "imageAlt": "A small bug accidentally landing in the dip container.",
         "pageDescription": "A small bug has accidentally landed in the open dip container, surprising the children.",
         "embeddedImageText": "",
@@ -3171,7 +3171,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The picnic is still fun!",
-        "image": "/guided-reading/regen/pages/gr-b-06-page-06.png",
+        "image": "/guided-reading/pages/gr-b-06/page-006.webp",
         "imageAlt": "Tim and Jill laughing and enjoying their picnic on the hill together.",
         "pageDescription": "Tim and Jill laugh together and enjoy their picnic on the grassy hill.",
         "embeddedImageText": "",
@@ -3242,7 +3242,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Bob sees a lost dog.",
-        "image": "/guided-reading/regen/pages/gr-b-07-page-01.png",
+        "image": "/guided-reading/pages/gr-b-07/page-001.webp",
         "imageAlt": "A boy named Bob looking at a sad lost dog sitting alone.",
         "pageDescription": "A boy named Bob looks with concern at a sad lost dog sitting alone on the sidewalk.",
         "embeddedImageText": "",
@@ -3293,7 +3293,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "The dog has no tag.",
-        "image": "/guided-reading/regen/pages/gr-b-07-page-02.png",
+        "image": "/guided-reading/pages/gr-b-07/page-002.webp",
         "imageAlt": "A close-up of the dog's collar showing no name tag on it.",
         "pageDescription": "A close-up shows the dog's collar has no name tag attached to it.",
         "embeddedImageText": "",
@@ -3346,7 +3346,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Bob gets help from Mom.",
-        "image": "/guided-reading/regen/pages/gr-b-07-page-03.png",
+        "image": "/guided-reading/pages/gr-b-07/page-003.webp",
         "imageAlt": "Bob talking to his mom about the lost dog, pointing to it.",
         "pageDescription": "Bob talks to his mom and points to the lost dog, asking for help.",
         "embeddedImageText": "",
@@ -3399,7 +3399,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "They find the dog's home.",
-        "image": "/guided-reading/regen/pages/gr-b-07-page-04.png",
+        "image": "/guided-reading/pages/gr-b-07/page-004.webp",
         "imageAlt": "Bob and Mom walking the dog to a house with a front gate.",
         "pageDescription": "Bob and Mom walk the lost dog to a house with a welcoming front gate.",
         "embeddedImageText": "",
@@ -3450,7 +3450,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "The dog is glad to be home.",
-        "image": "/guided-reading/regen/pages/gr-b-07-page-05.png",
+        "image": "/guided-reading/pages/gr-b-07/page-005.webp",
         "imageAlt": "The happy dog wagging its tail at its front door with its family.",
         "pageDescription": "The happy dog wags its tail at its front door, reunited with its family.",
         "embeddedImageText": "",
@@ -3516,7 +3516,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Good job, Bob!",
-        "image": "/guided-reading/regen/pages/gr-b-07-page-06.png",
+        "image": "/guided-reading/pages/gr-b-07/page-006.webp",
         "imageAlt": "Bob smiling proudly with the dog and its happy family.",
         "pageDescription": "Bob smiles proudly as the dog and its happy family thank him for helping.",
         "embeddedImageText": "",
@@ -3574,7 +3574,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "The kids see a big hill.",
-        "image": "/guided-reading/regen/pages/gr-b-08-page-01.png",
+        "image": "/guided-reading/pages/gr-b-08/page-001.webp",
         "imageAlt": "Children looking up at a large grassy hill in front of them.",
         "pageDescription": "Children look up at a large grassy hill stretching before them, excited.",
         "embeddedImageText": "",
@@ -3631,7 +3631,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Can we get to the top?",
-        "image": "/guided-reading/regen/pages/gr-b-08-page-02.png",
+        "image": "/guided-reading/pages/gr-b-08/page-002.webp",
         "imageAlt": "Children looking up the hill wondering if they can climb it.",
         "pageDescription": "Children look up the steep hill, wondering if they can make it to the top.",
         "embeddedImageText": "",
@@ -3689,7 +3689,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We run and run.",
-        "image": "/guided-reading/regen/pages/gr-b-08-page-03.png",
+        "image": "/guided-reading/pages/gr-b-08/page-003.webp",
         "imageAlt": "Children running up the hill with determination.",
         "pageDescription": "Children run up the grassy hill with determination and energy.",
         "embeddedImageText": "",
@@ -3735,7 +3735,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We fall and slip.",
-        "image": "/guided-reading/regen/pages/gr-b-08-page-04.png",
+        "image": "/guided-reading/pages/gr-b-08/page-004.webp",
         "imageAlt": "Children slipping and falling a little on the grassy slope.",
         "pageDescription": "Children slip and tumble a little on the grassy slope but laugh it off.",
         "embeddedImageText": "",
@@ -3781,7 +3781,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We do not stop!",
-        "image": "/guided-reading/regen/pages/gr-b-08-page-05.png",
+        "image": "/guided-reading/pages/gr-b-08/page-005.webp",
         "imageAlt": "Children climbing persistently up the hill together.",
         "pageDescription": "Children climb persistently up the hill together, not giving up.",
         "embeddedImageText": "",
@@ -3827,7 +3827,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "We get to the top!",
-        "image": "/guided-reading/regen/pages/gr-b-08-page-06.png",
+        "image": "/guided-reading/pages/gr-b-08/page-006.webp",
         "imageAlt": "Children cheering at the top of the hill with arms raised.",
         "pageDescription": "Children cheer with arms raised high at the top of the hill, triumphant.",
         "embeddedImageText": "",
@@ -3897,7 +3897,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "It is a rainy day.",
-        "image": "/guided-reading/regen/pages/gr-b-09-page-01.png",
+        "image": "/guided-reading/pages/gr-b-09/page-001.webp",
         "imageAlt": "Rain falling outside a window on a gray cloudy day.",
         "pageDescription": "Rain falls steadily outside a window on a gray cloudy day.",
         "embeddedImageText": "",
@@ -3948,7 +3948,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "We can not go out.",
-        "image": "/guided-reading/regen/pages/gr-b-09-page-02.png",
+        "image": "/guided-reading/pages/gr-b-09/page-002.webp",
         "imageAlt": "Children looking sadly out the window at the rain.",
         "pageDescription": "Children look sadly out the window at the pouring rain outside.",
         "embeddedImageText": "",
@@ -4000,7 +4000,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We make a big fort.",
-        "image": "/guided-reading/regen/pages/gr-b-09-page-03.png",
+        "image": "/guided-reading/pages/gr-b-09/page-003.webp",
         "imageAlt": "Children building a blanket fort in the living room.",
         "pageDescription": "Children build a big blanket fort in the living room with chairs and sheets.",
         "embeddedImageText": "",
@@ -4052,7 +4052,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We play games in the fort.",
-        "image": "/guided-reading/regen/pages/gr-b-09-page-04.png",
+        "image": "/guided-reading/pages/gr-b-09/page-004.webp",
         "imageAlt": "Children playing games inside their cozy blanket fort.",
         "pageDescription": "Children play games inside their cozy blanket fort, smiling and laughing.",
         "embeddedImageText": "",
@@ -4110,7 +4110,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We have snacks in the fort.",
-        "image": "/guided-reading/regen/pages/gr-b-09-page-05.png",
+        "image": "/guided-reading/pages/gr-b-09/page-005.webp",
         "imageAlt": "Children eating snacks inside their cozy blanket fort.",
         "pageDescription": "Children eat yummy snacks inside their cozy blanket fort together.",
         "embeddedImageText": "",
@@ -4168,7 +4168,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Rainy days are fun!",
-        "image": "/guided-reading/regen/pages/gr-b-09-page-06.png",
+        "image": "/guided-reading/pages/gr-b-09/page-006.webp",
         "imageAlt": "Children smiling in their fort while rain falls outside the window.",
         "pageDescription": "Children smile happily in their fort while rain falls gently outside the window.",
         "embeddedImageText": "",
@@ -5789,7 +5789,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Dad and the kids pack for camp.",
-        "image": "/guided-reading/regen/pages/gr-c-11-page-01.png",
+        "image": "/guided-reading/pages/gr-c-11/page-001.webp",
         "imageAlt": "A father and children packing camping gear into a backpack.",
         "pageDescription": "A father and his children pack camping gear into a large backpack together.",
         "embeddedImageText": "",
@@ -5853,7 +5853,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "They set up the tent.",
-        "image": "/guided-reading/regen/pages/gr-c-11-page-02.png",
+        "image": "/guided-reading/pages/gr-c-11/page-002.webp",
         "imageAlt": "A family working together to set up a camping tent.",
         "pageDescription": "The family works together to set up a camping tent in a forest clearing.",
         "embeddedImageText": "",
@@ -5905,7 +5905,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "They make a fire to cook.",
-        "image": "/guided-reading/regen/pages/gr-c-11-page-03.png",
+        "image": "/guided-reading/pages/gr-c-11/page-003.webp",
         "imageAlt": "A campfire burning with a pot cooking over the flames.",
         "pageDescription": "A warm campfire burns brightly with a pot cooking food over the flames.",
         "embeddedImageText": "",
@@ -5963,7 +5963,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "They tell fun tales at night.",
-        "image": "/guided-reading/regen/pages/gr-c-11-page-04.png",
+        "image": "/guided-reading/pages/gr-c-11/page-004.webp",
         "imageAlt": "A family sitting around a campfire telling stories at night.",
         "pageDescription": "The family sits around a glowing campfire telling fun stories at night.",
         "embeddedImageText": "",
@@ -6022,7 +6022,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "They sleep in the tent.",
-        "image": "/guided-reading/regen/pages/gr-c-11-page-05.png",
+        "image": "/guided-reading/pages/gr-c-11/page-005.webp",
         "imageAlt": "Children sleeping in sleeping bags inside a tent.",
         "pageDescription": "Children sleep cozy in sleeping bags inside the camping tent at night.",
         "embeddedImageText": "",
@@ -6074,7 +6074,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Camping is the best!",
-        "image": "/guided-reading/regen/pages/gr-c-11-page-06.png",
+        "image": "/guided-reading/pages/gr-c-11/page-006.webp",
         "imageAlt": "A happy family at their campsite with mountains in the background.",
         "pageDescription": "A happy family smiles at their campsite with beautiful mountains in the background.",
         "embeddedImageText": "",
@@ -6138,7 +6138,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "We get a new puppy today.",
-        "image": "/guided-reading/regen/pages/gr-c-12-page-01.png",
+        "image": "/guided-reading/pages/gr-c-12/page-001.webp",
         "imageAlt": "A family bringing home a small fluffy puppy.",
         "pageDescription": "A happy family brings home a small fluffy puppy in their arms.",
         "embeddedImageText": "",
@@ -6195,7 +6195,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "The puppy has soft fur.",
-        "image": "/guided-reading/regen/pages/gr-c-12-page-02.png",
+        "image": "/guided-reading/pages/gr-c-12/page-002.webp",
         "imageAlt": "A child gently petting the soft fluffy fur of a small puppy.",
         "pageDescription": "A child gently pets the soft fluffy fur of the small new puppy.",
         "embeddedImageText": "",
@@ -6248,7 +6248,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We give the puppy a bath.",
-        "image": "/guided-reading/regen/pages/gr-c-12-page-03.png",
+        "image": "/guided-reading/pages/gr-c-12/page-003.webp",
         "imageAlt": "A small puppy being gently washed in a tub of warm water.",
         "pageDescription": "The small puppy is gently washed in a tub of warm soapy water.",
         "embeddedImageText": "",
@@ -6305,7 +6305,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "The puppy runs in the yard.",
-        "image": "/guided-reading/regen/pages/gr-c-12-page-04.png",
+        "image": "/guided-reading/pages/gr-c-12/page-004.webp",
         "imageAlt": "A happy puppy running and playing in a grassy backyard.",
         "pageDescription": "A happy puppy runs and plays in a sunny grassy backyard.",
         "embeddedImageText": "",
@@ -6363,7 +6363,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "The puppy sleeps in its bed.",
-        "image": "/guided-reading/regen/pages/gr-c-12-page-05.png",
+        "image": "/guided-reading/pages/gr-c-12/page-005.webp",
         "imageAlt": "A small puppy curled up sleeping in a cozy dog bed.",
         "pageDescription": "The small puppy is curled up sleeping in a cozy soft dog bed.",
         "embeddedImageText": "",
@@ -6422,7 +6422,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "We love our new puppy!",
-        "image": "/guided-reading/regen/pages/gr-c-12-page-06.png",
+        "image": "/guided-reading/pages/gr-c-12/page-006.webp",
         "imageAlt": "The whole family hugging and playing with the happy puppy.",
         "pageDescription": "The whole family hugs and plays with the happy puppy in the living room.",
         "embeddedImageText": "",
@@ -6493,7 +6493,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Jake has a red kite.",
-        "image": "/guided-reading/regen/pages/gr-c-13-page-01.png",
+        "image": "/guided-reading/pages/gr-c-13/page-001.webp",
         "imageAlt": "A boy named Jake holding a bright red kite with a long tail.",
         "pageDescription": "A boy named Jake holds a bright red kite with a long flowing tail.",
         "embeddedImageText": "",
@@ -6546,7 +6546,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "The wind starts to blow.",
-        "image": "/guided-reading/regen/pages/gr-c-13-page-02.png",
+        "image": "/guided-reading/pages/gr-c-13/page-002.webp",
         "imageAlt": "Tree branches bending in the wind under a breezy sky.",
         "pageDescription": "Tree branches bend as the wind starts to blow under a breezy sky.",
         "embeddedImageText": "",
@@ -6598,7 +6598,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Jake runs with the kite.",
-        "image": "/guided-reading/regen/pages/gr-c-13-page-03.png",
+        "image": "/guided-reading/pages/gr-c-13/page-003.webp",
         "imageAlt": "Jake running across a field holding the kite string as it lifts.",
         "pageDescription": "Jake runs across a grassy field holding the kite string as the kite lifts up.",
         "embeddedImageText": "",
@@ -6650,7 +6650,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "The kite goes up high!",
-        "image": "/guided-reading/regen/pages/gr-c-13-page-04.png",
+        "image": "/guided-reading/pages/gr-c-13/page-004.webp",
         "imageAlt": "A red kite flying high up in the blue sky with clouds.",
         "pageDescription": "The red kite soars high up in the blue sky among white clouds.",
         "embeddedImageText": "",
@@ -6702,7 +6702,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Oh no, the string breaks!",
-        "image": "/guided-reading/regen/pages/gr-c-13-page-05.png",
+        "image": "/guided-reading/pages/gr-c-13/page-005.webp",
         "imageAlt": "The kite string breaking as the kite drifts away in the wind.",
         "pageDescription": "The kite string breaks and the kite begins to drift away in the wind.",
         "embeddedImageText": "",
@@ -6754,7 +6754,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The kite lands in a tree.",
-        "image": "/guided-reading/regen/pages/gr-c-13-page-06.png",
+        "image": "/guided-reading/pages/gr-c-13/page-006.webp",
         "imageAlt": "A red kite caught in the branches of a tall tree.",
         "pageDescription": "The red kite lands and gets caught in the branches of a tall leafy tree.",
         "embeddedImageText": "",
@@ -6830,7 +6830,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Mom and I go to the store.",
-        "image": "/guided-reading/regen/pages/gr-c-14-page-01.png",
+        "image": "/guided-reading/pages/gr-c-14/page-001.webp",
         "imageAlt": "A child and mom walking into a grocery store together.",
         "pageDescription": "A child and mom walk together into a bright grocery store.",
         "embeddedImageText": "",
@@ -6895,7 +6895,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "I get a cart to shop.",
-        "image": "/guided-reading/regen/pages/gr-c-14-page-02.png",
+        "image": "/guided-reading/pages/gr-c-14/page-002.webp",
         "imageAlt": "A child pushing a small shopping cart in the store.",
         "pageDescription": "A child pushes a small shopping cart through the store aisles.",
         "embeddedImageText": "",
@@ -6953,7 +6953,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We get milk and eggs.",
-        "image": "/guided-reading/regen/pages/gr-c-14-page-03.png",
+        "image": "/guided-reading/pages/gr-c-14/page-003.webp",
         "imageAlt": "Milk carton and eggs being placed in the shopping cart.",
         "pageDescription": "A milk carton and a carton of eggs are placed in the shopping cart.",
         "embeddedImageText": "",
@@ -7005,7 +7005,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We get bread and fruit.",
-        "image": "/guided-reading/regen/pages/gr-c-14-page-04.png",
+        "image": "/guided-reading/pages/gr-c-14/page-004.webp",
         "imageAlt": "Bread and fruit being placed in the shopping cart.",
         "pageDescription": "A loaf of bread and fresh fruit are placed in the shopping cart.",
         "embeddedImageText": "",
@@ -7057,7 +7057,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We pay at the desk.",
-        "image": "/guided-reading/regen/pages/gr-c-14-page-05.png",
+        "image": "/guided-reading/pages/gr-c-14/page-005.webp",
         "imageAlt": "Mom and child at the checkout counter paying for groceries.",
         "pageDescription": "Mom and the child stand at the checkout counter paying for groceries.",
         "embeddedImageText": "",
@@ -7109,7 +7109,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "We go home with our food!",
-        "image": "/guided-reading/regen/pages/gr-c-14-page-06.png",
+        "image": "/guided-reading/pages/gr-c-14/page-006.webp",
         "imageAlt": "Mom and child walking home carrying bags of groceries.",
         "pageDescription": "Mom and the child walk home together carrying bags of fresh groceries.",
         "embeddedImageText": "",
@@ -7188,7 +7188,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "We go to a farm.",
-        "image": "/guided-reading/regen/pages/gr-c-15-page-01.png",
+        "image": "/guided-reading/pages/gr-c-15/page-001.webp",
         "imageAlt": "A family arriving at a farm with a red barn and animals.",
         "pageDescription": "A family arrives at a farm with a big red barn and animals in the field.",
         "embeddedImageText": "",
@@ -7240,7 +7240,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "We see cows in the barn.",
-        "image": "/guided-reading/regen/pages/gr-c-15-page-02.png",
+        "image": "/guided-reading/pages/gr-c-15/page-002.webp",
         "imageAlt": "Cows standing in a barn eating hay.",
         "pageDescription": "Cows stand in a barn eating hay from a wooden trough.",
         "embeddedImageText": "",
@@ -7298,7 +7298,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We see hens on the farm.",
-        "image": "/guided-reading/regen/pages/gr-c-15-page-03.png",
+        "image": "/guided-reading/pages/gr-c-15/page-003.webp",
         "imageAlt": "Hens pecking at grain in a farmyard.",
         "pageDescription": "Hens peck at grain scattered on the ground in a sunny farmyard.",
         "embeddedImageText": "",
@@ -7356,7 +7356,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We see pigs in the mud.",
-        "image": "/guided-reading/regen/pages/gr-c-15-page-04.png",
+        "image": "/guided-reading/pages/gr-c-15/page-004.webp",
         "imageAlt": "Pigs rolling happily in a mud puddle.",
         "pageDescription": "Pigs roll happily in a big mud puddle, splashing around.",
         "embeddedImageText": "",
@@ -7414,7 +7414,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We feed the goats.",
-        "image": "/guided-reading/regen/pages/gr-c-15-page-05.png",
+        "image": "/guided-reading/pages/gr-c-15/page-005.webp",
         "imageAlt": "A child feeding a goat some green grass.",
         "pageDescription": "A child feeds green grass to a friendly goat at the farm.",
         "embeddedImageText": "",
@@ -7459,7 +7459,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The farm is a fun place!",
-        "image": "/guided-reading/regen/pages/gr-c-15-page-06.png",
+        "image": "/guided-reading/pages/gr-c-15/page-006.webp",
         "imageAlt": "A happy family waving goodbye to farm animals.",
         "pageDescription": "A happy family waves goodbye to the farm animals as they leave the farm.",
         "embeddedImageText": "",
@@ -7536,7 +7536,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Bugs have six legs.",
-        "image": "/guided-reading/regen/pages/gr-c-36-page-01.png",
+        "image": "/guided-reading/pages/gr-c-36/page-001.webp",
         "imageAlt": "A close-up of an insect showing its six legs clearly.",
         "pageDescription": "A close-up view shows an insect with six legs on a green leaf.",
         "embeddedImageText": "",
@@ -7583,7 +7583,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Some bugs can fly.",
-        "image": "/guided-reading/regen/pages/gr-c-36-page-02.png",
+        "image": "/guided-reading/pages/gr-c-36/page-002.webp",
         "imageAlt": "A butterfly flying with its wings spread wide.",
         "pageDescription": "A beautiful butterfly flies with its colorful wings spread wide open.",
         "embeddedImageText": "",
@@ -7629,7 +7629,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Some bugs can crawl.",
-        "image": "/guided-reading/regen/pages/gr-c-36-page-03.png",
+        "image": "/guided-reading/pages/gr-c-36/page-003.webp",
         "imageAlt": "An ant crawling on the ground carrying a crumb.",
         "pageDescription": "A small ant crawls on the ground carrying a tiny crumb of food.",
         "embeddedImageText": "",
@@ -7675,7 +7675,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Bugs have feelers.",
-        "image": "/guided-reading/regen/pages/gr-c-36-page-04.png",
+        "image": "/guided-reading/pages/gr-c-36/page-004.webp",
         "imageAlt": "A close-up of an insect showing its antennae feelers.",
         "pageDescription": "A close-up shows an insect's long thin antennae feelers on its head.",
         "embeddedImageText": "",
@@ -7715,7 +7715,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Bugs come in many hues.",
-        "image": "/guided-reading/regen/pages/gr-c-36-page-05.png",
+        "image": "/guided-reading/pages/gr-c-36/page-005.webp",
         "imageAlt": "A variety of colorful insects in different colors.",
         "pageDescription": "A variety of colorful insects shows different hues: red, green, blue, and yellow.",
         "embeddedImageText": "",
@@ -7769,7 +7769,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Look for bugs outside!",
-        "image": "/guided-reading/regen/pages/gr-c-36-page-06.png",
+        "image": "/guided-reading/pages/gr-c-36/page-006.webp",
         "imageAlt": "A child looking under a leaf to find bugs in nature.",
         "pageDescription": "A curious child looks under a big green leaf to find bugs in nature.",
         "embeddedImageText": "",
@@ -8813,7 +8813,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Our class will do a play today.",
-        "image": "/guided-reading/regen/pages/gr-d-16-page-01.png",
+        "image": "/guided-reading/pages/gr-d-16/page-001.webp",
         "imageAlt": "Children on a school stage with simple costumes and props.",
         "pageDescription": "Children stand on a school stage wearing simple costumes with colorful props around them.",
         "embeddedImageText": "",
@@ -8877,7 +8877,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "I am the brave knight.",
-        "image": "/guided-reading/regen/pages/gr-d-16-page-02.png",
+        "image": "/guided-reading/pages/gr-d-16/page-002.webp",
         "imageAlt": "A child wearing a knight costume with a cape and crown.",
         "pageDescription": "A child wears a brave knight costume with a flowing cape and a shiny crown.",
         "embeddedImageText": "",
@@ -8928,7 +8928,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "My friend is the king.",
-        "image": "/guided-reading/regen/pages/gr-d-16-page-03.png",
+        "image": "/guided-reading/pages/gr-d-16/page-003.webp",
         "imageAlt": "A child wearing a king costume with a robe and crown sitting on a throne.",
         "pageDescription": "A child wears a king costume with a royal robe and crown sitting on a throne prop.",
         "embeddedImageText": "",
@@ -8981,7 +8981,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "I forget my line and stop.",
-        "image": "/guided-reading/regen/pages/gr-d-16-page-04.png",
+        "image": "/guided-reading/pages/gr-d-16/page-004.webp",
         "imageAlt": "A child on stage looking nervous and forgetting what to say.",
         "pageDescription": "The child on stage looks nervous and has forgotten their line, standing still.",
         "embeddedImageText": "",
@@ -9040,7 +9040,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "My friend whispers, 'Be brave!'",
-        "image": "/guided-reading/regen/pages/gr-d-16-page-05.png",
+        "image": "/guided-reading/pages/gr-d-16/page-005.webp",
         "imageAlt": "The king character whispering encouragement to the knight on stage.",
         "pageDescription": "The king character leans in to whisper encouragement to the nervous knight on stage.",
         "embeddedImageText": "",
@@ -9092,7 +9092,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The play is a big hit!",
-        "image": "/guided-reading/regen/pages/gr-d-16-page-06.png",
+        "image": "/guided-reading/pages/gr-d-16/page-006.webp",
         "imageAlt": "All the children on stage bowing while the audience claps.",
         "pageDescription": "All the children on stage bow while the audience claps enthusiastically.",
         "embeddedImageText": "",
@@ -9169,7 +9169,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Max and I see a big tree.",
-        "image": "/guided-reading/regen/pages/gr-d-17-page-01.png",
+        "image": "/guided-reading/pages/gr-d-17/page-001.webp",
         "imageAlt": "Two children looking up at a large tree with spreading branches.",
         "pageDescription": "Two children, Max and a friend, look up at a large tree with wide spreading branches.",
         "embeddedImageText": "",
@@ -9234,7 +9234,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "We will build a tree house.",
-        "image": "/guided-reading/regen/pages/gr-d-17-page-02.png",
+        "image": "/guided-reading/pages/gr-d-17/page-002.webp",
         "imageAlt": "Children gathering wooden planks and nails to build a tree house.",
         "pageDescription": "Children gather wooden planks and nails to build a tree house in the big tree.",
         "embeddedImageText": "",
@@ -9291,7 +9291,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We nail the wood to the tree.",
-        "image": "/guided-reading/regen/pages/gr-d-17-page-03.png",
+        "image": "/guided-reading/pages/gr-d-17/page-003.webp",
         "imageAlt": "Children hammering nails into wooden planks on the tree.",
         "pageDescription": "Children use a hammer to nail wooden planks to the strong tree trunk.",
         "embeddedImageText": "",
@@ -9354,7 +9354,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We add a roof and a floor.",
-        "image": "/guided-reading/regen/pages/gr-d-17-page-04.png",
+        "image": "/guided-reading/pages/gr-d-17/page-004.webp",
         "imageAlt": "A tree house with a roof and floor taking shape in the tree.",
         "pageDescription": "The tree house takes shape with a wooden roof and floor in the big tree.",
         "embeddedImageText": "",
@@ -9417,7 +9417,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We paint the tree house red.",
-        "image": "/guided-reading/regen/pages/gr-d-17-page-05.png",
+        "image": "/guided-reading/pages/gr-d-17/page-005.webp",
         "imageAlt": "Children painting their tree house bright red with paint brushes.",
         "pageDescription": "Children paint the tree house bright red using paint brushes and a paint can.",
         "embeddedImageText": "",
@@ -9474,7 +9474,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Our tree house is the best!",
-        "image": "/guided-reading/regen/pages/gr-d-17-page-06.png",
+        "image": "/guided-reading/pages/gr-d-17/page-006.webp",
         "imageAlt": "Two children sitting proudly in their finished red tree house.",
         "pageDescription": "Two children sit proudly in their finished red tree house, smiling and happy.",
         "embeddedImageText": "",
@@ -9551,7 +9551,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Ben has a toy truck.",
-        "image": "/guided-reading/regen/pages/gr-d-18-page-01.png",
+        "image": "/guided-reading/pages/gr-d-18/page-001.webp",
         "imageAlt": "A boy named Ben playing with a red toy truck on the floor.",
         "pageDescription": "A boy named Ben plays happily with a red toy truck on the floor.",
         "embeddedImageText": "",
@@ -9603,7 +9603,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "The wheel pops off the truck.",
-        "image": "/guided-reading/regen/pages/gr-d-18-page-02.png",
+        "image": "/guided-reading/pages/gr-d-18/page-002.webp",
         "imageAlt": "A toy truck with one wheel broken off and lying nearby.",
         "pageDescription": "The red toy truck has one wheel broken off, lying on the floor nearby.",
         "embeddedImageText": "",
@@ -9661,7 +9661,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Ben is sad and upset.",
-        "image": "/guided-reading/regen/pages/gr-d-18-page-03.png",
+        "image": "/guided-reading/pages/gr-d-18/page-003.webp",
         "imageAlt": "Ben looking sad with the broken truck and wheel in his hands.",
         "pageDescription": "Ben looks sad and upset holding the broken truck and the loose wheel.",
         "embeddedImageText": "",
@@ -9714,7 +9714,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Dad says, 'We can fix it.'",
-        "image": "/guided-reading/regen/pages/gr-d-18-page-04.png",
+        "image": "/guided-reading/pages/gr-d-18/page-004.webp",
         "imageAlt": "Dad smiling and holding the broken truck, ready to help fix it.",
         "pageDescription": "Dad smiles and holds the broken truck, showing Ben they can fix it together.",
         "embeddedImageText": "",
@@ -9773,7 +9773,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "They use glue to fix the wheel.",
-        "image": "/guided-reading/regen/pages/gr-d-18-page-05.png",
+        "image": "/guided-reading/pages/gr-d-18/page-005.webp",
         "imageAlt": "Ben and Dad carefully gluing the wheel back onto the truck.",
         "pageDescription": "Ben and Dad carefully use glue to attach the wheel back onto the truck.",
         "embeddedImageText": "",
@@ -9837,7 +9837,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The truck is fixed, and Ben smiles!",
-        "image": "/guided-reading/regen/pages/gr-d-18-page-06.png",
+        "image": "/guided-reading/pages/gr-d-18/page-006.webp",
         "imageAlt": "Ben happily playing with the fixed toy truck, smiling broadly.",
         "pageDescription": "Ben plays happily with the fixed toy truck, smiling broadly with joy.",
         "embeddedImageText": "",
@@ -9920,7 +9920,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "The kids line up to race.",
-        "image": "/guided-reading/regen/pages/gr-d-19-page-01.png",
+        "image": "/guided-reading/pages/gr-d-19/page-001.webp",
         "imageAlt": "Children lined up at a starting line ready to run a race.",
         "pageDescription": "Children line up at a starting line on a grassy field, ready to race.",
         "embeddedImageText": "",
@@ -9979,7 +9979,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "On your mark, get set, go!",
-        "image": "/guided-reading/regen/pages/gr-d-19-page-02.png",
+        "image": "/guided-reading/pages/gr-d-19/page-002.webp",
         "imageAlt": "Children exploding off the starting line running fast.",
         "pageDescription": "Children explode off the starting line and run as fast as they can.",
         "embeddedImageText": "",
@@ -10039,7 +10039,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Sam is in the lead.",
-        "image": "/guided-reading/regen/pages/gr-d-19-page-03.png",
+        "image": "/guided-reading/pages/gr-d-19/page-003.webp",
         "imageAlt": "Sam running ahead of all the other children in the race.",
         "pageDescription": "Sam runs ahead of all the other children, leading the race.",
         "embeddedImageText": "",
@@ -10092,7 +10092,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Then Sam trips and falls!",
-        "image": "/guided-reading/regen/pages/gr-d-19-page-04.png",
+        "image": "/guided-reading/pages/gr-d-19/page-004.webp",
         "imageAlt": "Sam tripping over a stone and falling during the race.",
         "pageDescription": "Sam trips over a small stone and falls down on the grass during the race.",
         "embeddedImageText": "",
@@ -10145,7 +10145,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "A friend helps Sam get up.",
-        "image": "/guided-reading/regen/pages/gr-d-19-page-05.png",
+        "image": "/guided-reading/pages/gr-d-19/page-005.webp",
         "imageAlt": "Another child helping Sam stand up after falling.",
         "pageDescription": "Another child stops to help Sam stand up after the fall, showing kindness.",
         "embeddedImageText": "",
@@ -10204,7 +10204,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "They cross the line together.",
-        "image": "/guided-reading/regen/pages/gr-d-19-page-06.png",
+        "image": "/guided-reading/pages/gr-d-19/page-006.webp",
         "imageAlt": "Sam and his friend crossing the finish line together, holding hands.",
         "pageDescription": "Sam and his friend cross the finish line together holding hands as a team.",
         "embeddedImageText": "",
@@ -10273,7 +10273,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "A car drives on the road.",
-        "image": "/guided-reading/regen/pages/gr-d-41-page-01.png",
+        "image": "/guided-reading/pages/gr-d-41/page-001.webp",
         "imageAlt": "A car driving along a paved road.",
         "pageDescription": "A car drives smoothly along a wide paved road.",
         "embeddedImageText": "",
@@ -10331,7 +10331,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "A train runs on the track.",
-        "image": "/guided-reading/regen/pages/gr-d-41-page-02.png",
+        "image": "/guided-reading/pages/gr-d-41/page-002.webp",
         "imageAlt": "A train moving along metal train tracks.",
         "pageDescription": "A train moves fast along metal train tracks through the countryside.",
         "embeddedImageText": "",
@@ -10389,7 +10389,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "A boat floats on the water.",
-        "image": "/guided-reading/regen/pages/gr-d-41-page-03.png",
+        "image": "/guided-reading/pages/gr-d-41/page-003.webp",
         "imageAlt": "A boat floating on calm blue water.",
         "pageDescription": "A boat floats gently on calm blue water on a sunny day.",
         "embeddedImageText": "",
@@ -10447,7 +10447,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "A plane flies in the sky.",
-        "image": "/guided-reading/regen/pages/gr-d-41-page-04.png",
+        "image": "/guided-reading/pages/gr-d-41/page-004.webp",
         "imageAlt": "An airplane flying high in the blue sky with clouds.",
         "pageDescription": "An airplane flies high in the blue sky among white fluffy clouds.",
         "embeddedImageText": "",
@@ -10505,7 +10505,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "A bike has two wheels.",
-        "image": "/guided-reading/regen/pages/gr-d-41-page-05.png",
+        "image": "/guided-reading/pages/gr-d-41/page-005.webp",
         "imageAlt": "A bicycle with two wheels parked on a path.",
         "pageDescription": "A bicycle with two wheels stands parked on a green park path.",
         "embeddedImageText": "",
@@ -10558,7 +10558,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "How will you travel today?",
-        "image": "/guided-reading/regen/pages/gr-d-41-page-06.png",
+        "image": "/guided-reading/pages/gr-d-41/page-006.webp",
         "imageAlt": "A child choosing between different transportation modes.",
         "pageDescription": "A child stands happily choosing between different ways to travel today.",
         "embeddedImageText": "",
@@ -11954,7 +11954,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Our school has a talent show.",
-        "image": "/guided-reading/regen/pages/gr-e-21-page-01.png",
+        "image": "/guided-reading/pages/gr-e-21/page-001.webp",
         "imageAlt": "A school auditorium stage decorated for a talent show.",
         "pageDescription": "A school auditorium stage is decorated with colorful banners for a talent show.",
         "embeddedImageText": "",
@@ -12012,7 +12012,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "Amy will dance on stage.",
-        "image": "/guided-reading/regen/pages/gr-e-21-page-02.png",
+        "image": "/guided-reading/pages/gr-e-21/page-002.webp",
         "imageAlt": "A girl named Amy practicing dance moves in a costume.",
         "pageDescription": "A girl named Amy practices her dance moves wearing a sparkly costume.",
         "embeddedImageText": "",
@@ -12065,7 +12065,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "Mark will play the drums.",
-        "image": "/guided-reading/regen/pages/gr-e-21-page-03.png",
+        "image": "/guided-reading/pages/gr-e-21/page-003.webp",
         "imageAlt": "A boy named Mark playing a drum set with drumsticks.",
         "pageDescription": "A boy named Mark plays a drum set energetically with wooden drumsticks.",
         "embeddedImageText": "",
@@ -12117,7 +12117,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "I will sing a song.",
-        "image": "/guided-reading/regen/pages/gr-e-21-page-04.png",
+        "image": "/guided-reading/pages/gr-e-21/page-004.webp",
         "imageAlt": "A child standing at a microphone ready to sing.",
         "pageDescription": "A child stands at a microphone on stage, ready to sing a song.",
         "embeddedImageText": "",
@@ -12169,7 +12169,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "I am scared, but I try.",
-        "image": "/guided-reading/regen/pages/gr-e-21-page-05.png",
+        "image": "/guided-reading/pages/gr-e-21/page-005.webp",
         "imageAlt": "A nervous child taking a deep breath before performing.",
         "pageDescription": "A nervous child takes a deep breath before stepping on stage to perform.",
         "embeddedImageText": "",
@@ -12226,7 +12226,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "The crowd cheers for all of us!",
-        "image": "/guided-reading/regen/pages/gr-e-21-page-06.png",
+        "image": "/guided-reading/pages/gr-e-21/page-006.webp",
         "imageAlt": "All the children on stage taking a bow while audience cheers.",
         "pageDescription": "All the children performers take a bow on stage while the audience cheers loudly.",
         "embeddedImageText": "",
@@ -12311,7 +12311,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "Grandma shows me her garden.",
-        "image": "/guided-reading/regen/pages/gr-e-22-page-01.png",
+        "image": "/guided-reading/pages/gr-e-22/page-001.webp",
         "imageAlt": "Grandma and a child walking through a beautiful flower garden.",
         "pageDescription": "Grandma and a child walk together through a beautiful colorful flower garden.",
         "embeddedImageText": "",
@@ -12364,7 +12364,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "We plant seeds in the dirt.",
-        "image": "/guided-reading/regen/pages/gr-e-22-page-02.png",
+        "image": "/guided-reading/pages/gr-e-22/page-002.webp",
         "imageAlt": "Grandma and child planting seeds in garden soil.",
         "pageDescription": "Grandma and the child plant small seeds in the brown garden soil.",
         "embeddedImageText": "",
@@ -12422,7 +12422,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We water the plants each day.",
-        "image": "/guided-reading/regen/pages/gr-e-22-page-03.png",
+        "image": "/guided-reading/pages/gr-e-22/page-003.webp",
         "imageAlt": "A child watering garden plants with a watering can.",
         "pageDescription": "A child waters the garden plants every day with a green watering can.",
         "embeddedImageText": "",
@@ -12481,7 +12481,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "The plants grow big and tall.",
-        "image": "/guided-reading/regen/pages/gr-e-22-page-04.png",
+        "image": "/guided-reading/pages/gr-e-22/page-004.webp",
         "imageAlt": "Tall healthy plants growing in a garden with vegetables.",
         "pageDescription": "Tall healthy plants grow big in the garden with ripe vegetables.",
         "embeddedImageText": "",
@@ -12540,7 +12540,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We pick red tomatoes and greens.",
-        "image": "/guided-reading/regen/pages/gr-e-22-page-05.png",
+        "image": "/guided-reading/pages/gr-e-22/page-005.webp",
         "imageAlt": "Grandma and child picking ripe tomatoes and greens from the garden.",
         "pageDescription": "Grandma and the child pick ripe red tomatoes and fresh greens from the garden.",
         "embeddedImageText": "",
@@ -12599,7 +12599,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Grandma's garden is the best!",
-        "image": "/guided-reading/regen/pages/gr-e-22-page-06.png",
+        "image": "/guided-reading/pages/gr-e-22/page-006.webp",
         "imageAlt": "Grandma and child smiling with a basket of fresh garden vegetables.",
         "pageDescription": "Grandma and the child smile proudly holding a basket of fresh garden vegetables.",
         "embeddedImageText": "",
@@ -12668,7 +12668,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "My friend Sue comes to sleep.",
-        "image": "/guided-reading/regen/pages/gr-e-23-page-01.png",
+        "image": "/guided-reading/pages/gr-e-23/page-001.webp",
         "imageAlt": "A friend named Sue arriving at the door with a sleeping bag.",
         "pageDescription": "A friend named Sue arrives at the door carrying a rolled-up sleeping bag.",
         "embeddedImageText": "",
@@ -12727,7 +12727,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "We play games and tell jokes.",
-        "image": "/guided-reading/regen/pages/gr-e-23-page-02.png",
+        "image": "/guided-reading/pages/gr-e-23/page-002.webp",
         "imageAlt": "Two friends playing board games and laughing together.",
         "pageDescription": "Two friends play board games together on the floor and laugh happily.",
         "embeddedImageText": "",
@@ -12785,7 +12785,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "We build a big blanket fort.",
-        "image": "/guided-reading/regen/pages/gr-e-23-page-03.png",
+        "image": "/guided-reading/pages/gr-e-23/page-003.webp",
         "imageAlt": "Two children building a large blanket fort in the living room.",
         "pageDescription": "Two children build a large blanket fort in the living room with chairs and sheets.",
         "embeddedImageText": "",
@@ -12843,7 +12843,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "We eat popcorn and treats.",
-        "image": "/guided-reading/regen/pages/gr-e-23-page-04.png",
+        "image": "/guided-reading/pages/gr-e-23/page-004.webp",
         "imageAlt": "Two friends eating popcorn and snacks inside their blanket fort.",
         "pageDescription": "Two friends eat popcorn and treats inside their cozy blanket fort.",
         "embeddedImageText": "",
@@ -12895,7 +12895,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "Sue feels sick and wants Mom.",
-        "image": "/guided-reading/regen/pages/gr-e-23-page-05.png",
+        "image": "/guided-reading/pages/gr-e-23/page-005.webp",
         "imageAlt": "Sue looking sad and homesick, missing her mom.",
         "pageDescription": "Sue looks sad and homesick, missing her mom at the sleepover.",
         "embeddedImageText": "",
@@ -12954,7 +12954,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "We call Mom, and Sue feels better.",
-        "image": "/guided-reading/regen/pages/gr-e-23-page-06.png",
+        "image": "/guided-reading/pages/gr-e-23/page-006.webp",
         "imageAlt": "Sue talking on the phone to her mom, smiling again.",
         "pageDescription": "Sue talks on the phone to her mom and starts smiling, feeling better.",
         "embeddedImageText": "",
@@ -13037,7 +13037,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "A new family moves next door.",
-        "image": "/guided-reading/regen/pages/gr-e-24-page-01.png",
+        "image": "/guided-reading/pages/gr-e-24/page-001.webp",
         "imageAlt": "A family unloading boxes from a moving truck next to their new house.",
         "pageDescription": "A family unloads boxes from a moving truck parked next to their new house.",
         "embeddedImageText": "",
@@ -13095,7 +13095,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "I see a girl in the yard.",
-        "image": "/guided-reading/regen/pages/gr-e-24-page-02.png",
+        "image": "/guided-reading/pages/gr-e-24/page-002.webp",
         "imageAlt": "A child watching a new girl in the neighboring yard.",
         "pageDescription": "A child watches a new girl standing in the neighboring yard, looking around.",
         "embeddedImageText": "",
@@ -13159,7 +13159,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "I wave and say hello to her.",
-        "image": "/guided-reading/regen/pages/gr-e-24-page-03.png",
+        "image": "/guided-reading/pages/gr-e-24/page-003.webp",
         "imageAlt": "A child waving hello to the new girl across the fence.",
         "pageDescription": "A child waves hello to the new girl from across the wooden fence.",
         "embeddedImageText": "",
@@ -13225,7 +13225,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Her name is Jane.",
-        "image": "/guided-reading/regen/pages/gr-e-24-page-04.png",
+        "image": "/guided-reading/pages/gr-e-24/page-004.webp",
         "imageAlt": "Two children introducing themselves and shaking hands.",
         "pageDescription": "Two children introduce themselves and shake hands over the fence, smiling.",
         "embeddedImageText": "",
@@ -13273,7 +13273,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "We play and share our toys.",
-        "image": "/guided-reading/regen/pages/gr-e-24-page-05.png",
+        "image": "/guided-reading/pages/gr-e-24/page-005.webp",
         "imageAlt": "Two girls playing together with toys in the backyard.",
         "pageDescription": "Two girls play together and share their toys happily in the backyard.",
         "embeddedImageText": "",
@@ -13332,7 +13332,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "Jane is my new best friend!",
-        "image": "/guided-reading/regen/pages/gr-e-24-page-06.png",
+        "image": "/guided-reading/pages/gr-e-24/page-006.webp",
         "imageAlt": "Two girls hugging and smiling as best friends.",
         "pageDescription": "Two girls hug each other and smile, happy to be new best friends.",
         "embeddedImageText": "",
@@ -13411,7 +13411,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 1,
         "text": "I have a loose tooth today.",
-        "image": "/guided-reading/regen/pages/gr-e-25-page-01.png",
+        "image": "/guided-reading/pages/gr-e-25/page-001.webp",
         "imageAlt": "A child wiggling a loose tooth with their finger.",
         "pageDescription": "A child wiggles a loose front tooth with their finger, looking curious.",
         "embeddedImageText": "",
@@ -13469,7 +13469,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 2,
         "text": "I wiggle it with my tongue.",
-        "image": "/guided-reading/regen/pages/gr-e-25-page-02.png",
+        "image": "/guided-reading/pages/gr-e-25/page-002.webp",
         "imageAlt": "A child using their tongue to wiggle the loose tooth.",
         "pageDescription": "A child uses their tongue to wiggle the loose front tooth back and forth.",
         "embeddedImageText": "",
@@ -13529,7 +13529,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 3,
         "text": "I wiggle it with my hand.",
-        "image": "/guided-reading/regen/pages/gr-e-25-page-03.png",
+        "image": "/guided-reading/pages/gr-e-25/page-003.webp",
         "imageAlt": "A child wiggling their loose tooth with clean fingers.",
         "pageDescription": "A child carefully wiggles their loose tooth with clean fingers.",
         "embeddedImageText": "",
@@ -13589,7 +13589,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 4,
         "text": "Pop! The tooth comes right out!",
-        "image": "/guided-reading/regen/pages/gr-e-25-page-04.png",
+        "image": "/guided-reading/pages/gr-e-25/page-004.webp",
         "imageAlt": "The child holding their lost tooth in their hand, looking surprised.",
         "pageDescription": "The child holds the small lost tooth in their hand, looking surprised and happy.",
         "embeddedImageText": "",
@@ -13647,7 +13647,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 5,
         "text": "I put the tooth under my pillow.",
-        "image": "/guided-reading/regen/pages/gr-e-25-page-05.png",
+        "image": "/guided-reading/pages/gr-e-25/page-005.webp",
         "imageAlt": "A child placing their lost tooth under their pillow in bed.",
         "pageDescription": "A child places the lost tooth under their pillow while lying in bed.",
         "embeddedImageText": "",
@@ -13711,7 +13711,7 @@ export const guidedReadingRegenBooks = [
       {
         "pageNumber": 6,
         "text": "I smile to show my gap!",
-        "image": "/guided-reading/regen/pages/gr-e-25-page-06.png",
+        "image": "/guided-reading/pages/gr-e-25/page-006.webp",
         "imageAlt": "A child smiling proudly showing the gap where their tooth was.",
         "pageDescription": "A child smiles proudly showing the new gap where their lost tooth used to be.",
         "embeddedImageText": "",

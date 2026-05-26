@@ -91,7 +91,7 @@ function getImportedDraftCoverImage(bookId) {
 
 function getImportedDraftPageImage(bookId, pageNumber) {
   return importedLevelCImageBookIds.has(bookId)
-    ? `/guided-reading/pages/${bookId}-page-${String(pageNumber).padStart(2, "0")}.webp`
+    ? `/guided-reading/pages/${bookId}/page-${String(pageNumber).padStart(3, "0")}.webp`
     : "";
 }
 
