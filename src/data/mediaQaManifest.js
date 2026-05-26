@@ -1,11 +1,11 @@
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
-import { publicMediaInventory } from "./publicMediaInventory.js";
+import { isMediaDeleted } from "./deletedMediaManifest.js";
 
-export const MEDIA_QA_STATUSES = ["unreviewed", "approved", "rejected", "needs_kimi", "blocked"];
+export const MEDIA_QA_STATUSES = ["unreviewed", "approved", "rejected", "needs_kimi", "blocked", "deleted"];
 
 const STORAGE_KEY = "lpMediaQaOverrides";
 const BAD_IMAGE_WORDS = ["rainbow", "sparkle", "sparkly", "glow", "aura", "multicolor", "psychedelic"];
-const BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_kimi"]);
+const BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_kimi", "deleted"]);
 
 export function normalizeMediaPath(filePath = "") {
   return String(filePath || "").trim();
@@ -51,7 +51,6 @@ function buildInitialSoundMediaQaSeedManifest() {
 }
 
 export const mediaQaSeedManifest = [
-  ...publicMediaInventory,
   ...buildInitialSoundMediaQaSeedManifest()
 ];
 
@@ -108,7 +107,7 @@ function getHeuristicFlags(mediaType, filePath = "") {
   return BAD_IMAGE_WORDS.filter(flag => lower.includes(flag));
 }
 
-export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverrides()) {
+export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverrides(), extraSeedManifest = []) {
   const records = new Map();
 
   for (const question of questions) {
@@ -145,7 +144,7 @@ export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverr
     }
   }
 
-  for (const seed of mediaQaSeedManifest) {
+  for (const seed of [...mediaQaSeedManifest, ...extraSeedManifest]) {
     const existing = records.get(seed.id);
     records.set(seed.id, {
       ...seed,
@@ -185,6 +184,7 @@ export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverr
 }
 
 export function isMediaQaRuntimeAllowed(filePath, mediaType = "image", options = {}) {
+  if (isMediaDeleted(filePath)) return false;
   const id = getMediaQaId(mediaType, filePath);
   const override = readMediaQaOverrides()[id];
   if (override?.status) {

@@ -1,6 +1,14 @@
 import { hasMediaForItem } from "./skillCoverageUtils.js";
 import { managedSkillDefinitions, validateExplicitRhymeItem } from "./skillAssetRegistry.js";
 import { getAnswerOptionLabel } from "../../utils/answerOptions.js";
+import {
+  finalSoundLevelOneAllowedItemKeys,
+  finalSoundLevelOneForbiddenItemKeys
+} from "../../data/coverageExpectations.js";
+import {
+  getFinalSoundsLevel1QuestionIssues,
+  isValidFinalSoundWordForEarlyLevel
+} from "../../data/earlyPhonicsValidation.js";
 
 function correctAnswerTokens(item = {}) {
   const rawTokens = [
@@ -15,21 +23,8 @@ function correctAnswerTokens(item = {}) {
     .filter(Boolean);
 }
 
-const LEVEL_ONE_FINAL_SOUND_BLOCKLIST = new Set([
-  "nd",
-  "sk",
-  "st",
-  "mp",
-  "nk",
-  "ng",
-  "sh",
-  "ch",
-  "th",
-  "ll",
-  "ss",
-  "ff",
-  "ck"
-]);
+const LEVEL_ONE_FINAL_SOUND_ALLOWED = new Set(finalSoundLevelOneAllowedItemKeys);
+const LEVEL_ONE_FINAL_SOUND_BLOCKLIST = new Set(finalSoundLevelOneForbiddenItemKeys);
 
 function promptText(item = {}) {
   return String([
@@ -53,6 +48,7 @@ function finalSoundLevelIssues(item = {}) {
     ""
   ).toLowerCase().trim();
   const finalSoundType = String(item.finalSoundType || item.raw?.finalSoundType || "").toLowerCase().trim();
+  const targetWord = String(item.targetWord || item.raw?.targetWord || item.raw?.audioText || "").toLowerCase().trim();
   const text = promptText(item);
 
   if (/\b(start|starts|starting|first|beginning|initial)\b/.test(text)) {
@@ -62,12 +58,31 @@ function finalSoundLevelIssues(item = {}) {
     issues.push("Final Sounds item is missing an ending/final-sound prompt");
   }
   if (level === 1) {
-    if (finalSound.length !== 1 || LEVEL_ONE_FINAL_SOUND_BLOCKLIST.has(finalSound)) {
-      issues.push(`Level 1 Final Sounds may only use one-letter final sounds, found "${finalSound || "(missing)"}"`);
+    issues.push(...getFinalSoundsLevel1QuestionIssues({
+      ...item.raw,
+      coverageTarget: item.target,
+      targetFinalSound: item.targetFinalSound || item.target,
+      finalSoundType: item.finalSoundType,
+      targetWord,
+      correctAnswer: item.correctAnswer,
+      answerOptions: item.answerOptions
+    }));
+    if (!LEVEL_ONE_FINAL_SOUND_ALLOWED.has(finalSound) || LEVEL_ONE_FINAL_SOUND_BLOCKLIST.has(finalSound)) {
+      issues.push(`Level 1 Final Sounds may only use b, d, g, l, m, n, p, t; found "${finalSound || "(missing)"}"`);
     }
     if (finalSoundType && finalSoundType !== "single_letter") {
       issues.push(`Level 1 Final Sounds finalSoundType must be single_letter, found "${finalSoundType}"`);
     }
+    if (targetWord && !isValidFinalSoundWordForEarlyLevel(targetWord, finalSound)) {
+      issues.push(`Level 1 Final Sounds target word "${targetWord}" is too complex for the simple-final-sound pool`);
+    }
+    const options = Array.isArray(item.answerOptions) ? item.answerOptions.map(getAnswerOptionLabel).filter(Boolean) : [];
+    options.forEach(option => {
+      const normalized = option.toLowerCase().trim();
+      if (/^[a-z]+$/.test(normalized) && normalized.length > 1) {
+        issues.push(`Level 1 Final Sounds answer option "${normalized}" must be a single letter`);
+      }
+    });
   }
 
   return issues;

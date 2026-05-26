@@ -5,7 +5,9 @@ import {
   readMediaQaOverrides,
   updateMediaQaRecords
 } from "../data/mediaQaManifest";
+import { publicMediaInventory } from "../data/publicMediaInventory";
 import { guidedReadingBooks } from "../data/guidedReadingBooks";
+import { addDeletedMediaRecords, isMediaDeleted } from "../data/deletedMediaManifest";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent";
 
@@ -17,7 +19,8 @@ const GUIDED_IMAGE_QA_STATUSES = [
   "match",
   "no_match_remake",
   "whole_book_continuity_remake",
-  "whole_book_reject_story"
+  "whole_book_reject_story",
+  "deleted"
 ];
 
 function downloadTextFile(filename, content, type = "text/plain") {
@@ -117,6 +120,46 @@ function statusLabel(status) {
   return status.replaceAll("_", " ");
 }
 
+function DeleteConfirmationModal({
+  pendingDelete,
+  confirmationText,
+  setConfirmationText,
+  onCancel,
+  onConfirm
+}) {
+  if (!pendingDelete) return null;
+
+  return (
+    <div className="qa-delete-modal-backdrop" role="presentation">
+      <section className="qa-delete-modal" role="dialog" aria-modal="true" aria-labelledby="qa-delete-title">
+        <h3 id="qa-delete-title">Permanently delete this asset?</h3>
+        <p>This cannot be undone from student runtime. This first pass marks it deleted; the local deletion tool moves the file into quarantine by default.</p>
+        <p><strong>{pendingDelete.label}</strong></p>
+        <small>{pendingDelete.path || pendingDelete.bookId}</small>
+        <label>
+          Type DELETE to confirm
+          <input
+            autoFocus
+            onChange={event => setConfirmationText(event.target.value)}
+            value={confirmationText}
+          />
+        </label>
+        <div className="button-row">
+          <button className="report-button" onClick={onCancel} type="button">Cancel</button>
+          <button
+            className="report-button danger"
+            disabled={confirmationText !== "DELETE"}
+            onClick={onConfirm}
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function getKimiRequestReason(record) {
   if (record.rejectionReason) return record.rejectionReason;
   if (record.reviewerNotes) return record.reviewerNotes;
@@ -154,8 +197,29 @@ function resetGuidedImageQaOverrides() {
 }
 
 function buildGuidedImageQaRecords(overrides = readGuidedImageQaOverrides()) {
-  return guidedReadingBooks.flatMap(book =>
-    (book.pages || []).map(page => {
+  return guidedReadingBooks.flatMap(book => {
+    const coverRecord = {
+      id: `${book.id}:cover`,
+      bookId: book.id,
+      title: book.title,
+      level: book.level,
+      type: book.type,
+      reviewMode: Boolean(book.reviewMode),
+      pageNumber: 0,
+      displayPageNumber: "Cover",
+      text: book.title || "",
+      image: book.coverImage || book.cover || "",
+      originalImage: "",
+      imageRemapSourcePage: "",
+      assetType: "guided-reading-cover",
+      qaStatus: book.qaStatus || "",
+      qaNotes: book.qaNotes || "",
+      status: "unreviewed",
+      reviewerNotes: "",
+      reviewedAt: "",
+      ...overrides[`${book.id}:cover`]
+    };
+    const pageRecords = (book.pages || []).map(page => {
       const id = `${book.id}:page-${String(page.pageNumber || 0).padStart(3, "0")}`;
       return {
         id,
@@ -165,10 +229,12 @@ function buildGuidedImageQaRecords(overrides = readGuidedImageQaOverrides()) {
         type: book.type,
         reviewMode: Boolean(book.reviewMode),
         pageNumber: page.pageNumber,
+        displayPageNumber: page.pageNumber,
         text: page.text || "",
         image: page.image || "",
         originalImage: page.originalImage || "",
         imageRemapSourcePage: page.imageRemapSourcePage || "",
+        assetType: "guided-reading-page",
         qaStatus: page.qaStatus || book.qaStatus || "",
         qaNotes: page.qaNotes || book.qaNotes || "",
         status: "unreviewed",
@@ -176,8 +242,9 @@ function buildGuidedImageQaRecords(overrides = readGuidedImageQaOverrides()) {
         reviewedAt: "",
         ...overrides[id]
       };
-    })
-  );
+    });
+    return [coverRecord, ...pageRecords];
+  });
 }
 
 function guidedImageQaToCsv(records) {
@@ -328,8 +395,13 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
   const [skillFilter, setSkillFilter] = useState("all");
   const [search, setSearch] = useState("");
   const [selectedIds, setSelectedIds] = useState([]);
+  const [pendingDelete, setPendingDelete] = useState(null);
+  const [deleteConfirmationText, setDeleteConfirmationText] = useState("");
   const audioPreviewRef = useRef(null);
-  const allRecords = useMemo(() => buildMediaQaRecords(questions, overrides).filter(record => record.mediaType === mediaType), [questions, overrides, mediaType]);
+  const allRecords = useMemo(
+    () => buildMediaQaRecords(questions, overrides, publicMediaInventory).filter(record => record.mediaType === mediaType),
+    [questions, overrides, mediaType]
+  );
   const skillOptions = useMemo(() => [...new Set(allRecords.map(record => record.skillName || record.skillId).filter(Boolean))].sort(), [allRecords]);
   const statusCounts = useMemo(() => allRecords.reduce((counts, record) => {
     counts.all += 1;
@@ -399,6 +471,38 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
     const next = updateMediaQaRecords(ids, { status });
     setOverrides(next);
     setSelectedIds([]);
+  }
+
+  function requestDeleteRecord(record) {
+    setPendingDelete({
+      kind: "assessment-media",
+      record,
+      label: `${record.targetWord || record.filePath} (${mediaType})`,
+      path: record.filePath
+    });
+    setDeleteConfirmationText("");
+  }
+
+  function confirmDeleteRecord() {
+    if (!pendingDelete?.record || deleteConfirmationText !== "DELETE") return;
+    const record = pendingDelete.record;
+    const next = updateMediaQaRecords([record.id], {
+      status: "deleted",
+      reviewerNotes: "Soft-deleted by admin QA. Use tools/deleteQaAsset.js to quarantine the file locally.",
+      replacementNeeded: true
+    });
+    addDeletedMediaRecords([{
+      assetType: mediaType,
+      path: record.filePath,
+      word: record.targetWord || "",
+      skillId: record.skillId || "",
+      reason: "Deleted from media QA admin page.",
+      replacementNeeded: true
+    }]);
+    setOverrides(next);
+    setSelectedIds(ids => ids.filter(id => id !== record.id));
+    setPendingDelete(null);
+    setDeleteConfirmationText("");
   }
 
   function exportRecords(format) {
@@ -476,6 +580,17 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
         </div>
       </section>
 
+      <DeleteConfirmationModal
+        pendingDelete={pendingDelete}
+        confirmationText={deleteConfirmationText}
+        setConfirmationText={setDeleteConfirmationText}
+        onCancel={() => {
+          setPendingDelete(null);
+          setDeleteConfirmationText("");
+        }}
+        onConfirm={confirmDeleteRecord}
+      />
+
       {mediaType === "image" ? (
         <section className="media-qa-grid">
           {visibleRecords.map(record => (
@@ -496,6 +611,7 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
                 <small>{record.filePath}</small>
                 <small>{record.linkedQuestionIds.length} linked questions</small>
                 {record.source === "public_file_inventory" && <small>Public file inventory</small>}
+                {isMediaDeleted(record.filePath) && <small>Deleted/quarantined</small>}
                 {!record.exists && <small>Missing file</small>}
                 {(record.heuristicFlags || []).length > 0 && <small>Flags: {record.heuristicFlags.join(", ")}</small>}
               </div>
@@ -503,6 +619,7 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
                 {MEDIA_QA_STATUSES.filter(status => status !== record.status).map(status => (
                   <button key={status} onClick={() => applyStatus([record.id], status)} type="button">{statusLabel(status)}</button>
                 ))}
+                <button className="report-button danger" onClick={() => requestDeleteRecord(record)} type="button">Delete</button>
               </div>
             </article>
           ))}
@@ -554,6 +671,7 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
                       {MEDIA_QA_STATUSES.filter(status => status !== record.status).map(status => (
                         <button className="report-button" key={status} onClick={() => applyStatus([record.id], status)} type="button">{statusLabel(status)}</button>
                       ))}
+                      <button className="report-button danger" onClick={() => requestDeleteRecord(record)} type="button">Delete</button>
                     </div>
                   </td>
                 </tr>
@@ -572,6 +690,8 @@ function GuidedReadingImageQaPage({ onBack }) {
   const [bookFilter, setBookFilter] = useState("all");
   const [levelFilter, setLevelFilter] = useState("all");
   const [search, setSearch] = useState("");
+  const [pendingDelete, setPendingDelete] = useState(null);
+  const [deleteConfirmationText, setDeleteConfirmationText] = useState("");
   const records = useMemo(() => buildGuidedImageQaRecords(overrides), [overrides]);
   const bookOptions = useMemo(() => [...new Set(records.map(record => record.title))].sort(), [records]);
   const levelOptions = useMemo(() => [...new Set(records.map(record => record.level).filter(Boolean))].sort(), [records]);
@@ -617,6 +737,67 @@ function GuidedReadingImageQaPage({ onBack }) {
       });
     writeGuidedImageQaOverrides(next);
     setOverrides(next);
+  }
+
+  function requestGuidedDelete(record, assetType = "guided-reading-page") {
+    setPendingDelete({
+      kind: assetType,
+      record,
+      bookId: record.bookId,
+      path: record.image,
+      label: assetType === "guided-reading-book"
+        ? `${record.title} (entire book asset set)`
+        : `${record.title} page ${record.pageNumber}`
+    });
+    setDeleteConfirmationText("");
+  }
+
+  function confirmGuidedDelete() {
+    if (!pendingDelete?.record || deleteConfirmationText !== "DELETE") return;
+    const { record, kind } = pendingDelete;
+    const next = { ...overrides };
+    const affectedRecords = kind === "guided-reading-book"
+      ? records.filter(item => item.bookId === record.bookId)
+      : [record];
+
+    affectedRecords.forEach(item => {
+      next[item.id] = {
+        ...(next[item.id] || {}),
+        status: "deleted",
+        reviewerNotes: kind === "guided-reading-book"
+          ? "Whole book soft-deleted by admin QA. Use tools/deleteQaAsset.js to quarantine files locally."
+          : "Page image soft-deleted by admin QA. Use tools/deleteQaAsset.js to quarantine the file locally.",
+        reviewedAt: new Date().toISOString()
+      };
+    });
+    writeGuidedImageQaOverrides(next);
+    addDeletedMediaRecords(kind === "guided-reading-book"
+      ? [{
+        assetType: "guided-reading-book",
+        path: "",
+        bookId: record.bookId,
+        reason: "Whole guided-reading book soft-deleted from admin QA.",
+        replacementNeeded: true
+      }, ...affectedRecords.map(item => ({
+        assetType: item.assetType || "guided-reading-page",
+        path: item.image,
+        bookId: item.bookId,
+        pageNumber: item.pageNumber,
+        reason: "Guided-reading asset deleted as part of whole-book QA delete.",
+        replacementNeeded: true
+      }))]
+      : [{
+        assetType: record.assetType || "guided-reading-page",
+        path: record.image,
+        bookId: record.bookId,
+        pageNumber: record.pageNumber,
+        reason: "Guided-reading asset soft-deleted from admin QA.",
+        replacementNeeded: true
+      }]
+    );
+    setOverrides(next);
+    setPendingDelete(null);
+    setDeleteConfirmationText("");
   }
 
   function updateNotes(recordId, reviewerNotes) {
@@ -679,6 +860,17 @@ function GuidedReadingImageQaPage({ onBack }) {
         </p>
       </section>
 
+      <DeleteConfirmationModal
+        pendingDelete={pendingDelete}
+        confirmationText={deleteConfirmationText}
+        setConfirmationText={setDeleteConfirmationText}
+        onCancel={() => {
+          setPendingDelete(null);
+          setDeleteConfirmationText("");
+        }}
+        onConfirm={confirmGuidedDelete}
+      />
+
       <section className="report-panel page-stack">
         <div className="admin-content-filters">
           <input value={search} onChange={event => setSearch(event.target.value)} placeholder="Search book, page text, or image path" type="search" />
@@ -705,7 +897,7 @@ function GuidedReadingImageQaPage({ onBack }) {
             </div>
             <div className="guided-image-qa-body">
               <div>
-                <p className="panel-label">{record.bookId} · Level {record.level} · Page {record.pageNumber}</p>
+                <p className="panel-label">{record.bookId} · Level {record.level} · Page {record.displayPageNumber || record.pageNumber}</p>
                 <h3>{record.title}</h3>
                 <p className="guided-image-qa-text">{record.text}</p>
               </div>
@@ -732,6 +924,12 @@ function GuidedReadingImageQaPage({ onBack }) {
                 </button>
                 <button className="report-button danger" onClick={() => applyWholeBookStatus(record.bookId, "whole_book_reject_story", "Whole book rejected; add +1 replacement book to next development round.")} type="button">
                   Reject whole book/story
+                </button>
+                <button className="report-button danger" onClick={() => requestGuidedDelete(record, record.assetType || "guided-reading-page")} type="button">
+                  {record.assetType === "guided-reading-cover" ? "Delete cover image" : "Delete page image"}
+                </button>
+                <button className="report-button danger" onClick={() => requestGuidedDelete(record, "guided-reading-book")} type="button">
+                  Delete whole book assets
                 </button>
                 <button className="report-button" onClick={() => applyGuidedStatus(record.id, "unreviewed")} type="button">
                   Undo
