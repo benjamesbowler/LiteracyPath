@@ -70,15 +70,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "tub",
     "choices": [
       "tub",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "tub",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -174,15 +174,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "web",
     "choices": [
       "web",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "web",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -226,15 +226,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "bad",
     "choices": [
       "bad",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "answerOptions": [
       "bad",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -278,15 +278,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "bid",
     "choices": [
       "bid",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "answerOptions": [
       "bid",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -330,15 +330,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "bud",
     "choices": [
       "bud",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "answerOptions": [
       "bud",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -434,15 +434,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "kid",
     "choices": [
       "kid",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "answerOptions": [
       "kid",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -538,15 +538,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "lid",
     "choices": [
       "lid",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "answerOptions": [
       "lid",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -590,15 +590,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "mud",
     "choices": [
       "mud",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "answerOptions": [
       "mud",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -625,59 +625,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mud"
   },
   {
-    "id": "gen_final_l1_d_read_6_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as road?",
-    "question": "Which word ends the same as road?",
-    "spokenPrompt": "Which word ends like road?",
-    "audioText": "",
-    "targetWord": "read",
-    "correctAnswer": "read",
-    "answer": "read",
-    "choices": [
-      "read",
-      "album",
-      "apron",
-      "bag"
-    ],
-    "answerOptions": [
-      "read",
-      "album",
-      "apron",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "d",
-    "targetSound": "d",
-    "targetFinalSound": "d",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "d",
-    "itemKey": "d",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_read"
-  },
-  {
-    "id": "gen_final_l1_d_red_7_sound",
+    "id": "gen_final_l1_d_red_6_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -729,7 +677,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_red"
   },
   {
-    "id": "gen_final_l1_d_red_7_word",
+    "id": "gen_final_l1_d_red_6_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -746,15 +694,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "red",
     "choices": [
       "red",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "answerOptions": [
       "red",
-      "album",
-      "apron",
-      "bag"
+      "bag",
+      "bat",
+      "big"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -850,15 +798,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "bag",
     "choices": [
       "bag",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "bag",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -902,15 +850,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "big",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1006,15 +954,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "bug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1058,15 +1006,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "dig",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1162,15 +1110,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "dog",
     "choices": [
       "dog",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "dog",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1214,15 +1162,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "dug",
     "choices": [
       "dug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "dug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1318,15 +1266,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "egg",
     "choices": [
       "egg",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "egg",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1353,111 +1301,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_egg"
   },
   {
-    "id": "gen_final_l1_g_flag_7_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"flag\" end with?",
-    "question": "Listen to the word. What sound does \"flag\" end with?",
-    "spokenPrompt": "Listen to flag. What sound does it end with?",
-    "audioText": "flag",
-    "targetWord": "flag",
-    "correctAnswer": "g",
-    "answer": "g",
-    "choices": [
-      "g",
-      "b",
-      "d",
-      "l"
-    ],
-    "answerOptions": [
-      "g",
-      "b",
-      "d",
-      "l"
-    ],
-    "imageKey": "flag",
-    "imageUrl": "/media/initial-sounds/images/f/flag.webp",
-    "imagePath": "/media/initial-sounds/images/f/flag.webp",
-    "audioKey": "flag",
-    "audioUrl": "/media/initial-sounds/audio/f/flag.mp3",
-    "audioPath": "/media/initial-sounds/audio/f/flag.mp3",
-    "phonicsPattern": "g",
-    "targetSound": "g",
-    "targetFinalSound": "g",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "g",
-    "itemKey": "g",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_flag"
-  },
-  {
-    "id": "gen_final_l1_g_flag_7_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as frog?",
-    "question": "Which word ends the same as frog?",
-    "spokenPrompt": "Which word ends like frog?",
-    "audioText": "",
-    "targetWord": "flag",
-    "correctAnswer": "flag",
-    "answer": "flag",
-    "choices": [
-      "flag",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "flag",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "g",
-    "targetSound": "g",
-    "targetFinalSound": "g",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "g",
-    "itemKey": "g",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_flag"
-  },
-  {
-    "id": "gen_final_l1_g_jug_9_word",
+    "id": "gen_final_l1_g_jug_7_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1474,15 +1318,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "jug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1509,7 +1353,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jug"
   },
   {
-    "id": "gen_final_l1_g_leg_10_sound",
+    "id": "gen_final_l1_g_leg_8_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1561,7 +1405,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_leg"
   },
   {
-    "id": "gen_final_l1_g_leg_10_word",
+    "id": "gen_final_l1_g_leg_8_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1578,15 +1422,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "leg",
     "choices": [
       "leg",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "leg",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1613,7 +1457,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_leg"
   },
   {
-    "id": "gen_final_l1_g_log_11_sound",
+    "id": "gen_final_l1_g_log_9_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1665,7 +1509,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_log"
   },
   {
-    "id": "gen_final_l1_g_log_11_word",
+    "id": "gen_final_l1_g_log_9_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1682,15 +1526,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "log",
     "choices": [
       "log",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "log",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1717,7 +1561,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_log"
   },
   {
-    "id": "gen_final_l1_g_mug_12_sound",
+    "id": "gen_final_l1_g_mug_10_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1769,7 +1613,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mug"
   },
   {
-    "id": "gen_final_l1_g_mug_12_word",
+    "id": "gen_final_l1_g_mug_10_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1786,15 +1630,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "mug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1821,7 +1665,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mug"
   },
   {
-    "id": "gen_final_l1_g_pig_13_sound",
+    "id": "gen_final_l1_g_pig_11_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1873,7 +1717,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_final_l1_g_pig_13_word",
+    "id": "gen_final_l1_g_pig_11_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1890,15 +1734,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "pig",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1925,7 +1769,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_final_l1_g_rug_14_sound",
+    "id": "gen_final_l1_g_rug_12_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1977,7 +1821,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rug"
   },
   {
-    "id": "gen_final_l1_g_rug_14_word",
+    "id": "gen_final_l1_g_rug_12_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -1994,15 +1838,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "rug",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2029,7 +1873,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rug"
   },
   {
-    "id": "gen_final_l1_g_wig_15_sound",
+    "id": "gen_final_l1_g_wig_13_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -2081,7 +1925,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_wig"
   },
   {
-    "id": "gen_final_l1_g_wig_15_word",
+    "id": "gen_final_l1_g_wig_13_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -2098,15 +1942,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "wig",
     "choices": [
       "wig",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "answerOptions": [
       "wig",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bat",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2133,111 +1977,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_wig"
   },
   {
-    "id": "gen_final_l1_l_easel_0_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"easel\" end with?",
-    "question": "Listen to the word. What sound does \"easel\" end with?",
-    "spokenPrompt": "Listen to easel. What sound does it end with?",
-    "audioText": "easel",
-    "targetWord": "easel",
-    "correctAnswer": "l",
-    "answer": "l",
-    "choices": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "easel",
-    "imageUrl": "/media/initial-sounds/images/e/easel.webp",
-    "imagePath": "/media/initial-sounds/images/e/easel.webp",
-    "audioKey": "easel",
-    "audioUrl": "/media/initial-sounds/audio/e/easel.mp3",
-    "audioPath": "/media/initial-sounds/audio/e/easel.mp3",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_easel"
-  },
-  {
-    "id": "gen_final_l1_l_easel_0_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as ball?",
-    "question": "Which word ends the same as ball?",
-    "spokenPrompt": "Which word ends like ball?",
-    "audioText": "",
-    "targetWord": "easel",
-    "correctAnswer": "easel",
-    "answer": "easel",
-    "choices": [
-      "easel",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "easel",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_easel"
-  },
-  {
-    "id": "gen_final_l1_l_girl_1_sound",
+    "id": "gen_final_l1_l_girl_0_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -2289,7 +2029,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_girl"
   },
   {
-    "id": "gen_final_l1_l_girl_1_word",
+    "id": "gen_final_l1_l_girl_0_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -2306,15 +2046,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "girl",
     "choices": [
       "girl",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "girl",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2341,215 +2081,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_girl"
   },
   {
-    "id": "gen_final_l1_l_jewel_2_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"jewel\" end with?",
-    "question": "Listen to the word. What sound does \"jewel\" end with?",
-    "spokenPrompt": "Listen to jewel. What sound does it end with?",
-    "audioText": "jewel",
-    "targetWord": "jewel",
-    "correctAnswer": "l",
-    "answer": "l",
-    "choices": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "jewel",
-    "imageUrl": "/media/initial-sounds/images/j/jewel.webp",
-    "imagePath": "/media/initial-sounds/images/j/jewel.webp",
-    "audioKey": "jewel",
-    "audioUrl": "/media/initial-sounds/audio/j/jewel.mp3",
-    "audioPath": "/media/initial-sounds/audio/j/jewel.mp3",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_jewel"
-  },
-  {
-    "id": "gen_final_l1_l_jewel_2_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as ball?",
-    "question": "Which word ends the same as ball?",
-    "spokenPrompt": "Which word ends like ball?",
-    "audioText": "",
-    "targetWord": "jewel",
-    "correctAnswer": "jewel",
-    "answer": "jewel",
-    "choices": [
-      "jewel",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "jewel",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_jewel"
-  },
-  {
-    "id": "gen_final_l1_l_nail_3_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"nail\" end with?",
-    "question": "Listen to the word. What sound does \"nail\" end with?",
-    "spokenPrompt": "Listen to nail. What sound does it end with?",
-    "audioText": "nail",
-    "targetWord": "nail",
-    "correctAnswer": "l",
-    "answer": "l",
-    "choices": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "nail",
-    "imageUrl": "/media/initial-sounds/images/n/nail.webp",
-    "imagePath": "/media/initial-sounds/images/n/nail.webp",
-    "audioKey": "nail",
-    "audioUrl": "/media/initial-sounds/audio/n/nail.mp3",
-    "audioPath": "/media/initial-sounds/audio/n/nail.mp3",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_nail"
-  },
-  {
-    "id": "gen_final_l1_l_nail_3_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as ball?",
-    "question": "Which word ends the same as ball?",
-    "spokenPrompt": "Which word ends like ball?",
-    "audioText": "",
-    "targetWord": "nail",
-    "correctAnswer": "nail",
-    "answer": "nail",
-    "choices": [
-      "nail",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "nail",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_nail"
-  },
-  {
-    "id": "gen_final_l1_l_oval_4_sound",
+    "id": "gen_final_l1_l_oval_1_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -2601,7 +2133,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_oval"
   },
   {
-    "id": "gen_final_l1_l_oval_4_word",
+    "id": "gen_final_l1_l_oval_1_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -2618,15 +2150,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "oval",
     "choices": [
       "oval",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "oval",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2653,319 +2185,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_oval"
   },
   {
-    "id": "gen_final_l1_l_owl_5_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"owl\" end with?",
-    "question": "Listen to the word. What sound does \"owl\" end with?",
-    "spokenPrompt": "Listen to owl. What sound does it end with?",
-    "audioText": "owl",
-    "targetWord": "owl",
-    "correctAnswer": "l",
-    "answer": "l",
-    "choices": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "owl",
-    "imageUrl": "/media/initial-sounds/images/o/owl.webp",
-    "imagePath": "/media/initial-sounds/images/o/owl.webp",
-    "audioKey": "owl",
-    "audioUrl": "/media/initial-sounds/audio/o/owl.mp3",
-    "audioPath": "/media/initial-sounds/audio/o/owl.mp3",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_owl"
-  },
-  {
-    "id": "gen_final_l1_l_owl_5_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as ball?",
-    "question": "Which word ends the same as ball?",
-    "spokenPrompt": "Which word ends like ball?",
-    "audioText": "",
-    "targetWord": "owl",
-    "correctAnswer": "owl",
-    "answer": "owl",
-    "choices": [
-      "owl",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "owl",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_owl"
-  },
-  {
-    "id": "gen_final_l1_l_quail_6_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"quail\" end with?",
-    "question": "Listen to the word. What sound does \"quail\" end with?",
-    "spokenPrompt": "Listen to quail. What sound does it end with?",
-    "audioText": "quail",
-    "targetWord": "quail",
-    "correctAnswer": "l",
-    "answer": "l",
-    "choices": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "quail",
-    "imageUrl": "/media/initial-sounds/images/q/quail.webp",
-    "imagePath": "/media/initial-sounds/images/q/quail.webp",
-    "audioKey": "quail",
-    "audioUrl": "/media/initial-sounds/audio/q/quail.mp3",
-    "audioPath": "/media/initial-sounds/audio/q/quail.mp3",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_quail"
-  },
-  {
-    "id": "gen_final_l1_l_quail_6_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as ball?",
-    "question": "Which word ends the same as ball?",
-    "spokenPrompt": "Which word ends like ball?",
-    "audioText": "",
-    "targetWord": "quail",
-    "correctAnswer": "quail",
-    "answer": "quail",
-    "choices": [
-      "quail",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "quail",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_quail"
-  },
-  {
-    "id": "gen_final_l1_l_wheel_7_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"wheel\" end with?",
-    "question": "Listen to the word. What sound does \"wheel\" end with?",
-    "spokenPrompt": "Listen to wheel. What sound does it end with?",
-    "audioText": "wheel",
-    "targetWord": "wheel",
-    "correctAnswer": "l",
-    "answer": "l",
-    "choices": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "l",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "wheel",
-    "imageUrl": "/media/initial-sounds/images/w/wheel.webp",
-    "imagePath": "/media/initial-sounds/images/w/wheel.webp",
-    "audioKey": "wheel",
-    "audioUrl": "/media/initial-sounds/audio/w/wheel.mp3",
-    "audioPath": "/media/initial-sounds/audio/w/wheel.mp3",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_wheel"
-  },
-  {
-    "id": "gen_final_l1_l_wheel_7_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as ball?",
-    "question": "Which word ends the same as ball?",
-    "spokenPrompt": "Which word ends like ball?",
-    "audioText": "",
-    "targetWord": "wheel",
-    "correctAnswer": "wheel",
-    "answer": "wheel",
-    "choices": [
-      "wheel",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "wheel",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "l",
-    "targetSound": "l",
-    "targetFinalSound": "l",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "l",
-    "itemKey": "l",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_wheel"
-  },
-  {
-    "id": "gen_final_l1_l_wall_8_word",
+    "id": "gen_final_l1_l_wall_2_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -2982,15 +2202,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "wall",
     "choices": [
       "wall",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "wall",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3017,215 +2237,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "supplemental_wall"
   },
   {
-    "id": "gen_final_l1_m_album_0_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"album\" end with?",
-    "question": "Listen to the word. What sound does \"album\" end with?",
-    "spokenPrompt": "Listen to album. What sound does it end with?",
-    "audioText": "album",
-    "targetWord": "album",
-    "correctAnswer": "m",
-    "answer": "m",
-    "choices": [
-      "m",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "m",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "album",
-    "imageUrl": "/media/initial-sounds/images/a/album.webp",
-    "imagePath": "/media/initial-sounds/images/a/album.webp",
-    "audioKey": "album",
-    "audioUrl": "/media/initial-sounds/audio/a/album.mp3",
-    "audioPath": "/media/initial-sounds/audio/a/album.mp3",
-    "phonicsPattern": "m",
-    "targetSound": "m",
-    "targetFinalSound": "m",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "m",
-    "itemKey": "m",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_album"
-  },
-  {
-    "id": "gen_final_l1_m_album_0_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as home?",
-    "question": "Which word ends the same as home?",
-    "spokenPrompt": "Which word ends like home?",
-    "audioText": "",
-    "targetWord": "album",
-    "correctAnswer": "album",
-    "answer": "album",
-    "choices": [
-      "album",
-      "apron",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "album",
-      "apron",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "m",
-    "targetSound": "m",
-    "targetFinalSound": "m",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "m",
-    "itemKey": "m",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_album"
-  },
-  {
-    "id": "gen_final_l1_m_drum_1_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"drum\" end with?",
-    "question": "Listen to the word. What sound does \"drum\" end with?",
-    "spokenPrompt": "Listen to drum. What sound does it end with?",
-    "audioText": "drum",
-    "targetWord": "drum",
-    "correctAnswer": "m",
-    "answer": "m",
-    "choices": [
-      "m",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "m",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "drum",
-    "imageUrl": "/media/initial-sounds/images/d/drum.webp",
-    "imagePath": "/media/initial-sounds/images/d/drum.webp",
-    "audioKey": "drum",
-    "audioUrl": "/media/initial-sounds/audio/d/drum.mp3",
-    "audioPath": "/media/initial-sounds/audio/d/drum.mp3",
-    "phonicsPattern": "m",
-    "targetSound": "m",
-    "targetFinalSound": "m",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "m",
-    "itemKey": "m",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_drum"
-  },
-  {
-    "id": "gen_final_l1_m_drum_1_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as home?",
-    "question": "Which word ends the same as home?",
-    "spokenPrompt": "Which word ends like home?",
-    "audioText": "",
-    "targetWord": "drum",
-    "correctAnswer": "drum",
-    "answer": "drum",
-    "choices": [
-      "drum",
-      "apron",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "drum",
-      "apron",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "m",
-    "targetSound": "m",
-    "targetFinalSound": "m",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "m",
-    "itemKey": "m",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_drum"
-  },
-  {
-    "id": "gen_final_l1_m_gum_2_sound",
+    "id": "gen_final_l1_m_gum_0_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3277,7 +2289,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_gum"
   },
   {
-    "id": "gen_final_l1_m_gum_2_word",
+    "id": "gen_final_l1_m_gum_0_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3294,15 +2306,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "gum",
     "choices": [
       "gum",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "gum",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3329,7 +2341,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_gum"
   },
   {
-    "id": "gen_final_l1_m_ham_3_sound",
+    "id": "gen_final_l1_m_ham_1_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3381,7 +2393,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_final_l1_m_ham_3_word",
+    "id": "gen_final_l1_m_ham_1_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3398,15 +2410,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "ham",
     "choices": [
       "ham",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "ham",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3433,7 +2445,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_final_l1_m_jam_4_sound",
+    "id": "gen_final_l1_m_jam_2_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3485,7 +2497,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_final_l1_m_jam_4_word",
+    "id": "gen_final_l1_m_jam_2_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3502,15 +2514,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "jam",
     "choices": [
       "jam",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "jam",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3537,7 +2549,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_final_l1_m_ram_5_sound",
+    "id": "gen_final_l1_m_ram_3_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3589,7 +2601,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_final_l1_m_ram_5_word",
+    "id": "gen_final_l1_m_ram_3_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3606,15 +2618,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "ram",
     "choices": [
       "ram",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "ram",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3641,59 +2653,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_final_l1_m_swim_6_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as home?",
-    "question": "Which word ends the same as home?",
-    "spokenPrompt": "Which word ends like home?",
-    "audioText": "",
-    "targetWord": "swim",
-    "correctAnswer": "swim",
-    "answer": "swim",
-    "choices": [
-      "swim",
-      "apron",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "swim",
-      "apron",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "m",
-    "targetSound": "m",
-    "targetFinalSound": "m",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "m",
-    "itemKey": "m",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_swim"
-  },
-  {
-    "id": "gen_final_l1_m_yam_7_sound",
+    "id": "gen_final_l1_m_yam_4_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3745,7 +2705,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_yam"
   },
   {
-    "id": "gen_final_l1_m_yam_7_word",
+    "id": "gen_final_l1_m_yam_4_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3762,15 +2722,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "yam",
     "choices": [
       "yam",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "yam",
-      "apron",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3797,111 +2757,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_yam"
   },
   {
-    "id": "gen_final_l1_n_apron_0_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"apron\" end with?",
-    "question": "Listen to the word. What sound does \"apron\" end with?",
-    "spokenPrompt": "Listen to apron. What sound does it end with?",
-    "audioText": "apron",
-    "targetWord": "apron",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "apron",
-    "imageUrl": "/media/initial-sounds/images/a/apron.webp",
-    "imagePath": "/media/initial-sounds/images/a/apron.webp",
-    "audioKey": "apron",
-    "audioUrl": "/media/initial-sounds/audio/a/apron.mp3",
-    "audioPath": "/media/initial-sounds/audio/a/apron.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_apron"
-  },
-  {
-    "id": "gen_final_l1_n_apron_0_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "apron",
-    "correctAnswer": "apron",
-    "answer": "apron",
-    "choices": [
-      "apron",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "apron",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_apron"
-  },
-  {
-    "id": "gen_final_l1_n_bin_1_word",
+    "id": "gen_final_l1_n_bin_0_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3918,15 +2774,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "bin",
     "choices": [
       "bin",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "bin",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3953,7 +2809,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_bin"
   },
   {
-    "id": "gen_final_l1_n_bun_2_word",
+    "id": "gen_final_l1_n_bun_1_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -3970,15 +2826,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "bun",
     "choices": [
       "bun",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "bun",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4005,59 +2861,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_bun"
   },
   {
-    "id": "gen_final_l1_n_can_3_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "can",
-    "correctAnswer": "can",
-    "answer": "can",
-    "choices": [
-      "can",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "can",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
-  },
-  {
-    "id": "gen_final_l1_n_fan_4_sound",
+    "id": "gen_final_l1_n_fan_2_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -4109,7 +2913,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_final_l1_n_fan_4_word",
+    "id": "gen_final_l1_n_fan_2_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -4126,15 +2930,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "fan",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4161,7 +2965,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_final_l1_n_fin_5_sound",
+    "id": "gen_final_l1_n_fin_3_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -4213,7 +3017,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_final_l1_n_fin_5_word",
+    "id": "gen_final_l1_n_fin_3_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -4230,15 +3034,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "fin",
     "choices": [
       "fin",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "fin",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4265,7 +3069,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_final_l1_n_hen_7_sound",
+    "id": "gen_final_l1_n_hen_4_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -4317,7 +3121,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hen"
   },
   {
-    "id": "gen_final_l1_n_hen_7_word",
+    "id": "gen_final_l1_n_hen_4_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -4334,15 +3138,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "hen",
     "choices": [
       "hen",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "hen",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4369,319 +3173,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hen"
   },
   {
-    "id": "gen_final_l1_n_iron_8_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"iron\" end with?",
-    "question": "Listen to the word. What sound does \"iron\" end with?",
-    "spokenPrompt": "Listen to iron. What sound does it end with?",
-    "audioText": "iron",
-    "targetWord": "iron",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "iron",
-    "imageUrl": "/media/initial-sounds/images/i/iron.webp",
-    "imagePath": "/media/initial-sounds/images/i/iron.webp",
-    "audioKey": "iron",
-    "audioUrl": "/media/initial-sounds/audio/i/iron.mp3",
-    "audioPath": "/media/initial-sounds/audio/i/iron.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_iron"
-  },
-  {
-    "id": "gen_final_l1_n_iron_8_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "iron",
-    "correctAnswer": "iron",
-    "answer": "iron",
-    "choices": [
-      "iron",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "iron",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_iron"
-  },
-  {
-    "id": "gen_final_l1_n_lemon_9_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"lemon\" end with?",
-    "question": "Listen to the word. What sound does \"lemon\" end with?",
-    "spokenPrompt": "Listen to lemon. What sound does it end with?",
-    "audioText": "lemon",
-    "targetWord": "lemon",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "lemon",
-    "imageUrl": "/media/initial-sounds/images/l/lemon.webp",
-    "imagePath": "/media/initial-sounds/images/l/lemon.webp",
-    "audioKey": "lemon",
-    "audioUrl": "/media/initial-sounds/audio/l/lemon.mp3",
-    "audioPath": "/media/initial-sounds/audio/l/lemon.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_lemon"
-  },
-  {
-    "id": "gen_final_l1_n_lemon_9_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "lemon",
-    "correctAnswer": "lemon",
-    "answer": "lemon",
-    "choices": [
-      "lemon",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "lemon",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_lemon"
-  },
-  {
-    "id": "gen_final_l1_n_lion_10_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"lion\" end with?",
-    "question": "Listen to the word. What sound does \"lion\" end with?",
-    "spokenPrompt": "Listen to lion. What sound does it end with?",
-    "audioText": "lion",
-    "targetWord": "lion",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "lion",
-    "imageUrl": "/media/initial-sounds/images/l/lion.webp",
-    "imagePath": "/media/initial-sounds/images/l/lion.webp",
-    "audioKey": "lion",
-    "audioUrl": "/media/initial-sounds/audio/l/lion.mp3",
-    "audioPath": "/media/initial-sounds/audio/l/lion.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_lion"
-  },
-  {
-    "id": "gen_final_l1_n_lion_10_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "lion",
-    "correctAnswer": "lion",
-    "answer": "lion",
-    "choices": [
-      "lion",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "lion",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_lion"
-  },
-  {
-    "id": "gen_final_l1_n_man_11_sound",
+    "id": "gen_final_l1_n_man_5_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -4733,7 +3225,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_final_l1_n_man_11_word",
+    "id": "gen_final_l1_n_man_5_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -4750,15 +3242,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "man",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4785,319 +3277,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_final_l1_n_moon_12_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"moon\" end with?",
-    "question": "Listen to the word. What sound does \"moon\" end with?",
-    "spokenPrompt": "Listen to moon. What sound does it end with?",
-    "audioText": "moon",
-    "targetWord": "moon",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "moon",
-    "imageUrl": "/media/initial-sounds/images/m/moon.webp",
-    "imagePath": "/media/initial-sounds/images/m/moon.webp",
-    "audioKey": "moon",
-    "audioUrl": "/media/initial-sounds/audio/m/moon.mp3",
-    "audioPath": "/media/initial-sounds/audio/m/moon.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_moon"
-  },
-  {
-    "id": "gen_final_l1_n_moon_12_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "moon",
-    "correctAnswer": "moon",
-    "answer": "moon",
-    "choices": [
-      "moon",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "moon",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_moon"
-  },
-  {
-    "id": "gen_final_l1_n_ocean_13_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"ocean\" end with?",
-    "question": "Listen to the word. What sound does \"ocean\" end with?",
-    "spokenPrompt": "Listen to ocean. What sound does it end with?",
-    "audioText": "ocean",
-    "targetWord": "ocean",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "ocean",
-    "imageUrl": "/media/initial-sounds/images/o/ocean.webp",
-    "imagePath": "/media/initial-sounds/images/o/ocean.webp",
-    "audioKey": "ocean",
-    "audioUrl": "/media/initial-sounds/audio/o/ocean.mp3",
-    "audioPath": "/media/initial-sounds/audio/o/ocean.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_ocean"
-  },
-  {
-    "id": "gen_final_l1_n_ocean_13_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "ocean",
-    "correctAnswer": "ocean",
-    "answer": "ocean",
-    "choices": [
-      "ocean",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "ocean",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_ocean"
-  },
-  {
-    "id": "gen_final_l1_n_oven_14_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"oven\" end with?",
-    "question": "Listen to the word. What sound does \"oven\" end with?",
-    "spokenPrompt": "Listen to oven. What sound does it end with?",
-    "audioText": "oven",
-    "targetWord": "oven",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "oven",
-    "imageUrl": "/media/initial-sounds/images/o/oven.webp",
-    "imagePath": "/media/initial-sounds/images/o/oven.webp",
-    "audioKey": "oven",
-    "audioUrl": "/media/initial-sounds/audio/o/oven.mp3",
-    "audioPath": "/media/initial-sounds/audio/o/oven.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_oven"
-  },
-  {
-    "id": "gen_final_l1_n_oven_14_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "oven",
-    "correctAnswer": "oven",
-    "answer": "oven",
-    "choices": [
-      "oven",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "oven",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_oven"
-  },
-  {
-    "id": "gen_final_l1_n_pan_15_sound",
+    "id": "gen_final_l1_n_pan_6_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5149,7 +3329,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_final_l1_n_pan_15_word",
+    "id": "gen_final_l1_n_pan_6_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5166,15 +3346,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "pan",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5201,7 +3381,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_final_l1_n_pen_16_sound",
+    "id": "gen_final_l1_n_pen_7_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5253,7 +3433,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_final_l1_n_pen_16_word",
+    "id": "gen_final_l1_n_pen_7_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5270,15 +3450,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "pen",
     "choices": [
       "pen",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "pen",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5305,7 +3485,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_final_l1_n_pin_17_sound",
+    "id": "gen_final_l1_n_pin_8_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5357,7 +3537,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pin"
   },
   {
-    "id": "gen_final_l1_n_pin_17_word",
+    "id": "gen_final_l1_n_pin_8_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5374,15 +3554,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "pin",
     "choices": [
       "pin",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "pin",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5409,111 +3589,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pin"
   },
   {
-    "id": "gen_final_l1_n_queen_18_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"queen\" end with?",
-    "question": "Listen to the word. What sound does \"queen\" end with?",
-    "spokenPrompt": "Listen to queen. What sound does it end with?",
-    "audioText": "queen",
-    "targetWord": "queen",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "queen",
-    "imageUrl": "/media/initial-sounds/images/q/queen.webp",
-    "imagePath": "/media/initial-sounds/images/q/queen.webp",
-    "audioKey": "queen",
-    "audioUrl": "/media/initial-sounds/audio/q/queen.mp3",
-    "audioPath": "/media/initial-sounds/audio/q/queen.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_queen"
-  },
-  {
-    "id": "gen_final_l1_n_queen_18_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "queen",
-    "correctAnswer": "queen",
-    "answer": "queen",
-    "choices": [
-      "queen",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "queen",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_queen"
-  },
-  {
-    "id": "gen_final_l1_n_run_19_word",
+    "id": "gen_final_l1_n_run_9_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5530,15 +3606,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "run",
     "choices": [
       "run",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "run",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5565,163 +3641,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_run"
   },
   {
-    "id": "gen_final_l1_n_spin_20_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "spin",
-    "correctAnswer": "spin",
-    "answer": "spin",
-    "choices": [
-      "spin",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "spin",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_spin"
-  },
-  {
-    "id": "gen_final_l1_n_spoon_21_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"spoon\" end with?",
-    "question": "Listen to the word. What sound does \"spoon\" end with?",
-    "spokenPrompt": "Listen to spoon. What sound does it end with?",
-    "audioText": "spoon",
-    "targetWord": "spoon",
-    "correctAnswer": "n",
-    "answer": "n",
-    "choices": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "n",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "spoon",
-    "imageUrl": "/media/initial-sounds/images/s/spoon.webp",
-    "imagePath": "/media/initial-sounds/images/s/spoon.webp",
-    "audioKey": "spoon",
-    "audioUrl": "/media/initial-sounds/audio/s/spoon.mp3",
-    "audioPath": "/media/initial-sounds/audio/s/spoon.mp3",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_spoon"
-  },
-  {
-    "id": "gen_final_l1_n_spoon_21_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "spoon",
-    "correctAnswer": "spoon",
-    "answer": "spoon",
-    "choices": [
-      "spoon",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "spoon",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_spoon"
-  },
-  {
-    "id": "gen_final_l1_n_sun_22_sound",
+    "id": "gen_final_l1_n_sun_10_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5773,7 +3693,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sun"
   },
   {
-    "id": "gen_final_l1_n_sun_22_word",
+    "id": "gen_final_l1_n_sun_10_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5790,15 +3710,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "sun",
     "choices": [
       "sun",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "sun",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5825,7 +3745,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sun"
   },
   {
-    "id": "gen_final_l1_n_ten_23_word",
+    "id": "gen_final_l1_n_ten_11_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5842,15 +3762,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "ten",
     "choices": [
       "ten",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "ten",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5877,59 +3797,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ten"
   },
   {
-    "id": "gen_final_l1_n_train_24_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as green?",
-    "question": "Which word ends the same as green?",
-    "spokenPrompt": "Which word ends like green?",
-    "audioText": "",
-    "targetWord": "train",
-    "correctAnswer": "train",
-    "answer": "train",
-    "choices": [
-      "train",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "answerOptions": [
-      "train",
-      "album",
-      "bad",
-      "bag"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "n",
-    "targetSound": "n",
-    "targetFinalSound": "n",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "n",
-    "itemKey": "n",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_train"
-  },
-  {
-    "id": "gen_final_l1_n_van_25_sound",
+    "id": "gen_final_l1_n_van_12_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5981,7 +3849,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_final_l1_n_van_25_word",
+    "id": "gen_final_l1_n_van_12_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -5998,15 +3866,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "van",
-      "album",
       "bad",
-      "bag"
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6031,6 +3899,58 @@ export const generatedEarlySkillQuestions = [
     "active": true,
     "qaStatus": "approved",
     "sourceLexiconId": "lex_van"
+  },
+  {
+    "id": "gen_final_l1_n_den_13_word",
+    "skillId": "final_sounds",
+    "skillName": "Final Sounds",
+    "skill": "Final Sounds",
+    "level": 1,
+    "templateType": "ENDING_SOUND_WORD_MATCH",
+    "formatType": "ENDING_SOUND_WORD_MATCH",
+    "questionType": "ending_sound_word_match",
+    "prompt": "Which word ends the same as green?",
+    "question": "Which word ends the same as green?",
+    "spokenPrompt": "Which word ends like green?",
+    "audioText": "",
+    "targetWord": "den",
+    "correctAnswer": "den",
+    "answer": "den",
+    "choices": [
+      "den",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "den",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "n",
+    "targetSound": "n",
+    "targetFinalSound": "n",
+    "finalSoundType": "single_letter",
+    "coverageTarget": "n",
+    "itemKey": "n",
+    "itemType": "final_sound",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "final-sound",
+      "word-choice"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "supplemental_den"
   },
   {
     "id": "gen_final_l1_p_cap_0_sound",
@@ -6102,15 +4022,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "cap",
     "choices": [
       "cap",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "cap",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6137,59 +4057,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_final_l1_p_clap_1_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as hop?",
-    "question": "Which word ends the same as hop?",
-    "spokenPrompt": "Which word ends like hop?",
-    "audioText": "",
-    "targetWord": "clap",
-    "correctAnswer": "clap",
-    "answer": "clap",
-    "choices": [
-      "clap",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "clap",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_clap"
-  },
-  {
-    "id": "gen_final_l1_p_cup_2_sound",
+    "id": "gen_final_l1_p_cup_1_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -6241,7 +4109,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cup"
   },
   {
-    "id": "gen_final_l1_p_cup_2_word",
+    "id": "gen_final_l1_p_cup_1_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -6258,15 +4126,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "cup",
     "choices": [
       "cup",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "cup",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6293,111 +4161,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cup"
   },
   {
-    "id": "gen_final_l1_p_jeep_4_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"jeep\" end with?",
-    "question": "Listen to the word. What sound does \"jeep\" end with?",
-    "spokenPrompt": "Listen to jeep. What sound does it end with?",
-    "audioText": "jeep",
-    "targetWord": "jeep",
-    "correctAnswer": "p",
-    "answer": "p",
-    "choices": [
-      "p",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "p",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "jeep",
-    "imageUrl": "/media/initial-sounds/images/j/jeep.webp",
-    "imagePath": "/media/initial-sounds/images/j/jeep.webp",
-    "audioKey": "jeep",
-    "audioUrl": "/media/initial-sounds/audio/j/jeep.mp3",
-    "audioPath": "/media/initial-sounds/audio/j/jeep.mp3",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_jeep"
-  },
-  {
-    "id": "gen_final_l1_p_jeep_4_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as hop?",
-    "question": "Which word ends the same as hop?",
-    "spokenPrompt": "Which word ends like hop?",
-    "audioText": "",
-    "targetWord": "jeep",
-    "correctAnswer": "jeep",
-    "answer": "jeep",
-    "choices": [
-      "jeep",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "jeep",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_jeep"
-  },
-  {
-    "id": "gen_final_l1_p_mop_5_word",
+    "id": "gen_final_l1_p_mop_3_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -6414,15 +4178,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "mop",
     "choices": [
       "mop",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "mop",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6449,7 +4213,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mop"
   },
   {
-    "id": "gen_final_l1_p_nap_6_word",
+    "id": "gen_final_l1_p_nap_4_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -6466,15 +4230,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "nap",
     "choices": [
       "nap",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "nap",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6501,423 +4265,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_nap"
   },
   {
-    "id": "gen_final_l1_p_ship_7_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"ship\" end with?",
-    "question": "Listen to the word. What sound does \"ship\" end with?",
-    "spokenPrompt": "Listen to ship. What sound does it end with?",
-    "audioText": "ship",
-    "targetWord": "ship",
-    "correctAnswer": "p",
-    "answer": "p",
-    "choices": [
-      "p",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "p",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "ship",
-    "imageUrl": "/images/child-mode/digraphs/ship.png",
-    "imagePath": "/images/child-mode/digraphs/ship.png",
-    "audioKey": "ship",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_ship"
-  },
-  {
-    "id": "gen_final_l1_p_ship_7_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as hop?",
-    "question": "Which word ends the same as hop?",
-    "spokenPrompt": "Which word ends like hop?",
-    "audioText": "",
-    "targetWord": "ship",
-    "correctAnswer": "ship",
-    "answer": "ship",
-    "choices": [
-      "ship",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "ship",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_ship"
-  },
-  {
-    "id": "gen_final_l1_p_shop_8_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"shop\" end with?",
-    "question": "Listen to the word. What sound does \"shop\" end with?",
-    "spokenPrompt": "Listen to shop. What sound does it end with?",
-    "audioText": "shop",
-    "targetWord": "shop",
-    "correctAnswer": "p",
-    "answer": "p",
-    "choices": [
-      "p",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "p",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "shop",
-    "imageUrl": "/images/child-mode/initial-sounds/shop.png",
-    "imagePath": "/images/child-mode/initial-sounds/shop.png",
-    "audioKey": "shop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_shop"
-  },
-  {
-    "id": "gen_final_l1_p_shop_8_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as hop?",
-    "question": "Which word ends the same as hop?",
-    "spokenPrompt": "Which word ends like hop?",
-    "audioText": "",
-    "targetWord": "shop",
-    "correctAnswer": "shop",
-    "answer": "shop",
-    "choices": [
-      "shop",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "shop",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_shop"
-  },
-  {
-    "id": "gen_final_l1_p_sleep_9_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as hop?",
-    "question": "Which word ends the same as hop?",
-    "spokenPrompt": "Which word ends like hop?",
-    "audioText": "",
-    "targetWord": "sleep",
-    "correctAnswer": "sleep",
-    "answer": "sleep",
-    "choices": [
-      "sleep",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "sleep",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_sleep"
-  },
-  {
-    "id": "gen_final_l1_p_soap_10_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"soap\" end with?",
-    "question": "Listen to the word. What sound does \"soap\" end with?",
-    "spokenPrompt": "Listen to soap. What sound does it end with?",
-    "audioText": "soap",
-    "targetWord": "soap",
-    "correctAnswer": "p",
-    "answer": "p",
-    "choices": [
-      "p",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "p",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "soap",
-    "imageUrl": "/media/initial-sounds/images/s/soap.webp",
-    "imagePath": "/media/initial-sounds/images/s/soap.webp",
-    "audioKey": "soap",
-    "audioUrl": "/media/initial-sounds/audio/s/soap.mp3",
-    "audioPath": "/media/initial-sounds/audio/s/soap.mp3",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_soap"
-  },
-  {
-    "id": "gen_final_l1_p_soap_10_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as hop?",
-    "question": "Which word ends the same as hop?",
-    "spokenPrompt": "Which word ends like hop?",
-    "audioText": "",
-    "targetWord": "soap",
-    "correctAnswer": "soap",
-    "answer": "soap",
-    "choices": [
-      "soap",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "soap",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_soap"
-  },
-  {
-    "id": "gen_final_l1_p_stop_11_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as hop?",
-    "question": "Which word ends the same as hop?",
-    "spokenPrompt": "Which word ends like hop?",
-    "audioText": "",
-    "targetWord": "stop",
-    "correctAnswer": "stop",
-    "answer": "stop",
-    "choices": [
-      "stop",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "stop",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "p",
-    "targetSound": "p",
-    "targetFinalSound": "p",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "p",
-    "itemKey": "p",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_stop"
-  },
-  {
-    "id": "gen_final_l1_p_tap_12_sound",
+    "id": "gen_final_l1_p_tap_5_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -6969,7 +4317,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_final_l1_p_tap_12_word",
+    "id": "gen_final_l1_p_tap_5_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -6986,15 +4334,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "tap",
     "choices": [
       "tap",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "tap",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7021,7 +4369,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_final_l1_p_top_13_sound",
+    "id": "gen_final_l1_p_top_6_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7073,7 +4421,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_top"
   },
   {
-    "id": "gen_final_l1_p_top_13_word",
+    "id": "gen_final_l1_p_top_6_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7090,15 +4438,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "top",
     "choices": [
       "top",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "top",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7125,7 +4473,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_top"
   },
   {
-    "id": "gen_final_l1_p_up_14_sound",
+    "id": "gen_final_l1_p_up_7_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7177,7 +4525,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_up"
   },
   {
-    "id": "gen_final_l1_p_up_14_word",
+    "id": "gen_final_l1_p_up_7_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7194,15 +4542,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "up",
     "choices": [
       "up",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "up",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7229,7 +4577,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_up"
   },
   {
-    "id": "gen_final_l1_p_zip_15_sound",
+    "id": "gen_final_l1_p_zip_8_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7281,7 +4629,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_zip"
   },
   {
-    "id": "gen_final_l1_p_zip_15_word",
+    "id": "gen_final_l1_p_zip_8_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7298,15 +4646,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "zip",
     "choices": [
       "zip",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "answerOptions": [
       "zip",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bat"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7402,15 +4750,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "bat",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7506,15 +4854,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "cot",
     "choices": [
       "cot",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "cot",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7541,111 +4889,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cot"
   },
   {
-    "id": "gen_final_l1_t_donut_2_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"donut\" end with?",
-    "question": "Listen to the word. What sound does \"donut\" end with?",
-    "spokenPrompt": "Listen to donut. What sound does it end with?",
-    "audioText": "donut",
-    "targetWord": "donut",
-    "correctAnswer": "t",
-    "answer": "t",
-    "choices": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "donut",
-    "imageUrl": "/media/initial-sounds/images/d/donut.webp",
-    "imagePath": "/media/initial-sounds/images/d/donut.webp",
-    "audioKey": "donut",
-    "audioUrl": "/media/initial-sounds/audio/d/donut.mp3",
-    "audioPath": "/media/initial-sounds/audio/d/donut.mp3",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_donut"
-  },
-  {
-    "id": "gen_final_l1_t_donut_2_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as light?",
-    "question": "Which word ends the same as light?",
-    "spokenPrompt": "Which word ends like light?",
-    "audioText": "",
-    "targetWord": "donut",
-    "correctAnswer": "donut",
-    "answer": "donut",
-    "choices": [
-      "donut",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "donut",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_donut"
-  },
-  {
-    "id": "gen_final_l1_t_dot_3_word",
+    "id": "gen_final_l1_t_dot_2_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7662,15 +4906,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "dot",
     "choices": [
       "dot",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "dot",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7697,7 +4941,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_dot"
   },
   {
-    "id": "gen_final_l1_t_exit_4_sound",
+    "id": "gen_final_l1_t_exit_3_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7749,7 +4993,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_exit"
   },
   {
-    "id": "gen_final_l1_t_exit_4_word",
+    "id": "gen_final_l1_t_exit_3_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7766,15 +5010,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "exit",
     "choices": [
       "exit",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "exit",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7801,111 +5045,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_exit"
   },
   {
-    "id": "gen_final_l1_t_goat_5_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"goat\" end with?",
-    "question": "Listen to the word. What sound does \"goat\" end with?",
-    "spokenPrompt": "Listen to goat. What sound does it end with?",
-    "audioText": "goat",
-    "targetWord": "goat",
-    "correctAnswer": "t",
-    "answer": "t",
-    "choices": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "goat",
-    "imageUrl": "/media/initial-sounds/images/g/goat.webp",
-    "imagePath": "/media/initial-sounds/images/g/goat.webp",
-    "audioKey": "goat",
-    "audioUrl": "/media/initial-sounds/audio/g/goat.mp3",
-    "audioPath": "/media/initial-sounds/audio/g/goat.mp3",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_goat"
-  },
-  {
-    "id": "gen_final_l1_t_goat_5_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as light?",
-    "question": "Which word ends the same as light?",
-    "spokenPrompt": "Which word ends like light?",
-    "audioText": "",
-    "targetWord": "goat",
-    "correctAnswer": "goat",
-    "answer": "goat",
-    "choices": [
-      "goat",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "goat",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_goat"
-  },
-  {
-    "id": "gen_final_l1_t_hat_6_sound",
+    "id": "gen_final_l1_t_hat_4_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7957,7 +5097,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_final_l1_t_hat_6_word",
+    "id": "gen_final_l1_t_hat_4_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -7974,15 +5114,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "hat",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8009,111 +5149,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_final_l1_t_heart_7_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"heart\" end with?",
-    "question": "Listen to the word. What sound does \"heart\" end with?",
-    "spokenPrompt": "Listen to heart. What sound does it end with?",
-    "audioText": "heart",
-    "targetWord": "heart",
-    "correctAnswer": "t",
-    "answer": "t",
-    "choices": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "heart",
-    "imageUrl": "/media/initial-sounds/images/h/heart.webp",
-    "imagePath": "/media/initial-sounds/images/h/heart.webp",
-    "audioKey": "heart",
-    "audioUrl": "/media/initial-sounds/audio/h/heart.mp3",
-    "audioPath": "/media/initial-sounds/audio/h/heart.mp3",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_heart"
-  },
-  {
-    "id": "gen_final_l1_t_heart_7_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as light?",
-    "question": "Which word ends the same as light?",
-    "spokenPrompt": "Which word ends like light?",
-    "audioText": "",
-    "targetWord": "heart",
-    "correctAnswer": "heart",
-    "answer": "heart",
-    "choices": [
-      "heart",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "heart",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_heart"
-  },
-  {
-    "id": "gen_final_l1_t_hit_8_word",
+    "id": "gen_final_l1_t_hit_5_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8130,15 +5166,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "hit",
     "choices": [
       "hit",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "hit",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8165,7 +5201,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hit"
   },
   {
-    "id": "gen_final_l1_t_hot_9_word",
+    "id": "gen_final_l1_t_hot_6_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8182,15 +5218,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "hot",
     "choices": [
       "hot",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "hot",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8217,7 +5253,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hot"
   },
   {
-    "id": "gen_final_l1_t_hut_10_word",
+    "id": "gen_final_l1_t_hut_7_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8234,15 +5270,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "hut",
     "choices": [
       "hut",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "hut",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8269,7 +5305,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hut"
   },
   {
-    "id": "gen_final_l1_t_jet_11_sound",
+    "id": "gen_final_l1_t_jet_8_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8321,7 +5357,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jet"
   },
   {
-    "id": "gen_final_l1_t_jet_11_word",
+    "id": "gen_final_l1_t_jet_8_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8338,15 +5374,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "jet",
     "choices": [
       "jet",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "jet",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8373,7 +5409,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jet"
   },
   {
-    "id": "gen_final_l1_t_mat_12_sound",
+    "id": "gen_final_l1_t_mat_9_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8425,7 +5461,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_final_l1_t_mat_12_word",
+    "id": "gen_final_l1_t_mat_9_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8442,15 +5478,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "mat",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8477,7 +5513,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_final_l1_t_newt_13_sound",
+    "id": "gen_final_l1_t_newt_10_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8529,7 +5565,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_newt"
   },
   {
-    "id": "gen_final_l1_t_newt_13_word",
+    "id": "gen_final_l1_t_newt_10_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8546,15 +5582,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "newt",
     "choices": [
       "newt",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "newt",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8581,7 +5617,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_newt"
   },
   {
-    "id": "gen_final_l1_t_pot_14_sound",
+    "id": "gen_final_l1_t_pot_11_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8633,7 +5669,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_final_l1_t_pot_14_word",
+    "id": "gen_final_l1_t_pot_11_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8650,15 +5686,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "pot",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8685,111 +5721,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_final_l1_t_quiet_15_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"quiet\" end with?",
-    "question": "Listen to the word. What sound does \"quiet\" end with?",
-    "spokenPrompt": "Listen to quiet. What sound does it end with?",
-    "audioText": "quiet",
-    "targetWord": "quiet",
-    "correctAnswer": "t",
-    "answer": "t",
-    "choices": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "quiet",
-    "imageUrl": "/media/initial-sounds/images/q/quiet.webp",
-    "imagePath": "/media/initial-sounds/images/q/quiet.webp",
-    "audioKey": "quiet",
-    "audioUrl": "/media/initial-sounds/audio/q/quiet.mp3",
-    "audioPath": "/media/initial-sounds/audio/q/quiet.mp3",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_quiet"
-  },
-  {
-    "id": "gen_final_l1_t_quiet_15_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as light?",
-    "question": "Which word ends the same as light?",
-    "spokenPrompt": "Which word ends like light?",
-    "audioText": "",
-    "targetWord": "quiet",
-    "correctAnswer": "quiet",
-    "answer": "quiet",
-    "choices": [
-      "quiet",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "quiet",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_quiet"
-  },
-  {
-    "id": "gen_final_l1_t_rat_16_sound",
+    "id": "gen_final_l1_t_rat_12_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8841,7 +5773,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_final_l1_t_rat_16_word",
+    "id": "gen_final_l1_t_rat_12_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -8858,15 +5790,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "rat",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8893,111 +5825,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_final_l1_t_robot_17_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"robot\" end with?",
-    "question": "Listen to the word. What sound does \"robot\" end with?",
-    "spokenPrompt": "Listen to robot. What sound does it end with?",
-    "audioText": "robot",
-    "targetWord": "robot",
-    "correctAnswer": "t",
-    "answer": "t",
-    "choices": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "robot",
-    "imageUrl": "/media/initial-sounds/images/r/robot.webp",
-    "imagePath": "/media/initial-sounds/images/r/robot.webp",
-    "audioKey": "robot",
-    "audioUrl": "/media/initial-sounds/audio/r/robot.mp3",
-    "audioPath": "/media/initial-sounds/audio/r/robot.mp3",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_robot"
-  },
-  {
-    "id": "gen_final_l1_t_robot_17_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as light?",
-    "question": "Which word ends the same as light?",
-    "spokenPrompt": "Which word ends like light?",
-    "audioText": "",
-    "targetWord": "robot",
-    "correctAnswer": "robot",
-    "answer": "robot",
-    "choices": [
-      "robot",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "robot",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_robot"
-  },
-  {
-    "id": "gen_final_l1_t_sit_18_sound",
+    "id": "gen_final_l1_t_sit_13_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -9049,7 +5877,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sit"
   },
   {
-    "id": "gen_final_l1_t_sit_18_word",
+    "id": "gen_final_l1_t_sit_13_word",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
     "skill": "Final Sounds",
@@ -9066,15 +5894,15 @@ export const generatedEarlySkillQuestions = [
     "answer": "sit",
     "choices": [
       "sit",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "answerOptions": [
       "sit",
-      "album",
-      "apron",
-      "bad"
+      "bad",
+      "bag",
+      "bid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9099,110 +5927,6 @@ export const generatedEarlySkillQuestions = [
     "active": true,
     "qaStatus": "approved",
     "sourceLexiconId": "lex_sit"
-  },
-  {
-    "id": "gen_final_l1_t_yacht_19_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"yacht\" end with?",
-    "question": "Listen to the word. What sound does \"yacht\" end with?",
-    "spokenPrompt": "Listen to yacht. What sound does it end with?",
-    "audioText": "yacht",
-    "targetWord": "yacht",
-    "correctAnswer": "t",
-    "answer": "t",
-    "choices": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "answerOptions": [
-      "t",
-      "b",
-      "d",
-      "g"
-    ],
-    "imageKey": "yacht",
-    "imageUrl": "/media/initial-sounds/images/y/yacht.webp",
-    "imagePath": "/media/initial-sounds/images/y/yacht.webp",
-    "audioKey": "yacht",
-    "audioUrl": "/media/initial-sounds/audio/y/yacht.mp3",
-    "audioPath": "/media/initial-sounds/audio/y/yacht.mp3",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_yacht"
-  },
-  {
-    "id": "gen_final_l1_t_yacht_19_word",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND_WORD_MATCH",
-    "formatType": "ENDING_SOUND_WORD_MATCH",
-    "questionType": "ending_sound_word_match",
-    "prompt": "Which word ends the same as light?",
-    "question": "Which word ends the same as light?",
-    "spokenPrompt": "Which word ends like light?",
-    "audioText": "",
-    "targetWord": "yacht",
-    "correctAnswer": "yacht",
-    "answer": "yacht",
-    "choices": [
-      "yacht",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "answerOptions": [
-      "yacht",
-      "album",
-      "apron",
-      "bad"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "t",
-    "targetSound": "t",
-    "targetFinalSound": "t",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "t",
-    "itemKey": "t",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_yacht"
   },
   {
     "id": "gen_final_l2_sh_brush_0_sound",
@@ -14775,113 +11499,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_bat"
   },
   {
-    "id": "gen_cvc_short_a_can_3_vowel",
-    "skillId": "cvc_short_vowels",
-    "skillName": "CVC and Short Vowels",
-    "skill": "CVC and Short Vowels",
-    "level": 1,
-    "templateType": "SHORT_VOWEL_WORD",
-    "formatType": "SHORT_VOWEL_WORD",
-    "questionType": "short_vowel_word",
-    "prompt": "Which word has the short a sound?",
-    "question": "Which word has the short a sound?",
-    "spokenPrompt": "Which word has the short a sound?",
-    "audioText": "can",
-    "targetWord": "can",
-    "correctAnswer": "can",
-    "answer": "can",
-    "choices": [
-      "can",
-      "bid",
-      "big",
-      "bin"
-    ],
-    "answerOptions": [
-      "can",
-      "bid",
-      "big",
-      "bin"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "can",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "short_a",
-    "targetSound": "short_a",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_a",
-    "itemKey": "short_a",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "cvc",
-      "short-vowel"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
-  },
-  {
-    "id": "gen_cvc_short_a_can_3_missing",
-    "skillId": "cvc_short_vowels",
-    "skillName": "CVC and Short Vowels",
-    "skill": "CVC and Short Vowels",
-    "level": 1,
-    "templateType": "MISSING_VOWEL_CVC",
-    "formatType": "MISSING_VOWEL_CVC",
-    "questionType": "missing_vowel_cvc",
-    "prompt": "Choose the missing vowel in c_n.",
-    "question": "Choose the missing vowel in c_n.",
-    "spokenPrompt": "Choose the missing vowel in c_n.",
-    "audioText": "can",
-    "targetWord": "can",
-    "correctAnswer": "a",
-    "answer": "a",
-    "choices": [
-      "a",
-      "e",
-      "i",
-      "o",
-      "u"
-    ],
-    "answerOptions": [
-      "a",
-      "e",
-      "i",
-      "o",
-      "u"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "can",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "short_a",
-    "targetSound": "short_a",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_a",
-    "itemKey": "short_a",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "cvc",
-      "missing-vowel"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
-  },
-  {
-    "id": "gen_cvc_short_a_cap_4_vowel",
+    "id": "gen_cvc_short_a_cap_3_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -14933,7 +11551,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_cvc_short_a_cap_4_missing",
+    "id": "gen_cvc_short_a_cap_3_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -14987,7 +11605,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_cvc_short_a_cap_4_picture",
+    "id": "gen_cvc_short_a_cap_3_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15039,7 +11657,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_cvc_short_a_fan_5_vowel",
+    "id": "gen_cvc_short_a_fan_4_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15091,7 +11709,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_cvc_short_a_fan_5_missing",
+    "id": "gen_cvc_short_a_fan_4_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15145,7 +11763,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_cvc_short_a_fan_5_picture",
+    "id": "gen_cvc_short_a_fan_4_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15197,7 +11815,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_cvc_short_a_ham_6_vowel",
+    "id": "gen_cvc_short_a_ham_5_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15249,7 +11867,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_cvc_short_a_ham_6_missing",
+    "id": "gen_cvc_short_a_ham_5_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15303,7 +11921,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_cvc_short_a_ham_6_picture",
+    "id": "gen_cvc_short_a_ham_5_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15355,7 +11973,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_cvc_short_a_hat_7_vowel",
+    "id": "gen_cvc_short_a_hat_6_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15407,7 +12025,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_cvc_short_a_hat_7_missing",
+    "id": "gen_cvc_short_a_hat_6_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15461,7 +12079,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_cvc_short_a_hat_7_picture",
+    "id": "gen_cvc_short_a_hat_6_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15513,7 +12131,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_cvc_short_a_jam_8_vowel",
+    "id": "gen_cvc_short_a_jam_7_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15565,7 +12183,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_cvc_short_a_jam_8_missing",
+    "id": "gen_cvc_short_a_jam_7_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15619,7 +12237,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_cvc_short_a_jam_8_picture",
+    "id": "gen_cvc_short_a_jam_7_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15671,7 +12289,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_cvc_short_a_man_9_vowel",
+    "id": "gen_cvc_short_a_man_8_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15723,7 +12341,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_cvc_short_a_man_9_missing",
+    "id": "gen_cvc_short_a_man_8_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15777,7 +12395,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_cvc_short_a_man_9_picture",
+    "id": "gen_cvc_short_a_man_8_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15829,7 +12447,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_cvc_short_a_mat_10_vowel",
+    "id": "gen_cvc_short_a_mat_9_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15881,7 +12499,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_cvc_short_a_mat_10_missing",
+    "id": "gen_cvc_short_a_mat_9_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15935,7 +12553,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_cvc_short_a_mat_10_picture",
+    "id": "gen_cvc_short_a_mat_9_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -15987,7 +12605,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_cvc_short_a_nap_11_vowel",
+    "id": "gen_cvc_short_a_nap_10_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16039,7 +12657,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_nap"
   },
   {
-    "id": "gen_cvc_short_a_nap_11_missing",
+    "id": "gen_cvc_short_a_nap_10_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16093,7 +12711,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_nap"
   },
   {
-    "id": "gen_cvc_short_a_pan_12_vowel",
+    "id": "gen_cvc_short_a_pan_11_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16145,7 +12763,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_cvc_short_a_pan_12_missing",
+    "id": "gen_cvc_short_a_pan_11_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16199,7 +12817,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_cvc_short_a_pan_12_picture",
+    "id": "gen_cvc_short_a_pan_11_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16251,7 +12869,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_cvc_short_a_ram_13_vowel",
+    "id": "gen_cvc_short_a_ram_12_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16303,7 +12921,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_cvc_short_a_ram_13_missing",
+    "id": "gen_cvc_short_a_ram_12_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16357,7 +12975,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_cvc_short_a_ram_13_picture",
+    "id": "gen_cvc_short_a_ram_12_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16409,7 +13027,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_cvc_short_a_rat_14_vowel",
+    "id": "gen_cvc_short_a_rat_13_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16461,7 +13079,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_cvc_short_a_rat_14_missing",
+    "id": "gen_cvc_short_a_rat_13_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16515,7 +13133,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_cvc_short_a_rat_14_picture",
+    "id": "gen_cvc_short_a_rat_13_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16567,7 +13185,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_cvc_short_a_tap_15_vowel",
+    "id": "gen_cvc_short_a_tap_14_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16619,7 +13237,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_cvc_short_a_tap_15_missing",
+    "id": "gen_cvc_short_a_tap_14_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16673,7 +13291,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_cvc_short_a_tap_15_picture",
+    "id": "gen_cvc_short_a_tap_14_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16725,7 +13343,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_cvc_short_a_van_16_vowel",
+    "id": "gen_cvc_short_a_van_15_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16777,7 +13395,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_cvc_short_a_van_16_missing",
+    "id": "gen_cvc_short_a_van_15_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16831,7 +13449,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_cvc_short_a_van_16_picture",
+    "id": "gen_cvc_short_a_van_15_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16883,7 +13501,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_cvc_short_a_yak_17_vowel",
+    "id": "gen_cvc_short_a_yak_16_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16935,7 +13553,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_yak"
   },
   {
-    "id": "gen_cvc_short_a_yak_17_missing",
+    "id": "gen_cvc_short_a_yak_16_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -16989,7 +13607,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_yak"
   },
   {
-    "id": "gen_cvc_short_a_yak_17_picture",
+    "id": "gen_cvc_short_a_yak_16_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
@@ -20259,6 +16877,58 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_dog"
   },
   {
+    "id": "gen_cvc_short_o_dot_2_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short o sound?",
+    "question": "Which word has the short o sound?",
+    "spokenPrompt": "Which word has the short o sound?",
+    "audioText": "dot",
+    "targetWord": "dot",
+    "correctAnswer": "dot",
+    "answer": "dot",
+    "choices": [
+      "dot",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "dot",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "dot",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_o",
+    "targetSound": "short_o",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_o",
+    "itemKey": "short_o",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "cvc",
+      "short-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_dot"
+  },
+  {
     "id": "gen_cvc_short_o_dot_2_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
@@ -20270,7 +16940,7 @@ export const generatedEarlySkillQuestions = [
     "prompt": "Choose the missing vowel in d_t.",
     "question": "Choose the missing vowel in d_t.",
     "spokenPrompt": "Choose the missing vowel in d_t.",
-    "audioText": "",
+    "audioText": "dot",
     "targetWord": "dot",
     "correctAnswer": "o",
     "answer": "o",
@@ -20291,9 +16961,9 @@ export const generatedEarlySkillQuestions = [
     "imageKey": "",
     "imageUrl": "",
     "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
+    "audioKey": "dot",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
     "phonicsPattern": "short_o",
     "targetSound": "short_o",
     "targetFinalSound": "",
@@ -20344,8 +17014,8 @@ export const generatedEarlySkillQuestions = [
     "imageUrl": "",
     "imagePath": "",
     "audioKey": "hop",
-    "audioUrl": "/audio/child-mode/words/hop.mp3",
-    "audioPath": "/audio/child-mode/words/hop.mp3",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
     "phonicsPattern": "short_o",
     "targetSound": "short_o",
     "targetFinalSound": "",
@@ -20398,8 +17068,8 @@ export const generatedEarlySkillQuestions = [
     "imageUrl": "",
     "imagePath": "",
     "audioKey": "hop",
-    "audioUrl": "/audio/child-mode/words/hop.mp3",
-    "audioPath": "/audio/child-mode/words/hop.mp3",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
     "phonicsPattern": "short_o",
     "targetSound": "short_o",
     "targetFinalSound": "",
@@ -22003,6 +18673,58 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_gum"
   },
   {
+    "id": "gen_cvc_short_u_hut_7_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short u sound?",
+    "question": "Which word has the short u sound?",
+    "spokenPrompt": "Which word has the short u sound?",
+    "audioText": "hut",
+    "targetWord": "hut",
+    "correctAnswer": "hut",
+    "answer": "hut",
+    "choices": [
+      "hut",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "hut",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "hut",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "cvc",
+      "short-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_hut"
+  },
+  {
     "id": "gen_cvc_short_u_hut_7_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
@@ -22014,7 +18736,7 @@ export const generatedEarlySkillQuestions = [
     "prompt": "Choose the missing vowel in h_t.",
     "question": "Choose the missing vowel in h_t.",
     "spokenPrompt": "Choose the missing vowel in h_t.",
-    "audioText": "",
+    "audioText": "hut",
     "targetWord": "hut",
     "correctAnswer": "u",
     "answer": "u",
@@ -22035,9 +18757,9 @@ export const generatedEarlySkillQuestions = [
     "imageKey": "",
     "imageUrl": "",
     "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
+    "audioKey": "hut",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
     "phonicsPattern": "short_u",
     "targetSound": "short_u",
     "targetFinalSound": "",
@@ -22057,6 +18779,58 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hut"
   },
   {
+    "id": "gen_cvc_short_u_jug_8_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short u sound?",
+    "question": "Which word has the short u sound?",
+    "spokenPrompt": "Which word has the short u sound?",
+    "audioText": "jug",
+    "targetWord": "jug",
+    "correctAnswer": "jug",
+    "answer": "jug",
+    "choices": [
+      "jug",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "jug",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "jug",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "cvc",
+      "short-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_jug"
+  },
+  {
     "id": "gen_cvc_short_u_jug_8_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
@@ -22068,7 +18842,7 @@ export const generatedEarlySkillQuestions = [
     "prompt": "Choose the missing vowel in j_g.",
     "question": "Choose the missing vowel in j_g.",
     "spokenPrompt": "Choose the missing vowel in j_g.",
-    "audioText": "",
+    "audioText": "jug",
     "targetWord": "jug",
     "correctAnswer": "u",
     "answer": "u",
@@ -22089,9 +18863,9 @@ export const generatedEarlySkillQuestions = [
     "imageKey": "",
     "imageUrl": "",
     "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
+    "audioKey": "jug",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
     "phonicsPattern": "short_u",
     "targetSound": "short_u",
     "targetFinalSound": "",
@@ -22533,6 +19307,58 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rug"
   },
   {
+    "id": "gen_cvc_short_u_run_12_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short u sound?",
+    "question": "Which word has the short u sound?",
+    "spokenPrompt": "Which word has the short u sound?",
+    "audioText": "run",
+    "targetWord": "run",
+    "correctAnswer": "run",
+    "answer": "run",
+    "choices": [
+      "run",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "run",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "run",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "cvc",
+      "short-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_run"
+  },
+  {
     "id": "gen_cvc_short_u_run_12_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
@@ -22544,7 +19370,7 @@ export const generatedEarlySkillQuestions = [
     "prompt": "Choose the missing vowel in r_n.",
     "question": "Choose the missing vowel in r_n.",
     "spokenPrompt": "Choose the missing vowel in r_n.",
-    "audioText": "",
+    "audioText": "run",
     "targetWord": "run",
     "correctAnswer": "u",
     "answer": "u",
@@ -22565,9 +19391,9 @@ export const generatedEarlySkillQuestions = [
     "imageKey": "",
     "imageUrl": "",
     "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
+    "audioKey": "run",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
     "phonicsPattern": "short_u",
     "targetSound": "short_u",
     "targetFinalSound": "",
@@ -24171,113 +20997,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_bus"
   },
   {
-    "id": "gen_short_vowel_a_can_10_listen",
-    "skillId": "short_vowel_discrimination",
-    "skillName": "Short Vowel Discrimination",
-    "skill": "Short Vowel Discrimination",
-    "level": 1,
-    "templateType": "LISTEN_CHOOSE_VOWEL",
-    "formatType": "LISTEN_CHOOSE_VOWEL",
-    "questionType": "listen_choose_vowel",
-    "prompt": "Listen to \"can\". Which short vowel sound do you hear?",
-    "question": "Listen to \"can\". Which short vowel sound do you hear?",
-    "spokenPrompt": "Listen to can. Which short vowel sound do you hear?",
-    "audioText": "can",
-    "targetWord": "can",
-    "correctAnswer": "a",
-    "answer": "a",
-    "choices": [
-      "a",
-      "e",
-      "i",
-      "o",
-      "u"
-    ],
-    "answerOptions": [
-      "a",
-      "e",
-      "i",
-      "o",
-      "u"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "can",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "short_a",
-    "targetSound": "short_a",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_a",
-    "itemKey": "short_a",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "short-vowel-discrimination",
-      "listen-vowel"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
-  },
-  {
-    "id": "gen_short_vowel_a_can_10_word",
-    "skillId": "short_vowel_discrimination",
-    "skillName": "Short Vowel Discrimination",
-    "skill": "Short Vowel Discrimination",
-    "level": 1,
-    "templateType": "SHORT_VOWEL_WORD",
-    "formatType": "SHORT_VOWEL_WORD",
-    "questionType": "short_vowel_word",
-    "prompt": "Which word has the short a sound?",
-    "question": "Which word has the short a sound?",
-    "spokenPrompt": "Which word has the short a sound?",
-    "audioText": "can",
-    "targetWord": "can",
-    "correctAnswer": "can",
-    "answer": "can",
-    "choices": [
-      "can",
-      "bid",
-      "big",
-      "bin"
-    ],
-    "answerOptions": [
-      "can",
-      "bid",
-      "big",
-      "bin"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "can",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "short_a",
-    "targetSound": "short_a",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_a",
-    "itemKey": "short_a",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "short-vowel-discrimination",
-      "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
-  },
-  {
-    "id": "gen_short_vowel_a_cap_11_listen",
+    "id": "gen_short_vowel_a_cap_10_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24331,7 +21051,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_short_vowel_a_cap_11_word",
+    "id": "gen_short_vowel_a_cap_10_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24383,7 +21103,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_short_vowel_a_cap_11_picture",
+    "id": "gen_short_vowel_a_cap_10_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24435,7 +21155,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_short_vowel_o_cot_12_listen",
+    "id": "gen_short_vowel_o_cot_11_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24489,7 +21209,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cot"
   },
   {
-    "id": "gen_short_vowel_o_cot_12_word",
+    "id": "gen_short_vowel_o_cot_11_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24541,7 +21261,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cot"
   },
   {
-    "id": "gen_short_vowel_o_cot_12_picture",
+    "id": "gen_short_vowel_o_cot_11_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24593,7 +21313,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cot"
   },
   {
-    "id": "gen_short_vowel_u_cup_13_listen",
+    "id": "gen_short_vowel_u_cup_12_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24647,7 +21367,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cup"
   },
   {
-    "id": "gen_short_vowel_u_cup_13_word",
+    "id": "gen_short_vowel_u_cup_12_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24699,7 +21419,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cup"
   },
   {
-    "id": "gen_short_vowel_u_cup_13_picture",
+    "id": "gen_short_vowel_u_cup_12_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24751,7 +21471,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cup"
   },
   {
-    "id": "gen_short_vowel_i_dig_14_listen",
+    "id": "gen_short_vowel_i_dig_13_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24805,7 +21525,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_dig"
   },
   {
-    "id": "gen_short_vowel_i_dig_14_word",
+    "id": "gen_short_vowel_i_dig_13_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24857,7 +21577,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_dig"
   },
   {
-    "id": "gen_short_vowel_o_dog_15_listen",
+    "id": "gen_short_vowel_o_dog_14_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24911,7 +21631,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_dog"
   },
   {
-    "id": "gen_short_vowel_o_dog_15_word",
+    "id": "gen_short_vowel_o_dog_14_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -24963,7 +21683,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_dog"
   },
   {
-    "id": "gen_short_vowel_o_dog_15_picture",
+    "id": "gen_short_vowel_o_dog_14_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25015,7 +21735,113 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_dog"
   },
   {
-    "id": "gen_short_vowel_a_fan_18_listen",
+    "id": "gen_short_vowel_o_dot_15_listen",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "listen_choose_vowel",
+    "prompt": "Listen to \"dot\". Which short vowel sound do you hear?",
+    "question": "Listen to \"dot\". Which short vowel sound do you hear?",
+    "spokenPrompt": "Listen to dot. Which short vowel sound do you hear?",
+    "audioText": "dot",
+    "targetWord": "dot",
+    "correctAnswer": "o",
+    "answer": "o",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "dot",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_o",
+    "targetSound": "short_o",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_o",
+    "itemKey": "short_o",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "listen-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_dot"
+  },
+  {
+    "id": "gen_short_vowel_o_dot_15_word",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short o sound?",
+    "question": "Which word has the short o sound?",
+    "spokenPrompt": "Which word has the short o sound?",
+    "audioText": "dot",
+    "targetWord": "dot",
+    "correctAnswer": "dot",
+    "answer": "dot",
+    "choices": [
+      "dot",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "dot",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "dot",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_o",
+    "targetSound": "short_o",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_o",
+    "itemKey": "short_o",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "word-choice"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_dot"
+  },
+  {
+    "id": "gen_short_vowel_a_fan_17_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25069,7 +21895,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_short_vowel_a_fan_18_word",
+    "id": "gen_short_vowel_a_fan_17_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25121,7 +21947,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_short_vowel_a_fan_18_picture",
+    "id": "gen_short_vowel_a_fan_17_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25173,7 +21999,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_short_vowel_i_fin_19_listen",
+    "id": "gen_short_vowel_i_fin_18_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25227,7 +22053,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_short_vowel_i_fin_19_word",
+    "id": "gen_short_vowel_i_fin_18_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25279,7 +22105,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_short_vowel_i_fin_19_picture",
+    "id": "gen_short_vowel_i_fin_18_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25331,7 +22157,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_short_vowel_u_gum_20_listen",
+    "id": "gen_short_vowel_u_gum_19_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25385,7 +22211,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_gum"
   },
   {
-    "id": "gen_short_vowel_u_gum_20_word",
+    "id": "gen_short_vowel_u_gum_19_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25437,7 +22263,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_gum"
   },
   {
-    "id": "gen_short_vowel_u_gum_20_picture",
+    "id": "gen_short_vowel_u_gum_19_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25489,7 +22315,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_gum"
   },
   {
-    "id": "gen_short_vowel_a_ham_21_listen",
+    "id": "gen_short_vowel_a_ham_20_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25543,7 +22369,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_short_vowel_a_ham_21_word",
+    "id": "gen_short_vowel_a_ham_20_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25595,7 +22421,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_short_vowel_a_ham_21_picture",
+    "id": "gen_short_vowel_a_ham_20_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25647,7 +22473,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_short_vowel_a_hat_22_listen",
+    "id": "gen_short_vowel_a_hat_21_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25701,7 +22527,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_short_vowel_a_hat_22_word",
+    "id": "gen_short_vowel_a_hat_21_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25753,7 +22579,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_short_vowel_a_hat_22_picture",
+    "id": "gen_short_vowel_a_hat_21_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25805,7 +22631,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_short_vowel_e_hen_23_listen",
+    "id": "gen_short_vowel_e_hen_22_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25859,7 +22685,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hen"
   },
   {
-    "id": "gen_short_vowel_e_hen_23_word",
+    "id": "gen_short_vowel_e_hen_22_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25911,7 +22737,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hen"
   },
   {
-    "id": "gen_short_vowel_e_hen_23_picture",
+    "id": "gen_short_vowel_e_hen_22_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -25963,7 +22789,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hen"
   },
   {
-    "id": "gen_short_vowel_i_hit_24_listen",
+    "id": "gen_short_vowel_i_hit_23_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26017,7 +22843,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hit"
   },
   {
-    "id": "gen_short_vowel_i_hit_24_word",
+    "id": "gen_short_vowel_i_hit_23_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26069,7 +22895,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hit"
   },
   {
-    "id": "gen_short_vowel_o_hop_25_listen",
+    "id": "gen_short_vowel_o_hop_24_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26102,8 +22928,8 @@ export const generatedEarlySkillQuestions = [
     "imageUrl": "",
     "imagePath": "",
     "audioKey": "hop",
-    "audioUrl": "/audio/child-mode/words/hop.mp3",
-    "audioPath": "/audio/child-mode/words/hop.mp3",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
     "phonicsPattern": "short_o",
     "targetSound": "short_o",
     "targetFinalSound": "",
@@ -26123,7 +22949,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hop"
   },
   {
-    "id": "gen_short_vowel_o_hop_25_word",
+    "id": "gen_short_vowel_o_hop_24_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26154,8 +22980,8 @@ export const generatedEarlySkillQuestions = [
     "imageUrl": "",
     "imagePath": "",
     "audioKey": "hop",
-    "audioUrl": "/audio/child-mode/words/hop.mp3",
-    "audioPath": "/audio/child-mode/words/hop.mp3",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
     "phonicsPattern": "short_o",
     "targetSound": "short_o",
     "targetFinalSound": "",
@@ -26175,7 +23001,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hop"
   },
   {
-    "id": "gen_short_vowel_o_hot_26_listen",
+    "id": "gen_short_vowel_o_hot_25_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26229,7 +23055,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hot"
   },
   {
-    "id": "gen_short_vowel_o_hot_26_word",
+    "id": "gen_short_vowel_o_hot_25_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26281,7 +23107,113 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_hot"
   },
   {
-    "id": "gen_short_vowel_a_jam_28_listen",
+    "id": "gen_short_vowel_u_hut_26_listen",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "listen_choose_vowel",
+    "prompt": "Listen to \"hut\". Which short vowel sound do you hear?",
+    "question": "Listen to \"hut\". Which short vowel sound do you hear?",
+    "spokenPrompt": "Listen to hut. Which short vowel sound do you hear?",
+    "audioText": "hut",
+    "targetWord": "hut",
+    "correctAnswer": "u",
+    "answer": "u",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "hut",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "listen-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_hut"
+  },
+  {
+    "id": "gen_short_vowel_u_hut_26_word",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short u sound?",
+    "question": "Which word has the short u sound?",
+    "spokenPrompt": "Which word has the short u sound?",
+    "audioText": "hut",
+    "targetWord": "hut",
+    "correctAnswer": "hut",
+    "answer": "hut",
+    "choices": [
+      "hut",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "hut",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "hut",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "word-choice"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_hut"
+  },
+  {
+    "id": "gen_short_vowel_a_jam_27_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26335,7 +23267,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_short_vowel_a_jam_28_word",
+    "id": "gen_short_vowel_a_jam_27_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26387,7 +23319,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_short_vowel_a_jam_28_picture",
+    "id": "gen_short_vowel_a_jam_27_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26439,7 +23371,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_short_vowel_e_jet_29_listen",
+    "id": "gen_short_vowel_e_jet_28_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26493,7 +23425,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jet"
   },
   {
-    "id": "gen_short_vowel_e_jet_29_word",
+    "id": "gen_short_vowel_e_jet_28_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26545,7 +23477,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jet"
   },
   {
-    "id": "gen_short_vowel_e_jet_29_picture",
+    "id": "gen_short_vowel_e_jet_28_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26597,7 +23529,113 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_jet"
   },
   {
-    "id": "gen_short_vowel_i_kid_31_listen",
+    "id": "gen_short_vowel_u_jug_29_listen",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "listen_choose_vowel",
+    "prompt": "Listen to \"jug\". Which short vowel sound do you hear?",
+    "question": "Listen to \"jug\". Which short vowel sound do you hear?",
+    "spokenPrompt": "Listen to jug. Which short vowel sound do you hear?",
+    "audioText": "jug",
+    "targetWord": "jug",
+    "correctAnswer": "u",
+    "answer": "u",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "jug",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "listen-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_jug"
+  },
+  {
+    "id": "gen_short_vowel_u_jug_29_word",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short u sound?",
+    "question": "Which word has the short u sound?",
+    "spokenPrompt": "Which word has the short u sound?",
+    "audioText": "jug",
+    "targetWord": "jug",
+    "correctAnswer": "jug",
+    "answer": "jug",
+    "choices": [
+      "jug",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "jug",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "jug",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "word-choice"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_jug"
+  },
+  {
+    "id": "gen_short_vowel_i_kid_30_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26651,7 +23689,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_kid"
   },
   {
-    "id": "gen_short_vowel_i_kid_31_word",
+    "id": "gen_short_vowel_i_kid_30_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26703,7 +23741,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_kid"
   },
   {
-    "id": "gen_short_vowel_i_kid_31_picture",
+    "id": "gen_short_vowel_i_kid_30_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26755,7 +23793,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_kid"
   },
   {
-    "id": "gen_short_vowel_e_leg_32_listen",
+    "id": "gen_short_vowel_e_leg_31_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26809,7 +23847,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_leg"
   },
   {
-    "id": "gen_short_vowel_e_leg_32_word",
+    "id": "gen_short_vowel_e_leg_31_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26861,7 +23899,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_leg"
   },
   {
-    "id": "gen_short_vowel_e_leg_32_picture",
+    "id": "gen_short_vowel_e_leg_31_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26913,7 +23951,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_leg"
   },
   {
-    "id": "gen_short_vowel_i_lid_33_listen",
+    "id": "gen_short_vowel_i_lid_32_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -26967,7 +24005,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_lid"
   },
   {
-    "id": "gen_short_vowel_i_lid_33_word",
+    "id": "gen_short_vowel_i_lid_32_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27019,7 +24057,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_lid"
   },
   {
-    "id": "gen_short_vowel_i_lid_33_picture",
+    "id": "gen_short_vowel_i_lid_32_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27071,7 +24109,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_lid"
   },
   {
-    "id": "gen_short_vowel_o_log_34_listen",
+    "id": "gen_short_vowel_o_log_33_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27125,7 +24163,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_log"
   },
   {
-    "id": "gen_short_vowel_o_log_34_word",
+    "id": "gen_short_vowel_o_log_33_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27177,7 +24215,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_log"
   },
   {
-    "id": "gen_short_vowel_o_log_34_picture",
+    "id": "gen_short_vowel_o_log_33_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27229,7 +24267,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_log"
   },
   {
-    "id": "gen_short_vowel_a_man_35_listen",
+    "id": "gen_short_vowel_a_man_34_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27283,7 +24321,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_short_vowel_a_man_35_word",
+    "id": "gen_short_vowel_a_man_34_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27335,7 +24373,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_short_vowel_a_man_35_picture",
+    "id": "gen_short_vowel_a_man_34_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27387,7 +24425,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_short_vowel_a_mat_36_listen",
+    "id": "gen_short_vowel_a_mat_35_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27441,7 +24479,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_short_vowel_a_mat_36_word",
+    "id": "gen_short_vowel_a_mat_35_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27493,7 +24531,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_short_vowel_a_mat_36_picture",
+    "id": "gen_short_vowel_a_mat_35_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27545,7 +24583,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_short_vowel_o_mop_37_listen",
+    "id": "gen_short_vowel_o_mop_36_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27599,7 +24637,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mop"
   },
   {
-    "id": "gen_short_vowel_o_mop_37_word",
+    "id": "gen_short_vowel_o_mop_36_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27651,7 +24689,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mop"
   },
   {
-    "id": "gen_short_vowel_u_mud_38_listen",
+    "id": "gen_short_vowel_u_mud_37_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27705,7 +24743,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mud"
   },
   {
-    "id": "gen_short_vowel_u_mud_38_word",
+    "id": "gen_short_vowel_u_mud_37_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27757,7 +24795,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mud"
   },
   {
-    "id": "gen_short_vowel_u_mug_39_listen",
+    "id": "gen_short_vowel_u_mug_38_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27811,7 +24849,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mug"
   },
   {
-    "id": "gen_short_vowel_u_mug_39_word",
+    "id": "gen_short_vowel_u_mug_38_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27863,7 +24901,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mug"
   },
   {
-    "id": "gen_short_vowel_u_mug_39_picture",
+    "id": "gen_short_vowel_u_mug_38_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27915,7 +24953,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mug"
   },
   {
-    "id": "gen_short_vowel_a_nap_40_listen",
+    "id": "gen_short_vowel_a_nap_39_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -27969,7 +25007,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_nap"
   },
   {
-    "id": "gen_short_vowel_a_nap_40_word",
+    "id": "gen_short_vowel_a_nap_39_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28021,7 +25059,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_nap"
   },
   {
-    "id": "gen_short_vowel_a_pan_41_listen",
+    "id": "gen_short_vowel_a_pan_40_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28075,7 +25113,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_short_vowel_a_pan_41_word",
+    "id": "gen_short_vowel_a_pan_40_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28127,7 +25165,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_short_vowel_a_pan_41_picture",
+    "id": "gen_short_vowel_a_pan_40_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28179,7 +25217,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_short_vowel_e_pen_42_listen",
+    "id": "gen_short_vowel_e_pen_41_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28233,7 +25271,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_short_vowel_e_pen_42_word",
+    "id": "gen_short_vowel_e_pen_41_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28285,7 +25323,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_short_vowel_e_pen_42_picture",
+    "id": "gen_short_vowel_e_pen_41_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28337,7 +25375,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_short_vowel_i_pig_43_listen",
+    "id": "gen_short_vowel_i_pig_42_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28391,7 +25429,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_short_vowel_i_pig_43_word",
+    "id": "gen_short_vowel_i_pig_42_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28443,7 +25481,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_short_vowel_i_pig_43_picture",
+    "id": "gen_short_vowel_i_pig_42_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28495,7 +25533,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_short_vowel_i_pin_44_listen",
+    "id": "gen_short_vowel_i_pin_43_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28549,7 +25587,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pin"
   },
   {
-    "id": "gen_short_vowel_i_pin_44_word",
+    "id": "gen_short_vowel_i_pin_43_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28601,7 +25639,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pin"
   },
   {
-    "id": "gen_short_vowel_i_pin_44_picture",
+    "id": "gen_short_vowel_i_pin_43_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28653,7 +25691,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pin"
   },
   {
-    "id": "gen_short_vowel_o_pot_45_listen",
+    "id": "gen_short_vowel_o_pot_44_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28707,7 +25745,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_short_vowel_o_pot_45_word",
+    "id": "gen_short_vowel_o_pot_44_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28759,7 +25797,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_short_vowel_o_pot_45_picture",
+    "id": "gen_short_vowel_o_pot_44_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28811,7 +25849,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_short_vowel_a_ram_46_listen",
+    "id": "gen_short_vowel_a_ram_45_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28865,7 +25903,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_short_vowel_a_ram_46_word",
+    "id": "gen_short_vowel_a_ram_45_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28917,7 +25955,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_short_vowel_a_ram_46_picture",
+    "id": "gen_short_vowel_a_ram_45_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -28969,7 +26007,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_short_vowel_a_rat_47_listen",
+    "id": "gen_short_vowel_a_rat_46_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29023,7 +26061,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_short_vowel_a_rat_47_word",
+    "id": "gen_short_vowel_a_rat_46_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29075,7 +26113,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_short_vowel_a_rat_47_picture",
+    "id": "gen_short_vowel_a_rat_46_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29127,7 +26165,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_short_vowel_e_red_48_listen",
+    "id": "gen_short_vowel_e_red_47_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29181,7 +26219,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_red"
   },
   {
-    "id": "gen_short_vowel_e_red_48_word",
+    "id": "gen_short_vowel_e_red_47_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29233,7 +26271,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_red"
   },
   {
-    "id": "gen_short_vowel_e_red_48_picture",
+    "id": "gen_short_vowel_e_red_47_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29285,7 +26323,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_red"
   },
   {
-    "id": "gen_short_vowel_u_rug_49_listen",
+    "id": "gen_short_vowel_u_rug_48_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29339,7 +26377,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rug"
   },
   {
-    "id": "gen_short_vowel_u_rug_49_word",
+    "id": "gen_short_vowel_u_rug_48_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29391,7 +26429,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rug"
   },
   {
-    "id": "gen_short_vowel_u_rug_49_picture",
+    "id": "gen_short_vowel_u_rug_48_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29443,7 +26481,113 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rug"
   },
   {
-    "id": "gen_short_vowel_i_sit_51_listen",
+    "id": "gen_short_vowel_u_run_49_listen",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "listen_choose_vowel",
+    "prompt": "Listen to \"run\". Which short vowel sound do you hear?",
+    "question": "Listen to \"run\". Which short vowel sound do you hear?",
+    "spokenPrompt": "Listen to run. Which short vowel sound do you hear?",
+    "audioText": "run",
+    "targetWord": "run",
+    "correctAnswer": "u",
+    "answer": "u",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "run",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "listen-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_run"
+  },
+  {
+    "id": "gen_short_vowel_u_run_49_word",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short u sound?",
+    "question": "Which word has the short u sound?",
+    "spokenPrompt": "Which word has the short u sound?",
+    "audioText": "run",
+    "targetWord": "run",
+    "correctAnswer": "run",
+    "answer": "run",
+    "choices": [
+      "run",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "answerOptions": [
+      "run",
+      "bad",
+      "bag",
+      "bat"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "run",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "word-choice"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_run"
+  },
+  {
+    "id": "gen_short_vowel_i_sit_50_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29497,7 +26641,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sit"
   },
   {
-    "id": "gen_short_vowel_i_sit_51_word",
+    "id": "gen_short_vowel_i_sit_50_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29549,7 +26693,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sit"
   },
   {
-    "id": "gen_short_vowel_i_sit_51_picture",
+    "id": "gen_short_vowel_i_sit_50_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29601,7 +26745,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sit"
   },
   {
-    "id": "gen_short_vowel_u_sun_52_listen",
+    "id": "gen_short_vowel_u_sun_51_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29655,7 +26799,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sun"
   },
   {
-    "id": "gen_short_vowel_u_sun_52_word",
+    "id": "gen_short_vowel_u_sun_51_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29707,7 +26851,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sun"
   },
   {
-    "id": "gen_short_vowel_u_sun_52_picture",
+    "id": "gen_short_vowel_u_sun_51_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29759,7 +26903,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_sun"
   },
   {
-    "id": "gen_short_vowel_a_tap_53_listen",
+    "id": "gen_short_vowel_a_tap_52_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29813,7 +26957,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_short_vowel_a_tap_53_word",
+    "id": "gen_short_vowel_a_tap_52_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29865,7 +27009,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_short_vowel_a_tap_53_picture",
+    "id": "gen_short_vowel_a_tap_52_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29917,7 +27061,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_short_vowel_e_ten_54_listen",
+    "id": "gen_short_vowel_e_ten_53_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -29971,7 +27115,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ten"
   },
   {
-    "id": "gen_short_vowel_e_ten_54_word",
+    "id": "gen_short_vowel_e_ten_53_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30023,7 +27167,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_ten"
   },
   {
-    "id": "gen_short_vowel_o_top_55_listen",
+    "id": "gen_short_vowel_o_top_54_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30077,7 +27221,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_top"
   },
   {
-    "id": "gen_short_vowel_o_top_55_word",
+    "id": "gen_short_vowel_o_top_54_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30129,7 +27273,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_top"
   },
   {
-    "id": "gen_short_vowel_o_top_55_picture",
+    "id": "gen_short_vowel_o_top_54_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30181,7 +27325,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_top"
   },
   {
-    "id": "gen_short_vowel_u_tub_56_listen",
+    "id": "gen_short_vowel_u_tub_55_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30235,7 +27379,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tub"
   },
   {
-    "id": "gen_short_vowel_u_tub_56_word",
+    "id": "gen_short_vowel_u_tub_55_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30287,7 +27431,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tub"
   },
   {
-    "id": "gen_short_vowel_u_tub_56_picture",
+    "id": "gen_short_vowel_u_tub_55_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30339,7 +27483,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tub"
   },
   {
-    "id": "gen_short_vowel_a_van_57_listen",
+    "id": "gen_short_vowel_a_van_56_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30393,7 +27537,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_short_vowel_a_van_57_word",
+    "id": "gen_short_vowel_a_van_56_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30445,7 +27589,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_short_vowel_a_van_57_picture",
+    "id": "gen_short_vowel_a_van_56_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30497,7 +27641,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_short_vowel_e_web_58_listen",
+    "id": "gen_short_vowel_e_web_57_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30551,7 +27695,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_web"
   },
   {
-    "id": "gen_short_vowel_e_web_58_word",
+    "id": "gen_short_vowel_e_web_57_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30603,7 +27747,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_web"
   },
   {
-    "id": "gen_short_vowel_e_web_58_picture",
+    "id": "gen_short_vowel_e_web_57_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30655,7 +27799,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_web"
   },
   {
-    "id": "gen_short_vowel_i_wig_59_listen",
+    "id": "gen_short_vowel_i_wig_58_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30709,7 +27853,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_wig"
   },
   {
-    "id": "gen_short_vowel_i_wig_59_word",
+    "id": "gen_short_vowel_i_wig_58_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30761,7 +27905,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_wig"
   },
   {
-    "id": "gen_short_vowel_i_wig_59_picture",
+    "id": "gen_short_vowel_i_wig_58_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30813,7 +27957,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_wig"
   },
   {
-    "id": "gen_short_vowel_a_yak_60_listen",
+    "id": "gen_short_vowel_a_yak_59_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30867,7 +28011,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_yak"
   },
   {
-    "id": "gen_short_vowel_a_yak_60_word",
+    "id": "gen_short_vowel_a_yak_59_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30919,7 +28063,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_yak"
   },
   {
-    "id": "gen_short_vowel_a_yak_60_picture",
+    "id": "gen_short_vowel_a_yak_59_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -30971,7 +28115,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_yak"
   },
   {
-    "id": "gen_short_vowel_i_zip_61_listen",
+    "id": "gen_short_vowel_i_zip_60_listen",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -31025,7 +28169,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_zip"
   },
   {
-    "id": "gen_short_vowel_i_zip_61_word",
+    "id": "gen_short_vowel_i_zip_60_word",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -31077,7 +28221,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_zip"
   },
   {
-    "id": "gen_short_vowel_i_zip_61_picture",
+    "id": "gen_short_vowel_i_zip_60_picture",
     "skillId": "short_vowel_discrimination",
     "skillName": "Short Vowel Discrimination",
     "skill": "Short Vowel Discrimination",
@@ -31146,19 +28290,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "hat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "bat",
+    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
+    "imagePath": "/media/initial-sounds/images/b/bat.webp",
     "audioKey": "bat",
     "audioUrl": "/media/initial-sounds/audio/b/bat.mp3",
     "audioPath": "/media/initial-sounds/audio/b/bat.mp3",
@@ -31198,19 +28342,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "mat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "bat",
+    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
+    "imagePath": "/media/initial-sounds/images/b/bat.webp",
     "audioKey": "bat",
     "audioUrl": "/media/initial-sounds/audio/b/bat.mp3",
     "audioPath": "/media/initial-sounds/audio/b/bat.mp3",
@@ -31250,19 +28394,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "rat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "bat",
+    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
+    "imagePath": "/media/initial-sounds/images/b/bat.webp",
     "audioKey": "bat",
     "audioUrl": "/media/initial-sounds/audio/b/bat.mp3",
     "audioPath": "/media/initial-sounds/audio/b/bat.mp3",
@@ -31302,19 +28446,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "bat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "hat",
+    "imageUrl": "/media/initial-sounds/images/h/hat.webp",
+    "imagePath": "/media/initial-sounds/images/h/hat.webp",
     "audioKey": "hat",
     "audioUrl": "/media/initial-sounds/audio/h/hat.mp3",
     "audioPath": "/media/initial-sounds/audio/h/hat.mp3",
@@ -31354,19 +28498,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "mat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "hat",
+    "imageUrl": "/media/initial-sounds/images/h/hat.webp",
+    "imagePath": "/media/initial-sounds/images/h/hat.webp",
     "audioKey": "hat",
     "audioUrl": "/media/initial-sounds/audio/h/hat.mp3",
     "audioPath": "/media/initial-sounds/audio/h/hat.mp3",
@@ -31406,19 +28550,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "rat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "hat",
+    "imageUrl": "/media/initial-sounds/images/h/hat.webp",
+    "imagePath": "/media/initial-sounds/images/h/hat.webp",
     "audioKey": "hat",
     "audioUrl": "/media/initial-sounds/audio/h/hat.mp3",
     "audioPath": "/media/initial-sounds/audio/h/hat.mp3",
@@ -31458,19 +28602,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "bat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "mat",
+    "imageUrl": "/media/initial-sounds/images/m/mat.webp",
+    "imagePath": "/media/initial-sounds/images/m/mat.webp",
     "audioKey": "mat",
     "audioUrl": "/media/initial-sounds/audio/m/mat.mp3",
     "audioPath": "/media/initial-sounds/audio/m/mat.mp3",
@@ -31510,19 +28654,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "hat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "mat",
+    "imageUrl": "/media/initial-sounds/images/m/mat.webp",
+    "imagePath": "/media/initial-sounds/images/m/mat.webp",
     "audioKey": "mat",
     "audioUrl": "/media/initial-sounds/audio/m/mat.mp3",
     "audioPath": "/media/initial-sounds/audio/m/mat.mp3",
@@ -31562,19 +28706,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "rat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "mat",
+    "imageUrl": "/media/initial-sounds/images/m/mat.webp",
+    "imagePath": "/media/initial-sounds/images/m/mat.webp",
     "audioKey": "mat",
     "audioUrl": "/media/initial-sounds/audio/m/mat.mp3",
     "audioPath": "/media/initial-sounds/audio/m/mat.mp3",
@@ -31614,19 +28758,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "bat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "rat",
+    "imageUrl": "/media/initial-sounds/images/r/rat.webp",
+    "imagePath": "/media/initial-sounds/images/r/rat.webp",
     "audioKey": "rat",
     "audioUrl": "/media/initial-sounds/audio/r/rat.mp3",
     "audioPath": "/media/initial-sounds/audio/r/rat.mp3",
@@ -31666,19 +28810,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "hat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "rat",
+    "imageUrl": "/media/initial-sounds/images/r/rat.webp",
+    "imagePath": "/media/initial-sounds/images/r/rat.webp",
     "audioKey": "rat",
     "audioUrl": "/media/initial-sounds/audio/r/rat.mp3",
     "audioPath": "/media/initial-sounds/audio/r/rat.mp3",
@@ -31718,19 +28862,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
     "answerOptions": [
       "mat",
-      "bear",
-      "bee",
+      "bag",
+      "ball",
       "bell"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "rat",
+    "imageUrl": "/media/initial-sounds/images/r/rat.webp",
+    "imagePath": "/media/initial-sounds/images/r/rat.webp",
     "audioKey": "rat",
     "audioUrl": "/media/initial-sounds/audio/r/rat.mp3",
     "audioPath": "/media/initial-sounds/audio/r/rat.mp3",
@@ -31753,7 +28897,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_rhyme_an_can_fan_0_0",
+    "id": "gen_rhyme_an_pan_fan_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -31761,31 +28905,31 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with can?",
-    "question": "Which word rhymes with can?",
+    "prompt": "Which word rhymes with pan?",
+    "question": "Which word rhymes with pan?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "can",
+    "targetWord": "pan",
     "correctAnswer": "fan",
     "answer": "fan",
     "choices": [
       "fan",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "fan",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "can",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "imageKey": "pan",
+    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
+    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "audioKey": "pan",
+    "audioUrl": "/media/initial-sounds/audio/p/pan.mp3",
+    "audioPath": "/media/initial-sounds/audio/p/pan.mp3",
     "phonicsPattern": "an",
     "targetSound": "an",
     "targetFinalSound": "",
@@ -31802,10 +28946,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
+    "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_rhyme_an_can_man_0_1",
+    "id": "gen_rhyme_an_pan_man_0_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -31813,31 +28957,31 @@ export const generatedEarlySkillQuestions = [
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with can?",
-    "question": "Which word rhymes with can?",
+    "prompt": "Which word rhymes with pan?",
+    "question": "Which word rhymes with pan?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "can",
+    "targetWord": "pan",
     "correctAnswer": "man",
     "answer": "man",
     "choices": [
       "man",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "man",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "can",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "imageKey": "pan",
+    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
+    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "audioKey": "pan",
+    "audioUrl": "/media/initial-sounds/audio/p/pan.mp3",
+    "audioPath": "/media/initial-sounds/audio/p/pan.mp3",
     "phonicsPattern": "an",
     "targetSound": "an",
     "targetFinalSound": "",
@@ -31854,10 +28998,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
+    "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_rhyme_an_can_pan_0_2",
+    "id": "gen_rhyme_an_pan_van_0_2",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -31865,83 +29009,31 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with can?",
-    "question": "Which word rhymes with can?",
+    "prompt": "Which word rhymes with pan?",
+    "question": "Which word rhymes with pan?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "can",
-    "correctAnswer": "pan",
-    "answer": "pan",
-    "choices": [
-      "pan",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "pan",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "can",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "an",
-    "targetSound": "an",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "an",
-    "itemKey": "an",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
-  },
-  {
-    "id": "gen_rhyme_an_can_van_0_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with can?",
-    "question": "Which word rhymes with can?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "can",
+    "targetWord": "pan",
     "correctAnswer": "van",
     "answer": "van",
     "choices": [
       "van",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "van",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "can",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "imageKey": "pan",
+    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
+    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "audioKey": "pan",
+    "audioUrl": "/media/initial-sounds/audio/p/pan.mp3",
+    "audioPath": "/media/initial-sounds/audio/p/pan.mp3",
     "phonicsPattern": "an",
     "targetSound": "an",
     "targetFinalSound": "",
@@ -31958,10 +29050,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_can"
+    "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_rhyme_an_fan_can_1_0",
+    "id": "gen_rhyme_an_fan_pan_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -31974,23 +29066,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "fan",
-    "correctAnswer": "can",
-    "answer": "can",
+    "correctAnswer": "pan",
+    "answer": "pan",
     "choices": [
-      "can",
-      "bat",
-      "bear",
-      "bee"
+      "pan",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "can",
-      "bat",
-      "bear",
-      "bee"
+      "pan",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "fan",
+    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
+    "imagePath": "/media/initial-sounds/images/f/fan.webp",
     "audioKey": "fan",
     "audioUrl": "/media/initial-sounds/audio/f/fan.mp3",
     "audioPath": "/media/initial-sounds/audio/f/fan.mp3",
@@ -32030,19 +29122,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "man",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "fan",
+    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
+    "imagePath": "/media/initial-sounds/images/f/fan.webp",
     "audioKey": "fan",
     "audioUrl": "/media/initial-sounds/audio/f/fan.mp3",
     "audioPath": "/media/initial-sounds/audio/f/fan.mp3",
@@ -32065,7 +29157,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_rhyme_an_fan_pan_1_2",
+    "id": "gen_rhyme_an_fan_van_1_2",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -32078,75 +29170,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "fan",
-    "correctAnswer": "pan",
-    "answer": "pan",
-    "choices": [
-      "pan",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "pan",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "fan",
-    "audioUrl": "/media/initial-sounds/audio/f/fan.mp3",
-    "audioPath": "/media/initial-sounds/audio/f/fan.mp3",
-    "phonicsPattern": "an",
-    "targetSound": "an",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "an",
-    "itemKey": "an",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_fan"
-  },
-  {
-    "id": "gen_rhyme_an_fan_van_1_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with fan?",
-    "question": "Which word rhymes with fan?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "fan",
     "correctAnswer": "van",
     "answer": "van",
     "choices": [
       "van",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "van",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "fan",
+    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
+    "imagePath": "/media/initial-sounds/images/f/fan.webp",
     "audioKey": "fan",
     "audioUrl": "/media/initial-sounds/audio/f/fan.mp3",
     "audioPath": "/media/initial-sounds/audio/f/fan.mp3",
@@ -32169,7 +29209,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_rhyme_an_man_can_2_0",
+    "id": "gen_rhyme_an_man_pan_2_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -32182,23 +29222,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "man",
-    "correctAnswer": "can",
-    "answer": "can",
+    "correctAnswer": "pan",
+    "answer": "pan",
     "choices": [
-      "can",
-      "bat",
-      "bear",
-      "bee"
+      "pan",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "can",
-      "bat",
-      "bear",
-      "bee"
+      "pan",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "man",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
     "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
@@ -32238,19 +29278,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "fan",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "man",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
     "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
@@ -32273,7 +29313,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_rhyme_an_man_pan_2_2",
+    "id": "gen_rhyme_an_man_van_2_2",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -32286,23 +29326,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "man",
-    "correctAnswer": "pan",
-    "answer": "pan",
+    "correctAnswer": "van",
+    "answer": "van",
     "choices": [
-      "pan",
-      "bat",
-      "bear",
-      "bee"
+      "van",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "pan",
-      "bat",
-      "bear",
-      "bee"
+      "van",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "man",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
     "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
@@ -32325,267 +29365,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_rhyme_an_man_van_2_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with man?",
-    "question": "Which word rhymes with man?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "man",
-    "correctAnswer": "van",
-    "answer": "van",
-    "choices": [
-      "van",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "van",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "man",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "an",
-    "targetSound": "an",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "an",
-    "itemKey": "an",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_man"
-  },
-  {
-    "id": "gen_rhyme_an_pan_can_3_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with pan?",
-    "question": "Which word rhymes with pan?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "pan",
-    "correctAnswer": "can",
-    "answer": "can",
-    "choices": [
-      "can",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "can",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pan",
-    "audioUrl": "/media/initial-sounds/audio/p/pan.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pan.mp3",
-    "phonicsPattern": "an",
-    "targetSound": "an",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "an",
-    "itemKey": "an",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_pan"
-  },
-  {
-    "id": "gen_rhyme_an_pan_fan_3_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with pan?",
-    "question": "Which word rhymes with pan?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "pan",
-    "correctAnswer": "fan",
-    "answer": "fan",
-    "choices": [
-      "fan",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "fan",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pan",
-    "audioUrl": "/media/initial-sounds/audio/p/pan.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pan.mp3",
-    "phonicsPattern": "an",
-    "targetSound": "an",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "an",
-    "itemKey": "an",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_pan"
-  },
-  {
-    "id": "gen_rhyme_an_pan_man_3_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with pan?",
-    "question": "Which word rhymes with pan?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "pan",
-    "correctAnswer": "man",
-    "answer": "man",
-    "choices": [
-      "man",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "man",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pan",
-    "audioUrl": "/media/initial-sounds/audio/p/pan.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pan.mp3",
-    "phonicsPattern": "an",
-    "targetSound": "an",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "an",
-    "itemKey": "an",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_pan"
-  },
-  {
-    "id": "gen_rhyme_an_pan_van_3_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with pan?",
-    "question": "Which word rhymes with pan?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "pan",
-    "correctAnswer": "van",
-    "answer": "van",
-    "choices": [
-      "van",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "van",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pan",
-    "audioUrl": "/media/initial-sounds/audio/p/pan.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pan.mp3",
-    "phonicsPattern": "an",
-    "targetSound": "an",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "an",
-    "itemKey": "an",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_pan"
-  },
-  {
-    "id": "gen_rhyme_an_van_can_4_0",
+    "id": "gen_rhyme_an_van_pan_3_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -32598,23 +29378,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "van",
-    "correctAnswer": "can",
-    "answer": "can",
+    "correctAnswer": "pan",
+    "answer": "pan",
     "choices": [
-      "can",
-      "bat",
-      "bear",
-      "bee"
+      "pan",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "can",
-      "bat",
-      "bear",
-      "bee"
+      "pan",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "van",
+    "imageUrl": "/media/initial-sounds/images/v/van.webp",
+    "imagePath": "/media/initial-sounds/images/v/van.webp",
     "audioKey": "van",
     "audioUrl": "/media/initial-sounds/audio/v/van.mp3",
     "audioPath": "/media/initial-sounds/audio/v/van.mp3",
@@ -32637,7 +29417,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_rhyme_an_van_fan_4_1",
+    "id": "gen_rhyme_an_van_fan_3_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -32654,19 +29434,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "fan",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "van",
+    "imageUrl": "/media/initial-sounds/images/v/van.webp",
+    "imagePath": "/media/initial-sounds/images/v/van.webp",
     "audioKey": "van",
     "audioUrl": "/media/initial-sounds/audio/v/van.mp3",
     "audioPath": "/media/initial-sounds/audio/v/van.mp3",
@@ -32689,7 +29469,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_rhyme_an_van_man_4_2",
+    "id": "gen_rhyme_an_van_man_3_2",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -32706,19 +29486,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "man",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "van",
+    "imageUrl": "/media/initial-sounds/images/v/van.webp",
+    "imagePath": "/media/initial-sounds/images/v/van.webp",
     "audioKey": "van",
     "audioUrl": "/media/initial-sounds/audio/v/van.mp3",
     "audioPath": "/media/initial-sounds/audio/v/van.mp3",
@@ -32741,59 +29521,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_rhyme_an_van_pan_4_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with van?",
-    "question": "Which word rhymes with van?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "van",
-    "correctAnswer": "pan",
-    "answer": "pan",
-    "choices": [
-      "pan",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "pan",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "van",
-    "audioUrl": "/media/initial-sounds/audio/v/van.mp3",
-    "audioPath": "/media/initial-sounds/audio/v/van.mp3",
-    "phonicsPattern": "an",
-    "targetSound": "an",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "an",
-    "itemKey": "an",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_van"
-  },
-  {
-    "id": "gen_rhyme_ap_cap_clap_0_0",
+    "id": "gen_rhyme_ap_cap_tap_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -32806,23 +29534,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "cap",
-    "correctAnswer": "clap",
-    "answer": "clap",
+    "correctAnswer": "tap",
+    "answer": "tap",
     "choices": [
-      "clap",
-      "bat",
-      "bear",
-      "bee"
+      "tap",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "clap",
-      "bat",
-      "bear",
-      "bee"
+      "tap",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "cap",
+    "imageUrl": "/media/initial-sounds/images/c/cap.webp",
+    "imagePath": "/media/initial-sounds/images/c/cap.webp",
     "audioKey": "cap",
     "audioUrl": "/media/initial-sounds/audio/c/cap.mp3",
     "audioPath": "/media/initial-sounds/audio/c/cap.mp3",
@@ -32845,423 +29573,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_rhyme_ap_cap_nap_0_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with cap?",
-    "question": "Which word rhymes with cap?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "cap",
-    "correctAnswer": "nap",
-    "answer": "nap",
-    "choices": [
-      "nap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "nap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "cap",
-    "audioUrl": "/media/initial-sounds/audio/c/cap.mp3",
-    "audioPath": "/media/initial-sounds/audio/c/cap.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_cap"
-  },
-  {
-    "id": "gen_rhyme_ap_cap_tap_0_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with cap?",
-    "question": "Which word rhymes with cap?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "cap",
-    "correctAnswer": "tap",
-    "answer": "tap",
-    "choices": [
-      "tap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "tap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "cap",
-    "audioUrl": "/media/initial-sounds/audio/c/cap.mp3",
-    "audioPath": "/media/initial-sounds/audio/c/cap.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_cap"
-  },
-  {
-    "id": "gen_rhyme_ap_clap_cap_1_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with clap?",
-    "question": "Which word rhymes with clap?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "clap",
-    "correctAnswer": "cap",
-    "answer": "cap",
-    "choices": [
-      "cap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "cap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "clap",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_clap"
-  },
-  {
-    "id": "gen_rhyme_ap_clap_nap_1_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with clap?",
-    "question": "Which word rhymes with clap?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "clap",
-    "correctAnswer": "nap",
-    "answer": "nap",
-    "choices": [
-      "nap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "nap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "clap",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_clap"
-  },
-  {
-    "id": "gen_rhyme_ap_clap_tap_1_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with clap?",
-    "question": "Which word rhymes with clap?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "clap",
-    "correctAnswer": "tap",
-    "answer": "tap",
-    "choices": [
-      "tap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "tap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "clap",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_clap"
-  },
-  {
-    "id": "gen_rhyme_ap_nap_cap_2_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with nap?",
-    "question": "Which word rhymes with nap?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "nap",
-    "correctAnswer": "cap",
-    "answer": "cap",
-    "choices": [
-      "cap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "cap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "nap",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_nap"
-  },
-  {
-    "id": "gen_rhyme_ap_nap_clap_2_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with nap?",
-    "question": "Which word rhymes with nap?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "nap",
-    "correctAnswer": "clap",
-    "answer": "clap",
-    "choices": [
-      "clap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "clap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "nap",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_nap"
-  },
-  {
-    "id": "gen_rhyme_ap_nap_tap_2_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with nap?",
-    "question": "Which word rhymes with nap?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "nap",
-    "correctAnswer": "tap",
-    "answer": "tap",
-    "choices": [
-      "tap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "tap",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "nap",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_nap"
-  },
-  {
-    "id": "gen_rhyme_ap_tap_cap_3_0",
+    "id": "gen_rhyme_ap_tap_cap_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33278,19 +29590,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "cap",
     "choices": [
       "cap",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "cap",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "tap",
+    "imageUrl": "/media/initial-sounds/images/t/tap.webp",
+    "imagePath": "/media/initial-sounds/images/t/tap.webp",
     "audioKey": "tap",
     "audioUrl": "/media/initial-sounds/audio/t/tap.mp3",
     "audioPath": "/media/initial-sounds/audio/t/tap.mp3",
@@ -33313,7 +29625,59 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_rhyme_ap_tap_clap_3_1",
+    "id": "gen_rhyme_am_jam_ham_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 1,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with jam?",
+    "question": "Which word rhymes with jam?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "jam",
+    "correctAnswer": "ham",
+    "answer": "ham",
+    "choices": [
+      "ham",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "ham",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "jam",
+    "imageUrl": "/media/initial-sounds/images/j/jam.webp",
+    "imagePath": "/media/initial-sounds/images/j/jam.webp",
+    "audioKey": "jam",
+    "audioUrl": "/media/initial-sounds/audio/j/jam.mp3",
+    "audioPath": "/media/initial-sounds/audio/j/jam.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "am",
+    "itemKey": "am",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_jam"
+  },
+  {
+    "id": "gen_rhyme_am_jam_ram_0_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33321,37 +29685,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with tap?",
-    "question": "Which word rhymes with tap?",
+    "prompt": "Which word rhymes with jam?",
+    "question": "Which word rhymes with jam?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "tap",
-    "correctAnswer": "clap",
-    "answer": "clap",
+    "targetWord": "jam",
+    "correctAnswer": "ram",
+    "answer": "ram",
     "choices": [
-      "clap",
-      "bat",
-      "bear",
-      "bee"
+      "ram",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "clap",
-      "bat",
-      "bear",
-      "bee"
+      "ram",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "tap",
-    "audioUrl": "/media/initial-sounds/audio/t/tap.mp3",
-    "audioPath": "/media/initial-sounds/audio/t/tap.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
+    "imageKey": "jam",
+    "imageUrl": "/media/initial-sounds/images/j/jam.webp",
+    "imagePath": "/media/initial-sounds/images/j/jam.webp",
+    "audioKey": "jam",
+    "audioUrl": "/media/initial-sounds/audio/j/jam.mp3",
+    "audioPath": "/media/initial-sounds/audio/j/jam.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
+    "coverageTarget": "am",
+    "itemKey": "am",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -33362,10 +29726,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_tap"
+    "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_rhyme_ap_tap_nap_3_2",
+    "id": "gen_rhyme_am_jam_yam_0_2",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33373,37 +29737,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with tap?",
-    "question": "Which word rhymes with tap?",
+    "prompt": "Which word rhymes with jam?",
+    "question": "Which word rhymes with jam?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "tap",
-    "correctAnswer": "nap",
-    "answer": "nap",
+    "targetWord": "jam",
+    "correctAnswer": "yam",
+    "answer": "yam",
     "choices": [
-      "nap",
-      "bat",
-      "bear",
-      "bee"
+      "yam",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "nap",
-      "bat",
-      "bear",
-      "bee"
+      "yam",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "tap",
-    "audioUrl": "/media/initial-sounds/audio/t/tap.mp3",
-    "audioPath": "/media/initial-sounds/audio/t/tap.mp3",
-    "phonicsPattern": "ap",
-    "targetSound": "ap",
+    "imageKey": "jam",
+    "imageUrl": "/media/initial-sounds/images/j/jam.webp",
+    "imagePath": "/media/initial-sounds/images/j/jam.webp",
+    "audioKey": "jam",
+    "audioUrl": "/media/initial-sounds/audio/j/jam.mp3",
+    "audioPath": "/media/initial-sounds/audio/j/jam.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "ap",
-    "itemKey": "ap",
+    "coverageTarget": "am",
+    "itemKey": "am",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -33414,10 +29778,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_tap"
+    "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_rhyme_en_den_hen_0_0",
+    "id": "gen_rhyme_am_ham_jam_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33425,37 +29789,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with den?",
-    "question": "Which word rhymes with den?",
+    "prompt": "Which word rhymes with ham?",
+    "question": "Which word rhymes with ham?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "den",
-    "correctAnswer": "hen",
-    "answer": "hen",
+    "targetWord": "ham",
+    "correctAnswer": "jam",
+    "answer": "jam",
     "choices": [
-      "hen",
-      "bat",
-      "bear",
-      "bee"
+      "jam",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "hen",
-      "bat",
-      "bear",
-      "bee"
+      "jam",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "en",
-    "targetSound": "en",
+    "imageKey": "ham",
+    "imageUrl": "/media/initial-sounds/images/h/ham.webp",
+    "imagePath": "/media/initial-sounds/images/h/ham.webp",
+    "audioKey": "ham",
+    "audioUrl": "/media/initial-sounds/audio/h/ham.mp3",
+    "audioPath": "/media/initial-sounds/audio/h/ham.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
+    "coverageTarget": "am",
+    "itemKey": "am",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -33466,10 +29830,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "supplemental_den"
+    "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_rhyme_en_den_pen_0_1",
+    "id": "gen_rhyme_am_ham_ram_1_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33477,37 +29841,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with den?",
-    "question": "Which word rhymes with den?",
+    "prompt": "Which word rhymes with ham?",
+    "question": "Which word rhymes with ham?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "den",
-    "correctAnswer": "pen",
-    "answer": "pen",
+    "targetWord": "ham",
+    "correctAnswer": "ram",
+    "answer": "ram",
     "choices": [
-      "pen",
-      "bat",
-      "bear",
-      "bee"
+      "ram",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "pen",
-      "bat",
-      "bear",
-      "bee"
+      "ram",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "en",
-    "targetSound": "en",
+    "imageKey": "ham",
+    "imageUrl": "/media/initial-sounds/images/h/ham.webp",
+    "imagePath": "/media/initial-sounds/images/h/ham.webp",
+    "audioKey": "ham",
+    "audioUrl": "/media/initial-sounds/audio/h/ham.mp3",
+    "audioPath": "/media/initial-sounds/audio/h/ham.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
+    "coverageTarget": "am",
+    "itemKey": "am",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -33518,10 +29882,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "supplemental_den"
+    "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_rhyme_en_den_ten_0_2",
+    "id": "gen_rhyme_am_ham_yam_1_2",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33529,37 +29893,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with den?",
-    "question": "Which word rhymes with den?",
+    "prompt": "Which word rhymes with ham?",
+    "question": "Which word rhymes with ham?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "den",
-    "correctAnswer": "ten",
-    "answer": "ten",
+    "targetWord": "ham",
+    "correctAnswer": "yam",
+    "answer": "yam",
     "choices": [
-      "ten",
-      "bat",
-      "bear",
-      "bee"
+      "yam",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "ten",
-      "bat",
-      "bear",
-      "bee"
+      "yam",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "en",
-    "targetSound": "en",
+    "imageKey": "ham",
+    "imageUrl": "/media/initial-sounds/images/h/ham.webp",
+    "imagePath": "/media/initial-sounds/images/h/ham.webp",
+    "audioKey": "ham",
+    "audioUrl": "/media/initial-sounds/audio/h/ham.mp3",
+    "audioPath": "/media/initial-sounds/audio/h/ham.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
+    "coverageTarget": "am",
+    "itemKey": "am",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -33570,10 +29934,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "supplemental_den"
+    "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_rhyme_en_hen_den_1_0",
+    "id": "gen_rhyme_am_ram_jam_2_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33581,37 +29945,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with hen?",
-    "question": "Which word rhymes with hen?",
+    "prompt": "Which word rhymes with ram?",
+    "question": "Which word rhymes with ram?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "hen",
-    "correctAnswer": "den",
-    "answer": "den",
+    "targetWord": "ram",
+    "correctAnswer": "jam",
+    "answer": "jam",
     "choices": [
-      "den",
-      "bat",
-      "bear",
-      "bee"
+      "jam",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "den",
-      "bat",
-      "bear",
-      "bee"
+      "jam",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "hen",
-    "audioUrl": "/media/initial-sounds/audio/h/hen.mp3",
-    "audioPath": "/media/initial-sounds/audio/h/hen.mp3",
-    "phonicsPattern": "en",
-    "targetSound": "en",
+    "imageKey": "ram",
+    "imageUrl": "/images/child-mode/short-a/ram.png",
+    "imagePath": "/images/child-mode/short-a/ram.png",
+    "audioKey": "ram",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
+    "coverageTarget": "am",
+    "itemKey": "am",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -33622,10 +29986,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_hen"
+    "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_rhyme_en_hen_pen_1_1",
+    "id": "gen_rhyme_am_ram_ham_2_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33633,37 +29997,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with hen?",
-    "question": "Which word rhymes with hen?",
+    "prompt": "Which word rhymes with ram?",
+    "question": "Which word rhymes with ram?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "hen",
-    "correctAnswer": "pen",
-    "answer": "pen",
+    "targetWord": "ram",
+    "correctAnswer": "ham",
+    "answer": "ham",
     "choices": [
-      "pen",
-      "bat",
-      "bear",
-      "bee"
+      "ham",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "pen",
-      "bat",
-      "bear",
-      "bee"
+      "ham",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "hen",
-    "audioUrl": "/media/initial-sounds/audio/h/hen.mp3",
-    "audioPath": "/media/initial-sounds/audio/h/hen.mp3",
-    "phonicsPattern": "en",
-    "targetSound": "en",
+    "imageKey": "ram",
+    "imageUrl": "/images/child-mode/short-a/ram.png",
+    "imagePath": "/images/child-mode/short-a/ram.png",
+    "audioKey": "ram",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
+    "coverageTarget": "am",
+    "itemKey": "am",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -33674,10 +30038,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_hen"
+    "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_rhyme_en_hen_ten_1_2",
+    "id": "gen_rhyme_am_ram_yam_2_2",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33685,37 +30049,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with hen?",
-    "question": "Which word rhymes with hen?",
+    "prompt": "Which word rhymes with ram?",
+    "question": "Which word rhymes with ram?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "hen",
-    "correctAnswer": "ten",
-    "answer": "ten",
+    "targetWord": "ram",
+    "correctAnswer": "yam",
+    "answer": "yam",
     "choices": [
-      "ten",
-      "bat",
-      "bear",
-      "bee"
+      "yam",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "ten",
-      "bat",
-      "bear",
-      "bee"
+      "yam",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "hen",
-    "audioUrl": "/media/initial-sounds/audio/h/hen.mp3",
-    "audioPath": "/media/initial-sounds/audio/h/hen.mp3",
-    "phonicsPattern": "en",
-    "targetSound": "en",
+    "imageKey": "ram",
+    "imageUrl": "/images/child-mode/short-a/ram.png",
+    "imagePath": "/images/child-mode/short-a/ram.png",
+    "audioKey": "ram",
+    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
+    "coverageTarget": "am",
+    "itemKey": "am",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -33726,10 +30090,166 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_hen"
+    "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_rhyme_en_pen_den_2_0",
+    "id": "gen_rhyme_am_yam_jam_3_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 1,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with yam?",
+    "question": "Which word rhymes with yam?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "yam",
+    "correctAnswer": "jam",
+    "answer": "jam",
+    "choices": [
+      "jam",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "jam",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "yam",
+    "imageUrl": "/media/initial-sounds/images/y/yam.webp",
+    "imagePath": "/media/initial-sounds/images/y/yam.webp",
+    "audioKey": "yam",
+    "audioUrl": "/media/initial-sounds/audio/y/yam.mp3",
+    "audioPath": "/media/initial-sounds/audio/y/yam.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "am",
+    "itemKey": "am",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_yam"
+  },
+  {
+    "id": "gen_rhyme_am_yam_ham_3_1",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 1,
+    "templateType": "LISTEN_FIND_RHYME",
+    "formatType": "LISTEN_FIND_RHYME",
+    "questionType": "listen_find_rhyme",
+    "prompt": "Which word rhymes with yam?",
+    "question": "Which word rhymes with yam?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "yam",
+    "correctAnswer": "ham",
+    "answer": "ham",
+    "choices": [
+      "ham",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "ham",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "yam",
+    "imageUrl": "/media/initial-sounds/images/y/yam.webp",
+    "imagePath": "/media/initial-sounds/images/y/yam.webp",
+    "audioKey": "yam",
+    "audioUrl": "/media/initial-sounds/audio/y/yam.mp3",
+    "audioPath": "/media/initial-sounds/audio/y/yam.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "am",
+    "itemKey": "am",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_yam"
+  },
+  {
+    "id": "gen_rhyme_am_yam_ram_3_2",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 1,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with yam?",
+    "question": "Which word rhymes with yam?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "yam",
+    "correctAnswer": "ram",
+    "answer": "ram",
+    "choices": [
+      "ram",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "ram",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "yam",
+    "imageUrl": "/media/initial-sounds/images/y/yam.webp",
+    "imagePath": "/media/initial-sounds/images/y/yam.webp",
+    "audioKey": "yam",
+    "audioUrl": "/media/initial-sounds/audio/y/yam.mp3",
+    "audioPath": "/media/initial-sounds/audio/y/yam.mp3",
+    "phonicsPattern": "am",
+    "targetSound": "am",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "am",
+    "itemKey": "am",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_yam"
+  },
+  {
+    "id": "gen_rhyme_en_pen_hen_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33742,23 +30262,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "pen",
-    "correctAnswer": "den",
-    "answer": "den",
+    "correctAnswer": "hen",
+    "answer": "hen",
     "choices": [
-      "den",
-      "bat",
-      "bear",
-      "bee"
+      "hen",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "den",
-      "bat",
-      "bear",
-      "bee"
+      "hen",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "pen",
+    "imageUrl": "/media/initial-sounds/images/p/pen.webp",
+    "imagePath": "/media/initial-sounds/images/p/pen.webp",
     "audioKey": "pen",
     "audioUrl": "/media/initial-sounds/audio/p/pen.mp3",
     "audioPath": "/media/initial-sounds/audio/p/pen.mp3",
@@ -33781,59 +30301,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_rhyme_en_pen_hen_2_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with pen?",
-    "question": "Which word rhymes with pen?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "pen",
-    "correctAnswer": "hen",
-    "answer": "hen",
-    "choices": [
-      "hen",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "hen",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pen",
-    "audioUrl": "/media/initial-sounds/audio/p/pen.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pen.mp3",
-    "phonicsPattern": "en",
-    "targetSound": "en",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_pen"
-  },
-  {
-    "id": "gen_rhyme_en_pen_ten_2_2",
+    "id": "gen_rhyme_en_hen_pen_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -33841,187 +30309,31 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with pen?",
-    "question": "Which word rhymes with pen?",
+    "prompt": "Which word rhymes with hen?",
+    "question": "Which word rhymes with hen?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "pen",
-    "correctAnswer": "ten",
-    "answer": "ten",
-    "choices": [
-      "ten",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "ten",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pen",
-    "audioUrl": "/media/initial-sounds/audio/p/pen.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pen.mp3",
-    "phonicsPattern": "en",
-    "targetSound": "en",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_pen"
-  },
-  {
-    "id": "gen_rhyme_en_ten_den_3_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with ten?",
-    "question": "Which word rhymes with ten?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "ten",
-    "correctAnswer": "den",
-    "answer": "den",
-    "choices": [
-      "den",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "den",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "ten",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "en",
-    "targetSound": "en",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_ten"
-  },
-  {
-    "id": "gen_rhyme_en_ten_hen_3_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with ten?",
-    "question": "Which word rhymes with ten?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "ten",
-    "correctAnswer": "hen",
-    "answer": "hen",
-    "choices": [
-      "hen",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "hen",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "ten",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "en",
-    "targetSound": "en",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "en",
-    "itemKey": "en",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_ten"
-  },
-  {
-    "id": "gen_rhyme_en_ten_pen_3_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with ten?",
-    "question": "Which word rhymes with ten?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "ten",
+    "targetWord": "hen",
     "correctAnswer": "pen",
     "answer": "pen",
     "choices": [
       "pen",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "pen",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "ten",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
+    "imageKey": "hen",
+    "imageUrl": "/media/initial-sounds/images/h/hen.webp",
+    "imagePath": "/media/initial-sounds/images/h/hen.webp",
+    "audioKey": "hen",
+    "audioUrl": "/media/initial-sounds/audio/h/hen.mp3",
+    "audioPath": "/media/initial-sounds/audio/h/hen.mp3",
     "phonicsPattern": "en",
     "targetSound": "en",
     "targetFinalSound": "",
@@ -34038,322 +30350,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_ten"
+    "sourceLexiconId": "lex_hen"
   },
   {
-    "id": "gen_rhyme_ig_big_dig_0_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with big?",
-    "question": "Which word rhymes with big?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "big",
-    "correctAnswer": "dig",
-    "answer": "dig",
-    "choices": [
-      "dig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "dig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "big",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_big"
-  },
-  {
-    "id": "gen_rhyme_ig_big_pig_0_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with big?",
-    "question": "Which word rhymes with big?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "big",
-    "correctAnswer": "pig",
-    "answer": "pig",
-    "choices": [
-      "pig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "pig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "big",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_big"
-  },
-  {
-    "id": "gen_rhyme_ig_big_wig_0_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with big?",
-    "question": "Which word rhymes with big?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "big",
-    "correctAnswer": "wig",
-    "answer": "wig",
-    "choices": [
-      "wig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "wig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "big",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_big"
-  },
-  {
-    "id": "gen_rhyme_ig_dig_big_1_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with dig?",
-    "question": "Which word rhymes with dig?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "dig",
-    "correctAnswer": "big",
-    "answer": "big",
-    "choices": [
-      "big",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "big",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "dig",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_dig"
-  },
-  {
-    "id": "gen_rhyme_ig_dig_pig_1_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with dig?",
-    "question": "Which word rhymes with dig?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "dig",
-    "correctAnswer": "pig",
-    "answer": "pig",
-    "choices": [
-      "pig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "pig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "dig",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_dig"
-  },
-  {
-    "id": "gen_rhyme_ig_dig_wig_1_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with dig?",
-    "question": "Which word rhymes with dig?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "dig",
-    "correctAnswer": "wig",
-    "answer": "wig",
-    "choices": [
-      "wig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "wig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "dig",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_dig"
-  },
-  {
-    "id": "gen_rhyme_ig_pig_big_2_0",
+    "id": "gen_rhyme_ig_pig_wig_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -34366,23 +30366,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "pig",
-    "correctAnswer": "big",
-    "answer": "big",
+    "correctAnswer": "wig",
+    "answer": "wig",
     "choices": [
-      "big",
-      "bat",
-      "bear",
-      "bee"
+      "wig",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "big",
-      "bat",
-      "bear",
-      "bee"
+      "wig",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "pig",
+    "imageUrl": "/media/initial-sounds/images/p/pig.webp",
+    "imagePath": "/media/initial-sounds/images/p/pig.webp",
     "audioKey": "pig",
     "audioUrl": "/media/initial-sounds/audio/p/pig.mp3",
     "audioPath": "/media/initial-sounds/audio/p/pig.mp3",
@@ -34405,215 +30405,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_rhyme_ig_pig_dig_2_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with pig?",
-    "question": "Which word rhymes with pig?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "pig",
-    "correctAnswer": "dig",
-    "answer": "dig",
-    "choices": [
-      "dig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "dig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pig",
-    "audioUrl": "/media/initial-sounds/audio/p/pig.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pig.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_pig"
-  },
-  {
-    "id": "gen_rhyme_ig_pig_wig_2_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with pig?",
-    "question": "Which word rhymes with pig?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "pig",
-    "correctAnswer": "wig",
-    "answer": "wig",
-    "choices": [
-      "wig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "wig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pig",
-    "audioUrl": "/media/initial-sounds/audio/p/pig.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pig.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_pig"
-  },
-  {
-    "id": "gen_rhyme_ig_wig_big_3_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with wig?",
-    "question": "Which word rhymes with wig?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "wig",
-    "correctAnswer": "big",
-    "answer": "big",
-    "choices": [
-      "big",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "big",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "wig",
-    "audioUrl": "/media/initial-sounds/audio/w/wig.mp3",
-    "audioPath": "/media/initial-sounds/audio/w/wig.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_wig"
-  },
-  {
-    "id": "gen_rhyme_ig_wig_dig_3_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with wig?",
-    "question": "Which word rhymes with wig?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "wig",
-    "correctAnswer": "dig",
-    "answer": "dig",
-    "choices": [
-      "dig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "dig",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "wig",
-    "audioUrl": "/media/initial-sounds/audio/w/wig.mp3",
-    "audioPath": "/media/initial-sounds/audio/w/wig.mp3",
-    "phonicsPattern": "ig",
-    "targetSound": "ig",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ig",
-    "itemKey": "ig",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_wig"
-  },
-  {
-    "id": "gen_rhyme_ig_wig_pig_3_2",
+    "id": "gen_rhyme_ig_wig_pig_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -34630,19 +30422,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "pig",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "wig",
+    "imageUrl": "/media/initial-sounds/images/w/wig.webp",
+    "imagePath": "/media/initial-sounds/images/w/wig.webp",
     "audioKey": "wig",
     "audioUrl": "/media/initial-sounds/audio/w/wig.mp3",
     "audioPath": "/media/initial-sounds/audio/w/wig.mp3",
@@ -34665,215 +30457,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_wig"
   },
   {
-    "id": "gen_rhyme_in_bin_fin_0_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with bin?",
-    "question": "Which word rhymes with bin?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "bin",
-    "correctAnswer": "fin",
-    "answer": "fin",
-    "choices": [
-      "fin",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "fin",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "bin",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "in",
-    "targetSound": "in",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "in",
-    "itemKey": "in",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_bin"
-  },
-  {
-    "id": "gen_rhyme_in_bin_pin_0_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with bin?",
-    "question": "Which word rhymes with bin?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "bin",
-    "correctAnswer": "pin",
-    "answer": "pin",
-    "choices": [
-      "pin",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "pin",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "bin",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "in",
-    "targetSound": "in",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "in",
-    "itemKey": "in",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_bin"
-  },
-  {
-    "id": "gen_rhyme_in_fin_bin_1_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with fin?",
-    "question": "Which word rhymes with fin?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "fin",
-    "correctAnswer": "bin",
-    "answer": "bin",
-    "choices": [
-      "bin",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "bin",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "fin",
-    "audioUrl": "/audio/child-mode/clean-human/words/fin.mp3",
-    "audioPath": "/audio/child-mode/clean-human/words/fin.mp3",
-    "phonicsPattern": "in",
-    "targetSound": "in",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "in",
-    "itemKey": "in",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_fin"
-  },
-  {
-    "id": "gen_rhyme_in_fin_pin_1_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with fin?",
-    "question": "Which word rhymes with fin?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "fin",
-    "correctAnswer": "pin",
-    "answer": "pin",
-    "choices": [
-      "pin",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "pin",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "fin",
-    "audioUrl": "/audio/child-mode/clean-human/words/fin.mp3",
-    "audioPath": "/audio/child-mode/clean-human/words/fin.mp3",
-    "phonicsPattern": "in",
-    "targetSound": "in",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "in",
-    "itemKey": "in",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_fin"
-  },
-  {
-    "id": "gen_rhyme_in_pin_bin_2_0",
+    "id": "gen_rhyme_in_pin_fin_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -34886,23 +30470,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "pin",
-    "correctAnswer": "bin",
-    "answer": "bin",
+    "correctAnswer": "fin",
+    "answer": "fin",
     "choices": [
-      "bin",
-      "bat",
-      "bear",
-      "bee"
+      "fin",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "bin",
-      "bat",
-      "bear",
-      "bee"
+      "fin",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "pin",
+    "imageUrl": "/media/initial-sounds/images/p/pin.webp",
+    "imagePath": "/media/initial-sounds/images/p/pin.webp",
     "audioKey": "pin",
     "audioUrl": "/media/initial-sounds/audio/p/pin.mp3",
     "audioPath": "/media/initial-sounds/audio/p/pin.mp3",
@@ -34925,39 +30509,39 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_pin"
   },
   {
-    "id": "gen_rhyme_in_pin_fin_2_1",
+    "id": "gen_rhyme_in_fin_pin_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
     "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with pin?",
-    "question": "Which word rhymes with pin?",
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with fin?",
+    "question": "Which word rhymes with fin?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "pin",
-    "correctAnswer": "fin",
-    "answer": "fin",
+    "targetWord": "fin",
+    "correctAnswer": "pin",
+    "answer": "pin",
     "choices": [
-      "fin",
-      "bat",
-      "bear",
-      "bee"
+      "pin",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "fin",
-      "bat",
-      "bear",
-      "bee"
+      "pin",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "pin",
-    "audioUrl": "/media/initial-sounds/audio/p/pin.mp3",
-    "audioPath": "/media/initial-sounds/audio/p/pin.mp3",
+    "imageKey": "fin",
+    "imageUrl": "/images/child-mode/short-i/fin.png",
+    "imagePath": "/images/child-mode/short-i/fin.png",
+    "audioKey": "fin",
+    "audioUrl": "/audio/child-mode/clean-human/words/fin.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/fin.mp3",
     "phonicsPattern": "in",
     "targetSound": "in",
     "targetFinalSound": "",
@@ -34974,10 +30558,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_pin"
+    "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_rhyme_og_dog_frog_0_0",
+    "id": "gen_rhyme_og_dog_log_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -34990,23 +30574,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "dog",
-    "correctAnswer": "frog",
-    "answer": "frog",
+    "correctAnswer": "log",
+    "answer": "log",
     "choices": [
-      "frog",
-      "bat",
-      "bear",
-      "bee"
+      "log",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "frog",
-      "bat",
-      "bear",
-      "bee"
+      "log",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "dog",
+    "imageUrl": "/media/initial-sounds/images/d/dog.webp",
+    "imagePath": "/media/initial-sounds/images/d/dog.webp",
     "audioKey": "dog",
     "audioUrl": "/media/initial-sounds/audio/d/dog.mp3",
     "audioPath": "/media/initial-sounds/audio/d/dog.mp3",
@@ -35029,163 +30613,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_dog"
   },
   {
-    "id": "gen_rhyme_og_dog_log_0_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with dog?",
-    "question": "Which word rhymes with dog?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "dog",
-    "correctAnswer": "log",
-    "answer": "log",
-    "choices": [
-      "log",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "log",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "dog",
-    "audioUrl": "/media/initial-sounds/audio/d/dog.mp3",
-    "audioPath": "/media/initial-sounds/audio/d/dog.mp3",
-    "phonicsPattern": "og",
-    "targetSound": "og",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "og",
-    "itemKey": "og",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_dog"
-  },
-  {
-    "id": "gen_rhyme_og_frog_dog_1_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with frog?",
-    "question": "Which word rhymes with frog?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "frog",
-    "correctAnswer": "dog",
-    "answer": "dog",
-    "choices": [
-      "dog",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "dog",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "frog",
-    "audioUrl": "/media/initial-sounds/audio/f/frog.mp3",
-    "audioPath": "/media/initial-sounds/audio/f/frog.mp3",
-    "phonicsPattern": "og",
-    "targetSound": "og",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "og",
-    "itemKey": "og",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_frog"
-  },
-  {
-    "id": "gen_rhyme_og_frog_log_1_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with frog?",
-    "question": "Which word rhymes with frog?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "frog",
-    "correctAnswer": "log",
-    "answer": "log",
-    "choices": [
-      "log",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "log",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "frog",
-    "audioUrl": "/media/initial-sounds/audio/f/frog.mp3",
-    "audioPath": "/media/initial-sounds/audio/f/frog.mp3",
-    "phonicsPattern": "og",
-    "targetSound": "og",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "og",
-    "itemKey": "og",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_frog"
-  },
-  {
-    "id": "gen_rhyme_og_log_dog_2_0",
+    "id": "gen_rhyme_og_log_dog_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -35202,19 +30630,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "dog",
     "choices": [
       "dog",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "dog",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "log",
+    "imageUrl": "/media/initial-sounds/images/l/log.webp",
+    "imagePath": "/media/initial-sounds/images/l/log.webp",
     "audioKey": "log",
     "audioUrl": "/media/initial-sounds/audio/l/log.mp3",
     "audioPath": "/media/initial-sounds/audio/l/log.mp3",
@@ -35237,59 +30665,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_log"
   },
   {
-    "id": "gen_rhyme_og_log_frog_2_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with log?",
-    "question": "Which word rhymes with log?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "log",
-    "correctAnswer": "frog",
-    "answer": "frog",
-    "choices": [
-      "frog",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "frog",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "log",
-    "audioUrl": "/media/initial-sounds/audio/l/log.mp3",
-    "audioPath": "/media/initial-sounds/audio/l/log.mp3",
-    "phonicsPattern": "og",
-    "targetSound": "og",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "og",
-    "itemKey": "og",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_log"
-  },
-  {
-    "id": "gen_rhyme_op_hop_mop_0_0",
+    "id": "gen_rhyme_ot_pot_cot_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -35297,37 +30673,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with hop?",
-    "question": "Which word rhymes with hop?",
+    "prompt": "Which word rhymes with pot?",
+    "question": "Which word rhymes with pot?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "hop",
-    "correctAnswer": "mop",
-    "answer": "mop",
+    "targetWord": "pot",
+    "correctAnswer": "cot",
+    "answer": "cot",
     "choices": [
-      "mop",
-      "bat",
-      "bear",
-      "bee"
+      "cot",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "mop",
-      "bat",
-      "bear",
-      "bee"
+      "cot",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "hop",
-    "audioUrl": "/audio/child-mode/words/hop.mp3",
-    "audioPath": "/audio/child-mode/words/hop.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
+    "imageKey": "pot",
+    "imageUrl": "/media/initial-sounds/images/p/pot.webp",
+    "imagePath": "/media/initial-sounds/images/p/pot.webp",
+    "audioKey": "pot",
+    "audioUrl": "/media/initial-sounds/audio/p/pot.mp3",
+    "audioPath": "/media/initial-sounds/audio/p/pot.mp3",
+    "phonicsPattern": "ot",
+    "targetSound": "ot",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
+    "coverageTarget": "ot",
+    "itemKey": "ot",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -35338,62 +30714,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_hop"
+    "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_rhyme_op_hop_shop_0_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with hop?",
-    "question": "Which word rhymes with hop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "hop",
-    "correctAnswer": "shop",
-    "answer": "shop",
-    "choices": [
-      "shop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "shop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "hop",
-    "audioUrl": "/audio/child-mode/words/hop.mp3",
-    "audioPath": "/audio/child-mode/words/hop.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_hop"
-  },
-  {
-    "id": "gen_rhyme_op_hop_stop_0_2",
+    "id": "gen_rhyme_ot_cot_pot_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -35401,141 +30725,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with hop?",
-    "question": "Which word rhymes with hop?",
+    "prompt": "Which word rhymes with cot?",
+    "question": "Which word rhymes with cot?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "hop",
-    "correctAnswer": "stop",
-    "answer": "stop",
+    "targetWord": "cot",
+    "correctAnswer": "pot",
+    "answer": "pot",
     "choices": [
-      "stop",
-      "bat",
-      "bear",
-      "bee"
+      "pot",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "stop",
-      "bat",
-      "bear",
-      "bee"
+      "pot",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "hop",
-    "audioUrl": "/audio/child-mode/words/hop.mp3",
-    "audioPath": "/audio/child-mode/words/hop.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_hop"
-  },
-  {
-    "id": "gen_rhyme_op_hop_top_0_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with hop?",
-    "question": "Which word rhymes with hop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "hop",
-    "correctAnswer": "top",
-    "answer": "top",
-    "choices": [
-      "top",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "top",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "hop",
-    "audioUrl": "/audio/child-mode/words/hop.mp3",
-    "audioPath": "/audio/child-mode/words/hop.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_hop"
-  },
-  {
-    "id": "gen_rhyme_op_mop_hop_1_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with mop?",
-    "question": "Which word rhymes with mop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "mop",
-    "correctAnswer": "hop",
-    "answer": "hop",
-    "choices": [
-      "hop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "hop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "mop",
+    "imageKey": "cot",
+    "imageUrl": "/images/child-mode/minimal-pairs/cot.png",
+    "imagePath": "/images/child-mode/minimal-pairs/cot.png",
+    "audioKey": "cot",
     "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
     "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
+    "phonicsPattern": "ot",
+    "targetSound": "ot",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
+    "coverageTarget": "ot",
+    "itemKey": "ot",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -35546,790 +30766,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_mop"
+    "sourceLexiconId": "lex_cot"
   },
   {
-    "id": "gen_rhyme_op_mop_shop_1_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with mop?",
-    "question": "Which word rhymes with mop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "mop",
-    "correctAnswer": "shop",
-    "answer": "shop",
-    "choices": [
-      "shop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "shop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "mop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_mop"
-  },
-  {
-    "id": "gen_rhyme_op_mop_stop_1_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with mop?",
-    "question": "Which word rhymes with mop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "mop",
-    "correctAnswer": "stop",
-    "answer": "stop",
-    "choices": [
-      "stop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "stop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "mop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_mop"
-  },
-  {
-    "id": "gen_rhyme_op_mop_top_1_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with mop?",
-    "question": "Which word rhymes with mop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "mop",
-    "correctAnswer": "top",
-    "answer": "top",
-    "choices": [
-      "top",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "top",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "mop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_mop"
-  },
-  {
-    "id": "gen_rhyme_op_shop_hop_2_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with shop?",
-    "question": "Which word rhymes with shop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "shop",
-    "correctAnswer": "hop",
-    "answer": "hop",
-    "choices": [
-      "hop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "hop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "shop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_shop"
-  },
-  {
-    "id": "gen_rhyme_op_shop_mop_2_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with shop?",
-    "question": "Which word rhymes with shop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "shop",
-    "correctAnswer": "mop",
-    "answer": "mop",
-    "choices": [
-      "mop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "mop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "shop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_shop"
-  },
-  {
-    "id": "gen_rhyme_op_shop_stop_2_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with shop?",
-    "question": "Which word rhymes with shop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "shop",
-    "correctAnswer": "stop",
-    "answer": "stop",
-    "choices": [
-      "stop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "stop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "shop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_shop"
-  },
-  {
-    "id": "gen_rhyme_op_shop_top_2_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with shop?",
-    "question": "Which word rhymes with shop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "shop",
-    "correctAnswer": "top",
-    "answer": "top",
-    "choices": [
-      "top",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "top",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "shop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_shop"
-  },
-  {
-    "id": "gen_rhyme_op_stop_hop_3_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with stop?",
-    "question": "Which word rhymes with stop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "stop",
-    "correctAnswer": "hop",
-    "answer": "hop",
-    "choices": [
-      "hop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "hop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "stop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_stop"
-  },
-  {
-    "id": "gen_rhyme_op_stop_mop_3_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with stop?",
-    "question": "Which word rhymes with stop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "stop",
-    "correctAnswer": "mop",
-    "answer": "mop",
-    "choices": [
-      "mop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "mop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "stop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_stop"
-  },
-  {
-    "id": "gen_rhyme_op_stop_shop_3_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with stop?",
-    "question": "Which word rhymes with stop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "stop",
-    "correctAnswer": "shop",
-    "answer": "shop",
-    "choices": [
-      "shop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "shop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "stop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_stop"
-  },
-  {
-    "id": "gen_rhyme_op_stop_top_3_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with stop?",
-    "question": "Which word rhymes with stop?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "stop",
-    "correctAnswer": "top",
-    "answer": "top",
-    "choices": [
-      "top",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "top",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "stop",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_stop"
-  },
-  {
-    "id": "gen_rhyme_op_top_hop_4_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with top?",
-    "question": "Which word rhymes with top?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "top",
-    "correctAnswer": "hop",
-    "answer": "hop",
-    "choices": [
-      "hop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "hop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "top",
-    "audioUrl": "/media/initial-sounds/audio/t/top.mp3",
-    "audioPath": "/media/initial-sounds/audio/t/top.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_top"
-  },
-  {
-    "id": "gen_rhyme_op_top_mop_4_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with top?",
-    "question": "Which word rhymes with top?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "top",
-    "correctAnswer": "mop",
-    "answer": "mop",
-    "choices": [
-      "mop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "mop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "top",
-    "audioUrl": "/media/initial-sounds/audio/t/top.mp3",
-    "audioPath": "/media/initial-sounds/audio/t/top.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_top"
-  },
-  {
-    "id": "gen_rhyme_op_top_shop_4_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with top?",
-    "question": "Which word rhymes with top?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "top",
-    "correctAnswer": "shop",
-    "answer": "shop",
-    "choices": [
-      "shop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "shop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "top",
-    "audioUrl": "/media/initial-sounds/audio/t/top.mp3",
-    "audioPath": "/media/initial-sounds/audio/t/top.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_top"
-  },
-  {
-    "id": "gen_rhyme_op_top_stop_4_3",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with top?",
-    "question": "Which word rhymes with top?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "top",
-    "correctAnswer": "stop",
-    "answer": "stop",
-    "choices": [
-      "stop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "stop",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "top",
-    "audioUrl": "/media/initial-sounds/audio/t/top.mp3",
-    "audioPath": "/media/initial-sounds/audio/t/top.mp3",
-    "phonicsPattern": "op",
-    "targetSound": "op",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "op",
-    "itemKey": "op",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_top"
-  },
-  {
-    "id": "gen_rhyme_ug_bug_dug_0_0",
+    "id": "gen_rhyme_ug_bug_rug_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -36342,23 +30782,23 @@ export const generatedEarlySkillQuestions = [
     "spokenPrompt": "",
     "audioText": "",
     "targetWord": "bug",
-    "correctAnswer": "dug",
-    "answer": "dug",
+    "correctAnswer": "rug",
+    "answer": "rug",
     "choices": [
-      "dug",
-      "bat",
-      "bear",
-      "bee"
+      "rug",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "dug",
-      "bat",
-      "bear",
-      "bee"
+      "rug",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "bug",
+    "imageUrl": "/images/child-mode/cvc/bug.png",
+    "imagePath": "/images/child-mode/cvc/bug.png",
     "audioKey": "bug",
     "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
     "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
@@ -36398,19 +30838,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "mug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "bug",
+    "imageUrl": "/images/child-mode/cvc/bug.png",
+    "imagePath": "/images/child-mode/cvc/bug.png",
     "audioKey": "bug",
     "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
     "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
@@ -36433,7 +30873,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_bug"
   },
   {
-    "id": "gen_rhyme_ug_bug_rug_0_2",
+    "id": "gen_rhyme_ug_rug_bug_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -36441,83 +30881,31 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with bug?",
-    "question": "Which word rhymes with bug?",
+    "prompt": "Which word rhymes with rug?",
+    "question": "Which word rhymes with rug?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "bug",
-    "correctAnswer": "rug",
-    "answer": "rug",
-    "choices": [
-      "rug",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "rug",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "bug",
-    "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "ug",
-    "targetSound": "ug",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ug",
-    "itemKey": "ug",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_bug"
-  },
-  {
-    "id": "gen_rhyme_ug_dug_bug_1_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with dug?",
-    "question": "Which word rhymes with dug?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "dug",
+    "targetWord": "rug",
     "correctAnswer": "bug",
     "answer": "bug",
     "choices": [
       "bug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "bug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
+    "imageKey": "rug",
+    "imageUrl": "/media/initial-sounds/images/r/rug.webp",
+    "imagePath": "/media/initial-sounds/images/r/rug.webp",
+    "audioKey": "rug",
+    "audioUrl": "/media/initial-sounds/audio/r/rug.mp3",
+    "audioPath": "/media/initial-sounds/audio/r/rug.mp3",
     "phonicsPattern": "ug",
     "targetSound": "ug",
     "targetFinalSound": "",
@@ -36534,10 +30922,10 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_dug"
+    "sourceLexiconId": "lex_rug"
   },
   {
-    "id": "gen_rhyme_ug_dug_mug_1_1",
+    "id": "gen_rhyme_ug_rug_mug_1_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -36545,31 +30933,31 @@ export const generatedEarlySkillQuestions = [
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with dug?",
-    "question": "Which word rhymes with dug?",
+    "prompt": "Which word rhymes with rug?",
+    "question": "Which word rhymes with rug?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "dug",
+    "targetWord": "rug",
     "correctAnswer": "mug",
     "answer": "mug",
     "choices": [
       "mug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "mug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
+    "imageKey": "rug",
+    "imageUrl": "/media/initial-sounds/images/r/rug.webp",
+    "imagePath": "/media/initial-sounds/images/r/rug.webp",
+    "audioKey": "rug",
+    "audioUrl": "/media/initial-sounds/audio/r/rug.mp3",
+    "audioPath": "/media/initial-sounds/audio/r/rug.mp3",
     "phonicsPattern": "ug",
     "targetSound": "ug",
     "targetFinalSound": "",
@@ -36586,59 +30974,7 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_dug"
-  },
-  {
-    "id": "gen_rhyme_ug_dug_rug_1_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with dug?",
-    "question": "Which word rhymes with dug?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "dug",
-    "correctAnswer": "rug",
-    "answer": "rug",
-    "choices": [
-      "rug",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "rug",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "ug",
-    "targetSound": "ug",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ug",
-    "itemKey": "ug",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_dug"
+    "sourceLexiconId": "lex_rug"
   },
   {
     "id": "gen_rhyme_ug_mug_bug_2_0",
@@ -36658,19 +30994,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "bug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "mug",
+    "imageUrl": "/media/initial-sounds/images/m/mug.webp",
+    "imagePath": "/media/initial-sounds/images/m/mug.webp",
     "audioKey": "mug",
     "audioUrl": "/media/initial-sounds/audio/m/mug.mp3",
     "audioPath": "/media/initial-sounds/audio/m/mug.mp3",
@@ -36693,7 +31029,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mug"
   },
   {
-    "id": "gen_rhyme_ug_mug_dug_2_1",
+    "id": "gen_rhyme_ug_mug_rug_2_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -36701,58 +31037,6 @@ export const generatedEarlySkillQuestions = [
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with mug?",
-    "question": "Which word rhymes with mug?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "mug",
-    "correctAnswer": "dug",
-    "answer": "dug",
-    "choices": [
-      "dug",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "dug",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "mug",
-    "audioUrl": "/media/initial-sounds/audio/m/mug.mp3",
-    "audioPath": "/media/initial-sounds/audio/m/mug.mp3",
-    "phonicsPattern": "ug",
-    "targetSound": "ug",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ug",
-    "itemKey": "ug",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_mug"
-  },
-  {
-    "id": "gen_rhyme_ug_mug_rug_2_2",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
     "prompt": "Which word rhymes with mug?",
     "question": "Which word rhymes with mug?",
     "spokenPrompt": "",
@@ -36762,19 +31046,19 @@ export const generatedEarlySkillQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
       "rug",
-      "bat",
-      "bear",
-      "bee"
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "mug",
+    "imageUrl": "/media/initial-sounds/images/m/mug.webp",
+    "imagePath": "/media/initial-sounds/images/m/mug.webp",
     "audioKey": "mug",
     "audioUrl": "/media/initial-sounds/audio/m/mug.mp3",
     "audioPath": "/media/initial-sounds/audio/m/mug.mp3",
@@ -36797,7 +31081,7 @@ export const generatedEarlySkillQuestions = [
     "sourceLexiconId": "lex_mug"
   },
   {
-    "id": "gen_rhyme_ug_rug_bug_3_0",
+    "id": "gen_rhyme_up_cup_up_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
@@ -36805,37 +31089,37 @@ export const generatedEarlySkillQuestions = [
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with rug?",
-    "question": "Which word rhymes with rug?",
+    "prompt": "Which word rhymes with cup?",
+    "question": "Which word rhymes with cup?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "rug",
-    "correctAnswer": "bug",
-    "answer": "bug",
+    "targetWord": "cup",
+    "correctAnswer": "up",
+    "answer": "up",
     "choices": [
-      "bug",
-      "bat",
-      "bear",
-      "bee"
+      "up",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "bug",
-      "bat",
-      "bear",
-      "bee"
+      "up",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "rug",
-    "audioUrl": "/media/initial-sounds/audio/r/rug.mp3",
-    "audioPath": "/media/initial-sounds/audio/r/rug.mp3",
-    "phonicsPattern": "ug",
-    "targetSound": "ug",
+    "imageKey": "cup",
+    "imageUrl": "/media/initial-sounds/images/c/cup.webp",
+    "imagePath": "/media/initial-sounds/images/c/cup.webp",
+    "audioKey": "cup",
+    "audioUrl": "/media/initial-sounds/audio/c/cup.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/cup.mp3",
+    "phonicsPattern": "up",
+    "targetSound": "up",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "ug",
-    "itemKey": "ug",
+    "coverageTarget": "up",
+    "itemKey": "up",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
@@ -36846,51 +31130,259 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_rug"
+    "sourceLexiconId": "lex_cup"
   },
   {
-    "id": "gen_rhyme_ug_rug_dug_3_1",
+    "id": "gen_rhyme_up_up_cup_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
     "level": 1,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with up?",
+    "question": "Which word rhymes with up?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "up",
+    "correctAnswer": "cup",
+    "answer": "cup",
+    "choices": [
+      "cup",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "cup",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "up",
+    "imageUrl": "/media/initial-sounds/images/u/up.webp",
+    "imagePath": "/media/initial-sounds/images/u/up.webp",
+    "audioKey": "up",
+    "audioUrl": "/media/initial-sounds/audio/u/up.mp3",
+    "audioPath": "/media/initial-sounds/audio/u/up.mp3",
+    "phonicsPattern": "up",
+    "targetSound": "up",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "up",
+    "itemKey": "up",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_up"
+  },
+  {
+    "id": "gen_rhyme_ing_ring_king_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with ring?",
+    "question": "Which word rhymes with ring?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "ring",
+    "correctAnswer": "king",
+    "answer": "king",
+    "choices": [
+      "king",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "king",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "ring",
+    "imageUrl": "/media/initial-sounds/images/r/ring.webp",
+    "imagePath": "/media/initial-sounds/images/r/ring.webp",
+    "audioKey": "ring",
+    "audioUrl": "/media/initial-sounds/audio/r/ring.mp3",
+    "audioPath": "/media/initial-sounds/audio/r/ring.mp3",
+    "phonicsPattern": "ing",
+    "targetSound": "ing",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ing",
+    "itemKey": "ing",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_ring"
+  },
+  {
+    "id": "gen_rhyme_ing_king_ring_1_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with king?",
+    "question": "Which word rhymes with king?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "king",
+    "correctAnswer": "ring",
+    "answer": "ring",
+    "choices": [
+      "ring",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "ring",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "king",
+    "imageUrl": "/media/initial-sounds/images/k/king.webp",
+    "imagePath": "/media/initial-sounds/images/k/king.webp",
+    "audioKey": "king",
+    "audioUrl": "/media/initial-sounds/audio/k/king.mp3",
+    "audioPath": "/media/initial-sounds/audio/k/king.mp3",
+    "phonicsPattern": "ing",
+    "targetSound": "ing",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ing",
+    "itemKey": "ing",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_king"
+  },
+  {
+    "id": "gen_rhyme_ock_sock_rock_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with sock?",
+    "question": "Which word rhymes with sock?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "sock",
+    "correctAnswer": "rock",
+    "answer": "rock",
+    "choices": [
+      "rock",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "rock",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "sock",
+    "imageUrl": "/media/initial-sounds/images/s/sock.webp",
+    "imagePath": "/media/initial-sounds/images/s/sock.webp",
+    "audioKey": "sock",
+    "audioUrl": "/media/initial-sounds/audio/s/sock.mp3",
+    "audioPath": "/media/initial-sounds/audio/s/sock.mp3",
+    "phonicsPattern": "ock",
+    "targetSound": "ock",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ock",
+    "itemKey": "ock",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_sock"
+  },
+  {
+    "id": "gen_rhyme_ock_sock_lock_0_1",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with rug?",
-    "question": "Which word rhymes with rug?",
+    "prompt": "Which word rhymes with sock?",
+    "question": "Which word rhymes with sock?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "rug",
-    "correctAnswer": "dug",
-    "answer": "dug",
+    "targetWord": "sock",
+    "correctAnswer": "lock",
+    "answer": "lock",
     "choices": [
-      "dug",
-      "bat",
-      "bear",
-      "bee"
+      "lock",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "dug",
-      "bat",
-      "bear",
-      "bee"
+      "lock",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "rug",
-    "audioUrl": "/media/initial-sounds/audio/r/rug.mp3",
-    "audioPath": "/media/initial-sounds/audio/r/rug.mp3",
-    "phonicsPattern": "ug",
-    "targetSound": "ug",
+    "imageKey": "sock",
+    "imageUrl": "/media/initial-sounds/images/s/sock.webp",
+    "imagePath": "/media/initial-sounds/images/s/sock.webp",
+    "audioKey": "sock",
+    "audioUrl": "/media/initial-sounds/audio/s/sock.mp3",
+    "audioPath": "/media/initial-sounds/audio/s/sock.mp3",
+    "phonicsPattern": "ock",
+    "targetSound": "ock",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "ug",
-    "itemKey": "ug",
+    "coverageTarget": "ock",
+    "itemKey": "ock",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "tags": [
       "generated",
       "rhyming",
@@ -36898,103 +31390,51 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_rug"
+    "sourceLexiconId": "lex_sock"
   },
   {
-    "id": "gen_rhyme_ug_rug_mug_3_2",
+    "id": "gen_rhyme_ock_rock_sock_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
-    "level": 1,
+    "level": 2,
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with rug?",
-    "question": "Which word rhymes with rug?",
+    "prompt": "Which word rhymes with rock?",
+    "question": "Which word rhymes with rock?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "rug",
-    "correctAnswer": "mug",
-    "answer": "mug",
+    "targetWord": "rock",
+    "correctAnswer": "sock",
+    "answer": "sock",
     "choices": [
-      "mug",
-      "bat",
-      "bear",
-      "bee"
+      "sock",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "mug",
-      "bat",
-      "bear",
-      "bee"
+      "sock",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "rug",
-    "audioUrl": "/media/initial-sounds/audio/r/rug.mp3",
-    "audioPath": "/media/initial-sounds/audio/r/rug.mp3",
-    "phonicsPattern": "ug",
-    "targetSound": "ug",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "ug",
-    "itemKey": "ug",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_rug"
-  },
-  {
-    "id": "gen_rhyme_un_bun_run_0_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 1,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with bun?",
-    "question": "Which word rhymes with bun?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "bun",
-    "correctAnswer": "run",
-    "answer": "run",
-    "choices": [
-      "run",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "answerOptions": [
-      "run",
-      "bat",
-      "bear",
-      "bee"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "bun",
+    "imageKey": "rock",
+    "imageUrl": "/images/child-mode/short-o/rock.png",
+    "imagePath": "/images/child-mode/short-o/rock.png",
+    "audioKey": "rock",
     "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
     "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "un",
-    "targetSound": "un",
+    "phonicsPattern": "ock",
+    "targetSound": "ock",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "un",
-    "itemKey": "un",
+    "coverageTarget": "ock",
+    "itemKey": "ock",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "tags": [
       "generated",
       "rhyming",
@@ -37002,51 +31442,51 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_bun"
+    "sourceLexiconId": "lex_rock"
   },
   {
-    "id": "gen_rhyme_un_bun_sun_0_1",
+    "id": "gen_rhyme_ock_rock_lock_1_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
-    "level": 1,
+    "level": 2,
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with bun?",
-    "question": "Which word rhymes with bun?",
+    "prompt": "Which word rhymes with rock?",
+    "question": "Which word rhymes with rock?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "bun",
-    "correctAnswer": "sun",
-    "answer": "sun",
+    "targetWord": "rock",
+    "correctAnswer": "lock",
+    "answer": "lock",
     "choices": [
-      "sun",
-      "bat",
-      "bear",
-      "bee"
+      "lock",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "sun",
-      "bat",
-      "bear",
-      "bee"
+      "lock",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "bun",
+    "imageKey": "rock",
+    "imageUrl": "/images/child-mode/short-o/rock.png",
+    "imagePath": "/images/child-mode/short-o/rock.png",
+    "audioKey": "rock",
     "audioUrl": "/audio/child-mode/phrases/listen-and-find.mp3",
     "audioPath": "/audio/child-mode/phrases/listen-and-find.mp3",
-    "phonicsPattern": "un",
-    "targetSound": "un",
+    "phonicsPattern": "ock",
+    "targetSound": "ock",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "un",
-    "itemKey": "un",
+    "coverageTarget": "ock",
+    "itemKey": "ock",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "tags": [
       "generated",
       "rhyming",
@@ -37054,51 +31494,51 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_bun"
+    "sourceLexiconId": "lex_rock"
   },
   {
-    "id": "gen_rhyme_un_run_bun_1_0",
+    "id": "gen_rhyme_ock_lock_sock_2_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
-    "level": 1,
+    "level": 2,
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with run?",
-    "question": "Which word rhymes with run?",
+    "prompt": "Which word rhymes with lock?",
+    "question": "Which word rhymes with lock?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "run",
-    "correctAnswer": "bun",
-    "answer": "bun",
+    "targetWord": "lock",
+    "correctAnswer": "sock",
+    "answer": "sock",
     "choices": [
-      "bun",
-      "bat",
-      "bear",
-      "bee"
+      "sock",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "bun",
-      "bat",
-      "bear",
-      "bee"
+      "sock",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "un",
-    "targetSound": "un",
+    "imageKey": "lock",
+    "imageUrl": "/media/initial-sounds/images/l/lock.webp",
+    "imagePath": "/media/initial-sounds/images/l/lock.webp",
+    "audioKey": "lock",
+    "audioUrl": "/media/initial-sounds/audio/l/lock.mp3",
+    "audioPath": "/media/initial-sounds/audio/l/lock.mp3",
+    "phonicsPattern": "ock",
+    "targetSound": "ock",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "un",
-    "itemKey": "un",
+    "coverageTarget": "ock",
+    "itemKey": "ock",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "tags": [
       "generated",
       "rhyming",
@@ -37106,51 +31546,51 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_run"
+    "sourceLexiconId": "lex_lock"
   },
   {
-    "id": "gen_rhyme_un_run_sun_1_1",
+    "id": "gen_rhyme_ock_lock_rock_2_1",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
-    "level": 1,
+    "level": 2,
     "templateType": "LISTEN_FIND_RHYME",
     "formatType": "LISTEN_FIND_RHYME",
     "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with run?",
-    "question": "Which word rhymes with run?",
+    "prompt": "Which word rhymes with lock?",
+    "question": "Which word rhymes with lock?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "run",
-    "correctAnswer": "sun",
-    "answer": "sun",
+    "targetWord": "lock",
+    "correctAnswer": "rock",
+    "answer": "rock",
     "choices": [
-      "sun",
-      "bat",
-      "bear",
-      "bee"
+      "rock",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "sun",
-      "bat",
-      "bear",
-      "bee"
+      "rock",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
-    "phonicsPattern": "un",
-    "targetSound": "un",
+    "imageKey": "lock",
+    "imageUrl": "/media/initial-sounds/images/l/lock.webp",
+    "imagePath": "/media/initial-sounds/images/l/lock.webp",
+    "audioKey": "lock",
+    "audioUrl": "/media/initial-sounds/audio/l/lock.mp3",
+    "audioPath": "/media/initial-sounds/audio/l/lock.mp3",
+    "phonicsPattern": "ock",
+    "targetSound": "ock",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "un",
-    "itemKey": "un",
+    "coverageTarget": "ock",
+    "itemKey": "ock",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "tags": [
       "generated",
       "rhyming",
@@ -37158,51 +31598,51 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_run"
+    "sourceLexiconId": "lex_lock"
   },
   {
-    "id": "gen_rhyme_un_sun_bun_2_0",
+    "id": "gen_rhyme_ell_bell_shell_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
-    "level": 1,
+    "level": 2,
     "templateType": "READ_FIND_RHYME",
     "formatType": "READ_FIND_RHYME",
     "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with sun?",
-    "question": "Which word rhymes with sun?",
+    "prompt": "Which word rhymes with bell?",
+    "question": "Which word rhymes with bell?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "sun",
-    "correctAnswer": "bun",
-    "answer": "bun",
+    "targetWord": "bell",
+    "correctAnswer": "shell",
+    "answer": "shell",
     "choices": [
-      "bun",
-      "bat",
-      "bear",
-      "bee"
+      "shell",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "bun",
-      "bat",
-      "bear",
-      "bee"
+      "shell",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "sun",
-    "audioUrl": "/media/initial-sounds/audio/s/sun.mp3",
-    "audioPath": "/media/initial-sounds/audio/s/sun.mp3",
-    "phonicsPattern": "un",
-    "targetSound": "un",
+    "imageKey": "bell",
+    "imageUrl": "/media/initial-sounds/images/b/bell.webp",
+    "imagePath": "/media/initial-sounds/images/b/bell.webp",
+    "audioKey": "bell",
+    "audioUrl": "/media/initial-sounds/audio/b/bell.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/bell.mp3",
+    "phonicsPattern": "ell",
+    "targetSound": "ell",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "un",
-    "itemKey": "un",
+    "coverageTarget": "ell",
+    "itemKey": "ell",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "tags": [
       "generated",
       "rhyming",
@@ -37210,51 +31650,51 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_sun"
+    "sourceLexiconId": "lex_bell"
   },
   {
-    "id": "gen_rhyme_un_sun_run_2_1",
+    "id": "gen_rhyme_ell_shell_bell_1_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
     "skill": "Rhyming",
-    "level": 1,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with sun?",
-    "question": "Which word rhymes with sun?",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with shell?",
+    "question": "Which word rhymes with shell?",
     "spokenPrompt": "",
     "audioText": "",
-    "targetWord": "sun",
-    "correctAnswer": "run",
-    "answer": "run",
+    "targetWord": "shell",
+    "correctAnswer": "bell",
+    "answer": "bell",
     "choices": [
-      "run",
-      "bat",
-      "bear",
-      "bee"
+      "bell",
+      "bag",
+      "ball",
+      "bat"
     ],
     "answerOptions": [
-      "run",
-      "bat",
-      "bear",
-      "bee"
+      "bell",
+      "bag",
+      "ball",
+      "bat"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "sun",
-    "audioUrl": "/media/initial-sounds/audio/s/sun.mp3",
-    "audioPath": "/media/initial-sounds/audio/s/sun.mp3",
-    "phonicsPattern": "un",
-    "targetSound": "un",
+    "imageKey": "shell",
+    "imageUrl": "/media/initial-sounds/images/s/shell.webp",
+    "imagePath": "/media/initial-sounds/images/s/shell.webp",
+    "audioKey": "shell",
+    "audioUrl": "/media/initial-sounds/audio/s/shell.mp3",
+    "audioPath": "/media/initial-sounds/audio/s/shell.mp3",
+    "phonicsPattern": "ell",
+    "targetSound": "ell",
     "targetFinalSound": "",
     "finalSoundType": "",
-    "coverageTarget": "un",
-    "itemKey": "un",
+    "coverageTarget": "ell",
+    "itemKey": "ell",
     "itemType": "rhyming_family",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "tags": [
       "generated",
       "rhyming",
@@ -37262,6 +31702,734 @@ export const generatedEarlySkillQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_sun"
+    "sourceLexiconId": "lex_shell"
+  },
+  {
+    "id": "gen_rhyme_ish_fish_dish_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with fish?",
+    "question": "Which word rhymes with fish?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "fish",
+    "correctAnswer": "dish",
+    "answer": "dish",
+    "choices": [
+      "dish",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "dish",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "fish",
+    "imageUrl": "/media/initial-sounds/images/f/fish.webp",
+    "imagePath": "/media/initial-sounds/images/f/fish.webp",
+    "audioKey": "fish",
+    "audioUrl": "/media/initial-sounds/audio/f/fish.mp3",
+    "audioPath": "/media/initial-sounds/audio/f/fish.mp3",
+    "phonicsPattern": "ish",
+    "targetSound": "ish",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ish",
+    "itemKey": "ish",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_fish"
+  },
+  {
+    "id": "gen_rhyme_ish_dish_fish_1_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with dish?",
+    "question": "Which word rhymes with dish?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "dish",
+    "correctAnswer": "fish",
+    "answer": "fish",
+    "choices": [
+      "fish",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "fish",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "dish",
+    "imageUrl": "/media/initial-sounds/images/d/dish.webp",
+    "imagePath": "/media/initial-sounds/images/d/dish.webp",
+    "audioKey": "dish",
+    "audioUrl": "/media/initial-sounds/audio/d/dish.mp3",
+    "audioPath": "/media/initial-sounds/audio/d/dish.mp3",
+    "phonicsPattern": "ish",
+    "targetSound": "ish",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ish",
+    "itemKey": "ish",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_dish"
+  },
+  {
+    "id": "gen_rhyme_uck_duck_truck_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with duck?",
+    "question": "Which word rhymes with duck?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "duck",
+    "correctAnswer": "truck",
+    "answer": "truck",
+    "choices": [
+      "truck",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "truck",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "duck",
+    "imageUrl": "/media/initial-sounds/images/d/duck.webp",
+    "imagePath": "/media/initial-sounds/images/d/duck.webp",
+    "audioKey": "duck",
+    "audioUrl": "/media/initial-sounds/audio/d/duck.mp3",
+    "audioPath": "/media/initial-sounds/audio/d/duck.mp3",
+    "phonicsPattern": "uck",
+    "targetSound": "uck",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "uck",
+    "itemKey": "uck",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_duck"
+  },
+  {
+    "id": "gen_rhyme_uck_truck_duck_1_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with truck?",
+    "question": "Which word rhymes with truck?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "truck",
+    "correctAnswer": "duck",
+    "answer": "duck",
+    "choices": [
+      "duck",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "duck",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "truck",
+    "imageUrl": "/media/initial-sounds/images/t/truck.webp",
+    "imagePath": "/media/initial-sounds/images/t/truck.webp",
+    "audioKey": "truck",
+    "audioUrl": "/media/initial-sounds/audio/t/truck.mp3",
+    "audioPath": "/media/initial-sounds/audio/t/truck.mp3",
+    "phonicsPattern": "uck",
+    "targetSound": "uck",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "uck",
+    "itemKey": "uck",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_truck"
+  },
+  {
+    "id": "gen_rhyme_ake_cake_lake_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with cake?",
+    "question": "Which word rhymes with cake?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "cake",
+    "correctAnswer": "lake",
+    "answer": "lake",
+    "choices": [
+      "lake",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "lake",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "cake",
+    "imageUrl": "/media/initial-sounds/images/c/cake.webp",
+    "imagePath": "/media/initial-sounds/images/c/cake.webp",
+    "audioKey": "cake",
+    "audioUrl": "/media/initial-sounds/audio/c/cake.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/cake.mp3",
+    "phonicsPattern": "ake",
+    "targetSound": "ake",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ake",
+    "itemKey": "ake",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_cake"
+  },
+  {
+    "id": "gen_rhyme_ake_lake_cake_1_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with lake?",
+    "question": "Which word rhymes with lake?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "lake",
+    "correctAnswer": "cake",
+    "answer": "cake",
+    "choices": [
+      "cake",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "cake",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "lake",
+    "imageUrl": "/media/initial-sounds/images/l/lake.webp",
+    "imagePath": "/media/initial-sounds/images/l/lake.webp",
+    "audioKey": "lake",
+    "audioUrl": "/media/initial-sounds/audio/l/lake.mp3",
+    "audioPath": "/media/initial-sounds/audio/l/lake.mp3",
+    "phonicsPattern": "ake",
+    "targetSound": "ake",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ake",
+    "itemKey": "ake",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_lake"
+  },
+  {
+    "id": "gen_rhyme_oat_boat_coat_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with boat?",
+    "question": "Which word rhymes with boat?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "boat",
+    "correctAnswer": "coat",
+    "answer": "coat",
+    "choices": [
+      "coat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "coat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "boat",
+    "imageUrl": "/media/initial-sounds/images/b/boat.webp",
+    "imagePath": "/media/initial-sounds/images/b/boat.webp",
+    "audioKey": "boat",
+    "audioUrl": "/media/initial-sounds/audio/b/boat.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/boat.mp3",
+    "phonicsPattern": "oat",
+    "targetSound": "oat",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "oat",
+    "itemKey": "oat",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_boat"
+  },
+  {
+    "id": "gen_rhyme_oat_boat_goat_0_1",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "LISTEN_FIND_RHYME",
+    "formatType": "LISTEN_FIND_RHYME",
+    "questionType": "listen_find_rhyme",
+    "prompt": "Which word rhymes with boat?",
+    "question": "Which word rhymes with boat?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "boat",
+    "correctAnswer": "goat",
+    "answer": "goat",
+    "choices": [
+      "goat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "goat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "boat",
+    "imageUrl": "/media/initial-sounds/images/b/boat.webp",
+    "imagePath": "/media/initial-sounds/images/b/boat.webp",
+    "audioKey": "boat",
+    "audioUrl": "/media/initial-sounds/audio/b/boat.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/boat.mp3",
+    "phonicsPattern": "oat",
+    "targetSound": "oat",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "oat",
+    "itemKey": "oat",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_boat"
+  },
+  {
+    "id": "gen_rhyme_oat_coat_boat_1_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with coat?",
+    "question": "Which word rhymes with coat?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "coat",
+    "correctAnswer": "boat",
+    "answer": "boat",
+    "choices": [
+      "boat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "boat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "coat",
+    "imageUrl": "/media/initial-sounds/images/c/coat.webp",
+    "imagePath": "/media/initial-sounds/images/c/coat.webp",
+    "audioKey": "coat",
+    "audioUrl": "/media/initial-sounds/audio/c/coat.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/coat.mp3",
+    "phonicsPattern": "oat",
+    "targetSound": "oat",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "oat",
+    "itemKey": "oat",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_coat"
+  },
+  {
+    "id": "gen_rhyme_oat_coat_goat_1_1",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "LISTEN_FIND_RHYME",
+    "formatType": "LISTEN_FIND_RHYME",
+    "questionType": "listen_find_rhyme",
+    "prompt": "Which word rhymes with coat?",
+    "question": "Which word rhymes with coat?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "coat",
+    "correctAnswer": "goat",
+    "answer": "goat",
+    "choices": [
+      "goat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "goat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "coat",
+    "imageUrl": "/media/initial-sounds/images/c/coat.webp",
+    "imagePath": "/media/initial-sounds/images/c/coat.webp",
+    "audioKey": "coat",
+    "audioUrl": "/media/initial-sounds/audio/c/coat.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/coat.mp3",
+    "phonicsPattern": "oat",
+    "targetSound": "oat",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "oat",
+    "itemKey": "oat",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_coat"
+  },
+  {
+    "id": "gen_rhyme_oat_goat_boat_2_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with goat?",
+    "question": "Which word rhymes with goat?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "goat",
+    "correctAnswer": "boat",
+    "answer": "boat",
+    "choices": [
+      "boat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "boat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "goat",
+    "imageUrl": "/media/initial-sounds/images/g/goat.webp",
+    "imagePath": "/media/initial-sounds/images/g/goat.webp",
+    "audioKey": "goat",
+    "audioUrl": "/media/initial-sounds/audio/g/goat.mp3",
+    "audioPath": "/media/initial-sounds/audio/g/goat.mp3",
+    "phonicsPattern": "oat",
+    "targetSound": "oat",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "oat",
+    "itemKey": "oat",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_goat"
+  },
+  {
+    "id": "gen_rhyme_oat_goat_coat_2_1",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "LISTEN_FIND_RHYME",
+    "formatType": "LISTEN_FIND_RHYME",
+    "questionType": "listen_find_rhyme",
+    "prompt": "Which word rhymes with goat?",
+    "question": "Which word rhymes with goat?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "goat",
+    "correctAnswer": "coat",
+    "answer": "coat",
+    "choices": [
+      "coat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "coat",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "goat",
+    "imageUrl": "/media/initial-sounds/images/g/goat.webp",
+    "imagePath": "/media/initial-sounds/images/g/goat.webp",
+    "audioKey": "goat",
+    "audioUrl": "/media/initial-sounds/audio/g/goat.mp3",
+    "audioPath": "/media/initial-sounds/audio/g/goat.mp3",
+    "phonicsPattern": "oat",
+    "targetSound": "oat",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "oat",
+    "itemKey": "oat",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_goat"
+  },
+  {
+    "id": "gen_rhyme_ar_car_jar_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with car?",
+    "question": "Which word rhymes with car?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "car",
+    "correctAnswer": "jar",
+    "answer": "jar",
+    "choices": [
+      "jar",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "jar",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "car",
+    "imageUrl": "/media/initial-sounds/images/c/car.webp",
+    "imagePath": "/media/initial-sounds/images/c/car.webp",
+    "audioKey": "car",
+    "audioUrl": "/media/initial-sounds/audio/c/car.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/car.mp3",
+    "phonicsPattern": "ar",
+    "targetSound": "ar",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ar",
+    "itemKey": "ar",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_car"
+  },
+  {
+    "id": "gen_rhyme_ar_jar_car_1_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with jar?",
+    "question": "Which word rhymes with jar?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "jar",
+    "correctAnswer": "car",
+    "answer": "car",
+    "choices": [
+      "car",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "answerOptions": [
+      "car",
+      "bag",
+      "ball",
+      "bat"
+    ],
+    "imageKey": "jar",
+    "imageUrl": "/media/initial-sounds/images/j/jar.webp",
+    "imagePath": "/media/initial-sounds/images/j/jar.webp",
+    "audioKey": "jar",
+    "audioUrl": "/media/initial-sounds/audio/j/jar.mp3",
+    "audioPath": "/media/initial-sounds/audio/j/jar.mp3",
+    "phonicsPattern": "ar",
+    "targetSound": "ar",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ar",
+    "itemKey": "ar",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_jar"
   }
 ];

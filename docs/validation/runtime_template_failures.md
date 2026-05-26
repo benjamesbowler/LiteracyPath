@@ -10,7 +10,8 @@ Malformed template questions excluded: 34
 | --- | --- | --- | --- | --- | --- |
 | core_cvc_001 | cvc words | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | masteryCoreQuestions | Listen and find the word | template LISTEN_FIND_WORD missing required field: targetWord |
 | coverage_initial_n_001 | initial sounds | INITIAL_SOUND_PAIR_SELECT | initialSoundCoverageQuestions | Listen to each word. Which two words start with the same sound? | PAIR_SELECT needs exactly 2 correct answers, found 1; PAIR_SELECT missing required card images; PAIR_SELECT missing approved card audio; expected exactly two initial n pair answers, found 1 |
-| coverage_rhyme_an_003 | rhyming | RHYME_PAIR_SELECT | rhymingCoverageQuestions | Listen to each word. Which two words rhyme? | PAIR_SELECT missing required card images; missing card images: can |
+| ending_l1_033_hill | Final Sounds | ENDING_SOUND | finalSoundCoverageQuestions | Listen to the word. Which sound does it end with? | prompt says listen but no approved prompt or card audio exists; missing approved whole-word audio for "hill" |
+| ending_l1_034_doll | Final Sounds | ENDING_SOUND | finalSoundCoverageQuestions | Listen to the word. Which sound does it end with? | prompt says listen but no approved prompt or card audio exists; missing approved whole-word audio for "doll" |
 | ixl_first_sound_20 | Initial Sounds | FIRST_SOUND | ixlStyleSeedQuestions | Listen to the word. What is the first sound? | prompt says listen but no approved prompt or card audio exists; missing approved whole-word audio for "milk" |
 | exp7_cvc_1 | cvc | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | templateExpansion7 | Listen and find the word | template LISTEN_FIND_WORD missing required field: targetWord |
 | exp7_cvc_2 | cvc | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | templateExpansion7 | Listen and find the word | template LISTEN_FIND_WORD missing required field: targetWord |
@@ -40,5 +41,4 @@ Malformed template questions excluded: 34
 | exp7_cvc_26 | cvc | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | templateExpansion7 | Listen and find the word | template LISTEN_FIND_WORD missing required field: targetWord |
 | exp7_cvc_27 | cvc | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | templateExpansion7 | Listen and find the word | template LISTEN_FIND_WORD missing required field: targetWord |
 | exp7_cvc_28 | cvc | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | templateExpansion7 | Listen and find the word | template LISTEN_FIND_WORD missing required field: targetWord |
-| gen_rhyme_en_den_pen_0_1 | Rhyming | LISTEN_FIND_RHYME | generatedEarlySkillQuestions | Which word rhymes with den? | missing approved prompt/target audio |
 | phonics_k_012 | cvc | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | generatedQuestions | Listen and find the word | template LISTEN_FIND_WORD missing required field: targetWord |

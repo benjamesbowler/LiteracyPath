@@ -9,10 +9,10 @@ This report audits active runtime questions after validation gates are applied. 
 | Skill | Active questions | Unique targets | Duplicate IDs | Duplicate signatures | Repeated option sets | Repeated distractor sets | Overused words | Overused itemKeys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 78 | 77 | 0 | 0 | 2 | 8 | none | none |
-| Final Sounds | 270 | 197 | 0 | 0 | 22 | 16 | none | n:37, t:36, g:33, p:28 |
-| Rhyming | 219 | 103 | 0 | 0 | 52 | 11 | bug:6, cap:6, fan:6, mop:6, fin:5, hop:5, pan:5, pen:5, pig:5, sun:5 | op:26, an:25, at:20, ap:19, ug:19, ig:18, en:17 |
-| CVC and Short Vowels | 250 | 71 | 0 | 0 | 47 | 10 | bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6 | short_a:54, short_i:37, short_u:37, short_o:25, short_e:24 |
-| Short Vowel Discrimination | 244 | 68 | 0 | 0 | 54 | 7 | cup:7, fin:7, red:7, sun:7, bag:6, dog:6, hat:6, jet:6, log:6, mug:6 | none |
+| Final Sounds | 242 | 171 | 0 | 0 | 22 | 16 | none | g:32, t:30, n:28, p:22 |
+| Rhyming | 205 | 133 | 0 | 0 | 34 | 15 | bug:5, fan:5 | at:26, an:21, am:16, ug:16 |
+| CVC and Short Vowels | 252 | 70 | 0 | 0 | 47 | 10 | bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6 | short_a:52, short_u:40, short_i:37, short_o:26, short_e:24 |
+| Short Vowel Discrimination | 250 | 71 | 0 | 0 | 54 | 7 | cup:7, fin:7, red:7, sun:7, bag:6, dog:6, hat:6, jet:6, log:6, mug:6 | none |
 | High-Frequency Words 1-25 | 61 | 32 | 0 | 0 | 10 | 6 | none | none |
 | High-Frequency Words 26-50 | 63 | 38 | 0 | 0 | 12 | 7 | none | none |
 | High-Frequency Words 51-100 | 70 | 68 | 0 | 0 | 0 | 1 | none | none |
@@ -94,27 +94,27 @@ No duplicate prompt+answer signatures.
 
 ## Final Sounds
 
-- Active questions: 270
-- Unique target words / answer targets: 197
+- Active questions: 242
+- Unique target words / answer targets: 171
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 22
 - Repeated distractor sets: 16
 - Overused words: none
-- Overused itemKeys: n:37, t:36, g:33, p:28
+- Overused itemKeys: g:32, t:30, n:28, p:22
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| n | 37 |
-| t | 36 |
-| g | 33 |
-| p | 28 |
-| m | 20 |
+| g | 32 |
+| t | 30 |
+| n | 28 |
+| p | 22 |
 | d | 19 |
-| l | 15 |
+| m | 18 |
 | sh | 15 |
+| l | 11 |
 | ll | 11 |
 | nd | 10 |
 | ng | 7 |
@@ -141,56 +141,59 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| b \| d \| g \| t | 25 | ending_l1_001_cat, ending_l1_007_bat, ending_l1_011_jet, ending_l1_014_hat, ending_l1_019_pot, ending_l1_027_net, ending_l1_028_cot, ending_l1_029_cut, ixl_ending_sound_17, gen_final_l1_t_bat_0_sound, gen_final_l1_t_cot_1_sound, gen_final_l1_t_donut_2_sound, gen_final_l1_t_exit_4_sound, gen_final_l1_t_goat_5_sound, gen_final_l1_t_hat_6_sound, gen_final_l1_t_heart_7_sound, gen_final_l1_t_jet_11_sound, gen_final_l1_t_mat_12_sound, gen_final_l1_t_newt_13_sound, gen_final_l1_t_pot_14_sound, gen_final_l1_t_quiet_15_sound, gen_final_l1_t_rat_16_sound, gen_final_l1_t_robot_17_sound, gen_final_l1_t_sit_18_sound, gen_final_l1_t_yacht_19_sound |
-| b \| d \| g \| l | 33 | ending_l1_002_dog, ending_l1_003_bed, ending_l1_008_bag, ending_l1_010_web, ending_l1_015_log, ending_l1_016_mug, ending_l1_017_bug, ending_l1_030_lid, ixl_ending_sound_22, gen_final_l1_b_tub_0_sound, gen_final_l1_b_web_1_sound, gen_final_l1_d_kid_3_sound, gen_final_l1_d_lid_4_sound, gen_final_l1_d_red_7_sound, gen_final_l1_g_bag_0_sound, gen_final_l1_g_bug_2_sound, gen_final_l1_g_dog_4_sound, gen_final_l1_g_egg_6_sound, gen_final_l1_g_flag_7_sound, gen_final_l1_g_leg_10_sound, gen_final_l1_g_log_11_sound, gen_final_l1_g_mug_12_sound, gen_final_l1_g_pig_13_sound, gen_final_l1_g_rug_14_sound, gen_final_l1_g_wig_15_sound, gen_final_l1_l_easel_0_sound, gen_final_l1_l_girl_1_sound, gen_final_l1_l_jewel_2_sound, gen_final_l1_l_nail_3_sound, gen_final_l1_l_oval_4_sound, gen_final_l1_l_owl_5_sound, gen_final_l1_l_quail_6_sound, gen_final_l1_l_wheel_7_sound |
-| b \| d \| g \| p | 13 | ending_l1_004_map, ending_l1_009_cup, ending_l1_018_cap, gen_final_l1_p_cap_0_sound, gen_final_l1_p_cup_2_sound, gen_final_l1_p_jeep_4_sound, gen_final_l1_p_ship_7_sound, gen_final_l1_p_shop_8_sound, gen_final_l1_p_soap_10_sound, gen_final_l1_p_tap_12_sound, gen_final_l1_p_top_13_sound, gen_final_l1_p_up_14_sound, gen_final_l1_p_zip_15_sound |
-| b \| d \| g \| n | 25 | ending_l1_005_pan, ending_l1_006_pin, ending_l1_013_sun, ending_l1_020_pen, ending_l1_021_hen, ending_l1_022_fan, ending_l1_026_fin, gen_final_l1_n_apron_0_sound, gen_final_l1_n_fan_4_sound, gen_final_l1_n_fin_5_sound, gen_final_l1_n_hen_7_sound, gen_final_l1_n_iron_8_sound, gen_final_l1_n_lemon_9_sound, gen_final_l1_n_lion_10_sound, gen_final_l1_n_man_11_sound, gen_final_l1_n_moon_12_sound, gen_final_l1_n_ocean_13_sound, gen_final_l1_n_oven_14_sound, gen_final_l1_n_pan_15_sound, gen_final_l1_n_pen_16_sound, gen_final_l1_n_pin_17_sound, gen_final_l1_n_queen_18_sound, gen_final_l1_n_spoon_21_sound, gen_final_l1_n_sun_22_sound, gen_final_l1_n_van_25_sound |
-| b \| d \| g \| m | 11 | ending_l1_012_jam, ending_l1_023_ham, ending_l1_024_ram, ending_l1_025_gum, gen_final_l1_m_album_0_sound, gen_final_l1_m_drum_1_sound, gen_final_l1_m_gum_2_sound, gen_final_l1_m_ham_3_sound, gen_final_l1_m_jam_4_sound, gen_final_l1_m_ram_5_sound, gen_final_l1_m_yam_7_sound |
+| b \| d \| g \| t | 19 | ending_l1_001_cat, ending_l1_007_bat, ending_l1_011_jet, ending_l1_014_hat, ending_l1_019_pot, ending_l1_027_net, ending_l1_028_cot, ending_l1_029_cut, ixl_ending_sound_17, gen_final_l1_t_bat_0_sound, gen_final_l1_t_cot_1_sound, gen_final_l1_t_exit_3_sound, gen_final_l1_t_hat_4_sound, gen_final_l1_t_jet_8_sound, gen_final_l1_t_mat_9_sound, gen_final_l1_t_newt_10_sound, gen_final_l1_t_pot_11_sound, gen_final_l1_t_rat_12_sound, gen_final_l1_t_sit_13_sound |
+| b \| d \| g \| l | 28 | ending_l1_002_dog, ending_l1_003_bed, ending_l1_008_bag, ending_l1_010_web, ending_l1_015_log, ending_l1_016_mug, ending_l1_017_bug, ending_l1_030_lid, ending_l1_031_bell, ending_l1_032_ball, ixl_ending_sound_22, gen_final_l1_b_tub_0_sound, gen_final_l1_b_web_1_sound, gen_final_l1_d_kid_3_sound, gen_final_l1_d_lid_4_sound, gen_final_l1_d_red_6_sound, gen_final_l1_g_bag_0_sound, gen_final_l1_g_bug_2_sound, gen_final_l1_g_dog_4_sound, gen_final_l1_g_egg_6_sound, gen_final_l1_g_leg_8_sound, gen_final_l1_g_log_9_sound, gen_final_l1_g_mug_10_sound, gen_final_l1_g_pig_11_sound, gen_final_l1_g_rug_12_sound, gen_final_l1_g_wig_13_sound, gen_final_l1_l_girl_0_sound, gen_final_l1_l_oval_1_sound |
+| b \| d \| g \| p | 9 | ending_l1_004_map, ending_l1_009_cup, ending_l1_018_cap, gen_final_l1_p_cap_0_sound, gen_final_l1_p_cup_1_sound, gen_final_l1_p_tap_5_sound, gen_final_l1_p_top_6_sound, gen_final_l1_p_up_7_sound, gen_final_l1_p_zip_8_sound |
+| b \| d \| g \| n | 16 | ending_l1_005_pan, ending_l1_006_pin, ending_l1_013_sun, ending_l1_020_pen, ending_l1_021_hen, ending_l1_022_fan, ending_l1_026_fin, gen_final_l1_n_fan_2_sound, gen_final_l1_n_fin_3_sound, gen_final_l1_n_hen_4_sound, gen_final_l1_n_man_5_sound, gen_final_l1_n_pan_6_sound, gen_final_l1_n_pen_7_sound, gen_final_l1_n_pin_8_sound, gen_final_l1_n_sun_10_sound, gen_final_l1_n_van_12_sound |
+| b \| d \| g \| m | 9 | ending_l1_012_jam, ending_l1_023_ham, ending_l1_024_ram, ending_l1_025_gum, gen_final_l1_m_gum_0_sound, gen_final_l1_m_ham_1_sound, gen_final_l1_m_jam_2_sound, gen_final_l1_m_ram_3_sound, gen_final_l1_m_yam_4_sound |
 | ch \| ck \| sh \| th | 6 | ending_l2_001_fish, ending_l2_002_dish, ending_l2_003_brush, ending_l2_004_duck, ending_l2_005_sock, ending_l2_006_rock |
 | ch \| ng \| sh \| th | 2 | ending_l2_007_ring, ending_l2_008_king |
 | ch \| rk \| sh \| th | 2 | ending_l2_012_park, ending_l2_013_fork |
 
 ## Rhyming
 
-- Active questions: 219
-- Unique target words / answer targets: 103
+- Active questions: 205
+- Unique target words / answer targets: 133
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 52
-- Repeated distractor sets: 11
-- Overused words: bug:6, cap:6, fan:6, mop:6, fin:5, hop:5, pan:5, pen:5, pig:5, sun:5
-- Overused itemKeys: op:26, an:25, at:20, ap:19, ug:19, ig:18, en:17
+- Repeated answer option sets: 34
+- Repeated distractor sets: 15
+- Overused words: bug:5, fan:5
+- Overused itemKeys: at:26, an:21, am:16, ug:16
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| op | 26 |
-| an | 25 |
-| at | 20 |
-| ap | 19 |
-| ug | 19 |
-| ig | 18 |
-| en | 17 |
-| in | 13 |
-| og | 12 |
-| un | 11 |
-| ed | 5 |
-| ot | 5 |
-| it | 4 |
-| oat | 4 |
-| ee | 3 |
-| ock | 3 |
-| air | 2 |
-| ell | 2 |
+| at | 26 |
+| an | 21 |
+| am | 16 |
+| ug | 16 |
+| ap | 12 |
+| ig | 11 |
+| oat | 11 |
+| ot | 10 |
+| in | 9 |
+| ock | 9 |
+| en | 8 |
+| og | 6 |
+| op | 6 |
+| un | 6 |
+| ed | 4 |
+| ell | 4 |
+| ing | 4 |
+| ake | 3 |
+| ar | 3 |
+| ish | 3 |
+| it | 3 |
+| up | 3 |
+| ee | 2 |
 | et | 2 |
-| ing | 2 |
-| ox | 2 |
+| uck | 2 |
+| ut | 2 |
 | ain | 1 |
-| am | 1 |
-| ar | 1 |
-| ish | 1 |
-| ut | 1 |
+| air | 1 |
+| ox | 1 |
 
 ### Duplicate Signatures
 
@@ -211,23 +214,23 @@ No duplicate prompt+answer signatures.
 
 ## CVC and Short Vowels
 
-- Active questions: 250
-- Unique target words / answer targets: 71
+- Active questions: 252
+- Unique target words / answer targets: 70
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 47
 - Repeated distractor sets: 10
 - Overused words: bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6
-- Overused itemKeys: short_a:54, short_i:37, short_u:37, short_o:25, short_e:24
+- Overused itemKeys: short_a:52, short_u:40, short_i:37, short_o:26, short_e:24
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| short_a | 54 |
+| short_a | 52 |
+| short_u | 40 |
 | short_i | 37 |
-| short_u | 37 |
-| short_o | 25 |
+| short_o | 26 |
 | short_e | 24 |
 | bag | 3 |
 | bat | 3 |
@@ -277,17 +280,17 @@ No duplicate prompt+answer signatures.
 | --- | --- | --- |
 | dig \| dog \| dot \| dug | 2 | cvc_listen_find_007, cvc_listen_find_008 |
 | bed \| pan \| pen \| pin | 2 | cvc_listen_find_019, recovery_cvc_pen_picture_2 |
-| a \| e \| i \| o \| u | 78 | p3_cvc_missing_vowel_1, p3_cvc_missing_vowel_2, p3_cvc_missing_vowel_3, p3_cvc_missing_vowel_4, p3_cvc_missing_vowel_5, p3_cvc_missing_vowel_6, p3_cvc_missing_vowel_7, p3_cvc_missing_vowel_8, p3_cvc_missing_vowel_9, p3_cvc_missing_vowel_10, p3_cvc_missing_vowel_11, p3_cvc_missing_vowel_12, p3_cvc_missing_vowel_13, p3_cvc_missing_vowel_14, p3_cvc_missing_vowel_15, gen_cvc_short_a_bad_0_missing, gen_cvc_short_a_bag_1_missing, gen_cvc_short_a_bat_2_missing, gen_cvc_short_a_can_3_missing, gen_cvc_short_a_cap_4_missing, gen_cvc_short_a_fan_5_missing, gen_cvc_short_a_ham_6_missing, gen_cvc_short_a_hat_7_missing, gen_cvc_short_a_jam_8_missing, gen_cvc_short_a_man_9_missing, gen_cvc_short_a_mat_10_missing, gen_cvc_short_a_nap_11_missing, gen_cvc_short_a_pan_12_missing, gen_cvc_short_a_ram_13_missing, gen_cvc_short_a_rat_14_missing, gen_cvc_short_a_tap_15_missing, gen_cvc_short_a_van_16_missing, gen_cvc_short_a_yak_17_missing, gen_cvc_short_e_hen_0_missing, gen_cvc_short_e_jet_1_missing, gen_cvc_short_e_leg_2_missing, gen_cvc_short_e_pen_3_missing, gen_cvc_short_e_red_4_missing, gen_cvc_short_e_ten_5_missing, gen_cvc_short_e_web_6_missing, gen_cvc_short_e_den_7_missing, gen_cvc_short_i_bid_0_missing, gen_cvc_short_i_big_1_missing, gen_cvc_short_i_bin_2_missing, gen_cvc_short_i_dig_3_missing, gen_cvc_short_i_fin_4_missing, gen_cvc_short_i_hit_5_missing, gen_cvc_short_i_kid_6_missing, gen_cvc_short_i_lid_7_missing, gen_cvc_short_i_pig_8_missing, gen_cvc_short_i_pin_9_missing, gen_cvc_short_i_sit_10_missing, gen_cvc_short_i_wig_11_missing, gen_cvc_short_i_zip_12_missing, gen_cvc_short_o_cot_0_missing, gen_cvc_short_o_dog_1_missing, gen_cvc_short_o_dot_2_missing, gen_cvc_short_o_hop_3_missing, gen_cvc_short_o_hot_4_missing, gen_cvc_short_o_log_5_missing, gen_cvc_short_o_mop_6_missing, gen_cvc_short_o_pot_7_missing, gen_cvc_short_o_top_8_missing, gen_cvc_short_u_bud_0_missing, gen_cvc_short_u_bug_1_missing, gen_cvc_short_u_bun_2_missing, gen_cvc_short_u_bus_3_missing, gen_cvc_short_u_cup_4_missing, gen_cvc_short_u_dug_5_missing, gen_cvc_short_u_gum_6_missing, gen_cvc_short_u_hut_7_missing, gen_cvc_short_u_jug_8_missing, gen_cvc_short_u_mud_9_missing, gen_cvc_short_u_mug_10_missing, gen_cvc_short_u_rug_11_missing, gen_cvc_short_u_run_12_missing, gen_cvc_short_u_sun_13_missing, gen_cvc_short_u_tub_14_missing |
+| a \| e \| i \| o \| u | 77 | p3_cvc_missing_vowel_1, p3_cvc_missing_vowel_2, p3_cvc_missing_vowel_3, p3_cvc_missing_vowel_4, p3_cvc_missing_vowel_5, p3_cvc_missing_vowel_6, p3_cvc_missing_vowel_7, p3_cvc_missing_vowel_8, p3_cvc_missing_vowel_9, p3_cvc_missing_vowel_10, p3_cvc_missing_vowel_11, p3_cvc_missing_vowel_12, p3_cvc_missing_vowel_13, p3_cvc_missing_vowel_14, p3_cvc_missing_vowel_15, gen_cvc_short_a_bad_0_missing, gen_cvc_short_a_bag_1_missing, gen_cvc_short_a_bat_2_missing, gen_cvc_short_a_cap_3_missing, gen_cvc_short_a_fan_4_missing, gen_cvc_short_a_ham_5_missing, gen_cvc_short_a_hat_6_missing, gen_cvc_short_a_jam_7_missing, gen_cvc_short_a_man_8_missing, gen_cvc_short_a_mat_9_missing, gen_cvc_short_a_nap_10_missing, gen_cvc_short_a_pan_11_missing, gen_cvc_short_a_ram_12_missing, gen_cvc_short_a_rat_13_missing, gen_cvc_short_a_tap_14_missing, gen_cvc_short_a_van_15_missing, gen_cvc_short_a_yak_16_missing, gen_cvc_short_e_hen_0_missing, gen_cvc_short_e_jet_1_missing, gen_cvc_short_e_leg_2_missing, gen_cvc_short_e_pen_3_missing, gen_cvc_short_e_red_4_missing, gen_cvc_short_e_ten_5_missing, gen_cvc_short_e_web_6_missing, gen_cvc_short_e_den_7_missing, gen_cvc_short_i_bid_0_missing, gen_cvc_short_i_big_1_missing, gen_cvc_short_i_bin_2_missing, gen_cvc_short_i_dig_3_missing, gen_cvc_short_i_fin_4_missing, gen_cvc_short_i_hit_5_missing, gen_cvc_short_i_kid_6_missing, gen_cvc_short_i_lid_7_missing, gen_cvc_short_i_pig_8_missing, gen_cvc_short_i_pin_9_missing, gen_cvc_short_i_sit_10_missing, gen_cvc_short_i_wig_11_missing, gen_cvc_short_i_zip_12_missing, gen_cvc_short_o_cot_0_missing, gen_cvc_short_o_dog_1_missing, gen_cvc_short_o_dot_2_missing, gen_cvc_short_o_hop_3_missing, gen_cvc_short_o_hot_4_missing, gen_cvc_short_o_log_5_missing, gen_cvc_short_o_mop_6_missing, gen_cvc_short_o_pot_7_missing, gen_cvc_short_o_top_8_missing, gen_cvc_short_u_bud_0_missing, gen_cvc_short_u_bug_1_missing, gen_cvc_short_u_bun_2_missing, gen_cvc_short_u_bus_3_missing, gen_cvc_short_u_cup_4_missing, gen_cvc_short_u_dug_5_missing, gen_cvc_short_u_gum_6_missing, gen_cvc_short_u_hut_7_missing, gen_cvc_short_u_jug_8_missing, gen_cvc_short_u_mud_9_missing, gen_cvc_short_u_mug_10_missing, gen_cvc_short_u_rug_11_missing, gen_cvc_short_u_run_12_missing, gen_cvc_short_u_sun_13_missing, gen_cvc_short_u_tub_14_missing |
 | g \| n \| p \| t | 11 | ixl_complete_word_1, ixl_complete_word_2, ixl_complete_word_4, ixl_complete_word_5, ixl_complete_word_6, ixl_complete_word_7, ixl_complete_word_8, ixl_complete_word_9, ixl_complete_word_13, ixl_complete_word_14, ixl_complete_word_15 |
 | b \| n \| p \| t | 2 | ixl_complete_word_10, ixl_complete_word_11 |
 | bag \| bid \| big \| bin | 2 | gen_cvc_short_a_bag_1_vowel, gen_cvc_short_a_bag_1_picture |
 | bat \| bid \| big \| bin | 2 | gen_cvc_short_a_bat_2_vowel, gen_cvc_short_a_bat_2_picture |
-| bid \| big \| bin \| cap | 2 | gen_cvc_short_a_cap_4_vowel, gen_cvc_short_a_cap_4_picture |
+| bid \| big \| bin \| cap | 2 | gen_cvc_short_a_cap_3_vowel, gen_cvc_short_a_cap_3_picture |
 
 ## Short Vowel Discrimination
 
-- Active questions: 244
-- Unique target words / answer targets: 68
+- Active questions: 250
+- Unique target words / answer targets: 71
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 54
@@ -299,10 +302,10 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
-| short_a | 70 |
+| short_a | 68 |
 | short_i | 53 |
-| short_u | 47 |
-| short_o | 38 |
+| short_u | 53 |
+| short_o | 40 |
 | short_e | 36 |
 
 ### Duplicate Signatures
@@ -313,7 +316,7 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| a \| e \| i \| o \| u | 83 | p3_short_vowel_listen_1, p3_short_vowel_listen_2, p3_short_vowel_listen_3, p3_short_vowel_listen_4, p3_short_vowel_listen_5, p3_short_vowel_listen_6, p3_short_vowel_listen_7, p3_short_vowel_listen_8, p3_short_vowel_listen_9, p3_short_vowel_listen_10, p3_short_vowel_listen_11, p3_short_vowel_listen_12, p3_short_vowel_listen_13, p3_short_vowel_listen_14, p3_short_vowel_listen_15, recovery_short_vowel_listen_2, recovery_short_vowel_listen_4, recovery_short_vowel_listen_5, recovery_short_vowel_listen_9, recovery_short_vowel_listen_10, recovery_short_vowel_listen_12, recovery_short_vowel_listen_14, recovery_short_vowel_listen_19, recovery_short_vowel_listen_20, recovery_short_vowel_listen_23, recovery_short_vowel_listen_25, gen_short_vowel_a_bad_0_listen, gen_short_vowel_a_bag_1_listen, gen_short_vowel_a_bat_2_listen, gen_short_vowel_i_bid_3_listen, gen_short_vowel_i_big_4_listen, gen_short_vowel_i_bin_5_listen, gen_short_vowel_u_bud_6_listen, gen_short_vowel_u_bug_7_listen, gen_short_vowel_u_bun_8_listen, gen_short_vowel_u_bus_9_listen, gen_short_vowel_a_can_10_listen, gen_short_vowel_a_cap_11_listen, gen_short_vowel_o_cot_12_listen, gen_short_vowel_u_cup_13_listen, gen_short_vowel_i_dig_14_listen, gen_short_vowel_o_dog_15_listen, gen_short_vowel_a_fan_18_listen, gen_short_vowel_i_fin_19_listen, gen_short_vowel_u_gum_20_listen, gen_short_vowel_a_ham_21_listen, gen_short_vowel_a_hat_22_listen, gen_short_vowel_e_hen_23_listen, gen_short_vowel_i_hit_24_listen, gen_short_vowel_o_hop_25_listen, gen_short_vowel_o_hot_26_listen, gen_short_vowel_a_jam_28_listen, gen_short_vowel_e_jet_29_listen, gen_short_vowel_i_kid_31_listen, gen_short_vowel_e_leg_32_listen, gen_short_vowel_i_lid_33_listen, gen_short_vowel_o_log_34_listen, gen_short_vowel_a_man_35_listen, gen_short_vowel_a_mat_36_listen, gen_short_vowel_o_mop_37_listen, gen_short_vowel_u_mud_38_listen, gen_short_vowel_u_mug_39_listen, gen_short_vowel_a_nap_40_listen, gen_short_vowel_a_pan_41_listen, gen_short_vowel_e_pen_42_listen, gen_short_vowel_i_pig_43_listen, gen_short_vowel_i_pin_44_listen, gen_short_vowel_o_pot_45_listen, gen_short_vowel_a_ram_46_listen, gen_short_vowel_a_rat_47_listen, gen_short_vowel_e_red_48_listen, gen_short_vowel_u_rug_49_listen, gen_short_vowel_i_sit_51_listen, gen_short_vowel_u_sun_52_listen, gen_short_vowel_a_tap_53_listen, gen_short_vowel_e_ten_54_listen, gen_short_vowel_o_top_55_listen, gen_short_vowel_u_tub_56_listen, gen_short_vowel_a_van_57_listen, gen_short_vowel_e_web_58_listen, gen_short_vowel_i_wig_59_listen, gen_short_vowel_a_yak_60_listen, gen_short_vowel_i_zip_61_listen |
+| a \| e \| i \| o \| u | 86 | p3_short_vowel_listen_1, p3_short_vowel_listen_2, p3_short_vowel_listen_3, p3_short_vowel_listen_4, p3_short_vowel_listen_5, p3_short_vowel_listen_6, p3_short_vowel_listen_7, p3_short_vowel_listen_8, p3_short_vowel_listen_9, p3_short_vowel_listen_10, p3_short_vowel_listen_11, p3_short_vowel_listen_12, p3_short_vowel_listen_13, p3_short_vowel_listen_14, p3_short_vowel_listen_15, recovery_short_vowel_listen_2, recovery_short_vowel_listen_4, recovery_short_vowel_listen_5, recovery_short_vowel_listen_9, recovery_short_vowel_listen_10, recovery_short_vowel_listen_12, recovery_short_vowel_listen_14, recovery_short_vowel_listen_19, recovery_short_vowel_listen_20, recovery_short_vowel_listen_23, recovery_short_vowel_listen_25, gen_short_vowel_a_bad_0_listen, gen_short_vowel_a_bag_1_listen, gen_short_vowel_a_bat_2_listen, gen_short_vowel_i_bid_3_listen, gen_short_vowel_i_big_4_listen, gen_short_vowel_i_bin_5_listen, gen_short_vowel_u_bud_6_listen, gen_short_vowel_u_bug_7_listen, gen_short_vowel_u_bun_8_listen, gen_short_vowel_u_bus_9_listen, gen_short_vowel_a_cap_10_listen, gen_short_vowel_o_cot_11_listen, gen_short_vowel_u_cup_12_listen, gen_short_vowel_i_dig_13_listen, gen_short_vowel_o_dog_14_listen, gen_short_vowel_o_dot_15_listen, gen_short_vowel_a_fan_17_listen, gen_short_vowel_i_fin_18_listen, gen_short_vowel_u_gum_19_listen, gen_short_vowel_a_ham_20_listen, gen_short_vowel_a_hat_21_listen, gen_short_vowel_e_hen_22_listen, gen_short_vowel_i_hit_23_listen, gen_short_vowel_o_hop_24_listen, gen_short_vowel_o_hot_25_listen, gen_short_vowel_u_hut_26_listen, gen_short_vowel_a_jam_27_listen, gen_short_vowel_e_jet_28_listen, gen_short_vowel_u_jug_29_listen, gen_short_vowel_i_kid_30_listen, gen_short_vowel_e_leg_31_listen, gen_short_vowel_i_lid_32_listen, gen_short_vowel_o_log_33_listen, gen_short_vowel_a_man_34_listen, gen_short_vowel_a_mat_35_listen, gen_short_vowel_o_mop_36_listen, gen_short_vowel_u_mud_37_listen, gen_short_vowel_u_mug_38_listen, gen_short_vowel_a_nap_39_listen, gen_short_vowel_a_pan_40_listen, gen_short_vowel_e_pen_41_listen, gen_short_vowel_i_pig_42_listen, gen_short_vowel_i_pin_43_listen, gen_short_vowel_o_pot_44_listen, gen_short_vowel_a_ram_45_listen, gen_short_vowel_a_rat_46_listen, gen_short_vowel_e_red_47_listen, gen_short_vowel_u_rug_48_listen, gen_short_vowel_u_run_49_listen, gen_short_vowel_i_sit_50_listen, gen_short_vowel_u_sun_51_listen, gen_short_vowel_a_tap_52_listen, gen_short_vowel_e_ten_53_listen, gen_short_vowel_o_top_54_listen, gen_short_vowel_u_tub_55_listen, gen_short_vowel_a_van_56_listen, gen_short_vowel_e_web_57_listen, gen_short_vowel_i_wig_58_listen, gen_short_vowel_a_yak_59_listen, gen_short_vowel_i_zip_60_listen |
 | cat \| cot \| cut \| kit | 2 | p3_short_vowel_picture_1, recovery_short_vowel_picture_19 |
 | pan \| pen \| pig \| pot | 2 | p3_short_vowel_picture_7, p3_short_vowel_picture_11 |
 | map \| mat \| mop \| mug | 2 | recovery_short_vowel_picture_3, recovery_short_vowel_picture_20 |

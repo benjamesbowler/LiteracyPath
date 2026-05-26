@@ -37,6 +37,8 @@ export const finalSoundExpectedItemKeys = [
   "t"
 ];
 
+export const finalSoundLevelOneAllowedItemKeys = finalSoundExpectedItemKeys;
+
 export const finalSoundLevelTwoExpectedItemKeys = [
   "sh",
   "th",
@@ -48,6 +50,32 @@ export const finalSoundLevelTwoExpectedItemKeys = [
   "sk",
   "ft",
   "lt"
+];
+
+export const finalSoundLevelOneForbiddenItemKeys = [
+  "ch",
+  "sh",
+  "th",
+  "ng",
+  "nd",
+  "nk",
+  "nt",
+  "st",
+  "sk",
+  "ft",
+  "lt",
+  "ll",
+  "ck",
+  "ss",
+  "ff",
+  "zz",
+  "mp",
+  "rk",
+  "lk",
+  "f",
+  "k",
+  "r",
+  "s"
 ];
 
 export const cvcShortVowelExpectedItemKeys = [
@@ -62,15 +90,53 @@ export const rhymingExpectedItemKeys = [
   "at",
   "an",
   "ap",
+  "am",
+  "ag",
+  "ad",
   "ed",
   "en",
   "et",
+  "eg",
   "ig",
   "in",
+  "ip",
+  "it",
   "og",
   "op",
+  "ot",
   "ug",
-  "un"
+  "un",
+  "up",
+  "ut"
+];
+
+export const rhymingLevelTwoExpectedItemKeys = [
+  "ing",
+  "ang",
+  "ong",
+  "unk",
+  "ink",
+  "ank",
+  "ock",
+  "ack",
+  "ick",
+  "ill",
+  "all",
+  "ell",
+  "ash",
+  "ish",
+  "uck",
+  "ake",
+  "ame",
+  "ide",
+  "ight",
+  "oat",
+  "eep",
+  "ouse",
+  "ird",
+  "urn",
+  "ar",
+  "or"
 ];
 
 export const coverageExpectations = {
@@ -102,9 +168,13 @@ export const coverageExpectations = {
   rhyming: {
     itemType: "rhyming_family",
     itemKeys: rhymingExpectedItemKeys,
+    levels: {
+      1: rhymingExpectedItemKeys,
+      2: rhymingLevelTwoExpectedItemKeys
+    },
     total: rhymingExpectedItemKeys.length,
     unit: "rime families",
-    note: "Rhyming coverage is tracked by rime/rhyme family, never by starting letter."
+    note: "Rhyming Level 1 uses simple short-vowel CVC rime families. Level 2 adds harder rimes, blends, digraphs, vowel teams, and r-controlled families."
   },
   hfw_1_25: {
     total: 25,

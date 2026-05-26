@@ -13,7 +13,8 @@ import {
   cvcShortVowelExpectedItemKeys,
   finalSoundExpectedItemKeys,
   finalSoundLevelTwoExpectedItemKeys,
-  rhymingExpectedItemKeys
+  rhymingExpectedItemKeys,
+  rhymingLevelTwoExpectedItemKeys
 } from "../src/data/coverageExpectations.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -427,11 +428,16 @@ function generateShortVowelDiscriminationQuestions(entries) {
 function generateRhymingQuestions(entries) {
   const out = [];
   const entryByWord = new Map(entries.map(entry => [entry.lowercaseWord, entry]));
-  rhymingExpectedItemKeys.forEach(family => {
+  const familyLevels = [
+    ...rhymingExpectedItemKeys.map(family => [family, 1]),
+    ...rhymingLevelTwoExpectedItemKeys.map(family => [family, 2])
+  ];
+
+  familyLevels.forEach(([family, level]) => {
     const words = rhymeGroups[family] || [];
-    const available = words.map(word => entryByWord.get(word)).filter(Boolean);
+    const available = words.map(word => entryByWord.get(word)).filter(entry => entry && hasImage(entry));
     const distractorPool = entries
-      .filter(entry => getRhymeGroup(entry.lowercaseWord) && getRhymeGroup(entry.lowercaseWord) !== family)
+      .filter(entry => hasImage(entry) && getRhymeGroup(entry.lowercaseWord) && getRhymeGroup(entry.lowercaseWord) !== family)
       .map(entry => entry.lowercaseWord);
 
     available.forEach((entry, index) => {
@@ -442,7 +448,7 @@ function generateRhymingQuestions(entries) {
           id: `gen_rhyme_${family}_${normalize(entry.lowercaseWord)}_${normalize(rhymeWord)}_${index}_${rhymeIndex}`,
           skillId: "rhyming",
           skillName: "Rhyming",
-          level: family.length <= 2 ? 1 : 2,
+          level,
           templateType: rhymeIndex % 2 === 0 ? "READ_FIND_RHYME" : "LISTEN_FIND_RHYME",
           prompt: `Which word rhymes with ${entry.word}?`,
           targetWord: entry.lowercaseWord,
@@ -450,7 +456,7 @@ function generateRhymingQuestions(entries) {
           answerOptions: options,
           coverageTarget: family,
           phonicsPattern: family,
-          imageUrl: "",
+          imageUrl: entry.imageUrl,
           audioUrl: entry.audioUrl,
           sourceLexiconId: entry.id,
           itemType: "rhyming_family",

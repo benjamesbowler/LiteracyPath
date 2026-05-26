@@ -1,6 +1,11 @@
 import { initialSoundWordBank } from "../initialSounds/initialSoundWordBank.js";
 import { hasImportedInitialSoundMedia } from "../initialSounds/initialSoundMediaManifest.js";
-import { coverageExpectations } from "../../data/coverageExpectations.js";
+import {
+  coverageExpectations,
+  finalSoundLevelOneAllowedItemKeys,
+  rhymingExpectedItemKeys,
+  rhymingLevelTwoExpectedItemKeys
+} from "../../data/coverageExpectations.js";
 import { areTrueRhymes, getRhymeGroup, rhymeGroups } from "../../data/rhymeGroups.js";
 import { masteryCoreQuestions } from "../../data/masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "../../data/masteryExtraQuestions.js";
@@ -27,6 +32,7 @@ import { generatedQuestions } from "../../data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../../data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../../data/templateComprehensionAdvanced.js";
 import { getAnswerOptionLabel } from "../../utils/answerOptions.js";
+import { isValidFinalSoundWordForEarlyLevel } from "../../data/earlyPhonicsValidation.js";
 
 export const managedSkillDefinitions = {
   initial_sounds: {
@@ -53,10 +59,10 @@ export const managedSkillDefinitions = {
     label: "Rhyming Words",
     itemType: "rhyming_family",
     levels: [1, 2, 3],
-    requiredMedia: ["image", "audio"],
+    requiredMedia: ["image"],
     minimumValidItems: 50,
     progression: "target_group_coverage",
-    expectedTargets: Object.keys(rhymeGroups)
+    expectedTargets: coverageExpectations.rhyming.itemKeys
   },
   short_vowels: {
     label: "Short Vowels",
@@ -252,12 +258,44 @@ export function runtimeQuestionSignature(question = {}) {
   ].join("::");
 }
 
+const LEVEL_ONE_FINAL_SOUND_TARGETS = new Set(finalSoundLevelOneAllowedItemKeys);
+const RHYMING_LEVEL_ONE_TARGETS = new Set(rhymingExpectedItemKeys);
+const RHYMING_LEVEL_TWO_TARGETS = new Set(rhymingLevelTwoExpectedItemKeys);
+
+function inferFinalSoundTarget(question = {}) {
+  return normalizeTargetWord(
+    question.targetFinalSound ||
+    question.targetSound ||
+    question.itemKey ||
+    question.phonicsPattern ||
+    question.targetPattern ||
+    question.answer ||
+    question.correctAnswer
+  );
+}
+
 function normalizeRuntimeQuestionLevel(question = {}, skillId = "") {
   if (skillId === "ending_sounds") {
+    const finalTarget = inferFinalSoundTarget(question);
+    const targetWord = normalizeTargetWord(question.targetWord || question.anchorWord || question.audioText || question.diagnosticTarget);
     if (String(question.id || "").startsWith("ending_l1_")) return 1;
     if (String(question.id || "").startsWith("ending_l2_")) return 2;
+    if (finalTarget && !LEVEL_ONE_FINAL_SOUND_TARGETS.has(finalTarget)) return 2;
+    if (finalTarget && targetWord && !isValidFinalSoundWordForEarlyLevel(targetWord, finalTarget)) return 2;
     if (question.skillId === "final_sounds" && question.finalSoundType !== "single_letter") return 2;
     if (question.skillId === "final_sounds" && !question.finalSoundType) return 2;
+  }
+
+  if (skillId === "rhyming") {
+    const family = normalizeTargetWord(
+      question.itemKey ||
+      question.rhymeGroup ||
+      question.rime ||
+      question.coverageTarget ||
+      getRhymeGroup(question.targetWord || question.anchorWord || question.answer || question.correctAnswer)
+    );
+    if (RHYMING_LEVEL_TWO_TARGETS.has(family)) return 2;
+    if (RHYMING_LEVEL_ONE_TARGETS.has(family)) return 1;
   }
 
   return Number(question.level || question.difficulty || 1) || 1;

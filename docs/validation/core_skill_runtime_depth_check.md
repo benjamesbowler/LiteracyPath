@@ -5,9 +5,9 @@ Date: 2026-05-25
 | Skill | Runtime-Selectable Items | Minimum | Sample Round Size | Status |
 | --- | ---: | ---: | ---: | --- |
 | Initial Sounds | 473 | 100 | 15 | pass |
-| Ending Sounds | 476 | 100 | 15 | pass |
-| CVC Short Vowels | 521 | 100 | 15 | pass |
-| Rhyming Words | 219 | 100 | 15 | pass |
+| Ending Sounds | 417 | 100 | 15 | pass |
+| CVC Short Vowels | 529 | 100 | 15 | pass |
+| Rhyming Words | 203 | 100 | 15 | pass |
 
 ## Sample Rounds
 
@@ -83,33 +83,33 @@ Repeated round simulation:
 
 - Round 1: cat, bag, bat, bed, cap, cup, dog, dot, fin, hat, jam, leg, log, man, map
 - Round 2: mud, mug, nap, pen, pig, pot, ram, red, sit, sun, wig, lid, pan, net, jet
-- Round 3: pin, cot, nut, web, fish, sock, duck, fox, bug, hen, van, bad, can, fan, ham
-- Round 4: mop, ship, mat, ten, bud, shop, rat, tap, yak, den, bid, big, bin, dig, hit
+- Round 3: pin, cot, nut, web, fish, sock, duck, fox, bug, hen, van, bad, fan, ham, mat
+- Round 4: mop, ship, rat, ten, bud, shop, tap, yak, den, bid, big, bin, dig, hit, kid
 
 ### Rhyming Words
 
 1. cat
-2. cap
-3. fan
-4. bed
-5. pen
-6. pig
-7. fin
-8. sit
-9. dog
-10. mop
-11. pot
-12. bug
-13. mug
-14. rug
-15. sun
+2. pan
+3. map
+4. jam
+5. bed
+6. pen
+7. jet
+8. pig
+9. pin
+10. sit
+11. dog
+12. mop
+13. hop
+14. hot
+15. pot
 
 Repeated round simulation:
 
-- Round 1: cat, cap, fan, bed, pen, pig, fin, sit, dog, mop, pot, bug, mug, rug, sun
-- Round 2: bat, map, man, red, ten, big, bin, hit, frog, shop, hot, bun, box, jet, king
-- Round 3: mat, clap, pan, hen, wig, log, stop, cot, bell, fish, boat, bee, car, bear, sock
-- Round 4: hat, coat, pin, hop, ram, fox, rock, ring, chair, rain, tree, can, van, nap, tap
+- Round 1: cat, pan, map, jam, bed, pen, jet, pig, pin, sit, dog, mop, hop, hot, pot
+- Round 2: bat, fan, cap, ham, hen, wig, fin, dot, bug, sun, cup, cut, ring, sock, bell
+- Round 3: hat, man, nap, dig, rug, run, fish, cake, boat, car, log, ten, ram, mug, fox
+- Round 4: mat, coat, rock, chair, bee, rain, van, tap, yam, cot, up, king, lock, shell, dish
 
 ## Failures
 

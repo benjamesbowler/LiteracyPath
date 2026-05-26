@@ -201,6 +201,9 @@ export function questionFilterReason(question = {}) {
   const audioPaths = getQuestionAudioPaths(question);
   const missingImages = imagePaths.filter(item => !publicPathExists(item));
   const missingAudio = audioPaths.filter(item => item && item.startsWith("/") && !publicPathExists(item));
+  if (skillId === "rhyming" && (!imagePaths.length || missingImages.length)) {
+    return `missing essential rhyming image${missingImages.length ? `: ${missingImages.join(", ")}` : ""}`;
+  }
   if (isImageEssential(question) && (!imagePaths.length || missingImages.length)) {
     return `missing essential image${missingImages.length ? `: ${missingImages.join(", ")}` : ""}`;
   }

@@ -34,7 +34,10 @@ import { targetedContentRecoveryQuestions } from "./data/targetedContentRecovery
 import { kimiDataset7RuntimeQuestions } from "./data/kimiDataset7RuntimeQuestions";
 import { ixlStyleSeedQuestions } from "./data/ixlStyleSeedQuestions";
 import { safeContentExpansionQuestions } from "./data/safeContentExpansionQuestions";
-import { coverageExpectations } from "./data/coverageExpectations";
+import {
+  coverageExpectations,
+  finalSoundLevelOneAllowedItemKeys
+} from "./data/coverageExpectations";
 import {
   getQuestionRoutingFormat,
   isQuestionAllowedForSkill,
@@ -61,6 +64,7 @@ import {
   hasCompleteVisualQuestionAssets,
   isVisualCardChoiceQuestion
 } from "./data/visualQuestionAssets";
+import { isValidFinalSoundWordForEarlyLevel } from "./data/earlyPhonicsValidation";
 
 import { templateQuestions } from "./data/templateQuestions";
 import { templateExpansion } from "./data/templateExpansion";
@@ -802,6 +806,14 @@ function isQuestionValid(q) {
   if (q.questionType === "initial_sound_pair" && isInitialSoundQuestion(q) && !hasCompleteInitialSoundPairAssets(q)) return false;
   if (isPairSelectionQuestion(q) && !hasCompletePairSelectionAssets(q)) return false;
   if (isVisualCardChoiceQuestion(q) && !hasCompleteVisualQuestionAssets(q)) return false;
+  if (q.skillId === "rhyming" && !(
+    q.imagePath ||
+    q.imageUrl ||
+    q.image ||
+    q.imageCards?.some(card => card.image || card.imagePath || card.imageUrl) ||
+    q.promptImageCards?.some(card => card.image || card.imagePath || card.imageUrl) ||
+    q.answerOptions?.some(option => option?.image || option?.imagePath || option?.imageUrl)
+  )) return false;
   if (q.questionType === "listen_and_find_word") {
     const diagnostics = getListenAndFindAssetDiagnostics(q);
     if (
@@ -2393,8 +2405,25 @@ export default function App() {
   }
 
   function getFinalSoundQuestionLevel(question = {}) {
+    const finalTarget = normalizeItemKey(
+      question.targetFinalSound ||
+      question.targetSound ||
+      question.itemKey ||
+      question.phonicsPattern ||
+      question.targetPattern ||
+      question.answer ||
+      question.correctAnswer
+    );
+    const targetWord = normalizeItemKey(
+      question.targetWord ||
+      question.anchorWord ||
+      question.audioText ||
+      question.diagnosticTarget
+    );
     if (String(question.id || "").startsWith("ending_l1_")) return 1;
     if (String(question.id || "").startsWith("ending_l2_")) return 2;
+    if (finalTarget && !finalSoundLevelOneAllowedItemKeys.includes(finalTarget)) return 2;
+    if (finalTarget && targetWord && !isValidFinalSoundWordForEarlyLevel(targetWord, finalTarget)) return 2;
     if (question.skillId === "final_sounds" && question.finalSoundType !== "single_letter") return 2;
     if (question.skillId === "final_sounds" && !question.finalSoundType) return 2;
     return Number(question.level || question.difficulty || 1) >= 2 ? 2 : 1;
