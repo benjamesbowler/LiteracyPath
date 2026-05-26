@@ -140,6 +140,71 @@ const createJamesAndAnnaBook = ({
   pages: pages.map(page => createJamesPage({ bookNumber, ...page }))
 });
 
+const aidenPagePath = (bookNumber, pageNumber) =>
+  seriesPagePath("aiden-and-betty", bookNumber, pageNumber);
+
+const aidenCoverPath = bookNumber =>
+  seriesCoverPath("aiden-and-betty", bookNumber);
+
+const createAidenPage = ({ bookNumber, pageNumber, text, illustrationPrompt }) => ({
+  pageNumber,
+  text: normalizeReadingText(text),
+  image: aidenPagePath(bookNumber, pageNumber),
+  pageAudio: null,
+  words: words(text),
+  illustrationPrompt,
+  qaStatus: "needs_review",
+  qaNotes: "Imported image is present but needs text-picture QA before student release.",
+  active: true
+});
+
+const createAidenAndBettyBook = ({
+  id,
+  title,
+  bookNumber,
+  theme,
+  targetPatterns,
+  sightWords,
+  pages
+}) => ({
+  id,
+  seriesId: "aiden-and-betty",
+  seriesTitle: "Aiden and Betty",
+  seriesName: "Aiden and Betty",
+  title,
+  type: "fiction",
+  category: "fiction",
+  level: "C",
+  guidedReadingLevel: "C",
+  ageRange: "6-7",
+  bookNumber,
+  order: bookNumber,
+  author: "Nora Bell",
+  illustrator: "Kimi",
+  status: "teacher_preview",
+  qaStatus: "needs_review",
+  qaNotes: "Teacher preview only until every page image is confirmed to match the text.",
+  active: false,
+  teacherPreviewOnly: true,
+  source: "aiden_and_betty_level_c_pack_2026_05_26",
+  coverImage: aidenCoverPath(bookNumber),
+  targetSkills: ["level-c", "fiction", "chapter-style-sentences"],
+  sightWords,
+  targetPatterns,
+  theme,
+  characterReference: {
+    aiden: "Aiden is 6-7 with fair skin, freckles, sandy-blonde hair, an orange hoodie with a white lightning bolt, dark grey trousers, and white trainers with orange laces.",
+    betty: "Betty is 6-7 with warm medium-brown skin, a neat brown bob, a blue Alice headband, a teal T-shirt, white dungarees, and blue-and-white canvas trainers.",
+    socks: "Socks is a small monkey with cream-white fur on face and chest, darker brown on back, black hands and feet, and a tiny red waistcoat."
+  },
+  imageGenerationReference:
+    "Keep Aiden, Betty, and Socks consistent across the Level C series. Use the source page text and prompt for each page; no non-diegetic embedded text, captions, or page numbers.",
+  expectedStoryPageCount: pages.length,
+  availableStoryPageCount: pages.length,
+  missingStoryPages: [],
+  pages: pages.map(page => createAidenPage({ bookNumber, ...page }))
+});
+
 export const guidedReadingSeriesBooks = [
   createBobAndNanBook({
     id: "bob-and-nan-01",
@@ -470,6 +535,123 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 12, text: `James and Anna climbed up and sat at the little window. "This is the best thing we have ever made," said Anna.`, illustrationPrompt: "James and Anna smiling from the tree house window." },
       { pageNumber: 13, text: `Mum sent up a tray of juice and biscuits on a rope. Dad waved from below. Chips jangled at the base of the tree, trying to reach the biscuits.`, illustrationPrompt: "A tray of juice and biscuits being hoisted to the tree house while Chips reaches up." },
       { pageNumber: 14, text: `That night, they got their sleeping bags and climbed up to sleep. Stars shone above them. "Best. Night. Ever," said James. Anna smiled. She agreed.`, illustrationPrompt: "Night scene with James and Anna in sleeping bags inside the glowing tree house." }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-01",
+    title: "Aiden and Betty Start Grade 1",
+    bookNumber: 1,
+    theme: "first day of Grade 1",
+    sightWords: ["the", "was", "said", "with", "their", "were", "they", "both"],
+    targetPatterns: ["level-c", "longer-sentences", "dialogue", "school-vocabulary"],
+    pages: [
+      { pageNumber: 1, text: `The summer holidays were over at last. Aiden sat on his bed and stared at his new school bag. Grade 1. The words sounded bigger than they looked.`, illustrationPrompt: "Aiden sitting on his bed, staring at a new school bag on the floor." },
+      { pageNumber: 2, text: `Betty was not worried at all. She had already packed her bag twice. "We're going to have proper lessons and proper homework," she said, bouncing on her toes. "Isn't that brilliant?" Aiden wasn't absolutely sure that it was.`, illustrationPrompt: "Betty excited in the hallway with her school bag while Aiden looks uncertain." },
+      { pageNumber: 3, text: `Their new classroom was bright and busy, with bookshelves along every wall and a large window that looked out onto the playing field. Their teacher was called Miss Okafor. She had bright yellow glasses and smiled like she really meant it.`, illustrationPrompt: "Aiden and Betty entering a bright classroom with Miss Okafor greeting them." },
+      { pageNumber: 4, text: `"In Grade 1," said Miss Okafor, "we will read chapter books, solve number puzzles and begin to understand how the world around us works." Aiden thought that sounded like an awful lot — but he found he was leaning forward slightly without meaning to.`, illustrationPrompt: "Miss Okafor addressing the class while Aiden leans forward with interest." },
+      { pageNumber: 5, text: `Everyone had their own desk with a name label. Aiden's said AIDEN in neat blue letters. He ran his finger over it slowly and felt, just slightly, like it might turn out to be all right.`, illustrationPrompt: "Close-up of Aiden tracing the name label on his desk." },
+      { pageNumber: 6, text: `The first lesson was handwriting — joined-up letters, which were completely new and seemed designed to be tricky. Aiden's pen slipped and he made a large blot right across the middle of the page. He went very red.`, illustrationPrompt: "Aiden staring at a large ink blot on his handwriting page." },
+      { pageNumber: 7, text: `Betty leaned over and showed him her page quietly. Her joined-up writing was also not her best work. "Mine looks like a wonky caterpillar," she whispered. Aiden laughed before he could stop himself, and his face stopped being red.`, illustrationPrompt: "Betty showing Aiden her wonky handwriting while he laughs with relief." },
+      { pageNumber: 8, text: `At lunch, they sat together by the window. Aiden opened his lunchbox and found a small folded note from Mum tucked under his sandwich. It said: You've got this, star. He smiled all the way through his apple.`, illustrationPrompt: "Aiden reading Mum's note at lunch beside Betty." },
+      { pageNumber: 9, text: `After lunch came Maths. Miss Okafor wrote sums on the board, each one slightly harder than the last. Some of them made Aiden's brain feel stretched in an unfamiliar way. He was discovering that this was not entirely a bad feeling.`, illustrationPrompt: "Aiden concentrating hard during Maths while Miss Okafor writes sums." },
+      { pageNumber: 10, text: `Betty answered three questions out loud and got them all right. Aiden raised his hand once, very carefully, and he got his right too. Miss Okafor stuck a gold star beside both their names on the board. Aiden looked at his star for quite a long time.`, illustrationPrompt: "Miss Okafor placing gold stars beside Aiden and Betty's names." },
+      { pageNumber: 11, text: `Then there was Science — real Science, with a magnifying glass and a tray of soil and seeds. Aiden forgot to be nervous. He was too busy looking at a woodlouse through the magnifying glass and writing down exactly what he saw.`, illustrationPrompt: "Aiden absorbed in a science activity with a magnifying glass and notebook." },
+      { pageNumber: 12, text: `At home time, Mum was waiting at the gate. She crouched down with an expectant look. "Well?" she said. They both started talking at exactly the same moment and didn't stop for ten minutes.`, illustrationPrompt: "Mum at the school gate as Aiden and Betty talk over each other." },
+      { pageNumber: 13, text: `"Grade 1 is brilliant," announced Betty, just before bed. "It's actually not that bad," said Aiden, which from Aiden meant exactly the same thing. He turned his light off, closed his eyes, and was asleep before he could think of anything to worry about.`, illustrationPrompt: "Aiden peacefully in bed at night after his first Grade 1 day." }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-02",
+    title: "Aiden and Betty have a Yard Sale",
+    bookNumber: 2,
+    theme: "yard sale and choosing what to keep",
+    sightWords: ["the", "was", "said", "they", "with", "were", "could", "some"],
+    targetPatterns: ["level-c", "dialogue", "money-vocabulary", "problem-solving"],
+    pages: [
+      { pageNumber: 1, text: `It was the first warm Saturday of spring, and Aiden and Betty stood in the middle of the playroom staring at something that had got entirely out of control. Toys, books, games and puzzles were piled up to the shelves. There was even a foam sword that neither of them remembered buying.`, illustrationPrompt: "Aiden and Betty in a playroom full of toys, books, games, and puzzles." },
+      { pageNumber: 2, text: `"We should have a yard sale," said Betty. She said it the way she said all her best ideas — quickly and firmly, as though the idea had already made up its mind. "We could make actual money." Aiden wasn't certain at first, but when she said the word money, he started to listen.`, illustrationPrompt: "Betty announcing the yard sale idea while Aiden starts to listen." },
+      { pageNumber: 3, text: `They spent Friday evening sorting everything into three piles: SELL, KEEP and MAYBE. The MAYBE pile kept losing things to SELL, because, as Betty pointed out, they hadn't touched any of them in over a year. By nine o'clock, the MAYBE pile had completely disappeared.`, illustrationPrompt: "Aiden and Betty sorting toys into labelled piles." },
+      { pageNumber: 4, text: `Betty made neat round price stickers on square labels, writing each price in her best handwriting. Aiden made the sign for the front gate — YARD SALE: EVERYTHING MUST GO — in six colours, with three exclamation marks, then a fourth one, just to make sure.`, illustrationPrompt: "Betty writing price stickers while Aiden makes a colourful yard sale sign." },
+      { pageNumber: 5, text: `On Saturday morning, they dragged two folding tables out to the front path and arranged everything carefully. The old teddies sat in a row at the back and looked slightly sorry for themselves. "They'll go to good homes," said Aiden, mostly to himself, as a form of reassurance.`, illustrationPrompt: "Aiden and Betty arranging yard sale tables on the front path." },
+      { pageNumber: 6, text: `Their first customer was Mr Perkins from next door, who was very old and took a very long time about everything. He picked up every single item on the table, turned it over carefully, and put it back. After twenty minutes, he held up one small rubber duck. It cost twenty cents.`, illustrationPrompt: "Mr Perkins slowly examining items at the yard sale." },
+      { pageNumber: 7, text: `Then things got busy. Children came from further up the street with their parents. A woman bought a whole crate of craft supplies without looking at any of them. A small boy bought four plastic dinosaurs and a jigsaw puzzle and carried them away in a tight proud bundle. Things were selling faster than Betty could write them down.`, illustrationPrompt: "A busy yard sale with children and parents buying things." },
+      { pageNumber: 8, text: `By midday, more than half the table was clear. Betty sat down on the front step and counted the money tin carefully, then counted it again. "Forty-eight dollars and thirty cents," she announced. Aiden let out a long, astonished breath, which was all he could manage.`, illustrationPrompt: "Betty counting the money tin while Aiden looks astonished." },
+      { pageNumber: 9, text: `A girl called Rosa arrived late with her grandmother and spent a thoughtful amount of time choosing. She ended up with three books, a snow globe and the foam sword, which she tucked under her arm like a very satisfied general. Aiden watched the sword go and found he didn't mind at all.`, illustrationPrompt: "Rosa choosing books, a snow globe, and the foam sword." },
+      { pageNumber: 10, text: `They had set up a lemonade stand beside the sale table — Betty's idea, planned the previous Thursday. Aiden poured from a glass jug. Betty collected the money and kept the queue moving. By one o'clock they had sold every cup and run entirely out of lemons.`, illustrationPrompt: "Aiden and Betty running a lemonade stand beside the yard sale." },
+      { pageNumber: 11, text: `"What shall we spend it on?" Betty asked. They sat on the front step with the money tin between them and talked it through the way they talked through important things — slowly and carefully, considering every option.`, illustrationPrompt: "Aiden and Betty sitting on the front step with the money tin." },
+      { pageNumber: 12, text: `They agreed on a proper tent for the garden — not a tiny pop-up one but a real one with a porch and a little vent window. Somewhere they could take their books on rainy afternoons and feel like they were somewhere else entirely.`, illustrationPrompt: "Aiden and Betty imagining a proper garden tent for reading." },
+      { pageNumber: 13, text: `As Aiden folded up the last table, he found something wedged at the very back — his old stuffed elephant, Nelly, who he had completely forgotten was there. He held her for a long moment. Then he carried her inside and put her on the shelf above his desk. Some things, he decided, were not for selling.`, illustrationPrompt: "Aiden finding his old stuffed elephant Nelly after the yard sale." }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-03",
+    title: "Aiden and Betty go on Holiday",
+    bookNumber: 3,
+    theme: "coastal family holiday",
+    sightWords: ["the", "was", "said", "they", "were", "with", "there", "their"],
+    targetPatterns: ["level-c", "setting-description", "dialogue", "holiday-vocabulary"],
+    pages: [
+      { pageNumber: 1, text: `The last day of the summer term was also the loudest day of the school year. Aiden and Betty burst through the front door and both shouted "HOLIDAY!" at exactly the same moment, which echoed all the way up the stairs and made the dog next door bark.`, illustrationPrompt: "Aiden and Betty bursting through the front door shouting holiday." },
+      { pageNumber: 2, text: `They were going to the coast for a whole week — a small blue cottage right on the clifftop, with a gate in the garden wall that opened straight onto the coastal path. Mum had booked it in January. They had been counting down ever since.`, illustrationPrompt: "A blue clifftop cottage by the coastal path." },
+      { pageNumber: 3, text: `The drive took three hours. Betty counted every red car they passed. Aiden read two chapters of his book, fell asleep on his own shoulder, woke up, read another chapter, and then asked "Are we nearly there?" for the fourth time. They were, finally, nearly there.`, illustrationPrompt: "Aiden and Betty in the family car on the long drive to the coast." },
+      { pageNumber: 4, text: `The cottage smelled of sea salt and old wood and something warm that Aiden couldn't name. They raced upstairs to choose rooms. There was a small room and a slightly bigger room. They flipped a coin — Aiden got the bigger room, but Betty got the one with the sea view, which meant it was perfectly even.`, illustrationPrompt: "Aiden and Betty choosing bedrooms in the seaside cottage." },
+      { pageNumber: 5, text: `The beach was a five-minute walk down a steep sandy path through tall marram grass. When they came over the last dune and the sea appeared — wide and green and going all the way to the horizon — Aiden stopped walking entirely and just looked for a long moment.`, illustrationPrompt: "Aiden and Betty seeing the sea from the dunes." },
+      { pageNumber: 6, text: `Aiden spent the whole first morning at a rock pool near the headland. He found three kinds of crab, a sea anemone that closed when you touched it, and a tiny fish he thought might be a blenny. He wrote everything down in his field notebook in careful columns.`, illustrationPrompt: "Aiden studying a rock pool and writing in his field notebook." },
+      { pageNumber: 7, text: `Betty was brilliant at boogie boarding from the very first wave. She rode it all the way to shore, fell off, laughed, and waded back in immediately. By the afternoon she was steering around in the foam. Dad tried it once and fell off at once, which everyone found funny, including Dad.`, illustrationPrompt: "Betty boogie boarding while Dad falls off and everyone laughs." },
+      { pageNumber: 8, text: `On Wednesday it rained all morning. They played three rounds of Cluedo, drank hot chocolate in large mugs and listened to the rain hammer against the cottage windows. It was, Aiden thought, pressing his mug to his chin, one of the cosiest mornings he could remember.`, illustrationPrompt: "A rainy cottage morning with board games and hot chocolate." },
+      { pageNumber: 9, text: `The lighthouse was Dad's idea. It was tall and white and stood on a headland two miles along the coastal path. There were one hundred and forty-seven steps to the top — they counted every single one, out loud, all together, and arrived slightly out of breath but very proud.`, illustrationPrompt: "The family climbing the lighthouse stairs." },
+      { pageNumber: 10, text: `The view from the top was unlike anything Aiden had seen. The whole coastline curved away in both directions — bays and headlands, a small fishing village far below, and the sea stretching to the horizon, catching the light like crinkled silver foil.`, illustrationPrompt: "Aiden and Betty looking out from the top of the lighthouse." },
+      { pageNumber: 11, text: `On their last evening, they sat on the sea wall with fish and chips wrapped in paper. The chips were crispy and perfectly salty. Aiden told Mum they were the best chips he had ever eaten in his entire life, and Mum said that was the sea air doing it, and she was right.`, illustrationPrompt: "The family eating fish and chips on the sea wall." },
+      { pageNumber: 12, text: `Betty found a small smooth white pebble at the shoreline and turned it over and over in her fingers all the way back to the cottage. She was going to put it on her windowsill at home, so she'd always have a piece of the coast — something real from a real day.`, illustrationPrompt: "Betty holding a smooth white pebble at the shoreline." },
+      { pageNumber: 13, text: `The drive home felt half as long as the drive there, which Aiden thought was mathematically impossible. When they turned into their street, the house looked completely the same as when they'd left it. Aiden noticed he felt, quietly, like he was a little bit different.`, illustrationPrompt: "Aiden and Betty arriving home after their holiday." }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-04",
+    title: "Aiden and Betty and Socks",
+    bookNumber: 4,
+    theme: "meeting Socks the monkey",
+    sightWords: ["the", "was", "said", "they", "with", "from", "his", "he"],
+    targetPatterns: ["level-c", "animal-care", "dialogue", "character-description"],
+    pages: [
+      { pageNumber: 1, text: `It was an ordinary Saturday in late August when Uncle Eddie arrived at the door with a travelling bag, a very wide smile, and something small and determined making a noise from inside his coat.`, illustrationPrompt: "Uncle Eddie arriving with a travelling bag and something small in his coat." },
+      { pageNumber: 2, text: `Uncle Eddie was Dad's younger brother, and he was a wildlife researcher who had spent the last two years living near a tropical rainforest, studying primates. He had, apparently, brought one with him.`, illustrationPrompt: "Uncle Eddie explaining his wildlife research while Aiden and Betty listen." },
+      { pageNumber: 3, text: `Carefully, Uncle Eddie unzipped the carry-case. Inside, curled up like a small comma, was the most compact monkey Aiden had ever seen. He had cream-white fur on his face and chest, darker brown on his back, and small black hands and feet that looked, unmistakably, like he was wearing a pair of extremely neat little socks.`, illustrationPrompt: "Uncle Eddie opening the carry-case to reveal Socks." },
+      { pageNumber: 4, text: `"His name is Socks," said Uncle Eddie. "He was orphaned when he was very small, and I've raised him from a baby. He understands a lot of what you say, he copies behaviour, and he is completely tame." He paused just a moment. "He is also, just occasionally, a little bit naughty."`, illustrationPrompt: "Uncle Eddie introducing Socks to the family." },
+      { pageNumber: 5, text: `Socks looked at Aiden. Then he looked at Betty. Then he reached out one small black hand, calmly removed Aiden's watch from Aiden's wrist, and put it on his own. He looked at it with great satisfaction. "Charming," said Mum. "Yes," said Uncle Eddie, completely unsurprised.`, illustrationPrompt: "Socks removing Aiden's watch and putting it on himself." },
+      { pageNumber: 6, text: `Uncle Eddie explained that he was returning to the rainforest for six months and couldn't bring Socks along this time. He looked at Dad with a hopeful expression. Dad said yes before Mum could say anything at all, which was exactly what Mum had expected him to do.`, illustrationPrompt: "Uncle Eddie asking Dad to care for Socks while Mum reacts." },
+      { pageNumber: 7, text: `Socks explored the house in eleven minutes. He opened every drawer he could reach, rearranged the fruit bowl into a different order, sat briefly on each windowsill and posted three letters from the hall table into the back of the television. He seemed very pleased with his work.`, illustrationPrompt: "Socks mischievously exploring and rearranging the house." },
+      { pageNumber: 8, text: `"He loves shiny objects," Uncle Eddie explained at dinner. "He adores warm spots — the airing cupboard is a particular risk. And if he gets bored, he will find a way to become interesting." Everyone filed this information away carefully.`, illustrationPrompt: "Uncle Eddie explaining Socks's habits at dinner." },
+      { pageNumber: 9, text: `Socks sat at the table in a tiny red waistcoat that Uncle Eddie had stitched for him. He watched everyone use their fork with great attention. Then he picked up his own fork and used it correctly. Then he threw the fork across the room. "He does that every evening," said Uncle Eddie. "We've never understood why."`, illustrationPrompt: "Socks at the dinner table using and then throwing a fork." },
+      { pageNumber: 10, text: `That night, Dad built Socks a cosy sleeping box — a wooden crate lined with a soft fleece blanket — and settled it in the warm corner of the kitchen. In the morning, Socks was not in it. He was curled up fast asleep at the foot of Aiden's bed, his small black hand curled around Aiden's pencil torch.`, illustrationPrompt: "Socks asleep at the foot of Aiden's bed with a pencil torch." },
+      { pageNumber: 11, text: `Over the following weeks, Socks wove himself into the house. He had his own peg for his waistcoat. He met them at the door when they came home from school. He sat on Dad's shoulder while Dad read the newspaper and turned the pages for him, very seriously.`, illustrationPrompt: "Socks becoming part of family routines at home." },
+      { pageNumber: 12, text: `He was also, as promised, occasionally naughty. He dropped a teaspoon into the toaster. He unravelled the entire roll of cling film in the kitchen drawer. He stole every single one of Betty's hair bobbles and lined them up on the windowsill in a precise order that nobody could explain.`, illustrationPrompt: "Socks causing small household mischief with hair bobbles and cling film." },
+      { pageNumber: 13, text: `"He is completely impossible," said Mum, as she did most evenings. But she had also started setting a small dish of whatever she was cooking on the corner of the counter every night, because Socks knew exactly where it appeared and waited there very patiently, and she had not been able to bring herself to stop.`, illustrationPrompt: "Mum setting a small dish of food on the counter for Socks." },
+      { pageNumber: 14, text: `Aiden had been keeping a field notebook — just as Uncle Eddie had shown him. He had titled it: Socks: A Field Study. He had written things like: Prefers grapes to apple. Expresses disapproval by sitting with back turned. Unusually precise about the order of objects. He turned to a fresh page. It was going to take a very long time to fully understand Socks. He hoped, quietly, that he had the time.`, illustrationPrompt: "Aiden writing careful notes about Socks in his field notebook." }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-05",
+    title: "Socks Goes Missing",
+    bookNumber: 5,
+    theme: "finding missing Socks",
+    sightWords: ["the", "was", "said", "they", "with", "where", "could", "there"],
+    targetPatterns: ["level-c", "mystery", "dialogue", "emotional-arc"],
+    pages: [
+      { pageNumber: 1, text: `It started with the waistcoat hook being empty.`, illustrationPrompt: "Close-up of the empty hook where Socks's waistcoat usually hangs." },
+      { pageNumber: 2, text: `Every morning, Socks sat on the kitchen counter and waited while Betty did up the buttons on his little red waistcoat, which always lived on its own peg beside the back door. But on a Tuesday in October, the peg was empty. And when Aiden went to check, Socks's sleeping box in the corner of his room was empty too.`, illustrationPrompt: "Aiden discovering Socks's sleeping box is empty." },
+      { pageNumber: 3, text: `They searched everywhere. Aiden checked under every sofa cushion and behind every bookshelf. Betty methodically looked in every high cupboard. Mum turned the garden upside down. Dad searched the garden again, more systematically, with a torch — even though it was daytime. Socks was not anywhere.`, illustrationPrompt: "The family searching everywhere for Socks." },
+      { pageNumber: 4, text: `"He couldn't have got out," said Dad. "All the windows were shut last night." Then Mum remembered the bathroom window — the small one above the bath, left open just a crack for steam. She looked at Aiden and Aiden looked at Betty. A crack that was, they all realised at the same moment, almost exactly the width of a small monkey.`, illustrationPrompt: "The family realising Socks may have escaped through the bathroom window." },
+      { pageNumber: 5, text: `They went out onto the pavement and called his name. "Socks! Socks!" The October wind moved through the trees and sent leaves skittering across the path. No small monkey appeared. Aiden put his hands in his pockets and tried not to feel too worried. It didn't work very well.`, illustrationPrompt: "Aiden and Betty calling for Socks on the autumn pavement." },
+      { pageNumber: 6, text: `Betty designed a MISSING MONKEY poster on her tablet in under five minutes. It had a photograph of Socks in his waistcoat, a written description, and their phone number in large digits. She printed fourteen copies. They posted them through letter boxes up and down both sides of the street without stopping.`, illustrationPrompt: "Aiden and Betty posting missing monkey flyers." },
+      { pageNumber: 7, text: `Aiden re-read his field notebook carefully, looking for anything useful. He had written: Drawn to shiny objects. Drawn to warm spots. Will follow interesting smells. Exceptionally good at getting into places he shouldn't. He stared at that last line for quite a long time. It did not narrow things down.`, illustrationPrompt: "Aiden reading his field notebook on the front step." },
+      { pageNumber: 8, text: `By three o'clock, the sky had gone grey and the wind had picked up. Aiden was sitting on the front step, not saying much. He kept thinking about what Uncle Eddie had said once: that animals raised by hand always know where home is. He held onto that thought very carefully.`, illustrationPrompt: "Aiden sitting quietly on the front step, worried about Socks." },
+      { pageNumber: 9, text: `Then the phone rang. It was their neighbour Mrs Obi, from number thirty-seven, three houses down. Her voice was very precise. "I believe," she said carefully, "that there may be a small monkey in my kitchen. He appears to be eating my shortbread."`, illustrationPrompt: "Mum answering the phone and realising Socks has been found." },
+      { pageNumber: 10, text: `They ran. All four of them, in their socks, without stopping to find shoes, down the pavement to number thirty-seven. They could hear, even from the gate, a small and very determined crunching sound coming from inside.`, illustrationPrompt: "The family running down the street in their socks." },
+      { pageNumber: 11, text: `There was Socks, sitting on Mrs Obi's kitchen counter beside an open shortbread tin. He was wearing his waistcoat — which they had also assumed was missing — and had crumbs on his face and the expression of someone who sees absolutely no problem with any of this whatsoever.`, illustrationPrompt: "Socks on Mrs Obi's kitchen counter eating shortbread." },
+      { pageNumber: 12, text: `"How on earth did he get in?" asked Dad. Mrs Obi pointed to the cat flap in her back door. Of course. Socks had worked out the cat flap. He had also — from the state of the shortbread tin — clearly been in before, which nobody had known and which explained certain things about Mrs Obi's biscuit situation.`, illustrationPrompt: "Mrs Obi pointing to the cat flap while the family understands." },
+      { pageNumber: 13, text: `Aiden picked him up and held him. Socks was warm and solid and smelled faintly of shortbread. He patted Aiden's cheek twice with one small black hand, the way he sometimes did when he felt like being kind, and then tucked his head under Aiden's chin. Aiden breathed out slowly.`, illustrationPrompt: "Aiden holding Socks with quiet relief." },
+      { pageNumber: 14, text: `On the way home, Betty said they needed a tracker collar. Aiden said they needed to block every cat flap on the street. Mum said they needed a more interesting biscuit tin. Dad said they should call Uncle Eddie and tell him what his monkey had been up to. They all laughed, and kept laughing, all the way home — and Socks rode on Aiden's shoulder the whole way, looking, as always, entirely pleased with himself.`, illustrationPrompt: "The family walking home laughing with Socks on Aiden's shoulder." }
     ]
   })
 ];

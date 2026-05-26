@@ -15,9 +15,27 @@ const failures = [];
 const warnings = [];
 const rows = [];
 const fictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction");
+const allowedFictionIds = new Set([
+  "bob-and-nan-01",
+  "bob-and-nan-02-park",
+  "bob-and-nan-03-fluff",
+  "bob-and-nan-04-beach",
+  "bob-and-nan-05-school",
+  "james-and-anna-01-space",
+  "james-and-anna-02-chips",
+  "james-and-anna-03-shopping",
+  "james-and-anna-04-dentist",
+  "james-and-anna-05-tree-house",
+  "ab-c-01",
+  "ab-c-02",
+  "ab-c-03",
+  "ab-c-04",
+  "ab-c-05"
+]);
+const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
-if (fictionBooks.length) {
-  failures.push(`Fiction Guided Reading books remain after removal: ${fictionBooks.map(book => book.id).join(", ")}`);
+if (unexpectedFictionBooks.length) {
+  failures.push(`Unexpected fiction Guided Reading books remain after removal: ${unexpectedFictionBooks.map(book => book.id).join(", ")}`);
 }
 
 for (const rawBook of guidedReadingBooks) {
@@ -70,7 +88,7 @@ const report = [
   "",
   "## Strategy",
   "",
-  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading books have been removed from the active app; this check now verifies nonfiction title-page safety only.",
+  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C teacher-preview series.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${guidedReadingBooks.length - fictionBooks.length}`,

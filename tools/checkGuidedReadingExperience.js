@@ -15,14 +15,32 @@ const rows = [];
 const patternCounts = new Map();
 const microphaseCounts = new Map();
 const visibleFictionBooks = guidedReadingBooks.filter(book => String(book.type || "").toLowerCase() === "fiction");
+const allowedFictionIds = new Set([
+  "bob-and-nan-01",
+  "bob-and-nan-02-park",
+  "bob-and-nan-03-fluff",
+  "bob-and-nan-04-beach",
+  "bob-and-nan-05-school",
+  "james-and-anna-01-space",
+  "james-and-anna-02-chips",
+  "james-and-anna-03-shopping",
+  "james-and-anna-04-dentist",
+  "james-and-anna-05-tree-house",
+  "ab-c-01",
+  "ab-c-02",
+  "ab-c-03",
+  "ab-c-04",
+  "ab-c-05"
+]);
+const unexpectedFictionBooks = visibleFictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
-if (visibleFictionBooks.length) {
-  failures.push(`Fiction Guided Reading books remain visible: ${visibleFictionBooks.map(book => book.id).join(", ")}`);
+if (unexpectedFictionBooks.length) {
+  failures.push(`Unexpected fiction Guided Reading books visible: ${unexpectedFictionBooks.map(book => book.id).join(", ")}`);
 }
 
 for (const book of guidedReadingBooks) {
   const enriched = enrichGuidedReadingBook(book);
-  const visible = book.active !== false || book.reviewMode || book.qaStatus === "approved";
+  const visible = book.active !== false || book.reviewMode || book.teacherPreviewOnly || book.qaStatus === "approved";
   if (!visible) continue;
 
   if (!fileExists(book.coverImage || book.cover || "")) {
@@ -41,6 +59,9 @@ for (const book of guidedReadingBooks) {
 
   if (book.qaStatus === "draft_needs_assets" && book.active === true && !book.reviewMode) {
     failures.push(`${book.id}: draft book is active without review mode.`);
+  }
+  if (allowedFictionIds.has(book.id) && (book.qaStatus !== "needs_review" || !book.teacherPreviewOnly)) {
+    failures.push(`${book.id}: fiction series books should remain teacher-preview needs_review until QA approval.`);
   }
   if (book.qaStatus === "approved" && (book.pages || []).some(page => page.qaStatus && !["approved", "needs_image_alignment_review"].includes(page.qaStatus))) {
     failures.push(`${book.id}: approved book contains non-approved/review page status.`);

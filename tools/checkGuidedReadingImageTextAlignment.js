@@ -12,6 +12,37 @@ function publicFileExists(publicPath = "") {
 }
 
 function expectedImagePatterns(bookId, storyPageNumber) {
+  const bobAndNanMap = {
+    "bob-and-nan-01": "01",
+    "bob-and-nan-02-park": "02",
+    "bob-and-nan-03-fluff": "03",
+    "bob-and-nan-04-beach": "04",
+    "bob-and-nan-05-school": "05"
+  };
+  const jamesAndAnnaMap = {
+    "james-and-anna-01-space": "01",
+    "james-and-anna-02-chips": "02",
+    "james-and-anna-03-shopping": "03",
+    "james-and-anna-04-dentist": "04",
+    "james-and-anna-05-tree-house": "05"
+  };
+  const aidenAndBettyMap = {
+    "ab-c-01": "01",
+    "ab-c-02": "02",
+    "ab-c-03": "03",
+    "ab-c-04": "04",
+    "ab-c-05": "05"
+  };
+  if (bobAndNanMap[bookId]) {
+    return [`/guided-reading/series/bob-and-nan/book-${bobAndNanMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+  }
+  if (jamesAndAnnaMap[bookId]) {
+    return [`/guided-reading/series/james-and-anna/book-${jamesAndAnnaMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+  }
+  if (aidenAndBettyMap[bookId]) {
+    return [`/guided-reading/series/aiden-and-betty/book-${aidenAndBettyMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+  }
+
   return [
     `/guided-reading/regen/pages/${bookId}-page-${String(storyPageNumber).padStart(2, "0")}.`,
     `/guided-reading/pages/${bookId}/page-${String(storyPageNumber).padStart(3, "0")}.`,
@@ -27,9 +58,27 @@ function imageMatchesStoryPage(bookId, page) {
 const failures = [];
 const rows = [];
 const fictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction");
+const allowedFictionIds = new Set([
+  "bob-and-nan-01",
+  "bob-and-nan-02-park",
+  "bob-and-nan-03-fluff",
+  "bob-and-nan-04-beach",
+  "bob-and-nan-05-school",
+  "james-and-anna-01-space",
+  "james-and-anna-02-chips",
+  "james-and-anna-03-shopping",
+  "james-and-anna-04-dentist",
+  "james-and-anna-05-tree-house",
+  "ab-c-01",
+  "ab-c-02",
+  "ab-c-03",
+  "ab-c-04",
+  "ab-c-05"
+]);
+const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
-if (fictionBooks.length) {
-  failures.push(`Fiction Guided Reading books remain after removal: ${fictionBooks.map(book => book.id).join(", ")}`);
+if (unexpectedFictionBooks.length) {
+  failures.push(`Unexpected fiction Guided Reading books remain after removal: ${unexpectedFictionBooks.map(book => book.id).join(", ")}`);
 }
 
 for (const rawBook of guidedReadingBooks) {
@@ -64,7 +113,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "Fiction guided-reading books were removed. This check now verifies that every remaining nonfiction book has title-page normalization and that story page images stay mechanically aligned with story page numbers.",
+  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C teacher-preview series.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

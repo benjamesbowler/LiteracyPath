@@ -18,20 +18,40 @@ function publicPathExists(publicPath = "") {
 const failures = [];
 const fictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction");
 const nonfictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "nonfiction");
+const allowedFictionIds = new Set([
+  "bob-and-nan-01",
+  "bob-and-nan-02-park",
+  "bob-and-nan-03-fluff",
+  "bob-and-nan-04-beach",
+  "bob-and-nan-05-school",
+  "james-and-anna-01-space",
+  "james-and-anna-02-chips",
+  "james-and-anna-03-shopping",
+  "james-and-anna-04-dentist",
+  "james-and-anna-05-tree-house",
+  "ab-c-01",
+  "ab-c-02",
+  "ab-c-03",
+  "ab-c-04",
+  "ab-c-05"
+]);
+const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
-if (fictionBooks.length) {
-  failures.push(`Fiction books still visible: ${fictionBooks.map(book => book.id).join(", ")}`);
+if (unexpectedFictionBooks.length) {
+  failures.push(`Unexpected fiction books visible: ${unexpectedFictionBooks.map(book => book.id).join(", ")}`);
 }
 if (!nonfictionBooks.length) {
   failures.push("No nonfiction Guided Reading books remain visible.");
 }
 
-const rows = nonfictionBooks.map(book => {
+const rows = guidedReadingBooks.map(book => {
   const pageImagesMissing = (book.pages || [])
     .filter(page => !publicPathExists(page.image))
     .map(page => page.pageNumber);
-  if (book.active === false) failures.push(`${book.id}: active is false`);
-  if (book.qaStatus !== "approved") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}`);
+  if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.active === false) failures.push(`${book.id}: active is false`);
+  if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.qaStatus !== "approved") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}`);
+  if (allowedFictionIds.has(book.id) && book.qaStatus !== "needs_review") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review`);
+  if (allowedFictionIds.has(book.id) && !book.teacherPreviewOnly) failures.push(`${book.id}: teacherPreviewOnly is not true`);
   if (!book.pages?.length) failures.push(`${book.id}: no pages`);
   if (!publicPathExists(book.coverImage)) failures.push(`${book.id}: cover image missing`);
   if (pageImagesMissing.length) failures.push(`${book.id}: missing page images ${pageImagesMissing.join(", ")}`);
@@ -54,12 +74,12 @@ const report = [
   "",
   "## Current Policy",
   "",
-  "Guided Reading fiction books were removed from the active app. The visible Guided Reading shelf now contains nonfiction books only. Reader architecture, title pages, QA tools, and progress handling remain in place.",
+  "Guided Reading now allows approved nonfiction books plus the Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction teacher-preview series. Old deleted fiction and public-domain books must remain off the readable shelf.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${nonfictionBooks.length}`,
   "",
-  "## Nonfiction Visibility",
+  "## Visible Books",
   "",
   "| ID | Title | Type | Level | QA | Pages | Cover | Missing Page Images |",
   "|---|---|---|---|---|---:|---:|---|",
@@ -67,7 +87,7 @@ const report = [
   "",
   failures.length
     ? `## Failures\n\n${failures.map(item => `- ${item}`).join("\n")}`
-    : "## Result\n\nPASS: no fiction books are visible and nonfiction Guided Reading books remain readable."
+    : "## Result\n\nPASS: Bob and Nan, James and Anna, and Aiden and Betty preview fiction are visible, old fiction stays hidden, and nonfiction Guided Reading books remain readable."
 ];
 
 fs.writeFileSync(reportPath, `${report.join("\n")}\n`);
