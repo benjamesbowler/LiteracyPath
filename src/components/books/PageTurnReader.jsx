@@ -95,6 +95,7 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
   const highlightTimerRef = useRef(null);
   const currentPage = pages[pageIndex];
   const hasPages = pages.length > 0;
+  const isTitlePage = currentPage?.type === "title";
   const enrichedBook = enrichGuidedReadingBook(readableBook || {});
   const pageAnalysis = analyzeGuidedReadingPage(currentPage || {});
   const wordTokens = String(currentPage?.text || "").match(/[A-Za-z0-9'-]+|[^A-Za-z0-9'-]+/g) || [];
@@ -234,7 +235,7 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
     <section className="pd-reader" aria-label={`${readableBook?.title || "Book"} reader`}>
       <header className="pd-reader-header">
         <div>
-          <p className="panel-label">Public-Domain Library</p>
+          <p className="panel-label">{readableBook.sourceType === "public-domain" ? "Public-Domain Library" : "Guided Reading"}</p>
           <h2>{readableBook?.title}</h2>
           <p>{readableBook?.author || "Public domain"} · {readableBook?.gradeBand} · {readableBook?.difficulty}</p>
         </div>
@@ -247,7 +248,7 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
         {hasPages && currentPage?.image ? (
           <div className="pd-reader-spread">
             <img alt={currentPage.text || `${readableBook.title} page ${pageIndex + 1}`} src={currentPage.image} />
-            <section className="pd-reader-text-panel" aria-label="Page text">
+            <section className={isTitlePage ? "pd-reader-text-panel pd-reader-title-panel" : "pd-reader-text-panel"} aria-label="Page text">
               <button className="lp-button lp-button-secondary" onClick={readPage} type="button">
                 {isReadingPage ? "Stop Reading" : "Read Page"}
               </button>
@@ -269,11 +270,13 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
                 })}
               </p>
               {audioNotice && <small>{audioNotice}</small>}
-              <div className="guided-phonics-strip">
-                <span>{pageAnalysis.words.length} words</span>
-                {pageAnalysis.phonicsPatterns.slice(0, 4).map(pattern => <span key={pattern}>{pattern.replace(/-/g, " ")}</span>)}
-                <span>{enrichedBook.recommendedMicrophase}</span>
-              </div>
+              {!isTitlePage && (
+                <div className="guided-phonics-strip">
+                  <span>{pageAnalysis.words.length} words</span>
+                  {pageAnalysis.phonicsPatterns.slice(0, 4).map(pattern => <span key={pattern}>{pattern.replace(/-/g, " ")}</span>)}
+                  <span>{enrichedBook.recommendedMicrophase}</span>
+                </div>
+              )}
             </section>
           </div>
         ) : (

@@ -6419,20 +6419,6 @@ const guidedStoryLevelCReviewIds = new Set([
   "gs-c-06"
 ]);
 
-const guidedStoryLevelCImagePageRemap = {};
-
-function remapLevelCReviewPageImage(bookId, page = {}) {
-  const sourcePageNumber = guidedStoryLevelCImagePageRemap[bookId]?.[page.pageNumber];
-  if (!sourcePageNumber) return page;
-
-  return {
-    ...page,
-    originalImage: page.image,
-    image: `/guided-reading/pages/${bookId}-page-${String(sourcePageNumber).padStart(2, "0")}.webp`,
-    imageRemapSourcePage: sourcePageNumber
-  };
-}
-
 const guidedStoryLevelCReviewBooks = guidedStoryBooks
   .filter(book => guidedStoryLevelCReviewIds.has(book.id))
   .map(book => ({
@@ -6442,19 +6428,14 @@ const guidedStoryLevelCReviewBooks = guidedStoryBooks
     qaNotes: "Approved Level C guided story pilot. Uses the original approved page-image order; narration may still be pending.",
     imageAlignmentStatus: "approved",
     reviewMode: false,
-    pages: (book.pages || []).map(page => {
-      const remappedPage = remapLevelCReviewPageImage(book.id, page);
-      return {
-        ...remappedPage,
-        active: true,
-        qaStatus: "approved",
-        qaNotes: remappedPage.imageRemapSourcePage
-          ? `Approved Level C page. Image remapped from generated page ${remappedPage.imageRemapSourcePage}; keep available for future QA if needed.`
-          : "Approved Level C page. Exact narration audio may still be pending.",
-        pageDescription: page.pageDescription || page.requiredAction || page.imageAlt || `${book.title} page ${page.pageNumber}`,
-        targetWords: Array.isArray(page.targetWords) ? page.targetWords : book.targetVocabulary || []
-      };
-    })
+    pages: (book.pages || []).map(page => ({
+      ...page,
+      active: true,
+      qaStatus: "approved",
+      qaNotes: "Approved Level C page. Exact narration audio may still be pending.",
+      pageDescription: page.pageDescription || page.requiredAction || page.imageAlt || `${book.title} page ${page.pageNumber}`,
+      targetWords: Array.isArray(page.targetWords) ? page.targetWords : book.targetVocabulary || []
+    }))
   }))
   .filter(book => book.coverImage && book.pages.length >= 4);
 
