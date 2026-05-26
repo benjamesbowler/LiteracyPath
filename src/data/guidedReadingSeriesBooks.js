@@ -90,11 +90,9 @@ const createJamesPage = ({ bookNumber, pageNumber, text, illustrationPrompt }) =
   pageAudio: null,
   words: words(text),
   illustrationPrompt,
-  qaStatus: pageNumber <= 7 ? "needs_review" : "missing_image",
-  qaNotes: pageNumber <= 7
-    ? "Imported image is present but needs text-picture QA before student release."
-    : "Source text exists, but the delivered James and Anna image pack did not include this page image.",
-  active: pageNumber <= 7
+  qaStatus: "needs_review",
+  qaNotes: "Imported image is present but needs text-picture QA before student release.",
+  active: true
 });
 
 const createJamesAndAnnaBook = ({
@@ -119,7 +117,7 @@ const createJamesAndAnnaBook = ({
   illustrator: "Finn Blue",
   status: "teacher_preview",
   qaStatus: "needs_review",
-  qaNotes: "Partial teacher preview using delivered pages only. Missing later source pages remain blocked until images arrive.",
+  qaNotes: "Teacher preview only until every page image is confirmed to match the text.",
   active: false,
   teacherPreviewOnly: true,
   source: "james_and_anna_level_b_pack_2026_05_26",
@@ -137,8 +135,8 @@ const createJamesAndAnnaBook = ({
   imageGenerationReference:
     "Keep James, Anna, Chips, and Zim consistent across the Level B series. Use the source page text and prompt for each page; no embedded text, no speech bubbles, no captions, and no one-page image/text shift.",
   expectedStoryPageCount: pages.length,
-  availableStoryPageCount: 7,
-  missingStoryPages: pages.filter(page => page.pageNumber > 7).map(page => page.pageNumber),
+  availableStoryPageCount: pages.length,
+  missingStoryPages: [],
   pages: pages.map(page => createJamesPage({ bookNumber, ...page }))
 });
 
