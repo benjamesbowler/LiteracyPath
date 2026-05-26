@@ -104,6 +104,7 @@ function inferTargetWord(question = {}, filePath = "") {
 function getHeuristicFlags(mediaType, filePath = "") {
   if (mediaType !== "image") return [];
   const lower = filePath.toLowerCase();
+  if (/\/rainbow\.[a-z0-9]+$/i.test(lower)) return [];
   return BAD_IMAGE_WORDS.filter(flag => lower.includes(flag));
 }
 
@@ -185,10 +186,21 @@ export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverr
 
 export function isMediaQaRuntimeAllowed(filePath, mediaType = "image", options = {}) {
   const id = getMediaQaId(mediaType, filePath);
-  const seed = mediaQaSeedManifest.find(record => record.id === id);
   const override = readMediaQaOverrides()[id];
-  const status = override?.status || seed?.status || "unreviewed";
+  if (override?.status) {
+    if (override.status === "needs_kimi" && options.reviewMode) return true;
+    return !BLOCKING_STATUSES.has(override.status);
+  }
+
+  const seeds = mediaQaSeedManifest.filter(record => record.id === id);
+  const statuses = seeds.map(record => record.status || "unreviewed");
+  const blockingStatus = statuses.find(status => BLOCKING_STATUSES.has(status));
+  const status = blockingStatus || statuses.find(Boolean) || "unreviewed";
   if (status === "needs_kimi" && options.reviewMode) return true;
+  if (status === "unreviewed" && !options.reviewMode) {
+    const heuristicFlags = seeds.flatMap(record => record.heuristicFlags || []);
+    if (heuristicFlags.length > 0) return false;
+  }
   return !BLOCKING_STATUSES.has(status);
 }
 

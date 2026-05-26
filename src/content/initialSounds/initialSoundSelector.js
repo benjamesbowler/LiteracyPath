@@ -4,6 +4,7 @@ import {
   initialSoundWordBank
 } from "./initialSoundWordBank.js";
 import { hasImportedInitialSoundImage } from "./initialSoundMediaManifest.js";
+import { isInitialSoundRuntimeEligible } from "./initialSoundMediaEligibility.js";
 import { buildAdaptiveRound, createSeededRandom, shuffleItems } from "../../utils/adaptiveRoundBuilder.js";
 
 const normalizeSet = value => new Set(Array.isArray(value) ? value.map(String) : []);
@@ -89,6 +90,7 @@ function getMediaCompleteLetters(level, { includeInactive = false, requireImport
       item.level === level &&
       (includeInactive || item.active !== false) &&
       (!requireImportedMedia || hasImportedInitialSoundImage(item)) &&
+      isInitialSoundRuntimeEligible(item) &&
       (!itemFilter || itemFilter(item))
     )
   );
@@ -100,6 +102,7 @@ function itemsForLetter({ letter, level, includeInactive, requireImportedMedia, 
     item.level === level &&
     (includeInactive || item.active !== false) &&
     (!requireImportedMedia || hasImportedInitialSoundImage(item)) &&
+    isInitialSoundRuntimeEligible(item) &&
     (!itemFilter || itemFilter(item))
   );
 }

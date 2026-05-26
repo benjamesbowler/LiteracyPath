@@ -25,6 +25,7 @@ import {
   isInitialSoundQuestion,
   isInitialSoundPairQuestion
 } from "../src/data/initialSoundPairAssets.js";
+import { getInitialSoundRoundPlan } from "../src/content/initialSounds/initialSoundSelector.js";
 import {
   hasCompletePairSelectionAssets,
   isPairSelectionQuestion
@@ -1946,12 +1947,12 @@ function writeAssetCoverageDoc() {
     }
   }
 
-  const initialAudit = stageAudits.find(audit => audit.stage.label === "Initial Sounds");
   const knownBlockingGaps = [];
-  if (initialAudit?.missingKeys?.includes("u")) {
-    knownBlockingGaps.push("- Initial Sounds `/u/`: still blocked because fewer than two clean image/audio-backed short-/u/ words are available.");
+  const initialSoundProbe = getInitialSoundRoundPlan({ level: 1, seed: 260526 });
+  if (initialSoundProbe.meta.blockedLetters.includes("u")) {
+    knownBlockingGaps.push("- Initial Sounds `/u/`: blocked in the live selector because no QA-approved image-backed `/u/` item is currently eligible.");
   } else {
-    knownBlockingGaps.push("- Initial Sounds `/u/`: complete after Kimi asset pack 3 import. `unicorn` remains excluded from `/u/` activation because its common onset is /yoo/.");
+    knownBlockingGaps.push("- Initial Sounds `/u/`: available in the live selector. `up` and `umbrella` are present; `unicorn` remains excluded from `/u/` activation because its common onset is /yoo/.");
   }
 
   const body = [
