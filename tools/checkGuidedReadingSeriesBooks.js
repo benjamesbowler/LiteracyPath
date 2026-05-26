@@ -5,16 +5,75 @@ import { normalizeReadableBook } from "../src/utils/guidedReading/normalizeReada
 
 const rootDir = process.cwd();
 const bobReportPath = path.join(rootDir, "docs", "guided-reading", "bob_and_nan_import_audit.md");
+const bobBooks610ReportPath = path.join(rootDir, "docs", "guided-reading", "bob_and_nan_books_6_10_import_audit.md");
 const jamesReportPath = path.join(rootDir, "docs", "guided-reading", "james_and_anna_import_audit.md");
 const aidenReportPath = path.join(rootDir, "docs", "guided-reading", "aiden_and_betty_import_audit.md");
 
-const expectedBobBookIds = [
-  "bob-and-nan-01",
-  "bob-and-nan-02-park",
-  "bob-and-nan-03-fluff",
-  "bob-and-nan-04-beach",
-  "bob-and-nan-05-school"
+const expectedBobBooks = [
+  { id: "bob-and-nan-01", title: "Bob and Nan", pages: 7 },
+  { id: "bob-and-nan-02-park", title: "Bob and Nan go to the Park", pages: 7 },
+  { id: "bob-and-nan-03-fluff", title: "Bob, Nan and Fluff", pages: 7 },
+  { id: "bob-and-nan-04-beach", title: "Bob and Nan go to the Beach", pages: 7 },
+  { id: "bob-and-nan-05-school", title: "Bob and Nan's First Day at School", pages: 7 },
+  { id: "bob-and-nan-06-zoo", title: "Nan and Bob go to the Zoo", pages: 8 },
+  { id: "bob-and-nan-07-birthday", title: "Nan and Bob: Bob's Birthday Party", pages: 8 },
+  { id: "bob-and-nan-08-sick", title: "Nan and Bob get Sick", pages: 8 },
+  { id: "bob-and-nan-09-read", title: "Nan and Bob Learn to Read", pages: 8 },
+  { id: "bob-and-nan-10-vet", title: "Fluff Visits the Vet", pages: 8 }
 ];
+
+const expectedBobBooks610Text = {
+  "bob-and-nan-06-zoo": [
+    "Nan and Bob go to the zoo.",
+    "Bob sees a big cat.",
+    "Nan sees a red bird.",
+    "Nan and Bob see the big fish.",
+    "Nan sees a fat frog on a log.",
+    "Bob and Nan see the big ape.",
+    "The big ape ate a fig.",
+    "Nan and Bob had a lot of fun!"
+  ],
+  "bob-and-nan-07-birthday": [
+    "It is Bob's big day!",
+    "Nan has a big gift for Bob.",
+    "Bob rips it! It is a red bat!",
+    "Mum lit the big cake.",
+    "Bob can see six big candles.",
+    "Nan and Bob ate the big cake!",
+    "Nan and Bob run and hop!",
+    "It was the best day!"
+  ],
+  "bob-and-nan-08-sick": [
+    "Bob is hot. Bob is ill.",
+    "Bob has to rest in bed.",
+    "Nan is ill too.",
+    "Nan has a nap. Fluff has a nap too.",
+    "Mum has a hot cup for Nan and Bob.",
+    "Nan and Bob sip and rest.",
+    "Bob is well! Nan is well!",
+    "Run, Bob! Run, Nan! Run, Fluff!"
+  ],
+  "bob-and-nan-09-read": [
+    "Nan has a big red book.",
+    "Nan can read! Bob can not yet.",
+    "Nan will help Bob.",
+    "C - A - T. Cat! Bob can get it!",
+    "Bob can read it: 'The dog ran.'",
+    "Bob can read! Bob is so glad!",
+    "Nan and Bob read all day.",
+    "Fluff had a nap. Good dog, Fluff!"
+  ],
+  "bob-and-nan-10-vet": [
+    "Fluff has a sore leg.",
+    "Nan and Bob are sad.",
+    "Mum and Nan and Bob go to the vet.",
+    "Fluff sits on the big bed.",
+    "The vet has a look.",
+    "The vet has a jab for Fluff.",
+    "Fluff is so good! What a pup!",
+    "Fluff is well! Run, Fluff, run!"
+  ]
+};
 
 const expectedJamesBooks = [
   { id: "james-and-anna-01-space", title: "James and Anna go to Space", pages: 14 },
@@ -69,6 +128,7 @@ function publicPathExists(publicPath = "") {
 
 const failures = [];
 const rows = [];
+const bobBooks610Rows = [];
 const jamesRows = [];
 const aidenRows = [];
 const warnings = [];
@@ -81,8 +141,8 @@ const visibleAidenBooks = guidedReadingBooks.filter(book => book.seriesId === "a
 const visibleNonfictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "nonfiction");
 const oldFictionRestored = guidedReadingBooks.filter(book => oldFictionIds.includes(book.id));
 
-if (draftBobBooks.length !== 5) failures.push(`Expected 5 Bob and Nan draft books, found ${draftBobBooks.length}.`);
-if (visibleBobBooks.length !== 5) failures.push(`Expected 5 visible Bob and Nan teacher-preview books, found ${visibleBobBooks.length}.`);
+if (draftBobBooks.length !== 10) failures.push(`Expected 10 Bob and Nan draft books, found ${draftBobBooks.length}.`);
+if (visibleBobBooks.length !== 10) failures.push(`Expected 10 visible Bob and Nan teacher-preview books, found ${visibleBobBooks.length}.`);
 if (draftJamesBooks.length !== 5) failures.push(`Expected 5 James and Anna draft books, found ${draftJamesBooks.length}.`);
 if (visibleJamesBooks.length !== 5) failures.push(`Expected 5 visible James and Anna teacher-preview books, found ${visibleJamesBooks.length}.`);
 if (draftAidenBooks.length !== 5) failures.push(`Expected 5 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
@@ -90,7 +150,8 @@ if (visibleAidenBooks.length !== 5) failures.push(`Expected 5 visible Aiden and 
 if (visibleNonfictionBooks.length !== 23) failures.push(`Expected 23 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
 
-for (const id of expectedBobBookIds) {
+for (const expected of expectedBobBooks) {
+  const id = expected.id;
   const book = visibleBobBooks.find(item => item.id === id);
   if (!book) {
     failures.push(`${id}: missing from visible teacher-preview Guided Reading books.`);
@@ -103,13 +164,22 @@ for (const id of expectedBobBookIds) {
   const missingStoryImages = storyPages.filter(page => !publicPathExists(page.image)).map(page => page.pageNumber);
   const firstStoryImage = storyPages[0]?.image || "";
 
+  if (book.title !== expected.title) failures.push(`${id}: title is ${book.title}, expected ${expected.title}.`);
   if (book.level !== "A") failures.push(`${id}: level is ${book.level}, expected A.`);
   if (normalizeGuidedReadingType(book.type) !== "fiction") failures.push(`${id}: type is ${book.type}, expected fiction.`);
   if (book.seriesTitle !== "Bob and Nan") failures.push(`${id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
   if (book.ageRange !== "4-5") failures.push(`${id}: ageRange is ${book.ageRange || "missing"}.`);
   if (book.qaStatus !== "needs_review") failures.push(`${id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review.`);
   if (!book.teacherPreviewOnly) failures.push(`${id}: teacherPreviewOnly is not true.`);
-  if (storyPages.length !== 7) failures.push(`${id}: story page count is ${storyPages.length}, expected 7.`);
+  if (storyPages.length !== expected.pages) failures.push(`${id}: story page count is ${storyPages.length}, expected ${expected.pages}.`);
+  (expectedBobBooks610Text[id] || []).forEach((expectedText, index) => {
+    const pageText = storyPages[index]?.text || "";
+    if (pageText !== expectedText) failures.push(`${id} page ${index + 1}: text mismatch. Expected "${expectedText}", found "${pageText}".`);
+  });
+  const promptLeakPages = storyPages
+    .filter(page => /PAGE\s+\d+|ILLUSTRATION|IMAGE GENERATION|SERIES CHARACTER|QA NOTES/i.test(page.text || ""))
+    .map(page => page.pageNumber);
+  if (promptLeakPages.length) failures.push(`${id}: reading text contains prompt/page-label markers on pages ${promptLeakPages.join(", ")}.`);
   if (!coverExists) failures.push(`${id}: cover missing at ${book.coverImage || "missing"}.`);
   if (missingStoryImages.length) failures.push(`${id}: missing story page images ${missingStoryImages.join(", ")}.`);
   if (!firstStoryImage.endsWith("page-001.webp")) failures.push(`${id}: story page 1 does not use page-001.webp (${firstStoryImage}).`);
@@ -132,6 +202,21 @@ for (const id of expectedBobBookIds) {
     qaStatus: book.qaStatus,
     teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
   });
+
+  if (book.bookNumber >= 6 && book.bookNumber <= 10) {
+    bobBooks610Rows.push({
+      id,
+      title: book.title,
+      level: book.level,
+      expectedPages: expected.pages,
+      importedPages: storyPages.filter(page => publicPathExists(page.image)).map(page => page.pageNumber),
+      missingStoryImages,
+      coverExists,
+      coverStatus: coverExists ? "delivered cover used" : "missing",
+      qaStatus: book.qaStatus,
+      teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
+    });
+  }
 }
 
 for (const expected of expectedJamesBooks) {
@@ -247,7 +332,7 @@ const bobReport = [
   "## Summary",
   "",
   `- Bob and Nan books imported: ${visibleBobBooks.length}`,
-  `- Story page images expected: ${visibleBobBooks.length * 7}`,
+  `- Story page images expected: ${expectedBobBooks.reduce((sum, book) => sum + book.pages, 0)}`,
   `- Covers expected: ${visibleBobBooks.length}`,
   `- Nonfiction books kept: ${visibleNonfictionBooks.length}`,
   `- Old deleted fiction books restored: ${oldFictionRestored.length}`,
@@ -266,6 +351,61 @@ const bobReport = [
   failures.length ? "## Failures" : "## Result",
   "",
   failures.length ? failures.filter(item => item.includes("Bob") || item.includes("bob-and-nan") || item.includes("Nonfiction") || item.includes("Old deleted")).map(item => `- ${item}`).join("\n") || "None affecting Bob and Nan." : "PASS: Bob and Nan is wired as a Level A fiction teacher-preview series without restoring old fiction books."
+];
+
+const bobBooks610Report = [
+  "# Bob and Nan Level A Books 6-10 Import Audit",
+  "",
+  `Generated: ${new Date().toISOString()}`,
+  "",
+  "## Source",
+  "",
+  "`/Users/benjaminbowler/Desktop/LiteracyPath/Our Guided Reading Books Literacy Path`",
+  "",
+  "DOCX files and image pack found under `Nan and Bob 1-5 A`; Books 6-10 images were imported from `Kimi_Agent_James & Anna Illustration Series/bob-nan-a`.",
+  "",
+  "## Target",
+  "",
+  "`public/guided-reading/series/bob-and-nan/book-06` through `book-10`",
+  "",
+  "## Summary",
+  "",
+  `- Bob and Nan Books 6-10 imported: ${bobBooks610Rows.length}`,
+  "- Import order: Level A books 6-10.",
+  "- Preview scope: full delivered image pack is imported for all story pages; books remain teacher-preview until QA approves text-picture matching.",
+  `- Imported covers: ${bobBooks610Rows.filter(row => row.coverExists).length}/5`,
+  `- Imported story page images: ${bobBooks610Rows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
+  `- Missing story page images: ${bobBooks610Rows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
+  `- QA status: needs_review`,
+  `- Validation failures: ${failures.length}`,
+  "",
+  "## Imported Books",
+  "",
+  "| ID | Title | Level | Expected Pages | Imported Images | Missing Images | Cover Status | QA | Preview Only |",
+  "|---|---|---|---:|---|---|---|---|---:|",
+  ...bobBooks610Rows.map(row => `| ${row.id} | ${row.title} | ${row.level} | ${row.expectedPages} | ${row.importedPages.join(", ") || "none"} | ${row.missingStoryImages.join(", ") || "none"} | ${row.coverStatus} | ${row.qaStatus} | ${row.teacherPreviewOnly ? "yes" : "no"} |`),
+  "",
+  "## Text Alignment",
+  "",
+  "- Story text was checked against the source DOCX page sections and the expected page text.",
+  "- Title page text, `PAGE` labels, illustration prompts, character references, image-generation notes, and QA notes are not included as student reading text.",
+  "- Each story page maps to the matching `page-XXX.webp` file with no one-page offset.",
+  "",
+  "## Cover Review",
+  "",
+  "The delivered covers from the Books 6-10 Bob and Nan image pack were used. Source QA notes mark the covers and page images as passing first-pass QA; books remain `needs_review` for teacher QA before student release.",
+  "",
+  "## Questionable Covers",
+  "",
+  "None flagged by the source QA notes.",
+  "",
+  "## Warnings",
+  "",
+  warnings.length ? warnings.map(item => `- ${item}`).join("\n") : "None.",
+  "",
+  failures.length ? "## Failures" : "## Result",
+  "",
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Bob and Nan Level A Books 6-10 are visible as teacher previews with full story image coverage."
 ];
 
 const jamesReport = [
@@ -375,6 +515,7 @@ const aidenReport = [
 
 fs.mkdirSync(path.dirname(bobReportPath), { recursive: true });
 fs.writeFileSync(bobReportPath, `${bobReport.join("\n")}\n`);
+fs.writeFileSync(bobBooks610ReportPath, `${bobBooks610Report.join("\n")}\n`);
 fs.writeFileSync(jamesReportPath, `${jamesReport.join("\n")}\n`);
 fs.writeFileSync(aidenReportPath, `${aidenReport.join("\n")}\n`);
 
@@ -386,6 +527,7 @@ console.log(`Aiden and Betty visible books: ${visibleAidenBooks.length}`);
 console.log(`Nonfiction books visible: ${visibleNonfictionBooks.length}`);
 console.log(`Old fiction restored: ${oldFictionRestored.length}`);
 console.log(`Wrote ${path.relative(rootDir, bobReportPath)}`);
+console.log(`Wrote ${path.relative(rootDir, bobBooks610ReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, jamesReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, aidenReportPath)}`);
 

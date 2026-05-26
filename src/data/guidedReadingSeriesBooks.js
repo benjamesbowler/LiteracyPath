@@ -421,6 +421,246 @@ export const guidedReadingSeriesBooks = [
       }
     ]
   }),
+  createBobAndNanBook({
+    id: "bob-and-nan-06-zoo",
+    title: "Nan and Bob go to the Zoo",
+    bookNumber: 6,
+    theme: "zoo visit",
+    pages: [
+      {
+        pageNumber: 1,
+        text: "Nan and Bob go to the zoo.",
+        illustrationPrompt: "Nan and Bob at the zoo entrance, a big colourful sign above them. Excited faces, Fluff on a lead beside them."
+      },
+      {
+        pageNumber: 2,
+        text: "Bob sees a big cat.",
+        illustrationPrompt: "Bob pressing his face against a fence or glass, eyes wide, pointing at a large lion or tiger in the enclosure behind."
+      },
+      {
+        pageNumber: 3,
+        text: "Nan sees a red bird.",
+        illustrationPrompt: "Nan gazing up in wonder at a large bright red macaw or flamingo in a tall aviary."
+      },
+      {
+        pageNumber: 4,
+        text: "Nan and Bob see the big fish.",
+        illustrationPrompt: "Nan and Bob at an aquarium tank, noses pressed to the glass, huge fish swimming past on the other side."
+      },
+      {
+        pageNumber: 5,
+        text: "Nan sees a fat frog on a log.",
+        illustrationPrompt: "Nan crouching down pointing at a large round frog sitting on a log in a glass tank or pond."
+      },
+      {
+        pageNumber: 6,
+        text: "Bob and Nan see the big ape.",
+        illustrationPrompt: "Bob and Nan standing at a rope-and-glass enclosure, watching a large gorilla or orangutan sitting inside."
+      },
+      {
+        pageNumber: 7,
+        text: "The big ape ate a fig.",
+        illustrationPrompt: "Close up of the large ape holding a fig and eating it calmly while Bob and Nan watch with delighted eyes."
+      },
+      {
+        pageNumber: 8,
+        text: "Nan and Bob had a lot of fun!",
+        illustrationPrompt: "End of the zoo day. Nan and Bob walking back to the exit, Fluff between them, all three tired but very happy."
+      }
+    ]
+  }),
+  createBobAndNanBook({
+    id: "bob-and-nan-07-birthday",
+    title: "Nan and Bob: Bob's Birthday Party",
+    bookNumber: 7,
+    theme: "birthday party",
+    pages: [
+      {
+        pageNumber: 1,
+        text: "It is Bob's big day!",
+        illustrationPrompt: "Bob waking up in bed, sunlight streaming in, big excited smile. Balloons tied to his bedpost."
+      },
+      {
+        pageNumber: 2,
+        text: "Nan has a big gift for Bob.",
+        illustrationPrompt: "Nan standing at Bob's front door, holding a large wrapped present almost as big as herself."
+      },
+      {
+        pageNumber: 3,
+        text: "Bob rips it! It is a red bat!",
+        illustrationPrompt: "Bob tearing open the wrapping paper with delight, discovering a bright red cricket bat inside."
+      },
+      {
+        pageNumber: 4,
+        text: "Mum lit the big cake.",
+        illustrationPrompt: "Mum lighting six candles on a large birthday cake while Bob and Nan watch eagerly."
+      },
+      {
+        pageNumber: 5,
+        text: "Bob can see six big candles.",
+        illustrationPrompt: "Close up on Bob's face, lit by candlelight, eyes reflecting the six flames."
+      },
+      {
+        pageNumber: 6,
+        text: "Nan and Bob ate the big cake!",
+        illustrationPrompt: "Nan and Bob sitting at a table, each with a large slice of cake, eating enthusiastically."
+      },
+      {
+        pageNumber: 7,
+        text: "Nan and Bob run and hop!",
+        illustrationPrompt: "Nan and Bob playing outside after the party, running and hopping on the garden lawn."
+      },
+      {
+        pageNumber: 8,
+        text: "It was the best day!",
+        illustrationPrompt: "Bob and Nan sitting in the garden at the end of the day, happy and tired."
+      }
+    ]
+  }),
+  createBobAndNanBook({
+    id: "bob-and-nan-08-sick",
+    title: "Nan and Bob get Sick",
+    bookNumber: 8,
+    theme: "getting better",
+    pages: [
+      {
+        pageNumber: 1,
+        text: "Bob is hot. Bob is ill.",
+        illustrationPrompt: "Bob in bed with flushed cheeks, looking tired but safe and cared for."
+      },
+      {
+        pageNumber: 2,
+        text: "Bob has to rest in bed.",
+        illustrationPrompt: "Bob tucked into bed resting quietly while Nan and Fluff look in gently."
+      },
+      {
+        pageNumber: 3,
+        text: "Nan is ill too.",
+        illustrationPrompt: "Nan sitting up in bed or on the sofa with flushed cheeks, looking tired."
+      },
+      {
+        pageNumber: 4,
+        text: "Nan has a nap. Fluff has a nap too.",
+        illustrationPrompt: "Nan asleep under a blanket with Fluff curled up asleep nearby."
+      },
+      {
+        pageNumber: 5,
+        text: "Mum has a hot cup for Nan and Bob.",
+        illustrationPrompt: "Mum bringing warm cups to Nan and Bob as they rest."
+      },
+      {
+        pageNumber: 6,
+        text: "Nan and Bob sip and rest.",
+        illustrationPrompt: "Nan and Bob quietly sipping from cups while resting with blankets."
+      },
+      {
+        pageNumber: 7,
+        text: "Bob is well! Nan is well!",
+        illustrationPrompt: "Bob and Nan smiling brightly, standing up and looking healthy again."
+      },
+      {
+        pageNumber: 8,
+        text: "Run, Bob! Run, Nan! Run, Fluff!",
+        illustrationPrompt: "Bob, Nan, and Fluff running outside together, fully well and joyful."
+      }
+    ]
+  }),
+  createBobAndNanBook({
+    id: "bob-and-nan-09-read",
+    title: "Nan and Bob Learn to Read",
+    bookNumber: 9,
+    theme: "learning to read",
+    pages: [
+      {
+        pageNumber: 1,
+        text: "Nan has a big red book.",
+        illustrationPrompt: "Nan sitting cross-legged on a rug, holding a large red book open on her lap."
+      },
+      {
+        pageNumber: 2,
+        text: "Nan can read! Bob can not yet.",
+        illustrationPrompt: "Nan reading confidently while Bob sits beside her looking puzzled but interested."
+      },
+      {
+        pageNumber: 3,
+        text: "Nan will help Bob.",
+        illustrationPrompt: "Nan pointing at a word in the open book while Bob watches carefully."
+      },
+      {
+        pageNumber: 4,
+        text: "C - A - T. Cat! Bob can get it!",
+        illustrationPrompt: "Bob pointing at the word CAT in the book with a surprised, delighted expression."
+      },
+      {
+        pageNumber: 5,
+        text: "Bob can read it: 'The dog ran.'",
+        illustrationPrompt: "Bob holding the book himself and reading the sentence while Nan listens proudly."
+      },
+      {
+        pageNumber: 6,
+        text: "Bob can read! Bob is so glad!",
+        illustrationPrompt: "Bob celebrating with the book while Nan claps and Fluff bounds around him."
+      },
+      {
+        pageNumber: 7,
+        text: "Nan and Bob read all day.",
+        illustrationPrompt: "Nan and Bob on the sofa, each absorbed in their own book, with Fluff asleep between them."
+      },
+      {
+        pageNumber: 8,
+        text: "Fluff had a nap. Good dog, Fluff!",
+        illustrationPrompt: "Close-up of Fluff fast asleep on the sofa between two open books while Nan and Bob smile at him."
+      }
+    ]
+  }),
+  createBobAndNanBook({
+    id: "bob-and-nan-10-vet",
+    title: "Fluff Visits the Vet",
+    bookNumber: 10,
+    theme: "vet visit",
+    pages: [
+      {
+        pageNumber: 1,
+        text: "Fluff has a sore leg.",
+        illustrationPrompt: "Fluff sitting with one paw slightly raised, looking sorry for himself while Nan and Bob crouch beside him."
+      },
+      {
+        pageNumber: 2,
+        text: "Nan and Bob are sad.",
+        illustrationPrompt: "Nan and Bob with worried faces looking at Fluff and stroking him gently."
+      },
+      {
+        pageNumber: 3,
+        text: "Mum and Nan and Bob go to the vet.",
+        illustrationPrompt: "Mum, Nan and Bob walking together with Fluff, heading to the vet."
+      },
+      {
+        pageNumber: 4,
+        text: "Fluff sits on the big bed.",
+        illustrationPrompt: "Fluff sitting on the vet's examination table while Nan and Bob stand close to reassure him."
+      },
+      {
+        pageNumber: 5,
+        text: "The vet has a look.",
+        illustrationPrompt: "A kind vet gently examining Fluff's paw while Nan and Bob watch."
+      },
+      {
+        pageNumber: 6,
+        text: "The vet has a jab for Fluff.",
+        illustrationPrompt: "The vet preparing a small injection while Fluff bravely squeezes his eyes shut."
+      },
+      {
+        pageNumber: 7,
+        text: "Fluff is so good! What a pup!",
+        illustrationPrompt: "The vet offering Fluff a treat while Nan and Bob hug each other in relief."
+      },
+      {
+        pageNumber: 8,
+        text: "Fluff is well! Run, Fluff, run!",
+        illustrationPrompt: "Fluff running freely in the spring garden with Bob and Nan running alongside him."
+      }
+    ]
+  }),
   createJamesAndAnnaBook({
     id: "james-and-anna-01-space",
     title: "James and Anna go to Space",
