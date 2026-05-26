@@ -47,5 +47,51 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('/node_modules/react') || id.includes('/node_modules/framer-motion') || id.includes('/node_modules/motion-')) {
+            return 'vendor-react'
+          }
+          if (id.includes('/node_modules/@supabase/')) {
+            return 'vendor-supabase'
+          }
+          if (id.includes('/src/data/publicMediaInventory')) {
+            return 'admin-media-inventory'
+          }
+          if (id.includes('/src/data/audioManifest')) {
+            return 'audio-manifest'
+          }
+          if (
+            id.includes('/src/data/generated/earlySkillQuestions.generated') ||
+            id.includes('/src/data/generated/finalSounds.generated') ||
+            id.includes('/src/data/generated/cvc.generated') ||
+            id.includes('/src/data/generated/rhyming.generated') ||
+            id.includes('/src/data/generated/shortVowel.generated')
+          ) {
+            return 'generated-early-skills'
+          }
+          if (
+            id.includes('/src/data/guidedReadingBooks') ||
+            id.includes('/src/data/guidedReadingRegenBooks') ||
+            id.includes('/src/data/guidedStoryBooks') ||
+            id.includes('/src/content/books/publicDomainBooks') ||
+            id.includes('/src/data/generated/publicDomainGuidedReadingBooks.generated')
+          ) {
+            return 'guided-reading-data'
+          }
+          if (
+            id.includes('/src/data/generatedQuestions') ||
+            id.includes('/src/data/templateExpansion') ||
+            id.includes('/src/data/questionBankExpansion8') ||
+            id.includes('/src/data/templateComprehensionAdvanced')
+          ) {
+            return 'question-bank-extra'
+          }
+        }
+      }
+    }
   }
 })
