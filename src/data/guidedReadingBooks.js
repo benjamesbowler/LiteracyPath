@@ -6419,68 +6419,7 @@ const guidedStoryLevelCReviewIds = new Set([
   "gs-c-06"
 ]);
 
-const guidedStoryLevelCImagePageRemap = {
-  "gs-c-01": {
-    1: 2,
-    2: 4,
-    3: 3,
-    4: 8,
-    5: 5,
-    6: 9,
-    7: 9,
-    8: 10,
-    9: 7,
-    10: 6
-  },
-  "gs-c-02": {
-    1: 2,
-    2: 3,
-    3: 3,
-    4: 4,
-    5: 6,
-    6: 8,
-    7: 6,
-    8: 10,
-    9: 4,
-    10: 10
-  },
-  "gs-c-03": {
-    1: 2,
-    2: 3,
-    3: 4,
-    4: 7,
-    5: 8,
-    6: 5,
-    7: 5,
-    8: 8,
-    9: 9,
-    10: 5
-  },
-  "gs-c-04": {
-    1: 2,
-    2: 3,
-    3: 4,
-    4: 5,
-    5: 6,
-    6: 7,
-    7: 7,
-    8: 9,
-    9: 8,
-    10: 10
-  },
-  "gs-c-06": {
-    1: 3,
-    2: 1,
-    3: 4,
-    4: 6,
-    5: 6,
-    6: 6,
-    7: 7,
-    8: 5,
-    9: 9,
-    10: 10
-  }
-};
+const guidedStoryLevelCImagePageRemap = {};
 
 function remapLevelCReviewPageImage(bookId, page = {}) {
   const sourcePageNumber = guidedStoryLevelCImagePageRemap[bookId]?.[page.pageNumber];
@@ -6500,7 +6439,7 @@ const guidedStoryLevelCReviewBooks = guidedStoryBooks
     ...book,
     active: true,
     qaStatus: "approved",
-    qaNotes: "Approved Level C guided story pilot. Page-image remap is applied before display; narration may still be pending.",
+    qaNotes: "Approved Level C guided story pilot. Uses the original approved page-image order; narration may still be pending.",
     imageAlignmentStatus: "approved",
     reviewMode: false,
     pages: (book.pages || []).map(page => {

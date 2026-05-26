@@ -1,5 +1,10 @@
 import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
-import { initialSoundExpectedItemKeys, finalSoundExpectedItemKeys } from "./coverageExpectations.js";
+import {
+  initialSoundExpectedItemKeys,
+  finalSoundExpectedItemKeys,
+  finalSoundLevelOneForbiddenItemKeys
+} from "./coverageExpectations.js";
+import { getAnswerOptionLabel } from "../utils/answerOptions.js";
 
 const INITIAL_DIGRAPHS = ["sh", "ch", "th", "wh", "ph", "ck"];
 const INITIAL_CLUSTERS = [
@@ -28,6 +33,14 @@ const AMBIGUOUS_FINAL_WORDS = new Set([
   "thumb",
   "lamb",
   "comb",
+  "album",
+  "apron",
+  "donut",
+  "iron",
+  "lemon",
+  "lion",
+  "ocean",
+  "oven",
   "knife",
   "kite",
   "gate",
@@ -35,8 +48,12 @@ const AMBIGUOUS_FINAL_WORDS = new Set([
   "snake",
   "vase"
 ]);
-const VOWEL_TEAM_FINAL_WORDS = new Set(["book", "feet", "seed", "seal", "boat", "coat", "rain", "leaf"]);
+const VOWEL_TEAM_FINAL_WORDS = new Set([
+  "book", "feet", "seed", "seal", "boat", "coat", "rain", "leaf",
+  "goat", "soap", "queen", "train", "spoon", "wheel", "quail", "nail"
+]);
 const R_CONTROLLED_FINAL_WORDS = new Set(["car", "fork", "park", "star", "farm", "worm", "bird", "corn"]);
+const VOWEL_TEAM_PATTERN = /(ai|ay|ea|ee|oa|ow|oo|oi|oy|ou|ue|ui)/;
 const LEVEL_TWO_FINAL_PATTERNS = [
   "sh", "ch", "th", "ck", "ng",
   "nd", "nt", "st", "mp", "nk", "lt", "ft", "sk", "rk", "ll",
@@ -46,6 +63,9 @@ const LEVEL_TWO_FINAL_OVERRIDES = new Map([
   ["whale", "l"],
   ["thumb", "m"]
 ]);
+
+const LEVEL_ONE_FINAL_SOUND_ALLOWED = new Set(finalSoundExpectedItemKeys);
+const LEVEL_ONE_FINAL_SOUND_FORBIDDEN = new Set(finalSoundLevelOneForbiddenItemKeys);
 
 const WORD_LISTENING_FORMATS = new Set([
   "FIRST_SOUND",
@@ -117,6 +137,62 @@ function simpleFinalLetter(word) {
   return word.at(-1) || "";
 }
 
+export function getFinalSoundsLevel1QuestionIssues(question = {}) {
+  const issues = [];
+  const finalTarget = normalizedWord(
+    question.coverageTarget ||
+    question.targetFinalSound ||
+    question.targetSound ||
+    question.itemKey ||
+    question.phonicsPattern ||
+    question.targetPattern ||
+    question.answer ||
+    question.correctAnswer ||
+    ""
+  );
+  const correctAnswer = normalizedWord(question.correctAnswer || question.answer || finalTarget);
+  const targetWordValue = normalizedWord(
+    question.targetWord ||
+    question.anchorWord ||
+    question.audioText ||
+    question.diagnosticTarget ||
+    ""
+  );
+  const finalSoundType = normalizePhonicsText(question.finalSoundType || "");
+  const answerOptions = [
+    ...(Array.isArray(question.choices) ? question.choices : []),
+    ...(Array.isArray(question.answerOptions) ? question.answerOptions : [])
+  ].map(getAnswerOptionLabel).map(normalizedWord).filter(Boolean);
+  const templateType = normalizePhonicsText(question.templateType || question.formatType || question.questionType || "");
+
+  if (!LEVEL_ONE_FINAL_SOUND_ALLOWED.has(finalTarget) || LEVEL_ONE_FINAL_SOUND_FORBIDDEN.has(finalTarget)) {
+    issues.push(`coverage target "${finalTarget || "(missing)"}" is not a Level 1 final sound`);
+  }
+  if (!LEVEL_ONE_FINAL_SOUND_ALLOWED.has(correctAnswer) || correctAnswer.length !== 1) {
+    issues.push(`correct answer "${correctAnswer || "(missing)"}" is not a one-letter Level 1 final sound`);
+  }
+  if (finalSoundType && finalSoundType !== "single letter" && finalSoundType !== "single_letter") {
+    issues.push(`finalSoundType "${finalSoundType}" is not single_letter`);
+  }
+  if (targetWordValue && !isValidFinalSoundWordForEarlyLevel(targetWordValue, finalTarget || correctAnswer)) {
+    issues.push(`target word "${targetWordValue}" is not valid for Level 1 final sound "${finalTarget || correctAnswer || "(missing)"}"`);
+  }
+  answerOptions.forEach(option => {
+    if (/^[a-z]+$/.test(option) && (option.length !== 1 || !LEVEL_ONE_FINAL_SOUND_ALLOWED.has(option))) {
+      issues.push(`answer option "${option}" is not an allowed one-letter Level 1 final sound`);
+    }
+  });
+  if (/\b(digraph|blend|cluster|advanced)\b/.test(templateType)) {
+    issues.push(`template "${templateType}" is not allowed in Level 1 Final Sounds`);
+  }
+
+  return [...new Set(issues)];
+}
+
+export function isFinalSoundsLevel1Question(question = {}) {
+  return getFinalSoundsLevel1QuestionIssues(question).length === 0;
+}
+
 function isInitialSoundQuestion(question = {}) {
   const stage = normalizePhonicsText(question.skill || question.skillName);
   return question.itemType === "initial_sound" ||
@@ -167,7 +243,10 @@ export function isValidFinalSoundWordForEarlyLevel(wordValue, keyValue) {
   if (!word || !key) return false;
   if (!finalSoundExpectedItemKeys.includes(key)) return false;
   if (key.length !== 1 || key === "x") return false;
+  if (word.length > 4) return false;
   if (AMBIGUOUS_FINAL_WORDS.has(word)) return false;
+  if (startsWithAny(word, INITIAL_DIGRAPHS) || startsWithAny(word, INITIAL_CLUSTERS)) return false;
+  if (VOWEL_TEAM_PATTERN.test(word)) return false;
   if (VOWEL_TEAM_FINAL_WORDS.has(word) || R_CONTROLLED_FINAL_WORDS.has(word)) return false;
   if (word.length > 2 && word.endsWith("e")) return false;
   if (endsWithAny(word, INVALID_FINAL_ENDINGS)) return false;

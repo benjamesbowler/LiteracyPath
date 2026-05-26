@@ -64,7 +64,11 @@ import {
   hasCompleteVisualQuestionAssets,
   isVisualCardChoiceQuestion
 } from "./data/visualQuestionAssets";
-import { isValidFinalSoundWordForEarlyLevel } from "./data/earlyPhonicsValidation";
+import {
+  getFinalSoundsLevel1QuestionIssues,
+  isFinalSoundsLevel1Question,
+  isValidFinalSoundWordForEarlyLevel
+} from "./data/earlyPhonicsValidation";
 
 import { templateQuestions } from "./data/templateQuestions";
 import { templateExpansion } from "./data/templateExpansion";
@@ -2420,8 +2424,9 @@ export default function App() {
       question.audioText ||
       question.diagnosticTarget
     );
-    if (String(question.id || "").startsWith("ending_l1_")) return 1;
+    if (String(question.id || "").startsWith("ending_l1_")) return isFinalSoundsLevel1Question(question) ? 1 : 2;
     if (String(question.id || "").startsWith("ending_l2_")) return 2;
+    if (isFinalSoundsLevel1Question(question)) return 1;
     if (finalTarget && !finalSoundLevelOneAllowedItemKeys.includes(finalTarget)) return 2;
     if (finalTarget && targetWord && !isValidFinalSoundWordForEarlyLevel(targetWord, finalTarget)) return 2;
     if (question.skillId === "final_sounds" && question.finalSoundType !== "single_letter") return 2;
@@ -2452,9 +2457,24 @@ export default function App() {
     }
 
     const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex && !isQuestionBlockedByMediaQa(q));
+    const finalSoundLevel = isFinalSoundsStage(stage) ? getNextFinalSoundLevel() : null;
     const levelFilteredStageQuestions = isFinalSoundsStage(stage)
-      ? stageQuestions.filter(question => getFinalSoundQuestionLevel(question) === getNextFinalSoundLevel())
+      ? stageQuestions.filter(question => getFinalSoundQuestionLevel(question) === finalSoundLevel)
       : stageQuestions;
+    const runtimeFilteredStageQuestions = isFinalSoundsStage(stage) && finalSoundLevel === 1
+      ? levelFilteredStageQuestions.filter(question => {
+        const allowed = isFinalSoundsLevel1Question(question);
+        if (!allowed && import.meta.env.DEV) {
+          console.warn("Blocked non-Level-1 Final Sounds question before runtime selection", {
+            id: question.id,
+            source: question.source || question._source || "unknown",
+            issues: getFinalSoundsLevel1QuestionIssues(question),
+            question
+          });
+        }
+        return allowed;
+      })
+      : levelFilteredStageQuestions;
     const currentProfile = getRoundDuplicateProfile();
     const anyMemory = getStageRepeatMemory(stage.label);
     const correctMemory = getCorrectStageRepeatMemory(stage.label);
@@ -2463,8 +2483,8 @@ export default function App() {
       const flags = getRoundDuplicateFlags(question, currentProfile);
       return !flags.questionId && !flags.signature;
     };
-    const outsideCurrentRound = levelFilteredStageQuestions.filter(filterCurrentRoundRepeats);
-    const globalUnseenExact = levelFilteredStageQuestions.filter(question =>
+    const outsideCurrentRound = runtimeFilteredStageQuestions.filter(filterCurrentRoundRepeats);
+    const globalUnseenExact = runtimeFilteredStageQuestions.filter(question =>
       !wasQuestionSeen(question, anyMemory)
     );
     const unseenExact = outsideCurrentRound.filter(question =>

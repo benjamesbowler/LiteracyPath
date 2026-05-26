@@ -2,7 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { finalSoundCoverageQuestions } from "../src/data/finalSoundCoverageQuestions.js";
-import { coverageExpectations } from "../src/data/coverageExpectations.js";
+import {
+  coverageExpectations,
+  finalSoundLevelOneAllowedItemKeys,
+  finalSoundLevelOneForbiddenItemKeys
+} from "../src/data/coverageExpectations.js";
 import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
 import { getSkillBankItems } from "../src/content/skillMedia/skillAssetRegistry.js";
 import { hasMediaForItem } from "../src/content/skillMedia/skillCoverageUtils.js";
@@ -12,21 +16,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 const ROUND_LENGTH = 15;
-const ADVANCED_LEVEL_ONE_BLOCKLIST = new Set([
-  "nd",
-  "sk",
-  "st",
-  "mp",
-  "nk",
-  "ng",
-  "sh",
-  "ch",
-  "th",
-  "ll",
-  "ss",
-  "ff",
-  "ck"
-]);
+const LEVEL_ONE_ALLOWED = new Set(finalSoundLevelOneAllowedItemKeys);
+const ADVANCED_LEVEL_ONE_BLOCKLIST = new Set(finalSoundLevelOneForbiddenItemKeys);
+const ADVANCED_WORD_BLOCKLIST = new Set(["ring", "fish", "bath", "hand", "pink"]);
 
 const assetExists = assetPath => {
   if (!assetPath) return false;
@@ -48,6 +40,8 @@ function questionText(question = {}) {
 }
 
 function questionLevel(question = {}) {
+  const sound = finalSound(question);
+  if (sound && !LEVEL_ONE_ALLOWED.has(sound)) return 2;
   return Number(question.level || question.difficulty || 1) >= 2 ? 2 : 1;
 }
 
@@ -70,11 +64,23 @@ function isEndingPrompt(question = {}) {
 function assertSimpleLevelOne(question, failures) {
   const sound = finalSound(question);
   const type = finalSoundType(question);
-  if (sound.length !== 1 || ADVANCED_LEVEL_ONE_BLOCKLIST.has(sound)) {
-    failures.push(`${question.id}: Level 1 uses advanced/multi-letter final sound "${sound || "(missing)"}".`);
+  if (!LEVEL_ONE_ALLOWED.has(sound) || ADVANCED_LEVEL_ONE_BLOCKLIST.has(sound)) {
+    failures.push(`${question.id}: Level 1 uses non-Level-1 final sound "${sound || "(missing)"}".`);
   }
   if (type && type !== "single_letter") {
     failures.push(`${question.id}: Level 1 finalSoundType must be single_letter, found "${type}".`);
+  }
+  const options = [
+    ...(Array.isArray(question.choices) ? question.choices : []),
+    ...(Array.isArray(question.answerOptions) ? question.answerOptions.map(option => option?.value || option?.label || option) : [])
+  ].map(option => normalize(option)).filter(Boolean);
+  const soundOptions = options.filter(option => /^[a-z]+$/.test(option) && option.length <= 3);
+  soundOptions.forEach(option => {
+    if (option.length !== 1) failures.push(`${question.id}: Level 1 answer option "${option}" is not a single letter.`);
+  });
+  const word = normalize(question.targetWord || question.audioText || "");
+  if (ADVANCED_WORD_BLOCKLIST.has(word)) {
+    failures.push(`${question.id}: advanced target word "${word}" must not appear in Level 1.`);
   }
 }
 
@@ -128,6 +134,9 @@ const finalItems = allItems.filter(item => item.skillId === "ending_sounds" && i
 const mediaCompleteFinalItems = finalItems.filter(item => hasMediaForItem(item, assetExists).complete);
 const levelOneItems = mediaCompleteFinalItems.filter(item => Number(item.level || 1) === 1);
 const levelTwoItems = mediaCompleteFinalItems.filter(item => Number(item.level || 1) >= 2);
+const activeLevelOneItems = finalItems.filter(item => Number(item.level || 1) === 1);
+const levelOneMissingImage = activeLevelOneItems.filter(item => !hasMediaForItem(item, assetExists).image);
+const levelOneMissingAudio = activeLevelOneItems.filter(item => !hasMediaForItem(item, assetExists).audio);
 
 finalItems.forEach(item => {
   const raw = item.raw || {};
@@ -136,8 +145,8 @@ finalItems.forEach(item => {
   if (Number(item.level || 1) === 1) {
     const sound = normalize(item.targetFinalSound || raw.targetFinalSound || raw.targetSound || raw.itemKey || item.target);
     const type = normalize(item.finalSoundType || raw.finalSoundType);
-    if (sound.length !== 1 || ADVANCED_LEVEL_ONE_BLOCKLIST.has(sound)) {
-      failures.push(`${item.id}: managed Level 1 item uses advanced/multi-letter final sound "${sound || "(missing)"}".`);
+    if (!LEVEL_ONE_ALLOWED.has(sound) || ADVANCED_LEVEL_ONE_BLOCKLIST.has(sound)) {
+      failures.push(`${item.id}: managed Level 1 item uses non-Level-1 final sound "${sound || "(missing)"}".`);
     }
     if (type && type !== "single_letter") {
       failures.push(`${item.id}: managed Level 1 item has finalSoundType "${type}".`);
@@ -168,11 +177,38 @@ if (levelOneItems.length >= ROUND_LENGTH && levelOnePlan.items.length !== ROUND_
 }
 levelOnePlan.items.forEach(item => {
   const sound = normalize(item.targetFinalSound || item.raw?.targetFinalSound || item.raw?.targetSound || item.raw?.itemKey || item.target);
-  if (sound.length !== 1 || ADVANCED_LEVEL_ONE_BLOCKLIST.has(sound)) {
-    failures.push(`Generated Level 1 round includes advanced final sound "${sound}" from ${item.id}.`);
+  if (!LEVEL_ONE_ALLOWED.has(sound) || ADVANCED_LEVEL_ONE_BLOCKLIST.has(sound)) {
+    failures.push(`Generated Level 1 round includes non-Level-1 final sound "${sound}" from ${item.id}.`);
   }
+  (item.answerOptions || []).forEach(option => {
+    const label = normalize(option?.value || option?.label || option);
+    if (label.length > 1 && /^[a-z]+$/.test(label)) {
+      failures.push(`Generated Level 1 round includes non-letter answer option "${label}" from ${item.id}.`);
+    }
+  });
 });
 recordRound(progress, 1, levelOnePlan.items);
+
+for (let index = 0; index < 50; index += 1) {
+  const plan = buildSkillRoundPlan({
+    skillId: "ending_sounds",
+    items: mediaCompleteFinalItems,
+    progress: emptySkillProgress(),
+    level: 1,
+    roundLength: ROUND_LENGTH,
+    seed: 9100 + index
+  });
+  plan.items.forEach(item => {
+    const sound = normalize(item.targetFinalSound || item.raw?.targetFinalSound || item.raw?.targetSound || item.raw?.itemKey || item.target);
+    if (!LEVEL_ONE_ALLOWED.has(sound) || ADVANCED_LEVEL_ONE_BLOCKLIST.has(sound)) {
+      failures.push(`Simulated Level 1 round ${index + 1} includes non-Level-1 final sound "${sound}" from ${item.id}.`);
+    }
+    const word = normalize(item.targetWord || item.raw?.targetWord || item.raw?.audioText || "");
+    if (ADVANCED_WORD_BLOCKLIST.has(word)) {
+      failures.push(`Simulated Level 1 round ${index + 1} includes advanced word "${word}" from ${item.id}.`);
+    }
+  });
+}
 
 const levelTwoPlan = buildSkillRoundPlan({
   skillId: "ending_sounds",
@@ -203,12 +239,15 @@ Date: 2026-05-25
 - Level 2 source questions: ${levelTwoSource.length}
 - Media-complete managed Level 1 items: ${levelOneItems.length}
 - Media-complete managed Level 2 items: ${levelTwoItems.length}
+- Active managed Level 1 items: ${activeLevelOneItems.length}
+- Level 1 missing images: ${levelOneMissingImage.length}
+- Level 1 missing audio: ${levelOneMissingAudio.length}
 - Fatal failures: ${failures.length}
 - Warnings: ${warnings.length}
 
 ## Level Rules
 
-- Level 1: simple one-letter final sounds only.
+- Level 1 allowed targets only: ${[...LEVEL_ONE_ALLOWED].join(", ")}
 - Level 1 blocked endings: ${[...ADVANCED_LEVEL_ONE_BLOCKLIST].join(", ")}
 - Level 2: harder final blends, digraphs, double letters, and review single-letter endings.
 - Final Sounds prompts must use ending/final-sound language and must not use first/start/initial-sound language.
@@ -219,6 +258,11 @@ Date: 2026-05-25
 - After Level 1 mastery, eligible level: Level 2.
 - Level 1 expected targets: ${expectedLevelOneTargets.join(", ")}
 - Missing media-complete Level 1 targets: ${missingLevelOneTargets.join(", ") || "none"}
+
+## Level 1 Missing Media
+
+- Missing images: ${levelOneMissingImage.length ? levelOneMissingImage.map(item => `${item.id} (${item.targetWord || item.target})`).join(", ") : "none"}
+- Missing audio: ${levelOneMissingAudio.length ? levelOneMissingAudio.map(item => `${item.id} (${item.targetWord || item.target})`).join(", ") : "none"}
 
 ## Simulated Rounds
 
