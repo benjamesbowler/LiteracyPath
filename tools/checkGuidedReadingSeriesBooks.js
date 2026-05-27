@@ -88,7 +88,12 @@ const expectedAidenBooks = [
   { id: "ab-c-02", title: "Aiden and Betty have a Yard Sale", pages: 13 },
   { id: "ab-c-03", title: "Aiden and Betty go on Holiday", pages: 13 },
   { id: "ab-c-04", title: "Aiden and Betty and Socks", pages: 14 },
-  { id: "ab-c-05", title: "Socks Goes Missing", pages: 14 }
+  { id: "ab-c-05", title: "Socks Goes Missing", pages: 14 },
+  { id: "ab-c-06", title: "Aiden and Betty and the Science Fair", pages: 13 },
+  { id: "ab-c-07", title: "Aiden, Betty and Socks's Big Adventure", pages: 13 },
+  { id: "ab-c-08", title: "Aiden and Betty and the Bully", pages: 13 },
+  { id: "ab-c-09", title: "Aiden and Betty: New Teeth", pages: 13 },
+  { id: "ab-c-10", title: "Aiden and Betty and the Castle", pages: 13 }
 ];
 
 const oldFictionIds = [
@@ -145,8 +150,8 @@ if (draftBobBooks.length !== 10) failures.push(`Expected 10 Bob and Nan draft bo
 if (visibleBobBooks.length !== 10) failures.push(`Expected 10 visible Bob and Nan teacher-preview books, found ${visibleBobBooks.length}.`);
 if (draftJamesBooks.length !== 5) failures.push(`Expected 5 James and Anna draft books, found ${draftJamesBooks.length}.`);
 if (visibleJamesBooks.length !== 5) failures.push(`Expected 5 visible James and Anna teacher-preview books, found ${visibleJamesBooks.length}.`);
-if (draftAidenBooks.length !== 5) failures.push(`Expected 5 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
-if (visibleAidenBooks.length !== 5) failures.push(`Expected 5 visible Aiden and Betty teacher-preview books, found ${visibleAidenBooks.length}.`);
+if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
+if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty teacher-preview books, found ${visibleAidenBooks.length}.`);
 if (visibleNonfictionBooks.length !== 23) failures.push(`Expected 23 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
 
@@ -462,21 +467,21 @@ const aidenReport = [
   "",
   "## Source",
   "",
-  "`/Users/benjaminbowler/Desktop/Our Guided Reading Books Literacy Path/Aiden and Betty 1-5 C`",
+  "`/Users/benjaminbowler/Desktop/LiteracyPath/Our Guided Reading Books Literacy Path/Aiden and Betty 1-10 C`",
   "",
-  "Nested image pack used: `Kimi_Agent_Aiden & Betty Illustration Series/aiden-betty-c`.",
+  "Nested image packs used: `Kimi_Agent_Aiden & Betty Illustration Series/aiden-betty-c` and `Kimi_Agent_AB - Aiden & Betty 6-10 images/aiden-betty-c-6-10`.",
   "",
   "## Target",
   "",
-  "`public/guided-reading/series/aiden-and-betty/book-01` through `book-05`",
+  "`public/guided-reading/series/aiden-and-betty/book-01` through `book-10`",
   "",
   "## Summary",
   "",
   `- Aiden and Betty draft books added: ${draftAidenBooks.length}`,
   `- Aiden and Betty teacher-preview books: ${visibleAidenBooks.length}`,
-  "- Import order: Level C books 1-5.",
+  "- Import order: Level C books 1-10.",
   "- Preview scope: full delivered image pack is imported for all story pages; books remain teacher-preview until QA approves text-picture matching.",
-  `- Imported covers: ${aidenRows.filter(row => row.coverExists).length}/5`,
+  `- Imported covers: ${aidenRows.filter(row => row.coverExists).length}/10`,
   `- Imported story page images: ${aidenRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
   `- Missing story page images: ${aidenRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
   `- Nonfiction books kept: ${visibleNonfictionBooks.length}`,

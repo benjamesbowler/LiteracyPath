@@ -893,5 +893,120 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 13, text: `Aiden picked him up and held him. Socks was warm and solid and smelled faintly of shortbread. He patted Aiden's cheek twice with one small black hand, the way he sometimes did when he felt like being kind, and then tucked his head under Aiden's chin. Aiden breathed out slowly.`, illustrationPrompt: "Aiden holding Socks with quiet relief." },
       { pageNumber: 14, text: `On the way home, Betty said they needed a tracker collar. Aiden said they needed to block every cat flap on the street. Mum said they needed a more interesting biscuit tin. Dad said they should call Uncle Eddie and tell him what his monkey had been up to. They all laughed, and kept laughing, all the way home — and Socks rode on Aiden's shoulder the whole way, looking, as always, entirely pleased with himself.`, illustrationPrompt: "The family walking home laughing with Socks on Aiden's shoulder." }
     ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-06",
+    title: "Aiden and Betty and the Science Fair",
+    bookNumber: 6,
+    theme: "science fair and crystal-growing experiment",
+    sightWords: ["the", "was", "said", "they", "with", "because", "every", "their"],
+    targetPatterns: ["level-c", "science-vocabulary", "dialogue", "cause-and-effect"],
+    pages: [
+      { pageNumber: 1, text: `Miss Okafor announced the Science Fair on a grey Wednesday in February. Every pair in Grade 1 would present a project. Aiden had his notebook open before she had finished the sentence.` },
+      { pageNumber: 2, text: `"What shall we study?" said Betty. They sat with the notebook between them and listed every idea they had. Aiden had eleven. Betty had nine. Three of them were exactly the same, which Betty said proved they had good scientific minds.` },
+      { pageNumber: 3, text: `They decided to grow crystals. It was Betty's original idea and Aiden's second choice, which Betty said made it the obvious answer. They ordered the kit and spent four days watching for the post.` },
+      { pageNumber: 4, text: `The crystal-growing worked perfectly. Blue copper sulphate crystals grew on a thread in a jam jar, getting bigger and more geometric every day. Aiden photographed them every morning. Betty kept a careful growth chart.` },
+      { pageNumber: 5, text: `Then Socks found the crystal jar. He did not eat it. He simply moved it from the windowsill to a high shelf, where he sat beside it with the expression of someone who had just acquired something important.` },
+      { pageNumber: 6, text: `"Socks!" said Aiden and Betty. Socks examined the jar from every angle, turning it slowly. He handed it back eventually — and the crystals were, miraculously, completely intact.` },
+      { pageNumber: 7, text: `They made their display board on a rainy Saturday — a bright blue background, a photograph of each day's crystal growth, Betty's data chart, and a title in Aiden's best six-colour lettering: HOW DO CRYSTALS GROW?` },
+      { pageNumber: 8, text: `On the morning of the Science Fair, Betty packed the display board in a folder while Aiden carried the crystal jar carefully in both hands. Socks watched from the hallway with what Aiden's notebook called 'intense strategic interest.'` },
+      { pageNumber: 9, text: `The school hall was full of projects — a volcano that erupted three times, a model solar system, a survey about favourite foods with real graphs. Betty looked at all of them carefully and said nothing. Aiden chewed the inside of his cheek.` },
+      { pageNumber: 10, text: `The judges spent a very long time with Aiden and Betty's crystals — because Betty could explain not just what had happened but why, which turned out to be the whole point of the exercise.` },
+      { pageNumber: 11, text: `Third place, with a commendation for experimental method, went to HOW DO CRYSTALS GROW? The commendation was on a proper certificate with a gold border. Betty read every word of it, twice.` },
+      { pageNumber: 12, text: `That evening, Aiden added a new page to his field notebook: WHAT MAKES A GOOD EXPERIMENT. He had six points. Socks sat on the desk and watched him write, which Aiden had never seen him do before.` },
+      { pageNumber: 13, text: `"I think he might be learning," said Aiden carefully, watching Socks watch the pen. "Don't encourage him," said Betty, from the doorway. Socks blinked once, in a way that suggested he had already learned considerably more than anyone knew.` }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-07",
+    title: "Aiden, Betty and Socks's Big Adventure",
+    bookNumber: 7,
+    theme: "nature reserve adventure with Socks",
+    sightWords: ["the", "was", "said", "they", "with", "there", "because", "their"],
+    targetPatterns: ["level-c", "nature-vocabulary", "dialogue", "observation"],
+    pages: [
+      { pageNumber: 1, text: `Uncle Eddie came back for a long weekend in June — browner from the sun, with a new bag of unusual gifts and more stories than they had time to hear. Socks heard the doorbell and ran in circles for forty-five seconds without stopping.` },
+      { pageNumber: 2, text: `Uncle Eddie told them about the nature reserve two miles from town — woodland, a river, meadows, a hide for watching birds. "Socks would understand it completely," he said. Mum said she wasn't certain that made it a good idea. They went anyway.` },
+      { pageNumber: 3, text: `The reserve was layered with sounds — insects, birds, the river — all at once and all different. Socks sat on Aiden's shoulder and went completely still, his head turning slowly to track each sound. Aiden had never seen him so quiet.` },
+      { pageNumber: 4, text: `Betty found the bird hide first — a long wooden structure with narrow slot windows over the reed bed. Inside: a log book, borrowed binoculars, and a board listing twelve species to find. She was immediately in her element.` },
+      { pageNumber: 5, text: `Through the binoculars, Betty saw a kingfisher — a bright impossible dart of blue-orange above the water, there and then gone. She had to put the binoculars down and close her eyes for a moment. She had seen it. She wrote it in the log book.` },
+      { pageNumber: 6, text: `Socks had other interests. He had crossed a wide fallen tree over the river before anyone had finished the sentence. Aiden said they should follow. Uncle Eddie said absolutely not. Then Uncle Eddie looked at the tree. Then they crossed it.` },
+      { pageNumber: 7, text: `The far bank was different — thicker trees, softer ground, a field of tall meadow grass beyond the treeline. Socks bounded ahead, turning back every few steps to make sure they were following.` },
+      { pageNumber: 8, text: `He led them to a shallow pool in a mossy clearing — fed by a spring, perfectly clear and still. Two dragonflies skimmed the surface, electric blue. Aiden crouched at the edge and looked in. Small things moved in the shallows. He forgot to breathe.` },
+      { pageNumber: 9, text: `Betty wrote down every species she could identify in the hide log book, which she had technically borrowed without permission. Uncle Eddie said they'd bring it back. She wrote in neat columns: dragonflies, water boatmen, a great diving beetle.` },
+      { pageNumber: 10, text: `On the way back, the sun was low and the meadow was full of seed heads catching the light. Socks rode on Uncle Eddie's shoulder, which he had always done but which now looked, here, like a kind of homecoming.` },
+      { pageNumber: 11, text: `Uncle Eddie left on Sunday evening. He stayed on the doorstep a long time, saying goodbye properly. When the car was gone, Socks sat on the hall windowsill and watched the empty road. Then he came inside and sat on Aiden's lap, which he had never done before. Aiden stayed very still.` },
+      { pageNumber: 12, text: `Aiden had started a new notebook that evening — not the Socks field study, but a nature notebook. He had titled it with the date. Betty had started a matching one, without them discussing it. Both were already half a page in.` },
+      { pageNumber: 13, text: `"Do you think he misses the rainforest?" Aiden asked one evening. Betty thought for a long time. "I think he's decided this is his rainforest," she said. Aiden looked at Socks on his shoulder. "Yeah," he said. "I think so too."` }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-08",
+    title: "Aiden and Betty and the Bully",
+    bookNumber: 8,
+    theme: "responding to bullying with confidence",
+    sightWords: ["the", "was", "said", "they", "with", "because", "always", "about"],
+    targetPatterns: ["level-c", "social-emotional", "dialogue", "school-vocabulary"],
+    pages: [
+      { pageNumber: 1, text: `There was a boy in Year 2 called Marcus who thought it was funny to call people names. He had decided, for reasons that made no sense at all, that Aiden's name was Lazy-den. He said it on Wednesday. Two children laughed, which made him say it again on Thursday.` },
+      { pageNumber: 2, text: `Aiden didn't say anything. He went home and sat on his bed and stared at the ceiling. He wasn't crying, but he wasn't fine either. He didn't really want to talk about it — which Betty noticed immediately.` },
+      { pageNumber: 3, text: `"What happened?" said Betty. Aiden told her in pieces, looking at the floor. Betty listened to all of it without saying anything. Then she said: "He's wrong. And being wrong loudly is still just being wrong." Aiden thought about that.` },
+      { pageNumber: 4, text: `That night, Aiden wrote in his notebook: When something is unfair, you have two choices — pretend it isn't happening, or decide what to do. He starred the second option. He didn't quite know yet what doing something looked like.` },
+      { pageNumber: 5, text: `On Friday, Marcus said it again in the lunch queue. Betty was right there. She looked at Marcus with exactly one raised eyebrow and said, clearly: "His name is Aiden. Which you know." Marcus looked surprised. He didn't say anything else.` },
+      { pageNumber: 6, text: `Aiden felt two things: grateful for Betty, and also frustrated, because he wanted to have done it himself. Betty, who had been watching him think, said: "Next time you'll do it. I was just practising with you."` },
+      { pageNumber: 7, text: `On Monday, Marcus said it one more time, in front of a small group. Aiden turned around. He looked at Marcus directly for a moment. Then he said, clearly: "My name is Aiden." That was all. He turned back.` },
+      { pageNumber: 8, text: `It was quiet. Nobody laughed. Marcus said something low, but nobody around him responded. Aiden walked on. His legs were slightly shaky — but he hadn't shown it, and he was extremely proud of himself.` },
+      { pageNumber: 9, text: `He wrote in his notebook that evening: Saying a true thing clearly is harder than it looks and better than it sounds. He underlined it twice.` },
+      { pageNumber: 10, text: `Betty read it over his shoulder. She didn't comment on it. She put her hand on his shoulder for a moment and went back to her own desk. That was enough.` },
+      { pageNumber: 11, text: `A week later, Marcus bumped into Aiden's tray at lunch — accidentally this time, genuinely. He said sorry, just once, with his eyes down. Aiden nodded. He didn't make a big thing of it. Some things, he thought, didn't need to become a story.` },
+      { pageNumber: 12, text: `Miss Okafor had noticed, in the way that good teachers always notice. She started a class discussion about what it means to be fair, and what you do when things aren't. Several children looked at the floor. Marcus looked at the window.` },
+      { pageNumber: 13, text: `"The point," said Miss Okafor, "is not that everyone will always be kind. The point is that you always have a choice about how to respond — and that choice is completely yours." Aiden wrote it down. It felt like something worth keeping.` }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-09",
+    title: "Aiden and Betty: New Teeth",
+    bookNumber: 9,
+    theme: "losing baby teeth and growing up",
+    sightWords: ["the", "was", "said", "they", "with", "there", "because", "through"],
+    targetPatterns: ["level-c", "body-vocabulary", "dialogue", "emotional-arc"],
+    pages: [
+      { pageNumber: 1, text: `It started with a slight wobble. Aiden was eating an apple when he felt, for the first time in his life, that one of his front teeth was moving in a way that front teeth were definitely not supposed to move.` },
+      { pageNumber: 2, text: `He told Betty. Betty got the torch and studied it with great interest. "It's definitely loose," she said. "It'll fall out and a permanent one will grow. That's much better, actually." Aiden was not entirely sure that it was.` },
+      { pageNumber: 3, text: `That night, Aiden worried about the tooth. It felt wrong — like something was breaking. He wrote in his notebook: Things that are strange: losing a tooth. Also, why teeth? Socks sat on the desk and watched him with great curiosity.` },
+      { pageNumber: 4, text: `Mum said it was completely normal and that they had both lost teeth before when they were smaller — Aiden had even eaten one inside a peanut butter sandwich and not noticed for an hour. Aiden was not certain this was reassuring.` },
+      { pageNumber: 5, text: `Betty lost her first tooth the very next day, which nobody had seen coming. It came out at lunch, and she held it up and examined it with great interest before putting it in her pocket, as if this were a routine scientific procedure.` },
+      { pageNumber: 6, text: `"Does it hurt?" said Aiden. "Not really," said Betty. "It felt strange for a second. Then it was over." She looked at the gap in her mouth in a small mirror. "It's just a tooth," she said. "A very old, very small tooth."` },
+      { pageNumber: 7, text: `Aiden's tooth came out on a Thursday. Not dramatically — he was reading his book and he touched it and then it was just there in his fingers, which was very quick and very strange and did not hurt at all.` },
+      { pageNumber: 8, text: `He held it up for a long time. It was tiny. It was the smallest thing that had ever felt significant. He put it in the small envelope Mum left for him, and when he placed it under his pillow it felt ceremonial.` },
+      { pageNumber: 9, text: `In the morning, the tooth was gone and there was a coin in its place. Aiden knew, in the way children who read a lot know things, that it was Mum or Dad who had swapped it. He said nothing, because some things are better left as stories.` },
+      { pageNumber: 10, text: `Three weeks later, the new tooth began to come through. It was enormous relative to the gap — a proper square adult tooth in a mouth that had been full of small rounded baby ones. Aiden looked at himself in the mirror and felt extremely strange.` },
+      { pageNumber: 11, text: `"You don't look strange," said Betty. "You look older." She said it the way she said true things — simply, as though it were just a fact. Aiden looked in the mirror again. It was going to take some getting used to.` },
+      { pageNumber: 12, text: `Socks was fascinated by both of them through this whole period. He kept trying to look in their mouths. He seemed to find it deeply interesting, which Aiden added to the field notebook under: Primate-specific dental curiosity — possible.` },
+      { pageNumber: 13, text: `"I think he'll be disappointed when we stop changing," said Aiden. "He already has all the teeth he'll get," said Betty. Socks demonstrated this by grinning at them both from very close range, showing every single tooth.` }
+    ]
+  }),
+  createAidenAndBettyBook({
+    id: "ab-c-10",
+    title: "Aiden and Betty and the Castle",
+    bookNumber: 10,
+    theme: "castle visit and historical thinking",
+    sightWords: ["the", "was", "said", "they", "with", "there", "through", "before"],
+    targetPatterns: ["level-c", "history-vocabulary", "dialogue", "reflection"],
+    pages: [
+      { pageNumber: 1, text: `Dad had been talking about the castle trip since January. A proper medieval castle, forty minutes away — with a tower you could actually climb, a dungeon that was a real dungeon, and a great hall whose stone floor had been there for six hundred years. Betty had already read a book about it.` },
+      { pageNumber: 2, text: `They drove there on a bright Saturday in April. Aiden pressed his face to the car window when the castle appeared over the hill — grey stone towers above the treeline, impossibly old and very much still there. He felt something he didn't yet have a word for.` },
+      { pageNumber: 3, text: `The entrance was a proper drawbridge — working, over a real water-filled moat. It was smaller than he'd imagined and more real than he'd imagined. Aiden crossed it one step at a time, listening to the echo of his footsteps on old wood, thinking about every person who had crossed it before him.` },
+      { pageNumber: 4, text: `The great hall was vast and grey and cool. The stone floor was uneven and worn in paths where feet had walked for centuries. Aiden crouched and pressed his hand flat to the floor. Six hundred years of footsteps had passed here. He could not quite hold that thought all at once.` },
+      { pageNumber: 5, text: `Betty had the guide map. She navigated with precise efficiency — Great Hall, Armoury, North Tower, King's Chamber, Dungeon — the best order for minimum backtracking. Aiden followed behind her, reading every information board they passed, completely at home in a world of facts.` },
+      { pageNumber: 6, text: `In the armoury, there was a full suit of plate armour. It was smaller than Aiden expected. The guide told them that real knights were roughly the same size as Dad, which was very hard to imagine. Aiden tried on a gauntlet under supervision. His hand barely fit inside.` },
+      { pageNumber: 7, text: `The dungeon was underground and smelled of cold stone and old air. Betty read every board by torchlight. Aiden stood still in the near-dark for a moment and thought about how this exact place had been here through everything — and felt briefly, appropriately small.` },
+      { pageNumber: 8, text: `The North Tower had one hundred and twelve steps. They counted every one, out loud, all together. The staircase was so narrow they had to go single file. At the top: the whole landscape, the river, the town, a motorway miles away. The same view and entirely different.` },
+      { pageNumber: 9, text: `"Imagine standing here," said Betty quietly, "and not knowing what was coming." Aiden thought about that for a long time, looking out. There was something important in it he couldn't quite hold yet. He wrote it in his notebook anyway, to think about later.` },
+      { pageNumber: 10, text: `On the way down, Aiden stopped at a narrow slit window in the tower wall — an arrow loop. He looked through it. The angle was exact — a perfect line of sight across the approach. Everything in this building was designed for a specific purpose.` },
+      { pageNumber: 11, text: `In the castle shop, Betty bought a small accurate model of the castle as it looked in 1350, before a section of wall fell. Aiden bought a book on medieval building techniques. Dad bought a novelty ceramic goblet that Mum said, quietly but firmly, would not be coming into the kitchen.` },
+      { pageNumber: 12, text: `The drive home was quiet in the way that follows something large. "What are you thinking about?" said Mum. Aiden and Betty both answered at the same time, with completely different answers. "That," said Mum, "is exactly right."` },
+      { pageNumber: 13, text: `That evening, Aiden wrote in his field notebook for a long time — the drawbridge, the worn floor, the arrow loop, the view. At the bottom of the last page he wrote: Things were happening before we got here. They'll keep happening after. That's not sad. That's just how big it is. He underlined it.` }
+    ]
   })
 ];

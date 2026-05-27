@@ -36,7 +36,12 @@ function expectedImagePatterns(bookId, storyPageNumber) {
     "ab-c-02": "02",
     "ab-c-03": "03",
     "ab-c-04": "04",
-    "ab-c-05": "05"
+    "ab-c-05": "05",
+    "ab-c-06": "06",
+    "ab-c-07": "07",
+    "ab-c-08": "08",
+    "ab-c-09": "09",
+    "ab-c-10": "10"
   };
   if (bobAndNanMap[bookId]) {
     return [`/guided-reading/series/bob-and-nan/book-${bobAndNanMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
@@ -83,7 +88,12 @@ const allowedFictionIds = new Set([
   "ab-c-02",
   "ab-c-03",
   "ab-c-04",
-  "ab-c-05"
+  "ab-c-05",
+  "ab-c-06",
+  "ab-c-07",
+  "ab-c-08",
+  "ab-c-09",
+  "ab-c-10"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
