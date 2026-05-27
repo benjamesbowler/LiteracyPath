@@ -3036,8 +3036,11 @@ select:focus {
 }
 
 .rhyming-picture-panel {
-  width: min(720px, 100%);
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  width: 100%;
   margin: 0 auto;
+  min-height: 0;
 }
 
 .rhyming-picture-grid {
@@ -3100,6 +3103,85 @@ select:focus {
     var(--lp-color-surface-warm);
   border-color: rgba(226, 232, 240, 0.95);
   box-shadow: var(--shadow-soft);
+}
+
+.assessment-question-layout.rhyming-assessment-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.82fr) minmax(420px, 1.18fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-areas:
+    "prompt prompt"
+    "target answers";
+  gap: clamp(10px, 1.4vw, 16px);
+  align-items: stretch;
+  min-height: 0;
+}
+
+.rhyming-assessment-layout .assessment-prompt {
+  grid-area: prompt;
+}
+
+.rhyming-assessment-layout .assessment-stimulus {
+  grid-area: target;
+  min-height: 0;
+}
+
+.rhyming-assessment-layout .rhyming-picture-panel {
+  grid-area: answers;
+  min-height: 0;
+}
+
+.rhyming-assessment-layout .assessment-main-image-wrap {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  margin: 0;
+}
+
+.rhyming-assessment-layout .assessment-main-image {
+  width: 100%;
+  max-width: min(100%, 320px);
+  height: clamp(150px, 31vh, 280px);
+  max-height: none !important;
+  object-fit: contain;
+}
+
+.rhyming-assessment-layout .rhyming-target-word {
+  font-size: clamp(22px, 2.4vw, 34px);
+}
+
+.rhyming-assessment-layout .rhyming-picture-grid {
+  height: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: clamp(10px, 1.2vw, 14px);
+}
+
+.rhyming-assessment-layout .rhyming-answer-card {
+  min-height: 0;
+  padding: clamp(7px, 1vw, 10px);
+}
+
+.rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button {
+  min-height: 0;
+  height: 100%;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 6px;
+}
+
+.rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button img {
+  width: 100%;
+  height: clamp(82px, 19vh, 170px);
+  max-height: 72%;
+}
+
+.rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button strong {
+  font-size: clamp(18px, 2.1vw, 30px);
 }
 
 .assessment-prompt {
@@ -3414,7 +3496,9 @@ select:focus {
 }
 
 .assessment-shell {
-  width: min(1240px, 100%);
+  width: min(96vw, 1280px);
+  height: calc(100vh - 16px);
+  height: calc(100dvh - 16px);
   min-height: calc(100vh - 16px);
   min-height: calc(100dvh - 16px);
   margin: 0 auto;
@@ -3422,6 +3506,7 @@ select:focus {
   flex-direction: column;
   gap: 8px;
   min-width: 0;
+  overflow: hidden;
 }
 
 .assessment-topbar {
@@ -3515,7 +3600,7 @@ select:focus {
 
 .assessment-card,
 .assessment-feedback {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -3523,9 +3608,9 @@ select:focus {
 }
 
 .assessment-card {
-  max-height: calc(100dvh - 92px);
-  overflow: auto;
-  width: min(1120px, 100%);
+  max-height: calc(100dvh - 88px);
+  overflow: hidden;
+  width: min(100%, 1220px);
   align-self: center;
   border: 1px solid #d8ddfb;
   border-radius: 24px;
@@ -3728,6 +3813,10 @@ select:focus {
     grid-template-columns: repeat(2, minmax(240px, 1fr));
   }
 
+  .rhyming-assessment-layout .assessment-prompt h2 {
+    font-size: clamp(22px, 2.1vw, 34px);
+  }
+
   .ixl-answer-grid.four-options,
   .ixl-answer-grid.image-options {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3767,6 +3856,35 @@ select:focus {
   .choice-button span,
   .visual-assessment-card-button strong {
     white-space: nowrap;
+  }
+}
+
+@media (max-width: 899px) {
+  .assessment-question-layout.rhyming-assessment-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(105px, 24vh) minmax(0, 1fr);
+    grid-template-areas:
+      "prompt"
+      "target"
+      "answers";
+  }
+
+  .rhyming-assessment-layout .assessment-main-image-wrap {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .rhyming-assessment-layout .assessment-main-image {
+    height: clamp(86px, 19vh, 150px);
+  }
+
+  .rhyming-assessment-layout .rhyming-target-word {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button img {
+    height: clamp(70px, 13vh, 118px);
   }
 }
 
