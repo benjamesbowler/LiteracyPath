@@ -8,7 +8,7 @@ const bobReportPath = path.join(rootDir, "docs", "guided-reading", "bob_and_nan_
 const bobBooks610ReportPath = path.join(rootDir, "docs", "guided-reading", "bob_and_nan_books_6_10_import_audit.md");
 const jamesReportPath = path.join(rootDir, "docs", "guided-reading", "james_and_anna_import_audit.md");
 const aidenReportPath = path.join(rootDir, "docs", "guided-reading", "aiden_and_betty_import_audit.md");
-const dinoReportPath = path.join(rootDir, "docs", "guided-reading", "dino_pals_books_1_10_import_audit.md");
+const dinoReportPath = path.join(rootDir, "docs", "guided-reading", "dino_pals_books_11_20_import_audit.md");
 
 const expectedBobBooks = [
   { id: "bob-and-nan-01", title: "Bob and Nan", pages: 7 },
@@ -112,7 +112,17 @@ const expectedDinoBooks = [
   { id: "dino-pals-07-wigglys-messy-day", title: "Wiggly's Messy Day", pages: 8 },
   { id: "dino-pals-08-zippy-slows-down", title: "Zippy Slows Down", pages: 8 },
   { id: "dino-pals-09-honkys-inside-voice", title: "Honky's Inside Voice", pages: 8 },
-  { id: "dino-pals-10-cheekys-prank-goes-wrong", title: "Cheeky's Prank Goes Wrong", pages: 8 }
+  { id: "dino-pals-10-cheekys-prank-goes-wrong", title: "Cheeky's Prank Goes Wrong", pages: 8 },
+  { id: "dino-pals-11-shys-secret-gift", title: "Shy's Secret Gift", pages: 12 },
+  { id: "dino-pals-12-fancys-bad-day", title: "Fancy's Bad Day", pages: 12 },
+  { id: "dino-pals-13-clumsy-to-the-rescue", title: "Clumsy to the Rescue", pages: 12 },
+  { id: "dino-pals-14-what-is-flappy", title: "What is Flappy?", pages: 12 },
+  { id: "dino-pals-15-sneezy-and-the-waterfall", title: "Sneezy and the Waterfall", pages: 12 },
+  { id: "dino-pals-16-chompy-and-grumpys-day-out", title: "Chompy and Grumpy's Day Out", pages: 12 },
+  { id: "dino-pals-17-the-sunny-hollow-games", title: "The Sunny Hollow Games", pages: 12 },
+  { id: "dino-pals-18-dozys-wonderful-dream", title: "Dozy's Wonderful Dream", pages: 12 },
+  { id: "dino-pals-19-zippys-race", title: "Zippy's Race", pages: 12 },
+  { id: "dino-pals-20-the-big-storm", title: "The Big Storm", pages: 12 }
 ];
 
 const oldFictionIds = [
@@ -175,7 +185,7 @@ if (draftJamesBooks.length !== 10) failures.push(`Expected 10 James and Anna dra
 if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James and Anna approved books, found ${visibleJamesBooks.length}.`);
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
 if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty approved books, found ${visibleAidenBooks.length}.`);
-if (draftDinoBooks.length !== 10) failures.push(`Expected 10 Dino Pals draft books, found ${draftDinoBooks.length}.`);
+if (draftDinoBooks.length !== 20) failures.push(`Expected 20 Dino Pals draft books, found ${draftDinoBooks.length}.`);
 if (visibleNonfictionBooks.length !== 21) failures.push(`Expected 21 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
 if (removedNonfictionRestored.length) failures.push(`Deleted nonfiction ids were restored: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
@@ -442,6 +452,8 @@ const bobReport = [
   failures.length ? failures.filter(item => item.includes("Bob") || item.includes("bob-and-nan") || item.includes("Nonfiction") || item.includes("Old deleted")).map(item => `- ${item}`).join("\n") || "None affecting Bob and Nan." : "PASS: Bob and Nan is wired as an approved Level A fiction series without restoring old fiction books."
 ];
 
+const dinoBooks1120Rows = dinoRows.filter(row => /^dino-pals-(1[1-9]|20)-/.test(row.id));
+
 const bobBooks610Report = [
   "# Bob and Nan Level A Books 6-10 Import Audit",
   "",
@@ -603,7 +615,7 @@ const aidenReport = [
 ];
 
 const dinoReport = [
-  "# Dino Pals Level B Books 1-10 Import Audit",
+  "# Dino Pals Level B Books 11-20 Import Audit",
   "",
   `Generated: ${new Date().toISOString()}`,
   "",
@@ -611,21 +623,22 @@ const dinoReport = [
   "",
   "`/Users/benjaminbowler/Desktop/LiteracyPath_Source_Packs/Organised/Level B/Dino Pals`",
   "",
-  "Media archive: `Dino Pals Media 1-10.zip`.",
+  "Media archive: organised Dino Pals Books 11-20 source pack with WebP page images and MP3 page audio.",
   "",
   "## Target",
   "",
-  "`public/guided-reading/series/dino-pals/book-01` through `book-10`",
+  "`public/guided-reading/series/dino-pals/book-11` through `book-20` for this import; Books 1-10 are also checked for continuity.",
   "",
   "## Summary",
   "",
-  `- Dino Pals draft books added: ${draftDinoBooks.length}`,
-  "- Import order: Level B fiction books 1-10.",
+  `- Dino Pals total draft books checked: ${draftDinoBooks.length}`,
+  `- Dino Pals Books 11-20 imported in this pass: ${dinoBooks1120Rows.length}`,
+  "- Import order: Level B fiction books 11-20 added after existing Books 1-10.",
   "- Release scope: teacher preview only, pending final QA.",
-  `- Imported covers: ${dinoRows.filter(row => row.coverExists).length}/10`,
-  `- Imported story page images: ${dinoRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
-  `- Imported story page audio files: ${dinoRows.reduce((sum, row) => sum + row.audioPages.length, 0)}`,
-  `- Missing story page images: ${dinoRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
+  `- Imported covers for Books 11-20: ${dinoBooks1120Rows.filter(row => row.coverExists).length}/10`,
+  `- Imported story page images for Books 11-20: ${dinoBooks1120Rows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
+  `- Imported story page audio files for Books 11-20: ${dinoBooks1120Rows.reduce((sum, row) => sum + row.audioPages.length, 0)}`,
+  `- Missing story page images for Books 11-20: ${dinoBooks1120Rows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
   `- Nonfiction books kept: ${visibleNonfictionBooks.length}`,
   `- Old deleted fiction books restored: ${oldFictionRestored.length}`,
   `- Validation failures: ${failures.length}`,
@@ -634,7 +647,7 @@ const dinoReport = [
   "",
   "| ID | Title | Level | Expected Pages | Imported Images | Audio Files | Missing Images | Cover Status | QA | Preview Only |",
   "|---|---|---|---:|---|---|---|---|---|---:|",
-  ...dinoRows.map(row => `| ${row.id} | ${row.title} | ${row.level} | ${row.expectedPages} | ${row.importedPages.join(", ") || "none"} | ${row.audioPages.join(", ") || "none"} | ${row.missingStoryImages.join(", ") || "none"} | ${row.coverStatus} | ${row.qaStatus} | ${row.teacherPreviewOnly ? "yes" : "no"} |`),
+  ...dinoBooks1120Rows.map(row => `| ${row.id} | ${row.title} | ${row.level} | ${row.expectedPages} | ${row.importedPages.join(", ") || "none"} | ${row.audioPages.join(", ") || "none"} | ${row.missingStoryImages.join(", ") || "none"} | ${row.coverStatus} | ${row.qaStatus} | ${row.teacherPreviewOnly ? "yes" : "no"} |`),
   "",
   "## Text Alignment",
   "",
@@ -655,7 +668,7 @@ const dinoReport = [
   "",
   "## Next Steps",
   "",
-  "- Teacher-review Dino Pals covers, page-image sequence, and page audio.",
+  "- Teacher-review Dino Pals Books 11-20 covers, page-image sequence, and page audio.",
   "- After review, move approved books from preview-only to student availability.",
   "",
   "## Warnings",
@@ -664,7 +677,7 @@ const dinoReport = [
   "",
   failures.length ? "## Failures" : "## Result",
   "",
-  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Dino Pals Level B Books 1-10 are imported with cover, eight story pages, and page audio for teacher preview."
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Dino Pals Level B Books 11-20 are imported with cover, twelve story pages, and page audio for teacher preview; Books 1-10 remain intact."
 ];
 
 fs.mkdirSync(path.dirname(bobReportPath), { recursive: true });

@@ -55,7 +55,17 @@ const allowedFictionIds = new Set([
   "dino-pals-07-wigglys-messy-day",
   "dino-pals-08-zippy-slows-down",
   "dino-pals-09-honkys-inside-voice",
-  "dino-pals-10-cheekys-prank-goes-wrong"
+  "dino-pals-10-cheekys-prank-goes-wrong",
+  "dino-pals-11-shys-secret-gift",
+  "dino-pals-12-fancys-bad-day",
+  "dino-pals-13-clumsy-to-the-rescue",
+  "dino-pals-14-what-is-flappy",
+  "dino-pals-15-sneezy-and-the-waterfall",
+  "dino-pals-16-chompy-and-grumpys-day-out",
+  "dino-pals-17-the-sunny-hollow-games",
+  "dino-pals-18-dozys-wonderful-dream",
+  "dino-pals-19-zippys-race",
+  "dino-pals-20-the-big-storm"
 ]);
 const teacherPreviewFictionIds = new Set([
   "dino-pals-01-chompys-big-lunch",
@@ -67,7 +77,17 @@ const teacherPreviewFictionIds = new Set([
   "dino-pals-07-wigglys-messy-day",
   "dino-pals-08-zippy-slows-down",
   "dino-pals-09-honkys-inside-voice",
-  "dino-pals-10-cheekys-prank-goes-wrong"
+  "dino-pals-10-cheekys-prank-goes-wrong",
+  "dino-pals-11-shys-secret-gift",
+  "dino-pals-12-fancys-bad-day",
+  "dino-pals-13-clumsy-to-the-rescue",
+  "dino-pals-14-what-is-flappy",
+  "dino-pals-15-sneezy-and-the-waterfall",
+  "dino-pals-16-chompy-and-grumpys-day-out",
+  "dino-pals-17-the-sunny-hollow-games",
+  "dino-pals-18-dozys-wonderful-dream",
+  "dino-pals-19-zippys-race",
+  "dino-pals-20-the-big-storm"
 ]);
 const unexpectedFictionBooks = visibleFictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
@@ -79,8 +99,8 @@ if (unexpectedFictionBooks.length) {
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction Guided Reading books visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
-if (guidedReadingBooks.length !== 61) {
-  failures.push(`Expected 61 total Guided Reading books after Transportation/Bugs deletion, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 71) {
+  failures.push(`Expected 71 total Guided Reading books after Dino Pals Books 11-20 import, found ${guidedReadingBooks.length}.`);
 }
 
 for (const book of guidedReadingBooks) {

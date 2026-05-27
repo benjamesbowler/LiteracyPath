@@ -58,7 +58,17 @@ const allowedFictionIds = new Set([
   "dino-pals-07-wigglys-messy-day",
   "dino-pals-08-zippy-slows-down",
   "dino-pals-09-honkys-inside-voice",
-  "dino-pals-10-cheekys-prank-goes-wrong"
+  "dino-pals-10-cheekys-prank-goes-wrong",
+  "dino-pals-11-shys-secret-gift",
+  "dino-pals-12-fancys-bad-day",
+  "dino-pals-13-clumsy-to-the-rescue",
+  "dino-pals-14-what-is-flappy",
+  "dino-pals-15-sneezy-and-the-waterfall",
+  "dino-pals-16-chompy-and-grumpys-day-out",
+  "dino-pals-17-the-sunny-hollow-games",
+  "dino-pals-18-dozys-wonderful-dream",
+  "dino-pals-19-zippys-race",
+  "dino-pals-20-the-big-storm"
 ]);
 const teacherPreviewFictionIds = new Set([
   "dino-pals-01-chompys-big-lunch",
@@ -70,7 +80,17 @@ const teacherPreviewFictionIds = new Set([
   "dino-pals-07-wigglys-messy-day",
   "dino-pals-08-zippy-slows-down",
   "dino-pals-09-honkys-inside-voice",
-  "dino-pals-10-cheekys-prank-goes-wrong"
+  "dino-pals-10-cheekys-prank-goes-wrong",
+  "dino-pals-11-shys-secret-gift",
+  "dino-pals-12-fancys-bad-day",
+  "dino-pals-13-clumsy-to-the-rescue",
+  "dino-pals-14-what-is-flappy",
+  "dino-pals-15-sneezy-and-the-waterfall",
+  "dino-pals-16-chompy-and-grumpys-day-out",
+  "dino-pals-17-the-sunny-hollow-games",
+  "dino-pals-18-dozys-wonderful-dream",
+  "dino-pals-19-zippys-race",
+  "dino-pals-20-the-big-storm"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
@@ -82,14 +102,14 @@ if (unexpectedFictionBooks.length) {
 if (!nonfictionBooks.length) {
   failures.push("No nonfiction Guided Reading books remain visible.");
 }
-if (fictionBooks.length !== 40) {
-  failures.push(`Expected 40 fiction books, found ${fictionBooks.length}.`);
+if (fictionBooks.length !== 50) {
+  failures.push(`Expected 50 fiction books, found ${fictionBooks.length}.`);
 }
 if (nonfictionBooks.length !== 21) {
   failures.push(`Expected 21 nonfiction books after Transportation/Bugs deletion, found ${nonfictionBooks.length}.`);
 }
-if (guidedReadingBooks.length !== 61) {
-  failures.push(`Expected 61 total Guided Reading books after deletion, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 71) {
+  failures.push(`Expected 71 total Guided Reading books after Dino Pals Books 11-20 import, found ${guidedReadingBooks.length}.`);
 }
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction books are still visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
@@ -130,7 +150,7 @@ const report = [
   "",
   "## Current Policy",
   "",
-  "Guided Reading now allows approved nonfiction books plus approved Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction series. Dino Pals Level B is allowed only as teacher-preview / needs-review fiction. Old deleted fiction and public-domain books must remain off the readable shelf.",
+  "Guided Reading now allows approved nonfiction books plus approved Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction series. Dino Pals Level B Books 1-20 are allowed only as teacher-preview / needs-review fiction. Old deleted fiction and public-domain books must remain off the readable shelf.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${nonfictionBooks.length}`,

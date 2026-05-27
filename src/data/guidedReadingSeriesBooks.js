@@ -1358,5 +1358,205 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 7, text: "Even Cheeky had to laugh. Okay, said Cheeky. That one was funny." },
       { pageNumber: 8, text: "Cheeky helped clean Fancy's rock. Will you do any more pranks? asked Fancy. Maybe just one more, said Cheeky. And winked." }
     ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-11-shys-secret-gift",
+    title: "Shy's Secret Gift",
+    bookNumber: 11,
+    theme: "quiet kindness and friendship",
+    pages: [
+      { pageNumber: 1, text: "Every morning, the Dino Pals found a small gift on the Big Flat Rock. Nobody knew who left them." },
+      { pageNumber: 2, text: "One day it was a smooth pebble for Grumpy. Someone knows I like pebbles, said Grumpy, suspicious but pleased." },
+      { pageNumber: 3, text: "One day it was a pile of extra berries for Chompy. Someone knows me very well, said Chompy, already eating them." },
+      { pageNumber: 4, text: "One day it was a leafy fan for Dozy. This is perfect, said Dozy, already asleep with it." },
+      { pageNumber: 5, text: "Who is leaving these gifts? said Bossy. I need to know. It is not on my clipboard." },
+      { pageNumber: 6, text: "Bouncy thought it was a ghost. Zippy ran everywhere looking, very fast. Honky called out asking. Every leaf fell off." },
+      { pageNumber: 7, text: "Cheeky had a plan. Cheeky would stay up all night to watch. Cheeky fell asleep at midnight." },
+      { pageNumber: 8, text: "One morning, Sunny stayed very still and very quiet behind a fern. Sunny waited." },
+      { pageNumber: 9, text: "Sunny saw two small eyes behind a rock. And two small pink paws placing a tiny woven grass bracelet on the rock." },
+      { pageNumber: 10, text: "Shy! said Sunny, softly. The gifts are from you, aren't they? Shy nodded, going very pink." },
+      { pageNumber: 11, text: "They were the best gifts we ever had, said Sunny. Will you come and sit with us? Shy came out. Just a little way. But it was something." },
+      { pageNumber: 12, text: "The next morning, eleven gifts were on the Big Flat Rock. One from each Dino Pal. A small pink paw reached out and took them, one by one." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-12-fancys-bad-day",
+    title: "Fancy's Bad Day",
+    bookNumber: 12,
+    theme: "accepting help",
+    pages: [
+      { pageNumber: 1, text: "Fancy woke up and found something terrible. Fancy's sail was bent. Not a little bent. Very bent." },
+      { pageNumber: 2, text: "I cannot leave the cave, said Fancy. Not like this. Fancy sat very still and stared at the cave wall." },
+      { pageNumber: 3, text: "Clumsy looked in from a great height. It looks fine to me, said Clumsy. You cannot even see your own feet, said Fancy." },
+      { pageNumber: 4, text: "Chompy offered to sit on the sail to flatten it. ABSOLUTELY NOT, said Fancy." },
+      { pageNumber: 5, text: "Bouncy offered to bounce on it gently. That is not what gently means, said Fancy." },
+      { pageNumber: 6, text: "Dozy offered a pillow. It needs weight, not softness, said Fancy. Dozy went back to sleep." },
+      { pageNumber: 7, text: "Honky offered to shout at it until it moved. Everyone agreed this would make things much worse." },
+      { pageNumber: 8, text: "What if, said Wiggly carefully, we got it a little wet? Fancy stared. Go on, said Fancy." },
+      { pageNumber: 9, text: "Wiggly fetched water from the waterfall very carefully. The tail only knocked over two things. Sorry, said Wiggly." },
+      { pageNumber: 10, text: "Wiggly dampened the sail gently and pressed it very softly. Slowly, slowly, it began to straighten." },
+      { pageNumber: 11, text: "Fancy looked in the pool. Oh, said Fancy. Oh, that is much better. Fancy looked at Wiggly. Thank you. A real thank you." },
+      { pageNumber: 12, text: "The next morning, Fancy left a beautifully woven bracelet outside Wiggly's cave. Wiggly's tail knocked it away at once. Sorry! said Wiggly. It is fine, said Fancy. And meant it." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-13-clumsy-to-the-rescue",
+    title: "Clumsy to the Rescue",
+    bookNumber: 13,
+    theme: "using strengths to help",
+    pages: [
+      { pageNumber: 1, text: "Has anyone seen my pillow? said Dozy. Dozy had been looking for it all morning. This was serious." },
+      { pageNumber: 2, text: "Everyone searched. Bouncy bounced into every corner. Zippy ran everywhere twice. Cheeky looked in all the hiding spots. Nothing." },
+      { pageNumber: 3, text: "It could be anywhere, said Bossy, looking at the clipboard. Sunny Hollow is very big." },
+      { pageNumber: 4, text: "Not from where I am standing, said Clumsy. Everyone looked up." },
+      { pageNumber: 5, text: "Clumsy could see over all the ferns, past the waterfall, all the way to the Long Meadow and beyond." },
+      { pageNumber: 6, text: "I can see the mud puddle, said Clumsy. I can see the berry bushes. I can see Chompy at the berry bushes, which is not a surprise." },
+      { pageNumber: 7, text: "Can you see the pillow? said Dozy. There was a long pause. Oh, said Clumsy. Yes. It is in the waterfall." },
+      { pageNumber: 8, text: "How did it get there? said Grumpy. Everyone looked at Bouncy. I bounced past it, said Bouncy. SORRY." },
+      { pageNumber: 9, text: "The pool was too deep to reach in. I cannot see my feet, said Clumsy. I certainly cannot reach the bottom." },
+      { pageNumber: 10, text: "I can reach it, said Wiggly. Wiggly stretched the long neck down, down, down. The tail swept three rocks and a berry bush. Sorry. But Wiggly had the pillow." },
+      { pageNumber: 11, text: "Dozy hugged the pillow. Thank you, said Dozy. Both of you. Then Dozy fell asleep, right there, on the spot." },
+      { pageNumber: 12, text: "We make a good team, said Clumsy. You see the problem. I reach the problem. Exactly, said Clumsy, and accidentally knocked off Wiggly's hat. Sorry." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-14-what-is-flappy",
+    title: "What is Flappy?",
+    bookNumber: 14,
+    theme: "identity and belonging",
+    pages: [
+      { pageNumber: 1, text: "Flappy woke up and tried to fly. Flappy got three wing-flaps up. Then landed in the mud." },
+      { pageNumber: 2, text: "I should be able to fly, said Flappy. I have wings. You are also a dinosaur, said Grumpy. Dinosaurs do not fly." },
+      { pageNumber: 3, text: "Bossy flies, said Flappy. Bossy is a Pterodactyl. You are an Archaeopteryx. That is different. How is it different? said Flappy. Grumpy did not actually know." },
+      { pageNumber: 4, text: "Flappy asked Sunny. You are wonderful just as you are! said Sunny. But what AM I? said Flappy. Wonderful! said Sunny. Flappy went away still confused." },
+      { pageNumber: 5, text: "Flappy tried roaring like the other dinosaurs. A small squawk came out. Some feathers drifted down." },
+      { pageNumber: 6, text: "Flappy tried stomping. Flappy's feet were quite small. Nobody noticed." },
+      { pageNumber: 7, text: "Flappy tried nesting in a tree. This part actually worked quite well. Flappy was surprised." },
+      { pageNumber: 8, text: "Flappy tried eating leaves. Fine. Flappy tried catching insects mid-air. Remarkably good at this. Flappy was more surprised." },
+      { pageNumber: 9, text: "Grumpy, said Flappy. Am I a dinosaur or a bird? Grumpy thought for a very long time. You are Flappy, said Grumpy. That is enough." },
+      { pageNumber: 10, text: "But dinosaurs do not nest in trees, said Flappy. You do, said Grumpy. And birds do not live in Sunny Hollow with everyone else. You do, said Grumpy." },
+      { pageNumber: 11, text: "So I am something new? said Flappy. You are something Flappy, said Grumpy. Which nobody else is." },
+      { pageNumber: 12, text: "Flappy went back to the tree. Got three wing-flaps up. Landed neatly on a branch. Sat very high up and looked at all of Sunny Hollow below. Oh, said Flappy quietly. That is quite good actually." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-15-sneezy-and-the-waterfall",
+    title: "Sneezy and the Waterfall",
+    bookNumber: 15,
+    theme: "turning a problem into a strength",
+    pages: [
+      { pageNumber: 1, text: "One morning, Rainbow Waterfall was not making rainbows. It was not making anything at all. The waterfall had stopped." },
+      { pageNumber: 2, text: "The Dino Pals went to look. A huge pile of rocks had fallen in the night and blocked the stream above." },
+      { pageNumber: 3, text: "We need to move those rocks, said Bossy. Everyone tried pushing. The rocks did not move at all." },
+      { pageNumber: 4, text: "Chompy is strong, said Sunny. Chompy tried. Chompy ate a nearby berry bush instead. Sorry, said Chompy." },
+      { pageNumber: 5, text: "Grumpy has a strong tail, said Sunny. Grumpy swung the club tail at the rocks. CLONK. One small rock moved. There were fifty more." },
+      { pageNumber: 6, text: "This will take all day, said Grumpy. Hmph. Everyone sat down feeling stuck." },
+      { pageNumber: 7, text: "Sneezy had been very quiet. Sneezy could feel something building. High up. In the pollen from the ferns." },
+      { pageNumber: 8, text: "Sneezy's nose began to twitch. The Dino Pals turned to look. Oh no, said Bossy. Oh yes, said Wiggly." },
+      { pageNumber: 9, text: "Sneezy took a breath in. The biggest breath anyone in Sunny Hollow had ever taken. The ferns bent backwards." },
+      { pageNumber: 10, text: "Everyone move back, said Grumpy. They moved back." },
+      { pageNumber: 11, text: "AAAAAAACHOOOOOO! The sneeze hit the rocks like a wave. Rocks scattered in every direction. The stream burst free. The waterfall roared back. A rainbow appeared." },
+      { pageNumber: 12, text: "Sorry, said Sneezy, dabbing with the handkerchief. Every leaf had fallen off every tree. Do not apologise, said Grumpy. For once, Grumpy was actually smiling." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-16-chompy-and-grumpys-day-out",
+    title: "Chompy and Grumpy's Day Out",
+    bookNumber: 16,
+    theme: "unlikely friendship",
+    pages: [
+      { pageNumber: 1, text: "I am going to the Long Meadow, said Grumpy. There is a good flat rock there. Peaceful. No one around. Chompy appeared. Can I come? said Chompy. Grumpy closed their eyes. Fine." },
+      { pageNumber: 2, text: "They set off. Grumpy walked steadily. Chompy stopped to eat something every thirty steps." },
+      { pageNumber: 3, text: "This is a leaf, said Grumpy. I know, said Chompy. It is a good leaf." },
+      { pageNumber: 4, text: "This is a pebble, said Grumpy. I am not eating the pebble, said Chompy. Glad to hear it, said Grumpy." },
+      { pageNumber: 5, text: "They reached the meadow. Grumpy found the flat rock and sat on it. Chompy found a berry patch immediately." },
+      { pageNumber: 6, text: "Grumpy sat. It was the right temperature. The right shape. Grumpy almost smiled." },
+      { pageNumber: 7, text: "Then Chompy fell into a ditch. HELP, said Chompy. It was not a deep ditch. But Chompy's arms were very tiny." },
+      { pageNumber: 8, text: "Grumpy looked at Chompy in the ditch. Grumpy looked at the perfect flat rock. Grumpy sighed. Hold on." },
+      { pageNumber: 9, text: "Grumpy's club tail lowered into the ditch. Chompy grabbed on. Grumpy pulled. Chompy came out covered in mud." },
+      { pageNumber: 10, text: "Thank you, said Chompy. Hmph, said Grumpy. They sat on the rock together. Less peaceful with Chompy. But not actually terrible." },
+      { pageNumber: 11, text: "This is a good rock, said Chompy. Yes, said Grumpy. Is there anything to eat near it? said Chompy. Grumpy pointed at the berry patch. Chompy went happily." },
+      { pageNumber: 12, text: "Grumpy sat on the rock alone. It was peaceful. But after a while, Grumpy called: There is a good-looking bush to your left. Thanks, Grumpy! said Chompy. Grumpy said nothing. But the corner of the mouth went up. Just slightly." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-17-the-sunny-hollow-games",
+    title: "The Sunny Hollow Games",
+    bookNumber: 17,
+    theme: "fair play and celebrating strengths",
+    pages: [
+      { pageNumber: 1, text: "I have an announcement! called Bossy, megaphone raised. We are having the First Sunny Hollow Games. Tomorrow. Everyone looked at each other." },
+      { pageNumber: 2, text: "There would be a running race, a jumping contest, a loudness competition, and a prize for the tidiest corner of the Hollow. More events to be decided, said Bossy. I have a clipboard." },
+      { pageNumber: 3, text: "Zippy won the running race before anyone else had started. Does it count if no one saw the finish? asked Bossy. It counts, said Zippy." },
+      { pageNumber: 4, text: "Bouncy won the jumping contest. Bouncy also won the unplanned bumping-into-things event, which had not been on the clipboard. Bossy added it." },
+      { pageNumber: 5, text: "Honky won the loudness competition. Every leaf fell off every tree. We all knew that would happen, said Grumpy." },
+      { pageNumber: 6, text: "Wiggly tried to win the tidiest corner. The tail knocked everything over while tidying. I am giving myself zero points, said Wiggly." },
+      { pageNumber: 7, text: "The tidiest corner prize went to Shy. Shy had arranged twelve perfect pebbles behind a rock where nobody could see them. It counts, said Bossy carefully." },
+      { pageNumber: 8, text: "Grumpy won the grumpiest face competition that Cheeky invented. Grumpy won immediately. I am not sure that is a compliment, said Grumpy. It absolutely is, said Cheeky." },
+      { pageNumber: 9, text: "Dozy slept through most of the events and woke up in time for the picnic. Did I win anything? said Dozy. Most restful competitor, said Bossy. Deserved, said Dozy, and fell asleep again." },
+      { pageNumber: 10, text: "Fancy held a Best Sail competition. Fancy was the only one with a sail. Fancy gave themselves first prize. This seems fair, said Fancy." },
+      { pageNumber: 11, text: "Sneezy entered the farthest-blast competition. Sneezy's sneeze sent the test leaf all the way to the Long Meadow. The judge had to run to collect the result. Zippy collected it. Obviously." },
+      { pageNumber: 12, text: "Who won the Games overall? said Chompy, having eaten most of the prize berries. Everyone won something, said Bossy. That is the point. Even me? said Chompy. Chompy wins: Most Enthusiastic Participant. That is because I ate all the prizes, said Chompy. Yes, said Bossy." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-18-dozys-wonderful-dream",
+    title: "Dozy's Wonderful Dream",
+    bookNumber: 18,
+    theme: "dreams and perspective",
+    pages: [
+      { pageNumber: 1, text: "One afternoon, Dozy fell asleep in the Long Meadow. This was not unusual. But this time, Dozy did not wake up for a very, very long time." },
+      { pageNumber: 2, text: "Dozy has been asleep for three hours, said Bossy. Should we be worried? said Bossy. Dozy looks very peaceful, said Sunny. They watched Dozy sleeping. Dozy was definitely very peaceful." },
+      { pageNumber: 3, text: "Inside the dream, Dozy was wide awake. Dozy had never been so awake. Everything was golden and warm and soft." },
+      { pageNumber: 4, text: "In the dream, Sunny Hollow was made of clouds. Dozy was walking on clouds. The clouds were warm and soft, which was very agreeable." },
+      { pageNumber: 5, text: "Chompy was there, but all the food was made of more clouds. This is disappointing, said Dream Chompy." },
+      { pageNumber: 6, text: "Dream Grumpy was grumpy about the clouds. They are too soft. I cannot sit on them properly. Dream Grumpy was exactly the same as real Grumpy." },
+      { pageNumber: 7, text: "Dream Bouncy bounced so high that Bouncy went above the clouds and kept going. Everyone watched. Nobody was surprised." },
+      { pageNumber: 8, text: "Dozy floated on a cloud past the Rainbow Waterfall. But in the dream, the waterfall was made of warm golden light. Oh, said Dozy. This is very nice." },
+      { pageNumber: 9, text: "At the top of Mount Rumble, all the Dino Pals were there. Sitting on the warm peak. Watching all of Sunny Hollow spread out below, tiny and green and perfect." },
+      { pageNumber: 10, text: "I can see everything from here, said Dream Dozy. We can always see everything, said Dream Sunny. You just need to be up high enough. Dozy thought about this." },
+      { pageNumber: 11, text: "Back in the meadow, Dozy's eyes opened. All the Dino Pals were sitting in a circle, waiting. What was it like? said Sunny." },
+      { pageNumber: 12, text: "It was exactly like this, said Dozy, looking at all of them, but cloudier. Dozy's eyes closed again. Wake me for supper." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-19-zippys-race",
+    title: "Zippy's Race",
+    bookNumber: 19,
+    theme: "competition and resilience",
+    pages: [
+      { pageNumber: 1, text: "A message arrived in Sunny Hollow. Zippy delivered it. It took two seconds. There was going to be a race. A real race. With runners from other valleys." },
+      { pageNumber: 2, text: "Zippy will win easily, said Sunny. Obviously, said Bossy. Hmph. Probably, said Grumpy. Zippy went very quiet." },
+      { pageNumber: 3, text: "Zippy ran three circuits of Sunny Hollow. Then four. Then five. Then kept going." },
+      { pageNumber: 4, text: "Are you practising? said Wiggly. I am thinking, said Zippy. You run to think? I always run. The thinking happens in between." },
+      { pageNumber: 5, text: "The race day came. The runners lined up. They were all fast. One was very fast indeed." },
+      { pageNumber: 6, text: "BANG. They were off. Zippy was first. Of course. But the very fast runner was close. Very close." },
+      { pageNumber: 7, text: "Zippy ran harder. The scarf was flat out behind. Everything was a blur." },
+      { pageNumber: 8, text: "Zippy crossed the line first. Just. The second runner arrived a heartbeat later." },
+      { pageNumber: 9, text: "The Dino Pals cheered. Honky cheered loudest. Every leaf fell off every tree in the whole valley." },
+      { pageNumber: 10, text: "The second runner came over. Good race, they said. You too, said Zippy, breathing hard for the first time ever." },
+      { pageNumber: 11, text: "Zippy held the small winner's pebble and looked at it. Zippy, said Sunny, are you all right? I nearly lost, said Zippy." },
+      { pageNumber: 12, text: "But you didn't, said Sunny. Zippy ran four more circuits of Sunny Hollow. I know, said Zippy, on the third lap. I just like to make sure." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-20-the-big-storm",
+    title: "The Big Storm",
+    bookNumber: 20,
+    theme: "teamwork and safety",
+    pages: [
+      { pageNumber: 1, text: "The morning felt strange. The air was heavy and still. Mount Rumble was not puffing its usual heart-shaped rings." },
+      { pageNumber: 2, text: "Storm coming, said Grumpy. Big one. Grumpy was almost always right about weather. Everyone believed Grumpy." },
+      { pageNumber: 3, text: "We need to get ready, said Bossy. For once, nobody argued. They needed the plan." },
+      { pageNumber: 4, text: "Clumsy stood tall and looked out over the whole Hollow. The storm is coming from the east, said Clumsy. The tall ferns are already bending. That gives us time." },
+      { pageNumber: 5, text: "Sneezy's nose could smell the rain from far away. Twenty minutes, said Sneezy. Maybe fifteen. Everyone moved faster." },
+      { pageNumber: 6, text: "Honky called all the Dino Pals from across the Hollow. One enormous blast. Every leaf fell off. But everyone heard and came running." },
+      { pageNumber: 7, text: "Wiggly's long tail swept the Big Flat Rock clear in seconds. Food, supplies, anything that could blow away. Sorry, said Wiggly, sweeping everything. This time everyone was grateful." },
+      { pageNumber: 8, text: "Zippy ran back and forth collecting everything needed before anyone could finish asking. Twelve trips in four minutes. Done, said Zippy." },
+      { pageNumber: 9, text: "Bouncy bounced up to reach the high branches and secure anything at risk. Only bumped into three things. A new record, said Bouncy." },
+      { pageNumber: 10, text: "Shy, who knew every hidden corner of the Fernwood, led everyone to the deepest part of Cozy Cave. Shy knew exactly where it was warmest." },
+      { pageNumber: 11, text: "The storm arrived. It was loud and wild. But inside Cozy Cave it was warm. Fifteen Dino Pals, very close together. Even Grumpy did not mind." },
+      { pageNumber: 12, text: "When it passed, Sunny Hollow sparkled. We did that, said Sunny. All of us. Not bad, said Grumpy. From Grumpy, that meant wonderful." }
+    ]
   })
 ];

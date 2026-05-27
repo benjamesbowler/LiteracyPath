@@ -55,7 +55,17 @@ const allowedFictionIds = new Set([
   "dino-pals-07-wigglys-messy-day",
   "dino-pals-08-zippy-slows-down",
   "dino-pals-09-honkys-inside-voice",
-  "dino-pals-10-cheekys-prank-goes-wrong"
+  "dino-pals-10-cheekys-prank-goes-wrong",
+  "dino-pals-11-shys-secret-gift",
+  "dino-pals-12-fancys-bad-day",
+  "dino-pals-13-clumsy-to-the-rescue",
+  "dino-pals-14-what-is-flappy",
+  "dino-pals-15-sneezy-and-the-waterfall",
+  "dino-pals-16-chompy-and-grumpys-day-out",
+  "dino-pals-17-the-sunny-hollow-games",
+  "dino-pals-18-dozys-wonderful-dream",
+  "dino-pals-19-zippys-race",
+  "dino-pals-20-the-big-storm"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
@@ -113,7 +123,7 @@ const report = [
   "",
   "## Strategy",
   "",
-  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-10 in teacher-preview review.",
+  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-20 in teacher-preview review.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${guidedReadingBooks.length - fictionBooks.length}`,
