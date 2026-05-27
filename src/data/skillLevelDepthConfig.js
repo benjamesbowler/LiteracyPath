@@ -99,7 +99,7 @@ export const managedAssessmentSkillDepthConfig = [
     aliases: ["high-frequency words 1-25"],
     levels: {
       1: { designed: true, rule: "Recognition and listening tasks for the first 25 high-frequency words.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "COMPREHENSION", "MULTIPLE_CHOICE"] },
-      2: { designed: false, proposedMeaning: "Mixed sentence-level fluency and cloze tasks using the same 1-25 band." }
+      2: { designed: true, rule: "Sentence-level cloze tasks using the same 1-25 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
     }
   },
   {
@@ -108,7 +108,7 @@ export const managedAssessmentSkillDepthConfig = [
     aliases: ["high-frequency words 26-50"],
     levels: {
       1: { designed: true, rule: "Recognition and listening tasks for high-frequency words 26-50.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "COMPREHENSION", "MULTIPLE_CHOICE"] },
-      2: { designed: false, proposedMeaning: "Mixed sentence-level fluency and cloze tasks using the 26-50 band." }
+      2: { designed: true, rule: "Sentence-level cloze tasks using the 26-50 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
     }
   },
   {
@@ -117,7 +117,7 @@ export const managedAssessmentSkillDepthConfig = [
     aliases: ["high-frequency words 51-100", "high-frequency words 51-75", "high-frequency words 76-100"],
     levels: {
       1: { designed: true, rule: "Recognition and sentence-context tasks for high-frequency words 51-100.", allowedFormats: ["COMPREHENSION", "UNKNOWN", "MULTIPLE_CHOICE"] },
-      2: { designed: false, proposedMeaning: "Mixed sentence-level fluency and cloze tasks using the 51-100 band." }
+      2: { designed: true, rule: "Sentence-level cloze tasks using the 51-100 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
     }
   },
   {

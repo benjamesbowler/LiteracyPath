@@ -92,6 +92,7 @@ import { questionBankExpansion8 } from "./data/questionBankExpansion8";
 import { generatedQuestions } from "./data/generatedQuestions";
 import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
+import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
@@ -1067,6 +1068,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...questionBankExpansion8,
   ...generatedEarlySkillQuestions,
   ...skillLevelGapQuestions,
+  ...hfwLevel2Questions,
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
