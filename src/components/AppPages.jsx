@@ -2602,23 +2602,13 @@ export function GuidedReadingPage({
                     <p className="guided-complete-message">Book completed. You can finish again to record a reread.</p>
                   )}
 
-                  {pageAnalysis && (
-                    <div className="guided-phonics-strip" aria-label="Page phonics patterns">
-                      <span>{pageAnalysis.words.length} words</span>
-                      {pageAnalysis.phonicsPatterns.slice(0, 5).map(pattern => (
-                        <span key={pattern}>{pattern.replace(/-/g, " ")}</span>
-                      ))}
-                      {pageAnalysis.highFrequencyWords.slice(0, 4).map(word => (
-                        <span key={`hfw-${word}`}>HFW: {word}</span>
-                      ))}
+                  {readingMode === "marking" && (
+                    <div className="guided-mark-legend" aria-label="Word marking legend">
+                      <span><b className="legend-dot correct"></b> Read correctly</span>
+                      <span><b className="legend-dot support"></b> Needs support</span>
+                      <span><b className="legend-dot neutral"></b> Unmarked</span>
                     </div>
                   )}
-
-                  <div className="guided-mark-legend" aria-label="Word marking legend">
-                    <span><b className="legend-dot correct"></b> Read correctly</span>
-                    <span><b className="legend-dot support"></b> Needs support</span>
-                    <span><b className="legend-dot neutral"></b> Unmarked</span>
-                  </div>
 
                   <details className="guided-note-drawer">
                     <summary>Page notes</summary>
