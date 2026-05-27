@@ -131,9 +131,14 @@ const allowedFictionIds = new Set([
   "dino-pals-10-cheekys-prank-goes-wrong"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
+const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
+const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
 
 if (unexpectedFictionBooks.length) {
   failures.push(`Unexpected fiction Guided Reading books remain after removal: ${unexpectedFictionBooks.map(book => book.id).join(", ")}`);
+}
+if (removedNonfictionRestored.length) {
+  failures.push(`Deleted nonfiction Guided Reading books remain after removal: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
 
 for (const rawBook of guidedReadingBooks) {

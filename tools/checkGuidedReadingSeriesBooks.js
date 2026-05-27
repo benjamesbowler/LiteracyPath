@@ -166,6 +166,8 @@ const visibleJamesBooks = guidedReadingBooks.filter(book => book.seriesId === "j
 const visibleAidenBooks = guidedReadingBooks.filter(book => book.seriesId === "aiden-and-betty");
 const visibleNonfictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "nonfiction");
 const oldFictionRestored = guidedReadingBooks.filter(book => oldFictionIds.includes(book.id));
+const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
+const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
 
 if (draftBobBooks.length !== 10) failures.push(`Expected 10 Bob and Nan draft books, found ${draftBobBooks.length}.`);
 if (visibleBobBooks.length !== 10) failures.push(`Expected 10 visible Bob and Nan approved books, found ${visibleBobBooks.length}.`);
@@ -174,8 +176,9 @@ if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James an
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
 if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty approved books, found ${visibleAidenBooks.length}.`);
 if (draftDinoBooks.length !== 10) failures.push(`Expected 10 Dino Pals draft books, found ${draftDinoBooks.length}.`);
-if (visibleNonfictionBooks.length !== 23) failures.push(`Expected 23 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
+if (visibleNonfictionBooks.length !== 21) failures.push(`Expected 21 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
+if (removedNonfictionRestored.length) failures.push(`Deleted nonfiction ids were restored: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 
 for (const expected of expectedBobBooks) {
   const id = expected.id;

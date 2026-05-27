@@ -73,12 +73,26 @@ const teacherPreviewFictionIds = new Set([
   "dino-pals-10-cheekys-prank-goes-wrong"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
+const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
+const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
 
 if (unexpectedFictionBooks.length) {
   failures.push(`Unexpected fiction books visible: ${unexpectedFictionBooks.map(book => book.id).join(", ")}`);
 }
 if (!nonfictionBooks.length) {
   failures.push("No nonfiction Guided Reading books remain visible.");
+}
+if (fictionBooks.length !== 40) {
+  failures.push(`Expected 40 fiction books, found ${fictionBooks.length}.`);
+}
+if (nonfictionBooks.length !== 21) {
+  failures.push(`Expected 21 nonfiction books after Transportation/Bugs deletion, found ${nonfictionBooks.length}.`);
+}
+if (guidedReadingBooks.length !== 61) {
+  failures.push(`Expected 61 total Guided Reading books after deletion, found ${guidedReadingBooks.length}.`);
+}
+if (removedNonfictionRestored.length) {
+  failures.push(`Deleted nonfiction books are still visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
 
 const rows = guidedReadingBooks.map(book => {
