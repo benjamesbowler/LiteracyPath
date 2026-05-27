@@ -29,7 +29,12 @@ function expectedImagePatterns(bookId, storyPageNumber) {
     "james-and-anna-02-chips": "02",
     "james-and-anna-03-shopping": "03",
     "james-and-anna-04-dentist": "04",
-    "james-and-anna-05-tree-house": "05"
+    "james-and-anna-05-tree-house": "05",
+    "ja-b-06": "06",
+    "ja-b-07": "07",
+    "ja-b-08": "08",
+    "ja-b-09": "09",
+    "ja-b-10": "10"
   };
   const aidenAndBettyMap = {
     "ab-c-01": "01",
@@ -84,6 +89,11 @@ const allowedFictionIds = new Set([
   "james-and-anna-03-shopping",
   "james-and-anna-04-dentist",
   "james-and-anna-05-tree-house",
+  "ja-b-06",
+  "ja-b-07",
+  "ja-b-08",
+  "ja-b-09",
+  "ja-b-10",
   "ab-c-01",
   "ab-c-02",
   "ab-c-03",
@@ -133,7 +143,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B, and Aiden and Betty Level C teacher-preview series.",
+  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, and Aiden and Betty Level C books 1-10 teacher-preview series.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

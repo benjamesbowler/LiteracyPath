@@ -1527,6 +1527,87 @@ function GuidedReadingImage({ src, alt, className = "" }) {
   );
 }
 
+function AutoFitReadingText({
+  children,
+  className = "",
+  text = "",
+  maxFontSize = 30,
+  minFontSize = 16,
+  lineHeight = 1.28,
+  ...props
+}) {
+  const frameRef = useRef(null);
+  const contentRef = useRef(null);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    const content = contentRef.current;
+    if (!frame || !content) return undefined;
+
+    let rafId = 0;
+
+    const fitText = () => {
+      content.style.fontSize = `${maxFontSize}px`;
+      content.style.lineHeight = String(lineHeight);
+      content.style.overflowY = "hidden";
+
+      let fittedSize = maxFontSize;
+      for (let size = maxFontSize; size >= minFontSize; size -= 1) {
+        content.style.fontSize = `${size}px`;
+        fittedSize = size;
+        if (
+          content.scrollHeight <= frame.clientHeight + 1 &&
+          content.scrollWidth <= frame.clientWidth + 1
+        ) {
+          break;
+        }
+      }
+
+      const stillOverflowing =
+        content.scrollHeight > frame.clientHeight + 1 ||
+        content.scrollWidth > frame.clientWidth + 1;
+
+      content.style.fontSize = `${fittedSize}px`;
+      content.style.overflowY = stillOverflowing ? "auto" : "hidden";
+      setIsOverflowing(stillOverflowing);
+    };
+
+    const scheduleFit = () => {
+      window.cancelAnimationFrame(rafId);
+      rafId = window.requestAnimationFrame(fitText);
+    };
+
+    scheduleFit();
+
+    let observer;
+    if (typeof ResizeObserver !== "undefined") {
+      observer = new ResizeObserver(scheduleFit);
+      observer.observe(frame);
+    } else {
+      window.addEventListener("resize", scheduleFit);
+    }
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      if (observer) observer.disconnect();
+      else window.removeEventListener("resize", scheduleFit);
+    };
+  }, [text, maxFontSize, minFontSize, lineHeight]);
+
+  return (
+    <div className={isOverflowing ? "guided-page-text-frame overflowing" : "guided-page-text-frame"} ref={frameRef}>
+      <div
+        {...props}
+        className={`${className} auto-fit-reading-text`}
+        ref={contentRef}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function getGuidedBookCover(book = {}) {
   const src = book.cover || book.coverImage || book.coverUrl || "";
   if (src && isGuidedReadingAssetDeleted({ bookId: book.id, path: src, pageNumber: 0 })) {
@@ -1659,6 +1740,9 @@ export function GuidedReadingPage({
   const [highlightedSentenceIndex, setHighlightedSentenceIndex] = useState(null);
   const [audioNotice, setAudioNotice] = useState("");
   const [isPageAudioPlaying, setIsPageAudioPlaying] = useState(false);
+  const [teacherNotesOpen, setTeacherNotesOpen] = useState(false);
+  const [isReaderFullscreen, setIsReaderFullscreen] = useState(false);
+  const guidedReaderShellRef = useRef(null);
   const pageAudioRef = useRef(null);
   const highlightTimerRef = useRef(null);
   const sentenceTimersRef = useRef([]);
@@ -1750,6 +1834,21 @@ export function GuidedReadingPage({
     if (!readerOpen || !selectedBook || !page) return;
     recordGuidedPageVisit(pageIndex);
   }, [readerOpen, selectedBookId, pageIndex]);
+
+  useEffect(() => {
+    if (readerOpen) setTeacherNotesOpen(false);
+  }, [readerOpen, selectedBookId]);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return undefined;
+
+    function handleFullscreenChange() {
+      setIsReaderFullscreen(document.fullscreenElement === guidedReaderShellRef.current);
+    }
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
 
   useEffect(() => {
     if (!readerOpen || showSummary) return undefined;
@@ -1930,8 +2029,32 @@ export function GuidedReadingPage({
 
   function closeReader() {
     stopPageAudio();
+    if (typeof document !== "undefined" && document.fullscreenElement === guidedReaderShellRef.current) {
+      document.exitFullscreen?.().catch(() => {});
+    }
     setReaderOpen(false);
     setShowSummary(false);
+  }
+
+  async function toggleReaderFullscreen() {
+    const shell = guidedReaderShellRef.current;
+    if (!shell || typeof document === "undefined") {
+      setIsReaderFullscreen(value => !value);
+      return;
+    }
+
+    try {
+      if (document.fullscreenElement === shell) {
+        await document.exitFullscreen();
+      } else if (shell.requestFullscreen) {
+        await shell.requestFullscreen();
+      } else {
+        setIsReaderFullscreen(value => !value);
+      }
+    } catch (error) {
+      console.warn("Guided Reading fullscreen toggle unavailable.", error);
+      setIsReaderFullscreen(value => !value);
+    }
   }
 
   function goToPreviousPage() {
@@ -2357,7 +2480,15 @@ export function GuidedReadingPage({
       )}
 
       {readerOpen && !showSummary ? (
-        <section className="guided-reader-shell" aria-label={`${selectedBook.title} full-screen reader`}>
+        <section
+          className={[
+            "guided-reader-shell",
+            teacherNotesOpen ? "notes-open" : "",
+            isReaderFullscreen ? "fullscreen" : ""
+          ].filter(Boolean).join(" ")}
+          ref={guidedReaderShellRef}
+          aria-label={`${selectedBook.title} full-screen reader`}
+        >
           <div className="guided-reader-card">
             <div className="guided-reader-header">
               <div>
@@ -2374,6 +2505,12 @@ export function GuidedReadingPage({
                   {isPageAudioPlaying ? "Stop Reading" : "Read Page"}
                 </button>
                 <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>
+                <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
+                  Teacher Notes
+                </button>
+                <button className="lp-button lp-button-secondary" onClick={toggleReaderFullscreen} type="button">
+                  {isReaderFullscreen ? "Exit Full Screen" : "Full Screen"}
+                </button>
                 <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
                   Close Reader
                 </button>
@@ -2420,7 +2557,11 @@ export function GuidedReadingPage({
                 </div>
 
                 <div className="guided-page-reading">
-                  <div className={`guided-page-text ${readingMode}`} aria-label="Page text">
+                  <AutoFitReadingText
+                    aria-label="Page text"
+                    className={`guided-page-text ${readingMode}`}
+                    text={`${selectedBook.id}-${pageIndex}-${page.text || ""}-${readingMode}-${isReaderFullscreen ? "fullscreen" : "windowed"}`}
+                  >
                     {sentenceTokenGroups.map(group => (
                       <span
                         className={highlightedSentenceIndex === group.sentenceIndex ? "guided-sentence active" : "guided-sentence"}
@@ -2454,7 +2595,7 @@ export function GuidedReadingPage({
                         {" "}
                       </span>
                     ))}
-                  </div>
+                  </AutoFitReadingText>
 
                   {audioNotice && <p className="guided-audio-notice">{audioNotice}</p>}
                   {pageIndex === selectedBook.pages.length - 1 && readingProgress?.completed && (
@@ -2530,8 +2671,13 @@ export function GuidedReadingPage({
             </div>
           </div>
 
-          <aside className="guided-notes-panel">
-            <h3>Teacher Notes</h3>
+          <aside className={teacherNotesOpen ? "guided-notes-panel open" : "guided-notes-panel"} aria-hidden={!teacherNotesOpen}>
+            <div className="guided-notes-header">
+              <h3>Teacher Notes</h3>
+              <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(false)} type="button">
+                Hide
+              </button>
+            </div>
             <textarea
               value={record.wholeBookNote || ""}
               onChange={event => updateWholeBookNote(event.target.value)}

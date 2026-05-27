@@ -103,7 +103,7 @@ const report = [
   "",
   "## Strategy",
   "",
-  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, and Aiden and Betty Level C books 1-10 teacher-preview series.",
+  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, and Aiden and Betty Level C books 1-10.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${guidedReadingBooks.length - fictionBooks.length}`,

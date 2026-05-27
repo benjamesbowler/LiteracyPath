@@ -152,11 +152,11 @@ const visibleNonfictionBooks = guidedReadingBooks.filter(book => normalizeGuided
 const oldFictionRestored = guidedReadingBooks.filter(book => oldFictionIds.includes(book.id));
 
 if (draftBobBooks.length !== 10) failures.push(`Expected 10 Bob and Nan draft books, found ${draftBobBooks.length}.`);
-if (visibleBobBooks.length !== 10) failures.push(`Expected 10 visible Bob and Nan teacher-preview books, found ${visibleBobBooks.length}.`);
+if (visibleBobBooks.length !== 10) failures.push(`Expected 10 visible Bob and Nan approved books, found ${visibleBobBooks.length}.`);
 if (draftJamesBooks.length !== 10) failures.push(`Expected 10 James and Anna draft books, found ${draftJamesBooks.length}.`);
-if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James and Anna teacher-preview books, found ${visibleJamesBooks.length}.`);
+if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James and Anna approved books, found ${visibleJamesBooks.length}.`);
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
-if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty teacher-preview books, found ${visibleAidenBooks.length}.`);
+if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty approved books, found ${visibleAidenBooks.length}.`);
 if (visibleNonfictionBooks.length !== 23) failures.push(`Expected 23 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
 
@@ -164,7 +164,7 @@ for (const expected of expectedBobBooks) {
   const id = expected.id;
   const book = visibleBobBooks.find(item => item.id === id);
   if (!book) {
-    failures.push(`${id}: missing from visible teacher-preview Guided Reading books.`);
+    failures.push(`${id}: missing from visible approved Guided Reading books.`);
     continue;
   }
 
@@ -179,8 +179,8 @@ for (const expected of expectedBobBooks) {
   if (normalizeGuidedReadingType(book.type) !== "fiction") failures.push(`${id}: type is ${book.type}, expected fiction.`);
   if (book.seriesTitle !== "Bob and Nan") failures.push(`${id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
   if (book.ageRange !== "4-5") failures.push(`${id}: ageRange is ${book.ageRange || "missing"}.`);
-  if (book.qaStatus !== "needs_review") failures.push(`${id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review.`);
-  if (!book.teacherPreviewOnly) failures.push(`${id}: teacherPreviewOnly is not true.`);
+  if (book.qaStatus !== "approved") failures.push(`${id}: qaStatus is ${book.qaStatus || "missing"}, expected approved.`);
+  if (book.teacherPreviewOnly) failures.push(`${id}: teacherPreviewOnly should be false for student release.`);
   if (storyPages.length !== expected.pages) failures.push(`${id}: story page count is ${storyPages.length}, expected ${expected.pages}.`);
   (expectedBobBooks610Text[id] || []).forEach((expectedText, index) => {
     const pageText = storyPages[index]?.text || "";
@@ -246,8 +246,8 @@ for (const expected of expectedJamesBooks) {
   if (normalizeGuidedReadingType(book.type) !== "fiction") failures.push(`${expected.id}: type is ${book.type}, expected fiction.`);
   if (book.seriesTitle !== "James and Anna") failures.push(`${expected.id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
   if (book.ageRange !== "5-6") failures.push(`${expected.id}: ageRange is ${book.ageRange || "missing"}.`);
-  if (book.qaStatus !== "needs_review") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review for teacher preview.`);
-  if (!book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be true for teacher preview.`);
+  if (book.qaStatus !== "approved") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved for student release.`);
+  if (book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be false for student release.`);
   if (storyPages.length !== expected.pages) failures.push(`${expected.id}: source page count is ${storyPages.length}, expected ${expected.pages}.`);
   if (!coverExists) failures.push(`${expected.id}: cover missing at ${book.coverImage || "missing"}.`);
   if (importedPages.length !== expected.pages) failures.push(`${expected.id}: imported story image count is ${importedPages.length}, expected ${expected.pages}.`);
@@ -259,7 +259,7 @@ for (const expected of expectedJamesBooks) {
 
   const visibleBook = visibleJamesBooks.find(item => item.id === expected.id);
   if (!visibleBook) {
-    failures.push(`${expected.id}: missing from visible teacher-preview shelf.`);
+    failures.push(`${expected.id}: missing from visible approved shelf.`);
   } else if ((visibleBook.pages || []).length !== expected.pages) {
     failures.push(`${expected.id}: visible preview page count is ${visibleBook.pages?.length || 0}, expected ${expected.pages} delivered pages.`);
   }
@@ -296,8 +296,8 @@ for (const expected of expectedAidenBooks) {
   if (normalizeGuidedReadingType(book.type) !== "fiction") failures.push(`${expected.id}: type is ${book.type}, expected fiction.`);
   if (book.seriesTitle !== "Aiden and Betty") failures.push(`${expected.id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
   if (book.ageRange !== "6-7") failures.push(`${expected.id}: ageRange is ${book.ageRange || "missing"}.`);
-  if (book.qaStatus !== "needs_review") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review for teacher preview.`);
-  if (!book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be true for teacher preview.`);
+  if (book.qaStatus !== "approved") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved for student release.`);
+  if (book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be false for student release.`);
   if (storyPages.length !== expected.pages) failures.push(`${expected.id}: source page count is ${storyPages.length}, expected ${expected.pages}.`);
   if (!coverExists) failures.push(`${expected.id}: cover missing at ${book.coverImage || "missing"}.`);
   if (importedPages.length !== expected.pages) failures.push(`${expected.id}: imported story image count is ${importedPages.length}, expected ${expected.pages}.`);
@@ -311,7 +311,7 @@ for (const expected of expectedAidenBooks) {
 
   const visibleBook = visibleAidenBooks.find(item => item.id === expected.id);
   if (!visibleBook) {
-    failures.push(`${expected.id}: missing from visible teacher-preview shelf.`);
+    failures.push(`${expected.id}: missing from visible approved shelf.`);
   } else if ((visibleBook.pages || []).length !== expected.pages) {
     failures.push(`${expected.id}: visible preview page count is ${visibleBook.pages?.length || 0}, expected ${expected.pages} delivered pages.`);
   }
@@ -360,7 +360,7 @@ const bobReport = [
   "",
   failures.length ? "## Failures" : "## Result",
   "",
-  failures.length ? failures.filter(item => item.includes("Bob") || item.includes("bob-and-nan") || item.includes("Nonfiction") || item.includes("Old deleted")).map(item => `- ${item}`).join("\n") || "None affecting Bob and Nan." : "PASS: Bob and Nan is wired as a Level A fiction teacher-preview series without restoring old fiction books."
+  failures.length ? failures.filter(item => item.includes("Bob") || item.includes("bob-and-nan") || item.includes("Nonfiction") || item.includes("Old deleted")).map(item => `- ${item}`).join("\n") || "None affecting Bob and Nan." : "PASS: Bob and Nan is wired as an approved Level A fiction series without restoring old fiction books."
 ];
 
 const bobBooks610Report = [
@@ -382,11 +382,11 @@ const bobBooks610Report = [
   "",
   `- Bob and Nan Books 6-10 imported: ${bobBooks610Rows.length}`,
   "- Import order: Level A books 6-10.",
-  "- Preview scope: full delivered image pack is imported for all story pages; books remain teacher-preview until QA approves text-picture matching.",
+  "- Release scope: full delivered image pack is imported for all story pages; books are approved for student readers.",
   `- Imported covers: ${bobBooks610Rows.filter(row => row.coverExists).length}/5`,
   `- Imported story page images: ${bobBooks610Rows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
   `- Missing story page images: ${bobBooks610Rows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
-  `- QA status: needs_review`,
+  `- QA status: approved`,
   `- Validation failures: ${failures.length}`,
   "",
   "## Imported Books",
@@ -403,7 +403,7 @@ const bobBooks610Report = [
   "",
   "## Cover Review",
   "",
-  "The delivered covers from the Books 6-10 Bob and Nan image pack were used. Source QA notes mark the covers and page images as passing first-pass QA; books remain `needs_review` for teacher QA before student release.",
+  "The delivered covers from the Books 6-10 Bob and Nan image pack were used. Source QA notes mark the covers and page images as passing first-pass QA; books are now approved for student release.",
   "",
   "## Questionable Covers",
   "",
@@ -415,7 +415,7 @@ const bobBooks610Report = [
   "",
   failures.length ? "## Failures" : "## Result",
   "",
-  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Bob and Nan Level A Books 6-10 are visible as teacher previews with full story image coverage."
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Bob and Nan Level A Books 6-10 are visible to student readers with full story image coverage."
 ];
 
 const jamesReport = [
@@ -430,8 +430,8 @@ const jamesReport = [
   "## Summary",
   "",
   `- James and Anna draft books added: ${draftJamesBooks.length}`,
-  `- James and Anna teacher-preview books: ${visibleJamesBooks.length}`,
-  "- Preview scope: full delivered image pack is imported for all story pages; books remain teacher-preview until QA approves text-picture matching.",
+  `- James and Anna approved books: ${visibleJamesBooks.length}`,
+  "- Release scope: full delivered image pack is imported for all story pages; books are approved for student readers.",
   `- Imported covers: ${jamesRows.filter(row => row.coverExists).length}/${expectedJamesBooks.length}`,
   `- Imported story page images: ${jamesRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
   `- Missing story page images: ${jamesRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
@@ -449,12 +449,12 @@ const jamesReport = [
   "",
   "The imported pages are mapped safely: `page-001.webp` is the first story page image, and no one-page shift was introduced.",
   "",
-  "Books 1-5 use the existing imported assets. Books 6-10 use the delivered `cover.webp` files from the James and Anna Level B Books 6-10 image pack. All books remain teacher-preview until QA approves text-picture matching.",
+  "Books 1-5 use the existing imported assets. Books 6-10 use the delivered `cover.webp` files from the James and Anna Level B Books 6-10 image pack. All books are approved for student readers.",
   "",
   "## Remaining TODOs",
   "",
-  "- Keep `qaStatus: needs_review` and teacher-preview status until all delivered pages are checked.",
-  "- Keep Books 6-10 in `needs_review` until the optional source QA notes are reviewed.",
+  "- Keep `qaStatus: approved` for released fiction books.",
+  "- Continue requiring cover and story image validation for every approved book.",
   "",
   "## Warnings",
   "",
@@ -462,7 +462,7 @@ const jamesReport = [
   "",
   failures.length ? "## Failures" : "## Result",
   "",
-  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: James and Anna assets are visible as teacher previews with full story image coverage."
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: James and Anna assets are visible to student readers with full story image coverage."
 ];
 
 const aidenReport = [
@@ -483,9 +483,9 @@ const aidenReport = [
   "## Summary",
   "",
   `- Aiden and Betty draft books added: ${draftAidenBooks.length}`,
-  `- Aiden and Betty teacher-preview books: ${visibleAidenBooks.length}`,
+  `- Aiden and Betty approved books: ${visibleAidenBooks.length}`,
   "- Import order: Level C books 1-10.",
-  "- Preview scope: full delivered image pack is imported for all story pages; books remain teacher-preview until QA approves text-picture matching.",
+  "- Release scope: full delivered image pack is imported for all story pages; books are approved for student readers.",
   `- Imported covers: ${aidenRows.filter(row => row.coverExists).length}/10`,
   `- Imported story page images: ${aidenRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
   `- Missing story page images: ${aidenRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
@@ -507,11 +507,11 @@ const aidenReport = [
   "",
   "## Cover Review",
   "",
-  "The nested delivered Aiden and Betty covers were used. Source pack QA notes mark cover/title images and character consistency as PASS; books still remain `needs_review` for teacher QA before student release.",
+  "The nested delivered Aiden and Betty covers were used. Source pack QA notes mark cover/title images and character consistency as PASS; books are now approved for student release.",
   "",
   "## Remaining TODOs",
   "",
-  "- Keep `qaStatus: needs_review` and teacher-preview status until all delivered pages are checked in the app.",
+  "- Keep `qaStatus: approved` for released fiction books.",
   "- Replace any cover later only if teacher QA identifies a mismatch.",
   "",
   "## Warnings",
@@ -520,7 +520,7 @@ const aidenReport = [
   "",
   failures.length ? "## Failures" : "## Result",
   "",
-  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Aiden and Betty Level C books 1-5 are visible as teacher previews with full story image coverage."
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Aiden and Betty Level C books are visible to student readers with full story image coverage."
 ];
 
 fs.mkdirSync(path.dirname(bobReportPath), { recursive: true });

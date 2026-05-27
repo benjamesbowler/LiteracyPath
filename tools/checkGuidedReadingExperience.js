@@ -75,8 +75,8 @@ for (const book of guidedReadingBooks) {
   if (book.qaStatus === "draft_needs_assets" && book.active === true && !book.reviewMode) {
     failures.push(`${book.id}: draft book is active without review mode.`);
   }
-  if (allowedFictionIds.has(book.id) && (book.qaStatus !== "needs_review" || !book.teacherPreviewOnly)) {
-    failures.push(`${book.id}: fiction series books should remain teacher-preview needs_review until QA approval.`);
+  if (allowedFictionIds.has(book.id) && (book.qaStatus !== "approved" || book.teacherPreviewOnly || book.active === false)) {
+    failures.push(`${book.id}: fiction series books should be approved, active, and available to student readers.`);
   }
   if (book.qaStatus === "approved" && (book.pages || []).some(page => page.qaStatus && !["approved", "needs_image_alignment_review"].includes(page.qaStatus))) {
     failures.push(`${book.id}: approved book contains non-approved/review page status.`);

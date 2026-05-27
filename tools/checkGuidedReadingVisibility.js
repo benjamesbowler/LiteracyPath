@@ -65,8 +65,8 @@ const rows = guidedReadingBooks.map(book => {
     .map(page => page.pageNumber);
   if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.active === false) failures.push(`${book.id}: active is false`);
   if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.qaStatus !== "approved") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}`);
-  if (allowedFictionIds.has(book.id) && book.qaStatus !== "needs_review") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review`);
-  if (allowedFictionIds.has(book.id) && !book.teacherPreviewOnly) failures.push(`${book.id}: teacherPreviewOnly is not true`);
+  if (allowedFictionIds.has(book.id) && book.qaStatus !== "approved") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved`);
+  if (allowedFictionIds.has(book.id) && book.teacherPreviewOnly) failures.push(`${book.id}: teacherPreviewOnly should be false for student release`);
   if (!book.pages?.length) failures.push(`${book.id}: no pages`);
   if (!publicPathExists(book.coverImage)) failures.push(`${book.id}: cover image missing`);
   if (pageImagesMissing.length) failures.push(`${book.id}: missing page images ${pageImagesMissing.join(", ")}`);
@@ -89,7 +89,7 @@ const report = [
   "",
   "## Current Policy",
   "",
-  "Guided Reading now allows approved nonfiction books plus the Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction teacher-preview series. Bob and Nan, James and Anna, and Aiden and Betty now include books 1-10. Old deleted fiction and public-domain books must remain off the readable shelf.",
+  "Guided Reading now allows approved nonfiction books plus approved Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction series. Bob and Nan, James and Anna, and Aiden and Betty now include books 1-10. Old deleted fiction and public-domain books must remain off the readable shelf.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${nonfictionBooks.length}`,
@@ -102,7 +102,7 @@ const report = [
   "",
   failures.length
     ? `## Failures\n\n${failures.map(item => `- ${item}`).join("\n")}`
-    : "## Result\n\nPASS: Bob and Nan, James and Anna, and Aiden and Betty preview fiction are visible, old fiction stays hidden, and nonfiction Guided Reading books remain readable."
+    : "## Result\n\nPASS: Bob and Nan, James and Anna, and Aiden and Betty approved fiction are visible to student readers, old fiction stays hidden, and nonfiction Guided Reading books remain readable."
 ];
 
 fs.writeFileSync(reportPath, `${report.join("\n")}\n`);
