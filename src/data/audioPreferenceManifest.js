@@ -1,4 +1,5 @@
 import { getKimiCleanAudio } from "./kimiCleanAudioManifest.js";
+import { importedVocabularyMediaManifest } from "./importedVocabularyMediaManifest.js";
 import { kimiVocabulary500AudioPreferences } from "./kimiVocabulary500AudioPreferences.js";
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
 import { initialSoundAudioMediaIds } from "../content/initialSounds/initialSoundImportedMediaStatus.js";
@@ -215,6 +216,19 @@ export const audioPreferenceManifest = Object.fromEntries([
       notes: "Approved exact-word MP3 from the imported final /b/ Level 1 media pack."
     })
   ]),
+  ...Object.entries(importedVocabularyMediaManifest)
+    .filter(([, media]) => media.audio)
+    .map(([key, media]) => [
+      key,
+      approvedPreference({
+        key,
+        word: media.textSpoken || media.key || key,
+        category: "words",
+        fallbackPath: media.audio,
+        source: media.source,
+        notes: "Approved imported vocabulary audio from the strict missing-media repair pack."
+      })
+    ]),
   ...approvedHfwAudioKeys.map(word => [
     `hfw:${word}`,
     approvedPreference({

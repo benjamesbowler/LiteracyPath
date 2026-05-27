@@ -1,5 +1,6 @@
 import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
+import { getImportedVocabularyMedia } from "./importedVocabularyMediaManifest.js";
 import { getLexiconEntry } from "../content/lexicon/masterWordLexicon.js";
 
 const MEDIA_SKILLS = new Set([
@@ -47,15 +48,17 @@ function resolveWordAsset(word) {
   if (!normalized) return null;
   const childAsset = getChildWordAsset(normalized);
   const lexiconEntry = getLexiconEntry(normalized);
+  const importedMedia = getImportedVocabularyMedia(normalized);
   const image = firstPath(
     childAsset?.image,
     childAsset?.fallbackImage,
     lexiconEntry?.imageUrl,
-    lexiconEntry?.imagePath
+    lexiconEntry?.imagePath,
+    importedMedia?.image
   );
   const audio = getApprovedAudioPath(
     normalized,
-    firstPath(childAsset?.audio, getChildAudioPath(normalized), lexiconEntry?.audioUrl, lexiconEntry?.audioPath)
+    firstPath(childAsset?.audio, getChildAudioPath(normalized), lexiconEntry?.audioUrl, lexiconEntry?.audioPath, importedMedia?.audio)
   );
   if (!image && !audio) return null;
   return {
@@ -125,9 +128,13 @@ function shouldBuildImageCards(question = {}, skillId = "") {
 
 export function enrichQuestionWithExistingMedia(question = {}) {
   const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
-  if (!MEDIA_SKILLS.has(skillId)) return question;
+  const inferredTargetWord = inferTargetWord(question);
+  const answerWord = normalizeWord(answerValue(question.correctAnswer || question.answer));
+  const importedMediaWord = [inferredTargetWord, answerWord]
+    .find(word => word && getImportedVocabularyMedia(word));
+  if (!MEDIA_SKILLS.has(skillId) && !importedMediaWord) return question;
 
-  const targetWord = inferTargetWord(question);
+  const targetWord = inferredTargetWord || importedMediaWord;
   const targetAsset = resolveWordAsset(targetWord);
   const enriched = {
     ...question,
