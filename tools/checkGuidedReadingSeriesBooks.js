@@ -145,7 +145,12 @@ const expectedFirstFactsBooks = [
   { id: "first-facts-a-17-hello-sun", title: "Hello, Sun!", pages: 7 },
   { id: "first-facts-a-18-the-moon", title: "The Moon", pages: 7 },
   { id: "first-facts-a-19-day-and-night", title: "Day and Night", pages: 7 },
-  { id: "first-facts-a-20-my-five-senses", title: "My Five Senses", pages: 8 }
+  { id: "first-facts-a-20-my-five-senses", title: "My Five Senses", pages: 8 },
+  { id: "first-facts-a-21-how-i-grow", title: "How I Grow", pages: 7 },
+  { id: "first-facts-a-22-staying-healthy", title: "Staying Healthy", pages: 7 },
+  { id: "first-facts-a-23-my-body", title: "My Body", pages: 8 },
+  { id: "first-facts-a-24-rocks-and-pebbles", title: "Rocks and Pebbles", pages: 7 },
+  { id: "first-facts-a-25-water-everywhere", title: "Water Everywhere", pages: 9 }
 ];
 
 const oldFictionIds = [
@@ -211,8 +216,8 @@ if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James an
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
 if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty approved books, found ${visibleAidenBooks.length}.`);
 if (draftDinoBooks.length !== 20) failures.push(`Expected 20 Dino Pals draft books, found ${draftDinoBooks.length}.`);
-if (visibleFirstFactsBooks.length !== 20) failures.push(`Expected 20 First Facts public nonfiction books, found ${visibleFirstFactsBooks.length}.`);
-if (visibleNonfictionBooks.length !== 41) failures.push(`Expected 41 nonfiction books after First Facts import, found ${visibleNonfictionBooks.length}.`);
+if (visibleFirstFactsBooks.length !== 25) failures.push(`Expected 25 First Facts public nonfiction books, found ${visibleFirstFactsBooks.length}.`);
+if (visibleNonfictionBooks.length !== 46) failures.push(`Expected 46 nonfiction books after First Facts Books 21-25 import, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
 if (removedNonfictionRestored.length) failures.push(`Deleted nonfiction ids were restored: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 

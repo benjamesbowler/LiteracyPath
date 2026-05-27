@@ -83,11 +83,11 @@ if (!nonfictionBooks.length) {
 if (fictionBooks.length !== 50) {
   failures.push(`Expected 50 fiction books, found ${fictionBooks.length}.`);
 }
-if (nonfictionBooks.length !== 41) {
-  failures.push(`Expected 41 nonfiction books after First Facts import, found ${nonfictionBooks.length}.`);
+if (nonfictionBooks.length !== 46) {
+  failures.push(`Expected 46 nonfiction books after First Facts Books 21-25 import, found ${nonfictionBooks.length}.`);
 }
-if (guidedReadingBooks.length !== 91) {
-  failures.push(`Expected 91 total Guided Reading books after First Facts import, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 96) {
+  failures.push(`Expected 96 total Guided Reading books after First Facts Books 21-25 import, found ${guidedReadingBooks.length}.`);
 }
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction books are still visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);

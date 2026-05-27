@@ -199,7 +199,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-20 in student public release. First Facts Level A nonfiction books 1-20 are also checked as public nonfiction.",
+  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-20 in student public release. First Facts Level A nonfiction books 1-25 are also checked as public nonfiction.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

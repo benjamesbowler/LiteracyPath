@@ -9228,6 +9228,2297 @@ const firstFactsLevelABooks = [
         "active": true
       }
     ]
+  },
+  {
+    "id": "first-facts-a-21-how-i-grow",
+    "seriesId": "first-facts",
+    "seriesTitle": "First Facts",
+    "title": "How I Grow",
+    "type": "nonfiction",
+    "category": "nonfiction",
+    "level": "A",
+    "guidedReadingLevel": "A",
+    "ageRange": "4-5",
+    "bookNumber": 21,
+    "author": "Mara Lane",
+    "illustrator": "Theo Finch",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
+    "active": true,
+    "teacherPreviewOnly": false,
+    "source": "first_facts_level_a_nonfiction_pack_2026_05_27_books_21_25",
+    "sourceDocx": "NF_A21_How_I_Grow.docx",
+    "coverImage": "/guided-reading/nonfiction/first-facts/book-21/cover.webp",
+    "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/full-book.mp3",
+    "targetPatterns": [
+      "nonfiction",
+      "level-a",
+      "first-facts"
+    ],
+    "sightWords": [],
+    "vocabulary": [
+      "when",
+      "i",
+      "was",
+      "a",
+      "baby",
+      "tiny",
+      "could",
+      "not",
+      "walk",
+      "or",
+      "talk",
+      "grew",
+      "bigger",
+      "sit",
+      "up",
+      "and",
+      "crawl",
+      "got",
+      "stronger",
+      "took",
+      "my",
+      "first",
+      "steps",
+      "learned"
+    ],
+    "topicTags": [
+      "when",
+      "i",
+      "was",
+      "a",
+      "baby",
+      "tiny",
+      "could",
+      "not"
+    ],
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "When I was a baby, I was tiny. I could not walk or talk.",
+        "image": "/guided-reading/nonfiction/first-facts/book-21/page-001.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-001.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-001.mp3",
+        "words": [
+          {
+            "text": "When",
+            "audioPath": "/guided-reading/audio/words/when.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "was",
+            "audioPath": "/guided-reading/audio/words/was.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "baby",
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "was",
+            "audioPath": "/guided-reading/audio/words/was.mp3"
+          },
+          {
+            "text": "tiny",
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "could",
+            "audioPath": "/guided-reading/audio/words/could.mp3"
+          },
+          {
+            "text": "not",
+            "audioPath": "/guided-reading/audio/words/not.mp3"
+          },
+          {
+            "text": "walk",
+            "audioPath": "/guided-reading/audio/words/walk.mp3"
+          },
+          {
+            "text": "or",
+            "audioPath": "/guided-reading/audio/words/or.mp3"
+          },
+          {
+            "text": "talk",
+            "audioPath": "/guided-reading/audio/words/talk.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 2,
+        "text": "I grew bigger. I could sit up and crawl.",
+        "image": "/guided-reading/nonfiction/first-facts/book-21/page-002.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-002.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-002.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "grew",
+            "audioPath": "/guided-reading/audio/words/grew.mp3"
+          },
+          {
+            "text": "bigger",
+            "audioPath": "/guided-reading/audio/words/bigger.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "could",
+            "audioPath": "/guided-reading/audio/words/could.mp3"
+          },
+          {
+            "text": "sit",
+            "audioPath": "/guided-reading/audio/words/sit.mp3"
+          },
+          {
+            "text": "up",
+            "audioPath": "/guided-reading/audio/words/up.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "crawl",
+            "audioPath": "/guided-reading/audio/words/crawl.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 3,
+        "text": "I got stronger. I took my first steps!",
+        "image": "/guided-reading/nonfiction/first-facts/book-21/page-003.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-003.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-003.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "got",
+            "audioPath": "/guided-reading/audio/words/got.mp3"
+          },
+          {
+            "text": "stronger",
+            "audioPath": "/guided-reading/audio/words/stronger.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "took",
+            "audioPath": "/guided-reading/audio/words/took.mp3"
+          },
+          {
+            "text": "my",
+            "audioPath": "/guided-reading/audio/words/my.mp3"
+          },
+          {
+            "text": "first",
+            "audioPath": "/guided-reading/audio/words/first.mp3"
+          },
+          {
+            "text": "steps",
+            "audioPath": "/guided-reading/audio/words/steps.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 4,
+        "text": "I learned to run and jump. I grew more every day.",
+        "image": "/guided-reading/nonfiction/first-facts/book-21/page-004.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-004.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-004.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "learned",
+            "audioPath": "/guided-reading/audio/words/learned.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "run",
+            "audioPath": "/guided-reading/audio/words/run.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "jump",
+            "audioPath": "/guided-reading/audio/words/jump.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "grew",
+            "audioPath": "/guided-reading/audio/words/grew.mp3"
+          },
+          {
+            "text": "more",
+            "audioPath": "/guided-reading/audio/words/more.mp3"
+          },
+          {
+            "text": "every",
+            "audioPath": "/guided-reading/audio/words/every.mp3"
+          },
+          {
+            "text": "day",
+            "audioPath": "/guided-reading/audio/words/day.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 5,
+        "text": "Now I am bigger. I can do so many things!",
+        "image": "/guided-reading/nonfiction/first-facts/book-21/page-005.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-005.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-005.mp3",
+        "words": [
+          {
+            "text": "Now",
+            "audioPath": "/guided-reading/audio/words/now.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "am",
+            "audioPath": "/guided-reading/audio/words/am.mp3"
+          },
+          {
+            "text": "bigger",
+            "audioPath": "/guided-reading/audio/words/bigger.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "do",
+            "audioPath": "/guided-reading/audio/words/do.mp3"
+          },
+          {
+            "text": "so",
+            "audioPath": "/guided-reading/audio/words/so.mp3"
+          },
+          {
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
+          },
+          {
+            "text": "things",
+            "audioPath": "/guided-reading/audio/words/things.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 6,
+        "text": "I eat well to grow. Food helps my body get big and strong.",
+        "image": "/guided-reading/nonfiction/first-facts/book-21/page-006.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-006.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-006.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "eat",
+            "audioPath": "/guided-reading/audio/words/eat.mp3"
+          },
+          {
+            "text": "well",
+            "audioPath": "/guided-reading/audio/words/well.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "grow",
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
+          },
+          {
+            "text": "Food",
+            "audioPath": "/guided-reading/audio/words/food.mp3"
+          },
+          {
+            "text": "helps",
+            "audioPath": "/guided-reading/audio/words/helps.mp3"
+          },
+          {
+            "text": "my",
+            "audioPath": "/guided-reading/audio/words/my.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          },
+          {
+            "text": "get",
+            "audioPath": "/guided-reading/audio/words/get.mp3"
+          },
+          {
+            "text": "big",
+            "audioPath": "/guided-reading/audio/words/big.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "strong",
+            "audioPath": "/guided-reading/audio/words/strong.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 7,
+        "text": "I will keep on growing. One day I will be tall!",
+        "image": "/guided-reading/nonfiction/first-facts/book-21/page-007.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-007.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/page-007.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "will",
+            "audioPath": "/guided-reading/audio/words/will.mp3"
+          },
+          {
+            "text": "keep",
+            "audioPath": "/guided-reading/audio/words/keep.mp3"
+          },
+          {
+            "text": "on",
+            "audioPath": "/guided-reading/audio/words/on.mp3"
+          },
+          {
+            "text": "growing",
+            "audioPath": "/guided-reading/audio/words/growing.mp3"
+          },
+          {
+            "text": "One",
+            "audioPath": "/guided-reading/audio/words/one.mp3"
+          },
+          {
+            "text": "day",
+            "audioPath": "/guided-reading/audio/words/day.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "will",
+            "audioPath": "/guided-reading/audio/words/will.mp3"
+          },
+          {
+            "text": "be",
+            "audioPath": "/guided-reading/audio/words/be.mp3"
+          },
+          {
+            "text": "tall",
+            "audioPath": "/guided-reading/audio/words/tall.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      }
+    ]
+  },
+  {
+    "id": "first-facts-a-22-staying-healthy",
+    "seriesId": "first-facts",
+    "seriesTitle": "First Facts",
+    "title": "Staying Healthy",
+    "type": "nonfiction",
+    "category": "nonfiction",
+    "level": "A",
+    "guidedReadingLevel": "A",
+    "ageRange": "4-5",
+    "bookNumber": 22,
+    "author": "Mara Lane",
+    "illustrator": "Theo Finch",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
+    "active": true,
+    "teacherPreviewOnly": false,
+    "source": "first_facts_level_a_nonfiction_pack_2026_05_27_books_21_25",
+    "sourceDocx": "NF_A22_Staying_Healthy.docx",
+    "coverImage": "/guided-reading/nonfiction/first-facts/book-22/cover.webp",
+    "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/full-book.mp3",
+    "targetPatterns": [
+      "nonfiction",
+      "level-a",
+      "first-facts"
+    ],
+    "sightWords": [],
+    "vocabulary": [
+      "eat",
+      "good",
+      "food",
+      "fruits",
+      "and",
+      "vegetables",
+      "are",
+      "for",
+      "you",
+      "drink",
+      "water",
+      "is",
+      "your",
+      "body",
+      "move",
+      "run",
+      "jump",
+      "play",
+      "wash",
+      "hands",
+      "clean",
+      "keep",
+      "germs",
+      "away"
+    ],
+    "topicTags": [
+      "eat",
+      "good",
+      "food",
+      "fruits",
+      "and",
+      "vegetables",
+      "are",
+      "for"
+    ],
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Eat good food. Fruits and vegetables are good for you.",
+        "image": "/guided-reading/nonfiction/first-facts/book-22/page-001.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-001.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-001.mp3",
+        "words": [
+          {
+            "text": "Eat",
+            "audioPath": "/guided-reading/audio/words/eat.mp3"
+          },
+          {
+            "text": "good",
+            "audioPath": "/guided-reading/audio/words/good.mp3"
+          },
+          {
+            "text": "food",
+            "audioPath": "/guided-reading/audio/words/food.mp3"
+          },
+          {
+            "text": "Fruits",
+            "audioPath": "/guided-reading/audio/words/fruits.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "vegetables",
+            "audioPath": "/guided-reading/audio/words/vegetables.mp3"
+          },
+          {
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
+          },
+          {
+            "text": "good",
+            "audioPath": "/guided-reading/audio/words/good.mp3"
+          },
+          {
+            "text": "for",
+            "audioPath": "/guided-reading/audio/words/for.mp3"
+          },
+          {
+            "text": "you",
+            "audioPath": "/guided-reading/audio/words/you.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 2,
+        "text": "Drink water. Water is good for your body.",
+        "image": "/guided-reading/nonfiction/first-facts/book-22/page-002.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-002.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-002.mp3",
+        "words": [
+          {
+            "text": "Drink",
+            "audioPath": "/guided-reading/audio/words/drink.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
+          },
+          {
+            "text": "good",
+            "audioPath": "/guided-reading/audio/words/good.mp3"
+          },
+          {
+            "text": "for",
+            "audioPath": "/guided-reading/audio/words/for.mp3"
+          },
+          {
+            "text": "your",
+            "audioPath": "/guided-reading/audio/words/your.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 3,
+        "text": "Move your body. Run, jump, and play!",
+        "image": "/guided-reading/nonfiction/first-facts/book-22/page-003.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-003.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-003.mp3",
+        "words": [
+          {
+            "text": "Move",
+            "audioPath": "/guided-reading/audio/words/move.mp3"
+          },
+          {
+            "text": "your",
+            "audioPath": "/guided-reading/audio/words/your.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          },
+          {
+            "text": "Run",
+            "audioPath": "/guided-reading/audio/words/run.mp3"
+          },
+          {
+            "text": "jump",
+            "audioPath": "/guided-reading/audio/words/jump.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "play",
+            "audioPath": "/guided-reading/audio/words/play.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 4,
+        "text": "Wash your hands. Clean hands keep germs away.",
+        "image": "/guided-reading/nonfiction/first-facts/book-22/page-004.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-004.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-004.mp3",
+        "words": [
+          {
+            "text": "Wash",
+            "audioPath": "/guided-reading/audio/words/wash.mp3"
+          },
+          {
+            "text": "your",
+            "audioPath": "/guided-reading/audio/words/your.mp3"
+          },
+          {
+            "text": "hands",
+            "audioPath": "/guided-reading/audio/words/hands.mp3"
+          },
+          {
+            "text": "Clean",
+            "audioPath": "/guided-reading/audio/words/clean.mp3"
+          },
+          {
+            "text": "hands",
+            "audioPath": "/guided-reading/audio/words/hands.mp3"
+          },
+          {
+            "text": "keep",
+            "audioPath": "/guided-reading/audio/words/keep.mp3"
+          },
+          {
+            "text": "germs",
+            "audioPath": "/guided-reading/audio/words/germs.mp3"
+          },
+          {
+            "text": "away",
+            "audioPath": "/guided-reading/audio/words/away.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 5,
+        "text": "Brush your teeth. Brush them twice a day.",
+        "image": "/guided-reading/nonfiction/first-facts/book-22/page-005.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-005.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-005.mp3",
+        "words": [
+          {
+            "text": "Brush",
+            "audioPath": "/guided-reading/audio/words/brush.mp3"
+          },
+          {
+            "text": "your",
+            "audioPath": "/guided-reading/audio/words/your.mp3"
+          },
+          {
+            "text": "teeth",
+            "audioPath": "/guided-reading/audio/words/teeth.mp3"
+          },
+          {
+            "text": "Brush",
+            "audioPath": "/guided-reading/audio/words/brush.mp3"
+          },
+          {
+            "text": "them",
+            "audioPath": "/guided-reading/audio/words/them.mp3"
+          },
+          {
+            "text": "twice",
+            "audioPath": "/guided-reading/audio/words/twice.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "day",
+            "audioPath": "/guided-reading/audio/words/day.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 6,
+        "text": "Sleep is important. Your body grows when you sleep.",
+        "image": "/guided-reading/nonfiction/first-facts/book-22/page-006.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-006.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-006.mp3",
+        "words": [
+          {
+            "text": "Sleep",
+            "audioPath": "/guided-reading/audio/words/sleep.mp3"
+          },
+          {
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
+          },
+          {
+            "text": "important",
+            "audioPath": "/guided-reading/audio/words/important.mp3"
+          },
+          {
+            "text": "Your",
+            "audioPath": "/guided-reading/audio/words/your.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          },
+          {
+            "text": "grows",
+            "audioPath": "/guided-reading/audio/words/grows.mp3"
+          },
+          {
+            "text": "when",
+            "audioPath": "/guided-reading/audio/words/when.mp3"
+          },
+          {
+            "text": "you",
+            "audioPath": "/guided-reading/audio/words/you.mp3"
+          },
+          {
+            "text": "sleep",
+            "audioPath": "/guided-reading/audio/words/sleep.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 7,
+        "text": "Stay healthy every day! Eat, move, sleep, and smile!",
+        "image": "/guided-reading/nonfiction/first-facts/book-22/page-007.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-007.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/page-007.mp3",
+        "words": [
+          {
+            "text": "Stay",
+            "audioPath": "/guided-reading/audio/words/stay.mp3"
+          },
+          {
+            "text": "healthy",
+            "audioPath": "/guided-reading/audio/words/healthy.mp3"
+          },
+          {
+            "text": "every",
+            "audioPath": "/guided-reading/audio/words/every.mp3"
+          },
+          {
+            "text": "day",
+            "audioPath": "/guided-reading/audio/words/day.mp3"
+          },
+          {
+            "text": "Eat",
+            "audioPath": "/guided-reading/audio/words/eat.mp3"
+          },
+          {
+            "text": "move",
+            "audioPath": "/guided-reading/audio/words/move.mp3"
+          },
+          {
+            "text": "sleep",
+            "audioPath": "/guided-reading/audio/words/sleep.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "smile",
+            "audioPath": "/guided-reading/audio/words/smile.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      }
+    ]
+  },
+  {
+    "id": "first-facts-a-23-my-body",
+    "seriesId": "first-facts",
+    "seriesTitle": "First Facts",
+    "title": "My Body",
+    "type": "nonfiction",
+    "category": "nonfiction",
+    "level": "A",
+    "guidedReadingLevel": "A",
+    "ageRange": "4-5",
+    "bookNumber": 23,
+    "author": "Mara Lane",
+    "illustrator": "Theo Finch",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
+    "active": true,
+    "teacherPreviewOnly": false,
+    "source": "first_facts_level_a_nonfiction_pack_2026_05_27_books_21_25",
+    "sourceDocx": "NF_A23_My_Body.docx",
+    "coverImage": "/guided-reading/nonfiction/first-facts/book-23/cover.webp",
+    "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/full-book.mp3",
+    "targetPatterns": [
+      "nonfiction",
+      "level-a",
+      "first-facts"
+    ],
+    "sightWords": [],
+    "vocabulary": [
+      "i",
+      "have",
+      "a",
+      "head",
+      "face",
+      "can",
+      "smile",
+      "two",
+      "arms",
+      "hands",
+      "clap",
+      "tummy",
+      "food",
+      "goes",
+      "into",
+      "my",
+      "rumble",
+      "legs",
+      "feet",
+      "kick",
+      "and",
+      "run",
+      "eyes",
+      "to"
+    ],
+    "topicTags": [
+      "i",
+      "have",
+      "a",
+      "head",
+      "face",
+      "can",
+      "smile",
+      "two"
+    ],
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "I have a head. I have a face. I can smile!",
+        "image": "/guided-reading/nonfiction/first-facts/book-23/page-001.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-001.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-001.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "head",
+            "audioPath": "/guided-reading/audio/words/head.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "face",
+            "audioPath": "/guided-reading/audio/words/face.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "smile",
+            "audioPath": "/guided-reading/audio/words/smile.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 2,
+        "text": "I have two arms. I have two hands. I can clap!",
+        "image": "/guided-reading/nonfiction/first-facts/book-23/page-002.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-002.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-002.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "two",
+            "audioPath": "/guided-reading/audio/words/two.mp3"
+          },
+          {
+            "text": "arms",
+            "audioPath": "/guided-reading/audio/words/arms.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "two",
+            "audioPath": "/guided-reading/audio/words/two.mp3"
+          },
+          {
+            "text": "hands",
+            "audioPath": "/guided-reading/audio/words/hands.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "clap",
+            "audioPath": "/guided-reading/audio/words/clap.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 3,
+        "text": "I have a tummy. Food goes into my tummy. Rumble!",
+        "image": "/guided-reading/nonfiction/first-facts/book-23/page-003.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-003.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-003.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "tummy",
+            "audioPath": "/guided-reading/audio/words/tummy.mp3"
+          },
+          {
+            "text": "Food",
+            "audioPath": "/guided-reading/audio/words/food.mp3"
+          },
+          {
+            "text": "goes",
+            "audioPath": "/guided-reading/audio/words/goes.mp3"
+          },
+          {
+            "text": "into",
+            "audioPath": "/guided-reading/audio/words/into.mp3"
+          },
+          {
+            "text": "my",
+            "audioPath": "/guided-reading/audio/words/my.mp3"
+          },
+          {
+            "text": "tummy",
+            "audioPath": "/guided-reading/audio/words/tummy.mp3"
+          },
+          {
+            "text": "Rumble",
+            "audioPath": "/guided-reading/audio/words/rumble.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 4,
+        "text": "I have two legs. I have two feet. I can kick and run!",
+        "image": "/guided-reading/nonfiction/first-facts/book-23/page-004.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-004.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-004.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "two",
+            "audioPath": "/guided-reading/audio/words/two.mp3"
+          },
+          {
+            "text": "legs",
+            "audioPath": "/guided-reading/audio/words/legs.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "two",
+            "audioPath": "/guided-reading/audio/words/two.mp3"
+          },
+          {
+            "text": "feet",
+            "audioPath": "/guided-reading/audio/words/feet.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "kick",
+            "audioPath": "/guided-reading/audio/words/kick.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "run",
+            "audioPath": "/guided-reading/audio/words/run.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 5,
+        "text": "I have eyes to see. I have ears to hear. I have a nose to smell.",
+        "image": "/guided-reading/nonfiction/first-facts/book-23/page-005.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-005.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-005.mp3",
+        "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "eyes",
+            "audioPath": "/guided-reading/audio/words/eyes.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "see",
+            "audioPath": "/guided-reading/audio/words/see.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "ears",
+            "audioPath": "/guided-reading/audio/words/ears.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "hear",
+            "audioPath": "/guided-reading/audio/words/hear.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "have",
+            "audioPath": "/guided-reading/audio/words/have.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "nose",
+            "audioPath": "/guided-reading/audio/words/nose.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "smell",
+            "audioPath": "/guided-reading/audio/words/smell.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 6,
+        "text": "My body can do so many things! I can hop, skip, and spin.",
+        "image": "/guided-reading/nonfiction/first-facts/book-23/page-006.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-006.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-006.mp3",
+        "words": [
+          {
+            "text": "My",
+            "audioPath": "/guided-reading/audio/words/my.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "do",
+            "audioPath": "/guided-reading/audio/words/do.mp3"
+          },
+          {
+            "text": "so",
+            "audioPath": "/guided-reading/audio/words/so.mp3"
+          },
+          {
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
+          },
+          {
+            "text": "things",
+            "audioPath": "/guided-reading/audio/words/things.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "hop",
+            "audioPath": "/guided-reading/audio/words/hop.mp3"
+          },
+          {
+            "text": "skip",
+            "audioPath": "/guided-reading/audio/words/skip.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "spin",
+            "audioPath": "/guided-reading/audio/words/spin.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 7,
+        "text": "My body is amazing! I look after it every day.",
+        "image": "/guided-reading/nonfiction/first-facts/book-23/page-007.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-007.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-007.mp3",
+        "words": [
+          {
+            "text": "My",
+            "audioPath": "/guided-reading/audio/words/my.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          },
+          {
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
+          },
+          {
+            "text": "amazing",
+            "audioPath": "/guided-reading/audio/words/amazing.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "look",
+            "audioPath": "/guided-reading/audio/words/look.mp3"
+          },
+          {
+            "text": "after",
+            "audioPath": "/guided-reading/audio/words/after.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "every",
+            "audioPath": "/guided-reading/audio/words/every.mp3"
+          },
+          {
+            "text": "day",
+            "audioPath": "/guided-reading/audio/words/day.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 8,
+        "text": "My body is mine. I keep it safe and strong.",
+        "image": "/guided-reading/nonfiction/first-facts/book-23/page-008.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-008.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/page-008.mp3",
+        "words": [
+          {
+            "text": "My",
+            "audioPath": "/guided-reading/audio/words/my.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          },
+          {
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
+          },
+          {
+            "text": "mine",
+            "audioPath": "/guided-reading/audio/words/mine.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "keep",
+            "audioPath": "/guided-reading/audio/words/keep.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "safe",
+            "audioPath": "/guided-reading/audio/words/safe.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "strong",
+            "audioPath": "/guided-reading/audio/words/strong.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      }
+    ]
+  },
+  {
+    "id": "first-facts-a-24-rocks-and-pebbles",
+    "seriesId": "first-facts",
+    "seriesTitle": "First Facts",
+    "title": "Rocks and Pebbles",
+    "type": "nonfiction",
+    "category": "nonfiction",
+    "level": "A",
+    "guidedReadingLevel": "A",
+    "ageRange": "4-5",
+    "bookNumber": 24,
+    "author": "Mara Lane",
+    "illustrator": "Theo Finch",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
+    "active": true,
+    "teacherPreviewOnly": false,
+    "source": "first_facts_level_a_nonfiction_pack_2026_05_27_books_21_25",
+    "sourceDocx": "NF_A24_Rocks_and_Pebbles.docx",
+    "coverImage": "/guided-reading/nonfiction/first-facts/book-24/cover.webp",
+    "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/full-book.mp3",
+    "targetPatterns": [
+      "nonfiction",
+      "level-a",
+      "first-facts"
+    ],
+    "sightWords": [],
+    "vocabulary": [
+      "rocks",
+      "are",
+      "hard",
+      "can",
+      "be",
+      "big",
+      "or",
+      "small",
+      "pebbles",
+      "smooth",
+      "water",
+      "makes",
+      "them",
+      "many",
+      "colours",
+      "grey",
+      "brown",
+      "red",
+      "and",
+      "white",
+      "we",
+      "use",
+      "to",
+      "build"
+    ],
+    "topicTags": [
+      "rocks",
+      "are",
+      "hard",
+      "can",
+      "be",
+      "big",
+      "or",
+      "small"
+    ],
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Rocks are hard. Rocks can be big or small.",
+        "image": "/guided-reading/nonfiction/first-facts/book-24/page-001.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-001.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-001.mp3",
+        "words": [
+          {
+            "text": "Rocks",
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
+          },
+          {
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
+          },
+          {
+            "text": "hard",
+            "audioPath": "/guided-reading/audio/words/hard.mp3"
+          },
+          {
+            "text": "Rocks",
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "be",
+            "audioPath": "/guided-reading/audio/words/be.mp3"
+          },
+          {
+            "text": "big",
+            "audioPath": "/guided-reading/audio/words/big.mp3"
+          },
+          {
+            "text": "or",
+            "audioPath": "/guided-reading/audio/words/or.mp3"
+          },
+          {
+            "text": "small",
+            "audioPath": "/guided-reading/audio/words/small.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 2,
+        "text": "Pebbles are small, smooth rocks. Water makes them smooth.",
+        "image": "/guided-reading/nonfiction/first-facts/book-24/page-002.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-002.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-002.mp3",
+        "words": [
+          {
+            "text": "Pebbles",
+            "audioPath": "/guided-reading/audio/words/pebbles.mp3"
+          },
+          {
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
+          },
+          {
+            "text": "small",
+            "audioPath": "/guided-reading/audio/words/small.mp3"
+          },
+          {
+            "text": "smooth",
+            "audioPath": "/guided-reading/audio/words/smooth.mp3"
+          },
+          {
+            "text": "rocks",
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
+          },
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "makes",
+            "audioPath": "/guided-reading/audio/words/makes.mp3"
+          },
+          {
+            "text": "them",
+            "audioPath": "/guided-reading/audio/words/them.mp3"
+          },
+          {
+            "text": "smooth",
+            "audioPath": "/guided-reading/audio/words/smooth.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 3,
+        "text": "Rocks can be many colours. Grey, brown, red, and white.",
+        "image": "/guided-reading/nonfiction/first-facts/book-24/page-003.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-003.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-003.mp3",
+        "words": [
+          {
+            "text": "Rocks",
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "be",
+            "audioPath": "/guided-reading/audio/words/be.mp3"
+          },
+          {
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
+          },
+          {
+            "text": "colours",
+            "audioPath": "/guided-reading/audio/words/colours.mp3"
+          },
+          {
+            "text": "Grey",
+            "audioPath": "/guided-reading/audio/words/grey.mp3"
+          },
+          {
+            "text": "brown",
+            "audioPath": "/guided-reading/audio/words/brown.mp3"
+          },
+          {
+            "text": "red",
+            "audioPath": "/guided-reading/audio/words/red.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "white",
+            "audioPath": "/guided-reading/audio/words/white.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 4,
+        "text": "We use rocks to build things. Walls and roads are made of rock.",
+        "image": "/guided-reading/nonfiction/first-facts/book-24/page-004.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-004.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-004.mp3",
+        "words": [
+          {
+            "text": "We",
+            "audioPath": "/guided-reading/audio/words/we.mp3"
+          },
+          {
+            "text": "use",
+            "audioPath": "/guided-reading/audio/words/use.mp3"
+          },
+          {
+            "text": "rocks",
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "build",
+            "audioPath": "/guided-reading/audio/words/build.mp3"
+          },
+          {
+            "text": "things",
+            "audioPath": "/guided-reading/audio/words/things.mp3"
+          },
+          {
+            "text": "Walls",
+            "audioPath": "/guided-reading/audio/words/walls.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "roads",
+            "audioPath": "/guided-reading/audio/words/roads.mp3"
+          },
+          {
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
+          },
+          {
+            "text": "made",
+            "audioPath": "/guided-reading/audio/words/made.mp3"
+          },
+          {
+            "text": "of",
+            "audioPath": "/guided-reading/audio/words/of.mp3"
+          },
+          {
+            "text": "rock",
+            "audioPath": "/guided-reading/audio/words/rock.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 5,
+        "text": "Some rocks are very old. Rocks tell us about the past.",
+        "image": "/guided-reading/nonfiction/first-facts/book-24/page-005.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-005.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-005.mp3",
+        "words": [
+          {
+            "text": "Some",
+            "audioPath": "/guided-reading/audio/words/some.mp3"
+          },
+          {
+            "text": "rocks",
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
+          },
+          {
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
+          },
+          {
+            "text": "very",
+            "audioPath": "/guided-reading/audio/words/very.mp3"
+          },
+          {
+            "text": "old",
+            "audioPath": "/guided-reading/audio/words/old.mp3"
+          },
+          {
+            "text": "Rocks",
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
+          },
+          {
+            "text": "tell",
+            "audioPath": "/guided-reading/audio/words/tell.mp3"
+          },
+          {
+            "text": "us",
+            "audioPath": "/guided-reading/audio/words/us.mp3"
+          },
+          {
+            "text": "about",
+            "audioPath": "/guided-reading/audio/words/about.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "past",
+            "audioPath": "/guided-reading/audio/words/past.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 6,
+        "text": "Go outside and find a rock! Look at it carefully.",
+        "image": "/guided-reading/nonfiction/first-facts/book-24/page-006.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-006.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-006.mp3",
+        "words": [
+          {
+            "text": "Go",
+            "audioPath": "/guided-reading/audio/words/go.mp3"
+          },
+          {
+            "text": "outside",
+            "audioPath": "/guided-reading/audio/words/outside.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "find",
+            "audioPath": "/guided-reading/audio/words/find.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "rock",
+            "audioPath": "/guided-reading/audio/words/rock.mp3"
+          },
+          {
+            "text": "Look",
+            "audioPath": "/guided-reading/audio/words/look.mp3"
+          },
+          {
+            "text": "at",
+            "audioPath": "/guided-reading/audio/words/at.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "carefully",
+            "audioPath": "/guided-reading/audio/words/carefully.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 7,
+        "text": "Rocks are everywhere! They are part of our Earth.",
+        "image": "/guided-reading/nonfiction/first-facts/book-24/page-007.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-007.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/page-007.mp3",
+        "words": [
+          {
+            "text": "Rocks",
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
+          },
+          {
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
+          },
+          {
+            "text": "everywhere",
+            "audioPath": "/guided-reading/audio/words/everywhere.mp3"
+          },
+          {
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
+          },
+          {
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
+          },
+          {
+            "text": "part",
+            "audioPath": "/guided-reading/audio/words/part.mp3"
+          },
+          {
+            "text": "of",
+            "audioPath": "/guided-reading/audio/words/of.mp3"
+          },
+          {
+            "text": "our",
+            "audioPath": "/guided-reading/audio/words/our.mp3"
+          },
+          {
+            "text": "Earth",
+            "audioPath": "/guided-reading/audio/words/earth.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      }
+    ]
+  },
+  {
+    "id": "first-facts-a-25-water-everywhere",
+    "seriesId": "first-facts",
+    "seriesTitle": "First Facts",
+    "title": "Water Everywhere",
+    "type": "nonfiction",
+    "category": "nonfiction",
+    "level": "A",
+    "guidedReadingLevel": "A",
+    "ageRange": "4-5",
+    "bookNumber": 25,
+    "author": "Mara Lane",
+    "illustrator": "Theo Finch",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
+    "active": true,
+    "teacherPreviewOnly": false,
+    "source": "first_facts_level_a_nonfiction_pack_2026_05_27_books_21_25",
+    "sourceDocx": "NF_A25_Water_Everywhere.docx",
+    "coverImage": "/guided-reading/nonfiction/first-facts/book-25/cover.webp",
+    "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/full-book.mp3",
+    "targetPatterns": [
+      "nonfiction",
+      "level-a",
+      "first-facts"
+    ],
+    "sightWords": [],
+    "vocabulary": [
+      "water",
+      "is",
+      "all",
+      "around",
+      "us",
+      "oceans",
+      "rivers",
+      "and",
+      "rain",
+      "falls",
+      "from",
+      "the",
+      "clouds",
+      "drip",
+      "fills",
+      "lakes",
+      "animals",
+      "drink",
+      "we",
+      "every",
+      "day",
+      "keeps",
+      "healthy",
+      "wash"
+    ],
+    "topicTags": [
+      "water",
+      "is",
+      "all",
+      "around",
+      "us",
+      "oceans",
+      "rivers",
+      "and"
+    ],
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Water is all around us. Oceans, rivers, and rain.",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-001.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-001.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-001.mp3",
+        "words": [
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
+          },
+          {
+            "text": "all",
+            "audioPath": "/guided-reading/audio/words/all.mp3"
+          },
+          {
+            "text": "around",
+            "audioPath": "/guided-reading/audio/words/around.mp3"
+          },
+          {
+            "text": "us",
+            "audioPath": "/guided-reading/audio/words/us.mp3"
+          },
+          {
+            "text": "Oceans",
+            "audioPath": "/guided-reading/audio/words/oceans.mp3"
+          },
+          {
+            "text": "rivers",
+            "audioPath": "/guided-reading/audio/words/rivers.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "rain",
+            "audioPath": "/guided-reading/audio/words/rain.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 2,
+        "text": "Rain falls from the clouds. Drip, drip, drip.",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-002.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-002.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-002.mp3",
+        "words": [
+          {
+            "text": "Rain",
+            "audioPath": "/guided-reading/audio/words/rain.mp3"
+          },
+          {
+            "text": "falls",
+            "audioPath": "/guided-reading/audio/words/falls.mp3"
+          },
+          {
+            "text": "from",
+            "audioPath": "/guided-reading/audio/words/from.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "clouds",
+            "audioPath": "/guided-reading/audio/words/clouds.mp3"
+          },
+          {
+            "text": "Drip",
+            "audioPath": "/guided-reading/audio/words/drip.mp3"
+          },
+          {
+            "text": "drip",
+            "audioPath": "/guided-reading/audio/words/drip.mp3"
+          },
+          {
+            "text": "drip",
+            "audioPath": "/guided-reading/audio/words/drip.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 3,
+        "text": "Rain fills rivers and lakes. Animals drink the water.",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-003.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-003.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-003.mp3",
+        "words": [
+          {
+            "text": "Rain",
+            "audioPath": "/guided-reading/audio/words/rain.mp3"
+          },
+          {
+            "text": "fills",
+            "audioPath": "/guided-reading/audio/words/fills.mp3"
+          },
+          {
+            "text": "rivers",
+            "audioPath": "/guided-reading/audio/words/rivers.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "lakes",
+            "audioPath": "/guided-reading/audio/words/lakes.mp3"
+          },
+          {
+            "text": "Animals",
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
+          },
+          {
+            "text": "drink",
+            "audioPath": "/guided-reading/audio/words/drink.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 4,
+        "text": "We drink water every day. Water keeps us healthy.",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-004.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-004.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-004.mp3",
+        "words": [
+          {
+            "text": "We",
+            "audioPath": "/guided-reading/audio/words/we.mp3"
+          },
+          {
+            "text": "drink",
+            "audioPath": "/guided-reading/audio/words/drink.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "every",
+            "audioPath": "/guided-reading/audio/words/every.mp3"
+          },
+          {
+            "text": "day",
+            "audioPath": "/guided-reading/audio/words/day.mp3"
+          },
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "keeps",
+            "audioPath": "/guided-reading/audio/words/keeps.mp3"
+          },
+          {
+            "text": "us",
+            "audioPath": "/guided-reading/audio/words/us.mp3"
+          },
+          {
+            "text": "healthy",
+            "audioPath": "/guided-reading/audio/words/healthy.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 5,
+        "text": "We wash in water. Water keeps us clean.",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-005.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-005.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-005.mp3",
+        "words": [
+          {
+            "text": "We",
+            "audioPath": "/guided-reading/audio/words/we.mp3"
+          },
+          {
+            "text": "wash",
+            "audioPath": "/guided-reading/audio/words/wash.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "keeps",
+            "audioPath": "/guided-reading/audio/words/keeps.mp3"
+          },
+          {
+            "text": "us",
+            "audioPath": "/guided-reading/audio/words/us.mp3"
+          },
+          {
+            "text": "clean",
+            "audioPath": "/guided-reading/audio/words/clean.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 6,
+        "text": "Plants and animals need water too.",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-006.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-006.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-006.mp3",
+        "words": [
+          {
+            "text": "Plants",
+            "audioPath": "/guided-reading/audio/words/plants.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "animals",
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
+          },
+          {
+            "text": "need",
+            "audioPath": "/guided-reading/audio/words/need.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "too",
+            "audioPath": "/guided-reading/audio/words/too.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 7,
+        "text": "Water can be liquid, ice, or steam. Water changes!",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-007.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-007.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-007.mp3",
+        "words": [
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "be",
+            "audioPath": "/guided-reading/audio/words/be.mp3"
+          },
+          {
+            "text": "liquid",
+            "audioPath": "/guided-reading/audio/words/liquid.mp3"
+          },
+          {
+            "text": "ice",
+            "audioPath": "/guided-reading/audio/words/ice.mp3"
+          },
+          {
+            "text": "or",
+            "audioPath": "/guided-reading/audio/words/or.mp3"
+          },
+          {
+            "text": "steam",
+            "audioPath": "/guided-reading/audio/words/steam.mp3"
+          },
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "changes",
+            "audioPath": "/guided-reading/audio/words/changes.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 8,
+        "text": "Water is precious. Let us look after it.",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-008.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-008.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-008.mp3",
+        "words": [
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
+          },
+          {
+            "text": "precious",
+            "audioPath": "/guided-reading/audio/words/precious.mp3"
+          },
+          {
+            "text": "Let",
+            "audioPath": "/guided-reading/audio/words/let.mp3"
+          },
+          {
+            "text": "us",
+            "audioPath": "/guided-reading/audio/words/us.mp3"
+          },
+          {
+            "text": "look",
+            "audioPath": "/guided-reading/audio/words/look.mp3"
+          },
+          {
+            "text": "after",
+            "audioPath": "/guided-reading/audio/words/after.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      },
+      {
+        "pageNumber": 9,
+        "text": "Water is everywhere! Our Earth is a water planet.",
+        "image": "/guided-reading/nonfiction/first-facts/book-25/page-009.webp",
+        "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-009.mp3",
+        "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-009.mp3",
+        "words": [
+          {
+            "text": "Water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
+          },
+          {
+            "text": "everywhere",
+            "audioPath": "/guided-reading/audio/words/everywhere.mp3"
+          },
+          {
+            "text": "Our",
+            "audioPath": "/guided-reading/audio/words/our.mp3"
+          },
+          {
+            "text": "Earth",
+            "audioPath": "/guided-reading/audio/words/earth.mp3"
+          },
+          {
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "planet",
+            "audioPath": "/guided-reading/audio/words/planet.mp3"
+          }
+        ],
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
+        "active": true
+      }
+    ]
   }
 ];
 
