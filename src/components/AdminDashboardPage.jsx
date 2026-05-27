@@ -856,10 +856,12 @@ export function AdminDashboardPage({
   teachers,
   classes,
   students,
+  pendingAccounts = [],
   loading,
   refreshDashboard,
   deleteClass,
   deleteStudent,
+  updateTeacherAccountStatus,
   questionBankCoverage = [],
   mediaQuestions = [],
   message
@@ -998,6 +1000,61 @@ export function AdminDashboardPage({
         {message && <p className="message">{message}</p>}
       </section>
 
+      <section className="card page-stack admin-section">
+        <div className="admin-section-heading">
+          <div>
+            <h3>New Teacher Signups</h3>
+            <p className="muted-text">Approve, reject, disable, or mark teacher accounts reviewed. Email notification can be added later with a Supabase Edge Function.</p>
+          </div>
+          <span className="admin-count-pill">{pendingAccounts.length}</span>
+        </div>
+        {pendingAccounts.length === 0 ? (
+          <p>No pending account notifications loaded.</p>
+        ) : (
+          <div className="admin-table-wrap">
+            <table className="dashboard-table admin-table admin-responsive-table">
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Name</th>
+                  <th>Status</th>
+                  <th>Signup Date</th>
+                  <th>Reviewed</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pendingAccounts.map(account => (
+                  <tr key={account.id || account.user_id || account.email}>
+                    <td data-label="Email">{account.email || "Email unavailable"}</td>
+                    <td data-label="Name">{account.name || "-"}</td>
+                    <td data-label="Status">{account.status || "pending"}</td>
+                    <td data-label="Signup Date">{account.created_at ? new Date(account.created_at).toLocaleDateString() : ""}</td>
+                    <td data-label="Reviewed">{account.reviewed_at ? new Date(account.reviewed_at).toLocaleDateString() : "Not reviewed"}</td>
+                    <td data-label="Actions">
+                      <div className="admin-row-actions">
+                        <button className="report-button" onClick={() => updateTeacherAccountStatus?.(account.id, "approved")} type="button">
+                          Approve
+                        </button>
+                        <button className="report-button" onClick={() => updateTeacherAccountStatus?.(account.id, account.status || "pending")} type="button">
+                          Mark Reviewed
+                        </button>
+                        <button className="report-button danger" onClick={() => updateTeacherAccountStatus?.(account.id, "rejected")} type="button">
+                          Reject
+                        </button>
+                        <button className="report-button danger" onClick={() => updateTeacherAccountStatus?.(account.id, "disabled")} type="button">
+                          Disable
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+
       <section className="report-panel page-stack admin-section guided-insight-panel">
         <div className="admin-header">
           <div>
@@ -1110,15 +1167,15 @@ export function AdminDashboardPage({
             <tbody>
               {filteredCoverage.map(row => (
                 <tr key={row.skill}>
-                  <td><strong>{row.skill}</strong></td>
-                  <td>{row.total}</td>
-                  <td>{row.runtimeSelectable ?? row.active}</td>
-                  <td>{(row.runtimeSelectable ?? row.active) >= 30 ? "OK" : "Below 30"}</td>
-                  <td>{Object.entries(row.templates).map(([key, count]) => `${key}: ${count}`).join(", ")}</td>
-                  <td>{Object.entries(row.patterns).slice(0, 8).map(([key, count]) => `${key}: ${count}`).join(", ") || "Not tagged"}</td>
-                  <td>{row.missingImage} image / {row.missingAudio} audio</td>
-                  <td>{row.badMedia || 0}</td>
-                  <td>{row.active} active / {row.inactive} inactive</td>
+                  <td data-label="Skill"><strong>{row.skill}</strong></td>
+                  <td data-label="Questions">{row.total}</td>
+                  <td data-label="Runtime">{row.runtimeSelectable ?? row.active}</td>
+                  <td data-label="30+">{(row.runtimeSelectable ?? row.active) >= 30 ? "OK" : "Below 30"}</td>
+                  <td data-label="Templates">{Object.entries(row.templates).map(([key, count]) => `${key}: ${count}`).join(", ")}</td>
+                  <td data-label="Patterns">{Object.entries(row.patterns).slice(0, 8).map(([key, count]) => `${key}: ${count}`).join(", ") || "Not tagged"}</td>
+                  <td data-label="Media gaps">{row.missingImage} image / {row.missingAudio} audio</td>
+                  <td data-label="Bad media">{row.badMedia || 0}</td>
+                  <td data-label="Status">{row.active} active / {row.inactive} inactive</td>
                 </tr>
               ))}
             </tbody>
@@ -1145,11 +1202,11 @@ export function AdminDashboardPage({
               <tbody>
                 {teachers.map(teacher => (
                   <tr key={teacher.id}>
-                    <td>{teacher.email}</td>
-                    <td>{teacher.id}</td>
-                    <td>{teacher.classes}</td>
-                    <td>{teacher.students}</td>
-                    <td>{teacher.answers}</td>
+                    <td data-label="Email">{teacher.email}</td>
+                    <td data-label="User ID">{teacher.id}</td>
+                    <td data-label="Classes">{teacher.classes}</td>
+                    <td data-label="Students">{teacher.students}</td>
+                    <td data-label="Answers">{teacher.answers}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1174,11 +1231,11 @@ export function AdminDashboardPage({
             <tbody>
               {classes.map(row => (
                 <tr key={row.id}>
-                  <td>{row.name}</td>
-                  <td>{row.teacher_id}</td>
-                  <td>{row.studentCount}</td>
-                  <td>{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
-                  <td>
+                  <td data-label="Name">{row.name}</td>
+                  <td data-label="Teacher">{row.teacher_id}</td>
+                  <td data-label="Students">{row.studentCount}</td>
+                  <td data-label="Created">{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
+                  <td data-label="Delete">
                     <button className="reset-button" onClick={() => deleteClass(row.id, row.name)} type="button">
                       Delete Class
                     </button>
@@ -1206,11 +1263,11 @@ export function AdminDashboardPage({
             <tbody>
               {students.map(row => (
                 <tr key={row.id}>
-                  <td>{row.name}</td>
-                  <td>{row.className}</td>
-                  <td>{row.teacher_id}</td>
-                  <td>{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
-                  <td>
+                  <td data-label="Name">{row.name}</td>
+                  <td data-label="Class">{row.className}</td>
+                  <td data-label="Teacher">{row.teacher_id}</td>
+                  <td data-label="Created">{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
+                  <td data-label="Delete">
                     <button className="reset-button" onClick={() => deleteStudent(row.id, row.name)} type="button">
                       Delete Student
                     </button>

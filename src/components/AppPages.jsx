@@ -32,6 +32,8 @@ import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidati
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
 export function AuthPage({
+  authMode = "login",
+  setAuthMode,
   authEmail,
   setAuthEmail,
   authPassword,
@@ -39,49 +41,92 @@ export function AuthPage({
   authLoading,
   authMessage,
   signUpTeacher,
-  logInTeacher
+  logInTeacher,
+  requestPasswordReset,
+  completePasswordReset
 }) {
+  const isForgotPassword = authMode === "forgotPassword";
+  const isResetPassword = authMode === "resetPassword";
+
   return (
     <div className="card page-card page-stack auth-card">
       <div className="auth-heading">
-        <h2>Teacher Login</h2>
-        <p className="muted-text">Sign in to view only your own classes and student data.</p>
+        <h2>{isResetPassword ? "Set New Password" : isForgotPassword ? "Reset Password" : "Teacher Login"}</h2>
+        <p className="muted-text">
+          {isResetPassword
+            ? "Enter a new password for your account."
+            : isForgotPassword
+              ? "Enter your email and we will send a Supabase reset link."
+              : "Sign in to view only your own classes and student data."}
+        </p>
       </div>
 
-      <label className="auth-field">
-        <strong>Email</strong>
-        <input
-          autoComplete="email"
-          inputMode="email"
-          value={authEmail}
-          placeholder="teacher@example.com"
-          onChange={event => setAuthEmail(event.target.value)}
-          type="email"
-        />
-      </label>
+      {!isResetPassword && (
+        <label className="auth-field">
+          <strong>Email</strong>
+          <input
+            autoComplete="email"
+            inputMode="email"
+            value={authEmail}
+            placeholder="teacher@example.com"
+            onChange={event => setAuthEmail(event.target.value)}
+            type="email"
+          />
+        </label>
+      )}
 
-      <label className="auth-field">
-        <strong>Password</strong>
-        <input
-          autoComplete="current-password"
-          value={authPassword}
-          placeholder="Password"
-          onChange={event => setAuthPassword(event.target.value)}
-          onKeyDown={event => {
-            if (event.key === "Enter") logInTeacher();
-          }}
-          type="password"
-        />
-      </label>
+      {!isForgotPassword && (
+        <label className="auth-field">
+          <strong>{isResetPassword ? "New Password" : "Password"}</strong>
+          <input
+            autoComplete={isResetPassword ? "new-password" : "current-password"}
+            value={authPassword}
+            placeholder={isResetPassword ? "New password" : "Password"}
+            onChange={event => setAuthPassword(event.target.value)}
+            onKeyDown={event => {
+              if (event.key === "Enter") {
+                if (isResetPassword) completePasswordReset();
+                else logInTeacher();
+              }
+            }}
+            type="password"
+          />
+        </label>
+      )}
 
       <div className="button-row auth-actions">
-        <button className="main-button" disabled={authLoading} onClick={logInTeacher}>
-          Log In
-        </button>
+        {isForgotPassword ? (
+          <>
+            <button className="main-button" disabled={authLoading} onClick={requestPasswordReset} type="button">
+              Send Reset Email
+            </button>
+            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
+              Back to Login
+            </button>
+          </>
+        ) : isResetPassword ? (
+          <>
+            <button className="main-button" disabled={authLoading} onClick={completePasswordReset} type="button">
+              Update Password
+            </button>
+            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
+              Cancel
+            </button>
+          </>
+        ) : (
+          <>
+            <button className="main-button" disabled={authLoading} onClick={logInTeacher} type="button">
+              Log In
+            </button>
 
-        <button className="report-button" disabled={authLoading} onClick={signUpTeacher}>
-          Sign Up
-        </button>
+            <button className="report-button" disabled={authLoading} onClick={signUpTeacher} type="button">
+              Sign Up
+            </button>
+            <button className="report-button subtle" disabled={authLoading} onClick={() => setAuthMode("forgotPassword")} type="button">
+              Forgot password?
+            </button>
+          </>
+        )}
       </div>
 
       {authMessage && <p className="message auth-message">{authMessage}</p>}

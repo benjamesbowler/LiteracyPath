@@ -1293,12 +1293,16 @@ export default function App() {
   const [authReady, setAuthReady] = useState(false);
   const [authEmail, setAuthEmail] = useState("");
   const [authPassword, setAuthPassword] = useState("");
+  const [authMode, setAuthMode] = useState("login");
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState("");
+  const [teacherAccountStatus, setTeacherAccountStatus] = useState("signed_out");
+  const [teacherAccountRecord, setTeacherAccountRecord] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminTeachers, setAdminTeachers] = useState([]);
   const [adminClasses, setAdminClasses] = useState([]);
   const [adminStudents, setAdminStudents] = useState([]);
+  const [adminPendingAccounts, setAdminPendingAccounts] = useState([]);
   const [adminLoading, setAdminLoading] = useState(false);
   const [totalAnswered, setTotalAnswered] = useState(0);
   const [correctAnswered, setCorrectAnswered] = useState(0);
@@ -1432,6 +1436,7 @@ export default function App() {
     setAdminTeachers([]);
     setAdminClasses([]);
     setAdminStudents([]);
+    setAdminPendingAccounts([]);
     setIsAdmin(false);
     setTotalAnswered(0);
     setCorrectAnswered(0);
@@ -1485,7 +1490,7 @@ export default function App() {
   useEffect(() => {
     let isMounted = true;
 
-    function applyAuthSession(session) {
+    function applyAuthSession(session, event = "") {
       if (!isMounted) return;
 
       const nextUser = session?.user || null;
@@ -1497,6 +1502,12 @@ export default function App() {
 
       lastAuthUserIdRef.current = nextUserId;
       setTeacherUser(nextUser);
+      setTeacherAccountRecord(null);
+      setTeacherAccountStatus(nextUser ? "checking" : "signed_out");
+      if (event === "PASSWORD_RECOVERY") {
+        setAuthMode("resetPassword");
+        setAuthMessage("Enter a new password for your account.");
+      }
       setAuthReady(true);
     }
 
@@ -1515,8 +1526,8 @@ export default function App() {
       });
 
     const { data: authListener } =
-      supabase.auth.onAuthStateChange((_event, session) => {
-        applyAuthSession(session);
+      supabase.auth.onAuthStateChange((event, session) => {
+        applyAuthSession(session, event);
       });
 
     return () => {
@@ -1528,10 +1539,12 @@ export default function App() {
   useEffect(() => {
     if (!teacherId) {
       setIsAdmin(false);
+      setTeacherAccountStatus("signed_out");
+      setTeacherAccountRecord(null);
       return;
     }
 
-    checkAdminStatus(teacherId);
+    initializeTeacherAccountAccess(teacherId);
   }, [teacherId]);
 
   useEffect(() => {
@@ -1547,6 +1560,13 @@ export default function App() {
 
     if (!teacherId || !profileStorageKey) {
       clearTeacherState();
+      setProfileLoaded(true);
+      return;
+    }
+
+    if (teacherAccountStatus === "checking") return;
+
+    if (!isTeacherAccountApproved()) {
       setProfileLoaded(true);
       return;
     }
@@ -1593,7 +1613,7 @@ export default function App() {
     }
 
     setProfileLoaded(true);
-  }, [authReady, teacherId, profileStorageKey]);
+  }, [authReady, teacherId, profileStorageKey, teacherAccountStatus, isAdmin]);
 
   useEffect(() => {
     if (!profileLoaded || !profileStorageKey) return;
@@ -1670,6 +1690,82 @@ export default function App() {
     return nextIsAdmin;
   }
 
+  function isTeacherAccountApproved() {
+    return isAdmin || teacherAccountStatus === "approved" || teacherAccountStatus === "legacy_approved";
+  }
+
+  async function loadTeacherAccountStatus(userId = teacherId, email = teacherUser?.email, adminAccess = isAdmin) {
+    if (!userId) {
+      setTeacherAccountStatus("signed_out");
+      setTeacherAccountRecord(null);
+      return "signed_out";
+    }
+
+    if (adminAccess) {
+      setTeacherAccountStatus("approved");
+      setTeacherAccountRecord({ user_id: userId, email, status: "approved", admin: true });
+      return "approved";
+    }
+
+    const { data, error } = await supabase
+      .from("pending_teacher_accounts")
+      .select("id, user_id, email, name, status, created_at, reviewed_at, reviewed_by")
+      .eq("user_id", userId)
+      .maybeSingle();
+
+    if (error) {
+      if (!isMissingTableError(error, "pending_teacher_accounts")) {
+        console.warn("Teacher account status check failed.", error);
+      }
+      setTeacherAccountStatus("legacy_approved");
+      setTeacherAccountRecord({ user_id: userId, email, status: "legacy_approved" });
+      return "legacy_approved";
+    }
+
+    if (!data && teacherUser?.user_metadata?.account_status === "pending") {
+      const pendingRecord = {
+        user_id: userId,
+        email,
+        status: "pending",
+        name: email?.split("@")[0] || "",
+        created_at: new Date().toISOString()
+      };
+      const { data: insertedRecord, error: insertError } = await supabase
+        .from("pending_teacher_accounts")
+        .upsert(pendingRecord, { onConflict: "user_id" })
+        .select("id, user_id, email, name, status, created_at, reviewed_at, reviewed_by")
+        .maybeSingle();
+
+      if (!insertError) {
+        const nextRecord = insertedRecord || pendingRecord;
+        setTeacherAccountStatus("pending");
+        setTeacherAccountRecord(nextRecord);
+        return "pending";
+      }
+
+      if (!isMissingTableError(insertError, "pending_teacher_accounts")) {
+        console.warn("Could not create pending teacher account record.", insertError);
+      }
+    }
+
+    if (!data) {
+      setTeacherAccountStatus("legacy_approved");
+      setTeacherAccountRecord({ user_id: userId, email, status: "legacy_approved" });
+      return "legacy_approved";
+    }
+
+    const nextStatus = data.status || "pending";
+    setTeacherAccountStatus(nextStatus);
+    setTeacherAccountRecord(data);
+    return nextStatus;
+  }
+
+  async function initializeTeacherAccountAccess(userId = teacherId) {
+    setTeacherAccountStatus("checking");
+    const adminAccess = await checkAdminStatus(userId);
+    await loadTeacherAccountStatus(userId, teacherUser?.email, adminAccess);
+  }
+
   function buildTeacherRows(classes = [], students = [], answers = []) {
     const teacherMap = new Map();
 
@@ -1713,15 +1809,20 @@ export default function App() {
 
     setAdminLoading(true);
 
-    const [classesResult, studentsResult, answersResult] = await Promise.all([
+    const [classesResult, studentsResult, answersResult, pendingAccountsResult] = await Promise.all([
       supabase.from("classes").select("id, name, teacher_id, created_at").order("created_at", { ascending: false }),
       supabase.from("students").select("id, name, class_id, teacher_id, created_at").order("created_at", { ascending: false }),
-      supabase.from("answers").select("id, teacher_id, student_id")
+      supabase.from("answers").select("id, teacher_id, student_id"),
+      supabase
+        .from("pending_teacher_accounts")
+        .select("id, user_id, email, name, status, created_at, reviewed_at, reviewed_by")
+        .order("created_at", { ascending: false })
     ]);
 
     setAdminLoading(false);
 
-    const firstError = classesResult.error || studentsResult.error || answersResult.error;
+    const pendingAccountsMissing = pendingAccountsResult.error && isMissingTableError(pendingAccountsResult.error, "pending_teacher_accounts");
+    const firstError = classesResult.error || studentsResult.error || answersResult.error || (pendingAccountsMissing ? null : pendingAccountsResult.error);
     if (firstError) {
       console.error("Admin dashboard load error:", firstError);
       setMessage("Could not load admin dashboard. Check admin RLS policies and migration.");
@@ -1751,6 +1852,7 @@ export default function App() {
     setAdminClasses(classRows);
     setAdminStudents(studentRows);
     setAdminTeachers(buildTeacherRows(classes, students, answers));
+    setAdminPendingAccounts(pendingAccountsMissing ? [] : pendingAccountsResult.data || []);
   }
 
   function openAdminDashboard() {
@@ -1868,6 +1970,28 @@ export default function App() {
     setMessage(`Deleted ${className}.`);
   }
 
+  async function updateTeacherAccountStatus(accountId, status) {
+    if (!isAdmin || !accountId) return;
+
+    const { error } = await supabase
+      .from("pending_teacher_accounts")
+      .update({
+        status,
+        reviewed_at: new Date().toISOString(),
+        reviewed_by: teacherId
+      })
+      .eq("id", accountId);
+
+    if (error) {
+      console.error("Teacher account status update failed.", error);
+      setMessage("Could not update teacher account status.");
+      return;
+    }
+
+    await loadAdminDashboard();
+    setMessage(`Teacher account marked ${status}.`);
+  }
+
   async function signUpTeacher() {
     const email = authEmail.trim();
     if (!email || !authPassword) {
@@ -1878,9 +2002,14 @@ export default function App() {
     setAuthLoading(true);
     setAuthMessage("");
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
-      password: authPassword
+      password: authPassword,
+      options: {
+        data: {
+          account_status: "pending"
+        }
+      }
     });
 
     setAuthLoading(false);
@@ -1890,7 +2019,30 @@ export default function App() {
       return;
     }
 
-    setAuthMessage("Account created. Check your email if confirmation is enabled, then log in.");
+    const newUserId = data?.user?.id;
+    if (newUserId) {
+      const pendingRecord = {
+        user_id: newUserId,
+        email,
+        status: "pending",
+        name: email.split("@")[0],
+        created_at: new Date().toISOString()
+      };
+      const { error: notificationError } = await supabase
+        .from("pending_teacher_accounts")
+        .upsert(pendingRecord, { onConflict: "user_id" });
+
+      if (notificationError && !isMissingTableError(notificationError, "pending_teacher_accounts")) {
+        console.warn("Could not create pending teacher notification.", notificationError);
+      }
+
+      if (!notificationError) {
+        setTeacherAccountStatus("pending");
+        setTeacherAccountRecord(pendingRecord);
+      }
+    }
+
+    setAuthMessage("Account created. Check your email if confirmation is enabled. Your account may need admin approval before teacher tools open.");
   }
 
   async function logInTeacher() {
@@ -1917,6 +2069,57 @@ export default function App() {
 
     setAuthPassword("");
     setAuthMessage("");
+  }
+
+  async function requestPasswordReset() {
+    const email = authEmail.trim();
+    if (!email) {
+      setAuthMessage("Enter your email first.");
+      return;
+    }
+
+    setAuthLoading(true);
+    setAuthMessage("");
+
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: window.location.origin
+    });
+
+    setAuthLoading(false);
+
+    if (error) {
+      setAuthMessage(error.message);
+      return;
+    }
+
+    setAuthMessage("Password reset email sent. Check your inbox.");
+    setAuthMode("login");
+  }
+
+  async function completePasswordReset() {
+    if (!authPassword || authPassword.length < 6) {
+      setAuthMessage("Enter a new password with at least 6 characters.");
+      return;
+    }
+
+    setAuthLoading(true);
+    setAuthMessage("");
+
+    const { error } = await supabase.auth.updateUser({
+      password: authPassword
+    });
+
+    setAuthLoading(false);
+
+    if (error) {
+      setAuthMessage(error.message);
+      return;
+    }
+
+    setAuthPassword("");
+    setAuthMode("login");
+    setAuthMessage("Password updated. Please log in with your new password.");
+    await supabase.auth.signOut();
   }
 
   async function logOutTeacher() {
@@ -2110,6 +2313,10 @@ export default function App() {
 
   async function deleteStudent(selectedStudentId, selectedStudentName = "this student") {
     if (!teacherId || !selectedStudentId) return;
+    if (!studentList.some(student => student.id === selectedStudentId)) {
+      setMessage("You can only delete students assigned to your account.");
+      return;
+    }
 
     const confirmed = window.confirm(
       `Delete ${selectedStudentName}? This removes the student and their assessment records.`
@@ -2172,6 +2379,10 @@ export default function App() {
 
   async function deleteClass(classId = selectedClassId) {
     if (!teacherId || !classId) return;
+    if (!classList.some(cls => cls.id === classId)) {
+      setMessage("You can only delete classes assigned to your account.");
+      return;
+    }
 
     const className =
       classList.find(cls => cls.id === classId)?.name || "this class";
@@ -5503,6 +5714,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </motion.div>
 
         <AuthPage
+          authMode={authMode}
+          setAuthMode={setAuthMode}
           authEmail={authEmail}
           setAuthEmail={setAuthEmail}
           authPassword={authPassword}
@@ -5511,7 +5724,59 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           authMessage={authMessage}
           signUpTeacher={signUpTeacher}
           logInTeacher={logInTeacher}
+          requestPasswordReset={requestPasswordReset}
+          completePasswordReset={completePasswordReset}
         />
+      </div>
+    );
+  }
+
+  if (authMode === "resetPassword") {
+    return (
+      <div className="app auth-shell">
+        <AuthPage
+          authMode={authMode}
+          setAuthMode={setAuthMode}
+          authEmail={authEmail}
+          setAuthEmail={setAuthEmail}
+          authPassword={authPassword}
+          setAuthPassword={setAuthPassword}
+          authLoading={authLoading}
+          authMessage={authMessage}
+          signUpTeacher={signUpTeacher}
+          logInTeacher={logInTeacher}
+          requestPasswordReset={requestPasswordReset}
+          completePasswordReset={completePasswordReset}
+        />
+      </div>
+    );
+  }
+
+  if (teacherAccountStatus === "checking") {
+    return (
+      <div className="app">
+        <div className="card page-card page-stack auth-card">
+          <h2>Checking account access...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isTeacherAccountApproved()) {
+    const status = teacherAccountRecord?.status || teacherAccountStatus;
+    return (
+      <div className="app auth-shell">
+        <div className="card page-card page-stack auth-card">
+          <div className="auth-heading">
+            <h2>Account Waiting For Approval</h2>
+            <p className="muted-text">
+              Your account is currently {status}. Please contact your school administrator.
+            </p>
+          </div>
+          <button className="main-button" onClick={logOutTeacher} type="button">
+            Log Out
+          </button>
+        </div>
       </div>
     );
   }
@@ -5600,10 +5865,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             teachers={adminTeachers}
             classes={adminClasses}
             students={adminStudents}
+            pendingAccounts={adminPendingAccounts}
             loading={adminLoading}
             refreshDashboard={loadAdminDashboard}
             deleteClass={adminDeleteClass}
             deleteStudent={adminDeleteStudent}
+            updateTeacherAccountStatus={updateTeacherAccountStatus}
             questionBankCoverage={questionBankCoverage}
             mediaQuestions={allQuestions}
             message={message}
