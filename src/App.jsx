@@ -55,6 +55,7 @@ import {
   hasCompleteInitialSoundPairAssets,
   isInitialSoundQuestion
 } from "./data/initialSoundPairAssets";
+import { enrichQuestionWithExistingMedia } from "./data/questionMediaResolver";
 import {
   hasCompletePairSelectionAssets,
   isPairSelectionQuestion,
@@ -1071,9 +1072,9 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...templateComprehensionAdvanced
 ].map((question, index) =>
   applyQuestionFormatMetadata(applyItemMetadata(
-    enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(
+    enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(
       normalizeAssessmentQuestion(question, null, index)
-    )))
+    ))))
   ))
 ).filter(isQuestionValid));
 

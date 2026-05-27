@@ -29,6 +29,7 @@ import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
 import { enrichListenAndFindWordQuestion } from "../src/data/listenAndFindAssets.js";
 import { enrichInitialSoundPairQuestion } from "../src/data/initialSoundPairAssets.js";
+import { enrichQuestionWithExistingMedia } from "../src/data/questionMediaResolver.js";
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
 import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
@@ -167,7 +168,7 @@ export function getQuestionAudioPaths(question = {}) {
 export function loadCoreQuestionPool() {
   return questionBanks.flatMap(([source, bank]) =>
     bank.map((question, index) => ({
-      ...enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question)),
+      ...enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))),
       _source: source,
       _sourceIndex: index
     }))

@@ -95,7 +95,8 @@ const approvedWordAudioKeys = [
 const approvedHfwAudioKeys = [
   "a", "all", "and", "at", "big", "but", "can", "for", "he", "his",
   "i", "in", "is", "it", "of", "on", "said", "she", "that", "the",
-  "then", "they", "this", "to", "under", "was", "we", "with", "you"
+  "then", "they", "this", "to", "under", "was", "we", "with", "you",
+  "did", "her", "time"
 ];
 
 const approvedPhraseAudioKeys = [
