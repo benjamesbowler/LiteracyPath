@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
@@ -1506,8 +1506,12 @@ export function ELAssessmentsPage({
   );
 }
 
-function GuidedReadingImage({ src, alt, className = "" }) {
+function GuidedReadingImage({ src, alt, className = "", onLoad }) {
   const [missing, setMissing] = useState(false);
+
+  useEffect(() => {
+    setMissing(false);
+  }, [src]);
 
   if (!src || missing) {
     return (
@@ -1522,15 +1526,19 @@ function GuidedReadingImage({ src, alt, className = "" }) {
       alt={alt}
       className={className}
       onError={() => setMissing(true)}
+      onLoad={onLoad}
       src={src}
     />
   );
 }
 
+const DEBUG_AUTOFIT = false;
+
 function AutoFitReadingText({
   children,
   className = "",
   text = "",
+  layoutVersion = 0,
   maxFontSize = 30,
   minFontSize = 16,
   lineHeight = 1.28,
@@ -1540,14 +1548,19 @@ function AutoFitReadingText({
   const contentRef = useRef(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const frame = frameRef.current;
     const content = contentRef.current;
     if (!frame || !content) return undefined;
 
-    let rafId = 0;
+    let cancelled = false;
+    const rafIds = [];
+    const timerIds = [];
 
-    const fitText = () => {
+    const fitText = (trigger = "layout") => {
+      if (cancelled) return;
+      if (!frame.clientWidth || !frame.clientHeight) return;
+
       content.style.fontSize = `${maxFontSize}px`;
       content.style.lineHeight = String(lineHeight);
       content.style.overflowY = "hidden";
@@ -1571,29 +1584,65 @@ function AutoFitReadingText({
       content.style.fontSize = `${fittedSize}px`;
       content.style.overflowY = stillOverflowing ? "auto" : "hidden";
       setIsOverflowing(stillOverflowing);
+
+      if (DEBUG_AUTOFIT) {
+        console.debug("[Guided Reading autofit]", {
+          trigger,
+          textLength: String(text || "").length,
+          frameWidth: frame.clientWidth,
+          frameHeight: frame.clientHeight,
+          fontSize: fittedSize,
+          scrollHeight: content.scrollHeight,
+          clientHeight: frame.clientHeight,
+          overflow: stillOverflowing
+        });
+      }
     };
 
-    const scheduleFit = () => {
-      window.cancelAnimationFrame(rafId);
-      rafId = window.requestAnimationFrame(fitText);
+    const scheduleFit = (trigger = "resize") => {
+      const rafId = window.requestAnimationFrame(() => fitText(trigger));
+      rafIds.push(rafId);
     };
 
-    scheduleFit();
+    fitText("initial");
+    const raf1 = window.requestAnimationFrame(() => {
+      fitText("raf-1");
+      const raf2 = window.requestAnimationFrame(() => fitText("raf-2"));
+      rafIds.push(raf2);
+    });
+    rafIds.push(raf1);
+    timerIds.push(window.setTimeout(() => fitText("timeout-0"), 0));
+    timerIds.push(window.setTimeout(() => fitText("timeout-100"), 100));
 
-    let observer;
+    if (typeof document !== "undefined" && document.fonts?.ready) {
+      document.fonts.ready.then(() => fitText("fonts-ready")).catch(() => {});
+    }
+
+    let frameObserver;
+    let parentObserver;
     if (typeof ResizeObserver !== "undefined") {
-      observer = new ResizeObserver(scheduleFit);
-      observer.observe(frame);
+      frameObserver = new ResizeObserver(() => scheduleFit("frame-resize"));
+      frameObserver.observe(frame);
+      if (frame.parentElement) {
+        parentObserver = new ResizeObserver(() => scheduleFit("parent-resize"));
+        parentObserver.observe(frame.parentElement);
+      }
     } else {
       window.addEventListener("resize", scheduleFit);
     }
 
+    window.addEventListener("orientationchange", scheduleFit);
+
     return () => {
-      window.cancelAnimationFrame(rafId);
-      if (observer) observer.disconnect();
-      else window.removeEventListener("resize", scheduleFit);
+      cancelled = true;
+      rafIds.forEach(id => window.cancelAnimationFrame(id));
+      timerIds.forEach(id => window.clearTimeout(id));
+      if (frameObserver) frameObserver.disconnect();
+      if (parentObserver) parentObserver.disconnect();
+      if (!frameObserver) window.removeEventListener("resize", scheduleFit);
+      window.removeEventListener("orientationchange", scheduleFit);
     };
-  }, [text, maxFontSize, minFontSize, lineHeight]);
+  }, [text, layoutVersion, maxFontSize, minFontSize, lineHeight]);
 
   return (
     <div className={isOverflowing ? "guided-page-text-frame overflowing" : "guided-page-text-frame"} ref={frameRef}>
@@ -1742,6 +1791,7 @@ export function GuidedReadingPage({
   const [isPageAudioPlaying, setIsPageAudioPlaying] = useState(false);
   const [teacherNotesOpen, setTeacherNotesOpen] = useState(false);
   const [isReaderFullscreen, setIsReaderFullscreen] = useState(false);
+  const [readerLayoutVersion, setReaderLayoutVersion] = useState(0);
   const guidedReaderShellRef = useRef(null);
   const pageAudioRef = useRef(null);
   const highlightTimerRef = useRef(null);
@@ -1840,10 +1890,25 @@ export function GuidedReadingPage({
   }, [readerOpen, selectedBookId]);
 
   useEffect(() => {
+    if (!readerOpen) return;
+    setReaderLayoutVersion(version => version + 1);
+  }, [
+    readerOpen,
+    selectedBookId,
+    pageIndex,
+    page?.image,
+    page?.text,
+    readingMode,
+    teacherNotesOpen,
+    isReaderFullscreen
+  ]);
+
+  useEffect(() => {
     if (typeof document === "undefined") return undefined;
 
     function handleFullscreenChange() {
       setIsReaderFullscreen(document.fullscreenElement === guidedReaderShellRef.current);
+      setReaderLayoutVersion(version => version + 1);
     }
 
     document.addEventListener("fullscreenchange", handleFullscreenChange);
@@ -2553,13 +2618,19 @@ export function GuidedReadingPage({
                 transition={{ duration: prefersReducedMotion ? 0.01 : 0.18, ease: "easeOut" }}
               >
                 <div className="guided-page-image-card">
-                  <GuidedReadingImage alt="" className="guided-page-image" src={page.image} />
+                  <GuidedReadingImage
+                    alt=""
+                    className="guided-page-image"
+                    onLoad={() => setReaderLayoutVersion(version => version + 1)}
+                    src={page.image}
+                  />
                 </div>
 
                 <div className="guided-page-reading">
                   <AutoFitReadingText
                     aria-label="Page text"
                     className={`guided-page-text ${readingMode}`}
+                    layoutVersion={readerLayoutVersion}
                     text={`${selectedBook.id}-${pageIndex}-${page.text || ""}-${readingMode}-${isReaderFullscreen ? "fullscreen" : "windowed"}`}
                   >
                     {sentenceTokenGroups.map(group => (
@@ -3768,7 +3839,10 @@ export function AssessmentPage({
       <AnimatePresence mode="wait">
         {currentQuestion && (
           <motion.div
-            className="card assessment-card assessment-question-layout"
+            className={[
+              "card assessment-card assessment-question-layout",
+              isRhymingPictureItem ? "rhyming-assessment-layout" : ""
+            ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
