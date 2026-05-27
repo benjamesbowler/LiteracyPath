@@ -3414,10 +3414,19 @@ const teacherPreviewSeriesBooks = guidedReadingSeriesBooks
   }))
   .filter(book => book.pages.length >= 4);
 
+const approvedSeriesBooks = guidedReadingSeriesBooks
+  .filter(book => book.active !== false && book.qaStatus === "approved")
+  .map(book => ({
+    ...book,
+    pages: (book.pages || []).filter(page => page.active !== false && page.qaStatus === "approved")
+  }))
+  .filter(book => book.pages.length >= 4);
+
 const activeGuidedReadingBaseBooks = [
   ...approvedGuidedReadingCandidates,
   ...approvedRegeneratedGuidedReadingBooks,
-  ...teacherPreviewSeriesBooks
+  ...teacherPreviewSeriesBooks,
+  ...approvedSeriesBooks
 ];
 
 export const guidedReadingRelevelAudit = activeGuidedReadingBaseBooks.map(book => {
