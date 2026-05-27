@@ -73,31 +73,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Red",
-            "audioPath": "/audio/child-mode/words/red.mp3"
+            "audioPath": "/guided-reading/audio/words/red.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "red",
-            "audioPath": "/audio/child-mode/words/red.mp3"
+            "audioPath": "/guided-reading/audio/words/red.mp3"
           },
           {
             "text": "apple",
-            "audioPath": "/audio/child-mode/words/apple.mp3"
+            "audioPath": "/guided-reading/audio/words/apple.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "red",
-            "audioPath": "/audio/child-mode/words/red.mp3"
+            "audioPath": "/guided-reading/audio/words/red.mp3"
           },
           {
             "text": "robin",
-            "audioPath": "/audio/child-mode/words/robin.mp3"
+            "audioPath": "/guided-reading/audio/words/robin.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -113,31 +113,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Yellow",
-            "audioPath": "/audio/child-mode/words/yellow.mp3"
+            "audioPath": "/guided-reading/audio/words/yellow.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "yellow",
-            "audioPath": "/audio/child-mode/words/yellow.mp3"
+            "audioPath": "/guided-reading/audio/words/yellow.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "yellow",
-            "audioPath": "/audio/child-mode/words/yellow.mp3"
+            "audioPath": "/guided-reading/audio/words/yellow.mp3"
           },
           {
             "text": "duck",
-            "audioPath": "/audio/child-mode/words/duck.mp3"
+            "audioPath": "/guided-reading/audio/words/duck.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -153,27 +153,27 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Blue",
-            "audioPath": "/audio/child-mode/words/blue.mp3"
+            "audioPath": "/guided-reading/audio/words/blue.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "blue",
-            "audioPath": "/audio/child-mode/words/blue.mp3"
+            "audioPath": "/guided-reading/audio/words/blue.mp3"
           },
           {
             "text": "sky",
-            "audioPath": "/audio/child-mode/words/sky.mp3"
+            "audioPath": "/guided-reading/audio/words/sky.mp3"
           },
           {
             "text": "Blue",
-            "audioPath": "/audio/child-mode/words/blue.mp3"
+            "audioPath": "/guided-reading/audio/words/blue.mp3"
           },
           {
             "text": "forget-me-nots",
-            "audioPath": "/audio/child-mode/words/forget-me-nots.mp3"
+            "audioPath": "/guided-reading/audio/words/forget-me-nots.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -189,27 +189,27 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Green",
-            "audioPath": "/audio/child-mode/words/green.mp3"
+            "audioPath": "/guided-reading/audio/words/green.mp3"
           },
           {
             "text": "Green",
-            "audioPath": "/audio/child-mode/words/green.mp3"
+            "audioPath": "/guided-reading/audio/words/green.mp3"
           },
           {
             "text": "grass",
-            "audioPath": "/audio/child-mode/words/grass.mp3"
+            "audioPath": "/guided-reading/audio/words/grass.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "green",
-            "audioPath": "/audio/child-mode/words/green.mp3"
+            "audioPath": "/guided-reading/audio/words/green.mp3"
           },
           {
             "text": "frog",
-            "audioPath": "/audio/child-mode/words/frog.mp3"
+            "audioPath": "/guided-reading/audio/words/frog.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -225,31 +225,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Orange",
-            "audioPath": "/audio/child-mode/words/orange.mp3"
+            "audioPath": "/guided-reading/audio/words/orange.mp3"
           },
           {
             "text": "An",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "orange",
-            "audioPath": "/audio/child-mode/words/orange.mp3"
+            "audioPath": "/guided-reading/audio/words/orange.mp3"
           },
           {
             "text": "fox",
-            "audioPath": "/audio/child-mode/words/fox.mp3"
+            "audioPath": "/guided-reading/audio/words/fox.mp3"
           },
           {
             "text": "An",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "orange",
-            "audioPath": "/audio/child-mode/words/orange.mp3"
+            "audioPath": "/guided-reading/audio/words/orange.mp3"
           },
           {
             "text": "pumpkin",
-            "audioPath": "/audio/child-mode/words/pumpkin.mp3"
+            "audioPath": "/guided-reading/audio/words/pumpkin.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -265,23 +265,23 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Purple",
-            "audioPath": "/audio/child-mode/words/purple.mp3"
+            "audioPath": "/guided-reading/audio/words/purple.mp3"
           },
           {
             "text": "Purple",
-            "audioPath": "/audio/child-mode/words/purple.mp3"
+            "audioPath": "/guided-reading/audio/words/purple.mp3"
           },
           {
             "text": "grapes",
-            "audioPath": "/audio/child-mode/words/grapes.mp3"
+            "audioPath": "/guided-reading/audio/words/grapes.mp3"
           },
           {
             "text": "Purple",
-            "audioPath": "/audio/child-mode/words/purple.mp3"
+            "audioPath": "/guided-reading/audio/words/purple.mp3"
           },
           {
             "text": "lavender",
-            "audioPath": "/audio/child-mode/words/lavender.mp3"
+            "audioPath": "/guided-reading/audio/words/lavender.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -297,43 +297,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Colours",
-            "audioPath": "/audio/child-mode/words/colours.mp3"
+            "audioPath": "/guided-reading/audio/words/colours.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "all",
-            "audioPath": "/audio/child-mode/words/all.mp3"
+            "audioPath": "/guided-reading/audio/words/all.mp3"
           },
           {
             "text": "around",
-            "audioPath": "/audio/child-mode/words/around.mp3"
+            "audioPath": "/guided-reading/audio/words/around.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "What",
-            "audioPath": "/audio/child-mode/words/what.mp3"
+            "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
             "text": "colour",
-            "audioPath": "/audio/child-mode/words/colour.mp3"
+            "audioPath": "/guided-reading/audio/words/colour.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "you",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "see",
-            "audioPath": "/audio/child-mode/words/see.mp3"
+            "audioPath": "/guided-reading/audio/words/see.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -416,35 +416,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "This",
-            "audioPath": "/audio/child-mode/words/this.mp3"
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "spring",
-            "audioPath": "/audio/child-mode/words/spring.mp3"
+            "audioPath": "/guided-reading/audio/words/spring.mp3"
           },
           {
             "text": "Flowers",
-            "audioPath": "/audio/child-mode/words/flowers.mp3"
+            "audioPath": "/guided-reading/audio/words/flowers.mp3"
           },
           {
             "text": "pop",
-            "audioPath": "/audio/child-mode/words/pop.mp3"
+            "audioPath": "/guided-reading/audio/words/pop.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "Birds",
-            "audioPath": "/audio/child-mode/words/birds.mp3"
+            "audioPath": "/guided-reading/audio/words/birds.mp3"
           },
           {
             "text": "sing",
-            "audioPath": "/audio/child-mode/words/sing.mp3"
+            "audioPath": "/guided-reading/audio/words/sing.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -460,51 +460,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "spring",
-            "audioPath": "/audio/child-mode/words/spring.mp3"
+            "audioPath": "/guided-reading/audio/words/spring.mp3"
           },
           {
             "text": "baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "born",
-            "audioPath": "/audio/child-mode/words/born.mp3"
+            "audioPath": "/guided-reading/audio/words/born.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "lamb",
-            "audioPath": "/audio/child-mode/words/lamb.mp3"
+            "audioPath": "/guided-reading/audio/words/lamb.mp3"
           },
           {
             "text": "skips",
-            "audioPath": "/audio/child-mode/words/skips.mp3"
+            "audioPath": "/guided-reading/audio/words/skips.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "chick",
-            "audioPath": "/audio/child-mode/words/chick.mp3"
+            "audioPath": "/guided-reading/audio/words/chick.mp3"
           },
           {
             "text": "hatches",
-            "audioPath": "/audio/child-mode/words/hatches.mp3"
+            "audioPath": "/guided-reading/audio/words/hatches.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -520,51 +520,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "This",
-            "audioPath": "/audio/child-mode/words/this.mp3"
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "summer",
-            "audioPath": "/audio/child-mode/words/summer.mp3"
+            "audioPath": "/guided-reading/audio/words/summer.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "sunny",
-            "audioPath": "/audio/child-mode/words/sunny.mp3"
+            "audioPath": "/guided-reading/audio/words/sunny.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -580,39 +580,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "summer",
-            "audioPath": "/audio/child-mode/words/summer.mp3"
+            "audioPath": "/guided-reading/audio/words/summer.mp3"
           },
           {
             "text": "plants",
-            "audioPath": "/audio/child-mode/words/plants.mp3"
+            "audioPath": "/guided-reading/audio/words/plants.mp3"
           },
           {
             "text": "grow",
-            "audioPath": "/audio/child-mode/words/grow.mp3"
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
           },
           {
             "text": "tall",
-            "audioPath": "/audio/child-mode/words/tall.mp3"
+            "audioPath": "/guided-reading/audio/words/tall.mp3"
           },
           {
             "text": "Bees",
-            "audioPath": "/audio/child-mode/words/bees.mp3"
+            "audioPath": "/guided-reading/audio/words/bees.mp3"
           },
           {
             "text": "buzz",
-            "audioPath": "/audio/child-mode/words/buzz.mp3"
+            "audioPath": "/guided-reading/audio/words/buzz.mp3"
           },
           {
             "text": "Fruit",
-            "audioPath": "/audio/child-mode/words/fruit.mp3"
+            "audioPath": "/guided-reading/audio/words/fruit.mp3"
           },
           {
             "text": "grows",
-            "audioPath": "/audio/child-mode/words/grows.mp3"
+            "audioPath": "/guided-reading/audio/words/grows.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -628,47 +628,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "This",
-            "audioPath": "/audio/child-mode/words/this.mp3"
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "autumn",
-            "audioPath": "/audio/child-mode/words/autumn.mp3"
+            "audioPath": "/guided-reading/audio/words/autumn.mp3"
           },
           {
             "text": "Leaves",
-            "audioPath": "/audio/child-mode/words/leaves.mp3"
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
           },
           {
             "text": "go",
-            "audioPath": "/audio/child-mode/words/go.mp3"
+            "audioPath": "/guided-reading/audio/words/go.mp3"
           },
           {
             "text": "red",
-            "audioPath": "/audio/child-mode/words/red.mp3"
+            "audioPath": "/guided-reading/audio/words/red.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "gold",
-            "audioPath": "/audio/child-mode/words/gold.mp3"
+            "audioPath": "/guided-reading/audio/words/gold.mp3"
           },
           {
             "text": "Leaves",
-            "audioPath": "/audio/child-mode/words/leaves.mp3"
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
           },
           {
             "text": "fall",
-            "audioPath": "/audio/child-mode/words/fall.mp3"
+            "audioPath": "/guided-reading/audio/words/fall.mp3"
           },
           {
             "text": "down",
-            "audioPath": "/audio/child-mode/words/down.mp3"
+            "audioPath": "/guided-reading/audio/words/down.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -684,51 +684,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "autumn",
-            "audioPath": "/audio/child-mode/words/autumn.mp3"
+            "audioPath": "/guided-reading/audio/words/autumn.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "get",
-            "audioPath": "/audio/child-mode/words/get.mp3"
+            "audioPath": "/guided-reading/audio/words/get.mp3"
           },
           {
             "text": "ready",
-            "audioPath": "/audio/child-mode/words/ready.mp3"
+            "audioPath": "/guided-reading/audio/words/ready.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "squirrel",
-            "audioPath": "/audio/child-mode/words/squirrel.mp3"
+            "audioPath": "/guided-reading/audio/words/squirrel.mp3"
           },
           {
             "text": "hides",
-            "audioPath": "/audio/child-mode/words/hides.mp3"
+            "audioPath": "/guided-reading/audio/words/hides.mp3"
           },
           {
             "text": "nuts",
-            "audioPath": "/audio/child-mode/words/nuts.mp3"
+            "audioPath": "/guided-reading/audio/words/nuts.mp3"
           },
           {
             "text": "Birds",
-            "audioPath": "/audio/child-mode/words/birds.mp3"
+            "audioPath": "/guided-reading/audio/words/birds.mp3"
           },
           {
             "text": "fly",
-            "audioPath": "/audio/child-mode/words/fly.mp3"
+            "audioPath": "/guided-reading/audio/words/fly.mp3"
           },
           {
             "text": "south",
-            "audioPath": "/audio/child-mode/words/south.mp3"
+            "audioPath": "/guided-reading/audio/words/south.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -744,35 +744,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "This",
-            "audioPath": "/audio/child-mode/words/this.mp3"
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "winter",
-            "audioPath": "/audio/child-mode/words/winter.mp3"
+            "audioPath": "/guided-reading/audio/words/winter.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "cold",
-            "audioPath": "/audio/child-mode/words/cold.mp3"
+            "audioPath": "/guided-reading/audio/words/cold.mp3"
           },
           {
             "text": "Snow",
-            "audioPath": "/audio/child-mode/words/snow.mp3"
+            "audioPath": "/guided-reading/audio/words/snow.mp3"
           },
           {
             "text": "falls",
-            "audioPath": "/audio/child-mode/words/falls.mp3"
+            "audioPath": "/guided-reading/audio/words/falls.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -788,39 +788,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "winter",
-            "audioPath": "/audio/child-mode/words/winter.mp3"
+            "audioPath": "/guided-reading/audio/words/winter.mp3"
           },
           {
             "text": "some",
-            "audioPath": "/audio/child-mode/words/some.mp3"
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "sleep",
-            "audioPath": "/audio/child-mode/words/sleep.mp3"
+            "audioPath": "/guided-reading/audio/words/sleep.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "wrap",
-            "audioPath": "/audio/child-mode/words/wrap.mp3"
+            "audioPath": "/guided-reading/audio/words/wrap.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "warm",
-            "audioPath": "/audio/child-mode/words/warm.mp3"
+            "audioPath": "/guided-reading/audio/words/warm.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -836,47 +836,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Four",
-            "audioPath": "/audio/child-mode/words/four.mp3"
+            "audioPath": "/guided-reading/audio/words/four.mp3"
           },
           {
             "text": "seasons",
-            "audioPath": "/audio/child-mode/words/seasons.mp3"
+            "audioPath": "/guided-reading/audio/words/seasons.mp3"
           },
           {
             "text": "spring",
-            "audioPath": "/audio/child-mode/words/spring.mp3"
+            "audioPath": "/guided-reading/audio/words/spring.mp3"
           },
           {
             "text": "summer",
-            "audioPath": "/audio/child-mode/words/summer.mp3"
+            "audioPath": "/guided-reading/audio/words/summer.mp3"
           },
           {
             "text": "autumn",
-            "audioPath": "/audio/child-mode/words/autumn.mp3"
+            "audioPath": "/guided-reading/audio/words/autumn.mp3"
           },
           {
             "text": "winter",
-            "audioPath": "/audio/child-mode/words/winter.mp3"
+            "audioPath": "/guided-reading/audio/words/winter.mp3"
           },
           {
             "text": "Which",
-            "audioPath": "/audio/child-mode/words/which.mp3"
+            "audioPath": "/guided-reading/audio/words/which.mp3"
           },
           {
             "text": "do",
-            "audioPath": "/audio/child-mode/words/do.mp3"
+            "audioPath": "/guided-reading/audio/words/do.mp3"
           },
           {
             "text": "you",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "like",
-            "audioPath": "/audio/child-mode/words/like.mp3"
+            "audioPath": "/guided-reading/audio/words/like.mp3"
           },
           {
             "text": "best",
-            "audioPath": "/audio/child-mode/words/best.mp3"
+            "audioPath": "/guided-reading/audio/words/best.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -959,51 +959,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "This",
-            "audioPath": "/audio/child-mode/words/this.mp3"
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "seed",
-            "audioPath": "/audio/child-mode/words/seed.mp3"
+            "audioPath": "/guided-reading/audio/words/seed.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "tiny",
-            "audioPath": "/audio/child-mode/words/tiny.mp3"
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
           },
           {
             "text": "Seeds",
-            "audioPath": "/audio/child-mode/words/seeds.mp3"
+            "audioPath": "/guided-reading/audio/words/seeds.mp3"
           },
           {
             "text": "come",
-            "audioPath": "/audio/child-mode/words/come.mp3"
+            "audioPath": "/guided-reading/audio/words/come.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "many",
-            "audioPath": "/audio/child-mode/words/many.mp3"
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "shapes",
-            "audioPath": "/audio/child-mode/words/shapes.mp3"
+            "audioPath": "/guided-reading/audio/words/shapes.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1019,39 +1019,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Put",
-            "audioPath": "/audio/child-mode/words/put.mp3"
+            "audioPath": "/guided-reading/audio/words/put.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "seed",
-            "audioPath": "/audio/child-mode/words/seed.mp3"
+            "audioPath": "/guided-reading/audio/words/seed.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "soil",
-            "audioPath": "/audio/child-mode/words/soil.mp3"
+            "audioPath": "/guided-reading/audio/words/soil.mp3"
           },
           {
             "text": "Pat",
-            "audioPath": "/audio/child-mode/words/pat.mp3"
+            "audioPath": "/guided-reading/audio/words/pat.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "down",
-            "audioPath": "/audio/child-mode/words/down.mp3"
+            "audioPath": "/guided-reading/audio/words/down.mp3"
           },
           {
             "text": "gently",
-            "audioPath": "/audio/child-mode/words/gently.mp3"
+            "audioPath": "/guided-reading/audio/words/gently.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1067,35 +1067,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Add",
-            "audioPath": "/audio/child-mode/words/add.mp3"
+            "audioPath": "/guided-reading/audio/words/add.mp3"
           },
           {
             "text": "some",
-            "audioPath": "/audio/child-mode/words/some.mp3"
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "seed",
-            "audioPath": "/audio/child-mode/words/seed.mp3"
+            "audioPath": "/guided-reading/audio/words/seed.mp3"
           },
           {
             "text": "drinks",
-            "audioPath": "/audio/child-mode/words/drinks.mp3"
+            "audioPath": "/guided-reading/audio/words/drinks.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1111,39 +1111,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "shines",
-            "audioPath": "/audio/child-mode/words/shines.mp3"
+            "audioPath": "/guided-reading/audio/words/shines.mp3"
           },
           {
             "text": "Something",
-            "audioPath": "/audio/child-mode/words/something.mp3"
+            "audioPath": "/guided-reading/audio/words/something.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "happening",
-            "audioPath": "/audio/child-mode/words/happening.mp3"
+            "audioPath": "/guided-reading/audio/words/happening.mp3"
           },
           {
             "text": "under",
-            "audioPath": "/audio/child-mode/words/under.mp3"
+            "audioPath": "/guided-reading/audio/words/under.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "soil",
-            "audioPath": "/audio/child-mode/words/soil.mp3"
+            "audioPath": "/guided-reading/audio/words/soil.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1159,43 +1159,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "green",
-            "audioPath": "/audio/child-mode/words/green.mp3"
+            "audioPath": "/guided-reading/audio/words/green.mp3"
           },
           {
             "text": "shoot",
-            "audioPath": "/audio/child-mode/words/shoot.mp3"
+            "audioPath": "/guided-reading/audio/words/shoot.mp3"
           },
           {
             "text": "comes",
-            "audioPath": "/audio/child-mode/words/comes.mp3"
+            "audioPath": "/guided-reading/audio/words/comes.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "two",
-            "audioPath": "/audio/child-mode/words/two.mp3"
+            "audioPath": "/guided-reading/audio/words/two.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           },
           {
             "text": "leaves",
-            "audioPath": "/audio/child-mode/words/leaves.mp3"
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1211,51 +1211,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "stem",
-            "audioPath": "/audio/child-mode/words/stem.mp3"
+            "audioPath": "/guided-reading/audio/words/stem.mp3"
           },
           {
             "text": "grows",
-            "audioPath": "/audio/child-mode/words/grows.mp3"
+            "audioPath": "/guided-reading/audio/words/grows.mp3"
           },
           {
             "text": "tall",
-            "audioPath": "/audio/child-mode/words/tall.mp3"
+            "audioPath": "/guided-reading/audio/words/tall.mp3"
           },
           {
             "text": "More",
-            "audioPath": "/audio/child-mode/words/more.mp3"
+            "audioPath": "/guided-reading/audio/words/more.mp3"
           },
           {
             "text": "leaves",
-            "audioPath": "/audio/child-mode/words/leaves.mp3"
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
           },
           {
             "text": "grow",
-            "audioPath": "/audio/child-mode/words/grow.mp3"
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "needs",
-            "audioPath": "/audio/child-mode/words/needs.mp3"
+            "audioPath": "/guided-reading/audio/words/needs.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1271,43 +1271,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "flower",
-            "audioPath": "/audio/child-mode/words/flower.mp3"
+            "audioPath": "/guided-reading/audio/words/flower.mp3"
           },
           {
             "text": "blooms",
-            "audioPath": "/audio/child-mode/words/blooms.mp3"
+            "audioPath": "/guided-reading/audio/words/blooms.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "seed",
-            "audioPath": "/audio/child-mode/words/seed.mp3"
+            "audioPath": "/guided-reading/audio/words/seed.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "grown",
-            "audioPath": "/audio/child-mode/words/grown.mp3"
+            "audioPath": "/guided-reading/audio/words/grown.mp3"
           },
           {
             "text": "into",
-            "audioPath": "/audio/child-mode/words/into.mp3"
+            "audioPath": "/guided-reading/audio/words/into.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "plant",
-            "audioPath": "/audio/child-mode/words/plant.mp3"
+            "audioPath": "/guided-reading/audio/words/plant.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1390,43 +1390,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "sunny",
-            "audioPath": "/audio/child-mode/words/sunny.mp3"
+            "audioPath": "/guided-reading/audio/words/sunny.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "bright",
-            "audioPath": "/audio/child-mode/words/bright.mp3"
+            "audioPath": "/guided-reading/audio/words/bright.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "feels",
-            "audioPath": "/audio/child-mode/words/feels.mp3"
+            "audioPath": "/guided-reading/audio/words/feels.mp3"
           },
           {
             "text": "warm",
-            "audioPath": "/audio/child-mode/words/warm.mp3"
+            "audioPath": "/guided-reading/audio/words/warm.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1442,47 +1442,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "rainy",
-            "audioPath": "/audio/child-mode/words/rainy.mp3"
+            "audioPath": "/guided-reading/audio/words/rainy.mp3"
           },
           {
             "text": "Drops",
-            "audioPath": "/audio/child-mode/words/drops.mp3"
+            "audioPath": "/guided-reading/audio/words/drops.mp3"
           },
           {
             "text": "fall",
-            "audioPath": "/audio/child-mode/words/fall.mp3"
+            "audioPath": "/guided-reading/audio/words/fall.mp3"
           },
           {
             "text": "from",
-            "audioPath": "/audio/child-mode/words/from.mp3"
+            "audioPath": "/guided-reading/audio/words/from.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "clouds",
-            "audioPath": "/audio/child-mode/words/clouds.mp3"
+            "audioPath": "/guided-reading/audio/words/clouds.mp3"
           },
           {
             "text": "Drip",
-            "audioPath": "/audio/child-mode/words/drip.mp3"
+            "audioPath": "/guided-reading/audio/words/drip.mp3"
           },
           {
             "text": "drip",
-            "audioPath": "/audio/child-mode/words/drip.mp3"
+            "audioPath": "/guided-reading/audio/words/drip.mp3"
           },
           {
             "text": "drip",
-            "audioPath": "/audio/child-mode/words/drip.mp3"
+            "audioPath": "/guided-reading/audio/words/drip.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1498,51 +1498,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "windy",
-            "audioPath": "/audio/child-mode/words/windy.mp3"
+            "audioPath": "/guided-reading/audio/words/windy.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "wind",
-            "audioPath": "/audio/child-mode/words/wind.mp3"
+            "audioPath": "/guided-reading/audio/words/wind.mp3"
           },
           {
             "text": "blows",
-            "audioPath": "/audio/child-mode/words/blows.mp3"
+            "audioPath": "/guided-reading/audio/words/blows.mp3"
           },
           {
             "text": "hard",
-            "audioPath": "/audio/child-mode/words/hard.mp3"
+            "audioPath": "/guided-reading/audio/words/hard.mp3"
           },
           {
             "text": "Leaves",
-            "audioPath": "/audio/child-mode/words/leaves.mp3"
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
           },
           {
             "text": "fly",
-            "audioPath": "/audio/child-mode/words/fly.mp3"
+            "audioPath": "/guided-reading/audio/words/fly.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "air",
-            "audioPath": "/audio/child-mode/words/air.mp3"
+            "audioPath": "/guided-reading/audio/words/air.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1558,39 +1558,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "snowy",
-            "audioPath": "/audio/child-mode/words/snowy.mp3"
+            "audioPath": "/guided-reading/audio/words/snowy.mp3"
           },
           {
             "text": "White",
-            "audioPath": "/audio/child-mode/words/white.mp3"
+            "audioPath": "/guided-reading/audio/words/white.mp3"
           },
           {
             "text": "flakes",
-            "audioPath": "/audio/child-mode/words/flakes.mp3"
+            "audioPath": "/guided-reading/audio/words/flakes.mp3"
           },
           {
             "text": "fall",
-            "audioPath": "/audio/child-mode/words/fall.mp3"
+            "audioPath": "/guided-reading/audio/words/fall.mp3"
           },
           {
             "text": "Everything",
-            "audioPath": "/audio/child-mode/words/everything.mp3"
+            "audioPath": "/guided-reading/audio/words/everything.mp3"
           },
           {
             "text": "looks",
-            "audioPath": "/audio/child-mode/words/looks.mp3"
+            "audioPath": "/guided-reading/audio/words/looks.mp3"
           },
           {
             "text": "white",
-            "audioPath": "/audio/child-mode/words/white.mp3"
+            "audioPath": "/guided-reading/audio/words/white.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1606,51 +1606,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "cloudy",
-            "audioPath": "/audio/child-mode/words/cloudy.mp3"
+            "audioPath": "/guided-reading/audio/words/cloudy.mp3"
           },
           {
             "text": "Grey",
-            "audioPath": "/audio/child-mode/words/grey.mp3"
+            "audioPath": "/guided-reading/audio/words/grey.mp3"
           },
           {
             "text": "clouds",
-            "audioPath": "/audio/child-mode/words/clouds.mp3"
+            "audioPath": "/guided-reading/audio/words/clouds.mp3"
           },
           {
             "text": "fill",
-            "audioPath": "/audio/child-mode/words/fill.mp3"
+            "audioPath": "/guided-reading/audio/words/fill.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sky",
-            "audioPath": "/audio/child-mode/words/sky.mp3"
+            "audioPath": "/guided-reading/audio/words/sky.mp3"
           },
           {
             "text": "Where",
-            "audioPath": "/audio/child-mode/words/where.mp3"
+            "audioPath": "/guided-reading/audio/words/where.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1666,43 +1666,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Rumble",
-            "audioPath": "/audio/child-mode/words/rumble.mp3"
+            "audioPath": "/guided-reading/audio/words/rumble.mp3"
           },
           {
             "text": "Flash",
-            "audioPath": "/audio/child-mode/words/flash.mp3"
+            "audioPath": "/guided-reading/audio/words/flash.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "storm",
-            "audioPath": "/audio/child-mode/words/storm.mp3"
+            "audioPath": "/guided-reading/audio/words/storm.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "here",
-            "audioPath": "/audio/child-mode/words/here.mp3"
+            "audioPath": "/guided-reading/audio/words/here.mp3"
           },
           {
             "text": "Then",
-            "audioPath": "/audio/child-mode/words/then.mp3"
+            "audioPath": "/guided-reading/audio/words/then.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "rain",
-            "audioPath": "/audio/child-mode/words/rain.mp3"
+            "audioPath": "/guided-reading/audio/words/rain.mp3"
           },
           {
             "text": "falls",
-            "audioPath": "/audio/child-mode/words/falls.mp3"
+            "audioPath": "/guided-reading/audio/words/falls.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1718,51 +1718,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "After",
-            "audioPath": "/audio/child-mode/words/after.mp3"
+            "audioPath": "/guided-reading/audio/words/after.mp3"
           },
           {
             "text": "rain",
-            "audioPath": "/audio/child-mode/words/rain.mp3"
+            "audioPath": "/guided-reading/audio/words/rain.mp3"
           },
           {
             "text": "look",
-            "audioPath": "/audio/child-mode/words/look.mp3"
+            "audioPath": "/guided-reading/audio/words/look.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "rainbow",
-            "audioPath": "/audio/child-mode/words/rainbow.mp3"
+            "audioPath": "/guided-reading/audio/words/rainbow.mp3"
           },
           {
             "text": "Red",
-            "audioPath": "/audio/child-mode/words/red.mp3"
+            "audioPath": "/guided-reading/audio/words/red.mp3"
           },
           {
             "text": "orange",
-            "audioPath": "/audio/child-mode/words/orange.mp3"
+            "audioPath": "/guided-reading/audio/words/orange.mp3"
           },
           {
             "text": "yellow",
-            "audioPath": "/audio/child-mode/words/yellow.mp3"
+            "audioPath": "/guided-reading/audio/words/yellow.mp3"
           },
           {
             "text": "green",
-            "audioPath": "/audio/child-mode/words/green.mp3"
+            "audioPath": "/guided-reading/audio/words/green.mp3"
           },
           {
             "text": "blue",
-            "audioPath": "/audio/child-mode/words/blue.mp3"
+            "audioPath": "/guided-reading/audio/words/blue.mp3"
           },
           {
             "text": "purple",
-            "audioPath": "/audio/child-mode/words/purple.mp3"
+            "audioPath": "/guided-reading/audio/words/purple.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1778,55 +1778,55 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "rain",
-            "audioPath": "/audio/child-mode/words/rain.mp3"
+            "audioPath": "/guided-reading/audio/words/rain.mp3"
           },
           {
             "text": "wind",
-            "audioPath": "/audio/child-mode/words/wind.mp3"
+            "audioPath": "/guided-reading/audio/words/wind.mp3"
           },
           {
             "text": "snow",
-            "audioPath": "/audio/child-mode/words/snow.mp3"
+            "audioPath": "/guided-reading/audio/words/snow.mp3"
           },
           {
             "text": "Weather",
-            "audioPath": "/audio/child-mode/words/weather.mp3"
+            "audioPath": "/guided-reading/audio/words/weather.mp3"
           },
           {
             "text": "changes",
-            "audioPath": "/audio/child-mode/words/changes.mp3"
+            "audioPath": "/guided-reading/audio/words/changes.mp3"
           },
           {
             "text": "every",
-            "audioPath": "/audio/child-mode/words/every.mp3"
+            "audioPath": "/guided-reading/audio/words/every.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           },
           {
             "text": "What",
-            "audioPath": "/audio/child-mode/words/what.mp3"
+            "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "weather",
-            "audioPath": "/audio/child-mode/words/weather.mp3"
+            "audioPath": "/guided-reading/audio/words/weather.mp3"
           },
           {
             "text": "today",
-            "audioPath": "/audio/child-mode/words/today.mp3"
+            "audioPath": "/guided-reading/audio/words/today.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1909,55 +1909,55 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "flower",
-            "audioPath": "/audio/child-mode/words/flower.mp3"
+            "audioPath": "/guided-reading/audio/words/flower.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "petals",
-            "audioPath": "/audio/child-mode/words/petals.mp3"
+            "audioPath": "/guided-reading/audio/words/petals.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "flower",
-            "audioPath": "/audio/child-mode/words/flower.mp3"
+            "audioPath": "/guided-reading/audio/words/flower.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "stem",
-            "audioPath": "/audio/child-mode/words/stem.mp3"
+            "audioPath": "/guided-reading/audio/words/stem.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "flower",
-            "audioPath": "/audio/child-mode/words/flower.mp3"
+            "audioPath": "/guided-reading/audio/words/flower.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "roots",
-            "audioPath": "/audio/child-mode/words/roots.mp3"
+            "audioPath": "/guided-reading/audio/words/roots.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -1973,47 +1973,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "sunflower",
-            "audioPath": "/audio/child-mode/words/sunflower.mp3"
+            "audioPath": "/guided-reading/audio/words/sunflower.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "tall",
-            "audioPath": "/audio/child-mode/words/tall.mp3"
+            "audioPath": "/guided-reading/audio/words/tall.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "yellow",
-            "audioPath": "/audio/child-mode/words/yellow.mp3"
+            "audioPath": "/guided-reading/audio/words/yellow.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "makes",
-            "audioPath": "/audio/child-mode/words/makes.mp3"
+            "audioPath": "/guided-reading/audio/words/makes.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "grow",
-            "audioPath": "/audio/child-mode/words/grow.mp3"
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2029,47 +2029,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "daisy",
-            "audioPath": "/audio/child-mode/words/daisy.mp3"
+            "audioPath": "/guided-reading/audio/words/daisy.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "white",
-            "audioPath": "/audio/child-mode/words/white.mp3"
+            "audioPath": "/guided-reading/audio/words/white.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "grows",
-            "audioPath": "/audio/child-mode/words/grows.mp3"
+            "audioPath": "/guided-reading/audio/words/grows.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "grass",
-            "audioPath": "/audio/child-mode/words/grass.mp3"
+            "audioPath": "/guided-reading/audio/words/grass.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2085,47 +2085,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "rose",
-            "audioPath": "/audio/child-mode/words/rose.mp3"
+            "audioPath": "/guided-reading/audio/words/rose.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "red",
-            "audioPath": "/audio/child-mode/words/red.mp3"
+            "audioPath": "/guided-reading/audio/words/red.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "smells",
-            "audioPath": "/audio/child-mode/words/smells.mp3"
+            "audioPath": "/guided-reading/audio/words/smells.mp3"
           },
           {
             "text": "sweet",
-            "audioPath": "/audio/child-mode/words/sweet.mp3"
+            "audioPath": "/guided-reading/audio/words/sweet.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "sharp",
-            "audioPath": "/audio/child-mode/words/sharp.mp3"
+            "audioPath": "/guided-reading/audio/words/sharp.mp3"
           },
           {
             "text": "thorns",
-            "audioPath": "/audio/child-mode/words/thorns.mp3"
+            "audioPath": "/guided-reading/audio/words/thorns.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2141,47 +2141,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Trees",
-            "audioPath": "/audio/child-mode/words/trees.mp3"
+            "audioPath": "/guided-reading/audio/words/trees.mp3"
           },
           {
             "text": "have",
-            "audioPath": "/audio/child-mode/words/have.mp3"
+            "audioPath": "/guided-reading/audio/words/have.mp3"
           },
           {
             "text": "roots",
-            "audioPath": "/audio/child-mode/words/roots.mp3"
+            "audioPath": "/guided-reading/audio/words/roots.mp3"
           },
           {
             "text": "under",
-            "audioPath": "/audio/child-mode/words/under.mp3"
+            "audioPath": "/guided-reading/audio/words/under.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "soil",
-            "audioPath": "/audio/child-mode/words/soil.mp3"
+            "audioPath": "/guided-reading/audio/words/soil.mp3"
           },
           {
             "text": "Roots",
-            "audioPath": "/audio/child-mode/words/roots.mp3"
+            "audioPath": "/guided-reading/audio/words/roots.mp3"
           },
           {
             "text": "hold",
-            "audioPath": "/audio/child-mode/words/hold.mp3"
+            "audioPath": "/guided-reading/audio/words/hold.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "tree",
-            "audioPath": "/audio/child-mode/words/tree.mp3"
+            "audioPath": "/guided-reading/audio/words/tree.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2197,55 +2197,55 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Some",
-            "audioPath": "/audio/child-mode/words/some.mp3"
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "trees",
-            "audioPath": "/audio/child-mode/words/trees.mp3"
+            "audioPath": "/guided-reading/audio/words/trees.mp3"
           },
           {
             "text": "lose",
-            "audioPath": "/audio/child-mode/words/lose.mp3"
+            "audioPath": "/guided-reading/audio/words/lose.mp3"
           },
           {
             "text": "their",
-            "audioPath": "/audio/child-mode/words/their.mp3"
+            "audioPath": "/guided-reading/audio/words/their.mp3"
           },
           {
             "text": "leaves",
-            "audioPath": "/audio/child-mode/words/leaves.mp3"
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "autumn",
-            "audioPath": "/audio/child-mode/words/autumn.mp3"
+            "audioPath": "/guided-reading/audio/words/autumn.mp3"
           },
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "winter",
-            "audioPath": "/audio/child-mode/words/winter.mp3"
+            "audioPath": "/guided-reading/audio/words/winter.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "branches",
-            "audioPath": "/audio/child-mode/words/branches.mp3"
+            "audioPath": "/guided-reading/audio/words/branches.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "bare",
-            "audioPath": "/audio/child-mode/words/bare.mp3"
+            "audioPath": "/guided-reading/audio/words/bare.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2261,51 +2261,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Some",
-            "audioPath": "/audio/child-mode/words/some.mp3"
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "trees",
-            "audioPath": "/audio/child-mode/words/trees.mp3"
+            "audioPath": "/guided-reading/audio/words/trees.mp3"
           },
           {
             "text": "keep",
-            "audioPath": "/audio/child-mode/words/keep.mp3"
+            "audioPath": "/guided-reading/audio/words/keep.mp3"
           },
           {
             "text": "their",
-            "audioPath": "/audio/child-mode/words/their.mp3"
+            "audioPath": "/guided-reading/audio/words/their.mp3"
           },
           {
             "text": "leaves",
-            "audioPath": "/audio/child-mode/words/leaves.mp3"
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
           },
           {
             "text": "all",
-            "audioPath": "/audio/child-mode/words/all.mp3"
+            "audioPath": "/guided-reading/audio/words/all.mp3"
           },
           {
             "text": "year",
-            "audioPath": "/audio/child-mode/words/year.mp3"
+            "audioPath": "/guided-reading/audio/words/year.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "called",
-            "audioPath": "/audio/child-mode/words/called.mp3"
+            "audioPath": "/guided-reading/audio/words/called.mp3"
           },
           {
             "text": "evergreen",
-            "audioPath": "/audio/child-mode/words/evergreen.mp3"
+            "audioPath": "/guided-reading/audio/words/evergreen.mp3"
           },
           {
             "text": "trees",
-            "audioPath": "/audio/child-mode/words/trees.mp3"
+            "audioPath": "/guided-reading/audio/words/trees.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2321,47 +2321,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Flowers",
-            "audioPath": "/audio/child-mode/words/flowers.mp3"
+            "audioPath": "/guided-reading/audio/words/flowers.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "trees",
-            "audioPath": "/audio/child-mode/words/trees.mp3"
+            "audioPath": "/guided-reading/audio/words/trees.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "plants",
-            "audioPath": "/audio/child-mode/words/plants.mp3"
+            "audioPath": "/guided-reading/audio/words/plants.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "need",
-            "audioPath": "/audio/child-mode/words/need.mp3"
+            "audioPath": "/guided-reading/audio/words/need.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "soil",
-            "audioPath": "/audio/child-mode/words/soil.mp3"
+            "audioPath": "/guided-reading/audio/words/soil.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2444,51 +2444,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "dog",
-            "audioPath": "/audio/child-mode/words/dog.mp3"
+            "audioPath": "/guided-reading/audio/words/dog.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pup",
-            "audioPath": "/audio/child-mode/words/pup.mp3"
+            "audioPath": "/guided-reading/audio/words/pup.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pup",
-            "audioPath": "/audio/child-mode/words/pup.mp3"
+            "audioPath": "/guided-reading/audio/words/pup.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "soft",
-            "audioPath": "/audio/child-mode/words/soft.mp3"
+            "audioPath": "/guided-reading/audio/words/soft.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "fluffy",
-            "audioPath": "/audio/child-mode/words/fluffy.mp3"
+            "audioPath": "/guided-reading/audio/words/fluffy.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2504,43 +2504,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "cat",
-            "audioPath": "/audio/child-mode/words/cat.mp3"
+            "audioPath": "/guided-reading/audio/words/cat.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "kitten",
-            "audioPath": "/audio/child-mode/words/kitten.mp3"
+            "audioPath": "/guided-reading/audio/words/kitten.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "kitten",
-            "audioPath": "/audio/child-mode/words/kitten.mp3"
+            "audioPath": "/guided-reading/audio/words/kitten.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "purr",
-            "audioPath": "/audio/child-mode/words/purr.mp3"
+            "audioPath": "/guided-reading/audio/words/purr.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2556,51 +2556,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "cow",
-            "audioPath": "/audio/child-mode/words/cow.mp3"
+            "audioPath": "/guided-reading/audio/words/cow.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "calf",
-            "audioPath": "/audio/child-mode/words/calf.mp3"
+            "audioPath": "/guided-reading/audio/words/calf.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "calf",
-            "audioPath": "/audio/child-mode/words/calf.mp3"
+            "audioPath": "/guided-reading/audio/words/calf.mp3"
           },
           {
             "text": "drinks",
-            "audioPath": "/audio/child-mode/words/drinks.mp3"
+            "audioPath": "/guided-reading/audio/words/drinks.mp3"
           },
           {
             "text": "its",
-            "audioPath": "/audio/child-mode/words/its.mp3"
+            "audioPath": "/guided-reading/audio/words/its.mp3"
           },
           {
             "text": "mum's",
-            "audioPath": "/audio/child-mode/words/mum's.mp3"
+            "audioPath": "/guided-reading/audio/words/mums.mp3"
           },
           {
             "text": "milk",
-            "audioPath": "/audio/child-mode/words/milk.mp3"
+            "audioPath": "/guided-reading/audio/words/milk.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2616,51 +2616,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "hen",
-            "audioPath": "/audio/child-mode/words/hen.mp3"
+            "audioPath": "/guided-reading/audio/words/hen.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "chick",
-            "audioPath": "/audio/child-mode/words/chick.mp3"
+            "audioPath": "/guided-reading/audio/words/chick.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "chick",
-            "audioPath": "/audio/child-mode/words/chick.mp3"
+            "audioPath": "/guided-reading/audio/words/chick.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "soft",
-            "audioPath": "/audio/child-mode/words/soft.mp3"
+            "audioPath": "/guided-reading/audio/words/soft.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "yellow",
-            "audioPath": "/audio/child-mode/words/yellow.mp3"
+            "audioPath": "/guided-reading/audio/words/yellow.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2676,47 +2676,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "sheep",
-            "audioPath": "/audio/child-mode/words/sheep.mp3"
+            "audioPath": "/guided-reading/audio/words/sheep.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "lamb",
-            "audioPath": "/audio/child-mode/words/lamb.mp3"
+            "audioPath": "/guided-reading/audio/words/lamb.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "lamb",
-            "audioPath": "/audio/child-mode/words/lamb.mp3"
+            "audioPath": "/guided-reading/audio/words/lamb.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "soft",
-            "audioPath": "/audio/child-mode/words/soft.mp3"
+            "audioPath": "/guided-reading/audio/words/soft.mp3"
           },
           {
             "text": "wool",
-            "audioPath": "/audio/child-mode/words/wool.mp3"
+            "audioPath": "/guided-reading/audio/words/wool.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2732,47 +2732,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "horse",
-            "audioPath": "/audio/child-mode/words/horse.mp3"
+            "audioPath": "/guided-reading/audio/words/horse.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "foal",
-            "audioPath": "/audio/child-mode/words/foal.mp3"
+            "audioPath": "/guided-reading/audio/words/foal.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "foal",
-            "audioPath": "/audio/child-mode/words/foal.mp3"
+            "audioPath": "/guided-reading/audio/words/foal.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "run",
-            "audioPath": "/audio/child-mode/words/run.mp3"
+            "audioPath": "/guided-reading/audio/words/run.mp3"
           },
           {
             "text": "fast",
-            "audioPath": "/audio/child-mode/words/fast.mp3"
+            "audioPath": "/guided-reading/audio/words/fast.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2788,43 +2788,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "duck",
-            "audioPath": "/audio/child-mode/words/duck.mp3"
+            "audioPath": "/guided-reading/audio/words/duck.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "duckling",
-            "audioPath": "/audio/child-mode/words/duckling.mp3"
+            "audioPath": "/guided-reading/audio/words/duckling.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "duckling",
-            "audioPath": "/audio/child-mode/words/duckling.mp3"
+            "audioPath": "/guided-reading/audio/words/duckling.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "swim",
-            "audioPath": "/audio/child-mode/words/swim.mp3"
+            "audioPath": "/guided-reading/audio/words/swim.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2840,39 +2840,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Baby",
-            "audioPath": "/audio/child-mode/words/baby.mp3"
+            "audioPath": "/guided-reading/audio/words/baby.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "grow",
-            "audioPath": "/audio/child-mode/words/grow.mp3"
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
           },
           {
             "text": "One",
-            "audioPath": "/audio/child-mode/words/one.mp3"
+            "audioPath": "/guided-reading/audio/words/one.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           },
           {
             "text": "they",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "will",
-            "audioPath": "/audio/child-mode/words/will.mp3"
+            "audioPath": "/guided-reading/audio/words/will.mp3"
           },
           {
             "text": "be",
-            "audioPath": "/audio/child-mode/words/be.mp3"
+            "audioPath": "/guided-reading/audio/words/be.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -2955,39 +2955,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "cow",
-            "audioPath": "/audio/child-mode/words/cow.mp3"
+            "audioPath": "/guided-reading/audio/words/cow.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "cow",
-            "audioPath": "/audio/child-mode/words/cow.mp3"
+            "audioPath": "/guided-reading/audio/words/cow.mp3"
           },
           {
             "text": "eats",
-            "audioPath": "/audio/child-mode/words/eats.mp3"
+            "audioPath": "/guided-reading/audio/words/eats.mp3"
           },
           {
             "text": "grass",
-            "audioPath": "/audio/child-mode/words/grass.mp3"
+            "audioPath": "/guided-reading/audio/words/grass.mp3"
           },
           {
             "text": "Moo",
-            "audioPath": "/audio/child-mode/words/moo.mp3"
+            "audioPath": "/guided-reading/audio/words/moo.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3003,43 +3003,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "cow",
-            "audioPath": "/audio/child-mode/words/cow.mp3"
+            "audioPath": "/guided-reading/audio/words/cow.mp3"
           },
           {
             "text": "gives",
-            "audioPath": "/audio/child-mode/words/gives.mp3"
+            "audioPath": "/guided-reading/audio/words/gives.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "milk",
-            "audioPath": "/audio/child-mode/words/milk.mp3"
+            "audioPath": "/guided-reading/audio/words/milk.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "drink",
-            "audioPath": "/audio/child-mode/words/drink.mp3"
+            "audioPath": "/guided-reading/audio/words/drink.mp3"
           },
           {
             "text": "milk",
-            "audioPath": "/audio/child-mode/words/milk.mp3"
+            "audioPath": "/guided-reading/audio/words/milk.mp3"
           },
           {
             "text": "every",
-            "audioPath": "/audio/child-mode/words/every.mp3"
+            "audioPath": "/guided-reading/audio/words/every.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3055,43 +3055,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pig",
-            "audioPath": "/audio/child-mode/words/pig.mp3"
+            "audioPath": "/guided-reading/audio/words/pig.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "pink",
-            "audioPath": "/audio/child-mode/words/pink.mp3"
+            "audioPath": "/guided-reading/audio/words/pink.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pig",
-            "audioPath": "/audio/child-mode/words/pig.mp3"
+            "audioPath": "/guided-reading/audio/words/pig.mp3"
           },
           {
             "text": "rolls",
-            "audioPath": "/audio/child-mode/words/rolls.mp3"
+            "audioPath": "/guided-reading/audio/words/rolls.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "mud",
-            "audioPath": "/audio/child-mode/words/mud.mp3"
+            "audioPath": "/guided-reading/audio/words/mud.mp3"
           },
           {
             "text": "Oink",
-            "audioPath": "/audio/child-mode/words/oink.mp3"
+            "audioPath": "/guided-reading/audio/words/oink.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3107,39 +3107,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "sheep",
-            "audioPath": "/audio/child-mode/words/sheep.mp3"
+            "audioPath": "/guided-reading/audio/words/sheep.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "thick",
-            "audioPath": "/audio/child-mode/words/thick.mp3"
+            "audioPath": "/guided-reading/audio/words/thick.mp3"
           },
           {
             "text": "wool",
-            "audioPath": "/audio/child-mode/words/wool.mp3"
+            "audioPath": "/guided-reading/audio/words/wool.mp3"
           },
           {
             "text": "Wool",
-            "audioPath": "/audio/child-mode/words/wool.mp3"
+            "audioPath": "/guided-reading/audio/words/wool.mp3"
           },
           {
             "text": "keeps",
-            "audioPath": "/audio/child-mode/words/keeps.mp3"
+            "audioPath": "/guided-reading/audio/words/keeps.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "warm",
-            "audioPath": "/audio/child-mode/words/warm.mp3"
+            "audioPath": "/guided-reading/audio/words/warm.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3155,43 +3155,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "hen",
-            "audioPath": "/audio/child-mode/words/hen.mp3"
+            "audioPath": "/guided-reading/audio/words/hen.mp3"
           },
           {
             "text": "lays",
-            "audioPath": "/audio/child-mode/words/lays.mp3"
+            "audioPath": "/guided-reading/audio/words/lays.mp3"
           },
           {
             "text": "eggs",
-            "audioPath": "/audio/child-mode/words/eggs.mp3"
+            "audioPath": "/guided-reading/audio/words/eggs.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "eat",
-            "audioPath": "/audio/child-mode/words/eat.mp3"
+            "audioPath": "/guided-reading/audio/words/eat.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "eggs",
-            "audioPath": "/audio/child-mode/words/eggs.mp3"
+            "audioPath": "/guided-reading/audio/words/eggs.mp3"
           },
           {
             "text": "Cluck",
-            "audioPath": "/audio/child-mode/words/cluck.mp3"
+            "audioPath": "/guided-reading/audio/words/cluck.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3207,43 +3207,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "horse",
-            "audioPath": "/audio/child-mode/words/horse.mp3"
+            "audioPath": "/guided-reading/audio/words/horse.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "strong",
-            "audioPath": "/audio/child-mode/words/strong.mp3"
+            "audioPath": "/guided-reading/audio/words/strong.mp3"
           },
           {
             "text": "Horses",
-            "audioPath": "/audio/child-mode/words/horses.mp3"
+            "audioPath": "/guided-reading/audio/words/horses.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "pull",
-            "audioPath": "/audio/child-mode/words/pull.mp3"
+            "audioPath": "/guided-reading/audio/words/pull.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "carry",
-            "audioPath": "/audio/child-mode/words/carry.mp3"
+            "audioPath": "/guided-reading/audio/words/carry.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3259,39 +3259,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "duck",
-            "audioPath": "/audio/child-mode/words/duck.mp3"
+            "audioPath": "/guided-reading/audio/words/duck.mp3"
           },
           {
             "text": "swims",
-            "audioPath": "/audio/child-mode/words/swims.mp3"
+            "audioPath": "/guided-reading/audio/words/swims.mp3"
           },
           {
             "text": "on",
-            "audioPath": "/audio/child-mode/words/on.mp3"
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "pond",
-            "audioPath": "/audio/child-mode/words/pond.mp3"
+            "audioPath": "/guided-reading/audio/words/pond.mp3"
           },
           {
             "text": "Quack",
-            "audioPath": "/audio/child-mode/words/quack.mp3"
+            "audioPath": "/guided-reading/audio/words/quack.mp3"
           },
           {
             "text": "Quack",
-            "audioPath": "/audio/child-mode/words/quack.mp3"
+            "audioPath": "/guided-reading/audio/words/quack.mp3"
           },
           {
             "text": "Quack",
-            "audioPath": "/audio/child-mode/words/quack.mp3"
+            "audioPath": "/guided-reading/audio/words/quack.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3307,35 +3307,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Farms",
-            "audioPath": "/audio/child-mode/words/farms.mp3"
+            "audioPath": "/guided-reading/audio/words/farms.mp3"
           },
           {
             "text": "give",
-            "audioPath": "/audio/child-mode/words/give.mp3"
+            "audioPath": "/guided-reading/audio/words/give.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "food",
-            "audioPath": "/audio/child-mode/words/food.mp3"
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           },
           {
             "text": "Thank",
-            "audioPath": "/audio/child-mode/words/thank.mp3"
+            "audioPath": "/guided-reading/audio/words/thank.mp3"
           },
           {
             "text": "you",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "farm",
-            "audioPath": "/audio/child-mode/words/farm.mp3"
+            "audioPath": "/guided-reading/audio/words/farm.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3418,51 +3418,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "ocean",
-            "audioPath": "/audio/child-mode/words/ocean.mp3"
+            "audioPath": "/guided-reading/audio/words/ocean.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "full",
-            "audioPath": "/audio/child-mode/words/full.mp3"
+            "audioPath": "/guided-reading/audio/words/full.mp3"
           },
           {
             "text": "of",
-            "audioPath": "/audio/child-mode/words/of.mp3"
+            "audioPath": "/guided-reading/audio/words/of.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "Let",
-            "audioPath": "/audio/child-mode/words/let.mp3"
+            "audioPath": "/guided-reading/audio/words/let.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "look",
-            "audioPath": "/audio/child-mode/words/look.mp3"
+            "audioPath": "/guided-reading/audio/words/look.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3478,47 +3478,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "fish",
-            "audioPath": "/audio/child-mode/words/fish.mp3"
+            "audioPath": "/guided-reading/audio/words/fish.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "fins",
-            "audioPath": "/audio/child-mode/words/fins.mp3"
+            "audioPath": "/guided-reading/audio/words/fins.mp3"
           },
           {
             "text": "Fins",
-            "audioPath": "/audio/child-mode/words/fins.mp3"
+            "audioPath": "/guided-reading/audio/words/fins.mp3"
           },
           {
             "text": "help",
-            "audioPath": "/audio/child-mode/words/help.mp3"
+            "audioPath": "/guided-reading/audio/words/help.mp3"
           },
           {
             "text": "fish",
-            "audioPath": "/audio/child-mode/words/fish.mp3"
+            "audioPath": "/guided-reading/audio/words/fish.mp3"
           },
           {
             "text": "swim",
-            "audioPath": "/audio/child-mode/words/swim.mp3"
+            "audioPath": "/guided-reading/audio/words/swim.mp3"
           },
           {
             "text": "Fish",
-            "audioPath": "/audio/child-mode/words/fish.mp3"
+            "audioPath": "/guided-reading/audio/words/fish.mp3"
           },
           {
             "text": "have",
-            "audioPath": "/audio/child-mode/words/have.mp3"
+            "audioPath": "/guided-reading/audio/words/have.mp3"
           },
           {
             "text": "scales",
-            "audioPath": "/audio/child-mode/words/scales.mp3"
+            "audioPath": "/guided-reading/audio/words/scales.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3534,67 +3534,67 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "whale",
-            "audioPath": "/audio/child-mode/words/whale.mp3"
+            "audioPath": "/guided-reading/audio/words/whale.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "huge",
-            "audioPath": "/audio/child-mode/words/huge.mp3"
+            "audioPath": "/guided-reading/audio/words/huge.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "biggest",
-            "audioPath": "/audio/child-mode/words/biggest.mp3"
+            "audioPath": "/guided-reading/audio/words/biggest.mp3"
           },
           {
             "text": "animal",
-            "audioPath": "/audio/child-mode/words/animal.mp3"
+            "audioPath": "/guided-reading/audio/words/animal.mp3"
           },
           {
             "text": "Whales",
-            "audioPath": "/audio/child-mode/words/whales.mp3"
+            "audioPath": "/guided-reading/audio/words/whales.mp3"
           },
           {
             "text": "swim",
-            "audioPath": "/audio/child-mode/words/swim.mp3"
+            "audioPath": "/guided-reading/audio/words/swim.mp3"
           },
           {
             "text": "to",
-            "audioPath": "/audio/child-mode/words/to.mp3"
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "top",
-            "audioPath": "/audio/child-mode/words/top.mp3"
+            "audioPath": "/guided-reading/audio/words/top.mp3"
           },
           {
             "text": "to",
-            "audioPath": "/audio/child-mode/words/to.mp3"
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
             "text": "breathe",
-            "audioPath": "/audio/child-mode/words/breathe.mp3"
+            "audioPath": "/guided-reading/audio/words/breathe.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3610,55 +3610,55 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "An",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "octopus",
-            "audioPath": "/audio/child-mode/words/octopus.mp3"
+            "audioPath": "/guided-reading/audio/words/octopus.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "eight",
-            "audioPath": "/audio/child-mode/words/eight.mp3"
+            "audioPath": "/guided-reading/audio/words/eight.mp3"
           },
           {
             "text": "arms",
-            "audioPath": "/audio/child-mode/words/arms.mp3"
+            "audioPath": "/guided-reading/audio/words/arms.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "change",
-            "audioPath": "/audio/child-mode/words/change.mp3"
+            "audioPath": "/guided-reading/audio/words/change.mp3"
           },
           {
             "text": "colour",
-            "audioPath": "/audio/child-mode/words/colour.mp3"
+            "audioPath": "/guided-reading/audio/words/colour.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "hides",
-            "audioPath": "/audio/child-mode/words/hides.mp3"
+            "audioPath": "/guided-reading/audio/words/hides.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "rocks",
-            "audioPath": "/audio/child-mode/words/rocks.mp3"
+            "audioPath": "/guided-reading/audio/words/rocks.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3674,43 +3674,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "crab",
-            "audioPath": "/audio/child-mode/words/crab.mp3"
+            "audioPath": "/guided-reading/audio/words/crab.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "hard",
-            "audioPath": "/audio/child-mode/words/hard.mp3"
+            "audioPath": "/guided-reading/audio/words/hard.mp3"
           },
           {
             "text": "shell",
-            "audioPath": "/audio/child-mode/words/shell.mp3"
+            "audioPath": "/guided-reading/audio/words/shell.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "crab",
-            "audioPath": "/audio/child-mode/words/crab.mp3"
+            "audioPath": "/guided-reading/audio/words/crab.mp3"
           },
           {
             "text": "walks",
-            "audioPath": "/audio/child-mode/words/walks.mp3"
+            "audioPath": "/guided-reading/audio/words/walks.mp3"
           },
           {
             "text": "sideways",
-            "audioPath": "/audio/child-mode/words/sideways.mp3"
+            "audioPath": "/guided-reading/audio/words/sideways.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3726,39 +3726,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "seahorse",
-            "audioPath": "/audio/child-mode/words/seahorse.mp3"
+            "audioPath": "/guided-reading/audio/words/seahorse.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "tiny",
-            "audioPath": "/audio/child-mode/words/tiny.mp3"
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "holds",
-            "audioPath": "/audio/child-mode/words/holds.mp3"
+            "audioPath": "/guided-reading/audio/words/holds.mp3"
           },
           {
             "text": "on",
-            "audioPath": "/audio/child-mode/words/on.mp3"
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "to",
-            "audioPath": "/audio/child-mode/words/to.mp3"
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
             "text": "plants",
-            "audioPath": "/audio/child-mode/words/plants.mp3"
+            "audioPath": "/guided-reading/audio/words/plants.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3774,39 +3774,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "dolphin",
-            "audioPath": "/audio/child-mode/words/dolphin.mp3"
+            "audioPath": "/guided-reading/audio/words/dolphin.mp3"
           },
           {
             "text": "jumps",
-            "audioPath": "/audio/child-mode/words/jumps.mp3"
+            "audioPath": "/guided-reading/audio/words/jumps.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "plays",
-            "audioPath": "/audio/child-mode/words/plays.mp3"
+            "audioPath": "/guided-reading/audio/words/plays.mp3"
           },
           {
             "text": "Dolphins",
-            "audioPath": "/audio/child-mode/words/dolphins.mp3"
+            "audioPath": "/guided-reading/audio/words/dolphins.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "very",
-            "audioPath": "/audio/child-mode/words/very.mp3"
+            "audioPath": "/guided-reading/audio/words/very.mp3"
           },
           {
             "text": "clever",
-            "audioPath": "/audio/child-mode/words/clever.mp3"
+            "audioPath": "/guided-reading/audio/words/clever.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3822,47 +3822,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "So",
-            "audioPath": "/audio/child-mode/words/so.mp3"
+            "audioPath": "/guided-reading/audio/words/so.mp3"
           },
           {
             "text": "many",
-            "audioPath": "/audio/child-mode/words/many.mp3"
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "live",
-            "audioPath": "/audio/child-mode/words/live.mp3"
+            "audioPath": "/guided-reading/audio/words/live.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sea",
-            "audioPath": "/audio/child-mode/words/sea.mp3"
+            "audioPath": "/guided-reading/audio/words/sea.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "ocean",
-            "audioPath": "/audio/child-mode/words/ocean.mp3"
+            "audioPath": "/guided-reading/audio/words/ocean.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "amazing",
-            "audioPath": "/audio/child-mode/words/amazing.mp3"
+            "audioPath": "/guided-reading/audio/words/amazing.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3945,59 +3945,59 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Some",
-            "audioPath": "/audio/child-mode/words/some.mp3"
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "sleep",
-            "audioPath": "/audio/child-mode/words/sleep.mp3"
+            "audioPath": "/guided-reading/audio/words/sleep.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "wake",
-            "audioPath": "/audio/child-mode/words/wake.mp3"
+            "audioPath": "/guided-reading/audio/words/wake.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "at",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "nocturnal",
-            "audioPath": "/audio/child-mode/words/nocturnal.mp3"
+            "audioPath": "/guided-reading/audio/words/nocturnal.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4013,51 +4013,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "An",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "owl",
-            "audioPath": "/audio/child-mode/words/owl.mp3"
+            "audioPath": "/guided-reading/audio/words/owl.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "see",
-            "audioPath": "/audio/child-mode/words/see.mp3"
+            "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "dark",
-            "audioPath": "/audio/child-mode/words/dark.mp3"
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "hunts",
-            "audioPath": "/audio/child-mode/words/hunts.mp3"
+            "audioPath": "/guided-reading/audio/words/hunts.mp3"
           },
           {
             "text": "at",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "Twit-twoo",
-            "audioPath": "/audio/child-mode/words/twit-twoo.mp3"
+            "audioPath": "/guided-reading/audio/words/twit-twoo.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4073,59 +4073,59 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "bat",
-            "audioPath": "/audio/child-mode/words/bat.mp3"
+            "audioPath": "/guided-reading/audio/words/bat.mp3"
           },
           {
             "text": "flies",
-            "audioPath": "/audio/child-mode/words/flies.mp3"
+            "audioPath": "/guided-reading/audio/words/flies.mp3"
           },
           {
             "text": "at",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "finds",
-            "audioPath": "/audio/child-mode/words/finds.mp3"
+            "audioPath": "/guided-reading/audio/words/finds.mp3"
           },
           {
             "text": "food",
-            "audioPath": "/audio/child-mode/words/food.mp3"
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "dark",
-            "audioPath": "/audio/child-mode/words/dark.mp3"
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
           },
           {
             "text": "Bats",
-            "audioPath": "/audio/child-mode/words/bats.mp3"
+            "audioPath": "/guided-reading/audio/words/bats.mp3"
           },
           {
             "text": "eat",
-            "audioPath": "/audio/child-mode/words/eat.mp3"
+            "audioPath": "/guided-reading/audio/words/eat.mp3"
           },
           {
             "text": "insects",
-            "audioPath": "/audio/child-mode/words/insects.mp3"
+            "audioPath": "/guided-reading/audio/words/insects.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4141,51 +4141,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "hedgehog",
-            "audioPath": "/audio/child-mode/words/hedgehog.mp3"
+            "audioPath": "/guided-reading/audio/words/hedgehog.mp3"
           },
           {
             "text": "snuffles",
-            "audioPath": "/audio/child-mode/words/snuffles.mp3"
+            "audioPath": "/guided-reading/audio/words/snuffles.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "dark",
-            "audioPath": "/audio/child-mode/words/dark.mp3"
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "looks",
-            "audioPath": "/audio/child-mode/words/looks.mp3"
+            "audioPath": "/guided-reading/audio/words/looks.mp3"
           },
           {
             "text": "for",
-            "audioPath": "/audio/child-mode/words/for.mp3"
+            "audioPath": "/guided-reading/audio/words/for.mp3"
           },
           {
             "text": "slugs",
-            "audioPath": "/audio/child-mode/words/slugs.mp3"
+            "audioPath": "/guided-reading/audio/words/slugs.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "bugs",
-            "audioPath": "/audio/child-mode/words/bugs.mp3"
+            "audioPath": "/guided-reading/audio/words/bugs.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4201,51 +4201,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "fox",
-            "audioPath": "/audio/child-mode/words/fox.mp3"
+            "audioPath": "/guided-reading/audio/words/fox.mp3"
           },
           {
             "text": "hunts",
-            "audioPath": "/audio/child-mode/words/hunts.mp3"
+            "audioPath": "/guided-reading/audio/words/hunts.mp3"
           },
           {
             "text": "at",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "ears",
-            "audioPath": "/audio/child-mode/words/ears.mp3"
+            "audioPath": "/guided-reading/audio/words/ears.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "moves",
-            "audioPath": "/audio/child-mode/words/moves.mp3"
+            "audioPath": "/guided-reading/audio/words/moves.mp3"
           },
           {
             "text": "quietly",
-            "audioPath": "/audio/child-mode/words/quietly.mp3"
+            "audioPath": "/guided-reading/audio/words/quietly.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4261,55 +4261,55 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "These",
-            "audioPath": "/audio/child-mode/words/these.mp3"
+            "audioPath": "/guided-reading/audio/words/these.mp3"
           },
           {
             "text": "animals",
-            "audioPath": "/audio/child-mode/words/animals.mp3"
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "come",
-            "audioPath": "/audio/child-mode/words/come.mp3"
+            "audioPath": "/guided-reading/audio/words/come.mp3"
           },
           {
             "text": "out",
-            "audioPath": "/audio/child-mode/words/out.mp3"
+            "audioPath": "/guided-reading/audio/words/out.mp3"
           },
           {
             "text": "at",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "asleep",
-            "audioPath": "/audio/child-mode/words/asleep.mp3"
+            "audioPath": "/guided-reading/audio/words/asleep.mp3"
           },
           {
             "text": "when",
-            "audioPath": "/audio/child-mode/words/when.mp3"
+            "audioPath": "/guided-reading/audio/words/when.mp3"
           },
           {
             "text": "they",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "busy",
-            "audioPath": "/audio/child-mode/words/busy.mp3"
+            "audioPath": "/guided-reading/audio/words/busy.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4392,47 +4392,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Bugs",
-            "audioPath": "/audio/child-mode/words/bugs.mp3"
+            "audioPath": "/guided-reading/audio/words/bugs.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "all",
-            "audioPath": "/audio/child-mode/words/all.mp3"
+            "audioPath": "/guided-reading/audio/words/all.mp3"
           },
           {
             "text": "around",
-            "audioPath": "/audio/child-mode/words/around.mp3"
+            "audioPath": "/guided-reading/audio/words/around.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "Big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "bugs",
-            "audioPath": "/audio/child-mode/words/bugs.mp3"
+            "audioPath": "/guided-reading/audio/words/bugs.mp3"
           },
           {
             "text": "Small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           },
           {
             "text": "bugs",
-            "audioPath": "/audio/child-mode/words/bugs.mp3"
+            "audioPath": "/guided-reading/audio/words/bugs.mp3"
           },
           {
             "text": "Look",
-            "audioPath": "/audio/child-mode/words/look.mp3"
+            "audioPath": "/guided-reading/audio/words/look.mp3"
           },
           {
             "text": "closely",
-            "audioPath": "/audio/child-mode/words/closely.mp3"
+            "audioPath": "/guided-reading/audio/words/closely.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4448,43 +4448,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "butterfly",
-            "audioPath": "/audio/child-mode/words/butterfly.mp3"
+            "audioPath": "/guided-reading/audio/words/butterfly.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "four",
-            "audioPath": "/audio/child-mode/words/four.mp3"
+            "audioPath": "/guided-reading/audio/words/four.mp3"
           },
           {
             "text": "wings",
-            "audioPath": "/audio/child-mode/words/wings.mp3"
+            "audioPath": "/guided-reading/audio/words/wings.mp3"
           },
           {
             "text": "Its",
-            "audioPath": "/audio/child-mode/words/its.mp3"
+            "audioPath": "/guided-reading/audio/words/its.mp3"
           },
           {
             "text": "wings",
-            "audioPath": "/audio/child-mode/words/wings.mp3"
+            "audioPath": "/guided-reading/audio/words/wings.mp3"
           },
           {
             "text": "have",
-            "audioPath": "/audio/child-mode/words/have.mp3"
+            "audioPath": "/guided-reading/audio/words/have.mp3"
           },
           {
             "text": "bright",
-            "audioPath": "/audio/child-mode/words/bright.mp3"
+            "audioPath": "/guided-reading/audio/words/bright.mp3"
           },
           {
             "text": "patterns",
-            "audioPath": "/audio/child-mode/words/patterns.mp3"
+            "audioPath": "/guided-reading/audio/words/patterns.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4500,43 +4500,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "bee",
-            "audioPath": "/audio/child-mode/words/bee.mp3"
+            "audioPath": "/guided-reading/audio/words/bee.mp3"
           },
           {
             "text": "collects",
-            "audioPath": "/audio/child-mode/words/collects.mp3"
+            "audioPath": "/guided-reading/audio/words/collects.mp3"
           },
           {
             "text": "pollen",
-            "audioPath": "/audio/child-mode/words/pollen.mp3"
+            "audioPath": "/guided-reading/audio/words/pollen.mp3"
           },
           {
             "text": "Bees",
-            "audioPath": "/audio/child-mode/words/bees.mp3"
+            "audioPath": "/guided-reading/audio/words/bees.mp3"
           },
           {
             "text": "make",
-            "audioPath": "/audio/child-mode/words/make.mp3"
+            "audioPath": "/guided-reading/audio/words/make.mp3"
           },
           {
             "text": "honey",
-            "audioPath": "/audio/child-mode/words/honey.mp3"
+            "audioPath": "/guided-reading/audio/words/honey.mp3"
           },
           {
             "text": "Bees",
-            "audioPath": "/audio/child-mode/words/bees.mp3"
+            "audioPath": "/guided-reading/audio/words/bees.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "important",
-            "audioPath": "/audio/child-mode/words/important.mp3"
+            "audioPath": "/guided-reading/audio/words/important.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4552,47 +4552,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "ladybird",
-            "audioPath": "/audio/child-mode/words/ladybird.mp3"
+            "audioPath": "/guided-reading/audio/words/ladybird.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "red",
-            "audioPath": "/audio/child-mode/words/red.mp3"
+            "audioPath": "/guided-reading/audio/words/red.mp3"
           },
           {
             "text": "with",
-            "audioPath": "/audio/child-mode/words/with.mp3"
+            "audioPath": "/guided-reading/audio/words/with.mp3"
           },
           {
             "text": "black",
-            "audioPath": "/audio/child-mode/words/black.mp3"
+            "audioPath": "/guided-reading/audio/words/black.mp3"
           },
           {
             "text": "spots",
-            "audioPath": "/audio/child-mode/words/spots.mp3"
+            "audioPath": "/guided-reading/audio/words/spots.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "eats",
-            "audioPath": "/audio/child-mode/words/eats.mp3"
+            "audioPath": "/guided-reading/audio/words/eats.mp3"
           },
           {
             "text": "tiny",
-            "audioPath": "/audio/child-mode/words/tiny.mp3"
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
           },
           {
             "text": "greenfly",
-            "audioPath": "/audio/child-mode/words/greenfly.mp3"
+            "audioPath": "/guided-reading/audio/words/greenfly.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4608,43 +4608,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "An",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "ant",
-            "audioPath": "/audio/child-mode/words/ant.mp3"
+            "audioPath": "/guided-reading/audio/words/ant.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "tiny",
-            "audioPath": "/audio/child-mode/words/tiny.mp3"
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
           },
           {
             "text": "Ants",
-            "audioPath": "/audio/child-mode/words/ants.mp3"
+            "audioPath": "/guided-reading/audio/words/ants.mp3"
           },
           {
             "text": "work",
-            "audioPath": "/audio/child-mode/words/work.mp3"
+            "audioPath": "/guided-reading/audio/words/work.mp3"
           },
           {
             "text": "together",
-            "audioPath": "/audio/child-mode/words/together.mp3"
+            "audioPath": "/guided-reading/audio/words/together.mp3"
           },
           {
             "text": "Ants",
-            "audioPath": "/audio/child-mode/words/ants.mp3"
+            "audioPath": "/guided-reading/audio/words/ants.mp3"
           },
           {
             "text": "carry",
-            "audioPath": "/audio/child-mode/words/carry.mp3"
+            "audioPath": "/guided-reading/audio/words/carry.mp3"
           },
           {
             "text": "food",
-            "audioPath": "/audio/child-mode/words/food.mp3"
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4660,43 +4660,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "worm",
-            "audioPath": "/audio/child-mode/words/worm.mp3"
+            "audioPath": "/guided-reading/audio/words/worm.mp3"
           },
           {
             "text": "lives",
-            "audioPath": "/audio/child-mode/words/lives.mp3"
+            "audioPath": "/guided-reading/audio/words/lives.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "soil",
-            "audioPath": "/audio/child-mode/words/soil.mp3"
+            "audioPath": "/guided-reading/audio/words/soil.mp3"
           },
           {
             "text": "Worms",
-            "audioPath": "/audio/child-mode/words/worms.mp3"
+            "audioPath": "/guided-reading/audio/words/worms.mp3"
           },
           {
             "text": "help",
-            "audioPath": "/audio/child-mode/words/help.mp3"
+            "audioPath": "/guided-reading/audio/words/help.mp3"
           },
           {
             "text": "plants",
-            "audioPath": "/audio/child-mode/words/plants.mp3"
+            "audioPath": "/guided-reading/audio/words/plants.mp3"
           },
           {
             "text": "grow",
-            "audioPath": "/audio/child-mode/words/grow.mp3"
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4712,55 +4712,55 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "snail",
-            "audioPath": "/audio/child-mode/words/snail.mp3"
+            "audioPath": "/guided-reading/audio/words/snail.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "shell",
-            "audioPath": "/audio/child-mode/words/shell.mp3"
+            "audioPath": "/guided-reading/audio/words/shell.mp3"
           },
           {
             "text": "on",
-            "audioPath": "/audio/child-mode/words/on.mp3"
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "its",
-            "audioPath": "/audio/child-mode/words/its.mp3"
+            "audioPath": "/guided-reading/audio/words/its.mp3"
           },
           {
             "text": "back",
-            "audioPath": "/audio/child-mode/words/back.mp3"
+            "audioPath": "/guided-reading/audio/words/back.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "snail",
-            "audioPath": "/audio/child-mode/words/snail.mp3"
+            "audioPath": "/guided-reading/audio/words/snail.mp3"
           },
           {
             "text": "moves",
-            "audioPath": "/audio/child-mode/words/moves.mp3"
+            "audioPath": "/guided-reading/audio/words/moves.mp3"
           },
           {
             "text": "very",
-            "audioPath": "/audio/child-mode/words/very.mp3"
+            "audioPath": "/guided-reading/audio/words/very.mp3"
           },
           {
             "text": "slowly",
-            "audioPath": "/audio/child-mode/words/slowly.mp3"
+            "audioPath": "/guided-reading/audio/words/slowly.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4776,35 +4776,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Bugs",
-            "audioPath": "/audio/child-mode/words/bugs.mp3"
+            "audioPath": "/guided-reading/audio/words/bugs.mp3"
           },
           {
             "text": "help",
-            "audioPath": "/audio/child-mode/words/help.mp3"
+            "audioPath": "/guided-reading/audio/words/help.mp3"
           },
           {
             "text": "our",
-            "audioPath": "/audio/child-mode/words/our.mp3"
+            "audioPath": "/guided-reading/audio/words/our.mp3"
           },
           {
             "text": "world",
-            "audioPath": "/audio/child-mode/words/world.mp3"
+            "audioPath": "/guided-reading/audio/words/world.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "very",
-            "audioPath": "/audio/child-mode/words/very.mp3"
+            "audioPath": "/guided-reading/audio/words/very.mp3"
           },
           {
             "text": "important",
-            "audioPath": "/audio/child-mode/words/important.mp3"
+            "audioPath": "/guided-reading/audio/words/important.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4887,47 +4887,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "dog",
-            "audioPath": "/audio/child-mode/words/dog.mp3"
+            "audioPath": "/guided-reading/audio/words/dog.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pet",
-            "audioPath": "/audio/child-mode/words/pet.mp3"
+            "audioPath": "/guided-reading/audio/words/pet.mp3"
           },
           {
             "text": "Dogs",
-            "audioPath": "/audio/child-mode/words/dogs.mp3"
+            "audioPath": "/guided-reading/audio/words/dogs.mp3"
           },
           {
             "text": "love",
-            "audioPath": "/audio/child-mode/words/love.mp3"
+            "audioPath": "/guided-reading/audio/words/love.mp3"
           },
           {
             "text": "to",
-            "audioPath": "/audio/child-mode/words/to.mp3"
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
             "text": "play",
-            "audioPath": "/audio/child-mode/words/play.mp3"
+            "audioPath": "/guided-reading/audio/words/play.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "run",
-            "audioPath": "/audio/child-mode/words/run.mp3"
+            "audioPath": "/guided-reading/audio/words/run.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4943,47 +4943,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Dogs",
-            "audioPath": "/audio/child-mode/words/dogs.mp3"
+            "audioPath": "/guided-reading/audio/words/dogs.mp3"
           },
           {
             "text": "need",
-            "audioPath": "/audio/child-mode/words/need.mp3"
+            "audioPath": "/guided-reading/audio/words/need.mp3"
           },
           {
             "text": "food",
-            "audioPath": "/audio/child-mode/words/food.mp3"
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "walks",
-            "audioPath": "/audio/child-mode/words/walks.mp3"
+            "audioPath": "/guided-reading/audio/words/walks.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "look",
-            "audioPath": "/audio/child-mode/words/look.mp3"
+            "audioPath": "/guided-reading/audio/words/look.mp3"
           },
           {
             "text": "after",
-            "audioPath": "/audio/child-mode/words/after.mp3"
+            "audioPath": "/guided-reading/audio/words/after.mp3"
           },
           {
             "text": "our",
-            "audioPath": "/audio/child-mode/words/our.mp3"
+            "audioPath": "/guided-reading/audio/words/our.mp3"
           },
           {
             "text": "dogs",
-            "audioPath": "/audio/child-mode/words/dogs.mp3"
+            "audioPath": "/guided-reading/audio/words/dogs.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4999,47 +4999,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "cat",
-            "audioPath": "/audio/child-mode/words/cat.mp3"
+            "audioPath": "/guided-reading/audio/words/cat.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pet",
-            "audioPath": "/audio/child-mode/words/pet.mp3"
+            "audioPath": "/guided-reading/audio/words/pet.mp3"
           },
           {
             "text": "Cats",
-            "audioPath": "/audio/child-mode/words/cats.mp3"
+            "audioPath": "/guided-reading/audio/words/cats.mp3"
           },
           {
             "text": "purr",
-            "audioPath": "/audio/child-mode/words/purr.mp3"
+            "audioPath": "/guided-reading/audio/words/purr.mp3"
           },
           {
             "text": "when",
-            "audioPath": "/audio/child-mode/words/when.mp3"
+            "audioPath": "/guided-reading/audio/words/when.mp3"
           },
           {
             "text": "they",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "happy",
-            "audioPath": "/audio/child-mode/words/happy.mp3"
+            "audioPath": "/guided-reading/audio/words/happy.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5055,59 +5055,59 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "rabbit",
-            "audioPath": "/audio/child-mode/words/rabbit.mp3"
+            "audioPath": "/guided-reading/audio/words/rabbit.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pet",
-            "audioPath": "/audio/child-mode/words/pet.mp3"
+            "audioPath": "/guided-reading/audio/words/pet.mp3"
           },
           {
             "text": "Rabbits",
-            "audioPath": "/audio/child-mode/words/rabbits.mp3"
+            "audioPath": "/guided-reading/audio/words/rabbits.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "soft",
-            "audioPath": "/audio/child-mode/words/soft.mp3"
+            "audioPath": "/guided-reading/audio/words/soft.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "fluffy",
-            "audioPath": "/audio/child-mode/words/fluffy.mp3"
+            "audioPath": "/guided-reading/audio/words/fluffy.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "twitch",
-            "audioPath": "/audio/child-mode/words/twitch.mp3"
+            "audioPath": "/guided-reading/audio/words/twitch.mp3"
           },
           {
             "text": "their",
-            "audioPath": "/audio/child-mode/words/their.mp3"
+            "audioPath": "/guided-reading/audio/words/their.mp3"
           },
           {
             "text": "noses",
-            "audioPath": "/audio/child-mode/words/noses.mp3"
+            "audioPath": "/guided-reading/audio/words/noses.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5123,47 +5123,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "goldfish",
-            "audioPath": "/audio/child-mode/words/goldfish.mp3"
+            "audioPath": "/guided-reading/audio/words/goldfish.mp3"
           },
           {
             "text": "swims",
-            "audioPath": "/audio/child-mode/words/swims.mp3"
+            "audioPath": "/guided-reading/audio/words/swims.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "tank",
-            "audioPath": "/audio/child-mode/words/tank.mp3"
+            "audioPath": "/guided-reading/audio/words/tank.mp3"
           },
           {
             "text": "Fish",
-            "audioPath": "/audio/child-mode/words/fish.mp3"
+            "audioPath": "/guided-reading/audio/words/fish.mp3"
           },
           {
             "text": "need",
-            "audioPath": "/audio/child-mode/words/need.mp3"
+            "audioPath": "/guided-reading/audio/words/need.mp3"
           },
           {
             "text": "clean",
-            "audioPath": "/audio/child-mode/words/clean.mp3"
+            "audioPath": "/guided-reading/audio/words/clean.mp3"
           },
           {
             "text": "fresh",
-            "audioPath": "/audio/child-mode/words/fresh.mp3"
+            "audioPath": "/guided-reading/audio/words/fresh.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5179,47 +5179,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "hamster",
-            "audioPath": "/audio/child-mode/words/hamster.mp3"
+            "audioPath": "/guided-reading/audio/words/hamster.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "fluffy",
-            "audioPath": "/audio/child-mode/words/fluffy.mp3"
+            "audioPath": "/guided-reading/audio/words/fluffy.mp3"
           },
           {
             "text": "Hamsters",
-            "audioPath": "/audio/child-mode/words/hamsters.mp3"
+            "audioPath": "/guided-reading/audio/words/hamsters.mp3"
           },
           {
             "text": "run",
-            "audioPath": "/audio/child-mode/words/run.mp3"
+            "audioPath": "/guided-reading/audio/words/run.mp3"
           },
           {
             "text": "on",
-            "audioPath": "/audio/child-mode/words/on.mp3"
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "wheel",
-            "audioPath": "/audio/child-mode/words/wheel.mp3"
+            "audioPath": "/guided-reading/audio/words/wheel.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5235,47 +5235,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "All",
-            "audioPath": "/audio/child-mode/words/all.mp3"
+            "audioPath": "/guided-reading/audio/words/all.mp3"
           },
           {
             "text": "pets",
-            "audioPath": "/audio/child-mode/words/pets.mp3"
+            "audioPath": "/guided-reading/audio/words/pets.mp3"
           },
           {
             "text": "need",
-            "audioPath": "/audio/child-mode/words/need.mp3"
+            "audioPath": "/guided-reading/audio/words/need.mp3"
           },
           {
             "text": "food",
-            "audioPath": "/audio/child-mode/words/food.mp3"
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "love",
-            "audioPath": "/audio/child-mode/words/love.mp3"
+            "audioPath": "/guided-reading/audio/words/love.mp3"
           },
           {
             "text": "Pets",
-            "audioPath": "/audio/child-mode/words/pets.mp3"
+            "audioPath": "/guided-reading/audio/words/pets.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "our",
-            "audioPath": "/audio/child-mode/words/our.mp3"
+            "audioPath": "/guided-reading/audio/words/our.mp3"
           },
           {
             "text": "friends",
-            "audioPath": "/audio/child-mode/words/friends.mp3"
+            "audioPath": "/guided-reading/audio/words/friends.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5358,59 +5358,59 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "circle",
-            "audioPath": "/audio/child-mode/words/circle.mp3"
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "round",
-            "audioPath": "/audio/child-mode/words/round.mp3"
+            "audioPath": "/guided-reading/audio/words/round.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "circle",
-            "audioPath": "/audio/child-mode/words/circle.mp3"
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "wheel",
-            "audioPath": "/audio/child-mode/words/wheel.mp3"
+            "audioPath": "/guided-reading/audio/words/wheel.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "circle",
-            "audioPath": "/audio/child-mode/words/circle.mp3"
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5426,67 +5426,67 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "square",
-            "audioPath": "/audio/child-mode/words/square.mp3"
+            "audioPath": "/guided-reading/audio/words/square.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "four",
-            "audioPath": "/audio/child-mode/words/four.mp3"
+            "audioPath": "/guided-reading/audio/words/four.mp3"
           },
           {
             "text": "equal",
-            "audioPath": "/audio/child-mode/words/equal.mp3"
+            "audioPath": "/guided-reading/audio/words/equal.mp3"
           },
           {
             "text": "sides",
-            "audioPath": "/audio/child-mode/words/sides.mp3"
+            "audioPath": "/guided-reading/audio/words/sides.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "window",
-            "audioPath": "/audio/child-mode/words/window.mp3"
+            "audioPath": "/guided-reading/audio/words/window.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "square",
-            "audioPath": "/audio/child-mode/words/square.mp3"
+            "audioPath": "/guided-reading/audio/words/square.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "cracker",
-            "audioPath": "/audio/child-mode/words/cracker.mp3"
+            "audioPath": "/guided-reading/audio/words/cracker.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "square",
-            "audioPath": "/audio/child-mode/words/square.mp3"
+            "audioPath": "/guided-reading/audio/words/square.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5502,67 +5502,67 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "triangle",
-            "audioPath": "/audio/child-mode/words/triangle.mp3"
+            "audioPath": "/guided-reading/audio/words/triangle.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "three",
-            "audioPath": "/audio/child-mode/words/three.mp3"
+            "audioPath": "/guided-reading/audio/words/three.mp3"
           },
           {
             "text": "sides",
-            "audioPath": "/audio/child-mode/words/sides.mp3"
+            "audioPath": "/guided-reading/audio/words/sides.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pizza",
-            "audioPath": "/audio/child-mode/words/pizza.mp3"
+            "audioPath": "/guided-reading/audio/words/pizza.mp3"
           },
           {
             "text": "slice",
-            "audioPath": "/audio/child-mode/words/slice.mp3"
+            "audioPath": "/guided-reading/audio/words/slice.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "triangle",
-            "audioPath": "/audio/child-mode/words/triangle.mp3"
+            "audioPath": "/guided-reading/audio/words/triangle.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "roof",
-            "audioPath": "/audio/child-mode/words/roof.mp3"
+            "audioPath": "/guided-reading/audio/words/roof.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "triangle",
-            "audioPath": "/audio/child-mode/words/triangle.mp3"
+            "audioPath": "/guided-reading/audio/words/triangle.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5578,91 +5578,91 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "rectangle",
-            "audioPath": "/audio/child-mode/words/rectangle.mp3"
+            "audioPath": "/guided-reading/audio/words/rectangle.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "four",
-            "audioPath": "/audio/child-mode/words/four.mp3"
+            "audioPath": "/guided-reading/audio/words/four.mp3"
           },
           {
             "text": "sides",
-            "audioPath": "/audio/child-mode/words/sides.mp3"
+            "audioPath": "/guided-reading/audio/words/sides.mp3"
           },
           {
             "text": "Two",
-            "audioPath": "/audio/child-mode/words/two.mp3"
+            "audioPath": "/guided-reading/audio/words/two.mp3"
           },
           {
             "text": "sides",
-            "audioPath": "/audio/child-mode/words/sides.mp3"
+            "audioPath": "/guided-reading/audio/words/sides.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "long",
-            "audioPath": "/audio/child-mode/words/long.mp3"
+            "audioPath": "/guided-reading/audio/words/long.mp3"
           },
           {
             "text": "two",
-            "audioPath": "/audio/child-mode/words/two.mp3"
+            "audioPath": "/guided-reading/audio/words/two.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "short",
-            "audioPath": "/audio/child-mode/words/short.mp3"
+            "audioPath": "/guided-reading/audio/words/short.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "door",
-            "audioPath": "/audio/child-mode/words/door.mp3"
+            "audioPath": "/guided-reading/audio/words/door.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "rectangle",
-            "audioPath": "/audio/child-mode/words/rectangle.mp3"
+            "audioPath": "/guided-reading/audio/words/rectangle.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "book",
-            "audioPath": "/audio/child-mode/words/book.mp3"
+            "audioPath": "/guided-reading/audio/words/book.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "rectangle",
-            "audioPath": "/audio/child-mode/words/rectangle.mp3"
+            "audioPath": "/guided-reading/audio/words/rectangle.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5678,51 +5678,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "star",
-            "audioPath": "/audio/child-mode/words/star.mp3"
+            "audioPath": "/guided-reading/audio/words/star.mp3"
           },
           {
             "text": "has",
-            "audioPath": "/audio/child-mode/words/has.mp3"
+            "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
             "text": "five",
-            "audioPath": "/audio/child-mode/words/five.mp3"
+            "audioPath": "/guided-reading/audio/words/five.mp3"
           },
           {
             "text": "points",
-            "audioPath": "/audio/child-mode/words/points.mp3"
+            "audioPath": "/guided-reading/audio/words/points.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "see",
-            "audioPath": "/audio/child-mode/words/see.mp3"
+            "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
             "text": "stars",
-            "audioPath": "/audio/child-mode/words/stars.mp3"
+            "audioPath": "/guided-reading/audio/words/stars.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "sky",
-            "audioPath": "/audio/child-mode/words/sky.mp3"
+            "audioPath": "/guided-reading/audio/words/sky.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5738,71 +5738,71 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "An",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "oval",
-            "audioPath": "/audio/child-mode/words/oval.mp3"
+            "audioPath": "/guided-reading/audio/words/oval.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "like",
-            "audioPath": "/audio/child-mode/words/like.mp3"
+            "audioPath": "/guided-reading/audio/words/like.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "stretched",
-            "audioPath": "/audio/child-mode/words/stretched.mp3"
+            "audioPath": "/guided-reading/audio/words/stretched.mp3"
           },
           {
             "text": "circle",
-            "audioPath": "/audio/child-mode/words/circle.mp3"
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
           },
           {
             "text": "An",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "egg",
-            "audioPath": "/audio/child-mode/words/egg.mp3"
+            "audioPath": "/guided-reading/audio/words/egg.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "an",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "oval",
-            "audioPath": "/audio/child-mode/words/oval.mp3"
+            "audioPath": "/guided-reading/audio/words/oval.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "leaf",
-            "audioPath": "/audio/child-mode/words/leaf.mp3"
+            "audioPath": "/guided-reading/audio/words/leaf.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "an",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "oval",
-            "audioPath": "/audio/child-mode/words/oval.mp3"
+            "audioPath": "/guided-reading/audio/words/oval.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5818,35 +5818,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Shapes",
-            "audioPath": "/audio/child-mode/words/shapes.mp3"
+            "audioPath": "/guided-reading/audio/words/shapes.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "everywhere",
-            "audioPath": "/audio/child-mode/words/everywhere.mp3"
+            "audioPath": "/guided-reading/audio/words/everywhere.mp3"
           },
           {
             "text": "Can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "you",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "find",
-            "audioPath": "/audio/child-mode/words/find.mp3"
+            "audioPath": "/guided-reading/audio/words/find.mp3"
           },
           {
             "text": "shapes",
-            "audioPath": "/audio/child-mode/words/shapes.mp3"
+            "audioPath": "/guided-reading/audio/words/shapes.mp3"
           },
           {
             "text": "today",
-            "audioPath": "/audio/child-mode/words/today.mp3"
+            "audioPath": "/guided-reading/audio/words/today.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5927,31 +5927,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "This",
-            "audioPath": "/audio/child-mode/words/this.mp3"
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "An",
-            "audioPath": "/audio/child-mode/words/an.mp3"
+            "audioPath": "/guided-reading/audio/words/an.mp3"
           },
           {
             "text": "elephant",
-            "audioPath": "/audio/child-mode/words/elephant.mp3"
+            "audioPath": "/guided-reading/audio/words/elephant.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5967,31 +5967,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "This",
-            "audioPath": "/audio/child-mode/words/this.mp3"
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "mouse",
-            "audioPath": "/audio/child-mode/words/mouse.mp3"
+            "audioPath": "/guided-reading/audio/words/mouse.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6007,39 +6007,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "bus",
-            "audioPath": "/audio/child-mode/words/bus.mp3"
+            "audioPath": "/guided-reading/audio/words/bus.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "toy",
-            "audioPath": "/audio/child-mode/words/toy.mp3"
+            "audioPath": "/guided-reading/audio/words/toy.mp3"
           },
           {
             "text": "car",
-            "audioPath": "/audio/child-mode/words/car.mp3"
+            "audioPath": "/guided-reading/audio/words/car.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6055,35 +6055,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "tree",
-            "audioPath": "/audio/child-mode/words/tree.mp3"
+            "audioPath": "/guided-reading/audio/words/tree.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "flower",
-            "audioPath": "/audio/child-mode/words/flower.mp3"
+            "audioPath": "/guided-reading/audio/words/flower.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6099,35 +6099,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "whale",
-            "audioPath": "/audio/child-mode/words/whale.mp3"
+            "audioPath": "/guided-reading/audio/words/whale.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "fish",
-            "audioPath": "/audio/child-mode/words/fish.mp3"
+            "audioPath": "/guided-reading/audio/words/fish.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6143,59 +6143,59 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "or",
-            "audioPath": "/audio/child-mode/words/or.mp3"
+            "audioPath": "/guided-reading/audio/words/or.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           },
           {
             "text": "—",
-            "audioPath": "/audio/child-mode/words/.mp3"
+            "audioPath": "/guided-reading/audio/words/.mp3"
           },
           {
             "text": "all",
-            "audioPath": "/audio/child-mode/words/all.mp3"
+            "audioPath": "/guided-reading/audio/words/all.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "special",
-            "audioPath": "/audio/child-mode/words/special.mp3"
+            "audioPath": "/guided-reading/audio/words/special.mp3"
           },
           {
             "text": "What",
-            "audioPath": "/audio/child-mode/words/what.mp3"
+            "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "What",
-            "audioPath": "/audio/child-mode/words/what.mp3"
+            "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "small",
-            "audioPath": "/audio/child-mode/words/small.mp3"
+            "audioPath": "/guided-reading/audio/words/small.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6278,35 +6278,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "warms",
-            "audioPath": "/audio/child-mode/words/warms.mp3"
+            "audioPath": "/guided-reading/audio/words/warms.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6322,31 +6322,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Fire",
-            "audioPath": "/audio/child-mode/words/fire.mp3"
+            "audioPath": "/guided-reading/audio/words/fire.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "Do",
-            "audioPath": "/audio/child-mode/words/do.mp3"
+            "audioPath": "/guided-reading/audio/words/do.mp3"
           },
           {
             "text": "not",
-            "audioPath": "/audio/child-mode/words/not.mp3"
+            "audioPath": "/guided-reading/audio/words/not.mp3"
           },
           {
             "text": "touch",
-            "audioPath": "/audio/child-mode/words/touch.mp3"
+            "audioPath": "/guided-reading/audio/words/touch.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6362,31 +6362,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Ice",
-            "audioPath": "/audio/child-mode/words/ice.mp3"
+            "audioPath": "/guided-reading/audio/words/ice.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "cold",
-            "audioPath": "/audio/child-mode/words/cold.mp3"
+            "audioPath": "/guided-reading/audio/words/cold.mp3"
           },
           {
             "text": "Snow",
-            "audioPath": "/audio/child-mode/words/snow.mp3"
+            "audioPath": "/guided-reading/audio/words/snow.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "cold",
-            "audioPath": "/audio/child-mode/words/cold.mp3"
+            "audioPath": "/guided-reading/audio/words/cold.mp3"
           },
           {
             "text": "Brrr",
-            "audioPath": "/audio/child-mode/words/brrr.mp3"
+            "audioPath": "/guided-reading/audio/words/brrr.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6402,39 +6402,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "food",
-            "audioPath": "/audio/child-mode/words/food.mp3"
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "burn",
-            "audioPath": "/audio/child-mode/words/burn.mp3"
+            "audioPath": "/guided-reading/audio/words/burn.mp3"
           },
           {
             "text": "Let",
-            "audioPath": "/audio/child-mode/words/let.mp3"
+            "audioPath": "/guided-reading/audio/words/let.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "cool",
-            "audioPath": "/audio/child-mode/words/cool.mp3"
+            "audioPath": "/guided-reading/audio/words/cool.mp3"
           },
           {
             "text": "down",
-            "audioPath": "/audio/child-mode/words/down.mp3"
+            "audioPath": "/guided-reading/audio/words/down.mp3"
           },
           {
             "text": "first",
-            "audioPath": "/audio/child-mode/words/first.mp3"
+            "audioPath": "/guided-reading/audio/words/first.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6450,35 +6450,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Cold",
-            "audioPath": "/audio/child-mode/words/cold.mp3"
+            "audioPath": "/guided-reading/audio/words/cold.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
             "text": "feels",
-            "audioPath": "/audio/child-mode/words/feels.mp3"
+            "audioPath": "/guided-reading/audio/words/feels.mp3"
           },
           {
             "text": "good",
-            "audioPath": "/audio/child-mode/words/good.mp3"
+            "audioPath": "/guided-reading/audio/words/good.mp3"
           },
           {
             "text": "on",
-            "audioPath": "/audio/child-mode/words/on.mp3"
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6494,39 +6494,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "warm",
-            "audioPath": "/audio/child-mode/words/warm.mp3"
+            "audioPath": "/guided-reading/audio/words/warm.mp3"
           },
           {
             "text": "Cold",
-            "audioPath": "/audio/child-mode/words/cold.mp3"
+            "audioPath": "/guided-reading/audio/words/cold.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "cool",
-            "audioPath": "/audio/child-mode/words/cool.mp3"
+            "audioPath": "/guided-reading/audio/words/cool.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "need",
-            "audioPath": "/audio/child-mode/words/need.mp3"
+            "audioPath": "/guided-reading/audio/words/need.mp3"
           },
           {
             "text": "both",
-            "audioPath": "/audio/child-mode/words/both.mp3"
+            "audioPath": "/guided-reading/audio/words/both.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6542,39 +6542,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "What",
-            "audioPath": "/audio/child-mode/words/what.mp3"
+            "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "What",
-            "audioPath": "/audio/child-mode/words/what.mp3"
+            "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "cold",
-            "audioPath": "/audio/child-mode/words/cold.mp3"
+            "audioPath": "/guided-reading/audio/words/cold.mp3"
           },
           {
             "text": "Can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "you",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "tell",
-            "audioPath": "/audio/child-mode/words/tell.mp3"
+            "audioPath": "/guided-reading/audio/words/tell.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6657,39 +6657,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Drop",
-            "audioPath": "/audio/child-mode/words/drop.mp3"
+            "audioPath": "/guided-reading/audio/words/drop.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "duck",
-            "audioPath": "/audio/child-mode/words/duck.mp3"
+            "audioPath": "/guided-reading/audio/words/duck.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "floats",
-            "audioPath": "/audio/child-mode/words/floats.mp3"
+            "audioPath": "/guided-reading/audio/words/floats.mp3"
           },
           {
             "text": "on",
-            "audioPath": "/audio/child-mode/words/on.mp3"
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "top",
-            "audioPath": "/audio/child-mode/words/top.mp3"
+            "audioPath": "/guided-reading/audio/words/top.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6705,43 +6705,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Drop",
-            "audioPath": "/audio/child-mode/words/drop.mp3"
+            "audioPath": "/guided-reading/audio/words/drop.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "stone",
-            "audioPath": "/audio/child-mode/words/stone.mp3"
+            "audioPath": "/guided-reading/audio/words/stone.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "sinks",
-            "audioPath": "/audio/child-mode/words/sinks.mp3"
+            "audioPath": "/guided-reading/audio/words/sinks.mp3"
           },
           {
             "text": "to",
-            "audioPath": "/audio/child-mode/words/to.mp3"
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "bottom",
-            "audioPath": "/audio/child-mode/words/bottom.mp3"
+            "audioPath": "/guided-reading/audio/words/bottom.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6757,27 +6757,27 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "leaf",
-            "audioPath": "/audio/child-mode/words/leaf.mp3"
+            "audioPath": "/guided-reading/audio/words/leaf.mp3"
           },
           {
             "text": "floats",
-            "audioPath": "/audio/child-mode/words/floats.mp3"
+            "audioPath": "/guided-reading/audio/words/floats.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "coin",
-            "audioPath": "/audio/child-mode/words/coin.mp3"
+            "audioPath": "/guided-reading/audio/words/coin.mp3"
           },
           {
             "text": "sinks",
-            "audioPath": "/audio/child-mode/words/sinks.mp3"
+            "audioPath": "/guided-reading/audio/words/sinks.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6793,43 +6793,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "boat",
-            "audioPath": "/audio/child-mode/words/boat.mp3"
+            "audioPath": "/guided-reading/audio/words/boat.mp3"
           },
           {
             "text": "floats",
-            "audioPath": "/audio/child-mode/words/floats.mp3"
+            "audioPath": "/guided-reading/audio/words/floats.mp3"
           },
           {
             "text": "on",
-            "audioPath": "/audio/child-mode/words/on.mp3"
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "water",
-            "audioPath": "/audio/child-mode/words/water.mp3"
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "carry",
-            "audioPath": "/audio/child-mode/words/carry.mp3"
+            "audioPath": "/guided-reading/audio/words/carry.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6845,39 +6845,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "rock",
-            "audioPath": "/audio/child-mode/words/rock.mp3"
+            "audioPath": "/guided-reading/audio/words/rock.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "heavy",
-            "audioPath": "/audio/child-mode/words/heavy.mp3"
+            "audioPath": "/guided-reading/audio/words/heavy.mp3"
           },
           {
             "text": "Heavy",
-            "audioPath": "/audio/child-mode/words/heavy.mp3"
+            "audioPath": "/guided-reading/audio/words/heavy.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           },
           {
             "text": "often",
-            "audioPath": "/audio/child-mode/words/often.mp3"
+            "audioPath": "/guided-reading/audio/words/often.mp3"
           },
           {
             "text": "sink",
-            "audioPath": "/audio/child-mode/words/sink.mp3"
+            "audioPath": "/guided-reading/audio/words/sink.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6893,31 +6893,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Try",
-            "audioPath": "/audio/child-mode/words/try.mp3"
+            "audioPath": "/guided-reading/audio/words/try.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "yourself",
-            "audioPath": "/audio/child-mode/words/yourself.mp3"
+            "audioPath": "/guided-reading/audio/words/yourself.mp3"
           },
           {
             "text": "What",
-            "audioPath": "/audio/child-mode/words/what.mp3"
+            "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
             "text": "floats",
-            "audioPath": "/audio/child-mode/words/floats.mp3"
+            "audioPath": "/guided-reading/audio/words/floats.mp3"
           },
           {
             "text": "What",
-            "audioPath": "/audio/child-mode/words/what.mp3"
+            "audioPath": "/guided-reading/audio/words/what.mp3"
           },
           {
             "text": "sinks",
-            "audioPath": "/audio/child-mode/words/sinks.mp3"
+            "audioPath": "/guided-reading/audio/words/sinks.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6933,39 +6933,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Some",
-            "audioPath": "/audio/child-mode/words/some.mp3"
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           },
           {
             "text": "float",
-            "audioPath": "/audio/child-mode/words/float.mp3"
+            "audioPath": "/guided-reading/audio/words/float.mp3"
           },
           {
             "text": "Some",
-            "audioPath": "/audio/child-mode/words/some.mp3"
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           },
           {
             "text": "sink",
-            "audioPath": "/audio/child-mode/words/sink.mp3"
+            "audioPath": "/guided-reading/audio/words/sink.mp3"
           },
           {
             "text": "Science",
-            "audioPath": "/audio/child-mode/words/science.mp3"
+            "audioPath": "/guided-reading/audio/words/science.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "fun",
-            "audioPath": "/audio/child-mode/words/fun.mp3"
+            "audioPath": "/guided-reading/audio/words/fun.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7048,27 +7048,27 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "push",
-            "audioPath": "/audio/child-mode/words/push.mp3"
+            "audioPath": "/guided-reading/audio/words/push.mp3"
           },
           {
             "text": "moves",
-            "audioPath": "/audio/child-mode/words/moves.mp3"
+            "audioPath": "/guided-reading/audio/words/moves.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           },
           {
             "text": "away",
-            "audioPath": "/audio/child-mode/words/away.mp3"
+            "audioPath": "/guided-reading/audio/words/away.mp3"
           },
           {
             "text": "Push",
-            "audioPath": "/audio/child-mode/words/push.mp3"
+            "audioPath": "/guided-reading/audio/words/push.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7084,27 +7084,27 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pull",
-            "audioPath": "/audio/child-mode/words/pull.mp3"
+            "audioPath": "/guided-reading/audio/words/pull.mp3"
           },
           {
             "text": "brings",
-            "audioPath": "/audio/child-mode/words/brings.mp3"
+            "audioPath": "/guided-reading/audio/words/brings.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           },
           {
             "text": "closer",
-            "audioPath": "/audio/child-mode/words/closer.mp3"
+            "audioPath": "/guided-reading/audio/words/closer.mp3"
           },
           {
             "text": "Pull",
-            "audioPath": "/audio/child-mode/words/pull.mp3"
+            "audioPath": "/guided-reading/audio/words/pull.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7120,47 +7120,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "You",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "push",
-            "audioPath": "/audio/child-mode/words/push.mp3"
+            "audioPath": "/guided-reading/audio/words/push.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "door",
-            "audioPath": "/audio/child-mode/words/door.mp3"
+            "audioPath": "/guided-reading/audio/words/door.mp3"
           },
           {
             "text": "open",
-            "audioPath": "/audio/child-mode/words/open.mp3"
+            "audioPath": "/guided-reading/audio/words/open.mp3"
           },
           {
             "text": "You",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "pull",
-            "audioPath": "/audio/child-mode/words/pull.mp3"
+            "audioPath": "/guided-reading/audio/words/pull.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "door",
-            "audioPath": "/audio/child-mode/words/door.mp3"
+            "audioPath": "/guided-reading/audio/words/door.mp3"
           },
           {
             "text": "open",
-            "audioPath": "/audio/child-mode/words/open.mp3"
+            "audioPath": "/guided-reading/audio/words/open.mp3"
           },
           {
             "text": "too",
-            "audioPath": "/audio/child-mode/words/too.mp3"
+            "audioPath": "/guided-reading/audio/words/too.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7176,39 +7176,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "You",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "push",
-            "audioPath": "/audio/child-mode/words/push.mp3"
+            "audioPath": "/guided-reading/audio/words/push.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "swing",
-            "audioPath": "/audio/child-mode/words/swing.mp3"
+            "audioPath": "/guided-reading/audio/words/swing.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "swing",
-            "audioPath": "/audio/child-mode/words/swing.mp3"
+            "audioPath": "/guided-reading/audio/words/swing.mp3"
           },
           {
             "text": "goes",
-            "audioPath": "/audio/child-mode/words/goes.mp3"
+            "audioPath": "/guided-reading/audio/words/goes.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "high",
-            "audioPath": "/audio/child-mode/words/high.mp3"
+            "audioPath": "/guided-reading/audio/words/high.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7224,35 +7224,35 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "You",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "pull",
-            "audioPath": "/audio/child-mode/words/pull.mp3"
+            "audioPath": "/guided-reading/audio/words/pull.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "zip",
-            "audioPath": "/audio/child-mode/words/zip.mp3"
+            "audioPath": "/guided-reading/audio/words/zip.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "zip",
-            "audioPath": "/audio/child-mode/words/zip.mp3"
+            "audioPath": "/guided-reading/audio/words/zip.mp3"
           },
           {
             "text": "opens",
-            "audioPath": "/audio/child-mode/words/opens.mp3"
+            "audioPath": "/guided-reading/audio/words/opens.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7268,47 +7268,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Magnets",
-            "audioPath": "/audio/child-mode/words/magnets.mp3"
+            "audioPath": "/guided-reading/audio/words/magnets.mp3"
           },
           {
             "text": "push",
-            "audioPath": "/audio/child-mode/words/push.mp3"
+            "audioPath": "/guided-reading/audio/words/push.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "pull",
-            "audioPath": "/audio/child-mode/words/pull.mp3"
+            "audioPath": "/guided-reading/audio/words/pull.mp3"
           },
           {
             "text": "too",
-            "audioPath": "/audio/child-mode/words/too.mp3"
+            "audioPath": "/guided-reading/audio/words/too.mp3"
           },
           {
             "text": "A",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "magnet",
-            "audioPath": "/audio/child-mode/words/magnet.mp3"
+            "audioPath": "/guided-reading/audio/words/magnet.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "pull",
-            "audioPath": "/audio/child-mode/words/pull.mp3"
+            "audioPath": "/guided-reading/audio/words/pull.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "pin",
-            "audioPath": "/audio/child-mode/words/pin.mp3"
+            "audioPath": "/guided-reading/audio/words/pin.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7324,39 +7324,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Push",
-            "audioPath": "/audio/child-mode/words/push.mp3"
+            "audioPath": "/guided-reading/audio/words/push.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "pull",
-            "audioPath": "/audio/child-mode/words/pull.mp3"
+            "audioPath": "/guided-reading/audio/words/pull.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "forces",
-            "audioPath": "/audio/child-mode/words/forces.mp3"
+            "audioPath": "/guided-reading/audio/words/forces.mp3"
           },
           {
             "text": "Forces",
-            "audioPath": "/audio/child-mode/words/forces.mp3"
+            "audioPath": "/guided-reading/audio/words/forces.mp3"
           },
           {
             "text": "make",
-            "audioPath": "/audio/child-mode/words/make.mp3"
+            "audioPath": "/guided-reading/audio/words/make.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           },
           {
             "text": "move",
-            "audioPath": "/audio/child-mode/words/move.mp3"
+            "audioPath": "/guided-reading/audio/words/move.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7439,51 +7439,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "star",
-            "audioPath": "/audio/child-mode/words/star.mp3"
+            "audioPath": "/guided-reading/audio/words/star.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "very",
-            "audioPath": "/audio/child-mode/words/very.mp3"
+            "audioPath": "/guided-reading/audio/words/very.mp3"
           },
           {
             "text": "far",
-            "audioPath": "/audio/child-mode/words/far.mp3"
+            "audioPath": "/guided-reading/audio/words/far.mp3"
           },
           {
             "text": "away",
-            "audioPath": "/audio/child-mode/words/away.mp3"
+            "audioPath": "/guided-reading/audio/words/away.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7499,43 +7499,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "gives",
-            "audioPath": "/audio/child-mode/words/gives.mp3"
+            "audioPath": "/guided-reading/audio/words/gives.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "light",
-            "audioPath": "/audio/child-mode/words/light.mp3"
+            "audioPath": "/guided-reading/audio/words/light.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "warms",
-            "audioPath": "/audio/child-mode/words/warms.mp3"
+            "audioPath": "/guided-reading/audio/words/warms.mp3"
           },
           {
             "text": "our",
-            "audioPath": "/audio/child-mode/words/our.mp3"
+            "audioPath": "/guided-reading/audio/words/our.mp3"
           },
           {
             "text": "Earth",
-            "audioPath": "/audio/child-mode/words/earth.mp3"
+            "audioPath": "/guided-reading/audio/words/earth.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7551,43 +7551,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "morning",
-            "audioPath": "/audio/child-mode/words/morning.mp3"
+            "audioPath": "/guided-reading/audio/words/morning.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "comes",
-            "audioPath": "/audio/child-mode/words/comes.mp3"
+            "audioPath": "/guided-reading/audio/words/comes.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "Good",
-            "audioPath": "/audio/child-mode/words/good.mp3"
+            "audioPath": "/guided-reading/audio/words/good.mp3"
           },
           {
             "text": "morning",
-            "audioPath": "/audio/child-mode/words/morning.mp3"
+            "audioPath": "/guided-reading/audio/words/morning.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7603,59 +7603,59 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "At",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "midday",
-            "audioPath": "/audio/child-mode/words/midday.mp3"
+            "audioPath": "/guided-reading/audio/words/midday.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "high",
-            "audioPath": "/audio/child-mode/words/high.mp3"
+            "audioPath": "/guided-reading/audio/words/high.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "hottest",
-            "audioPath": "/audio/child-mode/words/hottest.mp3"
+            "audioPath": "/guided-reading/audio/words/hottest.mp3"
           },
           {
             "text": "part",
-            "audioPath": "/audio/child-mode/words/part.mp3"
+            "audioPath": "/guided-reading/audio/words/part.mp3"
           },
           {
             "text": "of",
-            "audioPath": "/audio/child-mode/words/of.mp3"
+            "audioPath": "/guided-reading/audio/words/of.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7671,39 +7671,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "evening",
-            "audioPath": "/audio/child-mode/words/evening.mp3"
+            "audioPath": "/guided-reading/audio/words/evening.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "goes",
-            "audioPath": "/audio/child-mode/words/goes.mp3"
+            "audioPath": "/guided-reading/audio/words/goes.mp3"
           },
           {
             "text": "down",
-            "audioPath": "/audio/child-mode/words/down.mp3"
+            "audioPath": "/guided-reading/audio/words/down.mp3"
           },
           {
             "text": "Goodnight",
-            "audioPath": "/audio/child-mode/words/goodnight.mp3"
+            "audioPath": "/guided-reading/audio/words/goodnight.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7719,47 +7719,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Plants",
-            "audioPath": "/audio/child-mode/words/plants.mp3"
+            "audioPath": "/guided-reading/audio/words/plants.mp3"
           },
           {
             "text": "need",
-            "audioPath": "/audio/child-mode/words/need.mp3"
+            "audioPath": "/guided-reading/audio/words/need.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "to",
-            "audioPath": "/audio/child-mode/words/to.mp3"
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
             "text": "grow",
-            "audioPath": "/audio/child-mode/words/grow.mp3"
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "need",
-            "audioPath": "/audio/child-mode/words/need.mp3"
+            "audioPath": "/guided-reading/audio/words/need.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "too",
-            "audioPath": "/audio/child-mode/words/too.mp3"
+            "audioPath": "/guided-reading/audio/words/too.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7775,39 +7775,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "our",
-            "audioPath": "/audio/child-mode/words/our.mp3"
+            "audioPath": "/guided-reading/audio/words/our.mp3"
           },
           {
             "text": "nearest",
-            "audioPath": "/audio/child-mode/words/nearest.mp3"
+            "audioPath": "/guided-reading/audio/words/nearest.mp3"
           },
           {
             "text": "star",
-            "audioPath": "/audio/child-mode/words/star.mp3"
+            "audioPath": "/guided-reading/audio/words/star.mp3"
           },
           {
             "text": "Thank",
-            "audioPath": "/audio/child-mode/words/thank.mp3"
+            "audioPath": "/guided-reading/audio/words/thank.mp3"
           },
           {
             "text": "you",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7890,63 +7890,63 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Look",
-            "audioPath": "/audio/child-mode/words/look.mp3"
+            "audioPath": "/guided-reading/audio/words/look.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "at",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "You",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "see",
-            "audioPath": "/audio/child-mode/words/see.mp3"
+            "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "round",
-            "audioPath": "/audio/child-mode/words/round.mp3"
+            "audioPath": "/guided-reading/audio/words/round.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7962,51 +7962,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
             "text": "shines",
-            "audioPath": "/audio/child-mode/words/shines.mp3"
+            "audioPath": "/guided-reading/audio/words/shines.mp3"
           },
           {
             "text": "at",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "gives",
-            "audioPath": "/audio/child-mode/words/gives.mp3"
+            "audioPath": "/guided-reading/audio/words/gives.mp3"
           },
           {
             "text": "us",
-            "audioPath": "/audio/child-mode/words/us.mp3"
+            "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
             "text": "light",
-            "audioPath": "/audio/child-mode/words/light.mp3"
+            "audioPath": "/guided-reading/audio/words/light.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "dark",
-            "audioPath": "/audio/child-mode/words/dark.mp3"
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8022,43 +8022,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
             "text": "changes",
-            "audioPath": "/audio/child-mode/words/changes.mp3"
+            "audioPath": "/guided-reading/audio/words/changes.mp3"
           },
           {
             "text": "shape",
-            "audioPath": "/audio/child-mode/words/shape.mp3"
+            "audioPath": "/guided-reading/audio/words/shape.mp3"
           },
           {
             "text": "Sometimes",
-            "audioPath": "/audio/child-mode/words/sometimes.mp3"
+            "audioPath": "/guided-reading/audio/words/sometimes.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "looks",
-            "audioPath": "/audio/child-mode/words/looks.mp3"
+            "audioPath": "/guided-reading/audio/words/looks.mp3"
           },
           {
             "text": "like",
-            "audioPath": "/audio/child-mode/words/like.mp3"
+            "audioPath": "/guided-reading/audio/words/like.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "banana",
-            "audioPath": "/audio/child-mode/words/banana.mp3"
+            "audioPath": "/guided-reading/audio/words/banana.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8074,47 +8074,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Sometimes",
-            "audioPath": "/audio/child-mode/words/sometimes.mp3"
+            "audioPath": "/guided-reading/audio/words/sometimes.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "full",
-            "audioPath": "/audio/child-mode/words/full.mp3"
+            "audioPath": "/guided-reading/audio/words/full.mp3"
           },
           {
             "text": "circle",
-            "audioPath": "/audio/child-mode/words/circle.mp3"
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
           },
           {
             "text": "This",
-            "audioPath": "/audio/child-mode/words/this.mp3"
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "a",
-            "audioPath": "/audio/child-mode/words/a.mp3"
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "full",
-            "audioPath": "/audio/child-mode/words/full.mp3"
+            "audioPath": "/guided-reading/audio/words/full.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8130,43 +8130,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
             "text": "goes",
-            "audioPath": "/audio/child-mode/words/goes.mp3"
+            "audioPath": "/guided-reading/audio/words/goes.mp3"
           },
           {
             "text": "around",
-            "audioPath": "/audio/child-mode/words/around.mp3"
+            "audioPath": "/guided-reading/audio/words/around.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "Earth",
-            "audioPath": "/audio/child-mode/words/earth.mp3"
+            "audioPath": "/guided-reading/audio/words/earth.mp3"
           },
           {
             "text": "It",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "travels",
-            "audioPath": "/audio/child-mode/words/travels.mp3"
+            "audioPath": "/guided-reading/audio/words/travels.mp3"
           },
           {
             "text": "very",
-            "audioPath": "/audio/child-mode/words/very.mp3"
+            "audioPath": "/guided-reading/audio/words/very.mp3"
           },
           {
             "text": "slowly",
-            "audioPath": "/audio/child-mode/words/slowly.mp3"
+            "audioPath": "/guided-reading/audio/words/slowly.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8182,47 +8182,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "People",
-            "audioPath": "/audio/child-mode/words/people.mp3"
+            "audioPath": "/guided-reading/audio/words/people.mp3"
           },
           {
             "text": "have",
-            "audioPath": "/audio/child-mode/words/have.mp3"
+            "audioPath": "/guided-reading/audio/words/have.mp3"
           },
           {
             "text": "been",
-            "audioPath": "/audio/child-mode/words/been.mp3"
+            "audioPath": "/guided-reading/audio/words/been.mp3"
           },
           {
             "text": "to",
-            "audioPath": "/audio/child-mode/words/to.mp3"
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "wore",
-            "audioPath": "/audio/child-mode/words/wore.mp3"
+            "audioPath": "/guided-reading/audio/words/wore.mp3"
           },
           {
             "text": "big",
-            "audioPath": "/audio/child-mode/words/big.mp3"
+            "audioPath": "/guided-reading/audio/words/big.mp3"
           },
           {
             "text": "white",
-            "audioPath": "/audio/child-mode/words/white.mp3"
+            "audioPath": "/guided-reading/audio/words/white.mp3"
           },
           {
             "text": "suits",
-            "audioPath": "/audio/child-mode/words/suits.mp3"
+            "audioPath": "/guided-reading/audio/words/suits.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8238,51 +8238,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "far",
-            "audioPath": "/audio/child-mode/words/far.mp3"
+            "audioPath": "/guided-reading/audio/words/far.mp3"
           },
           {
             "text": "away",
-            "audioPath": "/audio/child-mode/words/away.mp3"
+            "audioPath": "/guided-reading/audio/words/away.mp3"
           },
           {
             "text": "But",
-            "audioPath": "/audio/child-mode/words/but.mp3"
+            "audioPath": "/guided-reading/audio/words/but.mp3"
           },
           {
             "text": "we",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "see",
-            "audioPath": "/audio/child-mode/words/see.mp3"
+            "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
             "text": "it",
-            "audioPath": "/audio/child-mode/words/it.mp3"
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "every",
-            "audioPath": "/audio/child-mode/words/every.mp3"
+            "audioPath": "/guided-reading/audio/words/every.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8365,51 +8365,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "shines",
-            "audioPath": "/audio/child-mode/words/shines.mp3"
+            "audioPath": "/guided-reading/audio/words/shines.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sky",
-            "audioPath": "/audio/child-mode/words/sky.mp3"
+            "audioPath": "/guided-reading/audio/words/sky.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "bright",
-            "audioPath": "/audio/child-mode/words/bright.mp3"
+            "audioPath": "/guided-reading/audio/words/bright.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "blue",
-            "audioPath": "/audio/child-mode/words/blue.mp3"
+            "audioPath": "/guided-reading/audio/words/blue.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8425,47 +8425,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "In",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           },
           {
             "text": "we",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "wake",
-            "audioPath": "/audio/child-mode/words/wake.mp3"
+            "audioPath": "/guided-reading/audio/words/wake.mp3"
           },
           {
             "text": "up",
-            "audioPath": "/audio/child-mode/words/up.mp3"
+            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "We",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "play",
-            "audioPath": "/audio/child-mode/words/play.mp3"
+            "audioPath": "/guided-reading/audio/words/play.mp3"
           },
           {
             "text": "learn",
-            "audioPath": "/audio/child-mode/words/learn.mp3"
+            "audioPath": "/guided-reading/audio/words/learn.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "eat",
-            "audioPath": "/audio/child-mode/words/eat.mp3"
+            "audioPath": "/guided-reading/audio/words/eat.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8481,43 +8481,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "At",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sun",
-            "audioPath": "/audio/child-mode/words/sun.mp3"
+            "audioPath": "/guided-reading/audio/words/sun.mp3"
           },
           {
             "text": "goes",
-            "audioPath": "/audio/child-mode/words/goes.mp3"
+            "audioPath": "/guided-reading/audio/words/goes.mp3"
           },
           {
             "text": "away",
-            "audioPath": "/audio/child-mode/words/away.mp3"
+            "audioPath": "/guided-reading/audio/words/away.mp3"
           },
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "sky",
-            "audioPath": "/audio/child-mode/words/sky.mp3"
+            "audioPath": "/guided-reading/audio/words/sky.mp3"
           },
           {
             "text": "turns",
-            "audioPath": "/audio/child-mode/words/turns.mp3"
+            "audioPath": "/guided-reading/audio/words/turns.mp3"
           },
           {
             "text": "dark",
-            "audioPath": "/audio/child-mode/words/dark.mp3"
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8533,51 +8533,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "moon",
-            "audioPath": "/audio/child-mode/words/moon.mp3"
+            "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "stars",
-            "audioPath": "/audio/child-mode/words/stars.mp3"
+            "audioPath": "/guided-reading/audio/words/stars.mp3"
           },
           {
             "text": "come",
-            "audioPath": "/audio/child-mode/words/come.mp3"
+            "audioPath": "/guided-reading/audio/words/come.mp3"
           },
           {
             "text": "out",
-            "audioPath": "/audio/child-mode/words/out.mp3"
+            "audioPath": "/guided-reading/audio/words/out.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "shine",
-            "audioPath": "/audio/child-mode/words/shine.mp3"
+            "audioPath": "/guided-reading/audio/words/shine.mp3"
           },
           {
             "text": "in",
-            "audioPath": "/audio/child-mode/words/in.mp3"
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "dark",
-            "audioPath": "/audio/child-mode/words/dark.mp3"
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
           },
           {
             "text": "sky",
-            "audioPath": "/audio/child-mode/words/sky.mp3"
+            "audioPath": "/guided-reading/audio/words/sky.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8593,31 +8593,31 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "At",
-            "audioPath": "/audio/child-mode/words/at.mp3"
+            "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "we",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "sleep",
-            "audioPath": "/audio/child-mode/words/sleep.mp3"
+            "audioPath": "/guided-reading/audio/words/sleep.mp3"
           },
           {
             "text": "Our",
-            "audioPath": "/audio/child-mode/words/our.mp3"
+            "audioPath": "/guided-reading/audio/words/our.mp3"
           },
           {
             "text": "bodies",
-            "audioPath": "/audio/child-mode/words/bodies.mp3"
+            "audioPath": "/guided-reading/audio/words/bodies.mp3"
           },
           {
             "text": "rest",
-            "audioPath": "/audio/child-mode/words/rest.mp3"
+            "audioPath": "/guided-reading/audio/words/rest.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8633,51 +8633,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "The",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "Earth",
-            "audioPath": "/audio/child-mode/words/earth.mp3"
+            "audioPath": "/guided-reading/audio/words/earth.mp3"
           },
           {
             "text": "spins",
-            "audioPath": "/audio/child-mode/words/spins.mp3"
+            "audioPath": "/guided-reading/audio/words/spins.mp3"
           },
           {
             "text": "around",
-            "audioPath": "/audio/child-mode/words/around.mp3"
+            "audioPath": "/guided-reading/audio/words/around.mp3"
           },
           {
             "text": "That",
-            "audioPath": "/audio/child-mode/words/that.mp3"
+            "audioPath": "/guided-reading/audio/words/that.mp3"
           },
           {
             "text": "is",
-            "audioPath": "/audio/child-mode/words/is.mp3"
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "why",
-            "audioPath": "/audio/child-mode/words/why.mp3"
+            "audioPath": "/guided-reading/audio/words/why.mp3"
           },
           {
             "text": "we",
-            "audioPath": "/audio/child-mode/words/we.mp3"
+            "audioPath": "/guided-reading/audio/words/we.mp3"
           },
           {
             "text": "have",
-            "audioPath": "/audio/child-mode/words/have.mp3"
+            "audioPath": "/guided-reading/audio/words/have.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8693,39 +8693,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           },
           {
             "text": "then",
-            "audioPath": "/audio/child-mode/words/then.mp3"
+            "audioPath": "/guided-reading/audio/words/then.mp3"
           },
           {
             "text": "night",
-            "audioPath": "/audio/child-mode/words/night.mp3"
+            "audioPath": "/guided-reading/audio/words/night.mp3"
           },
           {
             "text": "then",
-            "audioPath": "/audio/child-mode/words/then.mp3"
+            "audioPath": "/guided-reading/audio/words/then.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           },
           {
             "text": "again",
-            "audioPath": "/audio/child-mode/words/again.mp3"
+            "audioPath": "/guided-reading/audio/words/again.mp3"
           },
           {
             "text": "Every",
-            "audioPath": "/audio/child-mode/words/every.mp3"
+            "audioPath": "/guided-reading/audio/words/every.mp3"
           },
           {
             "text": "single",
-            "audioPath": "/audio/child-mode/words/single.mp3"
+            "audioPath": "/guided-reading/audio/words/single.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8808,43 +8808,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "I",
-            "audioPath": "/audio/child-mode/words/i.mp3"
+            "audioPath": "/guided-reading/audio/words/i.mp3"
           },
           {
             "text": "have",
-            "audioPath": "/audio/child-mode/words/have.mp3"
+            "audioPath": "/guided-reading/audio/words/have.mp3"
           },
           {
             "text": "five",
-            "audioPath": "/audio/child-mode/words/five.mp3"
+            "audioPath": "/guided-reading/audio/words/five.mp3"
           },
           {
             "text": "senses",
-            "audioPath": "/audio/child-mode/words/senses.mp3"
+            "audioPath": "/guided-reading/audio/words/senses.mp3"
           },
           {
             "text": "They",
-            "audioPath": "/audio/child-mode/words/they.mp3"
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "help",
-            "audioPath": "/audio/child-mode/words/help.mp3"
+            "audioPath": "/guided-reading/audio/words/help.mp3"
           },
           {
             "text": "me",
-            "audioPath": "/audio/child-mode/words/me.mp3"
+            "audioPath": "/guided-reading/audio/words/me.mp3"
           },
           {
             "text": "know",
-            "audioPath": "/audio/child-mode/words/know.mp3"
+            "audioPath": "/guided-reading/audio/words/know.mp3"
           },
           {
             "text": "the",
-            "audioPath": "/audio/child-mode/words/the.mp3"
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "world",
-            "audioPath": "/audio/child-mode/words/world.mp3"
+            "audioPath": "/guided-reading/audio/words/world.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8860,47 +8860,47 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "I",
-            "audioPath": "/audio/child-mode/words/i.mp3"
+            "audioPath": "/guided-reading/audio/words/i.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "see",
-            "audioPath": "/audio/child-mode/words/see.mp3"
+            "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
             "text": "My",
-            "audioPath": "/audio/child-mode/words/my.mp3"
+            "audioPath": "/guided-reading/audio/words/my.mp3"
           },
           {
             "text": "eyes",
-            "audioPath": "/audio/child-mode/words/eyes.mp3"
+            "audioPath": "/guided-reading/audio/words/eyes.mp3"
           },
           {
             "text": "let",
-            "audioPath": "/audio/child-mode/words/let.mp3"
+            "audioPath": "/guided-reading/audio/words/let.mp3"
           },
           {
             "text": "me",
-            "audioPath": "/audio/child-mode/words/me.mp3"
+            "audioPath": "/guided-reading/audio/words/me.mp3"
           },
           {
             "text": "see",
-            "audioPath": "/audio/child-mode/words/see.mp3"
+            "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
             "text": "colours",
-            "audioPath": "/audio/child-mode/words/colours.mp3"
+            "audioPath": "/guided-reading/audio/words/colours.mp3"
           },
           {
             "text": "and",
-            "audioPath": "/audio/child-mode/words/and.mp3"
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "shapes",
-            "audioPath": "/audio/child-mode/words/shapes.mp3"
+            "audioPath": "/guided-reading/audio/words/shapes.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8916,39 +8916,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "I",
-            "audioPath": "/audio/child-mode/words/i.mp3"
+            "audioPath": "/guided-reading/audio/words/i.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "hear",
-            "audioPath": "/audio/child-mode/words/hear.mp3"
+            "audioPath": "/guided-reading/audio/words/hear.mp3"
           },
           {
             "text": "My",
-            "audioPath": "/audio/child-mode/words/my.mp3"
+            "audioPath": "/guided-reading/audio/words/my.mp3"
           },
           {
             "text": "ears",
-            "audioPath": "/audio/child-mode/words/ears.mp3"
+            "audioPath": "/guided-reading/audio/words/ears.mp3"
           },
           {
             "text": "let",
-            "audioPath": "/audio/child-mode/words/let.mp3"
+            "audioPath": "/guided-reading/audio/words/let.mp3"
           },
           {
             "text": "me",
-            "audioPath": "/audio/child-mode/words/me.mp3"
+            "audioPath": "/guided-reading/audio/words/me.mp3"
           },
           {
             "text": "hear",
-            "audioPath": "/audio/child-mode/words/hear.mp3"
+            "audioPath": "/guided-reading/audio/words/hear.mp3"
           },
           {
             "text": "sounds",
-            "audioPath": "/audio/child-mode/words/sounds.mp3"
+            "audioPath": "/guided-reading/audio/words/sounds.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8964,43 +8964,43 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "I",
-            "audioPath": "/audio/child-mode/words/i.mp3"
+            "audioPath": "/guided-reading/audio/words/i.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "smell",
-            "audioPath": "/audio/child-mode/words/smell.mp3"
+            "audioPath": "/guided-reading/audio/words/smell.mp3"
           },
           {
             "text": "My",
-            "audioPath": "/audio/child-mode/words/my.mp3"
+            "audioPath": "/guided-reading/audio/words/my.mp3"
           },
           {
             "text": "nose",
-            "audioPath": "/audio/child-mode/words/nose.mp3"
+            "audioPath": "/guided-reading/audio/words/nose.mp3"
           },
           {
             "text": "lets",
-            "audioPath": "/audio/child-mode/words/lets.mp3"
+            "audioPath": "/guided-reading/audio/words/lets.mp3"
           },
           {
             "text": "me",
-            "audioPath": "/audio/child-mode/words/me.mp3"
+            "audioPath": "/guided-reading/audio/words/me.mp3"
           },
           {
             "text": "smell",
-            "audioPath": "/audio/child-mode/words/smell.mp3"
+            "audioPath": "/guided-reading/audio/words/smell.mp3"
           },
           {
             "text": "nice",
-            "audioPath": "/audio/child-mode/words/nice.mp3"
+            "audioPath": "/guided-reading/audio/words/nice.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -9016,39 +9016,39 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "I",
-            "audioPath": "/audio/child-mode/words/i.mp3"
+            "audioPath": "/guided-reading/audio/words/i.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "taste",
-            "audioPath": "/audio/child-mode/words/taste.mp3"
+            "audioPath": "/guided-reading/audio/words/taste.mp3"
           },
           {
             "text": "My",
-            "audioPath": "/audio/child-mode/words/my.mp3"
+            "audioPath": "/guided-reading/audio/words/my.mp3"
           },
           {
             "text": "mouth",
-            "audioPath": "/audio/child-mode/words/mouth.mp3"
+            "audioPath": "/guided-reading/audio/words/mouth.mp3"
           },
           {
             "text": "lets",
-            "audioPath": "/audio/child-mode/words/lets.mp3"
+            "audioPath": "/guided-reading/audio/words/lets.mp3"
           },
           {
             "text": "me",
-            "audioPath": "/audio/child-mode/words/me.mp3"
+            "audioPath": "/guided-reading/audio/words/me.mp3"
           },
           {
             "text": "taste",
-            "audioPath": "/audio/child-mode/words/taste.mp3"
+            "audioPath": "/guided-reading/audio/words/taste.mp3"
           },
           {
             "text": "food",
-            "audioPath": "/audio/child-mode/words/food.mp3"
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -9064,67 +9064,67 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "I",
-            "audioPath": "/audio/child-mode/words/i.mp3"
+            "audioPath": "/guided-reading/audio/words/i.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "touch",
-            "audioPath": "/audio/child-mode/words/touch.mp3"
+            "audioPath": "/guided-reading/audio/words/touch.mp3"
           },
           {
             "text": "My",
-            "audioPath": "/audio/child-mode/words/my.mp3"
+            "audioPath": "/guided-reading/audio/words/my.mp3"
           },
           {
             "text": "hands",
-            "audioPath": "/audio/child-mode/words/hands.mp3"
+            "audioPath": "/guided-reading/audio/words/hands.mp3"
           },
           {
             "text": "can",
-            "audioPath": "/audio/child-mode/words/can.mp3"
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "feel",
-            "audioPath": "/audio/child-mode/words/feel.mp3"
+            "audioPath": "/guided-reading/audio/words/feel.mp3"
           },
           {
             "text": "if",
-            "audioPath": "/audio/child-mode/words/if.mp3"
+            "audioPath": "/guided-reading/audio/words/if.mp3"
           },
           {
             "text": "things",
-            "audioPath": "/audio/child-mode/words/things.mp3"
+            "audioPath": "/guided-reading/audio/words/things.mp3"
           },
           {
             "text": "are",
-            "audioPath": "/audio/child-mode/words/are.mp3"
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "rough",
-            "audioPath": "/audio/child-mode/words/rough.mp3"
+            "audioPath": "/guided-reading/audio/words/rough.mp3"
           },
           {
             "text": "or",
-            "audioPath": "/audio/child-mode/words/or.mp3"
+            "audioPath": "/guided-reading/audio/words/or.mp3"
           },
           {
             "text": "smooth",
-            "audioPath": "/audio/child-mode/words/smooth.mp3"
+            "audioPath": "/guided-reading/audio/words/smooth.mp3"
           },
           {
             "text": "hot",
-            "audioPath": "/audio/child-mode/words/hot.mp3"
+            "audioPath": "/guided-reading/audio/words/hot.mp3"
           },
           {
             "text": "or",
-            "audioPath": "/audio/child-mode/words/or.mp3"
+            "audioPath": "/guided-reading/audio/words/or.mp3"
           },
           {
             "text": "cold",
-            "audioPath": "/audio/child-mode/words/cold.mp3"
+            "audioPath": "/guided-reading/audio/words/cold.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -9140,51 +9140,51 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Five",
-            "audioPath": "/audio/child-mode/words/five.mp3"
+            "audioPath": "/guided-reading/audio/words/five.mp3"
           },
           {
             "text": "senses",
-            "audioPath": "/audio/child-mode/words/senses.mp3"
+            "audioPath": "/guided-reading/audio/words/senses.mp3"
           },
           {
             "text": "see",
-            "audioPath": "/audio/child-mode/words/see.mp3"
+            "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
             "text": "hear",
-            "audioPath": "/audio/child-mode/words/hear.mp3"
+            "audioPath": "/guided-reading/audio/words/hear.mp3"
           },
           {
             "text": "smell",
-            "audioPath": "/audio/child-mode/words/smell.mp3"
+            "audioPath": "/guided-reading/audio/words/smell.mp3"
           },
           {
             "text": "taste",
-            "audioPath": "/audio/child-mode/words/taste.mp3"
+            "audioPath": "/guided-reading/audio/words/taste.mp3"
           },
           {
             "text": "touch",
-            "audioPath": "/audio/child-mode/words/touch.mp3"
+            "audioPath": "/guided-reading/audio/words/touch.mp3"
           },
           {
             "text": "I",
-            "audioPath": "/audio/child-mode/words/i.mp3"
+            "audioPath": "/guided-reading/audio/words/i.mp3"
           },
           {
             "text": "use",
-            "audioPath": "/audio/child-mode/words/use.mp3"
+            "audioPath": "/guided-reading/audio/words/use.mp3"
           },
           {
             "text": "them",
-            "audioPath": "/audio/child-mode/words/them.mp3"
+            "audioPath": "/guided-reading/audio/words/them.mp3"
           },
           {
             "text": "every",
-            "audioPath": "/audio/child-mode/words/every.mp3"
+            "audioPath": "/guided-reading/audio/words/every.mp3"
           },
           {
             "text": "day",
-            "audioPath": "/audio/child-mode/words/day.mp3"
+            "audioPath": "/guided-reading/audio/words/day.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -9200,27 +9200,27 @@ const firstFactsLevelABooks = [
         "words": [
           {
             "text": "Which",
-            "audioPath": "/audio/child-mode/words/which.mp3"
+            "audioPath": "/guided-reading/audio/words/which.mp3"
           },
           {
             "text": "sense",
-            "audioPath": "/audio/child-mode/words/sense.mp3"
+            "audioPath": "/guided-reading/audio/words/sense.mp3"
           },
           {
             "text": "do",
-            "audioPath": "/audio/child-mode/words/do.mp3"
+            "audioPath": "/guided-reading/audio/words/do.mp3"
           },
           {
             "text": "you",
-            "audioPath": "/audio/child-mode/words/you.mp3"
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
             "text": "like",
-            "audioPath": "/audio/child-mode/words/like.mp3"
+            "audioPath": "/guided-reading/audio/words/like.mp3"
           },
           {
             "text": "best",
-            "audioPath": "/audio/child-mode/words/best.mp3"
+            "audioPath": "/guided-reading/audio/words/best.mp3"
           }
         ],
         "qaStatus": "approved",

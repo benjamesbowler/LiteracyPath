@@ -2306,7 +2306,18 @@ export function GuidedReadingPage({
   }
 
   function playWordAudio(word, wordIndex) {
-    const approvedAudioPath = getApprovedAudioPath(word?.text, word?.audioPath);
+    const guidedReadingWordSlug = String(word?.text || "")
+      .toLowerCase()
+      .replace(/['’]/g, "")
+      .replace(/[^a-z0-9-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    const derivedGuidedReadingAudioPath = guidedReadingWordSlug
+      ? `/guided-reading/audio/words/${guidedReadingWordSlug}.mp3`
+      : "";
+    const guidedReadingAudioPath = guidedReadingWordSlug && String(word?.audioPath || "").startsWith("/guided-reading/audio/words/")
+      ? word.audioPath
+      : derivedGuidedReadingAudioPath;
+    const approvedAudioPath = guidedReadingAudioPath || getApprovedAudioPath(word?.text, word?.audioPath);
     if (!approvedAudioPath) {
       setAudioNotice("Using browser voice for this word while word audio is pending.");
       brieflyHighlightWord(wordIndex);
