@@ -59,9 +59,57 @@ const finalSoundMediaOverrides = {
     image: "/media/initial-sounds/images/a/animal.webp",
     audio: "/media/initial-sounds/audio/a/animal.mp3"
   },
+  bib: {
+    image: "/media/final-sounds/images/b/bib.webp",
+    audio: "/media/final-sounds/audio/b/bib.mp3"
+  },
+  blob: {
+    image: "/media/final-sounds/images/b/blob.webp",
+    audio: "/media/final-sounds/audio/b/blob.mp3"
+  },
+  bulb: {
+    image: "/media/final-sounds/images/b/bulb.webp",
+    audio: "/media/final-sounds/audio/b/bulb.mp3"
+  },
+  cab: {
+    image: "/media/final-sounds/images/b/cab.webp",
+    audio: "/media/final-sounds/audio/b/cab.mp3"
+  },
+  club: {
+    image: "/media/final-sounds/images/b/club.webp",
+    audio: "/media/final-sounds/audio/b/club.mp3"
+  },
+  cob: {
+    image: "/media/final-sounds/images/b/cob.webp",
+    audio: "/media/final-sounds/audio/b/cob.mp3"
+  },
+  crib: {
+    image: "/media/final-sounds/images/b/crib.webp",
+    audio: "/media/final-sounds/audio/b/crib.mp3"
+  },
+  cub: {
+    image: "/media/final-sounds/images/b/cub.webp",
+    audio: "/media/final-sounds/audio/b/cub.mp3"
+  },
+  cube: {
+    image: "/media/final-sounds/images/b/cube.webp",
+    audio: "/media/final-sounds/audio/b/cube.mp3"
+  },
+  curb: {
+    image: "/media/final-sounds/images/b/curb.webp",
+    audio: "/media/final-sounds/audio/b/curb.mp3"
+  },
+  dab: {
+    image: "/media/final-sounds/images/b/dab.webp",
+    audio: "/media/final-sounds/audio/b/dab.mp3"
+  },
   fossil: {
     image: "/media/initial-sounds/images/f/fossil.webp",
     audio: "/media/initial-sounds/audio/f/fossil.mp3"
+  },
+  grab: {
+    image: "/media/final-sounds/images/b/grab.webp",
+    audio: "/media/final-sounds/audio/b/grab.mp3"
   },
   hospital: {
     image: "/media/initial-sounds/images/h/hospital.webp",
@@ -71,9 +119,21 @@ const finalSoundMediaOverrides = {
     image: "/media/initial-sounds/images/j/jewel.webp",
     audio: "/media/initial-sounds/audio/j/jewel.mp3"
   },
+  knob: {
+    image: "/media/final-sounds/images/b/knob.webp",
+    audio: "/media/final-sounds/audio/b/knob.mp3"
+  },
+  lab: {
+    image: "/media/final-sounds/images/b/lab.webp",
+    audio: "/media/final-sounds/audio/b/lab.mp3"
+  },
   nail: {
     image: "/media/initial-sounds/images/n/nail.webp",
     audio: "/media/initial-sounds/audio/n/nail.mp3"
+  },
+  orb: {
+    image: "/media/final-sounds/images/b/orb.webp",
+    audio: "/media/final-sounds/audio/b/orb.mp3"
   },
   owl: {
     image: "/media/initial-sounds/images/o/owl.webp",
@@ -91,6 +151,22 @@ const finalSoundMediaOverrides = {
     image: "/media/initial-sounds/images/s/seal.webp",
     audio: "/media/initial-sounds/audio/s/seal.mp3"
   },
+  robe: {
+    image: "/media/final-sounds/images/b/robe.webp",
+    audio: "/media/final-sounds/audio/b/robe.mp3"
+  },
+  rub: {
+    image: "/media/final-sounds/images/b/rub.webp",
+    audio: "/media/final-sounds/audio/b/rub.mp3"
+  },
+  sub: {
+    image: "/media/final-sounds/images/b/sub.webp",
+    audio: "/media/final-sounds/audio/b/sub.mp3"
+  },
+  tube: {
+    image: "/media/final-sounds/images/b/tube.webp",
+    audio: "/media/final-sounds/audio/b/tube.mp3"
+  },
   wheel: {
     image: "/media/initial-sounds/images/w/wheel.webp",
     audio: "/media/initial-sounds/audio/w/wheel.mp3"
@@ -100,6 +176,8 @@ const finalSoundMediaOverrides = {
 const endingSoundLevelOneTargets = [
   ["cat", "t"], ["dog", "g"], ["bed", "d"], ["map", "p"], ["pan", "n"],
   ["pin", "n"], ["bat", "t"], ["bag", "g"], ["cup", "p"], ["web", "b"],
+  ["cub", "b"], ["cab", "b"], ["bib", "b"], ["rub", "b"], ["knob", "b"],
+  ["lab", "b"], ["sub", "b"], ["cob", "b"], ["dab", "b"],
   ["jet", "t"], ["jam", "m"], ["sun", "n"], ["hat", "t"], ["log", "g"],
   ["mug", "g"], ["bug", "g"], ["cap", "p"], ["pot", "t"], ["pen", "n"],
   ["hen", "n"], ["fan", "n"], ["ham", "m"], ["ram", "m"], ["gum", "m"],

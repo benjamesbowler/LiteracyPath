@@ -167,6 +167,28 @@ const blockedWordAudio = {
   }
 };
 
+const approvedFinalSoundsBWordAudio = {
+  bib: "/media/final-sounds/audio/b/bib.mp3",
+  blob: "/media/final-sounds/audio/b/blob.mp3",
+  bulb: "/media/final-sounds/audio/b/bulb.mp3",
+  cab: "/media/final-sounds/audio/b/cab.mp3",
+  club: "/media/final-sounds/audio/b/club.mp3",
+  cob: "/media/final-sounds/audio/b/cob.mp3",
+  crib: "/media/final-sounds/audio/b/crib.mp3",
+  cub: "/media/final-sounds/audio/b/cub.mp3",
+  cube: "/media/final-sounds/audio/b/cube.mp3",
+  curb: "/media/final-sounds/audio/b/curb.mp3",
+  dab: "/media/final-sounds/audio/b/dab.mp3",
+  grab: "/media/final-sounds/audio/b/grab.mp3",
+  knob: "/media/final-sounds/audio/b/knob.mp3",
+  lab: "/media/final-sounds/audio/b/lab.mp3",
+  orb: "/media/final-sounds/audio/b/orb.mp3",
+  robe: "/media/final-sounds/audio/b/robe.mp3",
+  rub: "/media/final-sounds/audio/b/rub.mp3",
+  sub: "/media/final-sounds/audio/b/sub.mp3",
+  tube: "/media/final-sounds/audio/b/tube.mp3"
+};
+
 export const audioPreferenceManifest = Object.fromEntries([
   ...approvedWordAudioKeys.map(word => [
     word,
@@ -177,6 +199,17 @@ export const audioPreferenceManifest = Object.fromEntries([
       fallbackPath: wordAudioPath(word),
       source: "child-mode words",
       notes: "Approved static word MP3 for active assessment playback."
+    })
+  ]),
+  ...Object.entries(approvedFinalSoundsBWordAudio).map(([word, fallbackPath]) => [
+    word,
+    approvedPreference({
+      key: word,
+      word,
+      category: "words",
+      fallbackPath,
+      source: "final sounds /b/ level 1 media pack",
+      notes: "Approved exact-word MP3 from the imported final /b/ Level 1 media pack."
     })
   ]),
   ...approvedHfwAudioKeys.map(word => [

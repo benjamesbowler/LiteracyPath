@@ -6,6 +6,8 @@ Generated: 2026-05-26
 
 Final Sounds Level 1 requires at least 10 distinct, active, media-backed target words for final /b/.
 
+Update 2026-05-27: completed media was delivered and imported. See `docs/assets/final_sounds_b_media_import_audit.md`.
+
 Verified usable final /b/ words already in the app:
 
 | Word | Image | Audio | Status |
@@ -14,7 +16,13 @@ Verified usable final /b/ words already in the app:
 | web | `/media/initial-sounds/images/w/web.webp` | `/media/initial-sounds/audio/w/web.mp3` | usable |
 | crab | `/images/child-mode/initial-sounds/crab.png` | `/audio/words/crab.mp3` | usable |
 
-Runtime variants are not enough for coverage. The current 3 distinct words remain a content gap until real replacement media exists.
+The original runtime variants were not enough for coverage. The imported media pack adds 9 new active Level 1 /b/ words, bringing the live Level 1 /b/ set to 12 distinct media-backed words once validation passes:
+
+`web`, `tub`, `crab`, `cub`, `cab`, `bib`, `rub`, `knob`, `lab`, `sub`, `cob`, `dab`
+
+Additional imported reserve media is available for:
+
+`crib`, `grab`, `club`, `blob`, `tube`, `cube`, `robe`, `bulb`, `curb`, `orb`
 
 ## Do Not Use
 
@@ -54,6 +62,8 @@ Create one MP3 per word.
 
 ## Needed /b/ Media
 
+Status: satisfied by the completed import for the active Level 1 repair set.
+
 | Word | Needed image path | Needed audio path | Image prompt | Audio instruction |
 |---|---|---|---|---|
 | cub | `/media/final-sounds/images/b/cub.webp` | `/media/final-sounds/audio/b/cub.mp3` | A simple cartoon bear cub, natural brown color, centered on a white background. No text, no props, no fantasy colors. | Say “cub” clearly with final /b/. |
@@ -66,4 +76,3 @@ Create one MP3 per word.
 | knob | `/media/final-sounds/images/b/knob.webp` | `/media/final-sounds/audio/b/knob.mp3` | A simple round door knob, centered on a white background. Natural metal color. No door scene needed. | Say “knob” clearly with final /b/. |
 | blob | `/media/final-sounds/images/b/blob.webp` | `/media/final-sounds/audio/b/blob.mp3` | A simple colored paint blob or clay blob, centered on a white background. No face, no eyes, no smile. | Say “blob” clearly with final /b/. |
 | lab | `/media/final-sounds/images/b/lab.webp` | `/media/final-sounds/audio/b/lab.mp3` | A simple school science lab table with beaker and test tube, centered on a white background. No text, no people. | Say “lab” clearly with final /b/. |
-
