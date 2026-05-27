@@ -82,6 +82,12 @@ function expectedImagePatterns(bookId, storyPageNumber) {
   if (dinoPalsMap[bookId]) {
     return [`/guided-reading/series/dino-pals/book-${dinoPalsMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
   }
+  if (bookId.startsWith("first-facts-a-")) {
+    const bookNumber = bookId.match(/^first-facts-a-(\d{2})-/)?.[1];
+    if (bookNumber) {
+      return [`/guided-reading/nonfiction/first-facts/book-${bookNumber}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+    }
+  }
 
   return [
     `/guided-reading/regen/pages/${bookId}-page-${String(storyPageNumber).padStart(2, "0")}.`,
@@ -193,7 +199,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-20 in teacher-preview review.",
+  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-20 in teacher-preview review. First Facts Level A nonfiction books 1-20 are also checked as teacher-preview nonfiction.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

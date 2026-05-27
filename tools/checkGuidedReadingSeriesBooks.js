@@ -125,6 +125,29 @@ const expectedDinoBooks = [
   { id: "dino-pals-20-the-big-storm", title: "The Big Storm", pages: 12 }
 ];
 
+const expectedFirstFactsBooks = [
+  { id: "first-facts-a-01-look-at-the-colours", title: "Look at the Colours!", pages: 7 },
+  { id: "first-facts-a-02-the-four-seasons", title: "The Four Seasons", pages: 9 },
+  { id: "first-facts-a-03-little-seeds-grow", title: "Little Seeds Grow", pages: 7 },
+  { id: "first-facts-a-04-what-is-weather", title: "What is Weather?", pages: 8 },
+  { id: "first-facts-a-05-flowers-and-trees", title: "Flowers and Trees", pages: 8 },
+  { id: "first-facts-a-06-baby-animals", title: "Baby Animals", pages: 8 },
+  { id: "first-facts-a-07-animals-on-the-farm", title: "Animals on the Farm", pages: 8 },
+  { id: "first-facts-a-08-animals-in-the-ocean", title: "Animals in the Ocean", pages: 8 },
+  { id: "first-facts-a-09-animals-at-night", title: "Animals at Night", pages: 6 },
+  { id: "first-facts-a-10-bugs-all-around-us", title: "Bugs All Around Us", pages: 8 },
+  { id: "first-facts-a-11-pets-we-love", title: "Pets We Love", pages: 7 },
+  { id: "first-facts-a-12-shapes-everywhere", title: "Shapes Everywhere", pages: 7 },
+  { id: "first-facts-a-13-big-and-small", title: "Big and Small", pages: 6 },
+  { id: "first-facts-a-14-hot-and-cold", title: "Hot and Cold", pages: 7 },
+  { id: "first-facts-a-15-things-that-float-and-sink", title: "Things That Float and Sink", pages: 7 },
+  { id: "first-facts-a-16-push-and-pull", title: "Push and Pull", pages: 7 },
+  { id: "first-facts-a-17-hello-sun", title: "Hello, Sun!", pages: 7 },
+  { id: "first-facts-a-18-the-moon", title: "The Moon", pages: 7 },
+  { id: "first-facts-a-19-day-and-night", title: "Day and Night", pages: 7 },
+  { id: "first-facts-a-20-my-five-senses", title: "My Five Senses", pages: 8 }
+];
+
 const oldFictionIds = [
   "gs-c-01",
   "gs-c-02",
@@ -166,6 +189,7 @@ const bobBooks610Rows = [];
 const jamesRows = [];
 const aidenRows = [];
 const dinoRows = [];
+const firstFactsRows = [];
 const warnings = [];
 const draftBobBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "bob-and-nan");
 const draftJamesBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "james-and-anna");
@@ -175,6 +199,7 @@ const visibleBobBooks = guidedReadingBooks.filter(book => book.seriesId === "bob
 const visibleJamesBooks = guidedReadingBooks.filter(book => book.seriesId === "james-and-anna");
 const visibleAidenBooks = guidedReadingBooks.filter(book => book.seriesId === "aiden-and-betty");
 const visibleNonfictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "nonfiction");
+const visibleFirstFactsBooks = guidedReadingBooks.filter(book => book.seriesId === "first-facts");
 const oldFictionRestored = guidedReadingBooks.filter(book => oldFictionIds.includes(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
 const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
@@ -186,7 +211,8 @@ if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James an
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
 if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty approved books, found ${visibleAidenBooks.length}.`);
 if (draftDinoBooks.length !== 20) failures.push(`Expected 20 Dino Pals draft books, found ${draftDinoBooks.length}.`);
-if (visibleNonfictionBooks.length !== 21) failures.push(`Expected 21 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
+if (visibleFirstFactsBooks.length !== 20) failures.push(`Expected 20 First Facts teacher-preview nonfiction books, found ${visibleFirstFactsBooks.length}.`);
+if (visibleNonfictionBooks.length !== 41) failures.push(`Expected 41 nonfiction books after First Facts import, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
 if (removedNonfictionRestored.length) failures.push(`Deleted nonfiction ids were restored: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 
@@ -414,6 +440,63 @@ for (const expected of expectedDinoBooks) {
     missingStoryImages,
     coverExists,
     coverStatus: coverExists ? "delivered cover used" : "missing",
+    qaStatus: book.qaStatus,
+    teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
+  });
+}
+
+for (const expected of expectedFirstFactsBooks) {
+  const book = visibleFirstFactsBooks.find(item => item.id === expected.id);
+  if (!book) {
+    failures.push(`${expected.id}: missing from First Facts teacher-preview nonfiction shelf.`);
+    continue;
+  }
+
+  const storyPages = book.pages || [];
+  const coverExists = publicPathExists(book.coverImage);
+  const importedPages = storyPages.filter(page => publicPathExists(page.image)).map(page => page.pageNumber);
+  const audioPages = storyPages.filter(page => publicPathExists(page.audio || page.pageAudio)).map(page => page.pageNumber);
+  const missingStoryImages = storyPages.filter(page => !publicPathExists(page.image)).map(page => page.pageNumber);
+  const firstStoryImage = storyPages[0]?.image || "";
+  const normalized = normalizeReadableBook(book);
+  const fullBookAudioExists = publicPathExists(book.fullBookAudio);
+  const promptLeakPages = storyPages
+    .filter(page => /PAGE\s+\d+|ILLUSTRATION|IMAGE GENERATION|SERIES CHARACTER|QA NOTES/i.test(page.text || ""))
+    .map(page => page.pageNumber);
+
+  if (book.title !== expected.title) failures.push(`${expected.id}: title is ${book.title}, expected ${expected.title}.`);
+  if (book.level !== "A") failures.push(`${expected.id}: level is ${book.level}, expected A.`);
+  if (book.guidedReadingLevel !== "A") failures.push(`${expected.id}: guidedReadingLevel is ${book.guidedReadingLevel}, expected A.`);
+  if (normalizeGuidedReadingType(book.type) !== "nonfiction") failures.push(`${expected.id}: type is ${book.type}, expected nonfiction.`);
+  if (book.seriesTitle !== "First Facts") failures.push(`${expected.id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
+  if (book.author !== "Mara Lane") failures.push(`${expected.id}: author is ${book.author || "missing"}, expected Mara Lane.`);
+  if (book.illustrator !== "Theo Finch") failures.push(`${expected.id}: illustrator is ${book.illustrator || "missing"}, expected Theo Finch.`);
+  if (book.status !== "teacher_preview") failures.push(`${expected.id}: status is ${book.status || "missing"}, expected teacher_preview.`);
+  if (book.qaStatus !== "needs_review") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review.`);
+  if (!book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be true for review import.`);
+  if (storyPages.length !== expected.pages) failures.push(`${expected.id}: source page count is ${storyPages.length}, expected ${expected.pages}.`);
+  if (!coverExists) failures.push(`${expected.id}: cover missing at ${book.coverImage || "missing"}.`);
+  if (importedPages.length !== expected.pages) failures.push(`${expected.id}: imported story image count is ${importedPages.length}, expected ${expected.pages}.`);
+  if (audioPages.length !== expected.pages) failures.push(`${expected.id}: page audio count is ${audioPages.length}, expected ${expected.pages}.`);
+  if (!fullBookAudioExists) failures.push(`${expected.id}: full-book audio missing at ${book.fullBookAudio || "missing"}.`);
+  if (missingStoryImages.length) failures.push(`${expected.id}: missing story page images ${missingStoryImages.join(", ")}.`);
+  if (!firstStoryImage.endsWith("page-001.webp")) failures.push(`${expected.id}: story page 1 does not use page-001.webp (${firstStoryImage}).`);
+  if (firstStoryImage === book.coverImage) failures.push(`${expected.id}: story page 1 is incorrectly using the cover image.`);
+  if (promptLeakPages.length) failures.push(`${expected.id}: reading text contains prompt/page-label markers on pages ${promptLeakPages.join(", ")}.`);
+  if (normalized.pages[0]?.type !== "title") failures.push(`${expected.id}: normalized reader page 1 is not a title page.`);
+  if (normalized.pages[0]?.image !== book.coverImage) failures.push(`${expected.id}: title page does not use the cover image.`);
+  if (normalized.pages[1]?.storyPageNumber !== 1) failures.push(`${expected.id}: first story page is not storyPageNumber 1.`);
+  if (normalized.pages[1]?.image !== firstStoryImage) failures.push(`${expected.id}: normalized story page 1 image changed from source page-001.`);
+
+  firstFactsRows.push({
+    id: expected.id,
+    title: book.title,
+    pages: storyPages.length,
+    importedPages,
+    audioPages,
+    missingStoryImages,
+    coverExists,
+    fullBookAudioExists,
     qaStatus: book.qaStatus,
     teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
   });

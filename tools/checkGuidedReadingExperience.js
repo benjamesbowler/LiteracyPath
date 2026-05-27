@@ -99,8 +99,8 @@ if (unexpectedFictionBooks.length) {
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction Guided Reading books visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
-if (guidedReadingBooks.length !== 71) {
-  failures.push(`Expected 71 total Guided Reading books after Dino Pals Books 11-20 import, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 91) {
+  failures.push(`Expected 91 total Guided Reading books after First Facts Level A nonfiction import, found ${guidedReadingBooks.length}.`);
 }
 
 for (const book of guidedReadingBooks) {

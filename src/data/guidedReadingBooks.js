@@ -1,6 +1,7 @@
 import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
 import { guidedReadingSeriesBooks } from "./guidedReadingSeriesBooks.js";
 import { guidedStoryBooks } from "./guidedStoryBooks.js";
+import { firstFactsLevelABooks } from "./firstFactsLevelABooks.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 
 const wordAudio = word => `/audio/child-mode/words/${word.toLowerCase().replace(/[^a-z0-9'-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
@@ -3142,6 +3143,7 @@ const approvedSeriesBooks = guidedReadingSeriesBooks
 const activeGuidedReadingBaseBooks = [
   ...approvedGuidedReadingCandidates,
   ...approvedRegeneratedGuidedReadingBooks,
+  ...firstFactsLevelABooks,
   ...teacherPreviewSeriesBooks,
   ...approvedSeriesBooks
 ];

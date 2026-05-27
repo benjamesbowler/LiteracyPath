@@ -92,6 +92,7 @@ const teacherPreviewFictionIds = new Set([
   "dino-pals-19-zippys-race",
   "dino-pals-20-the-big-storm"
 ]);
+const teacherPreviewNonfictionSeriesIds = new Set(["first-facts"]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
 const removedNonfictionRestored = guidedReadingBooks.filter(book => removedNonfictionIds.has(book.id));
@@ -105,11 +106,11 @@ if (!nonfictionBooks.length) {
 if (fictionBooks.length !== 50) {
   failures.push(`Expected 50 fiction books, found ${fictionBooks.length}.`);
 }
-if (nonfictionBooks.length !== 21) {
-  failures.push(`Expected 21 nonfiction books after Transportation/Bugs deletion, found ${nonfictionBooks.length}.`);
+if (nonfictionBooks.length !== 41) {
+  failures.push(`Expected 41 nonfiction books after First Facts import, found ${nonfictionBooks.length}.`);
 }
-if (guidedReadingBooks.length !== 71) {
-  failures.push(`Expected 71 total Guided Reading books after Dino Pals Books 11-20 import, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 91) {
+  failures.push(`Expected 91 total Guided Reading books after First Facts import, found ${guidedReadingBooks.length}.`);
 }
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction books are still visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
@@ -120,7 +121,12 @@ const rows = guidedReadingBooks.map(book => {
     .filter(page => !publicPathExists(page.image))
     .map(page => page.pageNumber);
   if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.active === false) failures.push(`${book.id}: active is false`);
-  if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.qaStatus !== "approved") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}`);
+  if (teacherPreviewNonfictionSeriesIds.has(book.seriesId)) {
+    if (book.qaStatus !== "needs_review") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review`);
+    if (!book.teacherPreviewOnly) failures.push(`${book.id}: teacherPreviewOnly should be true for teacher preview`);
+  } else if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.qaStatus !== "approved") {
+    failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}`);
+  }
   if (teacherPreviewFictionIds.has(book.id)) {
     if (book.qaStatus !== "needs_review") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review`);
     if (!book.teacherPreviewOnly) failures.push(`${book.id}: teacherPreviewOnly should be true for teacher preview`);
@@ -150,7 +156,7 @@ const report = [
   "",
   "## Current Policy",
   "",
-  "Guided Reading now allows approved nonfiction books plus approved Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction series. Dino Pals Level B Books 1-20 are allowed only as teacher-preview / needs-review fiction. Old deleted fiction and public-domain books must remain off the readable shelf.",
+  "Guided Reading now allows approved nonfiction books, First Facts Level A nonfiction teacher-preview books, plus approved Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction series. Dino Pals Level B Books 1-20 are allowed only as teacher-preview / needs-review fiction. Old deleted fiction and public-domain books must remain off the readable shelf.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${nonfictionBooks.length}`,
@@ -163,7 +169,7 @@ const report = [
   "",
   failures.length
     ? `## Failures\n\n${failures.map(item => `- ${item}`).join("\n")}`
-    : "## Result\n\nPASS: approved fiction remains visible, Dino Pals is limited to teacher preview, old fiction stays hidden, and nonfiction Guided Reading books remain readable."
+    : "## Result\n\nPASS: approved fiction remains visible, Dino Pals is limited to teacher preview, First Facts is limited to nonfiction teacher preview, old fiction stays hidden, and nonfiction Guided Reading books remain readable."
 ];
 
 fs.writeFileSync(reportPath, `${report.join("\n")}\n`);
