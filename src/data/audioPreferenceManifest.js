@@ -1,4 +1,5 @@
 import { getKimiCleanAudio } from "./kimiCleanAudioManifest.js";
+import { kimiVocabulary500AudioPreferences } from "./kimiVocabulary500AudioPreferences.js";
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
 import { initialSoundAudioMediaIds } from "../content/initialSounds/initialSoundImportedMediaStatus.js";
 
@@ -190,6 +191,7 @@ const approvedFinalSoundsBWordAudio = {
 };
 
 export const audioPreferenceManifest = Object.fromEntries([
+  ...Object.entries(kimiVocabulary500AudioPreferences),
   ...approvedWordAudioKeys.map(word => [
     word,
     approvedPreference({

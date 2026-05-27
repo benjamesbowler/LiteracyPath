@@ -4,6 +4,7 @@ import { finalSoundCoverageQuestions } from "../../data/finalSoundCoverageQuesti
 import { rhymingCoverageQuestions } from "../../data/rhymingCoverageQuestions.js";
 import { initialSoundCoverageQuestions } from "../../data/initialSoundCoverageQuestions.js";
 import { ixlStyleSeedQuestions } from "../../data/ixlStyleSeedQuestions.js";
+import { kimiVocabulary500Lexicon } from "../../data/kimiVocabulary500Lexicon.js";
 import {
   inferFinalSound,
   inferInitialSound,
@@ -146,6 +147,37 @@ function mergeSource(entry, item, source) {
   };
 }
 
+function mergeKimiVocabularyEntry(entry, item) {
+  const skillTags = new Set(entry.skillTags);
+  (item.tags || []).forEach(tag => skillTags.add(String(tag).replace(/_/g, "-")));
+  Object.entries(item.skills || {}).forEach(([skill, config]) => {
+    if (config?.eligible) skillTags.add(skill.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`));
+  });
+
+  return {
+    ...entry,
+    skillTags: [...skillTags].sort(),
+    phonicsTags: [...new Set([...entry.phonicsTags, ...(item.tags || [])])].sort(),
+    initialSound: entry.initialSound || item.phonics?.initialSound || "",
+    finalSound: entry.finalSound || item.phonics?.finalSound || "",
+    medialVowel: entry.medialVowel || item.phonics?.medialVowel || "",
+    rime: entry.rime || item.phonics?.rimeFamily || "",
+    syllables: entry.syllables || item.phonics?.syllableCount || 0,
+    difficulty: item.difficultyBand || entry.difficulty,
+    level: entry.level ?? item.recommendedLevel ?? null,
+    imageUrl: entry.imageUrl || item.imagePath || "",
+    audioUrl: entry.audioUrl || item.audioPath || "",
+    qaStatus: item.status || entry.qaStatus,
+    active: entry.active && item.status !== "rejected",
+    notes: [entry.notes, item.notes, "Kimi vocabulary 500 reserve media"].filter(Boolean).join(" | "),
+    onset: entry.onset || item.phonics?.onset || "",
+    rhymeFamily: entry.rhymeFamily || item.phonics?.rimeFamily || "",
+    syllableType: entry.syllableType || item.phonics?.syllableType || "",
+    vowelPattern: entry.vowelPattern || item.phonics?.vowelPattern || "",
+    sourceQuestionIds: [...new Set([...entry.sourceQuestionIds, "kimi_vocab_expansion_500"])]
+  };
+}
+
 function buildMasterWordLexicon() {
   const entries = new Map();
 
@@ -157,6 +189,12 @@ function buildMasterWordLexicon() {
         entries.set(key, mergeSource(current, item, source));
       });
     });
+  });
+
+  kimiVocabulary500Lexicon.forEach(item => {
+    const key = normalizeLexiconWord(item.word);
+    const current = entries.get(key) || createEmptyEntry(item.displayWord || item.word);
+    entries.set(key, mergeKimiVocabularyEntry(current, item));
   });
 
   return [...entries.values()].sort((a, b) => a.lowercaseWord.localeCompare(b.lowercaseWord));
