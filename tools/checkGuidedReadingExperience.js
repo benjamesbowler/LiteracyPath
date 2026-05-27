@@ -45,7 +45,29 @@ const allowedFictionIds = new Set([
   "ab-c-07",
   "ab-c-08",
   "ab-c-09",
-  "ab-c-10"
+  "ab-c-10",
+  "dino-pals-01-chompys-big-lunch",
+  "dino-pals-02-sunnys-rainy-day",
+  "dino-pals-03-dozy-wont-wake-up",
+  "dino-pals-04-grumpy-needs-help",
+  "dino-pals-05-bossy-makes-a-plan",
+  "dino-pals-06-bouncy-bumps-into-everything",
+  "dino-pals-07-wigglys-messy-day",
+  "dino-pals-08-zippy-slows-down",
+  "dino-pals-09-honkys-inside-voice",
+  "dino-pals-10-cheekys-prank-goes-wrong"
+]);
+const teacherPreviewFictionIds = new Set([
+  "dino-pals-01-chompys-big-lunch",
+  "dino-pals-02-sunnys-rainy-day",
+  "dino-pals-03-dozy-wont-wake-up",
+  "dino-pals-04-grumpy-needs-help",
+  "dino-pals-05-bossy-makes-a-plan",
+  "dino-pals-06-bouncy-bumps-into-everything",
+  "dino-pals-07-wigglys-messy-day",
+  "dino-pals-08-zippy-slows-down",
+  "dino-pals-09-honkys-inside-voice",
+  "dino-pals-10-cheekys-prank-goes-wrong"
 ]);
 const unexpectedFictionBooks = visibleFictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
@@ -75,7 +97,9 @@ for (const book of guidedReadingBooks) {
   if (book.qaStatus === "draft_needs_assets" && book.active === true && !book.reviewMode) {
     failures.push(`${book.id}: draft book is active without review mode.`);
   }
-  if (allowedFictionIds.has(book.id) && (book.qaStatus !== "approved" || book.teacherPreviewOnly || book.active === false)) {
+  if (teacherPreviewFictionIds.has(book.id) && (book.qaStatus !== "needs_review" || !book.teacherPreviewOnly || book.active === false)) {
+    failures.push(`${book.id}: Dino Pals preview books should be active teacher-preview items with needs_review QA.`);
+  } else if (!teacherPreviewFictionIds.has(book.id) && allowedFictionIds.has(book.id) && (book.qaStatus !== "approved" || book.teacherPreviewOnly || book.active === false)) {
     failures.push(`${book.id}: fiction series books should be approved, active, and available to student readers.`);
   }
   if (book.qaStatus === "approved" && (book.pages || []).some(page => page.qaStatus && !["approved", "needs_image_alignment_review"].includes(page.qaStatus))) {

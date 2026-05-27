@@ -48,6 +48,18 @@ function expectedImagePatterns(bookId, storyPageNumber) {
     "ab-c-09": "09",
     "ab-c-10": "10"
   };
+  const dinoPalsMap = {
+    "dino-pals-01-chompys-big-lunch": "01",
+    "dino-pals-02-sunnys-rainy-day": "02",
+    "dino-pals-03-dozy-wont-wake-up": "03",
+    "dino-pals-04-grumpy-needs-help": "04",
+    "dino-pals-05-bossy-makes-a-plan": "05",
+    "dino-pals-06-bouncy-bumps-into-everything": "06",
+    "dino-pals-07-wigglys-messy-day": "07",
+    "dino-pals-08-zippy-slows-down": "08",
+    "dino-pals-09-honkys-inside-voice": "09",
+    "dino-pals-10-cheekys-prank-goes-wrong": "10"
+  };
   if (bobAndNanMap[bookId]) {
     return [`/guided-reading/series/bob-and-nan/book-${bobAndNanMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
   }
@@ -56,6 +68,9 @@ function expectedImagePatterns(bookId, storyPageNumber) {
   }
   if (aidenAndBettyMap[bookId]) {
     return [`/guided-reading/series/aiden-and-betty/book-${aidenAndBettyMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+  }
+  if (dinoPalsMap[bookId]) {
+    return [`/guided-reading/series/dino-pals/book-${dinoPalsMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
   }
 
   return [
@@ -103,7 +118,17 @@ const allowedFictionIds = new Set([
   "ab-c-07",
   "ab-c-08",
   "ab-c-09",
-  "ab-c-10"
+  "ab-c-10",
+  "dino-pals-01-chompys-big-lunch",
+  "dino-pals-02-sunnys-rainy-day",
+  "dino-pals-03-dozy-wont-wake-up",
+  "dino-pals-04-grumpy-needs-help",
+  "dino-pals-05-bossy-makes-a-plan",
+  "dino-pals-06-bouncy-bumps-into-everything",
+  "dino-pals-07-wigglys-messy-day",
+  "dino-pals-08-zippy-slows-down",
+  "dino-pals-09-honkys-inside-voice",
+  "dino-pals-10-cheekys-prank-goes-wrong"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
@@ -143,7 +168,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, and Aiden and Betty Level C books 1-10 teacher-preview series.",
+  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-10 in teacher-preview review.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

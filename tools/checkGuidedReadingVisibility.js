@@ -48,7 +48,29 @@ const allowedFictionIds = new Set([
   "ab-c-07",
   "ab-c-08",
   "ab-c-09",
-  "ab-c-10"
+  "ab-c-10",
+  "dino-pals-01-chompys-big-lunch",
+  "dino-pals-02-sunnys-rainy-day",
+  "dino-pals-03-dozy-wont-wake-up",
+  "dino-pals-04-grumpy-needs-help",
+  "dino-pals-05-bossy-makes-a-plan",
+  "dino-pals-06-bouncy-bumps-into-everything",
+  "dino-pals-07-wigglys-messy-day",
+  "dino-pals-08-zippy-slows-down",
+  "dino-pals-09-honkys-inside-voice",
+  "dino-pals-10-cheekys-prank-goes-wrong"
+]);
+const teacherPreviewFictionIds = new Set([
+  "dino-pals-01-chompys-big-lunch",
+  "dino-pals-02-sunnys-rainy-day",
+  "dino-pals-03-dozy-wont-wake-up",
+  "dino-pals-04-grumpy-needs-help",
+  "dino-pals-05-bossy-makes-a-plan",
+  "dino-pals-06-bouncy-bumps-into-everything",
+  "dino-pals-07-wigglys-messy-day",
+  "dino-pals-08-zippy-slows-down",
+  "dino-pals-09-honkys-inside-voice",
+  "dino-pals-10-cheekys-prank-goes-wrong"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 
@@ -65,8 +87,13 @@ const rows = guidedReadingBooks.map(book => {
     .map(page => page.pageNumber);
   if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.active === false) failures.push(`${book.id}: active is false`);
   if (normalizeGuidedReadingType(book.type) === "nonfiction" && book.qaStatus !== "approved") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}`);
-  if (allowedFictionIds.has(book.id) && book.qaStatus !== "approved") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved`);
-  if (allowedFictionIds.has(book.id) && book.teacherPreviewOnly) failures.push(`${book.id}: teacherPreviewOnly should be false for student release`);
+  if (teacherPreviewFictionIds.has(book.id)) {
+    if (book.qaStatus !== "needs_review") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review`);
+    if (!book.teacherPreviewOnly) failures.push(`${book.id}: teacherPreviewOnly should be true for teacher preview`);
+  } else if (allowedFictionIds.has(book.id)) {
+    if (book.qaStatus !== "approved") failures.push(`${book.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved`);
+    if (book.teacherPreviewOnly) failures.push(`${book.id}: teacherPreviewOnly should be false for student release`);
+  }
   if (!book.pages?.length) failures.push(`${book.id}: no pages`);
   if (!publicPathExists(book.coverImage)) failures.push(`${book.id}: cover image missing`);
   if (pageImagesMissing.length) failures.push(`${book.id}: missing page images ${pageImagesMissing.join(", ")}`);
@@ -89,7 +116,7 @@ const report = [
   "",
   "## Current Policy",
   "",
-  "Guided Reading now allows approved nonfiction books plus approved Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction series. Bob and Nan, James and Anna, and Aiden and Betty now include books 1-10. Old deleted fiction and public-domain books must remain off the readable shelf.",
+  "Guided Reading now allows approved nonfiction books plus approved Bob and Nan Level A, James and Anna Level B, and Aiden and Betty Level C fiction series. Dino Pals Level B is allowed only as teacher-preview / needs-review fiction. Old deleted fiction and public-domain books must remain off the readable shelf.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${nonfictionBooks.length}`,
@@ -102,7 +129,7 @@ const report = [
   "",
   failures.length
     ? `## Failures\n\n${failures.map(item => `- ${item}`).join("\n")}`
-    : "## Result\n\nPASS: Bob and Nan, James and Anna, and Aiden and Betty approved fiction are visible to student readers, old fiction stays hidden, and nonfiction Guided Reading books remain readable."
+    : "## Result\n\nPASS: approved fiction remains visible, Dino Pals is limited to teacher preview, old fiction stays hidden, and nonfiction Guided Reading books remain readable."
 ];
 
 fs.writeFileSync(reportPath, `${report.join("\n")}\n`);

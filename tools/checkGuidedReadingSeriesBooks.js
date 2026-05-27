@@ -8,6 +8,7 @@ const bobReportPath = path.join(rootDir, "docs", "guided-reading", "bob_and_nan_
 const bobBooks610ReportPath = path.join(rootDir, "docs", "guided-reading", "bob_and_nan_books_6_10_import_audit.md");
 const jamesReportPath = path.join(rootDir, "docs", "guided-reading", "james_and_anna_import_audit.md");
 const aidenReportPath = path.join(rootDir, "docs", "guided-reading", "aiden_and_betty_import_audit.md");
+const dinoReportPath = path.join(rootDir, "docs", "guided-reading", "dino_pals_books_1_10_import_audit.md");
 
 const expectedBobBooks = [
   { id: "bob-and-nan-01", title: "Bob and Nan", pages: 7 },
@@ -101,6 +102,19 @@ const expectedAidenBooks = [
   { id: "ab-c-10", title: "Aiden and Betty and the Castle", pages: 13 }
 ];
 
+const expectedDinoBooks = [
+  { id: "dino-pals-01-chompys-big-lunch", title: "Chompy's Big Lunch", pages: 8 },
+  { id: "dino-pals-02-sunnys-rainy-day", title: "Sunny's Rainy Day", pages: 8 },
+  { id: "dino-pals-03-dozy-wont-wake-up", title: "Dozy Won't Wake Up", pages: 8 },
+  { id: "dino-pals-04-grumpy-needs-help", title: "Grumpy Needs Help", pages: 8 },
+  { id: "dino-pals-05-bossy-makes-a-plan", title: "Bossy Makes a Plan", pages: 8 },
+  { id: "dino-pals-06-bouncy-bumps-into-everything", title: "Bouncy Bumps Into Everything", pages: 8 },
+  { id: "dino-pals-07-wigglys-messy-day", title: "Wiggly's Messy Day", pages: 8 },
+  { id: "dino-pals-08-zippy-slows-down", title: "Zippy Slows Down", pages: 8 },
+  { id: "dino-pals-09-honkys-inside-voice", title: "Honky's Inside Voice", pages: 8 },
+  { id: "dino-pals-10-cheekys-prank-goes-wrong", title: "Cheeky's Prank Goes Wrong", pages: 8 }
+];
+
 const oldFictionIds = [
   "gs-c-01",
   "gs-c-02",
@@ -141,10 +155,12 @@ const rows = [];
 const bobBooks610Rows = [];
 const jamesRows = [];
 const aidenRows = [];
+const dinoRows = [];
 const warnings = [];
 const draftBobBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "bob-and-nan");
 const draftJamesBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "james-and-anna");
 const draftAidenBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "aiden-and-betty");
+const draftDinoBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "dino-pals");
 const visibleBobBooks = guidedReadingBooks.filter(book => book.seriesId === "bob-and-nan");
 const visibleJamesBooks = guidedReadingBooks.filter(book => book.seriesId === "james-and-anna");
 const visibleAidenBooks = guidedReadingBooks.filter(book => book.seriesId === "aiden-and-betty");
@@ -157,6 +173,7 @@ if (draftJamesBooks.length !== 10) failures.push(`Expected 10 James and Anna dra
 if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James and Anna approved books, found ${visibleJamesBooks.length}.`);
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
 if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty approved books, found ${visibleAidenBooks.length}.`);
+if (draftDinoBooks.length !== 10) failures.push(`Expected 10 Dino Pals draft books, found ${draftDinoBooks.length}.`);
 if (visibleNonfictionBooks.length !== 23) failures.push(`Expected 23 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
 
@@ -322,6 +339,65 @@ for (const expected of expectedAidenBooks) {
     level: book.level,
     pages: storyPages.length,
     importedPages,
+    missingStoryImages,
+    coverExists,
+    coverStatus: coverExists ? "delivered cover used" : "missing",
+    qaStatus: book.qaStatus,
+    teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
+  });
+}
+
+for (const expected of expectedDinoBooks) {
+  const book = draftDinoBooks.find(item => item.id === expected.id);
+  if (!book) {
+    failures.push(`${expected.id}: missing from Dino Pals draft data.`);
+    continue;
+  }
+
+  const storyPages = book.pages || [];
+  const coverExists = publicPathExists(book.coverImage);
+  const importedPages = storyPages.filter(page => publicPathExists(page.image)).map(page => page.pageNumber);
+  const audioPages = storyPages.filter(page => publicPathExists(page.audio || page.pageAudio)).map(page => page.pageNumber);
+  const missingStoryImages = storyPages.filter(page => !publicPathExists(page.image)).map(page => page.pageNumber);
+  const firstStoryImage = storyPages[0]?.image || "";
+  const normalized = normalizeReadableBook(book);
+  const promptLeakPages = storyPages
+    .filter(page => /PAGE\s+\d+|ILLUSTRATION|IMAGE GENERATION|SERIES CHARACTER|QA NOTES/i.test(page.text || ""))
+    .map(page => page.pageNumber);
+
+  if (book.title !== expected.title) failures.push(`${expected.id}: title is ${book.title}, expected ${expected.title}.`);
+  if (book.level !== "B") failures.push(`${expected.id}: level is ${book.level}, expected B.`);
+  if (book.guidedReadingLevel !== "B") failures.push(`${expected.id}: guidedReadingLevel is ${book.guidedReadingLevel}, expected B.`);
+  if (normalizeGuidedReadingType(book.type) !== "fiction") failures.push(`${expected.id}: type is ${book.type}, expected fiction.`);
+  if (book.seriesTitle !== "Dino Pals") failures.push(`${expected.id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
+  if (book.ageRange !== "5-6") failures.push(`${expected.id}: ageRange is ${book.ageRange || "missing"}.`);
+  if (book.author !== "Nora Bell") failures.push(`${expected.id}: author is ${book.author || "missing"}, expected Nora Bell.`);
+  if (book.illustrator !== "Milo Reed") failures.push(`${expected.id}: illustrator is ${book.illustrator || "missing"}, expected Milo Reed.`);
+  if (book.status !== "teacher_preview") failures.push(`${expected.id}: status is ${book.status || "missing"}, expected teacher_preview.`);
+  if (book.qaStatus !== "needs_review") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review.`);
+  if (!book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be true for review import.`);
+  if (storyPages.length !== expected.pages) failures.push(`${expected.id}: source page count is ${storyPages.length}, expected ${expected.pages}.`);
+  if (!coverExists) failures.push(`${expected.id}: cover missing at ${book.coverImage || "missing"}.`);
+  if (importedPages.length !== expected.pages) failures.push(`${expected.id}: imported story image count is ${importedPages.length}, expected ${expected.pages}.`);
+  if (audioPages.length !== expected.pages) warnings.push(`${expected.id}: page audio count is ${audioPages.length}, expected ${expected.pages}.`);
+  if (missingStoryImages.length) failures.push(`${expected.id}: missing story page images ${missingStoryImages.join(", ")}.`);
+  if (!firstStoryImage.endsWith("page-001.webp")) failures.push(`${expected.id}: story page 1 does not use page-001.webp (${firstStoryImage}).`);
+  if (firstStoryImage === book.coverImage) failures.push(`${expected.id}: story page 1 is incorrectly using the cover image.`);
+  if (promptLeakPages.length) failures.push(`${expected.id}: reading text contains prompt/page-label markers on pages ${promptLeakPages.join(", ")}.`);
+  if (book.availableStoryPageCount !== expected.pages) failures.push(`${expected.id}: availableStoryPageCount is ${book.availableStoryPageCount}, expected ${expected.pages}.`);
+  if (book.missingStoryPages?.length) failures.push(`${expected.id}: missingStoryPages should be empty after full import (${book.missingStoryPages.join(", ")}).`);
+  if (normalized.pages[0]?.type !== "title") failures.push(`${expected.id}: normalized reader page 1 is not a title page.`);
+  if (normalized.pages[0]?.image !== book.coverImage) failures.push(`${expected.id}: title page does not use the cover image.`);
+  if (normalized.pages[1]?.storyPageNumber !== 1) failures.push(`${expected.id}: first story page is not storyPageNumber 1.`);
+  if (normalized.pages[1]?.image !== firstStoryImage) failures.push(`${expected.id}: normalized story page 1 image changed from source page-001.`);
+
+  dinoRows.push({
+    id: expected.id,
+    title: book.title,
+    level: book.level,
+    expectedPages: expected.pages,
+    importedPages,
+    audioPages,
     missingStoryImages,
     coverExists,
     coverStatus: coverExists ? "delivered cover used" : "missing",
@@ -523,23 +599,91 @@ const aidenReport = [
   failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Aiden and Betty Level C books are visible to student readers with full story image coverage."
 ];
 
+const dinoReport = [
+  "# Dino Pals Level B Books 1-10 Import Audit",
+  "",
+  `Generated: ${new Date().toISOString()}`,
+  "",
+  "## Source",
+  "",
+  "`/Users/benjaminbowler/Desktop/LiteracyPath_Source_Packs/Organised/Level B/Dino Pals`",
+  "",
+  "Media archive: `Dino Pals Media 1-10.zip`.",
+  "",
+  "## Target",
+  "",
+  "`public/guided-reading/series/dino-pals/book-01` through `book-10`",
+  "",
+  "## Summary",
+  "",
+  `- Dino Pals draft books added: ${draftDinoBooks.length}`,
+  "- Import order: Level B fiction books 1-10.",
+  "- Release scope: teacher preview only, pending final QA.",
+  `- Imported covers: ${dinoRows.filter(row => row.coverExists).length}/10`,
+  `- Imported story page images: ${dinoRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
+  `- Imported story page audio files: ${dinoRows.reduce((sum, row) => sum + row.audioPages.length, 0)}`,
+  `- Missing story page images: ${dinoRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
+  `- Nonfiction books kept: ${visibleNonfictionBooks.length}`,
+  `- Old deleted fiction books restored: ${oldFictionRestored.length}`,
+  `- Validation failures: ${failures.length}`,
+  "",
+  "## Imported Books",
+  "",
+  "| ID | Title | Level | Expected Pages | Imported Images | Audio Files | Missing Images | Cover Status | QA | Preview Only |",
+  "|---|---|---|---:|---|---|---|---|---|---:|",
+  ...dinoRows.map(row => `| ${row.id} | ${row.title} | ${row.level} | ${row.expectedPages} | ${row.importedPages.join(", ") || "none"} | ${row.audioPages.join(", ") || "none"} | ${row.missingStoryImages.join(", ") || "none"} | ${row.coverStatus} | ${row.qaStatus} | ${row.teacherPreviewOnly ? "yes" : "no"} |`),
+  "",
+  "## Text Alignment",
+  "",
+  "- Story text was extracted from the source DOCX page sections.",
+  "- Cover/title images are kept as `cover.webp` and are not counted as story page 1.",
+  "- `PAGE` labels, illustration prompts, character references, image-generation notes, and QA notes are not included as student reading text.",
+  "- Each story page maps to the matching `page-XXX.webp` file with no one-page offset.",
+  "",
+  "## Audio",
+  "",
+  dinoRows.every(row => row.audioPages.length === row.expectedPages)
+    ? "PASS: Each Dino Pals story page has a matching page audio file."
+    : "Some page audio files are missing; affected books are listed in validation warnings.",
+  "",
+  "## QA Status",
+  "",
+  "All Dino Pals books are imported as `teacher_preview` / `needs_review` and remain behind teacher preview until reviewed.",
+  "",
+  "## Next Steps",
+  "",
+  "- Teacher-review Dino Pals covers, page-image sequence, and page audio.",
+  "- After review, move approved books from preview-only to student availability.",
+  "",
+  "## Warnings",
+  "",
+  warnings.length ? warnings.map(item => `- ${item}`).join("\n") : "None.",
+  "",
+  failures.length ? "## Failures" : "## Result",
+  "",
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Dino Pals Level B Books 1-10 are imported with cover, eight story pages, and page audio for teacher preview."
+];
+
 fs.mkdirSync(path.dirname(bobReportPath), { recursive: true });
 fs.writeFileSync(bobReportPath, `${bobReport.join("\n")}\n`);
 fs.writeFileSync(bobBooks610ReportPath, `${bobBooks610Report.join("\n")}\n`);
 fs.writeFileSync(jamesReportPath, `${jamesReport.join("\n")}\n`);
 fs.writeFileSync(aidenReportPath, `${aidenReport.join("\n")}\n`);
+fs.writeFileSync(dinoReportPath, `${dinoReport.join("\n")}\n`);
 
 console.log(`Bob and Nan books visible: ${visibleBobBooks.length}`);
 console.log(`James and Anna draft books: ${draftJamesBooks.length}`);
 console.log(`James and Anna visible books: ${visibleJamesBooks.length}`);
 console.log(`Aiden and Betty draft books: ${draftAidenBooks.length}`);
 console.log(`Aiden and Betty visible books: ${visibleAidenBooks.length}`);
+console.log(`Dino Pals draft books: ${draftDinoBooks.length}`);
 console.log(`Nonfiction books visible: ${visibleNonfictionBooks.length}`);
 console.log(`Old fiction restored: ${oldFictionRestored.length}`);
 console.log(`Wrote ${path.relative(rootDir, bobReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, bobBooks610ReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, jamesReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, aidenReportPath)}`);
+console.log(`Wrote ${path.relative(rootDir, dinoReportPath)}`);
 
 if (failures.length) {
   failures.forEach(item => console.error(`- ${item}`));

@@ -208,6 +208,79 @@ const createAidenAndBettyBook = ({
   pages: pages.map(page => createAidenPage({ bookNumber, ...page }))
 });
 
+const dinoPagePath = (bookNumber, pageNumber) =>
+  seriesPagePath("dino-pals", bookNumber, pageNumber);
+
+const dinoCoverPath = bookNumber =>
+  seriesCoverPath("dino-pals", bookNumber);
+
+const dinoAudioPath = (bookNumber, pageNumber) =>
+  `/guided-reading/series/dino-pals/book-${String(bookNumber).padStart(2, "0")}/audio/page-${String(pageNumber).padStart(3, "0")}.mp3`;
+
+const createDinoPage = ({ bookNumber, pageNumber, text }) => ({
+  pageNumber,
+  text: normalizeReadingText(text),
+  image: dinoPagePath(bookNumber, pageNumber),
+  audio: dinoAudioPath(bookNumber, pageNumber),
+  pageAudio: dinoAudioPath(bookNumber, pageNumber),
+  words: words(text),
+  qaStatus: "needs_review",
+  qaNotes: "Teacher preview fiction page pending final review.",
+  active: true
+});
+
+const createDinoPalsBook = ({
+  id,
+  title,
+  bookNumber,
+  theme,
+  pages
+}) => ({
+  id,
+  seriesId: "dino-pals",
+  seriesTitle: "Dino Pals",
+  seriesName: "Dino Pals",
+  title,
+  type: "fiction",
+  category: "fiction",
+  level: "B",
+  guidedReadingLevel: "B",
+  ageRange: "5-6",
+  bookNumber,
+  order: bookNumber,
+  author: "Nora Bell",
+  illustrator: "Milo Reed",
+  status: "teacher_preview",
+  qaStatus: "needs_review",
+  qaNotes: "Imported as teacher-preview fiction pending final review.",
+  active: true,
+  teacherPreviewOnly: true,
+  source: "dino_pals_level_b_pack_2026_05_27",
+  coverImage: dinoCoverPath(bookNumber),
+  targetSkills: ["level-b", "fiction", "dino-pals"],
+  sightWords: ["the", "said", "was", "you", "I", "to", "and", "it"],
+  targetPatterns: ["level-b", "fiction", "dialogue", "expression"],
+  theme,
+  characterReference: {
+    chompy: "Orange baby T-Rex with tiny arms, a big round tummy, a white bib, and a sweet hungry personality.",
+    sunny: "Yellow baby Triceratops with rainbow-tipped horns and a bright happy outlook.",
+    dozy: "Lavender baby Stegosaurus with sleepy half-closed eyes and a small pillow.",
+    grumpy: "Dark green baby Ankylosaurus with a scowl, club tail, and secretly kind heart.",
+    bossy: "Teal baby Pterodactyl with pink wing membranes, a leaf clipboard, and a tiny reed megaphone.",
+    bouncy: "Lime green baby Pachycephalosaurus with a dome head and constant bouncing energy.",
+    wiggly: "Pale blue baby Diplodocus with a long wavy tail and an apologetic expression.",
+    zippy: "Red and yellow baby Velociraptor with a small rainbow scarf and speedy movement.",
+    honky: "Coral baby Parasaurolophus with a huge rainbow crest and a very loud voice.",
+    cheeky: "Purple baby Oviraptor with orange spots, a mischievous grin, and a playful wink."
+  },
+  settingReference:
+    "Sunny Hollow is a warm lush valley where baby dinosaurs live and play, with Cozy Cave, Berry Bush Corner, Fernwood forest, Rainbow Waterfall, the Long Meadow, and Mount Rumble in the distance.",
+  expectedStoryPageCount: pages.length,
+  availableStoryPageCount: pages.length,
+  missingStoryPages: [],
+  pages: pages.map(page => createDinoPage({ bookNumber, ...page }))
+});
+
 export const guidedReadingSeriesBooks = [
   createBobAndNanBook({
     id: "bob-and-nan-01",
@@ -1124,6 +1197,166 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 11, text: `In the castle shop, Betty bought a small accurate model of the castle as it looked in 1350, before a section of wall fell. Aiden bought a book on medieval building techniques. Dad bought a novelty ceramic goblet that Mum said, quietly but firmly, would not be coming into the kitchen.` },
       { pageNumber: 12, text: `The drive home was quiet in the way that follows something large. "What are you thinking about?" said Mum. Aiden and Betty both answered at the same time, with completely different answers. "That," said Mum, "is exactly right."` },
       { pageNumber: 13, text: `That evening, Aiden wrote in his field notebook for a long time — the drawbridge, the worn floor, the arrow loop, the view. At the bottom of the last page he wrote: Things were happening before we got here. They'll keep happening after. That's not sad. That's just how big it is. He underlined it.` }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-01-chompys-big-lunch",
+    title: "Chompy's Big Lunch",
+    bookNumber: 1,
+    theme: "chompy and food",
+    pages: [
+      { pageNumber: 1, text: "Chompy woke up. I am hungry, said Chompy." },
+      { pageNumber: 2, text: "Chompy ate some berries. More, please! said Chompy." },
+      { pageNumber: 3, text: "Chompy found some leaves. I am still hungry, said Chompy." },
+      { pageNumber: 4, text: "Sunny shared her lunch. Here you go, Chompy! said Sunny." },
+      { pageNumber: 5, text: "Chompy ate and ate. More, please! said Chompy." },
+      { pageNumber: 6, text: "Chompy's tummy was very big now. I am... still a little hungry, said Chompy." },
+      { pageNumber: 7, text: "Oh, Chompy! laughed all the Dino Pals. Chompy laughed too." },
+      { pageNumber: 8, text: "That night, Chompy looked at the stars. I wonder what breakfast will be, said Chompy." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-02-sunnys-rainy-day",
+    title: "Sunny's Rainy Day",
+    bookNumber: 2,
+    theme: "rainy day play",
+    pages: [
+      { pageNumber: 1, text: "It rained in Sunny Hollow. Big dark clouds rolled in." },
+      { pageNumber: 2, text: "Oh no! said Grumpy. Oh no! said Dozy, yawning. Oh no! said Wiggly." },
+      { pageNumber: 3, text: "Oh YES! said Sunny. More puddles!" },
+      { pageNumber: 4, text: "Sunny jumped in the puddles. SPLASH! SPLASH! SPLASH!" },
+      { pageNumber: 5, text: "Come in! called Sunny. It is lovely!" },
+      { pageNumber: 6, text: "One by one, the Dino Pals joined in." },
+      { pageNumber: 7, text: "Hmph, said Grumpy. This is... not terrible." },
+      { pageNumber: 8, text: "The sun came back out. See? said Sunny. Every day is a good day!" }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-03-dozy-wont-wake-up",
+    title: "Dozy Won't Wake Up",
+    bookNumber: 3,
+    theme: "waking sleepy Dozy",
+    pages: [
+      { pageNumber: 1, text: "It was morning in Sunny Hollow. Everyone was up. Everyone except Dozy." },
+      { pageNumber: 2, text: "Wake up, Dozy! called Bouncy. Dozy did not wake up." },
+      { pageNumber: 3, text: "Wake up, Dozy! called Zippy. Dozy did not wake up." },
+      { pageNumber: 4, text: "WAKE UP, DOZY! called Honky. Dozy did not wake up." },
+      { pageNumber: 5, text: "We have a problem, said Bossy. We need Dozy for the picnic!" },
+      { pageNumber: 6, text: "Chompy had an idea. Chompy found the biggest, yummiest lunch in Sunny Hollow." },
+      { pageNumber: 7, text: "Dozy sniffed. Dozy opened one eye. Is that... lunch? said Dozy." },
+      { pageNumber: 8, text: "Dozy was up! I was just resting my eyes, said Dozy. Dozy's eyes were already closing again." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-04-grumpy-needs-help",
+    title: "Grumpy Needs Help",
+    bookNumber: 4,
+    theme: "accepting help",
+    pages: [
+      { pageNumber: 1, text: "Grumpy was stuck. Grumpy's tail was caught under a big rock." },
+      { pageNumber: 2, text: "I do NOT need help, said Grumpy." },
+      { pageNumber: 3, text: "Can I help? said Sunny. NO, said Grumpy." },
+      { pageNumber: 4, text: "Can I help? said Bouncy. NO, said Grumpy. Bouncy bounced anyway." },
+      { pageNumber: 5, text: "Can WE help? said all the Dino Pals. NO! said Grumpy." },
+      { pageNumber: 6, text: "Grumpy pulled and pulled. Grumpy was still stuck." },
+      { pageNumber: 7, text: "Oh, fine, said Grumpy quietly. All the Dino Pals helped together. POP!" },
+      { pageNumber: 8, text: "Thank you, said Grumpy. Not that I needed it. But Grumpy was smiling. Just a little." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-05-bossy-makes-a-plan",
+    title: "Bossy Makes a Plan",
+    bookNumber: 5,
+    theme: "planning and teamwork",
+    pages: [
+      { pageNumber: 1, text: "Listen up! called Bossy. I have a plan!" },
+      { pageNumber: 2, text: "Chompy: get berries. Sunny: get leaves. Wiggly: carry things. Dozy: try to stay awake." },
+      { pageNumber: 3, text: "Everyone got to work. Chompy ate the berries. Chompy! said Bossy." },
+      { pageNumber: 4, text: "Wiggly's tail knocked everything over. Wiggly! said Bossy." },
+      { pageNumber: 5, text: "Dozy fell asleep. DOZY! said Bossy." },
+      { pageNumber: 6, text: "The plan was a mess. Nobody is doing it right! said Bossy." },
+      { pageNumber: 7, text: "Bossy, said Sunny, can we try YOUR way AND our way? They worked together. It worked!" },
+      { pageNumber: 8, text: "Hmm, said Bossy. Bossy wrote on the clipboard: New plan: ask nicely." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-06-bouncy-bumps-into-everything",
+    title: "Bouncy Bumps Into Everything",
+    bookNumber: 6,
+    theme: "self-control and movement",
+    pages: [
+      { pageNumber: 1, text: "Bouncy woke up. Bouncy bounced straight into the cave wall. BONK!" },
+      { pageNumber: 2, text: "Bouncy bounced to the waterfall. Bouncy bumped into Fancy. BOING!" },
+      { pageNumber: 3, text: "MY SAIL! cried Fancy. Sorry! called Bouncy, already bouncing away." },
+      { pageNumber: 4, text: "Bouncy bumped into Wiggly. CRASH! Wiggly knocked over everything. Again." },
+      { pageNumber: 5, text: "Bouncy bumped into Sneezy. Sneezy took a HUGE breath in..." },
+      { pageNumber: 6, text: "AAAACHOOOO! Leaves, berries, and Bossy's clipboard all blew away." },
+      { pageNumber: 7, text: "All the Dino Pals looked at Bouncy. Sorry, said Bouncy, smiling." },
+      { pageNumber: 8, text: "Maybe I should bounce in the meadow, said Bouncy. BOING! BOING! BOING!" }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-07-wigglys-messy-day",
+    title: "Wiggly's Messy Day",
+    bookNumber: 7,
+    theme: "messy accidents and acceptance",
+    pages: [
+      { pageNumber: 1, text: "Wiggly woke up carefully. Today, said Wiggly, I will not knock anything over." },
+      { pageNumber: 2, text: "Wiggly walked carefully. Wiggly's tail knocked over Chompy's breakfast. Sorry, Chompy!" },
+      { pageNumber: 3, text: "Wiggly walked very carefully. Wiggly's tail knocked Grumpy's favourite rock. Hmph! said Grumpy." },
+      { pageNumber: 4, text: "Wiggly walked SO carefully. Wiggly's tail knocked Fancy into the mud puddle. Oh no." },
+      { pageNumber: 5, text: "Wiggly sat very, very still. The tail still knocked over three berries and a leaf." },
+      { pageNumber: 6, text: "Wiggly felt sad. My tail has a mind of its own, said Wiggly." },
+      { pageNumber: 7, text: "I like your tail, said Dozy sleepily. It fans me while I nap. The Dino Pals all agreed." },
+      { pageNumber: 8, text: "Wiggly smiled. Current score, said Wiggly. Tail: twelve. Wiggly: also twelve." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-08-zippy-slows-down",
+    title: "Zippy Slows Down",
+    bookNumber: 8,
+    theme: "slowing down to notice",
+    pages: [
+      { pageNumber: 1, text: "Zippy ran to the waterfall. Zippy ran back. Zippy ran to the meadow. Zippy ran back." },
+      { pageNumber: 2, text: "Zippy! called Sunny. Where are you going? I DON'T KNOW! called Zippy, already gone." },
+      { pageNumber: 3, text: "Zippy ran so fast that Zippy ran right past the picnic. And the waterfall. And Sunny Hollow." },
+      { pageNumber: 4, text: "Zippy stopped. Where was Sunny Hollow? Zippy had never stopped before." },
+      { pageNumber: 5, text: "It was very quiet. Zippy looked around. There were flowers. There was a big blue sky." },
+      { pageNumber: 6, text: "Oh, said Zippy. This is... nice. Zippy sat down. Zippy had never sat down before." },
+      { pageNumber: 7, text: "Sunny found Zippy. I was looking at a flower, said Zippy. I went past it twelve times first." },
+      { pageNumber: 8, text: "Zippy walked home. Slowly. It took ages. Zippy loved it." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-09-honkys-inside-voice",
+    title: "Honky's Inside Voice",
+    bookNumber: 9,
+    theme: "voice volume and usefulness",
+    pages: [
+      { pageNumber: 1, text: "GOOD MORNING SUNNY HOLLOW! called Honky. Every leaf fell off every tree." },
+      { pageNumber: 2, text: "Shh! said Grumpy. SORRY! said Honky. More leaves fell." },
+      { pageNumber: 3, text: "Honky, said Bossy, you need an inside voice. What is an inside voice? A quiet one. I do not have one of those." },
+      { pageNumber: 4, text: "Honky tried very hard to be quiet. Hello, whispered Honky. It still blew Chompy's bib sideways." },
+      { pageNumber: 5, text: "Honky felt sad. I am just too loud, said Honky. Sorry. TOOT." },
+      { pageNumber: 6, text: "Then a thunderstorm came. Dozy woke up frightened. All the Dino Pals hid." },
+      { pageNumber: 7, text: "IT IS OKAY! called Honky. Honky's voice was louder than the thunder. Dozy stopped shaking." },
+      { pageNumber: 8, text: "Maybe Honky's voice is very useful after all, said Bossy. THANK YOU! said Honky. Every leaf fell off again." }
+    ]
+  }),
+  createDinoPalsBook({
+    id: "dino-pals-10-cheekys-prank-goes-wrong",
+    title: "Cheeky's Prank Goes Wrong",
+    bookNumber: 10,
+    theme: "pranks and consequences",
+    pages: [
+      { pageNumber: 1, text: "Cheeky had an idea. Cheeky always had ideas. Most of them were pranks." },
+      { pageNumber: 2, text: "Cheeky hid in the ferns. Cheeky tied Wiggly's tail to a tree. Hee hee, said Cheeky." },
+      { pageNumber: 3, text: "Wiggly walked off. BOING! Wiggly bounced back. My tail is stuck! HEE HEE HEE! said Cheeky." },
+      { pageNumber: 4, text: "Next: Cheeky put mud on Fancy's favourite rock. Fancy sat down. OH! cried Fancy." },
+      { pageNumber: 5, text: "Cheeky laughed and laughed. But then Cheeky slipped on the same mud. SPLAT!" },
+      { pageNumber: 6, text: "Now Cheeky was muddy. The Dino Pals looked at Cheeky. Cheeky looked at the Dino Pals." },
+      { pageNumber: 7, text: "Even Cheeky had to laugh. Okay, said Cheeky. That one was funny." },
+      { pageNumber: 8, text: "Cheeky helped clean Fancy's rock. Will you do any more pranks? asked Fancy. Maybe just one more, said Cheeky. And winked." }
     ]
   })
 ];
