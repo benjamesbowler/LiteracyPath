@@ -41,6 +41,7 @@ import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
+import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
@@ -151,6 +152,7 @@ const questionBanks = [
   ["src/data/templateExpansion7.js", templateExpansion7],
   ["src/data/questionBankExpansion8.js", questionBankExpansion8],
   ["src/data/generated/earlySkillQuestions.generated.js", generatedEarlySkillQuestions],
+  ["src/data/generated/skillLevelGapQuestions.generated.js", skillLevelGapQuestions],
   ["src/data/generatedQuestions.js", generatedQuestions],
   ["src/data/fixSentenceQuestions.js", fixSentenceQuestions],
   ["src/data/templateComprehensionAdvanced.js", templateComprehensionAdvanced]

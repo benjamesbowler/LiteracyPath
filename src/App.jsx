@@ -90,6 +90,7 @@ import { templateExpansion7 } from "./data/templateExpansion7";
 import { questionBankExpansion8 } from "./data/questionBankExpansion8";
 import { generatedQuestions } from "./data/generatedQuestions";
 import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
+import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
@@ -1064,6 +1065,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...templateExpansion7,
   ...questionBankExpansion8,
   ...generatedEarlySkillQuestions,
+  ...skillLevelGapQuestions,
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
