@@ -1,0 +1,4117 @@
+{
+  "generatedAt": "2026-05-27T05:01:39.283Z",
+  "target": {
+    "level1": "30 runtime-safe questions split into 15+15 phases",
+    "level2": "30 runtime-safe questions split into 15+15 phases"
+  },
+  "skills": [
+    {
+      "skillId": "initial_sounds",
+      "skillName": "Initial Sounds",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Simple one-syllable concrete words with clear initial letters; no blends/digraphs.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 77,
+          "uniqueTargetWordCount": 57,
+          "uniqueItemKeyCount": 25,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "extra_initial_1",
+              "targetWord": "listen and find",
+              "itemKey": "m",
+              "format": "INITIAL_SOUND_PAIR_SELECT"
+            },
+            {
+              "id": "extra_initial_2",
+              "targetWord": "listen and find",
+              "itemKey": "s",
+              "format": "INITIAL_SOUND_PAIR_SELECT"
+            },
+            {
+              "id": "extra_initial_3",
+              "targetWord": "listen and find",
+              "itemKey": "t",
+              "format": "INITIAL_SOUND_PAIR_SELECT"
+            },
+            {
+              "id": "extra_initial_4",
+              "targetWord": "listen and find",
+              "itemKey": "p",
+              "format": "INITIAL_SOUND_PAIR_SELECT"
+            },
+            {
+              "id": "extra_initial_5",
+              "targetWord": "listen and find",
+              "itemKey": "b",
+              "format": "INITIAL_SOUND_PAIR_SELECT"
+            },
+            {
+              "id": "extra_initial_7",
+              "targetWord": "listen and find",
+              "itemKey": "f",
+              "format": "INITIAL_SOUND_PAIR_SELECT"
+            },
+            {
+              "id": "extra_initial_8",
+              "targetWord": "listen and find",
+              "itemKey": "g",
+              "format": "INITIAL_SOUND_PAIR_SELECT"
+            },
+            {
+              "id": "extra_initial_9",
+              "targetWord": "listen and find",
+              "itemKey": "d",
+              "format": "INITIAL_SOUND_PAIR_SELECT"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Longer or multisyllable imageable words while keeping the task focused only on initial sound.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 2,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_initial_l2_airplane",
+              "targetWord": "airplane",
+              "itemKey": "a",
+              "format": "FIRST_SOUND"
+            },
+            {
+              "id": "gap_initial_l2_alligator",
+              "targetWord": "alligator",
+              "itemKey": "a",
+              "format": "FIRST_SOUND"
+            },
+            {
+              "id": "gap_initial_l2_almond",
+              "targetWord": "almond",
+              "itemKey": "a",
+              "format": "FIRST_SOUND"
+            },
+            {
+              "id": "gap_initial_l2_anteater",
+              "targetWord": "anteater",
+              "itemKey": "a",
+              "format": "FIRST_SOUND"
+            },
+            {
+              "id": "gap_initial_l2_arch",
+              "targetWord": "arch",
+              "itemKey": "a",
+              "format": "FIRST_SOUND"
+            },
+            {
+              "id": "gap_initial_l2_arm",
+              "targetWord": "arm",
+              "itemKey": "a",
+              "format": "FIRST_SOUND"
+            },
+            {
+              "id": "gap_initial_l2_armchair",
+              "targetWord": "armchair",
+              "itemKey": "a",
+              "format": "FIRST_SOUND"
+            },
+            {
+              "id": "gap_initial_l2_artichoke",
+              "targetWord": "artichoke",
+              "itemKey": "a",
+              "format": "FIRST_SOUND"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [
+        {
+          "id": "extra_initial_6",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for initial_sounds"
+        },
+        {
+          "id": "coverage_initial_n_001",
+          "level": 1,
+          "reason": "runtime ineligible: missing required runtime image; listen prompt is missing required runtime audio; runtime card set is incomplete; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "ixl_first_sound_20",
+          "level": 1,
+          "reason": "inactive"
+        },
+        {
+          "id": "ixl_first_sound_25",
+          "level": 1,
+          "reason": "inactive"
+        },
+        {
+          "id": "template_initial_1",
+          "level": 1,
+          "reason": "wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+        },
+        {
+          "id": "template_initial_2",
+          "level": 1,
+          "reason": "wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+        },
+        {
+          "id": "template_initial_3",
+          "level": 1,
+          "reason": "wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+        },
+        {
+          "id": "template_initial_4",
+          "level": 1,
+          "reason": "wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+        },
+        {
+          "id": "template_initial_5",
+          "level": 1,
+          "reason": "wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+        },
+        {
+          "id": "exp6_foundation_1",
+          "level": 1,
+          "reason": "wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+        },
+        {
+          "id": "exp6_foundation_2",
+          "level": 1,
+          "reason": "wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+        },
+        {
+          "id": "exp6_foundation_3",
+          "level": 1,
+          "reason": "wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+        }
+      ],
+      "contentMediaGaps": [
+        "extra_initial_6: wrong skill/template: UNKNOWN is not allowed for initial_sounds",
+        "coverage_initial_n_001: runtime ineligible: missing required runtime image; listen prompt is missing required runtime audio; runtime card set is incomplete; question would render with an empty or broken visual area",
+        "ixl_first_sound_20: inactive",
+        "ixl_first_sound_25: inactive",
+        "template_initial_1: wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds",
+        "template_initial_2: wrong skill/template: MULTIPLE_CHOICE is not allowed for initial_sounds"
+      ],
+      "passes": true
+    },
+    {
+      "skillId": "final_sounds",
+      "skillName": "Final Sounds",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Only b,d,g,l,m,n,p,t; single consonant answer options only.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 124,
+          "uniqueTargetWordCount": 69,
+          "uniqueItemKeyCount": 8,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "ending_l1_001_cat",
+              "targetWord": "cat",
+              "itemKey": "t",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l1_002_dog",
+              "targetWord": "dog",
+              "itemKey": "g",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l1_003_bed",
+              "targetWord": "bed",
+              "itemKey": "d",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l1_004_map",
+              "targetWord": "map",
+              "itemKey": "p",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l1_005_pan",
+              "targetWord": "pan",
+              "itemKey": "n",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l1_006_pin",
+              "targetWord": "pin",
+              "itemKey": "n",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l1_007_bat",
+              "targetWord": "bat",
+              "itemKey": "t",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l1_008_bag",
+              "targetWord": "bag",
+              "itemKey": "g",
+              "format": "ENDING_SOUND"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder final digraphs, double letters, and consonant clusters such as sh,ch,th,ng,nd,nk,nt,st,sk,ft,lt,ll,ck.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 70,
+          "uniqueTargetWordCount": 62,
+          "uniqueItemKeyCount": 20,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "ending_l2_001_fish",
+              "targetWord": "fish",
+              "itemKey": "sh",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l2_002_dish",
+              "targetWord": "dish",
+              "itemKey": "sh",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l2_003_brush",
+              "targetWord": "brush",
+              "itemKey": "sh",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l2_004_duck",
+              "targetWord": "duck",
+              "itemKey": "ck",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l2_005_sock",
+              "targetWord": "sock",
+              "itemKey": "ck",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l2_006_rock",
+              "targetWord": "rock",
+              "itemKey": "ck",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l2_007_ring",
+              "targetWord": "ring",
+              "itemKey": "ng",
+              "format": "ENDING_SOUND"
+            },
+            {
+              "id": "ending_l2_008_king",
+              "targetWord": "king",
+              "itemKey": "ng",
+              "format": "ENDING_SOUND"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [
+        {
+          "id": "extra_final_1",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"hat\" is not a Level 1 final sound; correct answer \"hat\" is not a one-letter Level 1 final sound; answer option \"hat\" is not an allowed one-letter Level 1 final sound; answer option \"ham\" is not an allowed one-letter Level 1 final sound; answer option \"had\" is not an allowed one-letter Level 1 final sound; answer option \"hag\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"hat\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"hat\" is not an allowed single letter; Final Sounds Level 1 answer option \"ham\" is not an allowed single letter; Final Sounds Level 1 answer option \"had\" is not an allowed single letter; Final Sounds Level 1 answer option \"hag\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_2",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"map\" is not a Level 1 final sound; correct answer \"map\" is not a one-letter Level 1 final sound; answer option \"map\" is not an allowed one-letter Level 1 final sound; answer option \"mat\" is not an allowed one-letter Level 1 final sound; answer option \"man\" is not an allowed one-letter Level 1 final sound; answer option \"mad\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"map\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"map\" is not an allowed single letter; Final Sounds Level 1 answer option \"mat\" is not an allowed single letter; Final Sounds Level 1 answer option \"man\" is not an allowed single letter; Final Sounds Level 1 answer option \"mad\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_3",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"sun\" is not a Level 1 final sound; correct answer \"sun\" is not a one-letter Level 1 final sound; answer option \"sun\" is not an allowed one-letter Level 1 final sound; answer option \"sup\" is not an allowed one-letter Level 1 final sound; answer option \"sut\" is not an allowed one-letter Level 1 final sound; answer option \"sub\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"sun\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"sun\" is not an allowed single letter; Final Sounds Level 1 answer option \"sup\" is not an allowed single letter; Final Sounds Level 1 answer option \"sut\" is not an allowed single letter; Final Sounds Level 1 answer option \"sub\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_4",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"dog\" is not a Level 1 final sound; correct answer \"dog\" is not a one-letter Level 1 final sound; answer option \"dog\" is not an allowed one-letter Level 1 final sound; answer option \"dot\" is not an allowed one-letter Level 1 final sound; answer option \"dock\" is not an allowed one-letter Level 1 final sound; answer option \"don\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"dog\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"dog\" is not an allowed single letter; Final Sounds Level 1 answer option \"dot\" is not an allowed single letter; Final Sounds Level 1 answer option \"dock\" is not an allowed single letter; Final Sounds Level 1 answer option \"don\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_5",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"jam\" is not a Level 1 final sound; correct answer \"jam\" is not a one-letter Level 1 final sound; answer option \"jam\" is not an allowed one-letter Level 1 final sound; answer option \"jet\" is not an allowed one-letter Level 1 final sound; answer option \"jag\" is not an allowed one-letter Level 1 final sound; answer option \"jab\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"jam\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"jam\" is not an allowed single letter; Final Sounds Level 1 answer option \"jet\" is not an allowed single letter; Final Sounds Level 1 answer option \"jag\" is not an allowed single letter; Final Sounds Level 1 answer option \"jab\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_6",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"bed\" is not a Level 1 final sound; correct answer \"bed\" is not a one-letter Level 1 final sound; answer option \"bed\" is not an allowed one-letter Level 1 final sound; answer option \"bet\" is not an allowed one-letter Level 1 final sound; answer option \"beg\" is not an allowed one-letter Level 1 final sound; answer option \"ben\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"bed\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"bed\" is not an allowed single letter; Final Sounds Level 1 answer option \"bet\" is not an allowed single letter; Final Sounds Level 1 answer option \"beg\" is not an allowed single letter; Final Sounds Level 1 answer option \"ben\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_7",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"duck\" is not a Level 1 final sound; correct answer \"duck\" is not a one-letter Level 1 final sound; answer option \"duck\" is not an allowed one-letter Level 1 final sound; answer option \"dug\" is not an allowed one-letter Level 1 final sound; answer option \"dun\" is not an allowed one-letter Level 1 final sound; answer option \"dub\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"duck\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"duck\" is not an allowed single letter; Final Sounds Level 1 answer option \"dug\" is not an allowed single letter; Final Sounds Level 1 answer option \"dun\" is not an allowed single letter; Final Sounds Level 1 answer option \"dub\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_8",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"bell\" is not a Level 1 final sound; correct answer \"bell\" is not a one-letter Level 1 final sound; answer option \"bell\" is not an allowed one-letter Level 1 final sound; answer option \"bed\" is not an allowed one-letter Level 1 final sound; answer option \"beg\" is not an allowed one-letter Level 1 final sound; answer option \"ben\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"bell\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"bell\" is not an allowed single letter; Final Sounds Level 1 answer option \"bed\" is not an allowed single letter; Final Sounds Level 1 answer option \"beg\" is not an allowed single letter; Final Sounds Level 1 answer option \"ben\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_9",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"bus\" is not a Level 1 final sound; correct answer \"bus\" is not a one-letter Level 1 final sound; answer option \"bus\" is not an allowed one-letter Level 1 final sound; answer option \"bug\" is not an allowed one-letter Level 1 final sound; answer option \"bun\" is not an allowed one-letter Level 1 final sound; answer option \"but\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"bus\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"bus\" is not an allowed single letter; Final Sounds Level 1 answer option \"bug\" is not an allowed single letter; Final Sounds Level 1 answer option \"bun\" is not an allowed single letter; Final Sounds Level 1 answer option \"but\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "extra_final_10",
+          "level": 1,
+          "reason": "runtime ineligible: coverage target \"leaf\" is not a Level 1 final sound; correct answer \"leaf\" is not a one-letter Level 1 final sound; answer option \"leaf\" is not an allowed one-letter Level 1 final sound; answer option \"leak\" is not an allowed one-letter Level 1 final sound; answer option \"lead\" is not an allowed one-letter Level 1 final sound; answer option \"lean\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"leaf\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"leaf\" is not an allowed single letter; Final Sounds Level 1 answer option \"leak\" is not an allowed single letter; Final Sounds Level 1 answer option \"lead\" is not an allowed single letter; Final Sounds Level 1 answer option \"lean\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "coverage_final_d_001",
+          "level": 2,
+          "reason": "runtime ineligible: Final Sounds question is missing a real target-word object image"
+        },
+        {
+          "id": "coverage_final_d_002",
+          "level": 2,
+          "reason": "runtime ineligible: Final Sounds question is missing a real target-word object image"
+        }
+      ],
+      "contentMediaGaps": [
+        "extra_final_1: runtime ineligible: coverage target \"hat\" is not a Level 1 final sound; correct answer \"hat\" is not a one-letter Level 1 final sound; answer option \"hat\" is not an allowed one-letter Level 1 final sound; answer option \"ham\" is not an allowed one-letter Level 1 final sound; answer option \"had\" is not an allowed one-letter Level 1 final sound; answer option \"hag\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"hat\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"hat\" is not an allowed single letter; Final Sounds Level 1 answer option \"ham\" is not an allowed single letter; Final Sounds Level 1 answer option \"had\" is not an allowed single letter; Final Sounds Level 1 answer option \"hag\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area",
+        "extra_final_2: runtime ineligible: coverage target \"map\" is not a Level 1 final sound; correct answer \"map\" is not a one-letter Level 1 final sound; answer option \"map\" is not an allowed one-letter Level 1 final sound; answer option \"mat\" is not an allowed one-letter Level 1 final sound; answer option \"man\" is not an allowed one-letter Level 1 final sound; answer option \"mad\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"map\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"map\" is not an allowed single letter; Final Sounds Level 1 answer option \"mat\" is not an allowed single letter; Final Sounds Level 1 answer option \"man\" is not an allowed single letter; Final Sounds Level 1 answer option \"mad\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area",
+        "extra_final_3: runtime ineligible: coverage target \"sun\" is not a Level 1 final sound; correct answer \"sun\" is not a one-letter Level 1 final sound; answer option \"sun\" is not an allowed one-letter Level 1 final sound; answer option \"sup\" is not an allowed one-letter Level 1 final sound; answer option \"sut\" is not an allowed one-letter Level 1 final sound; answer option \"sub\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"sun\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"sun\" is not an allowed single letter; Final Sounds Level 1 answer option \"sup\" is not an allowed single letter; Final Sounds Level 1 answer option \"sut\" is not an allowed single letter; Final Sounds Level 1 answer option \"sub\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area",
+        "extra_final_4: runtime ineligible: coverage target \"dog\" is not a Level 1 final sound; correct answer \"dog\" is not a one-letter Level 1 final sound; answer option \"dog\" is not an allowed one-letter Level 1 final sound; answer option \"dot\" is not an allowed one-letter Level 1 final sound; answer option \"dock\" is not an allowed one-letter Level 1 final sound; answer option \"don\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"dog\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"dog\" is not an allowed single letter; Final Sounds Level 1 answer option \"dot\" is not an allowed single letter; Final Sounds Level 1 answer option \"dock\" is not an allowed single letter; Final Sounds Level 1 answer option \"don\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area",
+        "extra_final_5: runtime ineligible: coverage target \"jam\" is not a Level 1 final sound; correct answer \"jam\" is not a one-letter Level 1 final sound; answer option \"jam\" is not an allowed one-letter Level 1 final sound; answer option \"jet\" is not an allowed one-letter Level 1 final sound; answer option \"jag\" is not an allowed one-letter Level 1 final sound; answer option \"jab\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"jam\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"jam\" is not an allowed single letter; Final Sounds Level 1 answer option \"jet\" is not an allowed single letter; Final Sounds Level 1 answer option \"jag\" is not an allowed single letter; Final Sounds Level 1 answer option \"jab\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area",
+        "extra_final_6: runtime ineligible: coverage target \"bed\" is not a Level 1 final sound; correct answer \"bed\" is not a one-letter Level 1 final sound; answer option \"bed\" is not an allowed one-letter Level 1 final sound; answer option \"bet\" is not an allowed one-letter Level 1 final sound; answer option \"beg\" is not an allowed one-letter Level 1 final sound; answer option \"ben\" is not an allowed one-letter Level 1 final sound; Final Sounds Level 1 target \"bed\" is not one of b,d,g,l,m,n,p,t; Final Sounds Level 1 answer option \"bed\" is not an allowed single letter; Final Sounds Level 1 answer option \"bet\" is not an allowed single letter; Final Sounds Level 1 answer option \"beg\" is not an allowed single letter; Final Sounds Level 1 answer option \"ben\" is not an allowed single letter; question failed canonical Final Sounds Level 1 purity check; Final Sounds question is missing targetWord; Final Sounds question is missing a real target-word object image; missing required runtime image; question would render with an empty or broken visual area"
+      ],
+      "passes": true
+    },
+    {
+      "skillId": "rhyming",
+      "skillName": "Rhyming",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Short-vowel CVC rime families with image-card choices.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 125,
+          "uniqueTargetWordCount": 52,
+          "uniqueItemKeyCount": 21,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "coverage_rhyme_l1_at_001",
+              "targetWord": "cat",
+              "itemKey": "at",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l1_at_002",
+              "targetWord": "cat",
+              "itemKey": "at",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l1_at_003",
+              "targetWord": "cat",
+              "itemKey": "at",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l1_at_004",
+              "targetWord": "cat",
+              "itemKey": "at",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l1_at_005",
+              "targetWord": "cat",
+              "itemKey": "at",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l1_at_006",
+              "targetWord": "bat",
+              "itemKey": "at",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l1_at_007",
+              "targetWord": "bat",
+              "itemKey": "at",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l1_at_008",
+              "targetWord": "bat",
+              "itemKey": "at",
+              "format": "RHYMING_PICTURE"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Blends, digraphs, vowel teams, r-controlled, and harder rime families.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 27,
+          "uniqueItemKeyCount": 12,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "coverage_rhyme_l2_ing_001",
+              "targetWord": "ring",
+              "itemKey": "ing",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l2_ing_002",
+              "targetWord": "king",
+              "itemKey": "ing",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l2_ock_001",
+              "targetWord": "sock",
+              "itemKey": "ock",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l2_ock_002",
+              "targetWord": "rock",
+              "itemKey": "ock",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l2_ell_001",
+              "targetWord": "bell",
+              "itemKey": "ell",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l2_ell_002",
+              "targetWord": "shell",
+              "itemKey": "ell",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l2_ish_001",
+              "targetWord": "fish",
+              "itemKey": "ish",
+              "format": "RHYMING_PICTURE"
+            },
+            {
+              "id": "coverage_rhyme_l2_ish_002",
+              "targetWord": "dish",
+              "itemKey": "ish",
+              "format": "RHYMING_PICTURE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [
+        {
+          "id": "extra_rhyme_1",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_2",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_3",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_4",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_5",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_6",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_7",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_8",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_9",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_10",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_11",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        },
+        {
+          "id": "extra_rhyme_12",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for rhyming"
+        }
+      ],
+      "contentMediaGaps": [
+        "extra_rhyme_1: wrong skill/template: UNKNOWN is not allowed for rhyming",
+        "extra_rhyme_2: wrong skill/template: UNKNOWN is not allowed for rhyming",
+        "extra_rhyme_3: wrong skill/template: UNKNOWN is not allowed for rhyming",
+        "extra_rhyme_4: wrong skill/template: UNKNOWN is not allowed for rhyming",
+        "extra_rhyme_5: wrong skill/template: UNKNOWN is not allowed for rhyming",
+        "extra_rhyme_6: wrong skill/template: UNKNOWN is not allowed for rhyming"
+      ],
+      "passes": true
+    },
+    {
+      "skillId": "cvc_short_vowels",
+      "skillName": "CVC Short Vowels",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Simple CVC words with clear medial short vowels.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 199,
+          "uniqueTargetWordCount": 52,
+          "uniqueItemKeyCount": 41,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "core_cvc_001",
+              "targetWord": "cat",
+              "itemKey": "",
+              "format": "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+            },
+            {
+              "id": "cvc_listen_find_001",
+              "targetWord": "bag",
+              "itemKey": "bag",
+              "format": "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+            },
+            {
+              "id": "cvc_listen_find_002",
+              "targetWord": "bat",
+              "itemKey": "bat",
+              "format": "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+            },
+            {
+              "id": "cvc_listen_find_003",
+              "targetWord": "bed",
+              "itemKey": "bed",
+              "format": "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+            },
+            {
+              "id": "cvc_listen_find_004",
+              "targetWord": "cap",
+              "itemKey": "cap",
+              "format": "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+            },
+            {
+              "id": "cvc_listen_find_005",
+              "targetWord": "cat",
+              "itemKey": "cat",
+              "format": "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+            },
+            {
+              "id": "cvc_listen_find_006",
+              "targetWord": "cup",
+              "itemKey": "cup",
+              "format": "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+            },
+            {
+              "id": "cvc_listen_find_007",
+              "targetWord": "dog",
+              "itemKey": "dog",
+              "format": "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder CVC/CCVC/CVCC short-vowel items and closer distractors while preserving short-vowel focus.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 5,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_cvc_short_vowels_l2_bar_1",
+              "targetWord": "bar",
+              "itemKey": "short_a",
+              "format": "LISTEN_CHOOSE_VOWEL"
+            },
+            {
+              "id": "gap_cvc_short_vowels_l2_bib_2",
+              "targetWord": "bib",
+              "itemKey": "short_i",
+              "format": "SHORT_VOWEL_WORD"
+            },
+            {
+              "id": "gap_cvc_short_vowels_l2_bow_3",
+              "targetWord": "bow",
+              "itemKey": "short_o",
+              "format": "LISTEN_CHOOSE_VOWEL"
+            },
+            {
+              "id": "gap_cvc_short_vowels_l2_cab_4",
+              "targetWord": "cab",
+              "itemKey": "short_a",
+              "format": "SHORT_VOWEL_WORD"
+            },
+            {
+              "id": "gap_cvc_short_vowels_l2_can_5",
+              "targetWord": "can",
+              "itemKey": "short_a",
+              "format": "LISTEN_CHOOSE_VOWEL"
+            },
+            {
+              "id": "gap_cvc_short_vowels_l2_cob_6",
+              "targetWord": "cob",
+              "itemKey": "short_o",
+              "format": "SHORT_VOWEL_WORD"
+            },
+            {
+              "id": "gap_cvc_short_vowels_l2_cub_7",
+              "targetWord": "cub",
+              "itemKey": "short_u",
+              "format": "LISTEN_CHOOSE_VOWEL"
+            },
+            {
+              "id": "gap_cvc_short_vowels_l2_dab_8",
+              "targetWord": "dab",
+              "itemKey": "short_a",
+              "format": "SHORT_VOWEL_WORD"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [
+        {
+          "id": "core_cvc_002",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels"
+        },
+        {
+          "id": "core_cvc_003",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels"
+        },
+        {
+          "id": "core_cvc_004",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels"
+        },
+        {
+          "id": "core_cvc_005",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels"
+        },
+        {
+          "id": "core_cvc_006",
+          "level": 1,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels"
+        },
+        {
+          "id": "ixl_sound_order_20",
+          "level": 1,
+          "reason": "inactive"
+        },
+        {
+          "id": "exp7_cvc_17",
+          "level": 1,
+          "reason": "inactive"
+        },
+        {
+          "id": "gen_cvc_short_a_bad_0_vowel",
+          "level": 1,
+          "reason": "runtime ineligible: missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "gen_cvc_short_a_bad_0_missing",
+          "level": 1,
+          "reason": "runtime ineligible: missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "gen_cvc_short_a_bag_1_vowel",
+          "level": 1,
+          "reason": "runtime ineligible: missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "gen_cvc_short_a_bat_2_vowel",
+          "level": 1,
+          "reason": "runtime ineligible: missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "gen_cvc_short_a_cap_3_vowel",
+          "level": 1,
+          "reason": "runtime ineligible: missing required runtime image; question would render with an empty or broken visual area"
+        }
+      ],
+      "contentMediaGaps": [
+        "core_cvc_002: wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels",
+        "core_cvc_003: wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels",
+        "core_cvc_004: wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels",
+        "core_cvc_005: wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels",
+        "core_cvc_006: wrong skill/template: UNKNOWN is not allowed for cvc_short_vowels",
+        "ixl_sound_order_20: inactive"
+      ],
+      "passes": true
+    },
+    {
+      "skillId": "short_vowel_discrimination",
+      "skillName": "Short Vowel Discrimination",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Choose the medial vowel from simple CVC image/audio words.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 146,
+          "uniqueTargetWordCount": 54,
+          "uniqueItemKeyCount": 5,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_short_vowel_picture_1",
+              "targetWord": "cat",
+              "itemKey": "short_a",
+              "format": "PICTURE_TO_PRINT_MATCH"
+            },
+            {
+              "id": "p3_short_vowel_picture_2",
+              "targetWord": "bag",
+              "itemKey": "short_a",
+              "format": "PICTURE_TO_PRINT_MATCH"
+            },
+            {
+              "id": "p3_short_vowel_picture_3",
+              "targetWord": "map",
+              "itemKey": "short_a",
+              "format": "PICTURE_TO_PRINT_MATCH"
+            },
+            {
+              "id": "p3_short_vowel_picture_4",
+              "targetWord": "bed",
+              "itemKey": "short_e",
+              "format": "PICTURE_TO_PRINT_MATCH"
+            },
+            {
+              "id": "p3_short_vowel_picture_5",
+              "targetWord": "pen",
+              "itemKey": "short_e",
+              "format": "PICTURE_TO_PRINT_MATCH"
+            },
+            {
+              "id": "p3_short_vowel_picture_6",
+              "targetWord": "red",
+              "itemKey": "short_e",
+              "format": "PICTURE_TO_PRINT_MATCH"
+            },
+            {
+              "id": "p3_short_vowel_picture_7",
+              "targetWord": "pig",
+              "itemKey": "short_i",
+              "format": "PICTURE_TO_PRINT_MATCH"
+            },
+            {
+              "id": "p3_short_vowel_picture_8",
+              "targetWord": "fin",
+              "itemKey": "short_i",
+              "format": "PICTURE_TO_PRINT_MATCH"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Closer short-vowel contrasts and harder distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 5,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_short_vowel_discrimination_l2_bar_1",
+              "targetWord": "bar",
+              "itemKey": "short_a",
+              "format": "LISTEN_CHOOSE_VOWEL"
+            },
+            {
+              "id": "gap_short_vowel_discrimination_l2_bib_2",
+              "targetWord": "bib",
+              "itemKey": "short_i",
+              "format": "SHORT_VOWEL_WORD"
+            },
+            {
+              "id": "gap_short_vowel_discrimination_l2_bow_3",
+              "targetWord": "bow",
+              "itemKey": "short_o",
+              "format": "LISTEN_CHOOSE_VOWEL"
+            },
+            {
+              "id": "gap_short_vowel_discrimination_l2_cab_4",
+              "targetWord": "cab",
+              "itemKey": "short_a",
+              "format": "SHORT_VOWEL_WORD"
+            },
+            {
+              "id": "gap_short_vowel_discrimination_l2_can_5",
+              "targetWord": "can",
+              "itemKey": "short_a",
+              "format": "LISTEN_CHOOSE_VOWEL"
+            },
+            {
+              "id": "gap_short_vowel_discrimination_l2_cob_6",
+              "targetWord": "cob",
+              "itemKey": "short_o",
+              "format": "SHORT_VOWEL_WORD"
+            },
+            {
+              "id": "gap_short_vowel_discrimination_l2_cub_7",
+              "targetWord": "cub",
+              "itemKey": "short_u",
+              "format": "LISTEN_CHOOSE_VOWEL"
+            },
+            {
+              "id": "gap_short_vowel_discrimination_l2_dab_8",
+              "targetWord": "dab",
+              "itemKey": "short_a",
+              "format": "SHORT_VOWEL_WORD"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [
+        {
+          "id": "extra_short_vowel_1",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_2",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_3",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_4",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_5",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_6",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_7",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_8",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_9",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "extra_short_vowel_10",
+          "level": 2,
+          "reason": "wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+        },
+        {
+          "id": "p3_short_vowel_listen_1",
+          "level": 1,
+          "reason": "runtime ineligible: missing required runtime image; question would render with an empty or broken visual area"
+        },
+        {
+          "id": "p3_short_vowel_listen_2",
+          "level": 1,
+          "reason": "runtime ineligible: missing required runtime image; question would render with an empty or broken visual area"
+        }
+      ],
+      "contentMediaGaps": [
+        "extra_short_vowel_1: wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination",
+        "extra_short_vowel_2: wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination",
+        "extra_short_vowel_3: wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination",
+        "extra_short_vowel_4: wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination",
+        "extra_short_vowel_5: wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination",
+        "extra_short_vowel_6: wrong skill/template: UNKNOWN is not allowed for short_vowel_discrimination"
+      ],
+      "passes": true
+    },
+    {
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "hasLevel1": true,
+      "hasLevel2": false,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Recognition and listening tasks for the first 25 high-frequency words.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 61,
+          "uniqueTargetWordCount": 32,
+          "uniqueItemKeyCount": 12,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_hfw_1_25_listen_the",
+              "targetWord": "the",
+              "itemKey": "the",
+              "format": "LISTEN_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_1_25_read_the",
+              "targetWord": "the",
+              "itemKey": "the",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_1_25_listen_and",
+              "targetWord": "and",
+              "itemKey": "and",
+              "format": "LISTEN_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_1_25_read_and",
+              "targetWord": "and",
+              "itemKey": "and",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_1_25_listen_to",
+              "targetWord": "to",
+              "itemKey": "to",
+              "format": "LISTEN_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_1_25_read_to",
+              "targetWord": "to",
+              "itemKey": "to",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_1_25_listen_a",
+              "targetWord": "a",
+              "itemKey": "a",
+              "format": "LISTEN_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_1_25_read_a",
+              "targetWord": "a",
+              "itemKey": "a",
+              "format": "READ_FIND_WORD"
+            }
+          ]
+        },
+        "2": {
+          "designed": false,
+          "rule": "",
+          "proposedMeaning": "Mixed sentence-level fluency and cloze tasks using the same 1-25 band.",
+          "runtimeSafeQuestionCount": 0,
+          "uniqueTargetWordCount": 0,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": false,
+          "phase2Ready": false,
+          "passesDepth": false,
+          "missingCount": 0,
+          "examples": []
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "hasLevel1": true,
+      "hasLevel2": false,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Recognition and listening tasks for high-frequency words 26-50.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 48,
+          "uniqueTargetWordCount": 25,
+          "uniqueItemKeyCount": 25,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_hfw_26_50_listen_he",
+              "targetWord": "he",
+              "itemKey": "he",
+              "format": "LISTEN_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_26_50_read_he",
+              "targetWord": "he",
+              "itemKey": "he",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_26_50_listen_she",
+              "targetWord": "she",
+              "itemKey": "she",
+              "format": "LISTEN_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_26_50_read_she",
+              "targetWord": "she",
+              "itemKey": "she",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_26_50_listen_they",
+              "targetWord": "they",
+              "itemKey": "they",
+              "format": "LISTEN_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_26_50_read_they",
+              "targetWord": "they",
+              "itemKey": "they",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_26_50_listen_was",
+              "targetWord": "was",
+              "itemKey": "was",
+              "format": "LISTEN_FIND_WORD"
+            },
+            {
+              "id": "p3_hfw_26_50_read_was",
+              "targetWord": "was",
+              "itemKey": "was",
+              "format": "READ_FIND_WORD"
+            }
+          ]
+        },
+        "2": {
+          "designed": false,
+          "rule": "",
+          "proposedMeaning": "Mixed sentence-level fluency and cloze tasks using the 26-50 band.",
+          "runtimeSafeQuestionCount": 0,
+          "uniqueTargetWordCount": 0,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": false,
+          "phase2Ready": false,
+          "passesDepth": false,
+          "missingCount": 0,
+          "examples": []
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "hfw_51_100",
+      "skillName": "High-Frequency Words 51-100",
+      "hasLevel1": true,
+      "hasLevel2": false,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Recognition and sentence-context tasks for high-frequency words 51-100.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_hfw_51_100_l1_after",
+              "targetWord": "after",
+              "itemKey": "after",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "gap_hfw_51_100_l1_again",
+              "targetWord": "again",
+              "itemKey": "again",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "gap_hfw_51_100_l1_any",
+              "targetWord": "any",
+              "itemKey": "any",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "gap_hfw_51_100_l1_around",
+              "targetWord": "around",
+              "itemKey": "around",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "gap_hfw_51_100_l1_ask",
+              "targetWord": "ask",
+              "itemKey": "ask",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "gap_hfw_51_100_l1_away",
+              "targetWord": "away",
+              "itemKey": "away",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "gap_hfw_51_100_l1_be",
+              "targetWord": "be",
+              "itemKey": "be",
+              "format": "READ_FIND_WORD"
+            },
+            {
+              "id": "gap_hfw_51_100_l1_before",
+              "targetWord": "before",
+              "itemKey": "before",
+              "format": "READ_FIND_WORD"
+            }
+          ]
+        },
+        "2": {
+          "designed": false,
+          "rule": "",
+          "proposedMeaning": "Mixed sentence-level fluency and cloze tasks using the 51-100 band.",
+          "runtimeSafeQuestionCount": 0,
+          "uniqueTargetWordCount": 0,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": false,
+          "phase2Ready": false,
+          "passesDepth": false,
+          "missingCount": 0,
+          "examples": []
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "blends",
+      "skillName": "Blends",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Common initial blends.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 68,
+          "uniqueTargetWordCount": 20,
+          "uniqueItemKeyCount": 12,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_blend_sound_bl_1",
+              "targetWord": "blue",
+              "itemKey": "bl",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_blend_sound_cl_2",
+              "targetWord": "clap",
+              "itemKey": "cl",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_blend_word_cl_2",
+              "targetWord": "clap",
+              "itemKey": "cl",
+              "format": "IMAGE_WORD_PATTERN_MATCH"
+            },
+            {
+              "id": "p3_blend_sound_fl_3",
+              "targetWord": "flag",
+              "itemKey": "fl",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_blend_sound_fr_4",
+              "targetWord": "frog",
+              "itemKey": "fr",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_blend_word_fr_4",
+              "targetWord": "frog",
+              "itemKey": "fr",
+              "format": "IMAGE_WORD_PATTERN_MATCH"
+            },
+            {
+              "id": "p3_blend_sound_sl_6",
+              "targetWord": "slide",
+              "itemKey": "sl",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_blend_word_sl_6",
+              "targetWord": "slide",
+              "itemKey": "sl",
+              "format": "IMAGE_WORD_PATTERN_MATCH"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Final blends and mixed blend discrimination.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 33,
+          "uniqueTargetWordCount": 23,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_blend_1",
+              "targetWord": "black",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_blend_2",
+              "targetWord": "flip",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_blend_3",
+              "targetWord": "fresh",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_blend_4",
+              "targetWord": "step",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_blend_5",
+              "targetWord": "clip",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_blend_6",
+              "targetWord": "grin",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_blend_7",
+              "targetWord": "drop",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_blend_8",
+              "targetWord": "truck",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "digraphs",
+      "skillName": "Digraphs",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "sh,ch,th,wh recognition.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 54,
+          "uniqueTargetWordCount": 26,
+          "uniqueItemKeyCount": 4,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_digraph_sound_sh_1",
+              "targetWord": "ship",
+              "itemKey": "sh",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_digraph_sound_sh_2",
+              "targetWord": "shop",
+              "itemKey": "sh",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_digraph_sound_ch_4",
+              "targetWord": "chair",
+              "itemKey": "ch",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_digraph_word_ch_4",
+              "targetWord": "chair",
+              "itemKey": "ch",
+              "format": "IMAGE_WORD_PATTERN_MATCH"
+            },
+            {
+              "id": "p3_digraph_sound_th_5",
+              "targetWord": "thin",
+              "itemKey": "th",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_digraph_sound_th_6",
+              "targetWord": "thumb",
+              "itemKey": "th",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            },
+            {
+              "id": "p3_digraph_word_th_6",
+              "targetWord": "thumb",
+              "itemKey": "th",
+              "format": "IMAGE_WORD_PATTERN_MATCH"
+            },
+            {
+              "id": "p3_digraph_sound_wh_7",
+              "targetWord": "whale",
+              "itemKey": "wh",
+              "format": "PICTURE_AUDIO_TO_PATTERN"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder digraph discrimination and word matching.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 37,
+          "uniqueTargetWordCount": 26,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_digraph_1",
+              "targetWord": "ship",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_digraph_2",
+              "targetWord": "chop",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_digraph_3",
+              "targetWord": "thin",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_digraph_4",
+              "targetWord": "wheel",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_digraph_5",
+              "targetWord": "shop",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_digraph_6",
+              "targetWord": "chip",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_digraph_7",
+              "targetWord": "this",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_digraph_2",
+              "targetWord": "ship",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "long_vowels_silent_e",
+      "skillName": "Long Vowels and Silent E",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Simple a_e, i_e, o_e, u_e, e_e.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 5,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_long_vowels_silent_e_l1_a_e_bandage",
+              "targetWord": "bandage",
+              "itemKey": "a_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_long_vowels_silent_e_l1_i_e_bike",
+              "targetWord": "bike",
+              "itemKey": "i_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_long_vowels_silent_e_l1_a_e_blade",
+              "targetWord": "blade",
+              "itemKey": "a_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_long_vowels_silent_e_l1_o_e_bone",
+              "targetWord": "bone",
+              "itemKey": "o_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_long_vowels_silent_e_l1_a_e_cabbage",
+              "targetWord": "cabbage",
+              "itemKey": "a_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_long_vowels_silent_e_l1_a_e_cage",
+              "targetWord": "cage",
+              "itemKey": "a_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_long_vowels_silent_e_l1_a_e_cane",
+              "targetWord": "cane",
+              "itemKey": "a_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_long_vowels_silent_e_l1_a_e_cape",
+              "targetWord": "cape",
+              "itemKey": "a_e",
+              "format": "DECODING"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Short/long minimal-pair contrasts.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 60,
+          "uniqueTargetWordCount": 44,
+          "uniqueItemKeyCount": 5,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "safe_long_a_1",
+              "targetWord": "game",
+              "itemKey": "a_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_long_a_2",
+              "targetWord": "name",
+              "itemKey": "a_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_long_e_1",
+              "targetWord": "these",
+              "itemKey": "e_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_long_e_2",
+              "targetWord": "pete",
+              "itemKey": "e_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_long_i_1",
+              "targetWord": "bike",
+              "itemKey": "i_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_long_i_2",
+              "targetWord": "five",
+              "itemKey": "i_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_long_o_1",
+              "targetWord": "home",
+              "itemKey": "o_e",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_long_o_2",
+              "targetWord": "bone",
+              "itemKey": "o_e",
+              "format": "DECODING"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "vowel_teams",
+      "skillName": "Vowel Teams",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Common ai, ay, ee, ea, oa.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 5,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_vowel_teams_l1_ai_airplane",
+              "targetWord": "airplane",
+              "itemKey": "ai",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_vowel_teams_l1_ea_anteater",
+              "targetWord": "anteater",
+              "itemKey": "ea",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_vowel_teams_l1_ai_armchair",
+              "targetWord": "armchair",
+              "itemKey": "ai",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_vowel_teams_l1_ea_beach",
+              "targetWord": "beach",
+              "itemKey": "ea",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_vowel_teams_l1_ea_beachball",
+              "targetWord": "beachball",
+              "itemKey": "ea",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_vowel_teams_l1_ea_bead",
+              "targetWord": "bead",
+              "itemKey": "ea",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_vowel_teams_l1_ea_beak",
+              "targetWord": "beak",
+              "itemKey": "ea",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_vowel_teams_l1_ea_bean",
+              "targetWord": "bean",
+              "itemKey": "ea",
+              "format": "DECODING"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "oi, oy, ow, ou and ambiguous pairs.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 68,
+          "uniqueTargetWordCount": 50,
+          "uniqueItemKeyCount": 8,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "safe_vowel_team_ai_1",
+              "targetWord": "mail",
+              "itemKey": "ai",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_vowel_team_ai_2",
+              "targetWord": "tail",
+              "itemKey": "ai",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_vowel_team_ay_1",
+              "targetWord": "day",
+              "itemKey": "ay",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_vowel_team_ay_2",
+              "targetWord": "say",
+              "itemKey": "ay",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_vowel_team_ee_1",
+              "targetWord": "tree",
+              "itemKey": "ee",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_vowel_team_ee_2",
+              "targetWord": "bee",
+              "itemKey": "ee",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_vowel_team_ea_1",
+              "targetWord": "leaf",
+              "itemKey": "ea",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_vowel_team_oa_1",
+              "targetWord": "road",
+              "itemKey": "oa",
+              "format": "DECODING"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "r_controlled_vowels",
+      "skillName": "R-Controlled Vowels",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "ar, or, er/ir/ur basics.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 4,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_r_controlled_vowels_l1_ir_airplane",
+              "targetWord": "airplane",
+              "itemKey": "ir",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_r_controlled_vowels_l1_or_alligator",
+              "targetWord": "alligator",
+              "itemKey": "or",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_r_controlled_vowels_l1_er_anteater",
+              "targetWord": "anteater",
+              "itemKey": "er",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_r_controlled_vowels_l1_ar_arch",
+              "targetWord": "arch",
+              "itemKey": "ar",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_r_controlled_vowels_l1_ar_arm",
+              "targetWord": "arm",
+              "itemKey": "ar",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_r_controlled_vowels_l1_ar_armchair",
+              "targetWord": "armchair",
+              "itemKey": "ar",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_r_controlled_vowels_l1_ar_artichoke",
+              "targetWord": "artichoke",
+              "itemKey": "ar",
+              "format": "DECODING"
+            },
+            {
+              "id": "gap_r_controlled_vowels_l1_ar_asparagus",
+              "targetWord": "asparagus",
+              "itemKey": "ar",
+              "format": "DECODING"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Mixed r-controlled word discrimination.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 56,
+          "uniqueTargetWordCount": 31,
+          "uniqueItemKeyCount": 5,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "safe_r_ar_1",
+              "targetWord": "yard",
+              "itemKey": "ar",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_r_ar_2",
+              "targetWord": "cart",
+              "itemKey": "ar",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_r_er_1",
+              "targetWord": "teacher",
+              "itemKey": "er",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_r_er_2",
+              "targetWord": "letter",
+              "itemKey": "er",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_r_ir_1",
+              "targetWord": "girl",
+              "itemKey": "ir",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_r_ir_2",
+              "targetWord": "first",
+              "itemKey": "ir",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_r_or_1",
+              "targetWord": "horn",
+              "itemKey": "or",
+              "format": "DECODING"
+            },
+            {
+              "id": "safe_r_or_2",
+              "targetWord": "short",
+              "itemKey": "or",
+              "format": "DECODING"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "nouns",
+      "skillName": "Nouns",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 34,
+          "uniqueItemKeyCount": 34,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "ixl_category_1",
+              "targetWord": "cat",
+              "itemKey": "cat",
+              "format": "VOCABULARY_CATEGORY"
+            },
+            {
+              "id": "ixl_category_2",
+              "targetWord": "dog",
+              "itemKey": "dog",
+              "format": "VOCABULARY_CATEGORY"
+            },
+            {
+              "id": "ixl_category_3",
+              "targetWord": "fish",
+              "itemKey": "fish",
+              "format": "VOCABULARY_CATEGORY"
+            },
+            {
+              "id": "ixl_category_4",
+              "targetWord": "hat",
+              "itemKey": "hat",
+              "format": "VOCABULARY_CATEGORY"
+            },
+            {
+              "id": "ixl_category_5",
+              "targetWord": "sock",
+              "itemKey": "sock",
+              "format": "VOCABULARY_CATEGORY"
+            },
+            {
+              "id": "ixl_category_6",
+              "targetWord": "book",
+              "itemKey": "book",
+              "format": "VOCABULARY_CATEGORY"
+            },
+            {
+              "id": "ixl_category_7",
+              "targetWord": "ham",
+              "itemKey": "ham",
+              "format": "VOCABULARY_CATEGORY"
+            },
+            {
+              "id": "ixl_category_8",
+              "targetWord": "farm",
+              "itemKey": "farm",
+              "format": "VOCABULARY_CATEGORY"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 39,
+          "uniqueTargetWordCount": 34,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_grammar_1",
+              "targetWord": "book",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_grammar_2",
+              "targetWord": "teacher",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp6_language_1",
+              "targetWord": "garden",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp6_language_2",
+              "targetWord": "doctor",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp6_language_3",
+              "targetWord": "school",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp7_nouns_1",
+              "targetWord": "teacher",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp7_nouns_2",
+              "targetWord": "school",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp7_nouns_3",
+              "targetWord": "pencil",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "verbs",
+      "skillName": "Verbs",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 41,
+          "uniqueTargetWordCount": 39,
+          "uniqueItemKeyCount": 39,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "ixl_grammar_1",
+              "targetWord": "run",
+              "itemKey": "run",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "ixl_grammar_2",
+              "targetWord": "jump",
+              "itemKey": "jump",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "ixl_grammar_3",
+              "targetWord": "hop",
+              "itemKey": "hop",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "ixl_grammar_4",
+              "targetWord": "dig",
+              "itemKey": "dig",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "ixl_grammar_5",
+              "targetWord": "play",
+              "itemKey": "play",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "ixl_grammar_6",
+              "targetWord": "sleep",
+              "itemKey": "sleep",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "ixl_grammar_7",
+              "targetWord": "look",
+              "itemKey": "look",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "ixl_grammar_8",
+              "targetWord": "stop",
+              "itemKey": "stop",
+              "format": "GRAMMAR_BASICS"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 39,
+          "uniqueTargetWordCount": 30,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_grammar_3",
+              "targetWord": "jump",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_grammar_4",
+              "targetWord": "run",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_grammar_1",
+              "targetWord": "swim",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_grammar_2",
+              "targetWord": "eat",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_grammar_3",
+              "targetWord": "read",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_grammar_4",
+              "targetWord": "jump",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_verb_1",
+              "targetWord": "climb",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_verb_3",
+              "targetWord": "dance",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "adjectives",
+      "skillName": "Adjectives",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 42,
+          "uniqueTargetWordCount": 36,
+          "uniqueItemKeyCount": 36,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "qb8_adj_01",
+              "targetWord": "soft",
+              "itemKey": "soft",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_adj_02",
+              "targetWord": "warm",
+              "itemKey": "warm",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_adj_03",
+              "targetWord": "sour",
+              "itemKey": "sour",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_adj_04",
+              "targetWord": "tall",
+              "itemKey": "tall",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_adj_05",
+              "targetWord": "light",
+              "itemKey": "light",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_adj_06",
+              "targetWord": "heavy",
+              "itemKey": "heavy",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_adj_07",
+              "targetWord": "bumpy",
+              "itemKey": "bumpy",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_adj_08",
+              "targetWord": "calm",
+              "itemKey": "calm",
+              "format": "GRAMMAR_BASICS"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 39,
+          "uniqueTargetWordCount": 32,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_grammar_5",
+              "targetWord": "small",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_grammar_6",
+              "targetWord": "happy",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_grammar_5",
+              "targetWord": "tiny",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_grammar_6",
+              "targetWord": "green",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_grammar_7",
+              "targetWord": "soft",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_grammar_8",
+              "targetWord": "sweet",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_adjective_1",
+              "targetWord": "huge",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_adjective_2",
+              "targetWord": "yellow",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "prepositions_of_place",
+      "skillName": "Prepositions of Place",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 49,
+          "uniqueTargetWordCount": 30,
+          "uniqueItemKeyCount": 20,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_prep_1",
+              "targetWord": "in the box",
+              "itemKey": "",
+              "format": "IMAGE_CHOICE"
+            },
+            {
+              "id": "template_prep_2",
+              "targetWord": "under the table",
+              "itemKey": "",
+              "format": "IMAGE_CHOICE"
+            },
+            {
+              "id": "template_prep_3",
+              "targetWord": "on the chair",
+              "itemKey": "",
+              "format": "IMAGE_CHOICE"
+            },
+            {
+              "id": "exp2_prep_4",
+              "targetWord": "beside the basket",
+              "itemKey": "",
+              "format": "IMAGE_CHOICE"
+            },
+            {
+              "id": "exp2_prep_5",
+              "targetWord": "behind the tree",
+              "itemKey": "",
+              "format": "IMAGE_CHOICE"
+            },
+            {
+              "id": "exp2_prep_6",
+              "targetWord": "between the books",
+              "itemKey": "",
+              "format": "IMAGE_CHOICE"
+            },
+            {
+              "id": "exp4_prep_5",
+              "targetWord": "behind the tree",
+              "itemKey": "",
+              "format": "IMAGE_CHOICE"
+            },
+            {
+              "id": "exp4_prep_7",
+              "targetWord": "above the tree",
+              "itemKey": "",
+              "format": "IMAGE_CHOICE"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 52,
+          "uniqueTargetWordCount": 21,
+          "uniqueItemKeyCount": 21,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "qb8_prep_01",
+              "targetWord": "under",
+              "itemKey": "under",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_prep_02",
+              "targetWord": "above",
+              "itemKey": "above",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_prep_03",
+              "targetWord": "beneath",
+              "itemKey": "beneath",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_prep_04",
+              "targetWord": "behind",
+              "itemKey": "behind",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_prep_05",
+              "targetWord": "beside",
+              "itemKey": "beside",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_prep_06",
+              "targetWord": "inside",
+              "itemKey": "inside",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_prep_07",
+              "targetWord": "on",
+              "itemKey": "on",
+              "format": "GRAMMAR_BASICS"
+            },
+            {
+              "id": "qb8_prep_08",
+              "targetWord": "over",
+              "itemKey": "over",
+              "format": "GRAMMAR_BASICS"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "plurals",
+      "skillName": "Plurals",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 29,
+          "uniqueItemKeyCount": 30,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_plural_visual_s_1",
+              "targetWord": "cats",
+              "itemKey": "s",
+              "format": "PLURAL_IMAGE_SPELLING"
+            },
+            {
+              "id": "p3_plural_visual_s_2",
+              "targetWord": "dogs",
+              "itemKey": "s",
+              "format": "PLURAL_IMAGE_SPELLING"
+            },
+            {
+              "id": "p3_plural_visual_s_3",
+              "targetWord": "books",
+              "itemKey": "s",
+              "format": "PLURAL_IMAGE_SPELLING"
+            },
+            {
+              "id": "p3_plural_visual_es_4",
+              "targetWord": "boxes",
+              "itemKey": "es",
+              "format": "PLURAL_IMAGE_SPELLING"
+            },
+            {
+              "id": "p3_plural_visual_es_5",
+              "targetWord": "brushes",
+              "itemKey": "es",
+              "format": "PLURAL_IMAGE_SPELLING"
+            },
+            {
+              "id": "p3_plural_visual_s_6",
+              "targetWord": "cups",
+              "itemKey": "s",
+              "format": "PLURAL_IMAGE_SPELLING"
+            },
+            {
+              "id": "p3_plural_visual_s_7",
+              "targetWord": "hats",
+              "itemKey": "s",
+              "format": "PLURAL_IMAGE_SPELLING"
+            },
+            {
+              "id": "gap_plurals_l1_cats_1",
+              "targetWord": "cats",
+              "itemKey": "cat",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 94,
+          "uniqueTargetWordCount": 40,
+          "uniqueItemKeyCount": 4,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "safe_plural_bird",
+              "targetWord": "birds",
+              "itemKey": "s",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            },
+            {
+              "id": "safe_plural_hen",
+              "targetWord": "hens",
+              "itemKey": "s",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            },
+            {
+              "id": "safe_plural_lamp",
+              "targetWord": "lamps",
+              "itemKey": "s",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            },
+            {
+              "id": "safe_plural_bench",
+              "targetWord": "benches",
+              "itemKey": "es",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            },
+            {
+              "id": "safe_plural_dish",
+              "targetWord": "dishes",
+              "itemKey": "es",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            },
+            {
+              "id": "safe_plural_bus",
+              "targetWord": "buses",
+              "itemKey": "es",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            },
+            {
+              "id": "safe_plural_box",
+              "targetWord": "boxes",
+              "itemKey": "es",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            },
+            {
+              "id": "safe_plural_baby",
+              "targetWord": "babies",
+              "itemKey": "ies",
+              "format": "PLURAL_SPELLING_CONTEXT"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "prefixes_suffixes",
+      "skillName": "Prefixes and Suffixes",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 28,
+          "uniqueItemKeyCount": 10,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_morphology_un_1",
+              "targetWord": "unhappy",
+              "itemKey": "un",
+              "format": "MORPHEME_MEANING_CONTEXT"
+            },
+            {
+              "id": "p3_morphology_un_2",
+              "targetWord": "unkind",
+              "itemKey": "un",
+              "format": "MORPHEME_MEANING_CONTEXT"
+            },
+            {
+              "id": "p3_morphology_re_3",
+              "targetWord": "reread",
+              "itemKey": "re",
+              "format": "MORPHEME_MEANING_CONTEXT"
+            },
+            {
+              "id": "p3_morphology_pre_4",
+              "targetWord": "preview",
+              "itemKey": "pre",
+              "format": "MORPHEME_MEANING_CONTEXT"
+            },
+            {
+              "id": "p3_morphology_ful_5",
+              "targetWord": "playful",
+              "itemKey": "ful",
+              "format": "MORPHEME_MEANING_CONTEXT"
+            },
+            {
+              "id": "p3_morphology_less_6",
+              "targetWord": "careless",
+              "itemKey": "less",
+              "format": "MORPHEME_MEANING_CONTEXT"
+            },
+            {
+              "id": "p3_morphology_er_7",
+              "targetWord": "teacher",
+              "itemKey": "er",
+              "format": "MORPHEME_MEANING_CONTEXT"
+            },
+            {
+              "id": "p3_morphology_ing_8",
+              "targetWord": "jumping",
+              "itemKey": "ing",
+              "format": "MORPHEME_MEANING_CONTEXT"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 75,
+          "uniqueTargetWordCount": 45,
+          "uniqueItemKeyCount": 13,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_prefix_1",
+              "targetWord": "not happy",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_prefix_2",
+              "targetWord": "read again",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_prefix_3",
+              "targetWord": "not fair",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "template_prefix_4",
+              "targetWord": "play again",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_morphology_1",
+              "targetWord": "not happy",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_morphology_2",
+              "targetWord": "not fair",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_morphology_3",
+              "targetWord": "open or make not locked",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_morphology_4",
+              "targetWord": "read again",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "skillName": "Antonyms and Synonyms",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 33,
+          "uniqueTargetWordCount": 33,
+          "uniqueItemKeyCount": 33,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_antonyms_synonyms_l1_hot_1",
+              "targetWord": "hot",
+              "itemKey": "hot",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_antonyms_synonyms_l1_big_2",
+              "targetWord": "big",
+              "itemKey": "big",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_antonyms_synonyms_l1_happy_3",
+              "targetWord": "happy",
+              "itemKey": "happy",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_antonyms_synonyms_l1_fast_4",
+              "targetWord": "fast",
+              "itemKey": "fast",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_antonyms_synonyms_l1_open_5",
+              "targetWord": "open",
+              "itemKey": "open",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_antonyms_synonyms_l1_wet_6",
+              "targetWord": "wet",
+              "itemKey": "wet",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_antonyms_synonyms_l1_tall_7",
+              "targetWord": "tall",
+              "itemKey": "tall",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_antonyms_synonyms_l1_light_8",
+              "targetWord": "light",
+              "itemKey": "light",
+              "format": "COMPREHENSION"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 64,
+          "uniqueTargetWordCount": 40,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "exp6_language_17",
+              "targetWord": "late",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp6_language_18",
+              "targetWord": "after",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp6_language_19",
+              "targetWord": "tiny",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp6_language_20",
+              "targetWord": "fast",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "antonyms_002",
+              "targetWord": "sad",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "antonyms_003",
+              "targetWord": "warm",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "antonyms_004",
+              "targetWord": "closed",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "antonyms_005",
+              "targetWord": "low",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "homophones_homonyms",
+      "skillName": "Homophones and Homonyms",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_homophones_homonyms_l1_see_1",
+              "targetWord": "see",
+              "itemKey": "see",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "gap_homophones_homonyms_l1_one_2",
+              "targetWord": "one",
+              "itemKey": "one",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "gap_homophones_homonyms_l1_two_3",
+              "targetWord": "two",
+              "itemKey": "two",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "gap_homophones_homonyms_l1_hear_4",
+              "targetWord": "hear",
+              "itemKey": "hear",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "gap_homophones_homonyms_l1_night_5",
+              "targetWord": "night",
+              "itemKey": "night",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "gap_homophones_homonyms_l1_flower_6",
+              "targetWord": "flower",
+              "itemKey": "flower",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "gap_homophones_homonyms_l1_blue_7",
+              "targetWord": "blue",
+              "itemKey": "blue",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "gap_homophones_homonyms_l1_dear_8",
+              "targetWord": "dear",
+              "itemKey": "dear",
+              "format": "HOMOPHONE_MEANING"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 52,
+          "uniqueTargetWordCount": 50,
+          "uniqueItemKeyCount": 38,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "safe_homophone_one",
+              "targetWord": "one",
+              "itemKey": "one",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "safe_homophone_won",
+              "targetWord": "won",
+              "itemKey": "won",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "safe_homophone_two",
+              "targetWord": "two",
+              "itemKey": "two",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "safe_homophone_too",
+              "targetWord": "too",
+              "itemKey": "too",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "safe_homophone_blue",
+              "targetWord": "blue",
+              "itemKey": "blue",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "safe_homophone_blew",
+              "targetWord": "blew",
+              "itemKey": "blew",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "safe_homophone_hear",
+              "targetWord": "hear",
+              "itemKey": "hear",
+              "format": "HOMOPHONE_MEANING"
+            },
+            {
+              "id": "safe_homophone_here",
+              "targetWord": "here",
+              "itemKey": "here",
+              "format": "HOMOPHONE_MEANING"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "sentence_comprehension",
+      "skillName": "Sentence Comprehension",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 35,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_sentence_comp_paragraph_001",
+              "targetWord": "read a book",
+              "itemKey": "p3_sentence_comp_paragraph_001",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "ixl_sentence_picture_1",
+              "targetWord": "cats",
+              "itemKey": "cats",
+              "format": "SENTENCE_MATCHES_PICTURE"
+            },
+            {
+              "id": "ixl_sentence_picture_2",
+              "targetWord": "dogs",
+              "itemKey": "dogs",
+              "format": "SENTENCE_MATCHES_PICTURE"
+            },
+            {
+              "id": "ixl_sentence_picture_3",
+              "targetWord": "cups",
+              "itemKey": "cups",
+              "format": "SENTENCE_MATCHES_PICTURE"
+            },
+            {
+              "id": "ixl_sentence_picture_4",
+              "targetWord": "hats",
+              "itemKey": "hats",
+              "format": "SENTENCE_MATCHES_PICTURE"
+            },
+            {
+              "id": "ixl_sentence_picture_5",
+              "targetWord": "books",
+              "itemKey": "books",
+              "format": "SENTENCE_MATCHES_PICTURE"
+            },
+            {
+              "id": "ixl_sentence_picture_6",
+              "targetWord": "boxes",
+              "itemKey": "boxes",
+              "format": "SENTENCE_MATCHES_PICTURE"
+            },
+            {
+              "id": "ixl_sentence_picture_7",
+              "targetWord": "fish",
+              "itemKey": "fish",
+              "format": "SENTENCE_MATCHES_PICTURE"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 110,
+          "uniqueTargetWordCount": 97,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "SC_K_001",
+              "targetWord": "in the park",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "SC_K_002",
+              "targetWord": "red",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "SC_K_003",
+              "targetWord": "after school",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "SC_K_004",
+              "targetWord": "on the warm mat",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "SC_K_005",
+              "targetWord": "reading a book",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "SC_K_006",
+              "targetWord": "on sunny days",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "SC_K_007",
+              "targetWord": "sings a song",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "SC_K_008",
+              "targetWord": "because it is cold",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "key_details",
+      "skillName": "Key Details",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 20,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_key_details_l1_apple_ball_1",
+              "targetWord": "apple ball ana ball",
+              "itemKey": "apple_ball_1",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_key_details_l1_fish_home_2",
+              "targetWord": "fish home ben book",
+              "itemKey": "fish_home_2",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_key_details_l1_apple_ball_3",
+              "targetWord": "apple ball mia kite",
+              "itemKey": "apple_ball_3",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_key_details_l1_fish_home_4",
+              "targetWord": "fish home sam cup",
+              "itemKey": "fish_home_4",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_key_details_l1_apple_ball_5",
+              "targetWord": "apple ball noah map",
+              "itemKey": "apple_ball_5",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_key_details_l1_fish_home_6",
+              "targetWord": "fish home lia seed",
+              "itemKey": "fish_home_6",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_key_details_l1_apple_ball_7",
+              "targetWord": "apple ball max shell",
+              "itemKey": "apple_ball_7",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_key_details_l1_fish_home_8",
+              "targetWord": "fish home nina drum",
+              "itemKey": "fish_home_8",
+              "format": "COMPREHENSION"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 59,
+          "uniqueTargetWordCount": 52,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_detail_1",
+              "targetWord": "red",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_1",
+              "targetWord": "water",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_2",
+              "targetWord": "slowly",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_1",
+              "targetWord": "three",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_2",
+              "targetWord": "blue",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_3",
+              "targetWord": "under the table",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_4",
+              "targetWord": "pancakes",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_5",
+              "targetWord": "beans",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "sequencing",
+      "skillName": "Sequencing",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 20,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_sequencing_l1_plant_seed_1",
+              "targetWord": "plant seed ana ball",
+              "itemKey": "plant_seed_1",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_sequencing_l1_make_sandwich_2",
+              "targetWord": "make sandwich ben book",
+              "itemKey": "make_sandwich_2",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_sequencing_l1_plant_seed_3",
+              "targetWord": "plant seed mia kite",
+              "itemKey": "plant_seed_3",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_sequencing_l1_make_sandwich_4",
+              "targetWord": "make sandwich sam cup",
+              "itemKey": "make_sandwich_4",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_sequencing_l1_plant_seed_5",
+              "targetWord": "plant seed noah map",
+              "itemKey": "plant_seed_5",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_sequencing_l1_make_sandwich_6",
+              "targetWord": "make sandwich lia seed",
+              "itemKey": "make_sandwich_6",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_sequencing_l1_plant_seed_7",
+              "targetWord": "plant seed max shell",
+              "itemKey": "plant_seed_7",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_sequencing_l1_make_sandwich_8",
+              "targetWord": "make sandwich nina drum",
+              "itemKey": "make_sandwich_8",
+              "format": "COMPREHENSION"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 59,
+          "uniqueTargetWordCount": 57,
+          "uniqueItemKeyCount": 0,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_sequence_1",
+              "targetWord": "put on his shoes",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_3",
+              "targetWord": "ate lunch",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_4",
+              "targetWord": "he watered it",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_6",
+              "targetWord": "read a page",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_7",
+              "targetWord": "he baked the cake",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_8",
+              "targetWord": "put on shoes",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_9",
+              "targetWord": "it got water",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_10",
+              "targetWord": "slept",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "main_idea",
+      "skillName": "Main Idea",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 20,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_main_idea_l1_park_fun_1",
+              "targetWord": "park fun ana ball",
+              "itemKey": "park_fun_1",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_main_idea_l1_pet_care_2",
+              "targetWord": "pet care ben book",
+              "itemKey": "pet_care_2",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_main_idea_l1_park_fun_3",
+              "targetWord": "park fun mia kite",
+              "itemKey": "park_fun_3",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_main_idea_l1_pet_care_4",
+              "targetWord": "pet care sam cup",
+              "itemKey": "pet_care_4",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_main_idea_l1_park_fun_5",
+              "targetWord": "park fun noah map",
+              "itemKey": "park_fun_5",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_main_idea_l1_pet_care_6",
+              "targetWord": "pet care lia seed",
+              "itemKey": "pet_care_6",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_main_idea_l1_park_fun_7",
+              "targetWord": "park fun max shell",
+              "itemKey": "park_fun_7",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_main_idea_l1_pet_care_8",
+              "targetWord": "pet care nina drum",
+              "itemKey": "pet_care_8",
+              "format": "COMPREHENSION"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 65,
+          "uniqueTargetWordCount": 60,
+          "uniqueItemKeyCount": 6,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_main_idea_1",
+              "targetWord": "taking care of dogs",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_5",
+              "targetWord": "birds",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_6",
+              "targetWord": "apples",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_11",
+              "targetWord": "cats",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_12",
+              "targetWord": "trees",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_13",
+              "targetWord": "rain",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_14",
+              "targetWord": "books",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_15",
+              "targetWord": "bees",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "inference",
+      "skillName": "Inference",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 21,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_inference_paragraph_001",
+              "targetWord": "it is raining",
+              "itemKey": "p3_inference_paragraph_001",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_inference_l1_rain_boots_1",
+              "targetWord": "rain boots ana ball",
+              "itemKey": "rain_boots_1",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_inference_l1_sleepy_yawn_2",
+              "targetWord": "sleepy yawn ben book",
+              "itemKey": "sleepy_yawn_2",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_inference_l1_rain_boots_3",
+              "targetWord": "rain boots mia kite",
+              "itemKey": "rain_boots_3",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_inference_l1_sleepy_yawn_4",
+              "targetWord": "sleepy yawn sam cup",
+              "itemKey": "sleepy_yawn_4",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_inference_l1_rain_boots_5",
+              "targetWord": "rain boots noah map",
+              "itemKey": "rain_boots_5",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_inference_l1_sleepy_yawn_6",
+              "targetWord": "sleepy yawn lia seed",
+              "itemKey": "sleepy_yawn_6",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_inference_l1_rain_boots_7",
+              "targetWord": "rain boots max shell",
+              "itemKey": "rain_boots_7",
+              "format": "COMPREHENSION"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 105,
+          "uniqueTargetWordCount": 105,
+          "uniqueItemKeyCount": 6,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "qb8_infer_01_01",
+              "targetWord": "something was wrong with the tank filter",
+              "itemKey": "qb8_infer_01_01",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "qb8_infer_01_02",
+              "targetWord": "to let the teacher know about the tank problem",
+              "itemKey": "qb8_infer_01_02",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "qb8_infer_01_03",
+              "targetWord": "relieved",
+              "itemKey": "qb8_infer_01_03",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "qb8_infer_02_01",
+              "targetWord": "he wants to finish the reading challenge",
+              "itemKey": "qb8_infer_02_01",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "qb8_infer_02_02",
+              "targetWord": "he could read it quickly for the challenge",
+              "itemKey": "qb8_infer_02_02",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "qb8_infer_02_03",
+              "targetWord": "only one blank star was left beside his name",
+              "itemKey": "qb8_infer_02_03",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "inf_2_3_001",
+              "targetWord": "she expected it might rain soon",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            },
+            {
+              "id": "inf_2_3_002",
+              "targetWord": "he was playing outside and got dirty",
+              "itemKey": "",
+              "format": "UNKNOWN"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "cause_effect",
+      "skillName": "Cause and Effect",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 20,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_cause_effect_l1_spill_1",
+              "targetWord": "spill ana ball",
+              "itemKey": "spill_1",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_cause_effect_l1_sun_melt_2",
+              "targetWord": "sun melt ben book",
+              "itemKey": "sun_melt_2",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_cause_effect_l1_spill_3",
+              "targetWord": "spill mia kite",
+              "itemKey": "spill_3",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_cause_effect_l1_sun_melt_4",
+              "targetWord": "sun melt sam cup",
+              "itemKey": "sun_melt_4",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_cause_effect_l1_spill_5",
+              "targetWord": "spill noah map",
+              "itemKey": "spill_5",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_cause_effect_l1_sun_melt_6",
+              "targetWord": "sun melt lia seed",
+              "itemKey": "sun_melt_6",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_cause_effect_l1_spill_7",
+              "targetWord": "spill max shell",
+              "itemKey": "spill_7",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_cause_effect_l1_sun_melt_8",
+              "targetWord": "sun melt nina drum",
+              "itemKey": "sun_melt_8",
+              "format": "COMPREHENSION"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 65,
+          "uniqueTargetWordCount": 62,
+          "uniqueItemKeyCount": 6,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_cause_1",
+              "targetWord": "because it rained",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_7",
+              "targetWord": "he forgot his umbrella",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_8",
+              "targetWord": "it fell off the table",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_16",
+              "targetWord": "she tripped",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_17",
+              "targetWord": "it sat in the sun",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_18",
+              "targetWord": "the dog barked",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_19",
+              "targetWord": "he forgot his lunch",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_20",
+              "targetWord": "the plant did not get water",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "context_clues",
+      "skillName": "Context Clues",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 21,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "p3_context_clues_paragraph_001",
+              "targetWord": "very happy",
+              "itemKey": "p3_context_clues_paragraph_001",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_context_clues_l1_chilly_1",
+              "targetWord": "chilly ana ball",
+              "itemKey": "chilly_1",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_context_clues_l1_giggle_2",
+              "targetWord": "giggle ben book",
+              "itemKey": "giggle_2",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_context_clues_l1_chilly_3",
+              "targetWord": "chilly mia kite",
+              "itemKey": "chilly_3",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_context_clues_l1_giggle_4",
+              "targetWord": "giggle sam cup",
+              "itemKey": "giggle_4",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_context_clues_l1_chilly_5",
+              "targetWord": "chilly noah map",
+              "itemKey": "chilly_5",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_context_clues_l1_giggle_6",
+              "targetWord": "giggle lia seed",
+              "itemKey": "giggle_6",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_context_clues_l1_chilly_7",
+              "targetWord": "chilly max shell",
+              "itemKey": "chilly_7",
+              "format": "COMPREHENSION"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 65,
+          "uniqueTargetWordCount": 60,
+          "uniqueItemKeyCount": 6,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_context_1",
+              "targetWord": "shaking",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_9",
+              "targetWord": "very big",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_10",
+              "targetWord": "needing rest",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_21",
+              "targetWord": "very large",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_22",
+              "targetWord": "quiet",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_23",
+              "targetWord": "very tired",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_24",
+              "targetWord": "easy to break",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_25",
+              "targetWord": "showing courage",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    },
+    {
+      "skillId": "theme_higher_comprehension",
+      "skillName": "Theme and Higher Comprehension",
+      "hasLevel1": true,
+      "hasLevel2": true,
+      "levels": {
+        "1": {
+          "designed": true,
+          "rule": "Concrete simple picture/sentence tasks with level-appropriate distractors.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 35,
+          "uniqueTargetWordCount": 20,
+          "uniqueItemKeyCount": 35,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "gap_theme_higher_comprehension_l1_help_friend_1",
+              "targetWord": "help friend ana ball",
+              "itemKey": "help_friend_1",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_theme_higher_comprehension_l1_try_again_2",
+              "targetWord": "try again ben book",
+              "itemKey": "try_again_2",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_theme_higher_comprehension_l1_help_friend_3",
+              "targetWord": "help friend mia kite",
+              "itemKey": "help_friend_3",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_theme_higher_comprehension_l1_try_again_4",
+              "targetWord": "try again sam cup",
+              "itemKey": "try_again_4",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_theme_higher_comprehension_l1_help_friend_5",
+              "targetWord": "help friend noah map",
+              "itemKey": "help_friend_5",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_theme_higher_comprehension_l1_try_again_6",
+              "targetWord": "try again lia seed",
+              "itemKey": "try_again_6",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_theme_higher_comprehension_l1_help_friend_7",
+              "targetWord": "help friend max shell",
+              "itemKey": "help_friend_7",
+              "format": "COMPREHENSION"
+            },
+            {
+              "id": "gap_theme_higher_comprehension_l1_try_again_8",
+              "targetWord": "try again nina drum",
+              "itemKey": "try_again_8",
+              "format": "COMPREHENSION"
+            }
+          ]
+        },
+        "2": {
+          "designed": true,
+          "rule": "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
+          "proposedMeaning": "",
+          "runtimeSafeQuestionCount": 65,
+          "uniqueTargetWordCount": 54,
+          "uniqueItemKeyCount": 6,
+          "phase1Ready": true,
+          "phase2Ready": true,
+          "passesDepth": true,
+          "missingCount": 0,
+          "examples": [
+            {
+              "id": "template_theme_1",
+              "targetWord": "keep trying",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_11",
+              "targetWord": "keep trying",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp2_comp_12",
+              "targetWord": "being kind helps others",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_26",
+              "targetWord": "practice helps you improve",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_27",
+              "targetWord": "sharing is kind",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_28",
+              "targetWord": "be a good sport",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_29",
+              "targetWord": "honesty is important",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            },
+            {
+              "id": "exp3_comp_30",
+              "targetWord": "teamwork helps",
+              "itemKey": "",
+              "format": "MULTIPLE_CHOICE"
+            }
+          ]
+        }
+      },
+      "rejectedExamples": [],
+      "contentMediaGaps": [],
+      "passes": true
+    }
+  ]
+}
