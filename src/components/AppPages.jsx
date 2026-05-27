@@ -23,6 +23,7 @@ import {
 } from "../utils/answerOptions";
 import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
+import { applyGuidedReadingLevelOverride, readGuidedReadingLevelOverrides } from "../utils/guidedReading/bookLevelOverrides.js";
 import {
   isGuidedReadingAssetDeleted,
   isGuidedReadingBookDeleted
@@ -1749,8 +1750,10 @@ function sentenceParts(text = "") {
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
 
 function getRuntimeGuidedReadingBooks() {
+  const levelOverrides = readGuidedReadingLevelOverrides();
   return guidedReadingBooks
     .filter(book => !isGuidedReadingBookDeleted(book.id))
+    .map(book => applyGuidedReadingLevelOverride(book, levelOverrides))
     .map(book => ({
       ...book,
       pages: (book.pages || []).filter(page =>
@@ -1866,7 +1869,6 @@ export function GuidedReadingPage({
   const visibleLibraryBooks = selectedLibraryType && selectedLibraryLevel
     ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel)
     : [];
-  const reviewModeBooks = runtimeGuidedReadingBooks.filter(book => book.reviewMode);
 
   useEffect(() => {
     return () => {
@@ -1950,29 +1952,6 @@ export function GuidedReadingPage({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [readerOpen, showSummary, pageIndex, selectedBook?.pages?.length]);
-
-  useEffect(() => {
-    if (!import.meta.env.DEV) return;
-    const hiddenReviewBooks = reviewModeBooks.filter(book =>
-      !getGuidedReadingLevelBooks(book.type, book.level).some(item => item.id === book.id)
-    );
-    console.info("[Guided Reading] visible book audit", {
-      totalBooks: runtimeGuidedReadingBooks.length,
-      reviewModeBooks: reviewModeBooks.map(book => ({
-        id: book.id,
-        title: book.title,
-        type: book.type,
-        level: book.level,
-        pages: book.pages?.length || 0,
-        hasCover: Boolean(book.coverImage),
-        qaStatus: book.qaStatus
-      })),
-      hiddenReviewBooks: hiddenReviewBooks.map(book => ({
-        id: book.id,
-        reason: "Not returned by type/level shelf lookup"
-      }))
-    });
-  }, []);
 
   function updateRecord(patch) {
     if (!selectedBook) return;
@@ -2364,7 +2343,7 @@ export function GuidedReadingPage({
         <div>
           <p className="panel-label">Guided Reading</p>
           <h2>{studentName || "Student"} Reading Conference</h2>
-          <p>Use original sample books to listen, mark word reading, and capture teacher notes.</p>
+          <p>Choose a guided reading book to listen, read, reread, and capture teacher notes.</p>
         </div>
 
         <div className="teacher-action-list">
@@ -2376,50 +2355,6 @@ export function GuidedReadingPage({
           </button>
         </div>
       </section>
-
-      {!readerOpen && reviewModeBooks.length > 0 && (
-        <section className="guided-review-shelf" aria-label="Guided Reading review books">
-          <div className="guided-review-shelf-header">
-            <div>
-              <p className="panel-label">Review</p>
-              <h3>Guided Reading Review Books</h3>
-              <p>These books are visible for teacher review when nonfiction content needs image/text or narration checks.</p>
-            </div>
-            <span>{reviewModeBooks.length} books</span>
-          </div>
-
-          <div className="guided-book-grid">
-            {reviewModeBooks.map(book => {
-              const progress = getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
-
-              return (
-                <article
-                  className={book.id === selectedBook.id ? "guided-book-card active review-mode" : "guided-book-card review-mode"}
-                  key={book.id}
-                >
-                  <span className="guided-review-badge">Review</span>
-                  {progress.completed && <span className="guided-complete-badge" aria-label="Completed">✓</span>}
-                  <div className="guided-book-cover-wrap">
-                    <GuidedBookCover book={book} />
-                  </div>
-                  <div className="guided-book-info">
-                    <h3 className="guided-book-title">{book.title}</h3>
-                    <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
-                    <p className="guided-book-status">{book.teacherPreviewOnly ? "Teacher Preview" : book.imageAlignmentStatus === "needs_review" ? "Image Review" : "Audio Pending"}</p>
-                    <button
-                      className="guided-book-action"
-                      onClick={() => changeBook(book.id)}
-                      type="button"
-                    >
-                      {book.teacherPreviewOnly ? "Preview" : progress.completed ? "Read Again" : "Read"}
-                    </button>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </section>
-      )}
 
       {!readerOpen && (
       <section className="guided-library-breadcrumb" aria-label="Guided reading library path">
@@ -2511,24 +2446,18 @@ export function GuidedReadingPage({
                   key={book.id}
                 >
                   {progress.completed && <span className="guided-complete-badge" aria-label="Completed">✓</span>}
-                  {(book.reviewMode || book.teacherPreviewOnly) && <span className="guided-review-badge">{book.teacherPreviewOnly ? "Preview" : "Review"}</span>}
                   <div className="guided-book-cover-wrap">
                     <GuidedBookCover book={book} />
                   </div>
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
                     <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
-                    {(book.reviewMode || book.teacherPreviewOnly) && (
-                      <p className="guided-book-status">
-                        {book.teacherPreviewOnly ? "Teacher Preview: needs image QA" : book.imageAlignmentStatus === "needs_review" ? "Image Review" : "Audio Pending"}
-                      </p>
-                    )}
                     <button
                       className="guided-book-action"
                       onClick={() => changeBook(book.id)}
                       type="button"
                     >
-                      {book.teacherPreviewOnly ? "Preview" : progress.completed ? "Read Again" : "Read"}
+                      {progress.completed ? "Read Again" : "Read"}
                     </button>
                   </div>
                 </article>

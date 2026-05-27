@@ -123,7 +123,7 @@ const report = [
   "",
   "## Strategy",
   "",
-  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-20 in teacher-preview review. First Facts Level A nonfiction books 1-20 are included as teacher-preview nonfiction.",
+  "Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-20 in student public release. First Facts Level A nonfiction books 1-20 are included as public nonfiction.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   `Visible nonfiction books: ${guidedReadingBooks.length - fictionBooks.length}`,

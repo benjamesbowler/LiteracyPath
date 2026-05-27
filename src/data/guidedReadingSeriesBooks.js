@@ -224,8 +224,8 @@ const createDinoPage = ({ bookNumber, pageNumber, text }) => ({
   audio: dinoAudioPath(bookNumber, pageNumber),
   pageAudio: dinoAudioPath(bookNumber, pageNumber),
   words: words(text),
-  qaStatus: "needs_review",
-  qaNotes: "Teacher preview fiction page pending final review.",
+  qaStatus: "approved",
+  qaNotes: "Released for student Guided Reading.",
   active: true
 });
 
@@ -250,11 +250,11 @@ const createDinoPalsBook = ({
   order: bookNumber,
   author: "Nora Bell",
   illustrator: "Milo Reed",
-  status: "teacher_preview",
-  qaStatus: "needs_review",
-  qaNotes: "Imported as teacher-preview fiction pending final review.",
+  status: "approved",
+  qaStatus: "approved",
+  qaNotes: "Released for student Guided Reading.",
   active: true,
-  teacherPreviewOnly: true,
+  teacherPreviewOnly: false,
   source: "dino_pals_level_b_pack_2026_05_27",
   coverImage: dinoCoverPath(bookNumber),
   targetSkills: ["level-b", "fiction", "dino-pals"],

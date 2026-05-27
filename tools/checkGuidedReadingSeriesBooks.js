@@ -211,7 +211,7 @@ if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James an
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
 if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty approved books, found ${visibleAidenBooks.length}.`);
 if (draftDinoBooks.length !== 20) failures.push(`Expected 20 Dino Pals draft books, found ${draftDinoBooks.length}.`);
-if (visibleFirstFactsBooks.length !== 20) failures.push(`Expected 20 First Facts teacher-preview nonfiction books, found ${visibleFirstFactsBooks.length}.`);
+if (visibleFirstFactsBooks.length !== 20) failures.push(`Expected 20 First Facts public nonfiction books, found ${visibleFirstFactsBooks.length}.`);
 if (visibleNonfictionBooks.length !== 41) failures.push(`Expected 41 nonfiction books after First Facts import, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
 if (removedNonfictionRestored.length) failures.push(`Deleted nonfiction ids were restored: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
@@ -412,9 +412,9 @@ for (const expected of expectedDinoBooks) {
   if (book.ageRange !== "5-6") failures.push(`${expected.id}: ageRange is ${book.ageRange || "missing"}.`);
   if (book.author !== "Nora Bell") failures.push(`${expected.id}: author is ${book.author || "missing"}, expected Nora Bell.`);
   if (book.illustrator !== "Milo Reed") failures.push(`${expected.id}: illustrator is ${book.illustrator || "missing"}, expected Milo Reed.`);
-  if (book.status !== "teacher_preview") failures.push(`${expected.id}: status is ${book.status || "missing"}, expected teacher_preview.`);
-  if (book.qaStatus !== "needs_review") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review.`);
-  if (!book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be true for review import.`);
+  if (book.status !== "approved") failures.push(`${expected.id}: status is ${book.status || "missing"}, expected approved.`);
+  if (book.qaStatus !== "approved") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved.`);
+  if (book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be false for student release.`);
   if (storyPages.length !== expected.pages) failures.push(`${expected.id}: source page count is ${storyPages.length}, expected ${expected.pages}.`);
   if (!coverExists) failures.push(`${expected.id}: cover missing at ${book.coverImage || "missing"}.`);
   if (importedPages.length !== expected.pages) failures.push(`${expected.id}: imported story image count is ${importedPages.length}, expected ${expected.pages}.`);
@@ -448,7 +448,7 @@ for (const expected of expectedDinoBooks) {
 for (const expected of expectedFirstFactsBooks) {
   const book = visibleFirstFactsBooks.find(item => item.id === expected.id);
   if (!book) {
-    failures.push(`${expected.id}: missing from First Facts teacher-preview nonfiction shelf.`);
+    failures.push(`${expected.id}: missing from First Facts public nonfiction shelf.`);
     continue;
   }
 
@@ -471,9 +471,9 @@ for (const expected of expectedFirstFactsBooks) {
   if (book.seriesTitle !== "First Facts") failures.push(`${expected.id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
   if (book.author !== "Mara Lane") failures.push(`${expected.id}: author is ${book.author || "missing"}, expected Mara Lane.`);
   if (book.illustrator !== "Theo Finch") failures.push(`${expected.id}: illustrator is ${book.illustrator || "missing"}, expected Theo Finch.`);
-  if (book.status !== "teacher_preview") failures.push(`${expected.id}: status is ${book.status || "missing"}, expected teacher_preview.`);
-  if (book.qaStatus !== "needs_review") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected needs_review.`);
-  if (!book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be true for review import.`);
+  if (book.status !== "approved") failures.push(`${expected.id}: status is ${book.status || "missing"}, expected approved.`);
+  if (book.qaStatus !== "approved") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved.`);
+  if (book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be false for student release.`);
   if (storyPages.length !== expected.pages) failures.push(`${expected.id}: source page count is ${storyPages.length}, expected ${expected.pages}.`);
   if (!coverExists) failures.push(`${expected.id}: cover missing at ${book.coverImage || "missing"}.`);
   if (importedPages.length !== expected.pages) failures.push(`${expected.id}: imported story image count is ${importedPages.length}, expected ${expected.pages}.`);
@@ -717,7 +717,7 @@ const dinoReport = [
   `- Dino Pals total draft books checked: ${draftDinoBooks.length}`,
   `- Dino Pals Books 11-20 imported in this pass: ${dinoBooks1120Rows.length}`,
   "- Import order: Level B fiction books 11-20 added after existing Books 1-10.",
-  "- Release scope: teacher preview only, pending final QA.",
+  "- Release scope: student public viewing.",
   `- Imported covers for Books 11-20: ${dinoBooks1120Rows.filter(row => row.coverExists).length}/10`,
   `- Imported story page images for Books 11-20: ${dinoBooks1120Rows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
   `- Imported story page audio files for Books 11-20: ${dinoBooks1120Rows.reduce((sum, row) => sum + row.audioPages.length, 0)}`,
@@ -747,7 +747,7 @@ const dinoReport = [
   "",
   "## QA Status",
   "",
-  "All Dino Pals books are imported as `teacher_preview` / `needs_review` and remain behind teacher preview until reviewed.",
+  "All Dino Pals books are released as `approved` and visible to student readers.",
   "",
   "## Next Steps",
   "",
@@ -760,7 +760,7 @@ const dinoReport = [
   "",
   failures.length ? "## Failures" : "## Result",
   "",
-  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Dino Pals Level B Books 11-20 are imported with cover, twelve story pages, and page audio for teacher preview; Books 1-10 remain intact."
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Dino Pals Level B Books 11-20 are imported with cover, twelve story pages, and page audio for student readers; Books 1-10 remain intact."
 ];
 
 fs.mkdirSync(path.dirname(bobReportPath), { recursive: true });

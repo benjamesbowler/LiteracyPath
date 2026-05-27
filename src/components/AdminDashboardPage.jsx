@@ -10,16 +10,19 @@ import { guidedReadingBooks } from "../data/guidedReadingBooks";
 import { addDeletedMediaRecords, isMediaDeleted } from "../data/deletedMediaManifest";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent";
+import {
+  GUIDED_READING_MOVE_LEVELS,
+  applyGuidedReadingLevelOverride,
+  readGuidedReadingLevelOverrides,
+  setGuidedReadingLevelOverride
+} from "../utils/guidedReading/bookLevelOverrides";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
-const GUIDED_IMAGE_QA_RESET_VERSION = "2026-05-26-level-c-page-alignment-reset";
+const GUIDED_IMAGE_QA_RESET_VERSION = "2026-05-27-book-level-controls";
 const GUIDED_IMAGE_QA_STATUSES = [
   "unreviewed",
-  "match",
-  "no_match_remake",
-  "whole_book_continuity_remake",
-  "whole_book_reject_story",
+  "moved_level",
   "deleted"
 ];
 
@@ -196,54 +199,32 @@ function resetGuidedImageQaOverrides() {
   localStorage.setItem(GUIDED_IMAGE_QA_RESET_KEY, GUIDED_IMAGE_QA_RESET_VERSION);
 }
 
-function buildGuidedImageQaRecords(overrides = readGuidedImageQaOverrides()) {
-  return guidedReadingBooks.flatMap(book => {
-    const coverRecord = {
-      id: `${book.id}:cover`,
+function buildGuidedImageQaRecords(overrides = readGuidedImageQaOverrides(), levelOverrides = readGuidedReadingLevelOverrides()) {
+  return guidedReadingBooks.map(rawBook => {
+    const book = applyGuidedReadingLevelOverride(rawBook, levelOverrides);
+    const id = `${book.id}:book`;
+    return {
+      id,
       bookId: book.id,
       title: book.title,
+      seriesTitle: book.seriesTitle || "",
       level: book.level,
+      originalLevel: rawBook.level,
       type: book.type,
-      reviewMode: Boolean(book.reviewMode),
-      pageNumber: 0,
-      displayPageNumber: "Cover",
-      text: book.title || "",
+      pageCount: book.pages?.length || 0,
+      text: `${book.title || ""}${book.seriesTitle ? ` · ${book.seriesTitle}` : ""}`,
       image: book.coverImage || book.cover || "",
-      originalImage: "",
-      imageRemapSourcePage: "",
-      assetType: "guided-reading-cover",
+      pages: book.pages || [],
+      assetType: "guided-reading-book",
       qaStatus: book.qaStatus || "",
       qaNotes: book.qaNotes || "",
-      status: "unreviewed",
+      status: levelOverrides[book.id] ? "moved_level" : "unreviewed",
       reviewerNotes: "",
       reviewedAt: "",
-      ...overrides[`${book.id}:cover`]
+      ...overrides[id],
+      level: levelOverrides[book.id] || book.level,
+      movedToLevel: levelOverrides[book.id] || ""
     };
-    const pageRecords = (book.pages || []).map(page => {
-      const id = `${book.id}:page-${String(page.pageNumber || 0).padStart(3, "0")}`;
-      return {
-        id,
-        bookId: book.id,
-        title: book.title,
-        level: book.level,
-        type: book.type,
-        reviewMode: Boolean(book.reviewMode),
-        pageNumber: page.pageNumber,
-        displayPageNumber: page.pageNumber,
-        text: page.text || "",
-        image: page.image || "",
-        originalImage: page.originalImage || "",
-        imageRemapSourcePage: page.imageRemapSourcePage || "",
-        assetType: "guided-reading-page",
-        qaStatus: page.qaStatus || book.qaStatus || "",
-        qaNotes: page.qaNotes || book.qaNotes || "",
-        status: "unreviewed",
-        reviewerNotes: "",
-        reviewedAt: "",
-        ...overrides[id]
-      };
-    });
-    return [coverRecord, ...pageRecords];
   });
 }
 
@@ -253,12 +234,9 @@ function guidedImageQaToCsv(records) {
     "title",
     "level",
     "type",
-    "pageNumber",
     "status",
     "image",
-    "originalImage",
-    "imageRemapSourcePage",
-    "text",
+    "pageCount",
     "qaStatus",
     "reviewerNotes"
   ];
@@ -269,12 +247,9 @@ function guidedImageQaToCsv(records) {
       record.title,
       record.level,
       record.type,
-      record.pageNumber,
       record.status,
       record.image,
-      record.originalImage,
-      record.imageRemapSourcePage,
-      record.text,
+      record.pageCount,
       record.qaStatus,
       record.reviewerNotes
     ].map(csvEscape).join(","))
@@ -686,13 +661,14 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
 
 function GuidedReadingImageQaPage({ onBack }) {
   const [overrides, setOverrides] = useState(() => readGuidedImageQaOverrides());
+  const [levelOverrides, setLevelOverrides] = useState(() => readGuidedReadingLevelOverrides());
   const [statusFilter, setStatusFilter] = useState("all");
   const [bookFilter, setBookFilter] = useState("all");
   const [levelFilter, setLevelFilter] = useState("all");
   const [search, setSearch] = useState("");
   const [pendingDelete, setPendingDelete] = useState(null);
   const [deleteConfirmationText, setDeleteConfirmationText] = useState("");
-  const records = useMemo(() => buildGuidedImageQaRecords(overrides), [overrides]);
+  const records = useMemo(() => buildGuidedImageQaRecords(overrides, levelOverrides), [overrides, levelOverrides]);
   const bookOptions = useMemo(() => [...new Set(records.map(record => record.title))].sort(), [records]);
   const levelOptions = useMemo(() => [...new Set(records.map(record => record.level).filter(Boolean))].sort(), [records]);
   const visibleRecords = records.filter(record => {
@@ -708,14 +684,16 @@ function GuidedReadingImageQaPage({ onBack }) {
 
   useEffect(() => {
     setOverrides(readGuidedImageQaOverrides());
+    setLevelOverrides(readGuidedReadingLevelOverrides());
   }, []);
 
-  function applyGuidedStatus(recordId, status) {
+  function markGuidedBookMoved(recordId, level) {
     const next = {
       ...overrides,
       [recordId]: {
         ...(overrides[recordId] || {}),
-        status,
+        status: "moved_level",
+        reviewerNotes: `Moved to Level ${level}.`,
         reviewedAt: new Date().toISOString()
       }
     };
@@ -723,106 +701,64 @@ function GuidedReadingImageQaPage({ onBack }) {
     setOverrides(next);
   }
 
-  function applyWholeBookStatus(bookId, status, defaultNotes) {
-    const next = { ...overrides };
-    records
-      .filter(record => record.bookId === bookId)
-      .forEach(record => {
-        next[record.id] = {
-          ...(next[record.id] || {}),
-          status,
-          reviewerNotes: next[record.id]?.reviewerNotes || defaultNotes,
-          reviewedAt: new Date().toISOString()
-        };
-      });
-    writeGuidedImageQaOverrides(next);
-    setOverrides(next);
+  function moveGuidedBook(record, level) {
+    const nextLevelOverrides = setGuidedReadingLevelOverride(record.bookId, level);
+    setLevelOverrides(nextLevelOverrides);
+    markGuidedBookMoved(record.id, level);
   }
 
-  function requestGuidedDelete(record, assetType = "guided-reading-page") {
+  function requestGuidedDelete(record) {
     setPendingDelete({
-      kind: assetType,
+      kind: "guided-reading-book",
       record,
       bookId: record.bookId,
       path: record.image,
-      label: assetType === "guided-reading-book"
-        ? `${record.title} (entire book asset set)`
-        : `${record.title} page ${record.pageNumber}`
+      label: `${record.title} (entire book asset set)`
     });
     setDeleteConfirmationText("");
   }
 
   function confirmGuidedDelete() {
     if (!pendingDelete?.record || deleteConfirmationText !== "DELETE") return;
-    const { record, kind } = pendingDelete;
+    const { record } = pendingDelete;
     const next = { ...overrides };
-    const affectedRecords = kind === "guided-reading-book"
-      ? records.filter(item => item.bookId === record.bookId)
-      : [record];
+    const affectedRecords = [record];
 
     affectedRecords.forEach(item => {
       next[item.id] = {
         ...(next[item.id] || {}),
         status: "deleted",
-        reviewerNotes: kind === "guided-reading-book"
-          ? "Whole book soft-deleted by admin QA. Use tools/deleteQaAsset.js to quarantine files locally."
-          : "Page image soft-deleted by admin QA. Use tools/deleteQaAsset.js to quarantine the file locally.",
+        reviewerNotes: "Whole book soft-deleted by admin QA. Use tools/deleteQaAsset.js to quarantine files locally.",
         reviewedAt: new Date().toISOString()
       };
     });
     writeGuidedImageQaOverrides(next);
-    addDeletedMediaRecords(kind === "guided-reading-book"
-      ? [{
+    addDeletedMediaRecords([
+      {
         assetType: "guided-reading-book",
         path: "",
         bookId: record.bookId,
         reason: "Whole guided-reading book soft-deleted from admin QA.",
         replacementNeeded: true
-      }, ...affectedRecords.map(item => ({
+      },
+      ...(record.pages || []).map(item => ({
         assetType: item.assetType || "guided-reading-page",
         path: item.image,
-        bookId: item.bookId,
+        bookId: record.bookId,
         pageNumber: item.pageNumber,
         reason: "Guided-reading asset deleted as part of whole-book QA delete.",
         replacementNeeded: true
-      }))]
-      : [{
-        assetType: record.assetType || "guided-reading-page",
-        path: record.image,
-        bookId: record.bookId,
-        pageNumber: record.pageNumber,
-        reason: "Guided-reading asset soft-deleted from admin QA.",
-        replacementNeeded: true
-      }]
-    );
+      }))
+    ]);
     setOverrides(next);
     setPendingDelete(null);
     setDeleteConfirmationText("");
-  }
-
-  function updateNotes(recordId, reviewerNotes) {
-    const next = {
-      ...overrides,
-      [recordId]: {
-        ...(overrides[recordId] || {}),
-        reviewerNotes,
-        reviewedAt: new Date().toISOString()
-      }
-    };
-    writeGuidedImageQaOverrides(next);
-    setOverrides(next);
   }
 
   function exportGuidedQa(format) {
     const base = "literacypath-guided-reading-image-qa";
     if (format === "csv") downloadTextFile(`${base}.csv`, guidedImageQaToCsv(visibleRecords), "text/csv");
     if (format === "json") downloadTextFile(`${base}.json`, JSON.stringify(visibleRecords, null, 2), "application/json");
-    if (format === "kimi") downloadTextFile(`${base}-kimi-remake-request.md`, guidedImageQaToKimiMarkdown(visibleRecords), "text/markdown");
-  }
-
-  function resetGuidedQa() {
-    resetGuidedImageQaOverrides();
-    setOverrides({});
   }
 
   const counts = records.reduce((map, record) => {
@@ -835,28 +771,23 @@ function GuidedReadingImageQaPage({ onBack }) {
       <section className="card page-stack">
         <div className="admin-header">
           <div>
-            <h2>Guided Reading Image QA</h2>
-            <p className="muted-text">Check whether each page picture matches the exact app text. Pages marked no match export as Kimi remake requests.</p>
+            <h2>Guided Reading Book Controls</h2>
+            <p className="muted-text">Keep the library public, remove a whole book if needed, or move a book into Level A, B, or C.</p>
           </div>
           <div className="button-row admin-controls">
             <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
             <button className="report-button" onClick={() => exportGuidedQa("csv")} type="button">Export CSV</button>
             <button className="report-button" onClick={() => exportGuidedQa("json")} type="button">Export JSON</button>
-            <button className="report-button" onClick={() => exportGuidedQa("kimi")} type="button">Export Kimi Remake Request</button>
-            <button className="report-button" onClick={resetGuidedQa} type="button">Reset QA</button>
           </div>
         </div>
         <div className="media-qa-rules">
-          <span>text-picture match = keep image</span>
-          <span>no match remake image using text = send to Kimi</span>
-          <span>whole book continuity remake = new full image set</span>
-          <span>reject whole book = add +1 replacement book next round</span>
-          <span>exact app text is the source of truth</span>
-          <span>no embedded text or speech bubbles</span>
-          <span>preserve character continuity</span>
+          <span>all guided reading books are public unless deleted</span>
+          <span>Delete Whole Book soft-blocks the book from runtime</span>
+          <span>Move to A/B/C changes its shelf level in this browser</span>
+          <span>use source data for permanent level changes after review</span>
         </div>
         <p className="muted-text">
-          {counts.match || 0} matched · {counts.no_match_remake || 0} page remakes · {counts.whole_book_continuity_remake || 0} continuity remakes · {counts.whole_book_reject_story || 0} story rejections · {counts.unreviewed || 0} unreviewed
+          {records.length} books · {counts.moved_level || 0} level moves · {counts.deleted || 0} deleted
         </p>
       </section>
 
@@ -893,47 +824,25 @@ function GuidedReadingImageQaPage({ onBack }) {
         {visibleRecords.map(record => (
           <article className={`guided-image-qa-card status-${record.status}`} key={record.id}>
             <div className="guided-image-qa-preview">
-              {record.image ? <img alt={`${record.title} page ${record.pageNumber}`} src={record.image} /> : <span>Missing image</span>}
+              {record.image ? <img alt={`${record.title} cover`} src={record.image} /> : <span>Missing cover</span>}
             </div>
             <div className="guided-image-qa-body">
               <div>
-                <p className="panel-label">{record.bookId} · Level {record.level} · Page {record.displayPageNumber || record.pageNumber}</p>
+                <p className="panel-label">{record.bookId} · {record.type} · Level {record.level} · {record.pageCount} pages</p>
                 <h3>{record.title}</h3>
-                <p className="guided-image-qa-text">{record.text}</p>
+                <p className="guided-image-qa-text">{record.seriesTitle || "Guided Reading"}</p>
               </div>
               <small>{record.image}</small>
-              {record.imageRemapSourcePage && (
-                <small>Remapped from generated page {record.imageRemapSourcePage}{record.originalImage ? ` (${record.originalImage})` : ""}</small>
-              )}
               <span>{statusLabel(record.status)}</span>
-              <textarea
-                aria-label={`Notes for ${record.title} page ${record.pageNumber}`}
-                onChange={event => updateNotes(record.id, event.target.value)}
-                placeholder="Optional notes for Kimi or QA..."
-                value={record.reviewerNotes || ""}
-              />
               <div className="guided-image-qa-actions">
-                <button className="report-button" onClick={() => applyGuidedStatus(record.id, "match")} type="button">
-                  Text-picture match
+                <button className="report-button danger" onClick={() => requestGuidedDelete(record)} type="button">
+                  Delete Whole Book
                 </button>
-                <button className="report-button danger" onClick={() => applyGuidedStatus(record.id, "no_match_remake")} type="button">
-                  No match remake image using text
-                </button>
-                <button className="report-button danger" onClick={() => applyWholeBookStatus(record.bookId, "whole_book_continuity_remake", "Whole-book continuity remake requested.")} type="button">
-                  Whole book continuity remake
-                </button>
-                <button className="report-button danger" onClick={() => applyWholeBookStatus(record.bookId, "whole_book_reject_story", "Whole book rejected; add +1 replacement book to next development round.")} type="button">
-                  Reject whole book/story
-                </button>
-                <button className="report-button danger" onClick={() => requestGuidedDelete(record, record.assetType || "guided-reading-page")} type="button">
-                  {record.assetType === "guided-reading-cover" ? "Delete cover image" : "Delete page image"}
-                </button>
-                <button className="report-button danger" onClick={() => requestGuidedDelete(record, "guided-reading-book")} type="button">
-                  Delete whole book assets
-                </button>
-                <button className="report-button" onClick={() => applyGuidedStatus(record.id, "unreviewed")} type="button">
-                  Undo
-                </button>
+                {GUIDED_READING_MOVE_LEVELS.map(level => (
+                  <button className="report-button" key={level} onClick={() => moveGuidedBook(record, level)} type="button">
+                    Move to {level}
+                  </button>
+                ))}
               </div>
             </div>
           </article>

@@ -12,11 +12,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 1,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A01_Look_at_the_Colours.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-01/cover.webp",
@@ -100,8 +100,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/robin.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -140,8 +140,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/duck.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -176,8 +176,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/forget-me-nots.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -212,8 +212,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/frog.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -252,8 +252,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/pumpkin.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -284,8 +284,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/lavender.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -336,8 +336,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/see.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -355,11 +355,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 2,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A02_The_Four_Seasons.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-02/cover.webp",
@@ -447,8 +447,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sing.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -507,8 +507,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/hatches.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -567,8 +567,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/day.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -615,8 +615,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/grows.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -671,8 +671,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/down.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -731,8 +731,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/south.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -775,8 +775,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/falls.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -823,8 +823,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/warm.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -879,8 +879,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/best.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -898,11 +898,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 3,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A03_Little_Seeds_Grow.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-03/cover.webp",
@@ -1006,8 +1006,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/shapes.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1054,8 +1054,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/gently.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1098,8 +1098,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/up.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1146,8 +1146,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/soil.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1198,8 +1198,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/leaves.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1258,8 +1258,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/water.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1310,8 +1310,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/plant.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -1329,11 +1329,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 4,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A04_What_is_Weather.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-04/cover.webp",
@@ -1429,8 +1429,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/warm.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1485,8 +1485,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/drip.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1545,8 +1545,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/air.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1593,8 +1593,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/white.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1653,8 +1653,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sun.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1705,8 +1705,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/falls.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1765,8 +1765,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/purple.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -1829,8 +1829,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/today.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -1848,11 +1848,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 5,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A05_Flowers_and_Trees.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-05/cover.webp",
@@ -1960,8 +1960,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/roots.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2016,8 +2016,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/grow.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2072,8 +2072,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/grass.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2128,8 +2128,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/thorns.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2184,8 +2184,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/up.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2248,8 +2248,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/bare.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2308,8 +2308,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/trees.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2364,8 +2364,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/water.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -2383,11 +2383,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 6,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A06_Baby_Animals.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-06/cover.webp",
@@ -2491,8 +2491,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/fluffy.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2543,8 +2543,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/purr.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2603,8 +2603,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/milk.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2663,8 +2663,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/yellow.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2719,8 +2719,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/wool.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2775,8 +2775,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/fast.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2827,8 +2827,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/swim.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -2875,8 +2875,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/big.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -2894,11 +2894,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 7,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A07_Animals_on_the_Farm.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-07/cover.webp",
@@ -2990,8 +2990,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/moo.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3042,8 +3042,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/day.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3094,8 +3094,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/oink.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3142,8 +3142,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/warm.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3194,8 +3194,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/cluck.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3246,8 +3246,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/things.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3294,8 +3294,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/quack.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3338,8 +3338,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/animals.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -3357,11 +3357,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 8,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A08_Animals_in_the_Ocean.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-08/cover.webp",
@@ -3465,8 +3465,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/look.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3521,8 +3521,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/scales.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3597,8 +3597,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/breathe.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3661,8 +3661,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/rocks.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3713,8 +3713,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sideways.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3761,8 +3761,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/plants.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3809,8 +3809,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/clever.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -3865,8 +3865,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/amazing.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -3884,11 +3884,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 9,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A09_Animals_at_Night.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-09/cover.webp",
@@ -4000,8 +4000,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/nocturnal.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4060,8 +4060,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/twit-twoo.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4128,8 +4128,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/insects.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4188,8 +4188,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/bugs.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4248,8 +4248,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/quietly.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4312,8 +4312,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/busy.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -4331,11 +4331,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 10,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A10_Bugs_All_Around_Us.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-10/cover.webp",
@@ -4435,8 +4435,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/closely.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4487,8 +4487,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/patterns.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4539,8 +4539,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/important.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4595,8 +4595,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/greenfly.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4647,8 +4647,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/food.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4699,8 +4699,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/grow.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4763,8 +4763,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/slowly.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4807,8 +4807,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/important.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -4826,11 +4826,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 11,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A11_Pets_We_Love.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-11/cover.webp",
@@ -4930,8 +4930,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/run.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -4986,8 +4986,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/dogs.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5042,8 +5042,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/happy.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5110,8 +5110,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/noses.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5166,8 +5166,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/water.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5222,8 +5222,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/wheel.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5278,8 +5278,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/friends.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -5297,11 +5297,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 12,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A12_Shapes_Everywhere.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-12/cover.webp",
@@ -5413,8 +5413,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/circle.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5489,8 +5489,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/square.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5565,8 +5565,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/triangle.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5665,8 +5665,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/rectangle.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5725,8 +5725,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sky.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5805,8 +5805,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/oval.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5849,8 +5849,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/today.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -5868,11 +5868,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 13,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A13_Big_and_Small.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-13/cover.webp",
@@ -5954,8 +5954,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/big.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -5994,8 +5994,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/small.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6042,8 +6042,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/small.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6086,8 +6086,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/small.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6130,8 +6130,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/small.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6198,8 +6198,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/small.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -6217,11 +6217,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 14,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A14_Hot_and_Cold.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-14/cover.webp",
@@ -6309,8 +6309,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/up.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6349,8 +6349,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/it.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6389,8 +6389,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/brrr.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6437,8 +6437,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/first.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6481,8 +6481,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/day.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6529,8 +6529,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/both.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6577,8 +6577,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/tell.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -6596,11 +6596,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 15,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A15_Things_That_Float_and_Sink.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-15/cover.webp",
@@ -6692,8 +6692,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/top.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6744,8 +6744,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/bottom.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6780,8 +6780,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sinks.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6832,8 +6832,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/things.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6880,8 +6880,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sink.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6920,8 +6920,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sinks.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -6968,8 +6968,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/fun.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -6987,11 +6987,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 16,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A16_Push_and_Pull.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-16/cover.webp",
@@ -7071,8 +7071,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/push.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7107,8 +7107,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/pull.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7163,8 +7163,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/too.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7211,8 +7211,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/high.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7255,8 +7255,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/up.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7311,8 +7311,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/pin.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7359,8 +7359,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/move.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -7378,11 +7378,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 17,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A17_Hello_Sun.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-17/cover.webp",
@@ -7486,8 +7486,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/away.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7538,8 +7538,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/earth.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7590,8 +7590,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sun.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7658,8 +7658,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/day.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7706,8 +7706,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sun.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7762,8 +7762,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/too.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -7810,8 +7810,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sun.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -7829,11 +7829,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 18,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A18_The_Moon.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-18/cover.webp",
@@ -7949,8 +7949,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/round.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8009,8 +8009,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/dark.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8061,8 +8061,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/banana.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8117,8 +8117,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/moon.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8169,8 +8169,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/slowly.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8225,8 +8225,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/suits.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8285,8 +8285,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/night.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -8304,11 +8304,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 19,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A19_Day_and_Night.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-19/cover.webp",
@@ -8412,8 +8412,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/blue.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8468,8 +8468,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/eat.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8520,8 +8520,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/dark.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8580,8 +8580,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sky.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8620,8 +8620,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/rest.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8680,8 +8680,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/night.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8728,8 +8728,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/day.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
@@ -8747,11 +8747,11 @@ const firstFactsLevelABooks = [
     "bookNumber": 20,
     "author": "Mara Lane",
     "illustrator": "Theo Finch",
-    "status": "teacher_preview",
-    "qaStatus": "needs_review",
-    "qaNotes": "Imported from First Facts Level A source pack for teacher preview.",
+    "status": "approved",
+    "qaStatus": "approved",
+    "qaNotes": "Released for student Guided Reading.",
     "active": true,
-    "teacherPreviewOnly": true,
+    "teacherPreviewOnly": false,
     "source": "first_facts_level_a_nonfiction_pack_2026_05_27",
     "sourceDocx": "NF_A20_My_Five_Senses.docx",
     "coverImage": "/guided-reading/nonfiction/first-facts/book-20/cover.webp",
@@ -8847,8 +8847,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/world.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8903,8 +8903,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/shapes.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -8951,8 +8951,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/sounds.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -9003,8 +9003,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/things.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -9051,8 +9051,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/food.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -9127,8 +9127,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/cold.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -9187,8 +9187,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/day.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       },
       {
@@ -9223,8 +9223,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/audio/child-mode/words/best.mp3"
           }
         ],
-        "qaStatus": "needs_review",
-        "qaNotes": "Imported First Facts Level A nonfiction page for teacher preview.",
+        "qaStatus": "approved",
+        "qaNotes": "Released for student Guided Reading.",
         "active": true
       }
     ]
