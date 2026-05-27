@@ -98,7 +98,7 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 1-25",
     aliases: ["high-frequency words 1-25"],
     levels: {
-      1: { designed: true, rule: "Recognition and listening tasks for the first 25 high-frequency words.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "COMPREHENSION", "MULTIPLE_CHOICE"] },
+      1: { designed: true, rule: "Recognition, listening, and simple cloze tasks for the first 25 high-frequency words.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "COMPREHENSION", "MULTIPLE_CHOICE"] },
       2: { designed: true, rule: "Sentence-level cloze tasks using the same 1-25 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
     }
   },
@@ -107,7 +107,7 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 26-50",
     aliases: ["high-frequency words 26-50"],
     levels: {
-      1: { designed: true, rule: "Recognition and listening tasks for high-frequency words 26-50.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "COMPREHENSION", "MULTIPLE_CHOICE"] },
+      1: { designed: true, rule: "Recognition, listening, and simple cloze tasks for high-frequency words 26-50.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "COMPREHENSION", "MULTIPLE_CHOICE"] },
       2: { designed: true, rule: "Sentence-level cloze tasks using the 26-50 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
     }
   },
@@ -116,7 +116,7 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 51-100",
     aliases: ["high-frequency words 51-100", "high-frequency words 51-75", "high-frequency words 76-100"],
     levels: {
-      1: { designed: true, rule: "Recognition and sentence-context tasks for high-frequency words 51-100.", allowedFormats: ["COMPREHENSION", "UNKNOWN", "MULTIPLE_CHOICE"] },
+      1: { designed: true, rule: "Recognition and sentence-context tasks for high-frequency words 51-100.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "COMPREHENSION", "UNKNOWN", "MULTIPLE_CHOICE"] },
       2: { designed: true, rule: "Sentence-level cloze tasks using the 51-100 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
     }
   },
@@ -143,8 +143,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Long Vowels and Silent E",
     aliases: ["long vowels and silent e", "long vowels", "silent e"],
     levels: {
-      1: { designed: true, rule: "Simple a_e, i_e, o_e, u_e, e_e.", allowedFormats: ["DECODING"] },
-      2: { designed: true, rule: "Short/long minimal-pair contrasts.", allowedFormats: ["DECODING"] }
+      1: { designed: true, rule: "Simple a_e, i_e, o_e, u_e, e_e.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] },
+      2: { designed: true, rule: "Short/long minimal-pair contrasts.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] }
     }
   },
   {
@@ -152,8 +152,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Vowel Teams",
     aliases: ["vowel teams"],
     levels: {
-      1: { designed: true, rule: "Common ai, ay, ee, ea, oa.", allowedFormats: ["DECODING"] },
-      2: { designed: true, rule: "oi, oy, ow, ou and ambiguous pairs.", allowedFormats: ["DECODING"] }
+      1: { designed: true, rule: "Common ai, ay, ee, ea, oa.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] },
+      2: { designed: true, rule: "oi, oy, ow, ou and ambiguous pairs.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] }
     }
   },
   {
@@ -161,8 +161,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "R-Controlled Vowels",
     aliases: ["r-controlled vowels", "r controlled vowels"],
     levels: {
-      1: { designed: true, rule: "ar, or, er/ir/ur basics.", allowedFormats: ["DECODING"] },
-      2: { designed: true, rule: "Mixed r-controlled word discrimination.", allowedFormats: ["DECODING"] }
+      1: { designed: true, rule: "ar, or, er/ir/ur basics.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] },
+      2: { designed: true, rule: "Mixed r-controlled word discrimination.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] }
     }
   },
   ...[
@@ -190,12 +190,12 @@ export const managedAssessmentSkillDepthConfig = [
       1: {
         designed: true,
         rule: "Concrete simple picture/sentence tasks with level-appropriate distractors.",
-        allowedFormats: ["COMPREHENSION", "GRAMMAR_BASICS", "VOCABULARY_CATEGORY", "PLURAL_IMAGE_SPELLING", "PLURAL_SPELLING_CONTEXT", "MORPHEME_MEANING_CONTEXT", "HOMOPHONE_MEANING", "SENTENCE_MATCHES_PICTURE", "UNKNOWN", "MULTIPLE_CHOICE"]
+        allowedFormats: ["COMPREHENSION", "GRAMMAR_BASICS", "VOCABULARY_CATEGORY", "IMAGE_CHOICE", "PLURAL_IMAGE_SPELLING", "PLURAL_SPELLING_CONTEXT", "MORPHEME_MEANING_CONTEXT", "HOMOPHONE_MEANING", "SENTENCE_MATCHES_PICTURE", "FIX_SENTENCE", "UNKNOWN", "MULTIPLE_CHOICE"]
       },
       2: {
         designed: true,
         rule: "Harder distractors, multi-sentence context, inference/context, and more precise language use.",
-        allowedFormats: ["COMPREHENSION", "GRAMMAR_BASICS", "VOCABULARY_CATEGORY", "PLURAL_IMAGE_SPELLING", "PLURAL_SPELLING_CONTEXT", "MORPHEME_MEANING_CONTEXT", "HOMOPHONE_MEANING", "SENTENCE_MATCHES_PICTURE", "UNKNOWN", "MULTIPLE_CHOICE"]
+        allowedFormats: ["COMPREHENSION", "GRAMMAR_BASICS", "VOCABULARY_CATEGORY", "IMAGE_CHOICE", "PLURAL_IMAGE_SPELLING", "PLURAL_SPELLING_CONTEXT", "MORPHEME_MEANING_CONTEXT", "HOMOPHONE_MEANING", "SENTENCE_MATCHES_PICTURE", "FIX_SENTENCE", "UNKNOWN", "MULTIPLE_CHOICE"]
       }
     }
   }))

@@ -49,17 +49,17 @@ const ROUTING_RULES = {
     singleTemplate: false
   },
   hfw_1_25: {
-    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "MULTIPLE_CHOICE"]),
+    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "MULTIPLE_CHOICE"]),
     sightWordsOnly: true,
     singleTemplate: false
   },
   hfw_26_50: {
-    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "MULTIPLE_CHOICE"]),
+    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "MULTIPLE_CHOICE"]),
     sightWordsOnly: true,
     singleTemplate: false
   },
   hfw_51_100: {
-    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "MULTIPLE_CHOICE", "UNKNOWN"]),
+    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "MULTIPLE_CHOICE", "UNKNOWN"]),
     sightWordsOnly: true,
     singleTemplate: false
   },
