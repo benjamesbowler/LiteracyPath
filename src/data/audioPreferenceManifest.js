@@ -192,6 +192,14 @@ const approvedFinalSoundsBWordAudio = {
   tube: "/media/final-sounds/audio/b/tube.mp3"
 };
 
+const approvedGuidedReadingVocabularyAudio = {
+  germs: "/media/vocabulary/audio/germs.mp3",
+  precious: "/media/vocabulary/audio/precious.mp3",
+  rivers: "/media/vocabulary/audio/rivers.mp3",
+  roads: "/media/vocabulary/audio/roads.mp3",
+  stronger: "/media/vocabulary/audio/stronger.mp3"
+};
+
 export const audioPreferenceManifest = Object.fromEntries([
   ...Object.entries(kimiVocabulary500AudioPreferences),
   ...approvedWordAudioKeys.map(word => [
@@ -214,6 +222,17 @@ export const audioPreferenceManifest = Object.fromEntries([
       fallbackPath,
       source: "final sounds /b/ level 1 media pack",
       notes: "Approved exact-word MP3 from the imported final /b/ Level 1 media pack."
+    })
+  ]),
+  ...Object.entries(approvedGuidedReadingVocabularyAudio).map(([word, fallbackPath]) => [
+    word,
+    approvedPreference({
+      key: word,
+      word,
+      category: "words",
+      fallbackPath,
+      source: "guided reading missing word audio import",
+      notes: "Approved exact-word MP3 imported for Guided Reading tap-to-hear word audio."
     })
   ]),
   ...Object.entries(importedVocabularyMediaManifest)
