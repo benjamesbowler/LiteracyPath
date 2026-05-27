@@ -46,6 +46,10 @@
   --lp-space-7: 16px;
   --lp-space-8: 18px;
   --lp-space-9: 20px;
+  --student-fit-page-gutter: 16px;
+  --student-fit-header-space: 16px;
+  --student-fit-shell-height: calc(100dvh - (var(--student-fit-page-gutter) * 2));
+  --student-fit-shell-height-fallback: calc(100vh - (var(--student-fit-page-gutter) * 2));
   --color-primary: var(--lp-color-primary);
   --color-primary-hover: var(--lp-color-primary-strong);
   --color-primary-soft: var(--lp-color-primary-soft);
@@ -72,6 +76,15 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: var(--lp-font-ui);
@@ -93,6 +106,38 @@ body {
 
 .app > * {
   min-width: 0;
+}
+
+.student-fit-shell {
+  width: min(100%, 1280px);
+  max-width: calc(100vw - (var(--student-fit-page-gutter) * 2));
+  height: var(--student-fit-shell-height-fallback);
+  height: var(--student-fit-shell-height);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.student-fit-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.student-fit-header,
+.student-fit-footer {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.student-fit-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .assessment-app {
@@ -1747,6 +1792,9 @@ body {
 }
 
 .guided-reader-shell.fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
   width: 100vw;
   max-width: none;
   height: 100vh;
@@ -3123,14 +3171,18 @@ select:focus {
 
 .assessment-question-layout.rhyming-assessment-layout {
   display: grid;
-  grid-template-columns: minmax(250px, 0.82fr) minmax(420px, 1.18fr);
+  grid-template-columns: minmax(280px, 0.85fr) minmax(420px, 1.4fr);
   grid-template-rows: auto minmax(0, 1fr);
   grid-template-areas:
     "prompt prompt"
     "target answers";
-  gap: clamp(10px, 1.4vw, 16px);
+  gap: clamp(14px, 2vw, 28px);
   align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 0;
+  overflow: hidden;
 }
 
 .rhyming-assessment-layout .assessment-prompt {
@@ -3144,6 +3196,7 @@ select:focus {
 
 .rhyming-assessment-layout .rhyming-picture-panel {
   grid-area: answers;
+  min-width: 0;
   min-height: 0;
 }
 
@@ -3172,22 +3225,28 @@ select:focus {
 }
 
 .rhyming-assessment-layout .rhyming-picture-grid {
+  width: 100%;
   height: 100%;
+  min-width: 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-rows: minmax(0, 1fr);
   gap: clamp(10px, 1.2vw, 14px);
 }
 
 .rhyming-assessment-layout .rhyming-answer-card {
+  min-width: 0;
   min-height: 0;
+  overflow: hidden;
   padding: clamp(7px, 1vw, 10px);
 }
 
 .rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button {
+  min-width: 0;
   min-height: 0;
   height: 100%;
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 6px;
+  overflow: hidden;
 }
 
 .rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button img {
@@ -3512,7 +3571,8 @@ select:focus {
 }
 
 .assessment-shell {
-  width: min(96vw, 1280px);
+  width: min(100%, 1280px);
+  max-width: calc(100vw - 32px);
   height: calc(100vh - 16px);
   height: calc(100dvh - 16px);
   min-height: calc(100vh - 16px);
@@ -4859,9 +4919,173 @@ select:focus {
   }
 }
 
+@media (max-width: 640px) {
+  :root {
+    --student-fit-page-gutter: 6px;
+  }
+
+  .guided-reading-reader-open .guided-reader-shell {
+    width: 100%;
+    max-width: calc(100vw - 8px);
+    height: calc(100dvh - 8px);
+    min-height: 0;
+  }
+
+  .guided-reader-shell.fullscreen {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    padding: 6px;
+  }
+
+  .guided-reading-reader-open .guided-reader-card {
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    gap: 5px;
+    padding: 6px;
+    border-radius: 12px;
+  }
+
+  .guided-reader-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin-bottom: 2px;
+  }
+
+  .guided-reader-header h3 {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: clamp(15px, 4.3vw, 18px);
+    line-height: 1.12;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .guided-reader-header p:not(.panel-label) {
+    display: none;
+  }
+
+  .guided-page-controls {
+    justify-content: stretch;
+    gap: 4px;
+  }
+
+  .guided-page-controls .lp-button {
+    flex: 1 1 auto;
+    min-height: 30px;
+    padding: 5px 7px;
+    font-size: 0.72rem;
+  }
+
+  .guided-page-controls strong {
+    flex: 1 0 100%;
+    order: -1;
+    font-size: 0.76rem;
+    line-height: 1.1;
+  }
+
+  .guided-reader-modebar {
+    gap: 4px;
+    margin-bottom: 4px;
+    padding: 4px;
+    border-radius: 10px;
+  }
+
+  .guided-reader-modebar p {
+    display: none;
+  }
+
+  .guided-mode-toggle {
+    width: 100%;
+    padding: 2px;
+  }
+
+  .guided-mode-toggle button {
+    flex: 1 1 0;
+    min-height: 28px !important;
+    padding: 4px 6px !important;
+    font-size: 0.7rem !important;
+  }
+
+  .guided-page-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: clamp(155px, 30dvh, 245px) minmax(0, 1fr);
+    gap: 6px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .guided-page-image-card {
+    height: 100%;
+    min-height: 0;
+    padding: 4px;
+    border-radius: 10px;
+  }
+
+  .guided-page-reading {
+    grid-template-rows: minmax(clamp(140px, 28dvh, 240px), 1fr) auto;
+    gap: 4px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .guided-page-text-frame {
+    min-height: clamp(140px, 28dvh, 240px);
+    max-height: 100%;
+    border-radius: 10px;
+  }
+
+  .guided-page-text {
+    padding: 8px;
+  }
+
+  .guided-note-drawer,
+  .guided-mark-legend,
+  .guided-complete-message {
+    display: none;
+  }
+
+  .guided-audio-notice {
+    margin: 0;
+    font-size: 0.68rem;
+    line-height: 1.15;
+  }
+
+  .guided-reader-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 5px;
+  }
+
+  .guided-reader-actions .lp-button {
+    width: 100%;
+    min-height: 34px;
+    padding: 6px 8px;
+    font-size: 0.78rem;
+  }
+
+  .assessment-shell {
+    width: 100%;
+    max-width: calc(100vw - 12px);
+  }
+
+  .assessment-question-layout.rhyming-assessment-layout {
+    gap: 6px;
+  }
+
+  .rhyming-assessment-layout .rhyming-answer-card {
+    padding: 5px;
+  }
+}
+
 @media (max-width: 560px) {
   .app {
     padding: 10px;
+  }
+
+  .assessment-app {
+    padding: 6px;
   }
 
   .hero {
