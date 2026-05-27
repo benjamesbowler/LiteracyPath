@@ -228,6 +228,21 @@ export function questionFilterReason(question = {}) {
   ) {
     return "rhyming runtime uses image-card RHYMING_PICTURE items only";
   }
+  if (skillId === "rhyming") {
+    const cards = question.imageCards || [];
+    const targetImage = question.imagePath || question.imageUrl || question.targetImage || question.targetImagePath || question.targetImageUrl || "";
+    const correctAnswers = Array.isArray(question.correctAnswers) && question.correctAnswers.length
+      ? question.correctAnswers
+      : [question.correctAnswer || question.answer].filter(Boolean);
+    const cardValues = cards.map(card => normalizeWord(card.value || card.word || card.label));
+
+    if (!targetImage || !publicPathExists(targetImage)) return "rhyming runtime requires a target image";
+    if (cards.length !== 4) return "rhyming runtime requires exactly four answer image cards";
+    if (!cards.every(card => card.image && publicPathExists(card.image))) return "rhyming runtime requires four existing answer card images";
+    if (![1, 2].includes(correctAnswers.length)) return "rhyming runtime supports one or two correct answers";
+    if (new Set(cardValues).size !== cardValues.length) return "rhyming runtime answer cards must be unique";
+    if (!correctAnswers.every(answer => cardValues.includes(normalizeWord(answer)))) return "rhyming runtime correct answers must be present in answer cards";
+  }
   if (skillId === "final_sounds") {
     const level = Number(question.level || question.difficulty || 1) || 1;
     if (level === 1 && !isFinalSoundsLevel1Question(question)) {

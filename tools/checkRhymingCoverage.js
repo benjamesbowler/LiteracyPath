@@ -30,7 +30,7 @@ function publicPathExists(assetPath = "") {
 }
 
 function familyForQuestion(question = {}) {
-  return String(question.itemKey || question.rhymeGroup || question.rime || question.coverageTarget || "").toLowerCase();
+  return String(question.itemKey || question.rimeFamily || question.rhymeGroup || question.rime || question.coverageTarget || "").toLowerCase();
 }
 
 function questionHasRuntimeImage(question = {}) {
@@ -64,6 +64,58 @@ function makeRounds(items, count = 50) {
     items.slice(index).concat(items.slice(0, index)),
     15
   ));
+}
+
+function cardValue(card = {}) {
+  return String(card.value || card.word || card.label || "").toLowerCase().trim();
+}
+
+function correctAnswersForQuestion(question = {}) {
+  return Array.isArray(question.correctAnswers) && question.correctAnswers.length > 0
+    ? question.correctAnswers.map(answer => String(answer).toLowerCase().trim()).filter(Boolean)
+    : [question.correctAnswer || question.answer].map(answer => String(answer || "").toLowerCase().trim()).filter(Boolean);
+}
+
+function targetImageForQuestion(question = {}) {
+  return question.imagePath || question.imageUrl || question.targetImage || question.targetImagePath || question.targetImageUrl || "";
+}
+
+function buildCoverageForcedRound(items, alreadyCoveredFamilies, length = 15) {
+  const selected = [];
+  const selectedFamilies = new Set();
+  const selectedTargets = new Set();
+  const missingFamilies = rhymingExpectedItemKeys.filter(family => !alreadyCoveredFamilies.has(family));
+
+  for (const family of missingFamilies) {
+    const candidate = items.find(item =>
+      familyForQuestion(item) === family &&
+      !selectedTargets.has(String(item.targetWord || "").toLowerCase())
+    );
+    if (candidate) {
+      selected.push(candidate);
+      selectedFamilies.add(family);
+      selectedTargets.add(String(candidate.targetWord || "").toLowerCase());
+    }
+  }
+
+  for (const item of items) {
+    if (selected.length >= length) break;
+    if (selected.includes(item)) continue;
+    const family = familyForQuestion(item);
+    const target = String(item.targetWord || "").toLowerCase();
+    if (target && selectedTargets.has(target)) continue;
+    if (selectedFamilies.has(family) && selected.length < length - 3) continue;
+    selected.push(item);
+    selectedFamilies.add(family);
+    if (target) selectedTargets.add(target);
+  }
+
+  for (const item of items) {
+    if (selected.length >= length) break;
+    if (!selected.includes(item)) selected.push(item);
+  }
+
+  return selected;
 }
 
 const runtimeItems = selectableRuntimeQuestionsForSkill("rhyming");
@@ -100,6 +152,42 @@ const levelOneRows = rhymingExpectedItemKeys.map(family => {
   }
   return { family, count, imageWords };
 });
+
+runtimeItems.forEach(question => {
+  const cards = question.imageCards || [];
+  const cardValues = cards.map(cardValue).filter(Boolean);
+  const uniqueValues = new Set(cardValues);
+  const correctAnswers = correctAnswersForQuestion(question);
+  const targetImage = targetImageForQuestion(question);
+  const format = String(question.formatType || question.templateType || "").toUpperCase();
+
+  if (format !== "RHYMING_PICTURE") failures.push(`${question.id}: live rhyming question is not RHYMING_PICTURE.`);
+  if (cards.length !== 4) failures.push(`${question.id}: live rhyming question has ${cards.length} answer cards, expected exactly 4.`);
+  if (!targetImage || !publicPathExists(targetImage)) failures.push(`${question.id}: missing target image ${targetImage || "none"}.`);
+  if (!cards.every(card => card.image && publicPathExists(card.image))) failures.push(`${question.id}: one or more answer cards have missing images.`);
+  if (uniqueValues.size !== cardValues.length) failures.push(`${question.id}: duplicate answer options in ${cardValues.join(", ")}.`);
+  if (![1, 2].includes(correctAnswers.length)) failures.push(`${question.id}: expected one or two correct answers, found ${correctAnswers.length}.`);
+  if (!correctAnswers.every(answer => uniqueValues.has(answer))) failures.push(`${question.id}: correct answer(s) missing from answer cards.`);
+  if (correctAnswers.length === 1) {
+    const family = familyForQuestion(question);
+    const accidentalRhymes = cardValues.filter(value => value !== correctAnswers[0] && (rhymeGroups[family] || []).includes(value));
+    if (accidentalRhymes.length) failures.push(`${question.id}: single-answer item has accidental extra rhyming answer(s): ${accidentalRhymes.join(", ")}.`);
+  }
+  if (correctAnswers.length === 2 && !/which two words/i.test(question.prompt || question.question || "")) {
+    failures.push(`${question.id}: two-answer item prompt does not ask for two words.`);
+  }
+});
+
+const missingFourScenario = new Set(rhymingExpectedItemKeys.filter(family => !["ag", "ad", "eg", "ip"].includes(family)));
+const forcedRound = buildCoverageForcedRound(levelOneItems, missingFourScenario, 15);
+const forcedFamilies = new Set(forcedRound.map(familyForQuestion));
+["ag", "ad", "eg", "ip"].forEach(family => {
+  if (!forcedFamilies.has(family)) failures.push(`Selector simulation omitted uncovered required family -${family}.`);
+});
+const simulatedCoveredAfterCorrect = new Set([...missingFourScenario, ...forcedRound.map(familyForQuestion).filter(family => levelOneFamilies.has(family))]);
+if (simulatedCoveredAfterCorrect.size !== rhymingExpectedItemKeys.length) {
+  failures.push(`Checkpoint simulation reached ${simulatedCoveredAfterCorrect.size}/${rhymingExpectedItemKeys.length}, expected 21/21.`);
+}
 
 const levelTwoRows = rhymingLevelTwoExpectedItemKeys.map(family => {
   const count = runtimeItems.filter(item => familyForQuestion(item) === family).length;
@@ -144,6 +232,8 @@ Generated: ${new Date().toISOString()}
 - Level 2 runtime questions: ${levelTwoItems.length}
 - Runtime rhyming questions missing images: ${missingImageItems.length}
 - Initial Sounds template contamination: ${initialTemplateItems.length}
+- Simulated missing ag/ad/eg/ip round families: ${Array.from(forcedFamilies).join(", ")}
+- Simulated checkpoint coverage after correct answers: ${simulatedCoveredAfterCorrect.size}/${rhymingExpectedItemKeys.length}
 - Fatal failures: ${failures.length}
 - Warnings: ${warnings.length}
 

@@ -207,9 +207,23 @@ function getQuestionPrompt(question) {
 }
 
 function getQuestionAnswer(question) {
-  return isFixSentenceQuestion(question)
-    ? question.correctSentence
-    : question.answer || question.correctAnswer;
+  if (isFixSentenceQuestion(question)) return question.correctSentence;
+  if (Array.isArray(question.correctAnswers) && question.correctAnswers.length > 0) {
+    return question.correctAnswers
+      .map(value => String(value || "").trim())
+      .filter(Boolean)
+      .sort()
+      .join("|");
+  }
+  return question.answer || question.correctAnswer;
+}
+
+function normalizeMultiSelectAnswer(answer) {
+  return (Array.isArray(answer) ? answer : String(answer || "").split("|"))
+    .map(value => String(value || "").trim())
+    .filter(Boolean)
+    .sort()
+    .join("|");
 }
 
 function normalizeTemplateOption(option) {
@@ -296,7 +310,9 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId = null, index 
     ? rawQuestion.choices
     : answerOptions.map(option => option.value).filter(Boolean);
   const correctAnswer =
-    rawQuestion.correctAnswer ??
+    (Array.isArray(rawQuestion.correctAnswers) && rawQuestion.correctAnswers.length > 0
+      ? rawQuestion.correctAnswers[0]
+      : rawQuestion.correctAnswer) ??
     rawQuestion.answer ??
     rawQuestion.finalSound ??
     rawQuestion.letter ??
@@ -322,6 +338,15 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId = null, index 
     audioUrl: rawQuestion.audioUrl ?? rawQuestion.audio ?? rawQuestion.media?.audioUrl ?? "",
     audioPath: rawQuestion.audioPath ?? rawQuestion.audioUrl ?? rawQuestion.audio ?? rawQuestion.media?.audioUrl ?? "",
     correctAnswer,
+    correctAnswers: Array.isArray(rawQuestion.correctAnswers)
+      ? rawQuestion.correctAnswers.map(answer => String(answer || "").trim()).filter(Boolean)
+      : rawQuestion.correctAnswers,
+    requiredSelections: rawQuestion.requiredSelections || (
+      Array.isArray(rawQuestion.correctAnswers) && rawQuestion.correctAnswers.length > 0
+        ? rawQuestion.correctAnswers.length
+        : undefined
+    ),
+    maxSelectable: rawQuestion.maxSelectable || rawQuestion.requiredSelections,
     answer: rawQuestion.answer ?? correctAnswer,
     choices,
     answerOptions
@@ -961,6 +986,21 @@ function isQuestionValid(q) {
     q.skillId === "rhyming" &&
     String(q.formatType || q.templateType || "").toUpperCase() !== "RHYMING_PICTURE"
   ) return false;
+
+  if (q.skillId === "rhyming") {
+    const cards = q.imageCards || [];
+    const targetImage = q.imagePath || q.imageUrl || q.targetImage || q.targetImagePath || q.targetImageUrl || "";
+    const correctAnswers = Array.isArray(q.correctAnswers) && q.correctAnswers.length > 0
+      ? q.correctAnswers
+      : [q.correctAnswer || q.answer].filter(Boolean);
+    if (cards.length !== 4) return false;
+    if (!targetImage) return false;
+    if (!cards.every(card => card.image || card.imagePath || card.imageUrl)) return false;
+    if (![1, 2].includes(correctAnswers.length)) return false;
+    const cardValues = cards.map(card => normalizeItemKey(card.value || card.word || card.label));
+    if (new Set(cardValues).size !== cardValues.length) return false;
+    if (!correctAnswers.every(answer => cardValues.includes(normalizeItemKey(answer)))) return false;
+  }
 
   const lowerChoices = q.choices.map(c => normalize(c));
   if (new Set(lowerChoices).size !== lowerChoices.length) return false;
@@ -2659,6 +2699,9 @@ export default function App() {
         return issues.length === 0;
       })
       : finalSoundLevelOneGuardedQuestions;
+    const uncoveredRhymingQuestions = getUncoveredRhymingQuestionsForRound(runtimeFilteredStageQuestions, stage);
+    if (uncoveredRhymingQuestions.length > 0) return uncoveredRhymingQuestions;
+
     const currentProfile = getRoundDuplicateProfile();
     const anyMemory = getStageRepeatMemory(stage.label);
     const correctMemory = getCorrectStageRepeatMemory(stage.label);
@@ -2928,6 +2971,50 @@ export default function App() {
     if (recentKeys.has(key)) return 4;
 
     return row?.mastered || row?.correct > 0 ? 5 : 3;
+  }
+
+  function getCoveredStageItemKeys(stage) {
+    const expectedKeys = getCoverageItemKeysForStage(stage);
+    const covered = new Set(
+      Object.values(itemMastery || {})
+        .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0))
+        .map(row => getItemMasteryStateKey(row.itemKey, row.itemType))
+        .filter(key => expectedKeys.has(key))
+    );
+
+    answerHistoryRef.current
+      .filter(record =>
+        record.isCorrect &&
+        (record.stage === stage?.label || record.skillId === stage?.id)
+      )
+      .map(inferAnswerRecordMetadata)
+      .filter(metadata => metadata?.itemKey && metadata?.itemType)
+      .map(metadata => getItemMasteryStateKey(metadata.itemKey, metadata.itemType))
+      .filter(key => expectedKeys.has(key))
+      .forEach(key => covered.add(key));
+
+    return covered;
+  }
+
+  function getUncoveredRhymingQuestionsForRound(questions, stage) {
+    if (stage?.id !== "rhyming") return [];
+
+    const expectedKeys = getCoverageItemKeysForStage(stage);
+    const coveredKeys = getCoveredStageItemKeys(stage);
+    const currentRoundKeys = new Set(roundItemKeysRef.current);
+    const missingKeys = new Set(
+      Array.from(expectedKeys).filter(key => !coveredKeys.has(key) && !currentRoundKeys.has(key))
+    );
+
+    if (missingKeys.size === 0) return [];
+
+    return prioritizeCoverageQuestions(
+      questions.filter(question => {
+        const key = getQuestionItemKey(question);
+        return key && missingKeys.has(key);
+      }),
+      stage
+    );
   }
 
   function getCurrentRoundQuestionObjects() {
@@ -3784,10 +3871,7 @@ export default function App() {
     const expectedKeys = Array.from(getCoverageItemKeysForStage(stage));
     const expectedKeySet = new Set(expectedKeys);
     const alreadyCoveredKeys = new Set(
-      Object.values(itemMastery || {})
-        .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0))
-        .map(row => getItemMasteryStateKey(row.itemKey, row.itemType))
-        .filter(key => expectedKeySet.has(key))
+      getCoveredStageItemKeys(stage)
     );
     const coveredKeys = new Set(alreadyCoveredKeys);
 
@@ -3803,7 +3887,7 @@ export default function App() {
       .map(formatCoverageKeyLabel)
       .slice(0, 40);
     const coveredThisRound = Array.from(new Set(
-      nextRoundItemKeys
+      nextRoundCorrectItemKeys
         .filter(key => expectedKeySet.has(key))
         .map(formatCoverageKeyLabel)
     ));
@@ -3863,16 +3947,23 @@ export default function App() {
     }
 
     const correctAnswer = getQuestionAnswer(answeredQuestion);
+    const isMultiSelectQuestion =
+      Array.isArray(answeredQuestion.correctAnswers) &&
+      answeredQuestion.correctAnswers.length > 1;
     const submittedAnswer = isFixSentenceQuestion(answeredQuestion)
       ? normalizeSentenceAnswer(choice)
       : isPairSelectionQuestion(answeredQuestion)
         ? normalizePairSelectionAnswer(choice)
-        : choice;
+        : isMultiSelectQuestion
+          ? normalizeMultiSelectAnswer(choice)
+          : choice;
     const isCorrect = isFixSentenceQuestion(answeredQuestion)
       ? comparableSentenceAnswer(submittedAnswer) === comparableSentenceAnswer(correctAnswer)
       : isPairSelectionQuestion(answeredQuestion)
         ? submittedAnswer === normalizePairSelectionAnswer(correctAnswer)
-        : submittedAnswer === correctAnswer;
+        : isMultiSelectQuestion
+          ? submittedAnswer === normalizeMultiSelectAnswer(correctAnswer)
+          : submittedAnswer === correctAnswer;
     const questionStage =
       skillTree[getStageIndex(answeredQuestion)] || initialQuestionStage || currentStage;
     const stage = questionStage;
@@ -3918,6 +4009,8 @@ export default function App() {
       passage: answeredQuestion.passage || "",
       chosen: submittedAnswer,
       correct: correctAnswer,
+      selectedAnswers: Array.isArray(choice) ? choice : [],
+      correctAnswers: Array.isArray(answeredQuestion.correctAnswers) ? answeredQuestion.correctAnswers : [],
       isCorrect,
       diagnosticTarget: getDiagnosticTarget(answeredQuestion),
       itemType: itemMetadata?.itemType || "",

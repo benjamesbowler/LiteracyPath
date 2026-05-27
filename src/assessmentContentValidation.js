@@ -101,7 +101,8 @@ function phonicsAmbiguityIssue(question) {
   if ((formatType === "LISTEN_FIND_RHYME" || formatType === "READ_FIND_RHYME") && question?.targetWord) {
     const { targetGroup, matches } = getRhymeOptionMatches(question.targetWord, choices(question));
     if (!targetGroup) return `unknown rhyme group for target word "${question.targetWord}"`;
-    return matches.length === 1 ? "" : `expected exactly one ${targetGroup} rhyme answer, found ${matches.length}`;
+    const expectedMatches = Array.isArray(question.correctAnswers) && question.correctAnswers.length > 1 ? question.correctAnswers.length : 1;
+    return matches.length === expectedMatches ? "" : `expected exactly ${expectedMatches} ${targetGroup} rhyme answer${expectedMatches === 1 ? "" : "s"}, found ${matches.length}`;
   }
 
   if (formatType === "LISTEN_CHOOSE_VOWEL") {
@@ -134,7 +135,8 @@ function phonicsAmbiguityIssue(question) {
   if (normalize(question?.skill).includes("rhym") && question?.targetWord) {
     const { targetGroup, matches } = getRhymeOptionMatches(question.targetWord, choices(question));
     if (!targetGroup) return `unknown rhyme group for target word "${question.targetWord}"`;
-    return matches.length === 1 ? "" : `expected exactly one ${targetGroup} rhyme answer, found ${matches.length}`;
+    const expectedMatches = Array.isArray(question.correctAnswers) && question.correctAnswers.length > 1 ? question.correctAnswers.length : 1;
+    return matches.length === expectedMatches ? "" : `expected exactly ${expectedMatches} ${targetGroup} rhyme answer${expectedMatches === 1 ? "" : "s"}, found ${matches.length}`;
   }
 
   if (normalize(question?.skill).includes("rhym") && question?.answer) {

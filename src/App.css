@@ -2980,6 +2980,15 @@ select:focus {
   box-shadow: 0 8px 22px rgba(22, 34, 51, 0.06);
 }
 
+.visual-assessment-card.selected {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18), 0 8px 22px rgba(22, 34, 51, 0.08);
+}
+
+.visual-assessment-card.selected .visual-assessment-card-button {
+  background: linear-gradient(180deg, #eff6ff, #ffffff) !important;
+}
+
 .visual-assessment-card-button {
   display: grid;
   grid-template-rows: minmax(88px, 1fr) auto;

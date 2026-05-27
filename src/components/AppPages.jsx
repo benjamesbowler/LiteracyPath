@@ -389,14 +389,29 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
 }
 
 function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }) {
+  const [selectedValues, setSelectedValues] = useState([]);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const showCardAudio = !isRhymingPictureItem && shouldShowUniformCardAudio(currentQuestion.imageCards || []);
+  const requiredSelections = Math.max(1, Number(currentQuestion.requiredSelections || currentQuestion.correctAnswers?.length || 1));
+  const isMultiSelect = isRhymingPictureItem && requiredSelections > 1;
   const panelClassName = isRhymingPictureItem
     ? "visual-card-choice-panel rhyming-picture-panel"
     : "visual-card-choice-panel";
   const gridClassName = isRhymingPictureItem
     ? "visual-card-grid rhyming-picture-grid"
     : "visual-card-grid";
+
+  useEffect(() => {
+    setSelectedValues([]);
+  }, [currentQuestion.id]);
+
+  function toggleValue(value) {
+    setSelectedValues(previous => {
+      if (previous.includes(value)) return previous.filter(item => item !== value);
+      if (previous.length >= requiredSelections) return [...previous.slice(1), value];
+      return [...previous, value];
+    });
+  }
 
   return (
     <div className={panelClassName}>
@@ -405,13 +420,21 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
           const label = getAnswerOptionLabel(card) || card.word;
           const value = getAnswerOptionValue(card) || label;
           const image = card.image || card.imageUrl || card.imagePath || "";
+          const selected = selectedValues.includes(value);
 
           return (
-            <article className={isRhymingPictureItem ? "visual-assessment-card rhyming-answer-card" : "visual-assessment-card"} key={card.id || value}>
+            <article
+              className={[
+                isRhymingPictureItem ? "visual-assessment-card rhyming-answer-card" : "visual-assessment-card",
+                selected ? "selected" : ""
+              ].filter(Boolean).join(" ")}
+              key={card.id || value}
+            >
               <button
                 className="visual-assessment-card-button"
-                onClick={() => answerQuestion(value)}
-                aria-label={`Choose ${label}`}
+                onClick={() => isMultiSelect ? toggleValue(value) : answerQuestion(value)}
+                aria-label={isMultiSelect ? `Select ${label}` : `Choose ${label}`}
+                aria-pressed={isMultiSelect ? selected : undefined}
                 type="button"
               >
                 {image && (
@@ -433,6 +456,17 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
           );
         })}
       </div>
+
+      {isMultiSelect && (
+        <button
+          className="main-button initial-sound-submit"
+          disabled={selectedValues.length !== requiredSelections}
+          onClick={() => answerQuestion(selectedValues)}
+          type="button"
+        >
+          Submit {selectedValues.length}/{requiredSelections}
+        </button>
+      )}
     </div>
   );
 }
@@ -610,6 +644,10 @@ function getStudentVisiblePrompt(question = {}) {
   const safeQuestion = question || {};
   if (isFinalSoundsEndingQuestion(safeQuestion)) return FINAL_SOUNDS_STUDENT_PROMPT;
   return safeQuestion.prompt || safeQuestion.question || "";
+}
+
+function formatAnswerForFeedback(value = "") {
+  return String(value || "").split("|").filter(Boolean).join(", ");
 }
 
 function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, speakText, shouldShowImage }) {
@@ -3705,8 +3743,8 @@ export function AssessmentPage({
 
           {feedback.support?.type !== "pair_selection" && (
             <>
-              <p><strong>Your answer:</strong> {feedback.chosen}</p>
-              <p><strong>Correct answer:</strong> {feedback.correct}</p>
+              <p><strong>Your answer:</strong> {formatAnswerForFeedback(feedback.chosen)}</p>
+              <p><strong>Correct answer:</strong> {formatAnswerForFeedback(feedback.correct)}</p>
             </>
           )}
 
