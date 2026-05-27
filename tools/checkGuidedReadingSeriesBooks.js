@@ -80,7 +80,12 @@ const expectedJamesBooks = [
   { id: "james-and-anna-02-chips", title: "James and Anna and Chips", pages: 12 },
   { id: "james-and-anna-03-shopping", title: "James and Anna go Shopping", pages: 13 },
   { id: "james-and-anna-04-dentist", title: "James and Anna go to the Dentist", pages: 13 },
-  { id: "james-and-anna-05-tree-house", title: "James and Anna build a Tree House", pages: 14 }
+  { id: "james-and-anna-05-tree-house", title: "James and Anna build a Tree House", pages: 14 },
+  { id: "ja-b-06", title: "James and Anna visit Grandma's Farm", pages: 12 },
+  { id: "ja-b-07", title: "James and Anna and the School Play", pages: 13 },
+  { id: "ja-b-08", title: "Chips's Play Date", pages: 12 },
+  { id: "ja-b-09", title: "James and Anna's New Bikes", pages: 13 },
+  { id: "ja-b-10", title: "James, Anna and Chips go Camping", pages: 14 }
 ];
 
 const expectedAidenBooks = [
@@ -148,8 +153,8 @@ const oldFictionRestored = guidedReadingBooks.filter(book => oldFictionIds.inclu
 
 if (draftBobBooks.length !== 10) failures.push(`Expected 10 Bob and Nan draft books, found ${draftBobBooks.length}.`);
 if (visibleBobBooks.length !== 10) failures.push(`Expected 10 visible Bob and Nan teacher-preview books, found ${visibleBobBooks.length}.`);
-if (draftJamesBooks.length !== 5) failures.push(`Expected 5 James and Anna draft books, found ${draftJamesBooks.length}.`);
-if (visibleJamesBooks.length !== 5) failures.push(`Expected 5 visible James and Anna teacher-preview books, found ${visibleJamesBooks.length}.`);
+if (draftJamesBooks.length !== 10) failures.push(`Expected 10 James and Anna draft books, found ${draftJamesBooks.length}.`);
+if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James and Anna teacher-preview books, found ${visibleJamesBooks.length}.`);
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
 if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty teacher-preview books, found ${visibleAidenBooks.length}.`);
 if (visibleNonfictionBooks.length !== 23) failures.push(`Expected 23 nonfiction books to remain, found ${visibleNonfictionBooks.length}.`);
@@ -420,14 +425,14 @@ const jamesReport = [
   "",
   "## Source",
   "",
-  "`~/Desktop/Our Guided Reading Books Literacy Path/James and Anna 1-5 B`",
+  "`/Users/benjaminbowler/Desktop/LiteracyPath/Our Guided Reading Books Literacy Path/James and Anna 1-10 B`",
   "",
   "## Summary",
   "",
   `- James and Anna draft books added: ${draftJamesBooks.length}`,
   `- James and Anna teacher-preview books: ${visibleJamesBooks.length}`,
   "- Preview scope: full delivered image pack is imported for all story pages; books remain teacher-preview until QA approves text-picture matching.",
-  `- Imported covers: ${jamesRows.filter(row => row.coverExists).length}/5`,
+  `- Imported covers: ${jamesRows.filter(row => row.coverExists).length}/${expectedJamesBooks.length}`,
   `- Imported story page images: ${jamesRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
   `- Missing story page images: ${jamesRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
   `- Nonfiction books kept: ${visibleNonfictionBooks.length}`,
@@ -444,12 +449,12 @@ const jamesReport = [
   "",
   "The imported pages are mapped safely: `page-001.webp` is the first story page image, and no one-page shift was introduced.",
   "",
-  "The delivered `book-xx-cover.webp` files in the James and Anna illustration folder still showed the old Bob/Nan-looking cover art, so they were not used. For teacher preview, each Level B `cover.webp` now uses that book's `page-001.webp` image so the shelf/title page no longer shows Bob/Nan characters. These covers should be replaced later with proper James and Anna title/cover art.",
+  "Books 1-5 use the existing imported assets. Books 6-10 use the delivered `cover.webp` files from the James and Anna Level B Books 6-10 image pack. All books remain teacher-preview until QA approves text-picture matching.",
   "",
   "## Remaining TODOs",
   "",
   "- Keep `qaStatus: needs_review` and teacher-preview status until all delivered pages are checked.",
-  "- Request proper James and Anna cover/title images for the five Level B books if unique cover art is needed before student release.",
+  "- Keep Books 6-10 in `needs_review` until the optional source QA notes are reviewed.",
   "",
   "## Warnings",
   "",
