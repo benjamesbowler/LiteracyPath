@@ -18,6 +18,11 @@ requirePattern(
   /\.assessment-shell\s*{[\s\S]*?width:\s*min\(96vw,\s*1280px\)/
 );
 requirePattern(
+  "Focused assessment app shell should center the assessment content.",
+  css,
+  /\.assessment-app\s*{[\s\S]*?align-items:\s*center[\s\S]*?justify-content:\s*center/
+);
+requirePattern(
   "Assessment shell should hide page-level overflow.",
   css,
   /\.assessment-shell\s*{[\s\S]*?overflow:\s*hidden/
@@ -60,4 +65,3 @@ if (failures.length) {
 }
 
 console.log("Assessment layout contracts passed.");
-

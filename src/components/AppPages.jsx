@@ -1547,6 +1547,7 @@ function AutoFitReadingText({
   const frameRef = useRef(null);
   const contentRef = useRef(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
+  const [fitReady, setFitReady] = useState(false);
 
   useLayoutEffect(() => {
     const frame = frameRef.current;
@@ -1554,12 +1555,14 @@ function AutoFitReadingText({
     if (!frame || !content) return undefined;
 
     let cancelled = false;
+    let fitCompleted = false;
     const rafIds = [];
     const timerIds = [];
+    setFitReady(false);
 
     const fitText = (trigger = "layout") => {
-      if (cancelled) return;
-      if (!frame.clientWidth || !frame.clientHeight) return;
+      if (cancelled) return false;
+      if (!frame.clientWidth || !frame.clientHeight) return false;
 
       content.style.fontSize = `${maxFontSize}px`;
       content.style.lineHeight = String(lineHeight);
@@ -1584,6 +1587,8 @@ function AutoFitReadingText({
       content.style.fontSize = `${fittedSize}px`;
       content.style.overflowY = stillOverflowing ? "auto" : "hidden";
       setIsOverflowing(stillOverflowing);
+      fitCompleted = true;
+      setFitReady(true);
 
       if (DEBUG_AUTOFIT) {
         console.debug("[Guided Reading autofit]", {
@@ -1597,6 +1602,8 @@ function AutoFitReadingText({
           overflow: stillOverflowing
         });
       }
+
+      return true;
     };
 
     const scheduleFit = (trigger = "resize") => {
@@ -1613,6 +1620,9 @@ function AutoFitReadingText({
     rafIds.push(raf1);
     timerIds.push(window.setTimeout(() => fitText("timeout-0"), 0));
     timerIds.push(window.setTimeout(() => fitText("timeout-100"), 100));
+    timerIds.push(window.setTimeout(() => {
+      if (!cancelled && !fitCompleted) setFitReady(true);
+    }, 350));
 
     if (typeof document !== "undefined" && document.fonts?.ready) {
       document.fonts.ready.then(() => fitText("fonts-ready")).catch(() => {});
@@ -1648,7 +1658,11 @@ function AutoFitReadingText({
     <div className={isOverflowing ? "guided-page-text-frame overflowing" : "guided-page-text-frame"} ref={frameRef}>
       <div
         {...props}
-        className={`${className} auto-fit-reading-text`}
+        className={[
+          className,
+          "auto-fit-reading-text",
+          fitReady ? "is-ready" : "is-fitting"
+        ].filter(Boolean).join(" ")}
         ref={contentRef}
       >
         {children}

@@ -96,10 +96,15 @@ body {
 }
 
 .assessment-app {
+  width: 100%;
   max-width: none;
   min-height: 100vh;
   min-height: 100dvh;
   padding: 8px 10px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 12% 8%, rgba(21, 154, 138, 0.13), transparent 26%),
     radial-gradient(circle at 92% 10%, rgba(255, 247, 232, 0.82), transparent 24%),
@@ -1941,6 +1946,17 @@ body {
   text-align: left;
 }
 
+.auto-fit-reading-text.is-fitting {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.auto-fit-reading-text.is-ready {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 100ms ease;
+}
+
 .guided-page-text-frame.overflowing .guided-page-text {
   padding-right: clamp(16px, 2vw, 24px);
 }
@@ -3502,6 +3518,8 @@ select:focus {
   min-height: calc(100vh - 16px);
   min-height: calc(100dvh - 16px);
   margin: 0 auto;
+  align-self: center;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 8px;
