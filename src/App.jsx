@@ -1327,6 +1327,7 @@ export default function App() {
   );
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [assessmentTransitioning, setAssessmentTransitioning] = useState(false);
   const [message, setMessage] = useState("");
   const [teacherUser, setTeacherUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
@@ -1472,6 +1473,7 @@ export default function App() {
     setChildLearningEvidence(buildChildLearningEvidence());
     setCurrentQuestion(null);
     setFeedback(null);
+    setAssessmentTransitioning(false);
     setMessage("");
     setAdminTeachers([]);
     setAdminClasses([]);
@@ -1508,6 +1510,7 @@ export default function App() {
     setRoundQuestionIds([]);
     setCurrentQuestion(null);
     setFeedback(null);
+    setAssessmentTransitioning(false);
     setShowReport(false);
     setGuidedReadingRecords({});
     setItemSessionSeen({});
@@ -3612,10 +3615,12 @@ export default function App() {
 
       if (reviewPool.length === 0) {
         setMessage("No targeted review questions are available yet. Complete more mastery questions first.");
+        setAssessmentTransitioning(false);
         return;
       }
 
       setCurrentQuestion(prepareQuestion(reviewPool[0], true));
+      setAssessmentTransitioning(false);
       return;
     }
 
@@ -3627,6 +3632,7 @@ export default function App() {
       if (!picked) {
         const meta = initialSoundRoundMetaRef.current;
         setCurrentQuestion(null);
+        setAssessmentTransitioning(false);
         setMessage(
           meta?.blockedLetters?.length
             ? `Initial Sounds needs more media before this round can continue. Blocked letters: ${meta.blockedLetters.join(", ")}.`
@@ -3647,6 +3653,7 @@ export default function App() {
       });
 
       setCurrentQuestion(prepareQuestion(picked));
+      setAssessmentTransitioning(false);
       return;
     }
 
@@ -3654,6 +3661,7 @@ export default function App() {
 
     if (available.length === 0) {
       setMessage(`No questions found for ${activeStage.label}.`);
+      setAssessmentTransitioning(false);
       return;
     }
 
@@ -3669,6 +3677,7 @@ export default function App() {
 
       if (reviewPool.length > 0) {
         setCurrentQuestion(prepareQuestion(reviewPool[0], true));
+        setAssessmentTransitioning(false);
         return;
       }
     }
@@ -3692,6 +3701,7 @@ export default function App() {
 
     if (!picked) {
       setCurrentQuestion(null);
+      setAssessmentTransitioning(false);
       setMessage(
         `No unrepeated questions remain for ${activeStage.label} in this round. Add more validated questions/assets before continuing this skill.`
       );
@@ -3710,6 +3720,7 @@ export default function App() {
     });
 
     setCurrentQuestion(prepareQuestion(picked));
+    setAssessmentTransitioning(false);
   }
 
 
@@ -4344,6 +4355,7 @@ export default function App() {
   function answerQuestion(choice) {
     if (!currentQuestion || answerInFlightRef.current) return;
     answerInFlightRef.current = true;
+    setAssessmentTransitioning(true);
 
     const initialQuestionStage =
       skillTree[getStageIndex(currentQuestion)] || currentStage;
@@ -4353,6 +4365,7 @@ export default function App() {
     if (!answeredQuestion?.skillId) {
       console.error("Cannot record answer: missing skillId", { answeredQuestion, choice });
       answerInFlightRef.current = false;
+      setAssessmentTransitioning(false);
       return;
     }
 
@@ -4458,6 +4471,7 @@ export default function App() {
       if (nextRound.length >= ROUND_LENGTH) {
         setCurrentQuestion(null);
         setFeedback(null);
+        setAssessmentTransitioning(false);
         setRoundAnswers([]);
         setRoundItemKeys([]);
         setRoundQuestionIds([]);
@@ -4484,10 +4498,12 @@ export default function App() {
         support: buildFeedbackSupport(answeredQuestion, submittedAnswer),
         autoAdvance: isCorrect
       });
+      setAssessmentTransitioning(false);
 
       setCurrentQuestion(null);
       if (isCorrect) {
         setTimeout(() => {
+          setAssessmentTransitioning(true);
           setFeedback(null);
           pickQuestion("targetedReview", nextRound.length);
         }, 750);
@@ -4529,6 +4545,7 @@ export default function App() {
       roundQuestionIdsRef.current = [];
       setCurrentQuestion(null);
       setFeedback(null);
+      setAssessmentTransitioning(false);
       setAppView("checkpoint");
       answerInFlightRef.current = false;
       return;
@@ -4547,10 +4564,12 @@ export default function App() {
       support: buildFeedbackSupport(answeredQuestion, submittedAnswer),
       autoAdvance: isCorrect
     });
+    setAssessmentTransitioning(false);
 
     setCurrentQuestion(null);
     if (isCorrect) {
       setTimeout(() => {
+        setAssessmentTransitioning(true);
         setFeedback(null);
         pickQuestion("mastery", nextRound.length, stageIndex);
       }, 750);
@@ -6249,6 +6268,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             endAssessment={endAssessment}
             returnToStudentOverview={goToOverview}
             assessmentMode={assessmentMode}
+            isAssessmentTransitioning={assessmentTransitioning}
           />
         </AssessmentErrorBoundary>
       )}

@@ -3712,7 +3712,8 @@ export function AssessmentPage({
   message,
   endAssessment,
   returnToStudentOverview,
-  assessmentMode
+  assessmentMode,
+  isAssessmentTransitioning = false
 }) {
   const safeSkillId =
     currentQuestion?.skillId ??
@@ -3852,8 +3853,8 @@ export function AssessmentPage({
         <button
           className="main-button"
           onClick={() => {
-            setFeedback(null);
             pickQuestion();
+            setFeedback(null);
           }}
           type="button"
         >
@@ -3863,7 +3864,13 @@ export function AssessmentPage({
     </motion.div>
   ) : null;
 
-  if (!currentQuestion && !feedback) {
+  const hasValidAssessmentTransitionState =
+    Boolean(feedback) ||
+    Boolean(isAssessmentTransitioning);
+  const shouldShowAssessmentLoadingState =
+    !currentQuestion && !hasValidAssessmentTransitionState;
+
+  if (shouldShowAssessmentLoadingState) {
     return (
       <main className="assessment-shell">
         <div className="card assessment-card">
@@ -3887,6 +3894,17 @@ export function AssessmentPage({
       <main className="assessment-shell">
         {renderAssessmentTopbar()}
         {renderFeedbackCard()}
+      </main>
+    );
+  }
+
+  if (!currentQuestion && isAssessmentTransitioning) {
+    return (
+      <main className="assessment-shell">
+        {renderAssessmentTopbar()}
+        <div className="card assessment-card assessment-transition-card">
+          <h2>Preparing next question...</h2>
+        </div>
       </main>
     );
   }
