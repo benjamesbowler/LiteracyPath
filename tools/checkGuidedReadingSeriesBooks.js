@@ -1121,6 +1121,68 @@ const moonwoodReport = [
   failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Moonwood Tales Books 1-10 are imported as approved Level C fiction with aligned page text, images, page audio, and full-book audio."
 ];
 
+const levelCNonfictionReport = [
+  "# Level C Nonfiction Import Audit",
+  "",
+  `Generated: ${new Date().toISOString()}`,
+  "",
+  "## Source",
+  "",
+  "`/Users/benjaminbowler/Desktop/LiteracyPath_Source_Packs/Organised/Non-Fiction Level C`",
+  "",
+  "Media pack: `Level C First Facts Media Pack/First_Facts_Level_C_Media_Pack/first-facts-c`.",
+  "",
+  "## Target",
+  "",
+  "`public/guided-reading/nonfiction/level-c/book-01` through `book-10`",
+  "",
+  "## Summary",
+  "",
+  "- Detected completed range: Books 1-10.",
+  `- Imported Level C nonfiction books: ${firstFactsCRows.length}`,
+  "- Skipped/incomplete books: 0",
+  "- Series: First Facts.",
+  "- Level: C.",
+  "- Release scope: approved and visible to student readers immediately.",
+  "- Source PAGE 1 in each DOCX is title/illustration-only. The app uses `cover.webp` as the normalized title page, and source pages 2-10 are imported as student story pages 1-9.",
+  `- Imported covers: ${firstFactsCRows.filter(row => row.coverExists).length}/10`,
+  `- Imported story page images: ${firstFactsCRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
+  `- Imported story page audio files: ${firstFactsCRows.reduce((sum, row) => sum + row.audioPages.length, 0)}`,
+  `- Full-book audio files: ${firstFactsCRows.filter(row => row.fullBookAudioExists).length}/10`,
+  `- Missing story page images: ${firstFactsCRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
+  `- Final fiction book count: ${guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction").length}`,
+  `- Final nonfiction book count: ${visibleNonfictionBooks.length}`,
+  `- Final total guided reading count: ${guidedReadingBooks.length}`,
+  `- Validation failures: ${failures.length}`,
+  "",
+  "## Imported Books",
+  "",
+  "| ID | Title | Level | Story Pages | Imported Images | Page Audio | Full-Book Audio | Missing Images | QA | Preview Only |",
+  "|---|---|---|---:|---|---|---:|---|---|---:|",
+  ...firstFactsCRows.map(row => `| ${row.id} | ${row.title} | C | ${row.pages} | ${row.importedPages.join(", ") || "none"} | ${row.audioPages.join(", ") || "none"} | ${row.fullBookAudioExists ? "yes" : "no"} | ${row.missingStoryImages.join(", ") || "none"} | ${row.qaStatus} | ${row.teacherPreviewOnly ? "yes" : "no"} |`),
+  "",
+  "## Sequence Check",
+  "",
+  "- `cover.webp` is used as the normalized reader title page.",
+  "- App `page-001.webp` maps to the first student-facing text page from source PAGE 2.",
+  "- App `page-009.webp` maps to source PAGE 10.",
+  "- Page text, story images, and page audio counts match for every imported book.",
+  "- Full-book audio exists for every imported book.",
+  "- No illustration prompts, generation notes, page labels, or metadata are present as reading text.",
+  "",
+  "## Missing or Unclear Items",
+  "",
+  "None. The source pack had complete media coverage for all ten Level C nonfiction books.",
+  "",
+  "## Warnings",
+  "",
+  warnings.length ? warnings.map(item => `- ${item}`).join("\n") : "None.",
+  "",
+  failures.length ? "## Failures" : "## Result",
+  "",
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Level C nonfiction Books 1-10 are imported as approved public First Facts books with aligned story text, images, page audio, and full-book audio."
+];
+
 fs.mkdirSync(path.dirname(bobReportPath), { recursive: true });
 fs.writeFileSync(bobReportPath, `${bobReport.join("\n")}\n`);
 fs.writeFileSync(bobBooks610ReportPath, `${bobBooks610Report.join("\n")}\n`);
@@ -1129,6 +1191,7 @@ fs.writeFileSync(aidenReportPath, `${aidenReport.join("\n")}\n`);
 fs.writeFileSync(dinoReportPath, `${dinoReport.join("\n")}\n`);
 fs.writeFileSync(meadowReportPath, `${meadowReport.join("\n")}\n`);
 fs.writeFileSync(moonwoodReportPath, `${moonwoodReport.join("\n")}\n`);
+fs.writeFileSync(levelCNonfictionReportPath, `${levelCNonfictionReport.join("\n")}\n`);
 
 console.log(`Bob and Nan books visible: ${visibleBobBooks.length}`);
 console.log(`James and Anna draft books: ${draftJamesBooks.length}`);
@@ -1140,6 +1203,7 @@ console.log(`Meadow Pals draft books: ${draftMeadowBooks.length}`);
 console.log(`Meadow Pals visible books: ${visibleMeadowBooks.length}`);
 console.log(`Moonwood Tales draft books: ${draftMoonwoodBooks.length}`);
 console.log(`Moonwood Tales visible books: ${visibleMoonwoodBooks.length}`);
+console.log(`First Facts Level C visible books: ${visibleFirstFactsCBooks.length}`);
 console.log(`Nonfiction books visible: ${visibleNonfictionBooks.length}`);
 console.log(`Old fiction restored: ${oldFictionRestored.length}`);
 console.log(`Wrote ${path.relative(rootDir, bobReportPath)}`);
@@ -1149,6 +1213,7 @@ console.log(`Wrote ${path.relative(rootDir, aidenReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, dinoReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, meadowReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, moonwoodReportPath)}`);
+console.log(`Wrote ${path.relative(rootDir, levelCNonfictionReportPath)}`);
 
 if (failures.length) {
   failures.forEach(item => console.error(`- ${item}`));

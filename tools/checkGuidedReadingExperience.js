@@ -102,8 +102,8 @@ if (unexpectedFictionBooks.length) {
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction Guided Reading books visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
-if (guidedReadingBooks.length !== 121) {
-  failures.push(`Expected 121 total Guided Reading books after Moonwood Tales import, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 131) {
+  failures.push(`Expected 131 total Guided Reading books after Level C nonfiction import, found ${guidedReadingBooks.length}.`);
 }
 
 for (const book of guidedReadingBooks) {

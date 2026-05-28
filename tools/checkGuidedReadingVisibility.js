@@ -108,11 +108,11 @@ if (!nonfictionBooks.length) {
 if (fictionBooks.length !== 75) {
   failures.push(`Expected 75 fiction books, found ${fictionBooks.length}.`);
 }
-if (nonfictionBooks.length !== 46) {
-  failures.push(`Expected 46 nonfiction books after First Facts Books 21-25 import, found ${nonfictionBooks.length}.`);
+if (nonfictionBooks.length !== 56) {
+  failures.push(`Expected 56 nonfiction books after Level C nonfiction import, found ${nonfictionBooks.length}.`);
 }
-if (guidedReadingBooks.length !== 121) {
-  failures.push(`Expected 121 total Guided Reading books after Moonwood Tales import, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 131) {
+  failures.push(`Expected 131 total Guided Reading books after Level C nonfiction import, found ${guidedReadingBooks.length}.`);
 }
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction books are still visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
