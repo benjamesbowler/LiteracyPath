@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T05:01:42.246Z",
+  "generatedAt": "2026-05-28T01:15:24.004Z",
   "simulationRoundsPerPhase": 100,
   "failures": [],
   "warnings": [],
@@ -11,7 +11,7 @@
       "designed": true,
       "simulations": 200,
       "questionCount": 77,
-      "uniqueTargetWords": 57,
+      "uniqueTargetWords": 29,
       "status": "checked"
     },
     {
@@ -40,8 +40,8 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 70,
-      "uniqueTargetWords": 62,
+      "questionCount": 190,
+      "uniqueTargetWords": 110,
       "status": "checked"
     },
     {
@@ -70,8 +70,8 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 199,
-      "uniqueTargetWords": 52,
+      "questionCount": 278,
+      "uniqueTargetWords": 69,
       "status": "checked"
     },
     {
@@ -90,8 +90,8 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 146,
-      "uniqueTargetWords": 54,
+      "questionCount": 250,
+      "uniqueTargetWords": 71,
       "status": "checked"
     },
     {
@@ -118,10 +118,11 @@
       "skillId": "hfw_1_25",
       "skillName": "High-Frequency Words 1-25",
       "level": 2,
-      "designed": false,
-      "simulations": 0,
-      "questionCount": 0,
-      "status": "Level 2 not yet designed"
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 35,
+      "uniqueTargetWords": 32,
+      "status": "checked"
     },
     {
       "skillId": "hfw_26_50",
@@ -137,10 +138,11 @@
       "skillId": "hfw_26_50",
       "skillName": "High-Frequency Words 26-50",
       "level": 2,
-      "designed": false,
-      "simulations": 0,
-      "questionCount": 0,
-      "status": "Level 2 not yet designed"
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 75,
+      "uniqueTargetWords": 37,
+      "status": "checked"
     },
     {
       "skillId": "hfw_51_100",
@@ -156,10 +158,11 @@
       "skillId": "hfw_51_100",
       "skillName": "High-Frequency Words 51-100",
       "level": 2,
-      "designed": false,
-      "simulations": 0,
-      "questionCount": 0,
-      "status": "Level 2 not yet designed"
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 130,
+      "uniqueTargetWords": 68,
+      "status": "checked"
     },
     {
       "skillId": "blends",

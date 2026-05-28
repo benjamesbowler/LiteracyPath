@@ -1,28 +1,28 @@
 # Skill Level Depth Check
 
-Generated: 2026-05-27T05:01:42.246Z
+Generated: 2026-05-28T01:15:24.004Z
 
 Failures: 0
 Warnings: 0
 
 | Skill | Level | Designed | Questions | Unique Targets | Simulated Rounds | Status |
 |---|---:|---|---:|---:|---:|---|
-| Initial Sounds | 1 | yes | 77 | 57 | 200 | checked |
+| Initial Sounds | 1 | yes | 77 | 29 | 200 | checked |
 | Initial Sounds | 2 | yes | 35 | 35 | 200 | checked |
 | Final Sounds | 1 | yes | 124 | 69 | 200 | checked |
-| Final Sounds | 2 | yes | 70 | 62 | 200 | checked |
+| Final Sounds | 2 | yes | 190 | 110 | 200 | checked |
 | Rhyming | 1 | yes | 125 | 52 | 200 | checked |
 | Rhyming | 2 | yes | 35 | 27 | 200 | checked |
-| CVC Short Vowels | 1 | yes | 199 | 52 | 200 | checked |
+| CVC Short Vowels | 1 | yes | 278 | 69 | 200 | checked |
 | CVC Short Vowels | 2 | yes | 35 | 35 | 200 | checked |
-| Short Vowel Discrimination | 1 | yes | 146 | 54 | 200 | checked |
+| Short Vowel Discrimination | 1 | yes | 250 | 71 | 200 | checked |
 | Short Vowel Discrimination | 2 | yes | 35 | 35 | 200 | checked |
 | High-Frequency Words 1-25 | 1 | yes | 61 | 32 | 200 | checked |
-| High-Frequency Words 1-25 | 2 | no | 0 | - | 0 | Level 2 not yet designed |
+| High-Frequency Words 1-25 | 2 | yes | 35 | 32 | 200 | checked |
 | High-Frequency Words 26-50 | 1 | yes | 48 | 25 | 200 | checked |
-| High-Frequency Words 26-50 | 2 | no | 0 | - | 0 | Level 2 not yet designed |
+| High-Frequency Words 26-50 | 2 | yes | 75 | 37 | 200 | checked |
 | High-Frequency Words 51-100 | 1 | yes | 35 | 35 | 200 | checked |
-| High-Frequency Words 51-100 | 2 | no | 0 | - | 0 | Level 2 not yet designed |
+| High-Frequency Words 51-100 | 2 | yes | 130 | 68 | 200 | checked |
 | Blends | 1 | yes | 68 | 20 | 200 | checked |
 | Blends | 2 | yes | 33 | 23 | 200 | checked |
 | Digraphs | 1 | yes | 54 | 26 | 200 | checked |

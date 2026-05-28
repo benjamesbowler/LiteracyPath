@@ -1,6 +1,6 @@
 # Meadow Pals Level A Import Audit
 
-Generated: 2026-05-28T01:21:35.597Z
+Generated: 2026-05-28T02:15:28.999Z
 
 ## Source
 
@@ -24,9 +24,9 @@ Asset pack: `Meadow Pals Asset Pack/Meadow_Pals_Level_A_Assets`.
 - Imported story page audio files: 135
 - Missing story page images: 0
 - Full-book audio files found: 0
-- Final fiction book count: 65
-- Final nonfiction book count: 46
-- Final total guided reading count: 111
+- Final fiction book count: 75
+- Final nonfiction book count: 56
+- Final total guided reading count: 131
 - Validation failures: 0
 
 ## Imported Books

@@ -8,54 +8,55 @@ This report audits active runtime questions after validation gates are applied. 
 
 | Skill | Active questions | Unique targets | Duplicate IDs | Duplicate signatures | Repeated option sets | Repeated distractor sets | Overused words | Overused itemKeys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Initial Sounds | 78 | 77 | 0 | 0 | 2 | 8 | none | none |
-| Final Sounds | 242 | 171 | 0 | 0 | 22 | 16 | none | g:32, t:30, n:28, p:22 |
-| Rhyming | 205 | 133 | 0 | 0 | 34 | 15 | bug:5, fan:5 | at:26, an:21, am:16, ug:16 |
-| CVC and Short Vowels | 252 | 70 | 0 | 0 | 47 | 10 | bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6 | short_a:52, short_u:40, short_i:37, short_o:26, short_e:24 |
-| Short Vowel Discrimination | 250 | 71 | 0 | 0 | 54 | 7 | cup:7, fin:7, red:7, sun:7, bag:6, dog:6, hat:6, jet:6, log:6, mug:6 | none |
-| High-Frequency Words 1-25 | 61 | 32 | 0 | 0 | 10 | 6 | none | none |
-| High-Frequency Words 26-50 | 63 | 38 | 0 | 0 | 12 | 7 | none | none |
-| High-Frequency Words 51-100 | 70 | 68 | 0 | 0 | 0 | 1 | none | none |
-| Blends | 61 | 15 | 0 | 0 | 15 | 2 | blue:5, brush:5, clap:5, drum:5, flag:5, frog:5, slide:5, tree:5 | none |
-| Digraphs | 31 | 9 | 0 | 0 | 9 | 1 | thin:5, thumb:5 | none |
-| Long Vowels and Silent E | 60 | 44 | 0 | 0 | 3 | 0 | none | none |
-| Vowel Teams | 67 | 50 | 0 | 0 | 7 | 0 | none | ea:22 |
-| R-Controlled Vowels | 52 | 29 | 0 | 0 | 12 | 6 | turn:5 | none |
-| Nouns | 54 | 46 | 0 | 0 | 0 | 0 | none | none |
-| Verbs | 60 | 46 | 0 | 0 | 1 | 0 | none | none |
-| Adjectives | 61 | 43 | 0 | 0 | 0 | 0 | none | none |
-| Prepositions of Place | 61 | 24 | 0 | 0 | 9 | 0 | none | none |
-| Plurals | 57 | 28 | 0 | 0 | 9 | 3 | boxes:6, foxes:6, children:5 | es:9 |
-| Prefixes and Suffixes | 89 | 59 | 0 | 0 | 12 | 1 | none | ful:8, un:6, re:6, less:6, er:6 |
-| Antonyms and Synonyms | 64 | 40 | 0 | 0 | 4 | 1 | short:6 | short:6 |
-| Homophones and Homonyms | 52 | 50 | 0 | 0 | 18 | 0 | none | none |
-| Sentence Comprehension | 126 | 113 | 0 | 0 | 2 | 0 | none | none |
-| Key Details | 59 | 52 | 0 | 0 | 2 | 0 | none | none |
-| Sequencing | 59 | 57 | 0 | 0 | 0 | 0 | none | none |
-| Main Idea | 65 | 60 | 0 | 0 | 1 | 0 | none | none |
-| Inference | 106 | 106 | 0 | 0 | 0 | 0 | none | none |
-| Cause and Effect | 65 | 62 | 0 | 0 | 0 | 0 | none | none |
-| Context Clues | 66 | 60 | 0 | 0 | 0 | 0 | none | none |
-| Theme and Higher Comprehension | 65 | 54 | 0 | 0 | 0 | 0 | none | none |
+| Initial Sounds | 113 | 112 | 0 | 0 | 4 | 10 | none | b:31, a:12 |
+| Final Sounds | 261 | 187 | 0 | 0 | 22 | 16 | none | g:31, t:30, n:28, p:22 |
+| Rhyming | 189 | 87 | 0 | 0 | 1 | 24 | cat:6, bat:5, bug:5, cap:5, map:5, pan:5, wig:5 | at:12, ap:12, ug:12, an:11, ig:11, in:11 |
+| CVC and Short Vowels | 287 | 104 | 0 | 0 | 47 | 10 | bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6 | short_a:66, short_i:46, short_u:45, short_o:29, short_e:28 |
+| Short Vowel Discrimination | 285 | 106 | 0 | 0 | 54 | 7 | cup:7, fin:7, red:7, sun:7, bag:6, dog:6, hat:6, jet:6, log:6, mug:6 | none |
+| High-Frequency Words 1-25 | 96 | 32 | 0 | 0 | 10 | 6 | can:6, a:5, my:5, to:5, we:5 | can:6 |
+| High-Frequency Words 26-50 | 123 | 49 | 0 | 0 | 12 | 8 | all:5, but:5, he:5, she:5, then:5, they:5, under:5, was:5 | none |
+| High-Frequency Words 51-100 | 165 | 81 | 0 | 0 | 1 | 1 | none | none |
+| Blends | 62 | 16 | 0 | 0 | 15 | 2 | blue:5, brush:5, clap:5, drum:5, flag:5, frog:5, slide:5, tree:5 | none |
+| Digraphs | 46 | 24 | 0 | 0 | 9 | 3 | thin:5, thumb:5 | none |
+| Long Vowels and Silent E | 95 | 74 | 0 | 0 | 7 | 7 | none | none |
+| Vowel Teams | 102 | 83 | 0 | 0 | 11 | 5 | none | ea:34 |
+| R-Controlled Vowels | 87 | 61 | 0 | 0 | 15 | 11 | turn:5 | none |
+| Nouns | 74 | 66 | 0 | 0 | 0 | 1 | none | none |
+| Verbs | 80 | 55 | 0 | 0 | 1 | 1 | none | none |
+| Adjectives | 81 | 53 | 0 | 0 | 0 | 1 | none | none |
+| Prepositions of Place | 101 | 31 | 0 | 0 | 29 | 6 | above:5, beside:5, inside:5, near:5, under:5 | none |
+| Plurals | 85 | 37 | 0 | 0 | 18 | 6 | boxes:7, foxes:7, children:6, dogs:5, leaves:5 | es:9 |
+| Prefixes and Suffixes | 110 | 73 | 0 | 0 | 19 | 5 | none | ful:13, re:10, less:10, un:8, er:8, pre:6 |
+| Antonyms and Synonyms | 97 | 65 | 0 | 0 | 4 | 1 | short:6, quiet:5, sad:5 | short:6 |
+| Homophones and Homonyms | 87 | 50 | 0 | 0 | 28 | 0 | none | none |
+| Sentence Comprehension | 145 | 132 | 0 | 0 | 4 | 2 | none | none |
+| Key Details | 94 | 72 | 0 | 0 | 3 | 2 | none | none |
+| Sequencing | 94 | 77 | 0 | 0 | 2 | 2 | none | none |
+| Main Idea | 100 | 80 | 0 | 0 | 3 | 2 | none | none |
+| Inference | 140 | 126 | 0 | 0 | 2 | 2 | none | none |
+| Cause and Effect | 100 | 82 | 0 | 0 | 2 | 2 | none | none |
+| Context Clues | 100 | 80 | 0 | 0 | 2 | 2 | none | none |
+| Theme and Higher Comprehension | 100 | 74 | 0 | 0 | 2 | 2 | none | none |
 
 ## Details By Skill
 
 ## Initial Sounds
 
-- Active questions: 78
-- Unique target words / answer targets: 77
+- Active questions: 113
+- Unique target words / answer targets: 112
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 2
-- Repeated distractor sets: 8
+- Repeated answer option sets: 4
+- Repeated distractor sets: 10
 - Overused words: none
-- Overused itemKeys: none
+- Overused itemKeys: b:31, a:12
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| b | 6 |
+| b | 31 |
+| a | 12 |
 | f | 6 |
 | c | 4 |
 | d | 4 |
@@ -69,7 +70,6 @@ This report audits active runtime questions after validation gates are applied. 
 | r | 3 |
 | v | 3 |
 | z | 3 |
-| a | 2 |
 | e | 2 |
 | g | 2 |
 | i | 2 |
@@ -91,34 +91,36 @@ No duplicate prompt+answer signatures.
 | --- | --- | --- |
 | c \| p \| r \| s | 2 | ixl_first_sound_1, ixl_first_sound_9 |
 | m \| n \| p \| r | 2 | ixl_first_sound_6, ixl_first_sound_25 |
+| a \| b \| c \| d | 2 | gap_initial_l2_airplane, gap_initial_l2_beehive |
+| a \| b \| c \| z | 2 | gap_initial_l2_ash, gap_initial_l2_bike |
 
 ## Final Sounds
 
-- Active questions: 242
-- Unique target words / answer targets: 171
+- Active questions: 261
+- Unique target words / answer targets: 187
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 22
 - Repeated distractor sets: 16
 - Overused words: none
-- Overused itemKeys: g:32, t:30, n:28, p:22
+- Overused itemKeys: g:31, t:30, n:28, p:22
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| g | 32 |
+| g | 31 |
 | t | 30 |
 | n | 28 |
 | p | 22 |
+| b | 19 |
 | d | 19 |
+| l | 18 |
 | m | 18 |
 | sh | 15 |
-| l | 11 |
 | ll | 11 |
 | nd | 10 |
 | ng | 7 |
-| b | 6 |
 | r | 5 |
 | f | 4 |
 | s | 4 |
@@ -141,56 +143,64 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| b \| d \| g \| t | 19 | ending_l1_001_cat, ending_l1_007_bat, ending_l1_011_jet, ending_l1_014_hat, ending_l1_019_pot, ending_l1_027_net, ending_l1_028_cot, ending_l1_029_cut, ixl_ending_sound_17, gen_final_l1_t_bat_0_sound, gen_final_l1_t_cot_1_sound, gen_final_l1_t_exit_3_sound, gen_final_l1_t_hat_4_sound, gen_final_l1_t_jet_8_sound, gen_final_l1_t_mat_9_sound, gen_final_l1_t_newt_10_sound, gen_final_l1_t_pot_11_sound, gen_final_l1_t_rat_12_sound, gen_final_l1_t_sit_13_sound |
-| b \| d \| g \| l | 28 | ending_l1_002_dog, ending_l1_003_bed, ending_l1_008_bag, ending_l1_010_web, ending_l1_015_log, ending_l1_016_mug, ending_l1_017_bug, ending_l1_030_lid, ending_l1_031_bell, ending_l1_032_ball, ixl_ending_sound_22, gen_final_l1_b_tub_0_sound, gen_final_l1_b_web_1_sound, gen_final_l1_d_kid_3_sound, gen_final_l1_d_lid_4_sound, gen_final_l1_d_red_6_sound, gen_final_l1_g_bag_0_sound, gen_final_l1_g_bug_2_sound, gen_final_l1_g_dog_4_sound, gen_final_l1_g_egg_6_sound, gen_final_l1_g_leg_8_sound, gen_final_l1_g_log_9_sound, gen_final_l1_g_mug_10_sound, gen_final_l1_g_pig_11_sound, gen_final_l1_g_rug_12_sound, gen_final_l1_g_wig_13_sound, gen_final_l1_l_girl_0_sound, gen_final_l1_l_oval_1_sound |
-| b \| d \| g \| p | 9 | ending_l1_004_map, ending_l1_009_cup, ending_l1_018_cap, gen_final_l1_p_cap_0_sound, gen_final_l1_p_cup_1_sound, gen_final_l1_p_tap_5_sound, gen_final_l1_p_top_6_sound, gen_final_l1_p_up_7_sound, gen_final_l1_p_zip_8_sound |
-| b \| d \| g \| n | 16 | ending_l1_005_pan, ending_l1_006_pin, ending_l1_013_sun, ending_l1_020_pen, ending_l1_021_hen, ending_l1_022_fan, ending_l1_026_fin, gen_final_l1_n_fan_2_sound, gen_final_l1_n_fin_3_sound, gen_final_l1_n_hen_4_sound, gen_final_l1_n_man_5_sound, gen_final_l1_n_pan_6_sound, gen_final_l1_n_pen_7_sound, gen_final_l1_n_pin_8_sound, gen_final_l1_n_sun_10_sound, gen_final_l1_n_van_12_sound |
-| b \| d \| g \| m | 9 | ending_l1_012_jam, ending_l1_023_ham, ending_l1_024_ram, ending_l1_025_gum, gen_final_l1_m_gum_0_sound, gen_final_l1_m_ham_1_sound, gen_final_l1_m_jam_2_sound, gen_final_l1_m_ram_3_sound, gen_final_l1_m_yam_4_sound |
+| b \| d \| g \| t | 20 | ending_l1_001_cat, ending_l1_007_bat, ending_l1_020_jet, ending_l1_023_hat, ending_l1_028_pot, ending_l1_036_net, ending_l1_037_cot, ending_l1_038_cut, ixl_ending_sound_13, ixl_ending_sound_17, gen_final_l1_t_bat_0_sound, gen_final_l1_t_cot_1_sound, gen_final_l1_t_exit_3_sound, gen_final_l1_t_hat_4_sound, gen_final_l1_t_jet_8_sound, gen_final_l1_t_mat_9_sound, gen_final_l1_t_newt_10_sound, gen_final_l1_t_pot_11_sound, gen_final_l1_t_rat_12_sound, gen_final_l1_t_sit_13_sound |
+| b \| d \| g \| l | 45 | ending_l1_002_dog, ending_l1_003_bed, ending_l1_008_bag, ending_l1_010_web, ending_l1_011_cub, ending_l1_012_cab, ending_l1_013_bib, ending_l1_014_rub, ending_l1_015_knob, ending_l1_016_lab, ending_l1_017_sub, ending_l1_018_cob, ending_l1_019_dab, ending_l1_024_log, ending_l1_025_mug, ending_l1_026_bug, ending_l1_039_lid, ending_l1_040_tub, ending_l1_041_crab, ending_l1_042_animal, ending_l1_043_fossil, ending_l1_044_hospital, ending_l1_045_jewel, ending_l1_046_nail, ending_l1_047_owl, ending_l1_048_pencil, ending_l1_049_pretzel, ending_l1_050_seal, ending_l1_051_wheel, ixl_ending_sound_22, gen_final_l1_b_tub_0_sound, gen_final_l1_b_web_1_sound, gen_final_l1_d_kid_3_sound, gen_final_l1_d_lid_4_sound, gen_final_l1_d_red_6_sound, gen_final_l1_g_bag_0_sound, gen_final_l1_g_bug_2_sound, gen_final_l1_g_dog_4_sound, gen_final_l1_g_leg_7_sound, gen_final_l1_g_log_8_sound, gen_final_l1_g_mug_9_sound, gen_final_l1_g_pig_10_sound, gen_final_l1_g_rug_11_sound, gen_final_l1_g_wig_12_sound, gen_final_l1_l_seal_0_sound |
+| b \| d \| g \| p | 9 | ending_l1_004_map, ending_l1_009_cup, ending_l1_027_cap, gen_final_l1_p_cap_0_sound, gen_final_l1_p_cup_1_sound, gen_final_l1_p_tap_5_sound, gen_final_l1_p_top_6_sound, gen_final_l1_p_up_7_sound, gen_final_l1_p_zip_8_sound |
+| b \| d \| g \| n | 16 | ending_l1_005_pan, ending_l1_006_pin, ending_l1_022_sun, ending_l1_029_pen, ending_l1_030_hen, ending_l1_031_fan, ending_l1_035_fin, gen_final_l1_n_fan_2_sound, gen_final_l1_n_fin_3_sound, gen_final_l1_n_hen_4_sound, gen_final_l1_n_man_5_sound, gen_final_l1_n_pan_6_sound, gen_final_l1_n_pen_7_sound, gen_final_l1_n_pin_8_sound, gen_final_l1_n_sun_10_sound, gen_final_l1_n_van_12_sound |
+| b \| d \| g \| m | 9 | ending_l1_021_jam, ending_l1_032_ham, ending_l1_033_ram, ending_l1_034_gum, gen_final_l1_m_gum_0_sound, gen_final_l1_m_ham_1_sound, gen_final_l1_m_jam_2_sound, gen_final_l1_m_ram_3_sound, gen_final_l1_m_yam_4_sound |
 | ch \| ck \| sh \| th | 6 | ending_l2_001_fish, ending_l2_002_dish, ending_l2_003_brush, ending_l2_004_duck, ending_l2_005_sock, ending_l2_006_rock |
 | ch \| ng \| sh \| th | 2 | ending_l2_007_ring, ending_l2_008_king |
 | ch \| rk \| sh \| th | 2 | ending_l2_012_park, ending_l2_013_fork |
 
 ## Rhyming
 
-- Active questions: 205
-- Unique target words / answer targets: 133
+- Active questions: 189
+- Unique target words / answer targets: 87
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 34
-- Repeated distractor sets: 15
-- Overused words: bug:5, fan:5
-- Overused itemKeys: at:26, an:21, am:16, ug:16
+- Repeated answer option sets: 1
+- Repeated distractor sets: 24
+- Overused words: cat:6, bat:5, bug:5, cap:5, map:5, pan:5, wig:5
+- Overused itemKeys: at:12, ap:12, ug:12, an:11, ig:11, in:11
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| at | 26 |
-| an | 21 |
-| am | 16 |
-| ug | 16 |
 | ap | 12 |
+| at | 12 |
+| ug | 12 |
+| an | 11 |
 | ig | 11 |
-| oat | 11 |
+| in | 11 |
+| am | 10 |
+| en | 10 |
+| oat | 10 |
+| op | 10 |
 | ot | 10 |
-| in | 9 |
-| ock | 9 |
-| en | 8 |
-| og | 6 |
-| op | 6 |
-| un | 6 |
-| ed | 4 |
-| ell | 4 |
-| ing | 4 |
-| ake | 3 |
-| ar | 3 |
-| ish | 3 |
-| it | 3 |
-| up | 3 |
+| un | 10 |
+| ing | 5 |
+| ock | 4 |
+| ack | 3 |
+| ed | 3 |
+| ell | 3 |
+| et | 3 |
+| ick | 3 |
+| og | 3 |
+| or | 3 |
+| ut | 3 |
+| ad | 2 |
+| ag | 2 |
+| ake | 2 |
+| all | 2 |
+| ar | 2 |
 | ee | 2 |
-| et | 2 |
-| uck | 2 |
-| ut | 2 |
+| eep | 2 |
+| eg | 2 |
+| ip | 2 |
+| ish | 2 |
+| it | 2 |
+| up | 2 |
 | ain | 1 |
 | air | 1 |
 | ox | 1 |
@@ -203,35 +213,28 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| cup \| dog \| hat \| sun | 2 | p3_rhyme_listen_at_1, p3_rhyme_read_at_1 |
-| dog \| fish \| nap \| sun | 2 | p3_rhyme_listen_ap_2, p3_rhyme_read_ap_2 |
-| dog \| map \| pan \| sun | 2 | p3_rhyme_listen_an_3, p3_rhyme_read_an_3 |
-| dog \| map \| red \| sun | 2 | p3_rhyme_listen_ed_4, p3_rhyme_read_ed_4 |
-| dog \| hen \| map \| sun | 2 | p3_rhyme_listen_en_5, p3_rhyme_read_en_5 |
-| dog \| map \| sun \| wig | 2 | p3_rhyme_listen_ig_6, p3_rhyme_read_ig_6 |
-| dog \| map \| pin \| sun | 2 | p3_rhyme_listen_in_7, p3_rhyme_read_in_7 |
-| dog \| hit \| map \| sun | 2 | p3_rhyme_listen_it_8, p3_rhyme_read_it_8 |
+| ham \| jam \| tap \| van | 2 | coverage_rhyme_l1_an_007, coverage_rhyme_l1_ap_007 |
 
 ## CVC and Short Vowels
 
-- Active questions: 252
-- Unique target words / answer targets: 70
+- Active questions: 287
+- Unique target words / answer targets: 104
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 47
 - Repeated distractor sets: 10
 - Overused words: bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6
-- Overused itemKeys: short_a:52, short_u:40, short_i:37, short_o:26, short_e:24
+- Overused itemKeys: short_a:66, short_i:46, short_u:45, short_o:29, short_e:28
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| short_a | 52 |
-| short_u | 40 |
-| short_i | 37 |
-| short_o | 26 |
-| short_e | 24 |
+| short_a | 66 |
+| short_i | 46 |
+| short_u | 45 |
+| short_o | 29 |
+| short_e | 28 |
 | bag | 3 |
 | bat | 3 |
 | bed | 3 |
@@ -280,7 +283,7 @@ No duplicate prompt+answer signatures.
 | --- | --- | --- |
 | dig \| dog \| dot \| dug | 2 | cvc_listen_find_007, cvc_listen_find_008 |
 | bed \| pan \| pen \| pin | 2 | cvc_listen_find_019, recovery_cvc_pen_picture_2 |
-| a \| e \| i \| o \| u | 77 | p3_cvc_missing_vowel_1, p3_cvc_missing_vowel_2, p3_cvc_missing_vowel_3, p3_cvc_missing_vowel_4, p3_cvc_missing_vowel_5, p3_cvc_missing_vowel_6, p3_cvc_missing_vowel_7, p3_cvc_missing_vowel_8, p3_cvc_missing_vowel_9, p3_cvc_missing_vowel_10, p3_cvc_missing_vowel_11, p3_cvc_missing_vowel_12, p3_cvc_missing_vowel_13, p3_cvc_missing_vowel_14, p3_cvc_missing_vowel_15, gen_cvc_short_a_bad_0_missing, gen_cvc_short_a_bag_1_missing, gen_cvc_short_a_bat_2_missing, gen_cvc_short_a_cap_3_missing, gen_cvc_short_a_fan_4_missing, gen_cvc_short_a_ham_5_missing, gen_cvc_short_a_hat_6_missing, gen_cvc_short_a_jam_7_missing, gen_cvc_short_a_man_8_missing, gen_cvc_short_a_mat_9_missing, gen_cvc_short_a_nap_10_missing, gen_cvc_short_a_pan_11_missing, gen_cvc_short_a_ram_12_missing, gen_cvc_short_a_rat_13_missing, gen_cvc_short_a_tap_14_missing, gen_cvc_short_a_van_15_missing, gen_cvc_short_a_yak_16_missing, gen_cvc_short_e_hen_0_missing, gen_cvc_short_e_jet_1_missing, gen_cvc_short_e_leg_2_missing, gen_cvc_short_e_pen_3_missing, gen_cvc_short_e_red_4_missing, gen_cvc_short_e_ten_5_missing, gen_cvc_short_e_web_6_missing, gen_cvc_short_e_den_7_missing, gen_cvc_short_i_bid_0_missing, gen_cvc_short_i_big_1_missing, gen_cvc_short_i_bin_2_missing, gen_cvc_short_i_dig_3_missing, gen_cvc_short_i_fin_4_missing, gen_cvc_short_i_hit_5_missing, gen_cvc_short_i_kid_6_missing, gen_cvc_short_i_lid_7_missing, gen_cvc_short_i_pig_8_missing, gen_cvc_short_i_pin_9_missing, gen_cvc_short_i_sit_10_missing, gen_cvc_short_i_wig_11_missing, gen_cvc_short_i_zip_12_missing, gen_cvc_short_o_cot_0_missing, gen_cvc_short_o_dog_1_missing, gen_cvc_short_o_dot_2_missing, gen_cvc_short_o_hop_3_missing, gen_cvc_short_o_hot_4_missing, gen_cvc_short_o_log_5_missing, gen_cvc_short_o_mop_6_missing, gen_cvc_short_o_pot_7_missing, gen_cvc_short_o_top_8_missing, gen_cvc_short_u_bud_0_missing, gen_cvc_short_u_bug_1_missing, gen_cvc_short_u_bun_2_missing, gen_cvc_short_u_bus_3_missing, gen_cvc_short_u_cup_4_missing, gen_cvc_short_u_dug_5_missing, gen_cvc_short_u_gum_6_missing, gen_cvc_short_u_hut_7_missing, gen_cvc_short_u_jug_8_missing, gen_cvc_short_u_mud_9_missing, gen_cvc_short_u_mug_10_missing, gen_cvc_short_u_rug_11_missing, gen_cvc_short_u_run_12_missing, gen_cvc_short_u_sun_13_missing, gen_cvc_short_u_tub_14_missing |
+| a \| e \| i \| o \| u | 112 | p3_cvc_missing_vowel_1, p3_cvc_missing_vowel_2, p3_cvc_missing_vowel_3, p3_cvc_missing_vowel_4, p3_cvc_missing_vowel_5, p3_cvc_missing_vowel_6, p3_cvc_missing_vowel_7, p3_cvc_missing_vowel_8, p3_cvc_missing_vowel_9, p3_cvc_missing_vowel_10, p3_cvc_missing_vowel_11, p3_cvc_missing_vowel_12, p3_cvc_missing_vowel_13, p3_cvc_missing_vowel_14, p3_cvc_missing_vowel_15, gen_cvc_short_a_bad_0_missing, gen_cvc_short_a_bag_1_missing, gen_cvc_short_a_bat_2_missing, gen_cvc_short_a_cap_3_missing, gen_cvc_short_a_fan_4_missing, gen_cvc_short_a_ham_5_missing, gen_cvc_short_a_hat_6_missing, gen_cvc_short_a_jam_7_missing, gen_cvc_short_a_man_8_missing, gen_cvc_short_a_mat_9_missing, gen_cvc_short_a_nap_10_missing, gen_cvc_short_a_pan_11_missing, gen_cvc_short_a_ram_12_missing, gen_cvc_short_a_rat_13_missing, gen_cvc_short_a_tap_14_missing, gen_cvc_short_a_van_15_missing, gen_cvc_short_a_yak_16_missing, gen_cvc_short_e_hen_0_missing, gen_cvc_short_e_jet_1_missing, gen_cvc_short_e_leg_2_missing, gen_cvc_short_e_pen_3_missing, gen_cvc_short_e_red_4_missing, gen_cvc_short_e_ten_5_missing, gen_cvc_short_e_web_6_missing, gen_cvc_short_e_den_7_missing, gen_cvc_short_i_bid_0_missing, gen_cvc_short_i_big_1_missing, gen_cvc_short_i_bin_2_missing, gen_cvc_short_i_dig_3_missing, gen_cvc_short_i_fin_4_missing, gen_cvc_short_i_hit_5_missing, gen_cvc_short_i_kid_6_missing, gen_cvc_short_i_lid_7_missing, gen_cvc_short_i_pig_8_missing, gen_cvc_short_i_pin_9_missing, gen_cvc_short_i_sit_10_missing, gen_cvc_short_i_wig_11_missing, gen_cvc_short_i_zip_12_missing, gen_cvc_short_o_cot_0_missing, gen_cvc_short_o_dog_1_missing, gen_cvc_short_o_dot_2_missing, gen_cvc_short_o_hop_3_missing, gen_cvc_short_o_hot_4_missing, gen_cvc_short_o_log_5_missing, gen_cvc_short_o_mop_6_missing, gen_cvc_short_o_pot_7_missing, gen_cvc_short_o_top_8_missing, gen_cvc_short_u_bud_0_missing, gen_cvc_short_u_bug_1_missing, gen_cvc_short_u_bun_2_missing, gen_cvc_short_u_bus_3_missing, gen_cvc_short_u_cup_4_missing, gen_cvc_short_u_dug_5_missing, gen_cvc_short_u_gum_6_missing, gen_cvc_short_u_hut_7_missing, gen_cvc_short_u_jug_8_missing, gen_cvc_short_u_mud_9_missing, gen_cvc_short_u_mug_10_missing, gen_cvc_short_u_rug_11_missing, gen_cvc_short_u_run_12_missing, gen_cvc_short_u_sun_13_missing, gen_cvc_short_u_tub_14_missing, gap_cvc_short_vowels_l2_bar_1, gap_cvc_short_vowels_l2_bib_2, gap_cvc_short_vowels_l2_bow_3, gap_cvc_short_vowels_l2_cab_4, gap_cvc_short_vowels_l2_can_5, gap_cvc_short_vowels_l2_cob_6, gap_cvc_short_vowels_l2_cub_7, gap_cvc_short_vowels_l2_dab_8, gap_cvc_short_vowels_l2_dad_9, gap_cvc_short_vowels_l2_den_10, gap_cvc_short_vowels_l2_dip_11, gap_cvc_short_vowels_l2_fig_12, gap_cvc_short_vowels_l2_fun_13, gap_cvc_short_vowels_l2_gem_14, gap_cvc_short_vowels_l2_hay_15, gap_cvc_short_vowels_l2_hip_16, gap_cvc_short_vowels_l2_kit_17, gap_cvc_short_vowels_l2_lab_18, gap_cvc_short_vowels_l2_lap_19, gap_cvc_short_vowels_l2_lip_20, gap_cvc_short_vowels_l2_mad_21, gap_cvc_short_vowels_l2_mix_22, gap_cvc_short_vowels_l2_pad_23, gap_cvc_short_vowels_l2_peg_24, gap_cvc_short_vowels_l2_pet_25, gap_cvc_short_vowels_l2_pup_26, gap_cvc_short_vowels_l2_rag_27, gap_cvc_short_vowels_l2_rib_28, gap_cvc_short_vowels_l2_rod_29, gap_cvc_short_vowels_l2_rub_30, gap_cvc_short_vowels_l2_sad_31, gap_cvc_short_vowels_l2_sap_32, gap_cvc_short_vowels_l2_saw_33, gap_cvc_short_vowels_l2_sip_34, gap_cvc_short_vowels_l2_sub_35 |
 | g \| n \| p \| t | 11 | ixl_complete_word_1, ixl_complete_word_2, ixl_complete_word_4, ixl_complete_word_5, ixl_complete_word_6, ixl_complete_word_7, ixl_complete_word_8, ixl_complete_word_9, ixl_complete_word_13, ixl_complete_word_14, ixl_complete_word_15 |
 | b \| n \| p \| t | 2 | ixl_complete_word_10, ixl_complete_word_11 |
 | bag \| bid \| big \| bin | 2 | gen_cvc_short_a_bag_1_vowel, gen_cvc_short_a_bag_1_picture |
@@ -289,8 +292,8 @@ No duplicate prompt+answer signatures.
 
 ## Short Vowel Discrimination
 
-- Active questions: 250
-- Unique target words / answer targets: 71
+- Active questions: 285
+- Unique target words / answer targets: 106
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 54
@@ -302,11 +305,11 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
-| short_a | 68 |
-| short_i | 53 |
-| short_u | 53 |
-| short_o | 40 |
-| short_e | 36 |
+| short_a | 82 |
+| short_i | 62 |
+| short_u | 58 |
+| short_o | 43 |
+| short_e | 40 |
 
 ### Duplicate Signatures
 
@@ -316,7 +319,7 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| a \| e \| i \| o \| u | 86 | p3_short_vowel_listen_1, p3_short_vowel_listen_2, p3_short_vowel_listen_3, p3_short_vowel_listen_4, p3_short_vowel_listen_5, p3_short_vowel_listen_6, p3_short_vowel_listen_7, p3_short_vowel_listen_8, p3_short_vowel_listen_9, p3_short_vowel_listen_10, p3_short_vowel_listen_11, p3_short_vowel_listen_12, p3_short_vowel_listen_13, p3_short_vowel_listen_14, p3_short_vowel_listen_15, recovery_short_vowel_listen_2, recovery_short_vowel_listen_4, recovery_short_vowel_listen_5, recovery_short_vowel_listen_9, recovery_short_vowel_listen_10, recovery_short_vowel_listen_12, recovery_short_vowel_listen_14, recovery_short_vowel_listen_19, recovery_short_vowel_listen_20, recovery_short_vowel_listen_23, recovery_short_vowel_listen_25, gen_short_vowel_a_bad_0_listen, gen_short_vowel_a_bag_1_listen, gen_short_vowel_a_bat_2_listen, gen_short_vowel_i_bid_3_listen, gen_short_vowel_i_big_4_listen, gen_short_vowel_i_bin_5_listen, gen_short_vowel_u_bud_6_listen, gen_short_vowel_u_bug_7_listen, gen_short_vowel_u_bun_8_listen, gen_short_vowel_u_bus_9_listen, gen_short_vowel_a_cap_10_listen, gen_short_vowel_o_cot_11_listen, gen_short_vowel_u_cup_12_listen, gen_short_vowel_i_dig_13_listen, gen_short_vowel_o_dog_14_listen, gen_short_vowel_o_dot_15_listen, gen_short_vowel_a_fan_17_listen, gen_short_vowel_i_fin_18_listen, gen_short_vowel_u_gum_19_listen, gen_short_vowel_a_ham_20_listen, gen_short_vowel_a_hat_21_listen, gen_short_vowel_e_hen_22_listen, gen_short_vowel_i_hit_23_listen, gen_short_vowel_o_hop_24_listen, gen_short_vowel_o_hot_25_listen, gen_short_vowel_u_hut_26_listen, gen_short_vowel_a_jam_27_listen, gen_short_vowel_e_jet_28_listen, gen_short_vowel_u_jug_29_listen, gen_short_vowel_i_kid_30_listen, gen_short_vowel_e_leg_31_listen, gen_short_vowel_i_lid_32_listen, gen_short_vowel_o_log_33_listen, gen_short_vowel_a_man_34_listen, gen_short_vowel_a_mat_35_listen, gen_short_vowel_o_mop_36_listen, gen_short_vowel_u_mud_37_listen, gen_short_vowel_u_mug_38_listen, gen_short_vowel_a_nap_39_listen, gen_short_vowel_a_pan_40_listen, gen_short_vowel_e_pen_41_listen, gen_short_vowel_i_pig_42_listen, gen_short_vowel_i_pin_43_listen, gen_short_vowel_o_pot_44_listen, gen_short_vowel_a_ram_45_listen, gen_short_vowel_a_rat_46_listen, gen_short_vowel_e_red_47_listen, gen_short_vowel_u_rug_48_listen, gen_short_vowel_u_run_49_listen, gen_short_vowel_i_sit_50_listen, gen_short_vowel_u_sun_51_listen, gen_short_vowel_a_tap_52_listen, gen_short_vowel_e_ten_53_listen, gen_short_vowel_o_top_54_listen, gen_short_vowel_u_tub_55_listen, gen_short_vowel_a_van_56_listen, gen_short_vowel_e_web_57_listen, gen_short_vowel_i_wig_58_listen, gen_short_vowel_a_yak_59_listen, gen_short_vowel_i_zip_60_listen |
+| a \| e \| i \| o \| u | 121 | p3_short_vowel_listen_1, p3_short_vowel_listen_2, p3_short_vowel_listen_3, p3_short_vowel_listen_4, p3_short_vowel_listen_5, p3_short_vowel_listen_6, p3_short_vowel_listen_7, p3_short_vowel_listen_8, p3_short_vowel_listen_9, p3_short_vowel_listen_10, p3_short_vowel_listen_11, p3_short_vowel_listen_12, p3_short_vowel_listen_13, p3_short_vowel_listen_14, p3_short_vowel_listen_15, recovery_short_vowel_listen_2, recovery_short_vowel_listen_4, recovery_short_vowel_listen_5, recovery_short_vowel_listen_9, recovery_short_vowel_listen_10, recovery_short_vowel_listen_12, recovery_short_vowel_listen_14, recovery_short_vowel_listen_19, recovery_short_vowel_listen_20, recovery_short_vowel_listen_23, recovery_short_vowel_listen_25, gen_short_vowel_a_bad_0_listen, gen_short_vowel_a_bag_1_listen, gen_short_vowel_a_bat_2_listen, gen_short_vowel_i_bid_3_listen, gen_short_vowel_i_big_4_listen, gen_short_vowel_i_bin_5_listen, gen_short_vowel_u_bud_6_listen, gen_short_vowel_u_bug_7_listen, gen_short_vowel_u_bun_8_listen, gen_short_vowel_u_bus_9_listen, gen_short_vowel_a_cap_10_listen, gen_short_vowel_o_cot_11_listen, gen_short_vowel_u_cup_12_listen, gen_short_vowel_i_dig_13_listen, gen_short_vowel_o_dog_14_listen, gen_short_vowel_o_dot_15_listen, gen_short_vowel_a_fan_17_listen, gen_short_vowel_i_fin_18_listen, gen_short_vowel_u_gum_19_listen, gen_short_vowel_a_ham_20_listen, gen_short_vowel_a_hat_21_listen, gen_short_vowel_e_hen_22_listen, gen_short_vowel_i_hit_23_listen, gen_short_vowel_o_hop_24_listen, gen_short_vowel_o_hot_25_listen, gen_short_vowel_u_hut_26_listen, gen_short_vowel_a_jam_27_listen, gen_short_vowel_e_jet_28_listen, gen_short_vowel_u_jug_29_listen, gen_short_vowel_i_kid_30_listen, gen_short_vowel_e_leg_31_listen, gen_short_vowel_i_lid_32_listen, gen_short_vowel_o_log_33_listen, gen_short_vowel_a_man_34_listen, gen_short_vowel_a_mat_35_listen, gen_short_vowel_o_mop_36_listen, gen_short_vowel_u_mud_37_listen, gen_short_vowel_u_mug_38_listen, gen_short_vowel_a_nap_39_listen, gen_short_vowel_a_pan_40_listen, gen_short_vowel_e_pen_41_listen, gen_short_vowel_i_pig_42_listen, gen_short_vowel_i_pin_43_listen, gen_short_vowel_o_pot_44_listen, gen_short_vowel_a_ram_45_listen, gen_short_vowel_a_rat_46_listen, gen_short_vowel_e_red_47_listen, gen_short_vowel_u_rug_48_listen, gen_short_vowel_u_run_49_listen, gen_short_vowel_i_sit_50_listen, gen_short_vowel_u_sun_51_listen, gen_short_vowel_a_tap_52_listen, gen_short_vowel_e_ten_53_listen, gen_short_vowel_o_top_54_listen, gen_short_vowel_u_tub_55_listen, gen_short_vowel_a_van_56_listen, gen_short_vowel_e_web_57_listen, gen_short_vowel_i_wig_58_listen, gen_short_vowel_a_yak_59_listen, gen_short_vowel_i_zip_60_listen, gap_short_vowel_discrimination_l2_bar_1, gap_short_vowel_discrimination_l2_bib_2, gap_short_vowel_discrimination_l2_bow_3, gap_short_vowel_discrimination_l2_cab_4, gap_short_vowel_discrimination_l2_can_5, gap_short_vowel_discrimination_l2_cob_6, gap_short_vowel_discrimination_l2_cub_7, gap_short_vowel_discrimination_l2_dab_8, gap_short_vowel_discrimination_l2_dad_9, gap_short_vowel_discrimination_l2_den_10, gap_short_vowel_discrimination_l2_dip_11, gap_short_vowel_discrimination_l2_fig_12, gap_short_vowel_discrimination_l2_fun_13, gap_short_vowel_discrimination_l2_gem_14, gap_short_vowel_discrimination_l2_hay_15, gap_short_vowel_discrimination_l2_hip_16, gap_short_vowel_discrimination_l2_kit_17, gap_short_vowel_discrimination_l2_lab_18, gap_short_vowel_discrimination_l2_lap_19, gap_short_vowel_discrimination_l2_lip_20, gap_short_vowel_discrimination_l2_mad_21, gap_short_vowel_discrimination_l2_mix_22, gap_short_vowel_discrimination_l2_pad_23, gap_short_vowel_discrimination_l2_peg_24, gap_short_vowel_discrimination_l2_pet_25, gap_short_vowel_discrimination_l2_pup_26, gap_short_vowel_discrimination_l2_rag_27, gap_short_vowel_discrimination_l2_rib_28, gap_short_vowel_discrimination_l2_rod_29, gap_short_vowel_discrimination_l2_rub_30, gap_short_vowel_discrimination_l2_sad_31, gap_short_vowel_discrimination_l2_sap_32, gap_short_vowel_discrimination_l2_saw_33, gap_short_vowel_discrimination_l2_sip_34, gap_short_vowel_discrimination_l2_sub_35 |
 | cat \| cot \| cut \| kit | 2 | p3_short_vowel_picture_1, recovery_short_vowel_picture_19 |
 | pan \| pen \| pig \| pot | 2 | p3_short_vowel_picture_7, p3_short_vowel_picture_11 |
 | map \| mat \| mop \| mug | 2 | recovery_short_vowel_picture_3, recovery_short_vowel_picture_20 |
@@ -327,51 +330,51 @@ No duplicate prompt+answer signatures.
 
 ## High-Frequency Words 1-25
 
-- Active questions: 61
+- Active questions: 96
 - Unique target words / answer targets: 32
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 10
 - Repeated distractor sets: 6
-- Overused words: none
-- Overused itemKeys: none
+- Overused words: can:6, a:5, my:5, to:5, we:5
+- Overused itemKeys: can:6
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| a | 4 |
-| can | 4 |
-| my | 4 |
-| to | 4 |
-| we | 4 |
-| and | 3 |
-| go | 3 |
-| i | 3 |
-| see | 3 |
-| the | 3 |
-| up | 3 |
-| you | 3 |
-| am | 1 |
-| big | 1 |
-| come | 1 |
-| down | 1 |
-| for | 1 |
-| in | 1 |
-| is | 1 |
-| it | 1 |
-| like | 1 |
-| little | 1 |
-| look | 1 |
-| me | 1 |
-| not | 1 |
-| on | 1 |
-| one | 1 |
-| play | 1 |
-| said | 1 |
-| that | 1 |
-| want | 1 |
-| with | 1 |
+| can | 6 |
+| a | 5 |
+| my | 5 |
+| to | 5 |
+| we | 5 |
+| and | 4 |
+| go | 4 |
+| i | 4 |
+| see | 4 |
+| the | 4 |
+| up | 4 |
+| you | 4 |
+| in | 3 |
+| play | 3 |
+| am | 2 |
+| big | 2 |
+| come | 2 |
+| down | 2 |
+| for | 2 |
+| is | 2 |
+| it | 2 |
+| like | 2 |
+| little | 2 |
+| look | 2 |
+| me | 2 |
+| not | 2 |
+| on | 2 |
+| one | 2 |
+| said | 2 |
+| that | 2 |
+| want | 2 |
+| with | 2 |
 
 ### Duplicate Signatures
 
@@ -392,57 +395,68 @@ No duplicate prompt+answer signatures.
 
 ## High-Frequency Words 26-50
 
-- Active questions: 63
-- Unique target words / answer targets: 38
+- Active questions: 123
+- Unique target words / answer targets: 49
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 12
-- Repeated distractor sets: 7
-- Overused words: none
+- Repeated distractor sets: 8
+- Overused words: all:5, but:5, he:5, she:5, then:5, they:5, under:5, was:5
 - Overused itemKeys: none
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| all | 3 |
-| but | 3 |
-| he | 3 |
-| she | 3 |
-| that | 3 |
-| then | 3 |
-| they | 3 |
-| under | 3 |
-| was | 3 |
-| with | 3 |
-| are | 2 |
-| for | 2 |
-| two | 2 |
-| very | 2 |
-| yellow | 2 |
-| after | 1 |
-| around | 1 |
-| asked | 1 |
-| away | 1 |
-| blue | 1 |
-| cold | 1 |
-| find | 1 |
-| funny | 1 |
-| help | 1 |
+| all | 5 |
+| but | 5 |
+| he | 5 |
+| she | 5 |
+| then | 5 |
+| they | 5 |
+| under | 5 |
+| was | 5 |
+| are | 4 |
+| that | 4 |
+| with | 4 |
+| for | 3 |
+| help | 3 |
+| two | 3 |
+| very | 3 |
+| went | 3 |
+| where | 3 |
+| yellow | 3 |
+| after | 2 |
+| around | 2 |
+| asked | 2 |
+| away | 2 |
+| blue | 2 |
+| cold | 2 |
+| find | 2 |
+| funny | 2 |
+| here | 2 |
+| jump | 2 |
+| made | 2 |
+| make | 2 |
+| open | 2 |
+| play | 2 |
+| red | 2 |
+| round | 2 |
+| run | 2 |
+| sleep | 2 |
+| three | 2 |
+| came | 1 |
+| from | 1 |
+| have | 1 |
 | helps | 1 |
-| here | 1 |
-| jump | 1 |
-| made | 1 |
-| make | 1 |
-| open | 1 |
-| play | 1 |
-| red | 1 |
-| round | 1 |
-| run | 1 |
-| sleep | 1 |
-| three | 1 |
-| went | 1 |
-| where | 1 |
+| into | 1 |
+| just | 1 |
+| now | 1 |
+| this | 1 |
+| were | 1 |
+| what | 1 |
+| when | 1 |
+| will | 1 |
 
 ### Duplicate Signatures
 
@@ -452,22 +466,22 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| he \| she \| they \| was | 2 | p3_hfw_26_50_listen_he, p3_hfw_26_50_read_he |
+| he \| she \| they \| was | 3 | p3_hfw_26_50_listen_he, p3_hfw_26_50_read_he, gap_hfw_26_50_l1_he |
 | she \| they \| was \| with | 2 | p3_hfw_26_50_listen_she, p3_hfw_26_50_read_she |
 | for \| they \| was \| with | 2 | p3_hfw_26_50_listen_they, p3_hfw_26_50_read_they |
 | all \| for \| was \| with | 2 | p3_hfw_26_50_listen_was, p3_hfw_26_50_read_was |
 | he \| she \| they \| with | 2 | p3_hfw_26_50_listen_with, p3_hfw_26_50_read_with |
 | for \| she \| they \| was | 2 | p3_hfw_26_50_listen_for, p3_hfw_26_50_read_for |
 | all \| they \| was \| with | 2 | p3_hfw_26_50_listen_all, p3_hfw_26_50_read_all |
-| but \| he \| she \| they | 2 | p3_hfw_26_50_listen_but, p3_hfw_26_50_read_but |
+| but \| he \| she \| they | 3 | p3_hfw_26_50_listen_but, p3_hfw_26_50_read_but, gap_hfw_26_50_l1_but |
 
 ## High-Frequency Words 51-100
 
-- Active questions: 70
-- Unique target words / answer targets: 68
+- Active questions: 165
+- Unique target words / answer targets: 81
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 0
+- Repeated answer option sets: 1
 - Repeated distractor sets: 1
 - Overused words: none
 - Overused itemKeys: none
@@ -476,74 +490,87 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
-| give | 2 |
-| know | 2 |
-| after | 1 |
-| again | 1 |
-| an | 1 |
-| any | 1 |
+| give | 4 |
+| know | 4 |
+| again | 3 |
+| any | 3 |
+| ask | 3 |
+| be | 3 |
+| before | 3 |
+| by | 3 |
+| could | 3 |
+| every | 3 |
+| fly | 3 |
+| found | 3 |
+| going | 3 |
+| has | 3 |
+| her | 3 |
+| him | 3 |
+| his | 3 |
+| how | 3 |
+| let | 3 |
+| live | 3 |
+| after | 2 |
+| an | 2 |
+| came | 2 |
+| from | 2 |
+| had | 2 |
+| have | 2 |
+| into | 2 |
+| just | 2 |
+| like | 2 |
+| may | 2 |
+| must | 2 |
+| new | 2 |
+| now | 2 |
+| of | 2 |
+| old | 2 |
+| once | 2 |
+| our | 2 |
+| out | 2 |
+| over | 2 |
+| please | 2 |
+| pretty | 2 |
+| put | 2 |
+| read | 2 |
+| saw | 2 |
+| say | 2 |
+| some | 2 |
+| soon | 2 |
+| stop | 2 |
+| take | 2 |
+| thank | 2 |
+| them | 2 |
+| think | 2 |
+| this | 2 |
+| walk | 2 |
+| well | 2 |
+| were | 2 |
+| what | 2 |
+| when | 2 |
+| white | 2 |
+| who | 2 |
+| will | 2 |
+| yes | 2 |
+| around | 1 |
 | as | 1 |
-| ask | 1 |
-| be | 1 |
-| before | 1 |
-| by | 1 |
-| came | 1 |
-| could | 1 |
-| every | 1 |
-| fly | 1 |
-| found | 1 |
-| from | 1 |
-| going | 1 |
-| had | 1 |
-| has | 1 |
-| have | 1 |
-| her | 1 |
-| him | 1 |
-| his | 1 |
-| how | 1 |
-| into | 1 |
-| just | 1 |
-| let | 1 |
-| like | 1 |
-| live | 1 |
-| may | 1 |
-| must | 1 |
-| new | 1 |
-| now | 1 |
-| of | 1 |
-| old | 1 |
-| once | 1 |
+| away | 1 |
+| cold | 1 |
+| come | 1 |
+| down | 1 |
+| find | 1 |
+| funny | 1 |
+| help | 1 |
+| helps | 1 |
+| here | 1 |
+| little | 1 |
+| look | 1 |
+| made | 1 |
 | open | 1 |
-| our | 1 |
-| out | 1 |
-| over | 1 |
-| please | 1 |
-| pretty | 1 |
-| put | 1 |
-| read | 1 |
 | round | 1 |
-| saw | 1 |
-| say | 1 |
-| some | 1 |
-| soon | 1 |
-| stop | 1 |
-| take | 1 |
-| thank | 1 |
-| them | 1 |
-| think | 1 |
-| this | 1 |
 | under | 1 |
-| walk | 1 |
 | want | 1 |
-| well | 1 |
 | went | 1 |
-| were | 1 |
-| what | 1 |
-| when | 1 |
-| white | 1 |
-| who | 1 |
-| will | 1 |
-| yes | 1 |
 
 ### Duplicate Signatures
 
@@ -551,12 +578,14 @@ No duplicate prompt+answer signatures.
 
 ### Repeated Answer Option Sets
 
-No repeated answer option sets.
+| answer option set | count | question IDs |
+| --- | --- | --- |
+| found \| going \| old \| please | 2 | hfw_l2_band3_012, hfw_l2_band3_038 |
 
 ## Blends
 
-- Active questions: 61
-- Unique target words / answer targets: 15
+- Active questions: 62
+- Unique target words / answer targets: 16
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 15
@@ -570,8 +599,8 @@ No repeated answer option sets.
 | --- | --- |
 | bl | 9 |
 | tr | 9 |
+| cl | 6 |
 | br | 5 |
-| cl | 5 |
 | dr | 5 |
 | fl | 5 |
 | fr | 5 |
@@ -600,12 +629,12 @@ No duplicate prompt+answer signatures.
 
 ## Digraphs
 
-- Active questions: 31
-- Unique target words / answer targets: 9
+- Active questions: 46
+- Unique target words / answer targets: 24
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 9
-- Repeated distractor sets: 1
+- Repeated distractor sets: 3
 - Overused words: thin:5, thumb:5
 - Overused itemKeys: none
 
@@ -613,9 +642,9 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
-| th | 10 |
-| sh | 9 |
-| ch | 6 |
+| ch | 19 |
+| th | 11 |
+| sh | 10 |
 | wh | 6 |
 
 ### Duplicate Signatures
@@ -626,7 +655,7 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| ch \| sh \| th \| wh | 9 | p3_digraph_sound_sh_1, p3_digraph_sound_sh_2, p3_digraph_sound_ch_4, p3_digraph_sound_th_5, p3_digraph_sound_th_6, p3_digraph_sound_wh_7, recovery_digraph_sound_sh_shell, recovery_digraph_sound_ch_chick, recovery_digraph_sound_wh_wheel |
+| ch \| sh \| th \| wh | 24 | p3_digraph_sound_sh_1, p3_digraph_sound_sh_2, p3_digraph_sound_ch_4, p3_digraph_sound_th_5, p3_digraph_sound_th_6, p3_digraph_sound_wh_7, recovery_digraph_sound_sh_shell, recovery_digraph_sound_ch_chick, recovery_digraph_sound_wh_wheel, gap_digraphs_l1_ch_arch, gap_digraphs_l1_sh_ash, gap_digraphs_l1_ch_beach, gap_digraphs_l1_ch_bench, gap_digraphs_l1_th_booth, gap_digraphs_l1_ch_branch, gap_digraphs_l1_ch_chain, gap_digraphs_l1_ch_chalk, gap_digraphs_l1_ch_cheese, gap_digraphs_l1_ch_cheetah, gap_digraphs_l1_ch_chef, gap_digraphs_l1_ch_cherry, gap_digraphs_l1_ch_chessboard, gap_digraphs_l1_ch_chest, gap_digraphs_l1_ch_chestnut |
 | chair \| ship \| thin \| whale | 6 | p3_digraph_word_ch_4, recovery_digraph_listen_ch_chair, recovery_digraph_card_th_thin, recovery_digraph_listen_th_thin, recovery_digraph_card_wh_whale, recovery_digraph_listen_wh_whale |
 | chair \| shell \| thin \| whale | 2 | recovery_digraph_card_sh_shell, recovery_digraph_listen_sh_shell |
 | chick \| ship \| thin \| wheel | 2 | recovery_digraph_card_sh_ship, recovery_digraph_listen_sh_ship |
@@ -637,12 +666,12 @@ No duplicate prompt+answer signatures.
 
 ## Long Vowels and Silent E
 
-- Active questions: 60
-- Unique target words / answer targets: 44
+- Active questions: 95
+- Unique target words / answer targets: 74
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 3
-- Repeated distractor sets: 0
+- Repeated answer option sets: 7
+- Repeated distractor sets: 7
 - Overused words: none
 - Overused itemKeys: none
 
@@ -650,11 +679,11 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
-| a_e | 14 |
-| e_e | 12 |
-| o_e | 12 |
-| i_e | 11 |
-| u_e | 11 |
+| a_e | 26 |
+| i_e | 20 |
+| o_e | 19 |
+| e_e | 16 |
+| u_e | 14 |
 
 ### Duplicate Signatures
 
@@ -667,27 +696,31 @@ No duplicate prompt+answer signatures.
 | then \| these \| thin \| this | 2 | safe_long_e_1, exp6_phonics_15 |
 | small \| smell \| smile \| spill | 2 | exp5_long_vowel_2, qb8_long_05 |
 | them \| theme \| then \| thin | 2 | exp5_long_vowel_5, qb8_long_03 |
+| a_e \| i_e \| o_e \| u_e | 15 | gap_long_vowels_silent_e_l1_a_e_bandage, gap_long_vowels_silent_e_l1_a_e_blade, gap_long_vowels_silent_e_l1_a_e_cabbage, gap_long_vowels_silent_e_l1_a_e_cane, gap_long_vowels_silent_e_l1_a_e_cave, gap_long_vowels_silent_e_l1_o_e_cone, gap_long_vowels_silent_e_l1_i_e_crocodile, gap_long_vowels_silent_e_l1_a_e_cupcake, gap_long_vowels_silent_e_l1_i_e_dime, gap_long_vowels_silent_e_l1_a_e_flame, gap_long_vowels_silent_e_l1_o_e_foxglove, gap_long_vowels_silent_e_l1_o_e_glove, gap_long_vowels_silent_e_l1_o_e_hose, gap_long_vowels_silent_e_l1_o_e_mole, gap_long_vowels_silent_e_l1_a_e_pancake |
+| a_e \| e_e \| i_e \| u_e | 11 | gap_long_vowels_silent_e_l1_i_e_bike, gap_long_vowels_silent_e_l1_a_e_cage, gap_long_vowels_silent_e_l1_a_e_cape, gap_long_vowels_silent_e_l1_i_e_chime, gap_long_vowels_silent_e_l1_a_e_crane, gap_long_vowels_silent_e_l1_i_e_dice, gap_long_vowels_silent_e_l1_i_e_file, gap_long_vowels_silent_e_l1_a_e_frame, gap_long_vowels_silent_e_l1_i_e_hive, gap_long_vowels_silent_e_l1_i_e_lime, gap_long_vowels_silent_e_l1_i_e_pine |
+| a_e \| e_e \| o_e \| u_e | 6 | gap_long_vowels_silent_e_l1_o_e_bone, gap_long_vowels_silent_e_l1_u_e_cube, gap_long_vowels_silent_e_l1_o_e_dove, gap_long_vowels_silent_e_l1_u_e_flute, gap_long_vowels_silent_e_l1_e_e_ice, gap_long_vowels_silent_e_l1_u_e_mule |
+| a_e \| e_e \| i_e \| o_e | 3 | gap_long_vowels_silent_e_l1_e_e_eye, gap_long_vowels_silent_e_l1_e_e_lettuce, gap_long_vowels_silent_e_l1_e_e_pinecone |
 
 ## Vowel Teams
 
-- Active questions: 67
-- Unique target words / answer targets: 50
+- Active questions: 102
+- Unique target words / answer targets: 83
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 7
-- Repeated distractor sets: 0
+- Repeated answer option sets: 11
+- Repeated distractor sets: 5
 - Overused words: none
-- Overused itemKeys: ea:22
+- Overused itemKeys: ea:34
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| ea | 22 |
-| ai | 11 |
-| ee | 10 |
-| ay | 9 |
-| oa | 4 |
+| ea | 34 |
+| ee | 18 |
+| ai | 17 |
+| ay | 12 |
+| oa | 10 |
 | ow | 4 |
 | oy | 4 |
 | oi | 3 |
@@ -707,15 +740,16 @@ No duplicate prompt+answer signatures.
 | paint \| pant \| pent \| punt | 2 | exp6_phonics_16, qb8_vteam_01 |
 | plan \| play \| plum \| ply | 2 | exp6_phonics_20, qb8_vteam_03 |
 | batch \| beach \| bench \| bunch | 2 | exp7_vowel_teams_14, qb8_vteam_07 |
+| ai \| ay \| ea \| ee | 15 | gap_vowel_teams_l1_ai_airplane, gap_vowel_teams_l1_ai_armchair, gap_vowel_teams_l1_ea_beachball, gap_vowel_teams_l1_ea_beak, gap_vowel_teams_l1_ee_beef, gap_vowel_teams_l1_ee_beet, gap_vowel_teams_l1_ay_bluejay, gap_vowel_teams_l1_ea_bread, gap_vowel_teams_l1_ai_chain, gap_vowel_teams_l1_ee_cheetah, gap_vowel_teams_l1_ay_clay, gap_vowel_teams_l1_ay_crayon, gap_vowel_teams_l1_ai_drain, gap_vowel_teams_l1_ee_eel, gap_vowel_teams_l1_ai_hairpin |
 
 ## R-Controlled Vowels
 
-- Active questions: 52
-- Unique target words / answer targets: 29
+- Active questions: 87
+- Unique target words / answer targets: 61
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 12
-- Repeated distractor sets: 6
+- Repeated answer option sets: 15
+- Repeated distractor sets: 11
 - Overused words: turn:5
 - Overused itemKeys: none
 
@@ -723,10 +757,10 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
-| or | 20 |
-| ar | 11 |
-| ir | 11 |
-| er | 7 |
+| ar | 29 |
+| or | 22 |
+| er | 18 |
+| ir | 15 |
 | ur | 3 |
 
 ### Duplicate Signatures
@@ -748,12 +782,12 @@ No duplicate prompt+answer signatures.
 
 ## Nouns
 
-- Active questions: 54
-- Unique target words / answer targets: 46
+- Active questions: 74
+- Unique target words / answer targets: 66
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 1
 - Overused words: none
 - Overused itemKeys: none
 
@@ -768,7 +802,27 @@ No duplicate prompt+answer signatures.
 | farm | 2 |
 | school | 2 |
 | teacher | 2 |
+| airplane | 1 |
+| alligator | 1 |
+| almond | 1 |
+| anteater | 1 |
+| applesauce | 1 |
+| arch | 1 |
+| arm | 1 |
+| armchair | 1 |
+| artichoke | 1 |
 | artist | 1 |
+| ash | 1 |
+| asparagus | 1 |
+| back | 1 |
+| badge | 1 |
+| badger | 1 |
+| bagel | 1 |
+| balcony | 1 |
+| bamboo | 1 |
+| bandage | 1 |
+| bar | 1 |
+| bark | 1 |
 | basket | 1 |
 | blanket | 1 |
 | bug | 1 |
@@ -818,12 +872,12 @@ No repeated answer option sets.
 
 ## Verbs
 
-- Active questions: 60
-- Unique target words / answer targets: 46
+- Active questions: 80
+- Unique target words / answer targets: 55
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 1
-- Repeated distractor sets: 0
+- Repeated distractor sets: 1
 - Overused words: none
 - Overused itemKeys: none
 
@@ -831,46 +885,55 @@ No repeated answer option sets.
 
 | itemKey | active questions |
 | --- | --- |
+| read | 4 |
 | jump | 3 |
-| read | 3 |
+| paint | 3 |
+| sleep | 3 |
 | swim | 3 |
 | build | 2 |
 | carry | 2 |
 | clap | 2 |
+| climb | 2 |
+| crawl | 2 |
+| draw | 2 |
+| kick | 2 |
+| laugh | 2 |
 | listen | 2 |
-| paint | 2 |
+| plant | 2 |
+| pull | 2 |
+| push | 2 |
 | run | 2 |
-| sleep | 2 |
 | wash | 2 |
 | asking sentence | 1 |
+| bend | 1 |
 | clean | 1 |
-| climb | 1 |
 | compare | 1 |
 | cook | 1 |
 | count | 1 |
-| crawl | 1 |
 | dance | 1 |
 | dig | 1 |
-| draw | 1 |
+| drink | 1 |
 | drive | 1 |
+| drop | 1 |
 | eat | 1 |
 | explain | 1 |
 | hop | 1 |
 | i see a cat. | 1 |
-| kick | 1 |
-| laugh | 1 |
+| lift | 1 |
 | look | 1 |
 | max has a map. | 1 |
 | measure | 1 |
+| mix | 1 |
 | observe | 1 |
 | open | 1 |
-| plant | 1 |
+| pick | 1 |
 | play | 1 |
 | predict | 1 |
-| pull | 1 |
-| push | 1 |
 | repair | 1 |
+| ride | 1 |
+| roll | 1 |
 | share | 1 |
+| skip | 1 |
 | stop | 1 |
 | telling sentence | 1 |
 | the dog can run. | 1 |
@@ -890,12 +953,12 @@ No duplicate prompt+answer signatures.
 
 ## Adjectives
 
-- Active questions: 61
-- Unique target words / answer targets: 43
+- Active questions: 81
+- Unique target words / answer targets: 53
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 1
 - Overused words: none
 - Overused itemKeys: none
 
@@ -903,44 +966,54 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
+| bright | 3 |
+| cold | 3 |
+| happy | 3 |
+| light | 3 |
+| long | 3 |
 | smooth | 3 |
 | soft | 3 |
 | tiny | 3 |
 | brave | 2 |
-| bright | 2 |
-| cold | 2 |
 | empty | 2 |
-| happy | 2 |
-| light | 2 |
-| long | 2 |
+| fast | 2 |
+| full | 2 |
+| heavy | 2 |
 | quiet | 2 |
+| short | 2 |
+| slow | 2 |
 | small | 2 |
 | sour | 2 |
 | sweet | 2 |
 | warm | 2 |
 | bumpy | 1 |
 | calm | 1 |
+| clean | 1 |
+| closed | 1 |
 | crisp | 1 |
+| dark | 1 |
+| dirty | 1 |
+| dry | 1 |
 | dusty | 1 |
-| fast | 1 |
+| flat | 1 |
 | fluffy | 1 |
-| full | 1 |
 | gentle | 1 |
 | green | 1 |
-| heavy | 1 |
+| hard | 1 |
 | hot | 1 |
 | huge | 1 |
 | loud | 1 |
+| mad | 1 |
 | noisy | 1 |
+| open | 1 |
 | playful | 1 |
 | prickly | 1 |
 | proud | 1 |
 | purple | 1 |
 | rough | 1 |
+| round | 1 |
 | shiny | 1 |
-| short | 1 |
 | silent | 1 |
-| slow | 1 |
 | square | 1 |
 | striped | 1 |
 | tall | 1 |
@@ -957,43 +1030,50 @@ No repeated answer option sets.
 
 ## Prepositions of Place
 
-- Active questions: 61
-- Unique target words / answer targets: 24
+- Active questions: 101
+- Unique target words / answer targets: 31
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 9
-- Repeated distractor sets: 0
-- Overused words: none
+- Repeated answer option sets: 29
+- Repeated distractor sets: 6
+- Overused words: above:5, beside:5, inside:5, near:5, under:5
 - Overused itemKeys: none
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
+| above | 5 |
+| beside | 5 |
+| inside | 5 |
+| near | 5 |
+| under | 5 |
+| around | 4 |
 | behind the tree | 4 |
-| above | 3 |
+| below | 4 |
+| between | 4 |
+| outside | 4 |
+| over | 4 |
+| through | 4 |
 | above the tree | 3 |
-| beside | 3 |
+| behind | 3 |
+| beneath | 3 |
 | beside the basket | 3 |
 | between the books | 3 |
 | in the box | 3 |
-| inside | 3 |
-| near | 3 |
 | near the door | 3 |
 | on | 3 |
 | on the chair | 3 |
-| under | 3 |
 | under the table | 3 |
-| around | 2 |
-| below | 2 |
-| between | 2 |
+| across | 2 |
+| against | 2 |
+| along | 2 |
+| far | 2 |
+| in front of | 2 |
 | inside the barn | 2 |
-| outside | 2 |
+| next to | 2 |
+| on top of | 2 |
 | outside the pond | 2 |
-| over | 2 |
-| through | 2 |
-| behind | 1 |
-| beneath | 1 |
 
 ### Duplicate Signatures
 
@@ -1014,13 +1094,13 @@ No duplicate prompt+answer signatures.
 
 ## Plurals
 
-- Active questions: 57
-- Unique target words / answer targets: 28
+- Active questions: 85
+- Unique target words / answer targets: 37
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 9
-- Repeated distractor sets: 3
-- Overused words: boxes:6, foxes:6, children:5
+- Repeated answer option sets: 18
+- Repeated distractor sets: 6
+- Overused words: boxes:7, foxes:7, children:6, dogs:5, leaves:5
 - Overused itemKeys: es:9
 
 ### ItemKey Distribution
@@ -1042,12 +1122,40 @@ No duplicate prompt+answer signatures.
 | pencils | 2 |
 | apples | 1 |
 | babies | 1 |
+| baby | 1 |
+| bag | 1 |
+| bench | 1 |
+| berry | 1 |
+| bird | 1 |
 | birds | 1 |
+| book | 1 |
+| box | 1 |
+| brush | 1 |
+| bus | 1 |
+| cat | 1 |
+| child | 1 |
+| class | 1 |
+| cup | 1 |
+| dish | 1 |
+| dog | 1 |
 | dolls | 1 |
+| foot | 1 |
+| fox | 1 |
 | geese | 1 |
+| goose | 1 |
 | horses | 1 |
+| key | 1 |
+| knife | 1 |
+| leaf | 1 |
 | mice | 1 |
+| mouse | 1 |
+| puppy | 1 |
 | shoes | 1 |
+| tooth | 1 |
+| toy | 1 |
+| tray | 1 |
+| wish | 1 |
+| wolf | 1 |
 | wolves | 1 |
 
 ### Duplicate Signatures
@@ -1058,37 +1166,37 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| box \| boxes \| boxies \| boxs | 5 | p3_plural_visual_es_4, safe_plural_box, template_plural_5, plurals_008, plurals_053 |
-| bus \| buses \| busies \| buss | 2 | safe_plural_bus, exp6_language_12 |
-| babies \| baby \| babyes \| babys | 2 | safe_plural_baby, template_plural_2 |
-| leaf \| leafes \| leafs \| leaves | 2 | safe_plural_leaf, exp6_language_11 |
-| mice \| mices \| mouse \| mouses | 2 | safe_plural_mouse, plurals_022 |
-| fox \| foxes \| foxies \| foxs | 3 | exp6_language_10, qb8_plural_01, plurals_005 |
-| child \| childes \| children \| childs | 3 | qb8_plural_05, plurals_042, plurals_068 |
-| dog \| doged \| doges \| dogs | 2 | plurals_002, plurals_013 |
+| box \| boxes \| boxies \| boxs | 6 | p3_plural_visual_es_4, safe_plural_box, template_plural_5, gap_plurals_l1_boxes_7, plurals_008, plurals_053 |
+| brush \| brushes \| brushies \| brushs | 2 | p3_plural_visual_es_5, gap_plurals_l1_brushes_23 |
+| bird \| birdes \| birdies \| birds | 2 | safe_plural_bird, gap_plurals_l1_birds_5 |
+| bench \| benches \| benchies \| benchs | 2 | safe_plural_bench, gap_plurals_l1_benches_24 |
+| dish \| dishes \| dishies \| dishs | 2 | safe_plural_dish, gap_plurals_l1_dishes_10 |
+| bus \| buses \| busies \| buss | 3 | safe_plural_bus, exp6_language_12, gap_plurals_l1_buses_9 |
+| babies \| baby \| babyes \| babys | 3 | safe_plural_baby, template_plural_2, gap_plurals_l1_babies_11 |
+| puppies \| puppy \| puppyes \| puppys | 2 | safe_plural_puppy, gap_plurals_l1_puppies_12 |
 
 ## Prefixes and Suffixes
 
-- Active questions: 89
-- Unique target words / answer targets: 59
+- Active questions: 110
+- Unique target words / answer targets: 73
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 12
-- Repeated distractor sets: 1
+- Repeated answer option sets: 19
+- Repeated distractor sets: 5
 - Overused words: none
-- Overused itemKeys: ful:8, un:6, re:6, less:6, er:6
+- Overused itemKeys: ful:13, re:10, less:10, un:8, er:8, pre:6
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
-| ful | 8 |
-| er | 6 |
-| less | 6 |
-| re | 6 |
-| un | 6 |
+| ful | 13 |
+| less | 10 |
+| re | 10 |
+| er | 8 |
+| un | 8 |
+| pre | 6 |
 | ly | 4 |
-| pre | 4 |
 | able | 3 |
 | ed | 3 |
 | read again | 3 |
@@ -1105,6 +1213,8 @@ No duplicate prompt+answer signatures.
 | able to be washed | 1 |
 | build again | 1 |
 | dis | 1 |
+| disagree | 1 |
+| dislike | 1 |
 | do again | 1 |
 | full of care | 1 |
 | full of help | 1 |
@@ -1135,24 +1245,24 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| a person who teaches \| full of teach \| not teach \| teach again | 2 | p3_morphology_er_7, exp3_morphology_12 |
+| full of looking \| look again \| look before \| not look | 2 | p3_morphology_pre_4, gap_prefixes_suffixes_l1_preview_11 |
+| a person who teaches \| full of teach \| not teach \| teach again | 3 | p3_morphology_er_7, exp3_morphology_12, gap_prefixes_suffixes_l1_teacher_13 |
 | before pain \| full of pain \| pain again \| without pain | 2 | p3_morphology_less_13, qb8_morph_10 |
 | a person who runs \| full of run \| not run \| run again | 2 | p3_morphology_er_14, exp3_morphology_13 |
-| full of happy \| happy again \| not happy \| very happy | 2 | template_prefix_1, exp3_morphology_1 |
+| full of happy \| happy again \| not happy \| very happy | 3 | template_prefix_1, exp3_morphology_1, gap_prefixes_suffixes_l1_unhappy_1 |
 | fair again \| full of fair \| not fair \| very fair | 2 | template_prefix_3, exp3_morphology_2 |
+| full of help \| help again \| not help \| without help | 2 | exp3_morphology_7, gap_prefixes_suffixes_l1_helpful_6 |
 | full of kind \| kind again \| not kind \| the state of being kind | 2 | exp3_morphology_15, qb8_morph_15 |
-| full of hope \| hope again \| not hope \| without hope | 2 | exp7_morphology_4, qb8_morph_19 |
-| a person who paints \| full of paint \| not paint \| paint again | 2 | exp7_morphology_6, qb8_morph_25 |
 
 ## Antonyms and Synonyms
 
-- Active questions: 64
-- Unique target words / answer targets: 40
+- Active questions: 97
+- Unique target words / answer targets: 65
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 4
 - Repeated distractor sets: 1
-- Overused words: short:6
+- Overused words: short:6, quiet:5, sad:5
 - Overused itemKeys: short:6
 
 ### ItemKey Distribution
@@ -1160,44 +1270,69 @@ No duplicate prompt+answer signatures.
 | itemKey | active questions |
 | --- | --- |
 | short | 6 |
-| quiet | 4 |
-| sad | 4 |
+| quiet | 5 |
+| sad | 5 |
 | closed | 3 |
+| hard | 3 |
+| light | 3 |
 | old | 3 |
+| slow | 3 |
+| big | 2 |
 | dull | 2 |
 | empty | 2 |
-| hard | 2 |
-| light | 2 |
+| fast | 2 |
+| hot | 2 |
 | shallow | 2 |
-| slow | 2 |
 | sour | 2 |
 | warm | 2 |
 | weak | 2 |
 | after | 1 |
-| big | 1 |
+| angry | 1 |
+| before | 1 |
+| begin | 1 |
+| brave | 1 |
 | careless | 1 |
+| clean | 1 |
 | cloudy | 1 |
 | dark | 1 |
 | deep | 1 |
 | dirty | 1 |
 | down | 1 |
 | dry | 1 |
+| easy | 1 |
+| end | 1 |
 | energetic | 1 |
-| fast | 1 |
-| hot | 1 |
+| full | 1 |
+| happy | 1 |
+| high | 1 |
+| inside | 1 |
+| kind | 1 |
+| large | 1 |
 | late | 1 |
+| little | 1 |
+| loud | 1 |
 | loudly | 1 |
 | low | 1 |
+| many | 1 |
 | mean | 1 |
 | narrow | 1 |
+| near | 1 |
 | nervous | 1 |
 | noisy | 1 |
+| open | 1 |
+| pretty | 1 |
+| quick | 1 |
 | raw | 1 |
+| safe | 1 |
+| same | 1 |
 | slowly | 1 |
 | small | 1 |
+| smart | 1 |
 | soft | 1 |
+| tall | 1 |
 | thin | 1 |
 | tiny | 1 |
+| wet | 1 |
 | wide | 1 |
 
 ### Duplicate Signatures
@@ -1215,11 +1350,11 @@ No duplicate prompt+answer signatures.
 
 ## Homophones and Homonyms
 
-- Active questions: 52
+- Active questions: 87
 - Unique target words / answer targets: 50
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 18
+- Repeated answer option sets: 28
 - Repeated distractor sets: 0
 - Overused words: none
 - Overused itemKeys: none
@@ -1228,56 +1363,56 @@ No duplicate prompt+answer signatures.
 
 | itemKey | active questions |
 | --- | --- |
+| see | 3 |
+| ate | 2 |
+| bear | 2 |
+| blue | 2 |
+| buy | 2 |
+| by | 2 |
+| dear | 2 |
+| deer | 2 |
+| eight | 2 |
+| flower | 2 |
+| hear | 2 |
+| hole | 2 |
+| know | 2 |
+| mail | 2 |
+| meat | 2 |
+| meet | 2 |
+| night | 2 |
+| no | 2 |
+| one | 2 |
+| pair | 2 |
+| pear | 2 |
+| right | 2 |
+| road | 2 |
+| rode | 2 |
+| sail | 2 |
+| sale | 2 |
 | sea | 2 |
-| see | 2 |
-| ate | 1 |
+| tail | 2 |
+| tale | 2 |
+| two | 2 |
+| wait | 2 |
+| weak | 2 |
+| week | 2 |
+| weight | 2 |
+| whole | 2 |
+| write | 2 |
 | bare | 1 |
-| bear | 1 |
 | blew | 1 |
-| blue | 1 |
-| buy | 1 |
-| by | 1 |
-| dear | 1 |
-| deer | 1 |
-| eight | 1 |
 | flour | 1 |
-| flower | 1 |
-| hear | 1 |
 | here | 1 |
-| hole | 1 |
 | knight | 1 |
-| know | 1 |
-| mail | 1 |
 | male | 1 |
-| meat | 1 |
-| meet | 1 |
-| night | 1 |
-| no | 1 |
-| one | 1 |
-| pair | 1 |
 | peace | 1 |
-| pear | 1 |
 | piece | 1 |
-| right | 1 |
-| road | 1 |
-| rode | 1 |
-| sail | 1 |
-| sale | 1 |
 | stair | 1 |
 | stake | 1 |
 | stare | 1 |
 | steak | 1 |
-| tail | 1 |
-| tale | 1 |
 | too | 1 |
-| two | 1 |
-| wait | 1 |
-| weak | 1 |
-| week | 1 |
-| weight | 1 |
-| whole | 1 |
 | won | 1 |
-| write | 1 |
 
 ### Duplicate Signatures
 
@@ -1287,23 +1422,23 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
+| to \| too \| top \| two | 2 | safe_homophone_too, gap_homophones_homonyms_l1_two_3 |
+| black \| blew \| blue \| brown | 2 | safe_homophone_blue, gap_homophones_homonyms_l1_blue_7 |
 | hair \| hear \| her \| here | 2 | safe_homophone_hear, safe_homophone_here |
-| know \| new \| no \| now | 2 | safe_homophone_no, safe_homophone_know |
+| know \| new \| no \| now | 4 | safe_homophone_no, safe_homophone_know, gap_homophones_homonyms_l1_no_31, gap_homophones_homonyms_l1_know_32 |
+| be \| buy \| by \| bye | 2 | safe_homophone_by, gap_homophones_homonyms_l1_by_33 |
+| boy \| buy \| by \| bye | 2 | safe_homophone_buy, gap_homophones_homonyms_l1_buy_34 |
+| pair \| park \| part \| pear | 2 | safe_homophone_pair, gap_homophones_homonyms_l1_pair_10 |
 | floor \| flour \| flow \| flower | 2 | safe_homophone_flower, safe_homophone_flour |
-| mail \| male \| mall \| meal | 2 | safe_homophone_mail, safe_homophone_male |
-| wake \| walk \| weak \| week | 2 | safe_homophone_week, safe_homophone_weak |
-| tail \| tale \| tall \| tell | 2 | safe_homophone_tail, safe_homophone_tale |
-| mat \| meat \| meet \| met | 2 | safe_homophone_meet, safe_homophone_meat |
-| peace \| piece \| place \| please | 2 | safe_homophone_peace, safe_homophone_piece |
 
 ## Sentence Comprehension
 
-- Active questions: 126
-- Unique target words / answer targets: 113
+- Active questions: 145
+- Unique target words / answer targets: 132
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 2
-- Repeated distractor sets: 0
+- Repeated answer option sets: 4
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -1315,9 +1450,28 @@ No duplicate prompt+answer signatures.
 | bed | 1 |
 | books | 1 |
 | boxes | 1 |
+| cat_sleep_1 | 1 |
+| cat_sleep_11 | 1 |
+| cat_sleep_13 | 1 |
+| cat_sleep_15 | 1 |
+| cat_sleep_17 | 1 |
+| cat_sleep_19 | 1 |
+| cat_sleep_3 | 1 |
+| cat_sleep_5 | 1 |
+| cat_sleep_7 | 1 |
+| cat_sleep_9 | 1 |
 | cats | 1 |
 | cup | 1 |
 | cups | 1 |
+| dog_run_10 | 1 |
+| dog_run_12 | 1 |
+| dog_run_14 | 1 |
+| dog_run_16 | 1 |
+| dog_run_18 | 1 |
+| dog_run_2 | 1 |
+| dog_run_4 | 1 |
+| dog_run_6 | 1 |
+| dog_run_8 | 1 |
 | dogs | 1 |
 | duck | 1 |
 | fish | 1 |
@@ -1446,17 +1600,19 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
+| jumping \| reading \| sleeping \| swimming | 10 | gap_sentence_comprehension_l1_cat_sleep_1, gap_sentence_comprehension_l1_cat_sleep_3, gap_sentence_comprehension_l1_cat_sleep_5, gap_sentence_comprehension_l1_cat_sleep_7, gap_sentence_comprehension_l1_cat_sleep_9, gap_sentence_comprehension_l1_cat_sleep_11, gap_sentence_comprehension_l1_cat_sleep_13, gap_sentence_comprehension_l1_cat_sleep_15, gap_sentence_comprehension_l1_cat_sleep_17, gap_sentence_comprehension_l1_cat_sleep_19 |
+| drawing \| eating \| running \| sleeping | 9 | gap_sentence_comprehension_l1_dog_run_2, gap_sentence_comprehension_l1_dog_run_4, gap_sentence_comprehension_l1_dog_run_6, gap_sentence_comprehension_l1_dog_run_8, gap_sentence_comprehension_l1_dog_run_10, gap_sentence_comprehension_l1_dog_run_12, gap_sentence_comprehension_l1_dog_run_14, gap_sentence_comprehension_l1_dog_run_16, gap_sentence_comprehension_l1_dog_run_18 |
 | blue \| green \| red \| yellow | 5 | SC_K_002, SC_K_013, SC_K_021, SC_K_026, SC_2_083 |
 | carefully \| loudly \| quickly \| slowly | 3 | SC_1_069, SC_2_087, SC_2_090 |
 
 ## Key Details
 
-- Active questions: 59
-- Unique target words / answer targets: 52
+- Active questions: 94
+- Unique target words / answer targets: 72
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 2
-- Repeated distractor sets: 0
+- Repeated answer option sets: 3
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -1484,6 +1640,24 @@ No duplicate prompt+answer signatures.
 | adv_key_details_5_2 | 1 |
 | adv_key_details_5_3 | 1 |
 | adv_key_details_5_4 | 1 |
+| apple_ball_1 | 1 |
+| apple_ball_11 | 1 |
+| apple_ball_13 | 1 |
+| apple_ball_15 | 1 |
+| apple_ball_17 | 1 |
+| apple_ball_19 | 1 |
+| apple_ball_21 | 1 |
+| apple_ball_23 | 1 |
+| apple_ball_25 | 1 |
+| apple_ball_27 | 1 |
+| apple_ball_29 | 1 |
+| apple_ball_3 | 1 |
+| apple_ball_31 | 1 |
+| apple_ball_33 | 1 |
+| apple_ball_35 | 1 |
+| apple_ball_5 | 1 |
+| apple_ball_7 | 1 |
+| apple_ball_9 | 1 |
 | exp2_comp_1 | 1 |
 | exp2_comp_2 | 1 |
 | exp3_comp_1 | 1 |
@@ -1522,6 +1696,23 @@ No duplicate prompt+answer signatures.
 | exp7_key_details_7 | 1 |
 | exp7_key_details_8 | 1 |
 | exp7_key_details_9 | 1 |
+| fish_home_10 | 1 |
+| fish_home_12 | 1 |
+| fish_home_14 | 1 |
+| fish_home_16 | 1 |
+| fish_home_18 | 1 |
+| fish_home_2 | 1 |
+| fish_home_20 | 1 |
+| fish_home_22 | 1 |
+| fish_home_24 | 1 |
+| fish_home_26 | 1 |
+| fish_home_28 | 1 |
+| fish_home_30 | 1 |
+| fish_home_32 | 1 |
+| fish_home_34 | 1 |
+| fish_home_4 | 1 |
+| fish_home_6 | 1 |
+| fish_home_8 | 1 |
 | template_detail_1 | 1 |
 
 ### Duplicate Signatures
@@ -1532,17 +1723,18 @@ No duplicate prompt+answer signatures.
 
 | answer option set | count | question IDs |
 | --- | --- | --- |
-| blue \| green \| red \| yellow | 2 | template_detail_1, exp7_key_details_1 |
+| blue \| green \| red \| yellow | 20 | template_detail_1, exp7_key_details_1, gap_key_details_l1_apple_ball_1, gap_key_details_l1_apple_ball_3, gap_key_details_l1_apple_ball_5, gap_key_details_l1_apple_ball_7, gap_key_details_l1_apple_ball_9, gap_key_details_l1_apple_ball_11, gap_key_details_l1_apple_ball_13, gap_key_details_l1_apple_ball_15, gap_key_details_l1_apple_ball_17, gap_key_details_l1_apple_ball_19, gap_key_details_l1_apple_ball_21, gap_key_details_l1_apple_ball_23, gap_key_details_l1_apple_ball_25, gap_key_details_l1_apple_ball_27, gap_key_details_l1_apple_ball_29, gap_key_details_l1_apple_ball_31, gap_key_details_l1_apple_ball_33, gap_key_details_l1_apple_ball_35 |
 | blue \| green \| red | 2 | exp3_comp_2, exp5_comp_1 |
+| bed \| desk \| pond \| tree | 17 | gap_key_details_l1_fish_home_2, gap_key_details_l1_fish_home_4, gap_key_details_l1_fish_home_6, gap_key_details_l1_fish_home_8, gap_key_details_l1_fish_home_10, gap_key_details_l1_fish_home_12, gap_key_details_l1_fish_home_14, gap_key_details_l1_fish_home_16, gap_key_details_l1_fish_home_18, gap_key_details_l1_fish_home_20, gap_key_details_l1_fish_home_22, gap_key_details_l1_fish_home_24, gap_key_details_l1_fish_home_26, gap_key_details_l1_fish_home_28, gap_key_details_l1_fish_home_30, gap_key_details_l1_fish_home_32, gap_key_details_l1_fish_home_34 |
 
 ## Sequencing
 
-- Active questions: 59
-- Unique target words / answer targets: 57
+- Active questions: 94
+- Unique target words / answer targets: 77
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 0
-- Repeated distractor sets: 0
+- Repeated answer option sets: 2
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -1608,6 +1800,41 @@ No duplicate prompt+answer signatures.
 | exp7_sequencing_7 | 1 |
 | exp7_sequencing_8 | 1 |
 | exp7_sequencing_9 | 1 |
+| make_sandwich_10 | 1 |
+| make_sandwich_12 | 1 |
+| make_sandwich_14 | 1 |
+| make_sandwich_16 | 1 |
+| make_sandwich_18 | 1 |
+| make_sandwich_2 | 1 |
+| make_sandwich_20 | 1 |
+| make_sandwich_22 | 1 |
+| make_sandwich_24 | 1 |
+| make_sandwich_26 | 1 |
+| make_sandwich_28 | 1 |
+| make_sandwich_30 | 1 |
+| make_sandwich_32 | 1 |
+| make_sandwich_34 | 1 |
+| make_sandwich_4 | 1 |
+| make_sandwich_6 | 1 |
+| make_sandwich_8 | 1 |
+| plant_seed_1 | 1 |
+| plant_seed_11 | 1 |
+| plant_seed_13 | 1 |
+| plant_seed_15 | 1 |
+| plant_seed_17 | 1 |
+| plant_seed_19 | 1 |
+| plant_seed_21 | 1 |
+| plant_seed_23 | 1 |
+| plant_seed_25 | 1 |
+| plant_seed_27 | 1 |
+| plant_seed_29 | 1 |
+| plant_seed_3 | 1 |
+| plant_seed_31 | 1 |
+| plant_seed_33 | 1 |
+| plant_seed_35 | 1 |
+| plant_seed_5 | 1 |
+| plant_seed_7 | 1 |
+| plant_seed_9 | 1 |
 | template_sequence_1 | 1 |
 
 ### Duplicate Signatures
@@ -1616,16 +1843,19 @@ No duplicate prompt+answer signatures.
 
 ### Repeated Answer Option Sets
 
-No repeated answer option sets.
+| answer option set | count | question IDs |
+| --- | --- | --- |
+| eat the seed \| hide the seed \| read the seed \| water the seed | 18 | gap_sequencing_l1_plant_seed_1, gap_sequencing_l1_plant_seed_3, gap_sequencing_l1_plant_seed_5, gap_sequencing_l1_plant_seed_7, gap_sequencing_l1_plant_seed_9, gap_sequencing_l1_plant_seed_11, gap_sequencing_l1_plant_seed_13, gap_sequencing_l1_plant_seed_15, gap_sequencing_l1_plant_seed_17, gap_sequencing_l1_plant_seed_19, gap_sequencing_l1_plant_seed_21, gap_sequencing_l1_plant_seed_23, gap_sequencing_l1_plant_seed_25, gap_sequencing_l1_plant_seed_27, gap_sequencing_l1_plant_seed_29, gap_sequencing_l1_plant_seed_31, gap_sequencing_l1_plant_seed_33, gap_sequencing_l1_plant_seed_35 |
+| add cheese \| eat lunch \| get bread \| pack toys | 17 | gap_sequencing_l1_make_sandwich_2, gap_sequencing_l1_make_sandwich_4, gap_sequencing_l1_make_sandwich_6, gap_sequencing_l1_make_sandwich_8, gap_sequencing_l1_make_sandwich_10, gap_sequencing_l1_make_sandwich_12, gap_sequencing_l1_make_sandwich_14, gap_sequencing_l1_make_sandwich_16, gap_sequencing_l1_make_sandwich_18, gap_sequencing_l1_make_sandwich_20, gap_sequencing_l1_make_sandwich_22, gap_sequencing_l1_make_sandwich_24, gap_sequencing_l1_make_sandwich_26, gap_sequencing_l1_make_sandwich_28, gap_sequencing_l1_make_sandwich_30, gap_sequencing_l1_make_sandwich_32, gap_sequencing_l1_make_sandwich_34 |
 
 ## Main Idea
 
-- Active questions: 65
-- Unique target words / answer targets: 60
+- Active questions: 100
+- Unique target words / answer targets: 80
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 1
-- Repeated distractor sets: 0
+- Repeated answer option sets: 3
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -1691,6 +1921,41 @@ No repeated answer option sets.
 | exp7_main_idea_7 | 1 |
 | exp7_main_idea_8 | 1 |
 | exp7_main_idea_9 | 1 |
+| park_fun_1 | 1 |
+| park_fun_11 | 1 |
+| park_fun_13 | 1 |
+| park_fun_15 | 1 |
+| park_fun_17 | 1 |
+| park_fun_19 | 1 |
+| park_fun_21 | 1 |
+| park_fun_23 | 1 |
+| park_fun_25 | 1 |
+| park_fun_27 | 1 |
+| park_fun_29 | 1 |
+| park_fun_3 | 1 |
+| park_fun_31 | 1 |
+| park_fun_33 | 1 |
+| park_fun_35 | 1 |
+| park_fun_5 | 1 |
+| park_fun_7 | 1 |
+| park_fun_9 | 1 |
+| pet_care_10 | 1 |
+| pet_care_12 | 1 |
+| pet_care_14 | 1 |
+| pet_care_16 | 1 |
+| pet_care_18 | 1 |
+| pet_care_2 | 1 |
+| pet_care_20 | 1 |
+| pet_care_22 | 1 |
+| pet_care_24 | 1 |
+| pet_care_26 | 1 |
+| pet_care_28 | 1 |
+| pet_care_30 | 1 |
+| pet_care_32 | 1 |
+| pet_care_34 | 1 |
+| pet_care_4 | 1 |
+| pet_care_6 | 1 |
+| pet_care_8 | 1 |
 | qb8_main_03_01 | 1 |
 | qb8_main_03_02 | 1 |
 | qb8_main_03_03 | 1 |
@@ -1708,15 +1973,17 @@ No duplicate prompt+answer signatures.
 | answer option set | count | question IDs |
 | --- | --- | --- |
 | doctors \| drivers \| farmers | 2 | exp5_comp_6, exp6_comp_14 |
+| making soup \| playing at the park \| reading a map \| washing a car | 18 | gap_main_idea_l1_park_fun_1, gap_main_idea_l1_park_fun_3, gap_main_idea_l1_park_fun_5, gap_main_idea_l1_park_fun_7, gap_main_idea_l1_park_fun_9, gap_main_idea_l1_park_fun_11, gap_main_idea_l1_park_fun_13, gap_main_idea_l1_park_fun_15, gap_main_idea_l1_park_fun_17, gap_main_idea_l1_park_fun_19, gap_main_idea_l1_park_fun_21, gap_main_idea_l1_park_fun_23, gap_main_idea_l1_park_fun_25, gap_main_idea_l1_park_fun_27, gap_main_idea_l1_park_fun_29, gap_main_idea_l1_park_fun_31, gap_main_idea_l1_park_fun_33, gap_main_idea_l1_park_fun_35 |
+| baking bread \| building a tower \| caring for a pet \| riding a bike | 17 | gap_main_idea_l1_pet_care_2, gap_main_idea_l1_pet_care_4, gap_main_idea_l1_pet_care_6, gap_main_idea_l1_pet_care_8, gap_main_idea_l1_pet_care_10, gap_main_idea_l1_pet_care_12, gap_main_idea_l1_pet_care_14, gap_main_idea_l1_pet_care_16, gap_main_idea_l1_pet_care_18, gap_main_idea_l1_pet_care_20, gap_main_idea_l1_pet_care_22, gap_main_idea_l1_pet_care_24, gap_main_idea_l1_pet_care_26, gap_main_idea_l1_pet_care_28, gap_main_idea_l1_pet_care_30, gap_main_idea_l1_pet_care_32, gap_main_idea_l1_pet_care_34 |
 
 ## Inference
 
-- Active questions: 106
-- Unique target words / answer targets: 106
+- Active questions: 140
+- Unique target words / answer targets: 126
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 0
-- Repeated distractor sets: 0
+- Repeated answer option sets: 2
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -1830,6 +2097,40 @@ No duplicate prompt+answer signatures.
 | qb8_infer_02_01 | 1 |
 | qb8_infer_02_02 | 1 |
 | qb8_infer_02_03 | 1 |
+| rain_boots_1 | 1 |
+| rain_boots_11 | 1 |
+| rain_boots_13 | 1 |
+| rain_boots_15 | 1 |
+| rain_boots_17 | 1 |
+| rain_boots_19 | 1 |
+| rain_boots_21 | 1 |
+| rain_boots_23 | 1 |
+| rain_boots_25 | 1 |
+| rain_boots_27 | 1 |
+| rain_boots_29 | 1 |
+| rain_boots_3 | 1 |
+| rain_boots_31 | 1 |
+| rain_boots_33 | 1 |
+| rain_boots_5 | 1 |
+| rain_boots_7 | 1 |
+| rain_boots_9 | 1 |
+| sleepy_yawn_10 | 1 |
+| sleepy_yawn_12 | 1 |
+| sleepy_yawn_14 | 1 |
+| sleepy_yawn_16 | 1 |
+| sleepy_yawn_18 | 1 |
+| sleepy_yawn_2 | 1 |
+| sleepy_yawn_20 | 1 |
+| sleepy_yawn_22 | 1 |
+| sleepy_yawn_24 | 1 |
+| sleepy_yawn_26 | 1 |
+| sleepy_yawn_28 | 1 |
+| sleepy_yawn_30 | 1 |
+| sleepy_yawn_32 | 1 |
+| sleepy_yawn_34 | 1 |
+| sleepy_yawn_4 | 1 |
+| sleepy_yawn_6 | 1 |
+| sleepy_yawn_8 | 1 |
 
 ### Duplicate Signatures
 
@@ -1837,16 +2138,19 @@ No duplicate prompt+answer signatures.
 
 ### Repeated Answer Option Sets
 
-No repeated answer option sets.
+| answer option set | count | question IDs |
+| --- | --- | --- |
+| it is bedtime \| it is lunch \| it is raining \| it is snowing | 17 | gap_inference_l1_rain_boots_1, gap_inference_l1_rain_boots_3, gap_inference_l1_rain_boots_5, gap_inference_l1_rain_boots_7, gap_inference_l1_rain_boots_9, gap_inference_l1_rain_boots_11, gap_inference_l1_rain_boots_13, gap_inference_l1_rain_boots_15, gap_inference_l1_rain_boots_17, gap_inference_l1_rain_boots_19, gap_inference_l1_rain_boots_21, gap_inference_l1_rain_boots_23, gap_inference_l1_rain_boots_25, gap_inference_l1_rain_boots_27, gap_inference_l1_rain_boots_29, gap_inference_l1_rain_boots_31, gap_inference_l1_rain_boots_33 |
+| angry \| cold \| hungry \| tired | 17 | gap_inference_l1_sleepy_yawn_2, gap_inference_l1_sleepy_yawn_4, gap_inference_l1_sleepy_yawn_6, gap_inference_l1_sleepy_yawn_8, gap_inference_l1_sleepy_yawn_10, gap_inference_l1_sleepy_yawn_12, gap_inference_l1_sleepy_yawn_14, gap_inference_l1_sleepy_yawn_16, gap_inference_l1_sleepy_yawn_18, gap_inference_l1_sleepy_yawn_20, gap_inference_l1_sleepy_yawn_22, gap_inference_l1_sleepy_yawn_24, gap_inference_l1_sleepy_yawn_26, gap_inference_l1_sleepy_yawn_28, gap_inference_l1_sleepy_yawn_30, gap_inference_l1_sleepy_yawn_32, gap_inference_l1_sleepy_yawn_34 |
 
 ## Cause and Effect
 
-- Active questions: 65
-- Unique target words / answer targets: 62
+- Active questions: 100
+- Unique target words / answer targets: 82
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 0
-- Repeated distractor sets: 0
+- Repeated answer option sets: 2
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -1918,6 +2222,41 @@ No repeated answer option sets.
 | qb8_cause_10_01 | 1 |
 | qb8_cause_10_02 | 1 |
 | qb8_cause_10_03 | 1 |
+| spill_1 | 1 |
+| spill_11 | 1 |
+| spill_13 | 1 |
+| spill_15 | 1 |
+| spill_17 | 1 |
+| spill_19 | 1 |
+| spill_21 | 1 |
+| spill_23 | 1 |
+| spill_25 | 1 |
+| spill_27 | 1 |
+| spill_29 | 1 |
+| spill_3 | 1 |
+| spill_31 | 1 |
+| spill_33 | 1 |
+| spill_35 | 1 |
+| spill_5 | 1 |
+| spill_7 | 1 |
+| spill_9 | 1 |
+| sun_melt_10 | 1 |
+| sun_melt_12 | 1 |
+| sun_melt_14 | 1 |
+| sun_melt_16 | 1 |
+| sun_melt_18 | 1 |
+| sun_melt_2 | 1 |
+| sun_melt_20 | 1 |
+| sun_melt_22 | 1 |
+| sun_melt_24 | 1 |
+| sun_melt_26 | 1 |
+| sun_melt_28 | 1 |
+| sun_melt_30 | 1 |
+| sun_melt_32 | 1 |
+| sun_melt_34 | 1 |
+| sun_melt_4 | 1 |
+| sun_melt_6 | 1 |
+| sun_melt_8 | 1 |
 | template_cause_1 | 1 |
 
 ### Duplicate Signatures
@@ -1926,16 +2265,19 @@ No duplicate prompt+answer signatures.
 
 ### Repeated Answer Option Sets
 
-No repeated answer option sets.
+| answer option set | count | question IDs |
+| --- | --- | --- |
+| the cup fell \| the dog barked \| the door opened \| the lamp turned on | 18 | gap_cause_effect_l1_spill_1, gap_cause_effect_l1_spill_3, gap_cause_effect_l1_spill_5, gap_cause_effect_l1_spill_7, gap_cause_effect_l1_spill_9, gap_cause_effect_l1_spill_11, gap_cause_effect_l1_spill_13, gap_cause_effect_l1_spill_15, gap_cause_effect_l1_spill_17, gap_cause_effect_l1_spill_19, gap_cause_effect_l1_spill_21, gap_cause_effect_l1_spill_23, gap_cause_effect_l1_spill_25, gap_cause_effect_l1_spill_27, gap_cause_effect_l1_spill_29, gap_cause_effect_l1_spill_31, gap_cause_effect_l1_spill_33, gap_cause_effect_l1_spill_35 |
+| a cold wind \| a dark room \| a soft pillow \| warm sunlight | 17 | gap_cause_effect_l1_sun_melt_2, gap_cause_effect_l1_sun_melt_4, gap_cause_effect_l1_sun_melt_6, gap_cause_effect_l1_sun_melt_8, gap_cause_effect_l1_sun_melt_10, gap_cause_effect_l1_sun_melt_12, gap_cause_effect_l1_sun_melt_14, gap_cause_effect_l1_sun_melt_16, gap_cause_effect_l1_sun_melt_18, gap_cause_effect_l1_sun_melt_20, gap_cause_effect_l1_sun_melt_22, gap_cause_effect_l1_sun_melt_24, gap_cause_effect_l1_sun_melt_26, gap_cause_effect_l1_sun_melt_28, gap_cause_effect_l1_sun_melt_30, gap_cause_effect_l1_sun_melt_32, gap_cause_effect_l1_sun_melt_34 |
 
 ## Context Clues
 
-- Active questions: 66
-- Unique target words / answer targets: 60
+- Active questions: 100
+- Unique target words / answer targets: 80
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 0
-- Repeated distractor sets: 0
+- Repeated answer option sets: 2
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -1963,6 +2305,23 @@ No repeated answer option sets.
 | adv_context_clues_5_2 | 1 |
 | adv_context_clues_5_3 | 1 |
 | adv_context_clues_5_4 | 1 |
+| chilly_1 | 1 |
+| chilly_11 | 1 |
+| chilly_13 | 1 |
+| chilly_15 | 1 |
+| chilly_17 | 1 |
+| chilly_19 | 1 |
+| chilly_21 | 1 |
+| chilly_23 | 1 |
+| chilly_25 | 1 |
+| chilly_27 | 1 |
+| chilly_29 | 1 |
+| chilly_3 | 1 |
+| chilly_31 | 1 |
+| chilly_33 | 1 |
+| chilly_5 | 1 |
+| chilly_7 | 1 |
+| chilly_9 | 1 |
 | exp2_comp_10 | 1 |
 | exp2_comp_9 | 1 |
 | exp3_comp_21 | 1 |
@@ -2001,6 +2360,23 @@ No repeated answer option sets.
 | exp7_context_clues_7 | 1 |
 | exp7_context_clues_8 | 1 |
 | exp7_context_clues_9 | 1 |
+| giggle_10 | 1 |
+| giggle_12 | 1 |
+| giggle_14 | 1 |
+| giggle_16 | 1 |
+| giggle_18 | 1 |
+| giggle_2 | 1 |
+| giggle_20 | 1 |
+| giggle_22 | 1 |
+| giggle_24 | 1 |
+| giggle_26 | 1 |
+| giggle_28 | 1 |
+| giggle_30 | 1 |
+| giggle_32 | 1 |
+| giggle_34 | 1 |
+| giggle_4 | 1 |
+| giggle_6 | 1 |
+| giggle_8 | 1 |
 | p3_context_clues_paragraph_001 | 1 |
 | qb8_context_05_01 | 1 |
 | qb8_context_05_02 | 1 |
@@ -2016,16 +2392,19 @@ No duplicate prompt+answer signatures.
 
 ### Repeated Answer Option Sets
 
-No repeated answer option sets.
+| answer option set | count | question IDs |
+| --- | --- | --- |
+| cold \| fast \| loud \| tiny | 17 | gap_context_clues_l1_chilly_1, gap_context_clues_l1_chilly_3, gap_context_clues_l1_chilly_5, gap_context_clues_l1_chilly_7, gap_context_clues_l1_chilly_9, gap_context_clues_l1_chilly_11, gap_context_clues_l1_chilly_13, gap_context_clues_l1_chilly_15, gap_context_clues_l1_chilly_17, gap_context_clues_l1_chilly_19, gap_context_clues_l1_chilly_21, gap_context_clues_l1_chilly_23, gap_context_clues_l1_chilly_25, gap_context_clues_l1_chilly_27, gap_context_clues_l1_chilly_29, gap_context_clues_l1_chilly_31, gap_context_clues_l1_chilly_33 |
+| eat quickly \| laugh softly \| sleep deeply \| walk slowly | 17 | gap_context_clues_l1_giggle_2, gap_context_clues_l1_giggle_4, gap_context_clues_l1_giggle_6, gap_context_clues_l1_giggle_8, gap_context_clues_l1_giggle_10, gap_context_clues_l1_giggle_12, gap_context_clues_l1_giggle_14, gap_context_clues_l1_giggle_16, gap_context_clues_l1_giggle_18, gap_context_clues_l1_giggle_20, gap_context_clues_l1_giggle_22, gap_context_clues_l1_giggle_24, gap_context_clues_l1_giggle_26, gap_context_clues_l1_giggle_28, gap_context_clues_l1_giggle_30, gap_context_clues_l1_giggle_32, gap_context_clues_l1_giggle_34 |
 
 ## Theme and Higher Comprehension
 
-- Active questions: 65
-- Unique target words / answer targets: 54
+- Active questions: 100
+- Unique target words / answer targets: 74
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
-- Repeated answer option sets: 0
-- Repeated distractor sets: 0
+- Repeated answer option sets: 2
+- Repeated distractor sets: 2
 - Overused words: none
 - Overused itemKeys: none
 
@@ -2091,6 +2470,24 @@ No repeated answer option sets.
 | exp7_theme_7 | 1 |
 | exp7_theme_8 | 1 |
 | exp7_theme_9 | 1 |
+| help_friend_1 | 1 |
+| help_friend_11 | 1 |
+| help_friend_13 | 1 |
+| help_friend_15 | 1 |
+| help_friend_17 | 1 |
+| help_friend_19 | 1 |
+| help_friend_21 | 1 |
+| help_friend_23 | 1 |
+| help_friend_25 | 1 |
+| help_friend_27 | 1 |
+| help_friend_29 | 1 |
+| help_friend_3 | 1 |
+| help_friend_31 | 1 |
+| help_friend_33 | 1 |
+| help_friend_35 | 1 |
+| help_friend_5 | 1 |
+| help_friend_7 | 1 |
+| help_friend_9 | 1 |
 | qb8_theme_07_01 | 1 |
 | qb8_theme_07_02 | 1 |
 | qb8_theme_07_03 | 1 |
@@ -2098,6 +2495,23 @@ No repeated answer option sets.
 | qb8_theme_08_02 | 1 |
 | qb8_theme_08_03 | 1 |
 | template_theme_1 | 1 |
+| try_again_10 | 1 |
+| try_again_12 | 1 |
+| try_again_14 | 1 |
+| try_again_16 | 1 |
+| try_again_18 | 1 |
+| try_again_2 | 1 |
+| try_again_20 | 1 |
+| try_again_22 | 1 |
+| try_again_24 | 1 |
+| try_again_26 | 1 |
+| try_again_28 | 1 |
+| try_again_30 | 1 |
+| try_again_32 | 1 |
+| try_again_34 | 1 |
+| try_again_4 | 1 |
+| try_again_6 | 1 |
+| try_again_8 | 1 |
 
 ### Duplicate Signatures
 
@@ -2105,4 +2519,7 @@ No duplicate prompt+answer signatures.
 
 ### Repeated Answer Option Sets
 
-No repeated answer option sets.
+| answer option set | count | question IDs |
+| --- | --- | --- |
+| always hide crayons \| friends help each other \| never share \| run away quickly | 18 | gap_theme_higher_comprehension_l1_help_friend_1, gap_theme_higher_comprehension_l1_help_friend_3, gap_theme_higher_comprehension_l1_help_friend_5, gap_theme_higher_comprehension_l1_help_friend_7, gap_theme_higher_comprehension_l1_help_friend_9, gap_theme_higher_comprehension_l1_help_friend_11, gap_theme_higher_comprehension_l1_help_friend_13, gap_theme_higher_comprehension_l1_help_friend_15, gap_theme_higher_comprehension_l1_help_friend_17, gap_theme_higher_comprehension_l1_help_friend_19, gap_theme_higher_comprehension_l1_help_friend_21, gap_theme_higher_comprehension_l1_help_friend_23, gap_theme_higher_comprehension_l1_help_friend_25, gap_theme_higher_comprehension_l1_help_friend_27, gap_theme_higher_comprehension_l1_help_friend_29, gap_theme_higher_comprehension_l1_help_friend_31, gap_theme_higher_comprehension_l1_help_friend_33, gap_theme_higher_comprehension_l1_help_friend_35 |
+| give up \| hide the ball \| keep trying \| walk home | 17 | gap_theme_higher_comprehension_l1_try_again_2, gap_theme_higher_comprehension_l1_try_again_4, gap_theme_higher_comprehension_l1_try_again_6, gap_theme_higher_comprehension_l1_try_again_8, gap_theme_higher_comprehension_l1_try_again_10, gap_theme_higher_comprehension_l1_try_again_12, gap_theme_higher_comprehension_l1_try_again_14, gap_theme_higher_comprehension_l1_try_again_16, gap_theme_higher_comprehension_l1_try_again_18, gap_theme_higher_comprehension_l1_try_again_20, gap_theme_higher_comprehension_l1_try_again_22, gap_theme_higher_comprehension_l1_try_again_24, gap_theme_higher_comprehension_l1_try_again_26, gap_theme_higher_comprehension_l1_try_again_28, gap_theme_higher_comprehension_l1_try_again_30, gap_theme_higher_comprehension_l1_try_again_32, gap_theme_higher_comprehension_l1_try_again_34 |

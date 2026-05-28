@@ -1,6 +1,6 @@
 # Bob and Nan Level A Books 6-10 Import Audit
 
-Generated: 2026-05-26T23:39:51.798Z
+Generated: 2026-05-28T02:15:28.999Z
 
 ## Source
 
@@ -16,22 +16,22 @@ DOCX files and image pack found under `Nan and Bob 1-5 A`; Books 6-10 images wer
 
 - Bob and Nan Books 6-10 imported: 5
 - Import order: Level A books 6-10.
-- Preview scope: full delivered image pack is imported for all story pages; books remain teacher-preview until QA approves text-picture matching.
+- Release scope: full delivered image pack is imported for all story pages; books are approved for student readers.
 - Imported covers: 5/5
 - Imported story page images: 40
 - Missing story page images: 0
-- QA status: needs_review
+- QA status: approved
 - Validation failures: 0
 
 ## Imported Books
 
 | ID | Title | Level | Expected Pages | Imported Images | Missing Images | Cover Status | QA | Preview Only |
 |---|---|---|---:|---|---|---|---|---:|
-| bob-and-nan-06-zoo | Nan and Bob go to the Zoo | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | needs_review | yes |
-| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | needs_review | yes |
-| bob-and-nan-08-sick | Nan and Bob get Sick | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | needs_review | yes |
-| bob-and-nan-09-read | Nan and Bob Learn to Read | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | needs_review | yes |
-| bob-and-nan-10-vet | Fluff Visits the Vet | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | needs_review | yes |
+| bob-and-nan-06-zoo | Nan and Bob go to the Zoo | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | approved | no |
+| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | approved | no |
+| bob-and-nan-08-sick | Nan and Bob get Sick | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | approved | no |
+| bob-and-nan-09-read | Nan and Bob Learn to Read | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | approved | no |
+| bob-and-nan-10-vet | Fluff Visits the Vet | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | approved | no |
 
 ## Text Alignment
 
@@ -41,7 +41,7 @@ DOCX files and image pack found under `Nan and Bob 1-5 A`; Books 6-10 images wer
 
 ## Cover Review
 
-The delivered covers from the Books 6-10 Bob and Nan image pack were used. Source QA notes mark the covers and page images as passing first-pass QA; books remain `needs_review` for teacher QA before student release.
+The delivered covers from the Books 6-10 Bob and Nan image pack were used. Source QA notes mark the covers and page images as passing first-pass QA; books are now approved for student release.
 
 ## Questionable Covers
 
@@ -53,4 +53,4 @@ None.
 
 ## Result
 
-PASS: Bob and Nan Level A Books 6-10 are visible as teacher previews with full story image coverage.
+PASS: Bob and Nan Level A Books 6-10 are visible to student readers with full story image coverage.

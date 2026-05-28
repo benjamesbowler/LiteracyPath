@@ -1,6 +1,6 @@
 # Moonwood Tales Level C Import Audit
 
-Generated: 2026-05-28T02:08:07.787Z
+Generated: 2026-05-28T02:15:28.999Z
 
 ## Source
 
@@ -27,7 +27,7 @@ Media archive: `Moonwood Guided Reading.zip` containing `Moonwood_Tales_Level_C_
 - Final fiction book count: 75
 - Final nonfiction book count: 56
 - Final total guided reading count: 131
-- Validation failures: 1
+- Validation failures: 0
 
 ## Imported Books
 
@@ -60,6 +60,6 @@ None. The source pack had complete cover, story image, page text, page audio, an
 
 None.
 
-## Failures
+## Result
 
-- Expected 46 nonfiction books after First Facts Books 21-25 import, found 56.
+PASS: Moonwood Tales Books 1-10 are imported as approved Level C fiction with aligned page text, images, page audio, and full-book audio.

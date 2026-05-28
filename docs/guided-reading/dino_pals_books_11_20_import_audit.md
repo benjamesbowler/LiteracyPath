@@ -1,6 +1,6 @@
 # Dino Pals Level B Books 11-20 Import Audit
 
-Generated: 2026-05-27T06:24:28.985Z
+Generated: 2026-05-28T02:15:28.999Z
 
 ## Source
 
@@ -17,12 +17,12 @@ Media archive: organised Dino Pals Books 11-20 source pack with WebP page images
 - Dino Pals total draft books checked: 20
 - Dino Pals Books 11-20 imported in this pass: 10
 - Import order: Level B fiction books 11-20 added after existing Books 1-10.
-- Release scope: teacher preview only, pending final QA.
+- Release scope: student public viewing.
 - Imported covers for Books 11-20: 10/10
 - Imported story page images for Books 11-20: 120
 - Imported story page audio files for Books 11-20: 120
 - Missing story page images for Books 11-20: 0
-- Nonfiction books kept: 21
+- Nonfiction books kept: 56
 - Old deleted fiction books restored: 0
 - Validation failures: 0
 
@@ -30,16 +30,16 @@ Media archive: organised Dino Pals Books 11-20 source pack with WebP page images
 
 | ID | Title | Level | Expected Pages | Imported Images | Audio Files | Missing Images | Cover Status | QA | Preview Only |
 |---|---|---|---:|---|---|---|---|---|---:|
-| dino-pals-11-shys-secret-gift | Shy's Secret Gift | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-12-fancys-bad-day | Fancy's Bad Day | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-13-clumsy-to-the-rescue | Clumsy to the Rescue | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-14-what-is-flappy | What is Flappy? | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-15-sneezy-and-the-waterfall | Sneezy and the Waterfall | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-16-chompy-and-grumpys-day-out | Chompy and Grumpy's Day Out | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-17-the-sunny-hollow-games | The Sunny Hollow Games | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-18-dozys-wonderful-dream | Dozy's Wonderful Dream | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-19-zippys-race | Zippy's Race | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
-| dino-pals-20-the-big-storm | The Big Storm | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | needs_review | yes |
+| dino-pals-11-shys-secret-gift | Shy's Secret Gift | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-12-fancys-bad-day | Fancy's Bad Day | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-13-clumsy-to-the-rescue | Clumsy to the Rescue | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-14-what-is-flappy | What is Flappy? | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-15-sneezy-and-the-waterfall | Sneezy and the Waterfall | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-16-chompy-and-grumpys-day-out | Chompy and Grumpy's Day Out | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-17-the-sunny-hollow-games | The Sunny Hollow Games | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-18-dozys-wonderful-dream | Dozy's Wonderful Dream | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-19-zippys-race | Zippy's Race | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
+| dino-pals-20-the-big-storm | The Big Storm | B | 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | none | delivered cover used | approved | no |
 
 ## Text Alignment
 
@@ -54,7 +54,7 @@ PASS: Each Dino Pals story page has a matching page audio file.
 
 ## QA Status
 
-All Dino Pals books are imported as `teacher_preview` / `needs_review` and remain behind teacher preview until reviewed.
+All Dino Pals books are released as `approved` and visible to student readers.
 
 ## Next Steps
 
@@ -67,4 +67,4 @@ None.
 
 ## Result
 
-PASS: Dino Pals Level B Books 11-20 are imported with cover, twelve story pages, and page audio for teacher preview; Books 1-10 remain intact.
+PASS: Dino Pals Level B Books 11-20 are imported with cover, twelve story pages, and page audio for student readers; Books 1-10 remain intact.

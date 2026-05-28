@@ -181,6 +181,41 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | w | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
 | z | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/initial-sounds/zebra.png | active asset |  |  |
 | v | Initial Sounds | FIRST_SOUND | question image | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/almond.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/anteater.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/armchair.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/artichoke.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/ash.webp | active asset |  |  |
+| a | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/asparagus.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/back.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/badge.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/badger.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/bamboo.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/bandage.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/bark.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/barn.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/barrel.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/basketball.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/beach.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/beachball.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/bead.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/beak.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/bean.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/beef.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/beehive.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/beet.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/beetle.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/behind.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/belt.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/bench.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/bend.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/berry.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/bike.webp | active asset |  |  |
+| b | Initial Sounds | FIRST_SOUND | question image | yes | /media/vocabulary/images/birdhouse.webp | active asset |  |  |
 | bed | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
 | mud | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-u/mud.png | active asset |  |  |
 | cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
@@ -308,6 +343,15 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
 | p | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
 | b | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/web.png | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/cub.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/cab.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/bib.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/rub.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/knob.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/lab.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/sub.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/cob.webp | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /media/final-sounds/images/b/dab.webp | active asset |  |  |
 | t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/jet.png | active asset |  |  |
 | m | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
 | n | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
@@ -328,8 +372,18 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
 | t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/minimal-pairs/cut.png | active asset |  |  |
 | d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-i/lid.png | active asset |  |  |
-| l | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/bell.png | active asset |  |  |
-| l | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/ball.png | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/tub.png | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/a/animal.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/f/fossil.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/hospital.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/j/jewel.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/n/nail.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/o/owl.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pencil.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pretzel.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/s/seal.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/w/wheel.webp | active asset |  |  |
 | sh | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
 | sh | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/dish.png | active asset |  |  |
 | sh | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/brush.png | active asset |  |  |
@@ -426,13 +480,15 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | p | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
 | b | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/web.png | active asset |  |  |
 | m | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/tub.png | active asset |  |  |
+| b | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/crab.png | active asset |  |  |
 | t | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
 | d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
-| l | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/bell.png | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/seal.png | active asset |  |  |
 | m | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
 | d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
 | d | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
@@ -457,15 +513,13 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/b/bag.webp | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/d/dog.webp | active asset |  |  |
-| g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/e/egg.webp | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/l/leg.webp | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/l/log.webp | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/m/mug.webp | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/p/pig.webp | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/r/rug.webp | active asset |  |  |
 | g | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/w/wig.webp | active asset |  |  |
-| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/girl.webp | active asset |  |  |
-| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/o/oval.webp | active asset |  |  |
+| l | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/s/seal.webp | active asset |  |  |
 | m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/gum.webp | active asset |  |  |
 | m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
 | m | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
@@ -542,400 +596,806 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | sk | Final Sounds | ENDING_SOUND | question image | yes | /images/child-mode/initial-sounds/desk.png | active asset |  |  |
 | ft | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/g/gift.webp | active asset |  |  |
 | lt | Final Sounds | ENDING_SOUND | question image | yes | /media/initial-sounds/images/q/quilt.webp | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| pan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| fan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| man | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| van | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| map | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| cap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| nap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| tap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| jam | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| ham | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
-| pan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| fan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| pan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| man | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| pan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| van | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| fan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
-| man | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| fan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
-| van | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| man | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
-| van | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
-| map | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| map | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| cap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| map | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| nap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| map | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| tap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| cap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
-| nap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| cap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
-| tap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| nap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
-| tap | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
-| pan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| jam | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
-| ham | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| jam | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
-| ram | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| ham | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
-| ram | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| bed | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
-| red | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-e/red.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| pen | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
-| hen | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| pen | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
-| ten | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| hen | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
-| ten | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| jet | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-e/jet.png | active asset |  |  |
-| net | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-e/net.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| pig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
-| wig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| pig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
-| dig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| pig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
-| big | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/big.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| wig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
-| dig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| wig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
-| big | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/big.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| dig | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
-| big | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/big.png | active asset |  |  |
-| pan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| pin | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
-| fin | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| pin | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
-| bin | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| fin | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
-| bin | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| sit | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
-| hit | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hit.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| dog | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| log | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/log.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| mop | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
-| hop | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| mop | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
-| top | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| hop | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
-| top | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| hot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
-| pot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| hot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
-| dot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| hot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
-| cot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| pot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
-| dot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| pot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
-| cot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| dot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
-| cot | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
-| pan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| bug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
-| rug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| bug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
-| mug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| bug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
-| jug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/jug.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| rug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
-| mug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
-| mat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
-| rug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
-| jug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/jug.png | active asset |  |  |
-| rat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
-| mug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
-| jug | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/jug.png | active asset |  |  |
-| pan | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| sun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| run | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| sun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| bun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| run | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
-| bun | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| cup | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
-| up | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/up.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| cut | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/minimal-pairs/cut.png | active asset |  |  |
-| hut | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/hut.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| ring | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/ring.png | active asset |  |  |
-| king | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/king.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| sock | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-o/sock.png | active asset |  |  |
-| rock | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/short-o/rock.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| bell | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/bell.png | active asset |  |  |
-| shell | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| fish | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| dish | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/dish.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| cake | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/cake.png | active asset |  |  |
-| snake | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/blends/snake.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| boat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/vowels/boat.png | active asset |  |  |
-| coat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/vowels/coat.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| boat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/vowels/boat.png | active asset |  |  |
-| goat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/vowels/goat.png | active asset |  |  |
-| bat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
-| coat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/vowels/coat.png | active asset |  |  |
-| goat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/vowels/goat.png | active asset |  |  |
-| hat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| car | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/initial-sounds/car.png | active asset |  |  |
-| star | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/blends/star.png | active asset |  |  |
-| cat | Rhyming | RHYME_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| hat | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| cup | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
-| hat | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| cup | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
-| nap | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| fish | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| nap | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| fish | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| pan | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| pan | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| red | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/short-e/red.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| red | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/short-e/red.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| hen | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| hen | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| wig | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| wig | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| pin | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| pin | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| hit | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/initial-sounds/hit.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| hit | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/initial-sounds/hit.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| log | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/log.png | active asset |  |  |
-| cat | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| log | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/log.png | active asset |  |  |
-| cat | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| top | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| fish | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| top | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| fish | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| cot | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| cot | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| rug | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| fish | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| rug | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| sun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
-| fish | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| bun | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
-| dog | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| map | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| fish | Rhyming | LISTEN_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| bun | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
-| map | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
-| fish | Rhyming | READ_FIND_RHYME | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
-| hat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/b/bat.webp | active asset |  |  |
-| mat | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/b/bat.webp | active asset |  |  |
-| rat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/b/bat.webp | active asset |  |  |
-| bat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/h/hat.webp | active asset |  |  |
-| mat | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/h/hat.webp | active asset |  |  |
-| rat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/h/hat.webp | active asset |  |  |
-| bat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/m/mat.webp | active asset |  |  |
-| hat | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/m/mat.webp | active asset |  |  |
-| rat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/m/mat.webp | active asset |  |  |
-| bat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/r/rat.webp | active asset |  |  |
-| hat | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/r/rat.webp | active asset |  |  |
-| mat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/r/rat.webp | active asset |  |  |
-| fan | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/p/pan.webp | active asset |  |  |
-| man | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/p/pan.webp | active asset |  |  |
-| van | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/p/pan.webp | active asset |  |  |
-| pan | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/f/fan.webp | active asset |  |  |
-| man | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/f/fan.webp | active asset |  |  |
-| van | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/f/fan.webp | active asset |  |  |
-| pan | Rhyming | READ_FIND_RHYME | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
-| fan | Rhyming | LISTEN_FIND_RHYME | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
-| van | Rhyming | READ_FIND_RHYME | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
-| pan | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/v/van.webp | active asset |  |  |
-| fan | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/v/van.webp | active asset |  |  |
-| man | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/v/van.webp | active asset |  |  |
-| tap | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/c/cap.webp | active asset |  |  |
-| cap | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/t/tap.webp | active asset |  |  |
-| ham | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
-| ram | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
-| yam | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/j/jam.webp | active asset |  |  |
-| jam | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
-| ram | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
-| yam | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/h/ham.webp | active asset |  |  |
-| jam | Rhyming | READ_FIND_RHYME | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
-| ham | Rhyming | LISTEN_FIND_RHYME | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
-| yam | Rhyming | READ_FIND_RHYME | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
-| jam | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/y/yam.webp | active asset |  |  |
-| ham | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/y/yam.webp | active asset |  |  |
-| ram | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/y/yam.webp | active asset |  |  |
-| hen | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/p/pen.webp | active asset |  |  |
-| pen | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/h/hen.webp | active asset |  |  |
-| wig | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/p/pig.webp | active asset |  |  |
-| pig | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/w/wig.webp | active asset |  |  |
-| fin | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/p/pin.webp | active asset |  |  |
-| pin | Rhyming | READ_FIND_RHYME | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
-| log | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/d/dog.webp | active asset |  |  |
-| dog | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/l/log.webp | active asset |  |  |
-| cot | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/p/pot.webp | active asset |  |  |
-| pot | Rhyming | READ_FIND_RHYME | question image | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
-| rug | Rhyming | READ_FIND_RHYME | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
-| mug | Rhyming | LISTEN_FIND_RHYME | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
-| bug | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/r/rug.webp | active asset |  |  |
-| mug | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/r/rug.webp | active asset |  |  |
-| bug | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/m/mug.webp | active asset |  |  |
-| rug | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/m/mug.webp | active asset |  |  |
-| up | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/c/cup.webp | active asset |  |  |
-| cup | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/u/up.webp | active asset |  |  |
-| king | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/r/ring.webp | active asset |  |  |
-| ring | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/k/king.webp | active asset |  |  |
-| rock | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/s/sock.webp | active asset |  |  |
-| lock | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/s/sock.webp | active asset |  |  |
-| sock | Rhyming | READ_FIND_RHYME | question image | yes | /images/child-mode/short-o/rock.png | active asset |  |  |
-| lock | Rhyming | LISTEN_FIND_RHYME | question image | yes | /images/child-mode/short-o/rock.png | active asset |  |  |
-| sock | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/l/lock.webp | active asset |  |  |
-| rock | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/l/lock.webp | active asset |  |  |
-| shell | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/b/bell.webp | active asset |  |  |
-| bell | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/s/shell.webp | active asset |  |  |
-| dish | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/f/fish.webp | active asset |  |  |
-| fish | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/d/dish.webp | active asset |  |  |
-| truck | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/d/duck.webp | active asset |  |  |
-| duck | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/t/truck.webp | active asset |  |  |
-| lake | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/c/cake.webp | active asset |  |  |
-| cake | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/l/lake.webp | active asset |  |  |
-| coat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/b/boat.webp | active asset |  |  |
-| goat | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/b/boat.webp | active asset |  |  |
-| boat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/c/coat.webp | active asset |  |  |
-| goat | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/c/coat.webp | active asset |  |  |
-| boat | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/g/goat.webp | active asset |  |  |
-| coat | Rhyming | LISTEN_FIND_RHYME | question image | yes | /media/initial-sounds/images/g/goat.webp | active asset |  |  |
-| jar | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/c/car.webp | active asset |  |  |
-| car | Rhyming | READ_FIND_RHYME | question image | yes | /media/initial-sounds/images/j/jar.webp | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| bag | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| bag | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
+| tag | Rhyming | RHYMING_PICTURE | image card | yes | /media/rhyming/images/tag.webp | active asset |  |  |
+| bad | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bad.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| bag | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| bag | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| bag | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ram | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-a/ram.png | active asset |  |  |
+| jam | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/jam.png | active asset |  |  |
+| ham | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-a/ham.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| tag | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
+| tag | Rhyming | RHYMING_PICTURE | image card | yes | /media/rhyming/images/tag.webp | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| bag | Rhyming | RHYMING_PICTURE | question image | yes | /media/rhyming/images/tag.webp | active asset |  |  |
+| bag | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| sad | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bad.png | active asset |  |  |
+| sad | Rhyming | RHYMING_PICTURE | image card | yes | /media/rhyming/images/sad.webp | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| bad | Rhyming | RHYMING_PICTURE | question image | yes | /media/rhyming/images/sad.webp | active asset |  |  |
+| bad | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bad.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| red | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| red | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| bed | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-e/red.png | active asset |  |  |
+| bed | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| hen | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| hen | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| ten | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| ten | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| hen | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| hen | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| ten | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| pen | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| pen | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| ten | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| ten | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| pen | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| pen | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| ten | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| pen | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
+| pen | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| hen | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
+| hen | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| pen | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/ten.png | active asset |  |  |
+| pen | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-e/pen.png | active asset |  |  |
+| hen | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hen.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| net | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-e/jet.png | active asset |  |  |
+| net | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-e/net.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| jet | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-e/net.png | active asset |  |  |
+| jet | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-e/jet.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| egg | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-e/leg.png | active asset |  |  |
+| egg | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/egg.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| leg | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/egg.png | active asset |  |  |
+| leg | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-e/leg.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| wig | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| wig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| dig | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| dig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| big | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| big | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/big.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| wig | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| wig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
+| dig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pig | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
+| pig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| dig | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
+| dig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| big | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
+| big | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/big.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| pig | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
+| pig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| dig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| pig | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
+| pig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/pig.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| wig | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/dig.png | active asset |  |  |
+| wig | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/wig.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| fin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| fin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| bin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| bin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| fin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| fin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| bin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| pin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| pin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| bin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| bin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| pin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| pin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| bin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| pin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
+| pin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| fin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
+| fin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| pin | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/bin.png | active asset |  |  |
+| pin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/minimal-pairs/pin.png | active asset |  |  |
+| fin | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/fin.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| zip | Rhyming | RHYMING_PICTURE | question image | yes | /media/rhyming/images/lip.webp | active asset |  |  |
+| zip | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/zip.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| lip | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/zip.png | active asset |  |  |
+| lip | Rhyming | RHYMING_PICTURE | image card | yes | /media/rhyming/images/lip.webp | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| hit | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
+| hit | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hit.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| sit | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hit.png | active asset |  |  |
+| sit | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-i/sit.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| log | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| log | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| dog | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/log.png | active asset |  |  |
+| dog | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| hop | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
+| hop | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| top | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
+| top | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| hop | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
+| hop | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
+| top | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| mop | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
+| mop | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| top | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
+| top | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| mop | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
+| mop | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
+| top | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| mop | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
+| mop | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| hop | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
+| hop | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| mop | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/top.png | active asset |  |  |
+| mop | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-o/mop.png | active asset |  |  |
+| hop | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hop.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| pot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
+| pot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| dot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
+| dot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| cot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
+| cot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| pot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
+| pot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| dot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| hot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| hot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| dot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| dot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| cot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| cot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/minimal-pairs/cot.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| hot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| hot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
+| dot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| hot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
+| hot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hot.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| pot | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/dot.png | active asset |  |  |
+| pot | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pot.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| rug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| rug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| mug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| jug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| jug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/jug.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| rug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| rug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
+| mug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| bug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
+| bug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| mug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
+| mug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| jug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
+| jug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/jug.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| bug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
+| bug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| mug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| bug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| bug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| rug | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/mug.png | active asset |  |  |
+| rug | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rug.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| tap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/tap.png | active asset |  |  |
+| run | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| run | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| bun | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| bun | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| run | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| run | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
+| bun | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| sun | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
+| sun | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| bun | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
+| bun | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| sun | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
+| sun | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| bun | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| sun | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
+| sun | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| run | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
+| run | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| sun | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-u/bun.png | active asset |  |  |
+| sun | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/sun.png | active asset |  |  |
+| run | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/run.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| nap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/nap.png | active asset |  |  |
+| up | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
+| up | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/up.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| cup | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/up.png | active asset |  |  |
+| cup | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| hut | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/minimal-pairs/cut.png | active asset |  |  |
+| hut | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/hut.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| cut | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/hut.png | active asset |  |  |
+| cut | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/minimal-pairs/cut.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| king | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/ring.png | active asset |  |  |
+| king | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/king.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| ring | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/king.png | active asset |  |  |
+| ring | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/ring.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rock | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-o/sock.png | active asset |  |  |
+| rock | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-o/rock.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| sock | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/short-o/rock.png | active asset |  |  |
+| sock | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/short-o/sock.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| shell | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/bell.png | active asset |  |  |
+| shell | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| bell | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/digraphs/shell.png | active asset |  |  |
+| bell | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/bell.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| dish | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| dish | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/dish.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| fish | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/dish.png | active asset |  |  |
+| fish | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| snake | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/cake.png | active asset |  |  |
+| snake | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/blends/snake.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| cake | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/blends/snake.png | active asset |  |  |
+| cake | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/cake.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| coat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/vowels/boat.png | active asset |  |  |
+| coat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/coat.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| goat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/vowels/boat.png | active asset |  |  |
+| goat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/goat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| coat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/vowels/boat.png | active asset |  |  |
+| coat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/coat.png | active asset |  |  |
+| goat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/goat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| boat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/vowels/coat.png | active asset |  |  |
+| boat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/boat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| rat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/rat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| goat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/vowels/coat.png | active asset |  |  |
+| goat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/goat.png | active asset |  |  |
+| pan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/pan.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| boat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/vowels/coat.png | active asset |  |  |
+| boat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/boat.png | active asset |  |  |
+| goat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/goat.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| boat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/vowels/goat.png | active asset |  |  |
+| boat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/boat.png | active asset |  |  |
+| fan | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/fan.png | active asset |  |  |
+| man | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/man.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| coat | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/vowels/goat.png | active asset |  |  |
+| coat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/vowels/coat.png | active asset |  |  |
+| van | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/van.png | active asset |  |  |
+| map | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/map.png | active asset |  |  |
+| cap | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
+| star | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/initial-sounds/car.png | active asset |  |  |
+| star | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/blends/star.png | active asset |  |  |
+| cat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| car | Rhyming | RHYMING_PICTURE | question image | yes | /images/child-mode/blends/star.png | active asset |  |  |
+| car | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/car.png | active asset |  |  |
+| bat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
+| hat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/cvc/hat.png | active asset |  |  |
+| mat | Rhyming | RHYMING_PICTURE | image card | yes | /images/child-mode/initial-sounds/mat.png | active asset |  |  |
+| sack | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/back.webp | active asset |  |  |
+| sack | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/sack.webp | active asset |  |  |
+| airplane | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| alligator | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| almond | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/almond.webp | active asset |  |  |
+| kick | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/brick.webp | active asset |  |  |
+| kick | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/kick.webp | active asset |  |  |
+| airplane | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| alligator | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| almond | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/almond.webp | active asset |  |  |
+| storm | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/horn.webp | active asset |  |  |
+| storm | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/storm.webp | active asset |  |  |
+| airplane | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| alligator | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| almond | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/almond.webp | active asset |  |  |
+| sleep | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/sheep.webp | active asset |  |  |
+| sleep | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/sleep.webp | active asset |  |  |
+| airplane | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| alligator | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| almond | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/almond.webp | active asset |  |  |
+| wing | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/swing.webp | active asset |  |  |
+| wing | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/wing.webp | active asset |  |  |
+| airplane | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| alligator | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| almond | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/almond.webp | active asset |  |  |
+| wall | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/tall.webp | active asset |  |  |
+| wall | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/wall.webp | active asset |  |  |
+| airplane | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| alligator | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| almond | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/almond.webp | active asset |  |  |
+| back | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/sack.webp | active asset |  |  |
+| back | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/back.webp | active asset |  |  |
+| applesauce | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/applesauce.webp | active asset |  |  |
+| arch | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| arm | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| brick | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/kick.webp | active asset |  |  |
+| brick | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/brick.webp | active asset |  |  |
+| applesauce | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/applesauce.webp | active asset |  |  |
+| arch | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| arm | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| horn | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/storm.webp | active asset |  |  |
+| horn | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/horn.webp | active asset |  |  |
+| applesauce | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/applesauce.webp | active asset |  |  |
+| arch | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| arm | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| sheep | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/sleep.webp | active asset |  |  |
+| sheep | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/sheep.webp | active asset |  |  |
+| applesauce | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/applesauce.webp | active asset |  |  |
+| arch | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| arm | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| swing | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/wing.webp | active asset |  |  |
+| swing | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/swing.webp | active asset |  |  |
+| applesauce | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/applesauce.webp | active asset |  |  |
+| arch | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| arm | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| tall | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/wall.webp | active asset |  |  |
+| tall | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/tall.webp | active asset |  |  |
+| applesauce | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/applesauce.webp | active asset |  |  |
+| arch | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| arm | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| sack | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/back.webp | active asset |  |  |
+| sack | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/sack.webp | active asset |  |  |
+| artichoke | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/artichoke.webp | active asset |  |  |
+| ash | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/ash.webp | active asset |  |  |
+| asparagus | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/asparagus.webp | active asset |  |  |
+| kick | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/brick.webp | active asset |  |  |
+| kick | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/kick.webp | active asset |  |  |
+| artichoke | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/artichoke.webp | active asset |  |  |
+| ash | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/ash.webp | active asset |  |  |
+| asparagus | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/asparagus.webp | active asset |  |  |
+| storm | Rhyming | RHYMING_PICTURE | question image | yes | /media/vocabulary/images/horn.webp | active asset |  |  |
+| storm | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/storm.webp | active asset |  |  |
+| artichoke | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/artichoke.webp | active asset |  |  |
+| ash | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/ash.webp | active asset |  |  |
+| asparagus | Rhyming | RHYMING_PICTURE | image card | yes | /media/vocabulary/images/asparagus.webp | active asset |  |  |
 | bag | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
 | bug | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bug.png | active asset |  |  |
 | big | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-i/big.png | active asset |  |  |
@@ -1188,6 +1648,41 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | sun | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/s/sun.webp | active asset |  |  |
 | u | CVC and Short Vowels | MISSING_VOWEL_CVC | question image | yes | /media/initial-sounds/images/t/tub.webp | active asset |  |  |
 | tub | CVC and Short Vowels | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/t/tub.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/bar.webp | active asset |  |  |
+| i | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/bib.webp | active asset |  |  |
+| o | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/bow.webp | active asset |  |  |
+| a | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/cab.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/can.webp | active asset |  |  |
+| o | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/cob.webp | active asset |  |  |
+| u | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/cub.webp | active asset |  |  |
+| a | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/dab.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/dad.webp | active asset |  |  |
+| e | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/den.webp | active asset |  |  |
+| i | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/dip.webp | active asset |  |  |
+| i | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/fig.webp | active asset |  |  |
+| u | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/fun.webp | active asset |  |  |
+| e | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/gem.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/hay.webp | active asset |  |  |
+| i | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/hip.webp | active asset |  |  |
+| i | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/kit.webp | active asset |  |  |
+| a | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/lab.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/lap.webp | active asset |  |  |
+| i | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/lip.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/mad.webp | active asset |  |  |
+| i | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/mix.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/pad.webp | active asset |  |  |
+| e | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/peg.webp | active asset |  |  |
+| e | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/pet.webp | active asset |  |  |
+| u | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/pup.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/rag.webp | active asset |  |  |
+| i | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/rib.webp | active asset |  |  |
+| o | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/rod.webp | active asset |  |  |
+| u | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/rub.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/sad.webp | active asset |  |  |
+| a | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/sap.webp | active asset |  |  |
+| a | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/saw.webp | active asset |  |  |
+| i | CVC and Short Vowels | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/sip.webp | active asset |  |  |
+| u | CVC and Short Vowels | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/sub.webp | active asset |  |  |
 | cat | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | bag | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
 | map | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /images/child-mode/cvc/map.png | active asset |  |  |
@@ -1306,6 +1801,41 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | yak | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/y/yak.webp | active asset |  |  |
 | i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/initial-sounds/images/z/zip.webp | active asset |  |  |
 | zip | Short Vowel Discrimination | PICTURE_TO_PRINT_MATCH | question image | yes | /media/initial-sounds/images/z/zip.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/bar.webp | active asset |  |  |
+| i | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/bib.webp | active asset |  |  |
+| o | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/bow.webp | active asset |  |  |
+| a | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/cab.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/can.webp | active asset |  |  |
+| o | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/cob.webp | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/cub.webp | active asset |  |  |
+| a | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/dab.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/dad.webp | active asset |  |  |
+| e | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/den.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/dip.webp | active asset |  |  |
+| i | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/fig.webp | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/fun.webp | active asset |  |  |
+| e | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/gem.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/hay.webp | active asset |  |  |
+| i | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/hip.webp | active asset |  |  |
+| i | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/kit.webp | active asset |  |  |
+| a | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/lab.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/lap.webp | active asset |  |  |
+| i | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/lip.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/mad.webp | active asset |  |  |
+| i | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/mix.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/pad.webp | active asset |  |  |
+| e | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/peg.webp | active asset |  |  |
+| e | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/pet.webp | active asset |  |  |
+| u | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/pup.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/rag.webp | active asset |  |  |
+| i | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/rib.webp | active asset |  |  |
+| o | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/rod.webp | active asset |  |  |
+| u | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/rub.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/sad.webp | active asset |  |  |
+| a | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/sap.webp | active asset |  |  |
+| a | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/saw.webp | active asset |  |  |
+| i | Short Vowel Discrimination | SHORT_VOWEL_WORD | question image | yes | /media/vocabulary/images/sip.webp | active asset |  |  |
+| u | Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL | question image | yes | /media/vocabulary/images/sub.webp | active asset |  |  |
 | bl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/blends/blue.png | active asset |  |  |
 | cl | Blends | PICTURE_AUDIO_TO_PATTERN | question image | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
 | clap | Blends | IMAGE_WORD_PATTERN_MATCH | image card | yes | /images/child-mode/initial-sounds/clap.png | active asset |  |  |
@@ -1525,6 +2055,186 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | shop | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/initial-sounds/shop.png | active asset |  |  |
 | chick | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/chick.png | active asset |  |  |
 | whale | Digraphs | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/digraphs/whale.png | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| sh | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/ash.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/beach.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/bench.webp | active asset |  |  |
+| th | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/booth.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/branch.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/chain.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/chalk.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/cheese.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/cheetah.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/chef.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/cherry.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/chessboard.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/chest.webp | active asset |  |  |
+| ch | Digraphs | PICTURE_AUDIO_TO_PATTERN | question image | yes | /media/vocabulary/images/chestnut.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/bandage.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/bike.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/blade.webp | active asset |  |  |
+| o_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/bone.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/cabbage.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/cage.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/cane.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/cape.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/cave.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/chime.webp | active asset |  |  |
+| o_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/cone.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/crane.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/crocodile.webp | active asset |  |  |
+| u_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/cube.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/cupcake.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/dice.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/dime.webp | active asset |  |  |
+| o_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/dove.webp | active asset |  |  |
+| e_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/eye.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/file.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/flame.webp | active asset |  |  |
+| u_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/flute.webp | active asset |  |  |
+| o_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/foxglove.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/frame.webp | active asset |  |  |
+| o_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/glove.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/hive.webp | active asset |  |  |
+| o_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/hose.webp | active asset |  |  |
+| e_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/ice.webp | active asset |  |  |
+| e_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/lettuce.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/lime.webp | active asset |  |  |
+| o_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/mole.webp | active asset |  |  |
+| u_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/mule.webp | active asset |  |  |
+| a_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/pancake.webp | active asset |  |  |
+| i_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/pine.webp | active asset |  |  |
+| e_e | Long Vowels and Silent E | DECODING | question image | yes | /media/vocabulary/images/pinecone.webp | active asset |  |  |
+| ai | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/anteater.webp | active asset |  |  |
+| ai | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/armchair.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/beach.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/beachball.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/bead.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/beak.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/bean.webp | active asset |  |  |
+| ee | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/beef.webp | active asset |  |  |
+| ee | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/beehive.webp | active asset |  |  |
+| ee | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/beet.webp | active asset |  |  |
+| ee | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/beetle.webp | active asset |  |  |
+| ay | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/bluejay.webp | active asset |  |  |
+| oa | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/board.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/bread.webp | active asset |  |  |
+| ee | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/canteen.webp | active asset |  |  |
+| ai | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/chain.webp | active asset |  |  |
+| ee | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/cheese.webp | active asset |  |  |
+| ee | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/cheetah.webp | active asset |  |  |
+| oa | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/chessboard.webp | active asset |  |  |
+| ay | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/clay.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/clean.webp | active asset |  |  |
+| oa | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/clipboard.webp | active asset |  |  |
+| oa | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/coal.webp | active asset |  |  |
+| oa | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/cocoa.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/cornbread.webp | active asset |  |  |
+| ay | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/crayon.webp | active asset |  |  |
+| ai | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/curtain.webp | active asset |  |  |
+| ai | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/drain.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/earring.webp | active asset |  |  |
+| ee | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/eel.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/fernleaf.webp | active asset |  |  |
+| oa | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/foam.webp | active asset |  |  |
+| ea | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/greenbean.webp | active asset |  |  |
+| ai | Vowel Teams | DECODING | question image | yes | /media/vocabulary/images/hairpin.webp | active asset |  |  |
+| ir | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| or | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/anteater.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/armchair.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/artichoke.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/asparagus.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/badger.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/bar.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/bark.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/barn.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/barrel.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/berry.webp | active asset |  |  |
+| ir | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/birdhouse.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/blackberry.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/blender.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/blueberry.webp | active asset |  |  |
+| ir | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/bluebird.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/board.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/butter.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/butternut.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/canary.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/card.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/cardigan.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/carnation.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/cart.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/cauliflower.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/celery.webp | active asset |  |  |
+| er | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/cherry.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/chessboard.webp | active asset |  |  |
+| ir | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/circle.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/clipboard.webp | active asset |  |  |
+| ar | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/collar.webp | active asset |  |  |
+| or | R-Controlled Vowels | DECODING | question image | yes | /media/vocabulary/images/cord.webp | active asset |  |  |
+| airplane | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/airplane.webp | active asset |  |  |
+| alligator | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/alligator.webp | active asset |  |  |
+| almond | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/almond.webp | active asset |  |  |
+| anteater | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/anteater.webp | active asset |  |  |
+| applesauce | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/applesauce.webp | active asset |  |  |
+| arch | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/arch.webp | active asset |  |  |
+| arm | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/arm.webp | active asset |  |  |
+| armchair | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/armchair.webp | active asset |  |  |
+| artichoke | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/artichoke.webp | active asset |  |  |
+| ash | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/ash.webp | active asset |  |  |
+| asparagus | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/asparagus.webp | active asset |  |  |
+| back | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/back.webp | active asset |  |  |
+| badge | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/badge.webp | active asset |  |  |
+| badger | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/badger.webp | active asset |  |  |
+| bagel | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/bagel.webp | active asset |  |  |
+| balcony | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/balcony.webp | active asset |  |  |
+| bamboo | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/bamboo.webp | active asset |  |  |
+| bandage | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/bandage.webp | active asset |  |  |
+| bar | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/bar.webp | active asset |  |  |
+| bark | Nouns | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/bark.webp | active asset |  |  |
+| bend | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/bend.webp | active asset |  |  |
+| climb | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/climb.webp | active asset |  |  |
+| crawl | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/crawl.webp | active asset |  |  |
+| draw | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/draw.webp | active asset |  |  |
+| drink | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/drink.webp | active asset |  |  |
+| drop | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/drop.webp | active asset |  |  |
+| kick | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/kick.webp | active asset |  |  |
+| laugh | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/laugh.webp | active asset |  |  |
+| lift | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/lift.webp | active asset |  |  |
+| mix | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/mix.webp | active asset |  |  |
+| paint | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/paint.webp | active asset |  |  |
+| pick | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/pick.webp | active asset |  |  |
+| plant | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/plant.webp | active asset |  |  |
+| pull | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/pull.webp | active asset |  |  |
+| push | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/push.webp | active asset |  |  |
+| read | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/read.webp | active asset |  |  |
+| ride | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/ride.webp | active asset |  |  |
+| roll | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/roll.webp | active asset |  |  |
+| skip | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/skip.webp | active asset |  |  |
+| sleep | Verbs | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/sleep.webp | active asset |  |  |
+| bright | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/bright.webp | active asset |  |  |
+| clean | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/clean.webp | active asset |  |  |
+| closed | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/closed.webp | active asset |  |  |
+| cold | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/cold.webp | active asset |  |  |
+| dark | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/dark.webp | active asset |  |  |
+| dirty | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/dirty.webp | active asset |  |  |
+| dry | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/dry.webp | active asset |  |  |
+| fast | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/fast.webp | active asset |  |  |
+| flat | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/flat.webp | active asset |  |  |
+| full | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/full.webp | active asset |  |  |
+| happy | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/happy.webp | active asset |  |  |
+| hard | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/hard.webp | active asset |  |  |
+| heavy | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/heavy.webp | active asset |  |  |
+| light | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/light.webp | active asset |  |  |
+| long | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/long.webp | active asset |  |  |
+| mad | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/mad.webp | active asset |  |  |
+| open | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/open.webp | active asset |  |  |
+| round | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/round.webp | active asset |  |  |
+| short | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/short.webp | active asset |  |  |
+| slow | Adjectives | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/slow.webp | active asset |  |  |
 | in the box | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/cat_in_box.png | active asset |  |  |
 | under the table | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/dog_under_table.png | active asset |  |  |
 | on the chair | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/ball_on_chair.png | active asset |  |  |
@@ -1554,6 +2264,28 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | between the books | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/cup_between_books.png | active asset |  |  |
 | above the tree | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/bird_above_tree.png | active asset |  |  |
 | near the door | Prepositions of Place | UNKNOWN | question image | yes | /images/prepositions/shoes_near_door.png | active asset |  |  |
+| above | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/above.webp | active asset |  |  |
+| below | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/below.webp | active asset |  |  |
+| behind | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/behind.webp | active asset |  |  |
+| beside | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/beside.webp | active asset |  |  |
+| between | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/between.webp | active asset |  |  |
+| outside | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/outside.webp | active asset |  |  |
+| over | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/over.webp | active asset |  |  |
+| near | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/near.webp | active asset |  |  |
+| far | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/far.webp | active asset |  |  |
+| around | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/around.webp | active asset |  |  |
+| through | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/through.webp | active asset |  |  |
+| above | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/above.webp | active asset |  |  |
+| below | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/below.webp | active asset |  |  |
+| behind | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/behind.webp | active asset |  |  |
+| beside | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/beside.webp | active asset |  |  |
+| between | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/between.webp | active asset |  |  |
+| outside | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/outside.webp | active asset |  |  |
+| over | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/over.webp | active asset |  |  |
+| near | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/near.webp | active asset |  |  |
+| far | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/far.webp | active asset |  |  |
+| around | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/around.webp | active asset |  |  |
+| through | Prepositions of Place | GRAMMAR_BASICS | question image | yes | /media/vocabulary/images/through.webp | active asset |  |  |
 | boxes | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/boxes.png | preferred Pack 4 organized asset |  |  |
 | brushes | Plurals | PLURAL_IMAGE_SPELLING | question image | yes | /images/child-mode/plurals/brushes.png | preferred Pack 4 organized asset |  |  |
 | cats | Plurals | COMPREHENSION | question image | yes | /images/prepositions/duck_outside_pond.png | active asset |  |  |

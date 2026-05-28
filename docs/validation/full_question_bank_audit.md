@@ -8,41 +8,41 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 
 | Skill | Active valid runtime questions | Unique question signatures | Unique targets | Unique itemKeys/patterns | Duplicate IDs | Duplicate signatures | Repeated distractor sets | Missing image/audio needs | Below 50 unique? | Below 52 runtime? | Unique option sets | Runtime sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Initial Sounds | 78 | 78 | 77 | 25 | 0 | 0 | 8 | 0 | no | no | 76 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions |
-| Final Sounds | 242 | 242 | 171 | 25 | 0 | 0 | 16 | 0 | no | no | 108 | finalSoundCoverageQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
-| Rhyming | 205 | 205 | 133 | 29 | 0 | 0 | 15 | 0 | no | no | 158 | contentExpansionPass3Questions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, rhymingCoverageQuestions |
-| CVC and Short Vowels | 252 | 252 | 70 | 42 | 0 | 0 | 10 | 0 | no | no | 121 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
-| Short Vowel Discrimination | 250 | 250 | 71 | 5 | 0 | 0 | 7 | 0 | no | no | 112 | contentExpansionPass3Questions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
-| High-Frequency Words 1-25 | 61 | 61 | 32 | 32 | 0 | 0 | 6 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
-| High-Frequency Words 26-50 | 63 | 63 | 38 | 38 | 0 | 0 | 7 | 0 | no | no | 51 | contentExpansionPass3Questions, templateExpansion, templateExpansion7 |
-| High-Frequency Words 51-100 | 70 | 70 | 68 | 68 | 0 | 0 | 1 | 0 | no | no | 70 | templateExpansion2, templateExpansion6, templateExpansion7 |
-| Blends | 61 | 61 | 15 | 12 | 0 | 0 | 2 | 0 | no | no | 41 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
-| Digraphs | 31 | 31 | 9 | 4 | 0 | 0 | 1 | 0 | yes | yes | 9 | contentExpansionPass3Questions, targetedContentRecoveryQuestions |
-| Long Vowels and Silent E | 60 | 60 | 44 | 5 | 0 | 0 | 0 | 0 | no | no | 57 | questionBankExpansion8, safeContentExpansionQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Vowel Teams | 67 | 67 | 50 | 8 | 0 | 0 | 0 | 0 | no | no | 60 | questionBankExpansion8, safeContentExpansionQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
-| R-Controlled Vowels | 52 | 52 | 29 | 5 | 0 | 0 | 6 | 0 | no | no | 30 | safeContentExpansionQuestions, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
-| Nouns | 54 | 54 | 46 | 46 | 0 | 0 | 0 | 0 | no | no | 54 | ixlStyleSeedQuestions, templateExpansion, templateExpansion6, templateExpansion7 |
-| Verbs | 60 | 60 | 46 | 46 | 0 | 0 | 0 | 0 | no | no | 59 | ixlStyleSeedQuestions, questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
-| Adjectives | 61 | 61 | 43 | 43 | 0 | 0 | 0 | 0 | no | no | 61 | questionBankExpansion8, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
-| Prepositions of Place | 61 | 61 | 24 | 24 | 0 | 0 | 0 | 0 | no | no | 52 | questionBankExpansion8, templateExpansion2, templateExpansion4, templateExpansion7, templateQuestions |
-| Plurals | 57 | 57 | 28 | 22 | 0 | 0 | 3 | 0 | no | no | 43 | contentExpansionPass3Questions, generatedQuestions, questionBankExpansion8, safeContentExpansionQuestions, templateExpansion6, templateQuestions |
-| Prefixes and Suffixes | 89 | 89 | 59 | 44 | 0 | 0 | 1 | 0 | no | no | 77 | contentExpansionPass3Questions, questionBankExpansion8, templateExpansion3, templateExpansion6, templateExpansion7, templateQuestions |
-| Antonyms and Synonyms | 64 | 64 | 40 | 40 | 0 | 0 | 1 | 0 | no | no | 59 | generatedQuestions, templateExpansion6 |
-| Homophones and Homonyms | 52 | 52 | 50 | 50 | 0 | 0 | 0 | 0 | no | no | 34 | safeContentExpansionQuestions, templateExpansion3, templateExpansion7 |
-| Sentence Comprehension | 126 | 126 | 113 | 126 | 0 | 0 | 0 | 0 | no | no | 110 | contentExpansionPass3Questions, fixSentenceQuestions, generatedQuestions, ixlStyleSeedQuestions |
-| Key Details | 59 | 59 | 52 | 59 | 0 | 0 | 0 | 0 | no | no | 57 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Sequencing | 59 | 59 | 57 | 59 | 0 | 0 | 0 | 0 | no | no | 59 | templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Main Idea | 65 | 65 | 60 | 65 | 0 | 0 | 0 | 0 | no | no | 64 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Inference | 106 | 106 | 106 | 106 | 0 | 0 | 0 | 0 | no | no | 106 | contentExpansionPass3Questions, generatedQuestions, questionBankExpansion8, templateComprehensionAdvanced |
-| Cause and Effect | 65 | 65 | 62 | 65 | 0 | 0 | 0 | 0 | no | no | 65 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Context Clues | 66 | 66 | 60 | 66 | 0 | 0 | 0 | 0 | no | no | 66 | contentExpansionPass3Questions, questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
-| Theme and Higher Comprehension | 65 | 65 | 54 | 65 | 0 | 0 | 0 | 0 | no | no | 65 | questionBankExpansion8, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Initial Sounds | 113 | 113 | 112 | 25 | 0 | 0 | 10 | 0 | no | no | 109 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions, skillLevelGapQuestions |
+| Final Sounds | 261 | 261 | 187 | 25 | 0 | 0 | 16 | 0 | no | no | 109 | finalSoundCoverageQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
+| Rhyming | 189 | 189 | 87 | 37 | 0 | 0 | 24 | 0 | no | no | 188 | ixlStyleSeedQuestions, rhymingCoverageQuestions, skillLevelGapQuestions |
+| CVC and Short Vowels | 287 | 287 | 104 | 42 | 0 | 0 | 10 | 0 | no | no | 121 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, skillLevelGapQuestions, targetedContentRecoveryQuestions |
+| Short Vowel Discrimination | 285 | 285 | 106 | 5 | 0 | 0 | 7 | 0 | no | no | 112 | contentExpansionPass3Questions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, skillLevelGapQuestions, targetedContentRecoveryQuestions |
+| High-Frequency Words 1-25 | 96 | 96 | 32 | 32 | 0 | 0 | 6 | 0 | no | no | 86 | contentExpansionPass3Questions, hfwLevel2Questions, templateExpansion, templateExpansion7 |
+| High-Frequency Words 26-50 | 123 | 123 | 49 | 49 | 0 | 0 | 8 | 0 | no | no | 109 | contentExpansionPass3Questions, hfwLevel2Questions, skillLevelGapQuestions, templateExpansion, templateExpansion7 |
+| High-Frequency Words 51-100 | 165 | 165 | 81 | 81 | 0 | 0 | 1 | 0 | no | no | 164 | hfwLevel2Questions, skillLevelGapQuestions, templateExpansion2, templateExpansion6, templateExpansion7 |
+| Blends | 62 | 62 | 16 | 12 | 0 | 0 | 2 | 0 | no | no | 42 | contentExpansionPass3Questions, ixlStyleSeedQuestions, targetedContentRecoveryQuestions |
+| Digraphs | 46 | 46 | 24 | 4 | 0 | 0 | 3 | 0 | yes | yes | 9 | contentExpansionPass3Questions, skillLevelGapQuestions, targetedContentRecoveryQuestions |
+| Long Vowels and Silent E | 95 | 95 | 74 | 5 | 0 | 0 | 7 | 0 | no | no | 61 | questionBankExpansion8, safeContentExpansionQuestions, skillLevelGapQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Vowel Teams | 102 | 102 | 83 | 8 | 0 | 0 | 5 | 0 | no | no | 64 | questionBankExpansion8, safeContentExpansionQuestions, skillLevelGapQuestions, templateExpansion, templateExpansion2, templateExpansion5, templateExpansion6, templateExpansion7 |
+| R-Controlled Vowels | 87 | 87 | 61 | 5 | 0 | 0 | 11 | 0 | no | no | 33 | safeContentExpansionQuestions, skillLevelGapQuestions, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
+| Nouns | 74 | 74 | 66 | 66 | 0 | 0 | 1 | 0 | no | no | 74 | ixlStyleSeedQuestions, skillLevelGapQuestions, templateExpansion, templateExpansion6, templateExpansion7 |
+| Verbs | 80 | 80 | 55 | 55 | 0 | 0 | 1 | 0 | no | no | 79 | ixlStyleSeedQuestions, questionBankExpansion8, skillLevelGapQuestions, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
+| Adjectives | 81 | 81 | 53 | 53 | 0 | 0 | 1 | 0 | no | no | 81 | questionBankExpansion8, skillLevelGapQuestions, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion6, templateExpansion7 |
+| Prepositions of Place | 101 | 101 | 31 | 31 | 0 | 0 | 6 | 0 | no | no | 72 | questionBankExpansion8, skillLevelGapQuestions, templateExpansion2, templateExpansion4, templateExpansion7, templateQuestions |
+| Plurals | 85 | 85 | 37 | 50 | 0 | 0 | 6 | 0 | no | no | 56 | contentExpansionPass3Questions, generatedQuestions, questionBankExpansion8, safeContentExpansionQuestions, skillLevelGapQuestions, templateExpansion6, templateQuestions |
+| Prefixes and Suffixes | 110 | 110 | 73 | 46 | 0 | 0 | 5 | 0 | no | no | 85 | contentExpansionPass3Questions, questionBankExpansion8, skillLevelGapQuestions, templateExpansion3, templateExpansion6, templateExpansion7, templateQuestions |
+| Antonyms and Synonyms | 97 | 97 | 65 | 65 | 0 | 0 | 1 | 0 | no | no | 92 | generatedQuestions, skillLevelGapQuestions, templateExpansion6 |
+| Homophones and Homonyms | 87 | 87 | 50 | 50 | 0 | 0 | 0 | 0 | no | no | 50 | safeContentExpansionQuestions, skillLevelGapQuestions, templateExpansion3, templateExpansion7 |
+| Sentence Comprehension | 145 | 145 | 132 | 145 | 0 | 0 | 2 | 0 | no | no | 112 | contentExpansionPass3Questions, fixSentenceQuestions, generatedQuestions, ixlStyleSeedQuestions, skillLevelGapQuestions |
+| Key Details | 94 | 94 | 72 | 94 | 0 | 0 | 2 | 0 | no | no | 58 | skillLevelGapQuestions, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Sequencing | 94 | 94 | 77 | 94 | 0 | 0 | 2 | 0 | no | no | 61 | skillLevelGapQuestions, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Main Idea | 100 | 100 | 80 | 100 | 0 | 0 | 2 | 0 | no | no | 66 | questionBankExpansion8, skillLevelGapQuestions, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Inference | 140 | 140 | 126 | 140 | 0 | 0 | 2 | 0 | no | no | 108 | contentExpansionPass3Questions, generatedQuestions, questionBankExpansion8, skillLevelGapQuestions, templateComprehensionAdvanced |
+| Cause and Effect | 100 | 100 | 82 | 100 | 0 | 0 | 2 | 0 | no | no | 67 | questionBankExpansion8, skillLevelGapQuestions, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Context Clues | 100 | 100 | 80 | 100 | 0 | 0 | 2 | 0 | no | no | 68 | contentExpansionPass3Questions, questionBankExpansion8, skillLevelGapQuestions, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
+| Theme and Higher Comprehension | 100 | 100 | 74 | 100 | 0 | 0 | 2 | 0 | no | no | 67 | questionBankExpansion8, skillLevelGapQuestions, templateComprehensionAdvanced, templateExpansion, templateExpansion2, templateExpansion3, templateExpansion4, templateExpansion5, templateExpansion6, templateExpansion7 |
 
 ## Skills Under Target
 
 | Skill | Runtime questions | Unique signatures | Unique itemKeys | Missing itemKeys | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Digraphs | 31 | 31 | 4 | none | Below 52 runtime-question target. |
+| Digraphs | 46 | 46 | 4 | none | Below 52 runtime-question target. |
 
 ## Expansion Pass Notes
 
@@ -55,33 +55,33 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 
 ## Initial Sounds
 
-- Active valid runtime questions: 78
-- Unique question signatures: 78
-- Unique target words / answer targets: 77
+- Active valid runtime questions: 113
+- Unique question signatures: 113
+- Unique target words / answer targets: 112
 - Unique itemKeys/patterns: 25 (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z)
 - Duplicate signatures: 0
-- Repeated distractor sets: 8
+- Repeated distractor sets: 10
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: INITIAL_SOUND_PAIR_SELECT:49, FIRST_SOUND:29
+- Formats: INITIAL_SOUND_PAIR_SELECT:49, FIRST_SOUND:64
 - Overused targets: none
-- Overused itemKeys: none
+- Overused itemKeys: a, b
 
 No duplicate prompt+answer signatures detected.
 
 ## Final Sounds
 
-- Active valid runtime questions: 242
-- Unique question signatures: 242
-- Unique target words / answer targets: 171
+- Active valid runtime questions: 261
+- Unique question signatures: 261
+- Unique target words / answer targets: 187
 - Unique itemKeys/patterns: 25 (b, ck, d, f, ft, g, l, ll, lt, m, mp, n, nd, ng, nk, nt, p, r, rk, s, sh, sk, st, t, th)
 - Duplicate signatures: 0
 - Repeated distractor sets: 16
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: FINAL_SOUND_PAIR_SELECT:58, ENDING_SOUND:184
+- Formats: FINAL_SOUND_PAIR_SELECT:58, ENDING_SOUND:203
 - Overused targets: none
 - Overused itemKeys: g, n, p, t
 
@@ -89,33 +89,33 @@ No duplicate prompt+answer signatures detected.
 
 ## Rhyming
 
-- Active valid runtime questions: 205
-- Unique question signatures: 205
-- Unique target words / answer targets: 133
-- Unique itemKeys/patterns: 29 (ain, air, ake, am, an, ap, ar, at, ed, ee, ell, en, et, ig, in, ing, ish, it, oat, ock, og, op, ot, ox, uck, ug, un, up, ut)
+- Active valid runtime questions: 189
+- Unique question signatures: 189
+- Unique target words / answer targets: 87
+- Unique itemKeys/patterns: 37 (ack, ad, ag, ain, air, ake, all, am, an, ap, ar, at, ed, ee, eep, eg, ell, en, et, ick, ig, in, ing, ip, ish, it, oat, ock, og, op, or, ot, ox, ug, un, up, ut)
 - Duplicate signatures: 0
-- Repeated distractor sets: 15
+- Repeated distractor sets: 24
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: RHYME_PAIR_SELECT:70, LISTEN_FIND_RHYME:34, READ_FIND_RHYME:72, RHYMING_PICTURE:29
-- Overused targets: bug:5, fan:5
-- Overused itemKeys: am, an, at, ug
+- Formats: RHYMING_PICTURE:189
+- Overused targets: cat:6, bat:5, bug:5, cap:5, map:5, pan:5, wig:5
+- Overused itemKeys: an, ap, at, ig, in, ug
 
 No duplicate prompt+answer signatures detected.
 
 ## CVC and Short Vowels
 
-- Active valid runtime questions: 252
-- Unique question signatures: 252
-- Unique target words / answer targets: 70
+- Active valid runtime questions: 287
+- Unique question signatures: 287
+- Unique target words / answer targets: 104
 - Unique itemKeys/patterns: 42 (bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nap, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig)
 - Duplicate signatures: 0
 - Repeated distractor sets: 10
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: HEARD_WORD_TO_PRINT_MINIMAL_PAIR:27, MISSING_VOWEL_CVC:77, PICTURE_TO_PRINT_MATCH:43, PUT_SOUNDS_IN_ORDER:30, COMPLETE_WORD:15, SHORT_VOWEL_WORD:60
+- Formats: HEARD_WORD_TO_PRINT_MINIMAL_PAIR:27, MISSING_VOWEL_CVC:77, PICTURE_TO_PRINT_MATCH:43, PUT_SOUNDS_IN_ORDER:30, COMPLETE_WORD:15, SHORT_VOWEL_WORD:77, LISTEN_CHOOSE_VOWEL:18
 - Overused targets: bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6
 - Overused itemKeys: short_a, short_e, short_i, short_o, short_u
 
@@ -123,16 +123,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Short Vowel Discrimination
 
-- Active valid runtime questions: 250
-- Unique question signatures: 250
-- Unique target words / answer targets: 71
+- Active valid runtime questions: 285
+- Unique question signatures: 285
+- Unique target words / answer targets: 106
 - Unique itemKeys/patterns: 5 (short_a, short_e, short_i, short_o, short_u)
 - Duplicate signatures: 0
 - Repeated distractor sets: 7
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: LISTEN_CHOOSE_VOWEL:86, PICTURE_TO_PRINT_MATCH:76, SHORT_VOWEL_WORD:88
+- Formats: LISTEN_CHOOSE_VOWEL:104, PICTURE_TO_PRINT_MATCH:76, SHORT_VOWEL_WORD:105
 - Overused targets: cup:7, fin:7, red:7, sun:7, bag:6, dog:6, hat:6, jet:6, log:6, mug:6
 - Overused itemKeys: none
 
@@ -140,8 +140,8 @@ No duplicate prompt+answer signatures detected.
 
 ## High-Frequency Words 1-25
 
-- Active valid runtime questions: 61
-- Unique question signatures: 61
+- Active valid runtime questions: 96
+- Unique question signatures: 96
 - Unique target words / answer targets: 32
 - Unique itemKeys/patterns: 32 (a, am, and, big, can, come, down, for, go, i, in, is, it, like, little, look, me, my, not, on, one, play, said, see, that, the, to, up, want, we, with, you)
 - Duplicate signatures: 0
@@ -149,41 +149,41 @@ No duplicate prompt+answer signatures detected.
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: LISTEN_FIND_WORD:9, READ_FIND_WORD:12, COMPREHENSION:40
-- Overused targets: none
-- Overused itemKeys: none
+- Formats: LISTEN_FIND_WORD:9, READ_FIND_WORD:12, COMPREHENSION:40, SENTENCE_CLOZE:35
+- Overused targets: can:6, a:5, my:5, to:5, we:5
+- Overused itemKeys: can
 
 No duplicate prompt+answer signatures detected.
 
 ## High-Frequency Words 26-50
 
-- Active valid runtime questions: 63
-- Unique question signatures: 63
-- Unique target words / answer targets: 38
-- Unique itemKeys/patterns: 38 (after, all, are, around, asked, away, blue, but, cold, find, for, funny, he, help, helps, here, jump, made, make, open, play, red, round, run, she, sleep, that, then, they, three, two, under, very, was, went, where, with, yellow)
+- Active valid runtime questions: 123
+- Unique question signatures: 123
+- Unique target words / answer targets: 49
+- Unique itemKeys/patterns: 49 (after, all, are, around, asked, away, blue, but, came, cold, find, for, from, funny, have, he, help, helps, here, into, jump, just, made, make, now, open, play, red, round, run, she, sleep, that, then, they, this, three, two, under, very, was, went, were, what, when, where, will, with, yellow)
 - Duplicate signatures: 0
-- Repeated distractor sets: 7
+- Repeated distractor sets: 8
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: LISTEN_FIND_WORD:11, READ_FIND_WORD:12, COMPREHENSION:40
-- Overused targets: none
+- Formats: LISTEN_FIND_WORD:11, READ_FIND_WORD:37, COMPREHENSION:40, SENTENCE_CLOZE:35
+- Overused targets: all:5, but:5, he:5, she:5, then:5, they:5, under:5, was:5
 - Overused itemKeys: none
 
 No duplicate prompt+answer signatures detected.
 
 ## High-Frequency Words 51-100
 
-- Active valid runtime questions: 70
-- Unique question signatures: 70
-- Unique target words / answer targets: 68
-- Unique itemKeys/patterns: 68 (after, again, an, any, as, ask, be, before, by, came, could, every, fly, found, from, give, going, had, has, have, her, him, his, how, into, just, know, let, like, live, may, must, new, now, of, old, once, open, our, out, over, please, pretty, put, read, round, saw, say, some, soon, stop, take, thank, them, think, this, under, walk, want, well, went, were, what, when, white, who, will, yes)
+- Active valid runtime questions: 165
+- Unique question signatures: 165
+- Unique target words / answer targets: 81
+- Unique itemKeys/patterns: 81 (after, again, an, any, around, as, ask, away, be, before, by, came, cold, come, could, down, every, find, fly, found, from, funny, give, going, had, has, have, help, helps, her, here, him, his, how, into, just, know, let, like, little, live, look, made, may, must, new, now, of, old, once, open, our, out, over, please, pretty, put, read, round, saw, say, some, soon, stop, take, thank, them, think, this, under, walk, want, well, went, were, what, when, white, who, will, yes)
 - Duplicate signatures: 0
 - Repeated distractor sets: 1
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:30, UNKNOWN:40
+- Formats: COMPREHENSION:30, UNKNOWN:40, READ_FIND_WORD:35, SENTENCE_CLOZE:60
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -191,16 +191,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Blends
 
-- Active valid runtime questions: 61
-- Unique question signatures: 61
-- Unique target words / answer targets: 15
+- Active valid runtime questions: 62
+- Unique question signatures: 62
+- Unique target words / answer targets: 16
 - Unique itemKeys/patterns: 12 (bl, br, cl, cr, dr, fl, fr, sl, sn, sp, st, tr)
 - Duplicate signatures: 0
 - Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: PICTURE_AUDIO_TO_PATTERN:22, IMAGE_WORD_PATTERN_MATCH:14, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:11, BLEND_SOUNDS:14
+- Formats: PICTURE_AUDIO_TO_PATTERN:22, IMAGE_WORD_PATTERN_MATCH:14, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:11, BLEND_SOUNDS:15
 - Overused targets: blue:5, brush:5, clap:5, drum:5, flag:5, frog:5, slide:5, tree:5
 - Overused itemKeys: none
 
@@ -208,16 +208,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Digraphs
 
-- Active valid runtime questions: 31
-- Unique question signatures: 31
-- Unique target words / answer targets: 9
+- Active valid runtime questions: 46
+- Unique question signatures: 46
+- Unique target words / answer targets: 24
 - Unique itemKeys/patterns: 4 (ch, sh, th, wh)
 - Duplicate signatures: 0
-- Repeated distractor sets: 1
+- Repeated distractor sets: 3
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: yes
 - Below-52 runtime question warning: yes
-- Formats: PICTURE_AUDIO_TO_PATTERN:9, IMAGE_WORD_PATTERN_MATCH:11, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:11
+- Formats: PICTURE_AUDIO_TO_PATTERN:24, IMAGE_WORD_PATTERN_MATCH:11, HEARD_WORD_TO_PRINT_MINIMAL_PAIR:11
 - Overused targets: thin:5, thumb:5
 - Overused itemKeys: none
 
@@ -225,16 +225,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Long Vowels and Silent E
 
-- Active valid runtime questions: 60
-- Unique question signatures: 60
-- Unique target words / answer targets: 44
+- Active valid runtime questions: 95
+- Unique question signatures: 95
+- Unique target words / answer targets: 74
 - Unique itemKeys/patterns: 5 (a_e, e_e, i_e, o_e, u_e)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 7
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: DECODING:60
+- Formats: DECODING:95
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -242,16 +242,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Vowel Teams
 
-- Active valid runtime questions: 67
-- Unique question signatures: 67
-- Unique target words / answer targets: 50
+- Active valid runtime questions: 102
+- Unique question signatures: 102
+- Unique target words / answer targets: 83
 - Unique itemKeys/patterns: 8 (ai, ay, ea, ee, oa, oi, ow, oy)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 5
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: DECODING:67
+- Formats: DECODING:102
 - Overused targets: none
 - Overused itemKeys: ea
 
@@ -259,16 +259,16 @@ No duplicate prompt+answer signatures detected.
 
 ## R-Controlled Vowels
 
-- Active valid runtime questions: 52
-- Unique question signatures: 52
-- Unique target words / answer targets: 29
+- Active valid runtime questions: 87
+- Unique question signatures: 87
+- Unique target words / answer targets: 61
 - Unique itemKeys/patterns: 5 (ar, er, ir, or, ur)
 - Duplicate signatures: 0
-- Repeated distractor sets: 6
+- Repeated distractor sets: 11
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: DECODING:52
+- Formats: DECODING:87
 - Overused targets: turn:5
 - Overused itemKeys: none
 
@@ -276,16 +276,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Nouns
 
-- Active valid runtime questions: 54
-- Unique question signatures: 54
-- Unique target words / answer targets: 46
-- Unique itemKeys/patterns: 46 (artist, basket, blanket, book, bug, button, candle, cat, coach, cup, doctor, dog, duck, farm, fish, frog, garden, goose, ham, hat, helmet, horse, kitchen, kitten, ladder, ladle, lamp, library, map, market, museum, nurse, pencil, pilot, pocket, rabbit, river, school, ship, sock, spoon, station, teacher, ticket, turtle, window)
+- Active valid runtime questions: 74
+- Unique question signatures: 74
+- Unique target words / answer targets: 66
+- Unique itemKeys/patterns: 66 (airplane, alligator, almond, anteater, applesauce, arch, arm, armchair, artichoke, artist, ash, asparagus, back, badge, badger, bagel, balcony, bamboo, bandage, bar, bark, basket, blanket, book, bug, button, candle, cat, coach, cup, doctor, dog, duck, farm, fish, frog, garden, goose, ham, hat, helmet, horse, kitchen, kitten, ladder, ladle, lamp, library, map, market, museum, nurse, pencil, pilot, pocket, rabbit, river, school, ship, sock, spoon, station, teacher, ticket, turtle, window)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 1
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: VOCABULARY_CATEGORY:15, UNKNOWN:39
+- Formats: VOCABULARY_CATEGORY:15, UNKNOWN:39, GRAMMAR_BASICS:20
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -293,16 +293,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Verbs
 
-- Active valid runtime questions: 60
-- Unique question signatures: 60
-- Unique target words / answer targets: 46
-- Unique itemKeys/patterns: 46 (asking sentence, build, carry, clap, clean, climb, compare, cook, count, crawl, dance, dig, draw, drive, eat, explain, hop, i see a cat., jump, kick, laugh, listen, look, max has a map., measure, observe, open, paint, plant, play, predict, pull, push, read, repair, run, share, sleep, stop, swim, telling sentence, the dog can run., think, throw, wash, write)
+- Active valid runtime questions: 80
+- Unique question signatures: 80
+- Unique target words / answer targets: 55
+- Unique itemKeys/patterns: 55 (asking sentence, bend, build, carry, clap, clean, climb, compare, cook, count, crawl, dance, dig, draw, drink, drive, drop, eat, explain, hop, i see a cat., jump, kick, laugh, lift, listen, look, max has a map., measure, mix, observe, open, paint, pick, plant, play, predict, pull, push, read, repair, ride, roll, run, share, skip, sleep, stop, swim, telling sentence, the dog can run., think, throw, wash, write)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 1
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: GRAMMAR_BASICS:21, UNKNOWN:39
+- Formats: GRAMMAR_BASICS:41, UNKNOWN:39
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -310,16 +310,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Adjectives
 
-- Active valid runtime questions: 61
-- Unique question signatures: 61
-- Unique target words / answer targets: 43
-- Unique itemKeys/patterns: 43 (brave, bright, bumpy, calm, cold, crisp, dusty, empty, fast, fluffy, full, gentle, green, happy, heavy, hot, huge, light, long, loud, noisy, playful, prickly, proud, purple, quiet, rough, shiny, short, silent, slow, small, smooth, soft, sour, square, striped, sweet, tall, tiny, warm, yellow, young)
+- Active valid runtime questions: 81
+- Unique question signatures: 81
+- Unique target words / answer targets: 53
+- Unique itemKeys/patterns: 53 (brave, bright, bumpy, calm, clean, closed, cold, crisp, dark, dirty, dry, dusty, empty, fast, flat, fluffy, full, gentle, green, happy, hard, heavy, hot, huge, light, long, loud, mad, noisy, open, playful, prickly, proud, purple, quiet, rough, round, shiny, short, silent, slow, small, smooth, soft, sour, square, striped, sweet, tall, tiny, warm, yellow, young)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 1
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: UNKNOWN:39, GRAMMAR_BASICS:22
+- Formats: UNKNOWN:39, GRAMMAR_BASICS:42
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -327,76 +327,76 @@ No duplicate prompt+answer signatures detected.
 
 ## Prepositions of Place
 
-- Active valid runtime questions: 61
-- Unique question signatures: 61
-- Unique target words / answer targets: 24
-- Unique itemKeys/patterns: 24 (above, above the tree, around, behind, behind the tree, below, beneath, beside, beside the basket, between, between the books, in the box, inside, inside the barn, near, near the door, on, on the chair, outside, outside the pond, over, through, under, under the table)
+- Active valid runtime questions: 101
+- Unique question signatures: 101
+- Unique target words / answer targets: 31
+- Unique itemKeys/patterns: 31 (above, above the tree, across, against, along, around, behind, behind the tree, below, beneath, beside, beside the basket, between, between the books, far, in front of, in the box, inside, inside the barn, near, near the door, next to, on, on the chair, on top of, outside, outside the pond, over, through, under, under the table)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 6
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: UNKNOWN:29, GRAMMAR_BASICS:32
-- Overused targets: none
+- Formats: UNKNOWN:29, GRAMMAR_BASICS:72
+- Overused targets: above:5, beside:5, inside:5, near:5, under:5
 - Overused itemKeys: none
 
 No duplicate prompt+answer signatures detected.
 
 ## Plurals
 
-- Active valid runtime questions: 57
-- Unique question signatures: 57
-- Unique target words / answer targets: 28
-- Unique itemKeys/patterns: 22 (apples, babies, birds, boxes, buses, cats, children, dogs, dolls, es, foxes, geese, horses, ies, irregular, knives, leaves, mice, pencils, s, shoes, wolves)
+- Active valid runtime questions: 85
+- Unique question signatures: 85
+- Unique target words / answer targets: 37
+- Unique itemKeys/patterns: 50 (apples, babies, baby, bag, bench, berry, bird, birds, book, box, boxes, brush, bus, buses, cat, cats, child, children, class, cup, dish, dog, dogs, dolls, es, foot, fox, foxes, geese, goose, horses, ies, irregular, key, knife, knives, leaf, leaves, mice, mouse, pencils, puppy, s, shoes, tooth, toy, tray, wish, wolf, wolves)
 - Duplicate signatures: 0
-- Repeated distractor sets: 3
+- Repeated distractor sets: 6
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: PLURAL_IMAGE_SPELLING:2, PLURAL_SPELLING_CONTEXT:18, UNKNOWN:8, COMPREHENSION:29
-- Overused targets: boxes:6, foxes:6, children:5
-- Overused itemKeys: es
+- Formats: PLURAL_IMAGE_SPELLING:2, PLURAL_SPELLING_CONTEXT:46, UNKNOWN:8, COMPREHENSION:29
+- Overused targets: boxes:7, foxes:7, children:6, dogs:5, leaves:5
+- Overused itemKeys: es, foxes, irregular
 
 No duplicate prompt+answer signatures detected.
 
 ## Prefixes and Suffixes
 
-- Active valid runtime questions: 89
-- Unique question signatures: 89
-- Unique target words / answer targets: 59
-- Unique itemKeys/patterns: 44 (a person who helps, a person who paints, a person who runs, a person who teaches, able, able to be washed, build again, dis, do again, ed, er, ful, full of care, full of help, full of hope, full of joy, full of play, full of thanks, heat before, in a careful way, in a quick way, in a slow way, ing, less, ly, make not locked, mis, ness, not fair, not happy, not kind, not safe, open or make not locked, play again, pre, re, read again, see before, the state of being kind, un, without care, without fear, without pain, write again)
+- Active valid runtime questions: 110
+- Unique question signatures: 110
+- Unique target words / answer targets: 73
+- Unique itemKeys/patterns: 46 (a person who helps, a person who paints, a person who runs, a person who teaches, able, able to be washed, build again, dis, disagree, dislike, do again, ed, er, ful, full of care, full of help, full of hope, full of joy, full of play, full of thanks, heat before, in a careful way, in a quick way, in a slow way, ing, less, ly, make not locked, mis, ness, not fair, not happy, not kind, not safe, open or make not locked, play again, pre, re, read again, see before, the state of being kind, un, without care, without fear, without pain, write again)
 - Duplicate signatures: 0
-- Repeated distractor sets: 1
+- Repeated distractor sets: 5
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: MORPHEME_MEANING_CONTEXT:52, UNKNOWN:37
+- Formats: MORPHEME_MEANING_CONTEXT:73, UNKNOWN:37
 - Overused targets: none
-- Overused itemKeys: er, ful, less, re, un
+- Overused itemKeys: er, ful, less, pre, re, un
 
 No duplicate prompt+answer signatures detected.
 
 ## Antonyms and Synonyms
 
-- Active valid runtime questions: 64
-- Unique question signatures: 64
-- Unique target words / answer targets: 40
-- Unique itemKeys/patterns: 40 (after, big, careless, closed, cloudy, dark, deep, dirty, down, dry, dull, empty, energetic, fast, hard, hot, late, light, loudly, low, mean, narrow, nervous, noisy, old, quiet, raw, sad, shallow, short, slow, slowly, small, soft, sour, thin, tiny, warm, weak, wide)
+- Active valid runtime questions: 97
+- Unique question signatures: 97
+- Unique target words / answer targets: 65
+- Unique itemKeys/patterns: 65 (after, angry, before, begin, big, brave, careless, clean, closed, cloudy, dark, deep, dirty, down, dry, dull, easy, empty, end, energetic, fast, full, happy, hard, high, hot, inside, kind, large, late, light, little, loud, loudly, low, many, mean, narrow, near, nervous, noisy, old, open, pretty, quick, quiet, raw, sad, safe, same, shallow, short, slow, slowly, small, smart, soft, sour, tall, thin, tiny, warm, weak, wet, wide)
 - Duplicate signatures: 0
 - Repeated distractor sets: 1
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: UNKNOWN:4, COMPREHENSION:60
-- Overused targets: short:6
-- Overused itemKeys: short
+- Formats: UNKNOWN:4, COMPREHENSION:93
+- Overused targets: short:6, quiet:5, sad:5
+- Overused itemKeys: quiet, sad, short
 
 No duplicate prompt+answer signatures detected.
 
 ## Homophones and Homonyms
 
-- Active valid runtime questions: 52
-- Unique question signatures: 52
+- Active valid runtime questions: 87
+- Unique question signatures: 87
 - Unique target words / answer targets: 50
 - Unique itemKeys/patterns: 50 (ate, bare, bear, blew, blue, buy, by, dear, deer, eight, flour, flower, hear, here, hole, knight, know, mail, male, meat, meet, night, no, one, pair, peace, pear, piece, right, road, rode, sail, sale, sea, see, stair, stake, stare, steak, tail, tale, too, two, wait, weak, week, weight, whole, won, write)
 - Duplicate signatures: 0
@@ -404,7 +404,7 @@ No duplicate prompt+answer signatures detected.
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: HOMOPHONE_MEANING:38, UNKNOWN:14
+- Formats: HOMOPHONE_MEANING:73, UNKNOWN:14
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -412,16 +412,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Sentence Comprehension
 
-- Active valid runtime questions: 126
-- Unique question signatures: 126
-- Unique target words / answer targets: 113
-- Unique itemKeys/patterns: 126 (RC015, SC_1_051, SC_1_052, SC_1_053, SC_1_054, SC_1_055, SC_1_056, SC_1_057, SC_1_058, SC_1_059, SC_1_060, SC_1_061, SC_1_062, SC_1_063, SC_1_064, SC_1_065, SC_1_066, SC_1_067, SC_1_068, SC_1_069, SC_1_070, SC_1_071, SC_1_072, SC_1_073, SC_1_074, SC_1_075, SC_1_076, SC_1_077, SC_1_078, SC_1_079, SC_1_080, SC_2_081, SC_2_082, SC_2_083, SC_2_084, SC_2_085, SC_2_086, SC_2_087, SC_2_088, SC_2_089, SC_2_090, SC_2_091, SC_2_092, SC_2_093, SC_2_094, SC_2_095, SC_2_096, SC_2_097, SC_2_098, SC_2_099, SC_2_100, SC_K_001, SC_K_002, SC_K_003, SC_K_004, SC_K_005, SC_K_006, SC_K_007, SC_K_008, SC_K_009, SC_K_010, SC_K_011, SC_K_012, SC_K_013, SC_K_014, SC_K_015, SC_K_016, SC_K_017, SC_K_019, SC_K_020, SC_K_021, SC_K_022, SC_K_023, SC_K_024, SC_K_025, SC_K_026, SC_K_027, SC_K_028, SC_K_029, SC_K_030, SC_K_031, SC_K_032, SC_K_033, SC_K_034, SC_K_035, SC_K_036, SC_K_037, SC_K_038, SC_K_039, SC_K_040, SC_K_041, SC_K_042, SC_K_043, SC_K_044, SC_K_045, SC_K_046, SC_K_047, SC_K_048, SC_K_049, SC_K_050, bag, bed, books, boxes, cats, cup, cups, dogs, duck, fish, fix_sentence_cap_1, fix_sentence_cap_2, fix_sentence_cap_3, fix_sentence_order_1, fix_sentence_order_2, fix_sentence_order_3, fix_sentence_order_4, fix_sentence_punc_1, fix_sentence_punc_2, fix_sentence_punc_3, hats, map, p3_sentence_comp_paragraph_001, ring, ship, sock)
+- Active valid runtime questions: 145
+- Unique question signatures: 145
+- Unique target words / answer targets: 132
+- Unique itemKeys/patterns: 145 (RC015, SC_1_051, SC_1_052, SC_1_053, SC_1_054, SC_1_055, SC_1_056, SC_1_057, SC_1_058, SC_1_059, SC_1_060, SC_1_061, SC_1_062, SC_1_063, SC_1_064, SC_1_065, SC_1_066, SC_1_067, SC_1_068, SC_1_069, SC_1_070, SC_1_071, SC_1_072, SC_1_073, SC_1_074, SC_1_075, SC_1_076, SC_1_077, SC_1_078, SC_1_079, SC_1_080, SC_2_081, SC_2_082, SC_2_083, SC_2_084, SC_2_085, SC_2_086, SC_2_087, SC_2_088, SC_2_089, SC_2_090, SC_2_091, SC_2_092, SC_2_093, SC_2_094, SC_2_095, SC_2_096, SC_2_097, SC_2_098, SC_2_099, SC_2_100, SC_K_001, SC_K_002, SC_K_003, SC_K_004, SC_K_005, SC_K_006, SC_K_007, SC_K_008, SC_K_009, SC_K_010, SC_K_011, SC_K_012, SC_K_013, SC_K_014, SC_K_015, SC_K_016, SC_K_017, SC_K_019, SC_K_020, SC_K_021, SC_K_022, SC_K_023, SC_K_024, SC_K_025, SC_K_026, SC_K_027, SC_K_028, SC_K_029, SC_K_030, SC_K_031, SC_K_032, SC_K_033, SC_K_034, SC_K_035, SC_K_036, SC_K_037, SC_K_038, SC_K_039, SC_K_040, SC_K_041, SC_K_042, SC_K_043, SC_K_044, SC_K_045, SC_K_046, SC_K_047, SC_K_048, SC_K_049, SC_K_050, bag, bed, books, boxes, cat_sleep_1, cat_sleep_11, cat_sleep_13, cat_sleep_15, cat_sleep_17, cat_sleep_19, cat_sleep_3, cat_sleep_5, cat_sleep_7, cat_sleep_9, cats, cup, cups, dog_run_10, dog_run_12, dog_run_14, dog_run_16, dog_run_18, dog_run_2, dog_run_4, dog_run_6, dog_run_8, dogs, duck, fish, fix_sentence_cap_1, fix_sentence_cap_2, fix_sentence_cap_3, fix_sentence_order_1, fix_sentence_order_2, fix_sentence_order_3, fix_sentence_order_4, fix_sentence_punc_1, fix_sentence_punc_2, fix_sentence_punc_3, hats, map, p3_sentence_comp_paragraph_001, ring, ship, sock)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:101, SENTENCE_MATCHES_PICTURE:15, FIX_SENTENCE:10
+- Formats: COMPREHENSION:120, SENTENCE_MATCHES_PICTURE:15, FIX_SENTENCE:10
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -429,16 +429,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Key Details
 
-- Active valid runtime questions: 59
-- Unique question signatures: 59
-- Unique target words / answer targets: 52
-- Unique itemKeys/patterns: 59 (adv_key_details_1_1, adv_key_details_1_2, adv_key_details_1_3, adv_key_details_1_4, adv_key_details_2_1, adv_key_details_2_2, adv_key_details_2_3, adv_key_details_2_4, adv_key_details_3_1, adv_key_details_3_2, adv_key_details_3_3, adv_key_details_3_4, adv_key_details_4_1, adv_key_details_4_2, adv_key_details_4_3, adv_key_details_4_4, adv_key_details_5_1, adv_key_details_5_2, adv_key_details_5_3, adv_key_details_5_4, exp2_comp_1, exp2_comp_2, exp3_comp_1, exp3_comp_2, exp3_comp_3, exp3_comp_4, exp3_comp_5, exp4_comp_1, exp4_comp_2, exp4_comp_3, exp4_comp_4, exp4_comp_5, exp5_comp_1, exp5_comp_2, exp6_comp_1, exp6_comp_2, exp6_comp_3, exp6_comp_4, exp6_comp_5, exp7_key_details_1, exp7_key_details_10, exp7_key_details_11, exp7_key_details_12, exp7_key_details_13, exp7_key_details_14, exp7_key_details_15, exp7_key_details_16, exp7_key_details_17, exp7_key_details_18, exp7_key_details_19, exp7_key_details_2, exp7_key_details_3, exp7_key_details_4, exp7_key_details_5, exp7_key_details_6, exp7_key_details_7, exp7_key_details_8, exp7_key_details_9, template_detail_1)
+- Active valid runtime questions: 94
+- Unique question signatures: 94
+- Unique target words / answer targets: 72
+- Unique itemKeys/patterns: 94 (adv_key_details_1_1, adv_key_details_1_2, adv_key_details_1_3, adv_key_details_1_4, adv_key_details_2_1, adv_key_details_2_2, adv_key_details_2_3, adv_key_details_2_4, adv_key_details_3_1, adv_key_details_3_2, adv_key_details_3_3, adv_key_details_3_4, adv_key_details_4_1, adv_key_details_4_2, adv_key_details_4_3, adv_key_details_4_4, adv_key_details_5_1, adv_key_details_5_2, adv_key_details_5_3, adv_key_details_5_4, apple_ball_1, apple_ball_11, apple_ball_13, apple_ball_15, apple_ball_17, apple_ball_19, apple_ball_21, apple_ball_23, apple_ball_25, apple_ball_27, apple_ball_29, apple_ball_3, apple_ball_31, apple_ball_33, apple_ball_35, apple_ball_5, apple_ball_7, apple_ball_9, exp2_comp_1, exp2_comp_2, exp3_comp_1, exp3_comp_2, exp3_comp_3, exp3_comp_4, exp3_comp_5, exp4_comp_1, exp4_comp_2, exp4_comp_3, exp4_comp_4, exp4_comp_5, exp5_comp_1, exp5_comp_2, exp6_comp_1, exp6_comp_2, exp6_comp_3, exp6_comp_4, exp6_comp_5, exp7_key_details_1, exp7_key_details_10, exp7_key_details_11, exp7_key_details_12, exp7_key_details_13, exp7_key_details_14, exp7_key_details_15, exp7_key_details_16, exp7_key_details_17, exp7_key_details_18, exp7_key_details_19, exp7_key_details_2, exp7_key_details_3, exp7_key_details_4, exp7_key_details_5, exp7_key_details_6, exp7_key_details_7, exp7_key_details_8, exp7_key_details_9, fish_home_10, fish_home_12, fish_home_14, fish_home_16, fish_home_18, fish_home_2, fish_home_20, fish_home_22, fish_home_24, fish_home_26, fish_home_28, fish_home_30, fish_home_32, fish_home_34, fish_home_4, fish_home_6, fish_home_8, template_detail_1)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:59
+- Formats: COMPREHENSION:94
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -446,16 +446,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Sequencing
 
-- Active valid runtime questions: 59
-- Unique question signatures: 59
-- Unique target words / answer targets: 57
-- Unique itemKeys/patterns: 59 (adv_sequencing_1_1, adv_sequencing_1_2, adv_sequencing_1_3, adv_sequencing_1_4, adv_sequencing_2_1, adv_sequencing_2_2, adv_sequencing_2_3, adv_sequencing_2_4, adv_sequencing_3_1, adv_sequencing_3_2, adv_sequencing_3_3, adv_sequencing_3_4, adv_sequencing_4_1, adv_sequencing_4_2, adv_sequencing_4_3, adv_sequencing_4_4, adv_sequencing_5_1, adv_sequencing_5_2, adv_sequencing_5_3, adv_sequencing_5_4, exp2_comp_3, exp2_comp_4, exp3_comp_10, exp3_comp_6, exp3_comp_7, exp3_comp_8, exp3_comp_9, exp4_comp_10, exp4_comp_6, exp4_comp_7, exp4_comp_8, exp4_comp_9, exp5_comp_3, exp5_comp_4, exp6_comp_10, exp6_comp_6, exp6_comp_7, exp6_comp_8, exp6_comp_9, exp7_sequencing_1, exp7_sequencing_10, exp7_sequencing_11, exp7_sequencing_12, exp7_sequencing_13, exp7_sequencing_14, exp7_sequencing_15, exp7_sequencing_16, exp7_sequencing_17, exp7_sequencing_18, exp7_sequencing_19, exp7_sequencing_2, exp7_sequencing_3, exp7_sequencing_4, exp7_sequencing_5, exp7_sequencing_6, exp7_sequencing_7, exp7_sequencing_8, exp7_sequencing_9, template_sequence_1)
+- Active valid runtime questions: 94
+- Unique question signatures: 94
+- Unique target words / answer targets: 77
+- Unique itemKeys/patterns: 94 (adv_sequencing_1_1, adv_sequencing_1_2, adv_sequencing_1_3, adv_sequencing_1_4, adv_sequencing_2_1, adv_sequencing_2_2, adv_sequencing_2_3, adv_sequencing_2_4, adv_sequencing_3_1, adv_sequencing_3_2, adv_sequencing_3_3, adv_sequencing_3_4, adv_sequencing_4_1, adv_sequencing_4_2, adv_sequencing_4_3, adv_sequencing_4_4, adv_sequencing_5_1, adv_sequencing_5_2, adv_sequencing_5_3, adv_sequencing_5_4, exp2_comp_3, exp2_comp_4, exp3_comp_10, exp3_comp_6, exp3_comp_7, exp3_comp_8, exp3_comp_9, exp4_comp_10, exp4_comp_6, exp4_comp_7, exp4_comp_8, exp4_comp_9, exp5_comp_3, exp5_comp_4, exp6_comp_10, exp6_comp_6, exp6_comp_7, exp6_comp_8, exp6_comp_9, exp7_sequencing_1, exp7_sequencing_10, exp7_sequencing_11, exp7_sequencing_12, exp7_sequencing_13, exp7_sequencing_14, exp7_sequencing_15, exp7_sequencing_16, exp7_sequencing_17, exp7_sequencing_18, exp7_sequencing_19, exp7_sequencing_2, exp7_sequencing_3, exp7_sequencing_4, exp7_sequencing_5, exp7_sequencing_6, exp7_sequencing_7, exp7_sequencing_8, exp7_sequencing_9, make_sandwich_10, make_sandwich_12, make_sandwich_14, make_sandwich_16, make_sandwich_18, make_sandwich_2, make_sandwich_20, make_sandwich_22, make_sandwich_24, make_sandwich_26, make_sandwich_28, make_sandwich_30, make_sandwich_32, make_sandwich_34, make_sandwich_4, make_sandwich_6, make_sandwich_8, plant_seed_1, plant_seed_11, plant_seed_13, plant_seed_15, plant_seed_17, plant_seed_19, plant_seed_21, plant_seed_23, plant_seed_25, plant_seed_27, plant_seed_29, plant_seed_3, plant_seed_31, plant_seed_33, plant_seed_35, plant_seed_5, plant_seed_7, plant_seed_9, template_sequence_1)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:59
+- Formats: COMPREHENSION:94
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -463,16 +463,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Main Idea
 
-- Active valid runtime questions: 65
-- Unique question signatures: 65
-- Unique target words / answer targets: 60
-- Unique itemKeys/patterns: 65 (adv_main_idea_1_1, adv_main_idea_1_2, adv_main_idea_1_3, adv_main_idea_1_4, adv_main_idea_2_1, adv_main_idea_2_2, adv_main_idea_2_3, adv_main_idea_2_4, adv_main_idea_3_1, adv_main_idea_3_2, adv_main_idea_3_3, adv_main_idea_3_4, adv_main_idea_4_1, adv_main_idea_4_2, adv_main_idea_4_3, adv_main_idea_4_4, adv_main_idea_5_1, adv_main_idea_5_2, adv_main_idea_5_3, adv_main_idea_5_4, exp2_comp_5, exp2_comp_6, exp3_comp_11, exp3_comp_12, exp3_comp_13, exp3_comp_14, exp3_comp_15, exp4_comp_11, exp4_comp_12, exp4_comp_13, exp4_comp_14, exp4_comp_15, exp5_comp_5, exp5_comp_6, exp6_comp_11, exp6_comp_12, exp6_comp_13, exp6_comp_14, exp6_comp_15, exp7_main_idea_1, exp7_main_idea_10, exp7_main_idea_11, exp7_main_idea_12, exp7_main_idea_13, exp7_main_idea_14, exp7_main_idea_15, exp7_main_idea_16, exp7_main_idea_17, exp7_main_idea_18, exp7_main_idea_19, exp7_main_idea_2, exp7_main_idea_3, exp7_main_idea_4, exp7_main_idea_5, exp7_main_idea_6, exp7_main_idea_7, exp7_main_idea_8, exp7_main_idea_9, qb8_main_03_01, qb8_main_03_02, qb8_main_03_03, qb8_main_04_01, qb8_main_04_02, qb8_main_04_03, template_main_idea_1)
+- Active valid runtime questions: 100
+- Unique question signatures: 100
+- Unique target words / answer targets: 80
+- Unique itemKeys/patterns: 100 (adv_main_idea_1_1, adv_main_idea_1_2, adv_main_idea_1_3, adv_main_idea_1_4, adv_main_idea_2_1, adv_main_idea_2_2, adv_main_idea_2_3, adv_main_idea_2_4, adv_main_idea_3_1, adv_main_idea_3_2, adv_main_idea_3_3, adv_main_idea_3_4, adv_main_idea_4_1, adv_main_idea_4_2, adv_main_idea_4_3, adv_main_idea_4_4, adv_main_idea_5_1, adv_main_idea_5_2, adv_main_idea_5_3, adv_main_idea_5_4, exp2_comp_5, exp2_comp_6, exp3_comp_11, exp3_comp_12, exp3_comp_13, exp3_comp_14, exp3_comp_15, exp4_comp_11, exp4_comp_12, exp4_comp_13, exp4_comp_14, exp4_comp_15, exp5_comp_5, exp5_comp_6, exp6_comp_11, exp6_comp_12, exp6_comp_13, exp6_comp_14, exp6_comp_15, exp7_main_idea_1, exp7_main_idea_10, exp7_main_idea_11, exp7_main_idea_12, exp7_main_idea_13, exp7_main_idea_14, exp7_main_idea_15, exp7_main_idea_16, exp7_main_idea_17, exp7_main_idea_18, exp7_main_idea_19, exp7_main_idea_2, exp7_main_idea_3, exp7_main_idea_4, exp7_main_idea_5, exp7_main_idea_6, exp7_main_idea_7, exp7_main_idea_8, exp7_main_idea_9, park_fun_1, park_fun_11, park_fun_13, park_fun_15, park_fun_17, park_fun_19, park_fun_21, park_fun_23, park_fun_25, park_fun_27, park_fun_29, park_fun_3, park_fun_31, park_fun_33, park_fun_35, park_fun_5, park_fun_7, park_fun_9, pet_care_10, pet_care_12, pet_care_14, pet_care_16, pet_care_18, pet_care_2, pet_care_20, pet_care_22, pet_care_24, pet_care_26, pet_care_28, pet_care_30, pet_care_32, pet_care_34, pet_care_4, pet_care_6, pet_care_8, qb8_main_03_01, qb8_main_03_02, qb8_main_03_03, qb8_main_04_01, qb8_main_04_02, qb8_main_04_03, template_main_idea_1)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:65
+- Formats: COMPREHENSION:100
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -480,16 +480,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Inference
 
-- Active valid runtime questions: 106
-- Unique question signatures: 106
-- Unique target words / answer targets: 106
-- Unique itemKeys/patterns: 106 (adv_inference_1_1, adv_inference_1_2, adv_inference_1_3, adv_inference_1_4, adv_inference_2_1, adv_inference_2_2, adv_inference_2_3, adv_inference_2_4, adv_inference_3_1, adv_inference_3_2, adv_inference_3_3, adv_inference_3_4, adv_inference_4_1, adv_inference_4_2, adv_inference_4_3, adv_inference_4_4, adv_inference_5_1, adv_inference_5_2, adv_inference_5_3, adv_inference_5_4, inf_2_3_001, inf_2_3_002, inf_2_3_003, inf_2_3_004, inf_2_3_005, inf_2_3_006, inf_2_3_008, inf_2_3_009, inf_2_3_010, inf_2_3_011, inf_2_3_012, inf_2_3_013, inf_2_3_014, inf_2_3_015, inf_2_3_016, inf_2_3_017, inf_2_3_018, inf_2_3_019, inf_2_3_020, inf_2_3_021, inf_2_3_022, inf_2_3_023, inf_2_3_024, inf_2_3_025, inf_2_3_026, inf_2_3_027, inf_2_3_028, inf_2_3_029, inf_2_3_030, inf_2_3_031, inf_2_3_032, inf_2_3_033, inf_2_3_034, inf_2_3_035, inf_2_3_036, inf_2_3_037, inf_2_3_038, inf_2_3_039, inf_2_3_040, inf_2_3_041, inf_2_3_042, inf_2_3_043, inf_2_3_044, inf_2_3_045, inf_2_3_046, inf_2_3_047, inf_2_3_048, inf_2_3_049, inf_2_3_050, inf_2_3_051, inf_2_3_052, inf_2_3_053, inf_2_3_054, inf_2_3_055, inf_2_3_056, inf_2_3_057, inf_2_3_058, inf_2_3_059, inf_2_3_060, inf_2_3_061, inf_2_3_062, inf_2_3_063, inf_2_3_064, inf_2_3_065, inf_2_3_066, inf_2_3_067, inf_2_3_068, inf_2_3_069, inf_2_3_070, inf_2_3_071, inf_2_3_072, inf_2_3_073, inf_2_3_074, inf_2_3_075, inf_2_3_076, inf_2_3_077, inf_2_3_078, inf_2_3_079, inf_2_3_080, p3_inference_paragraph_001, qb8_infer_01_01, qb8_infer_01_02, qb8_infer_01_03, qb8_infer_02_01, qb8_infer_02_02, qb8_infer_02_03)
+- Active valid runtime questions: 140
+- Unique question signatures: 140
+- Unique target words / answer targets: 126
+- Unique itemKeys/patterns: 140 (adv_inference_1_1, adv_inference_1_2, adv_inference_1_3, adv_inference_1_4, adv_inference_2_1, adv_inference_2_2, adv_inference_2_3, adv_inference_2_4, adv_inference_3_1, adv_inference_3_2, adv_inference_3_3, adv_inference_3_4, adv_inference_4_1, adv_inference_4_2, adv_inference_4_3, adv_inference_4_4, adv_inference_5_1, adv_inference_5_2, adv_inference_5_3, adv_inference_5_4, inf_2_3_001, inf_2_3_002, inf_2_3_003, inf_2_3_004, inf_2_3_005, inf_2_3_006, inf_2_3_008, inf_2_3_009, inf_2_3_010, inf_2_3_011, inf_2_3_012, inf_2_3_013, inf_2_3_014, inf_2_3_015, inf_2_3_016, inf_2_3_017, inf_2_3_018, inf_2_3_019, inf_2_3_020, inf_2_3_021, inf_2_3_022, inf_2_3_023, inf_2_3_024, inf_2_3_025, inf_2_3_026, inf_2_3_027, inf_2_3_028, inf_2_3_029, inf_2_3_030, inf_2_3_031, inf_2_3_032, inf_2_3_033, inf_2_3_034, inf_2_3_035, inf_2_3_036, inf_2_3_037, inf_2_3_038, inf_2_3_039, inf_2_3_040, inf_2_3_041, inf_2_3_042, inf_2_3_043, inf_2_3_044, inf_2_3_045, inf_2_3_046, inf_2_3_047, inf_2_3_048, inf_2_3_049, inf_2_3_050, inf_2_3_051, inf_2_3_052, inf_2_3_053, inf_2_3_054, inf_2_3_055, inf_2_3_056, inf_2_3_057, inf_2_3_058, inf_2_3_059, inf_2_3_060, inf_2_3_061, inf_2_3_062, inf_2_3_063, inf_2_3_064, inf_2_3_065, inf_2_3_066, inf_2_3_067, inf_2_3_068, inf_2_3_069, inf_2_3_070, inf_2_3_071, inf_2_3_072, inf_2_3_073, inf_2_3_074, inf_2_3_075, inf_2_3_076, inf_2_3_077, inf_2_3_078, inf_2_3_079, inf_2_3_080, p3_inference_paragraph_001, qb8_infer_01_01, qb8_infer_01_02, qb8_infer_01_03, qb8_infer_02_01, qb8_infer_02_02, qb8_infer_02_03, rain_boots_1, rain_boots_11, rain_boots_13, rain_boots_15, rain_boots_17, rain_boots_19, rain_boots_21, rain_boots_23, rain_boots_25, rain_boots_27, rain_boots_29, rain_boots_3, rain_boots_31, rain_boots_33, rain_boots_5, rain_boots_7, rain_boots_9, sleepy_yawn_10, sleepy_yawn_12, sleepy_yawn_14, sleepy_yawn_16, sleepy_yawn_18, sleepy_yawn_2, sleepy_yawn_20, sleepy_yawn_22, sleepy_yawn_24, sleepy_yawn_26, sleepy_yawn_28, sleepy_yawn_30, sleepy_yawn_32, sleepy_yawn_34, sleepy_yawn_4, sleepy_yawn_6, sleepy_yawn_8)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:106
+- Formats: COMPREHENSION:140
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -497,16 +497,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Cause and Effect
 
-- Active valid runtime questions: 65
-- Unique question signatures: 65
-- Unique target words / answer targets: 62
-- Unique itemKeys/patterns: 65 (adv_cause_effect_1_1, adv_cause_effect_1_2, adv_cause_effect_1_3, adv_cause_effect_1_4, adv_cause_effect_2_1, adv_cause_effect_2_2, adv_cause_effect_2_3, adv_cause_effect_2_4, adv_cause_effect_3_1, adv_cause_effect_3_2, adv_cause_effect_3_3, adv_cause_effect_3_4, adv_cause_effect_4_1, adv_cause_effect_4_2, adv_cause_effect_4_3, adv_cause_effect_4_4, adv_cause_effect_5_1, adv_cause_effect_5_2, adv_cause_effect_5_3, adv_cause_effect_5_4, exp2_comp_7, exp2_comp_8, exp3_comp_16, exp3_comp_17, exp3_comp_18, exp3_comp_19, exp3_comp_20, exp4_comp_16, exp4_comp_17, exp4_comp_18, exp4_comp_19, exp4_comp_20, exp5_comp_7, exp5_comp_8, exp6_comp_16, exp6_comp_17, exp6_comp_18, exp6_comp_19, exp7_cause_effect_1, exp7_cause_effect_10, exp7_cause_effect_11, exp7_cause_effect_12, exp7_cause_effect_13, exp7_cause_effect_14, exp7_cause_effect_15, exp7_cause_effect_16, exp7_cause_effect_17, exp7_cause_effect_18, exp7_cause_effect_19, exp7_cause_effect_2, exp7_cause_effect_20, exp7_cause_effect_3, exp7_cause_effect_4, exp7_cause_effect_5, exp7_cause_effect_6, exp7_cause_effect_7, exp7_cause_effect_8, exp7_cause_effect_9, qb8_cause_09_01, qb8_cause_09_02, qb8_cause_09_03, qb8_cause_10_01, qb8_cause_10_02, qb8_cause_10_03, template_cause_1)
+- Active valid runtime questions: 100
+- Unique question signatures: 100
+- Unique target words / answer targets: 82
+- Unique itemKeys/patterns: 100 (adv_cause_effect_1_1, adv_cause_effect_1_2, adv_cause_effect_1_3, adv_cause_effect_1_4, adv_cause_effect_2_1, adv_cause_effect_2_2, adv_cause_effect_2_3, adv_cause_effect_2_4, adv_cause_effect_3_1, adv_cause_effect_3_2, adv_cause_effect_3_3, adv_cause_effect_3_4, adv_cause_effect_4_1, adv_cause_effect_4_2, adv_cause_effect_4_3, adv_cause_effect_4_4, adv_cause_effect_5_1, adv_cause_effect_5_2, adv_cause_effect_5_3, adv_cause_effect_5_4, exp2_comp_7, exp2_comp_8, exp3_comp_16, exp3_comp_17, exp3_comp_18, exp3_comp_19, exp3_comp_20, exp4_comp_16, exp4_comp_17, exp4_comp_18, exp4_comp_19, exp4_comp_20, exp5_comp_7, exp5_comp_8, exp6_comp_16, exp6_comp_17, exp6_comp_18, exp6_comp_19, exp7_cause_effect_1, exp7_cause_effect_10, exp7_cause_effect_11, exp7_cause_effect_12, exp7_cause_effect_13, exp7_cause_effect_14, exp7_cause_effect_15, exp7_cause_effect_16, exp7_cause_effect_17, exp7_cause_effect_18, exp7_cause_effect_19, exp7_cause_effect_2, exp7_cause_effect_20, exp7_cause_effect_3, exp7_cause_effect_4, exp7_cause_effect_5, exp7_cause_effect_6, exp7_cause_effect_7, exp7_cause_effect_8, exp7_cause_effect_9, qb8_cause_09_01, qb8_cause_09_02, qb8_cause_09_03, qb8_cause_10_01, qb8_cause_10_02, qb8_cause_10_03, spill_1, spill_11, spill_13, spill_15, spill_17, spill_19, spill_21, spill_23, spill_25, spill_27, spill_29, spill_3, spill_31, spill_33, spill_35, spill_5, spill_7, spill_9, sun_melt_10, sun_melt_12, sun_melt_14, sun_melt_16, sun_melt_18, sun_melt_2, sun_melt_20, sun_melt_22, sun_melt_24, sun_melt_26, sun_melt_28, sun_melt_30, sun_melt_32, sun_melt_34, sun_melt_4, sun_melt_6, sun_melt_8, template_cause_1)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:65
+- Formats: COMPREHENSION:100
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -514,16 +514,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Context Clues
 
-- Active valid runtime questions: 66
-- Unique question signatures: 66
-- Unique target words / answer targets: 60
-- Unique itemKeys/patterns: 66 (adv_context_clues_1_1, adv_context_clues_1_2, adv_context_clues_1_3, adv_context_clues_1_4, adv_context_clues_2_1, adv_context_clues_2_2, adv_context_clues_2_3, adv_context_clues_2_4, adv_context_clues_3_1, adv_context_clues_3_2, adv_context_clues_3_3, adv_context_clues_3_4, adv_context_clues_4_1, adv_context_clues_4_2, adv_context_clues_4_3, adv_context_clues_4_4, adv_context_clues_5_1, adv_context_clues_5_2, adv_context_clues_5_3, adv_context_clues_5_4, exp2_comp_10, exp2_comp_9, exp3_comp_21, exp3_comp_22, exp3_comp_23, exp3_comp_24, exp3_comp_25, exp4_comp_21, exp4_comp_22, exp4_comp_23, exp4_comp_24, exp4_comp_25, exp5_comp_10, exp5_comp_9, exp6_comp_21, exp6_comp_22, exp6_comp_23, exp6_comp_24, exp6_comp_25, exp7_context_clues_1, exp7_context_clues_10, exp7_context_clues_11, exp7_context_clues_12, exp7_context_clues_13, exp7_context_clues_14, exp7_context_clues_15, exp7_context_clues_16, exp7_context_clues_17, exp7_context_clues_18, exp7_context_clues_19, exp7_context_clues_2, exp7_context_clues_3, exp7_context_clues_4, exp7_context_clues_5, exp7_context_clues_6, exp7_context_clues_7, exp7_context_clues_8, exp7_context_clues_9, p3_context_clues_paragraph_001, qb8_context_05_01, qb8_context_05_02, qb8_context_05_03, qb8_context_06_01, qb8_context_06_02, qb8_context_06_03, template_context_1)
+- Active valid runtime questions: 100
+- Unique question signatures: 100
+- Unique target words / answer targets: 80
+- Unique itemKeys/patterns: 100 (adv_context_clues_1_1, adv_context_clues_1_2, adv_context_clues_1_3, adv_context_clues_1_4, adv_context_clues_2_1, adv_context_clues_2_2, adv_context_clues_2_3, adv_context_clues_2_4, adv_context_clues_3_1, adv_context_clues_3_2, adv_context_clues_3_3, adv_context_clues_3_4, adv_context_clues_4_1, adv_context_clues_4_2, adv_context_clues_4_3, adv_context_clues_4_4, adv_context_clues_5_1, adv_context_clues_5_2, adv_context_clues_5_3, adv_context_clues_5_4, chilly_1, chilly_11, chilly_13, chilly_15, chilly_17, chilly_19, chilly_21, chilly_23, chilly_25, chilly_27, chilly_29, chilly_3, chilly_31, chilly_33, chilly_5, chilly_7, chilly_9, exp2_comp_10, exp2_comp_9, exp3_comp_21, exp3_comp_22, exp3_comp_23, exp3_comp_24, exp3_comp_25, exp4_comp_21, exp4_comp_22, exp4_comp_23, exp4_comp_24, exp4_comp_25, exp5_comp_10, exp5_comp_9, exp6_comp_21, exp6_comp_22, exp6_comp_23, exp6_comp_24, exp6_comp_25, exp7_context_clues_1, exp7_context_clues_10, exp7_context_clues_11, exp7_context_clues_12, exp7_context_clues_13, exp7_context_clues_14, exp7_context_clues_15, exp7_context_clues_16, exp7_context_clues_17, exp7_context_clues_18, exp7_context_clues_19, exp7_context_clues_2, exp7_context_clues_3, exp7_context_clues_4, exp7_context_clues_5, exp7_context_clues_6, exp7_context_clues_7, exp7_context_clues_8, exp7_context_clues_9, giggle_10, giggle_12, giggle_14, giggle_16, giggle_18, giggle_2, giggle_20, giggle_22, giggle_24, giggle_26, giggle_28, giggle_30, giggle_32, giggle_34, giggle_4, giggle_6, giggle_8, p3_context_clues_paragraph_001, qb8_context_05_01, qb8_context_05_02, qb8_context_05_03, qb8_context_06_01, qb8_context_06_02, qb8_context_06_03, template_context_1)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:66
+- Formats: COMPREHENSION:100
 - Overused targets: none
 - Overused itemKeys: none
 
@@ -531,16 +531,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Theme and Higher Comprehension
 
-- Active valid runtime questions: 65
-- Unique question signatures: 65
-- Unique target words / answer targets: 54
-- Unique itemKeys/patterns: 65 (adv_theme_1_1, adv_theme_1_2, adv_theme_1_3, adv_theme_1_4, adv_theme_2_1, adv_theme_2_2, adv_theme_2_3, adv_theme_2_4, adv_theme_3_1, adv_theme_3_2, adv_theme_3_3, adv_theme_3_4, adv_theme_4_1, adv_theme_4_2, adv_theme_4_3, adv_theme_4_4, adv_theme_5_1, adv_theme_5_2, adv_theme_5_3, adv_theme_5_4, exp2_comp_11, exp2_comp_12, exp3_comp_26, exp3_comp_27, exp3_comp_28, exp3_comp_29, exp3_comp_30, exp4_comp_26, exp4_comp_27, exp4_comp_28, exp4_comp_29, exp4_comp_30, exp5_comp_11, exp5_comp_12, exp6_comp_26, exp6_comp_27, exp6_comp_28, exp6_comp_29, exp6_comp_30, exp7_theme_1, exp7_theme_10, exp7_theme_11, exp7_theme_12, exp7_theme_13, exp7_theme_14, exp7_theme_15, exp7_theme_16, exp7_theme_17, exp7_theme_18, exp7_theme_19, exp7_theme_2, exp7_theme_3, exp7_theme_4, exp7_theme_5, exp7_theme_6, exp7_theme_7, exp7_theme_8, exp7_theme_9, qb8_theme_07_01, qb8_theme_07_02, qb8_theme_07_03, qb8_theme_08_01, qb8_theme_08_02, qb8_theme_08_03, template_theme_1)
+- Active valid runtime questions: 100
+- Unique question signatures: 100
+- Unique target words / answer targets: 74
+- Unique itemKeys/patterns: 100 (adv_theme_1_1, adv_theme_1_2, adv_theme_1_3, adv_theme_1_4, adv_theme_2_1, adv_theme_2_2, adv_theme_2_3, adv_theme_2_4, adv_theme_3_1, adv_theme_3_2, adv_theme_3_3, adv_theme_3_4, adv_theme_4_1, adv_theme_4_2, adv_theme_4_3, adv_theme_4_4, adv_theme_5_1, adv_theme_5_2, adv_theme_5_3, adv_theme_5_4, exp2_comp_11, exp2_comp_12, exp3_comp_26, exp3_comp_27, exp3_comp_28, exp3_comp_29, exp3_comp_30, exp4_comp_26, exp4_comp_27, exp4_comp_28, exp4_comp_29, exp4_comp_30, exp5_comp_11, exp5_comp_12, exp6_comp_26, exp6_comp_27, exp6_comp_28, exp6_comp_29, exp6_comp_30, exp7_theme_1, exp7_theme_10, exp7_theme_11, exp7_theme_12, exp7_theme_13, exp7_theme_14, exp7_theme_15, exp7_theme_16, exp7_theme_17, exp7_theme_18, exp7_theme_19, exp7_theme_2, exp7_theme_3, exp7_theme_4, exp7_theme_5, exp7_theme_6, exp7_theme_7, exp7_theme_8, exp7_theme_9, help_friend_1, help_friend_11, help_friend_13, help_friend_15, help_friend_17, help_friend_19, help_friend_21, help_friend_23, help_friend_25, help_friend_27, help_friend_29, help_friend_3, help_friend_31, help_friend_33, help_friend_35, help_friend_5, help_friend_7, help_friend_9, qb8_theme_07_01, qb8_theme_07_02, qb8_theme_07_03, qb8_theme_08_01, qb8_theme_08_02, qb8_theme_08_03, template_theme_1, try_again_10, try_again_12, try_again_14, try_again_16, try_again_18, try_again_2, try_again_20, try_again_22, try_again_24, try_again_26, try_again_28, try_again_30, try_again_32, try_again_34, try_again_4, try_again_6, try_again_8)
 - Duplicate signatures: 0
-- Repeated distractor sets: 0
+- Repeated distractor sets: 2
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: COMPREHENSION:65
+- Formats: COMPREHENSION:100
 - Overused targets: none
 - Overused itemKeys: none
 
