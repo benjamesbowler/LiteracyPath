@@ -3629,6 +3629,73 @@ select:focus {
   border-radius: 999px;
 }
 
+.short-vowel-listen-choice-card {
+  gap: clamp(10px, 1.7vh, 16px);
+}
+
+.short-vowel-listen-choice-card .assessment-listening-panel {
+  width: min(360px, 100%);
+  min-height: clamp(96px, 18vh, 150px);
+  padding: clamp(12px, 2vh, 18px);
+}
+
+.short-vowel-listen-choice-card .assessment-listening-visual {
+  width: clamp(58px, 9vh, 78px);
+  height: clamp(58px, 9vh, 78px);
+}
+
+.vowel-choice-grid {
+  width: min(620px, 100%);
+  margin-inline: auto;
+  grid-template-columns: repeat(5, minmax(52px, 1fr)) !important;
+  gap: clamp(8px, 1.4vh, 12px);
+}
+
+.vowel-choice-grid .choice-wrap {
+  min-width: 0;
+}
+
+.vowel-choice-grid .grapheme-choice-button {
+  width: 100%;
+  min-height: clamp(64px, 10vh, 90px) !important;
+  padding: clamp(8px, 1.4vh, 12px) !important;
+  font-size: clamp(28px, 4vw, 42px) !important;
+  line-height: 1;
+}
+
+.short-vowel-ixl-word-choice-grid {
+  width: min(760px, 100%);
+  margin-inline: auto;
+  gap: clamp(10px, 1.5vh, 14px);
+}
+
+.short-vowel-ixl-answer-card {
+  min-width: 0;
+}
+
+.short-vowel-ixl-answer-card .initial-sound-card-audio {
+  width: 40px;
+  min-height: 40px !important;
+  padding: 0;
+  border-radius: 999px;
+}
+
+.short-vowel-ixl-answer-button {
+  gap: 8px;
+  padding: clamp(8px, 1.5vh, 12px) !important;
+}
+
+.short-vowel-ixl-answer-button img {
+  height: clamp(72px, 14vh, 118px);
+  max-width: min(170px, 100%);
+  object-fit: contain;
+}
+
+.short-vowel-ixl-answer-button strong {
+  font-size: clamp(21px, 2.6vw, 30px);
+  line-height: 1.05;
+}
+
 .visual-card-grid,
 .initial-sound-card-grid,
 .visual-word-choices {
@@ -4144,6 +4211,14 @@ select:focus {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
   }
 
+  .short-vowel-listen-choice-card {
+    padding-block: clamp(16px, 2.4vh, 22px);
+  }
+
+  .short-vowel-ixl-word-choice-grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr)) !important;
+  }
+
   .rhyming-assessment-layout .assessment-prompt h2 {
     font-size: clamp(22px, 2.1vw, 34px);
   }
@@ -4162,9 +4237,22 @@ select:focus {
     min-height: 230px;
   }
 
+  .short-vowel-word-choice-card .ixl-template-panel {
+    gap: clamp(10px, 1.5vh, 14px);
+  }
+
+  .short-vowel-word-choice-card .ixl-answer-card.image-card .ixl-answer-button {
+    min-height: clamp(128px, 21vh, 174px);
+  }
+
   .ixl-answer-button img {
     max-width: 240px;
     height: 170px;
+  }
+
+  .short-vowel-word-choice-card .ixl-answer-button img {
+    height: clamp(76px, 13vh, 112px);
+    max-width: min(168px, 100%);
   }
 
   .visual-word-choice {

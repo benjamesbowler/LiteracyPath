@@ -392,12 +392,44 @@ function isShortVowelCategoryQuestion(question = {}) {
   return format === "SHORT_VOWEL_WORD" && /\bwhich word has the short [aeiou] sound\b/.test(prompt);
 }
 
+function isListenChooseVowelQuestion(question = {}) {
+  const format = String(question.formatType || question.templateType || "").toUpperCase();
+  const prompt = String(getPrompt(question) || "").toLowerCase();
+  return format === "LISTEN_CHOOSE_VOWEL" && prompt.includes("which vowel sound do you hear");
+}
+
+function getShortVowelCategoryOptionIssues(question = {}) {
+  const labels = getAssessmentChoiceLabels(question).map(label => normalize(label));
+  const uniqueLabels = [...new Set(labels.filter(Boolean))];
+  const imageOptionCount = [
+    ...asArray(question.answerOptions),
+    ...asArray(question.options),
+    ...asArray(question.choices)
+  ].filter(option => option && typeof option === "object" && (option.image || option.imageUrl || option.imagePath)).length;
+  return {
+    uniqueOptionCount: uniqueLabels.length,
+    imageOptionCount,
+    hasCentralStimulusImage: Boolean(
+      question.imagePath ||
+      question.imageUrl ||
+      question.targetImage ||
+      question.targetImagePath ||
+      question.targetImageUrl ||
+      question.image
+    )
+  };
+}
+
 function getCvcShortVowelQuestionIssues(skillQuestions = []) {
   const issues = [];
   const warnings = [];
   const centralSpeakerRisk = [];
   const invalidListenFind = [];
   const graphemeImageLeaks = [];
+  const categoryOptionCountRisks = [];
+  const centralAndAnswerImageRisks = [];
+  const listenChooseVowelTileIssues = [];
+  const twoOptionMultipleChoiceRisks = [];
 
   for (const question of skillQuestions) {
     const id = getQuestionId(question) || `(source:${question._source}#${question._sourceIndex})`;
@@ -405,11 +437,37 @@ function getCvcShortVowelQuestionIssues(skillQuestions = []) {
     const questionType = String(question.questionType || "").toLowerCase();
     const targetWord = getQuestionTargetWord(question) || question.targetWord || question.answer || "";
     const audioPaths = getQuestionAudioPaths(question).filter(Boolean);
+    const choiceLabels = getAssessmentChoiceLabels(question).map(label => normalize(label)).filter(Boolean);
+    const uniqueChoiceLabels = [...new Set(choiceLabels)];
 
     if (isShortVowelCategoryQuestion(question)) {
       centralSpeakerRisk.push(id);
+      const categoryOptionIssues = getShortVowelCategoryOptionIssues(question);
+      if (categoryOptionIssues.uniqueOptionCount < 4) {
+        categoryOptionCountRisks.push(`${id} (${categoryOptionIssues.uniqueOptionCount} raw choices; runtime expands to 4)`);
+      }
+      if (categoryOptionIssues.hasCentralStimulusImage && categoryOptionIssues.imageOptionCount > 0) {
+        centralAndAnswerImageRisks.push(`${id}: raw data has central image + ${categoryOptionIssues.imageOptionCount} image options; renderer suppresses central image`);
+      }
       if (questionType === "listen_and_find_word" || format === "LISTEN_FIND_WORD") {
         invalidListenFind.push(`${id}: short-vowel category prompt marked as Listen & Find Word`);
+      }
+    }
+
+    if (
+      ["SHORT_VOWEL_WORD", "LISTEN_CHOOSE_VOWEL", "MISSING_VOWEL_CVC", "COMPLETE_WORD"].includes(format) &&
+      uniqueChoiceLabels.length === 2
+    ) {
+      twoOptionMultipleChoiceRisks.push(`${id}:${format}`);
+    }
+
+    if (isListenChooseVowelQuestion(question)) {
+      const expectedVowels = ["a", "e", "i", "o", "u"];
+      const hasOnlyVowelTiles =
+        uniqueChoiceLabels.length === 5 &&
+        expectedVowels.every(vowel => uniqueChoiceLabels.includes(vowel));
+      if (!hasOnlyVowelTiles || hasOptionImageChoiceLeak(question)) {
+        listenChooseVowelTileIssues.push(`${id}: choices ${uniqueChoiceLabels.join(",") || "missing"}`);
       }
     }
 
@@ -434,8 +492,20 @@ function getCvcShortVowelQuestionIssues(skillQuestions = []) {
   if (graphemeImageLeaks.length) {
     issues.push(`CVC/short-vowel grapheme questions contain image-choice metadata: ${displayList(graphemeImageLeaks, 12)}.`);
   }
+  if (listenChooseVowelTileIssues.length) {
+    issues.push(`Listen-and-choose-vowel questions must resolve to compact a/e/i/o/u text tiles: ${displayList(listenChooseVowelTileIssues, 12)}.`);
+  }
   if (centralSpeakerRisk.length) {
     warnings.push(`Short-vowel category prompts must render as word/audio option cards without a central speaker-only stimulus: ${displayList(centralSpeakerRisk, 12)}.`);
+  }
+  if (categoryOptionCountRisks.length) {
+    warnings.push(`Short-vowel category prompts have fewer than 4 raw choices and rely on runtime expansion: ${displayList(categoryOptionCountRisks, 12)}.`);
+  }
+  if (centralAndAnswerImageRisks.length) {
+    warnings.push(`Short-vowel category prompts have raw central-image plus answer-image metadata; the student renderer must not show both: ${displayList(centralAndAnswerImageRisks, 12)}.`);
+  }
+  if (twoOptionMultipleChoiceRisks.length) {
+    warnings.push(`Short-vowel multiple-choice tasks with only 2 raw choices: ${displayList(twoOptionMultipleChoiceRisks, 12)}.`);
   }
 
   return {
@@ -443,7 +513,11 @@ function getCvcShortVowelQuestionIssues(skillQuestions = []) {
     warnings,
     centralSpeakerRisk,
     invalidListenFind,
-    graphemeImageLeaks
+    graphemeImageLeaks,
+    categoryOptionCountRisks,
+    centralAndAnswerImageRisks,
+    listenChooseVowelTileIssues,
+    twoOptionMultipleChoiceRisks
   };
 }
 
@@ -633,7 +707,11 @@ function renderMarkdown(report) {
     (
       skill.cvcShortVowelSpecial.centralSpeakerRisk.length ||
       skill.cvcShortVowelSpecial.invalidListenFind.length ||
-      skill.cvcShortVowelSpecial.graphemeImageLeaks.length
+      skill.cvcShortVowelSpecial.graphemeImageLeaks.length ||
+      skill.cvcShortVowelSpecial.categoryOptionCountRisks.length ||
+      skill.cvcShortVowelSpecial.centralAndAnswerImageRisks.length ||
+      skill.cvcShortVowelSpecial.listenChooseVowelTileIssues.length ||
+      skill.cvcShortVowelSpecial.twoOptionMultipleChoiceRisks.length
     )
   );
   const missingRequired = skills.filter(skill =>
@@ -727,6 +805,10 @@ function renderMarkdown(report) {
     cvcShortVowelDiagnostics.length ? cvcShortVowelDiagnostics.map(skill => [
       `- ${skill.skillName}:`,
       `  - Short-vowel word-choice prompts requiring option-card rendering: ${displayList(skill.cvcShortVowelSpecial.centralSpeakerRisk, 16)}`,
+      `  - Raw short-vowel word-choice prompts with fewer than 4 options: ${displayList(skill.cvcShortVowelSpecial.categoryOptionCountRisks, 16)}`,
+      `  - Raw central-image + answer-image category prompts: ${displayList(skill.cvcShortVowelSpecial.centralAndAnswerImageRisks, 16)}`,
+      `  - Listen-choose-vowel tile issues: ${displayList(skill.cvcShortVowelSpecial.listenChooseVowelTileIssues, 16)}`,
+      `  - Raw 2-option short-vowel multiple-choice tasks: ${displayList(skill.cvcShortVowelSpecial.twoOptionMultipleChoiceRisks, 16)}`,
       `  - Invalid Listen & Find classifications: ${displayList(skill.cvcShortVowelSpecial.invalidListenFind, 16)}`,
       `  - Grapheme image leaks: ${displayList(skill.cvcShortVowelSpecial.graphemeImageLeaks, 16)}`
     ].join("\n")).join("\n") : "_No CVC/short-vowel rendering guardrail issues detected._",

@@ -536,6 +536,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
   const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
+  const isShortVowelWordChoiceItem = isShortVowelWordChoiceQuestion(currentQuestion);
   const answerOptions = currentQuestion.answerOptions || [];
   const normalizedAnswerOptions = answerOptions.map(option => ({
     ...normalizeAnswerOption(option),
@@ -552,7 +553,8 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
     "ixl-answer-grid",
     normalizedAnswerOptions.length === 4 ? "four-options" : "",
     hasImageOptions ? "image-options" : "",
-    isCompactLetterOptions ? "letter-options" : ""
+    isCompactLetterOptions ? "letter-options" : "",
+    isShortVowelWordChoiceItem ? "short-vowel-ixl-word-choice-grid" : ""
   ].filter(Boolean).join(" ");
   const showOptionAudio =
     !isGraphemeChoiceItem &&
@@ -646,9 +648,18 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
           const rawOption = option.raw && typeof option.raw === "object" ? option.raw : {};
 
           return (
-            <article className={image ? "ixl-answer-card image-card" : "ixl-answer-card"} key={`${value}-${index}`}>
+            <article
+              className={[
+                image ? "ixl-answer-card image-card" : "ixl-answer-card",
+                isShortVowelWordChoiceItem ? "short-vowel-ixl-answer-card" : ""
+              ].filter(Boolean).join(" ")}
+              key={`${value}-${index}`}
+            >
               <button
-                className={isGraphemeChoiceItem ? "ixl-answer-button grapheme-text-tile final-sound-text-tile final-sound-grapheme-option" : "ixl-answer-button"}
+                className={[
+                  isGraphemeChoiceItem ? "ixl-answer-button grapheme-text-tile final-sound-text-tile final-sound-grapheme-option" : "ixl-answer-button",
+                  isShortVowelWordChoiceItem ? "short-vowel-ixl-answer-button" : ""
+                ].filter(Boolean).join(" ")}
                 onClick={() => answerQuestion(value)}
                 type="button"
               >
@@ -706,6 +717,17 @@ function isShortVowelWordChoiceQuestion(question = {}) {
   );
 }
 
+function isListenChooseVowelQuestion(question = {}) {
+  const skillId = String(question?.skillId || "").toLowerCase();
+  const format = String(question?.formatType || question?.templateType || "").toUpperCase();
+  const prompt = String(question?.prompt || question?.question || "").toLowerCase();
+  return (
+    (skillId === "cvc_short_vowels" || skillId === "short_vowel_discrimination") &&
+    format === "LISTEN_CHOOSE_VOWEL" &&
+    prompt.includes("which vowel sound do you hear")
+  );
+}
+
 function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
   const safePrompt = String(prompt || "");
   const word = String(targetWord || "").trim();
@@ -726,7 +748,7 @@ function formatAnswerForFeedback(value = "") {
   return String(value || "").split("|").filter(Boolean).join(", ");
 }
 
-function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, isShortVowelWordChoice, speakText, shouldShowImage }) {
+function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, isShortVowelWordChoice, isListenChooseVowel, speakText, shouldShowImage }) {
   if (!currentQuestion) return null;
 
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
@@ -749,7 +771,9 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     );
   const hasPromptImages = currentQuestion.promptImageCards?.length > 0;
   const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
-  const hasMainImage = isRhymingPictureItem
+  const hasMainImage = isListenChooseVowel || isShortVowelWordChoice
+    ? false
+    : isRhymingPictureItem
     ? Boolean(stimulusImage)
     : isFinalSoundsEndingItem
     ? Boolean(targetObjectImage)
@@ -780,7 +804,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     !isFinalSoundsEndingItem &&
     !isIxlStyleTemplate &&
     !isShortVowelWordChoice &&
-    Boolean(approvedStimulusAudioPath || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
+    Boolean(approvedStimulusAudioPath || isListenChooseVowel || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
 
   return (
     <div className="assessment-stimulus">
@@ -3754,6 +3778,7 @@ export function AssessmentPage({
   const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const isShortVowelWordChoiceItem = isShortVowelWordChoiceQuestion(currentQuestion);
+  const isListenChooseVowelItem = isListenChooseVowelQuestion(currentQuestion);
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
       <div className="assessment-meta">
@@ -4019,7 +4044,8 @@ export function AssessmentPage({
               isPairSelection && safeSkillId === "final_sounds" ? "final-sounds-pair-assessment-card" : "",
               isFinalSoundsEndingItem ? "final-sounds-ending-assessment-card" : "",
               isGraphemeChoiceItem ? "grapheme-choice-assessment-card" : "",
-              isShortVowelWordChoiceItem ? "short-vowel-word-choice-card" : ""
+              isShortVowelWordChoiceItem ? "short-vowel-word-choice-card" : "",
+              isListenChooseVowelItem ? "short-vowel-listen-choice-card" : ""
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             initial={{ scale: 0.96, opacity: 0 }}
@@ -4046,6 +4072,7 @@ export function AssessmentPage({
               isVisualCardChoice={isVisualCardChoice}
               isIxlStyleTemplate={isIxlStyleTemplate}
               isShortVowelWordChoice={isShortVowelWordChoiceItem}
+              isListenChooseVowel={isListenChooseVowelItem}
               speakText={speakText}
               shouldShowImage={shouldShowImage}
             />
@@ -4077,6 +4104,7 @@ export function AssessmentPage({
               <div className={[
                 isListenAndFindWord && !isShortVowelWordChoiceItem ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid",
                 isShortVowelWordChoiceItem ? "short-vowel-word-choice-grid" : "",
+                isListenChooseVowelItem ? "vowel-choice-grid" : "",
                 isGraphemeChoiceItem ? "grapheme-choice-grid final-sounds-grapheme-grid" : ""
               ].filter(Boolean).join(" ")}>
                 {normalizedChoices.map((choice, index) => {

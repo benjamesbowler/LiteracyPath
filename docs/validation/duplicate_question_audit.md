@@ -774,7 +774,7 @@ No duplicate prompt+answer signatures.
 | tan \| ten \| tin \| turn | 5 | safe_r_ur_3, exp2_r_controlled_7, exp3_r_controlled_10, exp6_phonics_25, exp7_r_controlled_9 |
 | can \| cap \| car \| cat | 2 | exp2_r_controlled_1, exp3_r_controlled_1 |
 | sat \| set \| sit \| star | 2 | exp2_r_controlled_2, exp3_r_controlled_2 |
-| bad \| bed \| bird \| bud | 4 | exp2_r_controlled_3, exp3_r_controlled_4, exp6_phonics_23, exp7_r_controlled_5 |
+| bad \| bed \| bird \| bud | 3 | exp2_r_controlled_3, exp3_r_controlled_4, exp6_phonics_23 |
 | gate \| girl \| gold \| gum | 2 | exp2_r_controlled_4, exp3_r_controlled_5 |
 | can \| corn \| cot \| cut | 3 | exp2_r_controlled_5, exp3_r_controlled_7, exp7_r_controlled_7 |
 | fan \| fish \| fork \| fun | 3 | exp2_r_controlled_6, exp3_r_controlled_8, exp7_r_controlled_8 |

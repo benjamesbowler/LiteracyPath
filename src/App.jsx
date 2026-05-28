@@ -98,6 +98,7 @@ import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvan
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
 import { shortAEchoCavesQuestions } from "./data/childActivityModels";
 import { getApprovedAudioPath, getPreferredAudioPath } from "./data/audioPreferenceManifest";
+import { getChildWordAsset } from "./data/childAssets";
 import { isMediaQaRuntimeAllowed, isQuestionBlockedByMediaQa } from "./data/mediaQaManifest";
 import {
   applyQuestionFormatMetadata,
@@ -244,6 +245,114 @@ function normalizeTemplateOption(option) {
   };
 }
 
+const SHORT_VOWEL_WORD_BANK = {
+  a: ["cat", "bag", "bat", "map", "pan", "jam"],
+  e: ["bed", "pen", "red", "web", "leg", "jet"],
+  i: ["pig", "pin", "sit", "wig", "lid", "fin"],
+  o: ["dog", "pot", "log", "dot", "fox", "sock"],
+  u: ["cup", "sun", "mug", "mud", "bug"]
+};
+
+function getFirstVowelLetter(value = "") {
+  return String(value || "").toLowerCase().match(/[aeiou]/)?.[0] || "";
+}
+
+function isShortVowelWordCategoryQuestion(question = {}) {
+  const skillId = String(question.skillId || question.skill || question.skillName || "").toLowerCase();
+  const format = String(question.formatType || question.templateType || "").toUpperCase();
+  const prompt = String(question.prompt || question.question || "").toLowerCase();
+  return (
+    (skillId === "cvc_short_vowels" || skillId === "short_vowel_discrimination" || skillId.includes("short vowel")) &&
+    format === "SHORT_VOWEL_WORD" &&
+    /\bwhich word has the short [aeiou] sound\b/.test(prompt)
+  );
+}
+
+function isListenChooseVowelQuestion(question = {}) {
+  const skillId = String(question.skillId || question.skill || question.skillName || "").toLowerCase();
+  const format = String(question.formatType || question.templateType || "").toUpperCase();
+  const prompt = String(question.prompt || question.question || "").toLowerCase();
+  return (
+    (skillId === "cvc_short_vowels" || skillId === "short_vowel_discrimination" || skillId.includes("short vowel")) &&
+    format === "LISTEN_CHOOSE_VOWEL" &&
+    prompt.includes("which vowel sound do you hear")
+  );
+}
+
+function getShortVowelTarget(question = {}, answer = "") {
+  const prompt = String(question.prompt || question.question || "").toLowerCase();
+  return (
+    prompt.match(/\bshort ([aeiou]) sound\b/)?.[1] ||
+    String(question.medialVowel || question.shortVowel || question.itemKey || "").toLowerCase().match(/[aeiou]/)?.[0] ||
+    getFirstVowelLetter(answer)
+  );
+}
+
+function buildShortVowelWordOption(word, existingOption = {}) {
+  const cleanWord = String(word || "").toLowerCase().trim();
+  const asset = getChildWordAsset(cleanWord);
+  const image = existingOption.image || existingOption.imageUrl || existingOption.imagePath || asset?.image || asset?.fallbackImage || "";
+  const audio = getApprovedAudioPath(cleanWord, existingOption.audio || existingOption.audioUrl || existingOption.audioPath || asset?.audio || "");
+  return {
+    ...existingOption,
+    word: existingOption.word || cleanWord,
+    label: existingOption.label || cleanWord,
+    value: existingOption.value || cleanWord,
+    image,
+    imageUrl: existingOption.imageUrl || image,
+    audio,
+    audioUrl: existingOption.audioUrl || audio,
+    alt: existingOption.alt || asset?.alt || `Picture for ${cleanWord}`
+  };
+}
+
+function normalizeShortVowelWordCategoryOptions(rawQuestion = {}, answerOptions = [], correctAnswer = "") {
+  if (!isShortVowelWordCategoryQuestion(rawQuestion)) {
+    return answerOptions;
+  }
+
+  const targetVowel = getShortVowelTarget(rawQuestion, correctAnswer);
+  const correctWord = String(correctAnswer || rawQuestion.answer || rawQuestion.targetWord || "").toLowerCase().trim();
+  const existingByWord = new Map(
+    answerOptions
+      .map(option => buildShortVowelWordOption(option.value || option.word || option.label, option))
+      .filter(option => option.value)
+      .map(option => [option.value, option])
+  );
+  const normalizedOptions = [];
+  const seen = new Set();
+
+  function addWord(word, existing = {}) {
+    const cleanWord = String(word || "").toLowerCase().trim();
+    if (!cleanWord || seen.has(cleanWord)) return;
+    const option = buildShortVowelWordOption(cleanWord, existingByWord.get(cleanWord) || existing);
+    normalizedOptions.push(option);
+    seen.add(cleanWord);
+  }
+
+  addWord(correctWord);
+
+  for (const option of existingByWord.values()) {
+    const word = option.value;
+    if (word === correctWord) continue;
+    if (targetVowel && getFirstVowelLetter(word) === targetVowel) continue;
+    addWord(word, option);
+    if (normalizedOptions.length >= 4) break;
+  }
+
+  const distractorVowels = Object.keys(SHORT_VOWEL_WORD_BANK)
+    .filter(vowel => vowel !== targetVowel);
+  for (const vowel of distractorVowels) {
+    for (const word of SHORT_VOWEL_WORD_BANK[vowel]) {
+      addWord(word);
+      if (normalizedOptions.length >= 4) break;
+    }
+    if (normalizedOptions.length >= 4) break;
+  }
+
+  return normalizedOptions.slice(0, 4);
+}
+
 function normalizeContentQuestion(question) {
   if (!question) return null;
 
@@ -302,16 +411,13 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId = null, index 
     fallbackSkillId ??
     rawQuestion.skill ??
     null;
-  const answerOptions = Array.isArray(rawQuestion.answerOptions)
+  let answerOptions = Array.isArray(rawQuestion.answerOptions)
     ? rawQuestion.answerOptions.map(normalizeTemplateOption)
     : Array.isArray(rawQuestion.options)
       ? rawQuestion.options.map(normalizeTemplateOption)
       : Array.isArray(rawQuestion.choices)
         ? rawQuestion.choices.map(normalizeTemplateOption)
         : [];
-  const choices = Array.isArray(rawQuestion.choices) && rawQuestion.choices.length > 0
-    ? rawQuestion.choices
-    : answerOptions.map(option => option.value).filter(Boolean);
   const correctAnswer =
     (Array.isArray(rawQuestion.correctAnswers) && rawQuestion.correctAnswers.length > 0
       ? rawQuestion.correctAnswers[0]
@@ -320,6 +426,8 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId = null, index 
     rawQuestion.finalSound ??
     rawQuestion.letter ??
     "";
+  answerOptions = normalizeShortVowelWordCategoryOptions(rawQuestion, answerOptions, correctAnswer);
+  const choices = answerOptions.map(option => option.value).filter(Boolean);
   const prompt =
     typeof rawQuestion.prompt === "string"
       ? rawQuestion.prompt
@@ -4838,6 +4946,7 @@ export default function App() {
       normalizeEarlySkillId(question.skillId || question.skill || "") === "final_sounds" &&
       String(question.formatType || question.templateType || "").toUpperCase() === "ENDING_SOUND";
     if (isFinalSoundsEndingQuestion) return Boolean(getTargetObjectImage(question));
+    if (isListenChooseVowelQuestion(question)) return false;
     if (
       normalizeEarlySkillId(question.skillId || question.skill || "") === "rhyming" &&
       String(question.formatType || question.templateType || "").toUpperCase() === "RHYMING_PICTURE"
