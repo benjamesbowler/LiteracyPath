@@ -125,8 +125,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Blends",
     aliases: ["blends"],
     levels: {
-      1: { designed: true, rule: "Common initial blends.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "BLEND_SOUNDS"] },
-      2: { designed: true, rule: "Final blends and mixed blend discrimination.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "BLEND_SOUNDS"] }
+      1: { designed: true, rule: "Common initial blends.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "BLEND_SOUNDS", "MULTIPLE_CHOICE"] },
+      2: { designed: true, rule: "Final blends and mixed blend discrimination.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "BLEND_SOUNDS", "MULTIPLE_CHOICE"] }
     }
   },
   {
@@ -134,8 +134,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Digraphs",
     aliases: ["digraphs"],
     levels: {
-      1: { designed: true, rule: "sh,ch,th,wh recognition.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"] },
-      2: { designed: true, rule: "Harder digraph discrimination and word matching.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"] }
+      1: { designed: true, rule: "sh,ch,th,wh recognition.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "MULTIPLE_CHOICE"] },
+      2: { designed: true, rule: "Harder digraph discrimination and word matching.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "MULTIPLE_CHOICE"] }
     }
   },
   {

@@ -68,12 +68,13 @@ const ROUTING_RULES = {
       "PICTURE_AUDIO_TO_PATTERN",
       "IMAGE_WORD_PATTERN_MATCH",
       "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
-      "BLEND_SOUNDS"
+      "BLEND_SOUNDS",
+      "MULTIPLE_CHOICE"
     ]),
     singleTemplate: false
   },
   digraphs: {
-    allowedFormats: new Set(["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"]),
+    allowedFormats: new Set(["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "MULTIPLE_CHOICE"]),
     singleTemplate: false
   }
 };

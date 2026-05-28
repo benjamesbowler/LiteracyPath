@@ -1,25 +1,23 @@
 {
-  "generatedAt": "2026-05-27T23:47:28.850Z",
+  "generatedAt": "2026-05-28T01:15:26.478Z",
   "scope": "CVC and Short Vowels upward",
   "phaseSize": 15,
   "minimumPerLevel": 30,
   "summary": {
     "totalSkillsAudited": 26,
-    "skillsReady": 8,
-    "skillsReadyWithLayoutWarnings": 8,
+    "skillsReady": 7,
+    "skillsReadyWithLayoutWarnings": 19,
     "skillsNeedingQuestions": 0,
-    "skillsNeedingImages": 4,
-    "skillsNeedingAudio": 6,
+    "skillsNeedingImages": 0,
+    "skillsNeedingAudio": 0,
     "skillsNeedingDragDropQa": 0,
-    "totalValidRuntimeQuestions": 2986,
-    "totalRejectedQuestions": 166,
-    "missingImageRequests": 17,
-    "missingAudioRequests": 32,
+    "totalValidRuntimeQuestions": 3082,
+    "totalRejectedQuestions": 70,
+    "missingImageRequests": 0,
+    "missingAudioRequests": 0,
     "statusCounts": {
-      "READY": 8,
-      "READY WITH LAYOUT WARNINGS": 8,
-      "NEEDS AUDIO": 6,
-      "NEEDS IMAGES": 4
+      "READY WITH LAYOUT WARNINGS": 19,
+      "READY": 7
     }
   },
   "skills": [
@@ -1429,10 +1427,10 @@
       "skillId": "hfw_1_25",
       "skillName": "High-Frequency Words 1-25",
       "category": "High-Frequency Words",
-      "status": "NEEDS IMAGES",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 96,
-      "totalRuntimeSafeQuestions": 95,
-      "activeRuntimeQuestions": 95,
+      "totalRuntimeSafeQuestions": 96,
+      "activeRuntimeQuestions": 96,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -1447,10 +1445,10 @@
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 61,
-        "validRuntimeQuestionCount": 60,
+        "validRuntimeQuestionCount": 61,
         "missingTo30": 0,
-        "uniqueTargetWordCount": 31,
-        "uniqueCoverageItemCount": 31,
+        "uniqueTargetWordCount": 32,
+        "uniqueCoverageItemCount": 32,
         "coverageItems": [
           "the",
           "and",
@@ -1468,6 +1466,7 @@
           "in",
           "said",
           "for",
+          "look",
           "is",
           "little",
           "down",
@@ -1501,6 +1500,7 @@
           "in",
           "said",
           "for",
+          "look",
           "is",
           "little",
           "down",
@@ -1542,6 +1542,7 @@
           "template_hfw_1_25_18",
           "p3_hfw_1_25_read_go",
           "p3_hfw_1_25_read_i",
+          "template_hfw_1_25_12",
           "template_hfw_1_25_23",
           "exp7_hfw_1_25_1",
           "template_hfw_1_25_20",
@@ -1552,8 +1553,7 @@
           "exp7_hfw_1_25_4",
           "exp7_hfw_1_25_15",
           "p3_hfw_1_25_listen_the",
-          "exp7_hfw_1_25_2",
-          "p3_hfw_1_25_listen_up"
+          "exp7_hfw_1_25_2"
         ],
         "canBuild15QuestionRound": true,
         "productionReady": true,
@@ -1684,43 +1684,30 @@
         "progressionWarnings": []
       },
       "templates": {
-        "CLOZE_CHOICE": 39,
+        "CLOZE_CHOICE": 40,
         "SENTENCE_CLOZE": 35,
         "READ_FIND_WORD": 12,
         "LISTEN_FIND_WORD": 9
       },
       "media": {
-        "imageRequiredCount": 1,
-        "validImageCount": 0,
-        "missingImageCount": 1,
+        "imageRequiredCount": 2,
+        "validImageCount": 2,
+        "missingImageCount": 0,
         "audioRequiredCount": 9,
         "validAudioCount": 9,
         "missingAudioCount": 0,
         "promptAudioCount": 9,
         "cardOptionAudioCount": 0,
         "targetWordAudioCount": 9,
-        "objectImageCount": 0,
+        "objectImageCount": 2,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 87,
+        "textOnlyAcceptableCount": 85,
         "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 1,
-      "rejectedReasons": {
-        "missing required image path": 1
-      },
-      "rejectedExamples": [
-        {
-          "id": "template_hfw_1_25_12",
-          "source": "templateExpansion",
-          "level": 1,
-          "template": "CLOZE_CHOICE",
-          "target": "look",
-          "reasons": [
-            "missing required image path"
-          ]
-        }
-      ],
+      "rejectedQuestionCount": 0,
+      "rejectedReasons": {},
+      "rejectedExamples": [],
       "layoutRiskWarnings": [
         {
           "questionId": "hfw_l2_band1_001",
@@ -1906,20 +1893,7 @@
         "level2": 0
       },
       "mediaRequests": {
-        "images": [
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "look",
-            "skill": "High-Frequency Words 1-25",
-            "skillId": "hfw_1_25",
-            "level": 1,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_hfw_1_25_12",
-            "requiredDestinationPath": "/media/vocabulary/images/look.webp",
-            "reason": "missing required image path",
-            "instruction": "Create one clear K-2 instructional image for \"look\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          }
-        ],
+        "images": [],
         "audio": []
       }
     },
@@ -2186,19 +2160,19 @@
         "LISTEN_FIND_WORD": 11
       },
       "media": {
-        "imageRequiredCount": 1,
-        "validImageCount": 1,
+        "imageRequiredCount": 3,
+        "validImageCount": 3,
         "missingImageCount": 0,
-        "audioRequiredCount": 11,
-        "validAudioCount": 11,
+        "audioRequiredCount": 13,
+        "validAudioCount": 13,
         "missingAudioCount": 0,
-        "promptAudioCount": 11,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 11,
-        "objectImageCount": 1,
+        "promptAudioCount": 13,
+        "cardOptionAudioCount": 2,
+        "targetWordAudioCount": 13,
+        "objectImageCount": 3,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 111,
+        "textOnlyAcceptableCount": 109,
         "textOnlyProblematicCount": 0
       },
       "rejectedQuestionCount": 0,
@@ -2341,6 +2315,11 @@
           "template": "SENTENCE_CLOZE"
         },
         {
+          "questionId": "hfw_l2_band2_027",
+          "warning": "many images in one question may crowd mobile layout",
+          "template": "SENTENCE_CLOZE"
+        },
+        {
           "questionId": "hfw_l2_band2_028",
           "warning": "SENTENCE_CLOZE needs mobile/desktop fit check",
           "template": "SENTENCE_CLOZE"
@@ -2397,10 +2376,10 @@
       "skillId": "hfw_51_100",
       "skillName": "High-Frequency Words 51-100",
       "category": "High-Frequency Words",
-      "status": "NEEDS AUDIO",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 165,
-      "totalRuntimeSafeQuestions": 164,
-      "activeRuntimeQuestions": 164,
+      "totalRuntimeSafeQuestions": 165,
+      "activeRuntimeQuestions": 165,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -2546,7 +2525,7 @@
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 130,
-        "validRuntimeQuestionCount": 129,
+        "validRuntimeQuestionCount": 130,
         "missingTo30": 0,
         "uniqueTargetWordCount": 68,
         "uniqueCoverageItemCount": 68,
@@ -2556,6 +2535,7 @@
           "will",
           "into",
           "like",
+          "must",
           "new",
           "now",
           "our",
@@ -2617,8 +2597,7 @@
           "when",
           "read",
           "before",
-          "found",
-          "must"
+          "found"
         ],
         "targetWords": [
           "be",
@@ -2626,6 +2605,7 @@
           "will",
           "into",
           "like",
+          "must",
           "new",
           "now",
           "our",
@@ -2687,8 +2667,7 @@
           "when",
           "read",
           "before",
-          "found",
-          "must"
+          "found"
         ],
         "phase1Ready": true,
         "phase2Ready": true,
@@ -2736,41 +2715,33 @@
         "SENTENCE_CLOZE": 60,
         "MULTIPLE_CHOICE": 40,
         "READ_FIND_WORD": 35,
-        "CLOZE_CHOICE": 29
+        "CLOZE_CHOICE": 30
       },
       "media": {
-        "imageRequiredCount": 2,
-        "validImageCount": 2,
+        "imageRequiredCount": 3,
+        "validImageCount": 3,
         "missingImageCount": 0,
-        "audioRequiredCount": 1,
-        "validAudioCount": 0,
-        "missingAudioCount": 1,
-        "promptAudioCount": 0,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 0,
-        "objectImageCount": 2,
+        "audioRequiredCount": 2,
+        "validAudioCount": 2,
+        "missingAudioCount": 0,
+        "promptAudioCount": 2,
+        "cardOptionAudioCount": 2,
+        "targetWordAudioCount": 2,
+        "objectImageCount": 3,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 163,
+        "textOnlyAcceptableCount": 160,
         "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 1,
-      "rejectedReasons": {
-        "missing required audio path": 1
-      },
-      "rejectedExamples": [
-        {
-          "id": "exp2_hfw_51_100_6",
-          "source": "templateExpansion2",
-          "level": 2,
-          "template": "CLOZE_CHOICE",
-          "target": "must",
-          "reasons": [
-            "missing required audio path"
-          ]
-        }
-      ],
+      "rejectedQuestionCount": 0,
+      "rejectedReasons": {},
+      "rejectedExamples": [],
       "layoutRiskWarnings": [
+        {
+          "questionId": "gap_hfw_51_100_l1_look",
+          "warning": "many images in one question may crowd mobile layout",
+          "template": "READ_FIND_WORD"
+        },
         {
           "questionId": "hfw_l2_band3_001",
           "warning": "SENTENCE_CLOZE needs mobile/desktop fit check",
@@ -2965,11 +2936,6 @@
           "questionId": "hfw_l2_band3_039",
           "warning": "SENTENCE_CLOZE needs mobile/desktop fit check",
           "template": "SENTENCE_CLOZE"
-        },
-        {
-          "questionId": "hfw_l2_band3_040",
-          "warning": "SENTENCE_CLOZE needs mobile/desktop fit check",
-          "template": "SENTENCE_CLOZE"
         }
       ],
       "dragDropWarnings": [],
@@ -2981,30 +2947,17 @@
       },
       "mediaRequests": {
         "images": [],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "must",
-            "skill": "High-Frequency Words 51-100",
-            "skillId": "hfw_51_100",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp2_hfw_51_100_6",
-            "requiredDestinationPath": "/media/vocabulary/audio/must.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"must\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "audio": []
       }
     },
     {
       "skillId": "blends",
       "skillName": "Blends",
       "category": "Phonics",
-      "status": "NEEDS IMAGES",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 101,
-      "totalRuntimeSafeQuestions": 62,
-      "activeRuntimeQuestions": 62,
+      "totalRuntimeSafeQuestions": 96,
+      "activeRuntimeQuestions": 96,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -3013,14 +2966,15 @@
           "PICTURE_AUDIO_TO_PATTERN",
           "IMAGE_WORD_PATTERN_MATCH",
           "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
-          "BLEND_SOUNDS"
+          "BLEND_SOUNDS",
+          "MULTIPLE_CHOICE"
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 68,
-        "validRuntimeQuestionCount": 62,
+        "validRuntimeQuestionCount": 63,
         "missingTo30": 0,
         "uniqueTargetWordCount": 16,
-        "uniqueCoverageItemCount": 12,
+        "uniqueCoverageItemCount": 13,
         "coverageItems": [
           "bl",
           "cl",
@@ -3033,7 +2987,8 @@
           "tr",
           "dr",
           "br",
-          "cr"
+          "cr",
+          "black"
         ],
         "targetWords": [
           "blue",
@@ -3075,6 +3030,7 @@
           "ixl_blend_sound_3"
         ],
         "phase2QuestionIds": [
+          "phonics_k_047",
           "p3_blend_sound_br_12",
           "p3_blend_sound_cl_2",
           "recovery_blend_card_cr_crab",
@@ -3087,7 +3043,6 @@
           "p3_blend_word_st_9",
           "recovery_blend_card_tr_train",
           "p3_blend_sound_tr_10",
-          "recovery_blend_card_bl_black",
           "p3_blend_sound_bl_1",
           "ixl_blend_sound_6"
         ],
@@ -3102,27 +3057,111 @@
           "PICTURE_AUDIO_TO_PATTERN",
           "IMAGE_WORD_PATTERN_MATCH",
           "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
-          "BLEND_SOUNDS"
+          "BLEND_SOUNDS",
+          "MULTIPLE_CHOICE"
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 33,
-        "validRuntimeQuestionCount": 0,
-        "missingTo30": 30,
-        "uniqueTargetWordCount": 0,
-        "uniqueCoverageItemCount": 0,
-        "coverageItems": [],
-        "targetWords": [],
-        "phase1Ready": false,
-        "phase2Ready": false,
-        "phase1Count": 0,
-        "phase2Count": 0,
-        "phase1QuestionIds": [],
-        "phase2QuestionIds": [],
-        "canBuild15QuestionRound": false,
-        "productionReady": false,
-        "progressionWarnings": []
+        "validRuntimeQuestionCount": 33,
+        "missingTo30": 0,
+        "uniqueTargetWordCount": 23,
+        "uniqueCoverageItemCount": 23,
+        "coverageItems": [
+          "black",
+          "flip",
+          "fresh",
+          "step",
+          "clip",
+          "grin",
+          "drop",
+          "truck",
+          "snap",
+          "crib",
+          "green",
+          "sleep",
+          "small",
+          "brick",
+          "glass",
+          "plug",
+          "press",
+          "skip",
+          "spill",
+          "stone",
+          "swim",
+          "tree",
+          "twig"
+        ],
+        "targetWords": [
+          "black",
+          "flip",
+          "fresh",
+          "step",
+          "clip",
+          "grin",
+          "drop",
+          "truck",
+          "snap",
+          "crib",
+          "green",
+          "sleep",
+          "small",
+          "brick",
+          "glass",
+          "plug",
+          "press",
+          "skip",
+          "spill",
+          "stone",
+          "swim",
+          "tree",
+          "twig"
+        ],
+        "phase1Ready": true,
+        "phase2Ready": true,
+        "phase1Count": 15,
+        "phase2Count": 15,
+        "phase1QuestionIds": [
+          "exp5_blend_1",
+          "exp5_blend_5",
+          "exp7_blends_3",
+          "exp7_blends_4",
+          "exp7_blends_5",
+          "exp7_blends_6",
+          "exp7_blends_7",
+          "exp7_blends_8",
+          "exp5_blend_2",
+          "template_blend_6",
+          "exp7_blends_10",
+          "exp7_blends_11",
+          "exp7_blends_12",
+          "exp5_blend_3",
+          "exp5_blend_4"
+        ],
+        "phase2QuestionIds": [
+          "exp7_blends_9",
+          "exp7_blends_13",
+          "exp7_blends_14",
+          "exp7_blends_15",
+          "template_blend_4",
+          "exp7_blends_16",
+          "exp7_blends_17",
+          "exp7_blends_18",
+          "template_blend_8",
+          "exp7_blends_19",
+          "template_blend_1",
+          "exp7_blends_2",
+          "template_blend_5",
+          "template_blend_10",
+          "template_blend_7"
+        ],
+        "canBuild15QuestionRound": true,
+        "productionReady": true,
+        "progressionWarnings": [
+          "Level 2 is dominated by generic/easy template types"
+        ]
       },
       "templates": {
+        "MULTIPLE_CHOICE": 34,
         "PICTURE_AUDIO_TO_PATTERN": 22,
         "BLEND_SOUNDS": 15,
         "IMAGE_WORD_PATTERN_MATCH": 14,
@@ -3130,321 +3169,85 @@
       },
       "media": {
         "imageRequiredCount": 101,
-        "validImageCount": 89,
-        "missingImageCount": 12,
+        "validImageCount": 101,
+        "missingImageCount": 0,
         "audioRequiredCount": 101,
-        "validAudioCount": 89,
-        "missingAudioCount": 12,
-        "promptAudioCount": 89,
-        "cardOptionAudioCount": 89,
-        "targetWordAudioCount": 89,
-        "objectImageCount": 89,
+        "validAudioCount": 101,
+        "missingAudioCount": 0,
+        "promptAudioCount": 101,
+        "cardOptionAudioCount": 101,
+        "targetWordAudioCount": 101,
+        "objectImageCount": 101,
         "optionCardImageCount": 25,
         "placeholderSpeakerIconMisuseCount": 0,
         "textOnlyAcceptableCount": 0,
-        "textOnlyProblematicCount": 12
+        "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 39,
+      "rejectedQuestionCount": 5,
       "rejectedReasons": {
-        "routing: MULTIPLE_CHOICE is not allowed for blends": 34,
-        "format MULTIPLE_CHOICE not allowed for blends level 2": 33,
-        "missing required audio path": 12,
-        "missing required image path": 12,
         "format UNKNOWN not allowed for blends level 1": 5,
         "routing: UNKNOWN is not allowed for blends": 5,
-        "UNKNOWN runtime format on non-text skill": 5,
-        "format MULTIPLE_CHOICE not allowed for blends level 1": 1
+        "UNKNOWN runtime format on non-text skill": 5
       },
       "rejectedExamples": [
         {
-          "id": "template_blend_1",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "black",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "template_blend_2",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
+          "id": "phonics_k_054",
+          "source": "generatedQuestions",
+          "level": 1,
+          "template": "UNKNOWN",
           "target": "flip",
           "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2",
-            "missing required image path",
-            "missing required audio path"
+            "routing: UNKNOWN is not allowed for blends",
+            "format UNKNOWN not allowed for blends level 1",
+            "UNKNOWN runtime format on non-text skill"
           ]
         },
         {
-          "id": "template_blend_3",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "fresh",
+          "id": "phonics_k_070",
+          "source": "generatedQuestions",
+          "level": 1,
+          "template": "UNKNOWN",
+          "target": "black",
           "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2",
-            "missing required image path",
-            "missing required audio path"
+            "routing: UNKNOWN is not allowed for blends",
+            "format UNKNOWN not allowed for blends level 1",
+            "UNKNOWN runtime format on non-text skill"
           ]
         },
         {
-          "id": "template_blend_4",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
+          "id": "phonics_k_080",
+          "source": "generatedQuestions",
+          "level": 1,
+          "template": "UNKNOWN",
+          "target": "drop",
+          "reasons": [
+            "routing: UNKNOWN is not allowed for blends",
+            "format UNKNOWN not allowed for blends level 1",
+            "UNKNOWN runtime format on non-text skill"
+          ]
+        },
+        {
+          "id": "phonics_k_089",
+          "source": "generatedQuestions",
+          "level": 1,
+          "template": "UNKNOWN",
           "target": "step",
           "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2",
-            "missing required image path",
-            "missing required audio path"
+            "routing: UNKNOWN is not allowed for blends",
+            "format UNKNOWN not allowed for blends level 1",
+            "UNKNOWN runtime format on non-text skill"
           ]
         },
         {
-          "id": "template_blend_5",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "clip",
+          "id": "phonics_k_097",
+          "source": "generatedQuestions",
+          "level": 1,
+          "template": "UNKNOWN",
+          "target": "plum",
           "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "template_blend_6",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "grin",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2",
-            "missing required image path",
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "template_blend_7",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "drop",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "template_blend_8",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "truck",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "template_blend_9",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "snap",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2",
-            "missing required image path",
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "template_blend_10",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "crib",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp5_blend_1",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "black",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp5_blend_2",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "green",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp5_blend_3",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "sleep",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp5_blend_4",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "small",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp5_blend_5",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "brick",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp7_blends_2",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "brick",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp7_blends_3",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "clip",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp7_blends_4",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "crib",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp7_blends_5",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "drop",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp7_blends_6",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "flip",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2",
-            "missing required image path",
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "exp7_blends_7",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "fresh",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2",
-            "missing required image path",
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "exp7_blends_8",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "glass",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp7_blends_9",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "green",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp7_blends_10",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "plug",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2"
-          ]
-        },
-        {
-          "id": "exp7_blends_11",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "press",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for blends",
-            "format MULTIPLE_CHOICE not allowed for blends level 2",
-            "missing required image path",
-            "missing required audio path"
+            "routing: UNKNOWN is not allowed for blends",
+            "format UNKNOWN not allowed for blends level 1",
+            "UNKNOWN runtime format on non-text skill"
           ]
         }
       ],
@@ -3652,314 +3455,26 @@
       ],
       "dragDropWarnings": [],
       "duplicateEquivalentWarnings": [],
-      "progressionWarnings": [],
+      "progressionWarnings": [
+        "Level 2: Level 2 is dominated by generic/easy template types"
+      ],
       "missingQuestionDepth": {
         "level1": 0,
-        "level2": 30
+        "level2": 0
       },
       "mediaRequests": {
-        "images": [
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "flip",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_2",
-            "requiredDestinationPath": "/media/vocabulary/images/flip.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"flip\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "fresh",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_3",
-            "requiredDestinationPath": "/media/vocabulary/images/fresh.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"fresh\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "step",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_4",
-            "requiredDestinationPath": "/media/vocabulary/images/step.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"step\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "grin",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_6",
-            "requiredDestinationPath": "/media/vocabulary/images/grin.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"grin\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "snap",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_9",
-            "requiredDestinationPath": "/media/vocabulary/images/snap.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"snap\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "flip",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_6",
-            "requiredDestinationPath": "/media/vocabulary/images/flip.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"flip\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "fresh",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_7",
-            "requiredDestinationPath": "/media/vocabulary/images/fresh.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"fresh\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "press",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_11",
-            "requiredDestinationPath": "/media/vocabulary/images/press.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"press\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "snap",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_14",
-            "requiredDestinationPath": "/media/vocabulary/images/snap.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"snap\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "spill",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_15",
-            "requiredDestinationPath": "/media/vocabulary/images/spill.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"spill\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "flip",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 1,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "phonics_k_054",
-            "requiredDestinationPath": "/media/vocabulary/images/flip.webp",
-            "reason": "routing: UNKNOWN is not allowed for blends; format UNKNOWN not allowed for blends level 1; missing required image path; missing required audio path; UNKNOWN runtime format on non-text skill",
-            "instruction": "Create one clear K-2 instructional image for \"flip\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "step",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 1,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "phonics_k_089",
-            "requiredDestinationPath": "/media/vocabulary/images/step.webp",
-            "reason": "routing: UNKNOWN is not allowed for blends; format UNKNOWN not allowed for blends level 1; missing required image path; missing required audio path; UNKNOWN runtime format on non-text skill",
-            "instruction": "Create one clear K-2 instructional image for \"step\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          }
-        ],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "flip",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_2",
-            "requiredDestinationPath": "/media/vocabulary/audio/flip.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"flip\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "fresh",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_3",
-            "requiredDestinationPath": "/media/vocabulary/audio/fresh.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"fresh\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "step",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_4",
-            "requiredDestinationPath": "/media/vocabulary/audio/step.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"step\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "grin",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_6",
-            "requiredDestinationPath": "/media/vocabulary/audio/grin.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"grin\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "snap",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_blend_9",
-            "requiredDestinationPath": "/media/vocabulary/audio/snap.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"snap\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "flip",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_6",
-            "requiredDestinationPath": "/media/vocabulary/audio/flip.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"flip\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "fresh",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_7",
-            "requiredDestinationPath": "/media/vocabulary/audio/fresh.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"fresh\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "press",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_11",
-            "requiredDestinationPath": "/media/vocabulary/audio/press.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"press\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "snap",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_14",
-            "requiredDestinationPath": "/media/vocabulary/audio/snap.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"snap\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "spill",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_blends_15",
-            "requiredDestinationPath": "/media/vocabulary/audio/spill.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"spill\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "flip",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 1,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "phonics_k_054",
-            "requiredDestinationPath": "/media/vocabulary/audio/flip.mp3",
-            "reason": "routing: UNKNOWN is not allowed for blends; format UNKNOWN not allowed for blends level 1; missing required image path; missing required audio path; UNKNOWN runtime format on non-text skill",
-            "instruction": "Record one clean American English MP3 saying only \"flip\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "step",
-            "skill": "Blends",
-            "skillId": "blends",
-            "level": 1,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "phonics_k_089",
-            "requiredDestinationPath": "/media/vocabulary/audio/step.mp3",
-            "reason": "routing: UNKNOWN is not allowed for blends; format UNKNOWN not allowed for blends level 1; missing required image path; missing required audio path; UNKNOWN runtime format on non-text skill",
-            "instruction": "Record one clean American English MP3 saying only \"step\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "images": [],
+        "audio": []
       }
     },
     {
       "skillId": "digraphs",
       "skillName": "Digraphs",
       "category": "Phonics",
-      "status": "NEEDS IMAGES",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 91,
-      "totalRuntimeSafeQuestions": 48,
-      "activeRuntimeQuestions": 48,
+      "totalRuntimeSafeQuestions": 88,
+      "activeRuntimeQuestions": 88,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -3967,19 +3482,23 @@
         "allowedFormats": [
           "PICTURE_AUDIO_TO_PATTERN",
           "IMAGE_WORD_PATTERN_MATCH",
-          "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+          "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
+          "MULTIPLE_CHOICE"
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 54,
-        "validRuntimeQuestionCount": 48,
+        "validRuntimeQuestionCount": 51,
         "missingTo30": 0,
         "uniqueTargetWordCount": 24,
-        "uniqueCoverageItemCount": 4,
+        "uniqueCoverageItemCount": 7,
         "coverageItems": [
           "sh",
           "ch",
           "th",
-          "wh"
+          "wh",
+          "ship",
+          "wheel",
+          "thin"
         ],
         "targetWords": [
           "ship",
@@ -4014,8 +3533,11 @@
         "phase1QuestionIds": [
           "gap_digraphs_l1_ch_arch",
           "gap_digraphs_l1_sh_ash",
+          "phonics_k_015",
           "gap_digraphs_l1_th_booth",
+          "phonics_k_076",
           "p3_digraph_sound_wh_7",
+          "phonics_k_056",
           "gap_digraphs_l1_ch_beach",
           "gap_digraphs_l1_ch_bench",
           "gap_digraphs_l1_ch_branch",
@@ -4023,27 +3545,24 @@
           "p3_digraph_sound_ch_4",
           "gap_digraphs_l1_ch_chalk",
           "gap_digraphs_l1_ch_cheese",
-          "gap_digraphs_l1_ch_cheetah",
-          "gap_digraphs_l1_ch_chef",
-          "gap_digraphs_l1_ch_cherry",
-          "gap_digraphs_l1_ch_chessboard"
+          "gap_digraphs_l1_ch_cheetah"
         ],
         "phase2QuestionIds": [
+          "recovery_digraph_card_ch_chick",
           "recovery_digraph_card_sh_shell",
           "p3_digraph_sound_th_5",
           "p3_digraph_word_wh_7",
-          "p3_digraph_word_ch_4",
           "p3_digraph_sound_sh_1",
           "p3_digraph_sound_sh_2",
           "p3_digraph_sound_th_6",
           "recovery_digraph_card_wh_wheel",
+          "p3_digraph_word_ch_4",
+          "gap_digraphs_l1_ch_chef",
+          "gap_digraphs_l1_ch_cherry",
+          "gap_digraphs_l1_ch_chessboard",
           "gap_digraphs_l1_ch_chest",
           "gap_digraphs_l1_ch_chestnut",
-          "recovery_digraph_card_ch_chick",
-          "recovery_digraph_listen_sh_shell",
-          "recovery_digraph_sound_sh_shell",
-          "recovery_digraph_card_sh_ship",
-          "recovery_digraph_listen_sh_ship"
+          "recovery_digraph_listen_ch_chick"
         ],
         "canBuild15QuestionRound": true,
         "productionReady": true,
@@ -4057,340 +3576,178 @@
         "allowedFormats": [
           "PICTURE_AUDIO_TO_PATTERN",
           "IMAGE_WORD_PATTERN_MATCH",
-          "HEARD_WORD_TO_PRINT_MINIMAL_PAIR"
+          "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
+          "MULTIPLE_CHOICE"
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 37,
-        "validRuntimeQuestionCount": 0,
-        "missingTo30": 30,
-        "uniqueTargetWordCount": 0,
-        "uniqueCoverageItemCount": 0,
-        "coverageItems": [],
-        "targetWords": [],
-        "phase1Ready": false,
-        "phase2Ready": false,
-        "phase1Count": 0,
-        "phase2Count": 0,
-        "phase1QuestionIds": [],
-        "phase2QuestionIds": [],
-        "canBuild15QuestionRound": false,
-        "productionReady": false,
-        "progressionWarnings": []
+        "validRuntimeQuestionCount": 37,
+        "missingTo30": 0,
+        "uniqueTargetWordCount": 26,
+        "uniqueCoverageItemCount": 26,
+        "coverageItems": [
+          "ship",
+          "chop",
+          "thin",
+          "wheel",
+          "shop",
+          "chip",
+          "this",
+          "chin",
+          "three",
+          "cheese",
+          "sheep",
+          "chick",
+          "whisk",
+          "shark",
+          "black",
+          "flower",
+          "star",
+          "tree",
+          "crab",
+          "shoe",
+          "photo",
+          "shadow",
+          "white",
+          "shine",
+          "chain",
+          "thorn"
+        ],
+        "targetWords": [
+          "ship",
+          "chop",
+          "thin",
+          "wheel",
+          "shop",
+          "chip",
+          "this",
+          "chin",
+          "three",
+          "cheese",
+          "sheep",
+          "chick",
+          "whisk",
+          "shark",
+          "black",
+          "flower",
+          "star",
+          "tree",
+          "crab",
+          "shoe",
+          "photo",
+          "shadow",
+          "white",
+          "shine",
+          "chain",
+          "thorn"
+        ],
+        "phase1Ready": true,
+        "phase2Ready": true,
+        "phase1Count": 15,
+        "phase2Count": 15,
+        "phase1QuestionIds": [
+          "exp6_phonics_1",
+          "exp7_digraphs_14",
+          "exp2_digraph_10",
+          "exp5_digraph_2",
+          "exp2_digraph_4",
+          "template_digraph_6",
+          "exp7_digraphs_10",
+          "exp6_phonics_5",
+          "exp6_phonics_2",
+          "exp6_phonics_10",
+          "exp7_digraphs_5",
+          "exp5_digraph_5",
+          "exp5_digraph_1",
+          "exp7_digraphs_13",
+          "exp2_digraph_2"
+        ],
+        "phase2QuestionIds": [
+          "exp2_digraph_5",
+          "template_digraph_7",
+          "exp7_digraphs_15",
+          "exp2_digraph_6",
+          "exp6_phonics_4",
+          "exp2_digraph_8",
+          "exp5_digraph_4",
+          "exp7_digraphs_12",
+          "exp7_digraphs_6",
+          "template_digraph_2",
+          "exp7_digraphs_9",
+          "exp6_phonics_6",
+          "template_digraph_5",
+          "exp6_phonics_3",
+          "exp5_digraph_3"
+        ],
+        "canBuild15QuestionRound": true,
+        "productionReady": true,
+        "progressionWarnings": [
+          "Level 2 is dominated by generic/easy template types"
+        ]
       },
       "templates": {
+        "MULTIPLE_CHOICE": 40,
         "PICTURE_AUDIO_TO_PATTERN": 24,
         "IMAGE_WORD_PATTERN_MATCH": 13,
         "HEARD_WORD_TO_PRINT_MINIMAL_PAIR": 11
       },
       "media": {
         "imageRequiredCount": 91,
-        "validImageCount": 81,
-        "missingImageCount": 10,
+        "validImageCount": 91,
+        "missingImageCount": 0,
         "audioRequiredCount": 91,
-        "validAudioCount": 82,
-        "missingAudioCount": 9,
-        "promptAudioCount": 82,
-        "cardOptionAudioCount": 82,
-        "targetWordAudioCount": 82,
-        "objectImageCount": 81,
+        "validAudioCount": 91,
+        "missingAudioCount": 0,
+        "promptAudioCount": 91,
+        "cardOptionAudioCount": 91,
+        "targetWordAudioCount": 91,
+        "objectImageCount": 91,
         "optionCardImageCount": 24,
         "placeholderSpeakerIconMisuseCount": 0,
         "textOnlyAcceptableCount": 0,
-        "textOnlyProblematicCount": 9
+        "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 43,
+      "rejectedQuestionCount": 3,
       "rejectedReasons": {
-        "routing: MULTIPLE_CHOICE is not allowed for digraphs": 40,
-        "format MULTIPLE_CHOICE not allowed for digraphs level 2": 37,
-        "missing required image path": 10,
-        "missing required audio path": 9,
-        "format MULTIPLE_CHOICE not allowed for digraphs level 1": 3,
         "format UNKNOWN not allowed for digraphs level 1": 3,
         "routing: UNKNOWN is not allowed for digraphs": 3,
         "UNKNOWN runtime format on non-text skill": 3
       },
       "rejectedExamples": [
         {
-          "id": "template_digraph_1",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "ship",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "template_digraph_2",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "chop",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2",
-            "missing required image path",
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "template_digraph_3",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "thin",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "template_digraph_4",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "wheel",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "template_digraph_5",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "shop",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "template_digraph_6",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
+          "id": "phonics_k_024",
+          "source": "generatedQuestions",
+          "level": 1,
+          "template": "UNKNOWN",
           "target": "chip",
           "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
+            "routing: UNKNOWN is not allowed for digraphs",
+            "format UNKNOWN not allowed for digraphs level 1",
+            "UNKNOWN runtime format on non-text skill"
           ]
         },
         {
-          "id": "template_digraph_7",
-          "source": "templateExpansion",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "this",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp2_digraph_2",
-          "source": "templateExpansion2",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
+          "id": "phonics_k_025",
+          "source": "generatedQuestions",
+          "level": 1,
+          "template": "UNKNOWN",
           "target": "ship",
           "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
+            "routing: UNKNOWN is not allowed for digraphs",
+            "format UNKNOWN not allowed for digraphs level 1",
+            "UNKNOWN runtime format on non-text skill"
           ]
         },
         {
-          "id": "exp2_digraph_4",
-          "source": "templateExpansion2",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "chin",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2",
-            "missing required image path",
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "exp2_digraph_5",
-          "source": "templateExpansion2",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "thin",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp2_digraph_6",
-          "source": "templateExpansion2",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "three",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2",
-            "missing required image path",
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "exp2_digraph_8",
-          "source": "templateExpansion2",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "wheel",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp2_digraph_10",
-          "source": "templateExpansion2",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "cheese",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp5_digraph_1",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "sheep",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp5_digraph_2",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "chick",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp5_digraph_3",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "thin",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp5_digraph_4",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "whisk",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp5_digraph_5",
-          "source": "templateExpansion5",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "shark",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp6_phonics_1",
-          "source": "templateExpansion6",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "black",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp6_phonics_2",
-          "source": "templateExpansion6",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "flower",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp6_phonics_3",
-          "source": "templateExpansion6",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "star",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp6_phonics_4",
-          "source": "templateExpansion6",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "tree",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp6_phonics_5",
-          "source": "templateExpansion6",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "crab",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp6_phonics_6",
-          "source": "templateExpansion6",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "shoe",
-          "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2"
-          ]
-        },
-        {
-          "id": "exp6_phonics_10",
-          "source": "templateExpansion6",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
+          "id": "phonics_k_037",
+          "source": "generatedQuestions",
+          "level": 1,
+          "template": "UNKNOWN",
           "target": "photo",
           "reasons": [
-            "routing: MULTIPLE_CHOICE is not allowed for digraphs",
-            "format MULTIPLE_CHOICE not allowed for digraphs level 2",
-            "missing required image path",
-            "missing required audio path"
+            "routing: UNKNOWN is not allowed for digraphs",
+            "format UNKNOWN not allowed for digraphs level 1",
+            "UNKNOWN runtime format on non-text skill"
           ]
         }
       ],
@@ -4599,245 +3956,16 @@
       "dragDropWarnings": [],
       "duplicateEquivalentWarnings": [],
       "progressionWarnings": [
-        "Level 1: coverage target overuse: ch:19"
+        "Level 1: coverage target overuse: ch:19",
+        "Level 2: Level 2 is dominated by generic/easy template types"
       ],
       "missingQuestionDepth": {
         "level1": 0,
-        "level2": 30
+        "level2": 0
       },
       "mediaRequests": {
-        "images": [
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "chop",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_digraph_2",
-            "requiredDestinationPath": "/media/vocabulary/images/chop.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"chop\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "chin",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp2_digraph_4",
-            "requiredDestinationPath": "/media/vocabulary/images/chin.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"chin\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "three",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp2_digraph_6",
-            "requiredDestinationPath": "/media/vocabulary/images/three.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"three\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "photo",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp6_phonics_10",
-            "requiredDestinationPath": "/media/vocabulary/images/photo.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"photo\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "shadow",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_5",
-            "requiredDestinationPath": "/media/vocabulary/images/shadow.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"shadow\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "three",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_7",
-            "requiredDestinationPath": "/media/vocabulary/images/three.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"three\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "chop",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_10",
-            "requiredDestinationPath": "/media/vocabulary/images/chop.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"chop\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "shine",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_13",
-            "requiredDestinationPath": "/media/vocabulary/images/shine.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path",
-            "instruction": "Create one clear K-2 instructional image for \"shine\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "thorn",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_15",
-            "requiredDestinationPath": "/media/vocabulary/images/thorn.webp",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Create one clear K-2 instructional image for \"thorn\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "photo",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 1,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "phonics_k_037",
-            "requiredDestinationPath": "/media/vocabulary/images/photo.webp",
-            "reason": "routing: UNKNOWN is not allowed for digraphs; format UNKNOWN not allowed for digraphs level 1; missing required image path; missing required audio path; UNKNOWN runtime format on non-text skill",
-            "instruction": "Create one clear K-2 instructional image for \"photo\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          }
-        ],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "chop",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "template_digraph_2",
-            "requiredDestinationPath": "/media/vocabulary/audio/chop.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"chop\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "chin",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp2_digraph_4",
-            "requiredDestinationPath": "/media/vocabulary/audio/chin.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"chin\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "three",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp2_digraph_6",
-            "requiredDestinationPath": "/media/vocabulary/audio/three.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"three\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "photo",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp6_phonics_10",
-            "requiredDestinationPath": "/media/vocabulary/audio/photo.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"photo\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "shadow",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_5",
-            "requiredDestinationPath": "/media/vocabulary/audio/shadow.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"shadow\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "three",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_7",
-            "requiredDestinationPath": "/media/vocabulary/audio/three.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"three\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "chop",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_10",
-            "requiredDestinationPath": "/media/vocabulary/audio/chop.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"chop\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "thorn",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_digraphs_15",
-            "requiredDestinationPath": "/media/vocabulary/audio/thorn.mp3",
-            "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"thorn\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "photo",
-            "skill": "Digraphs",
-            "skillId": "digraphs",
-            "level": 1,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "phonics_k_037",
-            "requiredDestinationPath": "/media/vocabulary/audio/photo.mp3",
-            "reason": "routing: UNKNOWN is not allowed for digraphs; format UNKNOWN not allowed for digraphs level 1; missing required image path; missing required audio path; UNKNOWN runtime format on non-text skill",
-            "instruction": "Record one clean American English MP3 saying only \"photo\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "images": [],
+        "audio": []
       }
     },
     {
@@ -5093,8 +4221,8 @@
         "MULTIPLE_CHOICE": 34
       },
       "media": {
-        "imageRequiredCount": 72,
-        "validImageCount": 72,
+        "imageRequiredCount": 73,
+        "validImageCount": 73,
         "missingImageCount": 0,
         "audioRequiredCount": 88,
         "validAudioCount": 88,
@@ -5102,7 +4230,7 @@
         "promptAudioCount": 88,
         "cardOptionAudioCount": 88,
         "targetWordAudioCount": 88,
-        "objectImageCount": 72,
+        "objectImageCount": 73,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
         "textOnlyAcceptableCount": 0,
@@ -6015,7 +5143,7 @@
       "skillId": "verbs",
       "skillName": "Verbs",
       "category": "Grammar/Vocabulary",
-      "status": "READY",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 80,
       "totalRuntimeSafeQuestions": 77,
       "activeRuntimeQuestions": 77,
@@ -6295,8 +5423,8 @@
         "GRAMMAR_BASICS": 38
       },
       "media": {
-        "imageRequiredCount": 20,
-        "validImageCount": 20,
+        "imageRequiredCount": 21,
+        "validImageCount": 21,
         "missingImageCount": 0,
         "audioRequiredCount": 0,
         "validAudioCount": 0,
@@ -6304,10 +5432,10 @@
         "promptAudioCount": 0,
         "cardOptionAudioCount": 0,
         "targetWordAudioCount": 0,
-        "objectImageCount": 20,
+        "objectImageCount": 21,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 60,
+        "textOnlyAcceptableCount": 59,
         "textOnlyProblematicCount": 0
       },
       "rejectedQuestionCount": 3,
@@ -6346,7 +5474,13 @@
           ]
         }
       ],
-      "layoutRiskWarnings": [],
+      "layoutRiskWarnings": [
+        {
+          "questionId": "ixl_grammar_7",
+          "warning": "many images in one question may crowd mobile layout",
+          "template": "GRAMMAR_BASICS"
+        }
+      ],
       "dragDropWarnings": [],
       "duplicateEquivalentWarnings": [],
       "progressionWarnings": [],
@@ -9200,19 +8334,19 @@
         "COMPREHENSION": 35
       },
       "media": {
-        "imageRequiredCount": 0,
-        "validImageCount": 0,
+        "imageRequiredCount": 3,
+        "validImageCount": 3,
         "missingImageCount": 0,
-        "audioRequiredCount": 0,
-        "validAudioCount": 0,
+        "audioRequiredCount": 3,
+        "validAudioCount": 3,
         "missingAudioCount": 0,
-        "promptAudioCount": 0,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 0,
-        "objectImageCount": 0,
+        "promptAudioCount": 3,
+        "cardOptionAudioCount": 3,
+        "targetWordAudioCount": 3,
+        "objectImageCount": 3,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 94,
+        "textOnlyAcceptableCount": 91,
         "textOnlyProblematicCount": 0
       },
       "rejectedQuestionCount": 0,
@@ -9266,10 +8400,10 @@
       "skillId": "sequencing",
       "skillName": "Sequencing",
       "category": "Comprehension",
-      "status": "NEEDS IMAGES",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 94,
-      "totalRuntimeSafeQuestions": 90,
-      "activeRuntimeQuestions": 90,
+      "totalRuntimeSafeQuestions": 93,
+      "activeRuntimeQuestions": 93,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -9414,10 +8548,10 @@
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 59,
-        "validRuntimeQuestionCount": 55,
+        "validRuntimeQuestionCount": 58,
         "missingTo30": 0,
-        "uniqueTargetWordCount": 53,
-        "uniqueCoverageItemCount": 53,
+        "uniqueTargetWordCount": 56,
+        "uniqueCoverageItemCount": 56,
         "coverageItems": [
           "put_on_his_shoes",
           "ate_lunch",
@@ -9429,6 +8563,8 @@
           "slept",
           "played_with_the_toy",
           "brushed_his_teeth",
+          "she_painted_a_picture",
+          "drew_a_picture",
           "it_got_sun_and_water",
           "washed_the_apple",
           "she_drew_a_flower",
@@ -9447,6 +8583,7 @@
           "drank_the_water",
           "she_folded_paper",
           "set_out_plates",
+          "students_stopped_talking",
           "tied_her_shoes",
           "pushed_the_ball",
           "wrote_his_name",
@@ -9484,6 +8621,8 @@
           "slept",
           "played with the toy",
           "brushed his teeth",
+          "she painted a picture",
+          "drew a picture",
           "it got sun and water",
           "washed the apple",
           "she drew a flower",
@@ -9502,6 +8641,7 @@
           "drank the water",
           "she folded paper",
           "set out plates",
+          "students stopped talking",
           "tied her shoes",
           "pushed the ball",
           "wrote his name",
@@ -9539,6 +8679,7 @@
           "adv_sequencing_4_2",
           "adv_sequencing_2_3",
           "exp7_sequencing_8",
+          "exp4_comp_9",
           "exp7_sequencing_4",
           "exp6_comp_7",
           "adv_sequencing_2_4",
@@ -9546,10 +8687,10 @@
           "adv_sequencing_1_1",
           "adv_sequencing_3_3",
           "exp3_comp_7",
-          "exp6_comp_8",
-          "exp2_comp_4"
+          "exp6_comp_8"
         ],
         "phase2QuestionIds": [
+          "adv_sequencing_4_3",
           "exp4_comp_6",
           "exp7_sequencing_2",
           "adv_sequencing_4_1",
@@ -9563,70 +8704,37 @@
           "adv_sequencing_3_4",
           "adv_sequencing_3_1",
           "adv_sequencing_4_4",
-          "exp7_sequencing_11",
-          "exp5_comp_4"
+          "exp7_sequencing_11"
         ],
         "canBuild15QuestionRound": true,
         "productionReady": true,
         "progressionWarnings": []
       },
       "templates": {
-        "MULTIPLE_CHOICE": 55,
+        "MULTIPLE_CHOICE": 58,
         "COMPREHENSION": 35
       },
       "media": {
         "imageRequiredCount": 2,
-        "validImageCount": 0,
-        "missingImageCount": 2,
+        "validImageCount": 2,
+        "missingImageCount": 0,
         "audioRequiredCount": 1,
-        "validAudioCount": 0,
-        "missingAudioCount": 1,
-        "promptAudioCount": 0,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 0,
-        "objectImageCount": 0,
+        "validAudioCount": 1,
+        "missingAudioCount": 0,
+        "promptAudioCount": 1,
+        "cardOptionAudioCount": 1,
+        "targetWordAudioCount": 1,
+        "objectImageCount": 2,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 94,
+        "textOnlyAcceptableCount": 91,
         "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 4,
+      "rejectedQuestionCount": 1,
       "rejectedReasons": {
-        "missing required image path": 2,
-        "format ENDING_SOUND_WORD_MATCH not allowed for sequencing level 2": 1,
-        "missing required audio path": 1
+        "format ENDING_SOUND_WORD_MATCH not allowed for sequencing level 2": 1
       },
       "rejectedExamples": [
-        {
-          "id": "exp4_comp_8",
-          "source": "templateExpansion4",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "she painted a picture",
-          "reasons": [
-            "missing required image path"
-          ]
-        },
-        {
-          "id": "exp4_comp_9",
-          "source": "templateExpansion4",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "drew a picture",
-          "reasons": [
-            "missing required image path"
-          ]
-        },
-        {
-          "id": "exp7_sequencing_13",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "students stopped talking",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
         {
           "id": "adv_sequencing_1_3",
           "source": "templateComprehensionAdvanced",
@@ -9703,56 +8811,18 @@
         "level2": 0
       },
       "mediaRequests": {
-        "images": [
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "she painted a picture",
-            "skill": "Sequencing",
-            "skillId": "sequencing",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp4_comp_8",
-            "requiredDestinationPath": "/media/vocabulary/images/she-painted-a-picture.webp",
-            "reason": "missing required image path",
-            "instruction": "Create one clear K-2 instructional image for \"she painted a picture\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          },
-          {
-            "mediaType": "image",
-            "targetWordOrConcept": "drew a picture",
-            "skill": "Sequencing",
-            "skillId": "sequencing",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp4_comp_9",
-            "requiredDestinationPath": "/media/vocabulary/images/drew-a-picture.webp",
-            "reason": "missing required image path",
-            "instruction": "Create one clear K-2 instructional image for \"drew a picture\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-          }
-        ],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "students stopped talking",
-            "skill": "Sequencing",
-            "skillId": "sequencing",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_sequencing_13",
-            "requiredDestinationPath": "/media/vocabulary/audio/students-stopped-talking.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"students stopped talking\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "images": [],
+        "audio": []
       }
     },
     {
       "skillId": "main_idea",
       "skillName": "Main Idea",
       "category": "Comprehension",
-      "status": "NEEDS AUDIO",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 100,
-      "totalRuntimeSafeQuestions": 95,
-      "activeRuntimeQuestions": 95,
+      "totalRuntimeSafeQuestions": 100,
+      "activeRuntimeQuestions": 100,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -9897,10 +8967,10 @@
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 65,
-        "validRuntimeQuestionCount": 60,
+        "validRuntimeQuestionCount": 65,
         "missingTo30": 0,
-        "uniqueTargetWordCount": 56,
-        "uniqueCoverageItemCount": 56,
+        "uniqueTargetWordCount": 60,
+        "uniqueCoverageItemCount": 60,
         "coverageItems": [
           "taking_care_of_dogs",
           "birds",
@@ -9957,7 +9027,11 @@
           "libraries_provide_many_helpful_resources",
           "what_libraries_offer",
           "different_ways_people_use_libraries",
-          "librarians_help_people_research_questions"
+          "librarians_help_people_research_questions",
+          "daily_movement_is_good_for_the_body",
+          "many_ways_to_move",
+          "how_exercise_helps_people",
+          "walking_outside_can_be_exercise"
         ],
         "targetWords": [
           "taking care of dogs",
@@ -10015,7 +9089,11 @@
           "libraries provide many helpful resources",
           "what libraries offer",
           "different ways people use libraries",
-          "librarians help people research questions"
+          "librarians help people research questions",
+          "daily movement is good for the body",
+          "many ways to move",
+          "how exercise helps people",
+          "walking outside can be exercise"
         ],
         "phase1Ready": true,
         "phase2Ready": true,
@@ -10035,106 +9113,53 @@
           "exp3_comp_14",
           "exp3_comp_11",
           "exp4_comp_12",
-          "exp7_main_idea_7",
-          "adv_main_idea_4_3"
+          "adv_main_idea_5_1",
+          "exp7_main_idea_7"
         ],
         "phase2QuestionIds": [
+          "exp5_comp_5",
+          "exp4_comp_11",
           "exp7_main_idea_12",
           "adv_main_idea_3_2",
           "exp7_main_idea_3",
           "adv_main_idea_1_2",
+          "adv_main_idea_5_3",
           "adv_main_idea_2_3",
           "adv_main_idea_4_4",
           "adv_main_idea_4_1",
           "exp6_comp_15",
+          "adv_main_idea_5_2",
           "adv_main_idea_2_1",
           "exp7_main_idea_9",
-          "exp7_main_idea_13",
-          "qb8_main_03_01",
-          "qb8_main_03_02",
-          "qb8_main_03_03",
-          "qb8_main_04_01"
+          "exp7_main_idea_13"
         ],
         "canBuild15QuestionRound": true,
         "productionReady": true,
         "progressionWarnings": []
       },
       "templates": {
-        "MULTIPLE_CHOICE": 54,
+        "MULTIPLE_CHOICE": 59,
         "COMPREHENSION": 41
       },
       "media": {
         "imageRequiredCount": 0,
         "validImageCount": 0,
         "missingImageCount": 0,
-        "audioRequiredCount": 5,
-        "validAudioCount": 0,
-        "missingAudioCount": 5,
-        "promptAudioCount": 0,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 0,
+        "audioRequiredCount": 6,
+        "validAudioCount": 6,
+        "missingAudioCount": 0,
+        "promptAudioCount": 6,
+        "cardOptionAudioCount": 6,
+        "targetWordAudioCount": 6,
         "objectImageCount": 0,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 100,
+        "textOnlyAcceptableCount": 94,
         "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 5,
-      "rejectedReasons": {
-        "missing required audio path": 5
-      },
-      "rejectedExamples": [
-        {
-          "id": "exp7_main_idea_17",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "doctors",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_main_idea_5_1",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "daily movement is good for the body",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_main_idea_5_2",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "many ways to move",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_main_idea_5_3",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "how exercise helps people",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_main_idea_5_4",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "walking outside can be exercise",
-          "reasons": [
-            "missing required audio path"
-          ]
-        }
-      ],
+      "rejectedQuestionCount": 0,
+      "rejectedReasons": {},
+      "rejectedExamples": [],
       "layoutRiskWarnings": [
         {
           "questionId": "qb8_main_03_01",
@@ -10261,78 +9286,17 @@
       },
       "mediaRequests": {
         "images": [],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "doctors",
-            "skill": "Main Idea",
-            "skillId": "main_idea",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_main_idea_17",
-            "requiredDestinationPath": "/media/vocabulary/audio/doctors.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"doctors\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "daily movement is good for the body",
-            "skill": "Main Idea",
-            "skillId": "main_idea",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_main_idea_5_1",
-            "requiredDestinationPath": "/media/vocabulary/audio/daily-movement-is-good-for-the-body.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"daily movement is good for the body\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "many ways to move",
-            "skill": "Main Idea",
-            "skillId": "main_idea",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_main_idea_5_2",
-            "requiredDestinationPath": "/media/vocabulary/audio/many-ways-to-move.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"many ways to move\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "how exercise helps people",
-            "skill": "Main Idea",
-            "skillId": "main_idea",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_main_idea_5_3",
-            "requiredDestinationPath": "/media/vocabulary/audio/how-exercise-helps-people.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"how exercise helps people\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "walking outside can be exercise",
-            "skill": "Main Idea",
-            "skillId": "main_idea",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_main_idea_5_4",
-            "requiredDestinationPath": "/media/vocabulary/audio/walking-outside-can-be-exercise.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"walking outside can be exercise\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "audio": []
       }
     },
     {
       "skillId": "inference",
       "skillName": "Inference",
       "category": "Comprehension",
-      "status": "NEEDS AUDIO",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 140,
-      "totalRuntimeSafeQuestions": 135,
-      "activeRuntimeQuestions": 135,
+      "totalRuntimeSafeQuestions": 140,
+      "activeRuntimeQuestions": 140,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -10478,10 +9442,10 @@
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 105,
-        "validRuntimeQuestionCount": 100,
+        "validRuntimeQuestionCount": 105,
         "missingTo30": 0,
-        "uniqueTargetWordCount": 100,
-        "uniqueCoverageItemCount": 100,
+        "uniqueTargetWordCount": 105,
+        "uniqueCoverageItemCount": 105,
         "coverageItems": [
           "qb8_infer_01_01",
           "qb8_infer_01_02",
@@ -10491,6 +9455,7 @@
           "qb8_infer_02_03",
           "she_expected_it_might_rain_soon",
           "he_was_playing_outside_and_got_dirty",
+          "he_was_excited_about_meeting_someone",
           "sophie_s_birthday_party",
           "because_it_was_going_to_snow_and_be_cold_outside",
           "she_was_tired_and_trying_to_cool_down",
@@ -10561,8 +9526,7 @@
           "he_played_soccer_on_a_muddy_field",
           "the_apple_tastes_good_and_fresh",
           "winter_because_there_is_snow_and_snowballs",
-          "she_feels_proud_and_happy",
-          "early_morning_when_birds_begin_their_songs"
+          "she_feels_proud_and_happy"
         ],
         "targetWords": [
           "something was wrong with the tank filter",
@@ -10573,6 +9537,7 @@
           "only one blank star was left beside his name",
           "she expected it might rain soon",
           "he was playing outside and got dirty",
+          "he was excited about meeting someone",
           "sophie s birthday party",
           "because it was going to snow and be cold outside",
           "she was tired and trying to cool down",
@@ -10643,8 +9608,7 @@
           "he played soccer on a muddy field",
           "the apple tastes good and fresh",
           "winter because there is snow and snowballs",
-          "she feels proud and happy",
-          "early morning when birds begin their songs"
+          "she feels proud and happy"
         ],
         "phase1Ready": true,
         "phase2Ready": true,
@@ -10672,99 +9636,46 @@
           "inf_2_3_045",
           "adv_inference_4_2",
           "adv_inference_2_1",
+          "inf_2_3_003",
           "inf_2_3_002",
           "inf_2_3_064",
           "inf_2_3_035",
           "inf_2_3_049",
+          "adv_inference_3_2",
           "inf_2_3_012",
           "inf_2_3_046",
           "inf_2_3_057",
           "inf_2_3_024",
-          "inf_2_3_070",
-          "inf_2_3_036",
-          "inf_2_3_033"
+          "inf_2_3_070"
         ],
         "canBuild15QuestionRound": true,
         "productionReady": true,
         "progressionWarnings": []
       },
       "templates": {
-        "UNKNOWN": 78,
+        "UNKNOWN": 79,
         "COMPREHENSION": 41,
-        "MULTIPLE_CHOICE": 16
+        "MULTIPLE_CHOICE": 20
       },
       "media": {
         "imageRequiredCount": 79,
         "validImageCount": 79,
         "missingImageCount": 0,
         "audioRequiredCount": 5,
-        "validAudioCount": 0,
-        "missingAudioCount": 5,
-        "promptAudioCount": 0,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 0,
+        "validAudioCount": 5,
+        "missingAudioCount": 0,
+        "promptAudioCount": 5,
+        "cardOptionAudioCount": 5,
+        "targetWordAudioCount": 5,
         "objectImageCount": 79,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 61,
+        "textOnlyAcceptableCount": 57,
         "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 5,
-      "rejectedReasons": {
-        "missing required audio path": 5
-      },
-      "rejectedExamples": [
-        {
-          "id": "inf_2_3_003",
-          "source": "generatedQuestions",
-          "level": 2,
-          "template": "UNKNOWN",
-          "target": "he was excited about meeting someone",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_inference_3_1",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "she pushed herself to run faster",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_inference_3_2",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "it encouraged her",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_inference_3_3",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "jada caught up to other runners",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_inference_3_4",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "two runners were beside her instead of ahead",
-          "reasons": [
-            "missing required audio path"
-          ]
-        }
-      ],
+      "rejectedQuestionCount": 0,
+      "rejectedReasons": {},
+      "rejectedExamples": [],
       "layoutRiskWarnings": [
         {
           "questionId": "qb8_infer_01_01",
@@ -10976,78 +9887,17 @@
       },
       "mediaRequests": {
         "images": [],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "he was excited about meeting someone",
-            "skill": "Inference",
-            "skillId": "inference",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "inf_2_3_003",
-            "requiredDestinationPath": "/media/vocabulary/audio/he-was-excited-about-meeting-someone.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"he was excited about meeting someone\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "she pushed herself to run faster",
-            "skill": "Inference",
-            "skillId": "inference",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_inference_3_1",
-            "requiredDestinationPath": "/media/vocabulary/audio/she-pushed-herself-to-run-faster.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"she pushed herself to run faster\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "it encouraged her",
-            "skill": "Inference",
-            "skillId": "inference",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_inference_3_2",
-            "requiredDestinationPath": "/media/vocabulary/audio/it-encouraged-her.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"it encouraged her\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "jada caught up to other runners",
-            "skill": "Inference",
-            "skillId": "inference",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_inference_3_3",
-            "requiredDestinationPath": "/media/vocabulary/audio/jada-caught-up-to-other-runners.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"jada caught up to other runners\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "two runners were beside her instead of ahead",
-            "skill": "Inference",
-            "skillId": "inference",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_inference_3_4",
-            "requiredDestinationPath": "/media/vocabulary/audio/two-runners-were-beside-her-instead-of-ahead.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"two runners were beside her instead of ahead\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "audio": []
       }
     },
     {
       "skillId": "cause_effect",
       "skillName": "Cause and Effect",
       "category": "Comprehension",
-      "status": "NEEDS AUDIO",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 100,
-      "totalRuntimeSafeQuestions": 98,
-      "activeRuntimeQuestions": 98,
+      "totalRuntimeSafeQuestions": 99,
+      "activeRuntimeQuestions": 99,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -11192,10 +10042,10 @@
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 65,
-        "validRuntimeQuestionCount": 63,
+        "validRuntimeQuestionCount": 64,
         "missingTo30": 0,
-        "uniqueTargetWordCount": 60,
-        "uniqueCoverageItemCount": 60,
+        "uniqueTargetWordCount": 61,
+        "uniqueCoverageItemCount": 61,
         "coverageItems": [
           "because_it_rained",
           "he_forgot_his_umbrella",
@@ -11232,6 +10082,7 @@
           "the_wind_blew_hard",
           "the_class_whispered",
           "they_were_muddy",
+          "they_listened_to_each_idea",
           "qb8_cause_09_01",
           "qb8_cause_09_02",
           "qb8_cause_09_03",
@@ -11294,6 +10145,7 @@
           "the wind blew hard",
           "the class whispered",
           "they were muddy",
+          "they listened to each idea",
           "the room felt stuffy",
           "the chart began to slip from the wall",
           "to keep the chart flat",
@@ -11363,7 +10215,7 @@
         "progressionWarnings": []
       },
       "templates": {
-        "MULTIPLE_CHOICE": 57,
+        "MULTIPLE_CHOICE": 58,
         "COMPREHENSION": 41
       },
       "media": {
@@ -11371,33 +10223,22 @@
         "validImageCount": 0,
         "missingImageCount": 0,
         "audioRequiredCount": 1,
-        "validAudioCount": 0,
-        "missingAudioCount": 1,
-        "promptAudioCount": 0,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 0,
+        "validAudioCount": 1,
+        "missingAudioCount": 0,
+        "promptAudioCount": 1,
+        "cardOptionAudioCount": 1,
+        "targetWordAudioCount": 1,
         "objectImageCount": 0,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 100,
+        "textOnlyAcceptableCount": 99,
         "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 2,
+      "rejectedQuestionCount": 1,
       "rejectedReasons": {
-        "format ENDING_SOUND_WORD_MATCH not allowed for cause_effect level 2": 1,
-        "missing required audio path": 1
+        "format ENDING_SOUND_WORD_MATCH not allowed for cause_effect level 2": 1
       },
       "rejectedExamples": [
-        {
-          "id": "exp7_cause_effect_20",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "they listened to each idea",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
         {
           "id": "adv_cause_effect_5_3",
           "source": "templateComprehensionAdvanced",
@@ -11550,30 +10391,17 @@
       },
       "mediaRequests": {
         "images": [],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "they listened to each idea",
-            "skill": "Cause and Effect",
-            "skillId": "cause_effect",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_cause_effect_20",
-            "requiredDestinationPath": "/media/vocabulary/audio/they-listened-to-each-idea.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"they listened to each idea\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "audio": []
       }
     },
     {
       "skillId": "context_clues",
       "skillName": "Context Clues",
       "category": "Comprehension",
-      "status": "NEEDS AUDIO",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 100,
-      "totalRuntimeSafeQuestions": 96,
-      "activeRuntimeQuestions": 96,
+      "totalRuntimeSafeQuestions": 100,
+      "activeRuntimeQuestions": 100,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -11719,10 +10547,10 @@
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 65,
-        "validRuntimeQuestionCount": 61,
+        "validRuntimeQuestionCount": 65,
         "missingTo30": 0,
-        "uniqueTargetWordCount": 56,
-        "uniqueCoverageItemCount": 57,
+        "uniqueTargetWordCount": 60,
+        "uniqueCoverageItemCount": 61,
         "coverageItems": [
           "shaking",
           "very_big",
@@ -11774,6 +10602,10 @@
           "students_noticed_tiny_lines_and_a_curved_edge",
           "careful_looking_would_help_their_thinking",
           "examine",
+          "moved_to_a_later_time",
+          "they_would_try_again_the_next_sunny_day",
+          "thunder_made_outdoor_plans_unsafe",
+          "delayed",
           "strong_and_not_easily_broken",
           "it_carried_heavy_bags_of_soil",
           "it_could_hold_heavy_tools_and_soil",
@@ -11832,6 +10664,10 @@
           "students noticed tiny lines and a curved edge",
           "careful looking would help their thinking",
           "examine",
+          "moved to a later time",
+          "they would try again the next sunny day",
+          "thunder made outdoor plans unsafe",
+          "delayed",
           "strong and not easily broken",
           "it carried heavy bags of soil",
           "it could hold heavy tools and soil",
@@ -11850,6 +10686,7 @@
           "adv_context_clues_2_3",
           "exp7_context_clues_4",
           "adv_context_clues_1_4",
+          "adv_context_clues_3_4",
           "adv_context_clues_4_4",
           "exp3_comp_24",
           "exp6_comp_25",
@@ -11858,11 +10695,11 @@
           "exp7_context_clues_7",
           "exp7_context_clues_16",
           "exp5_comp_10",
-          "adv_context_clues_4_2",
-          "adv_context_clues_4_3"
+          "adv_context_clues_4_2"
         ],
         "phase2QuestionIds": [
-          "exp7_context_clues_2",
+          "exp7_context_clues_13",
+          "exp4_comp_24",
           "exp7_context_clues_11",
           "qb8_context_05_02",
           "qb8_context_05_03",
@@ -11875,15 +10712,14 @@
           "adv_context_clues_5_2",
           "template_context_1",
           "adv_context_clues_1_2",
-          "adv_context_clues_5_1",
-          "exp3_comp_25"
+          "adv_context_clues_5_1"
         ],
         "canBuild15QuestionRound": true,
         "productionReady": true,
         "progressionWarnings": []
       },
       "templates": {
-        "MULTIPLE_CHOICE": 55,
+        "MULTIPLE_CHOICE": 59,
         "COMPREHENSION": 41
       },
       "media": {
@@ -11891,63 +10727,20 @@
         "validImageCount": 0,
         "missingImageCount": 0,
         "audioRequiredCount": 4,
-        "validAudioCount": 0,
-        "missingAudioCount": 4,
-        "promptAudioCount": 0,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 0,
+        "validAudioCount": 4,
+        "missingAudioCount": 0,
+        "promptAudioCount": 4,
+        "cardOptionAudioCount": 4,
+        "targetWordAudioCount": 4,
         "objectImageCount": 0,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 100,
+        "textOnlyAcceptableCount": 96,
         "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 4,
-      "rejectedReasons": {
-        "missing required audio path": 4
-      },
-      "rejectedExamples": [
-        {
-          "id": "adv_context_clues_3_1",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "moved to a later time",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_context_clues_3_2",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "they would try again the next sunny day",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_context_clues_3_3",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "thunder made outdoor plans unsafe",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "adv_context_clues_3_4",
-          "source": "templateComprehensionAdvanced",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "delayed",
-          "reasons": [
-            "missing required audio path"
-          ]
-        }
-      ],
+      "rejectedQuestionCount": 0,
+      "rejectedReasons": {},
+      "rejectedExamples": [],
       "layoutRiskWarnings": [
         {
           "questionId": "qb8_context_05_02",
@@ -12029,66 +10822,17 @@
       },
       "mediaRequests": {
         "images": [],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "moved to a later time",
-            "skill": "Context Clues",
-            "skillId": "context_clues",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_context_clues_3_1",
-            "requiredDestinationPath": "/media/vocabulary/audio/moved-to-a-later-time.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"moved to a later time\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "they would try again the next sunny day",
-            "skill": "Context Clues",
-            "skillId": "context_clues",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_context_clues_3_2",
-            "requiredDestinationPath": "/media/vocabulary/audio/they-would-try-again-the-next-sunny-day.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"they would try again the next sunny day\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "thunder made outdoor plans unsafe",
-            "skill": "Context Clues",
-            "skillId": "context_clues",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_context_clues_3_3",
-            "requiredDestinationPath": "/media/vocabulary/audio/thunder-made-outdoor-plans-unsafe.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"thunder made outdoor plans unsafe\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "delayed",
-            "skill": "Context Clues",
-            "skillId": "context_clues",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "adv_context_clues_3_4",
-            "requiredDestinationPath": "/media/vocabulary/audio/delayed.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"delayed\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "audio": []
       }
     },
     {
       "skillId": "theme_higher_comprehension",
       "skillName": "Theme and Higher Comprehension",
       "category": "Comprehension",
-      "status": "NEEDS AUDIO",
+      "status": "READY WITH LAYOUT WARNINGS",
       "totalRawQuestions": 100,
-      "totalRuntimeSafeQuestions": 98,
-      "activeRuntimeQuestions": 98,
+      "totalRuntimeSafeQuestions": 100,
+      "activeRuntimeQuestions": 100,
       "configuredCoverageTotal": 0,
       "level1": {
         "designed": true,
@@ -12233,10 +10977,10 @@
         ],
         "configuredItemKeys": [],
         "rawQuestionCount": 65,
-        "validRuntimeQuestionCount": 63,
+        "validRuntimeQuestionCount": 65,
         "missingTo30": 0,
-        "uniqueTargetWordCount": 53,
-        "uniqueCoverageItemCount": 53,
+        "uniqueTargetWordCount": 54,
+        "uniqueCoverageItemCount": 54,
         "coverageItems": [
           "keep_trying",
           "being_kind_helps_others",
@@ -12255,6 +10999,7 @@
           "honesty_matters",
           "helping_the_community_is_good",
           "kindness_helps_others",
+          "listen_to_others",
           "patience_matters",
           "try_again_after_mistakes",
           "include_others",
@@ -12310,6 +11055,7 @@
           "honesty matters",
           "helping the community is good",
           "kindness helps others",
+          "listen to others",
           "patience matters",
           "try again after mistakes",
           "include others",
@@ -12377,64 +11123,41 @@
           "exp2_comp_11",
           "exp6_comp_29",
           "adv_theme_4_2",
+          "exp7_theme_9",
           "adv_theme_2_4",
           "exp7_theme_10",
           "adv_theme_3_1",
           "exp3_comp_26",
           "exp5_comp_12",
-          "adv_theme_3_3",
-          "qb8_theme_07_01"
+          "adv_theme_3_3"
         ],
         "canBuild15QuestionRound": true,
         "productionReady": true,
         "progressionWarnings": []
       },
       "templates": {
-        "MULTIPLE_CHOICE": 57,
+        "MULTIPLE_CHOICE": 59,
         "COMPREHENSION": 41
       },
       "media": {
         "imageRequiredCount": 0,
         "validImageCount": 0,
         "missingImageCount": 0,
-        "audioRequiredCount": 2,
-        "validAudioCount": 0,
-        "missingAudioCount": 2,
-        "promptAudioCount": 0,
-        "cardOptionAudioCount": 0,
-        "targetWordAudioCount": 0,
+        "audioRequiredCount": 4,
+        "validAudioCount": 4,
+        "missingAudioCount": 0,
+        "promptAudioCount": 4,
+        "cardOptionAudioCount": 4,
+        "targetWordAudioCount": 4,
         "objectImageCount": 0,
         "optionCardImageCount": 0,
         "placeholderSpeakerIconMisuseCount": 0,
-        "textOnlyAcceptableCount": 100,
+        "textOnlyAcceptableCount": 96,
         "textOnlyProblematicCount": 0
       },
-      "rejectedQuestionCount": 2,
-      "rejectedReasons": {
-        "missing required audio path": 2
-      },
-      "rejectedExamples": [
-        {
-          "id": "exp6_comp_30",
-          "source": "templateExpansion6",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "teamwork helps",
-          "reasons": [
-            "missing required audio path"
-          ]
-        },
-        {
-          "id": "exp7_theme_9",
-          "source": "templateExpansion7",
-          "level": 2,
-          "template": "MULTIPLE_CHOICE",
-          "target": "listen to others",
-          "reasons": [
-            "missing required audio path"
-          ]
-        }
-      ],
+      "rejectedQuestionCount": 0,
+      "rejectedReasons": {},
+      "rejectedExamples": [],
       "layoutRiskWarnings": [
         {
           "questionId": "exp3_comp_26",
@@ -12646,1217 +11369,13 @@
       },
       "mediaRequests": {
         "images": [],
-        "audio": [
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "teamwork helps",
-            "skill": "Theme and Higher Comprehension",
-            "skillId": "theme_higher_comprehension",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp6_comp_30",
-            "requiredDestinationPath": "/media/vocabulary/audio/teamwork-helps.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"teamwork helps\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          },
-          {
-            "mediaType": "audio",
-            "targetWordOrConcept": "listen to others",
-            "skill": "Theme and Higher Comprehension",
-            "skillId": "theme_higher_comprehension",
-            "level": 2,
-            "phase": "Level/phase pool",
-            "affectedQuestionId": "exp7_theme_9",
-            "requiredDestinationPath": "/media/vocabulary/audio/listen-to-others.mp3",
-            "reason": "missing required audio path",
-            "instruction": "Record one clean American English MP3 saying only \"listen to others\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-          }
-        ]
+        "audio": []
       }
     }
   ],
   "missingMediaRequests": {
-    "images": [
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "look",
-        "skill": "High-Frequency Words 1-25",
-        "skillId": "hfw_1_25",
-        "level": 1,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_hfw_1_25_12",
-        "requiredDestinationPath": "/media/vocabulary/images/look.webp",
-        "reason": "missing required image path",
-        "instruction": "Create one clear K-2 instructional image for \"look\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "flip",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_2",
-        "requiredDestinationPath": "/media/vocabulary/images/flip.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"flip\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "fresh",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_3",
-        "requiredDestinationPath": "/media/vocabulary/images/fresh.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"fresh\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "step",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_4",
-        "requiredDestinationPath": "/media/vocabulary/images/step.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"step\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "grin",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_6",
-        "requiredDestinationPath": "/media/vocabulary/images/grin.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"grin\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "snap",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_9",
-        "requiredDestinationPath": "/media/vocabulary/images/snap.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"snap\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "press",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_blends_11",
-        "requiredDestinationPath": "/media/vocabulary/images/press.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"press\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "spill",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_blends_15",
-        "requiredDestinationPath": "/media/vocabulary/images/spill.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"spill\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "chop",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_digraph_2",
-        "requiredDestinationPath": "/media/vocabulary/images/chop.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"chop\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "chin",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_digraph_4",
-        "requiredDestinationPath": "/media/vocabulary/images/chin.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"chin\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "three",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_digraph_6",
-        "requiredDestinationPath": "/media/vocabulary/images/three.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"three\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "photo",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp6_phonics_10",
-        "requiredDestinationPath": "/media/vocabulary/images/photo.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"photo\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "shadow",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_5",
-        "requiredDestinationPath": "/media/vocabulary/images/shadow.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"shadow\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "shine",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_13",
-        "requiredDestinationPath": "/media/vocabulary/images/shine.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path",
-        "instruction": "Create one clear K-2 instructional image for \"shine\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "thorn",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_15",
-        "requiredDestinationPath": "/media/vocabulary/images/thorn.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"thorn\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "she painted a picture",
-        "skill": "Sequencing",
-        "skillId": "sequencing",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp4_comp_8",
-        "requiredDestinationPath": "/media/vocabulary/images/she-painted-a-picture.webp",
-        "reason": "missing required image path",
-        "instruction": "Create one clear K-2 instructional image for \"she painted a picture\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "drew a picture",
-        "skill": "Sequencing",
-        "skillId": "sequencing",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp4_comp_9",
-        "requiredDestinationPath": "/media/vocabulary/images/drew-a-picture.webp",
-        "reason": "missing required image path",
-        "instruction": "Create one clear K-2 instructional image for \"drew a picture\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      }
-    ],
-    "audio": [
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "must",
-        "skill": "High-Frequency Words 51-100",
-        "skillId": "hfw_51_100",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_hfw_51_100_6",
-        "requiredDestinationPath": "/media/vocabulary/audio/must.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"must\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "flip",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/flip.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"flip\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "fresh",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_3",
-        "requiredDestinationPath": "/media/vocabulary/audio/fresh.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"fresh\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "step",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/step.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"step\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "grin",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_6",
-        "requiredDestinationPath": "/media/vocabulary/audio/grin.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"grin\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "snap",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_9",
-        "requiredDestinationPath": "/media/vocabulary/audio/snap.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"snap\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "press",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_blends_11",
-        "requiredDestinationPath": "/media/vocabulary/audio/press.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"press\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "spill",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_blends_15",
-        "requiredDestinationPath": "/media/vocabulary/audio/spill.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"spill\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "chop",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_digraph_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/chop.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"chop\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "chin",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_digraph_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/chin.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"chin\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "three",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_digraph_6",
-        "requiredDestinationPath": "/media/vocabulary/audio/three.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"three\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "photo",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp6_phonics_10",
-        "requiredDestinationPath": "/media/vocabulary/audio/photo.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"photo\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "shadow",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_5",
-        "requiredDestinationPath": "/media/vocabulary/audio/shadow.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"shadow\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "thorn",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_15",
-        "requiredDestinationPath": "/media/vocabulary/audio/thorn.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"thorn\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "students stopped talking",
-        "skill": "Sequencing",
-        "skillId": "sequencing",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_sequencing_13",
-        "requiredDestinationPath": "/media/vocabulary/audio/students-stopped-talking.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"students stopped talking\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "doctors",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_main_idea_17",
-        "requiredDestinationPath": "/media/vocabulary/audio/doctors.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"doctors\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "daily movement is good for the body",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_main_idea_5_1",
-        "requiredDestinationPath": "/media/vocabulary/audio/daily-movement-is-good-for-the-body.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"daily movement is good for the body\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "many ways to move",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_main_idea_5_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/many-ways-to-move.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"many ways to move\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "how exercise helps people",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_main_idea_5_3",
-        "requiredDestinationPath": "/media/vocabulary/audio/how-exercise-helps-people.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"how exercise helps people\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "walking outside can be exercise",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_main_idea_5_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/walking-outside-can-be-exercise.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"walking outside can be exercise\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "he was excited about meeting someone",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "inf_2_3_003",
-        "requiredDestinationPath": "/media/vocabulary/audio/he-was-excited-about-meeting-someone.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"he was excited about meeting someone\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "she pushed herself to run faster",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_inference_3_1",
-        "requiredDestinationPath": "/media/vocabulary/audio/she-pushed-herself-to-run-faster.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"she pushed herself to run faster\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "it encouraged her",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_inference_3_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/it-encouraged-her.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"it encouraged her\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "jada caught up to other runners",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_inference_3_3",
-        "requiredDestinationPath": "/media/vocabulary/audio/jada-caught-up-to-other-runners.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"jada caught up to other runners\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "two runners were beside her instead of ahead",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_inference_3_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/two-runners-were-beside-her-instead-of-ahead.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"two runners were beside her instead of ahead\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "they listened to each idea",
-        "skill": "Cause and Effect",
-        "skillId": "cause_effect",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_cause_effect_20",
-        "requiredDestinationPath": "/media/vocabulary/audio/they-listened-to-each-idea.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"they listened to each idea\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "moved to a later time",
-        "skill": "Context Clues",
-        "skillId": "context_clues",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_context_clues_3_1",
-        "requiredDestinationPath": "/media/vocabulary/audio/moved-to-a-later-time.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"moved to a later time\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "they would try again the next sunny day",
-        "skill": "Context Clues",
-        "skillId": "context_clues",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_context_clues_3_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/they-would-try-again-the-next-sunny-day.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"they would try again the next sunny day\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "thunder made outdoor plans unsafe",
-        "skill": "Context Clues",
-        "skillId": "context_clues",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_context_clues_3_3",
-        "requiredDestinationPath": "/media/vocabulary/audio/thunder-made-outdoor-plans-unsafe.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"thunder made outdoor plans unsafe\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "delayed",
-        "skill": "Context Clues",
-        "skillId": "context_clues",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_context_clues_3_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/delayed.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"delayed\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "teamwork helps",
-        "skill": "Theme and Higher Comprehension",
-        "skillId": "theme_higher_comprehension",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp6_comp_30",
-        "requiredDestinationPath": "/media/vocabulary/audio/teamwork-helps.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"teamwork helps\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "listen to others",
-        "skill": "Theme and Higher Comprehension",
-        "skillId": "theme_higher_comprehension",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_theme_9",
-        "requiredDestinationPath": "/media/vocabulary/audio/listen-to-others.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"listen to others\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      }
-    ],
-    "combined": [
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "look",
-        "skill": "High-Frequency Words 1-25",
-        "skillId": "hfw_1_25",
-        "level": 1,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_hfw_1_25_12",
-        "requiredDestinationPath": "/media/vocabulary/images/look.webp",
-        "reason": "missing required image path",
-        "instruction": "Create one clear K-2 instructional image for \"look\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "flip",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_2",
-        "requiredDestinationPath": "/media/vocabulary/images/flip.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"flip\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "fresh",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_3",
-        "requiredDestinationPath": "/media/vocabulary/images/fresh.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"fresh\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "step",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_4",
-        "requiredDestinationPath": "/media/vocabulary/images/step.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"step\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "grin",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_6",
-        "requiredDestinationPath": "/media/vocabulary/images/grin.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"grin\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "snap",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_9",
-        "requiredDestinationPath": "/media/vocabulary/images/snap.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"snap\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "press",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_blends_11",
-        "requiredDestinationPath": "/media/vocabulary/images/press.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"press\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "spill",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_blends_15",
-        "requiredDestinationPath": "/media/vocabulary/images/spill.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"spill\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "chop",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_digraph_2",
-        "requiredDestinationPath": "/media/vocabulary/images/chop.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"chop\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "chin",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_digraph_4",
-        "requiredDestinationPath": "/media/vocabulary/images/chin.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"chin\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "three",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_digraph_6",
-        "requiredDestinationPath": "/media/vocabulary/images/three.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"three\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "photo",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp6_phonics_10",
-        "requiredDestinationPath": "/media/vocabulary/images/photo.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"photo\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "shadow",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_5",
-        "requiredDestinationPath": "/media/vocabulary/images/shadow.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"shadow\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "shine",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_13",
-        "requiredDestinationPath": "/media/vocabulary/images/shine.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path",
-        "instruction": "Create one clear K-2 instructional image for \"shine\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "thorn",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_15",
-        "requiredDestinationPath": "/media/vocabulary/images/thorn.webp",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Create one clear K-2 instructional image for \"thorn\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "she painted a picture",
-        "skill": "Sequencing",
-        "skillId": "sequencing",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp4_comp_8",
-        "requiredDestinationPath": "/media/vocabulary/images/she-painted-a-picture.webp",
-        "reason": "missing required image path",
-        "instruction": "Create one clear K-2 instructional image for \"she painted a picture\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "image",
-        "targetWordOrConcept": "drew a picture",
-        "skill": "Sequencing",
-        "skillId": "sequencing",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp4_comp_9",
-        "requiredDestinationPath": "/media/vocabulary/images/drew-a-picture.webp",
-        "reason": "missing required image path",
-        "instruction": "Create one clear K-2 instructional image for \"drew a picture\". Single centered object/action, white background, no text, no shadow, no glow, no rainbow/fantasy coloring, no faces on objects, natural colors."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "must",
-        "skill": "High-Frequency Words 51-100",
-        "skillId": "hfw_51_100",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_hfw_51_100_6",
-        "requiredDestinationPath": "/media/vocabulary/audio/must.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"must\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "flip",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/flip.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"flip\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "fresh",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_3",
-        "requiredDestinationPath": "/media/vocabulary/audio/fresh.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"fresh\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "step",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/step.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"step\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "grin",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_6",
-        "requiredDestinationPath": "/media/vocabulary/audio/grin.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"grin\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "snap",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_blend_9",
-        "requiredDestinationPath": "/media/vocabulary/audio/snap.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"snap\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "press",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_blends_11",
-        "requiredDestinationPath": "/media/vocabulary/audio/press.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"press\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "spill",
-        "skill": "Blends",
-        "skillId": "blends",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_blends_15",
-        "requiredDestinationPath": "/media/vocabulary/audio/spill.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for blends; format MULTIPLE_CHOICE not allowed for blends level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"spill\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "chop",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "template_digraph_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/chop.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"chop\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "chin",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_digraph_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/chin.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"chin\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "three",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp2_digraph_6",
-        "requiredDestinationPath": "/media/vocabulary/audio/three.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"three\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "photo",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp6_phonics_10",
-        "requiredDestinationPath": "/media/vocabulary/audio/photo.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"photo\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "shadow",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_5",
-        "requiredDestinationPath": "/media/vocabulary/audio/shadow.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"shadow\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "thorn",
-        "skill": "Digraphs",
-        "skillId": "digraphs",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_digraphs_15",
-        "requiredDestinationPath": "/media/vocabulary/audio/thorn.mp3",
-        "reason": "routing: MULTIPLE_CHOICE is not allowed for digraphs; format MULTIPLE_CHOICE not allowed for digraphs level 2; missing required image path; missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"thorn\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "students stopped talking",
-        "skill": "Sequencing",
-        "skillId": "sequencing",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_sequencing_13",
-        "requiredDestinationPath": "/media/vocabulary/audio/students-stopped-talking.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"students stopped talking\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "doctors",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_main_idea_17",
-        "requiredDestinationPath": "/media/vocabulary/audio/doctors.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"doctors\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "daily movement is good for the body",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_main_idea_5_1",
-        "requiredDestinationPath": "/media/vocabulary/audio/daily-movement-is-good-for-the-body.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"daily movement is good for the body\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "many ways to move",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_main_idea_5_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/many-ways-to-move.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"many ways to move\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "how exercise helps people",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_main_idea_5_3",
-        "requiredDestinationPath": "/media/vocabulary/audio/how-exercise-helps-people.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"how exercise helps people\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "walking outside can be exercise",
-        "skill": "Main Idea",
-        "skillId": "main_idea",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_main_idea_5_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/walking-outside-can-be-exercise.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"walking outside can be exercise\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "he was excited about meeting someone",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "inf_2_3_003",
-        "requiredDestinationPath": "/media/vocabulary/audio/he-was-excited-about-meeting-someone.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"he was excited about meeting someone\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "she pushed herself to run faster",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_inference_3_1",
-        "requiredDestinationPath": "/media/vocabulary/audio/she-pushed-herself-to-run-faster.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"she pushed herself to run faster\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "it encouraged her",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_inference_3_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/it-encouraged-her.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"it encouraged her\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "jada caught up to other runners",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_inference_3_3",
-        "requiredDestinationPath": "/media/vocabulary/audio/jada-caught-up-to-other-runners.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"jada caught up to other runners\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "two runners were beside her instead of ahead",
-        "skill": "Inference",
-        "skillId": "inference",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_inference_3_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/two-runners-were-beside-her-instead-of-ahead.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"two runners were beside her instead of ahead\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "they listened to each idea",
-        "skill": "Cause and Effect",
-        "skillId": "cause_effect",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_cause_effect_20",
-        "requiredDestinationPath": "/media/vocabulary/audio/they-listened-to-each-idea.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"they listened to each idea\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "moved to a later time",
-        "skill": "Context Clues",
-        "skillId": "context_clues",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_context_clues_3_1",
-        "requiredDestinationPath": "/media/vocabulary/audio/moved-to-a-later-time.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"moved to a later time\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "they would try again the next sunny day",
-        "skill": "Context Clues",
-        "skillId": "context_clues",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_context_clues_3_2",
-        "requiredDestinationPath": "/media/vocabulary/audio/they-would-try-again-the-next-sunny-day.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"they would try again the next sunny day\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "thunder made outdoor plans unsafe",
-        "skill": "Context Clues",
-        "skillId": "context_clues",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_context_clues_3_3",
-        "requiredDestinationPath": "/media/vocabulary/audio/thunder-made-outdoor-plans-unsafe.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"thunder made outdoor plans unsafe\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "delayed",
-        "skill": "Context Clues",
-        "skillId": "context_clues",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "adv_context_clues_3_4",
-        "requiredDestinationPath": "/media/vocabulary/audio/delayed.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"delayed\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "teamwork helps",
-        "skill": "Theme and Higher Comprehension",
-        "skillId": "theme_higher_comprehension",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp6_comp_30",
-        "requiredDestinationPath": "/media/vocabulary/audio/teamwork-helps.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"teamwork helps\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      },
-      {
-        "mediaType": "audio",
-        "targetWordOrConcept": "listen to others",
-        "skill": "Theme and Higher Comprehension",
-        "skillId": "theme_higher_comprehension",
-        "level": 2,
-        "phase": "Level/phase pool",
-        "affectedQuestionId": "exp7_theme_9",
-        "requiredDestinationPath": "/media/vocabulary/audio/listen-to-others.mp3",
-        "reason": "missing required audio path",
-        "instruction": "Record one clean American English MP3 saying only \"listen to others\". Neutral soft light female voice, no music, no effects, no file name, no extra instructions."
-      }
-    ]
+    "images": [],
+    "audio": [],
+    "combined": []
   }
 }
