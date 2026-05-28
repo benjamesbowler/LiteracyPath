@@ -790,8 +790,9 @@ export const shortVowelGeneratedQuestions = [
       "short-vowel-discrimination",
       "listen-vowel"
     ],
-    "active": true,
-    "qaStatus": "approved",
+    "active": false,
+    "qaStatus": "needs_image_replacement",
+    "qaNotes": "Bud audio is clean, but the current bud image is visually ambiguous. Keep this target out of live assessment until the image is replaced and QA-approved.",
     "sourceLexiconId": "lex_bud"
   },
   {
@@ -842,8 +843,9 @@ export const shortVowelGeneratedQuestions = [
       "short-vowel-discrimination",
       "word-choice"
     ],
-    "active": true,
-    "qaStatus": "approved",
+    "active": false,
+    "qaStatus": "needs_image_replacement",
+    "qaNotes": "Bud audio is clean, but the current bud image is visually ambiguous. Keep this target out of live assessment until the image is replaced and QA-approved.",
     "sourceLexiconId": "lex_bud"
   },
   {

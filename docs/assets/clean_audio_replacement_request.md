@@ -123,7 +123,7 @@ No missing required static MP3 files were found in active asset-backed runtime q
 | bubble | public/media/vocabulary/audio/bubble.mp3 |  | Approved exact-word vocabulary audio from Kimi 500 pack; held as reserve for Level 2+ or vocabulary use. |
 | bucket | public/media/vocabulary/audio/bucket.mp3 |  | Approved exact-word vocabulary audio from Kimi 500 pack; held as reserve for Level 2+ or vocabulary use. |
 | buckle | public/media/vocabulary/audio/buckle.mp3 |  | Approved exact-word vocabulary audio from Kimi 500 pack; held as reserve for Level 2+ or vocabulary use. |
-| bud | public/audio/child-mode/words/bud.mp3 | public/audio/child-mode/words/bud.mp3, public/audio/child-mode/words/bud-kimi3.mp3 | Live Final Sounds review found the current bud audio hard to understand; request a clean human /bŭd/ replacement before using bud as a preferred assessment word. |
+| bud | public/audio/child-mode/words/bud.mp3 | public/audio/child-mode/words/bud-kimi3.mp3 | Clean bud audio imported on 2026-05-28. Bud image remains blocked from live assessment use until a clear unopened flower bud replacement is QA-approved. |
 | buffalo | public/media/vocabulary/audio/buffalo.mp3 |  | Approved exact-word vocabulary audio from Kimi 500 pack; held as reserve for Level 2+ or vocabulary use. |
 | bug | public/audio/child-mode/clean-human/words/bug.mp3 |  | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | bulb | public/media/final-sounds/audio/b/bulb.mp3 |  | Approved exact-word MP3 from the imported final /b/ Level 1 media pack. |

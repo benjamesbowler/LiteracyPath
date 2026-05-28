@@ -1,7 +1,7 @@
 const cvcTargets = [
   ["bag", ["bag", "bug", "big", "bed"]],
-  ["bat", ["bat", "bag", "bed", "bud"]],
-  ["bed", ["bed", "bad", "bid", "bud"]],
+  ["bat", ["bat", "bag", "bed", "big"]],
+  ["bed", ["bed", "bad", "bid", "web"]],
   ["cap", ["cap", "cup", "cat", "cot"]],
   ["cat", ["cat", "cot", "cut", "cap"]],
   ["cup", ["cup", "cap", "cot", "cut"]],

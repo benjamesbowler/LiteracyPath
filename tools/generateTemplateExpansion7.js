@@ -144,7 +144,7 @@ addRows("exp7_final", [
   ["m", "drum", ["duck", "drop", "dress"]],
   ["d", "bed", ["bet", "beg", "bell"]],
   ["k", "duck", ["dun", "dub", "dug"]],
-  ["s", "bus", ["bug", "bun", "bud"]]
+  ["s", "bus", ["bug", "bun", "big"]]
 ], ([sound, answer, wrongs], index, id) => ({
   id,
   grade: "K",
@@ -208,7 +208,7 @@ addRows("exp7_short_vowel", [
 
 addRows("exp7_cvc", [
   ["cat", ["cap", "cot", "cut"]],
-  ["bed", ["bad", "bid", "bud"]],
+  ["bed", ["bad", "bid", "web"]],
   ["hop", ["hip", "hap", "hup"]],
   ["mud", ["mad", "mid", "mop"]],
   ["fin", ["fan", "fun", "fog"]],
@@ -449,7 +449,7 @@ addRows("exp7_r_controlled", [
   ["ar", "sharp", ["ship", "shop", "sheep"]],
   ["er", "herd", ["hide", "had", "head"]],
   ["er", "clerk", ["click", "clock", "clack"]],
-  ["ir", "bird", ["bad", "bed", "bud"]],
+  ["ir", "bird", ["bad", "bed", "bus"]],
   ["ir", "shirt", ["shot", "shut", "sheet"]],
   ["or", "corn", ["can", "cot", "cut"]],
   ["or", "fork", ["fish", "fan", "fun"]],

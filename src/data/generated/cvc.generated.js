@@ -6746,8 +6746,9 @@ export const cvcGeneratedQuestions = [
       "cvc",
       "short-vowel"
     ],
-    "active": true,
-    "qaStatus": "approved",
+    "active": false,
+    "qaStatus": "needs_image_replacement",
+    "qaNotes": "Bud audio is clean, but the current bud image is visually ambiguous. Keep this target out of live assessment until the image is replaced and QA-approved.",
     "sourceLexiconId": "lex_bud"
   },
   {
@@ -6800,8 +6801,9 @@ export const cvcGeneratedQuestions = [
       "cvc",
       "missing-vowel"
     ],
-    "active": true,
-    "qaStatus": "approved",
+    "active": false,
+    "qaStatus": "needs_image_replacement",
+    "qaNotes": "Bud audio is clean, but the current bud image is visually ambiguous. Keep this target out of live assessment until the image is replaced and QA-approved.",
     "sourceLexiconId": "lex_bud"
   },
   {

@@ -299,7 +299,7 @@ export const templateExpansion7 = [
       "bus",
       "bug",
       "bun",
-      "bud"
+      "big"
     ],
     "answer": "bus"
   },
@@ -861,7 +861,7 @@ export const templateExpansion7 = [
       "bed",
       "bad",
       "bid",
-      "bud"
+      "web"
     ],
     "answer": "bed"
   },
@@ -3429,7 +3429,7 @@ export const templateExpansion7 = [
       "bird",
       "bad",
       "bed",
-      "bud"
+      "bus"
     ],
     "answer": "bird"
   },

@@ -165,9 +165,9 @@ const activeReviewNeededWordAudio = {
   bud: {
     fallbackPath: wordAudioPath("bud"),
     deprecatedAudioPaths: [wordAudioPath("bud-kimi3")],
-    reviewNeededPaths: [wordAudioPath("bud"), wordAudioPath("bud-kimi3")],
-    source: "live assessment audio review",
-    notes: "Live Final Sounds review found the current bud audio hard to understand; request a clean human /bŭd/ replacement before using bud as a preferred assessment word."
+    reviewNeededPaths: [wordAudioPath("bud-kimi3")],
+    source: "Bud Audio File.zip import",
+    notes: "Clean bud audio imported on 2026-05-28. Bud image remains blocked from live assessment use until a clear unopened flower bud replacement is QA-approved."
   }
 };
 

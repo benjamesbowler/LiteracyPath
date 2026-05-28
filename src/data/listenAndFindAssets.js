@@ -4,7 +4,7 @@ import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 const listenAndFindOverrides = {
   core_cvc_001: ["cat", ["cat", "cap", "dog", "sun"]],
   exp7_cvc_1: ["cat", ["cat", "cap", "dog", "sun"]],
-  exp7_cvc_2: ["bed", ["bed", "bad", "bid", "bud"]],
+  exp7_cvc_2: ["bed", ["bed", "bad", "bid", "web"]],
   exp7_cvc_3: ["hat", ["hat", "cat", "bug", "pen"]],
   exp7_cvc_4: ["mud", ["mud", "mug", "map", "bed"]],
   exp7_cvc_5: ["fin", ["fin", "lid", "dog", "cat"]],

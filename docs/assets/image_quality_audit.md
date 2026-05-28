@@ -1441,11 +1441,11 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | bat | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bat.png | active asset |  |  |
 | bag | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bag.png | active asset |  |  |
 | bed | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
-| bud | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bud.png | active asset |  |  |
+| big | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-i/big.png | active asset |  |  |
 | bed | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bed.png | active asset |  |  |
 | bad | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bad.png | active asset |  |  |
 | bid | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bid.png | active asset |  |  |
-| bud | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/bud.png | active asset |  |  |
+| web | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-e/web.png | active asset |  |  |
 | cap | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/cap.png | active asset |  |  |
 | cup | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/short-u/cup.png | active asset |  |  |
 | cat | CVC and Short Vowels | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | choice image | yes | /images/child-mode/cvc/cat.png | active asset |  |  |

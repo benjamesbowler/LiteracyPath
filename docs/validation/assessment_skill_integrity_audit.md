@@ -1,6 +1,6 @@
 # Assessment Skill Integrity Audit
 
-Generated: 2026-05-28T10:25:30.261Z
+Generated: 2026-05-28T10:31:08.733Z
 
 Strict contract: every assessment skill should have exactly 2 levels, exactly 2 phases, 15 safe questions per phase, and at least 30 unique usable questions per level. This is audit-only and does not modify question content.
 
