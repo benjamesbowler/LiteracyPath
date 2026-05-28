@@ -35,6 +35,7 @@ import { enrichQuestionWithExistingMedia } from "../src/data/questionMediaResolv
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
 import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
+import { getHfwRuntimeEligibilityIssues, isRuntimeEligibleHfwQuestion } from "../src/data/hfwRuntimeEligibility.js";
 import {
   getFinalSoundsLevel1QuestionIssues,
   isFinalSoundsLevel1Question
@@ -384,6 +385,9 @@ export function getCoreSkillId(question = {}) {
   if (id === "final_sounds" || label.includes("final") || label.includes("ending")) return "final_sounds";
   if (id === "rhyming" || label.includes("rhyme") || label.includes("rhyming")) return "rhyming";
   if (id === "short_vowel_discrimination" || label.includes("short vowel discrimination") || label.includes("same middle sound") || label.includes("middle vowel")) return "short_vowel_discrimination";
+  if (id === "hfw_1_25" || id === "high_frequency_words_1_25" || label.includes("high-frequency words 1-25")) return "hfw_1_25";
+  if (id === "hfw_26_50" || id === "high_frequency_words_26_50" || label.includes("high-frequency words 26-50")) return "hfw_26_50";
+  if (id === "hfw_51_100" || id === "high_frequency_words_51_100" || label.includes("high-frequency words 51-100")) return "hfw_51_100";
   if (id.includes("cvc") || label.includes("cvc") || label.includes("short vowel")) return "cvc_short_vowels";
   return "";
 }
@@ -411,6 +415,10 @@ export function questionFilterReason(question = {}) {
   if (skillId) {
     const routeIssue = getQuestionRoutingIssue(question, skillId);
     if (routeIssue) return `wrong skill/template: ${routeIssue}`;
+    if (skillId.startsWith("hfw_")) {
+      const hfwIssues = getHfwRuntimeEligibilityIssues(question, skillId);
+      if (hfwIssues.length > 0) return `hfw runtime ineligible: ${hfwIssues.join("; ")}`;
+    }
     const eligibilityIssues = getEarlySkillRuntimeEligibilityIssues(question, {
       skillId: normalizeEarlySkillId(skillId),
       level: question.level || question.difficulty || 1,
@@ -480,6 +488,12 @@ export function buildRuntimeQuestionsForSkill(skillId) {
 }
 
 export function selectableRuntimeQuestionsForSkill(skillId) {
+  if (String(skillId || "").startsWith("hfw_")) {
+    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+      (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
+      isRuntimeEligibleHfwQuestion(question, skillId)
+    );
+  }
   return buildRuntimeQuestionsForSkill(skillId).filter(question =>
     (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
     isRuntimeEligibleEarlySkillQuestion(question, {

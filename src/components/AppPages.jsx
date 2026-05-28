@@ -4016,11 +4016,7 @@ export function AssessmentPage({
     !isVisualCardChoice &&
     !isIxlStyleTemplate &&
     normalizedChoices.length > 0 &&
-    (
-      isShortVowelWordChoiceItem
-        ? normalizedChoices.some(choice => Boolean(textChoiceAudioPaths[choice.value]))
-        : normalizedChoices.every(choice => Boolean(textChoiceAudioPaths[choice.value]))
-    );
+    normalizedChoices.every(choice => Boolean(textChoiceAudioPaths[choice.value]));
 
   return (
     <main className="assessment-shell">

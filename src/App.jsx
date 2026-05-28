@@ -70,6 +70,8 @@ import {
   isFinalSoundsLevel1Question,
   isValidFinalSoundWordForEarlyLevel
 } from "./data/earlyPhonicsValidation";
+import { getHfwRuntimeEligibilityIssues } from "./data/hfwRuntimeEligibility";
+import { isHighFrequencyWordSkill } from "./data/highFrequencyWordBands";
 import {
   buildFinalSoundAvailableWordMap,
   evaluateFinalSoundLevelOneMasteryDepth,
@@ -127,6 +129,11 @@ import {
   isRuntimeEligibleEarlySkillQuestion,
   normalizeEarlySkillId
 } from "./utils/earlySkills/isRuntimeEligibleEarlySkillQuestion";
+import {
+  buildAssessmentAttemptRecord,
+  loadAssessmentAttempts,
+  saveAssessmentAttempt
+} from "./data/assessmentHistoryStore";
 
 // dynamic mastery system
 
@@ -166,6 +173,10 @@ const PURE_EARLY_PHONICS_SKILL_IDS = new Set([
   "rhyming",
   "short_vowel_discrimination"
 ]);
+
+function isHfwStage(stage = {}) {
+  return isHighFrequencyWordSkill(stage.id || stage.label || "");
+}
 
 function shuffleArray(array) {
   return [...array].sort(() => Math.random() - 0.5);
@@ -1105,6 +1116,10 @@ function isQuestionValid(q) {
   const candidateStageIndex = getStageIndex(q);
   const candidateStage = skillTree[candidateStageIndex];
   const candidateSkillId = normalizeEarlySkillId(candidateStage?.id || q.skillId || q.skill);
+  if (isHfwStage(candidateStage)) {
+    const hfwIssues = getHfwRuntimeEligibilityIssues(q, candidateStage.id);
+    if (hfwIssues.length > 0) return false;
+  }
   if (
     PURE_EARLY_PHONICS_SKILL_IDS.has(candidateSkillId) &&
     !isRuntimeEligibleEarlySkillQuestion(q, {
@@ -1477,6 +1492,7 @@ export default function App() {
   const [patternAttempt, setPatternAttempt] =
     useState(0);
   const [answerHistory, setAnswerHistory] = useState([]);
+  const [assessmentHistory, setAssessmentHistory] = useState([]);
   const [guidedReadingRecords, setGuidedReadingRecords] = useState({});
   const [itemMastery, setItemMastery] = useState({});
   const [itemSessionSeen, setItemSessionSeen] = useState({});
@@ -1519,6 +1535,10 @@ export default function App() {
   useEffect(() => {
     answerHistoryRef.current = answerHistory;
   }, [answerHistory]);
+
+  useEffect(() => {
+    setAssessmentHistory(teacherId ? loadAssessmentAttempts({ teacherId }) : []);
+  }, [teacherId]);
 
   useEffect(() => {
     roundItemKeysRef.current = roundItemKeys;
@@ -1599,6 +1619,7 @@ export default function App() {
     setPatternIndex(0);
     setPatternAssessment([]);
     setAnswerHistory([]);
+    setAssessmentHistory([]);
     setGuidedReadingRecords({});
     setItemMastery({});
     setItemSessionSeen({});
@@ -3833,6 +3854,7 @@ export default function App() {
 
     const shouldInjectReview =
       mode === "mastery" &&
+      !isHfwStage(activeStage) &&
       !isPureEarlyPhonicsStage(activeStage) &&
       answeredCount > 0 &&
       (answeredCount + 1) % 5 === 0;
@@ -4599,6 +4621,7 @@ export default function App() {
       passage: answeredQuestion.passage || "",
       chosen: submittedAnswer,
       correct: correctAnswer,
+      timestamp: new Date().toISOString(),
       selectedAnswers: Array.isArray(choice) ? choice : [],
       correctAnswers: Array.isArray(answeredQuestion.correctAnswers) ? answeredQuestion.correctAnswers : [],
       isCorrect,
@@ -4690,6 +4713,17 @@ export default function App() {
         nextRoundCorrectItemKeys
       );
       const mastered = Boolean(checkpoint.passed);
+      const roundRecords = answerHistoryRef.current.slice(-nextRound.length);
+      const attemptRecord = buildAssessmentAttemptRecord({
+        studentId,
+        studentName,
+        classId: selectedClassId,
+        teacherId,
+        stage,
+        checkpoint,
+        questionRecords: roundRecords,
+        assessmentType: assessmentMode === "mastery" ? "skill_checkpoint" : assessmentMode
+      });
 
       setMastery(prev => ({
         ...prev,
@@ -4702,6 +4736,9 @@ export default function App() {
       }));
 
       saveMasteryToSupabase(stage, score, ROUND_LENGTH, mastered);
+      saveAssessmentAttempt(attemptRecord, { teacherId, supabase })
+        .then(records => setAssessmentHistory(records))
+        .catch(error => console.warn("Assessment attempt archive save failed.", error));
 
       setCheckpointDecision(checkpoint);
       setRoundAnswers([]);
@@ -6263,6 +6300,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             updateTeacherAccountStatus={updateTeacherAccountStatus}
             questionBankCoverage={questionBankCoverage}
             mediaQuestions={allQuestions}
+            assessmentHistory={assessmentHistory}
             message={message}
           />
         </Suspense>
@@ -6354,6 +6392,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           viewFinishedReport={() => setAppView("finished")}
           openGuidedReading={() => setAppView("guidedReading")}
           guidedReadingRecords={guidedReadingRecords}
+          assessmentHistory={assessmentHistory.filter(record => !studentId || record.studentId === studentId)}
           skillMasterySummary={buildSkillMasterySummary()}
           exportData={exportData}
           exportCSVData={exportCSVData}

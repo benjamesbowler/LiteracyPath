@@ -1,3 +1,5 @@
+import { getHfwRuntimeEligibilityIssues } from "./hfwRuntimeEligibility.js";
+
 const normalize = value =>
   String(value || "")
     .toLowerCase()
@@ -91,23 +93,12 @@ export function getSkillRoutingRule(stageId = "") {
   return ROUTING_RULES[stageId] || null;
 }
 
-function getQuestionAnswerText(question = {}) {
-  return String(question.answer || question.correctAnswer || question.targetWord || question.itemKey || "").toLowerCase().trim();
-}
-
 function promptLooksLikeEndingSound(question = {}) {
   return /\b(end|ends|ending|final)\b/.test(String([question.prompt, question.question].filter(Boolean).join(" ")).toLowerCase());
 }
 
 function promptLooksLikeInitialSound(question = {}) {
   return /\b(start|starts|starting|first|beginning|initial)\b/.test(String([question.prompt, question.question, question.spokenPrompt].filter(Boolean).join(" ")).toLowerCase());
-}
-
-function hfwQuestionUsesOnlySightWords(question = {}) {
-  const answer = getQuestionAnswerText(question);
-  if (!answer || !APPROVED_SIGHT_WORDS.has(answer)) return false;
-  const target = String(question.targetWord || question.audioText || "").toLowerCase().trim();
-  return !target || APPROVED_SIGHT_WORDS.has(target) || target === answer;
 }
 
 export function getQuestionRoutingIssue(question = {}, stageId = "") {
@@ -125,7 +116,10 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   if (stageId === "rhyming" && (promptLooksLikeInitialSound(question) || promptLooksLikeEndingSound(question))) {
     return "initial/final-sound prompt is not allowed in Rhyming";
   }
-  if (rule.sightWordsOnly && !hfwQuestionUsesOnlySightWords(question)) return "High-Frequency Words must use approved sight words only";
+  if (rule.sightWordsOnly) {
+    const hfwIssues = getHfwRuntimeEligibilityIssues(question, stageId);
+    if (hfwIssues.length) return `High-Frequency Words routing violation: ${hfwIssues.join("; ")}`;
+  }
   return "";
 }
 
