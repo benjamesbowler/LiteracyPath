@@ -1383,6 +1383,8 @@ export default function App() {
   const initialSoundRoundMetaRef = useRef(null);
   const initialSoundForcedLevelRef = useRef(null);
   const lastAuthUserIdRef = useRef(null);
+  const freshAuthActionRef = useRef(false);
+  const freshLoginResetPendingRef = useRef(false);
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -1539,8 +1541,11 @@ export default function App() {
       const nextUser = session?.user || null;
       const nextUserId = nextUser?.id || null;
 
-      if (nextUserId && nextUserId !== lastAuthUserIdRef.current) {
-        resetSelectedStudentOnLogin();
+      if (event === "SIGNED_IN" && nextUserId && freshAuthActionRef.current) {
+        freshLoginResetPendingRef.current = true;
+        freshAuthActionRef.current = false;
+      } else if (!nextUserId || event === "SIGNED_OUT") {
+        freshAuthActionRef.current = false;
       }
 
       lastAuthUserIdRef.current = nextUserId;
@@ -1624,10 +1629,45 @@ export default function App() {
         const data = JSON.parse(saved);
         const savedClassId = data.selectedClassId || null;
 
-        resetSelectedStudentOnLogin();
+        const isFreshLoginRestore = freshLoginResetPendingRef.current;
+        if (isFreshLoginRestore) {
+          freshLoginResetPendingRef.current = false;
+          resetSelectedStudentOnLogin();
+          setSelectedClassId(null);
+          setAssessmentMode("mastery");
+          setCurrentSkillIndex(0);
+          setRoundAnswers([]);
+          setUsedByStage({});
+          setMastery({});
+          setTotalAnswered(0);
+          setCorrectAnswered(0);
+          setLetterIndex(0);
+          setLetterAssessment([]);
+          setPatternIndex(0);
+          setPatternAssessment([]);
+          setPatternAttempt(0);
+          setAnswerHistory([]);
+          answerHistoryRef.current = [];
+          setItemMastery({});
+          loadStudents();
+          setProfileLoaded(true);
+          return;
+        }
+
         setSelectedClassId(savedClassId);
         setAssessmentMode(data.assessmentMode || "mastery");
-        setCurrentSkillIndex(data.currentSkillIndex || 0);
+        const restoredSkillIndex = data.currentSkillIndex || 0;
+        const restoredRoundAnswers = Array.isArray(data.roundAnswers) ? data.roundAnswers : [];
+        const restoredStudentId = data.studentId || null;
+        const restoredStudentName = data.studentName || "";
+        const restoredAppView = restoredStudentId ? data.appView || "overview" : "select";
+
+        setStudentId(restoredStudentId);
+        setStudentName(restoredStudentName);
+        setNameSaved(Boolean(restoredStudentId && restoredStudentName));
+        setAppView(restoredAppView);
+        setCurrentSkillIndex(restoredSkillIndex);
+        setRoundAnswers(restoredRoundAnswers);
         setRoundItemKeys([]);
         setRoundQuestionIds([]);
         setUsedByStage(data.usedByStage || {});
@@ -1639,19 +1679,29 @@ export default function App() {
         setPatternIndex(data.patternIndex || 0);
         setPatternAssessment(data.patternAssessment || []);
         setPatternAttempt(data.patternAttempt || 0);
-        setAnswerHistory([]);
-        answerHistoryRef.current = [];
-        setGuidedReadingRecords({});
+        const restoredAnswerHistory = restoredStudentId && Array.isArray(data.answerHistory) ? data.answerHistory : [];
+        setAnswerHistory(restoredAnswerHistory);
+        answerHistoryRef.current = restoredAnswerHistory;
+        setGuidedReadingRecords(restoredStudentId ? loadGuidedReadingRecords(restoredStudentId) : {});
         setItemMastery(data.itemMastery || {});
         setItemSessionSeen({});
+        setFeedback(null);
+        setCurrentQuestion(null);
 
         loadStudents(savedClassId);
+        if (restoredAppView === "assessment") {
+          setAssessmentTransitioning(true);
+          setTimeout(() => {
+            pickQuestion(data.assessmentMode || "mastery", restoredRoundAnswers.length, restoredSkillIndex);
+          }, 0);
+        }
       } catch (error) {
         console.warn("Could not restore saved reading profile.", error);
         localStorage.removeItem(profileStorageKey);
         loadStudents();
       }
     } else {
+      freshLoginResetPendingRef.current = false;
       resetSelectedStudentOnLogin();
       loadStudents();
     }
@@ -2078,6 +2128,7 @@ export default function App() {
 
     setAuthLoading(true);
     setAuthMessage("");
+    freshAuthActionRef.current = true;
 
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -2092,6 +2143,7 @@ export default function App() {
     setAuthLoading(false);
 
     if (error) {
+      freshAuthActionRef.current = false;
       setAuthMessage(error.message);
       return;
     }
@@ -2131,6 +2183,7 @@ export default function App() {
 
     setAuthLoading(true);
     setAuthMessage("");
+    freshAuthActionRef.current = true;
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
@@ -2140,6 +2193,7 @@ export default function App() {
     setAuthLoading(false);
 
     if (error) {
+      freshAuthActionRef.current = false;
       setAuthMessage(error.message);
       return;
     }
@@ -6251,7 +6305,15 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === "assessment" && (
         <AssessmentErrorBoundary
-          resetKey={`${currentQuestion?.id || feedback?.question?.id || `skill-${currentSkillIndex}`}:${currentSkillIndex}:${appView}`}
+          resetKey={`${
+            currentQuestion?.id
+              ? `question-${currentQuestion.id}`
+              : feedback?.question?.id
+                ? `feedback-${feedback.question.id}`
+                : assessmentTransitioning
+                  ? `transition-${currentSkillIndex}`
+                  : `skill-${currentSkillIndex}`
+          }:${currentSkillIndex}:${appView}`}
           returnToStudentOverview={goToOverview}
         >
           <AssessmentPage

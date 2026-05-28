@@ -28,21 +28,28 @@ const IMAGE_CHOICE_FORMATS = new Set([
 
 const GRAPHEME_PATTERN = /^(?:[a-z]|[bcdfghjklmnpqrstvwxyz]{2,3}|[aeiou]_[e]|short [aeiou]|short_[aeiou])$/i;
 
+function normalizeQuestion(question = {}) {
+  return question && typeof question === "object" ? question : {};
+}
+
 function normalizeFormat(question = {}) {
-  return String(question.formatType || question.templateType || "").toUpperCase();
+  const safeQuestion = normalizeQuestion(question);
+  return String(safeQuestion.formatType || safeQuestion.templateType || "").toUpperCase();
 }
 
 function normalizePrompt(question = {}) {
-  return String([question.prompt, question.question, question.spokenPrompt].filter(Boolean).join(" ")).toLowerCase();
+  const safeQuestion = normalizeQuestion(question);
+  return String([safeQuestion.prompt, safeQuestion.question, safeQuestion.spokenPrompt].filter(Boolean).join(" ")).toLowerCase();
 }
 
 export function getAssessmentChoiceLabels(question = {}) {
-  const options = Array.isArray(question.answerOptions) && question.answerOptions.length
-    ? question.answerOptions
-    : Array.isArray(question.options) && question.options.length
-      ? question.options
-      : Array.isArray(question.choices)
-        ? question.choices
+  const safeQuestion = normalizeQuestion(question);
+  const options = Array.isArray(safeQuestion.answerOptions) && safeQuestion.answerOptions.length
+    ? safeQuestion.answerOptions
+    : Array.isArray(safeQuestion.options) && safeQuestion.options.length
+      ? safeQuestion.options
+      : Array.isArray(safeQuestion.choices)
+        ? safeQuestion.choices
         : [];
 
   return options
@@ -58,10 +65,11 @@ export function isShortGraphemeLabel(value = "") {
 }
 
 export function hasOptionImageChoiceLeak(question = {}) {
+  const safeQuestion = normalizeQuestion(question);
   const optionGroups = [
-    ...(Array.isArray(question.answerOptions) ? question.answerOptions : []),
-    ...(Array.isArray(question.options) ? question.options : []),
-    ...(Array.isArray(question.choices) ? question.choices : [])
+    ...(Array.isArray(safeQuestion.answerOptions) ? safeQuestion.answerOptions : []),
+    ...(Array.isArray(safeQuestion.options) ? safeQuestion.options : []),
+    ...(Array.isArray(safeQuestion.choices) ? safeQuestion.choices : [])
   ];
 
   return optionGroups.some(option =>
@@ -72,12 +80,13 @@ export function hasOptionImageChoiceLeak(question = {}) {
 }
 
 export function isGraphemeChoiceQuestion(question = {}) {
-  const format = normalizeFormat(question);
-  const prompt = normalizePrompt(question);
-  const labels = getAssessmentChoiceLabels(question);
+  const safeQuestion = normalizeQuestion(question);
+  const format = normalizeFormat(safeQuestion);
+  const prompt = normalizePrompt(safeQuestion);
+  const labels = getAssessmentChoiceLabels(safeQuestion);
   const allShortLabels = labels.length > 0 && labels.every(isShortGraphemeLabel);
   const hasBlank =
-    Boolean(question.partialWord || question.blankWord || question.wordWithBlank) ||
+    Boolean(safeQuestion.partialWord || safeQuestion.blankWord || safeQuestion.wordWithBlank) ||
     /_{1,}/.test(prompt) ||
     /\bblank\b/.test(prompt);
 
@@ -93,12 +102,13 @@ export function isGraphemeChoiceQuestion(question = {}) {
 }
 
 export function isImageChoiceQuestion(question = {}) {
-  if (isGraphemeChoiceQuestion(question)) return false;
-  const format = normalizeFormat(question);
+  const safeQuestion = normalizeQuestion(question);
+  if (isGraphemeChoiceQuestion(safeQuestion)) return false;
+  const format = normalizeFormat(safeQuestion);
   if (IMAGE_CHOICE_FORMATS.has(format)) return true;
-  if (question.questionType === "visual_card_choice") return true;
+  if (safeQuestion.questionType === "visual_card_choice") return true;
   return Boolean(
-    question.imageCards?.length ||
-    question.answerOptions?.some(option => option?.image || option?.imageUrl || option?.imagePath)
+    safeQuestion.imageCards?.length ||
+    safeQuestion.answerOptions?.some(option => option?.image || option?.imageUrl || option?.imagePath)
   );
 }
