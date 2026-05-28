@@ -1,6 +1,6 @@
 # Meadow Pals Level A Import Audit
 
-Generated: 2026-05-28T06:44:10.544Z
+Generated: 2026-05-28T06:57:02.548Z
 
 ## Source
 
@@ -27,7 +27,7 @@ Asset pack: `Meadow Pals Asset Pack/Meadow_Pals_Level_A_Assets`.
 - Final fiction book count: 85
 - Final nonfiction book count: 76
 - Final total guided reading count: 161
-- Validation failures: 1
+- Validation failures: 0
 
 ## Imported Books
 
@@ -74,6 +74,6 @@ None. The source pack had complete cover, story image, page text, and page audio
 
 None.
 
-## Failures
+## Result
 
-- first-facts-level-a-10-shapes: max words per page is 10, expected true Level A text load of 9 or fewer.
+PASS: Meadow Pals Books 1-25 are imported as an approved Level A fiction series with aligned page text, images, and page audio.

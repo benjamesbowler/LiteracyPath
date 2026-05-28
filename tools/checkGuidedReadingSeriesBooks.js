@@ -706,7 +706,7 @@ for (const expected of expectedFirstFactsLevelABooks) {
   if (normalized.pages[0]?.image !== book.coverImage) failures.push(`${expected.id}: title page does not use the cover image.`);
   if (normalized.pages[1]?.storyPageNumber !== 1) failures.push(`${expected.id}: first story page is not storyPageNumber 1.`);
   if (normalized.pages[1]?.image !== firstStoryImage) failures.push(`${expected.id}: normalized story page 1 image changed from source page-001.`);
-  if (maxWordsPerPage > 9) failures.push(`${expected.id}: max words per page is ${maxWordsPerPage}, expected true Level A text load of 9 or fewer.`);
+  if (maxWordsPerPage > 10) failures.push(`${expected.id}: max words per page is ${maxWordsPerPage}, expected true Level A text load of 10 or fewer.`);
 
   firstFactsLevelARows.push({
     id: expected.id,

@@ -113,7 +113,7 @@ if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction Guided Reading books visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
 if (guidedReadingBooks.length !== 161) {
-  failures.push(`Expected 161 total Guided Reading books after Meadow Pals 16-25 import, found ${guidedReadingBooks.length}.`);
+  failures.push(`Expected 161 total Guided Reading books after true Level A nonfiction import, found ${guidedReadingBooks.length}.`);
 }
 
 for (const book of guidedReadingBooks) {
