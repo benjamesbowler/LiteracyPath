@@ -44,6 +44,8 @@ export const finalSoundPairCoverageQuestions = Object.entries(finalSoundPairs).f
       words,
       pairVariant: index,
       level: 2,
+      phase: (index % 2) + 1,
+      phaseTarget: `level_2_phase_${(index % 2) + 1}`,
       difficulty: 2
     })
   )
@@ -51,7 +53,7 @@ export const finalSoundPairCoverageQuestions = Object.entries(finalSoundPairs).f
 
 const endingSoundAnswerOptions = {
   1: ["b", "d", "g", "l", "m", "n", "p", "t"],
-  2: ["sh", "ch", "th", "ck", "ng", "nd", "nt", "st", "mp", "rk", "sk", "l", "r", "f", "p", "s"]
+  2: ["ll", "ss", "ff", "ck", "sh", "ch", "th", "ng", "nd", "nt", "st", "sk", "mp", "rk", "lt", "ft"]
 };
 
 const finalSoundMediaOverrides = {
@@ -191,7 +193,7 @@ const endingSoundLevelOneTargets = [
 const endingSoundLevelTwoTargets = [
   ["fish", "sh"], ["dish", "sh"], ["brush", "sh"], ["duck", "ck"], ["sock", "ck"],
   ["rock", "ck"], ["ring", "ng"], ["king", "ng"], ["hand", "nd"], ["tent", "nt"],
-  ["lamp", "mp"], ["park", "rk"], ["fork", "rk"], ["desk", "sk"], ["shell", "l"],
+  ["lamp", "mp"], ["park", "rk"], ["fork", "rk"], ["desk", "sk"], ["shell", "ll"],
   ["whale", "l"], ["chair", "r"], ["car", "r"], ["tiger", "r"], ["leaf", "f"],
   ["roof", "f"], ["ship", "p"], ["bus", "s"], ["octopus", "s"], ["thumb", "m"]
 ];
@@ -215,6 +217,8 @@ function makeEndingSoundQuestion([targetWord, finalSound], index, level) {
     skill: "Final Sounds",
     skillId: "final_sounds",
     level,
+    phase: (index % 2) + 1,
+    phaseTarget: `level_${level}_phase_${(index % 2) + 1}`,
     difficulty: level,
     passage: "",
     question: "Listen to the word. Which sound does it end with?",
@@ -223,6 +227,8 @@ function makeEndingSoundQuestion([targetWord, finalSound], index, level) {
     questionType: "ixl_template",
     templateType: "ENDING_SOUND",
     formatType: "ENDING_SOUND",
+    renderMode: "final_sound_text_choices",
+    choiceDisplay: "text_only",
     itemType: "final_sound",
     itemKey: finalSound,
     targetSound: finalSound,

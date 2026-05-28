@@ -168,7 +168,7 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 | tag | public/media/vocabulary/audio/tag.mp3 | tag | word | optional | high | suspect or missing | yes | Rhyming | RHYMING_PICTURE |
 | tall | public/media/vocabulary/audio/wall.mp3 | tall | word | optional | high | yes | yes | Rhyming | RHYMING_PICTURE |
 | tap | public/media/initial-sounds/audio/t/tap.mp3 | tap | word | required | high | yes | yes | CVC and Short Vowels, Final Sounds, Rhyming, Short Vowel Discrimination | ENDING_SOUND, LISTEN_CHOOSE_VOWEL, MISSING_VOWEL_CVC, PICTURE_TO_PRINT_MATCH, RHYMING_PICTURE, SHORT_VOWEL_WORD |
-| tent | public/audio/child-mode/words/tent.mp3 | tent | word | required | standard | yes | no | Final Sounds, Initial Sounds | ENDING_SOUND, FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |
+| tent | public/audio/child-mode/words/tent.mp3 | tent | word | required | standard | yes | no | Final Sounds, Initial Sounds | ENDING_SOUND, INITIAL_SOUND_PAIR_SELECT |
 | th | public/audio/child-mode/words/fish.mp3 | th | word | optional | standard | yes | no | Final Sounds | ENDING_SOUND |
 | this | public/audio/child-mode/hfw/this.mp3 | this | hfw | required | standard | yes | no | Final Sounds | FINAL_SOUND_PAIR_SELECT |
 | tiger | public/audio/child-mode/words/tiger.mp3 | tiger | word | required | standard | yes | no | Final Sounds, Initial Sounds | ENDING_SOUND, FINAL_SOUND_PAIR_SELECT, INITIAL_SOUND_PAIR_SELECT |

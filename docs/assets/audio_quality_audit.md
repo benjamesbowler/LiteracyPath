@@ -6,7 +6,7 @@ Audio policy: early phonics and HFW assessment formats use static asset audio on
 
 ## Summary
 
-- Approved active runtime audio keys: 312
+- Approved active runtime audio keys: 311
 - Review-needed/quarantined audio files: 49
 - Deprecated audio files: 208
 - Missing approved active runtime audio: 0
@@ -155,7 +155,6 @@ Audio policy: early phonics and HFW assessment formats use static asset audio on
 | fan | /audio/child-mode/clean-human/words/fan.mp3 | legacy audio manifest | Final Sounds, Initial Sounds | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | fan | /media/initial-sounds/audio/f/fan.mp3 | unknown | CVC and Short Vowels, Final Sounds, Short Vowel Discrimination | yes | no in Teacher Assessment Mode | no | active static path | static asset present |  |
 | farm | /audio/child-mode/clean-human/words/farm.mp3 | legacy audio manifest | Final Sounds, Initial Sounds | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
-| feet | /audio/child-mode/clean-human/words/feet.mp3 | legacy audio manifest | Final Sounds | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | fig | /media/vocabulary/audio/fig.mp3 | unknown | CVC and Short Vowels, Short Vowel Discrimination | no | no in Teacher Assessment Mode | no | preferred | static asset present | Approved exact-word vocabulary audio from Kimi 500 pack; available for future validated skill use. |
 | fin | /audio/child-mode/clean-human/words/fin.mp3 | legacy audio manifest | CVC and Short Vowels, Final Sounds, Rhyming, Short Vowel Discrimination | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | fish | /audio/child-mode/words/fish-kimi3.mp3 | kimi_assets3 review variant | not active | no | no | no | deprecated/quarantined | quarantined review variant; not preferred | Kimi alternate is quarantined until human review; stable local word audio remains preferred. |
@@ -300,7 +299,7 @@ Audio policy: early phonics and HFW assessment formats use static asset audio on
 | rag | /media/vocabulary/audio/rag.mp3 | unknown | CVC and Short Vowels, Short Vowel Discrimination | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved exact-word vocabulary audio from Kimi 500 pack; available for future validated skill use. |
 | rain | /audio/child-mode/clean-human/words/rain.mp3 | legacy audio manifest | Final Sounds, Rhyming | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | ram | /audio/child-mode/clean-human/words/ram.mp3 | legacy audio manifest | CVC and Short Vowels, Final Sounds, Initial Sounds, Rhyming | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
-| rat | /audio/child-mode/clean-human/words/rat.mp3 | legacy audio manifest | Final Sounds, Initial Sounds | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
+| rat | /audio/child-mode/clean-human/words/rat.mp3 | legacy audio manifest | Initial Sounds | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | rat | /media/initial-sounds/audio/r/rat.mp3 | unknown | CVC and Short Vowels, Final Sounds, Short Vowel Discrimination | yes | no in Teacher Assessment Mode | no | active static path | static asset present |  |
 | red | /audio/child-mode/clean-human/words/red.mp3 | legacy audio manifest | CVC and Short Vowels, Final Sounds, Initial Sounds, Short Vowel Discrimination | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | rib | /media/vocabulary/audio/rib.mp3 | unknown | CVC and Short Vowels, Short Vowel Discrimination | no | no in Teacher Assessment Mode | no | preferred | static asset present | Approved exact-word vocabulary audio from Kimi 500 pack; available for future validated skill use. |

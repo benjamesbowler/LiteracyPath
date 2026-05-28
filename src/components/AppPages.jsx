@@ -520,12 +520,15 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
 function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
+  const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const answerOptions = currentQuestion.answerOptions || [];
   const normalizedAnswerOptions = answerOptions.map(option => ({
     ...normalizeAnswerOption(option),
-    media: getAnswerOptionMedia(option)
+    media: isFinalSoundsEndingItem
+      ? { image: "", audio: "", alt: "" }
+      : getAnswerOptionMedia(option)
   }));
-  const hasImageOptions = normalizedAnswerOptions.some(option => Boolean(option.media.image));
+  const hasImageOptions = !isFinalSoundsEndingItem && normalizedAnswerOptions.some(option => Boolean(option.media.image));
   const isCompactLetterOptions =
     !hasImageOptions &&
     normalizedAnswerOptions.length <= 4 &&
@@ -537,6 +540,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
     isCompactLetterOptions ? "letter-options" : ""
   ].filter(Boolean).join(" ");
   const showOptionAudio =
+    !isFinalSoundsEndingItem &&
     normalizedAnswerOptions.length > 0 &&
     normalizedAnswerOptions.every(option => Boolean(getApprovedAudioPath(option.label, option.media.audio || "")));
 
@@ -629,11 +633,11 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
           return (
             <article className={image ? "ixl-answer-card image-card" : "ixl-answer-card"} key={`${value}-${index}`}>
               <button
-                className="ixl-answer-button"
+                className={isFinalSoundsEndingItem ? "ixl-answer-button final-sound-text-tile" : "ixl-answer-button"}
                 onClick={() => answerQuestion(value)}
                 type="button"
               >
-                {image && (
+                {!isFinalSoundsEndingItem && image && (
                   <img src={image} alt={rawOption.alt || rawOption.imageAlt || `Picture for ${label}`} />
                 )}
                 <strong>{label}</strong>

@@ -9,7 +9,7 @@ This report audits active runtime questions after validation gates are applied. 
 | Skill | Active questions | Unique targets | Duplicate IDs | Duplicate signatures | Repeated option sets | Repeated distractor sets | Overused words | Overused itemKeys |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 113 | 112 | 0 | 0 | 4 | 10 | none | b:31, a:12 |
-| Final Sounds | 261 | 187 | 0 | 0 | 22 | 16 | none | g:31, t:30, n:28, p:22 |
+| Final Sounds | 257 | 183 | 0 | 0 | 22 | 15 | none | g:31, n:28, t:26, p:22 |
 | Rhyming | 189 | 87 | 0 | 0 | 1 | 24 | cat:6, bat:5, bug:5, cap:5, map:5, pan:5, wig:5 | at:12, ap:12, ug:12, an:11, ig:11, in:11 |
 | CVC and Short Vowels | 287 | 104 | 0 | 0 | 47 | 10 | bag:7, cup:7, dog:7, log:7, sun:7, bat:6, fin:6, hat:6, jam:6, pen:6 | short_a:66, short_i:46, short_u:45, short_o:29, short_e:28 |
 | Short Vowel Discrimination | 285 | 106 | 0 | 0 | 54 | 7 | cup:7, fin:7, red:7, sun:7, bag:6, dog:6, hat:6, jet:6, log:6, mug:6 | none |
@@ -96,29 +96,29 @@ No duplicate prompt+answer signatures.
 
 ## Final Sounds
 
-- Active questions: 261
-- Unique target words / answer targets: 187
+- Active questions: 257
+- Unique target words / answer targets: 183
 - Duplicate IDs: 0
 - Duplicate prompt + correct-answer signatures: 0
 - Repeated answer option sets: 22
-- Repeated distractor sets: 16
+- Repeated distractor sets: 15
 - Overused words: none
-- Overused itemKeys: g:31, t:30, n:28, p:22
+- Overused itemKeys: g:31, n:28, t:26, p:22
 
 ### ItemKey Distribution
 
 | itemKey | active questions |
 | --- | --- |
 | g | 31 |
-| t | 30 |
 | n | 28 |
+| t | 26 |
 | p | 22 |
 | b | 19 |
 | d | 19 |
-| l | 18 |
 | m | 18 |
+| l | 17 |
 | sh | 15 |
-| ll | 11 |
+| ll | 12 |
 | nd | 10 |
 | ng | 7 |
 | r | 5 |
@@ -148,9 +148,9 @@ No duplicate prompt+answer signatures.
 | b \| d \| g \| p | 9 | ending_l1_004_map, ending_l1_009_cup, ending_l1_027_cap, gen_final_l1_p_cap_0_sound, gen_final_l1_p_cup_1_sound, gen_final_l1_p_tap_5_sound, gen_final_l1_p_top_6_sound, gen_final_l1_p_up_7_sound, gen_final_l1_p_zip_8_sound |
 | b \| d \| g \| n | 16 | ending_l1_005_pan, ending_l1_006_pin, ending_l1_022_sun, ending_l1_029_pen, ending_l1_030_hen, ending_l1_031_fan, ending_l1_035_fin, gen_final_l1_n_fan_2_sound, gen_final_l1_n_fin_3_sound, gen_final_l1_n_hen_4_sound, gen_final_l1_n_man_5_sound, gen_final_l1_n_pan_6_sound, gen_final_l1_n_pen_7_sound, gen_final_l1_n_pin_8_sound, gen_final_l1_n_sun_10_sound, gen_final_l1_n_van_12_sound |
 | b \| d \| g \| m | 9 | ending_l1_021_jam, ending_l1_032_ham, ending_l1_033_ram, ending_l1_034_gum, gen_final_l1_m_gum_0_sound, gen_final_l1_m_ham_1_sound, gen_final_l1_m_jam_2_sound, gen_final_l1_m_ram_3_sound, gen_final_l1_m_yam_4_sound |
-| ch \| ck \| sh \| th | 6 | ending_l2_001_fish, ending_l2_002_dish, ending_l2_003_brush, ending_l2_004_duck, ending_l2_005_sock, ending_l2_006_rock |
-| ch \| ng \| sh \| th | 2 | ending_l2_007_ring, ending_l2_008_king |
-| ch \| rk \| sh \| th | 2 | ending_l2_012_park, ending_l2_013_fork |
+| ff \| ll \| sh \| ss | 3 | ending_l2_001_fish, ending_l2_002_dish, ending_l2_003_brush |
+| ck \| ff \| ll \| ss | 4 | ending_l2_004_duck, ending_l2_005_sock, ending_l2_006_rock, ending_l2_015_shell |
+| ff \| ll \| ng \| ss | 2 | ending_l2_007_ring, ending_l2_008_king |
 
 ## Rhyming
 

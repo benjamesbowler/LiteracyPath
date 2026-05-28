@@ -28,6 +28,31 @@ function wordCard(word) {
   };
 }
 
+const finalSoundPairFillers = [
+  "cat",
+  "dog",
+  "sun",
+  "fish",
+  "map",
+  "pen",
+  "cup",
+  "hat",
+  "pig",
+  "bed"
+];
+
+function ensureFourFinalSoundWords(words = []) {
+  const normalized = new Set(words.map(normalize));
+  const output = [...words];
+  for (const filler of finalSoundPairFillers) {
+    if (output.length >= 4) break;
+    if (normalized.has(normalize(filler))) continue;
+    output.push(filler);
+    normalized.add(normalize(filler));
+  }
+  return output;
+}
+
 export function isPairSelectionQuestion(question = {}) {
   return [
     "initial_sound_pair",
@@ -47,8 +72,9 @@ export function normalizePairSelectionAnswer(value) {
 }
 
 export function hasCompletePairSelectionAssets(question = {}) {
+  const requiredCardCount = question.skillId === "final_sounds" || question.itemType === "final_sound" ? 4 : 3;
   return isPairSelectionQuestion(question) &&
-    (question.imageCards || []).length >= 3 &&
+    (question.imageCards || []).length >= requiredCardCount &&
     (question.imageCards || []).every(card => card.image && card.audio);
 }
 
@@ -67,10 +93,15 @@ export function makePairSelectionQuestion({
   level = 1,
   difficulty = level,
   finalSoundType = "",
-  targetFinalSound = targetSound
+  targetFinalSound = targetSound,
+  phase = null,
+  phaseTarget = ""
 }) {
   const correctWords = words.slice(0, 2);
-  const cards = words.map(wordCard);
+  const displayWords = itemType === "final_sound" || skillId === "final_sounds"
+    ? ensureFourFinalSoundWords(words)
+    : words;
+  const cards = displayWords.map(wordCard);
 
   return {
     id,
@@ -78,6 +109,8 @@ export function makePairSelectionQuestion({
     skill,
     skillId,
     level,
+    ...(phase ? { phase } : {}),
+    ...(phaseTarget ? { phaseTarget } : {}),
     difficulty,
     passage: "",
     question: prompt,
@@ -99,7 +132,7 @@ export function makePairSelectionQuestion({
     correctAnswer: pairAnswer(correctWords),
     correctAnswers: correctWords,
     correctWords,
-    choices: words,
+    choices: displayWords,
     options: cards,
     imageCards: cards,
     audioKey: "listen-and-find",

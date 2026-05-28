@@ -2,6 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { managedAssessmentSkillDepthConfig, SKILL_LEVEL_DEPTH_TARGETS } from "../src/data/skillLevelDepthConfig.js";
+import {
+  finalSoundLevelOneAllowedItemKeys,
+  finalSoundLevelOneForbiddenItemKeys,
+  finalSoundLevelTwoExpectedItemKeys
+} from "../src/data/coverageExpectations.js";
 import { getQuestionRoutingFormat } from "../src/data/skillTemplateRouting.js";
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import {
@@ -277,6 +282,92 @@ function progressionConcerns({ levelsDetected, phasesDetected, levels, duplicate
   return concerns;
 }
 
+function getFinalSoundTarget(question = {}) {
+  return normalize(
+    question.targetFinalSound ||
+    question.targetSound ||
+    question.itemKey ||
+    question.phonicsPattern ||
+    question.targetPattern ||
+    question.correctAnswer ||
+    question.answer ||
+    ""
+  );
+}
+
+function getFinalSoundQuestionIssues(skillQuestions = []) {
+  const levelOneAllowed = new Set(finalSoundLevelOneAllowedItemKeys);
+  const levelOneForbidden = new Set(finalSoundLevelOneForbiddenItemKeys);
+  const levelTwoExpected = new Set(finalSoundLevelTwoExpectedItemKeys);
+  const issues = [];
+  const warnings = [];
+  const levelOneLeaks = [];
+  const textChoiceImageLeaks = [];
+  const pairCardCountFailures = [];
+  const levelTwoHardTargets = new Set();
+
+  for (const question of skillQuestions) {
+    const id = getQuestionId(question) || `(source:${question._source}#${question._sourceIndex})`;
+    const format = String(question.formatType || question.templateType || "").toUpperCase();
+    const target = getFinalSoundTarget(question);
+    const level = getDepthLevel(question);
+
+    if (format === "ENDING_SOUND") {
+      const imageOptions = [
+        ...asArray(question.answerOptions),
+        ...asArray(question.choices),
+        ...asArray(question.options)
+      ].filter(option => option && typeof option === "object" && (option.image || option.imageUrl || option.imagePath));
+      if (imageOptions.length) textChoiceImageLeaks.push(id);
+    }
+
+    if (format === "FINAL_SOUND_PAIR_SELECT" || question.questionType === "final_sound_pair") {
+      const cards = asArray(question.imageCards);
+      if (cards.length !== 4 || !cards.every(card => card.image && card.audio)) {
+        pairCardCountFailures.push(`${id} (${cards.length} cards)`);
+      }
+    }
+
+    const hasExplicitFinalTarget = Boolean(
+      question.targetFinalSound ||
+      question.targetSound ||
+      question.itemKey ||
+      question.phonicsPattern ||
+      question.targetPattern ||
+      format === "ENDING_SOUND"
+    );
+    if (level === 1 && hasExplicitFinalTarget && (!levelOneAllowed.has(target) || levelOneForbidden.has(target))) {
+      levelOneLeaks.push(`${id}:${target || "missing"}`);
+    }
+
+    if (level === 2 && levelTwoExpected.has(target)) {
+      levelTwoHardTargets.add(target);
+    }
+  }
+
+  if (textChoiceImageLeaks.length) {
+    warnings.push(`Final Sounds ENDING_SOUND questions have image metadata on answer choices, but the student renderer forces text-only tiles: ${displayList(textChoiceImageLeaks, 12)}.`);
+  }
+  if (pairCardCountFailures.length) {
+    issues.push(`Final Sounds pair-selection questions without exactly 4 image/audio cards: ${displayList(pairCardCountFailures, 12)}.`);
+  }
+  if (levelOneLeaks.length) {
+    issues.push(`Final Sounds Level 1 contains advanced/non-Level-1 targets: ${displayList(levelOneLeaks, 12)}.`);
+  }
+  if (levelTwoHardTargets.size === 0) {
+    issues.push("Final Sounds Level 2 has no detected harder final patterns from the configured Level 2 expectation list.");
+  }
+
+  return {
+    issues,
+    warnings,
+    textChoiceImageLeaks,
+    pairCardCountFailures,
+    levelOneLeaks,
+    levelTwoHardTargets: [...levelTwoHardTargets].sort()
+  };
+}
+
 function audit() {
   const pool = loadCoreQuestionPool();
   const byConfiguredSkill = managedAssessmentSkillDepthConfig.map((skill, index) => {
@@ -289,13 +380,16 @@ function audit() {
     const phasesDetected = [...new Set(rawQuestions.map(getPhase).filter(Boolean))].sort();
     const levels = Object.fromEntries(EXPECTED_LEVELS.map(level => [level, levelReport(rawQuestions, level)]));
     const strictUsableTotal = EXPECTED_LEVELS.reduce((sum, level) => sum + levels[level].strictUsableQuestionCount, 0);
+    const finalSoundsSpecial = skill.skillId === "final_sounds"
+      ? getFinalSoundQuestionIssues(rawQuestions)
+      : null;
     const concerns = progressionConcerns({
       levelsDetected: explicitLevelsDetected,
       phasesDetected,
       levels,
       duplicateIds,
       missingFields
-    });
+    }).concat(finalSoundsSpecial?.issues || []);
 
     return {
       skillNumber: index + 1,
@@ -314,6 +408,7 @@ function audit() {
       hasExactly2Levels: explicitLevelsDetected.length === 2 && EXPECTED_LEVELS.every(level => explicitLevelsDetected.includes(level)),
       duplicateQuestionIds: duplicateIds,
       missingFields,
+      finalSoundsSpecial,
       levels,
       runtimeSelectionRisk: [
         !levels[1].canGenerate15QuestionRound ? "Level 1 cannot safely generate 15 questions." : "",

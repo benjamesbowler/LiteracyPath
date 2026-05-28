@@ -68,7 +68,7 @@ Runtime selection now rejects duplicate question IDs, target words, itemKeys, co
 | extra_rhyme_12 | night |  | night | which word rhymes with light?::night |
 | extra_rhyme_13 | tree |  | tree | which word rhymes with bee?::tree |
 | extra_rhyme_15 | bear |  | bear | which word rhymes with chair?::bear |
-| coverage_rhyme_at_001 | cat | at | cat\|hat | listen to each word. which two words rhyme?::cat\|hat |
+| coverage_rhyme_l1_at_001 | cat | at | bat | which word rhymes with cat?::bat |
 
 ## CVC and Short Vowels
 

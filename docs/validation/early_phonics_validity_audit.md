@@ -9,11 +9,11 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | Skill | Active valid | Excluded by audio | Excluded by instructional level | Excluded malformed/duplicate | Active itemKeys |
 | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 117 | 1 | 21 | 2 | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z |
-| Final Sounds | 415 | 0 | 58 | 0 | b, ck, d, f, ft, g, l, ll, lt, m, mp, n, nd, ng, nk, nt, p, r, rk, s, sh, sk, st, t, th |
-| Rhyming | 262 | 0 | 0 | 3 | ain, air, am, an, ap, ar, at, ed, ee, ell, en, et, ig, in, ing, ish, it, oat, ock, og, op, ot, ox, ug, un, ut |
-| CVC and Short Vowels | 282 | 0 | 0 | 30 | bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nap, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig |
-| Short Vowel Discrimination | 327 | 0 | 0 | 2 | short_a, short_e, short_i, short_o, short_u |
-| Blends | 120 | 2 | 0 | 2 | bl, br, cl, cr, dr, fl, fr, sl, sn, sp, st, tr |
+| Final Sounds | 299 | 0 | 58 | 0 | b, ck, d, f, ft, g, l, ll, lt, m, mp, n, nd, ng, nk, nt, p, r, rk, s, sh, sk, st, t, th |
+| Rhyming | 323 | 0 | 0 | 1 | ad, ag, ain, air, ake, am, an, ap, ar, at, ed, ee, eg, ell, en, et, ig, in, ing, ip, ish, it, oat, ock, og, op, ot, ox, uck, ug, un, up, ut |
+| CVC and Short Vowels | 284 | 0 | 0 | 30 | bag, bat, bed, bug, cap, cat, cup, dog, dot, duck, fin, fish, fox, hat, jam, jet, leg, lid, log, man, map, mud, mug, nap, nut, pan, pen, pig, pin, pot, ram, red, short_a, short_e, short_i, short_o, short_u, sit, sock, sun, web, wig |
+| Short Vowel Discrimination | 333 | 0 | 0 | 2 | short_a, short_e, short_i, short_o, short_u |
+| Blends | 122 | 0 | 0 | 0 | bl, br, cl, cr, dr, fl, fr, sl, sn, sp, st, tr |
 | Digraphs | 109 | 0 | 0 | 0 | ch, sh, th, wh |
 
 ## Excluded / Flagged Details
@@ -46,15 +46,17 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | Final Sounds | coverage_final_r_004 | finalSoundCoverageQuestions | r | FINAL_SOUND_PAIR_SELECT | fork | Final Sounds word "fork" is not valid for Level 2 itemKey "r"; expected exactly two final r pair answers, found 1 |
 | Final Sounds | coverage_final_s_002 | finalSoundCoverageQuestions | s | FINAL_SOUND_PAIR_SELECT | vase | Final Sounds word "vase" is not valid for Level 2 itemKey "s"; Final Sounds word "house" is not valid for Level 2 itemKey "s" |
 | Final Sounds | coverage_final_s_004 | finalSoundCoverageQuestions | s | FINAL_SOUND_PAIR_SELECT | bus | Final Sounds word "vase" is not valid for Level 2 itemKey "s" |
-| Final Sounds | coverage_final_t_006 | finalSoundCoverageQuestions | t | FINAL_SOUND_PAIR_SELECT | kite | Final Sounds word "kite" is not valid for Level 2 itemKey "t"; Final Sounds word "gate" is not valid for Level 2 itemKey "t" |
-| Rhyming | coverage_rhyme_an_003 | rhymingCoverageQuestions | an | RHYME_PAIR_SELECT | pan | PAIR_SELECT missing required card images; missing card images: can |
+| Final Sounds | coverage_final_t_002 | finalSoundCoverageQuestions | t | FINAL_SOUND_PAIR_SELECT | bat | expected exactly two final t pair answers, found 3 |
+| Final Sounds | coverage_final_t_003 | finalSoundCoverageQuestions | t | FINAL_SOUND_PAIR_SELECT | jet | expected exactly two final t pair answers, found 3 |
+| Final Sounds | coverage_final_t_004 | finalSoundCoverageQuestions | t | FINAL_SOUND_PAIR_SELECT | pot | expected exactly two final t pair answers, found 3 |
+| Final Sounds | coverage_final_t_005 | finalSoundCoverageQuestions | t | FINAL_SOUND_PAIR_SELECT | feet | expected exactly two final t pair answers, found 3 |
+| Final Sounds | coverage_final_t_006 | finalSoundCoverageQuestions | t | FINAL_SOUND_PAIR_SELECT | kite | Final Sounds word "kite" is not valid for Level 2 itemKey "t"; Final Sounds word "gate" is not valid for Level 2 itemKey "t"; expected exactly two final t pair answers, found 3 |
 | Digraphs | p3_digraph_word_th_6 | contentExpansionPass3Questions | th | IMAGE_WORD_PATTERN_MATCH | thumb | expected exactly one th answer, found 2 |
 | Digraphs | p3_digraph_word_wh_7 | contentExpansionPass3Questions | wh | IMAGE_WORD_PATTERN_MATCH | whale | expected exactly one wh answer, found 2 |
+| Final Sounds | recovery_final_t_2 | targetedContentRecoveryQuestions | t | FINAL_SOUND_PAIR_SELECT | bat | expected exactly two final t pair answers, found 3 |
 | Final Sounds | recovery_final_k_1 | targetedContentRecoveryQuestions | k | FINAL_SOUND_PAIR_SELECT | duck | Final Sounds itemKey "k" is outside configured Level 2 final-sound set; Final Sounds word "duck" is not valid for Level 2 itemKey "k"; Final Sounds word "rock" is not valid for Level 2 itemKey "k" |
 | Final Sounds | recovery_final_k_2 | targetedContentRecoveryQuestions | k | FINAL_SOUND_PAIR_SELECT | book | Final Sounds itemKey "k" is outside configured Level 2 final-sound set; Final Sounds word "book" is not valid for Level 2 itemKey "k"; Final Sounds word "duck" is not valid for Level 2 itemKey "k" |
 | Initial Sounds | ixl_first_sound_20 | ixlStyleSeedQuestions | m | FIRST_SOUND | milk | prompt says listen but no approved prompt or card audio exists; missing approved whole-word audio for "milk" |
-| Blends | ixl_blend_sound_6 | ixlStyleSeedQuestions | cl | BLEND_SOUNDS | cloud | missing approved whole-word audio for "cloud" |
-| Blends | ixl_blend_sound_29 | ixlStyleSeedQuestions | cl | BLEND_SOUNDS | cloud | missing approved whole-word audio for "cloud" |
 | Rhyming | ixl_rhyming_picture_30 | ixlStyleSeedQuestions | ouse | RHYMING_PICTURE | house | missing answer option images: mouse |
 | Short Vowel Discrimination | ixl_short_vowel_12 | ixlStyleSeedQuestions | short_e | SHORT_VOWEL_WORD | net | missing answer option images: nut |
 | Short Vowel Discrimination | ixl_short_vowel_29 | ixlStyleSeedQuestions | short_u | SHORT_VOWEL_WORD | nut | missing answer option images: nut |
@@ -126,7 +128,6 @@ Early Initial Sounds are limited to the configured 25-target set `a b c d e f g 
 | CVC and Short Vowels | exp7_cvc_26 | templateExpansion7 |  | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | bat | template LISTEN_FIND_WORD missing required field: targetWord |
 | CVC and Short Vowels | exp7_cvc_27 | templateExpansion7 |  | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | dog | template LISTEN_FIND_WORD missing required field: targetWord |
 | CVC and Short Vowels | exp7_cvc_28 | templateExpansion7 |  | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | man | template LISTEN_FIND_WORD missing required field: targetWord |
-| Rhyming | gen_rhyme_en_den_pen_0_1 | generatedEarlySkillQuestions | en | LISTEN_FIND_RHYME | den | missing approved prompt/target audio |
 | Final Sounds | phonics_k_004 | generatedQuestions |  | UNKNOWN | sun | Final Sounds itemKey "sun" is outside configured Level 1 final-sound set; Final Sounds word "sun" is not valid for Level 1 itemKey "sun" |
 | Initial Sounds | phonics_k_009 | generatedQuestions |  | UNKNOWN | sock | Initial Sounds itemKey "sock" is outside configured 25-target early set; Initial Sounds word "sock" is not valid for early itemKey "sock" |
 | CVC and Short Vowels | phonics_k_012 | generatedQuestions |  | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | cat | template LISTEN_FIND_WORD missing required field: targetWord |

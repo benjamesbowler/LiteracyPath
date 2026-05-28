@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T03:27:42.221Z",
+  "generatedAt": "2026-05-28T03:41:45.475Z",
   "source": "loadCoreQuestionPool() plus managedAssessmentSkillDepthConfig",
   "targetContract": {
     "levelsPerSkill": 2,
@@ -58,6 +58,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -195,6 +196,219 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": {
+        "issues": [],
+        "warnings": [
+          "Final Sounds ENDING_SOUND questions have image metadata on answer choices, but the student renderer forces text-only tiles: ending_l1_001_cat, ending_l1_002_dog, ending_l1_003_bed, ending_l1_004_map, ending_l1_005_pan, ending_l1_006_pin, ending_l1_007_bat, ending_l1_008_bag, ending_l1_009_cup, ending_l1_010_web, ending_l1_011_cub, ending_l1_012_cab +179 more."
+        ],
+        "textChoiceImageLeaks": [
+          "ending_l1_001_cat",
+          "ending_l1_002_dog",
+          "ending_l1_003_bed",
+          "ending_l1_004_map",
+          "ending_l1_005_pan",
+          "ending_l1_006_pin",
+          "ending_l1_007_bat",
+          "ending_l1_008_bag",
+          "ending_l1_009_cup",
+          "ending_l1_010_web",
+          "ending_l1_011_cub",
+          "ending_l1_012_cab",
+          "ending_l1_013_bib",
+          "ending_l1_014_rub",
+          "ending_l1_015_knob",
+          "ending_l1_016_lab",
+          "ending_l1_017_sub",
+          "ending_l1_018_cob",
+          "ending_l1_019_dab",
+          "ending_l1_020_jet",
+          "ending_l1_021_jam",
+          "ending_l1_022_sun",
+          "ending_l1_023_hat",
+          "ending_l1_024_log",
+          "ending_l1_025_mug",
+          "ending_l1_026_bug",
+          "ending_l1_027_cap",
+          "ending_l1_028_pot",
+          "ending_l1_029_pen",
+          "ending_l1_030_hen",
+          "ending_l1_031_fan",
+          "ending_l1_032_ham",
+          "ending_l1_033_ram",
+          "ending_l1_034_gum",
+          "ending_l1_035_fin",
+          "ending_l1_036_net",
+          "ending_l1_037_cot",
+          "ending_l1_038_cut",
+          "ending_l1_039_lid",
+          "ending_l1_040_tub",
+          "ending_l1_041_crab",
+          "ending_l1_042_animal",
+          "ending_l1_043_fossil",
+          "ending_l1_044_hospital",
+          "ending_l1_045_jewel",
+          "ending_l1_046_nail",
+          "ending_l1_047_owl",
+          "ending_l1_048_pencil",
+          "ending_l1_049_pretzel",
+          "ending_l1_050_seal",
+          "ending_l1_051_wheel",
+          "ending_l2_001_fish",
+          "ending_l2_002_dish",
+          "ending_l2_003_brush",
+          "ending_l2_004_duck",
+          "ending_l2_005_sock",
+          "ending_l2_006_rock",
+          "ending_l2_007_ring",
+          "ending_l2_008_king",
+          "ending_l2_009_hand",
+          "ending_l2_010_tent",
+          "ending_l2_011_lamp",
+          "ending_l2_012_park",
+          "ending_l2_013_fork",
+          "ending_l2_014_desk",
+          "ending_l2_015_shell",
+          "ending_l2_016_whale",
+          "ending_l2_017_chair",
+          "ending_l2_018_car",
+          "ending_l2_019_tiger",
+          "ending_l2_020_leaf",
+          "ending_l2_021_roof",
+          "ending_l2_022_ship",
+          "ending_l2_023_bus",
+          "ending_l2_024_octopus",
+          "ending_l2_025_thumb",
+          "ixl_ending_sound_1",
+          "ixl_ending_sound_2",
+          "ixl_ending_sound_3",
+          "ixl_ending_sound_4",
+          "ixl_ending_sound_5",
+          "ixl_ending_sound_6",
+          "ixl_ending_sound_7",
+          "ixl_ending_sound_8",
+          "ixl_ending_sound_9",
+          "ixl_ending_sound_10",
+          "ixl_ending_sound_11",
+          "ixl_ending_sound_12",
+          "ixl_ending_sound_13",
+          "ixl_ending_sound_14",
+          "ixl_ending_sound_15",
+          "ixl_ending_sound_16",
+          "ixl_ending_sound_17",
+          "ixl_ending_sound_18",
+          "ixl_ending_sound_19",
+          "ixl_ending_sound_20",
+          "ixl_ending_sound_21",
+          "ixl_ending_sound_22",
+          "ixl_ending_sound_23",
+          "ixl_ending_sound_24",
+          "gen_final_l1_b_tub_0_sound",
+          "gen_final_l1_b_web_1_sound",
+          "gen_final_l1_d_kid_3_sound",
+          "gen_final_l1_d_lid_4_sound",
+          "gen_final_l1_d_red_6_sound",
+          "gen_final_l1_g_bag_0_sound",
+          "gen_final_l1_g_bug_2_sound",
+          "gen_final_l1_g_dog_4_sound",
+          "gen_final_l1_g_leg_7_sound",
+          "gen_final_l1_g_log_8_sound",
+          "gen_final_l1_g_mug_9_sound",
+          "gen_final_l1_g_pig_10_sound",
+          "gen_final_l1_g_rug_11_sound",
+          "gen_final_l1_g_wig_12_sound",
+          "gen_final_l1_l_seal_0_sound",
+          "gen_final_l1_m_gum_0_sound",
+          "gen_final_l1_m_ham_1_sound",
+          "gen_final_l1_m_jam_2_sound",
+          "gen_final_l1_m_ram_3_sound",
+          "gen_final_l1_m_yam_4_sound",
+          "gen_final_l1_n_fan_2_sound",
+          "gen_final_l1_n_fin_3_sound",
+          "gen_final_l1_n_hen_4_sound",
+          "gen_final_l1_n_man_5_sound",
+          "gen_final_l1_n_pan_6_sound",
+          "gen_final_l1_n_pen_7_sound",
+          "gen_final_l1_n_pin_8_sound",
+          "gen_final_l1_n_sun_10_sound",
+          "gen_final_l1_n_van_12_sound",
+          "gen_final_l1_p_cap_0_sound",
+          "gen_final_l1_p_cup_1_sound",
+          "gen_final_l1_p_tap_5_sound",
+          "gen_final_l1_p_top_6_sound",
+          "gen_final_l1_p_up_7_sound",
+          "gen_final_l1_p_zip_8_sound",
+          "gen_final_l1_t_bat_0_sound",
+          "gen_final_l1_t_cot_1_sound",
+          "gen_final_l1_t_exit_3_sound",
+          "gen_final_l1_t_hat_4_sound",
+          "gen_final_l1_t_jet_8_sound",
+          "gen_final_l1_t_mat_9_sound",
+          "gen_final_l1_t_newt_10_sound",
+          "gen_final_l1_t_pot_11_sound",
+          "gen_final_l1_t_rat_12_sound",
+          "gen_final_l1_t_sit_13_sound",
+          "gen_final_l2_sh_brush_0_sound",
+          "gen_final_l2_sh_dish_1_sound",
+          "gen_final_l2_sh_fish_3_sound",
+          "gen_final_l2_sh_goldfish_4_sound",
+          "gen_final_l2_sh_hairbrush_5_sound",
+          "gen_final_l2_sh_jellyfish_6_sound",
+          "gen_final_l2_sh_paintbrush_7_sound",
+          "gen_final_l2_sh_sh_8_sound",
+          "gen_final_l2_sh_toothbrush_9_sound",
+          "gen_final_l2_th_th_0_sound",
+          "gen_final_l2_th_tooth_1_sound",
+          "gen_final_l2_ll_baseball_2_sound",
+          "gen_final_l2_ll_bell_3_sound",
+          "gen_final_l2_ll_doll_5_sound",
+          "gen_final_l2_ll_football_6_sound",
+          "gen_final_l2_ll_hill_7_sound",
+          "gen_final_l2_ll_inkwell_8_sound",
+          "gen_final_l2_ll_quill_9_sound",
+          "gen_final_l2_ll_shell_11_sound",
+          "gen_final_l2_ll_uphill_13_sound",
+          "gen_final_l2_ll_volleyball_14_sound",
+          "gen_final_l2_ll_waterfall_15_sound",
+          "gen_final_l2_ng_building_0_sound",
+          "gen_final_l2_ng_king_1_sound",
+          "gen_final_l2_ng_ng_3_sound",
+          "gen_final_l2_ng_ring_4_sound",
+          "gen_final_l2_ng_unpacking_5_sound",
+          "gen_final_l2_nd_diamond_0_sound",
+          "gen_final_l2_nd_hand_1_sound",
+          "gen_final_l2_nd_island_2_sound",
+          "gen_final_l2_nd_nd_3_sound",
+          "gen_final_l2_nd_playground_4_sound",
+          "gen_final_l2_nd_pond_5_sound",
+          "gen_final_l2_nd_quicksand_6_sound",
+          "gen_final_l2_nd_sand_7_sound",
+          "gen_final_l2_nd_underground_8_sound",
+          "gen_final_l2_nk_ink_0_sound",
+          "gen_final_l2_st_goalpost_0_sound",
+          "gen_final_l2_st_nest_1_sound",
+          "gen_final_l2_st_vest_2_sound",
+          "gen_final_l2_st_violinist_3_sound",
+          "gen_final_l2_sk_desk_1_sound",
+          "gen_final_l2_sk_kiosk_2_sound",
+          "gen_final_l2_sk_sk_3_sound",
+          "gen_final_l2_ft_gift_0_sound",
+          "gen_final_l2_lt_quilt_0_sound"
+        ],
+        "pairCardCountFailures": [],
+        "levelOneLeaks": [],
+        "levelTwoHardTargets": [
+          "ft",
+          "ll",
+          "lt",
+          "nd",
+          "ng",
+          "nk",
+          "sh",
+          "sk",
+          "st",
+          "th"
+        ]
+      },
       "levels": {
         "1": {
           "level": 1,
@@ -264,8 +478,8 @@
             2
           ],
           "phaseCounts": {
-            "1": 101,
-            "2": 100
+            "1": 103,
+            "2": 98
           },
           "phaseGeneration": {
             "1": true,
@@ -348,6 +562,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -516,6 +731,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -698,6 +914,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -805,6 +1022,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -965,6 +1183,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -1123,6 +1342,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -1322,6 +1542,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -1461,6 +1682,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -1594,6 +1816,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -1727,6 +1950,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -1863,6 +2087,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -1990,6 +2215,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -2166,6 +2392,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -2340,6 +2567,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -2502,6 +2730,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -2648,6 +2877,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -2810,6 +3040,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -2959,6 +3190,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -3127,6 +3359,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -3307,6 +3540,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -3551,6 +3785,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -3732,6 +3967,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -3919,6 +4155,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -4109,6 +4346,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -4345,6 +4583,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -4538,6 +4777,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,
@@ -4729,6 +4969,7 @@
         "missingPhaseData": [],
         "missingMedia": []
       },
+      "finalSoundsSpecial": null,
       "levels": {
         "1": {
           "level": 1,

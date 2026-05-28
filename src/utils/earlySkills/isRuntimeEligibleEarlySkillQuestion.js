@@ -306,7 +306,7 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
     if (!getTargetWord(question)) {
       issues.push("Final Sounds question is missing targetWord");
     }
-    if (!hasRuntimeTargetImage(question, context)) {
+    if (!isPairSelectionQuestion(question) && !hasRuntimeTargetImage(question, context)) {
       issues.push("Final Sounds question is missing a real target-word object image");
     }
   }

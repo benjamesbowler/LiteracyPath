@@ -9,7 +9,7 @@ This audit is intentionally stricter than a raw file count. It counts only quest
 | Skill | Active valid runtime questions | Unique question signatures | Unique targets | Unique itemKeys/patterns | Duplicate IDs | Duplicate signatures | Repeated distractor sets | Missing image/audio needs | Below 50 unique? | Below 52 runtime? | Unique option sets | Runtime sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Initial Sounds | 113 | 113 | 112 | 25 | 0 | 0 | 10 | 0 | no | no | 109 | initialSoundCoverageQuestions, ixlStyleSeedQuestions, masteryExtraQuestions, skillLevelGapQuestions |
-| Final Sounds | 261 | 261 | 187 | 25 | 0 | 0 | 16 | 0 | no | no | 109 | finalSoundCoverageQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
+| Final Sounds | 257 | 257 | 183 | 25 | 0 | 0 | 15 | 0 | no | no | 106 | finalSoundCoverageQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, kimiDataset7RuntimeQuestions, questionBankExpansion8, targetedContentRecoveryQuestions |
 | Rhyming | 189 | 189 | 87 | 37 | 0 | 0 | 24 | 0 | no | no | 188 | ixlStyleSeedQuestions, rhymingCoverageQuestions, skillLevelGapQuestions |
 | CVC and Short Vowels | 287 | 287 | 104 | 42 | 0 | 0 | 10 | 0 | no | no | 121 | contentExpansionPass3Questions, cvcShortVowelExpansionQuestions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, skillLevelGapQuestions, targetedContentRecoveryQuestions |
 | Short Vowel Discrimination | 285 | 285 | 106 | 5 | 0 | 0 | 7 | 0 | no | no | 112 | contentExpansionPass3Questions, generatedEarlySkillQuestions, ixlStyleSeedQuestions, skillLevelGapQuestions, targetedContentRecoveryQuestions |
@@ -72,16 +72,16 @@ No duplicate prompt+answer signatures detected.
 
 ## Final Sounds
 
-- Active valid runtime questions: 261
-- Unique question signatures: 261
-- Unique target words / answer targets: 187
+- Active valid runtime questions: 257
+- Unique question signatures: 257
+- Unique target words / answer targets: 183
 - Unique itemKeys/patterns: 25 (b, ck, d, f, ft, g, l, ll, lt, m, mp, n, nd, ng, nk, nt, p, r, rk, s, sh, sk, st, t, th)
 - Duplicate signatures: 0
-- Repeated distractor sets: 16
+- Repeated distractor sets: 15
 - Missing image/audio needs in active runtime: 0
 - Below-50 unique question warning: no
 - Below-52 runtime question warning: no
-- Formats: FINAL_SOUND_PAIR_SELECT:58, ENDING_SOUND:203
+- Formats: FINAL_SOUND_PAIR_SELECT:54, ENDING_SOUND:203
 - Overused targets: none
 - Overused itemKeys: g, n, p, t
 
