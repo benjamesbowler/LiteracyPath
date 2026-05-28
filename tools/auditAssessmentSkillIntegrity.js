@@ -10,6 +10,12 @@ import {
 import { getQuestionRoutingFormat } from "../src/data/skillTemplateRouting.js";
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import {
+  getAssessmentChoiceLabels,
+  hasOptionImageChoiceLeak,
+  isGraphemeChoiceQuestion,
+  isImageChoiceQuestion
+} from "../src/utils/assessmentChoiceIntent.js";
+import {
   getQuestionAudioPaths,
   getQuestionImagePaths,
   getQuestionTargetWord,
@@ -380,6 +386,46 @@ function getFinalSoundQuestionIssues(skillQuestions = []) {
   };
 }
 
+function getChoiceRenderingDiagnostics(skillQuestions = []) {
+  const graphemeQuestions = [];
+  const imageChoiceQuestions = [];
+  const imageChoiceLeaks = [];
+  const missingTextLabels = [];
+
+  for (const question of skillQuestions) {
+    const id = getQuestionId(question) || `(source:${question._source}#${question._sourceIndex})`;
+
+    if (isGraphemeChoiceQuestion(question)) {
+      graphemeQuestions.push(id);
+      const labels = getAssessmentChoiceLabels(question);
+      if (hasOptionImageChoiceLeak(question)) {
+        imageChoiceLeaks.push(`${id}:${String(question.formatType || question.templateType || "UNKNOWN").toUpperCase()}`);
+      }
+      if (!labels.length || labels.some(label => !String(label || "").trim())) {
+        missingTextLabels.push(id);
+      }
+    } else if (isImageChoiceQuestion(question)) {
+      imageChoiceQuestions.push(id);
+    }
+  }
+
+  const issues = [];
+  if (imageChoiceLeaks.length) {
+    issues.push(`Grapheme/text-choice questions contain image-choice metadata: ${displayList(imageChoiceLeaks, 12)}.`);
+  }
+  if (missingTextLabels.length) {
+    issues.push(`Grapheme/text-choice questions missing stable text labels: ${displayList(missingTextLabels, 12)}.`);
+  }
+
+  return {
+    graphemeChoiceCount: graphemeQuestions.length,
+    imageChoiceCount: imageChoiceQuestions.length,
+    imageChoiceLeaks,
+    missingTextLabels,
+    issues
+  };
+}
+
 function audit() {
   const pool = loadCoreQuestionPool();
   const byConfiguredSkill = managedAssessmentSkillDepthConfig.map((skill, index) => {
@@ -395,13 +441,14 @@ function audit() {
     const finalSoundsSpecial = skill.skillId === "final_sounds"
       ? getFinalSoundQuestionIssues(rawQuestions)
       : null;
+    const choiceRendering = getChoiceRenderingDiagnostics(rawQuestions);
     const concerns = progressionConcerns({
       levelsDetected: explicitLevelsDetected,
       phasesDetected,
       levels,
       duplicateIds,
       missingFields
-    }).concat(finalSoundsSpecial?.issues || []);
+    }).concat(finalSoundsSpecial?.issues || [], choiceRendering.issues || []);
 
     return {
       skillNumber: index + 1,
@@ -421,6 +468,7 @@ function audit() {
       duplicateQuestionIds: duplicateIds,
       missingFields,
       finalSoundsSpecial,
+      choiceRendering,
       levels,
       runtimeSelectionRisk: [
         !levels[1].canGenerate15QuestionRound ? "Level 1 cannot safely generate 15 questions." : "",
@@ -473,6 +521,9 @@ function audit() {
       missingSkillIds: byConfiguredSkill.reduce((sum, skill) => sum + skill.missingFields.missingSkillIds.length, 0),
       missingLevelData: byConfiguredSkill.reduce((sum, skill) => sum + skill.missingFields.missingLevelData.length, 0),
       missingPhaseData: byConfiguredSkill.reduce((sum, skill) => sum + skill.missingFields.missingPhaseData.length, 0),
+      graphemeChoiceQuestions: byConfiguredSkill.reduce((sum, skill) => sum + skill.choiceRendering.graphemeChoiceCount, 0),
+      imageChoiceQuestions: byConfiguredSkill.reduce((sum, skill) => sum + skill.choiceRendering.imageChoiceCount, 0),
+      imageChoiceLeaks: byConfiguredSkill.reduce((sum, skill) => sum + skill.choiceRendering.imageChoiceLeaks.length, 0),
       unassignedQuestions: unassigned.length
     },
     skills: byConfiguredSkill,
@@ -494,6 +545,9 @@ function renderSkillRow(skill) {
     skill.hasExactly2Levels ? "yes" : "no",
     skill.levels[1].missingTo30,
     skill.levels[2].missingTo30,
+    skill.choiceRendering.graphemeChoiceCount,
+    skill.choiceRendering.imageChoiceCount,
+    skill.choiceRendering.imageChoiceLeaks.length,
     skill.runtimeSelectionRisk.length ? "risk" : "ok",
     skill.productionReady ? "pass" : "blocker"
   ];
@@ -508,6 +562,7 @@ function renderMarkdown(report) {
   const below30 = skills.filter(skill => skill.levels[1].below30 || skill.levels[2].below30);
   const roundRisk = skills.filter(skill => skill.runtimeSelectionRisk.length);
   const duplicateSkills = skills.filter(skill => skill.duplicateQuestionIds.length);
+  const choiceLeakSkills = skills.filter(skill => skill.choiceRendering.imageChoiceLeaks.length);
   const missingRequired = skills.filter(skill =>
     Object.values(skill.missingFields).some(value => Array.isArray(value) && value.length)
   );
@@ -555,6 +610,9 @@ function renderMarkdown(report) {
       "2 levels",
       "L1 missing",
       "L2 missing",
+      "Text-tile questions",
+      "Image-choice questions",
+      "Image leaks",
       "Round risk",
       "Status"
     ], skills.map(renderSkillRow)),
@@ -582,6 +640,14 @@ function renderMarkdown(report) {
     "## Skills Unable To Safely Generate 15-Question Rounds",
     "",
     roundRisk.length ? roundRisk.map(skill => `- ${skill.skillName}: ${skill.runtimeSelectionRisk.join(" ")}`).join("\n") : "_None._",
+    "",
+    "## Assessment Choice Rendering Diagnostics",
+    "",
+    `- Grapheme/text-choice questions: ${report.summary.graphemeChoiceQuestions}`,
+    `- Image-choice questions: ${report.summary.imageChoiceQuestions}`,
+    `- Image-choice leaks in grapheme/text-choice questions: ${report.summary.imageChoiceLeaks}`,
+    "",
+    choiceLeakSkills.length ? choiceLeakSkills.map(skill => `- ${skill.skillName}: ${displayList(skill.choiceRendering.imageChoiceLeaks, 16)}`).join("\n") : "_No image-choice leaks detected in grapheme/text-choice questions._",
     "",
     "## Duplicate IDs",
     "",

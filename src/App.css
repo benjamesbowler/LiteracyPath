@@ -4487,19 +4487,23 @@ select:focus {
   font-size: 18px;
 }
 
+.grapheme-choice-assessment-card .assessment-main-image-wrap,
 .final-sounds-ending-assessment-card .assessment-main-image-wrap {
   max-height: clamp(118px, 20vh, 176px);
   margin-bottom: 6px;
 }
 
+.grapheme-choice-assessment-card .assessment-main-image,
 .final-sounds-ending-assessment-card .assessment-main-image {
   max-height: clamp(106px, 18vh, 158px);
 }
 
+.grapheme-choice-assessment-card .ixl-template-panel,
 .final-sounds-ending-assessment-card .ixl-template-panel {
   gap: 10px;
 }
 
+.grapheme-choice-assessment-card .ixl-answer-grid.letter-options,
 .final-sounds-ending-assessment-card .ixl-answer-grid.letter-options {
   grid-template-columns: repeat(2, minmax(128px, 210px));
   justify-content: center;
@@ -4507,6 +4511,7 @@ select:focus {
   margin-top: 0;
 }
 
+.grapheme-choice-grid,
 .final-sounds-grapheme-grid {
   width: min(100%, 460px);
   margin: 4px auto 0 !important;
@@ -4515,10 +4520,13 @@ select:focus {
   gap: clamp(8px, 1.2vw, 12px) !important;
 }
 
+.grapheme-choice-grid .choice-wrap,
 .final-sounds-grapheme-grid .choice-wrap {
   min-width: 0;
 }
 
+.grapheme-text-tile,
+.grapheme-choice-button,
 .final-sound-grapheme-option {
   min-height: clamp(82px, 12vh, 112px) !important;
   width: 100% !important;
@@ -4531,6 +4539,10 @@ select:focus {
   text-align: center !important;
 }
 
+.grapheme-text-tile strong,
+.grapheme-text-tile span,
+.grapheme-choice-button strong,
+.grapheme-choice-button span,
 .final-sound-grapheme-option strong,
 .final-sound-grapheme-option span {
   font-size: inherit !important;
@@ -5438,12 +5450,16 @@ select:focus {
     font-size: clamp(1.6rem, 8vw, 2.35rem);
   }
 
+  .grapheme-text-tile,
+  .grapheme-choice-button,
   .final-sound-grapheme-option {
     min-height: clamp(64px, 10vh, 84px) !important;
     font-size: clamp(2.1rem, 10vw, 3.15rem) !important;
     padding: 8px !important;
   }
 
+  .grapheme-choice-assessment-card .ixl-answer-grid.letter-options,
+  .grapheme-choice-grid,
   .final-sounds-ending-assessment-card .ixl-answer-grid.letter-options,
   .final-sounds-grapheme-grid {
     grid-template-columns: repeat(2, minmax(104px, 1fr)) !important;

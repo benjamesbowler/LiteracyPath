@@ -21,6 +21,9 @@ import {
   getAnswerOptionValue,
   normalizeAnswerOption
 } from "../utils/answerOptions";
+import {
+  isGraphemeChoiceQuestion
+} from "../utils/assessmentChoiceIntent";
 import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 import { recommendBooksForStudent } from "../utils/guidedReading/recommendBooksForStudent.js";
 import { applyGuidedReadingLevelOverride, readGuidedReadingLevelOverrides } from "../utils/guidedReading/bookLevelOverrides.js";
@@ -529,17 +532,17 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
 function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
-  const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
+  const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
   const answerOptions = currentQuestion.answerOptions || [];
   const normalizedAnswerOptions = answerOptions.map(option => ({
     ...normalizeAnswerOption(option),
-    media: isFinalSoundsEndingItem
+    media: isGraphemeChoiceItem
       ? { image: "", audio: "", alt: "" }
       : getAnswerOptionMedia(option)
   }));
-  const hasImageOptions = !isFinalSoundsEndingItem && normalizedAnswerOptions.some(option => Boolean(option.media.image));
+  const hasImageOptions = !isGraphemeChoiceItem && normalizedAnswerOptions.some(option => Boolean(option.media.image));
   const isCompactLetterOptions =
-    !hasImageOptions &&
+    (isGraphemeChoiceItem || !hasImageOptions) &&
     normalizedAnswerOptions.length <= 4 &&
     normalizedAnswerOptions.every(option => option.label.length <= 3);
   const answerGridClassName = [
@@ -549,7 +552,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
     isCompactLetterOptions ? "letter-options" : ""
   ].filter(Boolean).join(" ");
   const showOptionAudio =
-    !isFinalSoundsEndingItem &&
+    !isGraphemeChoiceItem &&
     normalizedAnswerOptions.length > 0 &&
     normalizedAnswerOptions.every(option => Boolean(getApprovedAudioPath(option.label, option.media.audio || "")));
 
@@ -642,11 +645,11 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
           return (
             <article className={image ? "ixl-answer-card image-card" : "ixl-answer-card"} key={`${value}-${index}`}>
               <button
-                className={isFinalSoundsEndingItem ? "ixl-answer-button final-sound-text-tile final-sound-grapheme-option" : "ixl-answer-button"}
+                className={isGraphemeChoiceItem ? "ixl-answer-button grapheme-text-tile final-sound-text-tile final-sound-grapheme-option" : "ixl-answer-button"}
                 onClick={() => answerQuestion(value)}
                 type="button"
               >
-                {!isFinalSoundsEndingItem && image && (
+                {!isGraphemeChoiceItem && image && (
                   <img src={image} alt={rawOption.alt || rawOption.imageAlt || `Picture for ${label}`} />
                 )}
                 <strong>{label}</strong>
@@ -3727,10 +3730,12 @@ export function AssessmentPage({
   const isPairSelection =
     ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
   const isVisualCardChoice =
-    currentQuestion?.questionType === "visual_card_choice";
+    currentQuestion?.questionType === "visual_card_choice" &&
+    !isGraphemeChoiceQuestion(currentQuestion);
   const isIxlStyleTemplate =
     currentQuestion?.questionType === "ixl_template";
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
+  const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
 
   if (!currentQuestion && !feedback) {
@@ -3880,7 +3885,8 @@ export function AssessmentPage({
               isRhymingPictureItem ? "rhyming-assessment-layout" : "",
               safeSkillId === "final_sounds" ? "final-sounds-assessment-card" : "",
               isPairSelection && safeSkillId === "final_sounds" ? "final-sounds-pair-assessment-card" : "",
-              isFinalSoundsEndingItem ? "final-sounds-ending-assessment-card" : ""
+              isFinalSoundsEndingItem ? "final-sounds-ending-assessment-card" : "",
+              isGraphemeChoiceItem ? "grapheme-choice-assessment-card" : ""
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             initial={{ scale: 0.96, opacity: 0 }}
@@ -3936,13 +3942,13 @@ export function AssessmentPage({
             ) : (
               <div className={[
                 isListenAndFindWord ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid",
-                isFinalSoundsEndingItem ? "final-sounds-grapheme-grid" : ""
+                isGraphemeChoiceItem ? "grapheme-choice-grid final-sounds-grapheme-grid" : ""
               ].filter(Boolean).join(" ")}>
                 {normalizedChoices.map((choice, index) => {
                   const choiceImage = currentQuestion.choiceImages?.[choice.value] || currentQuestion.choiceImages?.[choice.label] || {};
                   const choiceButtonClassName = [
                     isListenAndFindWord ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card",
-                    isFinalSoundsEndingItem ? "final-sound-choice-button final-sound-grapheme-option" : ""
+                    isGraphemeChoiceItem ? "grapheme-choice-button final-sound-choice-button final-sound-grapheme-option" : ""
                   ].filter(Boolean).join(" ");
 
                   return (
@@ -3963,7 +3969,7 @@ export function AssessmentPage({
                       className={choiceButtonClassName}
                       onClick={() => answerQuestion(choice.value)}
                     >
-                      {isListenAndFindWord && choiceImage.image && (
+                      {isListenAndFindWord && !isGraphemeChoiceItem && choiceImage.image && (
                         <img
                           src={choiceImage.image}
                           alt={choiceImage.alt || `Picture for ${choice.label}`}

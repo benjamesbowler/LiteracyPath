@@ -2,6 +2,7 @@ import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
 import { getImportedVocabularyMedia } from "./importedVocabularyMediaManifest.js";
 import { getLexiconEntry } from "../content/lexicon/masterWordLexicon.js";
+import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 
 const MEDIA_SKILLS = new Set([
   "initial_sounds",
@@ -149,10 +150,10 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     enriched.audioPath = enriched.audioPath || enriched.audioUrl || enriched.audio || targetAsset.audio;
   }
 
-  if (Array.isArray(enriched.answerOptions)) {
+  if (Array.isArray(enriched.answerOptions) && !isGraphemeChoiceQuestion(enriched)) {
     enriched.answerOptions = enriched.answerOptions.map(enrichOption);
   }
-  if (Array.isArray(enriched.options)) {
+  if (Array.isArray(enriched.options) && !isGraphemeChoiceQuestion(enriched)) {
     enriched.options = enriched.options.map(enrichOption);
   }
 

@@ -1,6 +1,6 @@
 # Assessment Skill Integrity Audit
 
-Generated: 2026-05-28T05:52:22.526Z
+Generated: 2026-05-28T06:18:25.904Z
 
 Strict contract: every assessment skill should have exactly 2 levels, exactly 2 phases, 15 safe questions per phase, and at least 30 unique usable questions per level. This is audit-only and does not modify question content.
 
@@ -23,41 +23,44 @@ Strict contract: every assessment skill should have exactly 2 levels, exactly 2 
 | missingSkillIds | 0 |
 | missingLevelData | 0 |
 | missingPhaseData | 0 |
+| graphemeChoiceQuestions | 620 |
+| imageChoiceQuestions | 1129 |
+| imageChoiceLeaks | 0 |
 | unassignedQuestions | 140 |
 
 ## Summary By Skill
 
-| # | Skill | Skill ID | Unique total | L1 usable | L2 usable | Phases | Levels | 2 phases | 2 levels | L1 missing | L2 missing | Round risk | Status |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Initial Sounds | initial_sounds | 175 | 140 | 35 | 2 | 2 | yes | yes | 0 | 0 | ok | blocker |
-| 2 | Final Sounds | final_sounds | 379 | 178 | 201 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 3 | Rhyming | rhyming | 339 | 280 | 59 | 2 | 2 | yes | yes | 0 | 0 | ok | blocker |
-| 4 | CVC Short Vowels | cvc_short_vowels | 413 | 323 | 90 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 5 | Short Vowel Discrimination | short_vowel_discrimination | 306 | 271 | 35 | 2 | 2 | yes | yes | 0 | 0 | ok | blocker |
-| 6 | High-Frequency Words 1-25 | hfw_1_25 | 96 | 61 | 35 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 7 | High-Frequency Words 26-50 | hfw_26_50 | 123 | 48 | 75 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 8 | High-Frequency Words 51-100 | hfw_51_100 | 165 | 35 | 130 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 9 | Blends | blends | 122 | 88 | 34 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 10 | Digraphs | digraphs | 126 | 76 | 50 | 2 | 2 | yes | yes | 0 | 0 | ok | blocker |
-| 11 | Long Vowels and Silent E | long_vowels_silent_e | 104 | 35 | 69 | 2 | 2 | yes | yes | 0 | 0 | ok | blocker |
-| 12 | Vowel Teams | vowel_teams | 111 | 35 | 76 | 2 | 2 | yes | yes | 0 | 0 | ok | blocker |
-| 13 | R-Controlled Vowels | r_controlled_vowels | 91 | 35 | 56 | 2 | 2 | yes | yes | 0 | 0 | ok | blocker |
-| 14 | Nouns | nouns | 89 | 35 | 54 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 15 | Verbs | verbs | 95 | 41 | 54 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 16 | Adjectives | adjectives | 81 | 42 | 39 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 17 | Prepositions of Place | prepositions_of_place | 109 | 57 | 52 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 18 | Plurals | plurals | 137 | 35 | 102 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 19 | Prefixes and Suffixes | prefixes_suffixes | 111 | 35 | 76 | 2 | 2 | yes | yes | 0 | 0 | ok | blocker |
-| 20 | Antonyms and Synonyms | antonyms_synonyms | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 21 | Homophones and Homonyms | homophones_homonyms | 87 | 35 | 52 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 22 | Sentence Comprehension | sentence_comprehension | 160 | 35 | 125 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 23 | Key Details | key_details | 94 | 35 | 59 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 24 | Sequencing | sequencing | 94 | 35 | 59 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 25 | Main Idea | main_idea | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 26 | Inference | inference | 140 | 35 | 105 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 27 | Cause and Effect | cause_effect | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 28 | Context Clues | context_clues | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
-| 29 | Theme and Higher Comprehension | theme_higher_comprehension | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | ok | pass |
+| # | Skill | Skill ID | Unique total | L1 usable | L2 usable | Phases | Levels | 2 phases | 2 levels | L1 missing | L2 missing | Text-tile questions | Image-choice questions | Image leaks | Round risk | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Initial Sounds | initial_sounds | 175 | 140 | 35 | 2 | 2 | yes | yes | 0 | 0 | 65 | 106 | 0 | ok | blocker |
+| 2 | Final Sounds | final_sounds | 379 | 178 | 201 | 2 | 2 | yes | yes | 0 | 0 | 206 | 129 | 0 | ok | pass |
+| 3 | Rhyming | rhyming | 339 | 280 | 59 | 2 | 2 | yes | yes | 0 | 0 | 0 | 337 | 0 | ok | blocker |
+| 4 | CVC Short Vowels | cvc_short_vowels | 413 | 323 | 90 | 2 | 2 | yes | yes | 0 | 0 | 127 | 217 | 0 | ok | pass |
+| 5 | Short Vowel Discrimination | short_vowel_discrimination | 306 | 271 | 35 | 2 | 2 | yes | yes | 0 | 0 | 135 | 171 | 0 | ok | blocker |
+| 6 | High-Frequency Words 1-25 | hfw_1_25 | 96 | 61 | 35 | 2 | 2 | yes | yes | 0 | 0 | 0 | 1 | 0 | ok | pass |
+| 7 | High-Frequency Words 26-50 | hfw_26_50 | 123 | 48 | 75 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
+| 8 | High-Frequency Words 51-100 | hfw_51_100 | 165 | 35 | 130 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
+| 9 | Blends | blends | 122 | 88 | 34 | 2 | 2 | yes | yes | 0 | 0 | 22 | 60 | 0 | ok | pass |
+| 10 | Digraphs | digraphs | 126 | 76 | 50 | 2 | 2 | yes | yes | 0 | 0 | 30 | 39 | 0 | ok | blocker |
+| 11 | Long Vowels and Silent E | long_vowels_silent_e | 104 | 35 | 69 | 2 | 2 | yes | yes | 0 | 0 | 35 | 0 | 0 | ok | blocker |
+| 12 | Vowel Teams | vowel_teams | 111 | 35 | 76 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | blocker |
+| 13 | R-Controlled Vowels | r_controlled_vowels | 91 | 35 | 56 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | blocker |
+| 14 | Nouns | nouns | 89 | 35 | 54 | 2 | 2 | yes | yes | 0 | 0 | 0 | 30 | 0 | ok | pass |
+| 15 | Verbs | verbs | 95 | 41 | 54 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
+| 16 | Adjectives | adjectives | 81 | 42 | 39 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 17 | Prepositions of Place | prepositions_of_place | 109 | 57 | 52 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 18 | Plurals | plurals | 137 | 35 | 102 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 19 | Prefixes and Suffixes | prefixes_suffixes | 111 | 35 | 76 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | blocker |
+| 20 | Antonyms and Synonyms | antonyms_synonyms | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
+| 21 | Homophones and Homonyms | homophones_homonyms | 87 | 35 | 52 | 2 | 2 | yes | yes | 0 | 0 | 0 | 1 | 0 | ok | pass |
+| 22 | Sentence Comprehension | sentence_comprehension | 160 | 35 | 125 | 2 | 2 | yes | yes | 0 | 0 | 0 | 30 | 0 | ok | pass |
+| 23 | Key Details | key_details | 94 | 35 | 59 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 24 | Sequencing | sequencing | 94 | 35 | 59 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 25 | Main Idea | main_idea | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 26 | Inference | inference | 140 | 35 | 105 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 27 | Cause and Effect | cause_effect | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 28 | Context Clues | context_clues | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 29 | Theme and Higher Comprehension | theme_higher_comprehension | 100 | 35 | 65 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
 
 ## Red Flags
 
@@ -109,6 +112,14 @@ _None._
 ## Skills Unable To Safely Generate 15-Question Rounds
 
 _None._
+
+## Assessment Choice Rendering Diagnostics
+
+- Grapheme/text-choice questions: 620
+- Image-choice questions: 1129
+- Image-choice leaks in grapheme/text-choice questions: 0
+
+_No image-choice leaks detected in grapheme/text-choice questions._
 
 ## Duplicate IDs
 
