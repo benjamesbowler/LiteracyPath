@@ -3593,6 +3593,42 @@ select:focus {
   font-weight: 800;
 }
 
+.short-vowel-word-choice-card {
+  gap: clamp(10px, 1.7vh, 16px);
+}
+
+.short-vowel-word-choice-card .assessment-stimulus:empty {
+  display: none;
+}
+
+.short-vowel-word-choice-grid {
+  width: min(760px, 100%);
+  margin-inline: auto;
+  gap: clamp(10px, 1.5vh, 14px);
+}
+
+.short-vowel-word-choice-grid .choice-wrap {
+  display: grid;
+  gap: 7px;
+  justify-items: center;
+  min-width: 0;
+}
+
+.short-vowel-word-choice-button {
+  width: 100%;
+  min-height: clamp(72px, 10vh, 104px) !important;
+  padding: clamp(10px, 1.8vh, 16px) clamp(12px, 2vw, 20px) !important;
+  font-size: clamp(24px, 3.4vw, 38px) !important;
+  line-height: 1.05;
+}
+
+.short-vowel-word-choice-grid .choice-audio {
+  width: 42px;
+  min-height: 42px !important;
+  padding: 0;
+  border-radius: 999px;
+}
+
 .visual-card-grid,
 .initial-sound-card-grid,
 .visual-word-choices {
@@ -4098,6 +4134,14 @@ select:focus {
   .assessment-card .choices,
   .assessment-answer-grid {
     grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+
+  .short-vowel-word-choice-card {
+    padding-block: clamp(16px, 2.4vh, 22px);
+  }
+
+  .short-vowel-word-choice-grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
   }
 
   .rhyming-assessment-layout .assessment-prompt h2 {

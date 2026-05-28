@@ -1,6 +1,6 @@
 # Assessment Skill Integrity Audit
 
-Generated: 2026-05-28T10:31:08.733Z
+Generated: 2026-05-28T11:21:40.704Z
 
 Strict contract: every assessment skill should have exactly 2 levels, exactly 2 phases, 15 safe questions per phase, and at least 30 unique usable questions per level. This is audit-only and does not modify question content.
 
@@ -120,6 +120,17 @@ _None._
 - Image-choice leaks in grapheme/text-choice questions: 0
 
 _No image-choice leaks detected in grapheme/text-choice questions._
+
+## CVC / Short Vowel Rendering Guardrails
+
+- CVC Short Vowels:
+  - Short-vowel word-choice prompts requiring option-card rendering: gen_cvc_short_a_bad_0_vowel, gen_cvc_short_a_bag_1_vowel, gen_cvc_short_a_bat_2_vowel, gen_cvc_short_a_cap_3_vowel, gen_cvc_short_a_fan_4_vowel, gen_cvc_short_a_ham_5_vowel, gen_cvc_short_a_hat_6_vowel, gen_cvc_short_a_jam_7_vowel, gen_cvc_short_a_man_8_vowel, gen_cvc_short_a_mat_9_vowel, gen_cvc_short_a_nap_10_vowel, gen_cvc_short_a_pan_11_vowel, gen_cvc_short_a_ram_12_vowel, gen_cvc_short_a_rat_13_vowel, gen_cvc_short_a_tap_14_vowel, gen_cvc_short_a_van_15_vowel +44 more
+  - Invalid Listen & Find classifications: -
+  - Grapheme image leaks: -
+- Short Vowel Discrimination:
+  - Short-vowel word-choice prompts requiring option-card rendering: ixl_short_vowel_1, ixl_short_vowel_2, ixl_short_vowel_3, ixl_short_vowel_4, ixl_short_vowel_5, ixl_short_vowel_6, ixl_short_vowel_7, ixl_short_vowel_8, ixl_short_vowel_9, ixl_short_vowel_10, ixl_short_vowel_11, ixl_short_vowel_12, ixl_short_vowel_13, ixl_short_vowel_14, ixl_short_vowel_15, ixl_short_vowel_16 +74 more
+  - Invalid Listen & Find classifications: -
+  - Grapheme image leaks: -
 
 ## Duplicate IDs
 

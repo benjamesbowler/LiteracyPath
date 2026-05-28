@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T10:31:08.733Z",
+  "generatedAt": "2026-05-28T11:21:40.704Z",
   "source": "loadCoreQuestionPool() plus managedAssessmentSkillDepthConfig",
   "targetContract": {
     "levelsPerSkill": 2,
@@ -62,6 +62,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 65,
         "imageChoiceCount": 106,
@@ -226,6 +227,7 @@
           "th"
         ]
       },
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 206,
         "imageChoiceCount": 129,
@@ -387,6 +389,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 337,
@@ -563,6 +566,76 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": {
+        "issues": [],
+        "warnings": [
+          "Short-vowel category prompts must render as word/audio option cards without a central speaker-only stimulus: gen_cvc_short_a_bad_0_vowel, gen_cvc_short_a_bag_1_vowel, gen_cvc_short_a_bat_2_vowel, gen_cvc_short_a_cap_3_vowel, gen_cvc_short_a_fan_4_vowel, gen_cvc_short_a_ham_5_vowel, gen_cvc_short_a_hat_6_vowel, gen_cvc_short_a_jam_7_vowel, gen_cvc_short_a_man_8_vowel, gen_cvc_short_a_mat_9_vowel, gen_cvc_short_a_nap_10_vowel, gen_cvc_short_a_pan_11_vowel +48 more."
+        ],
+        "centralSpeakerRisk": [
+          "gen_cvc_short_a_bad_0_vowel",
+          "gen_cvc_short_a_bag_1_vowel",
+          "gen_cvc_short_a_bat_2_vowel",
+          "gen_cvc_short_a_cap_3_vowel",
+          "gen_cvc_short_a_fan_4_vowel",
+          "gen_cvc_short_a_ham_5_vowel",
+          "gen_cvc_short_a_hat_6_vowel",
+          "gen_cvc_short_a_jam_7_vowel",
+          "gen_cvc_short_a_man_8_vowel",
+          "gen_cvc_short_a_mat_9_vowel",
+          "gen_cvc_short_a_nap_10_vowel",
+          "gen_cvc_short_a_pan_11_vowel",
+          "gen_cvc_short_a_ram_12_vowel",
+          "gen_cvc_short_a_rat_13_vowel",
+          "gen_cvc_short_a_tap_14_vowel",
+          "gen_cvc_short_a_van_15_vowel",
+          "gen_cvc_short_a_yak_16_vowel",
+          "gen_cvc_short_e_hen_0_vowel",
+          "gen_cvc_short_e_jet_1_vowel",
+          "gen_cvc_short_e_leg_2_vowel",
+          "gen_cvc_short_e_pen_3_vowel",
+          "gen_cvc_short_e_red_4_vowel",
+          "gen_cvc_short_e_ten_5_vowel",
+          "gen_cvc_short_e_web_6_vowel",
+          "gen_cvc_short_i_bid_0_vowel",
+          "gen_cvc_short_i_big_1_vowel",
+          "gen_cvc_short_i_bin_2_vowel",
+          "gen_cvc_short_i_dig_3_vowel",
+          "gen_cvc_short_i_fin_4_vowel",
+          "gen_cvc_short_i_hit_5_vowel",
+          "gen_cvc_short_i_kid_6_vowel",
+          "gen_cvc_short_i_lid_7_vowel",
+          "gen_cvc_short_i_pig_8_vowel",
+          "gen_cvc_short_i_pin_9_vowel",
+          "gen_cvc_short_i_sit_10_vowel",
+          "gen_cvc_short_i_wig_11_vowel",
+          "gen_cvc_short_i_zip_12_vowel",
+          "gen_cvc_short_o_cot_0_vowel",
+          "gen_cvc_short_o_dog_1_vowel",
+          "gen_cvc_short_o_dot_2_vowel",
+          "gen_cvc_short_o_hop_3_vowel",
+          "gen_cvc_short_o_hot_4_vowel",
+          "gen_cvc_short_o_log_5_vowel",
+          "gen_cvc_short_o_mop_6_vowel",
+          "gen_cvc_short_o_pot_7_vowel",
+          "gen_cvc_short_o_top_8_vowel",
+          "gen_cvc_short_u_bud_0_vowel",
+          "gen_cvc_short_u_bug_1_vowel",
+          "gen_cvc_short_u_bun_2_vowel",
+          "gen_cvc_short_u_bus_3_vowel",
+          "gen_cvc_short_u_cup_4_vowel",
+          "gen_cvc_short_u_gum_6_vowel",
+          "gen_cvc_short_u_hut_7_vowel",
+          "gen_cvc_short_u_jug_8_vowel",
+          "gen_cvc_short_u_mud_9_vowel",
+          "gen_cvc_short_u_mug_10_vowel",
+          "gen_cvc_short_u_rug_11_vowel",
+          "gen_cvc_short_u_run_12_vowel",
+          "gen_cvc_short_u_sun_13_vowel",
+          "gen_cvc_short_u_tub_14_vowel"
+        ],
+        "invalidListenFind": [],
+        "graphemeImageLeaks": []
+      },
       "choiceRendering": {
         "graphemeChoiceCount": 127,
         "imageChoiceCount": 217,
@@ -753,6 +826,106 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": {
+        "issues": [],
+        "warnings": [
+          "Short-vowel category prompts must render as word/audio option cards without a central speaker-only stimulus: ixl_short_vowel_1, ixl_short_vowel_2, ixl_short_vowel_3, ixl_short_vowel_4, ixl_short_vowel_5, ixl_short_vowel_6, ixl_short_vowel_7, ixl_short_vowel_8, ixl_short_vowel_9, ixl_short_vowel_10, ixl_short_vowel_11, ixl_short_vowel_12 +78 more."
+        ],
+        "centralSpeakerRisk": [
+          "ixl_short_vowel_1",
+          "ixl_short_vowel_2",
+          "ixl_short_vowel_3",
+          "ixl_short_vowel_4",
+          "ixl_short_vowel_5",
+          "ixl_short_vowel_6",
+          "ixl_short_vowel_7",
+          "ixl_short_vowel_8",
+          "ixl_short_vowel_9",
+          "ixl_short_vowel_10",
+          "ixl_short_vowel_11",
+          "ixl_short_vowel_12",
+          "ixl_short_vowel_13",
+          "ixl_short_vowel_14",
+          "ixl_short_vowel_15",
+          "ixl_short_vowel_16",
+          "ixl_short_vowel_17",
+          "ixl_short_vowel_18",
+          "ixl_short_vowel_19",
+          "ixl_short_vowel_20",
+          "ixl_short_vowel_21",
+          "ixl_short_vowel_22",
+          "ixl_short_vowel_23",
+          "ixl_short_vowel_24",
+          "ixl_short_vowel_25",
+          "ixl_short_vowel_26",
+          "ixl_short_vowel_27",
+          "ixl_short_vowel_28",
+          "ixl_short_vowel_29",
+          "ixl_short_vowel_30",
+          "gen_short_vowel_a_bad_0_word",
+          "gen_short_vowel_a_bag_1_word",
+          "gen_short_vowel_a_bat_2_word",
+          "gen_short_vowel_i_bid_3_word",
+          "gen_short_vowel_i_big_4_word",
+          "gen_short_vowel_i_bin_5_word",
+          "gen_short_vowel_u_bud_6_word",
+          "gen_short_vowel_u_bug_7_word",
+          "gen_short_vowel_u_bun_8_word",
+          "gen_short_vowel_u_bus_9_word",
+          "gen_short_vowel_a_cap_10_word",
+          "gen_short_vowel_o_cot_11_word",
+          "gen_short_vowel_u_cup_12_word",
+          "gen_short_vowel_i_dig_13_word",
+          "gen_short_vowel_o_dog_14_word",
+          "gen_short_vowel_o_dot_15_word",
+          "gen_short_vowel_a_fan_17_word",
+          "gen_short_vowel_i_fin_18_word",
+          "gen_short_vowel_u_gum_19_word",
+          "gen_short_vowel_a_ham_20_word",
+          "gen_short_vowel_a_hat_21_word",
+          "gen_short_vowel_e_hen_22_word",
+          "gen_short_vowel_i_hit_23_word",
+          "gen_short_vowel_o_hop_24_word",
+          "gen_short_vowel_o_hot_25_word",
+          "gen_short_vowel_u_hut_26_word",
+          "gen_short_vowel_a_jam_27_word",
+          "gen_short_vowel_e_jet_28_word",
+          "gen_short_vowel_u_jug_29_word",
+          "gen_short_vowel_i_kid_30_word",
+          "gen_short_vowel_e_leg_31_word",
+          "gen_short_vowel_i_lid_32_word",
+          "gen_short_vowel_o_log_33_word",
+          "gen_short_vowel_a_man_34_word",
+          "gen_short_vowel_a_mat_35_word",
+          "gen_short_vowel_o_mop_36_word",
+          "gen_short_vowel_u_mud_37_word",
+          "gen_short_vowel_u_mug_38_word",
+          "gen_short_vowel_a_nap_39_word",
+          "gen_short_vowel_a_pan_40_word",
+          "gen_short_vowel_e_pen_41_word",
+          "gen_short_vowel_i_pig_42_word",
+          "gen_short_vowel_i_pin_43_word",
+          "gen_short_vowel_o_pot_44_word",
+          "gen_short_vowel_a_ram_45_word",
+          "gen_short_vowel_a_rat_46_word",
+          "gen_short_vowel_e_red_47_word",
+          "gen_short_vowel_u_rug_48_word",
+          "gen_short_vowel_u_run_49_word",
+          "gen_short_vowel_i_sit_50_word",
+          "gen_short_vowel_u_sun_51_word",
+          "gen_short_vowel_a_tap_52_word",
+          "gen_short_vowel_e_ten_53_word",
+          "gen_short_vowel_o_top_54_word",
+          "gen_short_vowel_u_tub_55_word",
+          "gen_short_vowel_a_van_56_word",
+          "gen_short_vowel_e_web_57_word",
+          "gen_short_vowel_i_wig_58_word",
+          "gen_short_vowel_a_yak_59_word",
+          "gen_short_vowel_i_zip_60_word"
+        ],
+        "invalidListenFind": [],
+        "graphemeImageLeaks": []
+      },
       "choiceRendering": {
         "graphemeChoiceCount": 135,
         "imageChoiceCount": 171,
@@ -868,6 +1041,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 1,
@@ -1036,6 +1210,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 2,
@@ -1202,6 +1377,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 2,
@@ -1409,6 +1585,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 22,
         "imageChoiceCount": 60,
@@ -1556,6 +1733,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 30,
         "imageChoiceCount": 39,
@@ -1697,6 +1875,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 35,
         "imageChoiceCount": 0,
@@ -1838,6 +2017,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -1982,6 +2162,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -2117,6 +2298,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 30,
@@ -2301,6 +2483,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 2,
@@ -2483,6 +2666,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -2653,6 +2837,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -2807,6 +2992,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -2977,6 +3163,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -3134,6 +3321,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 2,
@@ -3310,6 +3498,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 1,
@@ -3498,6 +3687,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 30,
@@ -3750,6 +3940,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -3939,6 +4130,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -4134,6 +4326,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -4332,6 +4525,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -4576,6 +4770,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -4777,6 +4972,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,
@@ -4976,6 +5172,7 @@
         "missingMedia": []
       },
       "finalSoundsSpecial": null,
+      "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
         "imageChoiceCount": 0,

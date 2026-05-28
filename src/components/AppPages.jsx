@@ -695,6 +695,17 @@ function isRhymingPictureQuestion(question = {}) {
     String(question?.formatType || question?.templateType || "").toUpperCase() === "RHYMING_PICTURE";
 }
 
+function isShortVowelWordChoiceQuestion(question = {}) {
+  const skillId = String(question?.skillId || "").toLowerCase();
+  const format = String(question?.formatType || question?.templateType || "").toUpperCase();
+  const prompt = String(question?.prompt || question?.question || "").toLowerCase();
+  return (
+    (skillId === "cvc_short_vowels" || skillId === "short_vowel_discrimination") &&
+    format === "SHORT_VOWEL_WORD" &&
+    /\bwhich word has the short [aeiou] sound\b/.test(prompt)
+  );
+}
+
 function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
   const safePrompt = String(prompt || "");
   const word = String(targetWord || "").trim();
@@ -715,7 +726,7 @@ function formatAnswerForFeedback(value = "") {
   return String(value || "").split("|").filter(Boolean).join(", ");
 }
 
-function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, speakText, shouldShowImage }) {
+function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, isShortVowelWordChoice, speakText, shouldShowImage }) {
   if (!currentQuestion) return null;
 
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
@@ -768,6 +779,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     !isPairSelection &&
     !isFinalSoundsEndingItem &&
     !isIxlStyleTemplate &&
+    !isShortVowelWordChoice &&
     Boolean(approvedStimulusAudioPath || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
 
   return (
@@ -3741,6 +3753,7 @@ export function AssessmentPage({
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
+  const isShortVowelWordChoiceItem = isShortVowelWordChoiceQuestion(currentQuestion);
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
       <div className="assessment-meta">
@@ -3973,12 +3986,16 @@ export function AssessmentPage({
     ])
   );
   const showTextChoiceAudio =
-    !isListenAndFindWord &&
+    (!isListenAndFindWord || isShortVowelWordChoiceItem) &&
     !isPairSelection &&
     !isVisualCardChoice &&
     !isIxlStyleTemplate &&
     normalizedChoices.length > 0 &&
-    normalizedChoices.every(choice => Boolean(textChoiceAudioPaths[choice.value]));
+    (
+      isShortVowelWordChoiceItem
+        ? normalizedChoices.some(choice => Boolean(textChoiceAudioPaths[choice.value]))
+        : normalizedChoices.every(choice => Boolean(textChoiceAudioPaths[choice.value]))
+    );
 
   return (
     <main className="assessment-shell">
@@ -4001,7 +4018,8 @@ export function AssessmentPage({
               safeSkillId === "final_sounds" ? "final-sounds-assessment-card" : "",
               isPairSelection && safeSkillId === "final_sounds" ? "final-sounds-pair-assessment-card" : "",
               isFinalSoundsEndingItem ? "final-sounds-ending-assessment-card" : "",
-              isGraphemeChoiceItem ? "grapheme-choice-assessment-card" : ""
+              isGraphemeChoiceItem ? "grapheme-choice-assessment-card" : "",
+              isShortVowelWordChoiceItem ? "short-vowel-word-choice-card" : ""
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             initial={{ scale: 0.96, opacity: 0 }}
@@ -4027,6 +4045,7 @@ export function AssessmentPage({
               isPairSelection={isPairSelection}
               isVisualCardChoice={isVisualCardChoice}
               isIxlStyleTemplate={isIxlStyleTemplate}
+              isShortVowelWordChoice={isShortVowelWordChoiceItem}
               speakText={speakText}
               shouldShowImage={shouldShowImage}
             />
@@ -4056,19 +4075,21 @@ export function AssessmentPage({
               />
             ) : (
               <div className={[
-                isListenAndFindWord ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid",
+                isListenAndFindWord && !isShortVowelWordChoiceItem ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid",
+                isShortVowelWordChoiceItem ? "short-vowel-word-choice-grid" : "",
                 isGraphemeChoiceItem ? "grapheme-choice-grid final-sounds-grapheme-grid" : ""
               ].filter(Boolean).join(" ")}>
                 {normalizedChoices.map((choice, index) => {
                   const choiceImage = currentQuestion.choiceImages?.[choice.value] || currentQuestion.choiceImages?.[choice.label] || {};
                   const choiceButtonClassName = [
-                    isListenAndFindWord ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card",
+                    isListenAndFindWord && !isShortVowelWordChoiceItem ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card",
+                    isShortVowelWordChoiceItem ? "short-vowel-word-choice-button" : "",
                     isGraphemeChoiceItem ? "grapheme-choice-button final-sound-choice-button final-sound-grapheme-option" : ""
                   ].filter(Boolean).join(" ");
 
                   return (
                   <div
-                    className={isListenAndFindWord ? "choice-wrap visual-word-choice-wrap" : "choice-wrap"}
+                    className={isListenAndFindWord && !isShortVowelWordChoiceItem ? "choice-wrap visual-word-choice-wrap" : "choice-wrap"}
                     key={index}
                   >
                     {showTextChoiceAudio && (
@@ -4084,7 +4105,7 @@ export function AssessmentPage({
                       className={choiceButtonClassName}
                       onClick={() => answerQuestion(choice.value)}
                     >
-                      {isListenAndFindWord && !isGraphemeChoiceItem && choiceImage.image && (
+                      {isListenAndFindWord && !isShortVowelWordChoiceItem && !isGraphemeChoiceItem && choiceImage.image && (
                         <img
                           src={choiceImage.image}
                           alt={choiceImage.alt || `Picture for ${choice.label}`}
