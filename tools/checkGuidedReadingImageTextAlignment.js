@@ -70,6 +70,35 @@ function expectedImagePatterns(bookId, storyPageNumber) {
     "dino-pals-19-zippys-race": "19",
     "dino-pals-20-the-big-storm": "20"
   };
+  const meadowPalsMap = {
+    "meadow-pals-01-muddy-has-a-bath": "01",
+    "meadow-pals-02-woolly-cant-sleep": "02",
+    "meadow-pals-03-clucky-lays-an-egg": "03",
+    "meadow-pals-04-bouncy-wont-stop": "04",
+    "meadow-pals-05-grumpy-gets-a-surprise": "05",
+    "meadow-pals-06-sleepy-cant-wake-up": "06",
+    "meadow-pals-07-noisy-tries-to-be-quiet": "07",
+    "meadow-pals-08-tiny-is-very-small": "08",
+    "meadow-pals-09-shy-comes-out-to-play": "09",
+    "meadow-pals-10-giggly-has-the-hiccups": "10",
+    "meadow-pals-11-brave-climbs-the-hay-bale": "11",
+    "meadow-pals-12-hungry-eats-everything": "12",
+    "meadow-pals-13-splashy-finds-a-puddle": "13",
+    "meadow-pals-14-speedy-slows-down": "14",
+    "meadow-pals-15-cuddly-wants-a-hug": "15"
+  };
+  const moonwoodTalesMap = {
+    "moonwood-tales-c-01": "01",
+    "moonwood-tales-c-02": "02",
+    "moonwood-tales-c-03": "03",
+    "moonwood-tales-c-04": "04",
+    "moonwood-tales-c-05": "05",
+    "moonwood-tales-c-06": "06",
+    "moonwood-tales-c-07": "07",
+    "moonwood-tales-c-08": "08",
+    "moonwood-tales-c-09": "09",
+    "moonwood-tales-c-10": "10"
+  };
   if (bobAndNanMap[bookId]) {
     return [`/guided-reading/series/bob-and-nan/book-${bobAndNanMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
   }
@@ -81,6 +110,12 @@ function expectedImagePatterns(bookId, storyPageNumber) {
   }
   if (dinoPalsMap[bookId]) {
     return [`/guided-reading/series/dino-pals/book-${dinoPalsMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+  }
+  if (meadowPalsMap[bookId]) {
+    return [`/guided-reading/series/meadow-pals/book-${meadowPalsMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+  }
+  if (moonwoodTalesMap[bookId]) {
+    return [`/guided-reading/series/moonwood-tales/book-${moonwoodTalesMap[bookId]}/page-${String(storyPageNumber).padStart(3, "0")}.`];
   }
   if (bookId.startsWith("first-facts-a-")) {
     const bookNumber = bookId.match(/^first-facts-a-(\d{2})-/)?.[1];
@@ -154,7 +189,32 @@ const allowedFictionIds = new Set([
   "dino-pals-17-the-sunny-hollow-games",
   "dino-pals-18-dozys-wonderful-dream",
   "dino-pals-19-zippys-race",
-  "dino-pals-20-the-big-storm"
+  "dino-pals-20-the-big-storm",
+  "meadow-pals-01-muddy-has-a-bath",
+  "meadow-pals-02-woolly-cant-sleep",
+  "meadow-pals-03-clucky-lays-an-egg",
+  "meadow-pals-04-bouncy-wont-stop",
+  "meadow-pals-05-grumpy-gets-a-surprise",
+  "meadow-pals-06-sleepy-cant-wake-up",
+  "meadow-pals-07-noisy-tries-to-be-quiet",
+  "meadow-pals-08-tiny-is-very-small",
+  "meadow-pals-09-shy-comes-out-to-play",
+  "meadow-pals-10-giggly-has-the-hiccups",
+  "meadow-pals-11-brave-climbs-the-hay-bale",
+  "meadow-pals-12-hungry-eats-everything",
+  "meadow-pals-13-splashy-finds-a-puddle",
+  "meadow-pals-14-speedy-slows-down",
+  "meadow-pals-15-cuddly-wants-a-hug",
+  "moonwood-tales-c-01",
+  "moonwood-tales-c-02",
+  "moonwood-tales-c-03",
+  "moonwood-tales-c-04",
+  "moonwood-tales-c-05",
+  "moonwood-tales-c-06",
+  "moonwood-tales-c-07",
+  "moonwood-tales-c-08",
+  "moonwood-tales-c-09",
+  "moonwood-tales-c-10"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
@@ -199,7 +259,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, plus Dino Pals Level B books 1-20 in student public release. First Facts Level A nonfiction books 1-25 are also checked as public nonfiction.",
+  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-15, and Moonwood Tales Level C books 1-10 in student public release. First Facts Level A nonfiction books 1-25 are also checked as public nonfiction.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

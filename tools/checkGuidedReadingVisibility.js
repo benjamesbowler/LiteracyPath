@@ -68,7 +68,32 @@ const allowedFictionIds = new Set([
   "dino-pals-17-the-sunny-hollow-games",
   "dino-pals-18-dozys-wonderful-dream",
   "dino-pals-19-zippys-race",
-  "dino-pals-20-the-big-storm"
+  "dino-pals-20-the-big-storm",
+  "meadow-pals-01-muddy-has-a-bath",
+  "meadow-pals-02-woolly-cant-sleep",
+  "meadow-pals-03-clucky-lays-an-egg",
+  "meadow-pals-04-bouncy-wont-stop",
+  "meadow-pals-05-grumpy-gets-a-surprise",
+  "meadow-pals-06-sleepy-cant-wake-up",
+  "meadow-pals-07-noisy-tries-to-be-quiet",
+  "meadow-pals-08-tiny-is-very-small",
+  "meadow-pals-09-shy-comes-out-to-play",
+  "meadow-pals-10-giggly-has-the-hiccups",
+  "meadow-pals-11-brave-climbs-the-hay-bale",
+  "meadow-pals-12-hungry-eats-everything",
+  "meadow-pals-13-splashy-finds-a-puddle",
+  "meadow-pals-14-speedy-slows-down",
+  "meadow-pals-15-cuddly-wants-a-hug",
+  "moonwood-tales-c-01",
+  "moonwood-tales-c-02",
+  "moonwood-tales-c-03",
+  "moonwood-tales-c-04",
+  "moonwood-tales-c-05",
+  "moonwood-tales-c-06",
+  "moonwood-tales-c-07",
+  "moonwood-tales-c-08",
+  "moonwood-tales-c-09",
+  "moonwood-tales-c-10"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
@@ -80,14 +105,14 @@ if (unexpectedFictionBooks.length) {
 if (!nonfictionBooks.length) {
   failures.push("No nonfiction Guided Reading books remain visible.");
 }
-if (fictionBooks.length !== 50) {
-  failures.push(`Expected 50 fiction books, found ${fictionBooks.length}.`);
+if (fictionBooks.length !== 75) {
+  failures.push(`Expected 75 fiction books, found ${fictionBooks.length}.`);
 }
 if (nonfictionBooks.length !== 46) {
   failures.push(`Expected 46 nonfiction books after First Facts Books 21-25 import, found ${nonfictionBooks.length}.`);
 }
-if (guidedReadingBooks.length !== 96) {
-  failures.push(`Expected 96 total Guided Reading books after First Facts Books 21-25 import, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 121) {
+  failures.push(`Expected 121 total Guided Reading books after Moonwood Tales import, found ${guidedReadingBooks.length}.`);
 }
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction books are still visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);

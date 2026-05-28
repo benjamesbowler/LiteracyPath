@@ -9,6 +9,8 @@ const bobBooks610ReportPath = path.join(rootDir, "docs", "guided-reading", "bob_
 const jamesReportPath = path.join(rootDir, "docs", "guided-reading", "james_and_anna_import_audit.md");
 const aidenReportPath = path.join(rootDir, "docs", "guided-reading", "aiden_and_betty_import_audit.md");
 const dinoReportPath = path.join(rootDir, "docs", "guided-reading", "dino_pals_books_11_20_import_audit.md");
+const meadowReportPath = path.join(rootDir, "docs", "guided-reading", "meadow_pals_import_audit.md");
+const moonwoodReportPath = path.join(rootDir, "docs", "guided-reading", "moonwood_tales_books_import_audit.md");
 
 const expectedBobBooks = [
   { id: "bob-and-nan-01", title: "Bob and Nan", pages: 7 },
@@ -125,6 +127,37 @@ const expectedDinoBooks = [
   { id: "dino-pals-20-the-big-storm", title: "The Big Storm", pages: 12 }
 ];
 
+const expectedMeadowBooks = [
+  { id: "meadow-pals-01-muddy-has-a-bath", title: "Muddy Has a Bath", pages: 9 },
+  { id: "meadow-pals-02-woolly-cant-sleep", title: "Woolly Can't Sleep", pages: 9 },
+  { id: "meadow-pals-03-clucky-lays-an-egg", title: "Clucky Lays an Egg", pages: 8 },
+  { id: "meadow-pals-04-bouncy-wont-stop", title: "Bouncy Won't Stop", pages: 7 },
+  { id: "meadow-pals-05-grumpy-gets-a-surprise", title: "Grumpy Gets a Surprise", pages: 10 },
+  { id: "meadow-pals-06-sleepy-cant-wake-up", title: "Sleepy Can't Wake Up", pages: 9 },
+  { id: "meadow-pals-07-noisy-tries-to-be-quiet", title: "Noisy Tries to Be Quiet", pages: 10 },
+  { id: "meadow-pals-08-tiny-is-very-small", title: "Tiny is Very Small", pages: 9 },
+  { id: "meadow-pals-09-shy-comes-out-to-play", title: "Shy Comes Out to Play", pages: 9 },
+  { id: "meadow-pals-10-giggly-has-the-hiccups", title: "Giggly Has the Hiccups", pages: 9 },
+  { id: "meadow-pals-11-brave-climbs-the-hay-bale", title: "Brave Climbs the Hay Bale", pages: 10 },
+  { id: "meadow-pals-12-hungry-eats-everything", title: "Hungry Eats Everything", pages: 7 },
+  { id: "meadow-pals-13-splashy-finds-a-puddle", title: "Splashy Finds a Puddle", pages: 9 },
+  { id: "meadow-pals-14-speedy-slows-down", title: "Speedy Slows Down", pages: 10 },
+  { id: "meadow-pals-15-cuddly-wants-a-hug", title: "Cuddly Wants a Hug", pages: 10 }
+];
+
+const expectedMoonwoodBooks = [
+  { id: "moonwood-tales-c-01", title: "Pip and the Bravery Stone", pages: 12 },
+  { id: "moonwood-tales-c-02", title: "Fern Grows Too Much", pages: 12 },
+  { id: "moonwood-tales-c-03", title: "Stone Crosses the Bridge", pages: 12 },
+  { id: "moonwood-tales-c-04", title: "Glimmer Tries and Tries", pages: 12 },
+  { id: "moonwood-tales-c-05", title: "Wren and the Backwards Spell", pages: 12 },
+  { id: "moonwood-tales-c-06", title: "Flint Makes a Map", pages: 12 },
+  { id: "moonwood-tales-c-07", title: "Dewdrop and the Lying Fish", pages: 12 },
+  { id: "moonwood-tales-c-08", title: "Burrow Finds a Door", pages: 13 },
+  { id: "moonwood-tales-c-09", title: "Spark's Very Big Sneeze", pages: 14 },
+  { id: "moonwood-tales-c-10", title: "What Luna Forgot", pages: 14 }
+];
+
 const expectedFirstFactsBooks = [
   { id: "first-facts-a-01-look-at-the-colours", title: "Look at the Colours!", pages: 7 },
   { id: "first-facts-a-02-the-four-seasons", title: "The Four Seasons", pages: 9 },
@@ -194,15 +227,21 @@ const bobBooks610Rows = [];
 const jamesRows = [];
 const aidenRows = [];
 const dinoRows = [];
+const meadowRows = [];
+const moonwoodRows = [];
 const firstFactsRows = [];
 const warnings = [];
 const draftBobBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "bob-and-nan");
 const draftJamesBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "james-and-anna");
 const draftAidenBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "aiden-and-betty");
 const draftDinoBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "dino-pals");
+const draftMeadowBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "meadow-pals");
+const draftMoonwoodBooks = guidedReadingSeriesBookDrafts.filter(book => book.seriesId === "moonwood-tales");
 const visibleBobBooks = guidedReadingBooks.filter(book => book.seriesId === "bob-and-nan");
 const visibleJamesBooks = guidedReadingBooks.filter(book => book.seriesId === "james-and-anna");
 const visibleAidenBooks = guidedReadingBooks.filter(book => book.seriesId === "aiden-and-betty");
+const visibleMeadowBooks = guidedReadingBooks.filter(book => book.seriesId === "meadow-pals");
+const visibleMoonwoodBooks = guidedReadingBooks.filter(book => book.seriesId === "moonwood-tales");
 const visibleNonfictionBooks = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "nonfiction");
 const visibleFirstFactsBooks = guidedReadingBooks.filter(book => book.seriesId === "first-facts");
 const oldFictionRestored = guidedReadingBooks.filter(book => oldFictionIds.includes(book.id));
@@ -216,6 +255,10 @@ if (visibleJamesBooks.length !== 10) failures.push(`Expected 10 visible James an
 if (draftAidenBooks.length !== 10) failures.push(`Expected 10 Aiden and Betty draft books, found ${draftAidenBooks.length}.`);
 if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden and Betty approved books, found ${visibleAidenBooks.length}.`);
 if (draftDinoBooks.length !== 20) failures.push(`Expected 20 Dino Pals draft books, found ${draftDinoBooks.length}.`);
+if (draftMeadowBooks.length !== 15) failures.push(`Expected 15 Meadow Pals draft books, found ${draftMeadowBooks.length}.`);
+if (visibleMeadowBooks.length !== 15) failures.push(`Expected 15 visible Meadow Pals approved books, found ${visibleMeadowBooks.length}.`);
+if (draftMoonwoodBooks.length !== 10) failures.push(`Expected 10 Moonwood Tales draft books, found ${draftMoonwoodBooks.length}.`);
+if (visibleMoonwoodBooks.length !== 10) failures.push(`Expected 10 visible Moonwood Tales approved books, found ${visibleMoonwoodBooks.length}.`);
 if (visibleFirstFactsBooks.length !== 25) failures.push(`Expected 25 First Facts public nonfiction books, found ${visibleFirstFactsBooks.length}.`);
 if (visibleNonfictionBooks.length !== 46) failures.push(`Expected 46 nonfiction books after First Facts Books 21-25 import, found ${visibleNonfictionBooks.length}.`);
 if (oldFictionRestored.length) failures.push(`Old deleted fiction ids were restored: ${oldFictionRestored.map(book => book.id).join(", ")}`);
@@ -442,6 +485,127 @@ for (const expected of expectedDinoBooks) {
     expectedPages: expected.pages,
     importedPages,
     audioPages,
+    missingStoryImages,
+    coverExists,
+    coverStatus: coverExists ? "delivered cover used" : "missing",
+    qaStatus: book.qaStatus,
+    teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
+  });
+}
+
+for (const expected of expectedMeadowBooks) {
+  const book = draftMeadowBooks.find(item => item.id === expected.id);
+  if (!book) {
+    failures.push(`${expected.id}: missing from Meadow Pals draft data.`);
+    continue;
+  }
+
+  const storyPages = book.pages || [];
+  const coverExists = publicPathExists(book.coverImage);
+  const importedPages = storyPages.filter(page => publicPathExists(page.image)).map(page => page.pageNumber);
+  const audioPages = storyPages.filter(page => publicPathExists(page.audio || page.pageAudio)).map(page => page.pageNumber);
+  const missingStoryImages = storyPages.filter(page => !publicPathExists(page.image)).map(page => page.pageNumber);
+  const firstStoryImage = storyPages[0]?.image || "";
+  const normalized = normalizeReadableBook(book);
+  const promptLeakPages = storyPages
+    .filter(page => /PAGE\s+\d+|ILLUSTRATION|IMAGE GENERATION|SERIES CHARACTER|QA NOTES/i.test(page.text || ""))
+    .map(page => page.pageNumber);
+
+  if (book.title !== expected.title) failures.push(`${expected.id}: title is ${book.title}, expected ${expected.title}.`);
+  if (book.level !== "A") failures.push(`${expected.id}: level is ${book.level}, expected A.`);
+  if (book.guidedReadingLevel !== "A") failures.push(`${expected.id}: guidedReadingLevel is ${book.guidedReadingLevel}, expected A.`);
+  if (normalizeGuidedReadingType(book.type) !== "fiction") failures.push(`${expected.id}: type is ${book.type}, expected fiction.`);
+  if (book.seriesTitle !== "Meadow Pals") failures.push(`${expected.id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
+  if (book.ageRange !== "4-5") failures.push(`${expected.id}: ageRange is ${book.ageRange || "missing"}.`);
+  if (book.author !== "Nora Bell") failures.push(`${expected.id}: author is ${book.author || "missing"}, expected Nora Bell.`);
+  if (book.illustrator !== "Milo Reed") failures.push(`${expected.id}: illustrator is ${book.illustrator || "missing"}, expected Milo Reed.`);
+  if (book.status !== "approved") failures.push(`${expected.id}: status is ${book.status || "missing"}, expected approved.`);
+  if (book.qaStatus !== "approved") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved.`);
+  if (book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be false for student release.`);
+  if (storyPages.length !== expected.pages) failures.push(`${expected.id}: source page count is ${storyPages.length}, expected ${expected.pages}.`);
+  if (!coverExists) failures.push(`${expected.id}: cover missing at ${book.coverImage || "missing"}.`);
+  if (importedPages.length !== expected.pages) failures.push(`${expected.id}: imported story image count is ${importedPages.length}, expected ${expected.pages}.`);
+  if (audioPages.length !== expected.pages) failures.push(`${expected.id}: page audio count is ${audioPages.length}, expected ${expected.pages}.`);
+  if (missingStoryImages.length) failures.push(`${expected.id}: missing story page images ${missingStoryImages.join(", ")}.`);
+  if (!firstStoryImage.endsWith("page-001.webp")) failures.push(`${expected.id}: story page 1 does not use page-001.webp (${firstStoryImage}).`);
+  if (firstStoryImage === book.coverImage) failures.push(`${expected.id}: story page 1 is incorrectly using the cover image.`);
+  if (promptLeakPages.length) failures.push(`${expected.id}: reading text contains prompt/page-label markers on pages ${promptLeakPages.join(", ")}.`);
+  if (book.availableStoryPageCount !== expected.pages) failures.push(`${expected.id}: availableStoryPageCount is ${book.availableStoryPageCount}, expected ${expected.pages}.`);
+  if (book.missingStoryPages?.length) failures.push(`${expected.id}: missingStoryPages should be empty after full import (${book.missingStoryPages.join(", ")}).`);
+  if (normalized.pages[0]?.type !== "title") failures.push(`${expected.id}: normalized reader page 1 is not a title page.`);
+  if (normalized.pages[0]?.image !== book.coverImage) failures.push(`${expected.id}: title page does not use the cover image.`);
+  if (normalized.pages[1]?.storyPageNumber !== 1) failures.push(`${expected.id}: first story page is not storyPageNumber 1.`);
+  if (normalized.pages[1]?.image !== firstStoryImage) failures.push(`${expected.id}: normalized story page 1 image changed from source page-001.`);
+
+  meadowRows.push({
+    id: expected.id,
+    title: book.title,
+    level: book.level,
+    expectedPages: expected.pages,
+    importedPages,
+    audioPages,
+    missingStoryImages,
+    coverExists,
+    coverStatus: coverExists ? "delivered cover used" : "missing",
+    qaStatus: book.qaStatus,
+    teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
+  });
+}
+
+for (const expected of expectedMoonwoodBooks) {
+  const book = visibleMoonwoodBooks.find(item => item.id === expected.id);
+  if (!book) {
+    failures.push(`${expected.id}: missing from Moonwood Tales public fiction shelf.`);
+    continue;
+  }
+
+  const storyPages = book.pages || [];
+  const coverExists = publicPathExists(book.coverImage);
+  const fullBookAudioExists = publicPathExists(book.fullBookAudio);
+  const importedPages = storyPages.filter(page => publicPathExists(page.image)).map(page => page.pageNumber);
+  const audioPages = storyPages.filter(page => publicPathExists(page.audio || page.pageAudio)).map(page => page.pageNumber);
+  const missingStoryImages = storyPages.filter(page => !publicPathExists(page.image)).map(page => page.pageNumber);
+  const firstStoryImage = storyPages[0]?.image || "";
+  const normalized = normalizeReadableBook(book);
+  const promptLeakPages = storyPages
+    .filter(page => /PAGE\s+\d+|ILLUSTRATION|IMAGE GENERATION|SERIES CHARACTER|QA NOTES/i.test(page.text || ""))
+    .map(page => page.pageNumber);
+
+  if (book.title !== expected.title) failures.push(`${expected.id}: title is ${book.title}, expected ${expected.title}.`);
+  if (book.level !== "C") failures.push(`${expected.id}: level is ${book.level}, expected C.`);
+  if (book.guidedReadingLevel !== "C") failures.push(`${expected.id}: guidedReadingLevel is ${book.guidedReadingLevel}, expected C.`);
+  if (normalizeGuidedReadingType(book.type) !== "fiction") failures.push(`${expected.id}: type is ${book.type}, expected fiction.`);
+  if (book.seriesTitle !== "Moonwood Tales") failures.push(`${expected.id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
+  if (book.ageRange !== "5-6") failures.push(`${expected.id}: ageRange is ${book.ageRange || "missing"}.`);
+  if (book.status !== "approved") failures.push(`${expected.id}: status is ${book.status || "missing"}, expected approved.`);
+  if (book.qaStatus !== "approved") failures.push(`${expected.id}: qaStatus is ${book.qaStatus || "missing"}, expected approved.`);
+  if (book.active === false) failures.push(`${expected.id}: active should be true for student release.`);
+  if (book.visible === false) failures.push(`${expected.id}: visible should be true for student release.`);
+  if (book.teacherPreviewOnly) failures.push(`${expected.id}: teacherPreviewOnly should be false for student release.`);
+  if (storyPages.length !== expected.pages) failures.push(`${expected.id}: source page count is ${storyPages.length}, expected ${expected.pages}.`);
+  if (!coverExists) failures.push(`${expected.id}: cover missing at ${book.coverImage || "missing"}.`);
+  if (!fullBookAudioExists) failures.push(`${expected.id}: full-book audio missing at ${book.fullBookAudio || "missing"}.`);
+  if (importedPages.length !== expected.pages) failures.push(`${expected.id}: imported story image count is ${importedPages.length}, expected ${expected.pages}.`);
+  if (audioPages.length !== expected.pages) failures.push(`${expected.id}: page audio count is ${audioPages.length}, expected ${expected.pages}.`);
+  if (missingStoryImages.length) failures.push(`${expected.id}: missing story page images ${missingStoryImages.join(", ")}.`);
+  if (!firstStoryImage.endsWith("page-001.webp")) failures.push(`${expected.id}: story page 1 does not use page-001.webp (${firstStoryImage}).`);
+  if (firstStoryImage === book.coverImage) failures.push(`${expected.id}: story page 1 is incorrectly using the cover image.`);
+  if (promptLeakPages.length) failures.push(`${expected.id}: reading text contains prompt/page-label markers on pages ${promptLeakPages.join(", ")}.`);
+  if (book.availableStoryPageCount !== expected.pages) failures.push(`${expected.id}: availableStoryPageCount is ${book.availableStoryPageCount}, expected ${expected.pages}.`);
+  if (book.missingStoryPages?.length) failures.push(`${expected.id}: missingStoryPages should be empty after full import (${book.missingStoryPages.join(", ")}).`);
+  if (normalized.pages[0]?.type !== "title") failures.push(`${expected.id}: normalized reader page 1 is not a title page.`);
+  if (normalized.pages[0]?.image !== book.coverImage) failures.push(`${expected.id}: title page does not use the cover image.`);
+  if (normalized.pages[1]?.storyPageNumber !== 1) failures.push(`${expected.id}: first story page is not storyPageNumber 1.`);
+  if (normalized.pages[1]?.image !== firstStoryImage) failures.push(`${expected.id}: normalized story page 1 image changed from source page-001.`);
+
+  moonwoodRows.push({
+    id: expected.id,
+    title: book.title,
+    level: book.level,
+    expectedPages: expected.pages,
+    importedPages,
+    audioPages,
+    fullBookAudioExists,
     missingStoryImages,
     coverExists,
     coverStatus: coverExists ? "delivered cover used" : "missing",
@@ -768,12 +932,131 @@ const dinoReport = [
   failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Dino Pals Level B Books 11-20 are imported with cover, twelve story pages, and page audio for student readers; Books 1-10 remain intact."
 ];
 
+const meadowReport = [
+  "# Meadow Pals Level A Import Audit",
+  "",
+  `Generated: ${new Date().toISOString()}`,
+  "",
+  "## Source",
+  "",
+  "`/Users/benjaminbowler/Desktop/LiteracyPath_Source_Packs/Organised/Level A/Meadow Pals`",
+  "",
+  "Asset pack: `Meadow Pals Asset Pack/Meadow_Pals_Level_A_Assets`.",
+  "",
+  "## Target",
+  "",
+  "`public/guided-reading/series/meadow-pals/book-01` through `book-15`",
+  "",
+  "## Summary",
+  "",
+  "- Detected completed range: Books 1-15.",
+  `- Imported Meadow Pals books: ${meadowRows.length}`,
+  "- Skipped/incomplete books: 0",
+  "- Level chosen: A, because the source pack is organised under `Level A` and the page text uses short early-reader sentence patterns.",
+  "- Release scope: approved and visible to student readers.",
+  `- Imported covers: ${meadowRows.filter(row => row.coverExists).length}/15`,
+  `- Imported story page images: ${meadowRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
+  `- Imported story page audio files: ${meadowRows.reduce((sum, row) => sum + row.audioPages.length, 0)}`,
+  `- Missing story page images: ${meadowRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
+  `- Full-book audio files found: 0`,
+  `- Final fiction book count: ${guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction").length}`,
+  `- Final nonfiction book count: ${visibleNonfictionBooks.length}`,
+  `- Final total guided reading count: ${guidedReadingBooks.length}`,
+  `- Validation failures: ${failures.length}`,
+  "",
+  "## Imported Books",
+  "",
+  "| ID | Title | Level | Expected Pages | Imported Images | Page Audio | Missing Images | Cover Status | QA | Preview Only |",
+  "|---|---|---|---:|---|---|---|---|---|---:|",
+  ...meadowRows.map(row => `| ${row.id} | ${row.title} | ${row.level} | ${row.expectedPages} | ${row.importedPages.join(", ") || "none"} | ${row.audioPages.join(", ") || "none"} | ${row.missingStoryImages.join(", ") || "none"} | ${row.coverStatus} | ${row.qaStatus} | ${row.teacherPreviewOnly ? "yes" : "no"} |`),
+  "",
+  "## Sequence Check",
+  "",
+  "- `cover.webp` is used as the title/cover image only.",
+  "- `page-001.webp` maps to story page 1 for every imported book.",
+  "- Page text, story images, and page audio counts match for Books 1-15.",
+  "- No title-page labels, illustration prompts, character references, or QA notes are present as reading text.",
+  "",
+  "## Missing or Unclear Items",
+  "",
+  "None. The source pack had complete cover, story image, page text, and page audio coverage for Books 1-15.",
+  "",
+  "## Warnings",
+  "",
+  warnings.length ? warnings.map(item => `- ${item}`).join("\n") : "None.",
+  "",
+  failures.length ? "## Failures" : "## Result",
+  "",
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Meadow Pals Books 1-15 are imported as an approved Level A fiction series with aligned page text, images, and page audio."
+];
+
+const moonwoodReport = [
+  "# Moonwood Tales Level C Import Audit",
+  "",
+  `Generated: ${new Date().toISOString()}`,
+  "",
+  "## Source",
+  "",
+  "`/Users/benjaminbowler/Desktop/LiteracyPath_Source_Packs/Organised/Level C/Moonwood Tales`",
+  "",
+  "Media archive: `Moonwood Guided Reading.zip` containing `Moonwood_Tales_Level_C_Kimi_Asset_Pack`.",
+  "",
+  "## Target",
+  "",
+  "`public/guided-reading/series/moonwood-tales/book-01` through `book-10`",
+  "",
+  "## Summary",
+  "",
+  "- Detected completed range: Books 1-10.",
+  `- Imported Moonwood Tales books: ${moonwoodRows.length}`,
+  "- Skipped/incomplete books: 0",
+  "- Level: C.",
+  "- Release scope: approved and visible to student readers immediately.",
+  `- Imported covers: ${moonwoodRows.filter(row => row.coverExists).length}/10`,
+  `- Imported story page images: ${moonwoodRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
+  `- Imported story page audio files: ${moonwoodRows.reduce((sum, row) => sum + row.audioPages.length, 0)}`,
+  `- Full-book audio files: ${moonwoodRows.filter(row => row.fullBookAudioExists).length}/10`,
+  `- Missing story page images: ${moonwoodRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
+  `- Final fiction book count: ${guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction").length}`,
+  `- Final nonfiction book count: ${visibleNonfictionBooks.length}`,
+  `- Final total guided reading count: ${guidedReadingBooks.length}`,
+  `- Validation failures: ${failures.length}`,
+  "",
+  "## Imported Books",
+  "",
+  "| ID | Title | Level | Expected Pages | Imported Images | Page Audio | Full-Book Audio | Missing Images | Cover Status | QA | Preview Only |",
+  "|---|---|---|---:|---|---|---:|---|---|---|---:|",
+  ...moonwoodRows.map(row => `| ${row.id} | ${row.title} | ${row.level} | ${row.expectedPages} | ${row.importedPages.join(", ") || "none"} | ${row.audioPages.join(", ") || "none"} | ${row.fullBookAudioExists ? "yes" : "no"} | ${row.missingStoryImages.join(", ") || "none"} | ${row.coverStatus} | ${row.qaStatus} | ${row.teacherPreviewOnly ? "yes" : "no"} |`),
+  "",
+  "## Sequence Check",
+  "",
+  "- `cover.webp` is used as the title/cover image only.",
+  "- `page-001.webp` maps to story page 1 for every imported book.",
+  "- Page text, story images, and page audio counts match for every imported book.",
+  "- Full-book audio exists for every imported book.",
+  "- No title-page labels, illustration prompts, character references, or QA notes are present as reading text.",
+  "",
+  "## Missing or Unclear Items",
+  "",
+  "None. The source pack had complete cover, story image, page text, page audio, and full-book audio coverage for Books 1-10.",
+  "",
+  "## Warnings",
+  "",
+  warnings.length ? warnings.map(item => `- ${item}`).join("\n") : "None.",
+  "",
+  failures.length ? "## Failures" : "## Result",
+  "",
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Moonwood Tales Books 1-10 are imported as approved Level C fiction with aligned page text, images, page audio, and full-book audio."
+];
+
 fs.mkdirSync(path.dirname(bobReportPath), { recursive: true });
 fs.writeFileSync(bobReportPath, `${bobReport.join("\n")}\n`);
 fs.writeFileSync(bobBooks610ReportPath, `${bobBooks610Report.join("\n")}\n`);
 fs.writeFileSync(jamesReportPath, `${jamesReport.join("\n")}\n`);
 fs.writeFileSync(aidenReportPath, `${aidenReport.join("\n")}\n`);
 fs.writeFileSync(dinoReportPath, `${dinoReport.join("\n")}\n`);
+fs.writeFileSync(meadowReportPath, `${meadowReport.join("\n")}\n`);
+fs.writeFileSync(moonwoodReportPath, `${moonwoodReport.join("\n")}\n`);
 
 console.log(`Bob and Nan books visible: ${visibleBobBooks.length}`);
 console.log(`James and Anna draft books: ${draftJamesBooks.length}`);
@@ -781,6 +1064,10 @@ console.log(`James and Anna visible books: ${visibleJamesBooks.length}`);
 console.log(`Aiden and Betty draft books: ${draftAidenBooks.length}`);
 console.log(`Aiden and Betty visible books: ${visibleAidenBooks.length}`);
 console.log(`Dino Pals draft books: ${draftDinoBooks.length}`);
+console.log(`Meadow Pals draft books: ${draftMeadowBooks.length}`);
+console.log(`Meadow Pals visible books: ${visibleMeadowBooks.length}`);
+console.log(`Moonwood Tales draft books: ${draftMoonwoodBooks.length}`);
+console.log(`Moonwood Tales visible books: ${visibleMoonwoodBooks.length}`);
 console.log(`Nonfiction books visible: ${visibleNonfictionBooks.length}`);
 console.log(`Old fiction restored: ${oldFictionRestored.length}`);
 console.log(`Wrote ${path.relative(rootDir, bobReportPath)}`);
@@ -788,6 +1075,8 @@ console.log(`Wrote ${path.relative(rootDir, bobBooks610ReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, jamesReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, aidenReportPath)}`);
 console.log(`Wrote ${path.relative(rootDir, dinoReportPath)}`);
+console.log(`Wrote ${path.relative(rootDir, meadowReportPath)}`);
+console.log(`Wrote ${path.relative(rootDir, moonwoodReportPath)}`);
 
 if (failures.length) {
   failures.forEach(item => console.error(`- ${item}`));

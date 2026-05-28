@@ -1,4 +1,6 @@
-const wordAudio = word => `/audio/child-mode/words/${word.toLowerCase().replace(/[^a-z0-9'-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
+import { moonwoodTalesBooks } from "./moonwoodTalesBooks.js";
+
+const wordAudio = word => `/guided-reading/audio/words/${word.toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "")}.mp3`;
 
 const normalizeReadingText = text =>
   String(text || "")
@@ -280,6 +282,763 @@ const createDinoPalsBook = ({
   missingStoryPages: [],
   pages: pages.map(page => createDinoPage({ bookNumber, ...page }))
 });
+
+const meadowPagePath = (bookNumber, pageNumber) =>
+  seriesPagePath("meadow-pals", bookNumber, pageNumber);
+
+const meadowCoverPath = bookNumber =>
+  seriesCoverPath("meadow-pals", bookNumber);
+
+const meadowAudioPath = (bookNumber, pageNumber) =>
+  "/guided-reading/series/meadow-pals/book-" + String(bookNumber).padStart(2, "0") + "/audio/page-" + String(pageNumber).padStart(3, "0") + ".mp3";
+
+const createMeadowPage = ({ bookNumber, pageNumber, text }) => ({
+  pageNumber,
+  text: normalizeReadingText(text),
+  image: meadowPagePath(bookNumber, pageNumber),
+  audio: meadowAudioPath(bookNumber, pageNumber),
+  pageAudio: meadowAudioPath(bookNumber, pageNumber),
+  words: words(text),
+  qaStatus: "approved",
+  qaNotes: "Released for student Guided Reading.",
+  active: true
+});
+
+const createMeadowPalsBook = ({
+  id,
+  title,
+  bookNumber,
+  theme,
+  character,
+  pages
+}) => ({
+  id,
+  seriesId: "meadow-pals",
+  seriesTitle: "Meadow Pals",
+  seriesName: "Meadow Pals",
+  title,
+  type: "fiction",
+  category: "fiction",
+  level: "A",
+  guidedReadingLevel: "A",
+  ageRange: "4-5",
+  bookNumber,
+  order: bookNumber,
+  author: "Nora Bell",
+  illustrator: "Milo Reed",
+  status: "approved",
+  qaStatus: "approved",
+  qaNotes: "Released for student Guided Reading after source page text, images, and page audio matched.",
+  active: true,
+  teacherPreviewOnly: false,
+  source: "meadow_pals_level_a_pack_2026_05_28",
+  coverImage: meadowCoverPath(bookNumber),
+  targetSkills: ["level-a", "fiction", "meadow-pals"],
+  sightWords: ["the", "said", "is", "to", "and", "it", "in", "was"],
+  targetPatterns: ["level-a", "fiction", "simple-sentences", "repeated-language"],
+  theme,
+  characterReference: {
+    muddy: "Muddy is a friendly Meadow Pals character who loves mud and keeps the same look across the series.",
+    woolly: "Woolly is a gentle Meadow Pals character used consistently across bedtime and friendship pages.",
+    clucky: "Clucky is a busy hen-like Meadow Pals character who appears in farmyard scenes.",
+    bouncy: "Bouncy is an energetic Meadow Pals character who hops and moves with playful energy.",
+    grumpy: "Grumpy is a Meadow Pals character with a gruff expression and a kind heart.",
+    sleepy: "Sleepy is a tired Meadow Pals character who often rests or naps.",
+    noisy: "Noisy is a loud Meadow Pals character learning when to be quiet.",
+    tiny: "Tiny is a very small Meadow Pals character shown with clear scale cues.",
+    shy: "Shy is a quiet Meadow Pals character who slowly joins the group.",
+    giggly: "Giggly is a happy Meadow Pals character who laughs often.",
+    brave: "Brave is a determined Meadow Pals character who keeps trying.",
+    hungry: "Hungry is a Meadow Pals character who likes to eat.",
+    splashy: "Splashy is a Meadow Pals character who loves puddles and water play.",
+    speedy: "Speedy is a fast Meadow Pals character who learns to slow down.",
+    cuddly: "Cuddly is a warm Meadow Pals character who likes hugs."
+  },
+  settingReference:
+    "Meadow Pals takes place in a warm farm meadow with a barn, pond, hill, log, hay bale, flowers, grass, and cozy character homes. Keep scenes bright, simple, and child-friendly with no embedded text.",
+  expectedStoryPageCount: pages.length,
+  availableStoryPageCount: pages.length,
+  missingStoryPages: [],
+  pages: pages.map(page => createMeadowPage({ bookNumber, ...page }))
+});
+
+const meadowPalsBookData = [
+  {
+    "id": "meadow-pals-01-muddy-has-a-bath",
+    "title": "Muddy Has a Bath",
+    "bookNumber": 1,
+    "theme": "Muddy in Sunny Meadow",
+    "character": "Muddy",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Muddy is in the mud."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Muddy is very muddy."
+      },
+      {
+        "pageNumber": 3,
+        "text": "\"You need a bath,\" said Clucky."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Muddy got in the bath."
+      },
+      {
+        "pageNumber": 5,
+        "text": "The bath got very muddy."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Muddy got out."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Muddy ran to the mud."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Muddy is muddy again."
+      },
+      {
+        "pageNumber": 9,
+        "text": "Muddy is happy."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-02-woolly-cant-sleep",
+    "title": "Woolly Can't Sleep",
+    "bookNumber": 2,
+    "theme": "Woolly in Sunny Meadow",
+    "character": "Woolly",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Woolly got into bed."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Hoo! went the wind."
+      },
+      {
+        "pageNumber": 3,
+        "text": "Woolly sat up."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Buzz! went a bug."
+      },
+      {
+        "pageNumber": 5,
+        "text": "Woolly sat up."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Moo! went Hungry."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Woolly sat up."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Then it was quiet."
+      },
+      {
+        "pageNumber": 9,
+        "text": "Woolly went to sleep."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-03-clucky-lays-an-egg",
+    "title": "Clucky Lays an Egg",
+    "bookNumber": 3,
+    "theme": "Clucky in Sunny Meadow",
+    "character": "Clucky",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Clucky has to lay an egg."
+      },
+      {
+        "pageNumber": 2,
+        "text": "She sat in the nest.\n\"Not yet,\" said Clucky."
+      },
+      {
+        "pageNumber": 3,
+        "text": "She sat on the log.\n\"Not yet,\" said Clucky."
+      },
+      {
+        "pageNumber": 4,
+        "text": "She sat in the box.\n\"Not yet,\" said Clucky."
+      },
+      {
+        "pageNumber": 5,
+        "text": "She sat on the hat.\n\"Not yet!\" said Clucky."
+      },
+      {
+        "pageNumber": 6,
+        "text": "She sat in the mud."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Oh! An egg!"
+      },
+      {
+        "pageNumber": 8,
+        "text": "\"Not in the mud!\" said Clucky."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-04-bouncy-wont-stop",
+    "title": "Bouncy Won't Stop",
+    "bookNumber": 4,
+    "theme": "Bouncy in Sunny Meadow",
+    "character": "Bouncy",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Bouncy likes to hop."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Hop. Hop. Hop."
+      },
+      {
+        "pageNumber": 3,
+        "text": "\"Stop!\" said Grumpy.\nHop. Hop. Hop."
+      },
+      {
+        "pageNumber": 4,
+        "text": "\"Stop!\" said Clucky.\nHop. Hop. Hop."
+      },
+      {
+        "pageNumber": 5,
+        "text": "\"Stop!\" said everyone.\nHop. Hop. Hop."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Bouncy stopped."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Then Bouncy hopped again."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-05-grumpy-gets-a-surprise",
+    "title": "Grumpy Gets a Surprise",
+    "bookNumber": 5,
+    "theme": "Grumpy in Sunny Meadow",
+    "character": "Grumpy",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "It is Grumpy's birthday."
+      },
+      {
+        "pageNumber": 2,
+        "text": "\"I do not like birthdays,\" said Grumpy."
+      },
+      {
+        "pageNumber": 3,
+        "text": "\"I do not like cake,\" said Grumpy."
+      },
+      {
+        "pageNumber": 4,
+        "text": "\"I do not like hats,\" said Grumpy."
+      },
+      {
+        "pageNumber": 5,
+        "text": "\"SURPRISE!\" said everyone."
+      },
+      {
+        "pageNumber": 6,
+        "text": "\"I do not like surprises,\" said Grumpy."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Grumpy had some cake."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Grumpy had some more cake."
+      },
+      {
+        "pageNumber": 9,
+        "text": "Grumpy had a lot of cake."
+      },
+      {
+        "pageNumber": 10,
+        "text": "\"I like cake,\" said Grumpy."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-06-sleepy-cant-wake-up",
+    "title": "Sleepy Can't Wake Up",
+    "bookNumber": 6,
+    "theme": "Sleepy in Sunny Meadow",
+    "character": "Sleepy",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "\"Get up, Sleepy!\" said Noisy."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Sleepy did not get up."
+      },
+      {
+        "pageNumber": 3,
+        "text": "\"Get up, Sleepy!\" said Clucky."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Sleepy did not get up."
+      },
+      {
+        "pageNumber": 5,
+        "text": "\"Get up, Sleepy!\" said Bouncy."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Sleepy did not get up."
+      },
+      {
+        "pageNumber": 7,
+        "text": "\"GET UP, SLEEPY!\" said Noisy."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Sleepy got up."
+      },
+      {
+        "pageNumber": 9,
+        "text": "Sleepy went back to bed."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-07-noisy-tries-to-be-quiet",
+    "title": "Noisy Tries to Be Quiet",
+    "bookNumber": 7,
+    "theme": "Noisy in Sunny Meadow",
+    "character": "Noisy",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "\"Shh!\" said everyone."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Noisy was quiet."
+      },
+      {
+        "pageNumber": 3,
+        "text": "Then a bug sat on Noisy."
+      },
+      {
+        "pageNumber": 4,
+        "text": "\"AHHH!\" said Noisy."
+      },
+      {
+        "pageNumber": 5,
+        "text": "\"Shh!\" said everyone."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Noisy was very quiet."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Then Noisy saw a worm."
+      },
+      {
+        "pageNumber": 8,
+        "text": "\"A WORM! A WORM! A WORM!\""
+      },
+      {
+        "pageNumber": 9,
+        "text": "\"SHH!\" said everyone."
+      },
+      {
+        "pageNumber": 10,
+        "text": "Noisy is not good at quiet."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-08-tiny-is-very-small",
+    "title": "Tiny is Very Small",
+    "bookNumber": 8,
+    "theme": "Tiny in Sunny Meadow",
+    "character": "Tiny",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Tiny is small."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Very, very small."
+      },
+      {
+        "pageNumber": 3,
+        "text": "Tiny cannot reach the top."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Tiny cannot open the big door."
+      },
+      {
+        "pageNumber": 5,
+        "text": "Tiny cannot jump the gap."
+      },
+      {
+        "pageNumber": 6,
+        "text": "But Tiny can fit in the pot."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Tiny can fit in the bag."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Tiny can fit in the log."
+      },
+      {
+        "pageNumber": 9,
+        "text": "Small is very, very good."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-09-shy-comes-out-to-play",
+    "title": "Shy Comes Out to Play",
+    "bookNumber": 9,
+    "theme": "Shy in Sunny Meadow",
+    "character": "Shy",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Shy wants to play."
+      },
+      {
+        "pageNumber": 2,
+        "text": "But Shy is behind the barn."
+      },
+      {
+        "pageNumber": 3,
+        "text": "Bouncy went past.\n\"Come and play!\"\nShy hid."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Tiny went past.\n\"Come and play!\"\nShy hid."
+      },
+      {
+        "pageNumber": 5,
+        "text": "Cuddly sat down by the barn."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Cuddly did not go away."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Shy sat next to Cuddly."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Then Shy came out."
+      },
+      {
+        "pageNumber": 9,
+        "text": "Shy is playing!"
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-10-giggly-has-the-hiccups",
+    "title": "Giggly Has the Hiccups",
+    "bookNumber": 10,
+    "theme": "Giggly in Sunny Meadow",
+    "character": "Giggly",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Giggly has the hiccups."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Hic! Hic! Hic!"
+      },
+      {
+        "pageNumber": 3,
+        "text": "Giggly began to giggle.\nHic! Hee! Hic! Hee!"
+      },
+      {
+        "pageNumber": 4,
+        "text": "\"Drink this,\" said Clucky.\nHic! Hee! Hic! Hee!"
+      },
+      {
+        "pageNumber": 5,
+        "text": "\"Jump up,\" said Bouncy.\nHic! Hee! Hic! Hee!"
+      },
+      {
+        "pageNumber": 6,
+        "text": "\"Be very still,\" said Woolly.\nHic! Hee! Hic! Hee!"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Then Giggly stopped."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Hic."
+      },
+      {
+        "pageNumber": 9,
+        "text": "Oh no."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-11-brave-climbs-the-hay-bale",
+    "title": "Brave Climbs the Hay Bale",
+    "bookNumber": 11,
+    "theme": "Brave in Sunny Meadow",
+    "character": "Brave",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "The hay bale is big."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Very, very big."
+      },
+      {
+        "pageNumber": 3,
+        "text": "\"I can get up,\" said Brave."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Brave fell off."
+      },
+      {
+        "pageNumber": 5,
+        "text": "\"I can get up,\" said Brave."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Brave fell off again."
+      },
+      {
+        "pageNumber": 7,
+        "text": "\"I can get up,\" said Brave."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Brave got up!"
+      },
+      {
+        "pageNumber": 9,
+        "text": "\"I am up!\" said Brave."
+      },
+      {
+        "pageNumber": 10,
+        "text": "Then Brave fell off."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-12-hungry-eats-everything",
+    "title": "Hungry Eats Everything",
+    "bookNumber": 12,
+    "theme": "Hungry in Sunny Meadow",
+    "character": "Hungry",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Hungry ate the grass."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Hungry ate the flowers."
+      },
+      {
+        "pageNumber": 3,
+        "text": "Hungry ate the hat.\n\"My hat!\" said Clucky."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Hungry ate the map.\n\"My map!\" said Tiny."
+      },
+      {
+        "pageNumber": 5,
+        "text": "Hungry ate the big cake.\n\"My cake!\" said Grumpy."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Hungry was full."
+      },
+      {
+        "pageNumber": 7,
+        "text": "Hungry ate one more bit of grass."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-13-splashy-finds-a-puddle",
+    "title": "Splashy Finds a Puddle",
+    "bookNumber": 13,
+    "theme": "Splashy in Sunny Meadow",
+    "character": "Splashy",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Splashy sees a puddle."
+      },
+      {
+        "pageNumber": 2,
+        "text": "It is a small puddle."
+      },
+      {
+        "pageNumber": 3,
+        "text": "Splashy jumps in."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Splashy jumps and jumps."
+      },
+      {
+        "pageNumber": 5,
+        "text": "The puddle gets big.\nThe puddle gets very big."
+      },
+      {
+        "pageNumber": 6,
+        "text": "\"My feet are wet!\" said Grumpy."
+      },
+      {
+        "pageNumber": 7,
+        "text": "\"My hat is wet!\" said Clucky."
+      },
+      {
+        "pageNumber": 8,
+        "text": "\"My bed is wet!\" said Sleepy."
+      },
+      {
+        "pageNumber": 9,
+        "text": "Splashy is very happy."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-14-speedy-slows-down",
+    "title": "Speedy Slows Down",
+    "bookNumber": 14,
+    "theme": "Speedy in Sunny Meadow",
+    "character": "Speedy",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Speedy runs fast.\nVery, very fast."
+      },
+      {
+        "pageNumber": 2,
+        "text": "Speedy runs to the barn."
+      },
+      {
+        "pageNumber": 3,
+        "text": "Speedy runs to the pond."
+      },
+      {
+        "pageNumber": 4,
+        "text": "Speedy runs to the big hill."
+      },
+      {
+        "pageNumber": 5,
+        "text": "Speedy runs to the..."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Where is Speedy?"
+      },
+      {
+        "pageNumber": 7,
+        "text": "Speedy is lost."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Speedy sits down."
+      },
+      {
+        "pageNumber": 9,
+        "text": "\"Over here!\" said Tiny."
+      },
+      {
+        "pageNumber": 10,
+        "text": "Speedy runs home."
+      }
+    ]
+  },
+  {
+    "id": "meadow-pals-15-cuddly-wants-a-hug",
+    "title": "Cuddly Wants a Hug",
+    "bookNumber": 15,
+    "theme": "Cuddly in Sunny Meadow",
+    "character": "Cuddly",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "text": "Cuddly wants a hug."
+      },
+      {
+        "pageNumber": 2,
+        "text": "\"No hugs!\" said Grumpy."
+      },
+      {
+        "pageNumber": 3,
+        "text": "\"I am too wet!\" said Splashy."
+      },
+      {
+        "pageNumber": 4,
+        "text": "\"I am too fast!\" said Speedy."
+      },
+      {
+        "pageNumber": 5,
+        "text": "\"I am too muddy!\" said Muddy."
+      },
+      {
+        "pageNumber": 6,
+        "text": "Cuddly sat down."
+      },
+      {
+        "pageNumber": 7,
+        "text": "\"Oh, come here,\" said Woolly."
+      },
+      {
+        "pageNumber": 8,
+        "text": "Woolly gave Cuddly a big hug."
+      },
+      {
+        "pageNumber": 9,
+        "text": "\"More hugs!\" said Cuddly."
+      },
+      {
+        "pageNumber": 10,
+        "text": "\"No more hugs,\" said Woolly."
+      }
+    ]
+  }
+];
 
 export const guidedReadingSeriesBooks = [
   createBobAndNanBook({
@@ -1558,5 +2317,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 11, text: "The storm arrived. It was loud and wild. But inside Cozy Cave it was warm. Fifteen Dino Pals, very close together. Even Grumpy did not mind." },
       { pageNumber: 12, text: "When it passed, Sunny Hollow sparkled. We did that, said Sunny. All of us. Not bad, said Grumpy. From Grumpy, that meant wonderful." }
     ]
-  })
+  }),
+  ...meadowPalsBookData.map(createMeadowPalsBook),
+  ...moonwoodTalesBooks
 ];
