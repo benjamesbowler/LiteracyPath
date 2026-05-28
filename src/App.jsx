@@ -748,6 +748,43 @@ function isMissingTableError(error, tableName) {
   return error?.code === "42P01" || new RegExp("relation .*" + tableName + ".* does not exist", "i").test(error?.message || "");
 }
 
+function isSupabasePermissionError(error) {
+  const text = [
+    error?.code,
+    error?.message,
+    error?.details,
+    error?.hint
+  ].filter(Boolean).join(" ");
+
+  return /42501|permission denied|row-level security|rls|not authorized|not allowed/i.test(text);
+}
+
+function logAdminSupabaseError(label, error, context = {}) {
+  if (!import.meta.env.DEV) return;
+
+  console.error(label, {
+    table: context.table,
+    userId: context.userId,
+    userEmail: context.userEmail,
+    code: error?.code,
+    message: error?.message,
+    details: error?.details,
+    hint: error?.hint
+  });
+}
+
+function getAdminSetupMessage(error, tableName) {
+  if (isMissingTableError(error, tableName)) {
+    return `Admin setup is incomplete: the Supabase table "${tableName}" is missing. Apply the admin dashboard migration.`;
+  }
+
+  if (isSupabasePermissionError(error)) {
+    return `Admin setup needs attention: Supabase RLS or permissions are blocking access to "${tableName}".`;
+  }
+
+  return `Could not load admin dashboard because "${tableName}" returned a Supabase error.`;
+}
+
 function isMissingItemMasteryTableError(error) {
   return isMissingTableError(error, "item_mastery");
 }
@@ -1301,6 +1338,7 @@ export default function App() {
   const [teacherAccountStatus, setTeacherAccountStatus] = useState("signed_out");
   const [teacherAccountRecord, setTeacherAccountRecord] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [adminStatusError, setAdminStatusError] = useState(null);
   const [adminTeachers, setAdminTeachers] = useState([]);
   const [adminClasses, setAdminClasses] = useState([]);
   const [adminStudents, setAdminStudents] = useState([]);
@@ -1541,6 +1579,7 @@ export default function App() {
   useEffect(() => {
     if (!teacherId) {
       setIsAdmin(false);
+      setAdminStatusError(null);
       setTeacherAccountStatus("signed_out");
       setTeacherAccountRecord(null);
       return;
@@ -1670,6 +1709,7 @@ export default function App() {
   async function checkAdminStatus(userId = teacherId) {
     if (!userId) {
       setIsAdmin(false);
+      setAdminStatusError(null);
       return false;
     }
 
@@ -1680,14 +1720,18 @@ export default function App() {
       .maybeSingle();
 
     if (error) {
-      if (!isMissingTableError(error, "app_admins")) {
-        console.warn("Admin status check failed.", error);
-      }
+      logAdminSupabaseError("Admin status check failed.", error, {
+        table: "app_admins",
+        userId,
+        userEmail: teacherUser?.email
+      });
+      setAdminStatusError({ table: "app_admins", error });
       setIsAdmin(false);
       return false;
     }
 
     const nextIsAdmin = Boolean(data?.user_id);
+    setAdminStatusError(null);
     setIsAdmin(nextIsAdmin);
     return nextIsAdmin;
   }
@@ -1807,7 +1851,10 @@ export default function App() {
   }
 
   async function loadAdminDashboard() {
-    if (!isAdmin) return;
+    if (!isAdmin) {
+      setMessage("You are signed in, but this account is not authorized as an app admin.");
+      return;
+    }
 
     setAdminLoading(true);
 
@@ -1824,10 +1871,21 @@ export default function App() {
     setAdminLoading(false);
 
     const pendingAccountsMissing = pendingAccountsResult.error && isMissingTableError(pendingAccountsResult.error, "pending_teacher_accounts");
-    const firstError = classesResult.error || studentsResult.error || answersResult.error || (pendingAccountsMissing ? null : pendingAccountsResult.error);
-    if (firstError) {
-      console.error("Admin dashboard load error:", firstError);
-      setMessage("Could not load admin dashboard. Check admin RLS policies and migration.");
+    const dashboardErrors = [
+      { table: "classes", error: classesResult.error },
+      { table: "students", error: studentsResult.error },
+      { table: "answers", error: answersResult.error },
+      { table: "pending_teacher_accounts", error: pendingAccountsMissing ? null : pendingAccountsResult.error }
+    ].filter(result => result.error);
+
+    if (dashboardErrors.length > 0) {
+      const firstError = dashboardErrors[0];
+      logAdminSupabaseError("Admin dashboard load error.", firstError.error, {
+        table: firstError.table,
+        userId: teacherId,
+        userEmail: teacherUser?.email
+      });
+      setMessage(getAdminSetupMessage(firstError.error, firstError.table));
       return;
     }
 
@@ -1858,6 +1916,20 @@ export default function App() {
   }
 
   function openAdminDashboard() {
+    if (!isAdmin) {
+      if (adminStatusError?.error) {
+        logAdminSupabaseError("Admin dashboard blocked by admin check.", adminStatusError.error, {
+          table: adminStatusError.table,
+          userId: teacherId,
+          userEmail: teacherUser?.email
+        });
+        setMessage(getAdminSetupMessage(adminStatusError.error, adminStatusError.table));
+      } else {
+        setMessage("You are signed in, but this account is not authorized as an app admin. Add this user to the app_admins table to enable the Admin Dashboard.");
+      }
+      return;
+    }
+
     setAppView("admin");
     loadAdminDashboard();
   }
