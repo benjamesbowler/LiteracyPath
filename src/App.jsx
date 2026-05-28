@@ -5777,14 +5777,20 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
   if (!teacherUser) {
     return (
-      <div className="app auth-shell">
+      <div className="app auth-shell login-auth-shell">
         <motion.div
           className="hero auth-hero"
           initial={{ y: -12, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
         >
+          <div className="auth-hero-mark" aria-hidden="true">Aa</div>
           <h1>Reading Mastery</h1>
-          <p>Structured EL-style reading skill progression</p>
+          <p>Structured EL-style reading skill progression for classrooms, groups, and guided practice.</p>
+          <div className="auth-feature-badges" aria-label="Reading Mastery features">
+            <span>Adaptive Skills</span>
+            <span>Guided Reading</span>
+            <span>Teacher Dashboard</span>
+          </div>
         </motion.div>
 
         <AuthPage

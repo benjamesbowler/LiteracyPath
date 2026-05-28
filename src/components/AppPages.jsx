@@ -130,6 +130,10 @@ export function AuthPage({
       </div>
 
       {authMessage && <p className="message auth-message">{authMessage}</p>}
+
+      {!isForgotPassword && !isResetPassword && (
+        <p className="auth-footnote">Secure classroom access for teachers and reading specialists.</p>
+      )}
     </div>
   );
 }
@@ -364,6 +368,7 @@ export function TopNavigation({
 function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedWords, setSelectedWords] = useState([]);
   const showCardAudio = shouldShowUniformCardAudio(currentQuestion.imageCards || []);
+  const isFinalSoundsPair = currentQuestion?.skillId === "final_sounds" || currentQuestion?.questionType === "final_sound_pair";
 
   useEffect(() => {
     setSelectedWords([]);
@@ -384,8 +389,8 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
   }
 
   return (
-    <div className="initial-sound-pair-panel">
-      <div className="initial-sound-card-grid">
+    <div className={isFinalSoundsPair ? "initial-sound-pair-panel final-sounds-pair-panel" : "initial-sound-pair-panel"}>
+      <div className={isFinalSoundsPair ? "initial-sound-card-grid final-sounds-pair-grid" : "initial-sound-card-grid"}>
         {(currentQuestion.imageCards || []).map(card => {
           const label = getAnswerOptionLabel(card) || card.word;
           const value = getAnswerOptionValue(card) || label;
@@ -394,11 +399,15 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
 
           return (
             <article
-              className={selected ? "initial-sound-card selected" : "initial-sound-card"}
+              className={[
+                "initial-sound-card",
+                isFinalSoundsPair ? "final-sounds-pair-card" : "",
+                selected ? "selected" : ""
+              ].filter(Boolean).join(" ")}
               key={value}
             >
               <button
-                className="initial-sound-image-button"
+                className={isFinalSoundsPair ? "initial-sound-image-button final-sounds-pair-image-button" : "initial-sound-image-button"}
                 onClick={() => toggleWord(value)}
                 aria-pressed={selected}
                 aria-label={`Select picture for ${label}`}
@@ -423,7 +432,7 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
       </div>
 
       <button
-        className="main-button initial-sound-submit"
+        className={isFinalSoundsPair ? "main-button initial-sound-submit final-sounds-pair-submit" : "main-button initial-sound-submit"}
         disabled={selectedWords.length !== 2}
         onClick={() => answerQuestion(selectedWords)}
         type="button"
@@ -633,7 +642,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
           return (
             <article className={image ? "ixl-answer-card image-card" : "ixl-answer-card"} key={`${value}-${index}`}>
               <button
-                className={isFinalSoundsEndingItem ? "ixl-answer-button final-sound-text-tile" : "ixl-answer-button"}
+                className={isFinalSoundsEndingItem ? "ixl-answer-button final-sound-text-tile final-sound-grapheme-option" : "ixl-answer-button"}
                 onClick={() => answerQuestion(value)}
                 type="button"
               >
@@ -3844,7 +3853,10 @@ export function AssessmentPage({
           <motion.div
             className={[
               "card assessment-card assessment-question-layout",
-              isRhymingPictureItem ? "rhyming-assessment-layout" : ""
+              isRhymingPictureItem ? "rhyming-assessment-layout" : "",
+              safeSkillId === "final_sounds" ? "final-sounds-assessment-card" : "",
+              isPairSelection && safeSkillId === "final_sounds" ? "final-sounds-pair-assessment-card" : "",
+              isFinalSoundsEndingItem ? "final-sounds-ending-assessment-card" : ""
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             initial={{ scale: 0.96, opacity: 0 }}
@@ -3903,7 +3915,7 @@ export function AssessmentPage({
                   const choiceImage = currentQuestion.choiceImages?.[choice.value] || currentQuestion.choiceImages?.[choice.label] || {};
                   const choiceButtonClassName = [
                     isListenAndFindWord ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card",
-                    isFinalSoundsEndingItem ? "final-sound-choice-button" : ""
+                    isFinalSoundsEndingItem ? "final-sound-choice-button final-sound-grapheme-option" : ""
                   ].filter(Boolean).join(" ");
 
                   return (
@@ -3944,11 +3956,11 @@ export function AssessmentPage({
 
       {feedback && (
         <motion.div
-          className={
-            feedback.isCorrect
-              ? "feedback-card assessment-feedback correct-feedback"
-              : "feedback-card assessment-feedback wrong-feedback"
-          }
+          className={[
+            "feedback-card assessment-feedback",
+            feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
+            feedback.skillId === "final_sounds" ? "final-sounds-feedback" : ""
+          ].filter(Boolean).join(" ")}
           initial={{ scale: 0.96, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         >
