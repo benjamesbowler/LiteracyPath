@@ -2819,6 +2819,101 @@ export default function App() {
     return stage?.id === "final_sounds" || stage?.label === "Final Sounds";
   }
 
+  const ASSESSMENT_PATH_STEPS = [
+    { level: 1, phase: 1, label: "Level 1 Phase 1", nextLabel: "Continue Level 1 Phase 2" },
+    { level: 1, phase: 2, label: "Level 1 Phase 2", nextLabel: "Start Level 2" },
+    { level: 2, phase: 1, label: "Level 2 Phase 1", nextLabel: "Continue Level 2 Phase 2" },
+    { level: 2, phase: 2, label: "Level 2 Phase 2", nextLabel: "Move to next skill" }
+  ];
+
+  function getAssessmentPathKey(step = {}) {
+    return `L${Number(step.level || 1)}P${Number(step.phase || 1)}`;
+  }
+
+  function getAssessmentPathLabel(step = {}) {
+    return `Level ${Number(step.level || 1)} Phase ${Number(step.phase || 1)}`;
+  }
+
+  function getAssessmentQuestionPhase(question = {}) {
+    const raw =
+      question.phase ??
+      question.assessmentPhase ??
+      question.levelPhase ??
+      question.initialSoundRoundPhase ??
+      question.phaseTarget ??
+      "";
+    const numeric = Number(raw);
+    if (numeric === 1 || numeric === 2) return numeric;
+    const text = String(raw || "").toLowerCase();
+    if (/\bphase_?1\b|level_?\d_?phase_?1|p1/.test(text)) return 1;
+    if (/\bphase_?2\b|level_?\d_?phase_?2|p2/.test(text)) return 2;
+    return 0;
+  }
+
+  function getAssessmentQuestionLevel(stage, question = {}) {
+    if (isFinalSoundsStage(stage) || question.skillId === "final_sounds") {
+      return getFinalSoundQuestionLevel(question);
+    }
+    const level =
+      Number(question.level || question.assessmentLevel || question.depthLevel || question.difficultyLevel || question.difficulty || 1);
+    return level >= 2 ? 2 : 1;
+  }
+
+  function getQuestionPathStep(stage, question = {}) {
+    const level = getAssessmentQuestionLevel(stage, question);
+    const phase = getAssessmentQuestionPhase(question) || 1;
+    return { level, phase };
+  }
+
+  function getStageAssessmentRecords(stage) {
+    if (!stage) return [];
+    return answerHistoryRef.current.filter(record =>
+      record.skillId === stage.id || record.stage === stage.label
+    );
+  }
+
+  function getPassedAssessmentPathKeys(stage) {
+    const records = getStageAssessmentRecords(stage)
+      .filter(record => Number(record.itemLevel || 0) > 0 && Number(record.itemPhase || 0) > 0);
+    const passedKeys = new Set();
+
+    for (let index = 0; index < records.length; index += ROUND_LENGTH) {
+      const round = records.slice(index, index + ROUND_LENGTH);
+      if (round.length < ROUND_LENGTH) continue;
+      const score = round.filter(record => record.isCorrect).length;
+      if (score < PASS_SCORE) continue;
+      const last = round.at(-1) || {};
+      const step = {
+        level: Number(last.itemLevel || 1) >= 2 ? 2 : 1,
+        phase: Number(last.itemPhase || 1) === 2 ? 2 : 1
+      };
+      passedKeys.add(getAssessmentPathKey(step));
+    }
+
+    return passedKeys;
+  }
+
+  function getNextAssessmentPathStep(stage) {
+    const passedKeys = getPassedAssessmentPathKeys(stage);
+    return ASSESSMENT_PATH_STEPS.find(step => !passedKeys.has(getAssessmentPathKey(step))) ||
+      ASSESSMENT_PATH_STEPS.at(-1);
+  }
+
+  function getCheckpointPathStatus(stage, currentStep = {}) {
+    const currentKey = getAssessmentPathKey(currentStep);
+    const index = Math.max(0, ASSESSMENT_PATH_STEPS.findIndex(step => getAssessmentPathKey(step) === currentKey));
+    const nextStep = ASSESSMENT_PATH_STEPS[index + 1] || null;
+    return {
+      level: Number(currentStep.level || 1) >= 2 ? 2 : 1,
+      phase: Number(currentStep.phase || 1) === 2 ? 2 : 1,
+      label: getAssessmentPathLabel(currentStep),
+      nextStep,
+      nextActionLabel: nextStep ? ASSESSMENT_PATH_STEPS[index].nextLabel : "Move to next skill",
+      finalStepComplete: !nextStep,
+      nextSkillLabel: skillTree[(skillTree.findIndex(item => item.id === stage?.id) + 1)]?.label || ""
+    };
+  }
+
   function getInitialSoundStageProgress(records = answerHistoryRef.current) {
     return buildInitialSoundsProgressFromAnswerHistory(records);
   }
@@ -2947,12 +3042,18 @@ export default function App() {
     }
 
     const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex && !isQuestionBlockedByMediaQa(q));
-    const finalSoundLevel = isFinalSoundsStage(stage) ? getNextFinalSoundLevel() : null;
-    const levelFilteredStageQuestions = isFinalSoundsStage(stage)
-      ? stageQuestions.filter(question => getFinalSoundQuestionLevel(question) === finalSoundLevel)
-      : stageQuestions;
-    const finalSoundLevelOneGuardedQuestions = isFinalSoundsStage(stage) && finalSoundLevel === 1
-      ? levelFilteredStageQuestions.filter(question => {
+    const pathStep = getNextAssessmentPathStep(stage);
+    const levelFilteredStageQuestions = stageQuestions.filter(question =>
+      getAssessmentQuestionLevel(stage, question) === pathStep.level
+    );
+    const phaseFilteredStageQuestions = levelFilteredStageQuestions.filter(question =>
+      (getAssessmentQuestionPhase(question) || pathStep.phase) === pathStep.phase
+    );
+    const pathFilteredStageQuestions = phaseFilteredStageQuestions.length > 0
+      ? phaseFilteredStageQuestions
+      : levelFilteredStageQuestions;
+    const finalSoundLevelOneGuardedQuestions = isFinalSoundsStage(stage) && pathStep.level === 1
+      ? pathFilteredStageQuestions.filter(question => {
         const issues = getFinalSoundsLevel1QuestionIssues(question);
         if (issues.length > 0 && import.meta.env.DEV) {
           console.warn("Blocked Final Sounds Level 1 question by final runtime guard", {
@@ -2966,10 +3067,10 @@ export default function App() {
         }
         return issues.length === 0;
       })
-      : levelFilteredStageQuestions;
+      : pathFilteredStageQuestions;
     const runtimeContext = {
       skillId: normalizeEarlySkillId(stage.id),
-      level: finalSoundLevel || 1
+      level: pathStep.level
     };
     const runtimeFilteredStageQuestions = isPureEarlyPhonicsStage(stage)
       ? finalSoundLevelOneGuardedQuestions.filter(question => {
@@ -4060,12 +4161,18 @@ export default function App() {
       const reviewLetters = coveredThisRound.filter(letter => alreadyCovered.has(letter));
       const score = nextRound.filter(Boolean).length;
       const coverageComplete = remainingItems.length === 0;
-      const effectivePassed = passed && coverageComplete;
+      const currentStep = {
+        level: currentLevel,
+        phase: Number(stageRecords.at(-1)?.itemPhase || initialRoundMeta.phase || 1) === 2 ? 2 : 1
+      };
+      const pathStatus = getCheckpointPathStatus(stage, currentStep);
+      const effectivePassed = passed;
 
       return {
         skillId: stage.id,
         skillIndex: stageIndex,
-        skillLabel: `${stage.label} Level ${currentLevel}`,
+        skillLabel: `${stage.label} ${pathStatus.label}`,
+        pathStatus,
         correct: score,
         total: ROUND_LENGTH,
         accuracy: Math.round((score / ROUND_LENGTH) * 100),
@@ -4109,7 +4216,12 @@ export default function App() {
         const depth = getFinalSoundsLevelOneMasteryDepth(stageRecords);
         const coverageComplete = depth.allSoundsCovered;
         const depthComplete = depth.allSoundsMastered && depth.enoughSuccessfulRounds;
-        const effectivePassed = passed && coverageComplete && depthComplete;
+        const currentStep = {
+          level: 1,
+          phase: Number(currentRoundRecords.at(-1)?.itemPhase || 1) === 2 ? 2 : 1
+        };
+        const pathStatus = getCheckpointPathStatus(stage, currentStep);
+        const effectivePassed = passed;
         const missingCoverage = finalSoundLevelOneTargets.filter(target => !depth.coveredTargets.includes(target));
         const stillNeedsPractice = depth.stillNeedsPractice;
         const contentGapText = depth.contentGaps.length
@@ -4124,7 +4236,8 @@ export default function App() {
         return {
           skillId: stage.id,
           skillIndex: stageIndex,
-          skillLabel: `${stage.label} Level 1`,
+          skillLabel: `${stage.label} ${pathStatus.label}`,
+          pathStatus,
           correct: nextRound.filter(Boolean).length,
           total: ROUND_LENGTH,
           accuracy: Math.round((nextRound.filter(Boolean).length / ROUND_LENGTH) * 100),
@@ -4190,12 +4303,21 @@ export default function App() {
     const coverageComplete = expectedKeys.length
       ? expectedKeys.every(key => coveredKeys.has(key))
       : true;
-    const effectivePassed = passed && coverageComplete;
+    const currentRoundRecords = getStageAssessmentRecords(stage).slice(-nextRound.length);
+    const currentStep = currentRoundRecords.length
+      ? {
+        level: Number(currentRoundRecords.at(-1)?.itemLevel || 1) >= 2 ? 2 : 1,
+        phase: Number(currentRoundRecords.at(-1)?.itemPhase || 1) === 2 ? 2 : 1
+      }
+      : getNextAssessmentPathStep(stage);
+    const pathStatus = getCheckpointPathStatus(stage, currentStep);
+    const effectivePassed = passed;
 
     return {
       skillId: stage.id,
       skillIndex: stageIndex,
-      skillLabel: stage.label,
+      skillLabel: `${stage.label} ${pathStatus.label}`,
+      pathStatus,
       correct: score,
       total: ROUND_LENGTH,
       accuracy: Math.round((score / ROUND_LENGTH) * 100),
@@ -4267,6 +4389,7 @@ export default function App() {
     const nextRoundQuestionIds = answeredQuestion.id
       ? [...roundQuestionIdsRef.current, answeredQuestion.id]
       : [...roundQuestionIdsRef.current];
+    const questionPathStep = getQuestionPathStep(questionStage, answeredQuestion);
 
     setUsedByStage(prev => ({
       ...prev,
@@ -4305,7 +4428,8 @@ export default function App() {
       itemKey: itemMetadata?.itemKey || "",
       itemLevel: answeredQuestion.skillId === "initial_sounds" || questionStage.id === "initial_sounds"
         ? answeredQuestion.level
-        : answeredQuestion.level || "",
+        : questionPathStep.level || answeredQuestion.level || "",
+      itemPhase: questionPathStep.phase || "",
       selectionReason: answeredQuestion.selectionReason || ""
     };
 

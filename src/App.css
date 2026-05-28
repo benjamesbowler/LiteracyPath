@@ -4501,12 +4501,27 @@ select:focus {
 }
 
 .final-sounds-ending-assessment-card .ixl-answer-grid.letter-options {
+  grid-template-columns: repeat(2, minmax(128px, 210px));
+  justify-content: center;
   gap: clamp(8px, 1.2vw, 12px);
   margin-top: 0;
 }
 
+.final-sounds-grapheme-grid {
+  width: min(100%, 460px);
+  margin: 4px auto 0 !important;
+  grid-template-columns: repeat(2, minmax(128px, 210px)) !important;
+  justify-content: center;
+  gap: clamp(8px, 1.2vw, 12px) !important;
+}
+
+.final-sounds-grapheme-grid .choice-wrap {
+  min-width: 0;
+}
+
 .final-sound-grapheme-option {
   min-height: clamp(82px, 12vh, 112px) !important;
+  width: 100% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -5427,6 +5442,12 @@ select:focus {
     min-height: clamp(64px, 10vh, 84px) !important;
     font-size: clamp(2.1rem, 10vw, 3.15rem) !important;
     padding: 8px !important;
+  }
+
+  .final-sounds-ending-assessment-card .ixl-answer-grid.letter-options,
+  .final-sounds-grapheme-grid {
+    grid-template-columns: repeat(2, minmax(104px, 1fr)) !important;
+    width: min(100%, 340px);
   }
 
   .final-sounds-assessment-card {

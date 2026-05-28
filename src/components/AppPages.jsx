@@ -3170,18 +3170,35 @@ export function CheckpointDecisionPage({
   const initialLevel = checkpoint.initialSoundDebug?.level || 1;
   const currentLevelMastered = Boolean(checkpoint.initialSoundDebug?.currentLevelMastered);
   const levelOneMastered = Boolean(checkpoint.initialSoundDebug?.levelOneMastered);
-  const initialContinueLabel =
-    isInitialSoundsCheckpoint && currentLevelMastered && initialLevel === 1
-      ? "Start Level 2"
-      : isInitialSoundsCheckpoint && initialLevel === 2
-        ? "Continue Level 2"
-        : "Continue this skill to build mastery";
+  const pathStatus = checkpoint.pathStatus || {
+    level: initialLevel || 1,
+    phase: 1,
+    label: `Level ${initialLevel || 1} Phase 1`,
+    nextActionLabel: "Continue next phase",
+    finalStepComplete: false
+  };
+  const primaryPassedLabel = pathStatus.finalStepComplete
+    ? `Move to next skill${checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}`
+    : pathStatus.nextActionLabel;
+  const retryLabel = checkpoint.accuracyPassed
+    ? `Continue ${pathStatus.label}`
+    : `Retry ${pathStatus.label}`;
 
   return (
     <main className="assessment-shell checkpoint-decision-shell">
       <section className="card checkpoint-decision-card">
         <p className="panel-label">Checkpoint complete</p>
         <h2>You completed {completedText}.</h2>
+        <div className="level-mastery-callout checkpoint-path-callout">
+          <strong>{pathStatus.label}</strong>
+          <p>
+            {checkpoint.passed
+              ? pathStatus.finalStepComplete
+                ? "This skill path is complete. The next formal step is the next skill."
+                : `Next formal step: ${pathStatus.nextActionLabel}.`
+              : `Stay on ${pathStatus.label} until this phase is passed.`}
+          </p>
+        </div>
 
         {isInitialSoundsCheckpoint && (
           <div className="level-mastery-callout">
@@ -3357,8 +3374,13 @@ export function CheckpointDecisionPage({
         <div className="button-row checkpoint-decision-actions">
           {checkpoint.passed ? (
             <>
-              <button className="main-button" onClick={continueSkill} type="button">
-                {initialContinueLabel}
+              <button
+                className="main-button"
+                disabled={pathStatus.finalStepComplete && !canMoveNext}
+                onClick={pathStatus.finalStepComplete ? moveToNextSkill : continueSkill}
+                type="button"
+              >
+                {primaryPassedLabel}
               </button>
 
               {isInitialSoundsCheckpoint && levelOneMastered && (
@@ -3367,19 +3389,21 @@ export function CheckpointDecisionPage({
                 </button>
               )}
 
-              <button
-                className="report-button"
-                disabled={!canMoveNext}
-                onClick={moveToNextSkill}
-                type="button"
-              >
-                Move to next skill{checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}
-              </button>
+              {!pathStatus.finalStepComplete && (
+                <button
+                  className="report-button"
+                  disabled={!canMoveNext}
+                  onClick={moveToNextSkill}
+                  type="button"
+                >
+                  Skip to next skill{checkpoint.nextSkillLabel ? `: ${checkpoint.nextSkillLabel}` : ""}
+                </button>
+              )}
             </>
           ) : (
             <>
               <button className="main-button" onClick={checkpoint.accuracyPassed ? continueSkill : retrySkill} type="button">
-                {checkpoint.accuracyPassed ? "Keep going in this skill" : "Retry this skill"}
+                {retryLabel}
               </button>
 
               <button className="report-button" onClick={reviewMistakes} type="button">
@@ -3910,7 +3934,10 @@ export function AssessmentPage({
                 answerQuestion={answerQuestion}
               />
             ) : (
-              <div className={isListenAndFindWord ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid"}>
+              <div className={[
+                isListenAndFindWord ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid",
+                isFinalSoundsEndingItem ? "final-sounds-grapheme-grid" : ""
+              ].filter(Boolean).join(" ")}>
                 {normalizedChoices.map((choice, index) => {
                   const choiceImage = currentQuestion.choiceImages?.[choice.value] || currentQuestion.choiceImages?.[choice.label] || {};
                   const choiceButtonClassName = [
