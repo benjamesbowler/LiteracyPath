@@ -874,6 +874,7 @@ export function AdminDashboardPage({
     if (window.location.pathname.includes("/admin/guided-reading/image-qa")) return "guidedReadingImages";
     return "dashboard";
   });
+  const [activeSection, setActiveSection] = useState("overview");
   const [templateFilter, setTemplateFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [patternFilter, setPatternFilter] = useState("");
@@ -960,6 +961,16 @@ export function AdminDashboardPage({
     }
   }
 
+  const adminSections = [
+    { id: "overview", label: "Overview", count: null },
+    { id: "signups", label: "New Teacher Signups", count: pendingAccounts.length },
+    { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
+    { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
+    { id: "teachers", label: "Teachers", count: teachers.length },
+    { id: "classes", label: "Classes", count: classes.length },
+    { id: "students", label: "Students", count: students.length }
+  ];
+
   if (adminQaPage === "images") {
     return <MediaQaPage mediaType="image" questions={mediaQuestions} onBack={() => openAdminQaPage("dashboard")} />;
   }
@@ -976,21 +987,12 @@ export function AdminDashboardPage({
     <main className="admin-dashboard page-stack">
       <section className="card page-stack">
         <div className="admin-header">
-          <div>
+          <div className="admin-page-heading">
             <h2>Admin Dashboard</h2>
             <p className="muted-text">Review content coverage and manage app data.</p>
           </div>
 
           <div className="button-row admin-controls">
-            <button className="report-button" onClick={() => openAdminQaPage("images")} type="button">
-              Image QA
-            </button>
-            <button className="report-button" onClick={() => openAdminQaPage("audio")} type="button">
-              Audio QA
-            </button>
-            <button className="report-button" onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
-              Guided Reading Image QA
-            </button>
             <button className="report-button" onClick={refreshDashboard} disabled={loading} type="button">
               {loading ? "Loading..." : "Refresh"}
             </button>
@@ -998,9 +1000,69 @@ export function AdminDashboardPage({
         </div>
 
         {message && <p className="message">{message}</p>}
+
+        <nav className="admin-section-tabs" aria-label="Admin Dashboard sections">
+          {adminSections.map(section => (
+            <button
+              className={activeSection === section.id ? "active" : ""}
+              key={section.id}
+              onClick={() => setActiveSection(section.id)}
+              type="button"
+            >
+              <span>{section.label}</span>
+              {typeof section.count === "number" && <small>{section.count}</small>}
+            </button>
+          ))}
+          <button onClick={() => openAdminQaPage("images")} type="button">
+            <span>Image QA</span>
+          </button>
+          <button onClick={() => openAdminQaPage("audio")} type="button">
+            <span>Audio QA</span>
+          </button>
+          <button onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
+            <span>Guided Reading Image QA</span>
+          </button>
+        </nav>
       </section>
 
-      <section className="card page-stack admin-section">
+      {activeSection === "overview" && (
+        <section className="report-panel page-stack admin-section admin-section-panel">
+          <div className="admin-section-heading">
+            <div>
+              <h3>Dashboard Summary</h3>
+              <p className="muted-text">Jump into the admin area you need without scrolling through every tool.</p>
+            </div>
+          </div>
+          <div className="admin-overview-grid">
+            {adminSections.filter(section => section.id !== "overview").map(section => (
+              <button
+                className="admin-overview-card"
+                key={section.id}
+                onClick={() => setActiveSection(section.id)}
+                type="button"
+              >
+                <span>{section.label}</span>
+                <strong>{section.count}</strong>
+              </button>
+            ))}
+            <button className="admin-overview-card" onClick={() => openAdminQaPage("images")} type="button">
+              <span>Image QA</span>
+              <strong>Open</strong>
+            </button>
+            <button className="admin-overview-card" onClick={() => openAdminQaPage("audio")} type="button">
+              <span>Audio QA</span>
+              <strong>Open</strong>
+            </button>
+            <button className="admin-overview-card" onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
+              <span>Guided Reading Image QA</span>
+              <strong>Open</strong>
+            </button>
+          </div>
+        </section>
+      )}
+
+      {activeSection === "signups" && (
+      <section className="card page-stack admin-section admin-section-panel">
         <div className="admin-section-heading">
           <div>
             <h3>New Teacher Signups</h3>
@@ -1054,8 +1116,10 @@ export function AdminDashboardPage({
           </div>
         )}
       </section>
+      )}
 
-      <section className="report-panel page-stack admin-section guided-insight-panel">
+      {activeSection === "guidedInsight" && (
+      <section className="report-panel page-stack admin-section admin-section-panel guided-insight-panel">
         <div className="admin-header">
           <div>
             <h3>Guided Reading Insight</h3>
@@ -1100,8 +1164,10 @@ export function AdminDashboardPage({
           <p className="message warning">Guided Reading warning: {guidedReadingInsight.missingImages} missing page images and {guidedReadingInsight.missingText} missing text fields.</p>
         )}
       </section>
+      )}
 
-      <section className="report-panel page-stack admin-section">
+      {activeSection === "coverage" && (
+      <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Content Coverage</h3>
         <p className="muted-text">Filter active assessment content and watch for skills below the 30-question floor.</p>
 
@@ -1182,8 +1248,10 @@ export function AdminDashboardPage({
           </table>
         </div>
       </section>
+      )}
 
-      <section className="card page-stack admin-section">
+      {activeSection === "teachers" && (
+      <section className="card page-stack admin-section admin-section-panel">
         <h3>Teachers</h3>
         {teachers.length === 0 ? (
           <p>No teacher data loaded.</p>
@@ -1214,8 +1282,10 @@ export function AdminDashboardPage({
           </div>
         )}
       </section>
+      )}
 
-      <section className="report-panel page-stack admin-section">
+      {activeSection === "classes" && (
+      <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Classes</h3>
         <div className="admin-table-wrap">
           <table className="dashboard-table admin-table">
@@ -1246,8 +1316,10 @@ export function AdminDashboardPage({
           </table>
         </div>
       </section>
+      )}
 
-      <section className="report-panel page-stack admin-section">
+      {activeSection === "students" && (
+      <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Students</h3>
         <div className="admin-table-wrap">
           <table className="dashboard-table admin-table">
@@ -1278,6 +1350,7 @@ export function AdminDashboardPage({
           </table>
         </div>
       </section>
+      )}
     </main>
   );
 }
