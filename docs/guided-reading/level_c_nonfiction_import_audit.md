@@ -1,6 +1,6 @@
 # Level C Nonfiction Import Audit
 
-Generated: 2026-05-28T02:15:29.000Z
+Generated: 2026-05-28T07:49:45.859Z
 
 ## Source
 
@@ -26,9 +26,9 @@ Media pack: `Level C First Facts Media Pack/First_Facts_Level_C_Media_Pack/first
 - Imported story page audio files: 90
 - Full-book audio files: 10/10
 - Missing story page images: 0
-- Final fiction book count: 75
-- Final nonfiction book count: 56
-- Final total guided reading count: 131
+- Final fiction book count: 85
+- Final nonfiction book count: 76
+- Final total guided reading count: 161
 - Validation failures: 0
 
 ## Imported Books

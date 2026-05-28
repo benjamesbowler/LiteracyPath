@@ -2,6 +2,7 @@ import { guidedReadingRegenBooks } from "./guidedReadingRegenBooks.js";
 import { guidedReadingSeriesBooks } from "./guidedReadingSeriesBooks.js";
 import { guidedStoryBooks } from "./guidedStoryBooks.js";
 import { firstFactsLevelABooks } from "./firstFactsLevelABooks.js";
+import { firstFactsActualLevelABooks } from "./firstFactsActualLevelABooks.js";
 import { firstFactsLevelCBooks } from "./firstFactsLevelCBooks.js";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer.js";
 
@@ -3136,6 +3137,7 @@ const approvedSeriesBooks = guidedReadingSeriesBooks
 const activeGuidedReadingBaseBooks = [
   ...approvedGuidedReadingCandidates,
   ...approvedRegeneratedGuidedReadingBooks,
+  ...firstFactsActualLevelABooks,
   ...firstFactsLevelABooks,
   ...firstFactsLevelCBooks,
   ...approvedSeriesBooks
