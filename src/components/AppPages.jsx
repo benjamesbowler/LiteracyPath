@@ -125,12 +125,15 @@ export function AuthPage({
             <button className="report-button" disabled={authLoading} onClick={signUpTeacher} type="button">
               Sign Up
             </button>
-            <button className="report-button subtle" disabled={authLoading} onClick={() => setAuthMode("forgotPassword")} type="button">
-              Forgot password?
-            </button>
           </>
         )}
       </div>
+
+      {!isForgotPassword && !isResetPassword && (
+        <button className="auth-reset-link" disabled={authLoading} onClick={() => setAuthMode("forgotPassword")} type="button">
+          Forgot password?
+        </button>
+      )}
 
       {authMessage && <p className="message auth-message">{authMessage}</p>}
 
@@ -3866,7 +3869,8 @@ export function AssessmentPage({
 
   const hasValidAssessmentTransitionState =
     Boolean(feedback) ||
-    Boolean(isAssessmentTransitioning);
+    Boolean(isAssessmentTransitioning) ||
+    (roundAnswers.length > 0 && !message);
   const shouldShowAssessmentLoadingState =
     !currentQuestion && !hasValidAssessmentTransitionState;
 

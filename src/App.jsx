@@ -2158,8 +2158,12 @@ export default function App() {
     setAuthLoading(true);
     setAuthMessage("");
 
+    const resetRedirectUrl =
+      typeof window !== "undefined"
+        ? `${window.location.origin}${window.location.pathname}`
+        : undefined;
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: window.location.origin
+      redirectTo: resetRedirectUrl
     });
 
     setAuthLoading(false);
@@ -2169,7 +2173,7 @@ export default function App() {
       return;
     }
 
-    setAuthMessage("Password reset email sent. Check your inbox.");
+    setAuthMessage("Password reset email sent. Check your inbox for a secure reset link.");
     setAuthMode("login");
   }
 
@@ -6247,7 +6251,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === "assessment" && (
         <AssessmentErrorBoundary
-          resetKey={`${currentQuestion?.id || "no-question"}:${currentSkillIndex}:${appView}`}
+          resetKey={`${currentQuestion?.id || feedback?.question?.id || `skill-${currentSkillIndex}`}:${currentSkillIndex}:${appView}`}
           returnToStudentOverview={goToOverview}
         >
           <AssessmentPage
