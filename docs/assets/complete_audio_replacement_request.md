@@ -57,7 +57,7 @@ Rows that already use approved Pack 6 clean-human audio are intentionally omitte
 | blue | public/audio/child-mode/words/blue.mp3 | blue | word | required | standard | yes | no | Blends | BLEND_SOUNDS, HEARD_WORD_TO_PRINT_MINIMAL_PAIR, IMAGE_WORD_PATTERN_MATCH, PICTURE_AUDIO_TO_PATTERN |
 | bow | public/media/vocabulary/audio/bow.mp3 | bow | word | required | standard | yes | no | CVC and Short Vowels, Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL |
 | brick | public/media/vocabulary/audio/kick.mp3 | brick | word | optional | high | yes | yes | Rhyming | RHYMING_PICTURE |
-| bud | public/audio/child-mode/words/bud.mp3 | bud | word | required | standard | yes | no | CVC and Short Vowels, Final Sounds, Short Vowel Discrimination | FINAL_SOUND_PAIR_SELECT, LISTEN_CHOOSE_VOWEL, MISSING_VOWEL_CVC, SHORT_VOWEL_WORD |
+| bud | public/audio/child-mode/phrases/listen-and-find.mp3 | bud | phrase | required | standard | yes | no | CVC and Short Vowels, Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL, MISSING_VOWEL_CVC, SHORT_VOWEL_WORD |
 | building | public/media/initial-sounds/audio/b/building.mp3 | building | word | optional | standard | yes | no | Final Sounds | ENDING_SOUND |
 | bun | public/audio/child-mode/phrases/listen-and-find.mp3 | bun | phrase | required | high | yes | yes | CVC and Short Vowels, Rhyming, Short Vowel Discrimination | LISTEN_CHOOSE_VOWEL, MISSING_VOWEL_CVC, RHYMING_PICTURE, SHORT_VOWEL_WORD |
 | cab | public/media/final-sounds/audio/b/cab.mp3 | cab | word | optional | standard | yes | no | CVC and Short Vowels, Final Sounds, Short Vowel Discrimination | ENDING_SOUND, SHORT_VOWEL_WORD |

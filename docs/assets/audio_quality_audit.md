@@ -7,7 +7,7 @@ Audio policy: early phonics and HFW assessment formats use static asset audio on
 ## Summary
 
 - Approved active runtime audio keys: 311
-- Review-needed/quarantined audio files: 49
+- Review-needed/quarantined audio files: 50
 - Deprecated audio files: 208
 - Missing approved active runtime audio: 0
 - Runtime questions blocked by missing approved audio: 0
@@ -90,8 +90,8 @@ Audio policy: early phonics and HFW assessment formats use static asset audio on
 | boxes | /audio/child-mode/clean-human/words/boxes.mp3 | legacy audio manifest | Sentence Comprehension | no | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | brick | /media/vocabulary/audio/kick.mp3 | unknown | Rhyming | no | no in Teacher Assessment Mode | no | preferred | static asset present | Approved exact-word vocabulary audio from Kimi 500 pack; held as reserve for Level 2+ or vocabulary use. |
 | brush | /audio/child-mode/clean-human/words/brush.mp3 | legacy audio manifest | Blends, Final Sounds | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
-| bud | /audio/child-mode/words/bud-kimi3.mp3 | kimi_assets3 review variant | not active | no | no | no | deprecated/quarantined | quarantined review variant; not preferred | Kimi alternate is quarantined until human review; stable local word audio remains preferred. |
-| bud | /audio/child-mode/words/bud.mp3 | child-mode words | Final Sounds | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Kimi alternate is quarantined until human review; stable local word audio remains preferred. |
+| bud | /audio/child-mode/words/bud-kimi3.mp3 | kimi_assets3 review variant | not active | no | no | no | deprecated/quarantined | quarantined review variant; not preferred | Live Final Sounds review found the current bud audio hard to understand; request a clean human /bŭd/ replacement before using bud as a preferred assessment word. |
+| bud | /audio/child-mode/words/bud.mp3 | child-mode words | not active | no | no | no | review needed | quarantined review variant; not preferred | Live Final Sounds review found the current bud audio hard to understand; request a clean human /bŭd/ replacement before using bud as a preferred assessment word. |
 | bug | /audio/child-mode/clean-human/words/bug.mp3 | legacy audio manifest | CVC and Short Vowels, Final Sounds, Initial Sounds, Rhyming, Short Vowel Discrimination | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |
 | building | /media/initial-sounds/audio/b/building.mp3 | unknown | Final Sounds | no | no in Teacher Assessment Mode | no | active static path | static asset present |  |
 | bus | /audio/child-mode/clean-human/words/bus.mp3 | legacy audio manifest | Final Sounds | yes | no in Teacher Assessment Mode | no | preferred | static asset present | Approved Pack 6 clean-human audio is preferred; older local/Kimi variants are preserved but not used in Teacher Assessment. |

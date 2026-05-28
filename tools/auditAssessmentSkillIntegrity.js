@@ -299,11 +299,13 @@ function getFinalSoundQuestionIssues(skillQuestions = []) {
   const levelOneAllowed = new Set(finalSoundLevelOneAllowedItemKeys);
   const levelOneForbidden = new Set(finalSoundLevelOneForbiddenItemKeys);
   const levelTwoExpected = new Set(finalSoundLevelTwoExpectedItemKeys);
+  const ambiguousPairWords = new Set(["bud"]);
   const issues = [];
   const warnings = [];
   const levelOneLeaks = [];
   const textChoiceImageLeaks = [];
   const pairCardCountFailures = [];
+  const ambiguousPairCards = [];
   const levelTwoHardTargets = new Set();
 
   for (const question of skillQuestions) {
@@ -325,6 +327,12 @@ function getFinalSoundQuestionIssues(skillQuestions = []) {
       const cards = asArray(question.imageCards);
       if (cards.length !== 4 || !cards.every(card => card.image && card.audio)) {
         pairCardCountFailures.push(`${id} (${cards.length} cards)`);
+      }
+      const ambiguousCards = cards
+        .map(card => normalize(card.word || card.label || card.value || card.targetWord || ""))
+        .filter(word => ambiguousPairWords.has(word));
+      if (ambiguousCards.length) {
+        ambiguousPairCards.push(`${id}: ${ambiguousCards.join(", ")}`);
       }
     }
 
@@ -351,6 +359,9 @@ function getFinalSoundQuestionIssues(skillQuestions = []) {
   if (pairCardCountFailures.length) {
     issues.push(`Final Sounds pair-selection questions without exactly 4 image/audio cards: ${displayList(pairCardCountFailures, 12)}.`);
   }
+  if (ambiguousPairCards.length) {
+    issues.push(`Final Sounds pair-selection questions use ambiguous visual targets that should not be active: ${displayList(ambiguousPairCards, 12)}.`);
+  }
   if (levelOneLeaks.length) {
     issues.push(`Final Sounds Level 1 contains advanced/non-Level-1 targets: ${displayList(levelOneLeaks, 12)}.`);
   }
@@ -363,6 +374,7 @@ function getFinalSoundQuestionIssues(skillQuestions = []) {
     warnings,
     textChoiceImageLeaks,
     pairCardCountFailures,
+    ambiguousPairCards,
     levelOneLeaks,
     levelTwoHardTargets: [...levelTwoHardTargets].sort()
   };

@@ -3,7 +3,7 @@ import { getChildWordAsset } from "./childAssets.js";
 import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 
 const finalSoundPairs = {
-  d: [["bed", "mud", "cat"], ["red", "bud", "fish"], ["bid", "kid", "sun"], ["seed", "hand", "dog"], ["lid", "bird", "map"], ["red", "bed", "cup"], ["hand", "mud", "fish"]],
+  d: [["bed", "mud", "cat"], ["red", "lid", "fish"], ["bid", "kid", "sun"], ["seed", "hand", "dog"], ["lid", "bird", "map"], ["red", "bed", "cup"], ["hand", "mud", "fish"]],
   g: [["dog", "frog", "cat"], ["bug", "mug", "sun"], ["bag", "rug", "fish"], ["pig", "dig", "hat"], ["leg", "egg", "map"], ["log", "dog", "pen"]],
   k: [["book", "duck", "sun"], ["sock", "rock", "fish"], ["cake", "snake", "dog"], ["fork", "park", "hat"], ["desk", "book", "pig"], ["snake", "cake", "map"], ["rock", "duck", "pen"]],
   l: [["ball", "seal", "dog"], ["shell", "seal", "cat"], ["girl", "ball", "sun"], ["ball", "shell", "fish"]],

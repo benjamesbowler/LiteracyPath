@@ -221,7 +221,7 @@ This audit reports missing/broken assets and flags image uses that need human vi
 | cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | dog | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/dog.png | active asset |  |  |
 | red | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-e/red.png | active asset |  |  |
-| bud | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bud.png | active asset |  |  |
+| lid | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/short-i/lid.png | active asset |  |  |
 | fish | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/fish.png | active asset |  |  |
 | cat | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/cat.png | active asset |  |  |
 | bid | Final Sounds | FINAL_SOUND_PAIR_SELECT | image card | yes | /images/child-mode/cvc/bid.png | active asset |  |  |

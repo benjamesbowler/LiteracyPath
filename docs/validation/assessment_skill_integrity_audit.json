@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T05:30:19.338Z",
+  "generatedAt": "2026-05-28T05:52:22.526Z",
   "source": "loadCoreQuestionPool() plus managedAssessmentSkillDepthConfig",
   "targetContract": {
     "levelsPerSkill": 2,
@@ -395,6 +395,7 @@
           "gen_final_l2_lt_quilt_0_sound"
         ],
         "pairCardCountFailures": [],
+        "ambiguousPairCards": [],
         "levelOneLeaks": [],
         "levelTwoHardTargets": [
           "ft",

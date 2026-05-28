@@ -161,6 +161,16 @@ const quarantinedPhraseAudio = {
   "you-found-it": ["you-found-it-kimi3"]
 };
 
+const activeReviewNeededWordAudio = {
+  bud: {
+    fallbackPath: wordAudioPath("bud"),
+    deprecatedAudioPaths: [wordAudioPath("bud-kimi3")],
+    reviewNeededPaths: [wordAudioPath("bud"), wordAudioPath("bud-kimi3")],
+    source: "live assessment audio review",
+    notes: "Live Final Sounds review found the current bud audio hard to understand; request a clean human /bŭd/ replacement before using bud as a preferred assessment word."
+  }
+};
+
 const blockedWordAudio = {
   zip: {
     fallbackPath: wordAudioPath("zip"),
@@ -294,6 +304,15 @@ export const audioPreferenceManifest = Object.fromEntries([
       reviewNeededPaths: variants.map(variant => phraseAudioPath(variant)),
       source: "child-mode phrases",
       notes: "Kimi phrase alternate is quarantined until human review; stable local phrase audio remains preferred."
+    })
+  ]),
+  ...Object.entries(activeReviewNeededWordAudio).map(([word, config]) => [
+    word,
+    approvedPreference({
+      key: word,
+      word,
+      category: "words",
+      ...config
     })
   ]),
   ...Object.entries(blockedWordAudio).map(([word, config]) => [
