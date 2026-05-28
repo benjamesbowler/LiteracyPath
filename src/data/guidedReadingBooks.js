@@ -62,7 +62,7 @@ const rawGuidedReadingBooks = [
     "id": "gr-a-26",
     "title": "What Is a Map?",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "targetSkills": [
       "map",
       "road",
@@ -164,7 +164,7 @@ const rawGuidedReadingBooks = [
     "id": "gr-a-27",
     "title": "Day and Night",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "targetSkills": [
       "sun",
       "moon",
@@ -261,7 +261,7 @@ const rawGuidedReadingBooks = [
     "id": "gr-a-28",
     "title": "How Rain Helps",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "targetSkills": [
       "rain",
       "plant",
@@ -361,7 +361,7 @@ const rawGuidedReadingBooks = [
     "id": "gr-a-29",
     "title": "Animal Homes",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "targetSkills": [
       "nest",
       "den",
@@ -464,7 +464,7 @@ const rawGuidedReadingBooks = [
     "id": "gr-a-30",
     "title": "We Take Care of Books",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "targetSkills": [
       "book",
       "page",

@@ -3,7 +3,7 @@ export const guidedReadingRegenBooks = [
     "id": "gr-a-26",
     "title": "Pets",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "active": true,
     "qaStatus": "approved",
     "targetSkills": [
@@ -321,7 +321,7 @@ export const guidedReadingRegenBooks = [
     "id": "gr-a-27",
     "title": "The Sun",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "active": true,
     "qaStatus": "approved",
     "targetSkills": [
@@ -630,7 +630,7 @@ export const guidedReadingRegenBooks = [
     "id": "gr-a-28",
     "title": "Colors",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "active": true,
     "qaStatus": "approved",
     "targetSkills": [
@@ -922,7 +922,7 @@ export const guidedReadingRegenBooks = [
     "id": "gr-a-29",
     "title": "My Body",
     "type": "nonfiction",
-    "level": "A",
+    "level": "B",
     "active": true,
     "qaStatus": "approved",
     "targetSkills": [

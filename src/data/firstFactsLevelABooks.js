@@ -6,8 +6,8 @@ const firstFactsLevelABooks = [
     "title": "Look at the Colours!",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 1,
     "author": "Mara Lane",
@@ -23,7 +23,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-01/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -349,8 +349,8 @@ const firstFactsLevelABooks = [
     "title": "The Four Seasons",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 2,
     "author": "Mara Lane",
@@ -366,7 +366,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-02/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -892,8 +892,8 @@ const firstFactsLevelABooks = [
     "title": "Little Seeds Grow",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 3,
     "author": "Mara Lane",
@@ -909,7 +909,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-03/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -1323,8 +1323,8 @@ const firstFactsLevelABooks = [
     "title": "What is Weather?",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 4,
     "author": "Mara Lane",
@@ -1340,7 +1340,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-04/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -1842,8 +1842,8 @@ const firstFactsLevelABooks = [
     "title": "Flowers and Trees",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 5,
     "author": "Mara Lane",
@@ -1859,7 +1859,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-05/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -2377,8 +2377,8 @@ const firstFactsLevelABooks = [
     "title": "Baby Animals",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 6,
     "author": "Mara Lane",
@@ -2394,7 +2394,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-06/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -2888,8 +2888,8 @@ const firstFactsLevelABooks = [
     "title": "Animals on the Farm",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 7,
     "author": "Mara Lane",
@@ -2905,7 +2905,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-07/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -3351,8 +3351,8 @@ const firstFactsLevelABooks = [
     "title": "Animals in the Ocean",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 8,
     "author": "Mara Lane",
@@ -3368,7 +3368,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-08/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -3878,8 +3878,8 @@ const firstFactsLevelABooks = [
     "title": "Animals at Night",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 9,
     "author": "Mara Lane",
@@ -3895,7 +3895,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-09/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -4325,8 +4325,8 @@ const firstFactsLevelABooks = [
     "title": "Bugs All Around Us",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 10,
     "author": "Mara Lane",
@@ -4342,7 +4342,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-10/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -4820,8 +4820,8 @@ const firstFactsLevelABooks = [
     "title": "Pets We Love",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 11,
     "author": "Mara Lane",
@@ -4837,7 +4837,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-11/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -5291,8 +5291,8 @@ const firstFactsLevelABooks = [
     "title": "Shapes Everywhere",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 12,
     "author": "Mara Lane",
@@ -5308,7 +5308,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-12/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -5862,8 +5862,8 @@ const firstFactsLevelABooks = [
     "title": "Big and Small",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 13,
     "author": "Mara Lane",
@@ -5879,7 +5879,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-13/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -6211,8 +6211,8 @@ const firstFactsLevelABooks = [
     "title": "Hot and Cold",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 14,
     "author": "Mara Lane",
@@ -6228,7 +6228,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-14/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -6590,8 +6590,8 @@ const firstFactsLevelABooks = [
     "title": "Things That Float and Sink",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 15,
     "author": "Mara Lane",
@@ -6607,7 +6607,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-15/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -6981,8 +6981,8 @@ const firstFactsLevelABooks = [
     "title": "Push and Pull",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 16,
     "author": "Mara Lane",
@@ -6998,7 +6998,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-16/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -7372,8 +7372,8 @@ const firstFactsLevelABooks = [
     "title": "Hello, Sun!",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 17,
     "author": "Mara Lane",
@@ -7389,7 +7389,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-17/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -7823,8 +7823,8 @@ const firstFactsLevelABooks = [
     "title": "The Moon",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 18,
     "author": "Mara Lane",
@@ -7840,7 +7840,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-18/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -8298,8 +8298,8 @@ const firstFactsLevelABooks = [
     "title": "Day and Night",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 19,
     "author": "Mara Lane",
@@ -8315,7 +8315,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-19/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -8741,8 +8741,8 @@ const firstFactsLevelABooks = [
     "title": "My Five Senses",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 20,
     "author": "Mara Lane",
@@ -8758,7 +8758,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-20/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -9236,8 +9236,8 @@ const firstFactsLevelABooks = [
     "title": "How I Grow",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 21,
     "author": "Mara Lane",
@@ -9253,7 +9253,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-21/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -9691,8 +9691,8 @@ const firstFactsLevelABooks = [
     "title": "Staying Healthy",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 22,
     "author": "Mara Lane",
@@ -9708,7 +9708,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-22/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -10078,8 +10078,8 @@ const firstFactsLevelABooks = [
     "title": "My Body",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 23,
     "author": "Mara Lane",
@@ -10095,7 +10095,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-23/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -10617,8 +10617,8 @@ const firstFactsLevelABooks = [
     "title": "Rocks and Pebbles",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 24,
     "author": "Mara Lane",
@@ -10634,7 +10634,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-24/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],
@@ -11052,8 +11052,8 @@ const firstFactsLevelABooks = [
     "title": "Water Everywhere",
     "type": "nonfiction",
     "category": "nonfiction",
-    "level": "A",
-    "guidedReadingLevel": "A",
+    "level": "B",
+    "guidedReadingLevel": "B",
     "ageRange": "4-5",
     "bookNumber": 25,
     "author": "Mara Lane",
@@ -11069,7 +11069,7 @@ const firstFactsLevelABooks = [
     "fullBookAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/full-book.mp3",
     "targetPatterns": [
       "nonfiction",
-      "level-a",
+      "level-b",
       "first-facts"
     ],
     "sightWords": [],

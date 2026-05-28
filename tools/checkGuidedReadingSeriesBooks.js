@@ -651,8 +651,8 @@ for (const expected of expectedFirstFactsBooks) {
     .map(page => page.pageNumber);
 
   if (book.title !== expected.title) failures.push(`${expected.id}: title is ${book.title}, expected ${expected.title}.`);
-  if (book.level !== "A") failures.push(`${expected.id}: level is ${book.level}, expected A.`);
-  if (book.guidedReadingLevel !== "A") failures.push(`${expected.id}: guidedReadingLevel is ${book.guidedReadingLevel}, expected A.`);
+  if (book.level !== "B") failures.push(`${expected.id}: level is ${book.level}, expected B.`);
+  if (book.guidedReadingLevel !== "B") failures.push(`${expected.id}: guidedReadingLevel is ${book.guidedReadingLevel}, expected B.`);
   if (normalizeGuidedReadingType(book.type) !== "nonfiction") failures.push(`${expected.id}: type is ${book.type}, expected nonfiction.`);
   if (book.seriesTitle !== "First Facts") failures.push(`${expected.id}: seriesTitle is ${book.seriesTitle || "missing"}.`);
   if (book.author !== "Mara Lane") failures.push(`${expected.id}: author is ${book.author || "missing"}, expected Mara Lane.`);
