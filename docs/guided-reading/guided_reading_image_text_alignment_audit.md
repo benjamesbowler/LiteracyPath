@@ -1,12 +1,12 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-05-28T02:15:31.857Z
+Generated: 2026-05-28T06:52:05.451Z
 
 ## What This Check Proves
 
-This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-15, and Moonwood Tales Level C books 1-10 in student public release. First Facts Level A nonfiction books 1-25 and Level C nonfiction books 1-10 are also checked as public nonfiction.
+This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-10 in student public release. First Facts nonfiction books 1-25 are now Level B, the new First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are also checked as public nonfiction.
 
-Visible fiction books: 75
+Visible fiction books: 85
 
 ## Page Sequence
 
@@ -138,6 +138,271 @@ Visible fiction books: 75
 | gr-e-50 | 5 | 4 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-04.png | We use our tongue to taste. |
 | gr-e-50 | 6 | 5 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-05.png | We use our skin to touch. |
 | gr-e-50 | 7 | 6 | yes | yes | /guided-reading/regen/pages/gr-e-50-page-06.png | Our senses help us explore! |
+| first-facts-level-a-01-colors | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-01/page-001.webp | A red ball.
+A red hat. |
+| first-facts-level-a-01-colors | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-01/page-002.webp | A blue cup.
+A blue bag. |
+| first-facts-level-a-01-colors | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-01/page-003.webp | A big sun.
+It is yellow. |
+| first-facts-level-a-01-colors | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-01/page-004.webp | A green frog.
+It is green. |
+| first-facts-level-a-01-colors | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-01/page-005.webp | A black cat.
+A black bat. |
+| first-facts-level-a-01-colors | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-01/page-006.webp | A pink pig.
+A pink flower. |
+| first-facts-level-a-01-colors | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-01/page-007.webp | Red and blue.
+Yellow and green.
+So many colors! |
+| first-facts-level-a-02-farm-animals | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-02/page-001.webp | This is a pig.
+Oink, oink! |
+| first-facts-level-a-02-farm-animals | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-02/page-002.webp | This is a hen.
+Cluck, cluck! |
+| first-facts-level-a-02-farm-animals | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-02/page-003.webp | This is a big cow.
+Moo, moo! |
+| first-facts-level-a-02-farm-animals | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-02/page-004.webp | This is a dog.
+Woof, woof! |
+| first-facts-level-a-02-farm-animals | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-02/page-005.webp | This is a duck.
+Quack, quack! |
+| first-facts-level-a-02-farm-animals | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-02/page-006.webp | This is a cat.
+Meow! |
+| first-facts-level-a-02-farm-animals | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-02/page-007.webp | This is a farm!
+So many animals. |
+| first-facts-level-a-03-big-and-little | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-03/page-001.webp | A big dog.
+A little bug. |
+| first-facts-level-a-03-big-and-little | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-03/page-002.webp | A big fish.
+A little crab. |
+| first-facts-level-a-03-big-and-little | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-03/page-003.webp | A big bus.
+A little car. |
+| first-facts-level-a-03-big-and-little | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-03/page-004.webp | A big tree.
+A little seed. |
+| first-facts-level-a-03-big-and-little | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-03/page-005.webp | A big sun.
+A little moon. |
+| first-facts-level-a-03-big-and-little | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-03/page-006.webp | A big hat.
+A little cap. |
+| first-facts-level-a-03-big-and-little | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-03/page-007.webp | Big and little.
+Little and big! |
+| first-facts-level-a-04-water | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-04/page-001.webp | We drink water. |
+| first-facts-level-a-04-water | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-04/page-002.webp | We play in water. |
+| first-facts-level-a-04-water | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-04/page-003.webp | We wash in water. |
+| first-facts-level-a-04-water | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-04/page-004.webp | Fish swim in water. |
+| first-facts-level-a-04-water | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-04/page-005.webp | Ducks swim in water. |
+| first-facts-level-a-04-water | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-04/page-006.webp | Frogs hop in water. |
+| first-facts-level-a-04-water | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-04/page-007.webp | Water is all around!
+We need water. |
+| first-facts-level-a-05-the-sky | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-05/page-001.webp | The sun is up.
+It is hot. |
+| first-facts-level-a-05-the-sky | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-05/page-002.webp | The moon is up.
+It glows. |
+| first-facts-level-a-05-the-sky | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-05/page-003.webp | The stars are up.
+They shine. |
+| first-facts-level-a-05-the-sky | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-05/page-004.webp | A bird is up.
+It can fly. |
+| first-facts-level-a-05-the-sky | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-05/page-005.webp | A cloud is up.
+It is white. |
+| first-facts-level-a-05-the-sky | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-05/page-006.webp | A jet is up.
+It is fast. |
+| first-facts-level-a-05-the-sky | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-05/page-007.webp | Look up!
+The sky is big. |
+| first-facts-level-a-06-animals-can | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-06/page-001.webp | A dog can run.
+Run, run! |
+| first-facts-level-a-06-animals-can | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-06/page-002.webp | A cat can jump.
+Jump, jump! |
+| first-facts-level-a-06-animals-can | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-06/page-003.webp | A fish can swim.
+Swim, swim! |
+| first-facts-level-a-06-animals-can | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-06/page-004.webp | A bird can fly.
+Fly, fly! |
+| first-facts-level-a-06-animals-can | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-06/page-005.webp | A frog can hop.
+Hop, hop! |
+| first-facts-level-a-06-animals-can | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-06/page-006.webp | A worm can dig.
+Dig, dig! |
+| first-facts-level-a-06-animals-can | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-06/page-007.webp | I can run!
+I can jump!
+I can swim! |
+| first-facts-level-a-07-bugs | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-07/page-001.webp | A bug is little.
+It can fly. |
+| first-facts-level-a-07-bugs | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-07/page-002.webp | A bee is yellow.
+It can sting. |
+| first-facts-level-a-07-bugs | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-07/page-003.webp | An ant is red.
+It can dig. |
+| first-facts-level-a-07-bugs | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-07/page-004.webp | A worm is pink.
+It can dig. |
+| first-facts-level-a-07-bugs | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-07/page-005.webp | A bug can hide.
+Can you see it? |
+| first-facts-level-a-07-bugs | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-07/page-006.webp | A bug can crawl.
+It is fast! |
+| first-facts-level-a-07-bugs | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-07/page-007.webp | Bugs are all around!
+They are little. |
+| first-facts-level-a-08-my-pet | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-08/page-001.webp | My dog has a bed.
+It is soft. |
+| first-facts-level-a-08-my-pet | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-08/page-002.webp | My cat has a mat.
+It is warm. |
+| first-facts-level-a-08-my-pet | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-08/page-003.webp | My fish has a tank.
+It is wet. |
+| first-facts-level-a-08-my-pet | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-08/page-004.webp | My bird has a cage.
+It can sing. |
+| first-facts-level-a-08-my-pet | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-08/page-005.webp | My rabbit has fur.
+It is soft. |
+| first-facts-level-a-08-my-pet | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-08/page-006.webp | My pet has a name.
+I love my pet. |
+| first-facts-level-a-08-my-pet | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-08/page-007.webp | My pet is my friend! |
+| first-facts-level-a-09-hot-and-cold | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-09/page-001.webp | The sun is hot.
+It is very hot. |
+| first-facts-level-a-09-hot-and-cold | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-09/page-002.webp | Ice is cold.
+It is very cold. |
+| first-facts-level-a-09-hot-and-cold | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-09/page-003.webp | Fire is hot.
+It is red. |
+| first-facts-level-a-09-hot-and-cold | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-09/page-004.webp | Snow is cold.
+It is white. |
+| first-facts-level-a-09-hot-and-cold | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-09/page-005.webp | Hot soup!
+It is hot. Mmm! |
+| first-facts-level-a-09-hot-and-cold | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-09/page-006.webp | Cold milk!
+It is cold. Yum! |
+| first-facts-level-a-09-hot-and-cold | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-09/page-007.webp | Hot and cold.
+Cold and hot. |
+| first-facts-level-a-10-shapes | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-10/page-001.webp | A ball is round.
+It is a circle. |
+| first-facts-level-a-10-shapes | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-10/page-002.webp | A box is flat.
+It is a square. |
+| first-facts-level-a-10-shapes | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-10/page-003.webp | A door is tall.
+It is a rectangle. |
+| first-facts-level-a-10-shapes | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-10/page-004.webp | A slice of pie.
+It is a triangle. |
+| first-facts-level-a-10-shapes | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-10/page-005.webp | I see shapes!
+Shapes are all around. |
+| first-facts-level-a-10-shapes | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-10/page-006.webp | A wheel is a circle.
+A kite is a triangle. |
+| first-facts-level-a-10-shapes | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-10/page-007.webp | What shape is it?
+Can you find it? |
+| first-facts-level-a-11-at-the-farm | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-11/page-001.webp | I see a big red barn. |
+| first-facts-level-a-11-at-the-farm | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-11/page-002.webp | I see a fat pig.
+Oink! |
+| first-facts-level-a-11-at-the-farm | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-11/page-003.webp | I see a little chick.
+Peep! |
+| first-facts-level-a-11-at-the-farm | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-11/page-004.webp | I see a big cow.
+Moo! |
+| first-facts-level-a-11-at-the-farm | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-11/page-005.webp | I see green grass.
+I see hay. |
+| first-facts-level-a-11-at-the-farm | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-11/page-006.webp | I see a big dog.
+It runs fast. |
+| first-facts-level-a-11-at-the-farm | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-11/page-007.webp | I love the farm!
+I can see so much. |
+| first-facts-level-a-12-in-the-sea | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-12/page-001.webp | A fish can swim.
+Swish! |
+| first-facts-level-a-12-in-the-sea | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-12/page-002.webp | A big shark can swim fast. |
+| first-facts-level-a-12-in-the-sea | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-12/page-003.webp | A crab can crawl.
+Snip, snip! |
+| first-facts-level-a-12-in-the-sea | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-12/page-004.webp | A whale can swim far.
+It is huge. |
+| first-facts-level-a-12-in-the-sea | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-12/page-005.webp | A seal can swim and dive. |
+| first-facts-level-a-12-in-the-sea | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-12/page-006.webp | A turtle can swim slow.
+Slow and sure. |
+| first-facts-level-a-12-in-the-sea | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-12/page-007.webp | I can swim too!
+Splash! |
+| first-facts-level-a-13-fruit | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-13/page-001.webp | An apple is red.
+It is sweet. |
+| first-facts-level-a-13-fruit | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-13/page-002.webp | A banana is yellow.
+It is soft. |
+| first-facts-level-a-13-fruit | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-13/page-003.webp | A plum is purple.
+It is little. |
+| first-facts-level-a-13-fruit | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-13/page-004.webp | An orange is round.
+It is bright. |
+| first-facts-level-a-13-fruit | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-13/page-005.webp | A grape is small.
+It is round. |
+| first-facts-level-a-13-fruit | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-13/page-006.webp | Fruit is good to eat!
+Yum, yum! |
+| first-facts-level-a-13-fruit | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-13/page-007.webp | It is red! It is yellow!
+I love fruit! |
+| first-facts-level-a-14-the-tree | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-14/page-001.webp | The tree is big.
+It is tall. |
+| first-facts-level-a-14-the-tree | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-14/page-002.webp | The tree has roots.
+They go down. |
+| first-facts-level-a-14-the-tree | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-14/page-003.webp | The tree has a thick trunk. |
+| first-facts-level-a-14-the-tree | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-14/page-004.webp | The tree has branches.
+They reach up. |
+| first-facts-level-a-14-the-tree | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-14/page-005.webp | The tree has green leaves. |
+| first-facts-level-a-14-the-tree | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-14/page-006.webp | The tree has red apples.
+I can pick one. |
+| first-facts-level-a-14-the-tree | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-14/page-007.webp | I love the big tree! |
+| first-facts-level-a-15-baby-animals | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-15/page-001.webp | A little chick.
+It is yellow. |
+| first-facts-level-a-15-baby-animals | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-15/page-002.webp | A little lamb.
+It is white. |
+| first-facts-level-a-15-baby-animals | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-15/page-003.webp | A little kitten.
+It is soft. |
+| first-facts-level-a-15-baby-animals | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-15/page-004.webp | A little puppy.
+It can run. |
+| first-facts-level-a-15-baby-animals | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-15/page-005.webp | A little cub.
+It is round and brown. |
+| first-facts-level-a-15-baby-animals | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-15/page-006.webp | A little calf.
+It drinks milk. |
+| first-facts-level-a-15-baby-animals | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-15/page-007.webp | Little animals grow big!
+Big and strong. |
+| first-facts-level-a-16-fast-and-slow | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-16/page-001.webp | A car can go fast.
+Zoom! |
+| first-facts-level-a-16-fast-and-slow | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-16/page-002.webp | A bus can go fast.
+Vroom! |
+| first-facts-level-a-16-fast-and-slow | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-16/page-003.webp | A jet can go very fast.
+Whoosh! |
+| first-facts-level-a-16-fast-and-slow | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-16/page-004.webp | A snail is slow.
+It is not fast. |
+| first-facts-level-a-16-fast-and-slow | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-16/page-005.webp | A worm is slow.
+It is not fast. |
+| first-facts-level-a-16-fast-and-slow | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-16/page-006.webp | A turtle is slow.
+It does not rush. |
+| first-facts-level-a-16-fast-and-slow | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-16/page-007.webp | Fast or slow?
+Which do you like? |
+| first-facts-level-a-17-a-seed-grows | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-17/page-001.webp | A seed is little.
+Put it in the dirt. |
+| first-facts-level-a-17-a-seed-grows | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-17/page-002.webp | Rain falls.
+Water soaks in. |
+| first-facts-level-a-17-a-seed-grows | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-17/page-003.webp | A root grows down in the soil. |
+| first-facts-level-a-17-a-seed-grows | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-17/page-004.webp | A green shoot grows up. |
+| first-facts-level-a-17-a-seed-grows | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-17/page-005.webp | A leaf opens in the sun. |
+| first-facts-level-a-17-a-seed-grows | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-17/page-006.webp | A bud forms.
+It can bloom! |
+| first-facts-level-a-17-a-seed-grows | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-17/page-007.webp | A flower!
+A seed can grow big. |
+| first-facts-level-a-18-my-body | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-18/page-001.webp | I have two eyes.
+I can see. |
+| first-facts-level-a-18-my-body | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-18/page-002.webp | I have two ears.
+I can hear. |
+| first-facts-level-a-18-my-body | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-18/page-003.webp | I have a nose.
+I can smell. |
+| first-facts-level-a-18-my-body | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-18/page-004.webp | I have a mouth.
+I can eat. |
+| first-facts-level-a-18-my-body | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-18/page-005.webp | I have two hands.
+I can clap! |
+| first-facts-level-a-18-my-body | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-18/page-006.webp | I have two feet.
+I can run! |
+| first-facts-level-a-18-my-body | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-18/page-007.webp | I have a body!
+I love my body. |
+| first-facts-level-a-19-day-and-night | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-19/page-001.webp | The sun is up.
+The sky is blue. |
+| first-facts-level-a-19-day-and-night | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-19/page-002.webp | The sun is hot.
+The day is bright. |
+| first-facts-level-a-19-day-and-night | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-19/page-003.webp | Birds sing in the day. |
+| first-facts-level-a-19-day-and-night | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-19/page-004.webp | The sun goes down.
+The sky turns red. |
+| first-facts-level-a-19-day-and-night | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-19/page-005.webp | The moon is up.
+The sky is dark. |
+| first-facts-level-a-19-day-and-night | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-19/page-006.webp | Stars come out.
+They are bright. |
+| first-facts-level-a-19-day-and-night | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-19/page-007.webp | Day and night.
+Light and dark. |
+| first-facts-level-a-20-space | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-20/page-001.webp | The moon is big.
+It is round. |
+| first-facts-level-a-20-space | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-20/page-002.webp | The sun is the biggest.
+It is very hot. |
+| first-facts-level-a-20-space | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-20/page-003.webp | Earth is our home.
+It is blue and green. |
+| first-facts-level-a-20-space | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-20/page-004.webp | Mars is red.
+It is a planet. |
+| first-facts-level-a-20-space | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-20/page-005.webp | Saturn has rings.
+The rings are big. |
+| first-facts-level-a-20-space | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-20/page-006.webp | Stars are far away.
+There are so many. |
+| first-facts-level-a-20-space | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts-level-a/book-20/page-007.webp | Space is very big!
+We are small. |
 | first-facts-a-01-look-at-the-colours | 2 | 1 | yes | yes | /guided-reading/nonfiction/first-facts/book-01/page-001.webp | Red. A red apple. A red robin. |
 | first-facts-a-01-look-at-the-colours | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts/book-01/page-002.webp | Yellow. A yellow sun. A yellow duck. |
 | first-facts-a-01-look-at-the-colours | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts/book-01/page-003.webp | Blue. A blue sky. Blue forget-me-nots. |
@@ -1105,6 +1370,105 @@ Very, very fast. |
 | meadow-pals-15-cuddly-wants-a-hug | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-15/page-008.webp | Woolly gave Cuddly a big hug. |
 | meadow-pals-15-cuddly-wants-a-hug | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-15/page-009.webp | "More hugs!" said Cuddly. |
 | meadow-pals-15-cuddly-wants-a-hug | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-15/page-010.webp | "No more hugs," said Woolly. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-001.webp | Muddy has some mud. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-002.webp | Splashy has some water. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-003.webp | Mud and water make... mud! |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-004.webp | Muddy jumped in. Splashy jumped in. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-005.webp | The mud went up. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-006.webp | The mud went down. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-007.webp | The mud went on Grumpy. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-008.webp | "I do not like mud!" said Grumpy. |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-16/page-009.webp | Muddy likes mud. Splashy likes mud too. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-001.webp | "I am fast," said Speedy. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-002.webp | "I am fast too!" said Bouncy. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-003.webp | Ready. Set. Go! |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-004.webp | Speedy ran fast. Bouncy hopped fast. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-005.webp | They ran past the barn. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-006.webp | They ran past the pond. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-007.webp | They ran past the big hill. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-008.webp | They ran and ran. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-009.webp | They did not stop. |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-17/page-010.webp | They are still going. |
+| meadow-pals-18-noisy-wakes-everyone-up | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-001.webp | It is dark. Everyone is asleep. |
+| meadow-pals-18-noisy-wakes-everyone-up | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-002.webp | Noisy got up. |
+| meadow-pals-18-noisy-wakes-everyone-up | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-003.webp | COCK-A-DOODLE-DOO! |
+| meadow-pals-18-noisy-wakes-everyone-up | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-004.webp | Grumpy woke up. Woolly woke up. Clucky woke up. |
+| meadow-pals-18-noisy-wakes-everyone-up | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-005.webp | Sleepy did not wake up. |
+| meadow-pals-18-noisy-wakes-everyone-up | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-006.webp | COCK-A-DOODLE-DOO! |
+| meadow-pals-18-noisy-wakes-everyone-up | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-007.webp | Sleepy woke up. |
+| meadow-pals-18-noisy-wakes-everyone-up | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-008.webp | It is still dark. |
+| meadow-pals-18-noisy-wakes-everyone-up | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-18/page-009.webp | "NOISY!" said everyone. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-001.webp | Tiny has lost a hat. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-002.webp | "I will help," said Brave. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-003.webp | They went to the barn. No hat. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-004.webp | They went to the pond. No hat. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-005.webp | They went to the big hill. No hat. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-006.webp | They went back home. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-007.webp | The hat was on Tiny. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-008.webp | "Oh," said Brave. |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-19/page-009.webp | "Oh," said Tiny. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-001.webp | Cuddly wants a hug. Cuddly looks and looks. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-002.webp | Shy is hiding. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-003.webp | Cuddly went past the big tree. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-004.webp | Shy is in the big tree! |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-005.webp | "Oh!" said Shy. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-006.webp | "Oh!" said Cuddly. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-007.webp | They sat in the big tree. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-008.webp | Cuddly got a hug. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-009.webp | Shy got a hug too. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-20/page-010.webp | Both of them are happy. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-001.webp | Woolly is stuck. Grumpy is stuck. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-002.webp | Woolly's wool is on Grumpy's horn. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-003.webp | "Pull!" said Grumpy. The wool did not come off. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-004.webp | Grumpy went left. Woolly went left. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-005.webp | Grumpy went right. Woolly went right. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-006.webp | Grumpy sat down. Woolly sat down. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-007.webp | "I do not like this," said Grumpy. "I do not like this," said Woolly. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-008.webp | Tiny got the wool off. |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-21/page-009.webp | Grumpy ran. Woolly ran. Not the same way. |
+| meadow-pals-22-sleepys-big-dream | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-001.webp | Sleepy went to sleep. |
+| meadow-pals-22-sleepys-big-dream | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-002.webp | Sleepy had a dream. |
+| meadow-pals-22-sleepys-big-dream | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-003.webp | In the dream, Sleepy could run. Run! Run! Run! |
+| meadow-pals-22-sleepys-big-dream | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-004.webp | In the dream, Sleepy could jump. Jump! Jump! Jump! |
+| meadow-pals-22-sleepys-big-dream | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-005.webp | In the dream, Sleepy was very fast. |
+| meadow-pals-22-sleepys-big-dream | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-006.webp | In the dream, Sleepy was a superhero! |
+| meadow-pals-22-sleepys-big-dream | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-007.webp | Then Sleepy woke up. |
+| meadow-pals-22-sleepys-big-dream | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-22/page-008.webp | Sleepy went back to sleep. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-001.webp | "We will bake a cake," said Clucky. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-002.webp | Clucky got the eggs. Giggly giggled at the eggs. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-003.webp | Clucky got the flour. Giggly giggled at the flour. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-004.webp | The flour went on Clucky. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-005.webp | "Ha! Ha! Ha!" said Giggly. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-006.webp | Clucky did not giggle. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-007.webp | The cake went in. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-008.webp | The cake came out. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-009.webp | It was a very flat cake. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-010.webp | Giggly giggled at the cake. |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | 12 | 11 | yes | yes | /guided-reading/series/meadow-pals/book-23/page-011.webp | Clucky had a bit. Then Clucky giggled too. |
+| meadow-pals-24-grumpys-secret | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-001.webp | Every day, Grumpy goes off. |
+| meadow-pals-24-grumpys-secret | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-002.webp | "Where does Grumpy go?" said Woolly. |
+| meadow-pals-24-grumpys-secret | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-003.webp | "I do not know," said Clucky. |
+| meadow-pals-24-grumpys-secret | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-004.webp | "I do not know," said Bouncy. |
+| meadow-pals-24-grumpys-secret | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-005.webp | "I do not know," said Noisy. |
+| meadow-pals-24-grumpys-secret | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-006.webp | Tiny went to look. |
+| meadow-pals-24-grumpys-secret | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-007.webp | Grumpy was in the garden. |
+| meadow-pals-24-grumpys-secret | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-008.webp | Grumpy was watering the flowers. |
+| meadow-pals-24-grumpys-secret | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-009.webp | Big red flowers. Big yellow flowers. |
+| meadow-pals-24-grumpys-secret | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-010.webp | "You can look," said Grumpy. "But do not tell." |
+| meadow-pals-24-grumpys-secret | 12 | 11 | yes | yes | /guided-reading/series/meadow-pals/book-24/page-011.webp | Tiny told everyone. |
+| meadow-pals-25-the-big-farm-party | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-001.webp | It is party day! |
+| meadow-pals-25-the-big-farm-party | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-002.webp | Muddy made a mud cake. |
+| meadow-pals-25-the-big-farm-party | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-003.webp | Clucky made a big cake. |
+| meadow-pals-25-the-big-farm-party | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-004.webp | Noisy played the music. It was very, very loud. |
+| meadow-pals-25-the-big-farm-party | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-005.webp | Bouncy blew up the balloons. She did not stop. |
+| meadow-pals-25-the-big-farm-party | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-006.webp | Tiny hung up the flags. |
+| meadow-pals-25-the-big-farm-party | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-007.webp | Shy hid behind the barn. |
+| meadow-pals-25-the-big-farm-party | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-008.webp | "Come in, Shy!" said Cuddly. Shy came in. |
+| meadow-pals-25-the-big-farm-party | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-009.webp | Grumpy sat at the back. |
+| meadow-pals-25-the-big-farm-party | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-010.webp | Grumpy had a lot of cake. |
+| meadow-pals-25-the-big-farm-party | 12 | 11 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-011.webp | "I like parties," said Grumpy. |
+| meadow-pals-25-the-big-farm-party | 13 | 12 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-012.webp | Everyone is at the party. |
+| meadow-pals-25-the-big-farm-party | 14 | 13 | yes | yes | /guided-reading/series/meadow-pals/book-25/page-013.webp | Everyone is happy. |
 | moonwood-tales-c-01 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-001.webp | Pip was walking through Moonwood when his foot kicked something small. It was a  |
 | moonwood-tales-c-01 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-002.webp | "What is this?" said Pip. He picked it up carefully. The glow made his fingers f |
 | moonwood-tales-c-01 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-003.webp | Burrow appeared from a nearby tunnel. "That is a Bravery Stone," said Burrow. "W |

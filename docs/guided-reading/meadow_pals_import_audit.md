@@ -1,6 +1,6 @@
 # Meadow Pals Level A Import Audit
 
-Generated: 2026-05-28T02:15:28.999Z
+Generated: 2026-05-28T06:44:10.544Z
 
 ## Source
 
@@ -10,24 +10,24 @@ Asset pack: `Meadow Pals Asset Pack/Meadow_Pals_Level_A_Assets`.
 
 ## Target
 
-`public/guided-reading/series/meadow-pals/book-01` through `book-15`
+`public/guided-reading/series/meadow-pals/book-01` through `book-25`
 
 ## Summary
 
-- Detected completed range: Books 1-15.
-- Imported Meadow Pals books: 15
+- Detected completed range: Books 1-25.
+- Imported Meadow Pals books: 25
 - Skipped/incomplete books: 0
 - Level chosen: A, because the source pack is organised under `Level A` and the page text uses short early-reader sentence patterns.
 - Release scope: approved and visible to student readers.
-- Imported covers: 15/15
-- Imported story page images: 135
-- Imported story page audio files: 135
+- Imported covers: 25/25
+- Imported story page images: 234
+- Imported story page audio files: 234
 - Missing story page images: 0
 - Full-book audio files found: 0
-- Final fiction book count: 75
-- Final nonfiction book count: 56
-- Final total guided reading count: 131
-- Validation failures: 0
+- Final fiction book count: 85
+- Final nonfiction book count: 76
+- Final total guided reading count: 161
+- Validation failures: 1
 
 ## Imported Books
 
@@ -48,22 +48,32 @@ Asset pack: `Meadow Pals Asset Pack/Meadow_Pals_Level_A_Assets`.
 | meadow-pals-13-splashy-finds-a-puddle | Splashy Finds a Puddle | A | 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | none | delivered cover used | approved | no |
 | meadow-pals-14-speedy-slows-down | Speedy Slows Down | A | 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none | delivered cover used | approved | no |
 | meadow-pals-15-cuddly-wants-a-hug | Cuddly Wants a Hug | A | 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none | delivered cover used | approved | no |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | Muddy and Splashy Make a Mess | A | 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | none | delivered cover used | approved | no |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | Bouncy and Speedy Have a Race | A | 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none | delivered cover used | approved | no |
+| meadow-pals-18-noisy-wakes-everyone-up | Noisy Wakes Everyone Up | A | 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | none | delivered cover used | approved | no |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | Tiny and Brave Go on an Adventure | A | 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | none | delivered cover used | approved | no |
+| meadow-pals-20-shy-and-cuddly-find-each-other | Shy and Cuddly Find Each Other | A | 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none | delivered cover used | approved | no |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | Woolly and Grumpy Are Stuck | A | 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | none | delivered cover used | approved | no |
+| meadow-pals-22-sleepys-big-dream | Sleepy's Big Dream | A | 8 | 1, 2, 3, 4, 5, 6, 7, 8 | 1, 2, 3, 4, 5, 6, 7, 8 | none | delivered cover used | approved | no |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | Giggly and Clucky Bake a Cake | A | 11 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | none | delivered cover used | approved | no |
+| meadow-pals-24-grumpys-secret | Grumpy's Secret | A | 11 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | none | delivered cover used | approved | no |
+| meadow-pals-25-the-big-farm-party | The Big Farm Party | A | 13 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 | none | delivered cover used | approved | no |
 
 ## Sequence Check
 
 - `cover.webp` is used as the title/cover image only.
 - `page-001.webp` maps to story page 1 for every imported book.
-- Page text, story images, and page audio counts match for Books 1-15.
+- Page text, story images, and page audio counts match for Books 1-25.
 - No title-page labels, illustration prompts, character references, or QA notes are present as reading text.
 
 ## Missing or Unclear Items
 
-None. The source pack had complete cover, story image, page text, and page audio coverage for Books 1-15.
+None. The source pack had complete cover, story image, page text, and page audio coverage for Books 1-25.
 
 ## Warnings
 
 None.
 
-## Result
+## Failures
 
-PASS: Meadow Pals Books 1-15 are imported as an approved Level A fiction series with aligned page text, images, and page audio.
+- first-facts-level-a-10-shapes: max words per page is 10, expected true Level A text load of 9 or fewer.

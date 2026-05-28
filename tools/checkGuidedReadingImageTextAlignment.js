@@ -85,7 +85,17 @@ function expectedImagePatterns(bookId, storyPageNumber) {
     "meadow-pals-12-hungry-eats-everything": "12",
     "meadow-pals-13-splashy-finds-a-puddle": "13",
     "meadow-pals-14-speedy-slows-down": "14",
-    "meadow-pals-15-cuddly-wants-a-hug": "15"
+    "meadow-pals-15-cuddly-wants-a-hug": "15",
+    "meadow-pals-16-muddy-and-splashy-make-a-mess": "16",
+    "meadow-pals-17-bouncy-and-speedy-have-a-race": "17",
+    "meadow-pals-18-noisy-wakes-everyone-up": "18",
+    "meadow-pals-19-tiny-and-brave-go-on-an-adventure": "19",
+    "meadow-pals-20-shy-and-cuddly-find-each-other": "20",
+    "meadow-pals-21-woolly-and-grumpy-are-stuck": "21",
+    "meadow-pals-22-sleepys-big-dream": "22",
+    "meadow-pals-23-giggly-and-clucky-bake-a-cake": "23",
+    "meadow-pals-24-grumpys-secret": "24",
+    "meadow-pals-25-the-big-farm-party": "25"
   };
   const moonwoodTalesMap = {
     "moonwood-tales-c-01": "01",
@@ -121,6 +131,12 @@ function expectedImagePatterns(bookId, storyPageNumber) {
     const bookNumber = bookId.match(/^first-facts-a-(\d{2})-/)?.[1];
     if (bookNumber) {
       return [`/guided-reading/nonfiction/first-facts/book-${bookNumber}/page-${String(storyPageNumber).padStart(3, "0")}.`];
+    }
+  }
+  if (bookId.startsWith("first-facts-level-a-")) {
+    const bookNumber = bookId.match(/^first-facts-level-a-(\d{2})-/)?.[1];
+    if (bookNumber) {
+      return [`/guided-reading/nonfiction/first-facts-level-a/book-${bookNumber}/page-${String(storyPageNumber).padStart(3, "0")}.`];
     }
   }
   if (bookId.startsWith("level-c-nonfiction-")) {
@@ -211,6 +227,16 @@ const allowedFictionIds = new Set([
   "meadow-pals-13-splashy-finds-a-puddle",
   "meadow-pals-14-speedy-slows-down",
   "meadow-pals-15-cuddly-wants-a-hug",
+  "meadow-pals-16-muddy-and-splashy-make-a-mess",
+  "meadow-pals-17-bouncy-and-speedy-have-a-race",
+  "meadow-pals-18-noisy-wakes-everyone-up",
+  "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
+  "meadow-pals-20-shy-and-cuddly-find-each-other",
+  "meadow-pals-21-woolly-and-grumpy-are-stuck",
+  "meadow-pals-22-sleepys-big-dream",
+  "meadow-pals-23-giggly-and-clucky-bake-a-cake",
+  "meadow-pals-24-grumpys-secret",
+  "meadow-pals-25-the-big-farm-party",
   "moonwood-tales-c-01",
   "moonwood-tales-c-02",
   "moonwood-tales-c-03",
@@ -265,7 +291,7 @@ const report = [
   "",
   "## What This Check Proves",
   "",
-  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-15, and Moonwood Tales Level C books 1-10 in student public release. First Facts nonfiction books 1-25 are now Level B, and Level C nonfiction books 1-10 are also checked as public nonfiction.",
+  "This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-10 in student public release. First Facts nonfiction books 1-25 are now Level B, the new First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are also checked as public nonfiction.",
   "",
   `Visible fiction books: ${fictionBooks.length}`,
   "",

@@ -81,6 +81,16 @@ const allowedFictionIds = new Set([
   "meadow-pals-13-splashy-finds-a-puddle",
   "meadow-pals-14-speedy-slows-down",
   "meadow-pals-15-cuddly-wants-a-hug",
+  "meadow-pals-16-muddy-and-splashy-make-a-mess",
+  "meadow-pals-17-bouncy-and-speedy-have-a-race",
+  "meadow-pals-18-noisy-wakes-everyone-up",
+  "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
+  "meadow-pals-20-shy-and-cuddly-find-each-other",
+  "meadow-pals-21-woolly-and-grumpy-are-stuck",
+  "meadow-pals-22-sleepys-big-dream",
+  "meadow-pals-23-giggly-and-clucky-bake-a-cake",
+  "meadow-pals-24-grumpys-secret",
+  "meadow-pals-25-the-big-farm-party",
   "moonwood-tales-c-01",
   "moonwood-tales-c-02",
   "moonwood-tales-c-03",
@@ -102,8 +112,8 @@ if (unexpectedFictionBooks.length) {
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction Guided Reading books visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);
 }
-if (guidedReadingBooks.length !== 131) {
-  failures.push(`Expected 131 total Guided Reading books after Level C nonfiction import, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 161) {
+  failures.push(`Expected 161 total Guided Reading books after Meadow Pals 16-25 import, found ${guidedReadingBooks.length}.`);
 }
 
 for (const book of guidedReadingBooks) {

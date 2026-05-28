@@ -1,22 +1,22 @@
 # Guided Reading Title Page Audit
 
-Generated: 2026-05-28T02:15:31.338Z
+Generated: 2026-05-28T06:52:04.963Z
 
 ## Strategy
 
-Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-15, and Moonwood Tales Level C books 1-10 in student public release. First Facts Level A nonfiction books 1-25 and Level C nonfiction books 1-10 are included as public nonfiction.
+Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-10 in student public release. First Facts nonfiction books 1-25 are now Level B, and Level C nonfiction books 1-10 are included as public nonfiction.
 
-Visible fiction books: 75
-Visible nonfiction books: 56
+Visible fiction books: 85
+Visible nonfiction books: 76
 
 ## Books Checked
 
 | ID | Title | Type | Level | Source Pages | Reader Pages | Title Image | Title Text |
 |---|---|---|---|---:|---:|---|---|
-| gr-a-26 | Pets | nonfiction | A | 6 | 7 | /guided-reading/regen/covers/gr-a-26-cover.png | Pets / by Owen Brooks / illustrated by Max Clover |
-| gr-a-27 | The Sun | nonfiction | A | 6 | 7 | /guided-reading/regen/covers/gr-a-27-cover.png | The Sun / by Lina Moss / illustrated by Benji Oak |
-| gr-a-28 | Colors | nonfiction | A | 6 | 7 | /guided-reading/regen/covers/gr-a-28-cover.png | Colors / by Milo Reed / illustrated by Sam Rowan |
-| gr-a-29 | My Body | nonfiction | A | 6 | 7 | /guided-reading/regen/covers/gr-a-29-cover.png | My Body / by Mia Rivers / illustrated by Toby Green |
+| gr-a-26 | Pets | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-a-26-cover.png | Pets / by Owen Brooks / illustrated by Max Clover |
+| gr-a-27 | The Sun | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-a-27-cover.png | The Sun / by Lina Moss / illustrated by Benji Oak |
+| gr-a-28 | Colors | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-a-28-cover.png | Colors / by Milo Reed / illustrated by Sam Rowan |
+| gr-a-29 | My Body | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-a-29-cover.png | My Body / by Mia Rivers / illustrated by Toby Green |
 | gr-b-31 | Seasons | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-b-31-cover.png | Seasons / by Ava Stone / illustrated by Benji Oak |
 | gr-b-32 | Fruits | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-b-32-cover.png | Fruits / by Leo Wren / illustrated by Sam Rowan |
 | gr-b-33 | Tools | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-b-33-cover.png | Tools / by Ruby Vale / illustrated by Toby Green |
@@ -34,31 +34,51 @@ Visible nonfiction books: 56
 | gr-e-48 | Magnets | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-e-48-cover.png | Magnets / by Leo Wren / illustrated by Sam Rowan |
 | gr-e-49 | Clothes | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-e-49-cover.png | Clothes / by Ruby Vale / illustrated by Toby Green |
 | gr-e-50 | Our Five Senses | nonfiction | B | 6 | 7 | /guided-reading/regen/covers/gr-e-50-cover.png | Our Five Senses / by Leo Wren / illustrated by Ivy Lane |
-| first-facts-a-01-look-at-the-colours | Look at the Colours! | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-01/cover.webp | Look at the Colours! / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-02-the-four-seasons | The Four Seasons | nonfiction | A | 9 | 10 | /guided-reading/nonfiction/first-facts/book-02/cover.webp | The Four Seasons / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-03-little-seeds-grow | Little Seeds Grow | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-03/cover.webp | Little Seeds Grow / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-04-what-is-weather | What is Weather? | nonfiction | A | 8 | 9 | /guided-reading/nonfiction/first-facts/book-04/cover.webp | What is Weather? / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-05-flowers-and-trees | Flowers and Trees | nonfiction | A | 8 | 9 | /guided-reading/nonfiction/first-facts/book-05/cover.webp | Flowers and Trees / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-06-baby-animals | Baby Animals | nonfiction | A | 8 | 9 | /guided-reading/nonfiction/first-facts/book-06/cover.webp | Baby Animals / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-07-animals-on-the-farm | Animals on the Farm | nonfiction | A | 8 | 9 | /guided-reading/nonfiction/first-facts/book-07/cover.webp | Animals on the Farm / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-08-animals-in-the-ocean | Animals in the Ocean | nonfiction | A | 8 | 9 | /guided-reading/nonfiction/first-facts/book-08/cover.webp | Animals in the Ocean / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-09-animals-at-night | Animals at Night | nonfiction | A | 6 | 7 | /guided-reading/nonfiction/first-facts/book-09/cover.webp | Animals at Night / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-10-bugs-all-around-us | Bugs All Around Us | nonfiction | A | 8 | 9 | /guided-reading/nonfiction/first-facts/book-10/cover.webp | Bugs All Around Us / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-11-pets-we-love | Pets We Love | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-11/cover.webp | Pets We Love / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-12-shapes-everywhere | Shapes Everywhere | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-12/cover.webp | Shapes Everywhere / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-13-big-and-small | Big and Small | nonfiction | A | 6 | 7 | /guided-reading/nonfiction/first-facts/book-13/cover.webp | Big and Small / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-14-hot-and-cold | Hot and Cold | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-14/cover.webp | Hot and Cold / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-15-things-that-float-and-sink | Things That Float and Sink | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-15/cover.webp | Things That Float and Sink / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-16-push-and-pull | Push and Pull | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-16/cover.webp | Push and Pull / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-17-hello-sun | Hello, Sun! | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-17/cover.webp | Hello, Sun! / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-18-the-moon | The Moon | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-18/cover.webp | The Moon / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-19-day-and-night | Day and Night | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-19/cover.webp | Day and Night / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-20-my-five-senses | My Five Senses | nonfiction | A | 8 | 9 | /guided-reading/nonfiction/first-facts/book-20/cover.webp | My Five Senses / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-21-how-i-grow | How I Grow | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-21/cover.webp | How I Grow / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-22-staying-healthy | Staying Healthy | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-22/cover.webp | Staying Healthy / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-23-my-body | My Body | nonfiction | A | 8 | 9 | /guided-reading/nonfiction/first-facts/book-23/cover.webp | My Body / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts/book-24/cover.webp | Rocks and Pebbles / by Mara Lane / illustrated by Theo Finch |
-| first-facts-a-25-water-everywhere | Water Everywhere | nonfiction | A | 9 | 10 | /guided-reading/nonfiction/first-facts/book-25/cover.webp | Water Everywhere / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-01-colors | Colors | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-01/cover.webp | Colors / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-02-farm-animals | Farm Animals | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-02/cover.webp | Farm Animals / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-03-big-and-little | Big and Little | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-03/cover.webp | Big and Little / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-04-water | Water | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-04/cover.webp | Water / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-05-the-sky | The Sky | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-05/cover.webp | The Sky / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-06-animals-can | Animals Can! | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-06/cover.webp | Animals Can! / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-07-bugs | Bugs | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-07/cover.webp | Bugs / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-08-my-pet | My Pet | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-08/cover.webp | My Pet / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-09-hot-and-cold | Hot and Cold | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-09/cover.webp | Hot and Cold / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-10-shapes | Shapes | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-10/cover.webp | Shapes / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-11-at-the-farm | At the Farm | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-11/cover.webp | At the Farm / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-12-in-the-sea | In the Sea | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-12/cover.webp | In the Sea / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-13-fruit | Fruit | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-13/cover.webp | Fruit / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-14-the-tree | The Tree | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-14/cover.webp | The Tree / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-15-baby-animals | Baby Animals | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-15/cover.webp | Baby Animals / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-16-fast-and-slow | Fast and Slow | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-16/cover.webp | Fast and Slow / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-17-a-seed-grows | A Seed Grows | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-17/cover.webp | A Seed Grows / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-18-my-body | My Body | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-18/cover.webp | My Body / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-19-day-and-night | Day and Night | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-19/cover.webp | Day and Night / by Mara Lane / illustrated by Theo Finch |
+| first-facts-level-a-20-space | Space | nonfiction | A | 7 | 8 | /guided-reading/nonfiction/first-facts-level-a/book-20/cover.webp | Space / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-01-look-at-the-colours | Look at the Colours! | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-01/cover.webp | Look at the Colours! / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-02-the-four-seasons | The Four Seasons | nonfiction | B | 9 | 10 | /guided-reading/nonfiction/first-facts/book-02/cover.webp | The Four Seasons / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-03-little-seeds-grow | Little Seeds Grow | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-03/cover.webp | Little Seeds Grow / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-04-what-is-weather | What is Weather? | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-04/cover.webp | What is Weather? / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-05-flowers-and-trees | Flowers and Trees | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-05/cover.webp | Flowers and Trees / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-06-baby-animals | Baby Animals | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-06/cover.webp | Baby Animals / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-07-animals-on-the-farm | Animals on the Farm | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-07/cover.webp | Animals on the Farm / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-08-animals-in-the-ocean | Animals in the Ocean | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-08/cover.webp | Animals in the Ocean / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-09-animals-at-night | Animals at Night | nonfiction | B | 6 | 7 | /guided-reading/nonfiction/first-facts/book-09/cover.webp | Animals at Night / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-10-bugs-all-around-us | Bugs All Around Us | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-10/cover.webp | Bugs All Around Us / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-11-pets-we-love | Pets We Love | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-11/cover.webp | Pets We Love / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-12-shapes-everywhere | Shapes Everywhere | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-12/cover.webp | Shapes Everywhere / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-13-big-and-small | Big and Small | nonfiction | B | 6 | 7 | /guided-reading/nonfiction/first-facts/book-13/cover.webp | Big and Small / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-14-hot-and-cold | Hot and Cold | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-14/cover.webp | Hot and Cold / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-15-things-that-float-and-sink | Things That Float and Sink | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-15/cover.webp | Things That Float and Sink / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-16-push-and-pull | Push and Pull | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-16/cover.webp | Push and Pull / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-17-hello-sun | Hello, Sun! | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-17/cover.webp | Hello, Sun! / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-18-the-moon | The Moon | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-18/cover.webp | The Moon / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-19-day-and-night | Day and Night | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-19/cover.webp | Day and Night / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-20-my-five-senses | My Five Senses | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-20/cover.webp | My Five Senses / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-21-how-i-grow | How I Grow | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-21/cover.webp | How I Grow / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-22-staying-healthy | Staying Healthy | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-22/cover.webp | Staying Healthy / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-23-my-body | My Body | nonfiction | B | 8 | 9 | /guided-reading/nonfiction/first-facts/book-23/cover.webp | My Body / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | nonfiction | B | 7 | 8 | /guided-reading/nonfiction/first-facts/book-24/cover.webp | Rocks and Pebbles / by Mara Lane / illustrated by Theo Finch |
+| first-facts-a-25-water-everywhere | Water Everywhere | nonfiction | B | 9 | 10 | /guided-reading/nonfiction/first-facts/book-25/cover.webp | Water Everywhere / by Mara Lane / illustrated by Theo Finch |
 | level-c-nonfiction-01-bees | Bees | nonfiction | C | 9 | 10 | /guided-reading/nonfiction/level-c/book-01/cover.webp | Bees / by Nora Bell / illustrated by Ivy Lane |
 | level-c-nonfiction-02-volcanoes | Volcanoes | nonfiction | C | 9 | 10 | /guided-reading/nonfiction/level-c/book-02/cover.webp | Volcanoes / by Theo Finch / illustrated by Benji Oak |
 | level-c-nonfiction-03-penguins | Penguins | nonfiction | C | 9 | 10 | /guided-reading/nonfiction/level-c/book-03/cover.webp | Penguins / by Ruby Vale / illustrated by Zara Field |
@@ -134,6 +154,16 @@ Visible nonfiction books: 56
 | meadow-pals-13-splashy-finds-a-puddle | Splashy Finds a Puddle | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-13/cover.webp | Splashy Finds a Puddle / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-14-speedy-slows-down | Speedy Slows Down | fiction | A | 10 | 11 | /guided-reading/series/meadow-pals/book-14/cover.webp | Speedy Slows Down / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-15-cuddly-wants-a-hug | Cuddly Wants a Hug | fiction | A | 10 | 11 | /guided-reading/series/meadow-pals/book-15/cover.webp | Cuddly Wants a Hug / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-16-muddy-and-splashy-make-a-mess | Muddy and Splashy Make a Mess | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-16/cover.webp | Muddy and Splashy Make a Mess / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-17-bouncy-and-speedy-have-a-race | Bouncy and Speedy Have a Race | fiction | A | 10 | 11 | /guided-reading/series/meadow-pals/book-17/cover.webp | Bouncy and Speedy Have a Race / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-18-noisy-wakes-everyone-up | Noisy Wakes Everyone Up | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-18/cover.webp | Noisy Wakes Everyone Up / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-19-tiny-and-brave-go-on-an-adventure | Tiny and Brave Go on an Adventure | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-19/cover.webp | Tiny and Brave Go on an Adventure / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-20-shy-and-cuddly-find-each-other | Shy and Cuddly Find Each Other | fiction | A | 10 | 11 | /guided-reading/series/meadow-pals/book-20/cover.webp | Shy and Cuddly Find Each Other / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-21-woolly-and-grumpy-are-stuck | Woolly and Grumpy Are Stuck | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-21/cover.webp | Woolly and Grumpy Are Stuck / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-22-sleepys-big-dream | Sleepy's Big Dream | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-22/cover.webp | Sleepy's Big Dream / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-23-giggly-and-clucky-bake-a-cake | Giggly and Clucky Bake a Cake | fiction | A | 11 | 12 | /guided-reading/series/meadow-pals/book-23/cover.webp | Giggly and Clucky Bake a Cake / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-24-grumpys-secret | Grumpy's Secret | fiction | A | 11 | 12 | /guided-reading/series/meadow-pals/book-24/cover.webp | Grumpy's Secret / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-25-the-big-farm-party | The Big Farm Party | fiction | A | 13 | 14 | /guided-reading/series/meadow-pals/book-25/cover.webp | The Big Farm Party / by Nora Bell / illustrated by Milo Reed |
 | moonwood-tales-c-01 | Pip and the Bravery Stone | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-01/cover.webp | Pip and the Bravery Stone / by Lina Moss / illustrated by Kimi |
 | moonwood-tales-c-02 | Fern Grows Too Much | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-02/cover.webp | Fern Grows Too Much / by Lina Moss / illustrated by Kimi |
 | moonwood-tales-c-03 | Stone Crosses the Bridge | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-03/cover.webp | Stone Crosses the Bridge / by Lina Moss / illustrated by Kimi |
