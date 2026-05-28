@@ -35,6 +35,16 @@ export function displayNormalize(value = "") {
 }
 
 export function getDepthSkillId(question = {}) {
+  const explicitId = normalize(question.assessmentSkillId || question.depthSkillId || "");
+  if (managedAssessmentSkillDepthConfig.some(config => config.skillId === explicitId)) {
+    return explicitId;
+  }
+
+  const directId = normalize(question.skillId || "");
+  if (managedAssessmentSkillDepthConfig.some(config => config.skillId === directId)) {
+    return directId;
+  }
+
   const raw = normalize([question.skillId, question.skillName, question.skill, question.stage].filter(Boolean).join(" "));
   const text = displayNormalize([question.skillId, question.skillName, question.skill, question.stage, question.prompt, question.question, question.templateType, question.formatType].filter(Boolean).join(" "));
 

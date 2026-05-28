@@ -1,0 +1,5867 @@
+{
+  "generatedAt": "2026-05-28T03:27:42.221Z",
+  "source": "loadCoreQuestionPool() plus managedAssessmentSkillDepthConfig",
+  "targetContract": {
+    "levelsPerSkill": 2,
+    "phasesPerSkill": 2,
+    "questionsPerRound": 15,
+    "minimumUniqueUsableQuestionsPerLevel": 30
+  },
+  "summary": {
+    "skillsAudited": 29,
+    "productionReadySkills": 21,
+    "failingPhaseCount": 0,
+    "failingLevelCount": 0,
+    "belowLevel1Depth": 0,
+    "belowLevel2Depth": 0,
+    "unableToGenerate15QuestionRound": 0,
+    "duplicateIdGroups": 0,
+    "missingQuestionIds": 0,
+    "missingPrompts": 0,
+    "missingAnswerChoices": 0,
+    "missingCorrectAnswers": 0,
+    "missingSkillIds": 0,
+    "missingLevelData": 0,
+    "missingPhaseData": 0,
+    "unassignedQuestions": 140
+  },
+  "skills": [
+    {
+      "skillNumber": 1,
+      "skillId": "initial_sounds",
+      "skillName": "Initial Sounds",
+      "totalRawQuestions": 175,
+      "totalUniqueQuestions": 175,
+      "totalStrictUsableQuestions": 175,
+      "uniqueLevel1Questions": 140,
+      "uniqueLevel2Questions": 35,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 140,
+          "uniqueQuestionCount": 140,
+          "strictUsableQuestionCount": 140,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 70,
+            "2": 70
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a",
+            "b",
+            "bat",
+            "c",
+            "d",
+            "dig",
+            "e",
+            "f",
+            "fan",
+            "g",
+            "h",
+            "ham",
+            "i",
+            "j",
+            "jet",
+            "k",
+            "l",
+            "leg",
+            "m",
+            "map",
+            "n",
+            "nap",
+            "o",
+            "p",
+            "pen",
+            "q",
+            "r",
+            "rain",
+            "s",
+            "sock",
+            "t",
+            "tent",
+            "tub",
+            "u",
+            "v",
+            "w",
+            "y",
+            "z"
+          ],
+          "formats": {
+            "FIRST_SOUND": 30,
+            "INITIAL_SOUND_PAIR_SELECT": 89,
+            "MULTIPLE_CHOICE": 20,
+            "UNKNOWN": 1
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a",
+            "b"
+          ],
+          "formats": {
+            "FIRST_SOUND": 35
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": false
+    },
+    {
+      "skillNumber": 2,
+      "skillId": "final_sounds",
+      "skillName": "Final Sounds",
+      "totalRawQuestions": 379,
+      "totalUniqueQuestions": 379,
+      "totalStrictUsableQuestions": 379,
+      "uniqueLevel1Questions": 178,
+      "uniqueLevel2Questions": 201,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 178,
+          "uniqueQuestionCount": 178,
+          "strictUsableQuestionCount": 178,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 90,
+            "2": 88
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "b",
+            "bag",
+            "bed",
+            "bell",
+            "boat",
+            "bus",
+            "cap",
+            "cup",
+            "d",
+            "dog",
+            "drum",
+            "duck",
+            "fog",
+            "g",
+            "hat",
+            "jam",
+            "l",
+            "leaf",
+            "m",
+            "map",
+            "mat",
+            "moon",
+            "n",
+            "p",
+            "pen",
+            "run",
+            "sun",
+            "t",
+            "top"
+          ],
+          "formats": {
+            "ENDING_SOUND": 135,
+            "ENDING_SOUND_WORD_MATCH": 43
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 201,
+          "uniqueQuestionCount": 201,
+          "strictUsableQuestionCount": 201,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 101,
+            "2": 100
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_blanket_fort",
+            "b",
+            "ck",
+            "d",
+            "f",
+            "ft",
+            "g",
+            "k",
+            "l",
+            "ll",
+            "lt",
+            "m",
+            "mp",
+            "n",
+            "nd",
+            "ng",
+            "nk",
+            "nt",
+            "p",
+            "r",
+            "rk",
+            "s",
+            "sh",
+            "sk",
+            "st",
+            "t",
+            "th"
+          ],
+          "formats": {
+            "ENDING_SOUND": 71,
+            "ENDING_SOUND_WORD_MATCH": 54,
+            "FINAL_SOUND_PAIR_SELECT": 76
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 3,
+      "skillId": "rhyming",
+      "skillName": "Rhyming",
+      "totalRawQuestions": 339,
+      "totalUniqueQuestions": 339,
+      "totalStrictUsableQuestions": 339,
+      "uniqueLevel1Questions": 280,
+      "uniqueLevel2Questions": 59,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 280,
+          "uniqueQuestionCount": 280,
+          "strictUsableQuestionCount": 280,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 141,
+            "2": 139
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ad",
+            "ag",
+            "ain",
+            "air",
+            "am",
+            "an",
+            "ap",
+            "at",
+            "bear",
+            "bed",
+            "bee",
+            "cake",
+            "cap",
+            "car",
+            "coat",
+            "dish",
+            "ed",
+            "ee",
+            "eg",
+            "ell",
+            "en",
+            "et",
+            "fun",
+            "hat",
+            "hop",
+            "house",
+            "ig",
+            "in",
+            "ing",
+            "ip",
+            "it",
+            "lake",
+            "night",
+            "oat",
+            "ock",
+            "og",
+            "op",
+            "ot",
+            "ouse",
+            "ox",
+            "pen",
+            "red",
+            "ring",
+            "rose",
+            "rug",
+            "run",
+            "shell",
+            "snow",
+            "spoon",
+            "tree",
+            "ug",
+            "un",
+            "up",
+            "ut",
+            "will"
+          ],
+          "formats": {
+            "LISTEN_FIND_RHYME": 28,
+            "MULTIPLE_CHOICE": 28,
+            "READ_FIND_RHYME": 54,
+            "RHYMING_PICTURE": 155,
+            "UNKNOWN": 15
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 59,
+          "uniqueQuestionCount": 59,
+          "strictUsableQuestionCount": 59,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 30,
+            "2": 29
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ack",
+            "ake",
+            "all",
+            "ar",
+            "eep",
+            "ell",
+            "ick",
+            "ing",
+            "ish",
+            "oat",
+            "ock",
+            "or",
+            "uck"
+          ],
+          "formats": {
+            "LISTEN_FIND_RHYME": 6,
+            "READ_FIND_RHYME": 18,
+            "RHYMING_PICTURE": 35
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": false
+    },
+    {
+      "skillNumber": 4,
+      "skillId": "cvc_short_vowels",
+      "skillName": "CVC Short Vowels",
+      "totalRawQuestions": 413,
+      "totalUniqueQuestions": 413,
+      "totalStrictUsableQuestions": 413,
+      "uniqueLevel1Questions": 323,
+      "uniqueLevel2Questions": 90,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 323,
+          "uniqueQuestionCount": 323,
+          "strictUsableQuestionCount": 323,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 162,
+            "2": 161
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "bag",
+            "bat",
+            "bed",
+            "big",
+            "bug",
+            "cap",
+            "cat",
+            "cup",
+            "did",
+            "dog",
+            "dot",
+            "duck",
+            "fin",
+            "fish",
+            "fox",
+            "hat",
+            "jam",
+            "jet",
+            "leg",
+            "lid",
+            "log",
+            "man",
+            "map",
+            "mud",
+            "mug",
+            "nap",
+            "nut",
+            "pan",
+            "pen",
+            "pet",
+            "pig",
+            "pin",
+            "pot",
+            "ram",
+            "red",
+            "short_a",
+            "short_e",
+            "short_i",
+            "short_o",
+            "short_u",
+            "sit",
+            "sock",
+            "sun",
+            "van",
+            "web",
+            "wig"
+          ],
+          "formats": {
+            "COMPLETE_WORD": 15,
+            "HEARD_WORD_TO_PRINT_MINIMAL_PAIR": 84,
+            "MISSING_VOWEL_CVC": 77,
+            "PICTURE_TO_PRINT_MATCH": 43,
+            "PUT_SOUNDS_IN_ORDER": 30,
+            "SHORT_VOWEL_WORD": 60,
+            "UNKNOWN": 14
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 90,
+          "uniqueQuestionCount": 90,
+          "strictUsableQuestionCount": 90,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 45,
+            "2": 45
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "bag",
+            "cap",
+            "cot",
+            "cup",
+            "dig",
+            "dog",
+            "ham",
+            "hat",
+            "hen",
+            "hop",
+            "hut",
+            "kid",
+            "leg",
+            "lip",
+            "log",
+            "map",
+            "mat",
+            "net",
+            "pen",
+            "pet",
+            "pin",
+            "red",
+            "rod",
+            "rug",
+            "short_a",
+            "short_e",
+            "short_i",
+            "short_o",
+            "short_u",
+            "sit",
+            "tap",
+            "top",
+            "win"
+          ],
+          "formats": {
+            "LISTEN_CHOOSE_VOWEL": 18,
+            "MULTIPLE_CHOICE": 45,
+            "SHORT_VOWEL_WORD": 17,
+            "UNKNOWN": 10
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 5,
+      "skillId": "short_vowel_discrimination",
+      "skillName": "Short Vowel Discrimination",
+      "totalRawQuestions": 306,
+      "totalUniqueQuestions": 306,
+      "totalStrictUsableQuestions": 306,
+      "uniqueLevel1Questions": 271,
+      "uniqueLevel2Questions": 35,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 271,
+          "uniqueQuestionCount": 271,
+          "strictUsableQuestionCount": 271,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 136,
+            "2": 135
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "short_a",
+            "short_e",
+            "short_i",
+            "short_o",
+            "short_u"
+          ],
+          "formats": {
+            "LISTEN_CHOOSE_VOWEL": 100,
+            "PICTURE_TO_PRINT_MATCH": 81,
+            "SHORT_VOWEL_WORD": 90
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "short_a",
+            "short_e",
+            "short_i",
+            "short_o",
+            "short_u"
+          ],
+          "formats": {
+            "LISTEN_CHOOSE_VOWEL": 18,
+            "SHORT_VOWEL_WORD": 17
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": false
+    },
+    {
+      "skillNumber": 6,
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "totalRawQuestions": 96,
+      "totalUniqueQuestions": 96,
+      "totalStrictUsableQuestions": 96,
+      "uniqueLevel1Questions": 61,
+      "uniqueLevel2Questions": 35,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 61,
+          "uniqueQuestionCount": 61,
+          "strictUsableQuestionCount": 61,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 31,
+            "2": 30
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a",
+            "am",
+            "and",
+            "big",
+            "can",
+            "come",
+            "down",
+            "for",
+            "go",
+            "i",
+            "in",
+            "is",
+            "it",
+            "like",
+            "little",
+            "look",
+            "me",
+            "my",
+            "not",
+            "on",
+            "one",
+            "play",
+            "said",
+            "see",
+            "that",
+            "the",
+            "to",
+            "up",
+            "want",
+            "we",
+            "with",
+            "you"
+          ],
+          "formats": {
+            "CLOZE_CHOICE": 40,
+            "LISTEN_FIND_WORD": 9,
+            "READ_FIND_WORD": 12
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a",
+            "am",
+            "and",
+            "big",
+            "can",
+            "come",
+            "down",
+            "for",
+            "go",
+            "i",
+            "in",
+            "is",
+            "it",
+            "like",
+            "little",
+            "look",
+            "me",
+            "my",
+            "not",
+            "on",
+            "one",
+            "play",
+            "said",
+            "see",
+            "that",
+            "the",
+            "to",
+            "up",
+            "want",
+            "we",
+            "with",
+            "you"
+          ],
+          "formats": {
+            "SENTENCE_CLOZE": 35
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 7,
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "totalRawQuestions": 123,
+      "totalUniqueQuestions": 123,
+      "totalStrictUsableQuestions": 123,
+      "uniqueLevel1Questions": 48,
+      "uniqueLevel2Questions": 75,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 48,
+          "uniqueQuestionCount": 48,
+          "strictUsableQuestionCount": 48,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 24,
+            "2": 24
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "all",
+            "are",
+            "but",
+            "came",
+            "for",
+            "from",
+            "have",
+            "he",
+            "into",
+            "just",
+            "now",
+            "she",
+            "that",
+            "then",
+            "they",
+            "this",
+            "under",
+            "was",
+            "went",
+            "were",
+            "what",
+            "when",
+            "where",
+            "will",
+            "with"
+          ],
+          "formats": {
+            "LISTEN_FIND_WORD": 11,
+            "READ_FIND_WORD": 37
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 75,
+          "uniqueQuestionCount": 75,
+          "strictUsableQuestionCount": 75,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 38,
+            "2": 37
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "after",
+            "all",
+            "are",
+            "around",
+            "asked",
+            "away",
+            "blue",
+            "but",
+            "cold",
+            "find",
+            "funny",
+            "he",
+            "help",
+            "helps",
+            "here",
+            "jump",
+            "made",
+            "make",
+            "open",
+            "play",
+            "red",
+            "round",
+            "run",
+            "she",
+            "sleep",
+            "that",
+            "then",
+            "they",
+            "three",
+            "two",
+            "under",
+            "very",
+            "was",
+            "went",
+            "where",
+            "with",
+            "yellow"
+          ],
+          "formats": {
+            "CLOZE_CHOICE": 40,
+            "SENTENCE_CLOZE": 35
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 8,
+      "skillId": "hfw_51_100",
+      "skillName": "High-Frequency Words 51-100",
+      "totalRawQuestions": 165,
+      "totalUniqueQuestions": 165,
+      "totalStrictUsableQuestions": 165,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 130,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "after",
+            "again",
+            "any",
+            "around",
+            "ask",
+            "away",
+            "be",
+            "before",
+            "by",
+            "cold",
+            "come",
+            "could",
+            "down",
+            "every",
+            "find",
+            "fly",
+            "found",
+            "funny",
+            "give",
+            "going",
+            "has",
+            "help",
+            "helps",
+            "her",
+            "here",
+            "him",
+            "his",
+            "how",
+            "know",
+            "let",
+            "like",
+            "little",
+            "live",
+            "look",
+            "made"
+          ],
+          "formats": {
+            "READ_FIND_WORD": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 130,
+          "uniqueQuestionCount": 130,
+          "strictUsableQuestionCount": 130,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 65,
+            "2": 65
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "after",
+            "again",
+            "an",
+            "any",
+            "as",
+            "ask",
+            "be",
+            "before",
+            "by",
+            "came",
+            "could",
+            "every",
+            "fly",
+            "found",
+            "from",
+            "give",
+            "going",
+            "had",
+            "has",
+            "have",
+            "her",
+            "him",
+            "his",
+            "how",
+            "into",
+            "just",
+            "know",
+            "let",
+            "like",
+            "live",
+            "may",
+            "must",
+            "new",
+            "now",
+            "of",
+            "old",
+            "once",
+            "open",
+            "our",
+            "out",
+            "over",
+            "please",
+            "pretty",
+            "put",
+            "read",
+            "round",
+            "saw",
+            "say",
+            "some",
+            "soon",
+            "stop",
+            "take",
+            "thank",
+            "them",
+            "think",
+            "this",
+            "under",
+            "walk",
+            "want",
+            "well",
+            "went",
+            "were",
+            "what",
+            "when",
+            "white",
+            "who",
+            "will",
+            "yes"
+          ],
+          "formats": {
+            "CLOZE_CHOICE": 30,
+            "MULTIPLE_CHOICE": 40,
+            "SENTENCE_CLOZE": 60
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 9,
+      "skillId": "blends",
+      "skillName": "Blends",
+      "totalRawQuestions": 122,
+      "totalUniqueQuestions": 122,
+      "totalStrictUsableQuestions": 122,
+      "uniqueLevel1Questions": 88,
+      "uniqueLevel2Questions": 34,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 88,
+          "uniqueQuestionCount": 88,
+          "strictUsableQuestionCount": 88,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 44,
+            "2": 44
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "bl",
+            "black",
+            "br",
+            "cl",
+            "cr",
+            "dr",
+            "drop",
+            "fl",
+            "flip",
+            "fr",
+            "plum",
+            "sl",
+            "sn",
+            "sp",
+            "st",
+            "step",
+            "tr"
+          ],
+          "formats": {
+            "BLEND_SOUNDS": 30,
+            "HEARD_WORD_TO_PRINT_MINIMAL_PAIR": 11,
+            "IMAGE_WORD_PATTERN_MATCH": 19,
+            "MULTIPLE_CHOICE": 1,
+            "PICTURE_AUDIO_TO_PATTERN": 22,
+            "UNKNOWN": 5
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 34,
+          "uniqueQuestionCount": 34,
+          "strictUsableQuestionCount": 34,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 17,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "black",
+            "brick",
+            "clip",
+            "crib",
+            "drop",
+            "flip",
+            "fresh",
+            "glass",
+            "green",
+            "grin",
+            "plug",
+            "press",
+            "skip",
+            "sleep",
+            "small",
+            "snap",
+            "spill",
+            "step",
+            "stone",
+            "swim",
+            "tree",
+            "truck",
+            "twig"
+          ],
+          "formats": {
+            "MULTIPLE_CHOICE": 34
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 10,
+      "skillId": "digraphs",
+      "skillName": "Digraphs",
+      "totalRawQuestions": 126,
+      "totalUniqueQuestions": 126,
+      "totalStrictUsableQuestions": 126,
+      "uniqueLevel1Questions": 76,
+      "uniqueLevel2Questions": 50,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 76,
+          "uniqueQuestionCount": 76,
+          "strictUsableQuestionCount": 76,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 38,
+            "2": 38
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ch",
+            "chip",
+            "photo",
+            "sh",
+            "ship",
+            "th",
+            "thin",
+            "wh",
+            "wheel"
+          ],
+          "formats": {
+            "HEARD_WORD_TO_PRINT_MINIMAL_PAIR": 18,
+            "IMAGE_WORD_PATTERN_MATCH": 21,
+            "MULTIPLE_CHOICE": 3,
+            "PICTURE_AUDIO_TO_PATTERN": 30,
+            "UNKNOWN": 4
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 50,
+          "uniqueQuestionCount": 50,
+          "strictUsableQuestionCount": 50,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 25,
+            "2": 25
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "black",
+            "chain",
+            "cheese",
+            "chick",
+            "chin",
+            "chip",
+            "chop",
+            "crab",
+            "flower",
+            "photo",
+            "shadow",
+            "shark",
+            "sheep",
+            "shine",
+            "ship",
+            "shoe",
+            "shop",
+            "star",
+            "thin",
+            "this",
+            "thorn",
+            "three",
+            "tree",
+            "wheel",
+            "whisk",
+            "white"
+          ],
+          "formats": {
+            "MULTIPLE_CHOICE": 50
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": false
+    },
+    {
+      "skillNumber": 11,
+      "skillId": "long_vowels_silent_e",
+      "skillName": "Long Vowels and Silent E",
+      "totalRawQuestions": 104,
+      "totalUniqueQuestions": 104,
+      "totalStrictUsableQuestions": 104,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 69,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_e",
+            "e_e",
+            "i_e",
+            "o_e",
+            "u_e"
+          ],
+          "formats": {
+            "DECODING": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 69,
+          "uniqueQuestionCount": 69,
+          "strictUsableQuestionCount": 69,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 35,
+            "2": 34
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_e",
+            "bike",
+            "boat",
+            "cake",
+            "cube",
+            "day",
+            "e_e",
+            "flute",
+            "gate",
+            "green",
+            "home",
+            "i_e",
+            "june",
+            "kite",
+            "light",
+            "mule",
+            "o_e",
+            "pete",
+            "plane",
+            "plate",
+            "rain",
+            "rope",
+            "seed",
+            "shine",
+            "smile",
+            "snake",
+            "snow",
+            "stone",
+            "team",
+            "theme",
+            "these",
+            "time",
+            "u_e"
+          ],
+          "formats": {
+            "DECODING": 26,
+            "MULTIPLE_CHOICE": 43
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": false
+    },
+    {
+      "skillNumber": 12,
+      "skillId": "vowel_teams",
+      "skillName": "Vowel Teams",
+      "totalRawQuestions": 111,
+      "totalUniqueQuestions": 111,
+      "totalStrictUsableQuestions": 111,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 76,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ai",
+            "ay",
+            "ea",
+            "ee",
+            "oa"
+          ],
+          "formats": {
+            "DECODING": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 76,
+          "uniqueQuestionCount": 76,
+          "strictUsableQuestionCount": 76,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 38,
+            "2": 38
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ai",
+            "ay",
+            "beach",
+            "blue",
+            "boat",
+            "bright",
+            "chew",
+            "day",
+            "dream",
+            "ea",
+            "ee",
+            "feet",
+            "float",
+            "goat",
+            "green",
+            "grow",
+            "leaf",
+            "new",
+            "night",
+            "oa",
+            "oi",
+            "ow",
+            "oy",
+            "paint",
+            "pie",
+            "play",
+            "rain",
+            "road",
+            "seed",
+            "sheep",
+            "snail",
+            "snow",
+            "soap",
+            "toast",
+            "train",
+            "tray"
+          ],
+          "formats": {
+            "DECODING": 33,
+            "MULTIPLE_CHOICE": 43
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": false
+    },
+    {
+      "skillNumber": 13,
+      "skillId": "r_controlled_vowels",
+      "skillName": "R-Controlled Vowels",
+      "totalRawQuestions": 91,
+      "totalUniqueQuestions": 91,
+      "totalStrictUsableQuestions": 91,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 56,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ar",
+            "er",
+            "ir",
+            "or"
+          ],
+          "formats": {
+            "DECODING": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 56,
+          "uniqueQuestionCount": 56,
+          "strictUsableQuestionCount": 56,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 28,
+            "2": 28
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ar",
+            "barn",
+            "bird",
+            "burn",
+            "car",
+            "card",
+            "clerk",
+            "corn",
+            "curl",
+            "er",
+            "farm",
+            "fern",
+            "fork",
+            "girl",
+            "her",
+            "herd",
+            "ir",
+            "nurse",
+            "or",
+            "park",
+            "sharp",
+            "shirt",
+            "star",
+            "stir",
+            "storm",
+            "teacher",
+            "turn",
+            "ur"
+          ],
+          "formats": {
+            "DECODING": 11,
+            "MULTIPLE_CHOICE": 45
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": false
+    },
+    {
+      "skillNumber": 14,
+      "skillId": "nouns",
+      "skillName": "Nouns",
+      "totalRawQuestions": 89,
+      "totalUniqueQuestions": 89,
+      "totalStrictUsableQuestions": 89,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 54,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "airplane",
+            "alligator",
+            "almond",
+            "anteater",
+            "applesauce",
+            "arch",
+            "arm",
+            "armchair",
+            "artichoke",
+            "ash",
+            "asparagus",
+            "back",
+            "badge",
+            "badger",
+            "bagel",
+            "balcony",
+            "bamboo",
+            "bandage",
+            "bar",
+            "bark",
+            "book",
+            "bug",
+            "cat",
+            "cup",
+            "dog",
+            "farm",
+            "fish",
+            "frog",
+            "ham",
+            "hat",
+            "lamp",
+            "map",
+            "ship",
+            "sock"
+          ],
+          "formats": {
+            "GRAMMAR_BASICS": 20,
+            "VOCABULARY_CATEGORY": 15
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 54,
+          "uniqueQuestionCount": 54,
+          "strictUsableQuestionCount": 54,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 27,
+            "2": 27
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "artist",
+            "basket",
+            "blanket",
+            "book",
+            "bug",
+            "button",
+            "candle",
+            "cat",
+            "coach",
+            "cup",
+            "doctor",
+            "dog",
+            "duck",
+            "farm",
+            "fish",
+            "frog",
+            "garden",
+            "goose",
+            "ham",
+            "hat",
+            "helmet",
+            "horse",
+            "kitchen",
+            "kitten",
+            "ladder",
+            "ladle",
+            "lamp",
+            "library",
+            "map",
+            "market",
+            "museum",
+            "nurse",
+            "pencil",
+            "pilot",
+            "pocket",
+            "rabbit",
+            "river",
+            "school",
+            "ship",
+            "sock",
+            "spoon",
+            "station",
+            "teacher",
+            "ticket",
+            "turtle",
+            "window"
+          ],
+          "formats": {
+            "MULTIPLE_CHOICE": 39,
+            "VOCABULARY_CATEGORY": 15
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 15,
+      "skillId": "verbs",
+      "skillName": "Verbs",
+      "totalRawQuestions": 95,
+      "totalUniqueQuestions": 95,
+      "totalStrictUsableQuestions": 95,
+      "uniqueLevel1Questions": 41,
+      "uniqueLevel2Questions": 54,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 41,
+          "uniqueQuestionCount": 41,
+          "strictUsableQuestionCount": 41,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 21,
+            "2": 20
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "asking_sentence",
+            "bend",
+            "climb",
+            "compare",
+            "crawl",
+            "dig",
+            "draw",
+            "drink",
+            "drop",
+            "explain",
+            "hop",
+            "i_see_a_cat",
+            "jump",
+            "kick",
+            "laugh",
+            "lift",
+            "look",
+            "max_has_a_map",
+            "measure",
+            "mix",
+            "observe",
+            "paint",
+            "pick",
+            "plant",
+            "play",
+            "predict",
+            "pull",
+            "push",
+            "read",
+            "repair",
+            "ride",
+            "roll",
+            "run",
+            "skip",
+            "sleep",
+            "stop",
+            "swim",
+            "telling_sentence",
+            "the_dog_can_run"
+          ],
+          "formats": {
+            "GRAMMAR_BASICS": 41
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 54,
+          "uniqueQuestionCount": 54,
+          "strictUsableQuestionCount": 54,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 27,
+            "2": 27
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "asking_sentence",
+            "build",
+            "carry",
+            "clap",
+            "clean",
+            "climb",
+            "cook",
+            "count",
+            "crawl",
+            "dance",
+            "dig",
+            "draw",
+            "drive",
+            "eat",
+            "hop",
+            "i_see_a_cat",
+            "jump",
+            "kick",
+            "laugh",
+            "listen",
+            "look",
+            "max_has_a_map",
+            "open",
+            "paint",
+            "plant",
+            "play",
+            "pull",
+            "push",
+            "read",
+            "run",
+            "share",
+            "sleep",
+            "stop",
+            "swim",
+            "telling_sentence",
+            "the_dog_can_run",
+            "think",
+            "throw",
+            "wash",
+            "write"
+          ],
+          "formats": {
+            "GRAMMAR_BASICS": 15,
+            "MULTIPLE_CHOICE": 39
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 16,
+      "skillId": "adjectives",
+      "skillName": "Adjectives",
+      "totalRawQuestions": 81,
+      "totalUniqueQuestions": 81,
+      "totalStrictUsableQuestions": 81,
+      "uniqueLevel1Questions": 42,
+      "uniqueLevel2Questions": 39,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 42,
+          "uniqueQuestionCount": 42,
+          "strictUsableQuestionCount": 42,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 21,
+            "2": 21
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "bright",
+            "bumpy",
+            "calm",
+            "clean",
+            "closed",
+            "cold",
+            "crisp",
+            "dark",
+            "dirty",
+            "dry",
+            "empty",
+            "fast",
+            "flat",
+            "fluffy",
+            "full",
+            "happy",
+            "hard",
+            "heavy",
+            "light",
+            "long",
+            "mad",
+            "open",
+            "playful",
+            "prickly",
+            "quiet",
+            "round",
+            "shiny",
+            "short",
+            "slow",
+            "small",
+            "smooth",
+            "soft",
+            "sour",
+            "striped",
+            "tall",
+            "warm"
+          ],
+          "formats": {
+            "GRAMMAR_BASICS": 42
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 39,
+          "uniqueQuestionCount": 39,
+          "strictUsableQuestionCount": 39,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 20,
+            "2": 19
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "brave",
+            "bright",
+            "cold",
+            "dusty",
+            "empty",
+            "fast",
+            "gentle",
+            "green",
+            "happy",
+            "hot",
+            "huge",
+            "light",
+            "long",
+            "loud",
+            "noisy",
+            "proud",
+            "purple",
+            "quiet",
+            "rough",
+            "short",
+            "silent",
+            "slow",
+            "small",
+            "smooth",
+            "soft",
+            "sour",
+            "square",
+            "sweet",
+            "tiny",
+            "warm",
+            "yellow",
+            "young"
+          ],
+          "formats": {
+            "MULTIPLE_CHOICE": 39
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 17,
+      "skillId": "prepositions_of_place",
+      "skillName": "Prepositions of Place",
+      "totalRawQuestions": 109,
+      "totalUniqueQuestions": 109,
+      "totalStrictUsableQuestions": 109,
+      "uniqueLevel1Questions": 57,
+      "uniqueLevel2Questions": 52,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 57,
+          "uniqueQuestionCount": 57,
+          "strictUsableQuestionCount": 57,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 29,
+            "2": 28
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "above",
+            "above_the_tree",
+            "across",
+            "against",
+            "along",
+            "around",
+            "behind",
+            "behind_the_tree",
+            "below",
+            "beneath",
+            "beside",
+            "beside_the_basket",
+            "between",
+            "between_the_books",
+            "far",
+            "in_front_of",
+            "in_the_box",
+            "inside",
+            "inside_the_barn",
+            "near",
+            "near_the_door",
+            "next_to",
+            "on_the_chair",
+            "on_top_of",
+            "outside",
+            "outside_the_pond",
+            "over",
+            "through",
+            "under",
+            "under_the_table"
+          ],
+          "formats": {
+            "GRAMMAR_BASICS": 20,
+            "IMAGE_CHOICE": 37
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 52,
+          "uniqueQuestionCount": 52,
+          "strictUsableQuestionCount": 52,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 26,
+            "2": 26
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "above",
+            "across",
+            "against",
+            "along",
+            "around",
+            "behind",
+            "below",
+            "beneath",
+            "beside",
+            "between",
+            "far",
+            "in_front_of",
+            "inside",
+            "near",
+            "next_to",
+            "on",
+            "on_top_of",
+            "outside",
+            "over",
+            "through",
+            "under"
+          ],
+          "formats": {
+            "GRAMMAR_BASICS": 52
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 18,
+      "skillId": "plurals",
+      "skillName": "Plurals",
+      "totalRawQuestions": 137,
+      "totalUniqueQuestions": 137,
+      "totalStrictUsableQuestions": 137,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 102,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "baby",
+            "bag",
+            "bench",
+            "berry",
+            "bird",
+            "book",
+            "box",
+            "brush",
+            "bus",
+            "cat",
+            "child",
+            "class",
+            "cup",
+            "dish",
+            "dog",
+            "es",
+            "foot",
+            "fox",
+            "goose",
+            "key",
+            "knife",
+            "leaf",
+            "mouse",
+            "puppy",
+            "s",
+            "tooth",
+            "toy",
+            "tray",
+            "wish",
+            "wolf"
+          ],
+          "formats": {
+            "PLURAL_IMAGE_SPELLING": 7,
+            "PLURAL_SPELLING_CONTEXT": 28
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 102,
+          "uniqueQuestionCount": 102,
+          "strictUsableQuestionCount": 102,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 51,
+            "2": 51
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "apples",
+            "babies",
+            "balloons",
+            "balls",
+            "bats",
+            "birds",
+            "books",
+            "boxes",
+            "buses",
+            "cats",
+            "chairs",
+            "children",
+            "dogs",
+            "dolls",
+            "es",
+            "foxes",
+            "frogs",
+            "geese",
+            "girls",
+            "hats",
+            "horses",
+            "ies",
+            "irregular",
+            "knives",
+            "leaves",
+            "mice",
+            "peaches",
+            "pencils",
+            "s",
+            "shoes",
+            "socks",
+            "stars",
+            "tales",
+            "toys",
+            "wolves"
+          ],
+          "formats": {
+            "MULTIPLE_CHOICE": 8,
+            "PLURAL_SPELLING_CONTEXT": 18,
+            "UNKNOWN": 76
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 19,
+      "skillId": "prefixes_suffixes",
+      "skillName": "Prefixes and Suffixes",
+      "totalRawQuestions": 111,
+      "totalUniqueQuestions": 111,
+      "totalStrictUsableQuestions": 111,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 76,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "disagree",
+            "dislike",
+            "ed",
+            "er",
+            "ful",
+            "ing",
+            "less",
+            "pre",
+            "re",
+            "un"
+          ],
+          "formats": {
+            "MORPHEME_MEANING_CONTEXT": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 76,
+          "uniqueQuestionCount": 76,
+          "strictUsableQuestionCount": 76,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 38,
+            "2": 38
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_person_who_helps",
+            "a_person_who_paints",
+            "a_person_who_runs",
+            "a_person_who_teaches",
+            "able",
+            "able_to_be_washed",
+            "build_again",
+            "dis",
+            "do_again",
+            "ed",
+            "er",
+            "ful",
+            "full_of_care",
+            "full_of_help",
+            "full_of_hope",
+            "full_of_joy",
+            "full_of_play",
+            "full_of_thanks",
+            "heat_before",
+            "in_a_careful_way",
+            "in_a_quick_way",
+            "in_a_slow_way",
+            "ing",
+            "less",
+            "ly",
+            "make_not_locked",
+            "mis",
+            "ness",
+            "not_fair",
+            "not_happy",
+            "not_kind",
+            "not_safe",
+            "open_or_make_not_locked",
+            "play_again",
+            "pre",
+            "re",
+            "read_again",
+            "see_before",
+            "the_state_of_being_kind",
+            "un",
+            "without_care",
+            "without_fear",
+            "without_pain",
+            "write_again"
+          ],
+          "formats": {
+            "MORPHEME_MEANING_CONTEXT": 38,
+            "MULTIPLE_CHOICE": 38
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": false
+    },
+    {
+      "skillNumber": 20,
+      "skillId": "antonyms_synonyms",
+      "skillName": "Antonyms and Synonyms",
+      "totalRawQuestions": 100,
+      "totalUniqueQuestions": 100,
+      "totalStrictUsableQuestions": 100,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 65,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "angry",
+            "before",
+            "begin",
+            "big",
+            "brave",
+            "clean",
+            "easy",
+            "end",
+            "fast",
+            "full",
+            "happy",
+            "hard",
+            "high",
+            "hot",
+            "inside",
+            "kind",
+            "large",
+            "light",
+            "little",
+            "loud",
+            "many",
+            "near",
+            "open",
+            "pretty",
+            "quick",
+            "quiet",
+            "sad",
+            "safe",
+            "same",
+            "slow",
+            "smart",
+            "tall",
+            "wet"
+          ],
+          "formats": {
+            "COMPREHENSION": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 65,
+          "uniqueQuestionCount": 65,
+          "strictUsableQuestionCount": 65,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 33,
+            "2": 32
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "after",
+            "big",
+            "careless",
+            "closed",
+            "cloudy",
+            "dark",
+            "deep",
+            "dirty",
+            "down",
+            "dry",
+            "dull",
+            "empty",
+            "energetic",
+            "fast",
+            "hard",
+            "hot",
+            "late",
+            "light",
+            "loudly",
+            "low",
+            "mean",
+            "narrow",
+            "nervous",
+            "noisy",
+            "old",
+            "quiet",
+            "raw",
+            "sad",
+            "shallow",
+            "short",
+            "slow",
+            "slowly",
+            "small",
+            "soft",
+            "sour",
+            "thin",
+            "tiny",
+            "warm",
+            "weak",
+            "wide"
+          ],
+          "formats": {
+            "MULTIPLE_CHOICE": 4,
+            "UNKNOWN": 61
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 21,
+      "skillId": "homophones_homonyms",
+      "skillName": "Homophones and Homonyms",
+      "totalRawQuestions": 87,
+      "totalUniqueQuestions": 87,
+      "totalStrictUsableQuestions": 87,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 52,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ate",
+            "bear",
+            "blue",
+            "buy",
+            "by",
+            "dear",
+            "deer",
+            "eight",
+            "flower",
+            "hear",
+            "hole",
+            "know",
+            "mail",
+            "meat",
+            "meet",
+            "night",
+            "no",
+            "one",
+            "pair",
+            "pear",
+            "right",
+            "road",
+            "rode",
+            "sail",
+            "sale",
+            "see",
+            "tail",
+            "tale",
+            "two",
+            "wait",
+            "weak",
+            "week",
+            "weight",
+            "whole",
+            "write"
+          ],
+          "formats": {
+            "HOMOPHONE_MEANING": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 52,
+          "uniqueQuestionCount": 52,
+          "strictUsableQuestionCount": 52,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 26,
+            "2": 26
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ate",
+            "bare",
+            "bear",
+            "blew",
+            "blue",
+            "buy",
+            "by",
+            "dear",
+            "deer",
+            "eight",
+            "flour",
+            "flower",
+            "hear",
+            "here",
+            "hole",
+            "knight",
+            "know",
+            "mail",
+            "male",
+            "meat",
+            "meet",
+            "night",
+            "no",
+            "one",
+            "pair",
+            "peace",
+            "pear",
+            "piece",
+            "right",
+            "road",
+            "rode",
+            "sail",
+            "sale",
+            "sea",
+            "see",
+            "stair",
+            "stake",
+            "stare",
+            "steak",
+            "tail",
+            "tale",
+            "too",
+            "two",
+            "wait",
+            "weak",
+            "week",
+            "weight",
+            "whole",
+            "won",
+            "write"
+          ],
+          "formats": {
+            "HOMOPHONE_MEANING": 38,
+            "MULTIPLE_CHOICE": 14
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 22,
+      "skillId": "sentence_comprehension",
+      "skillName": "Sentence Comprehension",
+      "totalRawQuestions": 160,
+      "totalUniqueQuestions": 160,
+      "totalStrictUsableQuestions": 160,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 125,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "bag",
+            "bed",
+            "books",
+            "boxes",
+            "cat_sleep_1",
+            "cat_sleep_11",
+            "cat_sleep_13",
+            "cat_sleep_15",
+            "cat_sleep_17",
+            "cat_sleep_19",
+            "cat_sleep_3",
+            "cat_sleep_5",
+            "cat_sleep_7",
+            "cat_sleep_9",
+            "cats",
+            "cup",
+            "cups",
+            "dog_run_10",
+            "dog_run_12",
+            "dog_run_14",
+            "dog_run_16",
+            "dog_run_18",
+            "dog_run_2",
+            "dog_run_4",
+            "dog_run_6",
+            "dog_run_8",
+            "dogs",
+            "duck",
+            "fish",
+            "hats",
+            "map",
+            "p3_sentence_comp_paragraph_001",
+            "ring",
+            "ship",
+            "sock"
+          ],
+          "formats": {
+            "COMPREHENSION": 20,
+            "SENTENCE_MATCHES_PICTURE": 15
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 125,
+          "uniqueQuestionCount": 125,
+          "strictUsableQuestionCount": 125,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 63,
+            "2": 62
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_picture_of_her_house_and_family",
+            "a_sandwich_an_apple_and_juice",
+            "a_strawberry",
+            "a_yellow_raincoat",
+            "after_school",
+            "after_the_rain_stops",
+            "after_the_sun_sets",
+            "at_night",
+            "at_the_big_table",
+            "at_the_round_kitchen_table",
+            "bag",
+            "because_it_is_cold",
+            "because_the_ground_is_wet",
+            "bed",
+            "before_going_outside",
+            "before_going_to_bed",
+            "before_he_plays",
+            "before_she_sleeps",
+            "before_sunrise",
+            "behind_the_tall_mountains",
+            "blew_the_leaves_all_over_the_yard",
+            "blue",
+            "books",
+            "boxes",
+            "building_a_nest",
+            "can_you_jump",
+            "carefully",
+            "carrots",
+            "cats",
+            "chocolate_cake",
+            "crayons",
+            "cup",
+            "cups",
+            "dogs",
+            "draw_pictures",
+            "duck",
+            "during_the_day",
+            "during_the_fall",
+            "during_the_school_assembly",
+            "every_evening",
+            "fast",
+            "fish",
+            "gently",
+            "green",
+            "green_grass",
+            "hats",
+            "he_reads_a_story",
+            "high_above_the_trees",
+            "high_in_the_sky",
+            "high_in_the_tall_tree",
+            "hops_quickly",
+            "i_like_that_book",
+            "i_see_a_red_hat",
+            "in_the_basket",
+            "in_the_clear_blue_ocean",
+            "in_the_cozy_crib",
+            "in_the_park",
+            "in_the_spring",
+            "in_the_sunny_garden",
+            "in_the_west",
+            "in_winter_when_it_snows",
+            "into_the_pond",
+            "it_wags_its_tail",
+            "jump_high",
+            "map",
+            "maya_likes_books",
+            "milk",
+            "my_dad",
+            "my_shoes",
+            "on_a_sunny_afternoon",
+            "on_hot_days",
+            "on_sunny_days",
+            "on_the_cooling_rack",
+            "on_the_playground",
+            "on_the_warm_mat",
+            "orange",
+            "patiently",
+            "pink",
+            "playing_soccer",
+            "put_them_away",
+            "quickly",
+            "quietly",
+            "reading_a_book",
+            "red",
+            "ring",
+            "rustle_in_the_breeze",
+            "ship",
+            "sings_a_song",
+            "slowly",
+            "sock",
+            "sunny_and_warm",
+            "swims_in_the_pond",
+            "tells_stories",
+            "the_cat_is_little",
+            "the_dog_can_run",
+            "the_fish_can_swim",
+            "the_leaves_high_in_the_tree",
+            "the_mailman",
+            "the_sky_is_blue",
+            "the_wind",
+            "thunder",
+            "towers",
+            "under_the_big_boat",
+            "wash_our_hands_and_brush_our_teeth",
+            "water_them_every_day",
+            "when_it_is_cold",
+            "when_it_is_scared",
+            "when_it_rains",
+            "when_the_wind_blows_strongly",
+            "white",
+            "yellow",
+            "yellow_sunflowers"
+          ],
+          "formats": {
+            "FIX_SENTENCE": 10,
+            "SENTENCE_MATCHES_PICTURE": 15,
+            "UNKNOWN": 100
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 23,
+      "skillId": "key_details",
+      "skillName": "Key Details",
+      "totalRawQuestions": 94,
+      "totalUniqueQuestions": 94,
+      "totalStrictUsableQuestions": 94,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 59,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "apple_ball_1",
+            "apple_ball_11",
+            "apple_ball_13",
+            "apple_ball_15",
+            "apple_ball_17",
+            "apple_ball_19",
+            "apple_ball_21",
+            "apple_ball_23",
+            "apple_ball_25",
+            "apple_ball_27",
+            "apple_ball_29",
+            "apple_ball_3",
+            "apple_ball_31",
+            "apple_ball_33",
+            "apple_ball_35",
+            "apple_ball_5",
+            "apple_ball_7",
+            "apple_ball_9",
+            "fish_home_10",
+            "fish_home_12",
+            "fish_home_14",
+            "fish_home_16",
+            "fish_home_18",
+            "fish_home_2",
+            "fish_home_20",
+            "fish_home_22",
+            "fish_home_24",
+            "fish_home_26",
+            "fish_home_28",
+            "fish_home_30",
+            "fish_home_32",
+            "fish_home_34",
+            "fish_home_4",
+            "fish_home_6",
+            "fish_home_8"
+          ],
+          "formats": {
+            "COMPREHENSION": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 59,
+          "uniqueQuestionCount": 59,
+          "strictUsableQuestionCount": 59,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 30,
+            "2": 29
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_banana",
+            "a_carrot",
+            "a_drum",
+            "a_feather",
+            "a_flower",
+            "a_frog",
+            "a_hallway_ocean_display",
+            "a_peach",
+            "a_small_notebook",
+            "a_soft_bear",
+            "a_student_s_name",
+            "a_tower",
+            "a_wooden_stick",
+            "above_the_waves",
+            "bean_seeds",
+            "beans",
+            "behind_the_bush",
+            "beside_the_school",
+            "blue",
+            "boots",
+            "in_her_pocket",
+            "in_the_desk",
+            "in_the_tree",
+            "near_the_pond",
+            "on_a_branch",
+            "on_the_fence",
+            "one_with_storm_photographs",
+            "pancakes",
+            "paper_fish",
+            "red",
+            "rice",
+            "sang_a_song",
+            "slowly",
+            "small_green_stems_appeared",
+            "soup",
+            "stars",
+            "swept_leaves_from_the_path",
+            "tape",
+            "the_librarian",
+            "the_library",
+            "the_science_shelf",
+            "the_tomato_plant",
+            "three",
+            "to_give_the_plants_more_sunlight",
+            "to_tell_the_class_what_she_observed",
+            "under_the_desk",
+            "under_the_table",
+            "water",
+            "wave_shapes",
+            "weather",
+            "wind_blew_through_the_garden",
+            "yellow"
+          ],
+          "formats": {
+            "MULTIPLE_CHOICE": 59
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 24,
+      "skillId": "sequencing",
+      "skillName": "Sequencing",
+      "totalRawQuestions": 94,
+      "totalUniqueQuestions": 94,
+      "totalStrictUsableQuestions": 94,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 59,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "make_sandwich_10",
+            "make_sandwich_12",
+            "make_sandwich_14",
+            "make_sandwich_16",
+            "make_sandwich_18",
+            "make_sandwich_2",
+            "make_sandwich_20",
+            "make_sandwich_22",
+            "make_sandwich_24",
+            "make_sandwich_26",
+            "make_sandwich_28",
+            "make_sandwich_30",
+            "make_sandwich_32",
+            "make_sandwich_34",
+            "make_sandwich_4",
+            "make_sandwich_6",
+            "make_sandwich_8",
+            "plant_seed_1",
+            "plant_seed_11",
+            "plant_seed_13",
+            "plant_seed_15",
+            "plant_seed_17",
+            "plant_seed_19",
+            "plant_seed_21",
+            "plant_seed_23",
+            "plant_seed_25",
+            "plant_seed_27",
+            "plant_seed_29",
+            "plant_seed_3",
+            "plant_seed_31",
+            "plant_seed_33",
+            "plant_seed_35",
+            "plant_seed_5",
+            "plant_seed_7",
+            "plant_seed_9"
+          ],
+          "formats": {
+            "COMPREHENSION": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 59,
+          "uniqueQuestionCount": 59,
+          "strictUsableQuestionCount": 59,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 30,
+            "2": 29
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "ate_lunch",
+            "bread_came_out",
+            "brushed_his_teeth",
+            "chairs_were_arranged",
+            "cleaned_and_played_a_game",
+            "drank_the_water",
+            "drew_a_picture",
+            "drew_a_star",
+            "dried_it",
+            "everyone_caught_the_napkins",
+            "fold_draw_write_give",
+            "folded_yellow_paper",
+            "hanging_it_from_a_branch",
+            "he_baked_the_cake",
+            "he_painted_it",
+            "he_watered_it",
+            "it_got_sun_and_water",
+            "it_got_water",
+            "made_a_nest",
+            "napkins_blew_across_the_grass",
+            "paper",
+            "performed_on_stage",
+            "played_with_the_toy",
+            "poured_it_in_a_pan",
+            "practiced_at_home",
+            "puddles_were_left_by_a_storm",
+            "pushed_the_ball",
+            "put_cones_around_them",
+            "put_on_his_shoes",
+            "put_on_mittens",
+            "put_on_shoes",
+            "read_a_page",
+            "rinse_cut_fill_hang",
+            "rinsed_the_carton",
+            "sam_carried_his_costume_to_school",
+            "set_out_plates",
+            "she_drew_a_flower",
+            "she_folded_paper",
+            "she_gave_the_card_to_her_bus_driver",
+            "she_painted_a_picture",
+            "she_planted_it",
+            "she_wrote_inside_the_card",
+            "slept",
+            "sliced_it",
+            "spread_a_blanket",
+            "storm_cones_sun_recess",
+            "students_stopped_talking",
+            "the_carton_was_filled_with_seeds",
+            "the_cones_were_removed",
+            "the_door_opened",
+            "the_tower_leaned",
+            "they_walked_to_the_gym",
+            "tied_her_shoes",
+            "walked_inside",
+            "walked_to_art",
+            "washed_the_apple",
+            "wrote_his_name"
+          ],
+          "formats": {
+            "ENDING_SOUND_WORD_MATCH": 1,
+            "MULTIPLE_CHOICE": 58
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 25,
+      "skillId": "main_idea",
+      "skillName": "Main Idea",
+      "totalRawQuestions": 100,
+      "totalUniqueQuestions": 100,
+      "totalStrictUsableQuestions": 100,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 65,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "park_fun_1",
+            "park_fun_11",
+            "park_fun_13",
+            "park_fun_15",
+            "park_fun_17",
+            "park_fun_19",
+            "park_fun_21",
+            "park_fun_23",
+            "park_fun_25",
+            "park_fun_27",
+            "park_fun_29",
+            "park_fun_3",
+            "park_fun_31",
+            "park_fun_33",
+            "park_fun_35",
+            "park_fun_5",
+            "park_fun_7",
+            "park_fun_9",
+            "pet_care_10",
+            "pet_care_12",
+            "pet_care_14",
+            "pet_care_16",
+            "pet_care_18",
+            "pet_care_2",
+            "pet_care_20",
+            "pet_care_22",
+            "pet_care_24",
+            "pet_care_26",
+            "pet_care_28",
+            "pet_care_30",
+            "pet_care_32",
+            "pet_care_34",
+            "pet_care_4",
+            "pet_care_6",
+            "pet_care_8"
+          ],
+          "formats": {
+            "COMPREHENSION": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 65,
+          "uniqueQuestionCount": 65,
+          "strictUsableQuestionCount": 65,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 33,
+            "2": 32
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_bakery",
+            "a_classroom",
+            "a_map_can_show_roads_and_parks",
+            "a_picnic",
+            "a_pond",
+            "apples",
+            "bees",
+            "bees_help_plants_make_fruits_and_seeds",
+            "bees_move_pollen_between_flowers",
+            "birds",
+            "books",
+            "cats",
+            "clothes_for_cold_weather",
+            "daily_movement_is_good_for_the_body",
+            "dentists",
+            "different_ways_people_use_libraries",
+            "doctors",
+            "factories_can_make_new_products_from_sorted_materials",
+            "farmers",
+            "firefighters",
+            "fish",
+            "frogs",
+            "gardeners",
+            "giving_materials_another_use",
+            "growing_plants",
+            "how_bees_help_plants",
+            "how_exercise_helps_people",
+            "how_maps_share_information_about_places",
+            "librarians_help_people_research_questions",
+            "libraries",
+            "libraries_provide_many_helpful_resources",
+            "many_ways_to_move",
+            "maps",
+            "maps_help_people_find_and_understand_places",
+            "owls",
+            "qb8_main_03_01",
+            "qb8_main_03_02",
+            "qb8_main_03_03",
+            "qb8_main_04_01",
+            "qb8_main_04_02",
+            "qb8_main_04_03",
+            "rain",
+            "recess_play",
+            "recycling_turns_used_materials_into_new_things",
+            "taking_care_of_a_garden",
+            "taking_care_of_dogs",
+            "the_beach",
+            "the_moon",
+            "the_way_bees_support_plant_growth",
+            "trains",
+            "trees",
+            "walking_outside_can_be_exercise",
+            "what_a_bus_driver_does",
+            "what_buses_do",
+            "what_dentists_do",
+            "what_firefighters_do",
+            "what_libraries_offer",
+            "why_maps_are_useful",
+            "why_recycling_is_useful",
+            "winter"
+          ],
+          "formats": {
+            "COMPREHENSION": 6,
+            "MULTIPLE_CHOICE": 59
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 26,
+      "skillId": "inference",
+      "skillName": "Inference",
+      "totalRawQuestions": 140,
+      "totalUniqueQuestions": 140,
+      "totalStrictUsableQuestions": 140,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 105,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "p3_inference_paragraph_001",
+            "rain_boots_1",
+            "rain_boots_11",
+            "rain_boots_13",
+            "rain_boots_15",
+            "rain_boots_17",
+            "rain_boots_19",
+            "rain_boots_21",
+            "rain_boots_23",
+            "rain_boots_25",
+            "rain_boots_27",
+            "rain_boots_29",
+            "rain_boots_3",
+            "rain_boots_31",
+            "rain_boots_33",
+            "rain_boots_5",
+            "rain_boots_7",
+            "rain_boots_9",
+            "sleepy_yawn_10",
+            "sleepy_yawn_12",
+            "sleepy_yawn_14",
+            "sleepy_yawn_16",
+            "sleepy_yawn_18",
+            "sleepy_yawn_2",
+            "sleepy_yawn_20",
+            "sleepy_yawn_22",
+            "sleepy_yawn_24",
+            "sleepy_yawn_26",
+            "sleepy_yawn_28",
+            "sleepy_yawn_30",
+            "sleepy_yawn_32",
+            "sleepy_yawn_34",
+            "sleepy_yawn_4",
+            "sleepy_yawn_6",
+            "sleepy_yawn_8"
+          ],
+          "formats": {
+            "COMPREHENSION": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 105,
+          "uniqueQuestionCount": 105,
+          "strictUsableQuestionCount": 105,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 53,
+            "2": 52
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_game_of_baseball",
+            "a_movie_or_show_is_about_to_begin",
+            "a_scratching_sound",
+            "because_it_was_going_to_snow_and_be_cold_outside",
+            "because_the_field_was_not_safe_to_play_on",
+            "because_winter_is_over_and_she_doesn_t_need_them",
+            "early_morning_when_birds_begin_their_songs",
+            "eli_was_drawing_or_daydreaming_rather_than_writing",
+            "glue_the_loose_roof",
+            "grateful",
+            "he_chose_to_be_kind_to_his_sister",
+            "he_completed_his_homework_carefully",
+            "he_enjoyed_the_cake_a_lot",
+            "he_expected_it_might_rain_and_wanted_to_stay_dry",
+            "he_is_going_out_for_a_bike_ride",
+            "he_is_going_swimming",
+            "he_is_happy_because_he_likes_what_he_has_to_eat",
+            "he_is_happy_to_be_home_and_relax",
+            "he_is_probably_still_sleepy_but_ready_to_start_the_day",
+            "he_kept_looking_at_the_last_muffin",
+            "he_may_not_have_a_signed_permission_slip",
+            "he_might_be_nervous_about_reading_aloud",
+            "he_played_soccer_on_a_muddy_field",
+            "he_spent_time_outside_working_or_playing_in_plants",
+            "he_wanted_the_muffin_but_gave_it_away",
+            "he_wants_tara_to_learn_by_trying",
+            "he_was_excited_about_meeting_someone",
+            "he_was_playing_outside_and_got_dirty",
+            "his_homework_was_hard_but_he_completed_it",
+            "his_shirt_got_torn_while_climbing_the_tree",
+            "it_contains_many_school_books_and_supplies",
+            "it_encouraged_her",
+            "it_is_autumn_fall",
+            "it_is_calm_and_quiet_for_reading_and_studying",
+            "it_is_cold_or_chilly_outside",
+            "it_is_cold_outside",
+            "it_is_early_morning_and_plants_are_being_watered",
+            "it_is_evening_near_sunset",
+            "it_is_likely_sunny_and_bright_outside",
+            "it_is_probably_behind_the_bookshelf",
+            "it_is_rainy_and_windy",
+            "it_is_very_windy_outside",
+            "it_is_winter_and_emma_is_playing_in_the_snow",
+            "it_stopped_raining_and_the_weather_cleared_up",
+            "it_was_raining_but_now_it_is_clear_and_children_are_happy_to_play",
+            "it_was_recently_raining_and_is_wet",
+            "jada_caught_up_to_other_runners",
+            "lucas_ate_the_cookies_and_now_the_jar_is_empty",
+            "maggie_was_outside_in_the_rain_and_got_wet_boots",
+            "no_children_are_playing_outside_right_now",
+            "qb8_infer_01_01",
+            "qb8_infer_01_02",
+            "qb8_infer_01_03",
+            "qb8_infer_02_01",
+            "qb8_infer_02_02",
+            "qb8_infer_02_03",
+            "sam_may_be_waiting_for_someone_or_feeling_lonely",
+            "school_is_over_and_kids_are_leaving",
+            "she_cares_about_and_enjoys_taking_care_of_them",
+            "she_doesn_t_mind_helping_even_if_it_is_hard_work",
+            "she_expected_it_might_rain_soon",
+            "she_feels_proud_and_happy",
+            "she_feels_sad_because_it_is_broken",
+            "she_is_baking_cookies",
+            "she_is_getting_ready_to_go_outside",
+            "she_is_going_for_a_hike_or_outdoor_activity",
+            "she_is_happy_to_get_new_crayons_after_the_old_one_broke",
+            "she_is_surprised_and_curious_about_the_gift",
+            "she_is_tired_after_reading_for_a_while",
+            "she_may_be_nervous_or_worried_about_her_grades",
+            "she_might_be_scared_or_nervous_about_the_storm",
+            "she_might_be_shy_or_nervous_about_answering",
+            "she_pushed_herself_to_run_faster",
+            "she_studied_the_loose_roof",
+            "she_was_baking_cookies_in_the_kitchen",
+            "she_was_playing_and_exploring_in_the_sand",
+            "she_was_playing_hard_and_got_thirsty",
+            "she_was_tired_and_trying_to_cool_down",
+            "she_won_or_did_very_well_in_the_race",
+            "so_the_hamster_would_not_be_scared_or_stepped_on",
+            "sophie_s_birthday_party",
+            "students_were_painting_and_crafting_creatively",
+            "the_apple_tastes_good_and_fresh",
+            "the_cat_is_relaxed_and_comfortable",
+            "the_classroom_was_decorated_or_painted_recently",
+            "the_dog_is_happy_to_see_anna",
+            "the_hamster_got_out_of_its_cage",
+            "the_power_went_out_unexpectedly",
+            "the_puppy_is_happy_to_see_jamie",
+            "the_puppy_is_warm_and_sleepy",
+            "the_slip_was_still_on_his_desk",
+            "the_snacks_were_tasty_and_eaten_by_all",
+            "the_weather_caused_slow_and_difficult_driving",
+            "they_are_camping_and_enjoying_time_outdoors",
+            "they_are_happy_and_proud_of_their_achievement",
+            "they_found_it_funny_and_enjoyable",
+            "they_were_excited_and_happy",
+            "to_guide_tara_s_thinking",
+            "to_keep_rain_and_wind_out_and_feel_safe",
+            "to_make_sure_he_didn_t_forget_his_homework",
+            "to_protect_himself_while_skating_safely",
+            "to_try_to_solve_the_permission_slip_problem",
+            "two_runners_were_beside_her_instead_of_ahead",
+            "winter_because_there_is_snow_and_snowballs",
+            "worried"
+          ],
+          "formats": {
+            "COMPREHENSION": 6,
+            "MULTIPLE_CHOICE": 20,
+            "UNKNOWN": 79
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 27,
+      "skillId": "cause_effect",
+      "skillName": "Cause and Effect",
+      "totalRawQuestions": 100,
+      "totalUniqueQuestions": 100,
+      "totalStrictUsableQuestions": 100,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 65,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "spill_1",
+            "spill_11",
+            "spill_13",
+            "spill_15",
+            "spill_17",
+            "spill_19",
+            "spill_21",
+            "spill_23",
+            "spill_25",
+            "spill_27",
+            "spill_29",
+            "spill_3",
+            "spill_31",
+            "spill_33",
+            "spill_35",
+            "spill_5",
+            "spill_7",
+            "spill_9",
+            "sun_melt_10",
+            "sun_melt_12",
+            "sun_melt_14",
+            "sun_melt_16",
+            "sun_melt_18",
+            "sun_melt_2",
+            "sun_melt_20",
+            "sun_melt_22",
+            "sun_melt_24",
+            "sun_melt_26",
+            "sun_melt_28",
+            "sun_melt_30",
+            "sun_melt_32",
+            "sun_melt_34",
+            "sun_melt_4",
+            "sun_melt_6",
+            "sun_melt_8"
+          ],
+          "formats": {
+            "COMPREHENSION": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 65,
+          "uniqueQuestionCount": 65,
+          "strictUsableQuestionCount": 65,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 33,
+            "2": 32
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "a_storm_came",
+            "because_it_rained",
+            "bike_lane_opened_sidewalk_became_less_crowded",
+            "bike_riders_used_the_new_lane",
+            "crayons_were_shared",
+            "he_forgot_his_lunch",
+            "he_forgot_his_umbrella",
+            "he_noticed_word_patterns",
+            "he_practiced_every_night",
+            "he_stayed_up_late",
+            "he_was_sleepy",
+            "her_original_page_was_damaged",
+            "it_broke",
+            "it_fell_off_the_table",
+            "it_got_water_every_day",
+            "it_sat_in_the_sun",
+            "it_was_hungry",
+            "mila_watered_it",
+            "mina_received_a_fresh_page",
+            "more_students_rode_bikes",
+            "more_travel_near_school_needed_safety_rules",
+            "practice_helped_him_learn_the_words",
+            "qb8_cause_09_01",
+            "qb8_cause_09_02",
+            "qb8_cause_09_03",
+            "qb8_cause_10_01",
+            "qb8_cause_10_02",
+            "qb8_cause_10_03",
+            "rain_made_the_field_muddy",
+            "regular_practice_led_to_better_spelling",
+            "she_forgot_her_umbrella",
+            "she_practiced_many_times",
+            "she_studied",
+            "she_tripped",
+            "she_woke_up_late",
+            "short_practice_each_night",
+            "sunlight_reached_the_tank",
+            "the_backpack_was_open",
+            "the_bell_rang",
+            "the_cake_stayed_in_too_long",
+            "the_class_whispered",
+            "the_cup_fell",
+            "the_dog_barked",
+            "the_field_was_unsafe_after_rain",
+            "the_gate_was_open",
+            "the_plant_did_not_get_water",
+            "the_plant_got_no_water",
+            "the_puppy_chewed_it",
+            "the_reading_log_became_damp",
+            "the_road_was_icy",
+            "the_soccer_field_became_slick",
+            "the_water_bottle_lid_was_loose",
+            "the_water_looked_cloudy",
+            "the_water_stayed_clearer",
+            "the_wind_blew_hard",
+            "the_window_was_open",
+            "the_zipper_broke",
+            "they_listened_to_each_idea",
+            "they_practiced_inside_the_gym",
+            "they_stayed_in_the_oven_too_long",
+            "they_were_muddy",
+            "to_keep_the_water_clearer"
+          ],
+          "formats": {
+            "COMPREHENSION": 6,
+            "ENDING_SOUND_WORD_MATCH": 1,
+            "MULTIPLE_CHOICE": 58
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 28,
+      "skillId": "context_clues",
+      "skillName": "Context Clues",
+      "totalRawQuestions": 100,
+      "totalUniqueQuestions": 100,
+      "totalStrictUsableQuestions": 100,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 65,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "chilly_1",
+            "chilly_11",
+            "chilly_13",
+            "chilly_15",
+            "chilly_17",
+            "chilly_19",
+            "chilly_21",
+            "chilly_23",
+            "chilly_25",
+            "chilly_27",
+            "chilly_29",
+            "chilly_3",
+            "chilly_31",
+            "chilly_33",
+            "chilly_5",
+            "chilly_7",
+            "chilly_9",
+            "giggle_10",
+            "giggle_12",
+            "giggle_14",
+            "giggle_16",
+            "giggle_18",
+            "giggle_2",
+            "giggle_20",
+            "giggle_22",
+            "giggle_24",
+            "giggle_26",
+            "giggle_28",
+            "giggle_30",
+            "giggle_32",
+            "giggle_34",
+            "giggle_4",
+            "giggle_6",
+            "giggle_8",
+            "p3_context_clues_paragraph_001"
+          ],
+          "formats": {
+            "COMPREHENSION": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 65,
+          "uniqueQuestionCount": 65,
+          "strictUsableQuestionCount": 65,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 33,
+            "2": 32
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "broke_suddenly",
+            "careful",
+            "careful_attention",
+            "careful_looking_would_help_their_thinking",
+            "carefulness",
+            "delayed",
+            "durable",
+            "easy_to_break",
+            "easy_to_slide_on",
+            "empty",
+            "examine",
+            "excited_to_begin",
+            "follows_directions",
+            "hard_to_do",
+            "it_carried_heavy_bags_of_soil",
+            "it_could_hold_heavy_tools_and_soil",
+            "laughed_softly",
+            "look_closely",
+            "moved_to_a_later_time",
+            "needing_rest",
+            "not_clear",
+            "not_strong",
+            "not_wide",
+            "polite",
+            "qb8_context_05_01",
+            "qb8_context_05_02",
+            "qb8_context_05_03",
+            "qb8_context_06_01",
+            "qb8_context_06_02",
+            "qb8_context_06_03",
+            "quick",
+            "quiet",
+            "rising_sharply",
+            "sam_did_not_need_a_long_explanation",
+            "shaking",
+            "she_stepped_slowly_over_roots",
+            "short",
+            "showing_courage",
+            "shy",
+            "shy_or_nervous",
+            "sleepy",
+            "slow",
+            "soft",
+            "strong",
+            "strong_and_not_easily_broken",
+            "students_noticed_tiny_lines_and_a_curved_edge",
+            "the_short_directions_were_clear_enough",
+            "the_trail_could_be_slippery",
+            "they_would_try_again_the_next_sunny_day",
+            "thunder_made_outdoor_plans_unsafe",
+            "very_big",
+            "very_clean",
+            "very_cold",
+            "very_happy",
+            "very_hot",
+            "very_large",
+            "very_tired",
+            "very_wet",
+            "wanting_to_know_more",
+            "watchful",
+            "worn_at_the_edges"
+          ],
+          "formats": {
+            "COMPREHENSION": 6,
+            "MULTIPLE_CHOICE": 59
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    },
+    {
+      "skillNumber": 29,
+      "skillId": "theme_higher_comprehension",
+      "skillName": "Theme and Higher Comprehension",
+      "totalRawQuestions": 100,
+      "totalUniqueQuestions": 100,
+      "totalStrictUsableQuestions": 100,
+      "uniqueLevel1Questions": 35,
+      "uniqueLevel2Questions": 65,
+      "phasesDetected": [
+        1,
+        2
+      ],
+      "phaseCount": 2,
+      "levelsDetected": [
+        1,
+        2
+      ],
+      "levelCount": 2,
+      "hasExactly2Phases": true,
+      "hasExactly2Levels": true,
+      "duplicateQuestionIds": [],
+      "missingFields": {
+        "missingQuestionIds": [],
+        "missingPrompts": [],
+        "missingAnswerChoices": [],
+        "missingCorrectAnswers": [],
+        "missingSkillIds": [],
+        "missingLevelData": [],
+        "missingPhaseData": [],
+        "missingMedia": []
+      },
+      "levels": {
+        "1": {
+          "level": 1,
+          "rawQuestionCount": 35,
+          "uniqueQuestionCount": 35,
+          "strictUsableQuestionCount": 35,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 18,
+            "2": 17
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "help_friend_1",
+            "help_friend_11",
+            "help_friend_13",
+            "help_friend_15",
+            "help_friend_17",
+            "help_friend_19",
+            "help_friend_21",
+            "help_friend_23",
+            "help_friend_25",
+            "help_friend_27",
+            "help_friend_29",
+            "help_friend_3",
+            "help_friend_31",
+            "help_friend_33",
+            "help_friend_35",
+            "help_friend_5",
+            "help_friend_7",
+            "help_friend_9",
+            "try_again_10",
+            "try_again_12",
+            "try_again_14",
+            "try_again_16",
+            "try_again_18",
+            "try_again_2",
+            "try_again_20",
+            "try_again_22",
+            "try_again_24",
+            "try_again_26",
+            "try_again_28",
+            "try_again_30",
+            "try_again_32",
+            "try_again_34",
+            "try_again_4",
+            "try_again_6",
+            "try_again_8"
+          ],
+          "formats": {
+            "COMPREHENSION": 35
+          }
+        },
+        "2": {
+          "level": 2,
+          "rawQuestionCount": 65,
+          "uniqueQuestionCount": 65,
+          "strictUsableQuestionCount": 65,
+          "detectedPhases": [
+            1,
+            2
+          ],
+          "phaseCounts": {
+            "1": 33,
+            "2": 32
+          },
+          "phaseGeneration": {
+            "1": true,
+            "2": true
+          },
+          "missingTo30": 0,
+          "below30": false,
+          "canGenerate15QuestionRound": true,
+          "canGeneratePhase1Round": true,
+          "canGeneratePhase2Round": true,
+          "uniqueTargets": [
+            "apologize_when_needed",
+            "be_a_good_sport",
+            "being_brave_can_help",
+            "being_kind_helps_others",
+            "bravery_can_start_with_one_small_step",
+            "care_for_resources",
+            "cooperation_is_stronger_than_selfishness",
+            "courage_means_trying_even_when_nervous",
+            "do_not_give_up",
+            "do_the_right_thing",
+            "doing_the_honest_thing_helps_others",
+            "everyone_had_a_turn_after_the_invitation",
+            "fairness_matters",
+            "he_knew_losing_something_feels_bad",
+            "he_noticed_someone_was_left_out",
+            "help_without_being_asked",
+            "helping_is_kind",
+            "helping_others_is_kind",
+            "helping_the_community_is_good",
+            "honesty_is_important",
+            "honesty_matters",
+            "honesty_matters_even_when_something_is_tempting",
+            "include_others",
+            "including_others_can_make_a_group_happier",
+            "keep_trying",
+            "keep_trying_when_a_skill_feels_hard",
+            "kindness_helps_others",
+            "kindness_is_worth_a_small_wait",
+            "listen_to_others",
+            "luis_took_the_case_to_the_office",
+            "patience_matters",
+            "practice_can_turn_frustration_into_progress",
+            "practice_helps",
+            "practice_helps_you_improve",
+            "practicing_a_small_part_each_day",
+            "qb8_theme_07_01",
+            "qb8_theme_07_02",
+            "qb8_theme_07_03",
+            "qb8_theme_08_01",
+            "qb8_theme_08_02",
+            "qb8_theme_08_03",
+            "sharing_and_teamwork_can_lead_to_better_results",
+            "sharing_is_kind",
+            "she_could_face_a_difficult_moment",
+            "show_gratitude",
+            "sofia_kept_reading_after_the_first_line",
+            "stay_calm_when_solving_problems",
+            "teamwork_helps",
+            "teamwork_is_important",
+            "tell_the_truth",
+            "the_shared_tower_stood_longer",
+            "the_song_sounded_smoother_by_friday",
+            "try_again_after_mistakes",
+            "working_with_others_helped_her_succeed"
+          ],
+          "formats": {
+            "COMPREHENSION": 6,
+            "MULTIPLE_CHOICE": 59
+          }
+        }
+      },
+      "runtimeSelectionRisk": [],
+      "brokenProgressionMetadata": [],
+      "productionReady": true
+    }
+  ],
+  "unassignedQuestions": [
+    {
+      "id": "phonics_k_007",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Choose the word that rhymes with 'hat'."
+    },
+    {
+      "id": "phonics_k_008",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which letter comes at the end of the word 'pig'?"
+    },
+    {
+      "id": "phonics_k_017",
+      "source": "generatedQuestions",
+      "skillId": "phonics",
+      "skillName": "phonics",
+      "prompt": "Which word rhymes with 'pin'?"
+    },
+    {
+      "id": "phonics_k_032",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "In stop, which letter comes after s?"
+    },
+    {
+      "id": "phonics_k_033",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which word rhymes with 'cap'?"
+    },
+    {
+      "id": "phonics_k_036",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which word has the long 'a' sound?"
+    },
+    {
+      "id": "phonics_k_040",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "What sounds do the letters 'th' make together?"
+    },
+    {
+      "id": "phonics_k_042",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which word contains the 'ck' sound at the end?"
+    },
+    {
+      "id": "phonics_k_044",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which letter is the first sound you hear in 'bat'?"
+    },
+    {
+      "id": "phonics_k_046",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which letter is at the end of the word 'fan'?"
+    },
+    {
+      "id": "phonics_k_048",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "What sound do the letters 'ck' make at the end of a word like 'duck'?"
+    },
+    {
+      "id": "phonics_k_052",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "What letter do you see at the end of the word 'bag'?"
+    },
+    {
+      "id": "phonics_k_062",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "What two letters make the sound at the start of the word 'this'?"
+    },
+    {
+      "id": "phonics_k_063",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which letter is at the beginning of the word 'run'?"
+    },
+    {
+      "id": "phonics_k_064",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Choose the word that rhymes with 'pig'."
+    },
+    {
+      "id": "phonics_k_072",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "What letter is at the end of the word 'zip'?"
+    },
+    {
+      "id": "phonics_k_081",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Choose the correct pair that matches the word: 'ship'."
+    },
+    {
+      "id": "phonics_k_085",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which letter is the last sound you hear in 'cat'?"
+    },
+    {
+      "id": "phonics_k_091",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which word rhymes with 'hat'?"
+    },
+    {
+      "id": "phonics_k_094",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which letter is at the end of the word 'sun'?"
+    },
+    {
+      "id": "phonics_k_099",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "phonics",
+      "prompt": "Which letter comes at the beginning of the word 'pig'?"
+    },
+    {
+      "id": "spelling-k-1-002",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Select the word that spells the round, bright ball in the sky."
+    },
+    {
+      "id": "spelling-k-1-003",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-005",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-006",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-007",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is the color of strawberries?"
+    },
+    {
+      "id": "spelling-k-1-008",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-009",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-010",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word means to move quickly on foot?"
+    },
+    {
+      "id": "spelling-k-1-011",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-015",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word means to leap into the air?"
+    },
+    {
+      "id": "spelling-k-1-016",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-017",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-018",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-020",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word means the opposite of East?"
+    },
+    {
+      "id": "spelling-k-1-022",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-025",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word means to move very quickly?"
+    },
+    {
+      "id": "spelling-k-1-026",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-028",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-029",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-1-030",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-032",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-033",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-034",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-035",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-036",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-037",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-038",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-039",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word means the early part of the day?"
+    },
+    {
+      "id": "spelling-k-2-041",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-042",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-043",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-045",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word means to run after something to catch it?"
+    },
+    {
+      "id": "spelling-k-2-046",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-047",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-048",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-049",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-050",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-051",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-052",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-053",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-055",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-056",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-057",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-058",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-059",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-060",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-061",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-062",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-063",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word means to shut something?"
+    },
+    {
+      "id": "spelling-k-2-064",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-065",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-066",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-067",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-070",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word means the opposite of cold?"
+    },
+    {
+      "id": "spelling-k-2-071",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-075",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-076",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-077",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-078",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-079",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-080",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-081",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-083",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-084",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-085",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-086",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-087",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-088",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-090",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-091",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-092",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-096",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-097",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-098",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-099",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "spelling-k-2-100",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "spelling",
+      "prompt": "Which word is spelled correctly?"
+    },
+    {
+      "id": "RC001",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Who catches the ball?"
+    },
+    {
+      "id": "RC002",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What does Lucy do after breakfast?"
+    },
+    {
+      "id": "RC003",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "How many apples does Ben have after giving one away?"
+    },
+    {
+      "id": "RC004",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What does Sara like to read about?"
+    },
+    {
+      "id": "RC005",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Why does Mia wear her hat?"
+    },
+    {
+      "id": "RC006",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Why can't the cat catch the mouse?"
+    },
+    {
+      "id": "RC007",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What does Jake do with the rock he finds?"
+    },
+    {
+      "id": "RC008",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What do Emma and her brother do to help the flowers grow?"
+    },
+    {
+      "id": "RC009",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What is the little bird doing?"
+    },
+    {
+      "id": "RC010",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What does Liam know about planets?"
+    },
+    {
+      "id": "RC011",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did Molly do before putting the dough in the oven?"
+    },
+    {
+      "id": "RC012",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did Sara see after the rain stopped?"
+    },
+    {
+      "id": "RC013",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "How did Jack help his family?"
+    },
+    {
+      "id": "RC014",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did the butterfly do on the flower?"
+    },
+    {
+      "id": "RC016",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "How often does Anna feed her rabbit?"
+    },
+    {
+      "id": "RC017",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Why did Ben wear a helmet?"
+    },
+    {
+      "id": "RC018",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What colors are the flowers in the garden?"
+    },
+    {
+      "id": "RC019",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Where is Lily reading her book?"
+    },
+    {
+      "id": "RC020",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did Tommy do first?"
+    },
+    {
+      "id": "RC021",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What do tadpoles become as they grow?"
+    },
+    {
+      "id": "RC022",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Why did David grab his umbrella?"
+    },
+    {
+      "id": "RC023",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "How many puppies were playing?"
+    },
+    {
+      "id": "RC024",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "When does Mrs. Green read stories to students?"
+    },
+    {
+      "id": "RC025",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Why did people wear warm coats and gloves?"
+    },
+    {
+      "id": "RC026",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did Michael's family do at the beach?"
+    },
+    {
+      "id": "RC027",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did Jenny and Carlos do before playing board games?"
+    },
+    {
+      "id": "RC028",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did the birds do in the tree?"
+    },
+    {
+      "id": "RC029",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did Tommy find on the leaf?"
+    },
+    {
+      "id": "RC030",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "When does Ella help wash the car?"
+    },
+    {
+      "id": "RC031",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Which planet is Earth from the sun?"
+    },
+    {
+      "id": "RC032",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "How often does Sally visit the library?"
+    },
+    {
+      "id": "RC033",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did the farmers plant?"
+    },
+    {
+      "id": "RC034",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What does David always wear when riding his bike?"
+    },
+    {
+      "id": "RC035",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did Luna do when she found the puppy?"
+    },
+    {
+      "id": "RC036",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What did Anna and her brother try to catch?"
+    },
+    {
+      "id": "RC037",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Why did Jason study hard?"
+    },
+    {
+      "id": "RC038",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What will the trees provide as they grow?"
+    },
+    {
+      "id": "RC040",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Where does the sun set?"
+    },
+    {
+      "id": "RC041",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Which animals did Sam see in the forest?"
+    },
+    {
+      "id": "RC042",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What do plants need to grow?"
+    },
+    {
+      "id": "RC043",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "What animals were near the river?"
+    },
+    {
+      "id": "RC044",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "Why do people go to the pool on hot days?"
+    },
+    {
+      "id": "RC045",
+      "source": "generatedQuestions",
+      "skillId": "",
+      "skillName": "reading comprehension",
+      "prompt": "How did Jacob help his grandmother?"
+    }
+  ]
+}

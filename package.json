@@ -34,6 +34,7 @@
     "check:skill-routing-purity": "node tools/checkSkillRoutingPurity.js",
     "check:checkpoint-coverage": "node tools/checkCheckpointCoverage.js",
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all",
+    "audit:assessment-integrity": "node tools/auditAssessmentSkillIntegrity.js",
     "audit:lexicon": "node scripts/auditLexicon.js"
   },
   "dependencies": {
