@@ -31,6 +31,12 @@ import {
   isGuidedReadingAssetDeleted,
   isGuidedReadingBookDeleted
 } from "../data/deletedMediaManifest.js";
+import { summarizeAssessmentHistory } from "../data/assessmentHistoryStore.js";
+import {
+  getGuidedReadingBookAudioPath,
+  getGuidedReadingReadAloudState,
+  getGuidedReadingPageAudioPath
+} from "../utils/guidedReading/readAloudPolicy.js";
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation.js";
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
@@ -1906,6 +1912,9 @@ export function GuidedReadingPage({
   const [highlightedSentenceIndex, setHighlightedSentenceIndex] = useState(null);
   const [audioNotice, setAudioNotice] = useState("");
   const [isPageAudioPlaying, setIsPageAudioPlaying] = useState(false);
+  const [isWholeBookReading, setIsWholeBookReading] = useState(false);
+  const [isReadAloudPaused, setIsReadAloudPaused] = useState(false);
+  const [autoAdvanceReadAloud, setAutoAdvanceReadAloud] = useState(true);
   const [teacherNotesOpen, setTeacherNotesOpen] = useState(false);
   const [isReaderFullscreen, setIsReaderFullscreen] = useState(false);
   const [readerLayoutVersion, setReaderLayoutVersion] = useState(0);
@@ -1914,6 +1923,7 @@ export function GuidedReadingPage({
   const highlightTimerRef = useRef(null);
   const sentenceTimersRef = useRef([]);
   const lastVisitedPageRef = useRef("");
+  const readAloudPageChangeRef = useRef(false);
   const touchStartRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
   const runtimeGuidedReadingBooks = getRuntimeGuidedReadingBooks();
@@ -1936,6 +1946,14 @@ export function GuidedReadingPage({
   const readingProgress = selectedBook ? getGuidedReadingProgress(selectedBook, record) : null;
   const enrichedSelectedBook = selectedBook ? enrichGuidedReadingBook(selectedBook) : null;
   const pageAnalysis = page ? analyzeGuidedReadingPage(page) : null;
+  const readAloudState = selectedBook && page
+    ? getGuidedReadingReadAloudState(selectedBook, page, "guided_support")
+    : getGuidedReadingReadAloudState({}, {}, "guided_support");
+  const currentPageAudioPath = readAloudState.pageAudioPath;
+  const fullBookAudioPath = selectedBook ? getGuidedReadingBookAudioPath(selectedBook) : "";
+  const allPagesHaveAudio = Boolean(selectedBook?.pages?.length) &&
+    selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
+  const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
   const recommendedBooks = recommendBooksForStudent({
     books: runtimeGuidedReadingBooks,
     studentProgress: {
@@ -1993,6 +2011,10 @@ export function GuidedReadingPage({
     setAudioNotice("");
     setHighlightedWordIndex(null);
     setHighlightedSentenceIndex(null);
+    if (readAloudPageChangeRef.current) {
+      readAloudPageChangeRef.current = false;
+      return;
+    }
     stopPageAudio();
   }, [selectedBookId, pageIndex]);
 
@@ -2259,6 +2281,8 @@ export function GuidedReadingPage({
     sentenceTimersRef.current = [];
     setHighlightedSentenceIndex(null);
     setIsPageAudioPlaying(false);
+    setIsWholeBookReading(false);
+    setIsReadAloudPaused(false);
   }
 
   async function togglePageAudio() {
@@ -2288,25 +2312,16 @@ export function GuidedReadingPage({
       }
     });
 
-    if (!page?.pageAudio) {
-      setAudioNotice("Using browser voice for this page while narration audio is pending.");
-      setIsPageAudioPlaying(true);
-      runSentenceHighlights(pageSentences);
-      const spoken = speakWithBrowserVoice(page?.text || "", () => {
-        setIsPageAudioPlaying(false);
-        setHighlightedSentenceIndex(null);
-      });
-      if (!spoken) {
-        setIsPageAudioPlaying(false);
-        setAudioNotice("Page narration is not available for this page.");
-      }
+    if (!currentPageAudioPath) {
+      setAudioNotice("Read-aloud audio is not available for this page yet.");
       return;
     }
 
     try {
-      const audio = new Audio(page.pageAudio);
+      const audio = new Audio(currentPageAudioPath);
       pageAudioRef.current = audio;
       setIsPageAudioPlaying(true);
+      setIsReadAloudPaused(false);
       runSentenceHighlights(pageSentences);
       audio.onended = () => {
         pageAudioRef.current = null;
@@ -2316,28 +2331,110 @@ export function GuidedReadingPage({
       audio.onerror = () => {
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
-        setAudioNotice("Using browser voice because page audio could not be loaded.");
-        const spoken = speakWithBrowserVoice(page?.text || "", () => {
-          setIsPageAudioPlaying(false);
-          setHighlightedSentenceIndex(null);
-        });
-        if (spoken) {
-          setIsPageAudioPlaying(true);
-          runSentenceHighlights(pageSentences);
-        }
+        setAudioNotice("Read-aloud audio could not be loaded for this page.");
       };
       await audio.play();
     } catch (error) {
       console.warn("Guided Reading page audio unavailable.", error);
       pageAudioRef.current = null;
-      setAudioNotice("Using browser voice because page audio could not be played.");
-      const spoken = speakWithBrowserVoice(page?.text || "", () => {
-        setIsPageAudioPlaying(false);
-        setHighlightedSentenceIndex(null);
-      });
-      setIsPageAudioPlaying(spoken);
-      if (spoken) runSentenceHighlights(pageSentences);
+      setIsPageAudioPlaying(false);
+      setAudioNotice("Read-aloud audio could not be played for this page.");
     }
+  }
+
+  function toggleReadAloudPause() {
+    const audio = pageAudioRef.current;
+    if (!audio) return;
+    if (isReadAloudPaused) {
+      audio.play().then(() => setIsReadAloudPaused(false)).catch(() => setAudioNotice("Read-aloud could not resume."));
+    } else {
+      audio.pause();
+      setIsReadAloudPaused(true);
+    }
+  }
+
+  async function readWholeBookFrom(startIndex = pageIndex) {
+    if (!selectedBook) return;
+    const audioPath = getGuidedReadingPageAudioPath(selectedBook.pages[startIndex] || {});
+    if (!audioPath) {
+      setIsWholeBookReading(false);
+      setAudioNotice("Read-aloud audio is not available for the whole book yet.");
+      return;
+    }
+
+    readAloudPageChangeRef.current = true;
+    setPageIndex(startIndex);
+    try {
+      const audio = new Audio(audioPath);
+      pageAudioRef.current = audio;
+      setIsPageAudioPlaying(true);
+      setIsWholeBookReading(true);
+      setIsReadAloudPaused(false);
+      audio.onended = () => {
+        pageAudioRef.current = null;
+        setIsPageAudioPlaying(false);
+        if (autoAdvanceReadAloud && startIndex < selectedBook.pages.length - 1) {
+          readWholeBookFrom(startIndex + 1);
+        } else {
+          setIsWholeBookReading(false);
+          setHighlightedSentenceIndex(null);
+        }
+      };
+      audio.onerror = () => {
+        pageAudioRef.current = null;
+        setIsPageAudioPlaying(false);
+        setIsWholeBookReading(false);
+        setAudioNotice("Read-aloud audio could not be loaded for this book.");
+      };
+      await audio.play();
+    } catch (error) {
+      console.warn("Guided Reading whole-book audio unavailable.", error);
+      setIsPageAudioPlaying(false);
+      setIsWholeBookReading(false);
+      setAudioNotice("Read-aloud audio could not be played for this book.");
+    }
+  }
+
+  async function startWholeBookReadAloud() {
+    if (!selectedBook) return;
+    stopPageAudio();
+    touchBookProgress(pageIndex, {
+      readWholeBookButtonUses: Number(record.readWholeBookButtonUses || 0) + 1,
+      lastReadWholeBookAt: new Date().toISOString()
+    });
+
+    if (fullBookAudioPath) {
+      try {
+        const audio = new Audio(fullBookAudioPath);
+        pageAudioRef.current = audio;
+        setIsWholeBookReading(true);
+        setIsPageAudioPlaying(true);
+        setIsReadAloudPaused(false);
+        audio.onended = () => {
+          pageAudioRef.current = null;
+          setIsWholeBookReading(false);
+          setIsPageAudioPlaying(false);
+        };
+        audio.onerror = () => {
+          pageAudioRef.current = null;
+          setIsWholeBookReading(false);
+          setIsPageAudioPlaying(false);
+          setAudioNotice("Whole-book audio could not be loaded.");
+        };
+        await audio.play();
+      } catch (error) {
+        console.warn("Guided Reading full-book audio unavailable.", error);
+        setAudioNotice("Whole-book audio could not be played.");
+      }
+      return;
+    }
+
+    if (!allPagesHaveAudio) {
+      setAudioNotice("Read-aloud audio is not available for this whole book yet.");
+      return;
+    }
+
+    readWholeBookFrom(pageIndex);
   }
 
   function runSentenceHighlights(sentences = []) {
@@ -2618,12 +2715,34 @@ export function GuidedReadingPage({
               <div className="guided-page-controls">
                 <button
                   className={isPageAudioPlaying ? "lp-button lp-button-secondary active" : "lp-button lp-button-secondary"}
+                  disabled={!currentPageAudioPath || isWholeBookReading}
                   onClick={togglePageAudio}
                   type="button"
                 >
                   {isPageAudioPlaying ? "Stop Reading" : "Read Page"}
                 </button>
+                <button
+                  className={isWholeBookReading ? "lp-button lp-button-secondary active" : "lp-button lp-button-secondary"}
+                  disabled={!canReadWholeBook}
+                  onClick={isWholeBookReading ? stopPageAudio : startWholeBookReadAloud}
+                  type="button"
+                >
+                  {isWholeBookReading ? "Stop Book" : "Read Whole Book"}
+                </button>
+                {(isPageAudioPlaying || isWholeBookReading) && (
+                  <button className="lp-button lp-button-secondary" onClick={toggleReadAloudPause} type="button">
+                    {isReadAloudPaused ? "Resume" : "Pause"}
+                  </button>
+                )}
                 <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>
+                <label className="guided-auto-advance-toggle">
+                  <input
+                    checked={autoAdvanceReadAloud}
+                    onChange={event => setAutoAdvanceReadAloud(event.target.checked)}
+                    type="checkbox"
+                  />
+                  Auto-advance
+                </label>
                 <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
                   Teacher Notes
                 </button>
@@ -2723,6 +2842,9 @@ export function GuidedReadingPage({
                   </AutoFitReadingText>
 
                   {audioNotice && <p className="guided-audio-notice">{audioNotice}</p>}
+                  {!audioNotice && !readAloudState.readAloudAvailable && (
+                    <p className="guided-audio-notice">{readAloudState.message}</p>
+                  )}
                   {pageIndex === selectedBook.pages.length - 1 && readingProgress?.completed && (
                     <p className="guided-complete-message">Book completed. You can finish again to record a reread.</p>
                   )}
@@ -2896,6 +3018,7 @@ export function TeacherReportsPage({
   viewFinishedReport,
   openGuidedReading,
   guidedReadingRecords = {},
+  assessmentHistory = [],
   skillMasterySummary = [],
   exportData,
   exportCSVData,
@@ -2906,6 +3029,7 @@ export function TeacherReportsPage({
   exportPatternAssessment
 }) {
   const readingProgress = summarizeGuidedReadingProgress(guidedReadingRecords);
+  const assessmentSummary = summarizeAssessmentHistory(assessmentHistory);
   const guidedSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
   const wordStatusRows = getGuidedReadingWordStatusRows(guidedReadingRecords);
   const greenWordRows = wordStatusRows.filter(row => row.status === "Read Correctly");
@@ -2924,7 +3048,17 @@ export function TeacherReportsPage({
       <section className="teacher-action-panel-grid">
         <article className="teacher-action-panel">
           <h3>Student Report</h3>
-          <p>Open the finished report view for checkpoint summaries, coverage, mastered items, and teacher notes.</p>
+          <p>
+            {assessmentSummary.attempts
+              ? `${assessmentSummary.attempts} saved assessments · ${assessmentSummary.averageAccuracy}% average accuracy.`
+              : "Open the finished report view for checkpoint summaries, coverage, mastered items, and teacher notes."}
+          </p>
+          {assessmentSummary.latestAttempt && (
+            <div className="guided-reading-report-mini">
+              <span>Latest: {assessmentSummary.latestAttempt.skillName}</span>
+              <span>{assessmentSummary.latestAttempt.correctCount}/{assessmentSummary.latestAttempt.totalQuestions} correct</span>
+            </div>
+          )}
           {skillMasterySummary.some(summary => summary.masteredCount > 0) && (
             <div className="mastery-detail-list compact">
               {skillMasterySummary

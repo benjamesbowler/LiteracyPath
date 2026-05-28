@@ -2089,6 +2089,21 @@ body {
   justify-content: flex-end;
 }
 
+.guided-auto-advance-toggle {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 9px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lp-color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
 .guided-page-controls .lp-button {
   min-height: 36px;
   padding: 8px 11px;
@@ -5172,6 +5187,184 @@ select:focus {
   line-height: 1;
 }
 
+.teacher-dashboard-redesign {
+  gap: 18px;
+}
+
+.teacher-report-metrics,
+.teacher-report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.teacher-report-metrics article,
+.teacher-report-card {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+}
+
+.teacher-report-metrics span,
+.teacher-student-report-list span,
+.teacher-student-report-list small {
+  color: var(--lp-color-text-muted);
+  font-weight: 750;
+}
+
+.teacher-report-metrics strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--lp-color-text-strong);
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+.teacher-report-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.teacher-report-card h4,
+.teacher-report-card p {
+  margin: 0;
+}
+
+.teacher-line-chart {
+  width: 100%;
+  max-width: 420px;
+  height: 150px;
+}
+
+.teacher-line-chart path {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.teacher-line-chart circle {
+  fill: #ffffff;
+  stroke: var(--color-primary);
+  stroke-width: 3;
+}
+
+.teacher-chart-empty,
+.teacher-single-point-chart {
+  display: grid;
+  min-height: 120px;
+  place-items: center;
+  border: 1px dashed var(--color-border-soft);
+  border-radius: 12px;
+  color: var(--lp-color-text-muted);
+  font-weight: 850;
+}
+
+.teacher-single-point-chart strong {
+  color: var(--lp-color-text-strong);
+  font-size: 2rem;
+}
+
+.teacher-student-report-list {
+  display: grid;
+  gap: 10px;
+}
+
+.teacher-student-report-list article {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(160px, 0.7fr) minmax(160px, 0.7fr);
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.teacher-student-report-list article > div {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.teacher-student-flags {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.teacher-student-flags b {
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: var(--color-warning-soft);
+  color: #7c2d12;
+  font-size: 0.74rem;
+}
+
+.teacher-heatmap-card {
+  overflow: hidden;
+}
+
+.teacher-heatmap {
+  display: grid;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.teacher-heatmap-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) repeat(9, minmax(96px, 0.72fr));
+  gap: 6px;
+  min-width: 1040px;
+  align-items: stretch;
+}
+
+.teacher-heatmap-row.header span,
+.teacher-heatmap-row strong,
+.heatmap-cell {
+  min-width: 0;
+  padding: 8px;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: var(--lp-color-text-strong);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-align: center;
+}
+
+.teacher-heatmap-row.header span {
+  background: #eef2ff;
+}
+
+.teacher-heatmap-row strong {
+  text-align: left;
+}
+
+.heatmap-cell.mastered {
+  background: var(--color-success-soft);
+  color: #115e59;
+}
+
+.heatmap-cell.developing {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.heatmap-cell.support {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.heatmap-cell.not-assessed {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
 @keyframes admin-section-in {
   from {
     opacity: 0;
@@ -5354,6 +5547,24 @@ select:focus {
   .admin-table button {
     min-width: 0;
     width: 100%;
+  }
+
+  .teacher-report-metrics,
+  .teacher-report-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-student-report-list article {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-heatmap-row {
+    min-width: 920px;
+  }
+
+  .guided-auto-advance-toggle {
+    width: 100%;
+    justify-content: center;
   }
 }
 

@@ -16,6 +16,10 @@ import {
   readGuidedReadingLevelOverrides,
   setGuidedReadingLevelOverride
 } from "../utils/guidedReading/bookLevelOverrides";
+import {
+  exportAssessmentAttemptsCsv,
+  summarizeAssessmentHistory
+} from "../data/assessmentHistoryStore";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -38,6 +42,50 @@ function downloadTextFile(filename, content, type = "text/plain") {
 
 function csvEscape(value) {
   return `"${String(value ?? "").replace(/"/g, '""')}"`;
+}
+
+function MiniLineChart({ points = [], label = "Progress" }) {
+  const numericPoints = points
+    .map((point, index) => ({ x: index, y: Number(point.value || point.accuracy || 0), label: point.label || "" }))
+    .filter(point => Number.isFinite(point.y));
+  if (numericPoints.length === 0) {
+    return <div className="teacher-chart-empty">No graph data yet.</div>;
+  }
+  if (numericPoints.length === 1) {
+    return (
+      <div className="teacher-single-point-chart" aria-label={label}>
+        <strong>{numericPoints[0].y}%</strong>
+        <span>{numericPoints[0].label || "Latest"}</span>
+      </div>
+    );
+  }
+  const max = Math.max(100, ...numericPoints.map(point => point.y));
+  const min = Math.min(0, ...numericPoints.map(point => point.y));
+  const width = 320;
+  const height = 120;
+  const path = numericPoints.map((point, index) => {
+    const x = (index / Math.max(1, numericPoints.length - 1)) * width;
+    const y = height - ((point.y - min) / Math.max(1, max - min)) * height;
+    return `${index === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
+  }).join(" ");
+
+  return (
+    <svg className="teacher-line-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label}>
+      <path d={path} />
+      {numericPoints.map((point, index) => {
+        const x = (index / Math.max(1, numericPoints.length - 1)) * width;
+        const y = height - ((point.y - min) / Math.max(1, max - min)) * height;
+        return <circle key={`${point.label}-${index}`} cx={x} cy={y} r="4" />;
+      })}
+    </svg>
+  );
+}
+
+function getSkillStatusClass(accuracy, attempts = 0) {
+  if (!attempts) return "not-assessed";
+  if (accuracy >= 85) return "mastered";
+  if (accuracy >= 65) return "developing";
+  return "support";
 }
 
 function mediaQaToCsv(records) {
@@ -864,6 +912,7 @@ export function AdminDashboardPage({
   updateTeacherAccountStatus,
   questionBankCoverage = [],
   mediaQuestions = [],
+  assessmentHistory = [],
   message
 }) {
   const [skillFilter, setSkillFilter] = useState("all");
@@ -946,6 +995,43 @@ export function AdminDashboardPage({
       recommendations
     };
   }, []);
+  const assessmentSummary = useMemo(() =>
+    summarizeAssessmentHistory(assessmentHistory, { students, classes }),
+  [assessmentHistory, students, classes]);
+  const recentAttempts = [...assessmentHistory]
+    .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))
+    .slice(0, 40);
+  const classChartPoints = [...assessmentHistory]
+    .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt))
+    .map(record => ({
+      label: record.completedAt ? new Date(record.completedAt).toLocaleDateString() : "",
+      value: record.accuracy
+    }));
+  const skillColumns = [
+    "Initial Sounds",
+    "Final Sounds",
+    "Rhyming",
+    "CVC and Short Vowels",
+    "Short Vowel Discrimination",
+    "High-Frequency Words 1-25",
+    "Blends",
+    "Digraphs",
+    "Long Vowels and Silent E"
+  ];
+  const skillStatusByStudent = new Map();
+  assessmentSummary.students.forEach(student => {
+    const rows = assessmentHistory.filter(record => record.studentId === student.studentId);
+    const bySkill = new Map();
+    rows.forEach(record => {
+      const key = record.skillName;
+      const existing = bySkill.get(key) || { correct: 0, total: 0, attempts: 0 };
+      existing.correct += Number(record.correctCount || 0);
+      existing.total += Number(record.totalQuestions || 0);
+      existing.attempts += 1;
+      bySkill.set(key, existing);
+    });
+    skillStatusByStudent.set(student.studentId, bySkill);
+  });
 
   function openAdminQaPage(page) {
     setAdminQaPage(page);
@@ -963,6 +1049,8 @@ export function AdminDashboardPage({
 
   const adminSections = [
     { id: "overview", label: "Overview", count: null },
+    { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
+    { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
     { id: "signups", label: "New Teacher Signups", count: pendingAccounts.length },
     { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
     { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
@@ -1058,6 +1146,181 @@ export function AdminDashboardPage({
               <strong>Open</strong>
             </button>
           </div>
+        </section>
+      )}
+
+      {activeSection === "teacherReport" && (
+        <section className="report-panel page-stack admin-section admin-section-panel teacher-dashboard-redesign">
+          <div className="admin-section-heading">
+            <div>
+              <h3>Teacher Dashboard</h3>
+              <p className="muted-text">Simple class reporting from saved assessment attempts.</p>
+            </div>
+            <span className="admin-count-pill">{assessmentSummary.attempts} attempts</span>
+          </div>
+
+          <div className="teacher-report-metrics">
+            <article>
+              <span>Students</span>
+              <strong>{students.length}</strong>
+            </article>
+            <article>
+              <span>Assessments saved</span>
+              <strong>{assessmentSummary.attempts}</strong>
+            </article>
+            <article>
+              <span>Class average</span>
+              <strong>{assessmentSummary.averageAccuracy}%</strong>
+            </article>
+            <article>
+              <span>Need support</span>
+              <strong>{assessmentSummary.studentsNeedingSupport.length}</strong>
+            </article>
+          </div>
+
+          <div className="teacher-report-grid">
+            <article className="teacher-report-card">
+              <h4>Class Accuracy Over Time</h4>
+              <MiniLineChart points={classChartPoints} label="Class accuracy over time" />
+            </article>
+            <article className="teacher-report-card">
+              <h4>Skills Needing Attention</h4>
+              {assessmentSummary.weakestSkills.length ? assessmentSummary.weakestSkills.map(skill => (
+                <p key={skill.skillId || skill.skillName}><strong>{skill.skillName}</strong> · {skill.accuracy}% · {skill.status}</p>
+              )) : <p>No saved assessment evidence yet.</p>}
+            </article>
+            <article className="teacher-report-card">
+              <h4>Students Needing Support</h4>
+              {assessmentSummary.studentsNeedingSupport.length ? assessmentSummary.studentsNeedingSupport.map(student => (
+                <p key={student.studentId}><strong>{student.studentName}</strong> · {student.accuracy}% · {student.supportSkills.slice(0, 3).join(", ") || "review recent work"}</p>
+              )) : <p>No support flags yet.</p>}
+            </article>
+            <article className="teacher-report-card">
+              <h4>Ready for Challenge</h4>
+              {assessmentSummary.studentsReadyToLevelUp.length ? assessmentSummary.studentsReadyToLevelUp.map(student => (
+                <p key={student.studentId}><strong>{student.studentName}</strong> · latest passed {student.latest?.skillName}</p>
+              )) : <p>No level-up flags yet.</p>}
+            </article>
+          </div>
+
+          <div className="teacher-report-card">
+            <h4>Student List</h4>
+            <div className="teacher-student-report-list">
+              {assessmentSummary.students.length ? assessmentSummary.students.map(student => (
+                <article key={student.studentId}>
+                  <div>
+                    <strong>{student.studentName}</strong>
+                    <span>{student.className || "Class not linked"} · {student.attempts} assessments</span>
+                  </div>
+                  <div>
+                    <span>{student.accuracy}% recent accuracy</span>
+                    <small>{student.latest ? `Latest: ${student.latest.skillName}` : "No recent activity"}</small>
+                  </div>
+                  <div className="teacher-student-flags">
+                    {!student.latest && <b>No recent assessment</b>}
+                    {student.accuracy < 70 && <b>Low accuracy</b>}
+                    {student.supportSkills.length > 0 && <b>Needs support</b>}
+                    {student.latest?.passed && <b>Ready to level up</b>}
+                  </div>
+                </article>
+              )) : <p>No saved assessment history yet. Complete an assessment to populate the dashboard.</p>}
+            </div>
+          </div>
+
+          <div className="teacher-report-card teacher-heatmap-card">
+            <h4>Skill Coverage Heatmap</h4>
+            <div className="teacher-heatmap">
+              <div className="teacher-heatmap-row header">
+                <span>Student</span>
+                {skillColumns.map(skill => <span key={skill}>{skill.replace("High-Frequency Words", "HFW")}</span>)}
+              </div>
+              {(assessmentSummary.students.length ? assessmentSummary.students : students.map(student => ({ studentId: student.id, studentName: student.name }))).map(student => {
+                const bySkill = skillStatusByStudent.get(student.studentId) || new Map();
+                return (
+                  <div className="teacher-heatmap-row" key={student.studentId}>
+                    <strong>{student.studentName}</strong>
+                    {skillColumns.map(skill => {
+                      const row = bySkill.get(skill);
+                      const accuracy = row?.total ? Math.round((row.correct / row.total) * 100) : 0;
+                      return (
+                        <span className={`heatmap-cell ${getSkillStatusClass(accuracy, row?.attempts || 0)}`} key={skill}>
+                          {row?.attempts ? `${accuracy}%` : "-"}
+                        </span>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="teacher-report-card">
+            <h4>Whole Class Next Steps</h4>
+            <p>{assessmentSummary.weakestSkills[0] ? `${assessmentSummary.studentsNeedingSupport.length} students need support. Start with ${assessmentSummary.weakestSkills[0].skillName}.` : "No class trend yet. Save a few assessment attempts first."}</p>
+            <p>{assessmentSummary.strongestSkills[0] ? `${assessmentSummary.strongestSkills[0].skillName} is currently the strongest skill area.` : "Strongest skills will appear after assessment history is saved."}</p>
+          </div>
+        </section>
+      )}
+
+      {activeSection === "archive" && (
+        <section className="report-panel page-stack admin-section admin-section-panel">
+          <div className="admin-section-heading">
+            <div>
+              <h3>Assessment Archive</h3>
+              <p className="muted-text">Saved checkpoint attempts for class and student reporting.</p>
+            </div>
+            <div className="teacher-action-list">
+              <button
+                className="lp-button lp-button-secondary"
+                disabled={assessmentHistory.length === 0}
+                onClick={() => downloadTextFile("assessment-history.csv", exportAssessmentAttemptsCsv(assessmentHistory), "text/csv")}
+                type="button"
+              >
+                Export CSV
+              </button>
+              <button
+                className="lp-button lp-button-secondary"
+                disabled={assessmentHistory.length === 0}
+                onClick={() => downloadTextFile("assessment-history.json", JSON.stringify(assessmentHistory, null, 2), "application/json")}
+                type="button"
+              >
+                Export JSON
+              </button>
+            </div>
+          </div>
+
+          {recentAttempts.length === 0 ? (
+            <p>No assessment attempts have been saved in this browser yet.</p>
+          ) : (
+            <div className="admin-table-wrap">
+              <table className="dashboard-table admin-table admin-responsive-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Student</th>
+                    <th>Skill</th>
+                    <th>Level</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                    <th>Missed Items</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {recentAttempts.map(record => (
+                    <tr key={record.attemptId}>
+                      <td data-label="Date">{record.completedAt ? new Date(record.completedAt).toLocaleString() : ""}</td>
+                      <td data-label="Student">{record.studentName}</td>
+                      <td data-label="Skill">{record.skillName}</td>
+                      <td data-label="Level">L{record.skillLevel} P{record.skillPhase}</td>
+                      <td data-label="Score">{record.correctCount}/{record.totalQuestions} ({record.accuracy}%)</td>
+                      <td data-label="Status">{record.status}</td>
+                      <td data-label="Missed">{record.missedItems.slice(0, 6).join(", ") || "None"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </section>
       )}
 
