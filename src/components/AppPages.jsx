@@ -3737,6 +3737,131 @@ export function AssessmentPage({
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
+  const renderAssessmentTopbar = () => (
+    <div className="assessment-topbar">
+      <div className="assessment-meta">
+        <span>{studentName || "Unnamed student"}</span>
+        <strong>
+          {assessmentMode === "targetedReview"
+            ? "Targeted Review"
+            : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}
+        </strong>
+      </div>
+
+      <div className="assessment-progress">
+        <div className="progress-label">
+          Question {Math.min(roundAnswers.length + 1, roundLength)} of {roundLength}
+        </div>
+
+        <div className="progress-bar">
+          <div
+            className="progress-fill"
+            style={{ width: `${roundProgress}%` }}
+          ></div>
+        </div>
+
+        <div className="assessment-progress-dots" aria-label={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}>
+          {Array.from({ length: roundLength }, (_, index) => (
+            <span
+              className={
+                index < roundAnswers.length
+                  ? "complete"
+                  : index === roundAnswers.length
+                    ? "current"
+                    : ""
+              }
+              key={index}
+            ></span>
+          ))}
+        </div>
+      </div>
+
+      <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
+        End Assessment
+      </button>
+    </div>
+  );
+  const renderFeedbackCard = () => feedback ? (
+    <motion.div
+      className={[
+        "feedback-card assessment-feedback",
+        feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
+        feedback.skillId === "final_sounds" ? "final-sounds-feedback" : ""
+      ].filter(Boolean).join(" ")}
+      initial={{ scale: 0.96, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+    >
+      <h2>{feedback.isCorrect ? "Correct!" : feedback.support?.type === "pair_selection" ? "Sorry, incorrect." : "Let's learn from that one"}</h2>
+
+      {feedback.support?.type !== "pair_selection" && (
+        <>
+          <p><strong>Your answer:</strong> {formatAnswerForFeedback(feedback.chosen)}</p>
+          <p><strong>Correct answer:</strong> {formatAnswerForFeedback(feedback.correct)}</p>
+        </>
+      )}
+
+      {!feedback.isCorrect && (
+        <div className="teaching-slide">
+          {feedback.support?.type === "pair_selection" ? (
+            <div className="initial-sound-support">
+              <section>
+                <strong>Correct answer</strong>
+                <div className="support-image-row">
+                  {(feedback.support.correctWords || []).map(word => {
+                    const card = feedback.support.cardsByWord?.[word];
+                    return card ? (
+                      <figure key={word}>
+                        <img src={card.image} alt={card.alt || `Picture for ${word}`} />
+                      </figure>
+                    ) : null;
+                  })}
+                </div>
+              </section>
+
+              <section>
+                <strong>You answered</strong>
+                <div className="support-image-row">
+                  {(feedback.support.chosenWords || []).map(word => {
+                    const card = feedback.support.cardsByWord?.[word];
+                    return card ? (
+                      <figure key={word}>
+                        <img src={card.image} alt={card.alt || `Picture for ${word}`} />
+                      </figure>
+                    ) : null;
+                  })}
+                </div>
+              </section>
+
+              <p>Words are made up of sounds. Some words share the same beginning, ending, or rhyming sound.</p>
+              <p>{feedback.support.exampleText}</p>
+              <p>{feedback.support.wrongText}</p>
+            </div>
+          ) : (
+            <>
+              <h3>Teaching Tip</h3>
+              <p>{feedback.explanation}</p>
+              <p><strong>Skill focus:</strong> {feedback.skill}</p>
+            </>
+          )}
+        </div>
+      )}
+
+      {feedback.isCorrect && feedback.autoAdvance ? (
+        <p className="muted-text feedback-auto-advance">Next question coming up...</p>
+      ) : (
+        <button
+          className="main-button"
+          onClick={() => {
+            setFeedback(null);
+            pickQuestion();
+          }}
+          type="button"
+        >
+          Continue
+        </button>
+      )}
+    </motion.div>
+  ) : null;
 
   if (!currentQuestion && !feedback) {
     return (
@@ -3753,6 +3878,15 @@ export function AssessmentPage({
             </button>
           </div>
         </div>
+      </main>
+    );
+  }
+
+  if (!currentQuestion && feedback) {
+    return (
+      <main className="assessment-shell">
+        {renderAssessmentTopbar()}
+        {renderFeedbackCard()}
       </main>
     );
   }
@@ -3826,48 +3960,7 @@ export function AssessmentPage({
 
   return (
     <main className="assessment-shell">
-      <div className="assessment-topbar">
-        <div className="assessment-meta">
-          <span>{studentName || "Unnamed student"}</span>
-          <strong>
-            {assessmentMode === "targetedReview"
-              ? "Targeted Review"
-              : `${currentSkillIndex + 1}. ${safeCurrentStage.label}`}
-          </strong>
-        </div>
-
-        <div className="assessment-progress">
-          <div className="progress-label">
-            Question {Math.min(roundAnswers.length + 1, roundLength)} of {roundLength}
-          </div>
-
-          <div className="progress-bar">
-            <div
-              className="progress-fill"
-              style={{ width: `${roundProgress}%` }}
-            ></div>
-          </div>
-
-          <div className="assessment-progress-dots" aria-label={`Question ${Math.min(roundAnswers.length + 1, roundLength)} of ${roundLength}`}>
-            {Array.from({ length: roundLength }, (_, index) => (
-              <span
-                className={
-                  index < roundAnswers.length
-                    ? "complete"
-                    : index === roundAnswers.length
-                      ? "current"
-                      : ""
-                }
-                key={index}
-              ></span>
-            ))}
-          </div>
-        </div>
-
-        <button className="reset-button assessment-end-button" onClick={endAssessment}>
-          End Assessment
-        </button>
-      </div>
+      {renderAssessmentTopbar()}
 
       {!currentQuestion && !feedback && (
         <div className="button-row assessment-start-row">
@@ -3987,86 +4080,7 @@ export function AssessmentPage({
         )}
       </AnimatePresence>
 
-      {feedback && (
-        <motion.div
-          className={[
-            "feedback-card assessment-feedback",
-            feedback.isCorrect ? "correct-feedback" : "wrong-feedback",
-            feedback.skillId === "final_sounds" ? "final-sounds-feedback" : ""
-          ].filter(Boolean).join(" ")}
-          initial={{ scale: 0.96, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-        >
-          <h2>{feedback.isCorrect ? "Correct!" : feedback.support?.type === "pair_selection" ? "Sorry, incorrect." : "Let's learn from that one"}</h2>
-
-          {feedback.support?.type !== "pair_selection" && (
-            <>
-              <p><strong>Your answer:</strong> {formatAnswerForFeedback(feedback.chosen)}</p>
-              <p><strong>Correct answer:</strong> {formatAnswerForFeedback(feedback.correct)}</p>
-            </>
-          )}
-
-          {!feedback.isCorrect && (
-            <div className="teaching-slide">
-              {feedback.support?.type === "pair_selection" ? (
-                <div className="initial-sound-support">
-                  <section>
-                    <strong>Correct answer</strong>
-                    <div className="support-image-row">
-                      {feedback.support.correctWords.map(word => {
-                        const card = feedback.support.cardsByWord[word];
-                        return card ? (
-                          <figure key={word}>
-                            <img src={card.image} alt={card.alt || `Picture for ${word}`} />
-                          </figure>
-                        ) : null;
-                      })}
-                    </div>
-                  </section>
-
-                  <section>
-                    <strong>You answered</strong>
-                    <div className="support-image-row">
-                      {feedback.support.chosenWords.map(word => {
-                        const card = feedback.support.cardsByWord[word];
-                        return card ? (
-                          <figure key={word}>
-                            <img src={card.image} alt={card.alt || `Picture for ${word}`} />
-                          </figure>
-                        ) : null;
-                      })}
-                    </div>
-                  </section>
-
-                  <p>Words are made up of sounds. Some words share the same beginning, ending, or rhyming sound.</p>
-                  <p>{feedback.support.exampleText}</p>
-                  <p>{feedback.support.wrongText}</p>
-                </div>
-              ) : (
-                <>
-                  <h3>Teaching Tip</h3>
-                  <p>{feedback.explanation}</p>
-                  <p><strong>Skill focus:</strong> {feedback.skill}</p>
-                </>
-              )}
-            </div>
-          )}
-
-          {feedback.isCorrect && feedback.autoAdvance ? (
-            <p className="muted-text feedback-auto-advance">Next question coming up...</p>
-          ) : (
-            <button
-              className="main-button"
-              onClick={() => {
-                setFeedback(null);
-                pickQuestion();
-              }}
-            >
-              Continue
-            </button>
-          )}
-        </motion.div>
-      )}
+      {renderFeedbackCard()}
 
       {message && !feedback && (
         <h2 className="message">{message}</h2>

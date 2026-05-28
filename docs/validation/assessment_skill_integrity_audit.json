@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T06:18:25.904Z",
+  "generatedAt": "2026-05-28T08:01:32.734Z",
   "source": "loadCoreQuestionPool() plus managedAssessmentSkillDepthConfig",
   "targetContract": {
     "levelsPerSkill": 2,
