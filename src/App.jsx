@@ -1477,6 +1477,7 @@ export default function App() {
   const [adminClasses, setAdminClasses] = useState([]);
   const [adminStudents, setAdminStudents] = useState([]);
   const [adminPendingAccounts, setAdminPendingAccounts] = useState([]);
+  const [adminPendingAccountsWarning, setAdminPendingAccountsWarning] = useState("");
   const [adminLoading, setAdminLoading] = useState(false);
   const [totalAnswered, setTotalAnswered] = useState(0);
   const [correctAnswered, setCorrectAnswered] = useState(0);
@@ -1619,6 +1620,7 @@ export default function App() {
     setAdminClasses([]);
     setAdminStudents([]);
     setAdminPendingAccounts([]);
+    setAdminPendingAccountsWarning("");
     setIsAdmin(false);
     setTotalAnswered(0);
     setCorrectAnswered(0);
@@ -2104,13 +2106,20 @@ export default function App() {
 
     setAdminLoading(false);
 
-    const pendingAccountsMissing = pendingAccountsResult.error && isMissingTableError(pendingAccountsResult.error, "pending_teacher_accounts");
+    const pendingAccountsError = pendingAccountsResult.error || null;
     const dashboardErrors = [
       { table: "classes", error: classesResult.error },
       { table: "students", error: studentsResult.error },
-      { table: "answers", error: answersResult.error },
-      { table: "pending_teacher_accounts", error: pendingAccountsMissing ? null : pendingAccountsResult.error }
+      { table: "answers", error: answersResult.error }
     ].filter(result => result.error);
+
+    if (pendingAccountsError) {
+      logAdminSupabaseError("Optional pending_teacher_accounts load failed.", pendingAccountsError, {
+        table: "pending_teacher_accounts",
+        userId: teacherId,
+        userEmail: teacherUser?.email
+      });
+    }
 
     if (dashboardErrors.length > 0) {
       const firstError = dashboardErrors[0];
@@ -2146,7 +2155,10 @@ export default function App() {
     setAdminClasses(classRows);
     setAdminStudents(studentRows);
     setAdminTeachers(buildTeacherRows(classes, students, answers));
-    setAdminPendingAccounts(pendingAccountsMissing ? [] : pendingAccountsResult.data || []);
+    setAdminPendingAccounts(pendingAccountsError ? [] : pendingAccountsResult.data || []);
+    setAdminPendingAccountsWarning(pendingAccountsError
+      ? "Pending teacher accounts could not be loaded. This does not affect content coverage or student data."
+      : "");
   }
 
   function openAdminDashboard() {
@@ -6465,6 +6477,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             classes={adminClasses}
             students={adminStudents}
             pendingAccounts={adminPendingAccounts}
+            pendingAccountsWarning={adminPendingAccountsWarning}
             loading={adminLoading}
             refreshDashboard={loadAdminDashboard}
             deleteClass={adminDeleteClass}

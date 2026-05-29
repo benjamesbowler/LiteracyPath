@@ -916,6 +916,7 @@ export function AdminDashboardPage({
   classes,
   students,
   pendingAccounts = [],
+  pendingAccountsWarning = "",
   loading,
   refreshDashboard,
   deleteClass,
@@ -1182,7 +1183,7 @@ export function AdminDashboardPage({
       { id: "overview", label: "Overview", count: null },
       { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
       { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
-      { id: "signups", label: "Signup Requests", count: pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length },
+      { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length },
       { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
       { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
       { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
@@ -1603,9 +1604,13 @@ export function AdminDashboardPage({
             <h3>Signup Requests</h3>
             <p className="muted-text">Approve or reject teacher account requests. Pending requests are blocked from the app until approved.</p>
           </div>
-          <span className="admin-count-pill">{pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length}</span>
+          <span className="admin-count-pill">{pendingAccountsWarning ? "Unavailable" : pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length}</span>
         </div>
-        {pendingAccounts.length === 0 ? (
+        {pendingAccountsWarning ? (
+          <div className="admin-section-warning" role="status">
+            {pendingAccountsWarning}
+          </div>
+        ) : pendingAccounts.length === 0 ? (
           <p>No signup requests loaded.</p>
         ) : (
           <div className="admin-table-wrap">

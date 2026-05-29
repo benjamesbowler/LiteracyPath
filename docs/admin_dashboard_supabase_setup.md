@@ -48,7 +48,7 @@ The current Admin Dashboard reads these tables:
 | `classes` | `id`, `name`, `teacher_id`, `created_at` | Required for class totals. |
 | `students` | `id`, `name`, `class_id`, `teacher_id`, `created_at` | Required for student totals and class mapping. |
 | `answers` | `id`, `teacher_id`, `student_id` | Required for teacher answer counts. |
-| `pending_teacher_accounts` | `id`, `user_id`, `email`, `name`, `status`, `created_at`, `reviewed_at`, `reviewed_by` | Optional; the dashboard works if this table is absent. |
+| `pending_teacher_accounts` | `id`, `user_id`, `email`, `username`, `display_name`, `name`, `role`, `status`, `approval_status`, `created_at`, `requested_at`, `reviewed_at`, `reviewed_by`, `approved_at`, `approved_by`, `rejected_at`, `rejected_by`, `rejection_reason` | Optional; the dashboard works if this table is absent, unavailable, or blocked by RLS. Only the Signup Requests section is disabled. |
 
 Other Supabase tables used elsewhere in the app:
 

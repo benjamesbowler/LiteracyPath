@@ -5491,6 +5491,15 @@ select:focus {
   padding: 6px 12px;
 }
 
+.admin-section-warning {
+  background: var(--color-warning-soft);
+  border: 1px solid rgba(201, 130, 24, 0.4);
+  border-radius: 8px;
+  color: #7c2d12;
+  font-weight: 750;
+  padding: 12px 14px;
+}
+
 .admin-row-actions {
   display: flex;
   flex-wrap: wrap;
