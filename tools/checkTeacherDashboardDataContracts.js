@@ -47,6 +47,7 @@ const appSource = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8
 const appPagesSource = readFileSync(new URL("../src/components/AppPages.jsx", import.meta.url), "utf8");
 const adminDashboardSource = readFileSync(new URL("../src/components/AdminDashboardPage.jsx", import.meta.url), "utf8");
 const storeSource = readFileSync(new URL("../src/data/assessmentHistoryStore.js", import.meta.url), "utf8");
+const topNavigationSource = appPagesSource.match(/export function TopNavigation[\s\S]*?\nfunction PairSelectionQuestion/)?.[0] || "";
 
 const failures = [];
 const requiredTeacherSections = [
@@ -65,6 +66,9 @@ if (emptySummary.attempts !== 0) failures.push("Empty summary should have zero a
 if (summary.attempts !== 1 || summary.averageAccuracy !== 100) failures.push("Summary did not compute the sample attempt correctly.");
 if (!csv.includes("Sample Student") || !csv.includes("Final Sounds")) failures.push("CSV export is missing expected fields.");
 if (!appPagesSource.includes("Teacher Dashboard")) failures.push("Top navigation is missing visible Teacher Dashboard text.");
+if (topNavigationSource.includes("goToReports") || topNavigationSource.includes(">Reports</button>")) {
+  failures.push("Teacher Mode top navigation should not show a standalone Reports button.");
+}
 if (!appSource.includes('appView === "teacherDashboard"')) failures.push("App.jsx does not render a teacherDashboard app state.");
 if (!adminDashboardSource.includes('useState(isTeacherMode ? "teacherOverview" : "overview")')) failures.push("Teacher Dashboard should default to the Overview section.");
 if (!adminDashboardSource.includes("Choose dashboard section")) failures.push("Teacher Dashboard mobile section dropdown label is missing.");

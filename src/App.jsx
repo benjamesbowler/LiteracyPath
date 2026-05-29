@@ -6503,7 +6503,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToSkills={() => setAppView("skills")}
           goToElAssessments={() => setAppView("elAssessments")}
           goToGuidedReading={() => setAppView("guidedReading")}
-          goToReports={() => setAppView("reports")}
           goToTeacherDashboard={() => setAppView("teacherDashboard")}
           goToTools={() => setAppView("tools")}
           switchStudent={switchStudent}
