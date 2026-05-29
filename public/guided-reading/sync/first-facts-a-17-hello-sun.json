@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-17-hello-sun",
+  "title": "Hello, Sun!",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-17/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 5406,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 865,
+      "text": "The sun is a big, hot star. It is very far away."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 865,
+      "endMs": 1586,
+      "text": "The sun gives us light. The sun warms our Earth."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 1586,
+      "endMs": 2307,
+      "text": "In the morning, the sun comes up. Good morning, sun!"
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 2307,
+      "endMs": 3316,
+      "text": "At midday, the sun is high. It is the hottest part of the day."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 3316,
+      "endMs": 3965,
+      "text": "In the evening, the sun goes down. Goodnight, sun!"
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 3965,
+      "endMs": 4758,
+      "text": "Plants need the sun to grow. We need the sun too."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 4758,
+      "endMs": 5406,
+      "text": "The sun is our nearest star. Thank you, sun!"
+    }
+  ]
+}

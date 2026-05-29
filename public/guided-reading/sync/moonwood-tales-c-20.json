@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-20",
+  "title": "The Night the Stars Fell",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-20/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 123902,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 10620,
+      "text": "It was the middle of the night.\nEveryone was nearly asleep.\nThen a light flashed.\nThen another.\nThen small glowing things began to fall from the sky."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 10620,
+      "endMs": 22027,
+      "text": "The small things landed and bounced.\nThey bounced along the ground.\nThey made a sound like giggling.\nThey left gold trails where they bounced.\n\"What ARE they?\" said Pip."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 22027,
+      "endMs": 29500,
+      "text": "Pip caught one.\nIt was warm.\nIt had very large golden eyes.\nIt looked up at Pip and giggled."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 29500,
+      "endMs": 38940,
+      "text": "\"What are you?\" asked Pip.\nThe star spirit blinked its large gold eyes.\n\"Star,\" it said.\nIts voice was very small.\n\"Fell,\" it added."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 38940,
+      "endMs": 51920,
+      "text": "Luna pushed forward.\nShe looked at the star spirit over her glasses.\n\"I know what these are,\" said Luna.\n\"They lose their grip once a year.\"\n\"They need to go back before dawn.\""
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 51920,
+      "endMs": 60573,
+      "text": "They gathered the star spirits.\nThere were many of them.\nStone held several.\nWren had two in her hat.\nThey kept bouncing."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 60573,
+      "endMs": 73160,
+      "text": "\"They need height,\" said Luna.\n\"The highest point in Moonwood.\"\nFlint reached for his satchel.\nEveryone looked at Flint.\n\"I know exactly where it is,\" said Flint.\nEveryone kept looking at him."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 73160,
+      "endMs": 82600,
+      "text": "\"This way,\" said Flint.\nHe was right.\nThe Tumblerock Cliffs rose ahead.\n\"You found it,\" said Pip.\n\"I always find things,\" said Flint.\n\"Eventually.\""
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 82600,
+      "endMs": 93614,
+      "text": "They climbed to the top.\nMoonwood spread below them in the dark.\nThe sky was full of stars above.\nThe star spirits reached upward with their tiny arms."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 93614,
+      "endMs": 101087,
+      "text": "Stone raised their hands high.\nPip and Spark added a little push.\nThe star spirits lifted.\nUp.\nAnd up."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 101087,
+      "endMs": 110527,
+      "text": "The star spirits went up.\nSlowly at first.\nThen faster.\nOne by one they found their places.\nThe sky filled back up with stars."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 110527,
+      "endMs": 123902,
+      "text": "The last star spirit sat in Stone's hand.\nIt blinked its large gold eyes at everyone.\n\"See you next year,\" it said.\nThen it bounced once.\nThen it went up.\nThen it was gone."
+    }
+  ]
+}

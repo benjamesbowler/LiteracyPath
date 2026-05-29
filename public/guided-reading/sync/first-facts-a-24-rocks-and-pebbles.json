@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-24-rocks-and-pebbles",
+  "title": "Rocks and Pebbles",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-24/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 26938,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 3415,
+      "text": "Rocks are hard. Rocks can be big or small."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 3415,
+      "endMs": 6830,
+      "text": "Pebbles are small, smooth rocks. Water makes them smooth."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 6830,
+      "endMs": 10624,
+      "text": "Rocks can be many colours. Grey, brown, red, and white."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 10624,
+      "endMs": 15556,
+      "text": "We use rocks to build things. Walls and roads are made of rock."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 15556,
+      "endMs": 19729,
+      "text": "Some rocks are very old. Rocks tell us about the past."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 19729,
+      "endMs": 23523,
+      "text": "Go outside and find a rock! Look at it carefully."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 23523,
+      "endMs": 26938,
+      "text": "Rocks are everywhere! They are part of our Earth."
+    }
+  ]
+}

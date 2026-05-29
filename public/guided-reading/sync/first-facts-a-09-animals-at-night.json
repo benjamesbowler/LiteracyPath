@@ -1,0 +1,51 @@
+{
+  "bookId": "first-facts-a-09-animals-at-night",
+  "title": "Animals at Night",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-09/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 27154,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 4937,
+      "text": "Some animals sleep in the day. They wake up at night. They are nocturnal."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 4937,
+      "endMs": 9169,
+      "text": "An owl can see in the dark. It hunts at night. Twit-twoo!"
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 9169,
+      "endMs": 14106,
+      "text": "A bat flies at night. It finds food in the dark. Bats eat insects."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 14106,
+      "endMs": 18338,
+      "text": "A hedgehog snuffles in the dark. It looks for slugs and bugs."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 18338,
+      "endMs": 22570,
+      "text": "A fox hunts at night. It has big ears. It moves quietly."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 22570,
+      "endMs": 27154,
+      "text": "These animals come out at night. We are asleep when they are busy!"
+    }
+  ]
+}

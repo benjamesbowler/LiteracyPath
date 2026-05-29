@@ -1,0 +1,72 @@
+{
+  "bookId": "first-facts-a-25-water-everywhere",
+  "title": "Water Everywhere",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-25/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 36711,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 4405,
+      "text": "Water is all around us. Oceans, rivers, and rain."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 4405,
+      "endMs": 8321,
+      "text": "Rain falls from the clouds. Drip, drip, drip."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 8321,
+      "endMs": 12726,
+      "text": "Rain fills rivers and lakes. Animals drink the water."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 12726,
+      "endMs": 17131,
+      "text": "We drink water every day. Water keeps us healthy."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 17131,
+      "endMs": 21047,
+      "text": "We wash in water. Water keeps us clean."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 21047,
+      "endMs": 23984,
+      "text": "Plants and animals need water too."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 23984,
+      "endMs": 28389,
+      "text": "Water can be liquid, ice, or steam. Water changes!"
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 28389,
+      "endMs": 32305,
+      "text": "Water is precious. Let us look after it."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 32305,
+      "endMs": 36711,
+      "text": "Water is everywhere! Our Earth is a water planet."
+    }
+  ]
+}

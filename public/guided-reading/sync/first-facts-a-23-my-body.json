@@ -1,0 +1,65 @@
+{
+  "bookId": "first-facts-a-23-my-body",
+  "title": "My Body",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-23/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 31839,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 3726,
+      "text": "I have a head. I have a face. I can smile!"
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 3726,
+      "endMs": 7452,
+      "text": "I have two arms. I have two hands. I can clap!"
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 7452,
+      "endMs": 10839,
+      "text": "I have a tummy. Food goes into my tummy. Rumble!"
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 10839,
+      "endMs": 15242,
+      "text": "I have two legs. I have two feet. I can kick and run!"
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 15242,
+      "endMs": 20661,
+      "text": "I have eyes to see. I have ears to hear. I have a nose to smell."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 20661,
+      "endMs": 25064,
+      "text": "My body can do so many things! I can hop, skip, and spin."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 25064,
+      "endMs": 28451,
+      "text": "My body is amazing! I look after it every day."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 28451,
+      "endMs": 31839,
+      "text": "My body is mine. I keep it safe and strong."
+    }
+  ]
+}

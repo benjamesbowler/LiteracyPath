@@ -5,6 +5,7 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 
 import {
+  audioPreferenceManifest,
   getAudioPreferenceForPath,
   getAudioPreferenceStatus,
   getApprovedAudioPath
@@ -138,7 +139,8 @@ function collectQuestionAudioReferences() {
       audioIdPrefix: question.id || question.questionId || `${question._source || "question"}-${question._sourceIndex || 0}`,
       sourceReference: `${question._source || "unknown"}${question._sourceIndex !== undefined ? `#${question._sourceIndex}` : ""}`,
       assessmentType: inferAssessmentType(question),
-      skill: getQuestionSkillLabel(question) || question.skillId || "unknown"
+      skill: getQuestionSkillLabel(question) || question.skillId || "unknown",
+      active: question.active !== false
     };
 
     for (const key of ["audioPath", "audioUrl", "audio"]) {
@@ -289,6 +291,7 @@ function buildInventoryItems() {
       referenceWorks: exists,
       preferenceStatus: getAudioPreferenceStatus(ref.script, ref.path),
       approvedReplacementPath: approved,
+      active: ref.active,
       ...meta,
       matchesStandardVoice: classification.matchesStandardVoice,
       issues,
@@ -317,6 +320,7 @@ function buildInventoryItems() {
       referenceWorks: false,
       preferenceStatus: preference?.status || "unreferenced",
       approvedReplacementPath: "",
+      active: false,
       ...meta,
       matchesStandardVoice: classification.matchesStandardVoice,
       issues: [...new Set([...classification.issues, "needs_human_review"])],
@@ -354,14 +358,143 @@ function uniqueBy(items, fn) {
   return [...map.values()];
 }
 
+function baselineCandidateFromPreference(preference, category) {
+  const publicPath = preference?.preferredAudioPath || "";
+  if (!publicPath || !existsPublic(publicPath)) return null;
+  const classification = classifyAssessmentAudioPath(publicPath, preference);
+  if (preference.status !== "approved") return null;
+  const isPrompt = category === "prompt";
+  const isCleanStandard = classification.status === "KEEP_STANDARD_VOICE";
+  if (!isPrompt && !isCleanStandard) return null;
+  return {
+    audioId: `baseline:${preference.key || publicPath}`,
+    path: publicPath,
+    script: preference.textSpoken || preference.word || preference.key || "",
+    skillCategory: category,
+    preferenceStatus: preference.status,
+    fileExists: true,
+    referenceWorks: true,
+    matchesStandardVoice: isCleanStandard ? "yes" : "uncertain",
+    status: isCleanStandard ? "KEEP_STANDARD_VOICE" : "NEEDS_HUMAN_REVIEW",
+    issues: isCleanStandard ? [] : ["needs_human_review"],
+    baselineCategory: category,
+    baselineReason: isCleanStandard
+      ? `Approved clean-human ${category} baseline.`
+      : `Approved prompt audio baseline. This path is not clean-human and should be regenerated if prompt voice consistency is required.`,
+    ...audioMetadata(publicPath)
+  };
+}
+
 function baselineFiles(items) {
-  return items
+  const usedPaths = new Set();
+  const chosen = [];
+  const referenced = items
     .filter(item => item.matchesStandardVoice === "yes" && item.status === "KEEP_STANDARD_VOICE" && item.fileExists)
-    .sort((a, b) => {
-      const categoryScore = value => value.path.includes("/hfw/") ? 0 : value.path.includes("/words/") ? 1 : 2;
-      return categoryScore(a) - categoryScore(b) || a.path.localeCompare(b.path);
-    })
-    .slice(0, 10);
+    .sort((a, b) => a.path.localeCompare(b.path));
+  const byPath = uniqueBy(referenced, item => item.path);
+  const preferenceBaselines = Object.values(audioPreferenceManifest).map(preference => {
+    const publicPath = preference.preferredAudioPath || "";
+    if (publicPath.includes("/hfw/")) return baselineCandidateFromPreference(preference, "hfw");
+    if (publicPath.includes("/phrases/")) return baselineCandidateFromPreference(preference, "prompt");
+    if (publicPath.includes("/words/")) return baselineCandidateFromPreference(preference, "word");
+    return null;
+  }).filter(Boolean);
+
+  function take(label, candidates, limit) {
+    for (const item of candidates) {
+      if (chosen.length >= 10 || chosen.filter(row => row.baselineCategory === label).length >= limit) continue;
+      if (usedPaths.has(item.path)) continue;
+      usedPaths.add(item.path);
+      chosen.push({
+        ...item,
+        baselineCategory: label,
+        baselineReason: item.baselineReason || `Approved ${label} baseline.`
+      });
+    }
+  }
+
+  take("hfw", preferenceBaselines.filter(item => item.baselineCategory === "hfw"), 3);
+  take("word", preferenceBaselines.filter(item => item.baselineCategory === "word"), 2);
+  take("prompt", preferenceBaselines.filter(item => item.baselineCategory === "prompt"), 2);
+  take("phonics", byPath.filter(item =>
+    item.path.includes("/words/") &&
+    ["initial sounds", "ending sounds", "rhyming", "blending", "decoding"].includes(item.skillCategory)
+  ), 3);
+  take("word", byPath.filter(item => item.path.includes("/words/")), 10);
+  take("hfw", byPath.filter(item => item.path.includes("/hfw/")), 10);
+
+  return chosen.slice(0, 10);
+}
+
+function buildReplacementItems(referencedItems) {
+  const grouped = new Map();
+  const candidates = referencedItems.filter(item =>
+    item.status !== "KEEP_STANDARD_VOICE" ||
+    item.issues.includes("needs_human_review")
+  );
+
+  for (const item of candidates) {
+    const key = `${item.replacementPath}::${item.script}`;
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        ...item,
+        audioIds: new Set([item.audioId]),
+        sourceReferences: new Set([item.sourceReference]),
+        statuses: new Set([item.status]),
+        issuesSet: new Set(item.issues || []),
+        totalReferences: 0,
+        activeReferences: 0
+      });
+    }
+    const existing = grouped.get(key);
+    existing.totalReferences += 1;
+    if (item.active) existing.activeReferences += 1;
+    existing.audioIds.add(item.audioId);
+    existing.sourceReferences.add(item.sourceReference);
+    existing.statuses.add(item.status);
+    for (const issue of item.issues || []) existing.issuesSet.add(issue);
+  }
+
+  return Array.from(grouped.values()).map(item => ({
+    ...item,
+    audioIds: Array.from(item.audioIds).sort(),
+    sourceReferences: Array.from(item.sourceReferences).sort(),
+    statuses: Array.from(item.statuses).sort(),
+    issues: Array.from(item.issuesSet).sort()
+  })).sort((a, b) => a.replacementPath.localeCompare(b.replacementPath));
+}
+
+function priorityForReplacementItem(item) {
+  const active = item.activeReferences > 0;
+  if (active && (item.statuses.includes("MISSING_AUDIO") || item.statuses.includes("BROKEN_REFERENCE") || item.issues.includes("missing_file") || item.issues.includes("broken_reference"))) {
+    return "1. Missing/broken audio affecting active assessment questions";
+  }
+  if (active && (item.statuses.includes("REPLACE_OLD_ORIGINAL") || item.issues.includes("old_original_audio"))) {
+    return "2. Old/original audio used in active assessment questions";
+  }
+  if (item.statuses.includes("NEEDS_HUMAN_REVIEW") && item.totalReferences >= 5) {
+    return "3. Human-review items used frequently";
+  }
+  return "4. Low-priority inactive/rare/uncertain items";
+}
+
+function replacementTableRows(items) {
+  return items.map(item => [
+    item.audioIds.slice(0, 4).join("<br>"),
+    item.assessmentType,
+    item.skillCategory,
+    item.path,
+    item.replacementPath,
+    item.script || "[SCRIPT NEEDED]",
+    item.activeReferences,
+    item.totalReferences,
+    item.skillCategory.includes("letter") || item.skillCategory.includes("phonological") ? "Confirm whether this is a letter name or phoneme/sound before recording." : "",
+    item.role,
+    item.path === item.replacementPath ? "overwrite after approval" : "create new clean-human replacement, then update manifest",
+    item.statuses.join(", "),
+    item.issues.join(", ") || "needs_human_review",
+    replacementInstructionForAudio(item.script, item.skillCategory.includes("letter") ? "For letter/sound items, do not confuse letter names with phonemes." : "")
+  ]);
 }
 
 function buildSummary(items, refs, physicalAudio) {
@@ -382,13 +515,7 @@ function writeReports({ items, refs, physicalAudio }) {
   const summary = buildSummary(items, refs, physicalAudio);
   const baseline = baselineFiles(items);
   const referencedItems = items.filter(item => item.sourceReference !== "physical file scan");
-  const replacementItems = uniqueBy(
-    referencedItems.filter(item =>
-      item.status !== "KEEP_STANDARD_VOICE" ||
-      item.issues.includes("needs_human_review")
-    ),
-    item => `${item.replacementPath}::${item.script}`
-  ).sort((a, b) => a.replacementPath.localeCompare(b.replacementPath));
+  const replacementItems = buildReplacementItems(referencedItems);
 
   const standardVoice = {
     ...ASSESSMENT_AUDIO_STANDARD,
@@ -398,7 +525,9 @@ function writeReports({ items, refs, physicalAudio }) {
       durationMs: item.durationMs,
       sampleRate: item.sampleRate,
       bitrate: item.bitrate,
-      channels: item.channels
+      channels: item.channels,
+      category: item.baselineCategory || item.skillCategory,
+      reason: item.baselineReason || "Approved clean-human path used by assessment questions."
     }))
   };
 
@@ -435,6 +564,7 @@ function writeReports({ items, refs, physicalAudio }) {
   }, null, 2)}\n`);
 
   const baselineRows = baseline.map(item => [
+    item.baselineCategory || item.skillCategory || "",
     item.path,
     item.script,
     item.durationMs,
@@ -442,7 +572,7 @@ function writeReports({ items, refs, physicalAudio }) {
     item.bitrate,
     item.channels,
     item.preferenceStatus,
-    "Approved clean-human path used by assessment questions."
+    item.baselineReason || "Approved clean-human path used by assessment questions."
   ]);
 
   writeFile(baselinePath, `# Assessment Audio Voice Baseline
@@ -472,11 +602,11 @@ Generated: ${generatedAt}
 
 ## Baseline Files
 
-${baselineRows.length ? table(["Path", "Expected script", "Duration ms", "Sample rate", "Bitrate", "Channels", "Status", "Reason"], baselineRows) : "_No clean-human approved baseline files found._"}
+${baselineRows.length ? table(["Category", "Path", "Expected script", "Duration ms", "Sample rate", "Bitrate", "Channels", "Status", "Reason"], baselineRows) : "_No approved baseline files found._"}
 
 ## Notes
 
-No formal provider voice ID was found for the imported clean-human Kimi/Pack 6 files. The baseline therefore uses approved files under \`${ASSESSMENT_AUDIO_STANDARD.standardRoot}\` that are already selected by \`src/data/audioPreferenceManifest.js\`.
+No formal provider voice ID was found for the imported clean-human Kimi/Pack 6 files. The baseline therefore uses approved files selected by \`src/data/audioPreferenceManifest.js\`. HFW, word, and phonics examples come from the clean-human standard root where available. Prompt-audio examples are included from currently approved prompt paths; they are marked for future review if they are not yet clean-human.
 `);
 
   const summaryRows = [
@@ -535,20 +665,22 @@ Showing the first 250 referenced assessment audio rows. The complete machine-rea
 ${table(["Audio ID", "Path", "Source", "Assessment type", "Skill/category", "Expected script", "Duration ms", "Sample rate", "Bitrate", "Channels", "File exists", "Reference works", "Standard voice", "Status", "Issues"], inventoryRows)}
 `);
 
-  const requestRows = replacementItems.map(item => [
-    item.audioId,
-    item.assessmentType,
-    item.skillCategory,
-    item.path,
-    item.replacementPath,
-    item.script || "[SCRIPT NEEDED]",
-    item.skillCategory.includes("letter") || item.skillCategory.includes("phonological") ? "Confirm whether this is a letter name or phoneme/sound before recording." : "",
-    item.role,
-    item.path === item.replacementPath ? "overwrite after approval" : "create new clean-human replacement, then update manifest",
-    item.status,
-    item.issues.join(", ") || "needs_human_review",
-    replacementInstructionForAudio(item.script, item.skillCategory.includes("letter") ? "For letter/sound items, do not confuse letter names with phonemes." : "")
-  ]);
+  const priorityGroups = replacementItems.reduce((groups, item) => {
+    const priority = priorityForReplacementItem(item);
+    if (!groups[priority]) groups[priority] = [];
+    groups[priority].push(item);
+    return groups;
+  }, {});
+  const priorityOrder = [
+    "1. Missing/broken audio affecting active assessment questions",
+    "2. Old/original audio used in active assessment questions",
+    "3. Human-review items used frequently",
+    "4. Low-priority inactive/rare/uncertain items"
+  ];
+  const prioritySections = priorityOrder.map(priority => {
+    const rows = priorityGroups[priority] || [];
+    return `## Priority ${priority}\n\n- Items: ${rows.length}\n\n${rows.length ? table(["Audio IDs", "Assessment section", "Skill/category", "Current path", "Target replacement path", "Expected spoken script", "Active refs", "Total refs", "Pronunciation notes", "Phoneme/role notes", "Overwrite or version", "Statuses", "Reason", "Instruction"], replacementTableRows(rows)) : "_No items in this priority batch._"}`;
+  }).join("\n\n");
 
   writeFile(requestPath, `# Replacement Assessment Audio Request
 
@@ -568,9 +700,11 @@ This request includes only referenced assessment audio that is missing, broken, 
 - Normalize volume consistently
 - Tiny silence at the beginning and end
 
-## Replacement Items
+## Priority Batch Summary
 
-${requestRows.length ? table(["Audio ID", "Assessment section", "Skill/category", "Current path", "Target replacement path", "Expected spoken script", "Pronunciation notes", "Phoneme/role notes", "Overwrite or version", "Status", "Reason", "Instruction"], requestRows) : "_No replacement items generated._"}
+${table(["Batch", "Items"], priorityOrder.map(priority => [priority, priorityGroups[priority]?.length || 0]))}
+
+${prioritySections}
 `);
 
   writeFile(methodPath, `# Assessment Audio Audit Method

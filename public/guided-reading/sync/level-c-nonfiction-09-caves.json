@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-09-caves",
+  "title": "Caves",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-09/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 110217,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 11838,
+      "text": "Caves are hollow spaces underground or inside cliffs. They form in many different ways. Some are made by water, some by sea waves, and some by ancient flowing lava."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 11838,
+      "endMs": 22860,
+      "text": "Most caves form when rainwater seeps into limestone rock. The water is slightly acidic. It slowly dissolves the rock away. This takes thousands and thousands of years."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 22860,
+      "endMs": 34290,
+      "text": "Over time, tunnels and chambers form underground. Some cave systems stretch for hundreds of kilometres. The Mammoth Cave system in America has more than 650 kilometres of passages."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 34290,
+      "endMs": 47353,
+      "text": "Water drips from cave ceilings for thousands of years. The minerals in the water build up slowly. These hanging stone shapes are called stalactites. They form one tiny drip at a time."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 47353,
+      "endMs": 58375,
+      "text": "When drips hit the cave floor, minerals build up there too. These rising stone shapes are called stalagmites. They grow just a few centimetres every hundred years."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 58375,
+      "endMs": 69397,
+      "text": "When a stalactite and a stalagmite meet, they form a column. A cave column can take tens of thousands of years to grow. Each one is unique."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 69397,
+      "endMs": 82460,
+      "text": "Caves are home to many animals. Bats sleep hanging upside down from cave ceilings by day. At dusk, thousands of bats fly out together to feed on insects in the night air."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 82460,
+      "endMs": 96747,
+      "text": "Some creatures live only in caves and never come out. Over thousands of years, they have adapted. Cave fish are often pale or white — they have never needed colour. Many have no eyes at all."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 96747,
+      "endMs": 110217,
+      "text": "Long ago, people lived in caves. They painted pictures on the cave walls. Cave paintings have been found that are more than 40,000 years old. The artists were humans just like us."
+    }
+  ]
+}

@@ -1,9 +1,12 @@
 # Kimi Request: Missing Guided Reading Whole-Book Audio
 
-Create only the missing whole-book audio files listed below. Do not create page images, word audio, page-level narration, browser-TTS output, placeholder audio, or audio for books that already have a whole-book MP3.
+Create only the missing whole-book audio and matching whole-book sync JSON files listed below. Do not create page images, word audio, page-level narration, browser-TTS output, placeholder audio, or audio for books that already have a whole-book MP3.
 
 Delivery requirements:
 - One clean MP3 per book at the exact requested path.
+- One JSON sync file per book at the exact requested sync path, if page-boundary timing can be measured from the produced MP3.
+- Sync JSON must use the required format: `bookId`, `title`, `audioPath`, `syncAccuracy`, `durationMs`, and `pageTimings` with `pageIndex`, `pageNumber`, `startMs`, `endMs`, and `text`.
+- Use `syncAccuracy: "explicit"` only when the page boundaries are measured against the final MP3. Use `syncAccuracy: "estimated"` if they are approximate and need human verification.
 - Natural child-friendly narration in a consistent warm voice.
 - Read the page text in page order with a short natural pause between pages.
 - Do not read page numbers, filenames, markdown, section labels, or production notes.
@@ -16,7 +19,8 @@ Books requested: 116
 - Book ID: gr-a-26
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-a-26-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-a-26-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-a-26.json`
 
 Page text to narrate:
 
@@ -43,7 +47,8 @@ Pets are fun!
 - Book ID: gr-a-27
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-a-27-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-a-27-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-a-27.json`
 
 Page text to narrate:
 
@@ -70,7 +75,8 @@ The sun is our friend.
 - Book ID: gr-a-28
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-a-28-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-a-28-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-a-28.json`
 
 Page text to narrate:
 
@@ -97,7 +103,8 @@ I see all the colors!
 - Book ID: gr-a-29
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-a-29-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-a-29-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-a-29.json`
 
 Page text to narrate:
 
@@ -124,7 +131,8 @@ My body is amazing!
 - Book ID: gr-b-31
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-b-31-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-b-31-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-b-31.json`
 
 Page text to narrate:
 
@@ -151,7 +159,8 @@ I like all four seasons!
 - Book ID: gr-b-32
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-b-32-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-b-32-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-b-32.json`
 
 Page text to narrate:
 
@@ -178,7 +187,8 @@ I love fruits!
 - Book ID: gr-b-33
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-b-33-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-b-33-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-b-33.json`
 
 Page text to narrate:
 
@@ -205,7 +215,8 @@ Tools help us build!
 - Book ID: gr-b-34
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-b-34-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-b-34-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-b-34.json`
 
 Page text to narrate:
 
@@ -232,7 +243,8 @@ The moon comes up.
 - Book ID: gr-b-35
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-b-35-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-b-35-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-b-35.json`
 
 Page text to narrate:
 
@@ -259,7 +271,8 @@ Helpers make our town great!
 - Book ID: gr-c-37
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-c-37-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-c-37-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-c-37.json`
 
 Page text to narrate:
 
@@ -286,7 +299,8 @@ Water is important!
 - Book ID: gr-c-38
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-c-38-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-c-38-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-c-38.json`
 
 Page text to narrate:
 
@@ -313,7 +327,8 @@ My five senses help me learn!
 - Book ID: gr-c-39
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-c-39-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-c-39-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-c-39.json`
 
 Page text to narrate:
 
@@ -340,7 +355,8 @@ Shapes are all around!
 - Book ID: gr-d-42
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-d-42-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-d-42-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-d-42.json`
 
 Page text to narrate:
 
@@ -367,7 +383,8 @@ We must keep Earth clean!
 - Book ID: gr-d-43
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-d-43-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-d-43-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-d-43.json`
 
 Page text to narrate:
 
@@ -394,7 +411,8 @@ Healthy habits make me strong!
 - Book ID: gr-d-44
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-d-44-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-d-44-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-d-44.json`
 
 Page text to narrate:
 
@@ -421,7 +439,8 @@ All animals need a home!
 - Book ID: gr-d-45
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-d-45-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-d-45-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-d-45.json`
 
 Page text to narrate:
 
@@ -448,7 +467,8 @@ Space is big and amazing!
 - Book ID: gr-e-46
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-e-46-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-e-46-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-e-46.json`
 
 Page text to narrate:
 
@@ -475,7 +495,8 @@ Reptiles are cold-blooded animals!
 - Book ID: gr-e-47
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-e-47-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-e-47-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-e-47.json`
 
 Page text to narrate:
 
@@ -502,7 +523,8 @@ Growing takes time and care!
 - Book ID: gr-e-48
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-e-48-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-e-48-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-e-48.json`
 
 Page text to narrate:
 
@@ -529,7 +551,8 @@ Same poles push apart!
 - Book ID: gr-e-49
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-e-49-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-e-49-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-e-49.json`
 
 Page text to narrate:
 
@@ -556,7 +579,8 @@ Clothes keep us safe and warm!
 - Book ID: gr-e-50
 - Type/level: Non-Fiction, Level B
 - Pages: 6
-- Required output path: `/guided-reading/audio/narration/gr-e-50-full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/audio/narration/gr-e-50-full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/gr-e-50.json`
 
 Page text to narrate:
 
@@ -583,7 +607,8 @@ Our senses help us explore!
 - Book ID: first-facts-level-a-01-colors
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-01/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-01/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-01-colors.json`
 
 Page text to narrate:
 
@@ -621,7 +646,8 @@ So many colors!
 - Book ID: first-facts-level-a-02-farm-animals
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-02/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-02/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-02-farm-animals.json`
 
 Page text to narrate:
 
@@ -658,7 +684,8 @@ So many animals.
 - Book ID: first-facts-level-a-03-big-and-little
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-03/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-03/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-03-big-and-little.json`
 
 Page text to narrate:
 
@@ -695,7 +722,8 @@ Little and big!
 - Book ID: first-facts-level-a-04-water
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-04/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-04/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-04-water.json`
 
 Page text to narrate:
 
@@ -726,7 +754,8 @@ We need water.
 - Book ID: first-facts-level-a-05-the-sky
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-05/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-05/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-05-the-sky.json`
 
 Page text to narrate:
 
@@ -763,7 +792,8 @@ The sky is big.
 - Book ID: first-facts-level-a-06-animals-can
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-06/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-06/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-06-animals-can.json`
 
 Page text to narrate:
 
@@ -801,7 +831,8 @@ I can swim!
 - Book ID: first-facts-level-a-07-bugs
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-07/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-07/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-07-bugs.json`
 
 Page text to narrate:
 
@@ -838,7 +869,8 @@ They are little.
 - Book ID: first-facts-level-a-08-my-pet
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-08/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-08/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-08-my-pet.json`
 
 Page text to narrate:
 
@@ -874,7 +906,8 @@ My pet is my friend!
 - Book ID: first-facts-level-a-09-hot-and-cold
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-09/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-09/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-09-hot-and-cold.json`
 
 Page text to narrate:
 
@@ -911,7 +944,8 @@ Cold and hot.
 - Book ID: first-facts-level-a-10-shapes
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-10/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-10/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-10-shapes.json`
 
 Page text to narrate:
 
@@ -948,7 +982,8 @@ Can you find it?
 - Book ID: first-facts-level-a-11-at-the-farm
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-11/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-11/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-11-at-the-farm.json`
 
 Page text to narrate:
 
@@ -984,7 +1019,8 @@ I can see so much.
 - Book ID: first-facts-level-a-12-in-the-sea
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-12/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-12/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-12-in-the-sea.json`
 
 Page text to narrate:
 
@@ -1019,7 +1055,8 @@ Splash!
 - Book ID: first-facts-level-a-13-fruit
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-13/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-13/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-13-fruit.json`
 
 Page text to narrate:
 
@@ -1056,7 +1093,8 @@ I love fruit!
 - Book ID: first-facts-level-a-14-the-tree
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-14/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-14/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-14-the-tree.json`
 
 Page text to narrate:
 
@@ -1090,7 +1128,8 @@ I love the big tree!
 - Book ID: first-facts-level-a-15-baby-animals
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-15/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-15/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-15-baby-animals.json`
 
 Page text to narrate:
 
@@ -1127,7 +1166,8 @@ Big and strong.
 - Book ID: first-facts-level-a-16-fast-and-slow
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-16/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-16/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-16-fast-and-slow.json`
 
 Page text to narrate:
 
@@ -1164,7 +1204,8 @@ Which do you like?
 - Book ID: first-facts-level-a-17-a-seed-grows
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-17/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-17/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-17-a-seed-grows.json`
 
 Page text to narrate:
 
@@ -1198,7 +1239,8 @@ A seed can grow big.
 - Book ID: first-facts-level-a-18-my-body
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-18/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-18/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-18-my-body.json`
 
 Page text to narrate:
 
@@ -1235,7 +1277,8 @@ I love my body.
 - Book ID: first-facts-level-a-19-day-and-night
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-19/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-19/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-19-day-and-night.json`
 
 Page text to narrate:
 
@@ -1271,7 +1314,8 @@ Light and dark.
 - Book ID: first-facts-level-a-20-space
 - Type/level: Non-Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/nonfiction/first-facts-level-a/book-20/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts-level-a/book-20/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-level-a-20-space.json`
 
 Page text to narrate:
 
@@ -1308,7 +1352,8 @@ We are small.
 - Book ID: bob-and-nan-01
 - Type/level: Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/series/bob-and-nan/book-01/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-01/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-01.json`
 
 Page text to narrate:
 
@@ -1338,7 +1383,8 @@ Bob and Nan are pals!
 - Book ID: bob-and-nan-02-park
 - Type/level: Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/series/bob-and-nan/book-02/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-02/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-02-park.json`
 
 Page text to narrate:
 
@@ -1368,7 +1414,8 @@ What a fun day!
 - Book ID: bob-and-nan-03-fluff
 - Type/level: Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/series/bob-and-nan/book-03/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-03/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-03-fluff.json`
 
 Page text to narrate:
 
@@ -1398,7 +1445,8 @@ Fluff is our pup!
 - Book ID: bob-and-nan-04-beach
 - Type/level: Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/series/bob-and-nan/book-04/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-04/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-04-beach.json`
 
 Page text to narrate:
 
@@ -1428,7 +1476,8 @@ Bob and Nan had fun at the beach!
 - Book ID: bob-and-nan-05-school
 - Type/level: Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/series/bob-and-nan/book-05/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-05/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-05-school.json`
 
 Page text to narrate:
 
@@ -1458,7 +1507,8 @@ Bob and Nan had fun at school!
 - Book ID: bob-and-nan-06-zoo
 - Type/level: Fiction, Level A
 - Pages: 8
-- Required output path: `/guided-reading/series/bob-and-nan/book-06/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-06/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-06-zoo.json`
 
 Page text to narrate:
 
@@ -1491,7 +1541,8 @@ Nan and Bob had a lot of fun!
 - Book ID: bob-and-nan-07-birthday
 - Type/level: Fiction, Level A
 - Pages: 8
-- Required output path: `/guided-reading/series/bob-and-nan/book-07/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-07/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-07-birthday.json`
 
 Page text to narrate:
 
@@ -1524,7 +1575,8 @@ It was the best day!
 - Book ID: bob-and-nan-08-sick
 - Type/level: Fiction, Level A
 - Pages: 8
-- Required output path: `/guided-reading/series/bob-and-nan/book-08/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-08/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-08-sick.json`
 
 Page text to narrate:
 
@@ -1557,7 +1609,8 @@ Run, Bob! Run, Nan! Run, Fluff!
 - Book ID: bob-and-nan-09-read
 - Type/level: Fiction, Level A
 - Pages: 8
-- Required output path: `/guided-reading/series/bob-and-nan/book-09/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-09/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-09-read.json`
 
 Page text to narrate:
 
@@ -1590,7 +1643,8 @@ Fluff had a nap. Good dog, Fluff!
 - Book ID: bob-and-nan-10-vet
 - Type/level: Fiction, Level A
 - Pages: 8
-- Required output path: `/guided-reading/series/bob-and-nan/book-10/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/bob-and-nan/book-10/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/bob-and-nan-10-vet.json`
 
 Page text to narrate:
 
@@ -1623,7 +1677,8 @@ Fluff is well! Run, Fluff, run!
 - Book ID: james-and-anna-01-space
 - Type/level: Fiction, Level B
 - Pages: 14
-- Required output path: `/guided-reading/series/james-and-anna/book-01/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-01/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/james-and-anna-01-space.json`
 
 Page text to narrate:
 
@@ -1674,7 +1729,8 @@ BUMP! They were back in the garden. Mum had made cake. "Best trip EVER!" they sa
 - Book ID: james-and-anna-02-chips
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/james-and-anna/book-02/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-02/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/james-and-anna-02-chips.json`
 
 Page text to narrate:
 
@@ -1719,7 +1775,8 @@ Page 12:
 - Book ID: james-and-anna-03-shopping
 - Type/level: Fiction, Level B
 - Pages: 13
-- Required output path: `/guided-reading/series/james-and-anna/book-03/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-03/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/james-and-anna-03-shopping.json`
 
 Page text to narrate:
 
@@ -1767,7 +1824,8 @@ At home, Mum made lunch. After, they had their cakes. Chips ate the paper bag. "
 - Book ID: james-and-anna-04-dentist
 - Type/level: Fiction, Level B
 - Pages: 13
-- Required output path: `/guided-reading/series/james-and-anna/book-04/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-04/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/james-and-anna-04-dentist.json`
 
 Page text to narrate:
 
@@ -1815,7 +1873,8 @@ That night, they brushed their teeth for a very long time. Chips sat at the bath
 - Book ID: james-and-anna-05-tree-house
 - Type/level: Fiction, Level B
 - Pages: 14
-- Required output path: `/guided-reading/series/james-and-anna/book-05/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-05/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/james-and-anna-05-tree-house.json`
 
 Page text to narrate:
 
@@ -1866,7 +1925,8 @@ That night, they got their sleeping bags and climbed up to sleep. Stars shone ab
 - Book ID: ja-b-06
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/james-and-anna/book-06/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-06/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ja-b-06.json`
 
 Page text to narrate:
 
@@ -1911,7 +1971,8 @@ They sat outside as the sun went down. Bess looked over her gate. Percy slept in
 - Book ID: ja-b-07
 - Type/level: Fiction, Level B
 - Pages: 13
-- Required output path: `/guided-reading/series/james-and-anna/book-07/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-07/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ja-b-07.json`
 
 Page text to narrate:
 
@@ -1959,7 +2020,8 @@ Mum and Dad clapped the loudest. Mum had tears. Dad said it was just the bright 
 - Book ID: ja-b-08
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/james-and-anna/book-08/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-08/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ja-b-08.json`
 
 Page text to narrate:
 
@@ -2004,7 +2066,8 @@ Page 12:
 - Book ID: ja-b-09
 - Type/level: Fiction, Level B
 - Pages: 13
-- Required output path: `/guided-reading/series/james-and-anna/book-09/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-09/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ja-b-09.json`
 
 Page text to narrate:
 
@@ -2052,7 +2115,8 @@ That night their legs ached. But they were both smiling. "Same time tomorrow?" s
 - Book ID: ja-b-10
 - Type/level: Fiction, Level B
 - Pages: 14
-- Required output path: `/guided-reading/series/james-and-anna/book-10/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/james-and-anna/book-10/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ja-b-10.json`
 
 Page text to narrate:
 
@@ -2103,7 +2167,8 @@ Page 14:
 - Book ID: ab-c-01
 - Type/level: Fiction, Level C
 - Pages: 13
-- Required output path: `/guided-reading/series/aiden-and-betty/book-01/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-01/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-01.json`
 
 Page text to narrate:
 
@@ -2151,7 +2216,8 @@ Page 13:
 - Book ID: ab-c-02
 - Type/level: Fiction, Level C
 - Pages: 13
-- Required output path: `/guided-reading/series/aiden-and-betty/book-02/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-02/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-02.json`
 
 Page text to narrate:
 
@@ -2199,7 +2265,8 @@ As Aiden folded up the last table, he found something wedged at the very back �
 - Book ID: ab-c-03
 - Type/level: Fiction, Level C
 - Pages: 13
-- Required output path: `/guided-reading/series/aiden-and-betty/book-03/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-03/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-03.json`
 
 Page text to narrate:
 
@@ -2247,7 +2314,8 @@ The drive home felt half as long as the drive there, which Aiden thought was mat
 - Book ID: ab-c-04
 - Type/level: Fiction, Level C
 - Pages: 14
-- Required output path: `/guided-reading/series/aiden-and-betty/book-04/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-04/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-04.json`
 
 Page text to narrate:
 
@@ -2298,7 +2366,8 @@ Aiden had been keeping a field notebook — just as Uncle Eddie had shown him. H
 - Book ID: ab-c-05
 - Type/level: Fiction, Level C
 - Pages: 14
-- Required output path: `/guided-reading/series/aiden-and-betty/book-05/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-05/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-05.json`
 
 Page text to narrate:
 
@@ -2349,7 +2418,8 @@ On the way home, Betty said they needed a tracker collar. Aiden said they needed
 - Book ID: ab-c-06
 - Type/level: Fiction, Level C
 - Pages: 13
-- Required output path: `/guided-reading/series/aiden-and-betty/book-06/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-06/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-06.json`
 
 Page text to narrate:
 
@@ -2397,7 +2467,8 @@ Page 13:
 - Book ID: ab-c-07
 - Type/level: Fiction, Level C
 - Pages: 13
-- Required output path: `/guided-reading/series/aiden-and-betty/book-07/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-07/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-07.json`
 
 Page text to narrate:
 
@@ -2445,7 +2516,8 @@ Page 13:
 - Book ID: ab-c-08
 - Type/level: Fiction, Level C
 - Pages: 13
-- Required output path: `/guided-reading/series/aiden-and-betty/book-08/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-08/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-08.json`
 
 Page text to narrate:
 
@@ -2493,7 +2565,8 @@ Page 13:
 - Book ID: ab-c-09
 - Type/level: Fiction, Level C
 - Pages: 13
-- Required output path: `/guided-reading/series/aiden-and-betty/book-09/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-09/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-09.json`
 
 Page text to narrate:
 
@@ -2541,7 +2614,8 @@ Page 13:
 - Book ID: ab-c-10
 - Type/level: Fiction, Level C
 - Pages: 13
-- Required output path: `/guided-reading/series/aiden-and-betty/book-10/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/aiden-and-betty/book-10/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/ab-c-10.json`
 
 Page text to narrate:
 
@@ -2589,7 +2663,8 @@ That evening, Aiden wrote in his field notebook for a long time — the drawbrid
 - Book ID: dino-pals-01-chompys-big-lunch
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-01/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-01/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-01-chompys-big-lunch.json`
 
 Page text to narrate:
 
@@ -2622,7 +2697,8 @@ That night, Chompy looked at the stars. I wonder what breakfast will be, said Ch
 - Book ID: dino-pals-02-sunnys-rainy-day
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-02/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-02/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-02-sunnys-rainy-day.json`
 
 Page text to narrate:
 
@@ -2655,7 +2731,8 @@ The sun came back out. See? said Sunny. Every day is a good day!
 - Book ID: dino-pals-03-dozy-wont-wake-up
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-03/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-03/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-03-dozy-wont-wake-up.json`
 
 Page text to narrate:
 
@@ -2688,7 +2765,8 @@ Dozy was up! I was just resting my eyes, said Dozy. Dozy's eyes were already clo
 - Book ID: dino-pals-04-grumpy-needs-help
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-04/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-04/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-04-grumpy-needs-help.json`
 
 Page text to narrate:
 
@@ -2721,7 +2799,8 @@ Thank you, said Grumpy. Not that I needed it. But Grumpy was smiling. Just a lit
 - Book ID: dino-pals-05-bossy-makes-a-plan
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-05/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-05/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-05-bossy-makes-a-plan.json`
 
 Page text to narrate:
 
@@ -2754,7 +2833,8 @@ Hmm, said Bossy. Bossy wrote on the clipboard: New plan: ask nicely.
 - Book ID: dino-pals-06-bouncy-bumps-into-everything
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-06/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-06/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-06-bouncy-bumps-into-everything.json`
 
 Page text to narrate:
 
@@ -2787,7 +2867,8 @@ Maybe I should bounce in the meadow, said Bouncy. BOING! BOING! BOING!
 - Book ID: dino-pals-07-wigglys-messy-day
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-07/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-07/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-07-wigglys-messy-day.json`
 
 Page text to narrate:
 
@@ -2820,7 +2901,8 @@ Wiggly smiled. Current score, said Wiggly. Tail: twelve. Wiggly: also twelve.
 - Book ID: dino-pals-08-zippy-slows-down
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-08/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-08/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-08-zippy-slows-down.json`
 
 Page text to narrate:
 
@@ -2853,7 +2935,8 @@ Zippy walked home. Slowly. It took ages. Zippy loved it.
 - Book ID: dino-pals-09-honkys-inside-voice
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-09/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-09/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-09-honkys-inside-voice.json`
 
 Page text to narrate:
 
@@ -2886,7 +2969,8 @@ Maybe Honky's voice is very useful after all, said Bossy. THANK YOU! said Honky.
 - Book ID: dino-pals-10-cheekys-prank-goes-wrong
 - Type/level: Fiction, Level B
 - Pages: 8
-- Required output path: `/guided-reading/series/dino-pals/book-10/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-10/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-10-cheekys-prank-goes-wrong.json`
 
 Page text to narrate:
 
@@ -2919,7 +3003,8 @@ Cheeky helped clean Fancy's rock. Will you do any more pranks? asked Fancy. Mayb
 - Book ID: dino-pals-11-shys-secret-gift
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-11/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-11/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-11-shys-secret-gift.json`
 
 Page text to narrate:
 
@@ -2964,7 +3049,8 @@ The next morning, eleven gifts were on the Big Flat Rock. One from each Dino Pal
 - Book ID: dino-pals-12-fancys-bad-day
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-12/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-12/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-12-fancys-bad-day.json`
 
 Page text to narrate:
 
@@ -3009,7 +3095,8 @@ The next morning, Fancy left a beautifully woven bracelet outside Wiggly's cave.
 - Book ID: dino-pals-13-clumsy-to-the-rescue
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-13/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-13/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-13-clumsy-to-the-rescue.json`
 
 Page text to narrate:
 
@@ -3054,7 +3141,8 @@ We make a good team, said Clumsy. You see the problem. I reach the problem. Exac
 - Book ID: dino-pals-14-what-is-flappy
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-14/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-14/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-14-what-is-flappy.json`
 
 Page text to narrate:
 
@@ -3099,7 +3187,8 @@ Flappy went back to the tree. Got three wing-flaps up. Landed neatly on a branch
 - Book ID: dino-pals-15-sneezy-and-the-waterfall
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-15/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-15/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-15-sneezy-and-the-waterfall.json`
 
 Page text to narrate:
 
@@ -3144,7 +3233,8 @@ Sorry, said Sneezy, dabbing with the handkerchief. Every leaf had fallen off eve
 - Book ID: dino-pals-16-chompy-and-grumpys-day-out
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-16/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-16/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-16-chompy-and-grumpys-day-out.json`
 
 Page text to narrate:
 
@@ -3189,7 +3279,8 @@ Grumpy sat on the rock alone. It was peaceful. But after a while, Grumpy called:
 - Book ID: dino-pals-17-the-sunny-hollow-games
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-17/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-17/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-17-the-sunny-hollow-games.json`
 
 Page text to narrate:
 
@@ -3234,7 +3325,8 @@ Who won the Games overall? said Chompy, having eaten most of the prize berries. 
 - Book ID: dino-pals-18-dozys-wonderful-dream
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-18/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-18/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-18-dozys-wonderful-dream.json`
 
 Page text to narrate:
 
@@ -3279,7 +3371,8 @@ It was exactly like this, said Dozy, looking at all of them, but cloudier. Dozy'
 - Book ID: dino-pals-19-zippys-race
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-19/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-19/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-19-zippys-race.json`
 
 Page text to narrate:
 
@@ -3324,7 +3417,8 @@ But you didn't, said Sunny. Zippy ran four more circuits of Sunny Hollow. I know
 - Book ID: dino-pals-20-the-big-storm
 - Type/level: Fiction, Level B
 - Pages: 12
-- Required output path: `/guided-reading/series/dino-pals/book-20/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/dino-pals/book-20/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/dino-pals-20-the-big-storm.json`
 
 Page text to narrate:
 
@@ -3369,7 +3463,8 @@ When it passed, Sunny Hollow sparkled. We did that, said Sunny. All of us. Not b
 - Book ID: meadow-pals-01-muddy-has-a-bath
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-01/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-01/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-01-muddy-has-a-bath.json`
 
 Page text to narrate:
 
@@ -3405,7 +3500,8 @@ Muddy is happy.
 - Book ID: meadow-pals-02-woolly-cant-sleep
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-02/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-02/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-02-woolly-cant-sleep.json`
 
 Page text to narrate:
 
@@ -3441,7 +3537,8 @@ Woolly went to sleep.
 - Book ID: meadow-pals-03-clucky-lays-an-egg
 - Type/level: Fiction, Level A
 - Pages: 8
-- Required output path: `/guided-reading/series/meadow-pals/book-03/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-03/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-03-clucky-lays-an-egg.json`
 
 Page text to narrate:
 
@@ -3478,7 +3575,8 @@ Page 8:
 - Book ID: meadow-pals-04-bouncy-wont-stop
 - Type/level: Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/series/meadow-pals/book-04/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-04/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-04-bouncy-wont-stop.json`
 
 Page text to narrate:
 
@@ -3511,7 +3609,8 @@ Then Bouncy hopped again.
 - Book ID: meadow-pals-05-grumpy-gets-a-surprise
 - Type/level: Fiction, Level A
 - Pages: 10
-- Required output path: `/guided-reading/series/meadow-pals/book-05/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-05/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-05-grumpy-gets-a-surprise.json`
 
 Page text to narrate:
 
@@ -3550,7 +3649,8 @@ Page 10:
 - Book ID: meadow-pals-06-sleepy-cant-wake-up
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-06/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-06/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-06-sleepy-cant-wake-up.json`
 
 Page text to narrate:
 
@@ -3586,7 +3686,8 @@ Sleepy went back to bed.
 - Book ID: meadow-pals-07-noisy-tries-to-be-quiet
 - Type/level: Fiction, Level A
 - Pages: 10
-- Required output path: `/guided-reading/series/meadow-pals/book-07/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-07/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-07-noisy-tries-to-be-quiet.json`
 
 Page text to narrate:
 
@@ -3625,7 +3726,8 @@ Noisy is not good at quiet.
 - Book ID: meadow-pals-08-tiny-is-very-small
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-08/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-08/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-08-tiny-is-very-small.json`
 
 Page text to narrate:
 
@@ -3661,7 +3763,8 @@ Small is very, very good.
 - Book ID: meadow-pals-09-shy-comes-out-to-play
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-09/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-09/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-09-shy-comes-out-to-play.json`
 
 Page text to narrate:
 
@@ -3701,7 +3804,8 @@ Shy is playing!
 - Book ID: meadow-pals-10-giggly-has-the-hiccups
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-10/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-10/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-10-giggly-has-the-hiccups.json`
 
 Page text to narrate:
 
@@ -3741,7 +3845,8 @@ Oh no.
 - Book ID: meadow-pals-11-brave-climbs-the-hay-bale
 - Type/level: Fiction, Level A
 - Pages: 10
-- Required output path: `/guided-reading/series/meadow-pals/book-11/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-11/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-11-brave-climbs-the-hay-bale.json`
 
 Page text to narrate:
 
@@ -3780,7 +3885,8 @@ Then Brave fell off.
 - Book ID: meadow-pals-12-hungry-eats-everything
 - Type/level: Fiction, Level A
 - Pages: 7
-- Required output path: `/guided-reading/series/meadow-pals/book-12/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-12/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-12-hungry-eats-everything.json`
 
 Page text to narrate:
 
@@ -3813,7 +3919,8 @@ Hungry ate one more bit of grass.
 - Book ID: meadow-pals-13-splashy-finds-a-puddle
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-13/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-13/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-13-splashy-finds-a-puddle.json`
 
 Page text to narrate:
 
@@ -3850,7 +3957,8 @@ Splashy is very happy.
 - Book ID: meadow-pals-14-speedy-slows-down
 - Type/level: Fiction, Level A
 - Pages: 10
-- Required output path: `/guided-reading/series/meadow-pals/book-14/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-14/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-14-speedy-slows-down.json`
 
 Page text to narrate:
 
@@ -3890,7 +3998,8 @@ Speedy runs home.
 - Book ID: meadow-pals-15-cuddly-wants-a-hug
 - Type/level: Fiction, Level A
 - Pages: 10
-- Required output path: `/guided-reading/series/meadow-pals/book-15/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-15/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-15-cuddly-wants-a-hug.json`
 
 Page text to narrate:
 
@@ -3929,7 +4038,8 @@ Page 10:
 - Book ID: meadow-pals-16-muddy-and-splashy-make-a-mess
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-16/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-16/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-16-muddy-and-splashy-make-a-mess.json`
 
 Page text to narrate:
 
@@ -3965,7 +4075,8 @@ Muddy likes mud. Splashy likes mud too.
 - Book ID: meadow-pals-17-bouncy-and-speedy-have-a-race
 - Type/level: Fiction, Level A
 - Pages: 10
-- Required output path: `/guided-reading/series/meadow-pals/book-17/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-17/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-17-bouncy-and-speedy-have-a-race.json`
 
 Page text to narrate:
 
@@ -4004,7 +4115,8 @@ They are still going.
 - Book ID: meadow-pals-18-noisy-wakes-everyone-up
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-18/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-18/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-18-noisy-wakes-everyone-up.json`
 
 Page text to narrate:
 
@@ -4040,7 +4152,8 @@ Page 9:
 - Book ID: meadow-pals-19-tiny-and-brave-go-on-an-adventure
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-19/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-19/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-19-tiny-and-brave-go-on-an-adventure.json`
 
 Page text to narrate:
 
@@ -4076,7 +4189,8 @@ Page 9:
 - Book ID: meadow-pals-20-shy-and-cuddly-find-each-other
 - Type/level: Fiction, Level A
 - Pages: 10
-- Required output path: `/guided-reading/series/meadow-pals/book-20/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-20/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-20-shy-and-cuddly-find-each-other.json`
 
 Page text to narrate:
 
@@ -4115,7 +4229,8 @@ Both of them are happy.
 - Book ID: meadow-pals-21-woolly-and-grumpy-are-stuck
 - Type/level: Fiction, Level A
 - Pages: 9
-- Required output path: `/guided-reading/series/meadow-pals/book-21/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-21/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-21-woolly-and-grumpy-are-stuck.json`
 
 Page text to narrate:
 
@@ -4151,7 +4266,8 @@ Grumpy ran. Woolly ran. Not the same way.
 - Book ID: meadow-pals-22-sleepys-big-dream
 - Type/level: Fiction, Level A
 - Pages: 8
-- Required output path: `/guided-reading/series/meadow-pals/book-22/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-22/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-22-sleepys-big-dream.json`
 
 Page text to narrate:
 
@@ -4184,7 +4300,8 @@ Sleepy went back to sleep.
 - Book ID: meadow-pals-23-giggly-and-clucky-bake-a-cake
 - Type/level: Fiction, Level A
 - Pages: 11
-- Required output path: `/guided-reading/series/meadow-pals/book-23/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-23/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-23-giggly-and-clucky-bake-a-cake.json`
 
 Page text to narrate:
 
@@ -4226,7 +4343,8 @@ Clucky had a bit. Then Clucky giggled too.
 - Book ID: meadow-pals-24-grumpys-secret
 - Type/level: Fiction, Level A
 - Pages: 11
-- Required output path: `/guided-reading/series/meadow-pals/book-24/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-24/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-24-grumpys-secret.json`
 
 Page text to narrate:
 
@@ -4268,7 +4386,8 @@ Tiny told everyone.
 - Book ID: meadow-pals-25-the-big-farm-party
 - Type/level: Fiction, Level A
 - Pages: 13
-- Required output path: `/guided-reading/series/meadow-pals/book-25/audio/full-book.mp3`
+- Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-25/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/meadow-pals-25-the-big-farm-party.json`
 
 Page text to narrate:
 

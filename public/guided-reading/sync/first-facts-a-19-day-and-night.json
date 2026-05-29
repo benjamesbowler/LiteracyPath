@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-19-day-and-night",
+  "title": "Day and Night",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-19/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 31018,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 5099,
+      "text": "In the day, the sun shines. The sky is bright and blue."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 5099,
+      "endMs": 9773,
+      "text": "In the day, we wake up. We play, learn, and eat."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 9773,
+      "endMs": 14022,
+      "text": "At night, the sun goes away. The sky turns dark."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 14022,
+      "endMs": 19121,
+      "text": "The moon and stars come out. They shine in the dark sky."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 19121,
+      "endMs": 22095,
+      "text": "At night, we sleep. Our bodies rest."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 22095,
+      "endMs": 27194,
+      "text": "The Earth spins around. That is why we have day and night."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 27194,
+      "endMs": 31018,
+      "text": "Day, then night, then day again. Every single day!"
+    }
+  ]
+}

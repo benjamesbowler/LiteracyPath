@@ -1,0 +1,65 @@
+{
+  "bookId": "first-facts-a-20-my-five-senses",
+  "title": "My Five Senses",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-20/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 33058,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 3983,
+      "text": "I have five senses. They help me know the world."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 3983,
+      "endMs": 8364,
+      "text": "I can see. My eyes let me see colours and shapes."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 8364,
+      "endMs": 11949,
+      "text": "I can hear. My ears let me hear sounds."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 11949,
+      "endMs": 15932,
+      "text": "I can smell. My nose lets me smell nice things."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 15932,
+      "endMs": 19517,
+      "text": "I can taste. My mouth lets me taste food."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 19517,
+      "endMs": 25890,
+      "text": "I can touch. My hands can feel if things are rough or smooth, hot or cold."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 25890,
+      "endMs": 30669,
+      "text": "Five senses: see, hear, smell, taste, touch. I use them every day!"
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 30669,
+      "endMs": 33058,
+      "text": "Which sense do you like best?"
+    }
+  ]
+}

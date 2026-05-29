@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-02",
+  "title": "Fern Grows Too Much",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-02/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 83256,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 6083,
+      "text": "Fern had one small seed. She planted it in the soft ground near the Hollow Oak."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 6083,
+      "endMs": 11405,
+      "text": "She said a growing spell. Just a small one. Just to help it along."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 11405,
+      "endMs": 20909,
+      "text": "The next morning, the plant had grown so much it filled the Hollow Oak doorway. Leaves were coming out of every window. \"Oh,\" said Fern."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 20909,
+      "endMs": 27752,
+      "text": "She tried a slowing spell. The plant kept growing. She tried a stopping spell. The plant kept growing."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 27752,
+      "endMs": 34595,
+      "text": "By afternoon, the plant had grown through the roof. It was still growing. Everyone stood back and watched."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 34595,
+      "endMs": 39917,
+      "text": "Luna was inside. \"Fern,\" said Luna, through a curtain of leaves, \"do something, please.\""
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 39917,
+      "endMs": 46380,
+      "text": "Fern sat down and thought. Spells had made it grow. But a growing thing needed something different."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 46380,
+      "endMs": 55124,
+      "text": "She did not use a spell. She sang to it, very softly. She sang the song her mother had taught her about seeds."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 55124,
+      "endMs": 60826,
+      "text": "The plant stopped growing. The leaves curled gently inward. Then, slowly, it began to shrink."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 60826,
+      "endMs": 69950,
+      "text": "By evening, it was a large, beautiful plant beside the Hollow Oak. Not too small. Not too large. Luna came out through the door."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 69950,
+      "endMs": 75652,
+      "text": "Luna smiled. \"That is quite nice, actually,\" said Luna. Fern smiled. She was very tired."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 75652,
+      "endMs": 83256,
+      "text": "\"How did you make it stop?\" asked Pip. \"I didn't make it do anything,\" said Fern. \"I asked it nicely.\""
+    }
+  ]
+}

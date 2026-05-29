@@ -1,0 +1,65 @@
+{
+  "bookId": "first-facts-a-05-flowers-and-trees",
+  "title": "Flowers and Trees",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-05/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 4446,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 621,
+      "text": "A flower has petals. A flower has a stem. A flower has roots."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 621,
+      "endMs": 1147,
+      "text": "A sunflower is tall and yellow. The sun makes it grow."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 1147,
+      "endMs": 1673,
+      "text": "A daisy is small and white. It grows in the grass."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 1673,
+      "endMs": 2199,
+      "text": "A rose is red. It smells sweet. It has sharp thorns."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 2199,
+      "endMs": 2725,
+      "text": "Trees have roots under the soil. Roots hold the tree up."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 2725,
+      "endMs": 3346,
+      "text": "Some trees lose their leaves in autumn. In winter, the branches are bare."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 3346,
+      "endMs": 3920,
+      "text": "Some trees keep their leaves all year. They are called evergreen trees."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 3920,
+      "endMs": 4446,
+      "text": "Flowers and trees are plants. They need sun, soil, and water."
+    }
+  ]
+}

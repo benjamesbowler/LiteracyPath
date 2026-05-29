@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-18",
+  "title": "Stone and Dewdrop and the Stuck Fish",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-18/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 112701,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8983,
+      "text": "Dewdrop was at the Crystal Stream.\nShe was looking at something in the water.\nIt was a large fish.\nIt was stuck."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8983,
+      "endMs": 17966,
+      "text": "The fish was wedged between two rocks.\nIt had been there since morning.\nIts tail kept flicking.\nIt could not get free."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 17966,
+      "endMs": 28174,
+      "text": "Dewdrop tried to push it loose.\nShe sent the water flowing hard against the rocks.\nThe fish did not move.\n\"I need help,\" said Dewdrop."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 28174,
+      "endMs": 40424,
+      "text": "Dewdrop found Stone at the Hollow Oak.\n\"I need your hands,\" she said.\n\"Just to reach in and move a rock.\"\nStone understood immediately.\nThen Stone understood all of it."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 40424,
+      "endMs": 50632,
+      "text": "Stone stood at the edge of the Crystal Stream.\nThe water sparkled.\nStone's feet stayed on the bank.\n\"I don't like getting wet,\" said Stone."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 50632,
+      "endMs": 62474,
+      "text": "\"Just your arm,\" said Dewdrop.\n\"Just the one arm.\"\n\"Just for a moment.\"\nStone looked at the arm.\nStone looked at the water.\nStone sat down on the bank."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 62474,
+      "endMs": 70232,
+      "text": "Stone rolled up one sleeve.\nThe arm was very large.\nStone leaned forward.\nThe hand went toward the water."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 70232,
+      "endMs": 77990,
+      "text": "Stone's hand went into the stream.\nIt found the rock.\nIt gripped it.\nStone's face: very unhappy about this."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 77990,
+      "endMs": 83298,
+      "text": "Stone pushed.\nThe rock moved.\nThe mud let go.\nThe fish was free."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 83298,
+      "endMs": 92281,
+      "text": "The fish made a very large splash.\nStone was completely wet.\nAll of Stone.\nDewdrop was not wet.\n\"I'm sorry,\" said Dewdrop."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 92281,
+      "endMs": 102489,
+      "text": "Stone sat and dripped.\nStone looked at the arm.\nStone looked at the rest of Stone.\n\"The fish is free,\" said Stone.\n\"Yes,\" said Dewdrop."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 102489,
+      "endMs": 112701,
+      "text": "They sat by the stream together.\nStone dripped for a long time.\nThe fish surfaced once.\nIt seemed happy.\n\"Good,\" said Stone.\nAnd meant it."
+    }
+  ]
+}

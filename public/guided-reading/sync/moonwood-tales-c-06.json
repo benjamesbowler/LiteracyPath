@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-06",
+  "title": "Flint Makes a Map",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-06/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 108297,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 11440,
+      "text": "Flint had decided to map every single path in Moonwood. He had a new roll of parchment and a good quill. He started at the Hollow Oak and walked north."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 11440,
+      "endMs": 19829,
+      "text": "He drew as he walked. He mapped the Crystal Stream path. He mapped the way to Tumblerock Cliffs. He drew everything carefully."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 19829,
+      "endMs": 27456,
+      "text": "He walked for three days. He did not stop. His map grew longer and longer. It was full of detail."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 27456,
+      "endMs": 35083,
+      "text": "On the fourth day, Flint held up his finished map. \"There,\" he said. \"Every path in Moonwood. All of it.\""
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 35083,
+      "endMs": 43472,
+      "text": "He looked around to show someone. He was alone. The forest around him looked very different to the forest on his map."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 43472,
+      "endMs": 53387,
+      "text": "He checked his map. According to the map, he was standing in the Whispering Meadow. He was not in the Whispering Meadow. The paths had moved."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 53387,
+      "endMs": 62920,
+      "text": "Flint sat down on a mossy rock. He looked at the map for a long time. It was very beautiful. It was also completely wrong."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 62920,
+      "endMs": 73597,
+      "text": "Flint took out a new piece of parchment. \"I'll make another one,\" he said. He was not upset about this. He had always known the paths would move."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 73597,
+      "endMs": 84655,
+      "text": "By the time Flint found his way home, he was, as usual, slightly lost. The new map was already three pages long. He had taken a very interesting route."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 84655,
+      "endMs": 90375,
+      "text": "\"How was the mapping?\" asked Pip. \"Perfect,\" said Flint. \"I know exactly where everything was.\""
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 90375,
+      "endMs": 100290,
+      "text": "Flint pinned the first map up inside the Hollow Oak. It was very beautiful. Everyone agreed it was the best wrong map they had ever seen."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 100290,
+      "endMs": 108297,
+      "text": "Then Flint started on the next map. He was already very happy. Outside, the paths rearranged themselves quietly. They always did."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-05",
+  "title": "Wren and the Backwards Spell",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-05/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 85241,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8350,
+      "text": "Wren wanted to be taller. She had found a spell in her book. A growing spell, she was sure. She read it very carefully."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8350,
+      "endMs": 13917,
+      "text": "She said the spell. There was a flash of bright blue light. Then it was quiet."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 13917,
+      "endMs": 21571,
+      "text": "Wren looked at her hands. Her hands were a very long way away. She was not taller. She was one inch tall."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 21571,
+      "endMs": 26442,
+      "text": "Oh, said Wren. Her voice came out very small. Everything around her was enormous."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 26442,
+      "endMs": 34792,
+      "text": "Wren found her spell book. It was enormous now. She climbed up onto it and looked at the spell. She had read it backwards."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 34792,
+      "endMs": 42098,
+      "text": "Right, said Wren. She walked to the beginning of the spell. She read it again. This time, she read it forwards."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 42098,
+      "endMs": 48361,
+      "text": "Luna flew in through the window. She looked at the desk. She looked more closely. \"Wren?\" said Luna."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 48361,
+      "endMs": 54624,
+      "text": "\"Fixing it,\" said tiny Wren. She raised her tiny hands. She said the spell again. Forwards, this time."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 54624,
+      "endMs": 62278,
+      "text": "There was another flash of blue. Wren was back to her normal size. She brushed off her robe. She straightened her hat."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 62278,
+      "endMs": 69584,
+      "text": "She looked at herself carefully. She was exactly the same height as before. The growing spell had not worked at all."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 69584,
+      "endMs": 74455,
+      "text": "\"Did it work?\" asked Pip. \"No,\" said Wren. \"I am exactly the same height.\""
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 74455,
+      "endMs": 85241,
+      "text": "Wren picked up her spell book. She turned to the next spell. \"But I am going to find a better one,\" she said. She began to read very, very carefully. Forwards."
+    }
+  ]
+}

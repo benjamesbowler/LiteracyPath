@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-04-the-moon",
+  "title": "The Moon",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-04/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 92435,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 11554,
+      "text": "The Moon is a huge ball of rock. It travels around the Earth. It takes about one month to go all the way around. The Moon is our nearest neighbour in space."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 11554,
+      "endMs": 20942,
+      "text": "The Moon does not make its own light. It has no fire or glow inside. The light we see is sunlight bouncing off the Moon's surface."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 20942,
+      "endMs": 31413,
+      "text": "The Moon looks different every night. Sometimes it is a full, bright circle. Sometimes it is a thin crescent. These different shapes are called the phases of the Moon."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 31413,
+      "endMs": 41162,
+      "text": "The Moon's surface is covered in craters. Craters are bowl-shaped holes made by space rocks crashing into the Moon long ago. Some craters are bigger than cities."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 41162,
+      "endMs": 50550,
+      "text": "In 1969, astronauts travelled to the Moon. Neil Armstrong was the first human to walk on its surface. \"That's one small step for man,\" he said."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 50550,
+      "endMs": 61021,
+      "text": "The Moon's gravity pulls on Earth's oceans. This causes the tides. When the tide comes in, the sea rises up the beach. When it goes out, it pulls back."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 61021,
+      "endMs": 70048,
+      "text": "The astronauts brought Moon rocks back to Earth. Scientists are still studying them today. Moon rocks help us understand how the Solar System was formed."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 70048,
+      "endMs": 82325,
+      "text": "The Moon looks small from Earth, but it is very large. It is about a quarter the size of our whole planet. If Earth were a basketball, the Moon would be a tennis ball."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 82325,
+      "endMs": 92435,
+      "text": "You can see the Moon most nights. On a clear night with a telescope, you can see the craters clearly. Look up tonight — the Moon is always there."
+    }
+  ]
+}

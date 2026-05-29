@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-08-butterflies",
+  "title": "Butterflies",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-08/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 102460,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 10161,
+      "text": "Butterflies are insects. Like all insects, they have six legs, four wings, and a body in three parts. They also have two long antennae."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 10161,
+      "endMs": 18629,
+      "text": "A butterfly's life has four stages. This is called a lifecycle. Each stage looks completely different from the one before."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 18629,
+      "endMs": 31331,
+      "text": "Stage one: the butterfly lays tiny eggs on a leaf. The eggs are very small — some are no bigger than a pinhead. The leaf is food for the caterpillar inside."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 31331,
+      "endMs": 44033,
+      "text": "Stage two: the egg hatches into a caterpillar. The caterpillar's only job is to eat. It eats and eats and grows and grows. Some caterpillars eat their own eggshell first!"
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 44033,
+      "endMs": 53771,
+      "text": "Stage three: the caterpillar makes a hard shell around itself. This is called a chrysalis. Inside, an extraordinary change is about to happen."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 53771,
+      "endMs": 65202,
+      "text": "Inside the chrysalis, the caterpillar breaks down completely. Its body rebuilds itself as a butterfly. This amazing process is called metamorphosis. It takes one to two weeks."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 65202,
+      "endMs": 76633,
+      "text": "Stage four: the butterfly pushes out of the chrysalis. Its wings are wet and crumpled. The butterfly hangs still and waits. Slowly, its wings unfurl and dry."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 76633,
+      "endMs": 90605,
+      "text": "Butterflies drink nectar from flowers. They find flowers using their eyes and sense of smell. But they taste with their feet! Standing on a flower tells them if it is good to eat."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 90605,
+      "endMs": 102460,
+      "text": "Some butterflies migrate thousands of kilometres. The monarch butterfly flies from Canada to Mexico every year — a journey of 4,000 kilometres. They always find the same trees."
+    }
+  ]
+}

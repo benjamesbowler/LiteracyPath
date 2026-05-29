@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-03",
+  "title": "Stone Crosses the Bridge",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-03/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 84827,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 6163,
+      "text": "There was a rope bridge over the Crystal Stream. Everyone crossed it without thinking. Everyone except Stone."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 6163,
+      "endMs": 14138,
+      "text": "Stone would not cross the bridge. \"There is a troll under the bridge,\" said Stone. \"I do not want to meet it.\""
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 14138,
+      "endMs": 18851,
+      "text": "Pip thought for a moment. \"Stone,\" said Pip carefully. \"You are a troll.\""
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 18851,
+      "endMs": 25376,
+      "text": "Stone thought about this for a long time. \"Yes,\" said Stone. \"But I still don't like the bridge.\""
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 25376,
+      "endMs": 34801,
+      "text": "One day, Burrow got stuck on the other side of the stream. \"Help!\" called Burrow. \"I cannot find the tunnel. Everything looks the same to me!\""
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 34801,
+      "endMs": 41326,
+      "text": "Stone looked at the bridge. Stone looked at the water. Stone looked at Burrow on the other side."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 41326,
+      "endMs": 46039,
+      "text": "Stone stepped onto the bridge. It creaked under Stone's weight. Stone kept going."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 46039,
+      "endMs": 52927,
+      "text": "Halfway across, Stone looked straight ahead. The bridge swayed a little. The Crystal Stream sang below. Stone kept walking."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 52927,
+      "endMs": 61627,
+      "text": "Stone reached the other side. Stone reached down and picked up Burrow very carefully. \"Oh, thank you,\" said Burrow. \"I was going in circles.\""
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 61627,
+      "endMs": 70327,
+      "text": "They crossed back together. Stone did not look at the water. Stone looked at the far end of the bridge. One step, then another."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 70327,
+      "endMs": 75040,
+      "text": "They reached the other side. Burrow found his glasses. Stone stood up straight."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 75040,
+      "endMs": 84827,
+      "text": "\"You crossed the bridge,\" said Pip. \"Yes,\" said Stone. \"But there might still be a troll under it.\" Stone looked at the bridge. \"I should probably check.\""
+    }
+  ]
+}

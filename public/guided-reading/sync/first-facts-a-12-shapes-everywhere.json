@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-12-shapes-everywhere",
+  "title": "Shapes Everywhere",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-12/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 3174,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 423,
+      "text": "A circle is round. The sun is a circle. A wheel is a circle."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 423,
+      "endMs": 907,
+      "text": "A square has four equal sides. A window is a square. A cracker is a square."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 907,
+      "endMs": 1391,
+      "text": "A triangle has three sides. A pizza slice is a triangle. A roof is a triangle."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 1391,
+      "endMs": 2056,
+      "text": "A rectangle has four sides. Two sides are long, two are short. A door is a rectangle. A book is a rectangle."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 2056,
+      "endMs": 2419,
+      "text": "A star has five points. We see stars in the night sky."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 2419,
+      "endMs": 2933,
+      "text": "An oval is like a stretched circle. An egg is an oval. A leaf is an oval."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 2933,
+      "endMs": 3174,
+      "text": "Shapes are everywhere! Can you find shapes today?"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-17",
+  "title": "Fern and Wren and the Wrong Potion",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-17/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 105957,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 9418,
+      "text": "Fern's garden was her favourite place.\nOne morning, Wren arrived with a cauldron.\n\"I have a potion,\" said Wren.\n\"It will help your plants.\""
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 9418,
+      "endMs": 14912,
+      "text": "\"Are you sure?\" said Fern.\n\"Completely,\" said Wren.\nShe had practised many times.\nMostly."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 14912,
+      "endMs": 22368,
+      "text": "Wren stirred the potion.\nIt was meant to be green.\nIt was more purple.\nWren did not notice this."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 22368,
+      "endMs": 31002,
+      "text": "Wren poured the potion on the plants.\nThe plants stood very straight.\nThen they leaned.\nThen one of them took a step."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 31002,
+      "endMs": 41205,
+      "text": "Then all the plants began to walk.\nThey were very polite about it.\nThey walked around Fern.\nThey walked around Wren.\nThey went for a stroll."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 41205,
+      "endMs": 47092,
+      "text": "\"Oh,\" said Wren.\n\"Oh no,\" said Fern.\n\"The plants are walking.\"\nWren checked her book."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 47092,
+      "endMs": 60042,
+      "text": "The plants walked into the Hollow Oak.\nSome walked toward the Crystal Stream.\nA very small plant walked very slowly toward Burrow's tunnel.\nThey were not in a hurry.\nThey were just walking."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 60042,
+      "endMs": 72207,
+      "text": "Wren found the problem.\nShe had used the wrong book.\n\"This is the motion recipe,\" she said.\n\"Not the growing recipe.\"\nShe showed Fern.\nThey were both quiet for a moment."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 72207,
+      "endMs": 80841,
+      "text": "Fern went to the middle of the clearing.\nShe closed her eyes.\nShe sang.\nVery softly.\nThe same song from long ago."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 80841,
+      "endMs": 87120,
+      "text": "The plants slowed.\nThe far ones turned.\nThey walked back.\nSlowly.\nLike sleepy creatures going home."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 87120,
+      "endMs": 96146,
+      "text": "One by one they found their places.\nEach plant settled.\nThe smallest sat down last.\nIt made a small sound.\nIt seemed happy."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 96146,
+      "endMs": 105957,
+      "text": "Everything was back.\n\"I'm sorry,\" said Wren.\n\"Did you learn something?\" asked Fern.\n\"Yes,\" said Wren. \"I need more books.\"\n\"Fewer,\" said Fern.\n\"Fewer books.\""
+    }
+  ]
+}

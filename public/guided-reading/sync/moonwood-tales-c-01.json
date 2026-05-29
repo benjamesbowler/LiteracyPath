@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-01",
+  "title": "Pip and the Bravery Stone",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-01/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 79973,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8248,
+      "text": "Pip was walking through Moonwood when his foot kicked something small. It was a tiny stone. It glowed with a soft gold light."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8248,
+      "endMs": 14345,
+      "text": "\"What is this?\" said Pip. He picked it up carefully. The glow made his fingers feel warm."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 14345,
+      "endMs": 21159,
+      "text": "Burrow appeared from a nearby tunnel. \"That is a Bravery Stone,\" said Burrow. \"Whoever holds it will feel brave.\""
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 21159,
+      "endMs": 27614,
+      "text": "Pip looked at the stone. \"But I don't feel brave,\" he said. \"I feel the same as always.\""
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 27614,
+      "endMs": 35145,
+      "text": "\"Try something scary,\" said Burrow. So Pip walked to the Tumblerock Cliffs. He found the high ledge and began to climb."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 35145,
+      "endMs": 42317,
+      "text": "His legs felt wobbly. The ground was a long way below. But he did not stop. He reached the top."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 42317,
+      "endMs": 49489,
+      "text": "\"The stone did that!\" said Pip. He tucked it safely into his pocket. Then he walked toward the Fog Marsh."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 49489,
+      "endMs": 57020,
+      "text": "The fog was thick and grey. Something rustled in the reeds nearby. Pip kept walking. He came out the other side."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 57020,
+      "endMs": 63834,
+      "text": "That evening, Pip sat by the Crystal Stream. He looked at the stone. The gold glow had gone out."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 63834,
+      "endMs": 66703,
+      "text": "\"Did it run out of brave?\" asked Pip."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 66703,
+      "endMs": 74234,
+      "text": "Burrow smiled. \"The stone doesn't do anything,\" he said. \"I wanted to see what you would do. And you were brave.\""
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 74234,
+      "endMs": 79973,
+      "text": "Pip looked at the stone for a long time. \"I'll keep it,\" he said. \"To remember.\""
+    }
+  ]
+}

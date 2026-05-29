@@ -1,0 +1,100 @@
+{
+  "bookId": "moonwood-tales-c-08",
+  "title": "Burrow Finds a Door",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-08/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 112682,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 10145,
+      "text": "Burrow was digging a new tunnel. He dug down, and he dug sideways, and he dug carefully around the roots. Then his spade hit something hard and wooden."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 10145,
+      "endMs": 18478,
+      "text": "Burrow set down his spade. He felt around it very carefully. It was a door. A small, very old wooden door, deep underground."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 18478,
+      "endMs": 28261,
+      "text": "He polished his glasses and looked more closely. On the door was a small carving. A tree with roots going in every direction. It was very old."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 28261,
+      "endMs": 37681,
+      "text": "I have found something, Burrow told everyone. They gathered at the Hollow Oak. A door, said Burrow, underground. Very old. I don't know what is inside."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 37681,
+      "endMs": 45652,
+      "text": "They all came to look. The tunnel was small. Stone had to go sideways. Luna had to be helped around three corners."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 45652,
+      "endMs": 55435,
+      "text": "They gathered around the door. Luna looked at it for a long time. I know this door, she said slowly. I think. A very long time ago."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 55435,
+      "endMs": 63044,
+      "text": "What is inside? said Pip. Luna was quiet. Good things, I think, she said finally. I cannot quite remember what kind."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 63044,
+      "endMs": 68117,
+      "text": "Burrow opened the door. A warm golden light came from inside. Everyone leaned forward."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 68117,
+      "endMs": 78987,
+      "text": "Inside was a small round room. The walls were covered in tiny glowing drawings. Trees and streams. Creatures and old paths. Every living thing that had ever been in Moonwood."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 78987,
+      "endMs": 88045,
+      "text": "They walked along the walls slowly. There were drawings of things no one had seen in hundreds of years. What is this place? asked Fern."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 88045,
+      "endMs": 95291,
+      "text": "The memory room, said Luna. That is what it was called. She touched the wall very gently. I remember now."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 95291,
+      "endMs": 102175,
+      "text": "They stayed for a long time. No one wanted to leave. The room was very quiet and very warm."
+    },
+    {
+      "pageIndex": 12,
+      "pageNumber": 13,
+      "startMs": 102175,
+      "endMs": 112682,
+      "text": "Burrow found a blank patch of wall. He picked up a small flat stone. Very carefully, he drew the Hollow Oak. Now we are in it too, he said."
+    }
+  ]
+}

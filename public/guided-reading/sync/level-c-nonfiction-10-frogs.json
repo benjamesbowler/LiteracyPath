@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-10-frogs",
+  "title": "Frogs",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-10/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 88931,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8361,
+      "text": "Frogs are amphibians. Amphibians can live in water and on land. Frogs begin their life in water and later move onto land."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8361,
+      "endMs": 19002,
+      "text": "A female frog lays hundreds of eggs in water. The eggs are called frogspawn. Each egg is surrounded by clear jelly that protects it and keeps it safe."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 19002,
+      "endMs": 27743,
+      "text": "After a few weeks, tadpoles wriggle out of the eggs. Tadpoles have tails and no legs. They breathe underwater using gills, like fish."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 27743,
+      "endMs": 36484,
+      "text": "Slowly, the tadpole changes. Back legs appear first. Then front legs. The tail shrinks away. After about twelve weeks, it is a frog!"
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 36484,
+      "endMs": 46745,
+      "text": "The young frog climbs out of the water. It can now breathe air through its lungs. It can also live on land. The whole world opens up."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 46745,
+      "endMs": 57386,
+      "text": "Frogs are expert hunters. They have long, sticky tongues. A frog can flip its tongue out and back in less time than a blink to catch an insect."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 57386,
+      "endMs": 66127,
+      "text": "A frog's skin is always damp. Frogs can breathe through their skin as well as through their lungs. They must never dry out."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 66127,
+      "endMs": 76768,
+      "text": "Frogs come in amazing colours. Bright colours are a warning: I am poisonous — do not eat me! The more colourful the frog, often the more dangerous it is."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 76768,
+      "endMs": 88931,
+      "text": "Frogs sing to find a mate. Each species has its own call. The ribbit of a tree frog, the deep croak of a bullfrog — their calls fill warm evenings around the world."
+    }
+  ]
+}

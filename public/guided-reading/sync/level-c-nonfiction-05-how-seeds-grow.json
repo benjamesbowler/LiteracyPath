@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-05-how-seeds-grow",
+  "title": "How Seeds Grow",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-05/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 90929,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 10721,
+      "text": "Almost every plant starts as a tiny seed. Seeds come in hundreds of different shapes and sizes. Each one holds everything a plant needs to begin life."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 10721,
+      "endMs": 20251,
+      "text": "A seed needs three things to start growing: water, warmth, and air. When it gets all three, it wakes up and begins to grow."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 20251,
+      "endMs": 30575,
+      "text": "First, a tiny root pushes down into the soil. Roots drink up water from the ground. Then a small shoot pushes up toward the light above."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 30575,
+      "endMs": 40105,
+      "text": "The shoot breaks through the soil. It opens its first leaves toward the sun. Now the plant can begin to make its own food."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 40105,
+      "endMs": 50826,
+      "text": "Plants use sunlight, water, and air to make food. This is called photosynthesis. It also makes the oxygen we breathe. Plants feed us and give us air!"
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 50826,
+      "endMs": 60753,
+      "text": "As the plant grows bigger, it makes flowers. Flowers attract bees and butterflies. These visitors carry pollen from flower to flower. This is called pollination."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 60753,
+      "endMs": 69091,
+      "text": "After pollination, the flower makes seeds. The seeds grow inside the plant protected by a pod, a fruit, or a shell."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 69091,
+      "endMs": 81003,
+      "text": "Seeds travel away from the parent plant. Some fly on the wind. Some stick to animals' fur. Some are eaten by birds and fall far away. Some float on water."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 81003,
+      "endMs": 90929,
+      "text": "You can grow your own plant. Put a seed in some soil. Add water. Put it in a sunny spot. Then watch the cycle begin."
+    }
+  ]
+}

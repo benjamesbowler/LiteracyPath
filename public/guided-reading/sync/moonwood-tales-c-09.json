@@ -1,0 +1,107 @@
+{
+  "bookId": "moonwood-tales-c-09",
+  "title": "Spark's Very Big Sneeze",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-09/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 108177,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 11095,
+      "text": "Spark had a cold. Usually a cold was nothing much. But Spark's magic crackled around him all the time. A cold, for Spark, was a very big problem."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 11095,
+      "endMs": 20209,
+      "text": "He sneezed at breakfast. The porridge turned into a bird. The bird flew out of the window. Spark stared at his empty bowl."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 20209,
+      "endMs": 26153,
+      "text": "Don't sneeze again, said Wren. I will try not to, said Spark. His nose twitched."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 26153,
+      "endMs": 35267,
+      "text": "He sneezed in the Whispering Meadow. Every flower changed colour at the same moment. The meadow turned entirely blue. It was very quiet."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 35267,
+      "endMs": 41607,
+      "text": "Sorry, said Spark. The flowers looked at him. He looked at them. His nose twitched again."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 41607,
+      "endMs": 51513,
+      "text": "Spark tried to hold the sneeze in. His eyes went watery. His magic began to build and build. The sparkles around him grew very bright."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 51513,
+      "endMs": 57853,
+      "text": "Whatever you do, said Fern, looking at the Crystal Stream, do NOT sneeze near the water."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 57853,
+      "endMs": 60231,
+      "text": "Spark sneezed near the Crystal Stream."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 60231,
+      "endMs": 70930,
+      "text": "Every fish in the stream turned purple. The water sang in a different key. One fish turned into a frog for a moment, and then turned back."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 70930,
+      "endMs": 77270,
+      "text": "Sorry, said Spark. This was his third sorry. He meant all three of them very much."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 77270,
+      "endMs": 83610,
+      "text": "I think, said Dewdrop slowly, we should find you a cold remedy before anything else changes."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 83610,
+      "endMs": 91931,
+      "text": "Wren found a cold remedy in her spell book. She read it very, very carefully. Forwards? said Spark. Forwards, said Wren."
+    },
+    {
+      "pageIndex": 12,
+      "pageNumber": 13,
+      "startMs": 91931,
+      "endMs": 100252,
+      "text": "The remedy worked. Spark's cold was gone. The flowers slowly turned back to their usual colours. The fish returned to normal."
+    },
+    {
+      "pageIndex": 13,
+      "pageNumber": 14,
+      "startMs": 100252,
+      "endMs": 108177,
+      "text": "Spark breathed in carefully. I think, he said, I might need to sneeze again. Everyone took a large step back."
+    }
+  ]
+}

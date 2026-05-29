@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-25",
+  "title": "One Night in the Deep Dark",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-25/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 130483,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 10941,
+      "text": "It was the deepest part of the night.\nMoonwood was very quiet.\nThen there was a sound at the edge of the clearing.\nSomething small was there."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 10941,
+      "endMs": 21882,
+      "text": "Pip opened the door.\nA small creature was at the edge of the clearing.\nIt had very large silver eyes.\nIt was frightened.\nIt did not run."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 21882,
+      "endMs": 29581,
+      "text": "Pip knelt down.\nHe held still.\nThe creature came closer.\nOne step.\nThen another.\n\"Hello,\" said Pip, very quietly."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 29581,
+      "endMs": 40927,
+      "text": "Pip brought it inside.\nEveryone woke up.\nStone brought a piece of acorn biscuit.\nThe creature ate it very carefully.\nIt watched everyone with its large silver eyes."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 40927,
+      "endMs": 49842,
+      "text": "\"Where is your home?\" asked Burrow, gently.\nThe creature looked at its paws.\nThen at the window.\n\"Deep,\" it said.\n\"Deep dark.\""
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 49842,
+      "endMs": 59973,
+      "text": "\"We'll take you home,\" said Pip.\n\"But the Deep Dark—\" said Wren.\n\"We'll go together,\" said Pip.\nEveryone looked at each other.\n\"Together,\" said Stone."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 59973,
+      "endMs": 71725,
+      "text": "They all went together.\nLuna led — her eyes could see in any dark.\nGlimmer breathed a small flame for the path.\nThe creature walked between them.\nInto the deep."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 71725,
+      "endMs": 84287,
+      "text": "The Deep Dark was very dark.\nThe trees had no glow.\nThe light went only a little way ahead.\nThey walked close together.\nNo one was last.\nNo one was alone."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 84287,
+      "endMs": 92797,
+      "text": "Burrow found the underground path.\nHe could smell the way.\nThe creature stepped forward.\nIt knew this place.\n\"Here,\" it said."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 92797,
+      "endMs": 104143,
+      "text": "Beyond the roots, a small clearing.\nSilver moss lit the ground.\nIt was warm.\nOther creatures were there.\nThey looked up.\nThey had the same enormous silver eyes."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 104143,
+      "endMs": 114679,
+      "text": "The creature ran to its family.\nThe family gathered around it.\nThey looked at the Moonwood creatures.\nNot afraid.\nJust looking.\nThen one of them blinked."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 114679,
+      "endMs": 130483,
+      "text": "They walked back through the Dark.\nAt the edge, Pip looked back.\nOne silver light blinked twice.\n\"That was brave,\" said Glimmer.\nPip touched the stone in his pocket.\n\"Yes,\" he said. \"It ran home.\"\n\"That's the bravest kind.\""
+    }
+  ]
+}

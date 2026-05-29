@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-16",
+  "title": "Pip and Glimmer and the Night Watch",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-16/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 114410,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 11201,
+      "text": "One morning, things had moved in the night.\nPip's boots were not where he had left them.\nA bench was tipped over.\nSomeone had been in the clearing."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 11201,
+      "endMs": 21602,
+      "text": "The next night, it happened again.\nMore things had moved.\n\"Was it you?\" asked Stone.\n\"No,\" said Pip.\n\"Was it you?\" asked Pip.\n\"No,\" said everyone."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 21602,
+      "endMs": 32003,
+      "text": "\"I am going to find out,\" said Pip.\nHe told Glimmer his plan.\nThey would stay awake.\nThey would watch the clearing.\nGlimmer said yes immediately."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 32003,
+      "endMs": 38804,
+      "text": "Night fell.\nMoonwood glowed softly.\nPip and Glimmer hid behind the big mushroom.\nThey watched.\nNothing happened."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 38804,
+      "endMs": 49605,
+      "text": "It was very late.\nThe clearing was empty.\nGlimmer's eyes kept closing.\n\"Don't fall asleep,\" whispered Pip.\n\"I am not asleep,\" said Glimmer.\nGlimmer was almost asleep."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 49605,
+      "endMs": 58406,
+      "text": "Then — a sound.\nA shuffling.\nA round shape moving through the clearing.\nPip and Glimmer looked at each other.\nThey crept closer."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 58406,
+      "endMs": 64006,
+      "text": "It was Burrow.\nHis eyes were closed.\nHe was fast asleep.\nHe was walking."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 64006,
+      "endMs": 74407,
+      "text": "Burrow bumped the bench.\nIt fell over.\nBurrow kept walking.\nHe found Pip's door.\nHe moved the boots with his paws.\nHe did not wake up."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 74407,
+      "endMs": 82008,
+      "text": "He found the acorn biscuits.\nHe put some in his pocket.\nHe was still asleep.\nGlimmer covered their mouth."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 82008,
+      "endMs": 89609,
+      "text": "Then Burrow sat down.\nAgainst the big mushroom.\nPip and Glimmer were still behind it.\nBurrow began to snore."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 89609,
+      "endMs": 100410,
+      "text": "In the morning, Burrow woke up.\nHe looked around.\nPip and Glimmer were standing in front of him.\n\"Good morning,\" said Burrow.\nThere was a long pause."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 100410,
+      "endMs": 114410,
+      "text": "\"It was you,\" said Pip gently. \"You sleep-dig.\"\n\"I am very sorry,\" said Burrow.\nHe put his boot by the door.\n\"Will that stop you?\" asked Glimmer.\n\"I don't know,\" said Burrow.\n\"I am asleep.\""
+    }
+  ]
+}

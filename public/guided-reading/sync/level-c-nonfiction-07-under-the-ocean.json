@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-07-under-the-ocean",
+  "title": "Under the Ocean",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-07/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 101001,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 9011,
+      "text": "The ocean covers more than two thirds of our planet. It is the largest habitat on Earth. And most of it is still unexplored."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 9011,
+      "endMs": 20275,
+      "text": "The ocean has different layers. Near the surface, there is plenty of sunlight and warmth. Further down, it grows colder and darker. Below 200 metres, no sunlight reaches at all."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 20275,
+      "endMs": 32665,
+      "text": "The top layer is full of life. Coral reefs grow in warm, shallow water. They are home to thousands of kinds of fish and animal. A coral reef is like an underwater city."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 32665,
+      "endMs": 44680,
+      "text": "Coral looks like rock or plant, but it is an animal. Each piece of coral is made of thousands of tiny creatures called polyps. Coral reefs take thousands of years to grow."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 44680,
+      "endMs": 54818,
+      "text": "Further down, in the deep and dark, strange creatures live. Many have enormous eyes to see in the dim light. Some are found nowhere else on Earth."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 54818,
+      "endMs": 63829,
+      "text": "In the deepest, darkest water, some creatures make their own light. This is called bioluminescence. The anglerfish dangles a glowing lure to attract prey."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 63829,
+      "endMs": 76219,
+      "text": "The deepest part of the ocean is called the Mariana Trench. It is nearly 11 kilometres deep. If you put the world's tallest mountain inside it, it would still be covered by water."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 76219,
+      "endMs": 88609,
+      "text": "The ocean makes more than half the oxygen we breathe. Tiny plants called phytoplankton float near the surface. They use sunlight to make oxygen. Every other breath you take came from the ocean."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 88609,
+      "endMs": 101001,
+      "text": "More than 80% of the ocean has never been explored. We know more about the surface of the Moon than we do about the deep ocean. There is so much left to discover."
+    }
+  ]
+}

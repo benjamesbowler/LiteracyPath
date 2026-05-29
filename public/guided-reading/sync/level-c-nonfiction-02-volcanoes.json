@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-02-volcanoes",
+  "title": "Volcanoes",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-02/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 99046,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 9572,
+      "text": "Deep underground, rock gets so hot that it melts. This melted rock is called magma. Magma is hotter than anything you can imagine."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 9572,
+      "endMs": 22473,
+      "text": "Sometimes, magma pushes up through a crack in the Earth. When it bursts out at the surface, we call it a volcano! The melted rock that flows out is called lava."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 22473,
+      "endMs": 32877,
+      "text": "Lava can be as hot as 1,000 degrees. Some volcanoes are calm and slow. Their lava oozes out like very thick, very hot syrup."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 32877,
+      "endMs": 42865,
+      "text": "Other volcanoes are very explosive. They blast ash, smoke and rocks high into the sky. The blast can be heard hundreds of kilometres away."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 42865,
+      "endMs": 54101,
+      "text": "Volcanoes can be found on land and under the sea. When an underwater volcano keeps erupting, the lava builds up and can make a brand new island!"
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 54101,
+      "endMs": 65337,
+      "text": "After a volcano, the cooled lava becomes new rock. Volcanic rock breaks down into rich, dark soil. Many plants and crops grow very well in volcanic soil."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 65337,
+      "endMs": 75741,
+      "text": "Famous volcanoes can be found all around the world. Iceland, Hawaii and Italy all have active volcanoes. Indonesia has more volcanoes than any other country."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 75741,
+      "endMs": 86561,
+      "text": "Most volcanoes are quiet for a very long time. Scientists called volcanologists watch them carefully. They use special equipment to spot the signs of an eruption."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 86561,
+      "endMs": 99046,
+      "text": "Volcanoes can seem frightening. But they have helped shape our planet. They make new land, rich soil and even new islands. They have been doing this for billions of years."
+    }
+  ]
+}

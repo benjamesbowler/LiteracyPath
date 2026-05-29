@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-11",
+  "title": "Pip and Stone and the Loud Thing",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-11/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 115509,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 9011,
+      "text": "Pip and Stone were sitting outside the Hollow Oak.\nThen a noise came from the Fog Marsh.\nIt was very, very loud."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 9011,
+      "endMs": 16794,
+      "text": "\"I want to find out what it is,\" said Pip.\n\"I do not,\" said Stone.\n\"It is very loud.\""
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 16794,
+      "endMs": 24167,
+      "text": "Pip walked toward the Fog Marsh.\nHe looked back.\nStone had not moved.\nStone had moved one foot."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 24167,
+      "endMs": 35636,
+      "text": "At the edge of the marsh, the noise came again.\nIt was even louder.\nPip's hair stood on end.\nStone appeared behind him.\n\"I came anyway,\" said Stone."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 35636,
+      "endMs": 45467,
+      "text": "They stood at the edge together.\nThe fog was thick and grey-green.\nThe noise bounced off the twisted trees.\n\"Together,\" said Stone.\nPip nodded."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 45467,
+      "endMs": 52021,
+      "text": "Inside the marsh, the noise was everywhere.\nThe reeds shook.\nThe water rippled.\nThey crept closer."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 52021,
+      "endMs": 63080,
+      "text": "On a mossy stone in the marsh sat a toadling.\nIt was very small.\nIts mouth was very wide open.\nAll the noise was coming from it."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 63080,
+      "endMs": 70453,
+      "text": "The toadling stopped when it saw them.\nEverything was suddenly very quiet.\n\"Oh,\" said Pip.\n\"Oh,\" said Stone."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 70453,
+      "endMs": 81103,
+      "text": "\"Why were you shouting?\" asked Pip.\nThe toadling blinked.\n\"I am lost,\" it said.\n\"I was calling for my family.\"\nIts voice was very small now."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 81103,
+      "endMs": 92572,
+      "text": "Stone knelt down carefully.\n\"We will help,\" said Stone.\nThe toadling looked at Stone.\n\"You are very large,\" said the toadling.\n\"Yes,\" said Stone. \"But I am gentle.\""
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 92572,
+      "endMs": 106089,
+      "text": "Stone stood up and called out across the marsh.\nIt was the loudest sound Pip had ever heard.\nLouder than the toadling.\nMuch louder.\nSomething answered from the far side of the marsh."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 106089,
+      "endMs": 115509,
+      "text": "Back at the Hollow Oak, everyone asked:\n\"What was the loud thing?\"\n\"Very small,\" said Pip.\n\"Very loud,\" said Stone.\nThey both smiled."
+    }
+  ]
+}

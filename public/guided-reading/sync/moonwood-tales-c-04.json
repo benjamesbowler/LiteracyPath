@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-04",
+  "title": "Glimmer Tries and Tries",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-04/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 98758,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8726,
+      "text": "Every morning, Glimmer practised. Fire breathing was the most important thing a dragon could do. And Glimmer could not do it yet."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8726,
+      "endMs": 14675,
+      "text": "On the first day: a small puff of smoke. Just smoke. No fire at all."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 14675,
+      "endMs": 23004,
+      "text": "On the second day: a tiny spark. It landed on a leaf. It glowed for one second. Then it went out."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 23004,
+      "endMs": 32919,
+      "text": "\"Maybe you need to try harder,\" said Spark. Spark's own magic crackled around his ears. Glimmer tried harder. More smoke came out. Still no fire."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 32919,
+      "endMs": 42438,
+      "text": "On the fifth day, Glimmer breathed in as deeply as possible. A warm puff came out. It smelled of cinnamon. \"That's something,\" said Pip."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 42438,
+      "endMs": 49577,
+      "text": "\"That is not fire,\" said Glimmer. \"No,\" agreed Pip. \"But it smells nice.\" Glimmer did not look convinced."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 49577,
+      "endMs": 58303,
+      "text": "On the tenth day, Glimmer went to the Crystal Stream alone. Again and again. Smoke. Sparks. Warm cinnamon breath. Still no fire."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 58303,
+      "endMs": 66235,
+      "text": "Glimmer sat down. \"I will never breathe fire,\" said Glimmer. \"I have tried every day and it is never fire.\""
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 66235,
+      "endMs": 76547,
+      "text": "That evening, a Fog Marsh fox came creeping into Moonwood. It had found Fern's seed collection. The seeds were small and precious. Glimmer saw the fox."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 76547,
+      "endMs": 83290,
+      "text": "Glimmer did not think. Glimmer just ran toward the fox. Glimmer breathed in as hard as possible."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 83290,
+      "endMs": 89636,
+      "text": "And a jet of brilliant orange fire came out. The fox ran. The seeds were safe."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 89636,
+      "endMs": 98758,
+      "text": "Glimmer stared at their own mouth. \"Oh,\" said Glimmer. The fire had been inside all along. \"I just needed to really mean it.\""
+    }
+  ]
+}

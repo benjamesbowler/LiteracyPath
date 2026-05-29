@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T04:35:39.128Z",
+  "generatedAt": "2026-05-29T04:46:58.847Z",
   "standardVoice": {
     "description": "Neutral soft American female voice",
     "provider": "unknown",
@@ -14,23 +14,9 @@
         "durationMs": 1008,
         "sampleRate": 24000,
         "bitrate": 64000,
-        "channels": 1
-      },
-      {
-        "path": "/audio/child-mode/clean-human/hfw/a.mp3",
-        "script": "a",
-        "durationMs": 1008,
-        "sampleRate": 24000,
-        "bitrate": 64000,
-        "channels": 1
-      },
-      {
-        "path": "/audio/child-mode/clean-human/hfw/a.mp3",
-        "script": "a",
-        "durationMs": 1008,
-        "sampleRate": 24000,
-        "bitrate": 64000,
-        "channels": 1
+        "channels": 1,
+        "category": "hfw",
+        "reason": "Approved clean-human hfw baseline."
       },
       {
         "path": "/audio/child-mode/clean-human/hfw/all.mp3",
@@ -38,23 +24,9 @@
         "durationMs": 1080,
         "sampleRate": 24000,
         "bitrate": 64000,
-        "channels": 1
-      },
-      {
-        "path": "/audio/child-mode/clean-human/hfw/all.mp3",
-        "script": "all",
-        "durationMs": 1080,
-        "sampleRate": 24000,
-        "bitrate": 64000,
-        "channels": 1
-      },
-      {
-        "path": "/audio/child-mode/clean-human/hfw/all.mp3",
-        "script": "all",
-        "durationMs": 1080,
-        "sampleRate": 24000,
-        "bitrate": 64000,
-        "channels": 1
+        "channels": 1,
+        "category": "hfw",
+        "reason": "Approved clean-human hfw baseline."
       },
       {
         "path": "/audio/child-mode/clean-human/hfw/and.mp3",
@@ -62,31 +34,79 @@
         "durationMs": 1152,
         "sampleRate": 24000,
         "bitrate": 64000,
-        "channels": 1
+        "channels": 1,
+        "category": "hfw",
+        "reason": "Approved clean-human hfw baseline."
       },
       {
-        "path": "/audio/child-mode/clean-human/hfw/and.mp3",
-        "script": "and",
+        "path": "/audio/child-mode/clean-human/words/chip.mp3",
+        "script": "chip",
         "durationMs": 1152,
         "sampleRate": 24000,
         "bitrate": 64000,
-        "channels": 1
+        "channels": 1,
+        "category": "word",
+        "reason": "Approved clean-human word baseline."
       },
       {
-        "path": "/audio/child-mode/clean-human/hfw/and.mp3",
-        "script": "and",
-        "durationMs": 1152,
+        "path": "/audio/child-mode/clean-human/words/ant.mp3",
+        "script": "ant",
+        "durationMs": 1176,
         "sampleRate": 24000,
         "bitrate": 64000,
-        "channels": 1
+        "channels": 1,
+        "category": "word",
+        "reason": "Approved clean-human word baseline."
       },
       {
-        "path": "/audio/child-mode/clean-human/hfw/at.mp3",
-        "script": "at",
+        "path": "/audio/child-mode/phrases/excellent-listening.mp3",
+        "script": "excellent listening",
+        "durationMs": 1680,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1,
+        "category": "prompt",
+        "reason": "Approved prompt audio baseline. This path is not clean-human and should be regenerated if prompt voice consistency is required."
+      },
+      {
+        "path": "/audio/child-mode/phrases/great-job.mp3",
+        "script": "great job",
+        "durationMs": 1272,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1,
+        "category": "prompt",
+        "reason": "Approved prompt audio baseline. This path is not clean-human and should be regenerated if prompt voice consistency is required."
+      },
+      {
+        "path": "/audio/child-mode/clean-human/words/apple.mp3",
+        "script": "apple",
         "durationMs": 1080,
         "sampleRate": 24000,
         "bitrate": 64000,
-        "channels": 1
+        "channels": 1,
+        "category": "phonics",
+        "reason": "Approved phonics baseline."
+      },
+      {
+        "path": "/audio/child-mode/clean-human/words/bag.mp3",
+        "script": "bag",
+        "durationMs": 1080,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1,
+        "category": "phonics",
+        "reason": "Approved phonics baseline."
+      },
+      {
+        "path": "/audio/child-mode/clean-human/words/ball.mp3",
+        "script": "ball",
+        "durationMs": 1080,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1,
+        "category": "phonics",
+        "reason": "Approved phonics baseline."
       }
     ]
   },

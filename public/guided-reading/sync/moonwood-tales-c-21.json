@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-21",
+  "title": "Something Lives in the Hollow Oak",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-21/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 116192,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 9203,
+      "text": "It was late in the Hollow Oak.\nEveryone was asleep.\nThen Pip heard it.\nScratch.\nShuffle.\nA tiny voice: \"...where DID I put them...\""
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 9203,
+      "endMs": 16489,
+      "text": "Pip woke Wren.\nThey listened together.\nScratch.\nShuffle.\n\"...they were right here...\"\n\"Something is in the walls,\" said Wren."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 16489,
+      "endMs": 25309,
+      "text": "By morning, everyone knew.\nThey stood outside the Hollow Oak.\n\"It makes those sounds,\" said Luna.\n\"It always has.\"\n\"It HAS?\" said everyone."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 25309,
+      "endMs": 32978,
+      "text": "Pip, Wren, Burrow, and Fern went inside to search.\nThey searched every room.\nThey found nothing.\nThen Burrow's nose twitched."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 32978,
+      "endMs": 44482,
+      "text": "\"There is a room here,\" said Burrow.\nHe found a small door near the roots.\nIt was very small.\nToo small for most of them.\n\"I can go,\" said Fern."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 44482,
+      "endMs": 54836,
+      "text": "Fern went through the small door.\nShe was inside for a moment.\nThen she called back:\n\"There is someone here.\"\nEveryone pressed their ears to the door."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 54836,
+      "endMs": 65190,
+      "text": "Inside was a room.\nIt was small and warm.\nIt was full of collected things.\nA tiny creature was searching through them.\nShe did not look up."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 65190,
+      "endMs": 73243,
+      "text": "\"Hello,\" said Fern.\nThe tiny creature looked up.\n\"Have you seen my spectacles?\" she said.\n\"I've been looking for three days.\""
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 73243,
+      "endMs": 82446,
+      "text": "Fern looked around the room.\nThen she looked at Twig.\nThe spectacles were on top of Twig's head.\nThey had been there all along."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 82446,
+      "endMs": 90499,
+      "text": "\"I am Twig,\" said the tiny creature.\n\"I live here.\"\n\"I have always lived here.\"\nShe seemed perfectly happy about this."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 90499,
+      "endMs": 101236,
+      "text": "Fern came back through the door.\n\"Her name is Twig,\" said Fern.\n\"She has lived here for many years.\"\nEveryone looked at Luna.\n\"Of course,\" said Luna.\n\"Twig.\""
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 101236,
+      "endMs": 116192,
+      "text": "They made Twig a slightly larger door.\nTwig came out for acorn biscuits.\nShe sat in the big room and looked around.\n\"I like it here,\" she said.\n\"But I like my room better.\"\n\"This is also very nice.\""
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "bookId": "first-facts-a-06-baby-animals",
+  "title": "Baby Animals",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-06/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 31306,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 4318,
+      "text": "A baby dog is a pup. A pup is soft and fluffy."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 4318,
+      "endMs": 7916,
+      "text": "A baby cat is a kitten. A kitten can purr."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 7916,
+      "endMs": 12234,
+      "text": "A baby cow is a calf. A calf drinks its mum's milk."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 12234,
+      "endMs": 16552,
+      "text": "A baby hen is a chick. A chick is soft and yellow."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 16552,
+      "endMs": 20510,
+      "text": "A baby sheep is a lamb. A lamb has soft wool."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 20510,
+      "endMs": 24468,
+      "text": "A baby horse is a foal. A foal can run fast."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 24468,
+      "endMs": 28066,
+      "text": "A baby duck is a duckling. A duckling can swim."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 28066,
+      "endMs": 31306,
+      "text": "Baby animals grow. One day they will be big."
+    }
+  ]
+}

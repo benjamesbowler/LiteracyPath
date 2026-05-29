@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-06-spiders",
+  "title": "Spiders",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-06/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 113040,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8875,
+      "text": "Spiders are not insects. Insects have six legs. Spiders have eight legs. They belong to a group called arachnids."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8875,
+      "endMs": 21487,
+      "text": "Most spiders can make silk. The silk comes out of tiny organs called spinnerets. Spider silk is incredibly strong — stronger than steel wire of the same thickness!"
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 21487,
+      "endMs": 35033,
+      "text": "Many spiders spin webs to catch food. Orb webs are circular with spokes like a wheel. The spider starts with the spokes, then spins a sticky spiral between them."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 35033,
+      "endMs": 47645,
+      "text": "Not all webs look the same. Sheet webs are flat like a hammock. Cobwebs are messy tangles. Every type of spider makes its own kind of web."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 47645,
+      "endMs": 63994,
+      "text": "Some spiders do not use webs at all. Jumping spiders leap onto their food. They have big eyes that face forward to judge distance. A jumping spider can leap 20 times its own body length!"
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 63994,
+      "endMs": 76139,
+      "text": "Spiders have eight eyes, but many cannot see well. Instead, they feel vibrations through their legs. When something touches the web, the spider feels it instantly."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 76139,
+      "endMs": 87817,
+      "text": "When an insect is caught, the spider wraps it in silk. This keeps it still. Then the spider injects venom to begin digesting its meal."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 87817,
+      "endMs": 99495,
+      "text": "Female spiders lay eggs in a silk sac. The sac protects the eggs. When they hatch, tiny spiderlings emerge. Some mothers carry the sac everywhere."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 99495,
+      "endMs": 113040,
+      "text": "Most spiders are harmless to people. They eat insects that damage our plants. Without spiders, our gardens and crops would be full of pests. Spiders are very helpful friends."
+    }
+  ]
+}

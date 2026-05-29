@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-12",
+  "title": "Fern and Dewdrop Save the Stream",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-12/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 112557,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8040,
+      "text": "The Crystal Stream was not singing.\nFern heard it first.\nOr rather — she heard nothing.\nShe went to find Dewdrop."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8040,
+      "endMs": 14874,
+      "text": "\"It flows,\" said Fern.\n\"But it does not sing,\" said Dewdrop.\n\"Something is wrong at the source.\""
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 14874,
+      "endMs": 25326,
+      "text": "\"The song comes from the source,\" said Dewdrop.\n\"We must follow the stream up.\"\nFern looked at the deep forest ahead.\n\"Then we go,\" said Fern."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 25326,
+      "endMs": 32160,
+      "text": "They followed the stream upstream.\nThe forest grew older.\nThe roots grew bigger.\nThe stream grew quieter."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 32160,
+      "endMs": 41004,
+      "text": "At the source, they found it.\nA great boulder had fallen.\nIt lay across the singing stones.\nThe stones could not sing."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 41004,
+      "endMs": 51456,
+      "text": "Dewdrop tried to push it with water.\nShe pushed as hard as she could.\nThe boulder did not move.\n\"I am not strong enough,\" said Dewdrop."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 51456,
+      "endMs": 60702,
+      "text": "Fern tried to push with her hands.\nThe boulder did not move.\nFern stepped back and thought.\n\"We need each other,\" said Fern."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 60702,
+      "endMs": 69948,
+      "text": "Fern grew a strong vine around the boulder.\nDewdrop sent water under it to loosen the mud.\n\"Ready?\" said Fern.\n\"Ready,\" said Dewdrop."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 69948,
+      "endMs": 76380,
+      "text": "They pushed and pulled together.\nThe boulder shifted.\nThe mud let go.\nThe boulder rolled aside."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 76380,
+      "endMs": 88842,
+      "text": "The water rushed over the singing stones.\nAnd the Crystal Stream began to sing.\nFirst very quietly.\nThen louder.\nThen loud enough to hear all the way to the Hollow Oak."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 88842,
+      "endMs": 99696,
+      "text": "They sat on the bank and listened.\nThe stream sang around them.\n\"We did it,\" said Fern.\nDewdrop smiled.\n\"It sang itself. We just moved the stone.\""
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 99696,
+      "endMs": 112557,
+      "text": "At the Hollow Oak, everyone heard it.\n\"The stream is singing again!\" said Pip.\n\"We just moved a stone,\" said Fern.\n\"And asked the water nicely,\" said Dewdrop.\n\"It did the rest.\""
+    }
+  ]
+}

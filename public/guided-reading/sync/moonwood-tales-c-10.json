@@ -1,0 +1,107 @@
+{
+  "bookId": "moonwood-tales-c-10",
+  "title": "What Luna Forgot",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-10/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 121376,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 9195,
+      "text": "Luna woke up knowing she had forgotten something important. She sat on her branch. She thought very hard. She could not remember what it was."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 9195,
+      "endMs": 18390,
+      "text": "This was the problem with forgetting things. You couldn't always remember what you had forgotten. Luna knew it was important. She knew it was today."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 18390,
+      "endMs": 28321,
+      "text": "What do you remember about it? asked Pip. I remember it was today, said Luna. And it was important. And... she paused. I think it was outside."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 28321,
+      "endMs": 37884,
+      "text": "Was it a meeting? asked Fern. I don't think so, said Luna. Was it something to collect? asked Burrow. Possibly, said Luna. I cannot quite say."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 37884,
+      "endMs": 47079,
+      "text": "Everyone helped. They checked the Hollow Oak from top to bottom. They walked the paths. They looked in the Whispering Meadow. Nothing triggered the memory."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 47079,
+      "endMs": 56274,
+      "text": "Was it something to do with the Crystal Stream? asked Dewdrop. Luna stopped walking. She looked at the stream for a moment. Wait, said Luna."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 56274,
+      "endMs": 62895,
+      "text": "Luna flew to the Crystal Stream. She landed on a stepping stone. She looked down into the water."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 62895,
+      "endMs": 71355,
+      "text": "Under the water, among the pebbles, there was a small silver box. Luna had put it there herself. A very long time ago."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 71355,
+      "endMs": 78711,
+      "text": "Yes, said Luna. I remember now. She picked it up. I put it there to keep it safe. For today."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 78711,
+      "endMs": 86803,
+      "text": "She opened the box. Inside were twelve small seeds. Each one glowed with a soft gold light. Oh, said Fern, very quietly."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 86803,
+      "endMs": 94895,
+      "text": "Moonwood seeds, said Luna. From the first trees. For the day the old trees grow tired and need new ones beside them."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 94895,
+      "endMs": 103722,
+      "text": "Luna gave one to each creature. One for each of them. The seeds glowed gently in their hands. Plant them this afternoon, said Luna."
+    },
+    {
+      "pageIndex": 12,
+      "pageNumber": 13,
+      "startMs": 103722,
+      "endMs": 111446,
+      "text": "They planted the seeds in a ring around the Hollow Oak. One from each of them. In the golden afternoon light."
+    },
+    {
+      "pageIndex": 13,
+      "pageNumber": 14,
+      "startMs": 111446,
+      "endMs": 121376,
+      "text": "What would have happened if you hadn't remembered? asked Wren. I did remember, said Luna. With help. She looked at all of them. That is the point."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-19",
+  "title": "The Missing Magic Seeds",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-19/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 123974,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 12065,
+      "text": "The magic seeds were gone.\nThe box that held them was open and empty.\nLuna looked at the box for a long time.\n\"This is not good,\" she said."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 12065,
+      "endMs": 21633,
+      "text": "Luna called everyone together.\n\"The seeds keep Moonwood glowing,\" she said.\n\"Without them, the forest will grow dark.\"\nEveryone looked at each other."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 21633,
+      "endMs": 29953,
+      "text": "They split into groups.\nEach group took a different path.\nEach path led somewhere different.\n\"Find the seeds,\" said Luna."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 29953,
+      "endMs": 41602,
+      "text": "Pip searched the Fog Marsh.\nHe found no seeds.\nHe found mud.\nFlint searched the Tumblerock Cliffs.\nHe found no seeds.\nHe found three new things to map."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 41602,
+      "endMs": 52003,
+      "text": "Wren and Spark tried search spells.\nThe spells pointed at each other.\nStone looked under every log.\nGently.\nThere were no seeds under the logs."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 52003,
+      "endMs": 59491,
+      "text": "Burrow went underground.\nHe searched every tunnel.\nHe found three interesting things.\nHe did not find any seeds."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 59491,
+      "endMs": 66563,
+      "text": "Dewdrop searched the stream.\nFern walked slowly around the clearing.\nShe was not searching.\nShe was listening."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 66563,
+      "endMs": 75715,
+      "text": "Fern stopped.\nShe knelt down.\nThere were small green shoots in the ground.\nThey glowed.\nJust a little.\nJust like the seeds."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 75715,
+      "endMs": 86116,
+      "text": "\"Oh,\" said Fern.\nShe remembered.\nTwo nights ago she had been in the clearing.\nShe had planted the seeds.\nShe had not meant to forget."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 86116,
+      "endMs": 98181,
+      "text": "Everyone came back with nothing.\nThen they saw Fern.\nShe was sitting in the middle of the clearing.\nSmall glowing seedlings were growing all around her.\n\"Oh,\" said everyone."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 98181,
+      "endMs": 110246,
+      "text": "Luna bent down to look.\nThe seedlings were strong.\nThey were growing along the paths.\nAround the Hollow Oak.\nAll through the clearing.\n\"Better than a box,\" said Luna."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 110246,
+      "endMs": 123974,
+      "text": "That night, Moonwood glowed more than ever.\nThe seedlings lit the ground.\nEveryone sat outside the Hollow Oak.\n\"I'm sorry I forgot,\" said Fern.\n\"Don't be,\" said Luna.\n\"They like it better here.\""
+    }
+  ]
+}

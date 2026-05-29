@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-22-staying-healthy",
+  "title": "Staying Healthy",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-22/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 25444,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 4313,
+      "text": "Eat good food. Fruits and vegetables are good for you."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 4313,
+      "endMs": 7763,
+      "text": "Drink water. Water is good for your body."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 7763,
+      "endMs": 10782,
+      "text": "Move your body. Run, jump, and play!"
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 10782,
+      "endMs": 14232,
+      "text": "Wash your hands. Clean hands keep germs away."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 14232,
+      "endMs": 17682,
+      "text": "Brush your teeth. Brush them twice a day."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 17682,
+      "endMs": 21563,
+      "text": "Sleep is important. Your body grows when you sleep."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 21563,
+      "endMs": 25444,
+      "text": "Stay healthy every day! Eat, move, sleep, and smile!"
+    }
+  ]
+}

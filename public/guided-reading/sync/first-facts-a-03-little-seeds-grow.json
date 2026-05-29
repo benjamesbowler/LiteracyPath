@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-03-little-seeds-grow",
+  "title": "Little Seeds Grow",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-03/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 3990,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 684,
+      "text": "This is a seed. It is tiny. Seeds come in many shapes."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 684,
+      "endMs": 1197,
+      "text": "Put the seed in soil. Pat it down gently."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 1197,
+      "endMs": 1653,
+      "text": "Add some water. The seed drinks it up."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 1653,
+      "endMs": 2166,
+      "text": "The sun shines. Something is happening under the soil!"
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 2166,
+      "endMs": 2736,
+      "text": "A green shoot comes up! It has two small leaves."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 2736,
+      "endMs": 3420,
+      "text": "The stem grows tall. More leaves grow. It needs sun and water."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 3420,
+      "endMs": 3990,
+      "text": "A flower blooms! The seed has grown into a plant."
+    }
+  ]
+}

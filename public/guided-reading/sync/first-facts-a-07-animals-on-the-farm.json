@@ -1,0 +1,65 @@
+{
+  "bookId": "first-facts-a-07-animals-on-the-farm",
+  "title": "Animals on the Farm",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-07/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 29338,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 3521,
+      "text": "A cow is big. A cow eats grass. Moo!"
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 3521,
+      "endMs": 7433,
+      "text": "A cow gives us milk. We drink milk every day."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 7433,
+      "endMs": 11345,
+      "text": "A pig is pink. A pig rolls in mud. Oink!"
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 11345,
+      "endMs": 14866,
+      "text": "A sheep has thick wool. Wool keeps us warm."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 14866,
+      "endMs": 18778,
+      "text": "A hen lays eggs. We can eat the eggs. Cluck!"
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 18778,
+      "endMs": 22690,
+      "text": "A horse is strong. Horses can pull and carry things."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 22690,
+      "endMs": 26211,
+      "text": "A duck swims on the pond. Quack! Quack! Quack!"
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 26211,
+      "endMs": 29338,
+      "text": "Farms give us food. Thank you, farm animals!"
+    }
+  ]
+}

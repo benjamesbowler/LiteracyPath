@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-15",
+  "title": "Burrow and Luna and the Old Secret",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-15/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 115605,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8800,
+      "text": "Burrow was digging a new tunnel.\nHe dug every morning.\nHe liked the quiet of it.\nHe liked the dark of it."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8800,
+      "endMs": 17200,
+      "text": "Then his tunnel fell open.\nHe tumbled into a room.\nIt was large.\nIt was old.\nIt was not a tunnel."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 17200,
+      "endMs": 28801,
+      "text": "The room had carvings on every wall.\nIt had small glowing stones in the ceiling.\nIt smelled of old wood and old magic.\nBurrow had never seen it before."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 28801,
+      "endMs": 36401,
+      "text": "Burrow went up to find Luna.\n\"Come with me,\" he said.\n\"Bring a light.\"\nLuna said nothing.\nShe came."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 36401,
+      "endMs": 43201,
+      "text": "Luna was very large for a tunnel.\nShe came anyway.\nShe did not say anything about this."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 43201,
+      "endMs": 51201,
+      "text": "Luna stood in the doorway.\nShe was very still.\nHer eyes went wide.\nThen soft.\n\"Oh,\" said Luna.\nVery quietly."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 51201,
+      "endMs": 60801,
+      "text": "Luna walked slowly around the room.\nShe touched the carvings.\nThey lit up where she touched.\nBlue and gold.\nShe had been here before."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 60801,
+      "endMs": 70801,
+      "text": "\"Have you been here before?\" asked Burrow.\n\"Yes,\" said Luna.\nShe looked around the room.\n\"A very long time ago.\"\n\"What is it?\" asked Burrow."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 70801,
+      "endMs": 82802,
+      "text": "\"This is the Memory Room,\" said Luna.\n\"This is where Moonwood keeps its oldest stories.\"\nBurrow looked at the carvings.\n\"All of them?\" he asked.\n\"All of them,\" said Luna."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 82802,
+      "endMs": 93202,
+      "text": "Luna settled on a ledge.\nShe folded her wings.\nShe looked at the carvings for a moment.\n\"The first story of Moonwood,\" she began,\n\"is this.\""
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 93202,
+      "endMs": 104803,
+      "text": "Burrow sat very still and listened.\nThe room grew warmer.\nThe carvings lit up one by one.\nLuna's voice was quiet and certain.\nShe had always known these stories."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 104803,
+      "endMs": 115605,
+      "text": "It was very late when Burrow noticed.\n\"Will you tell me the rest?\" he asked.\n\"Yes,\" said Luna.\n\"There is quite a lot.\"\nThey both settled in."
+    }
+  ]
+}

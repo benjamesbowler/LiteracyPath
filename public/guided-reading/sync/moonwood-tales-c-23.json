@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-23",
+  "title": "The Fog Marsh Mystery",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-23/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 129235,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 11188,
+      "text": "Pip noticed it on a Tuesday.\nThe grey fog of the Fog Marsh was closer.\nIt had never come this near before.\nHe marked the edge with a stick."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 11188,
+      "endMs": 21604,
+      "text": "By the end of the week, the fog had crept closer.\nThe mushrooms at the edge were going out.\nOne by one.\nThe fog was not stopping."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 21604,
+      "endMs": 30863,
+      "text": "Pip told Luna.\nLuna listened carefully.\n\"Something is wrong at the marsh,\" she said.\n\"We must go in.\"\nPip, Fern, and Dewdrop came too."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 30863,
+      "endMs": 40507,
+      "text": "Inside the marsh, it was colder.\nThe trees drooped.\nThe water did not move.\nDewdrop led them through the fog.\nShe could feel the water."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 40507,
+      "endMs": 51695,
+      "text": "At the centre of the marsh, they found it.\nA figure made of grey mist.\nIt sat against a dead tree.\nIt was very still.\nIt looked very sad."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 51695,
+      "endMs": 60954,
+      "text": "Dewdrop went close.\n\"What is wrong?\" she asked.\nThe spirit looked up slowly.\nIts eyes were dim.\n\"My home,\" it said.\n\"Every year, smaller.\""
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 60954,
+      "endMs": 71370,
+      "text": "The spirit pointed to the edges.\nThey looked.\nThere were things left behind.\nA rope.\nAn old lamp.\nA pile of mushroom caps.\nLeft by Moonwood creatures."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 71370,
+      "endMs": 81400,
+      "text": "\"We didn't know,\" said Pip.\n\"We left things without thinking,\" said Fern.\nThe spirit looked at them.\n\"Every year, more things.\"\n\"Every year, a little smaller.\""
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 81400,
+      "endMs": 92202,
+      "text": "\"We'll clear it,\" said Pip.\n\"Now,\" said Fern.\nThey spent the afternoon clearing the marsh edge.\nAs they worked, the spirit watched.\nSlowly, it began to sit up."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 92202,
+      "endMs": 104161,
+      "text": "When the edge was clear, the spirit stood.\nIts shape was clearer now.\n\"Thank you,\" said the spirit.\nIt was not mist anymore.\nIt was something more solid.\nSomething more itself."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 104161,
+      "endMs": 114963,
+      "text": "They marked the boundary at the Hollow Oak.\nEveryone placed a stone.\n\"The marsh is the marsh,\" said Luna.\n\"Moonwood is Moonwood.\"\n\"And we leave space for both.\""
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 114963,
+      "endMs": 129235,
+      "text": "That evening, the fog stayed at the line.\nThe mushrooms began to come back on.\nOne by one.\nPip watched them light up.\nThe marsh was where it should be.\nThe forest was where it should be."
+    }
+  ]
+}

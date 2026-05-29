@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-21-how-i-grow",
+  "title": "How I Grow",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-21/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 25762,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 4746,
+      "text": "When I was a baby, I was tiny. I could not walk or talk."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 4746,
+      "endMs": 7797,
+      "text": "I grew bigger. I could sit up and crawl."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 7797,
+      "endMs": 10509,
+      "text": "I got stronger. I took my first steps!"
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 10509,
+      "endMs": 14238,
+      "text": "I learned to run and jump. I grew more every day."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 14238,
+      "endMs": 17628,
+      "text": "Now I am bigger. I can do so many things!"
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 17628,
+      "endMs": 22035,
+      "text": "I eat well to grow. Food helps my body get big and strong."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 22035,
+      "endMs": 25762,
+      "text": "I will keep on growing. One day I will be tall!"
+    }
+  ]
+}

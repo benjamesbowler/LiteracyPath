@@ -1,0 +1,65 @@
+{
+  "bookId": "first-facts-a-10-bugs-all-around-us",
+  "title": "Bugs All Around Us",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-10/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 33687,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 4465,
+      "text": "Bugs are all around us. Big bugs. Small bugs. Look closely!"
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 4465,
+      "endMs": 8524,
+      "text": "A butterfly has four wings. Its wings have bright patterns."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 8524,
+      "endMs": 12583,
+      "text": "A bee collects pollen. Bees make honey. Bees are important."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 12583,
+      "endMs": 17048,
+      "text": "A ladybird is red with black spots. It eats tiny greenfly."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 17048,
+      "endMs": 21107,
+      "text": "An ant is tiny. Ants work together. Ants carry food."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 21107,
+      "endMs": 25166,
+      "text": "A worm lives in the soil. Worms help plants grow."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 25166,
+      "endMs": 30442,
+      "text": "A snail has a shell on its back. A snail moves very slowly."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 30442,
+      "endMs": 33687,
+      "text": "Bugs help our world. They are very important!"
+    }
+  ]
+}

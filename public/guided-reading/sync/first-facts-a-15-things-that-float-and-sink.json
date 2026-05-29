@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-15-things-that-float-and-sink",
+  "title": "Things That Float and Sink",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-15/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 3144,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 472,
+      "text": "Drop a duck in water. It floats on top!"
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 472,
+      "endMs": 996,
+      "text": "Drop a stone in water. It sinks to the bottom."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 996,
+      "endMs": 1310,
+      "text": "A leaf floats. A coin sinks."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 1310,
+      "endMs": 1834,
+      "text": "A boat floats on the water. It can carry things."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 1834,
+      "endMs": 2306,
+      "text": "A big rock is heavy. Heavy things often sink."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 2306,
+      "endMs": 2673,
+      "text": "Try it yourself! What floats? What sinks?"
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 2673,
+      "endMs": 3144,
+      "text": "Some things float. Some things sink. Science is fun!"
+    }
+  ]
+}

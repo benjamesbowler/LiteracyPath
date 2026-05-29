@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-07",
+  "title": "Dewdrop and the Lying Fish",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-07/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 122624,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 10865,
+      "text": "Dewdrop knew every fish in the Crystal Stream. She talked to them every morning. They told her things: where the water was cold, where the best pebbles were."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 10865,
+      "endMs": 19402,
+      "text": "One morning, a new fish appeared. It was silver with a bright blue stripe. Dewdrop had never seen a fish like it."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 19402,
+      "endMs": 28327,
+      "text": "Hello, said Dewdrop. I am the oldest fish in Moonwood, said the fish. Dewdrop tilted her head. The fish was not very large."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 28327,
+      "endMs": 41521,
+      "text": "I have been here longer than the Hollow Oak, said the fish. Dewdrop looked carefully. The fish was, if anything, quite new-looking. I know all the secrets of the Deep Dark, the fish added."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 41521,
+      "endMs": 51610,
+      "text": "Dewdrop was not sure any of this was true. She knew the Deep Dark secrets. They were kept by a very old badger, not a fish."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 51610,
+      "endMs": 63252,
+      "text": "Can fish lie? Dewdrop asked Burrow. Some of them can, said Burrow. Which fish? The new one with the blue stripe, said Dewdrop. Burrow had not seen a new fish."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 63252,
+      "endMs": 73729,
+      "text": "Dewdrop went back to the Crystal Stream. Why do you say things that are not true? she asked. She said it kindly. She just wanted to know."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 73729,
+      "endMs": 85759,
+      "text": "The fish was quiet for a while. It swam a small, slow circle. Then it came back. Because I am new here, said the fish. And I wanted to sound interesting."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 85759,
+      "endMs": 97012,
+      "text": "You are interesting, said Dewdrop. You are the only fish in this stream with a blue stripe. The fish looked at its own stripe. That is true, it said."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 97012,
+      "endMs": 103609,
+      "text": "Is being the only blue-stripe fish enough? asked the fish. Yes, said Dewdrop. It is very enough."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 103609,
+      "endMs": 113698,
+      "text": "After that, the fish told Dewdrop true things. Small things, mostly. Where the water was coldest. Where the most unusual pebbles were. These things were true."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 113698,
+      "endMs": 122624,
+      "text": "What is the fish called? asked Pip. I... said Dewdrop. She stopped. She had forgotten to ask. She turned back toward the water."
+    }
+  ]
+}

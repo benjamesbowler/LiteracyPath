@@ -1,0 +1,65 @@
+{
+  "bookId": "first-facts-a-08-animals-in-the-ocean",
+  "title": "Animals in the Ocean",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-08/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 36111,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 4762,
+      "text": "The ocean is big. It is full of animals. Let us look!"
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 4762,
+      "endMs": 9127,
+      "text": "A fish has fins. Fins help fish swim. Fish have scales."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 9127,
+      "endMs": 15476,
+      "text": "A whale is huge! It is the biggest animal. Whales swim to the top to breathe."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 15476,
+      "endMs": 20635,
+      "text": "An octopus has eight arms. It can change colour. It hides in rocks."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 20635,
+      "endMs": 24603,
+      "text": "A crab has a hard shell. A crab walks sideways."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 24603,
+      "endMs": 28174,
+      "text": "A seahorse is tiny. It holds on to plants."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 28174,
+      "endMs": 31745,
+      "text": "A dolphin jumps and plays. Dolphins are very clever."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 31745,
+      "endMs": 36111,
+      "text": "So many animals live in the sea! The ocean is amazing."
+    }
+  ]
+}

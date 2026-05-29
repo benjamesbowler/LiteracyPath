@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-03-penguins",
+  "title": "Penguins",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-03/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 122064,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8754,
+      "text": "Penguins are birds — but they cannot fly. Instead, they use their wings as flippers. They are brilliant swimmers."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8754,
+      "endMs": 20912,
+      "text": "Most penguins live in cold places. Emperor penguins live in Antarctica, the coldest and windiest place on Earth. Temperatures can drop below minus 60 degrees!"
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 20912,
+      "endMs": 35988,
+      "text": "The female emperor penguin lays one egg. The father balances it on his feet and covers it with a warm flap of skin. He keeps it safe from the freezing cold."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 35988,
+      "endMs": 53009,
+      "text": "The father does not eat for two months. He huddles with other fathers to stay warm. Meanwhile, the mother goes to the sea to find fish. She will bring food back when the egg hatches."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 53009,
+      "endMs": 65167,
+      "text": "When the egg hatches, a tiny chick comes out. The chick has thick grey fluffy feathers. It cuddles close to its parent to stay warm."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 65167,
+      "endMs": 78784,
+      "text": "Penguins are extraordinary swimmers. They can swim at 25 kilometres per hour. They leap in and out of the water and can dive very deep to catch fish."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 78784,
+      "endMs": 91428,
+      "text": "Penguins live in large groups called colonies. Some colonies have hundreds of thousands of penguins! Each penguin recognises its partner and its chick by their call."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 91428,
+      "endMs": 106990,
+      "text": "Penguins are black on top and white underneath. This is called countershading. From above, their dark back blends with the deep water. From below, their white front looks like the bright surface."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 106990,
+      "endMs": 122064,
+      "text": "There are 18 species of penguin. Not all live in cold places. Little blue penguins live in Australia. African penguins live on warm, sunny beaches. Every kind of penguin is remarkable."
+    }
+  ]
+}

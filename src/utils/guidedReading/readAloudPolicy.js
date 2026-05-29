@@ -14,6 +14,10 @@ export function getGuidedReadingBookAudioPath(book = {}) {
   return book.bookAudioPath || book.fullBookAudio || book.audio?.fullBook || "";
 }
 
+export function getGuidedReadingBookSyncPath(book = {}) {
+  return book.bookSyncPath || book.fullBookSync || book.syncPath || book.audio?.sync || `/guided-reading/sync/${book.id}.json`;
+}
+
 export function getReadAloudMode(book = {}, page = {}) {
   if (getGuidedReadingBookAudioPath(book) || getGuidedReadingPageAudioPath(page)) return "human_audio";
   if ((page.words || []).some(word => word.audioPath)) return "word_sequence";

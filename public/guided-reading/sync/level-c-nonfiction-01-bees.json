@@ -1,0 +1,72 @@
+{
+  "bookId": "level-c-nonfiction-01-bees",
+  "title": "Bees",
+  "audioPath": "/guided-reading/nonfiction/level-c/book-01/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 91368,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 8468,
+      "text": "There are thousands of kinds of bees. The honeybee is one of the most helpful bees in the world."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 8468,
+      "endMs": 18273,
+      "text": "Bees live together in a hive. One hive can hold up to 60,000 bees. The queen bee lays all the eggs."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 18273,
+      "endMs": 27187,
+      "text": "Worker bees fly from flower to flower. They collect a sweet liquid from inside flowers. This liquid is called nectar."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 27187,
+      "endMs": 35655,
+      "text": "Bees carry nectar back to the hive. They pass it from bee to bee. Slowly, it turns into honey."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 35655,
+      "endMs": 48580,
+      "text": "Bees also collect yellow dust called pollen. Pollen sticks to their fuzzy legs. When the bee visits the next flower, some pollen falls off. This helps plants make seeds."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 48580,
+      "endMs": 59277,
+      "text": "This is called pollination. Without bees, many plants could not make seeds. No seeds means no fruits or vegetables. We need bees very much."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 59277,
+      "endMs": 73094,
+      "text": "One jar of honey needs thousands of bee trips to make. Bees visit two million flowers for just one jar! Next time you eat honey, think of all those busy bees."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 73094,
+      "endMs": 83791,
+      "text": "We can help bees by planting flowers. Bees love lavender, sunflowers, and daisies. Even a small garden or a pot of flowers can help."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 83791,
+      "endMs": 91368,
+      "text": "Bees work hard every day. They help flowers grow. They make our world sweeter. Bees are amazing."
+    }
+  ]
+}

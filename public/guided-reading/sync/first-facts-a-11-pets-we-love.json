@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-11-pets-we-love",
+  "title": "Pets We Love",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-11/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 5142,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 707,
+      "text": "A dog is a pet. Dogs love to play and run."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 707,
+      "endMs": 1414,
+      "text": "Dogs need food, water, and walks. We look after our dogs."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 1414,
+      "endMs": 2121,
+      "text": "A cat is a pet. Cats purr when they are happy."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 2121,
+      "endMs": 3021,
+      "text": "A rabbit is a pet. Rabbits are soft and fluffy. They twitch their noses."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 3021,
+      "endMs": 3728,
+      "text": "A goldfish swims in a tank. Fish need clean, fresh water."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 3728,
+      "endMs": 4435,
+      "text": "A hamster is small and fluffy. Hamsters run on a wheel."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 4435,
+      "endMs": 5142,
+      "text": "All pets need food, water, and love. Pets are our friends."
+    }
+  ]
+}

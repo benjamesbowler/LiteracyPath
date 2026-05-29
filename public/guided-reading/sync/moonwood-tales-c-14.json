@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-14",
+  "title": "Wren and Flint Get Lost",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-14/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 118424,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 9675,
+      "text": "Wren and Flint were going to the Whispering Meadow.\nFlint had a map.\nWren had a direction spell.\n\"We will be perfectly fine,\" said Flint."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 9675,
+      "endMs": 17415,
+      "text": "Flint's map said go left.\nWren's spell said go right.\n\"Straight ahead,\" they agreed.\nThis turned out to be wrong."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 17415,
+      "endMs": 26316,
+      "text": "An hour later, nothing looked right.\nThe trees were wrong.\nThe paths had gone.\n\"Where are we?\" asked Wren.\nFlint checked his map."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 26316,
+      "endMs": 39087,
+      "text": "\"We are here,\" said Flint.\nHe pointed at the map.\nWren looked around.\nGrey fog was appearing between the trees.\n\"That is the Fog Marsh,\" said Wren.\n\"We are not near the meadow.\""
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 39087,
+      "endMs": 48762,
+      "text": "Wren tried her direction spell.\nThe arrow spun three times.\nThen it pointed at Flint.\n\"That's you,\" said Wren.\n\"I know I'm here,\" said Flint."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 48762,
+      "endMs": 57663,
+      "text": "Flint opened his satchel.\nSeven maps fell out.\nOne was of the coast.\nOne was upside down.\nNone of them were quite right."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 57663,
+      "endMs": 65790,
+      "text": "They sat down under a large mushroom.\nThey were tired.\nThey were lost.\nThe mushroom glowed cheerfully.\nWren looked at it."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 65790,
+      "endMs": 73917,
+      "text": "\"I wonder,\" said Wren.\nShe closed her spell book.\nShe spoke to the mushroom.\nVery quietly.\nShe asked it the way."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 73917,
+      "endMs": 84753,
+      "text": "The mushroom's glow changed.\nIt pulsed once — pointing.\nAnother mushroom far away pulsed the same way.\nAnd another.\nA trail of glowing mushrooms lit up through the trees."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 84753,
+      "endMs": 93654,
+      "text": "Wren and Flint followed the mushroom trail.\nThe forest opened up.\nThe golden light of the Whispering Meadow was ahead.\n\"Oh,\" said Flint."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 93654,
+      "endMs": 105264,
+      "text": "They arrived at the Whispering Meadow.\nIt was exactly where they had been going.\nFlint wrote something on his map.\n\"Mushroom trail,\" he said.\n\"I should have had that already.\""
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 105264,
+      "endMs": 118424,
+      "text": "\"Why didn't we try that first?\" asked Flint.\n\"I don't know,\" said Wren.\nShe looked back at the mushroom trail.\n\"They seemed happy about it though.\"\nThe last mushroom blinked once and went out."
+    }
+  ]
+}

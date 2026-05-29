@@ -1,0 +1,58 @@
+{
+  "bookId": "first-facts-a-18-the-moon",
+  "title": "The Moon",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-18/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 28258,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 5233,
+      "text": "Look up at night. You can see the moon! The moon is big and round."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 5233,
+      "endMs": 9419,
+      "text": "The moon shines at night. It gives us light in the dark."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 9419,
+      "endMs": 12908,
+      "text": "The moon changes shape. Sometimes it looks like a banana."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 12908,
+      "endMs": 16746,
+      "text": "Sometimes it is a full circle. This is a full moon."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 16746,
+      "endMs": 20235,
+      "text": "The moon goes around the Earth. It travels very slowly."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 20235,
+      "endMs": 24073,
+      "text": "People have been to the moon! They wore big white suits."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 24073,
+      "endMs": 28258,
+      "text": "The moon is far away. But we can see it every night."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "bookId": "moonwood-tales-c-22",
+  "title": "The Big Moonwood Race",
+  "audioPath": "/guided-reading/series/moonwood-tales/book-22/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 131750,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 13012,
+      "text": "Luna read out the race rules.\nThe course: from the Hollow Oak to the Crystal Stream to the Tumblerock Cliffs and back.\nEveryone was at the starting line.\nEveryone was ready.\nMostly."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 13012,
+      "endMs": 23178,
+      "text": "They were off.\nPip ran.\nFern flew.\nStone trotted.\nDewdrop glided.\nWren ran and read her spell book.\nFlint took a very confident turn left."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 23178,
+      "endMs": 34970,
+      "text": "Flint went left.\nThen left again.\nThen the Fog Marsh was ahead of him.\n\"I am taking a scenic route,\" said Flint.\nThere was no one to hear him."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 34970,
+      "endMs": 45543,
+      "text": "Wren found a speed spell.\nShe cast it.\nIt worked on everyone near her.\nEveryone shot forward very fast.\nExcept Wren.\nShe watched them all go."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 45543,
+      "endMs": 53269,
+      "text": "Glimmer could not stop.\nGlimmer hit Spark.\nSparkles went everywhere.\nThey both kept moving.\nVery fast.\nIn new directions."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 53269,
+      "endMs": 63842,
+      "text": "Stone hit a root.\nStone began to fall.\nThis took a while.\nStone was very large.\nStone fell slowly.\nMagnificently.\nLike a small cliff sitting down."
+    },
+    {
+      "pageIndex": 6,
+      "pageNumber": 7,
+      "startMs": 63842,
+      "endMs": 75228,
+      "text": "Pip reached the Crystal Stream.\nHe leaped from stone to stone.\nOne stone was slippery.\nPip went in.\nHe came out the other side.\nStill running.\nVery wet."
+    },
+    {
+      "pageIndex": 7,
+      "pageNumber": 8,
+      "startMs": 75228,
+      "endMs": 86207,
+      "text": "Halfway through, everyone was somewhere different.\nPip was wet.\nStone was standing up again.\nSpark had lost his hat.\nFlint was not visible.\nWren was still walking."
+    },
+    {
+      "pageIndex": 8,
+      "pageNumber": 9,
+      "startMs": 86207,
+      "endMs": 95153,
+      "text": "Dewdrop crossed the finish line.\nShe had glided the whole way.\nShe was not wet.\nShe was not ruffled.\n\"Finished,\" said Dewdrop."
+    },
+    {
+      "pageIndex": 9,
+      "pageNumber": 10,
+      "startMs": 95153,
+      "endMs": 104506,
+      "text": "Everyone finished.\nEventually.\nPip was still damp.\nSpark had found his hat.\nStone had found a bruise.\nFlint arrived from the wrong direction."
+    },
+    {
+      "pageIndex": 10,
+      "pageNumber": 11,
+      "startMs": 104506,
+      "endMs": 115485,
+      "text": "Luna counted everyone.\nEveryone was back.\nThen there was a rumbling.\nBurrow came up through the ground.\nRight beside the finish line.\nHe did not look tired."
+    },
+    {
+      "pageIndex": 11,
+      "pageNumber": 12,
+      "startMs": 115485,
+      "endMs": 131750,
+      "text": "Dewdrop won a gold leaf for finishing.\nBurrow won a gold leaf for best route.\n\"I did not win,\" said Flint.\n\"You went to the Fog Marsh,\" said Pip.\n\"I saw many things,\" said Flint.\nHe was already drawing them."
+    }
+  ]
+}

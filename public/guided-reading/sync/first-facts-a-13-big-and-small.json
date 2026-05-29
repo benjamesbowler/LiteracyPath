@@ -1,0 +1,51 @@
+{
+  "bookId": "first-facts-a-13-big-and-small",
+  "title": "Big and Small",
+  "audioPath": "/guided-reading/nonfiction/first-facts/book-13/audio/full-book.mp3",
+  "syncAccuracy": "estimated",
+  "durationMs": 3246,
+  "pageTimings": [
+    {
+      "pageIndex": 0,
+      "pageNumber": 1,
+      "startMs": 0,
+      "endMs": 437,
+      "text": "This is big. An elephant is big."
+    },
+    {
+      "pageIndex": 1,
+      "pageNumber": 2,
+      "startMs": 437,
+      "endMs": 874,
+      "text": "This is small. A mouse is small."
+    },
+    {
+      "pageIndex": 2,
+      "pageNumber": 3,
+      "startMs": 874,
+      "endMs": 1436,
+      "text": "A bus is big. A toy car is small."
+    },
+    {
+      "pageIndex": 3,
+      "pageNumber": 4,
+      "startMs": 1436,
+      "endMs": 1935,
+      "text": "A tree is big. A flower is small."
+    },
+    {
+      "pageIndex": 4,
+      "pageNumber": 5,
+      "startMs": 1935,
+      "endMs": 2434,
+      "text": "A whale is big. A fish is small."
+    },
+    {
+      "pageIndex": 5,
+      "pageNumber": 6,
+      "startMs": 2434,
+      "endMs": 3246,
+      "text": "Big or small — all things are special! What is big? What is small?"
+    }
+  ]
+}
