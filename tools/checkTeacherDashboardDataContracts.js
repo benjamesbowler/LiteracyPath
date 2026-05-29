@@ -49,12 +49,38 @@ const adminDashboardSource = readFileSync(new URL("../src/components/AdminDashbo
 const storeSource = readFileSync(new URL("../src/data/assessmentHistoryStore.js", import.meta.url), "utf8");
 
 const failures = [];
+const requiredTeacherSections = [
+  ["teacherOverview", "Overview"],
+  ["classes", "Classes"],
+  ["students", "Students"],
+  ["reports", "Reports"],
+  ["guidedReading", "Guided Reading"],
+  ["assessmentProgress", "Assessment"],
+  ["hfw", "HFW"],
+  ["exports", "Exports"]
+];
+
 if (issues.length) failures.push(`Sample attempt missing required fields: ${issues.join(", ")}`);
 if (emptySummary.attempts !== 0) failures.push("Empty summary should have zero attempts.");
 if (summary.attempts !== 1 || summary.averageAccuracy !== 100) failures.push("Summary did not compute the sample attempt correctly.");
 if (!csv.includes("Sample Student") || !csv.includes("Final Sounds")) failures.push("CSV export is missing expected fields.");
 if (!appPagesSource.includes("Teacher Dashboard")) failures.push("Top navigation is missing visible Teacher Dashboard text.");
 if (!appSource.includes('appView === "teacherDashboard"')) failures.push("App.jsx does not render a teacherDashboard app state.");
+if (!adminDashboardSource.includes('useState(isTeacherMode ? "teacherOverview" : "overview")')) failures.push("Teacher Dashboard should default to the Overview section.");
+if (!adminDashboardSource.includes("Choose dashboard section")) failures.push("Teacher Dashboard mobile section dropdown label is missing.");
+if (!adminDashboardSource.includes('role="tablist"')) failures.push("Teacher Dashboard tablist navigation is missing.");
+if (!adminDashboardSource.includes('role="tab"')) failures.push("Teacher Dashboard tab buttons are missing tab semantics.");
+if (!adminDashboardSource.includes("aria-selected")) failures.push("Teacher Dashboard tabs should expose selected state.");
+if (!adminDashboardSource.includes("teacher-section-select")) failures.push("Teacher Dashboard mobile section selector class is missing.");
+if (!adminDashboardSource.includes("teacher-scroll-panel")) failures.push("Teacher Dashboard long lists should use bounded scroll panels.");
+requiredTeacherSections.forEach(([id, label]) => {
+  if (!adminDashboardSource.includes(`id: "${id}"`)) {
+    failures.push(`Teacher Dashboard section id is missing: ${id}.`);
+  }
+  if (!adminDashboardSource.includes(`label: "${label}"`) && !adminDashboardSource.includes(`>${label}<`)) {
+    failures.push(`Teacher Dashboard section label is missing: ${label}.`);
+  }
+});
 if (!adminDashboardSource.includes("Assessment Archive")) failures.push("AdminDashboardPage is missing Assessment Archive section text.");
 if (!adminDashboardSource.includes("No assessment attempts have been saved")) failures.push("Assessment Archive empty state text is missing.");
 if (!adminDashboardSource.includes("Export CSV") || !adminDashboardSource.includes("Export JSON")) failures.push("Assessment archive export buttons are missing.");

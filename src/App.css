@@ -5133,6 +5133,10 @@ select:focus {
   gap: 10px;
 }
 
+.teacher-section-select {
+  display: none;
+}
+
 .admin-section-tabs button,
 .admin-overview-card {
   align-items: center;
@@ -5183,6 +5187,11 @@ select:focus {
 
 .admin-section-panel {
   animation: admin-section-in 0.18s ease-out;
+}
+
+.teacher-scroll-panel {
+  max-height: min(520px, 62vh);
+  overflow: auto;
 }
 
 .admin-overview-grid {
@@ -5561,7 +5570,23 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
-  .admin-section-tabs {
+  .teacher-dashboard .teacher-section-select {
+    display: grid;
+    gap: 6px;
+    font-weight: 800;
+    text-align: left;
+  }
+
+  .teacher-dashboard .teacher-section-select select {
+    min-height: 46px;
+    width: 100%;
+  }
+
+  .teacher-dashboard .admin-section-tabs {
+    display: none;
+  }
+
+  .admin-dashboard:not(.teacher-dashboard) .admin-section-tabs {
     grid-template-columns: 1fr;
   }
 
