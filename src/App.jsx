@@ -1520,6 +1520,10 @@ export default function App() {
   const lastAuthUserIdRef = useRef(null);
   const freshAuthActionRef = useRef(false);
   const freshLoginResetPendingRef = useRef(false);
+  const authBootCompletedRef = useRef(false);
+  const accountAccessCheckInFlightRef = useRef(false);
+  const accountAccessCheckUserIdRef = useRef(null);
+  const accountAccessCheckSeqRef = useRef(0);
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -1681,6 +1685,9 @@ export default function App() {
 
       const nextUser = session?.user || null;
       const nextUserId = nextUser?.id || null;
+      const previousUserId = lastAuthUserIdRef.current;
+      const isBackgroundSameUserRefresh =
+        Boolean(nextUserId && nextUserId === previousUserId && authBootCompletedRef.current);
 
       if (event === "SIGNED_IN" && nextUserId && freshAuthActionRef.current) {
         freshLoginResetPendingRef.current = true;
@@ -1689,15 +1696,30 @@ export default function App() {
         freshAuthActionRef.current = false;
       }
 
+      if (!nextUserId || event === "SIGNED_OUT") {
+        lastAuthUserIdRef.current = null;
+        setTeacherUser(null);
+        setTeacherAccountRecord(null);
+        setTeacherAccountStatus("signed_out");
+        setAuthReady(true);
+        authBootCompletedRef.current = true;
+        return;
+      }
+
       lastAuthUserIdRef.current = nextUserId;
       setTeacherUser(nextUser);
-      setTeacherAccountRecord(null);
-      setTeacherAccountStatus(nextUser ? "checking" : "signed_out");
+      if (!isBackgroundSameUserRefresh) {
+        setTeacherAccountRecord(null);
+        setTeacherAccountStatus("checking");
+      } else if (import.meta.env.DEV) {
+        console.debug("Background auth refresh completed without blocking the current screen.", { event, userId: nextUserId });
+      }
       if (event === "PASSWORD_RECOVERY") {
         setAuthMode("resetPassword");
         setAuthMessage("Enter a new password for your account.");
       }
       setAuthReady(true);
+      authBootCompletedRef.current = true;
     }
 
     supabase.auth.getSession()
@@ -2043,9 +2065,71 @@ export default function App() {
   }
 
   async function initializeTeacherAccountAccess(userId = teacherId) {
-    setTeacherAccountStatus("checking");
-    const adminAccess = await checkAdminStatus(userId);
-    await loadTeacherAccountStatus(userId, teacherUser?.email, adminAccess);
+    if (!userId) return;
+
+    if (accountAccessCheckInFlightRef.current && accountAccessCheckUserIdRef.current === userId) {
+      if (import.meta.env.DEV) {
+        console.debug("Account access check skipped because one is already in flight.", { userId });
+      }
+      return;
+    }
+
+    const checkSeq = accountAccessCheckSeqRef.current + 1;
+    accountAccessCheckSeqRef.current = checkSeq;
+    accountAccessCheckInFlightRef.current = true;
+    accountAccessCheckUserIdRef.current = userId;
+    setTeacherAccountStatus(previousStatus => previousStatus === "approved" ? previousStatus : "checking");
+
+    const withAccountCheckTimeout = (promise, label) =>
+      Promise.race([
+        promise,
+        new Promise((_, reject) => {
+          window.setTimeout(() => reject(new Error(`${label} timed out.`)), 10000);
+        })
+      ]);
+
+    try {
+      if (import.meta.env.DEV) {
+        console.debug("Account access check started.", { userId, checkSeq });
+      }
+      const adminAccess = await withAccountCheckTimeout(checkAdminStatus(userId), "Admin status check");
+      if (accountAccessCheckSeqRef.current !== checkSeq) return;
+
+      await withAccountCheckTimeout(
+        loadTeacherAccountStatus(userId, teacherUser?.email, adminAccess),
+        "Teacher account status check"
+      );
+
+      if (import.meta.env.DEV) {
+        console.debug("Account access check completed.", { userId, checkSeq });
+      }
+    } catch (error) {
+      if (accountAccessCheckSeqRef.current !== checkSeq) return;
+
+      console.warn("Teacher account access check failed.", error);
+      if (isInvalidRefreshTokenError(error)) {
+        supabase.auth.signOut({ scope: "local" }).catch(signOutError => {
+          console.warn("Could not clear invalid local auth session.", signOutError);
+        });
+        setTeacherAccountStatus("signed_out");
+        setTeacherAccountRecord(null);
+        setAuthMessage("Your session expired. Please log in again.");
+      } else {
+        setTeacherAccountStatus("approval_setup_required");
+        setTeacherAccountRecord({
+          user_id: userId,
+          email: teacherUser?.email,
+          status: "approval_setup_required",
+          approval_status: "approval_setup_required"
+        });
+        setAuthMessage("Account access could not be confirmed. Please refresh or try again.");
+      }
+    } finally {
+      if (accountAccessCheckSeqRef.current === checkSeq) {
+        accountAccessCheckInFlightRef.current = false;
+        accountAccessCheckUserIdRef.current = null;
+      }
+    }
   }
 
   function buildTeacherRows(classes = [], students = [], answers = []) {
@@ -6347,7 +6431,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     );
   }
 
-  if (teacherAccountStatus === "checking") {
+  if (teacherAccountStatus === "checking" && !profileLoaded) {
     return (
       <div className="app">
         <div className="card page-card page-stack auth-card">
