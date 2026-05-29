@@ -34,6 +34,8 @@ raw/
 # Local source packs - do not commit
 Our Guided Reading Books Literacy Path/
 LiteracyPath_Source_Packs/
+Literacy Path Past Assets/
+LP Assets/
 
 # Local build output / stuck build cleanup
 /dist/
