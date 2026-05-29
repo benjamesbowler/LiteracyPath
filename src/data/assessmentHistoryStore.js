@@ -40,6 +40,102 @@ function normalizeDate(value) {
   return Number.isNaN(date.getTime()) ? String(value) : date.toISOString();
 }
 
+function normalizeKey(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/^\/|\/$/g, "")
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function cleanWord(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z']/g, "");
+}
+
+function inferShortVowelKey(record = {}) {
+  const explicit = normalizeKey(record.itemKey || record.targetPattern || record.targetSound || "");
+  if (/^short_[aeiou]$/.test(explicit)) return explicit;
+  const answer = cleanWord(record.correctAnswer || record.correct || "");
+  if (/^[aeiou]$/.test(answer)) return `short_${answer}`;
+  const word = cleanWord(record.targetWord || record.diagnosticTarget || "");
+  const simpleCvc = word.match(/^[bcdfghjklmnpqrstvwxyz]?([aeiou])[bcdfghjklmnpqrstvwxyz]+$/);
+  return simpleCvc ? `short_${simpleCvc[1]}` : "";
+}
+
+function inferRimeFamily(record = {}) {
+  const explicit = normalizeKey(record.itemKey || record.targetPattern || "");
+  if (explicit && !["rhyming", "rhyme"].includes(explicit)) return explicit;
+  const word = cleanWord(record.targetWord || record.diagnosticTarget || record.correctAnswer || record.correct || "");
+  const match = word.match(/[aeiou][a-z']*$/);
+  return match ? match[0] : word;
+}
+
+function inferQuestionMasteryKey(record = {}, attempt = {}) {
+  const skillId = normalizeKey(record.skillId || attempt.skillId);
+  const skillName = String(attempt.skillName || record.skillName || "").toLowerCase();
+  const templateType = normalizeKey(record.templateType || record.formatType || "");
+  const correct = normalizeKey(record.correctAnswer || record.correct || "");
+  const targetWord = cleanWord(record.targetWord || record.diagnosticTarget || "");
+  const itemType = normalizeKey(record.itemType || "");
+  const itemKey = normalizeKey(record.itemKey || "");
+
+  const shouldPreferSkillSpecificKey = [
+    "initial_sounds",
+    "final_sounds",
+    "rhyming",
+    "cvc_short_vowels",
+    "short_vowel_discrimination"
+  ].includes(skillId) || skillName.includes("initial") || skillName.includes("final") || skillName.includes("rhym") || skillName.includes("short vowel");
+
+  if (itemKey && itemType && !shouldPreferSkillSpecificKey) return { itemKey, itemType };
+
+  if (skillId === "initial_sounds" || skillName.includes("initial")) {
+    const key = normalizeKey(record.targetLetter || record.targetSound || record.targetPattern || correct || targetWord[0]);
+    return key ? { itemKey: key[0], itemType: "initial_sound" } : null;
+  }
+
+  if (skillId === "final_sounds" || skillName.includes("final") || skillName.includes("ending")) {
+    const key = normalizeKey(record.targetSound || record.targetPattern || correct || targetWord.at(-1));
+    return key ? { itemKey: key, itemType: "final_sound" } : null;
+  }
+
+  if (skillId === "rhyming" || skillName.includes("rhym")) {
+    const key = inferRimeFamily(record);
+    return key ? { itemKey: key, itemType: "rhyming_family" } : null;
+  }
+
+  if (
+    skillId === "cvc_short_vowels" ||
+    skillId === "short_vowel_discrimination" ||
+    skillName.includes("short vowel") ||
+    templateType.includes("short_vowel")
+  ) {
+    const key = inferShortVowelKey(record);
+    return key ? { itemKey: key, itemType: "short_vowel" } : null;
+  }
+
+  if (skillId.startsWith("hfw") || skillName.includes("high-frequency") || skillName.includes("sight")) {
+    const key = normalizeKey(record.targetWord || record.itemKey || record.correctAnswer || record.correct);
+    return key ? { itemKey: key, itemType: "sight_word" } : null;
+  }
+
+  if (skillId === "el_letter_assessment") {
+    if (itemType && itemKey) return { itemKey, itemType };
+    const key = normalizeKey(record.targetLetter || record.itemKey || record.correctAnswer || record.correct);
+    return key ? { itemKey: key, itemType: record.templateType === "letter_sound" ? "letter_sound" : "letter_name" } : null;
+  }
+
+  if (skillId === "advanced_phonics_patterns" || itemType.includes("phonics")) {
+    const key = normalizeKey(record.targetPattern || record.itemKey || record.correctAnswer || record.correct);
+    return key ? { itemKey: key, itemType: itemType || "phonics_pattern" } : null;
+  }
+
+  const fallback = normalizeKey(record.targetPattern || record.itemKey || record.correctAnswer || record.correct);
+  return fallback ? { itemKey: fallback, itemType: itemType || "skill_item" } : null;
+}
+
 function makeAttemptId(record = {}) {
   const base = [
     record.teacherId || "teacher",
@@ -62,6 +158,7 @@ export function normalizeAssessmentAttempt(record = {}) {
   const passed = Boolean(record.passed ?? record.mastered ?? accuracy >= 80);
 
   return {
+    id: record.id || record.attemptId || "",
     attemptId: record.attemptId || makeAttemptId({ ...record, startedAt, completedAt, questionRecords, totalQuestions }),
     studentId: record.studentId || "",
     studentName: record.studentName || "Student",
@@ -80,19 +177,31 @@ export function normalizeAssessmentAttempt(record = {}) {
     passed,
     status: record.status || (passed ? "mastered" : "needs_retry"),
     masteredItems: record.masteredItems || [],
+    developingItems: record.developingItems || [],
+    needsSupportItems: record.needsSupportItems || [],
+    incorrectCount: Number(record.incorrectCount ?? Math.max(0, totalQuestions - correctCount)),
     missedItems: record.missedItems || [],
     itemKeysCovered: record.itemKeysCovered || [],
     contentCoverage: record.contentCoverage || {},
     levelUnlocked: record.levelUnlocked || "",
+    patternStats: Array.isArray(record.patternStats) ? record.patternStats : [],
+    answers: Array.isArray(record.answers) ? record.answers : [],
     questionRecords: questionRecords.map((item, index) => ({
       questionId: item.questionId || "",
       prompt: item.prompt || item.question || "",
+      pattern: item.pattern || item.targetPattern || "",
       targetWord: item.targetWord || item.diagnosticTarget || item.itemKey || "",
+      targetLetter: item.targetLetter || "",
+      targetSound: item.targetSound || "",
+      targetPattern: item.targetPattern || "",
       itemKey: item.itemKey || "",
+      itemType: item.itemType || "",
       correctAnswer: item.correctAnswer ?? item.correct ?? "",
       selectedAnswer: item.selectedAnswer ?? item.chosen ?? "",
       isCorrect: Boolean(item.isCorrect),
       skillId: item.skillId || record.skillId || "",
+      templateType: item.templateType || item.formatType || "",
+      tags: Array.isArray(item.tags) ? item.tags : [],
       level: Number(item.level || item.itemLevel || record.skillLevel || 1),
       phase: Number(item.phase || item.itemPhase || record.skillPhase || 1),
       timestamp: normalizeDate(item.timestamp) || completedAt,
@@ -101,6 +210,111 @@ export function normalizeAssessmentAttempt(record = {}) {
     appVersion: record.appVersion || "local",
     schemaVersion: record.schemaVersion || 1
   };
+}
+
+export function extractMasteryFromAssessmentAttempt(record = {}) {
+  const attempt = normalizeAssessmentAttempt(record);
+  const groups = new Map();
+
+  attempt.questionRecords.forEach(question => {
+    const masteryKey = inferQuestionMasteryKey(question, attempt);
+    if (!masteryKey?.itemKey || !masteryKey?.itemType) return;
+    const groupKey = `${masteryKey.itemType}::${masteryKey.itemKey}`;
+    const group = groups.get(groupKey) || {
+      itemKey: masteryKey.itemKey,
+      itemType: masteryKey.itemType,
+      skillId: question.skillId || attempt.skillId,
+      skillName: attempt.skillName,
+      attempts: 0,
+      correct: 0,
+      examples: new Set(),
+      missedExamples: new Set(),
+      lastAssessed: question.timestamp || attempt.completedAt
+    };
+
+    group.attempts += 1;
+    if (question.isCorrect) group.correct += 1;
+    const example = cleanWord(question.targetWord) || normalizeKey(question.correctAnswer || question.itemKey);
+    if (example) {
+      if (question.isCorrect) group.examples.add(example);
+      else group.missedExamples.add(example);
+    }
+    group.lastAssessed = question.timestamp || group.lastAssessed;
+    groups.set(groupKey, group);
+  });
+
+  const rows = Array.from(groups.values()).map(group => {
+    const accuracy = group.attempts ? Math.round((group.correct / group.attempts) * 100) : 0;
+    const mastered = group.correct >= 2 || (group.attempts > 0 && accuracy >= 80);
+    const needsSupport = group.attempts > 0 && (group.correct === 0 || accuracy < 60);
+    return {
+      itemKey: group.itemKey,
+      itemType: group.itemType,
+      skillId: group.skillId,
+      skillName: group.skillName,
+      attempts: group.attempts,
+      correct: group.correct,
+      accuracy,
+      mastered,
+      status: mastered ? "mastered" : needsSupport ? "needs_support" : "developing",
+      examples: Array.from(group.examples).slice(0, 6),
+      missedExamples: Array.from(group.missedExamples).slice(0, 6),
+      lastAssessed: group.lastAssessed
+    };
+  });
+
+  return {
+    skillId: attempt.skillId,
+    skillName: attempt.skillName,
+    masteredItems: rows.filter(row => row.status === "mastered"),
+    developingItems: rows.filter(row => row.status === "developing"),
+    needsSupportItems: rows.filter(row => row.status === "needs_support"),
+    examplesByItem: rows.reduce((acc, row) => {
+      acc[`${row.itemType}::${row.itemKey}`] = row.examples;
+      return acc;
+    }, {}),
+    accuracyByItem: rows.reduce((acc, row) => {
+      acc[`${row.itemType}::${row.itemKey}`] = row.accuracy;
+      return acc;
+    }, {}),
+    rows
+  };
+}
+
+export function mergeAssessmentAttemptIntoItemMastery(itemMastery = {}, record = {}) {
+  const attempt = normalizeAssessmentAttempt(record);
+  const mastery = extractMasteryFromAssessmentAttempt(attempt);
+  const next = { ...(itemMastery || {}) };
+
+  mastery.rows.forEach(row => {
+    const key = `${normalizeKey(row.itemType)}::${normalizeKey(row.itemKey)}`;
+    const previous = next[key] || {};
+    const attempts = Number(previous.attempts || 0) + row.attempts;
+    const correct = Number(previous.correct || 0) + row.correct;
+    const accuracy = attempts ? Math.round((correct / attempts) * 100) : 0;
+    next[key] = {
+      ...previous,
+      itemKey: row.itemKey,
+      itemType: row.itemType,
+      skillId: row.skillId || previous.skillId || attempt.skillId,
+      targetSkill: row.skillName || previous.targetSkill || attempt.skillName,
+      targetWord: row.itemType === "sight_word" || row.itemType === "cvc_word" ? row.itemKey : previous.targetWord || "",
+      targetSound: row.itemType.includes("sound") || row.itemType === "short_vowel" ? row.itemKey : previous.targetSound || "",
+      targetPattern: row.itemType.includes("pattern") || row.itemType === "rhyming_family" ? row.itemKey : previous.targetPattern || "",
+      source: previous.source || "assessment",
+      attempts,
+      correct,
+      lastSeen: row.lastAssessed || attempt.completedAt,
+      lastResult: row.correct > 0,
+      sessionsSeen: Number(previous.sessionsSeen || 0) + 1,
+      mastered: Boolean(previous.mastered || row.mastered || accuracy >= 80),
+      examples: Array.from(new Set([...(previous.examples || []), ...row.examples])).slice(0, 8),
+      missedExamples: Array.from(new Set([...(previous.missedExamples || []), ...row.missedExamples])).slice(0, 8),
+      updatedAt: attempt.completedAt
+    };
+  });
+
+  return next;
 }
 
 export function loadAssessmentAttempts({ teacherId = "local", studentId = "", classId = "" } = {}) {
@@ -168,11 +382,17 @@ export function buildAssessmentAttemptRecord({
     questionId: record.questionId,
     prompt: record.question,
     targetWord: record.targetWord,
+    targetLetter: record.targetLetter,
+    targetSound: record.targetSound,
+    targetPattern: record.targetPattern,
     itemKey: record.itemKey,
+    itemType: record.itemType,
     correctAnswer: record.correct,
     selectedAnswer: record.chosen,
     isCorrect: record.isCorrect,
     skillId: record.skillId || stage?.id,
+    templateType: record.templateType || record.formatType,
+    tags: record.tags || [],
     level: record.itemLevel || checkpoint?.pathStatus?.level || 1,
     phase: record.itemPhase || checkpoint?.pathStatus?.phase || 1,
     timestamp: record.timestamp || new Date().toISOString()
@@ -182,7 +402,7 @@ export function buildAssessmentAttemptRecord({
     .map(record => record.targetWord || record.itemKey || record.correctAnswer)
     .filter(Boolean);
 
-  return normalizeAssessmentAttempt({
+  const normalized = normalizeAssessmentAttempt({
     studentId,
     studentName,
     classId,
@@ -203,6 +423,14 @@ export function buildAssessmentAttemptRecord({
     contentCoverage: checkpoint?.coverage || {},
     levelUnlocked: checkpoint?.pathStatus?.nextStep ? checkpoint.pathStatus.nextActionLabel : checkpoint?.nextSkillLabel || "",
     questionRecords: normalizedQuestions
+  });
+  const mastery = extractMasteryFromAssessmentAttempt(normalized);
+
+  return normalizeAssessmentAttempt({
+    ...normalized,
+    masteredItems: normalized.masteredItems?.length ? normalized.masteredItems : mastery.masteredItems.map(row => row.itemKey),
+    developingItems: mastery.developingItems.map(row => row.itemKey),
+    needsSupportItems: mastery.needsSupportItems.map(row => row.itemKey)
   });
 }
 
