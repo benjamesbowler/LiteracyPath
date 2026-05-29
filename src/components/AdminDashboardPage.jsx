@@ -938,7 +938,7 @@ export function AdminDashboardPage({
     if (window.location.pathname.includes("/admin/guided-reading/image-qa")) return "guidedReadingImages";
     return "dashboard";
   });
-  const [activeSection, setActiveSection] = useState(isTeacherMode ? "teacherReport" : "overview");
+  const [activeSection, setActiveSection] = useState(isTeacherMode ? "teacherOverview" : "overview");
   const [templateFilter, setTemplateFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [patternFilter, setPatternFilter] = useState("");
@@ -1079,6 +1079,21 @@ export function AdminDashboardPage({
     });
     skillStatusByStudent.set(student.studentId, bySkill);
   });
+  const hfwSkillName = "High-Frequency Words 1-25";
+  const hfwStudentRows = (assessmentSummary.students.length
+    ? assessmentSummary.students
+    : students.map(student => ({ studentId: student.id, studentName: student.name, className: student.className || "Class not linked" }))
+  ).map(student => {
+    const row = skillStatusByStudent.get(student.studentId)?.get(hfwSkillName);
+    const accuracy = row?.total ? Math.round((row.correct / row.total) * 100) : 0;
+    return {
+      ...student,
+      attempts: row?.attempts || 0,
+      accuracy,
+      statusClass: getSkillStatusClass(accuracy, row?.attempts || 0)
+    };
+  });
+  const hfwAssessedCount = hfwStudentRows.filter(row => row.attempts > 0).length;
 
   function openAdminQaPage(page) {
     setAdminQaPage(page);
@@ -1173,11 +1188,15 @@ export function AdminDashboardPage({
 
   const adminSections = isTeacherMode
     ? [
-      { id: "teacherReport", label: "Teacher Dashboard", count: assessmentHistory.length },
-      { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
-      { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
+      { id: "teacherOverview", label: "Overview", count: null },
       { id: "classes", label: "Classes", count: classes.length },
-      { id: "students", label: "Students", count: students.length }
+      { id: "students", label: "Students", count: students.length },
+      { id: "reports", label: "Reports", count: savedElReports.length },
+      { id: "guidedReading", label: "Guided Reading", count: guidedReadingInsight.active },
+      { id: "assessmentProgress", label: "Assessment", count: assessmentHistory.length },
+      { id: "hfw", label: "HFW", count: hfwAssessedCount },
+      { id: "exports", label: "Exports", count: null },
+      { id: "teacherTools", label: "Tools", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 }
     ]
     : [
       { id: "overview", label: "Overview", count: null },
@@ -1205,7 +1224,7 @@ export function AdminDashboardPage({
   }
 
   return (
-    <main className="admin-dashboard page-stack">
+    <main className={isTeacherMode ? "admin-dashboard teacher-dashboard page-stack" : "admin-dashboard page-stack"}>
       <section className="card page-stack">
         <div className="admin-header">
           <div className="admin-page-heading">
@@ -1228,12 +1247,23 @@ export function AdminDashboardPage({
 
         {message && <p className="message">{message}</p>}
 
-        <nav className="admin-section-tabs" aria-label="Admin Dashboard sections">
+        <label className="teacher-section-select">
+          Choose dashboard section
+          <select value={activeSection} onChange={event => setActiveSection(event.target.value)}>
+            {adminSections.map(section => (
+              <option key={section.id} value={section.id}>{section.label}</option>
+            ))}
+          </select>
+        </label>
+
+        <nav className="admin-section-tabs" aria-label={isTeacherMode ? "Teacher Dashboard sections" : "Admin Dashboard sections"} role="tablist">
           {adminSections.map(section => (
             <button
               className={activeSection === section.id ? "active" : ""}
+              aria-selected={activeSection === section.id}
               key={section.id}
               onClick={() => setActiveSection(section.id)}
+              role="tab"
               type="button"
             >
               <span>{section.label}</span>
@@ -1292,17 +1322,75 @@ export function AdminDashboardPage({
         </section>
       )}
 
-      {activeSection === "teacherReport" && (
+      {isTeacherMode && activeSection === "teacherOverview" && (
         <section className="report-panel page-stack admin-section admin-section-panel teacher-dashboard-redesign">
           <div className="admin-section-heading">
             <div>
-              <h3>Teacher Dashboard</h3>
-              <p className="muted-text">Simple class reporting from saved assessment attempts.</p>
+              <h3>Overview</h3>
+              <p className="muted-text">A quick view of class activity and the most common teacher tasks.</p>
+            </div>
+          </div>
+          <div className="teacher-report-metrics">
+            <article>
+              <span>Classes</span>
+              <strong>{classes.length}</strong>
+            </article>
+            <article>
+              <span>Students</span>
+              <strong>{students.length}</strong>
+            </article>
+            <article>
+              <span>Recent assessments</span>
+              <strong>{recentAttempts.length}</strong>
+            </article>
+            <article>
+              <span>Need support</span>
+              <strong>{assessmentSummary.studentsNeedingSupport.length}</strong>
+            </article>
+          </div>
+          <div className="admin-overview-grid teacher-overview-actions">
+            <button className="admin-overview-card" onClick={() => setActiveSection("reports")} type="button">
+              <span>View Reports</span>
+              <strong>{savedElReports.length}</strong>
+            </button>
+            <button className="admin-overview-card" onClick={() => setActiveSection("classes")} type="button">
+              <span>Manage Classes</span>
+              <strong>{classes.length}</strong>
+            </button>
+            <button className="admin-overview-card" onClick={() => setActiveSection("guidedReading")} type="button">
+              <span>Guided Reading Data</span>
+              <strong>{guidedReadingInsight.active}</strong>
+            </button>
+            <button className="admin-overview-card" onClick={() => setActiveSection("exports")} type="button">
+              <span>Export Data</span>
+              <strong>Open</strong>
+            </button>
+          </div>
+          <div className="teacher-report-grid">
+            <article className="teacher-report-card">
+              <h4>Students Needing Attention</h4>
+              {assessmentSummary.studentsNeedingSupport.length ? assessmentSummary.studentsNeedingSupport.slice(0, 5).map(student => (
+                <p key={student.studentId}><strong>{student.studentName}</strong> · {student.accuracy}% · {student.supportSkills.slice(0, 2).join(", ") || "review recent work"}</p>
+              )) : <p>No support flags yet.</p>}
+            </article>
+            <article className="teacher-report-card">
+              <h4>Recent Activity</h4>
+              {recentAttempts.length ? recentAttempts.slice(0, 5).map(record => (
+                <p key={record.attemptId}><strong>{record.studentName}</strong> · {record.skillName} · {record.accuracy}%</p>
+              )) : <p>No assessment attempts saved yet.</p>}
+            </article>
+          </div>
+        </section>
+      )}
+
+      {(isTeacherMode ? activeSection === "reports" : activeSection === "teacherReport") && (
+        <section className="report-panel page-stack admin-section admin-section-panel teacher-dashboard-redesign">
+          <div className="admin-section-heading">
+            <div>
+              <h3>{isTeacherMode ? "Reports" : "Teacher Reports"}</h3>
+              <p className="muted-text">Class and student EL reports from saved assessment attempts.</p>
             </div>
             <div className="teacher-action-list">
-              <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
-                Export Guided Reading Completion Excel
-              </button>
               <span className="admin-count-pill">{assessmentSummary.attempts} attempts</span>
             </div>
           </div>
@@ -1424,7 +1512,18 @@ export function AdminDashboardPage({
               ))}
             </div>
           </div>
+        </section>
+      )}
 
+      {activeSection === "assessmentProgress" && (
+        <section className="report-panel page-stack admin-section admin-section-panel teacher-dashboard-redesign">
+          <div className="admin-section-heading">
+            <div>
+              <h3>Assessment Progress</h3>
+              <p className="muted-text">Skill mastery, recent attempts, and whole-class next steps.</p>
+            </div>
+            <span className="admin-count-pill">{assessmentSummary.attempts} attempts</span>
+          </div>
           <div className="teacher-report-metrics">
             <article>
               <span>Students</span>
@@ -1442,6 +1541,38 @@ export function AdminDashboardPage({
               <span>Need support</span>
               <strong>{assessmentSummary.studentsNeedingSupport.length}</strong>
             </article>
+          </div>
+
+          <div className="teacher-report-card">
+            <h4>Recent Assessment Attempts</h4>
+            {recentAttempts.length === 0 ? (
+              <p>No assessment attempts have been saved in this browser yet.</p>
+            ) : (
+              <div className="admin-table-wrap teacher-scroll-panel">
+                <table className="dashboard-table admin-table admin-responsive-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Student</th>
+                      <th>Skill</th>
+                      <th>Score</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {recentAttempts.slice(0, 20).map(record => (
+                      <tr key={record.attemptId}>
+                        <td data-label="Date">{record.completedAt ? new Date(record.completedAt).toLocaleString() : ""}</td>
+                        <td data-label="Student">{record.studentName}</td>
+                        <td data-label="Skill">{record.skillName}</td>
+                        <td data-label="Score">{record.correctCount}/{record.totalQuestions} ({record.accuracy}%)</td>
+                        <td data-label="Status">{record.status}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
 
           <div className="teacher-report-grid">
@@ -1471,7 +1602,7 @@ export function AdminDashboardPage({
 
           <div className="teacher-report-card">
             <h4>Student List</h4>
-            <div className="teacher-student-report-list">
+            <div className="teacher-student-report-list teacher-scroll-panel">
               {assessmentSummary.students.length ? assessmentSummary.students.map(student => (
                 <article key={student.studentId}>
                   <div>
@@ -1495,7 +1626,7 @@ export function AdminDashboardPage({
 
           <div className="teacher-report-card teacher-heatmap-card">
             <h4>Skill Coverage Heatmap</h4>
-            <div className="teacher-heatmap">
+            <div className="teacher-heatmap teacher-scroll-panel">
               <div className="teacher-heatmap-row header">
                 <span>Student</span>
                 {skillColumns.map(skill => <span key={skill}>{skill.replace("High-Frequency Words", "HFW")}</span>)}
@@ -1524,6 +1655,134 @@ export function AdminDashboardPage({
             <h4>Whole Class Next Steps</h4>
             <p>{assessmentSummary.weakestSkills[0] ? `${assessmentSummary.studentsNeedingSupport.length} students need support. Start with ${assessmentSummary.weakestSkills[0].skillName}.` : "No class trend yet. Save a few assessment attempts first."}</p>
             <p>{assessmentSummary.strongestSkills[0] ? `${assessmentSummary.strongestSkills[0].skillName} is currently the strongest skill area.` : "Strongest skills will appear after assessment history is saved."}</p>
+          </div>
+        </section>
+      )}
+
+      {isTeacherMode && activeSection === "guidedReading" && (
+        <section className="report-panel page-stack admin-section admin-section-panel guided-insight-panel">
+          <div className="admin-section-heading">
+            <div>
+              <h3>Guided Reading</h3>
+              <p className="muted-text">Book availability and export tools for guided reading completion history.</p>
+            </div>
+            <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
+              Export Guided Reading Completion Excel
+            </button>
+          </div>
+          {exportNotice && <p className="message">{exportNotice}</p>}
+          <div className="guided-insight-grid">
+            <article>
+              <strong>Visible books</strong>
+              <span>{guidedReadingInsight.active}/{guidedReadingInsight.total}</span>
+            </article>
+            <article>
+              <strong>Levels</strong>
+              {Object.entries(guidedReadingInsight.byLevel).map(([level, count]) => (
+                <span key={level}>Level {level}: {count}</span>
+              ))}
+            </article>
+            <article>
+              <strong>Top patterns</strong>
+              {Object.entries(guidedReadingInsight.patternCounts).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([pattern, count]) => (
+                <span key={pattern}>{pattern.replace(/-/g, " ")}: {count}</span>
+              ))}
+            </article>
+          </div>
+          <div className="guided-insight-recommendations">
+            <strong>Sample recommendations</strong>
+            {guidedReadingInsight.recommendations.slice(0, 6).map(item => (
+              <span key={item.book.id}>{item.book.title} · Level {item.book.level} · {item.reasons.slice(0, 2).join(" · ")}</span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {isTeacherMode && activeSection === "hfw" && (
+        <section className="report-panel page-stack admin-section admin-section-panel">
+          <div className="admin-section-heading">
+            <div>
+              <h3>High-Frequency Words</h3>
+              <p className="muted-text">Compact progress view for HFW assessment evidence.</p>
+            </div>
+            <span className="admin-count-pill">{hfwAssessedCount} assessed</span>
+          </div>
+          <div className="teacher-report-metrics">
+            <article>
+              <span>Students with HFW data</span>
+              <strong>{hfwAssessedCount}</strong>
+            </article>
+            <article>
+              <span>Average HFW accuracy</span>
+              <strong>{hfwAssessedCount ? Math.round(hfwStudentRows.reduce((sum, row) => sum + (row.attempts ? row.accuracy : 0), 0) / hfwAssessedCount) : 0}%</strong>
+            </article>
+          </div>
+          <div className="admin-table-wrap teacher-scroll-panel">
+            <table className="dashboard-table admin-table admin-responsive-table">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Class</th>
+                  <th>Attempts</th>
+                  <th>Accuracy</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {hfwStudentRows.slice(0, 30).map(row => (
+                  <tr key={row.studentId}>
+                    <td data-label="Student">{row.studentName}</td>
+                    <td data-label="Class">{row.className || "Class not linked"}</td>
+                    <td data-label="Attempts">{row.attempts}</td>
+                    <td data-label="Accuracy">{row.attempts ? `${row.accuracy}%` : "No HFW data"}</td>
+                    <td data-label="Status">{statusLabel(row.statusClass)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {isTeacherMode && activeSection === "exports" && (
+        <section className="report-panel page-stack admin-section admin-section-panel">
+          <div className="admin-section-heading">
+            <div>
+              <h3>Exports</h3>
+              <p className="muted-text">Generate files only when you click an export button.</p>
+            </div>
+          </div>
+          {exportNotice && <p className="message">{exportNotice}</p>}
+          {elReportNotice && <p className="message">{elReportNotice}</p>}
+          <div className="teacher-report-grid">
+            <article className="teacher-report-card">
+              <h4>Assessment History</h4>
+              <div className="teacher-action-list">
+                <button className="lp-button lp-button-secondary" disabled={assessmentHistory.length === 0} onClick={() => downloadTextFile("assessment-history.csv", exportAssessmentAttemptsCsv(assessmentHistory), "text/csv")} type="button">
+                  Export CSV
+                </button>
+                <button className="lp-button lp-button-secondary" disabled={assessmentHistory.length === 0} onClick={() => downloadTextFile("assessment-history.json", JSON.stringify(assessmentHistory, null, 2), "application/json")} type="button">
+                  Export JSON
+                </button>
+              </div>
+            </article>
+            <article className="teacher-report-card">
+              <h4>EL Reports</h4>
+              <div className="teacher-action-list">
+                <button className="lp-button lp-button-secondary" disabled={elClassStudents.length === 0} onClick={handleStudentElAssessmentExport} type="button">
+                  Export Student EL Assessment Excel
+                </button>
+                <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
+                  Export Class EL Assessment Excel
+                </button>
+              </div>
+            </article>
+            <article className="teacher-report-card">
+              <h4>Guided Reading</h4>
+              <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
+                Export Guided Reading Completion Excel
+              </button>
+            </article>
           </div>
         </section>
       )}
@@ -1786,7 +2045,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {activeSection === "assessmentAudio" && (
+      {((!isTeacherMode && activeSection === "assessmentAudio") || (isTeacherMode && activeSection === "teacherTools")) && (
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Assessment Audio Coverage</h3>
         <p className="muted-text">
@@ -1817,7 +2076,7 @@ export function AdminDashboardPage({
           </article>
         </div>
 
-        <div className="admin-table-wrap">
+        <div className="admin-table-wrap teacher-scroll-panel">
           <table className="dashboard-table admin-table">
             <thead>
               <tr>
@@ -1836,7 +2095,7 @@ export function AdminDashboardPage({
           </table>
         </div>
 
-        <div className="admin-table-wrap">
+        <div className="admin-table-wrap teacher-scroll-panel">
           <table className="dashboard-table admin-table">
             <thead>
               <tr>
@@ -1894,7 +2153,7 @@ export function AdminDashboardPage({
       {activeSection === "classes" && (
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Classes</h3>
-        <div className="admin-table-wrap">
+        <div className="admin-table-wrap teacher-scroll-panel">
           <table className="dashboard-table admin-table">
             <thead>
               <tr>
@@ -1928,7 +2187,7 @@ export function AdminDashboardPage({
       {activeSection === "students" && (
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Students</h3>
-        <div className="admin-table-wrap">
+        <div className="admin-table-wrap teacher-scroll-panel">
           <table className="dashboard-table admin-table">
             <thead>
               <tr>
