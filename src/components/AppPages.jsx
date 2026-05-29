@@ -350,6 +350,7 @@ export function TopNavigation({
   goToElAssessments,
   goToGuidedReading,
   goToTeacherDashboard,
+  goToLearn,
   goToTools,
   switchStudent,
   viewReport,
@@ -425,6 +426,13 @@ export function TopNavigation({
           onClick={goToTeacherDashboard}
         >
           Teacher Dashboard
+        </button>
+
+        <button
+          className={appView === "learn" ? "nav-button primary" : "nav-button"}
+          onClick={goToLearn}
+        >
+          Learn
         </button>
 
         <button

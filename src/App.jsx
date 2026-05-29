@@ -135,7 +135,8 @@ import {
   extractMasteryFromAssessmentAttempt,
   loadAssessmentAttempts,
   mergeAssessmentAttemptIntoItemMastery,
-  saveAssessmentAttempt
+  saveAssessmentAttempt,
+  summarizeAssessmentHistory
 } from "./data/assessmentHistoryStore";
 import {
   isGenericInstructionAudioPath,
@@ -162,6 +163,12 @@ function loadAudioManifestModule() {
 const FinishedReportPage = lazy(() =>
   import("@/components/FinishedReportPage").then(module => ({
     default: module.FinishedReportPage
+  }))
+);
+
+const LearnAreaPage = lazy(() =>
+  import("@/components/LearnAreaPage").then(module => ({
+    default: module.LearnAreaPage
   }))
 );
 
@@ -6734,6 +6741,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToElAssessments={() => setAppView("elAssessments")}
           goToGuidedReading={() => setAppView("guidedReading")}
           goToTeacherDashboard={() => setAppView("teacherDashboard")}
+          goToLearn={() => setAppView("learn")}
           goToTools={() => setAppView("tools")}
           switchStudent={switchStudent}
           viewReport={viewReport}
@@ -6840,6 +6848,15 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             teacherId={teacherId}
             message={message}
           />
+        </Suspense>
+      )}
+
+      {appView === "learn" && (
+        <Suspense fallback={<LazyPageFallback label="Loading EL Skills Block Learn..." />}>
+          <LearnAreaPage assessmentSummary={summarizeAssessmentHistory(assessmentHistory, {
+            students: studentList.map(row => ({ ...row, className: classList.find(cls => cls.id === row.class_id)?.name || "" })),
+            classes: classList
+          })} />
         </Suspense>
       )}
 
@@ -6951,7 +6968,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && appView !== "admin" && appView !== "teacherDashboard" && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && (
+      {!isFocusedAssessment && appView !== "admin" && appView !== "teacherDashboard" && appView !== "learn" && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -7086,7 +7103,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </Suspense>
       )}
 
-      {!isFocusedAssessment && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && appView !== "admin" && appView !== "teacherDashboard" && (
+      {!isFocusedAssessment && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && appView !== "admin" && appView !== "teacherDashboard" && appView !== "learn" && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
             Switch Student

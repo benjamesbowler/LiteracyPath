@@ -5540,6 +5540,386 @@ select:focus {
   padding: 0 12px 12px;
 }
 
+.learn-area-page {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.learn-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.learn-hero h2,
+.learn-cycle-header h3,
+.learn-section-panel h4 {
+  margin: 0;
+}
+
+.learn-recommendation {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+  background: #ecfeff;
+}
+
+.learn-recommendation span,
+.learn-recommendation small {
+  color: var(--lp-color-text-muted);
+  font-weight: 800;
+}
+
+.learn-recommendation strong {
+  color: #0f766e;
+  font-size: 1.25rem;
+}
+
+.learn-browser {
+  gap: 16px;
+}
+
+.learn-toolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(220px, 320px);
+  gap: 14px;
+}
+
+.learn-toolbar label,
+.learn-mobile-cycle-select,
+.learn-mobile-section-select,
+.worksheet-controls label {
+  display: grid;
+  gap: 6px;
+  color: var(--lp-color-text-muted);
+  font-weight: 850;
+}
+
+.learn-toolbar input,
+.learn-toolbar select,
+.learn-mobile-section-select select,
+.worksheet-controls input,
+.worksheet-controls select {
+  width: 100%;
+  min-height: 44px;
+}
+
+.learn-layout {
+  display: grid;
+  grid-template-columns: minmax(230px, 310px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.learn-cycle-grid {
+  display: grid;
+  gap: 10px;
+  max-height: 72vh;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.learn-cycle-card {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  text-align: left;
+}
+
+.learn-cycle-card.active {
+  border-color: #0f766e;
+  background: #ecfdf5;
+  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.16);
+}
+
+.learn-cycle-card span,
+.learn-cycle-card strong,
+.learn-cycle-card small,
+.learn-cycle-card em {
+  overflow-wrap: anywhere;
+}
+
+.learn-cycle-card span {
+  font-weight: 950;
+}
+
+.learn-cycle-card small,
+.learn-cycle-card em {
+  color: var(--lp-color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.learn-cycle-detail {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+.learn-cycle-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 420px);
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.learn-focus-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-content: start;
+}
+
+.learn-focus-tags span {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.learn-mobile-section-select {
+  display: none;
+}
+
+.learn-section-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.learn-section-tabs button {
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lp-color-text-muted);
+  font-weight: 850;
+}
+
+.learn-section-tabs button.active {
+  border-color: #0f766e;
+  background: #ccfbf1;
+  color: #115e59;
+}
+
+.learn-section-panel {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.learn-overview-grid,
+.learn-letter-grid,
+.hfw-learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.learn-overview-grid article,
+.learn-letter-card,
+.hfw-learn-grid article,
+.learn-activity-card,
+.learn-practice-list article {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.learn-daily-flow,
+.learn-practice-list {
+  display: grid;
+  gap: 10px;
+}
+
+.learn-daily-flow {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.learn-daily-flow article,
+.learn-practice-list article {
+  display: grid;
+  gap: 4px;
+}
+
+.learn-letter-card strong {
+  color: #0f766e;
+  font-size: clamp(2.2rem, 8vw, 4rem);
+  line-height: 1;
+}
+
+.learn-letter-card span {
+  color: var(--lp-color-text-strong);
+  font-size: 1.1rem;
+  font-weight: 950;
+}
+
+.formation-line,
+.teacher-script {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.learn-poem {
+  padding: 16px;
+  border-radius: 14px;
+  background: #fff7ed;
+  color: #7c2d12;
+  font-family: var(--lp-font-reading);
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.worksheet-generator {
+  display: grid;
+  gap: 14px;
+}
+
+.worksheet-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.learn-checkbox {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  min-height: 44px;
+}
+
+.worksheet-preview {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.worksheet-title {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #111827;
+}
+
+.worksheet-preview li {
+  margin-bottom: 12px;
+  break-inside: avoid;
+}
+
+.worksheet-picture-box {
+  display: inline-block;
+  width: 68px;
+  height: 48px;
+  margin-left: 12px;
+  border: 1px dashed #94a3b8;
+  vertical-align: middle;
+}
+
+.handwriting-lines {
+  display: block;
+  height: 34px;
+  margin-top: 8px;
+  background: repeating-linear-gradient(to bottom, transparent 0 10px, #cbd5e1 11px 12px);
+}
+
+.worksheet-answer-key {
+  border-top: 1px solid #d1d5db;
+  padding-top: 8px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .worksheet-preview,
+  .worksheet-preview * {
+    visibility: visible;
+  }
+
+  .worksheet-preview {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .learn-area-page {
+    width: 100%;
+  }
+
+  .learn-hero,
+  .learn-toolbar,
+  .learn-layout,
+  .learn-cycle-header {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-cycle-grid {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .learn-cycle-card {
+    min-height: 44px;
+  }
+
+  .learn-section-tabs {
+    display: none;
+  }
+
+  .learn-mobile-section-select {
+    display: grid;
+  }
+
+  .learn-overview-grid,
+  .learn-letter-grid,
+  .hfw-learn-grid,
+  .learn-daily-flow,
+  .worksheet-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-section-panel,
+  .worksheet-preview {
+    padding: 12px;
+  }
+
+  .learn-focus-tags {
+    max-width: 100%;
+  }
+}
+
 .guided-reading-detail-cards article {
   background: #f8fafc;
   border: 1px solid var(--color-border-soft);
