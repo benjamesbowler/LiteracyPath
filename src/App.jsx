@@ -6303,6 +6303,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             mediaQuestions={allQuestions}
             assessmentHistory={assessmentHistory}
             dashboardMode="admin"
+            teacherId={teacherId}
             message={message}
           />
         </Suspense>
@@ -6339,6 +6340,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             mediaQuestions={[]}
             assessmentHistory={assessmentHistory}
             dashboardMode="teacher"
+            teacherId={teacherId}
             message={message}
           />
         </Suspense>

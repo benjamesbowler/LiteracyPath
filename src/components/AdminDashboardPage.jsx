@@ -20,6 +20,7 @@ import {
   exportAssessmentAttemptsCsv,
   summarizeAssessmentHistory
 } from "../data/assessmentHistoryStore";
+import { exportGuidedReadingCompletionExcel } from "../utils/exportGuidedReadingCompletionExcel.js";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -914,6 +915,7 @@ export function AdminDashboardPage({
   mediaQuestions = [],
   assessmentHistory = [],
   dashboardMode = "admin",
+  teacherId = "",
   message
 }) {
   const isTeacherMode = dashboardMode === "teacher";
@@ -931,6 +933,7 @@ export function AdminDashboardPage({
   const [patternFilter, setPatternFilter] = useState("");
   const [mediaFilter, setMediaFilter] = useState("all");
   const [statusFilterLocal, setStatusFilterLocal] = useState("all");
+  const [exportNotice, setExportNotice] = useState("");
   const templateOptions = useMemo(() => Array.from(new Set(
     questionBankCoverage.flatMap(row => Object.keys(row.templates || {}))
   )).sort(), [questionBankCoverage]);
@@ -1046,6 +1049,25 @@ export function AdminDashboardPage({
             ? "/admin/guided-reading/image-qa"
             : "/";
       window.history.pushState({}, "", path);
+    }
+  }
+
+  async function handleGuidedReadingCompletionExport() {
+    setExportNotice("");
+    try {
+      const data = await exportGuidedReadingCompletionExcel({
+        students,
+        classes,
+        teacherId: isTeacherMode ? teacherId : ""
+      });
+      setExportNotice(
+        data.totals.totalGuidedReadingSessions
+          ? `Guided Reading completion Excel exported with ${data.totals.totalCompletedBooks} completed book rows.`
+          : "Guided Reading completion Excel exported with no records yet."
+      );
+    } catch (error) {
+      console.error("Guided Reading completion Excel export failed.", error);
+      setExportNotice("Could not export Guided Reading completion Excel.");
     }
   }
 
@@ -1175,8 +1197,14 @@ export function AdminDashboardPage({
               <h3>Teacher Dashboard</h3>
               <p className="muted-text">Simple class reporting from saved assessment attempts.</p>
             </div>
-            <span className="admin-count-pill">{assessmentSummary.attempts} attempts</span>
+            <div className="teacher-action-list">
+              <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
+                Export Guided Reading Completion Excel
+              </button>
+              <span className="admin-count-pill">{assessmentSummary.attempts} attempts</span>
+            </div>
           </div>
+          {exportNotice && <p className="message">{exportNotice}</p>}
 
           <div className="teacher-report-metrics">
             <article>
@@ -1289,6 +1317,13 @@ export function AdminDashboardPage({
               <p className="muted-text">Saved checkpoint attempts for class and student reporting.</p>
             </div>
             <div className="teacher-action-list">
+              <button
+                className="lp-button lp-button-secondary"
+                onClick={handleGuidedReadingCompletionExport}
+                type="button"
+              >
+                Export Guided Reading Completion Excel
+              </button>
               <button
                 className="lp-button lp-button-secondary"
                 disabled={assessmentHistory.length === 0}
