@@ -100,8 +100,17 @@ if (!appSource.includes('assessmentType: "advanced_phonics_patterns"')) {
 if (!adminDashboardSource.includes("Advanced Phonics Patterns") || !adminDashboardSource.includes("advancedPatternRows")) {
   failures.push("Teacher Dashboard reports/assessment sections should display Advanced Phonics Patterns results from saved assessment history.");
 }
+if (!adminDashboardSource.includes("EL Formal Assessments") || !adminDashboardSource.includes("formal-report-controls")) {
+  failures.push("Teacher Dashboard Reports should expose the EL Formal Assessments section.");
+}
+if (!adminDashboardSource.includes("uppercaseName") || !adminDashboardSource.includes("lowercaseSound")) {
+  failures.push("EL Formal Assessment reports should separate uppercase/lowercase and name/sound results.");
+}
 if (!readFileSync(new URL("../src/utils/exportElAssessmentExcel.js", import.meta.url), "utf8").includes("Pattern Detail")) {
   failures.push("EL report Excel export should include Advanced Phonics pattern detail.");
+}
+if (!readFileSync(new URL("../src/utils/exportElAssessmentExcel.js", import.meta.url), "utf8").includes("Letter Sound Class Matrix")) {
+  failures.push("EL report Excel export should include formal letter/sound class matrices.");
 }
 if (adminDashboardSource.includes('id: "teacherTools"')) {
   failures.push("Teacher Dashboard should not expose a technical Tools section.");

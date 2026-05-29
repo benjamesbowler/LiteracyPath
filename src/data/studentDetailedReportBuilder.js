@@ -1,5 +1,9 @@
 import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
 import {
+  buildClassElFormalAssessmentReport,
+  buildIndividualElFormalAssessmentReport
+} from "./elFormalAssessmentReportBuilder.js";
+import {
   getGuidedReadingProgress,
   getGuidedReadingWordStatusRows,
   guidedReadingBooks,
@@ -384,6 +388,10 @@ export function buildIndividualStudentDetailedReport({
   const totalQuestions = records.reduce((sum, record) => sum + record.totalQuestions, 0);
   const correctCount = records.reduce((sum, record) => sum + record.correctCount, 0);
   const recommendations = buildRecommendations(skillSections, guidedReading);
+  const formalAssessments = buildIndividualElFormalAssessmentReport({
+    student,
+    assessmentHistory: records
+  });
 
   return {
     studentId,
@@ -406,6 +414,7 @@ export function buildIndividualStudentDetailedReport({
       itemMasteryRows: Object.keys(itemMastery || {}).length
     },
     skillSections,
+    formalAssessments,
     guidedReading,
     recommendations,
     growth: buildGrowth(records)
@@ -431,6 +440,11 @@ export function buildWholeClassDetailedReport({
     })
   );
   const classRecords = filterRecords({ assessmentHistory, classId, dateRange });
+  const formalAssessments = buildClassElFormalAssessmentReport({
+    students: classStudents,
+    assessmentHistory: classRecords,
+    classId
+  });
   const sectionNames = new Set(studentReports.flatMap(report => report.skillSections.map(section => section.skillName)));
   const matrices = Array.from(sectionNames).map(sectionName => {
     const itemMap = new Map();
@@ -493,6 +507,7 @@ export function buildWholeClassDetailedReport({
       recommendedFocus: report.recommendations.needsSupport.slice(0, 3)
     })),
     matrices,
+    formalAssessments,
     recommendations: buildClassRecommendations(matrices, studentReports)
   };
 }
@@ -528,6 +543,31 @@ export function formatDetailedReportAsText(report = {}) {
     });
     lines.push("");
   });
+
+  if (report.formalAssessments?.individualLetterMatrix?.length) {
+    lines.push("EL Letter Names & Sounds");
+    report.formalAssessments.individualLetterMatrix.forEach(row => {
+      const attempted = [
+        row.uppercaseName,
+        row.uppercaseSound,
+        row.lowercaseName,
+        row.lowercaseSound
+      ].some(cell => cell.attempts > 0);
+      if (!attempted) return;
+      lines.push(`${row.letterPair}: UC Name ${row.uppercaseName.statusLabel}, UC Sound ${row.uppercaseSound.statusLabel}, LC Name ${row.lowercaseName.statusLabel}, LC Sound ${row.lowercaseSound.statusLabel}`);
+    });
+    lines.push("");
+  }
+
+  if (report.formalAssessments?.individualAdvancedPhonicsMatrix?.length) {
+    lines.push("Advanced Phonics");
+    report.formalAssessments.individualAdvancedPhonicsMatrix
+      .filter(row => row.attempts > 0)
+      .forEach(row => {
+        lines.push(`${row.pattern}: ${row.statusLabel}, ${row.correct}/${row.attempts} correct${row.exampleWords.length ? `, examples: ${row.exampleWords.join(", ")}` : ""}`);
+      });
+    lines.push("");
+  }
 
   if (report.guidedReading?.bookRows?.length) {
     lines.push("Guided Reading");

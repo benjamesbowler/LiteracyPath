@@ -975,6 +975,8 @@ export function AdminDashboardPage({
   const [elReportNotice, setElReportNotice] = useState("");
   const [detailedReportType, setDetailedReportType] = useState("individual");
   const [detailedReportSections, setDetailedReportSections] = useState(DEFAULT_REPORT_SECTIONS);
+  const [formalReportScope, setFormalReportScope] = useState("individual");
+  const [formalReportSubsection, setFormalReportSubsection] = useState("letters");
   const [reportDateStart, setReportDateStart] = useState("");
   const [reportDateEnd, setReportDateEnd] = useState("");
   const teacherStorageId = teacherId || "local";
@@ -1603,6 +1605,167 @@ export function AdminDashboardPage({
                 {teacherHints.slice(0, 5).map((hint, index) => <p key={`${hint}-${index}`}>{hint}</p>)}
               </div>
             )}
+
+            <details className="detailed-report-section el-formal-assessments-section" open>
+              <summary>
+                <strong>EL Formal Assessments</strong>
+                <span>Letter names, letter sounds, and advanced phonics patterns</span>
+              </summary>
+              <div className="formal-report-controls" aria-label="EL Formal Assessments controls">
+                <label>
+                  Report scope
+                  <select value={formalReportScope} onChange={event => setFormalReportScope(event.target.value)}>
+                    <option value="individual">Individual Student</option>
+                    <option value="class">Whole Class</option>
+                  </select>
+                </label>
+                <label>
+                  Sub-section
+                  <select value={formalReportSubsection} onChange={event => setFormalReportSubsection(event.target.value)}>
+                    <option value="letters">Letter Names &amp; Sounds</option>
+                    <option value="advanced">Advanced Phonics Patterns</option>
+                  </select>
+                </label>
+              </div>
+
+              {formalReportScope === "individual" && formalReportSubsection === "letters" && (
+                <div className="bounded-report-table formal-report-table">
+                  <table className="dashboard-table admin-table admin-responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Letter</th>
+                        <th>UC Name</th>
+                        <th>UC Sound</th>
+                        <th>LC Name</th>
+                        <th>LC Sound</th>
+                        <th>UC Name Attempts</th>
+                        <th>UC Sound Attempts</th>
+                        <th>LC Name Attempts</th>
+                        <th>LC Sound Attempts</th>
+                        <th>Last Assessed</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {individualDetailedReport.formalAssessments.individualLetterMatrix.map(row => (
+                        <tr key={`formal-letter-${row.letter}`}>
+                          <td data-label="Letter">{row.letterPair}</td>
+                          <td data-label="UC Name"><span className={`report-status-pill ${row.uppercaseName.status}`}>{row.uppercaseName.statusLabel}</span></td>
+                          <td data-label="UC Sound"><span className={`report-status-pill ${row.uppercaseSound.status}`}>{row.uppercaseSound.statusLabel}</span></td>
+                          <td data-label="LC Name"><span className={`report-status-pill ${row.lowercaseName.status}`}>{row.lowercaseName.statusLabel}</span></td>
+                          <td data-label="LC Sound"><span className={`report-status-pill ${row.lowercaseSound.status}`}>{row.lowercaseSound.statusLabel}</span></td>
+                          <td data-label="UC Name Attempts">{row.uppercaseName.correct}/{row.uppercaseName.attempts}</td>
+                          <td data-label="UC Sound Attempts">{row.uppercaseSound.correct}/{row.uppercaseSound.attempts}</td>
+                          <td data-label="LC Name Attempts">{row.lowercaseName.correct}/{row.lowercaseName.attempts}</td>
+                          <td data-label="LC Sound Attempts">{row.lowercaseSound.correct}/{row.lowercaseSound.attempts}</td>
+                          <td data-label="Last Assessed">{row.lastAssessed || "Not assessed"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {formalReportScope === "class" && formalReportSubsection === "letters" && (
+                <div className="bounded-report-table formal-report-table">
+                  <table className="dashboard-table admin-table admin-responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Letter</th>
+                        <th>UC Name M/D/S/NA</th>
+                        <th>UC Sound M/D/S/NA</th>
+                        <th>LC Name M/D/S/NA</th>
+                        <th>LC Sound M/D/S/NA</th>
+                        <th>UC Name Support</th>
+                        <th>UC Sound Support</th>
+                        <th>LC Name Support</th>
+                        <th>LC Sound Support</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {classDetailedReport.formalAssessments.classLetterMatrix.map(row => (
+                        <tr key={`class-formal-letter-${row.letter}`}>
+                          <td data-label="Letter">{row.letterPair}</td>
+                          <td data-label="UC Name">{row.uppercaseName.mastered}/{row.uppercaseName.developing}/{row.uppercaseName.needs_support}/{row.uppercaseName.not_assessed}</td>
+                          <td data-label="UC Sound">{row.uppercaseSound.mastered}/{row.uppercaseSound.developing}/{row.uppercaseSound.needs_support}/{row.uppercaseSound.not_assessed}</td>
+                          <td data-label="LC Name">{row.lowercaseName.mastered}/{row.lowercaseName.developing}/{row.lowercaseName.needs_support}/{row.lowercaseName.not_assessed}</td>
+                          <td data-label="LC Sound">{row.lowercaseSound.mastered}/{row.lowercaseSound.developing}/{row.lowercaseSound.needs_support}/{row.lowercaseSound.not_assessed}</td>
+                          <td data-label="UC Name Support">{row.uppercaseName.supportStudents.join(", ") || "None"}</td>
+                          <td data-label="UC Sound Support">{row.uppercaseSound.supportStudents.join(", ") || "None"}</td>
+                          <td data-label="LC Name Support">{row.lowercaseName.supportStudents.join(", ") || "None"}</td>
+                          <td data-label="LC Sound Support">{row.lowercaseSound.supportStudents.join(", ") || "None"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {formalReportScope === "individual" && formalReportSubsection === "advanced" && (
+                <div className="bounded-report-table formal-report-table">
+                  <table className="dashboard-table admin-table admin-responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Pattern</th>
+                        <th>Reading / Recognition</th>
+                        <th>Sound</th>
+                        <th>Correct</th>
+                        <th>Accuracy</th>
+                        <th>Status</th>
+                        <th>Examples</th>
+                        <th>Last Assessed</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {individualDetailedReport.formalAssessments.individualAdvancedPhonicsMatrix.map(row => (
+                        <tr key={`formal-pattern-${row.pattern}`}>
+                          <td data-label="Pattern">{row.pattern}</td>
+                          <td data-label="Reading / Recognition">{row.readingResult.statusLabel}</td>
+                          <td data-label="Sound">{row.soundResult.statusLabel}</td>
+                          <td data-label="Correct">{row.correct}/{row.attempts}</td>
+                          <td data-label="Accuracy">{row.accuracy}%</td>
+                          <td data-label="Status"><span className={`report-status-pill ${row.status}`}>{row.statusLabel}</span></td>
+                          <td data-label="Examples">{row.exampleWords.join(", ") || "None yet"}</td>
+                          <td data-label="Last Assessed">{row.lastAssessed || "Not assessed"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {formalReportScope === "class" && formalReportSubsection === "advanced" && (
+                <div className="bounded-report-table formal-report-table">
+                  <table className="dashboard-table admin-table admin-responsive-table">
+                    <thead>
+                      <tr>
+                        <th>Pattern</th>
+                        <th>Attempted</th>
+                        <th>Mastered</th>
+                        <th>Developing</th>
+                        <th>Needs Support</th>
+                        <th>Not Assessed</th>
+                        <th>Mastery %</th>
+                        <th>Support Students</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {classDetailedReport.formalAssessments.classAdvancedPhonicsMatrix.map(row => (
+                        <tr key={`class-formal-pattern-${row.pattern}`}>
+                          <td data-label="Pattern">{row.pattern}</td>
+                          <td data-label="Attempted">{row.attemptedStudents}</td>
+                          <td data-label="Mastered">{row.masteredStudents}</td>
+                          <td data-label="Developing">{row.developingStudents}</td>
+                          <td data-label="Needs Support">{row.needsSupportStudents}</td>
+                          <td data-label="Not Assessed">{row.notAssessedStudents}</td>
+                          <td data-label="Mastery %">{row.masteryPercentage}%</td>
+                          <td data-label="Support Students">{row.studentsNeedingSupport.join(", ") || "None"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </details>
 
             {detailedReportType === "individual" ? (
               <div className="detailed-individual-report">

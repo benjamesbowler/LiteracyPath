@@ -2130,6 +2130,62 @@ body {
   color: #7c2d12 !important;
 }
 
+.guided-reader-shell.fullscreen .guided-reader-card {
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 8px;
+  overflow: hidden;
+}
+
+.guided-reader-shell.fullscreen .guided-reader-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.guided-reader-shell.fullscreen .guided-reader-header > div:first-child {
+  display: none;
+}
+
+.guided-reader-shell.fullscreen .guided-page-controls {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  justify-content: stretch;
+}
+
+.guided-reader-shell.fullscreen .guided-page-controls .lp-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  padding-inline: 8px;
+  white-space: normal;
+}
+
+.guided-fullscreen-info {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--lp-color-text-muted);
+  font-size: clamp(0.78rem, 2.5vw, 0.92rem);
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.guided-reader-shell.fullscreen .guided-page-layout {
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.guided-reader-shell.fullscreen .guided-page-reading {
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  overflow: hidden;
+}
+
 .guided-reader-modebar {
   display: flex;
   flex-wrap: wrap;
@@ -5400,6 +5456,25 @@ select:focus {
   margin: 0;
 }
 
+.formal-report-controls {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  padding: 0 12px 12px;
+}
+
+.formal-report-controls label {
+  display: grid;
+  gap: 6px;
+  color: var(--lp-color-text-muted);
+  font-weight: 850;
+}
+
+.formal-report-controls select {
+  width: 100%;
+  min-height: 44px;
+}
+
 .detailed-report-section {
   border: 1px solid var(--color-border-soft);
   border-radius: 12px;
@@ -5427,6 +5502,10 @@ select:focus {
   padding: 0 12px 12px;
 }
 
+.formal-report-table {
+  max-height: min(620px, 68vh);
+}
+
 .report-status-pill {
   border-radius: 999px;
   display: inline-flex;
@@ -5448,6 +5527,11 @@ select:focus {
 .report-status-pill.needs_support {
   background: #fee2e2;
   color: #991b1b;
+}
+
+.report-status-pill.not_assessed {
+  background: #e5e7eb;
+  color: #475569;
 }
 
 .guided-reading-detail-cards {
@@ -5856,6 +5940,7 @@ select:focus {
   }
 
   .detailed-report-controls,
+  .formal-report-controls,
   .detailed-report-section-toggles {
     grid-template-columns: 1fr;
   }
@@ -6351,6 +6436,39 @@ select:focus {
   .guided-page-controls {
     justify-content: stretch;
     gap: 4px;
+  }
+
+  .guided-reader-shell.fullscreen .guided-reader-card {
+    grid-template-rows: auto auto minmax(0, 1fr);
+    padding: 6px;
+  }
+
+  .guided-reader-shell.fullscreen .guided-page-controls {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .guided-reader-shell.fullscreen .guided-page-controls .lp-button {
+    min-height: 38px;
+    padding: 5px 4px;
+    font-size: clamp(0.66rem, 2.5vw, 0.76rem);
+  }
+
+  .guided-reader-shell.fullscreen .guided-fullscreen-info {
+    padding: 5px 7px;
+    font-size: clamp(0.68rem, 2.6vw, 0.78rem);
+  }
+
+  .guided-reader-shell.fullscreen .guided-page-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 40%) minmax(0, 60%);
+    gap: 5px;
+  }
+
+  .guided-reader-shell.fullscreen .guided-page-text {
+    padding: clamp(8px, 2.8vw, 12px);
+    font-size: clamp(1.2rem, 5vw, 2.3rem);
+    line-height: 1.22;
   }
 
   .guided-page-controls .lp-button {

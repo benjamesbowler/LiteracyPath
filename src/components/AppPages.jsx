@@ -2974,6 +2974,16 @@ export function GuidedReadingPage({
                 <p>{(selectedBook.targetSkills || selectedBook.recommendedSkillsToReinforce || []).join(" · ")}</p>
               </div>
               <div className="guided-page-controls">
+                {isReaderFullscreen && (
+                  <button
+                    className="lp-button lp-button-secondary"
+                    disabled={pageIndex === 0}
+                    onClick={goToPreviousPage}
+                    type="button"
+                  >
+                    Previous
+                  </button>
+                )}
                 <button
                   className={isPageAudioPlaying ? "lp-button lp-button-secondary active" : "lp-button lp-button-secondary"}
                   disabled={!currentPageAudioPath || isWholeBookReading}
@@ -2990,33 +3000,55 @@ export function GuidedReadingPage({
                 >
                   {isWholeBookReading ? "Stop Book" : "Read Whole Book"}
                 </button>
-                {(isPageAudioPlaying || isWholeBookReading) && (
+                {!isReaderFullscreen && (isPageAudioPlaying || isWholeBookReading) && (
                   <button className="lp-button lp-button-secondary" onClick={toggleReadAloudPause} type="button">
                     {isReadAloudPaused ? "Resume" : "Pause"}
                   </button>
                 )}
-                <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>
-                <label className="guided-auto-advance-toggle">
-                  <input
-                    checked={autoAdvanceReadAloud}
-                    onChange={event => setAutoAdvanceReadAloud(event.target.checked)}
-                    type="checkbox"
-                  />
-                  Auto-advance
-                </label>
-                <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
-                  Teacher Notes
-                </button>
+                {!isReaderFullscreen && <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>}
+                {!isReaderFullscreen && (
+                  <label className="guided-auto-advance-toggle">
+                    <input
+                      checked={autoAdvanceReadAloud}
+                      onChange={event => setAutoAdvanceReadAloud(event.target.checked)}
+                      type="checkbox"
+                    />
+                    Auto-advance
+                  </label>
+                )}
+                {!isReaderFullscreen && (
+                  <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
+                    Teacher Notes
+                  </button>
+                )}
+                {isReaderFullscreen && (
+                  <button
+                    className="lp-button lp-button-primary"
+                    disabled={pageIndex >= selectedBook.pages.length - 1}
+                    onClick={goToNextPage}
+                    type="button"
+                  >
+                    Next
+                  </button>
+                )}
                 <button className="lp-button lp-button-secondary" onClick={toggleReaderFullscreen} type="button">
-                  {isReaderFullscreen ? "Exit Full Screen" : "Full Screen"}
+                  {isReaderFullscreen ? "Exit" : "Full Screen"}
                 </button>
-                <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
-                  Close Reader
-                </button>
+                {!isReaderFullscreen && (
+                  <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
+                    Close Reader
+                  </button>
+                )}
               </div>
             </div>
 
-            <div className="guided-reader-modebar" aria-label="Guided Reading mode">
+            {isReaderFullscreen && (
+              <p className="guided-fullscreen-info">
+                Full-screen reading/listening mode. Page {pageIndex + 1} of {selectedBook.pages.length}; use Read Page, Read Whole Book, Previous, Next, or Exit.
+              </p>
+            )}
+
+            {!isReaderFullscreen && <div className="guided-reader-modebar" aria-label="Guided Reading mode">
               <div className="guided-mode-toggle" role="group" aria-label="Reader mode">
                 <button
                   className={readingMode === "reading" ? "active" : ""}
@@ -3038,7 +3070,7 @@ export function GuidedReadingPage({
                   ? "Tap a word to hear it when approved word audio is available."
                   : "Tap words to cycle neutral, read correctly, and needs support. Alt-click a word to hear it."}
               </p>
-            </div>
+            </div>}
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -3110,7 +3142,7 @@ export function GuidedReadingPage({
                     <p className="guided-complete-message">Book completed. You can finish again to record a reread.</p>
                   )}
 
-                  {readingMode === "marking" && (
+                  {!isReaderFullscreen && readingMode === "marking" && (
                     <div className="guided-mark-legend" aria-label="Word marking legend">
                       <span><b className="legend-dot correct"></b> Read correctly</span>
                       <span><b className="legend-dot support"></b> Needs support</span>
@@ -3118,7 +3150,7 @@ export function GuidedReadingPage({
                     </div>
                   )}
 
-                  <details className="guided-note-drawer">
+                  {!isReaderFullscreen && <details className="guided-note-drawer">
                     <summary>Page notes</summary>
                     <label className="guided-note-field">
                       <strong>Page note</strong>
@@ -3128,9 +3160,9 @@ export function GuidedReadingPage({
                         placeholder="Add miscues, strategy use, fluency notes, or comprehension observations."
                       />
                     </label>
-                  </details>
+                  </details>}
 
-                  <details className="guided-note-drawer">
+                  {!isReaderFullscreen && <details className="guided-note-drawer">
                     <summary>Comprehension prompts</summary>
                     <div className="guided-comprehension-prompts">
                       {(enrichedSelectedBook?.comprehensionQuestionSeeds || []).map(prompt => (
@@ -3139,12 +3171,12 @@ export function GuidedReadingPage({
                         </button>
                       ))}
                     </div>
-                  </details>
+                  </details>}
                 </div>
               </motion.div>
             </AnimatePresence>
 
-            <div className="guided-reader-actions">
+            {!isReaderFullscreen && <div className="guided-reader-actions">
               <button
                 className="lp-button lp-button-secondary"
                 disabled={pageIndex === 0}
@@ -3166,10 +3198,10 @@ export function GuidedReadingPage({
                   Finish Book
                 </button>
               )}
-            </div>
+            </div>}
           </div>
 
-          <aside className={teacherNotesOpen ? "guided-notes-panel open" : "guided-notes-panel"} aria-hidden={!teacherNotesOpen}>
+          {!isReaderFullscreen && <aside className={teacherNotesOpen ? "guided-notes-panel open" : "guided-notes-panel"} aria-hidden={!teacherNotesOpen}>
             <div className="guided-notes-header">
               <h3>Teacher Notes</h3>
               <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(false)} type="button">
@@ -3187,7 +3219,7 @@ export function GuidedReadingPage({
               <span>Support: {summary.support}</span>
               <span>Accuracy: {summary.accuracy}%</span>
             </div>
-          </aside>
+          </aside>}
         </section>
       ) : showSummary ? (
         <section className="guided-reading-summary">

@@ -1,4 +1,8 @@
 import { normalizeAssessmentAttempt } from "./assessmentHistoryStore.js";
+import {
+  buildClassElFormalAssessmentReport,
+  buildIndividualElFormalAssessmentReport
+} from "./elFormalAssessmentReportBuilder.js";
 
 const STORAGE_PREFIX = "lpElAssessmentReports:v1";
 export const EL_REPORT_SCHEMA_VERSION = 1;
@@ -397,6 +401,10 @@ export function buildStudentElAssessmentReportData({
   const attemptRows = buildAttemptRows(records);
   const progressRows = buildProgressRows(records);
   const advancedPhonics = buildAdvancedPhonicsSummary(records);
+  const formalAssessments = buildIndividualElFormalAssessmentReport({
+    student,
+    assessmentHistory: records
+  });
   const summary = buildReportSummary(skillRows, records);
   const report = {
     reportId: makeReportId("individual", effectiveClassId, studentId || studentName, generatedAt),
@@ -419,6 +427,7 @@ export function buildStudentElAssessmentReportData({
     heatmapRows: [],
     advancedPhonics,
     patternDetailRows: advancedPhonics.patternRows,
+    formalAssessments,
     fileName: `el-assessment-student-${slugify(studentName)}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
   };
@@ -538,6 +547,11 @@ export function buildClassElAssessmentReportData({
   const heatmapRows = buildHeatmapRows({ records, students: classStudents, skillRowsByStudent });
   const patternDetailRows = buildPatternDetailRows(records, classStudents, classes);
   const advancedPhonics = buildAdvancedPhonicsSummary(records);
+  const formalAssessments = buildClassElFormalAssessmentReport({
+    students: classStudents,
+    assessmentHistory: records,
+    classId
+  });
   const smallGroups = buildSmallGroups(studentRows);
   const summary = buildReportSummary(skillRows.map(row => ({
     skillName: row.skillName,
@@ -569,6 +583,7 @@ export function buildClassElAssessmentReportData({
     smallGroups,
     advancedPhonics,
     patternDetailRows,
+    formalAssessments,
     fileName: `el-assessment-class-${slugify(className)}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
   };

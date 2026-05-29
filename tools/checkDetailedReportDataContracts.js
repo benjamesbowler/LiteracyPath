@@ -10,6 +10,21 @@ const sampleStudent = { id: "student-1", name: "Ada", classId: "class-1" };
 const sampleClass = { id: "class-1", name: "Oak Class" };
 const assessmentHistory = [
   {
+    attemptId: "letters-1",
+    studentId: "student-1",
+    studentName: "Ada",
+    classId: "class-1",
+    skillId: "el_letter_assessment",
+    skillName: "EL Letter Name and Sound",
+    completedAt: "2026-05-29T08:50:00.000Z",
+    totalQuestions: 2,
+    correctCount: 1,
+    questionRecords: [
+      { questionId: "letter-a-name", skillId: "el_letter_assessment", targetLetter: "A", itemType: "letter_name", templateType: "letter_name", correctAnswer: "A", selectedAnswer: "A", isCorrect: true },
+      { questionId: "letter-a-sound", skillId: "el_letter_assessment", targetLetter: "a", itemType: "letter_sound", templateType: "letter_sound", correctAnswer: "/a/", selectedAnswer: "/m/", isCorrect: false }
+    ]
+  },
+  {
     attemptId: "initial-1",
     studentId: "student-1",
     studentName: "Ada",
@@ -138,6 +153,12 @@ if (!hasRow("Rhyming", "-an")) push("Rhyming report must include rime-family row
 if (!hasRow("CVC / Short Vowels", "short u")) push("Short vowel report must include vowel rows.");
 if (!hasRow("High-Frequency Words", "for")) push("HFW report must include individual word rows.");
 if (!hasRow("Advanced Phonics Patterns", "ai")) push("Advanced phonics report must include pattern rows.");
+if (!report.formalAssessments?.individualLetterMatrix?.find(row => row.letter === "a")?.lowercaseSound?.attempts) {
+  push("Detailed report must include formal Letter Name/Sound matrix rows.");
+}
+if (!report.formalAssessments?.individualAdvancedPhonicsMatrix?.find(row => row.pattern === "ai")?.attempts) {
+  push("Detailed report must include formal Advanced Phonics pattern matrix rows.");
+}
 if (!report.guidedReading.bookRows.length || !report.guidedReading.wordRows.length) push("Guided Reading report must include books and word status rows.");
 if (report.skillSections.some(item => item.needsSupportItems.some(row => row.attempts === 0))) push("Reports must not mark unattempted items as needs support.");
 
@@ -148,6 +169,12 @@ const classReport = buildWholeClassDetailedReport({
   classId: "class-1"
 });
 if (!classReport.matrices.length) push("Class report must include matrix/stat rows.");
+if (!classReport.formalAssessments?.classLetterMatrix?.find(row => row.letter === "a")?.lowercaseSound?.needs_support) {
+  push("Class detailed report must include formal Letter Name/Sound class counts.");
+}
+if (!classReport.formalAssessments?.classAdvancedPhonicsMatrix?.find(row => row.pattern === "or")?.needsSupportStudents) {
+  push("Class detailed report must include formal Advanced Phonics class pattern counts.");
+}
 if (!classReport.matrices.some(matrix => matrix.rows.some(row => row.needsSupportStudents > 0))) {
   push("Class report must include support counts by attempted item.");
 }
@@ -160,6 +187,7 @@ const text = formatDetailedReportAsText(report);
 const dashboardSource = readFileSync(new URL("../src/components/AdminDashboardPage.jsx", import.meta.url), "utf8");
 [
   "Detailed Assessment Report",
+  "EL Formal Assessments",
   "Individual Student Report",
   "Whole Class Report",
   "Report sections",

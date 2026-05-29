@@ -8,6 +8,7 @@ import {
 export const EL_STUDENT_REPORT_SHEETS = [
   "Student Summary",
   "Skill Detail",
+  "Letter Names & Sounds",
   "Advanced Phonics Patterns",
   "Pattern Detail",
   "Assessment Attempts",
@@ -18,6 +19,8 @@ export const EL_STUDENT_REPORT_SHEETS = [
 export const EL_CLASS_REPORT_SHEETS = [
   "Class Summary",
   "Student Overview",
+  "Letter Sound Class Matrix",
+  "Advanced Phonics Class Matrix",
   "Advanced Phonics Patterns",
   "Pattern Detail",
   "Skill Heatmap",
@@ -55,6 +58,14 @@ function addRowsOrEmpty(sheet, rows, mapper) {
     return;
   }
   rows.forEach(row => sheet.addRow(mapper(row)));
+}
+
+function cellSummary(cell = {}) {
+  return `${cell.statusLabel || "Not assessed"}${cell.attempts ? ` (${cell.correct}/${cell.attempts})` : ""}`;
+}
+
+function cellCountSummary(group = {}) {
+  return `M:${group.mastered || 0} D:${group.developing || 0} S:${group.needs_support || 0} NA:${group.not_assessed || 0}`;
 }
 
 function styleWorksheet(sheet) {
@@ -161,16 +172,87 @@ export async function createStudentElAssessmentWorkbook(report) {
     "Recommended Next Step": "Complete an assessment to gather evidence."
 	  });
 
+  const letterSheet = workbook.addWorksheet("Letter Names & Sounds");
+  setColumns(letterSheet, [
+    "Letter pair",
+    "Uppercase name result",
+    "Uppercase sound result",
+    "Lowercase name result",
+    "Lowercase sound result",
+    "Uppercase name attempts",
+    "Uppercase sound attempts",
+    "Lowercase name attempts",
+    "Lowercase sound attempts",
+    "Last assessed",
+    "Details / notes"
+  ], ["Details / notes"]);
+  addRowsOrEmpty(letterSheet, report.formalAssessments?.individualLetterMatrix || [], row => row ? {
+    "Letter pair": row.letterPair,
+    "Uppercase name result": row.uppercaseName.statusLabel,
+    "Uppercase sound result": row.uppercaseSound.statusLabel,
+    "Lowercase name result": row.lowercaseName.statusLabel,
+    "Lowercase sound result": row.lowercaseSound.statusLabel,
+    "Uppercase name attempts": row.uppercaseName.attempts,
+    "Uppercase sound attempts": row.uppercaseSound.attempts,
+    "Lowercase name attempts": row.lowercaseName.attempts,
+    "Lowercase sound attempts": row.lowercaseSound.attempts,
+    "Last assessed": formatDate(row.lastAssessed),
+    "Details / notes": [
+      `UC Name ${cellSummary(row.uppercaseName)}`,
+      `UC Sound ${cellSummary(row.uppercaseSound)}`,
+      `LC Name ${cellSummary(row.lowercaseName)}`,
+      `LC Sound ${cellSummary(row.lowercaseSound)}`
+    ].join("; ")
+  } : {
+    "Letter pair": "No Letter Name/Sound records yet",
+    "Uppercase name result": "Not assessed",
+    "Uppercase sound result": "Not assessed",
+    "Lowercase name result": "Not assessed",
+    "Lowercase sound result": "Not assessed",
+    "Uppercase name attempts": 0,
+    "Uppercase sound attempts": 0,
+    "Lowercase name attempts": 0,
+    "Lowercase sound attempts": 0,
+    "Last assessed": "",
+    "Details / notes": ""
+  });
+
   const advancedSheet = workbook.addWorksheet("Advanced Phonics Patterns");
-  setColumns(advancedSheet, ["Field", "Value"], ["Value"]);
-  [
-    ["Attempts", report.advancedPhonics?.attempts || 0],
-    ["Latest Attempt Date", formatDate(report.advancedPhonics?.latestDate) || "No records yet"],
-    ["Latest Accuracy", `${report.advancedPhonics?.latestAccuracy || 0}%`],
-    ["Mastered Patterns", list(report.advancedPhonics?.masteredPatterns)],
-    ["Developing Patterns", list(report.advancedPhonics?.developingPatterns)],
-    ["Needs Support Patterns", list(report.advancedPhonics?.needsSupportPatterns)]
-  ].forEach(row => advancedSheet.addRow({ Field: row[0], Value: row[1] || "None yet" }));
+  setColumns(advancedSheet, [
+    "Pattern",
+    "Reading / recognition result",
+    "Sound result",
+    "Attempts",
+    "Correct",
+    "Incorrect",
+    "Accuracy",
+    "Status",
+    "Example words",
+    "Last assessed"
+  ], ["Example words"]);
+  addRowsOrEmpty(advancedSheet, report.formalAssessments?.individualAdvancedPhonicsMatrix || [], row => row ? {
+    "Pattern": row.pattern,
+    "Reading / recognition result": row.readingResult.statusLabel,
+    "Sound result": row.soundResult.statusLabel,
+    "Attempts": row.attempts,
+    "Correct": row.correct,
+    "Incorrect": row.incorrect,
+    "Accuracy": `${row.accuracy || 0}%`,
+    "Status": row.statusLabel,
+    "Example words": list(row.exampleWords),
+    "Last assessed": formatDate(row.lastAssessed)
+  } : {
+    "Pattern": "No Advanced Phonics Patterns records yet",
+    "Reading / recognition result": "Not assessed",
+    "Sound result": "Not assessed",
+    "Attempts": 0,
+    "Correct": 0,
+    "Incorrect": 0,
+    "Accuracy": "0%",
+    "Status": "Not assessed",
+    "Example words": "",
+    "Last assessed": ""
+  });
 
   const patternSheet = workbook.addWorksheet("Pattern Detail");
   setColumns(patternSheet, [
@@ -331,6 +413,76 @@ export async function createClassElAssessmentWorkbook(report) {
     "Last Assessment Date": "",
     "Recommended Focus": "Complete assessments to populate this report."
 	  });
+
+  const classLetterSheet = workbook.addWorksheet("Letter Sound Class Matrix");
+  setColumns(classLetterSheet, [
+    "Letter pair",
+    "UC name counts",
+    "UC sound counts",
+    "LC name counts",
+    "LC sound counts",
+    "UC name support students",
+    "UC sound support students",
+    "LC name support students",
+    "LC sound support students"
+  ], [
+    "UC name support students",
+    "UC sound support students",
+    "LC name support students",
+    "LC sound support students"
+  ]);
+  addRowsOrEmpty(classLetterSheet, report.formalAssessments?.classLetterMatrix || [], row => row ? {
+    "Letter pair": row.letterPair,
+    "UC name counts": cellCountSummary(row.uppercaseName),
+    "UC sound counts": cellCountSummary(row.uppercaseSound),
+    "LC name counts": cellCountSummary(row.lowercaseName),
+    "LC sound counts": cellCountSummary(row.lowercaseSound),
+    "UC name support students": list(row.uppercaseName.supportStudents),
+    "UC sound support students": list(row.uppercaseSound.supportStudents),
+    "LC name support students": list(row.lowercaseName.supportStudents),
+    "LC sound support students": list(row.lowercaseSound.supportStudents)
+  } : {
+    "Letter pair": "No Letter Name/Sound records yet",
+    "UC name counts": "M:0 D:0 S:0 NA:0",
+    "UC sound counts": "M:0 D:0 S:0 NA:0",
+    "LC name counts": "M:0 D:0 S:0 NA:0",
+    "LC sound counts": "M:0 D:0 S:0 NA:0",
+    "UC name support students": "",
+    "UC sound support students": "",
+    "LC name support students": "",
+    "LC sound support students": ""
+  });
+
+  const classAdvancedMatrixSheet = workbook.addWorksheet("Advanced Phonics Class Matrix");
+  setColumns(classAdvancedMatrixSheet, [
+    "Pattern",
+    "Attempted students",
+    "Mastered students",
+    "Developing students",
+    "Needs support students",
+    "Not assessed students",
+    "Mastery percentage",
+    "Students needing support"
+  ], ["Students needing support"]);
+  addRowsOrEmpty(classAdvancedMatrixSheet, report.formalAssessments?.classAdvancedPhonicsMatrix || [], row => row ? {
+    "Pattern": row.pattern,
+    "Attempted students": row.attemptedStudents,
+    "Mastered students": row.masteredStudents,
+    "Developing students": row.developingStudents,
+    "Needs support students": row.needsSupportStudents,
+    "Not assessed students": row.notAssessedStudents,
+    "Mastery percentage": `${row.masteryPercentage || 0}%`,
+    "Students needing support": list(row.studentsNeedingSupport)
+  } : {
+    "Pattern": "No Advanced Phonics Patterns records yet",
+    "Attempted students": 0,
+    "Mastered students": 0,
+    "Developing students": 0,
+    "Needs support students": 0,
+    "Not assessed students": 0,
+    "Mastery percentage": "0%",
+    "Students needing support": ""
+  });
 
   const advancedSheet = workbook.addWorksheet("Advanced Phonics Patterns");
   setColumns(advancedSheet, ["Field", "Value"], ["Value"]);
