@@ -1428,48 +1428,52 @@ export function AdminDashboardPage({
             </div>
 
             <div className="el-assessment-export-row">
-              <label>
-                Class report
-                <select
-                  disabled={classes.length === 0}
-                  onChange={event => {
-                    setSelectedElClassId(event.target.value);
-                    setSelectedElStudentId("");
-                  }}
-                  value={selectedClassId}
-                >
-                  {classes.length === 0 ? (
-                    <option value="">No classes yet</option>
-                  ) : classes.map(row => (
-                    <option key={row.id} value={row.id}>{row.name}</option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                Student report
-                <select
+              <div className="el-report-control-column">
+                <label>
+                  Class report
+                  <select
+                    disabled={classes.length === 0}
+                    onChange={event => {
+                      setSelectedElClassId(event.target.value);
+                      setSelectedElStudentId("");
+                    }}
+                    value={selectedClassId}
+                  >
+                    {classes.length === 0 ? (
+                      <option value="">No classes yet</option>
+                    ) : classes.map(row => (
+                      <option key={row.id} value={row.id}>{row.name}</option>
+                    ))}
+                  </select>
+                </label>
+                <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
+                  Export Class EL Assessment Excel
+                </button>
+              </div>
+              <div className="el-report-control-column">
+                <label>
+                  Student report
+                  <select
+                    disabled={elClassStudents.length === 0}
+                    onChange={event => setSelectedElStudentId(event.target.value)}
+                    value={selectedElStudentId || elClassStudents[0]?.id || ""}
+                  >
+                    {elClassStudents.length === 0 ? (
+                      <option value="">No students yet</option>
+                    ) : elClassStudents.map(student => (
+                      <option key={student.id} value={student.id}>{student.name}</option>
+                    ))}
+                  </select>
+                </label>
+                <button
+                  className="lp-button lp-button-secondary"
                   disabled={elClassStudents.length === 0}
-                  onChange={event => setSelectedElStudentId(event.target.value)}
-                  value={selectedElStudentId || elClassStudents[0]?.id || ""}
+                  onClick={handleStudentElAssessmentExport}
+                  type="button"
                 >
-                  {elClassStudents.length === 0 ? (
-                    <option value="">No students yet</option>
-                  ) : elClassStudents.map(student => (
-                    <option key={student.id} value={student.id}>{student.name}</option>
-                  ))}
-                </select>
-              </label>
-              <button
-                className="lp-button lp-button-secondary"
-                disabled={elClassStudents.length === 0}
-                onClick={handleStudentElAssessmentExport}
-                type="button"
-              >
-                Export Student EL Assessment Excel
-              </button>
-              <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
-                Export Class EL Assessment Excel
-              </button>
+                  Export Student EL Assessment Excel
+                </button>
+              </div>
             </div>
 
             <div className="teacher-report-grid compact">

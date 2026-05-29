@@ -5267,21 +5267,27 @@ select:focus {
 }
 
 .el-assessment-export-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: end;
+  align-items: start;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
 }
 
-.el-assessment-export-row label {
+.el-report-control-column {
+  align-items: stretch;
   display: grid;
-  min-width: min(260px, 100%);
+  gap: 10px;
+}
+
+.el-report-control-column label {
+  display: grid;
   gap: 6px;
   color: var(--lp-color-text-muted);
   font-weight: 850;
 }
 
-.el-assessment-export-row select {
+.el-report-control-column select,
+.el-report-control-column button {
   width: 100%;
 }
 

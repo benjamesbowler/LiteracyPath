@@ -73,6 +73,7 @@ if (!adminDashboardSource.includes('role="tab"')) failures.push("Teacher Dashboa
 if (!adminDashboardSource.includes("aria-selected")) failures.push("Teacher Dashboard tabs should expose selected state.");
 if (!adminDashboardSource.includes("teacher-section-select")) failures.push("Teacher Dashboard mobile section selector class is missing.");
 if (!adminDashboardSource.includes("teacher-scroll-panel")) failures.push("Teacher Dashboard long lists should use bounded scroll panels.");
+if (!adminDashboardSource.includes("el-report-control-column")) failures.push("EL report export controls should be grouped by report type.");
 requiredTeacherSections.forEach(([id, label]) => {
   if (!adminDashboardSource.includes(`id: "${id}"`)) {
     failures.push(`Teacher Dashboard section id is missing: ${id}.`);
