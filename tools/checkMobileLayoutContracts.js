@@ -5,6 +5,7 @@ import { readFileSync } from "node:fs";
 const css = readFileSync(new URL("../src/App.css", import.meta.url), "utf8");
 const dashboard = readFileSync(new URL("../src/components/AdminDashboardPage.jsx", import.meta.url), "utf8");
 const appPages = readFileSync(new URL("../src/components/AppPages.jsx", import.meta.url), "utf8");
+const learnArea = readFileSync(new URL("../src/components/LearnAreaPage.jsx", import.meta.url), "utf8");
 const failures = [];
 
 function expect(source, token, message) {
@@ -34,9 +35,21 @@ expect(css, ".guided-reader-shell.fullscreen .guided-page-layout", "Guided Readi
 expect(appPages, "guided-fullscreen-info", "Guided Reading fullscreen mode must explain the reduced reading/listening controls.");
 expect(appPages, "Previous", "Guided Reading fullscreen mode must expose Previous control.");
 expect(appPages, "Next", "Guided Reading fullscreen mode must expose Next control.");
+expect(learnArea, "learn-mobile-cycle-select", "Learn Area mobile cycle selector is missing.");
+expect(learnArea, "learn-mobile-section-select", "Learn Area mobile section selector is missing.");
+expect(learnArea, "learn-fullscreen-mode", "Learn Area full-screen lesson mode is missing.");
+expect(learnArea, "Exit Learn Mode", "Learn Area full-screen mode must expose Exit Learn Mode.");
+expect(learnArea, "learn-section-cards", "Learn Area visual section cards are missing.");
+expect(learnArea, "learn-letter-tile", "Learn Area letter tiles are missing.");
+expect(learnArea, "learn-hfw-card", "Learn Area HFW cards are missing.");
+expect(learnArea, "worksheet-generator", "Learn Area worksheet generator is missing.");
 
 if (appPages.includes(">Reports</button>") || appPages.includes("goToReports")) {
   failures.push("Standalone Reports main navigation returned.");
+}
+
+if (/img\s+[^>]*src=["']https?:\/\//.test(learnArea)) {
+  failures.push("Learn Area should not hotlink external images.");
 }
 
 if (/(^|[^!])\bisTeacherMode\s*&&\s*activeSection\s*===\s*"assessmentAudio"/.test(dashboard)) {

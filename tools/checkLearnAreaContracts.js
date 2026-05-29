@@ -101,10 +101,22 @@ if (!cycle1?.searchText.includes("compound") || !cycle1?.searchText.includes("rh
   "learn-mobile-cycle-select",
   "learn-mobile-section-select",
   "learn-cycle-grid",
+  "learn-cycle-groups",
   "Search cycles",
   "WorksheetGenerator",
   "worksheet-generator",
-  "window.print"
+  "window.print",
+  "Open Full Screen Lesson",
+  "Start Learning",
+  "Exit Learn Mode",
+  "Previous Section",
+  "Next Section",
+  "learn-fullscreen-mode",
+  "learn-section-cards",
+  "learn-section-card",
+  "learn-letter-tile",
+  "learn-hfw-card",
+  "learn-video-resource"
 ].forEach(needle => {
   includes(learnSource, needle, `LearnAreaPage is missing ${needle}.`);
 });
@@ -113,11 +125,19 @@ if (!cycle1?.searchText.includes("compound") || !cycle1?.searchText.includes("rh
   ".learn-area-page",
   ".learn-layout",
   ".learn-mobile-section-select",
+  ".learn-section-cards",
+  ".learn-fullscreen-mode",
+  ".learn-letter-tile",
+  ".learn-hfw-card",
   ".worksheet-preview",
   "@media (max-width: 760px)"
 ].forEach(needle => {
   includes(cssSource, needle, `App.css is missing Learn mobile/layout contract: ${needle}.`);
 });
+
+if (/img\s+[^>]*src=["']https?:\/\//.test(learnSource)) {
+  failures.push("Learn area should not hotlink external images.");
+}
 
 if (/calendar|weekOf|dateRange|startDate|endDate/.test(dataSource)) {
   failures.push("Learn cycle data should not expose dates as the main navigation structure.");
