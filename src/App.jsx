@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, useEffect, useRef, useState } from "react";
+import { Component, lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import "./App.css";
@@ -6230,6 +6230,36 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     setAppView("finished");
   }
 
+  const reportsAssessmentHistory = useMemo(() => {
+    if (appView !== "reports") return [];
+    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
+    const rows = assessmentHistory.filter(record => !studentId || record.studentId === studentId);
+    if (import.meta.env.DEV) {
+      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
+      console.debug("[Reports] filtered assessment history", {
+        durationMs: duration,
+        sourceRows: assessmentHistory.length,
+        rows: rows.length,
+        studentId
+      });
+    }
+    return rows;
+  }, [appView, assessmentHistory, studentId]);
+
+  const reportSkillMasterySummary = useMemo(() => {
+    if (appView !== "reports" && appView !== "finished") return [];
+    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
+    const rows = buildSkillMasterySummary();
+    if (import.meta.env.DEV && appView === "reports") {
+      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
+      console.debug("[Reports] skill mastery summary", {
+        durationMs: duration,
+        rows: rows.length
+      });
+    }
+    return rows;
+  }, [appView, itemMastery, answerHistory]);
+
   if (!authReady) {
     return (
       <div className="app">
@@ -6573,8 +6603,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           viewFinishedReport={() => setAppView("finished")}
           openGuidedReading={() => setAppView("guidedReading")}
           guidedReadingRecords={guidedReadingRecords}
-          assessmentHistory={assessmentHistory.filter(record => !studentId || record.studentId === studentId)}
-          skillMasterySummary={buildSkillMasterySummary()}
+          assessmentHistory={reportsAssessmentHistory}
+          skillMasterySummary={reportSkillMasterySummary}
           exportData={exportData}
           exportCSVData={exportCSVData}
           exportReadingReport={exportReadingReport}
@@ -6713,7 +6743,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               enabled: DEBUG_ASSESSMENT_COVERAGE,
               studentId
             })}
-            skillMasterySummary={buildSkillMasterySummary()}
+            skillMasterySummary={reportSkillMasterySummary}
             allowPassageAudio={allowPassageAudio}
             setAllowPassageAudio={setAllowPassageAudio}
             exportData={exportData}

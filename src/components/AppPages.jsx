@@ -34,6 +34,7 @@ import {
 import { summarizeAssessmentHistory } from "../data/assessmentHistoryStore.js";
 import {
   getGuidedReadingBookAudioPath,
+  getGuidedReadingBookSyncPath,
   getGuidedReadingReadAloudState,
   getGuidedReadingPageAudioPath
 } from "../utils/guidedReading/readAloudPolicy.js";
@@ -1960,17 +1961,57 @@ function pageAudioCue(page = {}) {
   };
 }
 
-function hasPageLevelAudioTiming(pages = []) {
-  return pages.some(page => pageAudioCue(page));
-}
-
 function countReadingWordsForSync(page = {}) {
   const text = page.pageAudioText || page.text || "";
   return Math.max(1, (String(text).match(/[A-Za-z0-9'-]+/g) || []).length);
 }
 
-function buildWholeBookPageCues(pages = [], duration = 0) {
+function normalizeWholeBookSyncData(syncData = {}, book = {}, audioPath = "") {
+  const syncAccuracy = String(syncData.syncAccuracy || "").toLowerCase();
+  if (!["explicit", "estimated"].includes(syncAccuracy)) return null;
+  if (syncData.bookId && book.id && syncData.bookId !== book.id) return null;
+  if (syncData.audioPath && audioPath && syncData.audioPath !== audioPath) return null;
+  if (!Array.isArray(syncData.pageTimings) || !syncData.pageTimings.length) return null;
+
+  const pageTimings = syncData.pageTimings
+    .map(item => {
+      const pageIndex = Number(item.pageIndex);
+      const startMs = Number(item.startMs);
+      const endMs = Number(item.endMs);
+      if (!Number.isInteger(pageIndex) || pageIndex < 0 || !Number.isFinite(startMs) || !Number.isFinite(endMs) || endMs <= startMs) {
+        return null;
+      }
+      return {
+        pageIndex,
+        startMs,
+        endMs
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.startMs - b.startMs);
+
+  if (!pageTimings.length) return null;
+  return {
+    syncAccuracy,
+    durationMs: Number(syncData.durationMs) || 0,
+    pageTimings
+  };
+}
+
+function hasInlinePageLevelAudioTiming(pages = []) {
+  return pages.some(page => pageAudioCue(page));
+}
+
+function buildWholeBookPageCues(pages = [], duration = 0, syncData = null) {
   if (!pages.length) return [];
+  if (syncData?.pageTimings?.length) {
+    return syncData.pageTimings.map(item => ({
+      start: item.startMs / 1000,
+      end: item.endMs / 1000,
+      pageIndex: item.pageIndex
+    }));
+  }
+
   const explicitCues = pages.map(pageAudioCue);
   if (explicitCues.every(Boolean)) {
     return explicitCues.map((cue, index) => ({
@@ -2001,6 +2042,19 @@ function findWholeBookPageIndex(cues = [], currentTime = 0) {
   if (!cues.length) return 0;
   const cue = cues.find(item => currentTime >= item.start && currentTime < item.end);
   return cue?.pageIndex ?? cues[cues.length - 1].pageIndex;
+}
+
+async function fetchWholeBookSyncData(book = {}, audioPath = "") {
+  if (typeof fetch === "undefined" || !book?.id) return null;
+  try {
+    const response = await fetch(getGuidedReadingBookSyncPath(book), { cache: "no-cache" });
+    if (!response.ok) return null;
+    const syncData = await response.json();
+    return normalizeWholeBookSyncData(syncData, book, audioPath);
+  } catch (error) {
+    if (import.meta.env.DEV) console.warn("Guided Reading sync data unavailable.", book.id, error);
+    return null;
+  }
 }
 
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
@@ -2065,6 +2119,7 @@ export function GuidedReadingPage({
   const [isWholeBookReading, setIsWholeBookReading] = useState(false);
   const [isReadAloudPaused, setIsReadAloudPaused] = useState(false);
   const [autoAdvanceReadAloud, setAutoAdvanceReadAloud] = useState(true);
+  const [wholeBookSyncData, setWholeBookSyncData] = useState(null);
   const [teacherNotesOpen, setTeacherNotesOpen] = useState(false);
   const [isReaderFullscreen, setIsReaderFullscreen] = useState(false);
   const [readerLayoutVersion, setReaderLayoutVersion] = useState(0);
@@ -2177,6 +2232,20 @@ export function GuidedReadingPage({
   useEffect(() => {
     autoAdvanceReadAloudRef.current = autoAdvanceReadAloud;
   }, [autoAdvanceReadAloud]);
+
+  useEffect(() => {
+    let cancelled = false;
+    setWholeBookSyncData(null);
+    if (!selectedBook || !fullBookAudioPath) return undefined;
+
+    fetchWholeBookSyncData(selectedBook, fullBookAudioPath).then(syncData => {
+      if (!cancelled) setWholeBookSyncData(syncData);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedBookId, fullBookAudioPath]);
 
   useEffect(() => {
     if (readerOpen) setTeacherNotesOpen(false);
@@ -2560,13 +2629,15 @@ export function GuidedReadingPage({
 
     if (fullBookAudioPath) {
       try {
+        const syncData = wholeBookSyncData || await fetchWholeBookSyncData(selectedBook, fullBookAudioPath);
+        if (syncData && !wholeBookSyncData) setWholeBookSyncData(syncData);
         const audio = new Audio(fullBookAudioPath);
         const fullBookStartIndex = Math.min(pageIndex, selectedBook.pages.length - 1);
         let pageCues = [];
         const syncPageToFullBookAudio = () => {
           if (!autoAdvanceReadAloudRef.current) return;
           if (!pageCues.length) {
-            pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration);
+            pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration, syncData);
           }
           const nextPageIndex = findWholeBookPageIndex(pageCues, audio.currentTime);
           readAloudPageChangeRef.current = true;
@@ -2577,13 +2648,15 @@ export function GuidedReadingPage({
         setIsWholeBookReading(true);
         setIsPageAudioPlaying(true);
         setIsReadAloudPaused(false);
-        setAudioNotice(hasPageLevelAudioTiming(selectedBook.pages)
+        setAudioNotice(syncData?.syncAccuracy === "explicit" || hasInlinePageLevelAudioTiming(selectedBook.pages)
           ? ""
-          : "Syncing pages with estimated timings until page-level timing data is added.");
+          : syncData?.syncAccuracy === "estimated"
+            ? "Syncing pages with estimated timings pending verification."
+            : "Syncing pages with runtime fallback timings until page-level timing data is added.");
         readAloudPageChangeRef.current = true;
         setPageIndex(fullBookStartIndex);
         audio.onloadedmetadata = () => {
-          pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration);
+          pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration, syncData);
           const startCue = pageCues[fullBookStartIndex];
           if (startCue?.start && Number.isFinite(startCue.start)) {
             audio.currentTime = startCue.start;

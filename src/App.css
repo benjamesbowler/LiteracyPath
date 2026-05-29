@@ -1330,6 +1330,20 @@ body {
   font-size: 14px;
 }
 
+.report-filter-control {
+  display: grid;
+  gap: 4px;
+  min-width: min(220px, 100%);
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.report-filter-control select {
+  height: 42px;
+  margin: 0;
+}
+
 .teacher-action-panel-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
