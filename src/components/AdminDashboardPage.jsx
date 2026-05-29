@@ -30,6 +30,7 @@ import {
   exportStudentElAssessmentExcel
 } from "../utils/exportElAssessmentExcel.js";
 import { exportGuidedReadingCompletionExcel } from "../utils/exportGuidedReadingCompletionExcel.js";
+import assessmentAudioCoverage from "../content/assessments/assessmentAudioCoverageSummary.generated.json";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -1173,6 +1174,7 @@ export function AdminDashboardPage({
     ? [
       { id: "teacherReport", label: "Teacher Dashboard", count: assessmentHistory.length },
       { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
+      { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
       { id: "classes", label: "Classes", count: classes.length },
       { id: "students", label: "Students", count: students.length }
     ]
@@ -1183,6 +1185,7 @@ export function AdminDashboardPage({
       { id: "signups", label: "Signup Requests", count: pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length },
       { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
       { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
+      { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
       { id: "teachers", label: "Teachers", count: teachers.length },
       { id: "classes", label: "Classes", count: classes.length },
       { id: "students", label: "Students", count: students.length }
@@ -1770,6 +1773,77 @@ export function AdminDashboardPage({
                   <td data-label="Media gaps">{row.missingImage} image / {row.missingAudio} audio</td>
                   <td data-label="Bad media">{row.badMedia || 0}</td>
                   <td data-label="Status">{row.active} active / {row.inactive} inactive</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      )}
+
+      {activeSection === "assessmentAudio" && (
+      <section className="report-panel page-stack admin-section admin-section-panel">
+        <h3>Assessment Audio Coverage</h3>
+        <p className="muted-text">
+          Tracks whether assessment audio uses the current neutral soft American female generated-voice standard.
+          Replacement rows are generated in <code>docs/assets/replacement_assessment_audio_request.md</code>.
+        </p>
+
+        <div className="summary-grid compact-summary-grid">
+          <article>
+            <span>Total references</span>
+            <strong>{assessmentAudioCoverage.summary?.totalReferences || 0}</strong>
+          </article>
+          <article>
+            <span>Standard voice</span>
+            <strong>{assessmentAudioCoverage.summary?.standardVoiceCount || 0}</strong>
+          </article>
+          <article>
+            <span>Replacement needed</span>
+            <strong>{assessmentAudioCoverage.summary?.replacementNeededCount || 0}</strong>
+          </article>
+          <article>
+            <span>Missing/broken</span>
+            <strong>{assessmentAudioCoverage.summary?.missingCount || 0} / {assessmentAudioCoverage.summary?.brokenReferenceCount || 0}</strong>
+          </article>
+          <article>
+            <span>Human review</span>
+            <strong>{assessmentAudioCoverage.summary?.needsHumanReviewCount || 0}</strong>
+          </article>
+        </div>
+
+        <div className="admin-table-wrap">
+          <table className="dashboard-table admin-table">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>References</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(assessmentAudioCoverage.statusCounts || {}).sort().map(([status, count]) => (
+                <tr key={status}>
+                  <td data-label="Status">{status.replace(/_/g, " ")}</td>
+                  <td data-label="References">{count}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="admin-table-wrap">
+          <table className="dashboard-table admin-table">
+            <thead>
+              <tr>
+                <th>Issue</th>
+                <th>References</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(assessmentAudioCoverage.issueCounts || {}).sort((a, b) => b[1] - a[1]).slice(0, 12).map(([issue, count]) => (
+                <tr key={issue}>
+                  <td data-label="Issue">{issue.replace(/_/g, " ")}</td>
+                  <td data-label="References">{count}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2026-05-29T04:35:39.128Z",
+  "standardVoice": {
+    "description": "Neutral soft American female voice",
+    "provider": "unknown",
+    "voiceId": "",
+    "modelId": "",
+    "standardRoot": "/audio/child-mode/clean-human/",
+    "source": "Kimi/Pack 6 clean-human assessment audio where available",
+    "baselineFiles": [
+      {
+        "path": "/audio/child-mode/clean-human/hfw/a.mp3",
+        "script": "a",
+        "durationMs": 1008,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/a.mp3",
+        "script": "a",
+        "durationMs": 1008,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/a.mp3",
+        "script": "a",
+        "durationMs": 1008,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/all.mp3",
+        "script": "all",
+        "durationMs": 1080,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/all.mp3",
+        "script": "all",
+        "durationMs": 1080,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/all.mp3",
+        "script": "all",
+        "durationMs": 1080,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/and.mp3",
+        "script": "and",
+        "durationMs": 1152,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/and.mp3",
+        "script": "and",
+        "durationMs": 1152,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/and.mp3",
+        "script": "and",
+        "durationMs": 1152,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      },
+      {
+        "path": "/audio/child-mode/clean-human/hfw/at.mp3",
+        "script": "at",
+        "durationMs": 1080,
+        "sampleRate": 24000,
+        "bitrate": 64000,
+        "channels": 1
+      }
+    ]
+  },
+  "summary": {
+    "totalReferences": 6483,
+    "totalFiles": 1748,
+    "standardVoiceCount": 3393,
+    "replacementNeededCount": 1262,
+    "missingCount": 154,
+    "brokenReferenceCount": 154,
+    "needsHumanReviewCount": 2022
+  },
+  "statusCounts": {
+    "KEEP_STANDARD_VOICE": 3393,
+    "REPLACE_OLD_ORIGINAL": 1108,
+    "NEEDS_HUMAN_REVIEW": 1828,
+    "MISSING_AUDIO": 154
+  },
+  "issueCounts": {
+    "old_original_audio": 1154,
+    "needs_human_review": 2022,
+    "missing_file": 154,
+    "broken_reference": 154
+  },
+  "skillCategoryCounts": {
+    "decoding": 2372,
+    "initial sounds": 614,
+    "ending sounds": 1060,
+    "instructions/prompts": 590,
+    "answer options": 728,
+    "rhyming": 316,
+    "blending": 440,
+    "word audio": 363
+  }
+}
