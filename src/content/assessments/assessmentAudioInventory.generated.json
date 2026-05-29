@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T04:46:58.847Z",
+  "generatedAt": "2026-05-29T07:25:59.869Z",
   "standardVoice": {
     "description": "Neutral soft American female voice",
     "provider": "unknown",
@@ -112,11 +112,11 @@
   },
   "summary": {
     "totalReferences": 6483,
-    "totalFiles": 1748,
+    "totalFiles": 2270,
     "standardVoiceCount": 3393,
-    "replacementNeededCount": 1262,
-    "missingCount": 154,
-    "brokenReferenceCount": 154,
+    "replacementNeededCount": 1154,
+    "missingCount": 0,
+    "brokenReferenceCount": 0,
     "needsHumanReviewCount": 2022
   },
   "items": [
@@ -65431,18 +65431,16 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "am",
-      "durationMs": 0,
+      "durationMs": 1344,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-1-25_am_audio_l1_p1:audioUrl",
@@ -65453,18 +65451,16 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "am",
-      "durationMs": 0,
+      "durationMs": 1344,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-1-25_and_audio_l1_p1:audioPath",
@@ -65511,19 +65507,17 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "big",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-1-25_big_audio_l1_p1:audioUrl",
@@ -65534,19 +65528,17 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "big",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-1-25_can_audio_l1_p1:audioPath",
@@ -65633,7 +65625,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "down",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65653,7 +65645,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "down",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65673,7 +65665,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "for",
-      "durationMs": 1368,
+      "durationMs": 1536,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65693,7 +65685,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "for",
-      "durationMs": 1368,
+      "durationMs": 1536,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65713,7 +65705,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "go",
-      "durationMs": 1008,
+      "durationMs": 1056,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65733,7 +65725,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "go",
-      "durationMs": 1008,
+      "durationMs": 1056,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65753,19 +65745,17 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "i",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-1-25_i_audio_l1_p1:audioUrl",
@@ -65776,19 +65766,17 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "i",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-1-25_in_audio_l1_p1:audioPath",
@@ -65907,7 +65895,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "like",
-      "durationMs": 1176,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65927,7 +65915,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "like",
-      "durationMs": 1176,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65947,7 +65935,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "little",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65967,7 +65955,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "little",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -65987,7 +65975,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "look",
-      "durationMs": 1176,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66007,7 +65995,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "look",
-      "durationMs": 1176,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66067,7 +66055,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "my",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66087,7 +66075,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "my",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66107,7 +66095,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "not",
-      "durationMs": 1152,
+      "durationMs": 1200,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66127,7 +66115,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "not",
-      "durationMs": 1152,
+      "durationMs": 1200,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66183,7 +66171,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "one",
-      "durationMs": 1080,
+      "durationMs": 1176,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66203,7 +66191,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "one",
-      "durationMs": 1080,
+      "durationMs": 1176,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66223,18 +66211,16 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "play",
-      "durationMs": 0,
+      "durationMs": 1008,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-1-25_play_audio_l1_p1:audioUrl",
@@ -66245,18 +66231,16 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "play",
-      "durationMs": 0,
+      "durationMs": 1008,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-1-25_said_audio_l1_p1:audioPath",
@@ -66451,7 +66435,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "up",
-      "durationMs": 1080,
+      "durationMs": 936,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66472,7 +66456,7 @@
       "skill": "High-Frequency Words 1-25",
       "skillCategory": "word audio",
       "script": "up",
-      "durationMs": 1080,
+      "durationMs": 936,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -66641,18 +66625,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "after",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_after_audio_l1_p1:audioUrl",
@@ -66663,18 +66645,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "after",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_all_audio_l1_p1:audioPath",
@@ -66761,19 +66741,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "around",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_around_audio_l1_p1:audioUrl",
@@ -66784,19 +66762,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "around",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_asked_audio_l1_p1:audioPath",
@@ -66807,18 +66783,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "asked",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_asked_audio_l1_p1:audioUrl",
@@ -66829,18 +66803,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "asked",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_away_audio_l1_p1:audioPath",
@@ -66851,18 +66823,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "away",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_away_audio_l1_p1:audioUrl",
@@ -66873,18 +66843,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "away",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_blue_audio_l1_p1:audioPath",
@@ -66895,19 +66863,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "blue",
-      "durationMs": 0,
+      "durationMs": 1008,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_blue_audio_l1_p1:audioUrl",
@@ -66918,19 +66884,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "blue",
-      "durationMs": 0,
+      "durationMs": 1008,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_but_audio_l1_p1:audioPath",
@@ -66977,18 +66941,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "came",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_came_audio_l1_p1:audioUrl",
@@ -66999,18 +66961,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "came",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_cold_audio_l1_p1:audioPath",
@@ -67021,19 +66981,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "cold",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_cold_audio_l1_p1:audioUrl",
@@ -67044,19 +67002,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "cold",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_find_audio_l1_p1:audioPath",
@@ -67067,18 +67023,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "find",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_find_audio_l1_p1:audioUrl",
@@ -67089,18 +67043,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "find",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_for_audio_l1_p1:audioPath",
@@ -67111,7 +67063,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "for",
-      "durationMs": 1368,
+      "durationMs": 1536,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67131,7 +67083,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "for",
-      "durationMs": 1368,
+      "durationMs": 1536,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67151,7 +67103,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "from",
-      "durationMs": 1152,
+      "durationMs": 1008,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67171,7 +67123,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "from",
-      "durationMs": 1152,
+      "durationMs": 1008,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67191,18 +67143,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "funny",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_funny_audio_l1_p1:audioUrl",
@@ -67213,18 +67163,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "funny",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_have_audio_l1_p1:audioPath",
@@ -67311,18 +67259,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "help",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_help_audio_l1_p1:audioUrl",
@@ -67333,18 +67279,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "help",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_helps_audio_l1_p1:audioPath",
@@ -67355,18 +67299,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "helps",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_helps_audio_l1_p1:audioUrl",
@@ -67377,18 +67319,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "helps",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_here_audio_l1_p1:audioPath",
@@ -67399,18 +67339,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "here",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_here_audio_l1_p1:audioUrl",
@@ -67421,18 +67359,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "here",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_into_audio_l1_p1:audioPath",
@@ -67443,7 +67379,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "into",
-      "durationMs": 1272,
+      "durationMs": 1344,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67463,7 +67399,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "into",
-      "durationMs": 1272,
+      "durationMs": 1344,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67483,18 +67419,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "jump",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_jump_audio_l1_p1:audioUrl",
@@ -67505,18 +67439,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "jump",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_just_audio_l1_p1:audioPath",
@@ -67527,7 +67459,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "just",
-      "durationMs": 1176,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67547,7 +67479,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "just",
-      "durationMs": 1176,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67567,18 +67499,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "made",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_made_audio_l1_p1:audioUrl",
@@ -67589,18 +67519,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "made",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_make_audio_l1_p1:audioPath",
@@ -67611,7 +67539,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "make",
-      "durationMs": 1272,
+      "durationMs": 1248,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67631,7 +67559,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "make",
-      "durationMs": 1272,
+      "durationMs": 1248,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67651,7 +67579,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "now",
-      "durationMs": 1152,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67671,7 +67599,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "now",
-      "durationMs": 1152,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -67691,19 +67619,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "open",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_open_audio_l1_p1:audioUrl",
@@ -67714,19 +67640,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "open",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_play_audio_l1_p1:audioPath",
@@ -67737,18 +67661,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "play",
-      "durationMs": 0,
+      "durationMs": 1008,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_play_audio_l1_p1:audioUrl",
@@ -67759,18 +67681,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "play",
-      "durationMs": 0,
+      "durationMs": 1008,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_red_audio_l1_p1:audioPath",
@@ -67781,19 +67701,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "red",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_red_audio_l1_p1:audioUrl",
@@ -67804,19 +67722,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "red",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_round_audio_l1_p1:audioPath",
@@ -67827,19 +67743,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "round",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_round_audio_l1_p1:audioUrl",
@@ -67850,19 +67764,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "round",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_run_audio_l1_p1:audioPath",
@@ -67873,19 +67785,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "run",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_run_audio_l1_p1:audioUrl",
@@ -67896,19 +67806,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "run",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_she_audio_l1_p1:audioPath",
@@ -67955,19 +67863,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "sleep",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_sleep_audio_l1_p1:audioUrl",
@@ -67978,19 +67884,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "sleep",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_that_audio_l1_p1:audioPath",
@@ -68109,7 +68013,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "this",
-      "durationMs": 1080,
+      "durationMs": 1176,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68130,7 +68034,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "this",
-      "durationMs": 1080,
+      "durationMs": 1176,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68151,19 +68055,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "three",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_three_audio_l1_p1:audioUrl",
@@ -68174,19 +68076,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "three",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_three_cloze_l1_p2:audioPath",
@@ -68317,18 +68217,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "two",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_two_audio_l1_p1:audioUrl",
@@ -68339,18 +68237,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "two",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_under_audio_l1_p1:audioPath",
@@ -68361,19 +68257,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "under",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_under_audio_l1_p1:audioUrl",
@@ -68384,19 +68278,17 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "under",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_very_audio_l1_p1:audioPath",
@@ -68483,18 +68375,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "went",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_went_audio_l1_p1:audioUrl",
@@ -68505,18 +68395,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "went",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_were_audio_l1_p1:audioPath",
@@ -68527,7 +68415,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "were",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68547,7 +68435,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "were",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68567,7 +68455,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "what",
-      "durationMs": 1152,
+      "durationMs": 1368,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68587,7 +68475,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "what",
-      "durationMs": 1152,
+      "durationMs": 1368,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68647,18 +68535,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "where",
-      "durationMs": 0,
+      "durationMs": 1104,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_where_audio_l1_p1:audioUrl",
@@ -68669,18 +68555,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "where",
-      "durationMs": 0,
+      "durationMs": 1104,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_will_audio_l1_p1:audioPath",
@@ -68691,7 +68575,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "will",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68711,7 +68595,7 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "will",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68767,18 +68651,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "yellow",
-      "durationMs": 0,
+      "durationMs": 1272,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-26-50_yellow_audio_l1_p1:audioUrl",
@@ -68789,18 +68671,16 @@
       "skill": "High-Frequency Words 26-50",
       "skillCategory": "word audio",
       "script": "yellow",
-      "durationMs": 0,
+      "durationMs": 1272,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_after_audio_l1_p1:audioPath",
@@ -68811,18 +68691,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "after",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_after_audio_l1_p1:audioUrl",
@@ -68833,18 +68711,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "after",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_again_audio_l1_p1:audioPath",
@@ -68855,18 +68731,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "again",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_again_audio_l1_p1:audioUrl",
@@ -68877,18 +68751,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "again",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_an_audio_l1_p1:audioPath",
@@ -68899,7 +68771,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "an",
-      "durationMs": 960,
+      "durationMs": 936,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68919,7 +68791,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "an",
-      "durationMs": 960,
+      "durationMs": 936,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -68939,18 +68811,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "any",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_any_audio_l1_p1:audioUrl",
@@ -68961,18 +68831,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "any",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_around_audio_l1_p1:audioPath",
@@ -68983,19 +68851,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "around",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_around_audio_l1_p1:audioUrl",
@@ -69006,19 +68872,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "around",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_as_audio_l1_p1:audioPath",
@@ -69069,18 +68933,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "ask",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_ask_audio_l1_p1:audioUrl",
@@ -69091,18 +68953,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "ask",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_away_audio_l1_p1:audioPath",
@@ -69113,18 +68973,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "away",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_away_audio_l1_p1:audioUrl",
@@ -69135,18 +68993,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "away",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_be_audio_l1_p1:audioPath",
@@ -69197,18 +69053,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "before",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_before_audio_l1_p1:audioUrl",
@@ -69219,18 +69073,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "before",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_by_audio_l1_p1:audioPath",
@@ -69241,7 +69093,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "by",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69261,7 +69113,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "by",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69281,18 +69133,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "came",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_came_audio_l1_p1:audioUrl",
@@ -69303,18 +69153,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "came",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_cold_audio_l1_p1:audioPath",
@@ -69325,19 +69173,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "cold",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_cold_audio_l1_p1:audioUrl",
@@ -69348,19 +69194,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "cold",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_come_audio_l1_p1:audioPath",
@@ -69411,7 +69255,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "could",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69431,7 +69275,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "could",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69451,7 +69295,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "down",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69471,7 +69315,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "down",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69491,18 +69335,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "every",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_every_audio_l1_p1:audioUrl",
@@ -69513,18 +69355,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "every",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_find_audio_l1_p1:audioPath",
@@ -69535,18 +69375,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "find",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_find_audio_l1_p1:audioUrl",
@@ -69557,18 +69395,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "find",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_fly_audio_l1_p1:audioPath",
@@ -69579,18 +69415,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "fly",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_fly_audio_l1_p1:audioUrl",
@@ -69601,18 +69435,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "fly",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_found_audio_l1_p1:audioPath",
@@ -69623,18 +69455,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "found",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_found_audio_l1_p1:audioUrl",
@@ -69645,18 +69475,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "found",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_from_audio_l1_p1:audioPath",
@@ -69667,7 +69495,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "from",
-      "durationMs": 1152,
+      "durationMs": 1008,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69687,7 +69515,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "from",
-      "durationMs": 1152,
+      "durationMs": 1008,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69707,18 +69535,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "funny",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_funny_audio_l1_p1:audioUrl",
@@ -69729,18 +69555,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "funny",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_give_audio_l1_p1:audioPath",
@@ -69751,18 +69575,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "give",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_give_audio_l1_p1:audioUrl",
@@ -69773,18 +69595,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "give",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_going_audio_l1_p1:audioPath",
@@ -69795,18 +69615,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "going",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_going_audio_l1_p1:audioUrl",
@@ -69817,18 +69635,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "going",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_had_audio_l1_p1:audioPath",
@@ -69879,7 +69695,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "has",
-      "durationMs": 1080,
+      "durationMs": 1368,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69899,7 +69715,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "has",
-      "durationMs": 1080,
+      "durationMs": 1368,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -69959,18 +69775,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "help",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_help_audio_l1_p1:audioUrl",
@@ -69981,18 +69795,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "help",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_helps_audio_l1_p1:audioPath",
@@ -70003,18 +69815,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "helps",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_helps_audio_l1_p1:audioUrl",
@@ -70025,18 +69835,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "helps",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_her_audio_l1_p1:audioPath",
@@ -70083,18 +69891,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "here",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_here_audio_l1_p1:audioUrl",
@@ -70105,18 +69911,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "here",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_him_audio_l1_p1:audioPath",
@@ -70127,18 +69931,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "him",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_him_audio_l1_p1:audioUrl",
@@ -70149,18 +69951,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "him",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_his_audio_l1_p1:audioPath",
@@ -70247,7 +70047,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "into",
-      "durationMs": 1272,
+      "durationMs": 1344,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70267,7 +70067,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "into",
-      "durationMs": 1272,
+      "durationMs": 1344,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70287,7 +70087,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "just",
-      "durationMs": 1176,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70307,7 +70107,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "just",
-      "durationMs": 1176,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70327,7 +70127,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "know",
-      "durationMs": 1152,
+      "durationMs": 1176,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70347,7 +70147,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "know",
-      "durationMs": 1152,
+      "durationMs": 1176,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70367,18 +70167,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "let",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_let_audio_l1_p1:audioUrl",
@@ -70389,18 +70187,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "let",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_like_audio_l1_p1:audioPath",
@@ -70411,7 +70207,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "like",
-      "durationMs": 1176,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70431,7 +70227,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "like",
-      "durationMs": 1176,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70451,7 +70247,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "little",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70471,7 +70267,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "little",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70491,18 +70287,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "live",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_live_audio_l1_p1:audioUrl",
@@ -70513,18 +70307,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "live",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_look_audio_l1_p1:audioPath",
@@ -70535,7 +70327,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "look",
-      "durationMs": 1176,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70555,7 +70347,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "look",
-      "durationMs": 1176,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70575,18 +70367,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "made",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_made_audio_l1_p1:audioUrl",
@@ -70597,18 +70387,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "made",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_may_audio_l1_p1:audioPath",
@@ -70619,18 +70407,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "may",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_may_audio_l1_p1:audioUrl",
@@ -70641,18 +70427,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "may",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_must_audio_l1_p1:audioPath",
@@ -70663,19 +70447,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "must",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_must_audio_l1_p1:audioUrl",
@@ -70686,19 +70468,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "must",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_must_cloze_l1_p2:audioPath",
@@ -70829,18 +70609,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "new",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_new_audio_l1_p1:audioUrl",
@@ -70851,18 +70629,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "new",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_now_audio_l1_p1:audioPath",
@@ -70873,7 +70649,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "now",
-      "durationMs": 1152,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70893,7 +70669,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "now",
-      "durationMs": 1152,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -70949,18 +70725,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "old",
-      "durationMs": 0,
+      "durationMs": 1272,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_old_audio_l1_p1:audioUrl",
@@ -70971,18 +70745,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "old",
-      "durationMs": 0,
+      "durationMs": 1272,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_once_audio_l1_p1:audioPath",
@@ -70993,18 +70765,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "once",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_once_audio_l1_p1:audioUrl",
@@ -71015,18 +70785,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "once",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_open_audio_l1_p1:audioPath",
@@ -71037,19 +70805,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "open",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_open_audio_l1_p1:audioUrl",
@@ -71060,19 +70826,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "open",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_our_audio_l1_p1:audioPath",
@@ -71083,18 +70847,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "our",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_our_audio_l1_p1:audioUrl",
@@ -71105,18 +70867,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "our",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_out_audio_l1_p1:audioPath",
@@ -71127,7 +70887,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "out",
-      "durationMs": 1080,
+      "durationMs": 1248,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -71147,7 +70907,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "out",
-      "durationMs": 1080,
+      "durationMs": 1248,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -71167,7 +70927,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "over",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -71188,7 +70948,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "over",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -71209,18 +70969,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "please",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_please_audio_l1_p1:audioUrl",
@@ -71231,18 +70989,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "please",
-      "durationMs": 0,
+      "durationMs": 1368,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_pretty_audio_l1_p1:audioPath",
@@ -71253,18 +71009,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "pretty",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_pretty_audio_l1_p1:audioUrl",
@@ -71275,18 +71029,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "pretty",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_put_audio_l1_p1:audioPath",
@@ -71297,18 +71049,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "put",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_put_audio_l1_p1:audioUrl",
@@ -71319,18 +71069,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "put",
-      "durationMs": 0,
+      "durationMs": 1080,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_read_audio_l1_p1:audioPath",
@@ -71341,19 +71089,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "read",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_read_audio_l1_p1:audioUrl",
@@ -71364,19 +71110,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "read",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_round_audio_l1_p1:audioPath",
@@ -71387,19 +71131,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "round",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_round_audio_l1_p1:audioUrl",
@@ -71410,19 +71152,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "round",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_saw_audio_l1_p1:audioPath",
@@ -71433,19 +71173,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "saw",
-      "durationMs": 0,
+      "durationMs": 1128,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_saw_audio_l1_p1:audioUrl",
@@ -71456,19 +71194,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "saw",
-      "durationMs": 0,
+      "durationMs": 1128,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_say_audio_l1_p1:audioPath",
@@ -71479,18 +71215,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "say",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_say_audio_l1_p1:audioUrl",
@@ -71501,18 +71235,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "say",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_some_audio_l1_p1:audioPath",
@@ -71563,18 +71295,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "soon",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_soon_audio_l1_p1:audioUrl",
@@ -71585,18 +71315,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "soon",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_stop_audio_l1_p1:audioPath",
@@ -71607,19 +71335,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "stop",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_stop_audio_l1_p1:audioUrl",
@@ -71630,19 +71356,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "stop",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_take_audio_l1_p1:audioPath",
@@ -71653,18 +71377,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "take",
-      "durationMs": 0,
+      "durationMs": 1272,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_take_audio_l1_p1:audioUrl",
@@ -71675,18 +71397,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "take",
-      "durationMs": 0,
+      "durationMs": 1272,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_thank_audio_l1_p1:audioPath",
@@ -71697,18 +71417,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "thank",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_thank_audio_l1_p1:audioUrl",
@@ -71719,18 +71437,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "thank",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_them_audio_l1_p1:audioPath",
@@ -71781,18 +71497,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "think",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_think_audio_l1_p1:audioUrl",
@@ -71803,18 +71517,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "think",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_this_audio_l1_p1:audioPath",
@@ -71825,7 +71537,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "this",
-      "durationMs": 1080,
+      "durationMs": 1176,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -71846,7 +71558,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "this",
-      "durationMs": 1080,
+      "durationMs": 1176,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -71867,19 +71579,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "under",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_under_audio_l1_p1:audioUrl",
@@ -71890,19 +71600,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "under",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_walk_audio_l1_p1:audioPath",
@@ -71913,18 +71621,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "walk",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_walk_audio_l1_p1:audioUrl",
@@ -71935,18 +71641,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "walk",
-      "durationMs": 0,
+      "durationMs": 1248,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_want_audio_l1_p1:audioPath",
@@ -71997,19 +71701,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "well",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_well_audio_l1_p1:audioUrl",
@@ -72020,19 +71722,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "well",
-      "durationMs": 0,
+      "durationMs": 1176,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_went_audio_l1_p1:audioPath",
@@ -72043,18 +71743,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "went",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_went_audio_l1_p1:audioUrl",
@@ -72065,18 +71763,16 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "went",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
-        "needs_human_review",
-        "missing_file",
-        "broken_reference"
+        "needs_human_review"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "NEEDS_HUMAN_REVIEW"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_were_audio_l1_p1:audioPath",
@@ -72087,7 +71783,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "were",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -72107,7 +71803,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "were",
-      "durationMs": 1008,
+      "durationMs": 1080,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -72127,7 +71823,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "what",
-      "durationMs": 1152,
+      "durationMs": 1368,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -72147,7 +71843,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "what",
-      "durationMs": 1152,
+      "durationMs": 1368,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -72207,19 +71903,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "white",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_white_audio_l1_p1:audioUrl",
@@ -72230,19 +71924,17 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "white",
-      "durationMs": 0,
+      "durationMs": 1152,
       "format": "mp3",
-      "sampleRate": 0,
-      "bitrate": 0,
-      "channels": 0,
+      "sampleRate": 24000,
+      "bitrate": 64000,
+      "channels": 1,
       "matchesStandardVoice": "uncertain",
       "issues": [
         "needs_human_review",
-        "missing_file",
-        "broken_reference",
         "old_original_audio"
       ],
-      "status": "MISSING_AUDIO"
+      "status": "REPLACE_OLD_ORIGINAL"
     },
     {
       "audioId": "hfw_quality_hfw-51-100_who_audio_l1_p1:audioPath",
@@ -72293,7 +71985,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "will",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -72313,7 +72005,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "will",
-      "durationMs": 1080,
+      "durationMs": 1152,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -72333,7 +72025,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "yes",
-      "durationMs": 1152,
+      "durationMs": 1272,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,
@@ -72353,7 +72045,7 @@
       "skill": "High-Frequency Words 51-100",
       "skillCategory": "word audio",
       "script": "yes",
-      "durationMs": 1152,
+      "durationMs": 1272,
       "format": "mp3",
       "sampleRate": 24000,
       "bitrate": 64000,

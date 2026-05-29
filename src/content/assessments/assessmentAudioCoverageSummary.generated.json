@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T04:46:58.847Z",
+  "generatedAt": "2026-05-29T07:25:59.869Z",
   "standardVoice": {
     "description": "Neutral soft American female voice",
     "provider": "unknown",
@@ -112,24 +112,21 @@
   },
   "summary": {
     "totalReferences": 6483,
-    "totalFiles": 1748,
+    "totalFiles": 2270,
     "standardVoiceCount": 3393,
-    "replacementNeededCount": 1262,
-    "missingCount": 154,
-    "brokenReferenceCount": 154,
+    "replacementNeededCount": 1154,
+    "missingCount": 0,
+    "brokenReferenceCount": 0,
     "needsHumanReviewCount": 2022
   },
   "statusCounts": {
     "KEEP_STANDARD_VOICE": 3393,
-    "REPLACE_OLD_ORIGINAL": 1108,
-    "NEEDS_HUMAN_REVIEW": 1828,
-    "MISSING_AUDIO": 154
+    "REPLACE_OLD_ORIGINAL": 1154,
+    "NEEDS_HUMAN_REVIEW": 1936
   },
   "issueCounts": {
     "old_original_audio": 1154,
-    "needs_human_review": 2022,
-    "missing_file": 154,
-    "broken_reference": 154
+    "needs_human_review": 2022
   },
   "skillCategoryCounts": {
     "decoding": 2372,

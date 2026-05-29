@@ -1,17 +1,17 @@
 # Assessment Audio Inventory
 
-Generated: 2026-05-29T04:35:39.128Z
+Generated: 2026-05-29T07:25:59.869Z
 
 ## Summary
 
 | Metric | Count |
 | --- | --- |
 | Total assessment audio references | 6483 |
-| Total physical assessment audio files scanned | 1748 |
+| Total physical assessment audio files scanned | 2270 |
 | Files matching standard voice | 3393 |
-| Files needing replacement | 1262 |
-| Missing audio files | 154 |
-| Broken references | 154 |
+| Files needing replacement | 1154 |
+| Missing audio files | 0 |
+| Broken references | 0 |
 | Files needing human review | 2022 |
 
 ## Status Counts
@@ -19,16 +19,13 @@ Generated: 2026-05-29T04:35:39.128Z
 | Status | Count |
 | --- | --- |
 | KEEP_STANDARD_VOICE | 3393 |
-| MISSING_AUDIO | 154 |
-| NEEDS_HUMAN_REVIEW | 1828 |
-| REPLACE_OLD_ORIGINAL | 1108 |
+| NEEDS_HUMAN_REVIEW | 1936 |
+| REPLACE_OLD_ORIGINAL | 1154 |
 
 ## Issue Counts
 
 | Issue | Count |
 | --- | --- |
-| broken_reference | 154 |
-| missing_file | 154 |
 | needs_human_review | 2022 |
 | old_original_audio | 1154 |
 
