@@ -135,6 +135,10 @@ import {
   loadAssessmentAttempts,
   saveAssessmentAttempt
 } from "./data/assessmentHistoryStore";
+import {
+  isGenericInstructionAudioPath,
+  normalizeAssessmentAudioRoles
+} from "./utils/assessmentAudioRoles";
 
 // dynamic mastery system
 
@@ -1243,7 +1247,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
 ].map((question, index) =>
   applyQuestionFormatMetadata(applyItemMetadata(
     enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(
-      normalizeAssessmentQuestion(question, null, index)
+      normalizeAssessmentAudioRoles(normalizeAssessmentQuestion(question, null, index))
     ))))
   ))
 ).filter(isQuestionValid));
@@ -5131,6 +5135,16 @@ export default function App() {
 
     const allowBrowserFallback = options.allowBrowserFallback === true;
     const requireApprovedAudio = options.requireApprovedAudio === true;
+    if (
+      import.meta.env.DEV &&
+      options.audioRole === "target_word" &&
+      isGenericInstructionAudioPath(audioPath)
+    ) {
+      console.warn("Target-word audio attempted to use instruction/prompt audio.", {
+        text,
+        audioPath
+      });
+    }
     const preferredAudioPath = requireApprovedAudio
       ? getApprovedAudioPath(text, audioPath)
       : getPreferredAudioPath(text, audioPath);

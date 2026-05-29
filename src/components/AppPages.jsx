@@ -2,6 +2,11 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
+  getTargetWordAudioPath,
+  isGenericInstructionAudioPath,
+  SHORT_VOWEL_LISTEN_PROMPT
+} from "../utils/assessmentAudioRoles";
+import {
   formatGuidedReadingType,
   getGuidedReadingProgress,
   getGuidedReadingWordStatusRows,
@@ -284,9 +289,20 @@ function AssessmentAudioButton({
   speakText,
   label = "Play audio",
   className = "mini-audio-button",
+  audioRole = "",
   showDisabled = false
 }) {
-  const approvedAudioPath = getApprovedAudioPath(text, audioPath);
+  const approvedAudioPath = audioRole === "target_word"
+    ? getTargetWordAudioPath(text, audioPath)
+    : getApprovedAudioPath(text, audioPath);
+
+  if (import.meta.env.DEV && audioRole === "target_word" && isGenericInstructionAudioPath(audioPath)) {
+    console.warn("Assessment target-word audio rejected instruction/prompt audio path.", {
+      text,
+      audioPath,
+      label
+    });
+  }
 
   if (!approvedAudioPath) {
     if (audioPath && import.meta.env.DEV) {
@@ -312,7 +328,8 @@ function AssessmentAudioButton({
       onClick={() =>
         speakText(text, approvedAudioPath, {
           allowBrowserFallback: false,
-          requireApprovedAudio: true
+          requireApprovedAudio: true,
+          audioRole
         })
       }
       aria-label={label}
@@ -814,6 +831,7 @@ function getStudentVisiblePrompt(question = {}) {
   const safeQuestion = question || {};
   if (isFinalSoundsEndingQuestion(safeQuestion)) return FINAL_SOUNDS_STUDENT_PROMPT;
   if (isHfwAudioFindWordQuestion(safeQuestion)) return HFW_AUDIO_FIND_WORD_PROMPT;
+  if (isListenChooseVowelQuestion(safeQuestion)) return SHORT_VOWEL_LISTEN_PROMPT;
   return safeQuestion.prompt || safeQuestion.question || "";
 }
 
@@ -825,10 +843,13 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
   if (!currentQuestion) return null;
 
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
-  const approvedStimulusAudioPath = getApprovedAudioPath(
-    currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
-    isRhymingPictureItem ? "" : currentQuestion.audioPath
-  );
+  const stimulusAudioText = currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer;
+  const approvedStimulusAudioPath = isListenChooseVowel
+    ? getTargetWordAudioPath(currentQuestion.targetWord || currentQuestion.audioText, currentQuestion.audioPath || currentQuestion.audioUrl || "")
+    : getApprovedAudioPath(
+      stimulusAudioText,
+      isRhymingPictureItem ? "" : currentQuestion.audioPath
+    );
   const rawStimulusAudioPath = isRhymingPictureItem ? "" : currentQuestion.audioPath || currentQuestion.audioUrl || "";
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const targetObjectImage = getTargetObjectImage(currentQuestion);
@@ -907,11 +928,12 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
           )}
           {!isRhymingPictureItem && (approvedStimulusAudioPath || rawStimulusAudioPath) && (
             <AssessmentAudioButton
-              text={currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer}
+              text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
               speakText={speakText}
               label="Hear the word"
               className="mini-audio-button assessment-stimulus-audio"
+              audioRole="target_word"
               showDisabled
             />
           )}
@@ -923,11 +945,12 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
           <ListeningVisual />
           {(approvedStimulusAudioPath || rawStimulusAudioPath) && (
             <AssessmentAudioButton
-              text={currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer}
+              text={stimulusAudioText}
               audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
               speakText={speakText}
               label="Hear the word"
               className="mini-audio-button assessment-stimulus-audio"
+              audioRole="target_word"
               showDisabled
             />
           )}

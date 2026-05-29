@@ -27,6 +27,7 @@ import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.gen
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
+import { normalizeAssessmentAudioRoles } from "../src/utils/assessmentAudioRoles.js";
 
 const banks = [
   masteryCoreQuestions,
@@ -118,7 +119,7 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId, index) {
         ? rawQuestion.question
         : "";
 
-  return {
+  return normalizeAssessmentAudioRoles({
     ...rawQuestion,
     id: rawQuestion.id ?? `${skillId || "unknown-skill"}-${index}`,
     skillId,
@@ -130,7 +131,7 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId, index) {
     audioUrl: rawQuestion.audioUrl ?? rawQuestion.audio ?? rawQuestion.media?.audioUrl ?? "",
     correctAnswer,
     answerOptions
-  };
+  });
 }
 
 function isMultipleChoice(question) {
