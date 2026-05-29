@@ -8,6 +8,8 @@ import {
 export const EL_STUDENT_REPORT_SHEETS = [
   "Student Summary",
   "Skill Detail",
+  "Advanced Phonics Patterns",
+  "Pattern Detail",
   "Assessment Attempts",
   "Progress Over Time",
   "Comparison"
@@ -16,6 +18,8 @@ export const EL_STUDENT_REPORT_SHEETS = [
 export const EL_CLASS_REPORT_SHEETS = [
   "Class Summary",
   "Student Overview",
+  "Advanced Phonics Patterns",
+  "Pattern Detail",
   "Skill Heatmap",
   "Skill Summary",
   "Small Groups",
@@ -34,6 +38,15 @@ function list(value) {
 
 function yesNo(value) {
   return value ? "Yes" : "No";
+}
+
+function latestSkillSummary(report = {}, skillName = "") {
+  const normalized = String(skillName || "").toLowerCase();
+  const row = (report.skillRows || []).find(item =>
+    String(item.skillName || "").toLowerCase() === normalized ||
+    String(item.skillName || "").toLowerCase().includes(normalized)
+  );
+  return row || null;
 }
 
 function addRowsOrEmpty(sheet, rows, mapper) {
@@ -102,6 +115,12 @@ export async function createStudentElAssessmentWorkbook(report) {
     ["Skills Mastered", report.summary?.masteredSkillCount || 0],
     ["Skills Developing", report.summary?.developingSkillCount || 0],
     ["Skills Needing Support", report.summary?.needsSupportSkillCount || 0],
+    ["Latest Letter Assessment", latestSkillSummary(report, "EL Letter Name and Sound")
+      ? `${latestSkillSummary(report, "EL Letter Name and Sound").accuracy || 0}% on ${formatDate(latestSkillSummary(report, "EL Letter Name and Sound").lastAssessed)}`
+      : "No letter assessment saved yet"],
+    ["Latest Advanced Phonics Patterns", report.advancedPhonics?.attempts
+      ? `${report.advancedPhonics.latestAccuracy || 0}% on ${formatDate(report.advancedPhonics.latestDate)}`
+      : "No advanced phonics assessment saved yet"],
     ["Current Recommended Focus", list(report.summary?.focusSkills) || "No records yet"]
   ].forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
 
@@ -140,6 +159,48 @@ export async function createStudentElAssessmentWorkbook(report) {
     "Items Missed": "",
     "Last Assessed": "",
     "Recommended Next Step": "Complete an assessment to gather evidence."
+	  });
+
+  const advancedSheet = workbook.addWorksheet("Advanced Phonics Patterns");
+  setColumns(advancedSheet, ["Field", "Value"], ["Value"]);
+  [
+    ["Attempts", report.advancedPhonics?.attempts || 0],
+    ["Latest Attempt Date", formatDate(report.advancedPhonics?.latestDate) || "No records yet"],
+    ["Latest Accuracy", `${report.advancedPhonics?.latestAccuracy || 0}%`],
+    ["Mastered Patterns", list(report.advancedPhonics?.masteredPatterns)],
+    ["Developing Patterns", list(report.advancedPhonics?.developingPatterns)],
+    ["Needs Support Patterns", list(report.advancedPhonics?.needsSupportPatterns)]
+  ].forEach(row => advancedSheet.addRow({ Field: row[0], Value: row[1] || "None yet" }));
+
+  const patternSheet = workbook.addWorksheet("Pattern Detail");
+  setColumns(patternSheet, [
+    "Pattern",
+    "Attempts",
+    "Correct",
+    "Incorrect",
+    "Accuracy",
+    "Status",
+    "Example Words",
+    "Latest Date"
+  ], ["Example Words"]);
+  addRowsOrEmpty(patternSheet, report.patternDetailRows || [], row => row ? {
+    "Pattern": row.pattern,
+    "Attempts": row.attempts,
+    "Correct": row.correct,
+    "Incorrect": row.incorrect,
+    "Accuracy": `${row.accuracy || 0}%`,
+    "Status": row.status,
+    "Example Words": list(row.examples),
+    "Latest Date": formatDate(row.latestDate)
+  } : {
+    "Pattern": "No Advanced Phonics Patterns records yet",
+    "Attempts": 0,
+    "Correct": 0,
+    "Incorrect": 0,
+    "Accuracy": "0%",
+    "Status": "Not Assessed",
+    "Example Words": "",
+    "Latest Date": ""
   });
 
   const attemptsSheet = workbook.addWorksheet("Assessment Attempts");
@@ -229,6 +290,8 @@ export async function createClassElAssessmentWorkbook(report) {
     ["Total Students", report.summary?.totalStudents || report.studentRows?.length || 0],
     ["Total Assessments", report.summary?.totalAssessments || 0],
     ["Class Average Accuracy", `${report.summary?.averageAccuracy || 0}%`],
+    ["Advanced Phonics Attempts", report.advancedPhonics?.attempts || 0],
+    ["Latest Advanced Phonics Accuracy", report.advancedPhonics?.attempts ? `${report.advancedPhonics.latestAccuracy || 0}%` : "No records yet"],
     ["Strongest Skills", list(report.summary?.strongestSkills) || "No records yet"],
     ["Weakest Skills", list(report.summary?.focusSkills) || "No records yet"],
     ["Students Needing Support", list(report.summary?.studentsNeedingSupport) || "No records yet"],
@@ -267,6 +330,55 @@ export async function createClassElAssessmentWorkbook(report) {
     "Current Level / Stage": "",
     "Last Assessment Date": "",
     "Recommended Focus": "Complete assessments to populate this report."
+	  });
+
+  const advancedSheet = workbook.addWorksheet("Advanced Phonics Patterns");
+  setColumns(advancedSheet, ["Field", "Value"], ["Value"]);
+  [
+    ["Class Name", report.className || "Unknown Class"],
+    ["Attempts", report.advancedPhonics?.attempts || 0],
+    ["Latest Attempt Date", formatDate(report.advancedPhonics?.latestDate) || "No records yet"],
+    ["Latest Accuracy", `${report.advancedPhonics?.latestAccuracy || 0}%`],
+    ["Mastered Patterns", list(report.advancedPhonics?.masteredPatterns)],
+    ["Developing Patterns", list(report.advancedPhonics?.developingPatterns)],
+    ["Needs Support Patterns", list(report.advancedPhonics?.needsSupportPatterns)]
+  ].forEach(row => advancedSheet.addRow({ Field: row[0], Value: row[1] || "None yet" }));
+
+  const patternSheet = workbook.addWorksheet("Pattern Detail");
+  setColumns(patternSheet, [
+    "Student",
+    "Class",
+    "Pattern",
+    "Attempts",
+    "Correct",
+    "Incorrect",
+    "Accuracy",
+    "Status",
+    "Example Words",
+    "Latest Date"
+  ], ["Example Words"]);
+  addRowsOrEmpty(patternSheet, report.patternDetailRows || [], row => row ? {
+    "Student": row.studentName,
+    "Class": row.className,
+    "Pattern": row.pattern,
+    "Attempts": row.attempts,
+    "Correct": row.correct,
+    "Incorrect": row.incorrect,
+    "Accuracy": `${row.accuracy || 0}%`,
+    "Status": row.status,
+    "Example Words": list(row.examples),
+    "Latest Date": formatDate(row.latestDate)
+  } : {
+    "Student": "No Advanced Phonics Patterns records yet",
+    "Class": "",
+    "Pattern": "",
+    "Attempts": 0,
+    "Correct": 0,
+    "Incorrect": 0,
+    "Accuracy": "0%",
+    "Status": "Not Assessed",
+    "Example Words": "",
+    "Latest Date": ""
   });
 
   const heatmapSheet = workbook.addWorksheet("Skill Heatmap");
@@ -387,4 +499,3 @@ export async function downloadElAssessmentReport(report = {}) {
   await downloadWorkbook(workbook, report.fileName || `el-assessment-report-${formatDate(new Date())}.xlsx`);
   return report;
 }
-

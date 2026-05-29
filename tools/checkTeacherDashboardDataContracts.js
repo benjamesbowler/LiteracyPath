@@ -48,6 +48,7 @@ const appPagesSource = readFileSync(new URL("../src/components/AppPages.jsx", im
 const adminDashboardSource = readFileSync(new URL("../src/components/AdminDashboardPage.jsx", import.meta.url), "utf8");
 const storeSource = readFileSync(new URL("../src/data/assessmentHistoryStore.js", import.meta.url), "utf8");
 const topNavigationSource = appPagesSource.match(/export function TopNavigation[\s\S]*?\nfunction PairSelectionQuestion/)?.[0] || "";
+const elAssessmentsSource = appPagesSource.match(/export function ELAssessmentsPage[\s\S]*?\nexport function GuidedReadingPage/)?.[0] || "";
 
 const failures = [];
 const requiredTeacherSections = [
@@ -90,6 +91,18 @@ if (!adminDashboardSource.includes("aria-selected")) failures.push("Teacher Dash
 if (!adminDashboardSource.includes("teacher-section-select")) failures.push("Teacher Dashboard mobile section selector class is missing.");
 if (!adminDashboardSource.includes("teacher-scroll-panel")) failures.push("Teacher Dashboard long lists should use bounded scroll panels.");
 if (!adminDashboardSource.includes("el-report-control-column")) failures.push("EL report export controls should be grouped by report type.");
+if (elAssessmentsSource.includes("Export Letter Excel") || elAssessmentsSource.includes("Export Pattern Excel")) {
+  failures.push("EL Assessments page should be run-only; formal assessment Excel exports belong in Teacher Dashboard Reports/Exports.");
+}
+if (!appSource.includes('assessmentType: "advanced_phonics_patterns"')) {
+  failures.push("Advanced Phonics Patterns completion should persist with the advanced_phonics_patterns assessment type.");
+}
+if (!adminDashboardSource.includes("Advanced Phonics Patterns") || !adminDashboardSource.includes("advancedPatternRows")) {
+  failures.push("Teacher Dashboard reports/assessment sections should display Advanced Phonics Patterns results from saved assessment history.");
+}
+if (!readFileSync(new URL("../src/utils/exportElAssessmentExcel.js", import.meta.url), "utf8").includes("Pattern Detail")) {
+  failures.push("EL report Excel export should include Advanced Phonics pattern detail.");
+}
 if (adminDashboardSource.includes('id: "teacherTools"')) {
   failures.push("Teacher Dashboard should not expose a technical Tools section.");
 }

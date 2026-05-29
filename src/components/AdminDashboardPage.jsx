@@ -179,7 +179,25 @@ function mediaQaToKimiMarkdown(records, mediaType) {
 }
 
 function statusLabel(status) {
-  return status.replaceAll("_", " ");
+  if (status === "strong") return "On track";
+  if (status === "watch") return "Developing";
+  if (status === "support") return "Needs support";
+  if (status === "empty") return "No data";
+  return String(status || "").replaceAll("_", " ");
+}
+
+function normalizePatternLabel(value = "") {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ");
+}
+
+function isAdvancedPhonicsAttempt(record = {}) {
+  return record.skillId === "advanced_phonics_patterns" ||
+    record.assessmentType === "advanced_phonics_patterns" ||
+    String(record.skillName || "").toLowerCase().includes("advanced phonics");
 }
 
 function DeleteConfirmationModal({
@@ -1094,6 +1112,42 @@ export function AdminDashboardPage({
     };
   });
   const hfwAssessedCount = hfwStudentRows.filter(row => row.attempts > 0).length;
+  const advancedPhonicsAttempts = assessmentHistory
+    .filter(isAdvancedPhonicsAttempt)
+    .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
+  const latestAdvancedPhonicsAttempt = advancedPhonicsAttempts[0] || null;
+  const advancedPatternMap = new Map();
+  advancedPhonicsAttempts.forEach(record => {
+    (record.questionRecords || record.answers || []).forEach(question => {
+      const pattern = normalizePatternLabel(question.targetPattern || question.pattern || question.itemKey || question.correctAnswer);
+      if (!pattern) return;
+      const row = advancedPatternMap.get(pattern) || {
+        pattern,
+        attempts: 0,
+        correct: 0,
+        examples: new Set(),
+        latestDate: record.completedAt || ""
+      };
+      row.attempts += 1;
+      if (question.isCorrect) row.correct += 1;
+      const example = question.targetWord || question.correctAnswer;
+      if (example && normalizePatternLabel(example) !== pattern) row.examples.add(example);
+      if (!row.latestDate || new Date(record.completedAt) > new Date(row.latestDate)) {
+        row.latestDate = record.completedAt;
+      }
+      advancedPatternMap.set(pattern, row);
+    });
+  });
+  const advancedPatternRows = Array.from(advancedPatternMap.values()).map(row => {
+    const accuracy = row.attempts ? Math.round((row.correct / row.attempts) * 100) : 0;
+    return {
+      ...row,
+      accuracy,
+      incorrect: row.attempts - row.correct,
+      statusClass: getSkillStatusClass(accuracy, row.attempts),
+      examples: Array.from(row.examples).slice(0, 6)
+    };
+  }).sort((a, b) => a.pattern.localeCompare(b.pattern));
 
   function openAdminQaPage(page) {
     setAdminQaPage(page);
@@ -1426,6 +1480,37 @@ export function AdminDashboardPage({
               </article>
             </div>
 
+            <div className="teacher-report-card">
+              <h4>Advanced Phonics Patterns</h4>
+              {latestAdvancedPhonicsAttempt ? (
+                <>
+                  <div className="teacher-report-metrics compact">
+                    <article>
+                      <span>Latest attempt</span>
+                      <strong>{latestAdvancedPhonicsAttempt.completedAt ? new Date(latestAdvancedPhonicsAttempt.completedAt).toLocaleDateString() : "Saved"}</strong>
+                    </article>
+                    <article>
+                      <span>Score</span>
+                      <strong>{latestAdvancedPhonicsAttempt.correctCount}/{latestAdvancedPhonicsAttempt.totalQuestions}</strong>
+                    </article>
+                    <article>
+                      <span>Accuracy</span>
+                      <strong>{latestAdvancedPhonicsAttempt.accuracy}%</strong>
+                    </article>
+                  </div>
+                  <div className="teacher-pattern-summary-list">
+                    {advancedPatternRows.slice(0, 10).map(row => (
+                      <span className={`teacher-skill-chip ${row.statusClass}`} key={row.pattern}>
+                        {row.pattern}: {statusLabel(row.statusClass)} ({row.accuracy}%)
+                      </span>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <p>No Advanced Phonics Patterns assessment has been saved yet.</p>
+              )}
+            </div>
+
             <div className="el-assessment-export-row">
               <div className="el-report-control-column">
                 <label>
@@ -1570,6 +1655,40 @@ export function AdminDashboardPage({
                         <td data-label="Skill">{record.skillName}</td>
                         <td data-label="Score">{record.correctCount}/{record.totalQuestions} ({record.accuracy}%)</td>
                         <td data-label="Status">{record.status}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+
+          <div className="teacher-report-card">
+            <h4>Advanced Phonics Pattern Mastery</h4>
+            {advancedPatternRows.length === 0 ? (
+              <p>No Advanced Phonics Patterns data yet. Complete the formal pattern assessment to populate this section.</p>
+            ) : (
+              <div className="admin-table-wrap teacher-scroll-panel">
+                <table className="dashboard-table admin-table admin-responsive-table">
+                  <thead>
+                    <tr>
+                      <th>Pattern</th>
+                      <th>Attempts</th>
+                      <th>Correct</th>
+                      <th>Accuracy</th>
+                      <th>Status</th>
+                      <th>Examples</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {advancedPatternRows.map(row => (
+                      <tr key={row.pattern}>
+                        <td data-label="Pattern">{row.pattern}</td>
+                        <td data-label="Attempts">{row.attempts}</td>
+                        <td data-label="Correct">{row.correct}/{row.attempts}</td>
+                        <td data-label="Accuracy">{row.accuracy}%</td>
+                        <td data-label="Status">{statusLabel(row.statusClass)}</td>
+                        <td data-label="Examples">{row.examples.join(", ") || "No examples saved"}</td>
                       </tr>
                     ))}
                   </tbody>

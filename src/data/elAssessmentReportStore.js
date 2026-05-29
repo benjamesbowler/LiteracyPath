@@ -17,7 +17,8 @@ export const EL_SKILL_AREAS = [
       "Digraphs",
       "Long Vowels and Silent E",
       "Vowel Teams",
-      "R-Controlled Vowels"
+      "R-Controlled Vowels",
+      "Advanced Phonics Patterns"
     ]
   },
   {
@@ -62,6 +63,8 @@ export const EL_SKILL_AREAS = [
 ];
 
 const DEFAULT_SKILLS = EL_SKILL_AREAS.flatMap(group => group.skills);
+const ADVANCED_PHONICS_SKILL_ID = "advanced_phonics_patterns";
+const ADVANCED_PHONICS_SKILL_NAME = "Advanced Phonics Patterns";
 
 function getStorageKey(teacherId = "local") {
   return `${STORAGE_PREFIX}:${teacherId || "local"}`;
@@ -99,6 +102,14 @@ function uniq(values = []) {
   return Array.from(new Set(values.filter(Boolean)));
 }
 
+function normalizePatternKey(value = "") {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ");
+}
+
 function getStudentClassId(student = {}) {
   return student.classId || student.class_id || "";
 }
@@ -126,6 +137,12 @@ function getStatusFromAccuracy(accuracy, attempts = 0) {
   return "Needs Support";
 }
 
+function isAdvancedPhonicsRecord(record = {}) {
+  return record.skillId === ADVANCED_PHONICS_SKILL_ID ||
+    record.assessmentType === ADVANCED_PHONICS_SKILL_ID ||
+    String(record.skillName || "").toLowerCase().includes("advanced phonics");
+}
+
 function getNextStepForStatus(status, skillName) {
   if (status === "Mastered") return "Keep practicing in connected reading.";
   if (status === "Developing") return `Review ${skillName} with a short small-group check.`;
@@ -144,8 +161,74 @@ export function getElSkillArea(skillNameOrId = "") {
 function getSkillUniverse(records = []) {
   return uniq([
     ...DEFAULT_SKILLS,
+    ADVANCED_PHONICS_SKILL_NAME,
     ...records.map(record => record.skillName).filter(Boolean)
   ]);
+}
+
+function buildPatternDetailRows(records = [], students = [], classes = []) {
+  const studentById = new Map(students.map(student => [student.id, student]));
+  const classById = new Map(classes.map(row => [row.id, row]));
+  const groups = new Map();
+
+  records.filter(isAdvancedPhonicsRecord).forEach(record => {
+    const student = studentById.get(record.studentId) || {};
+    const className = classById.get(record.classId)?.name || getClassNameForStudent(student, classes);
+    const questionRows = record.questionRecords?.length ? record.questionRecords : record.answers || [];
+    questionRows.forEach(question => {
+      const pattern = normalizePatternKey(question.targetPattern || question.pattern || question.itemKey || question.correctAnswer);
+      if (!pattern) return;
+      const groupKey = `${record.studentId || record.studentName}::${pattern}`;
+      const group = groups.get(groupKey) || {
+        studentId: record.studentId,
+        studentName: record.studentName || getStudentName(student),
+        className,
+        pattern,
+        attempts: 0,
+        correct: 0,
+        incorrect: 0,
+        examples: new Set(),
+        latestDate: record.completedAt || ""
+      };
+      group.attempts += 1;
+      if (question.isCorrect) group.correct += 1;
+      else group.incorrect += 1;
+      const example = question.targetWord || question.correctAnswer;
+      if (example && example !== pattern) group.examples.add(example);
+      if (!group.latestDate || new Date(record.completedAt) > new Date(group.latestDate)) {
+        group.latestDate = record.completedAt;
+      }
+      groups.set(groupKey, group);
+    });
+  });
+
+  return Array.from(groups.values())
+    .map(row => {
+      const accuracy = row.attempts ? Math.round((row.correct / row.attempts) * 100) : 0;
+      return {
+        ...row,
+        accuracy,
+        status: getStatusFromAccuracy(accuracy, row.attempts),
+        examples: Array.from(row.examples).slice(0, 8)
+      };
+    })
+    .sort((a, b) => a.studentName.localeCompare(b.studentName) || a.pattern.localeCompare(b.pattern));
+}
+
+function buildAdvancedPhonicsSummary(records = []) {
+  const advancedRecords = records.filter(isAdvancedPhonicsRecord)
+    .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
+  const latest = advancedRecords[0] || null;
+  const rows = buildPatternDetailRows(advancedRecords);
+  return {
+    attempts: advancedRecords.length,
+    latestDate: latest?.completedAt || "",
+    latestAccuracy: latest?.accuracy || 0,
+    masteredPatterns: rows.filter(row => row.status === "Mastered").map(row => row.pattern),
+    developingPatterns: rows.filter(row => row.status === "Developing").map(row => row.pattern),
+    needsSupportPatterns: rows.filter(row => row.status === "Needs Support").map(row => row.pattern),
+    patternRows: rows
+  };
 }
 
 function buildDateRange(records = []) {
@@ -313,6 +396,7 @@ export function buildStudentElAssessmentReportData({
   const skillRows = collectSkillRows(records);
   const attemptRows = buildAttemptRows(records);
   const progressRows = buildProgressRows(records);
+  const advancedPhonics = buildAdvancedPhonicsSummary(records);
   const summary = buildReportSummary(skillRows, records);
   const report = {
     reportId: makeReportId("individual", effectiveClassId, studentId || studentName, generatedAt),
@@ -333,6 +417,8 @@ export function buildStudentElAssessmentReportData({
     progressRows,
     smallGroups: [],
     heatmapRows: [],
+    advancedPhonics,
+    patternDetailRows: advancedPhonics.patternRows,
     fileName: `el-assessment-student-${slugify(studentName)}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
   };
@@ -450,6 +536,8 @@ export function buildClassElAssessmentReportData({
   const studentRows = buildStudentRows({ records, students: classStudents, classes, skillRowsByStudent });
   const skillRows = buildClassSkillRows({ records, students: classStudents });
   const heatmapRows = buildHeatmapRows({ records, students: classStudents, skillRowsByStudent });
+  const patternDetailRows = buildPatternDetailRows(records, classStudents, classes);
+  const advancedPhonics = buildAdvancedPhonicsSummary(records);
   const smallGroups = buildSmallGroups(studentRows);
   const summary = buildReportSummary(skillRows.map(row => ({
     skillName: row.skillName,
@@ -479,6 +567,8 @@ export function buildClassElAssessmentReportData({
     progressRows: buildProgressRows(records),
     heatmapRows,
     smallGroups,
+    advancedPhonics,
+    patternDetailRows,
     fileName: `el-assessment-class-${slugify(className)}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
   };
@@ -551,4 +641,3 @@ export function regenerateElAssessmentWorkbookFromSavedReport(report = {}) {
     sourceSnapshot: report.sourceSnapshot || {}
   };
 }
-

@@ -132,7 +132,9 @@ import {
 } from "./utils/earlySkills/isRuntimeEligibleEarlySkillQuestion";
 import {
   buildAssessmentAttemptRecord,
+  extractMasteryFromAssessmentAttempt,
   loadAssessmentAttempts,
+  mergeAssessmentAttemptIntoItemMastery,
   saveAssessmentAttempt
 } from "./data/assessmentHistoryStore";
 import {
@@ -3132,7 +3134,20 @@ export default function App() {
       rebuiltItemMastery[key] = normalizeItemMasteryRow(row);
     });
 
-    setItemMastery(rebuiltItemMastery);
+    const archivedAttemptsForStudent = loadAssessmentAttempts({
+      teacherId,
+      studentId: selectedStudentId
+    });
+    const masteryFromAttempts = archivedAttemptsForStudent.reduce(
+      (rows, attempt) => mergeAssessmentAttemptIntoItemMastery(rows, attempt),
+      {}
+    );
+
+    setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
+    setItemMastery({
+      ...masteryFromAttempts,
+      ...rebuiltItemMastery
+    });
     setItemSessionSeen({});
 
     const { data: masteryRows, error: masteryError } = await supabase
@@ -4282,6 +4297,35 @@ export default function App() {
     });
   }
 
+  async function persistCompletedAssessmentAttempt(attemptRecord, { mergeIntoMastery = false } = {}) {
+    if (!attemptRecord?.studentId) return null;
+
+    const masterySnapshot = extractMasteryFromAssessmentAttempt(attemptRecord);
+    const enrichedAttempt = {
+      ...attemptRecord,
+      masteredItems: attemptRecord.masteredItems?.length
+        ? attemptRecord.masteredItems
+        : masterySnapshot.masteredItems.map(row => row.itemKey),
+      developingItems: masterySnapshot.developingItems.map(row => row.itemKey),
+      needsSupportItems: masterySnapshot.needsSupportItems.map(row => row.itemKey)
+    };
+
+    if (mergeIntoMastery) {
+      setItemMastery(prev => mergeAssessmentAttemptIntoItemMastery(prev, enrichedAttempt));
+    }
+
+    try {
+      const savePromise = saveAssessmentAttempt(enrichedAttempt, { teacherId, supabase });
+      setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
+      const records = await savePromise;
+      setAssessmentHistory(records);
+      return enrichedAttempt;
+    } catch (error) {
+      console.warn("Assessment attempt archive save failed.", error);
+      return enrichedAttempt;
+    }
+  }
+
   async function saveChildModeAnswerToSupabase(record) {
     if (!studentId || !teacherId || !record?.questionId) return;
 
@@ -4831,6 +4875,9 @@ export default function App() {
       promptAnswerSignature: getRuntimeQuestionPromptAnswerSignature(answeredQuestion),
       optionSetSignature: getRepeatOptionSetSignature(answeredQuestion),
       targetWord: getQuestionTargetWord(answeredQuestion),
+      targetLetter: answeredQuestion.targetLetter || answeredQuestion.letter || "",
+      targetSound: answeredQuestion.targetSound || answeredQuestion.finalSound || answeredQuestion.initialSound || "",
+      targetPattern: answeredQuestion.targetPattern || answeredQuestion.pattern || answeredQuestion.rimeFamily || "",
       date: new Date().toLocaleString(),
       skillId: answeredQuestion.skillId || questionStage.id,
       skill: answeredQuestion.skill,
@@ -4846,6 +4893,8 @@ export default function App() {
       diagnosticTarget: getDiagnosticTarget(answeredQuestion),
       itemType: itemMetadata?.itemType || "",
       itemKey: itemMetadata?.itemKey || "",
+      templateType: answeredQuestion.templateType || answeredQuestion.formatType || getQuestionRoutingFormat(answeredQuestion),
+      tags: Array.isArray(answeredQuestion.tags) ? answeredQuestion.tags : [],
       itemLevel: answeredQuestion.skillId === "initial_sounds" || questionStage.id === "initial_sounds"
         ? answeredQuestion.level
         : questionPathStep.level || answeredQuestion.level || "",
@@ -4954,9 +5003,7 @@ export default function App() {
       }));
 
       saveMasteryToSupabase(stage, score, ROUND_LENGTH, mastered);
-      saveAssessmentAttempt(attemptRecord, { teacherId, supabase })
-        .then(records => setAssessmentHistory(records))
-        .catch(error => console.warn("Assessment attempt archive save failed.", error));
+      persistCompletedAssessmentAttempt(attemptRecord);
 
       setCheckpointDecision(checkpoint);
       setRoundAnswers([]);
@@ -5439,6 +5486,97 @@ export default function App() {
     setAppView("advancedPhonics");
   }
 
+  function archivePatternAssessment(nextAssessment) {
+    if (!studentId || nextAssessment.length < patternItems.length) return;
+    const completedAt = new Date().toISOString();
+    const patternStats = nextAssessment.map(item => {
+      const correct = Number(Boolean(item.soundCorrect)) + Number(Boolean(item.wordCorrect));
+      return {
+        pattern: item.pattern,
+        exampleWord: item.exampleWord,
+        attempts: 2,
+        correct,
+        incorrect: 2 - correct,
+        accuracy: Math.round((correct / 2) * 100),
+        status: correct === 2 ? "mastered" : correct / 2 >= 0.6 ? "developing" : "needs_support"
+      };
+    });
+    const questionRecords = nextAssessment.flatMap((item, index) => ([
+      {
+        questionId: `advanced_phonics_pattern_${normalizeItemKey(item.pattern)}_sound_${index + 1}`,
+        prompt: `Say the sound for ${item.pattern}.`,
+        pattern: item.pattern,
+        targetPattern: item.pattern,
+        targetWord: item.exampleWord,
+        itemKey: normalizeItemKey(item.pattern),
+        itemType: "phonics_pattern",
+        correctAnswer: item.pattern,
+        selectedAnswer: item.soundCorrect ? item.pattern : "not_yet",
+        isCorrect: Boolean(item.soundCorrect),
+        skillId: "advanced_phonics_patterns",
+        templateType: "phonics_pattern_sound",
+        level: 2,
+        phase: 1,
+        timestamp: completedAt
+      },
+      {
+        questionId: `advanced_phonics_pattern_${normalizeItemKey(item.pattern)}_word_${index + 1}`,
+        prompt: `Read the example word ${item.exampleWord}.`,
+        pattern: item.pattern,
+        targetWord: item.exampleWord,
+        targetPattern: item.pattern,
+        itemKey: normalizeItemKey(item.pattern),
+        itemType: "phonics_pattern",
+        correctAnswer: item.exampleWord,
+        selectedAnswer: item.wordCorrect ? item.exampleWord : "not_yet",
+        isCorrect: Boolean(item.wordCorrect),
+        skillId: "advanced_phonics_patterns",
+        templateType: "phonics_pattern_word",
+        level: 2,
+        phase: 1,
+        timestamp: completedAt
+      }
+    ]));
+
+    const correctCount = questionRecords.filter(record => record.isCorrect).length;
+    persistCompletedAssessmentAttempt({
+      id: `advanced_phonics_patterns_${studentId}_${Date.parse(completedAt)}`,
+      studentId,
+      studentName,
+      classId: selectedClassId,
+      teacherId,
+      assessmentType: "advanced_phonics_patterns",
+      skillId: "advanced_phonics_patterns",
+      skillName: "Advanced Phonics Patterns",
+      skillLevel: 2,
+      skillPhase: 1,
+      startedAt: questionRecords[0]?.timestamp || completedAt,
+      completedAt,
+      totalQuestions: questionRecords.length,
+      correctCount,
+      incorrectCount: questionRecords.length - correctCount,
+      passed: correctCount >= Math.ceil(questionRecords.length * 0.8),
+      status: correctCount >= Math.ceil(questionRecords.length * 0.8) ? "mastered" : "needs_retry",
+      masteredItems: patternStats.filter(row => row.status === "mastered").map(row => row.pattern),
+      developingItems: patternStats.filter(row => row.status === "developing").map(row => row.pattern),
+      needsSupportItems: patternStats.filter(row => row.status === "needs_support").map(row => row.pattern),
+      patternStats,
+      answers: questionRecords.map(record => ({
+        questionId: record.questionId,
+        pattern: record.pattern,
+        targetPattern: record.targetPattern,
+        targetWord: record.targetWord,
+        correctAnswer: record.correctAnswer,
+        selectedAnswer: record.selectedAnswer,
+        isCorrect: record.isCorrect,
+        templateType: record.templateType,
+        level: record.level,
+        tags: record.tags || []
+      })),
+      questionRecords
+    }, { mergeIntoMastery: true });
+  }
+
   function recordPatternResult(soundCorrect, wordCorrect) {
     const current =
       patternItems[patternIndex];
@@ -5459,15 +5597,19 @@ export default function App() {
       wordCorrect
     );
 
-    setPatternAssessment(prev => [
-      ...prev,
-      {
-        pattern: current.pattern,
-        exampleWord: current.exampleWord,
-        soundCorrect,
-        wordCorrect
-      }
-    ]);
+    setPatternAssessment(prev => {
+      const nextAssessment = [
+        ...prev,
+        {
+          pattern: current.pattern,
+          exampleWord: current.exampleWord,
+          soundCorrect,
+          wordCorrect
+        }
+      ];
+      archivePatternAssessment(nextAssessment);
+      return nextAssessment;
+    });
 
     setPatternIndex(prev => prev + 1);
   }
@@ -5498,15 +5640,19 @@ export default function App() {
       knowsSound
     );
 
-    setLetterAssessment(prev => [
-      ...prev,
-      {
-        letter: current.display,
-        type: current.type,
-        knowsName,
-        knowsSound
-      }
-    ]);
+    setLetterAssessment(prev => {
+      const nextAssessment = [
+        ...prev,
+        {
+          letter: current.display,
+          type: current.type,
+          knowsName,
+          knowsSound
+        }
+      ];
+      archiveLetterAssessment(nextAssessment);
+      return nextAssessment;
+    });
 
     setLetterIndex(prev => prev + 1);
   }
@@ -5514,6 +5660,67 @@ export default function App() {
   function resetLetterAssessment() {
     setLetterIndex(0);
     setLetterAssessment([]);
+  }
+
+  function archiveLetterAssessment(nextAssessment) {
+    if (!studentId || nextAssessment.length < letterItems.length) return;
+    const completedAt = new Date().toISOString();
+    const questionRecords = nextAssessment.flatMap((item, index) => {
+      const letter = normalizeItemKey(item.letter);
+      return [
+        {
+          questionId: `el_letter_${letter}_${item.type}_name_${index + 1}`,
+          prompt: `Name the ${item.type} letter ${item.letter}.`,
+          targetLetter: item.letter,
+          itemKey: letter,
+          itemType: "letter_name",
+          correctAnswer: item.letter,
+          selectedAnswer: item.knowsName ? item.letter : "not_yet",
+          isCorrect: Boolean(item.knowsName),
+          skillId: "el_letter_assessment",
+          templateType: "letter_name",
+          level: 1,
+          phase: 1,
+          timestamp: completedAt
+        },
+        {
+          questionId: `el_letter_${letter}_${item.type}_sound_${index + 1}`,
+          prompt: `Say the sound for ${item.letter}.`,
+          targetLetter: item.letter,
+          targetSound: letter,
+          itemKey: letter,
+          itemType: "letter_sound",
+          correctAnswer: letter,
+          selectedAnswer: item.knowsSound ? letter : "not_yet",
+          isCorrect: Boolean(item.knowsSound),
+          skillId: "el_letter_assessment",
+          templateType: "letter_sound",
+          level: 1,
+          phase: 1,
+          timestamp: completedAt
+        }
+      ];
+    });
+    const correctCount = questionRecords.filter(record => record.isCorrect).length;
+
+    persistCompletedAssessmentAttempt({
+      studentId,
+      studentName,
+      classId: selectedClassId,
+      teacherId,
+      assessmentType: "el_letter_assessment",
+      skillId: "el_letter_assessment",
+      skillName: "EL Letter Name and Sound",
+      skillLevel: 1,
+      skillPhase: 1,
+      startedAt: questionRecords[0]?.timestamp || completedAt,
+      completedAt,
+      totalQuestions: questionRecords.length,
+      correctCount,
+      passed: correctCount >= Math.ceil(questionRecords.length * 0.8),
+      status: correctCount >= Math.ceil(questionRecords.length * 0.8) ? "mastered" : "needs_retry",
+      questionRecords
+    });
   }
 
   async function exportLetterAssessment() {

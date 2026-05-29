@@ -1645,11 +1645,7 @@ export function ELAssessmentsPage({
   studentName,
   startLetterAssessment,
   startAdvancedPhonicsAssessment,
-  openGuidedReading,
-  letterAssessment = [],
-  patternAssessment = [],
-  exportLetterAssessment,
-  exportPatternAssessment
+  openGuidedReading
 }) {
   return (
     <div className="teacher-product-page">
@@ -1664,31 +1660,21 @@ export function ELAssessmentsPage({
       <section className="teacher-action-panel-grid">
         <article className="teacher-action-panel">
           <h3>Letter Name and Sound</h3>
-          <p>Run the formal letter identification assessment and export the Excel workbook when complete.</p>
+          <p>Run the formal letter identification assessment for the selected student.</p>
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startLetterAssessment}>
               Start Letter Assessment
             </button>
-            {letterAssessment.length > 0 && (
-              <button className="lp-button lp-button-secondary" onClick={exportLetterAssessment} type="button">
-                Export Letter Excel
-              </button>
-            )}
           </div>
         </article>
 
         <article className="teacher-action-panel">
           <h3>Advanced Phonics Patterns</h3>
-          <p>Run the formal pattern assessment and export pattern-level Excel results when complete.</p>
+          <p>Run the formal advanced phonics pattern assessment for the selected student.</p>
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startAdvancedPhonicsAssessment}>
               Start Advanced Phonics
             </button>
-            {patternAssessment.length > 0 && (
-              <button className="lp-button lp-button-secondary" onClick={exportPatternAssessment} type="button">
-                Export Pattern Excel
-              </button>
-            )}
           </div>
         </article>
 
@@ -4036,7 +4022,6 @@ export function AdvancedPhonicsPatternAssessmentPage({
   endAssessment,
   recordPatternResult,
   patternAssessment,
-  exportPatternAssessment,
   resetPatternAssessment,
   returnToTeacherDashboard
 }) {
@@ -4133,13 +4118,6 @@ export function AdvancedPhonicsPatternAssessmentPage({
 
           <div className="button-row">
             <button
-              className="report-button"
-              onClick={exportPatternAssessment}
-            >
-              Export Pattern Excel
-            </button>
-
-            <button
               className="reset-button"
               onClick={resetPatternAssessment}
             >
@@ -4169,7 +4147,6 @@ export function LetterAssessmentPage({
   endAssessment,
   recordLetterResult,
   letterAssessment,
-  exportLetterAssessment,
   resetLetterAssessment,
   returnToTeacherDashboard
 }) {
@@ -4259,13 +4236,6 @@ export function LetterAssessmentPage({
           </p>
 
           <div className="button-row">
-            <button
-              className="report-button"
-              onClick={exportLetterAssessment}
-            >
-              Export Letter Excel
-            </button>
-
             <button
               className="reset-button"
               onClick={resetLetterAssessment}
