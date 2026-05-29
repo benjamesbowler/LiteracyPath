@@ -913,8 +913,10 @@ export function AdminDashboardPage({
   questionBankCoverage = [],
   mediaQuestions = [],
   assessmentHistory = [],
+  dashboardMode = "admin",
   message
 }) {
+  const isTeacherMode = dashboardMode === "teacher";
   const [skillFilter, setSkillFilter] = useState("all");
   const [adminQaPage, setAdminQaPage] = useState(() => {
     if (typeof window === "undefined") return "dashboard";
@@ -923,7 +925,7 @@ export function AdminDashboardPage({
     if (window.location.pathname.includes("/admin/guided-reading/image-qa")) return "guidedReadingImages";
     return "dashboard";
   });
-  const [activeSection, setActiveSection] = useState("overview");
+  const [activeSection, setActiveSection] = useState(isTeacherMode ? "teacherReport" : "overview");
   const [templateFilter, setTemplateFilter] = useState("all");
   const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [patternFilter, setPatternFilter] = useState("");
@@ -1047,17 +1049,24 @@ export function AdminDashboardPage({
     }
   }
 
-  const adminSections = [
-    { id: "overview", label: "Overview", count: null },
-    { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
-    { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
-    { id: "signups", label: "New Teacher Signups", count: pendingAccounts.length },
-    { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
-    { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
-    { id: "teachers", label: "Teachers", count: teachers.length },
-    { id: "classes", label: "Classes", count: classes.length },
-    { id: "students", label: "Students", count: students.length }
-  ];
+  const adminSections = isTeacherMode
+    ? [
+      { id: "teacherReport", label: "Teacher Dashboard", count: assessmentHistory.length },
+      { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
+      { id: "classes", label: "Classes", count: classes.length },
+      { id: "students", label: "Students", count: students.length }
+    ]
+    : [
+      { id: "overview", label: "Overview", count: null },
+      { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
+      { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
+      { id: "signups", label: "New Teacher Signups", count: pendingAccounts.length },
+      { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
+      { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
+      { id: "teachers", label: "Teachers", count: teachers.length },
+      { id: "classes", label: "Classes", count: classes.length },
+      { id: "students", label: "Students", count: students.length }
+    ];
 
   if (adminQaPage === "images") {
     return <MediaQaPage mediaType="image" questions={mediaQuestions} onBack={() => openAdminQaPage("dashboard")} />;
@@ -1076,14 +1085,20 @@ export function AdminDashboardPage({
       <section className="card page-stack">
         <div className="admin-header">
           <div className="admin-page-heading">
-            <h2>Admin Dashboard</h2>
-            <p className="muted-text">Review content coverage and manage app data.</p>
+            <h2>{isTeacherMode ? "Teacher Dashboard" : "Admin Dashboard"}</h2>
+            <p className="muted-text">
+              {isTeacherMode
+                ? "Class reports, student progress, assessment history, and export tools."
+                : "Review content coverage and manage app data."}
+            </p>
           </div>
 
           <div className="button-row admin-controls">
-            <button className="report-button" onClick={refreshDashboard} disabled={loading} type="button">
-              {loading ? "Loading..." : "Refresh"}
-            </button>
+            {refreshDashboard && (
+              <button className="report-button" onClick={refreshDashboard} disabled={loading} type="button">
+                {loading ? "Loading..." : "Refresh"}
+              </button>
+            )}
           </div>
         </div>
 
@@ -1101,19 +1116,23 @@ export function AdminDashboardPage({
               {typeof section.count === "number" && <small>{section.count}</small>}
             </button>
           ))}
-          <button onClick={() => openAdminQaPage("images")} type="button">
-            <span>Image QA</span>
-          </button>
-          <button onClick={() => openAdminQaPage("audio")} type="button">
-            <span>Audio QA</span>
-          </button>
-          <button onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
-            <span>Guided Reading Image QA</span>
-          </button>
+          {!isTeacherMode && (
+            <>
+              <button onClick={() => openAdminQaPage("images")} type="button">
+                <span>Image QA</span>
+              </button>
+              <button onClick={() => openAdminQaPage("audio")} type="button">
+                <span>Audio QA</span>
+              </button>
+              <button onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
+                <span>Guided Reading Image QA</span>
+              </button>
+            </>
+          )}
         </nav>
       </section>
 
-      {activeSection === "overview" && (
+      {!isTeacherMode && activeSection === "overview" && (
         <section className="report-panel page-stack admin-section admin-section-panel">
           <div className="admin-section-heading">
             <div>
@@ -1324,7 +1343,7 @@ export function AdminDashboardPage({
         </section>
       )}
 
-      {activeSection === "signups" && (
+      {!isTeacherMode && activeSection === "signups" && (
       <section className="card page-stack admin-section admin-section-panel">
         <div className="admin-section-heading">
           <div>
@@ -1381,7 +1400,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {activeSection === "guidedInsight" && (
+      {!isTeacherMode && activeSection === "guidedInsight" && (
       <section className="report-panel page-stack admin-section admin-section-panel guided-insight-panel">
         <div className="admin-header">
           <div>
@@ -1429,7 +1448,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {activeSection === "coverage" && (
+      {!isTeacherMode && activeSection === "coverage" && (
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Content Coverage</h3>
         <p className="muted-text">Filter active assessment content and watch for skills below the 30-question floor.</p>
@@ -1513,7 +1532,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {activeSection === "teachers" && (
+      {!isTeacherMode && activeSection === "teachers" && (
       <section className="card page-stack admin-section admin-section-panel">
         <h3>Teachers</h3>
         {teachers.length === 0 ? (

@@ -6237,6 +6237,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToElAssessments={() => setAppView("elAssessments")}
           goToGuidedReading={() => setAppView("guidedReading")}
           goToReports={() => setAppView("reports")}
+          goToTeacherDashboard={() => setAppView("teacherDashboard")}
           goToTools={() => setAppView("tools")}
           switchStudent={switchStudent}
           viewReport={viewReport}
@@ -6301,6 +6302,43 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             questionBankCoverage={questionBankCoverage}
             mediaQuestions={allQuestions}
             assessmentHistory={assessmentHistory}
+            dashboardMode="admin"
+            message={message}
+          />
+        </Suspense>
+      )}
+
+      {appView === "teacherDashboard" && (
+        <Suspense fallback={<LazyPageFallback label="Loading teacher dashboard..." />}>
+          <AdminDashboardPage
+            teachers={[]}
+            classes={classList.map(row => ({
+              ...row,
+              teacher_id: teacherId,
+              studentCount: row.id === selectedClassId ? studentList.length : ""
+            }))}
+            students={studentList.map(row => ({
+              ...row,
+              teacher_id: teacherId,
+              className: classList.find(cls => cls.id === row.class_id)?.name || "Selected class"
+            }))}
+            pendingAccounts={[]}
+            loading={false}
+            refreshDashboard={() => {
+              loadClasses();
+              if (selectedClassId) {
+                loadStudents(selectedClassId);
+                loadClassDashboard(selectedClassId);
+              }
+              setAssessmentHistory(teacherId ? loadAssessmentAttempts({ teacherId }) : []);
+            }}
+            deleteClass={deleteClass}
+            deleteStudent={deleteStudent}
+            updateTeacherAccountStatus={null}
+            questionBankCoverage={questionBankCoverage}
+            mediaQuestions={[]}
+            assessmentHistory={assessmentHistory}
+            dashboardMode="teacher"
             message={message}
           />
         </Suspense>
@@ -6414,7 +6452,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && appView !== "admin" && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && (
+      {!isFocusedAssessment && appView !== "admin" && appView !== "teacherDashboard" && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -6546,7 +6584,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </Suspense>
       )}
 
-      {!isFocusedAssessment && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && appView !== "admin" && (
+      {!isFocusedAssessment && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && appView !== "admin" && appView !== "teacherDashboard" && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
             Switch Student
