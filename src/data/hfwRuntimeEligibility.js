@@ -1,4 +1,8 @@
 import {
+  getApprovedAudioPath,
+  getAudioPreferenceStatus
+} from "./audioPreferenceManifest.js";
+import {
   ALL_HFW_WORD_SET,
   getHfwBandSet,
   isHighFrequencyWordSkill,
@@ -159,10 +163,13 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   }
 
   if (["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD"].includes(format)) {
+    const approvedAudioPath = getApprovedAudioPath(primaryWord, audioPath);
     if (!audioPath) {
       issues.push("audio-led HFW recognition needs target audio");
-    } else if (pathExists && !pathExists(audioPath)) {
-      issues.push(`audio file does not exist: ${audioPath}`);
+    } else if (!approvedAudioPath) {
+      issues.push(`audio-led HFW recognition needs approved exact-word audio; status is ${getAudioPreferenceStatus(primaryWord, audioPath)}`);
+    } else if (pathExists && !pathExists(approvedAudioPath)) {
+      issues.push(`audio file does not exist: ${approvedAudioPath}`);
     }
     if (primaryWord && promptWords.includes(primaryWord)) {
       issues.push("audio-led HFW recognition prints the target word in the prompt");

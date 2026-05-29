@@ -614,6 +614,7 @@ function phonicsWordingIssue(question, stage) {
     "MISSING_VOWEL_CVC",
     "PICTURE_AUDIO_TO_PATTERN",
     "LISTEN_FIND_WORD",
+    "HFW_AUDIO_FIND_WORD",
     "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
     "PICTURE_TO_PRINT_MATCH"
   ]).has(formatType);
@@ -1175,7 +1176,7 @@ function answerIsVisible(question) {
   if (!answer || answer.length < 3) return false;
   if (answerVisibleStopwords.has(answer)) return false;
   if (normalize(question.skill).includes("rhym")) return false;
-  if (["LISTEN_FIND_WORD", "READ_FIND_WORD"].includes(String(question.formatType || "").toUpperCase())) return false;
+  if (["LISTEN_FIND_WORD", "READ_FIND_WORD", "HFW_AUDIO_FIND_WORD", "HFW_SENTENCE_CLOZE", "HFW_SENTENCE_PLACEMENT", "HFW_IMAGE_CONTEXT_CLOZE"].includes(String(question.formatType || "").toUpperCase())) return false;
 
   const skill = normalize(question.skill);
   const prompt = normalize(question.question);

@@ -35,6 +35,8 @@ const BAND_CONFIGS = [
   }
 ];
 
+const BLOCKED_HFW_AUDIO_WORDS = new Set(["for"]);
+
 const normalizeWord = value =>
   String(value || "")
     .toLowerCase()
@@ -200,14 +202,21 @@ function wordOptions(word, bandWords, reviewWords, index) {
 
 function sentencePlacementOptions(word) {
   const sentence = correctSentenceFor(word);
-  const base = sentence.replace(word, "___");
-  const compact = base.replace(/\s+/g, " ").trim();
-  return [
+  const sentenceNoPunct = sentence.replace(/[.?!]$/, "").replace(/\s+/g, " ").trim();
+  const candidates = [
     sentence,
-    compact.replace("___", "").replace(/\s+/g, " ").trim() + ` ${word}.`,
-    `${word} ${compact.replace("___", "").replace(/[.?!]$/, "").trim()}.`,
-    compact.replace("___", `${word} ${word}`).replace(/\s+/g, " ").trim()
+    `${sentenceNoPunct} ${word}.`,
+    `${word} ${sentenceNoPunct}.`,
+    `${sentenceNoPunct} ${word} ${word}.`,
+    `${word} ${word} ${sentenceNoPunct}.`
   ].map(text => text.replace(/\s+([.?!])/g, "$1"));
+  const seen = new Set();
+  return candidates.filter(text => {
+    const normalized = normalizeWord(text);
+    if (!normalized || seen.has(normalized)) return false;
+    seen.add(normalized);
+    return true;
+  }).slice(0, 4);
 }
 
 function hfwAudioPath(word) {
@@ -241,7 +250,7 @@ function baseQuestion({ config, word, index, variant, level, phase, templateType
     audioText: templateType === "HFW_AUDIO_FIND_WORD" ? word : "",
     audioPath: templateType === "HFW_AUDIO_FIND_WORD" ? hfwAudioPath(word) : "",
     audioUrl: templateType === "HFW_AUDIO_FIND_WORD" ? hfwAudioPath(word) : "",
-    active: true,
+    active: !(templateType === "HFW_AUDIO_FIND_WORD" && BLOCKED_HFW_AUDIO_WORDS.has(word)),
     source: "hfw_quality_generated",
     tags: ["hfw", "quality-format", config.skillId, `level-${level}`, `phase-${phase}`, ...(config.futureSplit || [])],
     ...extra
@@ -322,4 +331,3 @@ function makeQuestionsForWord(config, word, index) {
 export const hfwAssessmentQuestions = BAND_CONFIGS.flatMap(config =>
   config.words.flatMap((word, index) => makeQuestionsForWord(config, word, index))
 );
-

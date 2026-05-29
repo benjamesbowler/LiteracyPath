@@ -180,6 +180,18 @@ const blockedWordAudio = {
   }
 };
 
+const blockedHfwAudio = {
+  for: {
+    fallbackPath: "/audio/child-mode/clean-human/hfw/for.mp3",
+    reviewNeededPaths: [
+      "/audio/child-mode/clean-human/hfw/for.mp3",
+      "/audio/child-mode/hfw/for.mp3"
+    ],
+    source: "live HFW audio review",
+    notes: "Blocked from HFW audio-recognition after live testing showed the audio spelled the letters instead of saying the whole word."
+  }
+};
+
 const approvedFinalSoundsBWordAudio = {
   bib: "/media/final-sounds/audio/b/bib.mp3",
   blob: "/media/final-sounds/audio/b/blob.mp3",
@@ -267,6 +279,14 @@ export const audioPreferenceManifest = Object.fromEntries([
       fallbackPath: `/audio/child-mode/hfw/${word}.mp3`,
       source: "child-mode hfw",
       notes: "Approved static high-frequency-word MP3 for active assessment playback."
+    })
+  ]),
+  ...Object.entries(blockedHfwAudio).map(([word, config]) => [
+    `hfw:${word}`,
+    reviewNeededPreference({
+      key: `hfw:${word}`,
+      word,
+      ...config
     })
   ]),
   ...approvedPhraseAudioKeys.map(phrase => [
