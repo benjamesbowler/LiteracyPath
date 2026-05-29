@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
@@ -282,11 +282,28 @@ function AssessmentAudioButton({
   audioPath = "",
   speakText,
   label = "Play audio",
-  className = "mini-audio-button"
+  className = "mini-audio-button",
+  showDisabled = false
 }) {
   const approvedAudioPath = getApprovedAudioPath(text, audioPath);
 
-  if (!approvedAudioPath) return null;
+  if (!approvedAudioPath) {
+    if (audioPath && import.meta.env.DEV) {
+      console.warn("Assessment audio unavailable or not approved.", { text, audioPath, label });
+    }
+    if (!showDisabled) return null;
+    return (
+      <button
+        className={`assessment-audio-button ${className}`}
+        aria-label={`${label} unavailable`}
+        title="Audio is not available yet."
+        type="button"
+        disabled
+      >
+        <span aria-hidden="true">🔇</span>
+      </button>
+    );
+  }
 
   return (
     <button
@@ -820,6 +837,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer,
     isRhymingPictureItem ? "" : currentQuestion.audioPath
   );
+  const rawStimulusAudioPath = isRhymingPictureItem ? "" : currentQuestion.audioPath || currentQuestion.audioUrl || "";
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const targetObjectImage = getTargetObjectImage(currentQuestion);
   const stimulusImage = isFinalSoundsEndingItem
@@ -895,13 +913,14 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
           {isRhymingPictureItem && currentQuestion.targetWord && (
             <strong className="rhyming-target-word">{currentQuestion.targetWord}</strong>
           )}
-          {!isRhymingPictureItem && approvedStimulusAudioPath && (
+          {!isRhymingPictureItem && (approvedStimulusAudioPath || rawStimulusAudioPath) && (
             <AssessmentAudioButton
               text={currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer}
-              audioPath={approvedStimulusAudioPath}
+              audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
               speakText={speakText}
               label="Hear the word"
               className="mini-audio-button assessment-stimulus-audio"
+              showDisabled
             />
           )}
         </div>
@@ -910,13 +929,14 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
       {shouldShowListeningVisual && (
         <div className="assessment-listening-panel">
           <ListeningVisual />
-          {approvedStimulusAudioPath && (
+          {(approvedStimulusAudioPath || rawStimulusAudioPath) && (
             <AssessmentAudioButton
               text={currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer}
-              audioPath={approvedStimulusAudioPath}
+              audioPath={approvedStimulusAudioPath || rawStimulusAudioPath}
               speakText={speakText}
               label="Hear the word"
               className="mini-audio-button assessment-stimulus-audio"
+              showDisabled
             />
           )}
         </div>
@@ -1911,6 +1931,78 @@ function sentenceParts(text = "") {
   return matches.map(sentence => sentence.trim()).filter(Boolean);
 }
 
+function numberOrNull(value) {
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+
+function pageAudioCue(page = {}) {
+  const start = numberOrNull(
+    page.audioStartSeconds ??
+    page.audioStart ??
+    page.startSeconds ??
+    page.startTime ??
+    page.syncStart
+  );
+  const end = numberOrNull(
+    page.audioEndSeconds ??
+    page.audioEnd ??
+    page.endSeconds ??
+    page.endTime ??
+    page.syncEnd
+  );
+  const duration = numberOrNull(page.audioDurationSeconds ?? page.audioDuration ?? page.duration);
+
+  if (start === null) return null;
+  return {
+    start,
+    end: end ?? (duration === null ? null : start + duration)
+  };
+}
+
+function hasPageLevelAudioTiming(pages = []) {
+  return pages.some(page => pageAudioCue(page));
+}
+
+function countReadingWordsForSync(page = {}) {
+  const text = page.pageAudioText || page.text || "";
+  return Math.max(1, (String(text).match(/[A-Za-z0-9'-]+/g) || []).length);
+}
+
+function buildWholeBookPageCues(pages = [], duration = 0) {
+  if (!pages.length) return [];
+  const explicitCues = pages.map(pageAudioCue);
+  if (explicitCues.every(Boolean)) {
+    return explicitCues.map((cue, index) => ({
+      start: cue.start,
+      end: cue.end ?? explicitCues[index + 1]?.start ?? duration,
+      pageIndex: index
+    }));
+  }
+
+  if (!Number.isFinite(duration) || duration <= 0) {
+    return pages.map((_, index) => ({ start: index, end: index + 1, pageIndex: index }));
+  }
+
+  const weights = pages.map(countReadingWordsForSync);
+  const totalWeight = weights.reduce((sum, weight) => sum + weight, 0) || pages.length;
+  let elapsed = 0;
+  return pages.map((_, index) => {
+    const start = elapsed;
+    const end = index === pages.length - 1
+      ? duration
+      : Math.min(duration, start + (duration * weights[index]) / totalWeight);
+    elapsed = end;
+    return { start, end, pageIndex: index };
+  });
+}
+
+function findWholeBookPageIndex(cues = [], currentTime = 0) {
+  if (!cues.length) return 0;
+  const cue = cues.find(item => currentTime >= item.start && currentTime < item.end);
+  return cue?.pageIndex ?? cues[cues.length - 1].pageIndex;
+}
+
 const guidedReadingLevels = ["A", "B", "C", "D", "E", "F"];
 
 function getRuntimeGuidedReadingBooks() {
@@ -1982,6 +2074,7 @@ export function GuidedReadingPage({
   const sentenceTimersRef = useRef([]);
   const lastVisitedPageRef = useRef("");
   const readAloudPageChangeRef = useRef(false);
+  const autoAdvanceReadAloudRef = useRef(autoAdvanceReadAloud);
   const touchStartRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
   const runtimeGuidedReadingBooks = getRuntimeGuidedReadingBooks();
@@ -2080,6 +2173,10 @@ export function GuidedReadingPage({
     if (!readerOpen || !selectedBook || !page) return;
     recordGuidedPageVisit(pageIndex);
   }, [readerOpen, selectedBookId, pageIndex]);
+
+  useEffect(() => {
+    autoAdvanceReadAloudRef.current = autoAdvanceReadAloud;
+  }, [autoAdvanceReadAloud]);
 
   useEffect(() => {
     if (readerOpen) setTeacherNotesOpen(false);
@@ -2431,7 +2528,7 @@ export function GuidedReadingPage({
       audio.onended = () => {
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
-        if (autoAdvanceReadAloud && startIndex < selectedBook.pages.length - 1) {
+        if (autoAdvanceReadAloudRef.current && startIndex < selectedBook.pages.length - 1) {
           readWholeBookFrom(startIndex + 1);
         } else {
           setIsWholeBookReading(false);
@@ -2464,14 +2561,44 @@ export function GuidedReadingPage({
     if (fullBookAudioPath) {
       try {
         const audio = new Audio(fullBookAudioPath);
+        const fullBookStartIndex = Math.min(pageIndex, selectedBook.pages.length - 1);
+        let pageCues = [];
+        const syncPageToFullBookAudio = () => {
+          if (!autoAdvanceReadAloudRef.current) return;
+          if (!pageCues.length) {
+            pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration);
+          }
+          const nextPageIndex = findWholeBookPageIndex(pageCues, audio.currentTime);
+          readAloudPageChangeRef.current = true;
+          setPageIndex(currentIndex => currentIndex === nextPageIndex ? currentIndex : nextPageIndex);
+        };
+
         pageAudioRef.current = audio;
         setIsWholeBookReading(true);
         setIsPageAudioPlaying(true);
         setIsReadAloudPaused(false);
+        setAudioNotice(hasPageLevelAudioTiming(selectedBook.pages)
+          ? ""
+          : "Syncing pages with estimated timings until page-level timing data is added.");
+        readAloudPageChangeRef.current = true;
+        setPageIndex(fullBookStartIndex);
+        audio.onloadedmetadata = () => {
+          pageCues = buildWholeBookPageCues(selectedBook.pages, audio.duration);
+          const startCue = pageCues[fullBookStartIndex];
+          if (startCue?.start && Number.isFinite(startCue.start)) {
+            audio.currentTime = startCue.start;
+          }
+          syncPageToFullBookAudio();
+        };
+        audio.ontimeupdate = syncPageToFullBookAudio;
         audio.onended = () => {
           pageAudioRef.current = null;
           setIsWholeBookReading(false);
           setIsPageAudioPlaying(false);
+          if (autoAdvanceReadAloudRef.current) {
+            readAloudPageChangeRef.current = true;
+            setPageIndex(selectedBook.pages.length - 1);
+          }
         };
         audio.onerror = () => {
           pageAudioRef.current = null;
@@ -2482,6 +2609,9 @@ export function GuidedReadingPage({
         await audio.play();
       } catch (error) {
         console.warn("Guided Reading full-book audio unavailable.", error);
+        setIsWholeBookReading(false);
+        setIsPageAudioPlaying(false);
+        setIsReadAloudPaused(false);
         setAudioNotice("Whole-book audio could not be played.");
       }
       return;
@@ -3086,12 +3216,117 @@ export function TeacherReportsPage({
   exportLetterAssessment,
   exportPatternAssessment
 }) {
-  const readingProgress = summarizeGuidedReadingProgress(guidedReadingRecords);
-  const assessmentSummary = summarizeAssessmentHistory(assessmentHistory);
-  const guidedSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
-  const wordStatusRows = getGuidedReadingWordStatusRows(guidedReadingRecords);
-  const greenWordRows = wordStatusRows.filter(row => row.status === "Read Correctly");
-  const orangeWordRows = wordStatusRows.filter(row => row.status === "Needs Support");
+  const [detailsReady, setDetailsReady] = useState(false);
+  const [dateRange, setDateRange] = useState("last90");
+  const reportsLoadStartRef = useRef(0);
+
+  useEffect(() => {
+    reportsLoadStartRef.current = typeof performance !== "undefined" ? performance.now() : Date.now();
+    setDetailsReady(false);
+
+    const revealDetails = () => setDetailsReady(true);
+    let timeoutId = null;
+    let idleId = null;
+
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      idleId = window.requestIdleCallback(revealDetails, { timeout: 250 });
+    } else {
+      timeoutId = window.setTimeout(revealDetails, 0);
+    }
+
+    return () => {
+      if (idleId && typeof window !== "undefined" && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+  }, [studentName, assessmentHistory, guidedReadingRecords]);
+
+  const filteredAssessmentHistory = useMemo(() => {
+    if (dateRange === "all") return assessmentHistory;
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 90);
+    return assessmentHistory.filter(record => {
+      const completedAt = new Date(record.completedAt || record.date || 0);
+      return Number.isFinite(completedAt.getTime()) && completedAt >= cutoff;
+    });
+  }, [assessmentHistory, dateRange]);
+
+  const assessmentSummary = useMemo(() => {
+    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
+    const summary = summarizeAssessmentHistory(filteredAssessmentHistory);
+    if (import.meta.env.DEV) {
+      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
+      console.debug("[Reports] assessment summary", {
+        durationMs: duration,
+        attempts: filteredAssessmentHistory.length,
+        dateRange
+      });
+    }
+    return summary;
+  }, [filteredAssessmentHistory, dateRange]);
+
+  const readingProgress = useMemo(() => {
+    if (!detailsReady) return null;
+    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
+    const progress = summarizeGuidedReadingProgress(guidedReadingRecords);
+    if (import.meta.env.DEV) {
+      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
+      console.debug("[Reports] guided reading progress", {
+        durationMs: duration,
+        recordCount: Object.keys(guidedReadingRecords || {}).length,
+        completedBooks: progress.completedBooks.length
+      });
+    }
+    return progress;
+  }, [detailsReady, guidedReadingRecords]);
+
+  const wordStatusRows = useMemo(() => {
+    if (!detailsReady) return [];
+    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
+    const rows = getGuidedReadingWordStatusRows(guidedReadingRecords);
+    if (import.meta.env.DEV) {
+      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
+      console.debug("[Reports] guided reading word rows", {
+        durationMs: duration,
+        rows: rows.length
+      });
+    }
+    return rows;
+  }, [detailsReady, guidedReadingRecords]);
+
+  const guidedSummaries = useMemo(() => {
+    if (!detailsReady) return [];
+    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
+    const rows = summarizeGuidedReadingRecords(guidedReadingRecords);
+    if (import.meta.env.DEV) {
+      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
+      console.debug("[Reports] guided reading conference summaries", {
+        durationMs: duration,
+        rows: rows.length
+      });
+    }
+    return rows;
+  }, [detailsReady, guidedReadingRecords]);
+
+  const greenWordRows = useMemo(
+    () => wordStatusRows.filter(row => row.status === "Read Correctly").slice(0, 10),
+    [wordStatusRows]
+  );
+  const orangeWordRows = useMemo(
+    () => wordStatusRows.filter(row => row.status === "Needs Support").slice(0, 10),
+    [wordStatusRows]
+  );
+
+  useEffect(() => {
+    if (!detailsReady || !import.meta.env.DEV) return;
+    const now = typeof performance !== "undefined" ? performance.now() : Date.now();
+    console.debug("[Reports] details ready", {
+      totalElapsedMs: Math.round(now - reportsLoadStartRef.current),
+      assessmentAttempts: assessmentHistory.length,
+      guidedReadingRecords: Object.keys(guidedReadingRecords || {}).length
+    });
+  }, [detailsReady, assessmentHistory.length, guidedReadingRecords]);
 
   return (
     <div className="teacher-product-page">
@@ -3101,6 +3336,13 @@ export function TeacherReportsPage({
           <h2>{studentName || "Student"} Reports</h2>
           <p>Review assessment results and export files from one focused report area.</p>
         </div>
+        <label className="report-filter-control">
+          <span>Date range</span>
+          <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
+            <option value="last90">Last 90 days</option>
+            <option value="all">All time</option>
+          </select>
+        </label>
       </section>
 
       <section className="teacher-action-panel-grid">
@@ -3137,14 +3379,20 @@ export function TeacherReportsPage({
 
         <article className="teacher-action-panel">
           <h3>Reading Report</h3>
-          <p>
-            {readingProgress.totalBooksRead} books completed · {readingProgress.inProgressBooks.length} in progress · {readingProgress.totalRereads} rereads
-          </p>
-          <div className="guided-reading-report-mini">
-            <span>Non-Fiction: {readingProgress.nonfictionCount}</span>
-            <span>Latest: {readingProgress.latestReadingDate ? new Date(readingProgress.latestReadingDate).toLocaleDateString() : "Not yet"}</span>
-          </div>
-          {readingProgress.completedBooks.length > 0 && (
+          {!readingProgress ? (
+            <p className="muted-text">Loading guided reading summary...</p>
+          ) : (
+            <>
+              <p>
+                {readingProgress.totalBooksRead} books completed · {readingProgress.inProgressBooks.length} in progress · {readingProgress.totalRereads} rereads
+              </p>
+              <div className="guided-reading-report-mini">
+                <span>Non-Fiction: {readingProgress.nonfictionCount}</span>
+                <span>Latest: {readingProgress.latestReadingDate ? new Date(readingProgress.latestReadingDate).toLocaleDateString() : "Not yet"}</span>
+              </div>
+            </>
+          )}
+          {readingProgress?.completedBooks.length > 0 && (
             <div className="reading-report-table compact">
               {readingProgress.completedBooks.slice(0, 6).map(row => (
                 <article key={row.bookId}>
@@ -3166,9 +3414,11 @@ export function TeacherReportsPage({
 
         <article className="teacher-action-panel">
           <h3>Words Read Correctly</h3>
-          {greenWordRows.length > 0 ? (
+          {!detailsReady ? (
+            <p className="muted-text">Loading word records...</p>
+          ) : greenWordRows.length > 0 ? (
             <div className="guided-record-list compact">
-              {greenWordRows.slice(0, 10).map(row => (
+              {greenWordRows.map(row => (
                 <article key={`${row.bookId}-${row.page}-${row.word}-${row.date}-green`}>
                   <strong>{row.word}</strong>
                   <span>{row.title} · Level {row.level} · Page {row.page}</span>
@@ -3183,9 +3433,11 @@ export function TeacherReportsPage({
 
         <article className="teacher-action-panel">
           <h3>Words Needing Support</h3>
-          {orangeWordRows.length > 0 ? (
+          {!detailsReady ? (
+            <p className="muted-text">Loading support words...</p>
+          ) : orangeWordRows.length > 0 ? (
             <div className="guided-record-list compact">
-              {orangeWordRows.slice(0, 10).map(row => (
+              {orangeWordRows.map(row => (
                 <article key={`${row.bookId}-${row.page}-${row.word}-${row.date}-orange`}>
                   <strong>{row.word}</strong>
                   <span>{row.title} · Level {row.level} · Page {row.page}</span>
@@ -3200,9 +3452,11 @@ export function TeacherReportsPage({
 
         <article className="teacher-action-panel">
           <h3>Guided Reading Conference Notes</h3>
-          {guidedSummaries.length > 0 ? (
+          {!detailsReady ? (
+            <p className="muted-text">Loading conference notes...</p>
+          ) : guidedSummaries.length > 0 ? (
             <div className="guided-record-list compact">
-              {guidedSummaries.map(item => (
+              {guidedSummaries.slice(0, 12).map(item => (
                 <article key={item.bookId}>
                   <strong>{item.title}</strong>
                   <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
@@ -4198,6 +4452,9 @@ export function AssessmentPage({
         : promptAudioText,
       (isPairSelection || isHfwAudioFindWordQuestion(currentQuestion)) ? currentQuestion?.audioPath || currentQuestion?.audioUrl || "" : ""
     );
+  const rawPromptAudioPath = (isPairSelection || isHfwAudioFindWordQuestion(currentQuestion))
+    ? currentQuestion?.audioPath || currentQuestion?.audioUrl || ""
+    : "";
   const normalizedChoices = (currentQuestion?.choices || []).map(choice => ({
     ...normalizeAnswerOption(choice),
     media: getAnswerOptionMedia(choice)
@@ -4247,13 +4504,14 @@ export function AssessmentPage({
             exit={{ scale: 0.96, opacity: 0 }}
           >
             <div className="question-line assessment-prompt">
-              {promptAudioPath && (
+              {(promptAudioPath || rawPromptAudioPath) && (
                 <AssessmentAudioButton
                   text={promptAudioText}
-                  audioPath={promptAudioPath}
+                  audioPath={promptAudioPath || rawPromptAudioPath}
                   speakText={speakText}
                   label="Listen to question"
                   className={isPairSelection ? "mini-audio-button instruction-audio-button" : "mini-audio-button"}
+                  showDisabled
                 />
               )}
               <h2>{visiblePrompt}</h2>
