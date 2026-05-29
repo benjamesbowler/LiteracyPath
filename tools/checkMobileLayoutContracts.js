@@ -38,11 +38,17 @@ expect(appPages, "Next", "Guided Reading fullscreen mode must expose Next contro
 expect(learnArea, "learn-mobile-cycle-select", "Learn Area mobile cycle selector is missing.");
 expect(learnArea, "learn-mobile-section-select", "Learn Area mobile section selector is missing.");
 expect(learnArea, "learn-fullscreen-mode", "Learn Area full-screen lesson mode is missing.");
-expect(learnArea, "Exit Learn Mode", "Learn Area full-screen mode must expose Exit Learn Mode.");
+expect(learnArea, "Exit Lesson", "Learn Area full-screen mode must expose Exit Lesson.");
 expect(learnArea, "learn-section-cards", "Learn Area visual section cards are missing.");
 expect(learnArea, "learn-letter-tile", "Learn Area letter tiles are missing.");
 expect(learnArea, "learn-hfw-card", "Learn Area HFW cards are missing.");
+expect(learnArea, "learn-deck-slide", "Learn Area lesson deck slides are missing.");
+expect(learnArea, "learn-game-card", "Learn Area game cards are missing.");
+expect(learnArea, "learn-video-grid", "Learn Area video resources are missing.");
 expect(learnArea, "worksheet-generator", "Learn Area worksheet generator is missing.");
+expect(css, ".learn-fullscreen-mode", "Learn Area fullscreen CSS is missing.");
+expect(css, ".learn-deck-slide", "Learn Area deck slide CSS is missing.");
+expect(css, ".learn-picture-card-grid", "Learn Area slide card grid CSS is missing.");
 
 if (appPages.includes(">Reports</button>") || appPages.includes("goToReports")) {
   failures.push("Standalone Reports main navigation returned.");

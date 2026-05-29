@@ -106,17 +106,25 @@ if (!cycle1?.searchText.includes("compound") || !cycle1?.searchText.includes("rh
   "WorksheetGenerator",
   "worksheet-generator",
   "window.print",
-  "Open Full Screen Lesson",
-  "Start Learning",
-  "Exit Learn Mode",
-  "Previous Section",
-  "Next Section",
+  "Start Full-Screen Lesson",
+  "Preview Lesson",
+  "Generate Worksheets",
+  "Exit Lesson",
+  "Previous Slide",
+  "Next Slide",
+  "buildLessonSlides",
+  "learn-deck-slide",
+  "Teacher Reveal",
+  "Little Fox",
   "learn-fullscreen-mode",
   "learn-section-cards",
   "learn-section-card",
   "learn-letter-tile",
+  "learn-sound-bubble",
   "learn-hfw-card",
-  "learn-video-resource"
+  "learn-video-resource",
+  "learn-game-card",
+  "worksheet-task-card"
 ].forEach(needle => {
   includes(learnSource, needle, `LearnAreaPage is missing ${needle}.`);
 });
@@ -127,16 +135,40 @@ if (!cycle1?.searchText.includes("compound") || !cycle1?.searchText.includes("rh
   ".learn-mobile-section-select",
   ".learn-section-cards",
   ".learn-fullscreen-mode",
+  ".learn-deck-slide",
   ".learn-letter-tile",
+  ".learn-sound-bubble",
   ".learn-hfw-card",
+  ".learn-game-card",
+  ".learn-video-grid",
+  ".worksheet-task-card",
   ".worksheet-preview",
   "@media (max-width: 760px)"
 ].forEach(needle => {
   includes(cssSource, needle, `App.css is missing Learn mobile/layout contract: ${needle}.`);
 });
 
+[
+  "Sound Safari",
+  "Letter Sort",
+  "Rhyme Pop",
+  "Beat Builder",
+  "Word Chain",
+  "HFW Flash",
+  "Writing Mission"
+].forEach(gameTitle => {
+  includes(dataSource, gameTitle, `Learn cycle data is missing game: ${gameTitle}.`);
+});
+
+includes(dataSource, "Ant and Mouse", "Cycle 1 chant should be rewritten as Ant and Mouse.");
+includes(dataSource, "Keep Aa and Mm separate", "Cycle 1 should keep Aa/Mm separate from HFW am.");
+
 if (/img\s+[^>]*src=["']https?:\/\//.test(learnSource)) {
   failures.push("Learn area should not hotlink external images.");
+}
+
+if (!existsSync(new URL("../docs/assets/kimi_learn_area_missing_visuals_request.md", import.meta.url))) {
+  failures.push("Learn missing visuals request doc is missing.");
 }
 
 if (/calendar|weekOf|dateRange|startDate|endDate/.test(dataSource)) {

@@ -186,22 +186,50 @@ function makeDailyFlow(seed, focusLetters) {
 }
 
 function makePoem(seed, focusLetters) {
+  if (seed.cycleNumber === 1) {
+    return {
+      title: "Ant and Mouse",
+      rhythm: "Clap on each bold sound. March softly for the M lines.",
+      teacherTip: "Keep Aa and Mm separate. The word am is a high-frequency word, not the main phonics focus.",
+      lines: [
+        "A, a, apple,",
+        "A, a, ant.",
+        "M, m, mouse,",
+        "March, march, march!",
+        "I am an ant.",
+        "I am a mouse.",
+        "A and M",
+        "come to our house!"
+      ],
+      callAndResponse: [
+        { teacher: "What sound does A make?", students: "/ă/ /ă/ /ă/!" },
+        { teacher: "What sound does M make?", students: "/m/ /m/ /m/!" },
+        { teacher: "Read this word: am.", students: "am!" },
+        { teacher: "Read this word: I.", students: "I!" }
+      ]
+    };
+  }
   const sounds = focusLetters.map(card => card.spelling).filter(Boolean).slice(0, 3);
   const hfw = seed.highFrequencyWords || [];
-  const firstWord = hfw[0] || "we";
-  const secondWord = hfw[1] || "read";
+  const firstCard = focusLetters[0];
+  const secondCard = focusLetters[1];
+  const firstExamples = firstCard ? (LETTER_EXAMPLES[letterKey(firstCard)] || []).slice(0, 2) : [];
+  const secondExamples = secondCard ? (LETTER_EXAMPLES[letterKey(secondCard)] || []).slice(0, 2) : [];
   return {
-    title: `${seed.title} Chant`,
-    rhythm: "Clap a steady beat. Teacher reads the first line; children echo the second line.",
+    title: `${seed.title} Sound Chant`,
+    rhythm: "Clap, tap knees, then echo. Keep each line short and bouncy.",
+    teacherTip: "Teach the focus spelling first. Treat high-frequency words as separate quick-read practice.",
     lines: [
-      `${firstWord} can tap and say the sound.`,
-      `${secondWord} can find it all around.`,
-      sounds.length ? `Look for ${sounds.join(", ")} in words we know.` : "Listen for sounds in words we know.",
-      "Say it, tap it, read it, write it, go!"
+      firstCard ? `${firstCard.grapheme} says ${firstCard.sound}.` : "Listen, clap, and say it.",
+      firstExamples.length ? `${firstExamples.join(", ")} - hear it now!` : "Find the sound and say it now!",
+      secondCard ? `${secondCard.grapheme} says ${secondCard.sound}.` : "Read it, tap it, try it now.",
+      secondExamples.length ? `${secondExamples.join(", ")} - take a bow!` : "Trace it, write it, take a bow!",
+      hfw.length ? `Quick words: ${hfw.slice(0, 3).join(", ")}.` : "Quick words, quick eyes.",
+      "We can read. We can write!"
     ],
     callAndResponse: [
-      { teacher: "What sound are we learning?", students: sounds.join(" and ") || "our review sounds" },
-      { teacher: "How do readers practice?", students: "We say it, hear it, read it, and write it." }
+      { teacher: "What sound do we hear?", students: sounds.join(" and ") || "our review sounds" },
+      { teacher: "What do readers do?", students: "Say it, tap it, read it, write it!" }
     ]
   };
 }
@@ -262,13 +290,90 @@ function makeHfwCards(words = []) {
   }));
 }
 
+function makeGames(seed, focusLetters) {
+  const cards = focusLetters.map(makeLetterCard);
+  const first = cards[0];
+  const second = cards[1];
+  const firstWords = first?.examples?.slice(0, 3) || ["apple", "ant", "alligator"];
+  const secondWords = second?.examples?.slice(0, 3) || ["moon", "map", "mat"];
+  const mixedWords = [...firstWords.slice(0, 2), ...secondWords.slice(0, 2)];
+  return [
+    {
+      id: "sound-safari",
+      title: "Sound Safari",
+      prompt: first ? `Find words that start with ${first.sound}.` : "Find words with the focus sound.",
+      cards: mixedWords,
+      answer: firstWords.slice(0, 2).join(", ")
+    },
+    {
+      id: "letter-sort",
+      title: "Letter Sort",
+      prompt: first && second ? `Sort the cards into ${first.grapheme} and ${second.grapheme}.` : "Sort the cards by focus spelling.",
+      baskets: [first?.grapheme || "Focus 1", second?.grapheme || "Focus 2"],
+      cards: mixedWords,
+      answer: `${first?.grapheme || "Focus 1"}: ${firstWords.slice(0, 2).join(", ")} | ${second?.grapheme || "Focus 2"}: ${secondWords.slice(0, 2).join(", ")}`
+    },
+    {
+      id: "rhyme-pop",
+      title: "Rhyme Pop",
+      prompt: "Pop the words that rhyme.",
+      cards: ["cat / bat", "sun / sit", "go / so", "map / moon"],
+      answer: "cat / bat and go / so"
+    },
+    {
+      id: "beat-builder",
+      title: "Beat Builder",
+      prompt: seed.phonemicAwareness?.[0] || "Tap the word parts.",
+      cards: ["sunshine -> shine", "cupcake -> cake", "rainbow -> bow"],
+      answer: "Say the word. Tap each part. Hide the part that goes away."
+    },
+    {
+      id: "word-chain",
+      title: "Word Chain",
+      prompt: "Say the sound. Change one part. Read the new word.",
+      cards: [first?.spelling, second?.spelling, firstWords[0], secondWords[0]].filter(Boolean),
+      answer: "Use only letters and patterns already introduced."
+    },
+    {
+      id: "hfw-flash",
+      title: "HFW Flash",
+      prompt: "Read it, spell it, clap it, use it.",
+      cards: seed.highFrequencyWords || [],
+      answer: "Each word is read as a whole word."
+    },
+    {
+      id: "writing-mission",
+      title: "Writing Mission",
+      prompt: "Trace it, write it, say it.",
+      cards: focusLetters.map(card => card.grapheme).filter(Boolean),
+      answer: "Write the focus spelling on handwriting lines."
+    }
+  ];
+}
+
+function makeVideoResources(seed, focusLetters) {
+  const cycleLabel = seed.title || `Cycle ${seed.cycleNumber}`;
+  const focusTerms = focusLetters.map(card => card.grapheme).filter(Boolean).slice(0, 3);
+  const baseTerms = focusTerms.length ? focusTerms : [cycleLabel];
+  return [
+    ...baseTerms.map(term => ({
+      label: `Find Little Fox video for ${term}`,
+      query: `Little Fox English ${term} phonics`
+    })),
+    {
+      label: `Find phonics video for ${cycleLabel}`,
+      query: `Little Fox English ${baseTerms.join(" ")} phonics chant`
+    }
+  ];
+}
+
 function makeDecoding(seed, focusLetters) {
   const spellings = focusLetters.map(card => card.spelling).filter(Boolean);
   const usable = spellings.filter(item => /^[a-z]+$/.test(item) && item.length <= 2);
   const chains = usable.length
     ? usable.slice(0, 3).map((item, index) => ({
-      start: index === 0 ? `${item}a` : `a${item}`,
-      steps: [`say ${item}`, `blend with a known vowel`, `change one sound`, `read the new word`]
+      start: item,
+      steps: [`say ${item}`, "tap the sound", "find it in a word", "read the new word"]
     }))
     : [{ start: "review", steps: ["read the pattern", "find it in a word", "write the word", "read it again"] }];
   return {
@@ -331,6 +436,8 @@ function makeTeacherNotes(seed) {
 }
 
 function buildSections(seed, focusLetters) {
+  const games = makeGames(seed, focusLetters);
+  const videoResources = makeVideoResources(seed, focusLetters);
   return {
     overview: {
       goals: [
@@ -353,6 +460,8 @@ function buildSections(seed, focusLetters) {
     worksheets: {
       templates: makeWorksheetTemplates(seed)
     },
+    games,
+    videoResources,
     teacherNotes: makeTeacherNotes(seed)
   };
 }

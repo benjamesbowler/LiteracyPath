@@ -24,18 +24,6 @@ const WORKSHEET_TYPES = [
   "cycle check worksheet"
 ];
 
-const LESSON_SECTION_IDS = [
-  "overview",
-  "letterLearning",
-  "poemAndChant",
-  "phonemicAwareness",
-  "rhyming",
-  "highFrequencyWords",
-  "decoding",
-  "writing",
-  "worksheets"
-];
-
 const SECTION_VISUALS = {
   overview: { icon: "Map", color: "teal", title: "Plan" },
   letterLearning: { icon: "Aa", color: "rose", title: "Letters" },
@@ -78,6 +66,40 @@ function makeYouTubeSearchUrl(cycle) {
     cycle.highFrequencyWords.length ? `sight words ${cycle.highFrequencyWords.slice(0, 3).join(" ")}` : ""
   ].filter(Boolean).map(cleanSearchPart).join("+");
   return `https://www.youtube.com/results?search_query=${query}`;
+}
+
+function makeYouTubeQueryUrl(query) {
+  return `https://www.youtube.com/results?search_query=${cleanSearchPart(query)}`;
+}
+
+function getCycleLearnTitle(cycle) {
+  if (cycle.cycleNumber === 1) return "Aa Sound Safari";
+  const focus = cycle.focusLetters.concat(cycle.reviewLetters).map(card => card.grapheme).filter(Boolean).slice(0, 3).join(" ");
+  return focus ? `${focus} Sound Safari` : `${cycle.title} Learning`;
+}
+
+function buildLessonSlides(cycle) {
+  const cards = cycle.sections.letterLearning.cards || [];
+  const hfwCards = cycle.sections.highFrequencyWords.cards || [];
+  const games = cycle.sections.games || [];
+  const firstCard = cards[0];
+  const secondCard = cards[1];
+  const slides = [
+    { id: "welcome", type: "title", title: `${cycle.title}: ${getCycleLearnTitle(cycle)}`, sectionId: "overview" },
+    firstCard && { id: "letter-1", type: "letter", title: `${firstCard.grapheme} says ${firstCard.sound}`, sectionId: "letterLearning", card: firstCard },
+    firstCard && { id: "examples-1", type: "examples", title: `${firstCard.grapheme} words`, sectionId: "letterLearning", card: firstCard },
+    games[0] && { id: "game-1", type: "game", title: games[0].title, sectionId: "rhyming", game: games[0] },
+    secondCard && { id: "letter-2", type: "letter", title: `${secondCard.grapheme} says ${secondCard.sound}`, sectionId: "letterLearning", card: secondCard },
+    secondCard && { id: "examples-2", type: "examples", title: `${secondCard.grapheme} words`, sectionId: "letterLearning", card: secondCard },
+    games[1] && { id: "game-2", type: "game", title: games[1].title, sectionId: "rhyming", game: games[1] },
+    { id: "chant", type: "chant", title: cycle.sections.poemAndChant.title, sectionId: "poemAndChant" },
+    ...hfwCards.slice(0, 3).map((card, index) => ({ id: `hfw-${index}`, type: "hfw", title: `High-Frequency Word: ${card.word}`, sectionId: "highFrequencyWords", card })),
+    games[2] && { id: "pa-game", type: "game", title: games[2].title, sectionId: "phonemicAwareness", game: games[2] },
+    { id: "writing", type: "writing", title: "Writing Mission", sectionId: "writing" },
+    { id: "worksheet", type: "worksheet", title: "Worksheet Time", sectionId: "worksheets" },
+    { id: "celebrate", type: "celebrate", title: "Great learning!", sectionId: "overview" }
+  ].filter(Boolean);
+  return slides;
 }
 
 function makeWorksheetItems(cycle, worksheetType, count) {
@@ -175,16 +197,25 @@ function WorksheetGenerator({ cycle, compact = false }) {
         <div className="worksheet-title">
           <strong>{cycle.title}: {worksheetType}</strong>
           <span>{difficulty} practice - {itemCount} items</span>
+          <div className="worksheet-student-line">
+            <span>Name:</span>
+            <span>Date:</span>
+          </div>
         </div>
-        <ol>
+        <div className="worksheet-directions">
+          <strong>Directions</strong>
+          <p>Say each sound. Read each word. Use your best pencil work.</p>
+        </div>
+        <div className="worksheet-item-grid">
           {items.map((item, index) => (
-            <li key={`${item}-${index}`}>
-              <span>{item}</span>
+            <article className="worksheet-task-card" key={`${item}-${index}`}>
+              <strong>{index + 1}</strong>
+              <p>{item}</p>
               {includePictures && <b className="worksheet-picture-box" aria-hidden="true"></b>}
               {includeHandwritingLines && <i className="handwriting-lines" aria-hidden="true"></i>}
-            </li>
+            </article>
           ))}
-        </ol>
+        </div>
         {includeAnswerKey && (
           <details className="worksheet-answer-key">
             <summary>Answer Key</summary>
@@ -257,8 +288,9 @@ export function LearnAreaPage({ assessmentSummary = null }) {
   const recommendedCycle = getRecommendedElSkillsBlockCycle({ assessmentSummary });
   const [selectedCycleId, setSelectedCycleId] = useState(recommendedCycle?.id || "cycle-1");
   const [activeSection, setActiveSection] = useState("overview");
-  const [lessonSectionIndex, setLessonSectionIndex] = useState(0);
+  const [lessonSlideIndex, setLessonSlideIndex] = useState(0);
   const [isLessonMode, setIsLessonMode] = useState(false);
+  const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [search, setSearch] = useState("");
   const cycle = getElSkillsBlockCycle(selectedCycleId);
   const filteredCycles = elSkillsBlockCycles.filter(item =>
@@ -266,7 +298,8 @@ export function LearnAreaPage({ assessmentSummary = null }) {
   );
   const groupedCycles = getGroupedCycles(filteredCycles);
   const letterCards = cycle.sections.letterLearning.cards || [];
-  const lessonSectionId = LESSON_SECTION_IDS[lessonSectionIndex] || "overview";
+  const lessonSlides = useMemo(() => buildLessonSlides(cycle), [cycle]);
+  const lessonSlide = lessonSlides[lessonSlideIndex] || lessonSlides[0];
   const youtubeSearchUrl = makeYouTubeSearchUrl(cycle);
 
   useEffect(() => {
@@ -276,26 +309,174 @@ export function LearnAreaPage({ assessmentSummary = null }) {
         setIsLessonMode(false);
       }
       if (event.key === "ArrowRight") {
-        setLessonSectionIndex(index => Math.min(index + 1, LESSON_SECTION_IDS.length - 1));
+        setLessonSlideIndex(index => Math.min(index + 1, lessonSlides.length - 1));
       }
       if (event.key === "ArrowLeft") {
-        setLessonSectionIndex(index => Math.max(index - 1, 0));
+        setLessonSlideIndex(index => Math.max(index - 1, 0));
       }
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isLessonMode]);
+  }, [isLessonMode, lessonSlides.length]);
 
   function openCycle(id) {
     setSelectedCycleId(id);
     setActiveSection("overview");
-    setLessonSectionIndex(0);
+    setLessonSlideIndex(0);
   }
 
-  function openLesson(sectionId = activeSection) {
-    const nextIndex = Math.max(0, LESSON_SECTION_IDS.indexOf(sectionId));
-    setLessonSectionIndex(nextIndex);
+  function openLesson({ preview = false } = {}) {
+    setLessonSlideIndex(0);
+    setIsPreviewMode(preview);
     setIsLessonMode(true);
+  }
+
+  function renderGameCards() {
+    const games = cycle.sections.games || [];
+    return (
+      <div className="learn-game-grid">
+        {games.map(game => (
+          <article className="learn-game-card" key={game.id}>
+            <VisualBadge sectionId={game.id === "hfw-flash" ? "highFrequencyWords" : "rhyming"} />
+            <strong>{game.title}</strong>
+            <p>{game.prompt}</p>
+            {game.baskets && <div className="learn-game-baskets">{game.baskets.map(basket => <span key={basket}>{basket}</span>)}</div>}
+            <div className="learn-word-chip-row">{(game.cards || []).map(card => <b key={`${game.id}-${card}`}>{card}</b>)}</div>
+            <details>
+              <summary>Teacher Reveal</summary>
+              <p>{game.answer}</p>
+            </details>
+          </article>
+        ))}
+      </div>
+    );
+  }
+
+  function renderVideoResources() {
+    const resources = cycle.sections.videoResources || [];
+    return (
+      <div className="learn-video-grid">
+        {resources.map(resource => (
+          <a href={makeYouTubeQueryUrl(resource.query)} key={resource.label} target="_blank" rel="noreferrer">
+            <VisualBadge sectionId="poemAndChant" />
+            <span>{resource.label}</span>
+            <small>Teacher opens in a new tab</small>
+          </a>
+        ))}
+      </div>
+    );
+  }
+
+  function renderLessonSlide(slide) {
+    if (!slide) return null;
+    if (slide.type === "title") {
+      return (
+        <article className="learn-deck-slide title-slide">
+          <VisualBadge sectionId="overview" label={cycle.cycleNumber ? String(cycle.cycleNumber) : "Go"} />
+          <p>Today we learn</p>
+          <h1>{slide.title}</h1>
+          <div className="learn-slide-focus">
+            {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 4).map(card => <span key={`${card.grapheme}-${card.sound}`}>{card.grapheme} {card.sound}</span>)}
+          </div>
+        </article>
+      );
+    }
+    if (slide.type === "letter") {
+      return (
+        <article className="learn-deck-slide letter-slide">
+          <LetterCard card={slide.card} lessonMode />
+          <div className="learn-slide-callout">
+            <strong>My turn. Your turn.</strong>
+            <p>Say the sound. Keep it short and clean.</p>
+          </div>
+        </article>
+      );
+    }
+    if (slide.type === "examples") {
+      return (
+        <article className="learn-deck-slide examples-slide">
+          <h1>{slide.title}</h1>
+          <div className="learn-picture-card-grid">
+            {(slide.card.examples || []).slice(0, 6).map(word => (
+              <div className="learn-picture-card" key={word}>
+                <span>{word.slice(0, 1).toUpperCase()}</span>
+                <strong>{word}</strong>
+                <small>{slide.card.sound}</small>
+              </div>
+            ))}
+          </div>
+        </article>
+      );
+    }
+    if (slide.type === "game") {
+      return (
+        <article className="learn-deck-slide game-slide">
+          <VisualBadge sectionId="rhyming" />
+          <h1>{slide.game.title}</h1>
+          <p>{slide.game.prompt}</p>
+          {slide.game.baskets && <div className="learn-game-baskets large">{slide.game.baskets.map(basket => <span key={basket}>{basket}</span>)}</div>}
+          <div className="learn-picture-card-grid">
+            {(slide.game.cards || []).map(card => (
+              <div className="learn-picture-card" key={card}>
+                <span>{card.slice(0, 1).toUpperCase()}</span>
+                <strong>{card}</strong>
+              </div>
+            ))}
+          </div>
+          <details>
+            <summary>Teacher Reveal</summary>
+            <p>{slide.game.answer}</p>
+          </details>
+        </article>
+      );
+    }
+    if (slide.type === "chant") {
+      return (
+        <article className="learn-deck-slide chant-slide">
+          <h1>{cycle.sections.poemAndChant.title}</h1>
+          <div className="learn-poem deck-poem">
+            {cycle.sections.poemAndChant.lines.map(line => <p key={line}>{line}</p>)}
+          </div>
+          <p className="learn-slide-tip">{cycle.sections.poemAndChant.teacherTip || cycle.sections.poemAndChant.rhythm}</p>
+        </article>
+      );
+    }
+    if (slide.type === "hfw") {
+      return (
+        <article className="learn-deck-slide hfw-slide">
+          <p>Quick Word</p>
+          <strong>{slide.card.word}</strong>
+          <span>{slide.card.spellIt}</span>
+          <small>{slide.card.sentence}</small>
+        </article>
+      );
+    }
+    if (slide.type === "writing") {
+      return (
+        <article className="learn-deck-slide writing-slide">
+          <h1>Writing Mission</h1>
+          <div className="learn-writing-grid">
+            {cycle.sections.writing.formationPractice.slice(0, 4).map((item, index) => <article key={item}><span>{index + 1}</span><p>{item}</p><i className="handwriting-lines" aria-hidden="true"></i></article>)}
+          </div>
+        </article>
+      );
+    }
+    if (slide.type === "worksheet") {
+      return (
+        <article className="learn-deck-slide worksheet-slide">
+          <h1>Worksheet Time</h1>
+          <p>Choose a worksheet, print it, and practice with pencil, voice, and movement.</p>
+          <WorksheetGenerator cycle={cycle} compact />
+        </article>
+      );
+    }
+    return (
+      <article className="learn-deck-slide celebrate-slide">
+        <VisualBadge sectionId="overview" label="Star" />
+        <h1>Great learning!</h1>
+        <p>Say your sounds, read your words, and show your best writing.</p>
+      </article>
+    );
   }
 
   function renderSection(sectionId, { lessonMode = false } = {}) {
@@ -325,6 +506,10 @@ export function LearnAreaPage({ assessmentSummary = null }) {
               </article>
             ))}
           </div>
+          <h5>Quick Games</h5>
+          {renderGameCards()}
+          <h5>Video Resources</h5>
+          {renderVideoResources()}
         </div>
       );
     }
@@ -506,7 +691,7 @@ export function LearnAreaPage({ assessmentSummary = null }) {
     }
 
     return (
-      <div className="learn-section-panel">
+        <div className="learn-section-panel">
         <div className="learn-section-heading">
           <VisualBadge sectionId="teacherNotes" />
           <div>
@@ -525,6 +710,8 @@ export function LearnAreaPage({ assessmentSummary = null }) {
             <a href={youtubeSearchUrl} target="_blank" rel="noreferrer">Find teacher-approved YouTube model</a>
           </article>
         </div>
+        <h5>Little Fox / Teacher-Approved Video Searches</h5>
+        {renderVideoResources()}
       </div>
     );
   }
@@ -535,49 +722,50 @@ export function LearnAreaPage({ assessmentSummary = null }) {
         <section className="learn-fullscreen-mode" aria-label={`${cycle.title} full screen lesson`}>
           <header className="learn-fullscreen-header">
             <div>
-              <p>{cycle.title} - {EL_LEARN_SECTION_LABELS[lessonSectionId]}</p>
-              <h2>{cycle.title}</h2>
+              <p>{cycle.title} - {getCycleLearnTitle(cycle)} - Slide {lessonSlideIndex + 1} of {lessonSlides.length}</p>
+              <h2>{lessonSlide?.title || cycle.title}</h2>
             </div>
             <div className="learn-fullscreen-actions">
-              <span>{lessonSectionIndex + 1} of {LESSON_SECTION_IDS.length}</span>
+              {isPreviewMode && <span>Preview Lesson</span>}
+              <span>Slide {lessonSlideIndex + 1} of {lessonSlides.length}</span>
               <button className="lp-button lp-button-secondary" onClick={() => setIsLessonMode(false)} type="button">
-                Exit Learn Mode
+                Exit Lesson
               </button>
             </div>
           </header>
-          <div className="learn-progress-strip" aria-label={`Cycle lesson progress ${lessonSectionIndex + 1} of ${LESSON_SECTION_IDS.length}`}>
-            {LESSON_SECTION_IDS.map((sectionId, index) => (
+          <div className="learn-progress-strip" aria-label={`Cycle lesson progress slide ${lessonSlideIndex + 1} of ${lessonSlides.length}`}>
+            {lessonSlides.map((slide, index) => (
               <button
-                className={index === lessonSectionIndex ? "active" : ""}
-                key={sectionId}
-                onClick={() => setLessonSectionIndex(index)}
+                className={index === lessonSlideIndex ? "active" : ""}
+                key={slide.id}
+                onClick={() => setLessonSlideIndex(index)}
                 type="button"
-                aria-label={`${EL_LEARN_SECTION_LABELS[sectionId]} ${index + 1} of ${LESSON_SECTION_IDS.length}`}
+                aria-label={`${slide.title} slide ${index + 1} of ${lessonSlides.length}`}
               >
                 <span></span>
               </button>
             ))}
           </div>
           <div className="learn-fullscreen-stage">
-            {renderSection(lessonSectionId, { lessonMode: true })}
+            {renderLessonSlide(lessonSlide)}
           </div>
           <footer className="learn-fullscreen-footer">
             <button
               className="lp-button lp-button-secondary"
-              disabled={lessonSectionIndex === 0}
-              onClick={() => setLessonSectionIndex(index => Math.max(index - 1, 0))}
+              disabled={lessonSlideIndex === 0}
+              onClick={() => setLessonSlideIndex(index => Math.max(index - 1, 0))}
               type="button"
             >
-              Previous Section
+              Previous Slide
             </button>
-            <strong>{cycle.title} - {EL_LEARN_SECTION_LABELS[lessonSectionId]} - {lessonSectionIndex + 1} of {LESSON_SECTION_IDS.length}</strong>
+            <strong>{cycle.title} - {getCycleLearnTitle(cycle)} - Slide {lessonSlideIndex + 1} of {lessonSlides.length}</strong>
             <button
               className="lp-button lp-button-primary"
-              disabled={lessonSectionIndex === LESSON_SECTION_IDS.length - 1}
-              onClick={() => setLessonSectionIndex(index => Math.min(index + 1, LESSON_SECTION_IDS.length - 1))}
+              disabled={lessonSlideIndex === lessonSlides.length - 1}
+              onClick={() => setLessonSlideIndex(index => Math.min(index + 1, lessonSlides.length - 1))}
               type="button"
             >
-              Next Section
+              Next Slide
             </button>
           </footer>
         </section>
@@ -589,11 +777,14 @@ export function LearnAreaPage({ assessmentSummary = null }) {
           <h2>EL Skills Block Learn</h2>
           <p>Choose a Kindergarten Skills Block cycle and open a bright, teacher-led lesson with printable practice.</p>
           <div className="learn-hero-actions">
-            <button className="lp-button lp-button-primary" onClick={() => openLesson("overview")} type="button">
-              Open Full Screen Lesson
+            <button className="lp-button lp-button-primary" onClick={() => openLesson()} type="button">
+              Start Full-Screen Lesson
+            </button>
+            <button className="lp-button lp-button-secondary" onClick={() => openLesson({ preview: true })} type="button">
+              Preview Lesson
             </button>
             <button className="lp-button lp-button-secondary" onClick={() => setActiveSection("worksheets")} type="button">
-              Create Worksheet
+              Generate Worksheets
             </button>
           </div>
         </div>
@@ -646,9 +837,17 @@ export function LearnAreaPage({ assessmentSummary = null }) {
                 <p className="panel-label">EL Skills Block</p>
                 <h3>{cycle.title}</h3>
                 <p>{cycle.phase.replace(/-/g, " ")} - {cycle.friday}</p>
-                <button className="lp-button lp-button-primary" onClick={() => openLesson(activeSection)} type="button">
-                  Start Learning
-                </button>
+                <div className="learn-hero-actions">
+                  <button className="lp-button lp-button-primary" onClick={() => openLesson()} type="button">
+                    Start Full-Screen Lesson
+                  </button>
+                  <button className="lp-button lp-button-secondary" onClick={() => openLesson({ preview: true })} type="button">
+                    Preview Lesson
+                  </button>
+                  <button className="lp-button lp-button-secondary" onClick={() => setActiveSection("worksheets")} type="button">
+                    Generate Worksheets
+                  </button>
+                </div>
               </div>
               <div className="learn-focus-tags">
                 {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 8).map(card => <span key={`${card.grapheme}-${card.spelling}`}>{card.grapheme} {card.sound}</span>)}

@@ -57,6 +57,14 @@ The chants, routines, practice items, and teacher notes are original LiteracyPat
 
 The first version generates printable HTML inside the Learn page. Teachers can choose worksheet type, difficulty, item count, answer key, handwriting lines, and picture boxes. The print button prints the worksheet preview only. PDF export is intentionally left for a later pass.
 
+## Full-Screen Lesson Deck
+
+Each cycle now supports an in-app full-screen teaching deck. The deck hides the regular app chrome behind a fixed lesson surface and advances through large classroom-friendly slides: welcome, letter/sound focus, example word cards, games, chant, high-frequency word cards, writing, worksheet time, and celebration. Keyboard arrows move between slides and `Escape` exits the lesson.
+
+## Games And Video Resources
+
+Learn cycles include simple teacher-led game cards such as Sound Safari, Letter Sort, Rhyme Pop, Beat Builder, Word Chain, HFW Flash, and Writing Mission. These are classroom activities, not scored assessments. Video support is teacher-controlled through YouTube search links such as Little Fox English phonics searches. LiteracyPath does not embed, autoplay, download, or copy external video content.
+
 ## Mobile Behavior
 
 The Learn area uses stacked mobile layouts, a mobile cycle selector, and a mobile section selector. The desktop cycle/sidebar layout collapses to one column, worksheet controls stack, and cards stay within the viewport.
