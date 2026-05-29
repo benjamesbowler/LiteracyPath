@@ -51,17 +51,17 @@ const ROUTING_RULES = {
     singleTemplate: false
   },
   hfw_1_25: {
-    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "MULTIPLE_CHOICE"]),
+    allowedFormats: new Set(["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD", "HFW_SENTENCE_CLOZE", "CLOZE_CHOICE", "SENTENCE_CLOZE", "HFW_SENTENCE_PLACEMENT", "HFW_IMAGE_CONTEXT_CLOZE"]),
     sightWordsOnly: true,
     singleTemplate: false
   },
   hfw_26_50: {
-    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "MULTIPLE_CHOICE"]),
+    allowedFormats: new Set(["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD", "HFW_SENTENCE_CLOZE", "CLOZE_CHOICE", "SENTENCE_CLOZE", "HFW_SENTENCE_PLACEMENT", "HFW_IMAGE_CONTEXT_CLOZE"]),
     sightWordsOnly: true,
     singleTemplate: false
   },
   hfw_51_100: {
-    allowedFormats: new Set(["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "MULTIPLE_CHOICE", "UNKNOWN"]),
+    allowedFormats: new Set(["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD", "HFW_SENTENCE_CLOZE", "CLOZE_CHOICE", "SENTENCE_CLOZE", "HFW_SENTENCE_PLACEMENT", "HFW_IMAGE_CONTEXT_CLOZE"]),
     sightWordsOnly: true,
     singleTemplate: false
   },

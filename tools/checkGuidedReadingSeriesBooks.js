@@ -166,7 +166,22 @@ const expectedMoonwoodBooks = [
   { id: "moonwood-tales-c-07", title: "Dewdrop and the Lying Fish", pages: 12 },
   { id: "moonwood-tales-c-08", title: "Burrow Finds a Door", pages: 13 },
   { id: "moonwood-tales-c-09", title: "Spark's Very Big Sneeze", pages: 14 },
-  { id: "moonwood-tales-c-10", title: "What Luna Forgot", pages: 14 }
+  { id: "moonwood-tales-c-10", title: "What Luna Forgot", pages: 14 },
+  { id: "moonwood-tales-c-11", title: "Pip and Stone and the Loud Thing", pages: 12 },
+  { id: "moonwood-tales-c-12", title: "Fern and Dewdrop Save the Stream", pages: 12 },
+  { id: "moonwood-tales-c-13", title: "Glimmer and Spark Make a Deal", pages: 12 },
+  { id: "moonwood-tales-c-14", title: "Wren and Flint Get Lost", pages: 12 },
+  { id: "moonwood-tales-c-15", title: "Burrow and Luna and the Old Secret", pages: 12 },
+  { id: "moonwood-tales-c-16", title: "Pip and Glimmer and the Night Watch", pages: 12 },
+  { id: "moonwood-tales-c-17", title: "Fern and Wren and the Wrong Potion", pages: 12 },
+  { id: "moonwood-tales-c-18", title: "Stone and Dewdrop and the Stuck Fish", pages: 12 },
+  { id: "moonwood-tales-c-19", title: "The Missing Magic Seeds", pages: 12 },
+  { id: "moonwood-tales-c-20", title: "The Night the Stars Fell", pages: 12 },
+  { id: "moonwood-tales-c-21", title: "Something Lives in the Hollow Oak", pages: 12 },
+  { id: "moonwood-tales-c-22", title: "The Big Moonwood Race", pages: 12 },
+  { id: "moonwood-tales-c-23", title: "The Fog Marsh Mystery", pages: 12 },
+  { id: "moonwood-tales-c-24", title: "Glimmer Breathes Fire at Last", pages: 12 },
+  { id: "moonwood-tales-c-25", title: "One Night in the Deep Dark", pages: 12 }
 ];
 
 const expectedFirstFactsBooks = [
@@ -308,8 +323,8 @@ if (visibleAidenBooks.length !== 10) failures.push(`Expected 10 visible Aiden an
 if (draftDinoBooks.length !== 20) failures.push(`Expected 20 Dino Pals draft books, found ${draftDinoBooks.length}.`);
 if (draftMeadowBooks.length !== 25) failures.push(`Expected 25 Meadow Pals draft books, found ${draftMeadowBooks.length}.`);
 if (visibleMeadowBooks.length !== 25) failures.push(`Expected 25 visible Meadow Pals approved books, found ${visibleMeadowBooks.length}.`);
-if (draftMoonwoodBooks.length !== 10) failures.push(`Expected 10 Moonwood Tales draft books, found ${draftMoonwoodBooks.length}.`);
-if (visibleMoonwoodBooks.length !== 10) failures.push(`Expected 10 visible Moonwood Tales approved books, found ${visibleMoonwoodBooks.length}.`);
+if (draftMoonwoodBooks.length !== 25) failures.push(`Expected 25 Moonwood Tales draft books, found ${draftMoonwoodBooks.length}.`);
+if (visibleMoonwoodBooks.length !== 25) failures.push(`Expected 25 visible Moonwood Tales approved books, found ${visibleMoonwoodBooks.length}.`);
 if (visibleFirstFactsLevelABooks.length !== 20) failures.push(`Expected 20 First Facts Level A public nonfiction books, found ${visibleFirstFactsLevelABooks.length}.`);
 if (visibleFirstFactsBooks.length !== 25) failures.push(`Expected 25 First Facts public nonfiction books, found ${visibleFirstFactsBooks.length}.`);
 if (visibleFirstFactsCBooks.length !== 10) failures.push(`Expected 10 First Facts Level C public nonfiction books, found ${visibleFirstFactsCBooks.length}.`);
@@ -379,7 +394,7 @@ for (const expected of expectedBobBooks) {
       importedPages: storyPages.filter(page => publicPathExists(page.image)).map(page => page.pageNumber),
       missingStoryImages,
       coverExists,
-      coverStatus: coverExists ? "delivered cover used" : "missing",
+      coverStatus: coverExists ? (expected.id > "moonwood-tales-c-10" ? "page-001 fallback cover" : "delivered cover used") : "missing",
       qaStatus: book.qaStatus,
       teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
     });
@@ -481,7 +496,7 @@ for (const expected of expectedAidenBooks) {
     importedPages,
     missingStoryImages,
     coverExists,
-    coverStatus: coverExists ? "delivered cover used" : "missing",
+    coverStatus: coverExists ? (expected.id > "moonwood-tales-c-10" ? "page-001 fallback cover" : "delivered cover used") : "missing",
     qaStatus: book.qaStatus,
     teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
   });
@@ -540,7 +555,7 @@ for (const expected of expectedDinoBooks) {
     audioPages,
     missingStoryImages,
     coverExists,
-    coverStatus: coverExists ? "delivered cover used" : "missing",
+    coverStatus: coverExists ? (expected.id > "moonwood-tales-c-10" ? "page-001 fallback cover" : "delivered cover used") : "missing",
     qaStatus: book.qaStatus,
     teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
   });
@@ -599,7 +614,7 @@ for (const expected of expectedMeadowBooks) {
     audioPages,
     missingStoryImages,
     coverExists,
-    coverStatus: coverExists ? "delivered cover used" : "missing",
+    coverStatus: coverExists ? (expected.id > "moonwood-tales-c-10" ? "page-001 fallback cover" : "delivered cover used") : "missing",
     qaStatus: book.qaStatus,
     teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
   });
@@ -661,7 +676,7 @@ for (const expected of expectedMoonwoodBooks) {
     fullBookAudioExists,
     missingStoryImages,
     coverExists,
-    coverStatus: coverExists ? "delivered cover used" : "missing",
+    coverStatus: coverExists ? (expected.id > "moonwood-tales-c-10" ? "page-001 fallback cover" : "delivered cover used") : "missing",
     qaStatus: book.qaStatus,
     teacherPreviewOnly: Boolean(book.teacherPreviewOnly)
   });
@@ -1162,23 +1177,23 @@ const moonwoodReport = [
   "",
   "`/Users/benjaminbowler/Desktop/LiteracyPath_Source_Packs/Organised/Level C/Moonwood Tales`",
   "",
-  "Media archive: `Moonwood Guided Reading.zip` containing `Moonwood_Tales_Level_C_Kimi_Asset_Pack`.",
+  "Media archives: `Moonwood Guided Reading.zip` for Books 1-10, plus `Kimi_Agent_Moonwood Image Pack.zip` and `11-25 Moonwood Guided Reading Audio.zip` for Books 11-25.",
   "",
   "## Target",
   "",
-  "`public/guided-reading/series/moonwood-tales/book-01` through `book-10`",
+  "`public/guided-reading/series/moonwood-tales/book-01` through `book-25`",
   "",
   "## Summary",
   "",
-  "- Detected completed range: Books 1-10.",
+  "- Detected completed range: Books 1-25.",
   `- Imported Moonwood Tales books: ${moonwoodRows.length}`,
   "- Skipped/incomplete books: 0",
   "- Level: C.",
   "- Release scope: approved and visible to student readers immediately.",
-  `- Imported covers: ${moonwoodRows.filter(row => row.coverExists).length}/10`,
+  `- Imported covers: ${moonwoodRows.filter(row => row.coverExists).length}/25`,
   `- Imported story page images: ${moonwoodRows.reduce((sum, row) => sum + row.importedPages.length, 0)}`,
   `- Imported story page audio files: ${moonwoodRows.reduce((sum, row) => sum + row.audioPages.length, 0)}`,
-  `- Full-book audio files: ${moonwoodRows.filter(row => row.fullBookAudioExists).length}/10`,
+  `- Full-book audio files: ${moonwoodRows.filter(row => row.fullBookAudioExists).length}/25`,
   `- Missing story page images: ${moonwoodRows.reduce((sum, row) => sum + row.missingStoryImages.length, 0)}`,
   `- Final fiction book count: ${guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "fiction").length}`,
   `- Final nonfiction book count: ${visibleNonfictionBooks.length}`,
@@ -1201,7 +1216,7 @@ const moonwoodReport = [
   "",
   "## Missing or Unclear Items",
   "",
-  "None. The source pack had complete cover, story image, page text, page audio, and full-book audio coverage for Books 1-10.",
+  "Books 11-25 did not include separate cover art files. `cover.webp` uses a copied story page 1 image for each of those books and is documented as a cover fallback; story page 1 remains a separate `page-001.webp` asset.",
   "",
   "## Warnings",
   "",
@@ -1209,7 +1224,7 @@ const moonwoodReport = [
   "",
   failures.length ? "## Failures" : "## Result",
   "",
-  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Moonwood Tales Books 1-10 are imported as approved Level C fiction with aligned page text, images, page audio, and full-book audio."
+  failures.length ? failures.map(item => `- ${item}`).join("\n") : "PASS: Moonwood Tales Books 1-25 are imported as approved Level C fiction with aligned page text, images, page audio, and full-book audio."
 ];
 
 const levelCNonfictionReport = [

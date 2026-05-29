@@ -5233,6 +5233,67 @@ select:focus {
   margin: 0;
 }
 
+.teacher-report-card h5 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: 1rem;
+}
+
+.el-assessment-dashboard-section {
+  gap: 14px;
+}
+
+.el-assessment-export-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: end;
+}
+
+.el-assessment-export-row label {
+  display: grid;
+  min-width: min(260px, 100%);
+  gap: 6px;
+  color: var(--lp-color-text-muted);
+  font-weight: 850;
+}
+
+.el-assessment-export-row select {
+  width: 100%;
+}
+
+.teacher-report-grid.compact {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.el-saved-reports {
+  display: grid;
+  gap: 10px;
+}
+
+.el-saved-report-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.el-saved-report-row > div:first-child {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.el-saved-report-row span,
+.el-saved-report-row small {
+  color: var(--lp-color-text-muted);
+  font-weight: 750;
+}
+
 .teacher-line-chart {
   width: 100%;
   max-width: 420px;
@@ -5555,6 +5616,17 @@ select:focus {
   }
 
   .teacher-student-report-list article {
+    grid-template-columns: 1fr;
+  }
+
+  .el-assessment-export-row,
+  .el-saved-report-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .el-saved-report-row .button-row {
+    display: grid;
     grid-template-columns: 1fr;
   }
 

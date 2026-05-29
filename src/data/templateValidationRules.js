@@ -106,6 +106,30 @@ export const templateValidationRules = {
     requiredMedia: ["approvedAudio"],
     allowedRenderModes: ["audio_text_choice", "audio_visual_choice"]
   },
+  HFW_AUDIO_FIND_WORD: {
+    requiredFields: ["targetWord", "approvedAudio", "answerOptions"],
+    optionalFields: ["explanation", "hint"],
+    requiredMedia: ["approvedAudio"],
+    allowedRenderModes: ["audio_text_choice"]
+  },
+  HFW_SENTENCE_CLOZE: {
+    requiredFields: ["targetWord", "answerOptions", "sentence"],
+    optionalFields: ["explanation", "hint"],
+    requiredMedia: [],
+    allowedRenderModes: ["sentence_choice"]
+  },
+  HFW_SENTENCE_PLACEMENT: {
+    requiredFields: ["targetWord", "answerOptions", "context"],
+    optionalFields: ["explanation", "hint"],
+    requiredMedia: [],
+    allowedRenderModes: ["sentence_choice"]
+  },
+  HFW_IMAGE_CONTEXT_CLOZE: {
+    requiredFields: ["targetWord", "answerOptions", "sentence", "targetImage"],
+    optionalFields: ["explanation", "hint"],
+    requiredMedia: ["targetImage"],
+    allowedRenderModes: ["main_image_sentence_choice"]
+  },
   PICTURE_TO_PRINT: {
     requiredFields: ["targetImage", "answerOptions"],
     optionalFields: ["approvedAudio", "explanation", "hint"],

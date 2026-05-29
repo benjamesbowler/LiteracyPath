@@ -205,6 +205,7 @@ function audioIssue(question, assetExists) {
   const requiresPromptAudio = new Set([
     "LISTEN_CHOOSE_VOWEL",
     "LISTEN_FIND_WORD",
+    "HFW_AUDIO_FIND_WORD",
     "LISTEN_FIND_RHYME",
     "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
     "PICTURE_AUDIO_TO_PATTERN"

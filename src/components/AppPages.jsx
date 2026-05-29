@@ -47,6 +47,10 @@ export function AuthPage({
   setAuthEmail,
   authPassword,
   setAuthPassword,
+  authUsername,
+  setAuthUsername,
+  authDisplayName,
+  setAuthDisplayName,
   authLoading,
   authMessage,
   signUpTeacher,
@@ -56,17 +60,20 @@ export function AuthPage({
 }) {
   const isForgotPassword = authMode === "forgotPassword";
   const isResetPassword = authMode === "resetPassword";
+  const isSignup = authMode === "signup";
 
   return (
     <div className="card page-card page-stack auth-card">
       <div className="auth-heading">
-        <h2>{isResetPassword ? "Set New Password" : isForgotPassword ? "Reset Password" : "Teacher Login"}</h2>
+        <h2>{isResetPassword ? "Set New Password" : isForgotPassword ? "Reset Password" : isSignup ? "Request Access" : "Teacher Login"}</h2>
         <p className="muted-text">
           {isResetPassword
             ? "Enter a new password for your account."
             : isForgotPassword
               ? "Enter your email and we will send a Supabase reset link."
-              : "Sign in to view only your own classes and student data."}
+              : isSignup
+                ? "Create a teacher account request. An administrator must approve it before access opens."
+                : "Sign in to view only your own classes and student data."}
         </p>
       </div>
 
@@ -84,17 +91,43 @@ export function AuthPage({
         </label>
       )}
 
+      {isSignup && (
+        <>
+          <label className="auth-field">
+            <strong>Username</strong>
+            <input
+              autoComplete="username"
+              value={authUsername}
+              placeholder="teacher_name"
+              onChange={event => setAuthUsername(event.target.value)}
+              type="text"
+            />
+          </label>
+          <label className="auth-field">
+            <strong>Display name <span className="muted-text">(optional)</span></strong>
+            <input
+              autoComplete="name"
+              value={authDisplayName}
+              placeholder="Ms. Rivera"
+              onChange={event => setAuthDisplayName(event.target.value)}
+              type="text"
+            />
+          </label>
+        </>
+      )}
+
       {!isForgotPassword && (
         <label className="auth-field">
           <strong>{isResetPassword ? "New Password" : "Password"}</strong>
           <input
-            autoComplete={isResetPassword ? "new-password" : "current-password"}
+            autoComplete={isResetPassword || isSignup ? "new-password" : "current-password"}
             value={authPassword}
             placeholder={isResetPassword ? "New password" : "Password"}
             onChange={event => setAuthPassword(event.target.value)}
             onKeyDown={event => {
               if (event.key === "Enter") {
                 if (isResetPassword) completePasswordReset();
+                else if (isSignup) signUpTeacher();
                 else logInTeacher();
               }
             }}
@@ -122,20 +155,29 @@ export function AuthPage({
               Cancel
             </button>
           </>
+        ) : isSignup ? (
+          <>
+            <button className="main-button" disabled={authLoading} onClick={signUpTeacher} type="button">
+              Submit Request
+            </button>
+            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
+              Back to Login
+            </button>
+          </>
         ) : (
           <>
             <button className="main-button" disabled={authLoading} onClick={logInTeacher} type="button">
               Log In
             </button>
 
-            <button className="report-button" disabled={authLoading} onClick={signUpTeacher} type="button">
+            <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("signup")} type="button">
               Sign Up
             </button>
           </>
         )}
       </div>
 
-      {!isForgotPassword && !isResetPassword && (
+      {!isForgotPassword && !isResetPassword && !isSignup && (
         <button className="auth-reset-link" disabled={authLoading} onClick={() => setAuthMode("forgotPassword")} type="button">
           Forgot password?
         </button>
@@ -143,7 +185,7 @@ export function AuthPage({
 
       {authMessage && <p className="message auth-message">{authMessage}</p>}
 
-      {!isForgotPassword && !isResetPassword && (
+      {!isForgotPassword && !isResetPassword && !isSignup && (
         <p className="auth-footnote">Secure classroom access for teachers and reading specialists.</p>
       )}
     </div>
@@ -709,6 +751,7 @@ function ListeningVisual() {
 }
 
 const FINAL_SOUNDS_STUDENT_PROMPT = "Listen to the word. Which sound does it end with?";
+const HFW_AUDIO_FIND_WORD_PROMPT = "Listen to the word. Which word did you hear?";
 
 function isFinalSoundsEndingQuestion(question = {}) {
   return String(question?.skillId || "").toLowerCase() === "final_sounds" &&
@@ -742,6 +785,12 @@ function isListenChooseVowelQuestion(question = {}) {
   );
 }
 
+function isHfwAudioFindWordQuestion(question = {}) {
+  const skillId = String(question?.skillId || "").toLowerCase();
+  const format = String(question?.formatType || question?.templateType || "").toUpperCase();
+  return skillId.startsWith("hfw_") && ["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD"].includes(format);
+}
+
 function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
   const safePrompt = String(prompt || "");
   const word = String(targetWord || "").trim();
@@ -755,6 +804,7 @@ function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
 function getStudentVisiblePrompt(question = {}) {
   const safeQuestion = question || {};
   if (isFinalSoundsEndingQuestion(safeQuestion)) return FINAL_SOUNDS_STUDENT_PROMPT;
+  if (isHfwAudioFindWordQuestion(safeQuestion)) return HFW_AUDIO_FIND_WORD_PROMPT;
   return safeQuestion.prompt || safeQuestion.question || "";
 }
 
@@ -818,7 +868,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     !isFinalSoundsEndingItem &&
     !isIxlStyleTemplate &&
     !isShortVowelWordChoice &&
-    Boolean(approvedStimulusAudioPath || isListenChooseVowel || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD");
+    Boolean(approvedStimulusAudioPath || isListenChooseVowel || isListenAndFindWord || currentQuestion.formatType === "LISTEN_FIND_WORD" || currentQuestion.formatType === "HFW_AUDIO_FIND_WORD");
 
   return (
     <div className="assessment-stimulus">
@@ -3908,7 +3958,8 @@ export function AssessmentPage({
   const assessmentExit = returnToStudentOverview || endAssessment;
 
   const isListenAndFindWord =
-    currentQuestion?.questionType === "listen_and_find_word";
+    currentQuestion?.questionType === "listen_and_find_word" ||
+    isHfwAudioFindWordQuestion(currentQuestion);
   const isPairSelection =
     ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
   const isVisualCardChoice =
@@ -4141,7 +4192,12 @@ export function AssessmentPage({
     );
   const promptAudioPath = isRhymingPictureItem
     ? ""
-    : getApprovedAudioPath(promptAudioText, isPairSelection ? currentQuestion?.audioPath || "" : "");
+    : getApprovedAudioPath(
+      isHfwAudioFindWordQuestion(currentQuestion)
+        ? currentQuestion?.audioText || currentQuestion?.targetWord || currentQuestion?.answer
+        : promptAudioText,
+      (isPairSelection || isHfwAudioFindWordQuestion(currentQuestion)) ? currentQuestion?.audioPath || currentQuestion?.audioUrl || "" : ""
+    );
   const normalizedChoices = (currentQuestion?.choices || []).map(choice => ({
     ...normalizeAnswerOption(choice),
     media: getAnswerOptionMedia(choice)

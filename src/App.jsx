@@ -93,6 +93,7 @@ import { templateExpansion7 } from "./data/templateExpansion7";
 import { questionBankExpansion8 } from "./data/questionBankExpansion8";
 import { generatedQuestions } from "./data/generatedQuestions";
 import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
+import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
@@ -867,6 +868,12 @@ function isMissingTableError(error, tableName) {
   return error?.code === "42P01" || new RegExp("relation .*" + tableName + ".* does not exist", "i").test(error?.message || "");
 }
 
+function isApprovalSchemaError(error) {
+  return isMissingTableError(error, "pending_teacher_accounts") ||
+    error?.code === "42703" ||
+    /column .* does not exist|schema cache|pending_teacher_accounts/i.test(error?.message || "");
+}
+
 function isSupabasePermissionError(error) {
   const text = [
     error?.code,
@@ -1217,6 +1224,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...kimiDataset7RuntimeQuestions,
   ...ixlStyleSeedQuestions,
   ...safeContentExpansionQuestions,
+  ...hfwAssessmentQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,
@@ -1456,6 +1464,8 @@ export default function App() {
   const [authReady, setAuthReady] = useState(false);
   const [authEmail, setAuthEmail] = useState("");
   const [authPassword, setAuthPassword] = useState("");
+  const [authUsername, setAuthUsername] = useState("");
+  const [authDisplayName, setAuthDisplayName] = useState("");
   const [authMode, setAuthMode] = useState("login");
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState("");
@@ -1918,8 +1928,41 @@ export default function App() {
     return nextIsAdmin;
   }
 
+  function normalizeApprovalStatus(record, fallback = "pending") {
+    return record?.approval_status || record?.status || fallback;
+  }
+
+  function buildPendingAccountRecord(userId, email, overrides = {}) {
+    const metadata = teacherUser?.user_metadata || {};
+    const username =
+      overrides.username ||
+      metadata.username ||
+      email?.split("@")[0]?.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 30) ||
+      "";
+    const displayName =
+      overrides.display_name ||
+      overrides.displayName ||
+      metadata.display_name ||
+      metadata.name ||
+      username;
+    const now = new Date().toISOString();
+
+    return {
+      user_id: userId,
+      email,
+      username,
+      display_name: displayName,
+      name: displayName || username,
+      role: "pending",
+      status: "pending",
+      approval_status: "pending",
+      created_at: overrides.created_at || now,
+      requested_at: overrides.requested_at || now
+    };
+  }
+
   function isTeacherAccountApproved() {
-    return isAdmin || teacherAccountStatus === "approved" || teacherAccountStatus === "legacy_approved";
+    return isAdmin || teacherAccountStatus === "approved";
   }
 
   async function loadTeacherAccountStatus(userId = teacherId, email = teacherUser?.email, adminAccess = isAdmin) {
@@ -1931,37 +1974,43 @@ export default function App() {
 
     if (adminAccess) {
       setTeacherAccountStatus("approved");
-      setTeacherAccountRecord({ user_id: userId, email, status: "approved", admin: true });
+      setTeacherAccountRecord({
+        user_id: userId,
+        email,
+        role: "admin",
+        status: "approved",
+        approval_status: "approved",
+        admin: true
+      });
       return "approved";
     }
 
     const { data, error } = await supabase
       .from("pending_teacher_accounts")
-      .select("id, user_id, email, name, status, created_at, reviewed_at, reviewed_by")
+      .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
       .eq("user_id", userId)
       .maybeSingle();
 
     if (error) {
-      if (!isMissingTableError(error, "pending_teacher_accounts")) {
+      if (!isApprovalSchemaError(error)) {
         console.warn("Teacher account status check failed.", error);
       }
-      setTeacherAccountStatus("legacy_approved");
-      setTeacherAccountRecord({ user_id: userId, email, status: "legacy_approved" });
-      return "legacy_approved";
-    }
-
-    if (!data && teacherUser?.user_metadata?.account_status === "pending") {
-      const pendingRecord = {
+      setTeacherAccountStatus("approval_setup_required");
+      setTeacherAccountRecord({
         user_id: userId,
         email,
-        status: "pending",
-        name: email?.split("@")[0] || "",
-        created_at: new Date().toISOString()
-      };
+        status: "approval_setup_required",
+        approval_status: "approval_setup_required"
+      });
+      return "approval_setup_required";
+    }
+
+    if (!data) {
+      const pendingRecord = buildPendingAccountRecord(userId, email);
       const { data: insertedRecord, error: insertError } = await supabase
         .from("pending_teacher_accounts")
         .upsert(pendingRecord, { onConflict: "user_id" })
-        .select("id, user_id, email, name, status, created_at, reviewed_at, reviewed_by")
+        .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
         .maybeSingle();
 
       if (!insertError) {
@@ -1971,18 +2020,21 @@ export default function App() {
         return "pending";
       }
 
-      if (!isMissingTableError(insertError, "pending_teacher_accounts")) {
+      if (!isApprovalSchemaError(insertError)) {
         console.warn("Could not create pending teacher account record.", insertError);
       }
+
+      setTeacherAccountStatus("approval_setup_required");
+      setTeacherAccountRecord({
+        user_id: userId,
+        email,
+        status: "approval_setup_required",
+        approval_status: "approval_setup_required"
+      });
+      return "approval_setup_required";
     }
 
-    if (!data) {
-      setTeacherAccountStatus("legacy_approved");
-      setTeacherAccountRecord({ user_id: userId, email, status: "legacy_approved" });
-      return "legacy_approved";
-    }
-
-    const nextStatus = data.status || "pending";
+    const nextStatus = normalizeApprovalStatus(data);
     setTeacherAccountStatus(nextStatus);
     setTeacherAccountRecord(data);
     return nextStatus;
@@ -2046,7 +2098,7 @@ export default function App() {
       supabase.from("answers").select("id, teacher_id, student_id"),
       supabase
         .from("pending_teacher_accounts")
-        .select("id, user_id, email, name, status, created_at, reviewed_at, reviewed_by")
+        .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
         .order("created_at", { ascending: false })
     ]);
 
@@ -2229,13 +2281,31 @@ export default function App() {
   async function updateTeacherAccountStatus(accountId, status) {
     if (!isAdmin || !accountId) return;
 
+    const now = new Date().toISOString();
+    const nextRole = status === "approved" ? "teacher" : "pending";
+    const statusUpdate = {
+      status,
+      approval_status: status,
+      role: nextRole,
+      reviewed_at: now,
+      reviewed_by: teacherId
+    };
+
+    if (status === "approved") {
+      statusUpdate.approved_at = now;
+      statusUpdate.approved_by = teacherId;
+      statusUpdate.rejected_at = null;
+      statusUpdate.rejected_by = null;
+    }
+
+    if (status === "rejected") {
+      statusUpdate.rejected_at = now;
+      statusUpdate.rejected_by = teacherId;
+    }
+
     const { error } = await supabase
       .from("pending_teacher_accounts")
-      .update({
-        status,
-        reviewed_at: new Date().toISOString(),
-        reviewed_by: teacherId
-      })
+      .update(statusUpdate)
       .eq("id", accountId);
 
     if (error) {
@@ -2250,8 +2320,18 @@ export default function App() {
 
   async function signUpTeacher() {
     const email = authEmail.trim();
+    const username = authUsername.trim().toLowerCase();
+    const displayName = authDisplayName.trim();
     if (!email || !authPassword) {
       setAuthMessage("Enter an email and password.");
+      return;
+    }
+    if (!username) {
+      setAuthMessage("Choose a username for the account request.");
+      return;
+    }
+    if (!/^[a-z0-9_-]{3,30}$/.test(username)) {
+      setAuthMessage("Username must be 3-30 characters using only letters, numbers, underscores, or hyphens.");
       return;
     }
 
@@ -2259,12 +2339,38 @@ export default function App() {
     setAuthMessage("");
     freshAuthActionRef.current = true;
 
+    const { data: existingUsername, error: usernameLookupError } = await supabase
+      .from("pending_teacher_accounts")
+      .select("id, username")
+      .eq("username", username)
+      .maybeSingle();
+
+    if (usernameLookupError) {
+      setAuthLoading(false);
+      freshAuthActionRef.current = false;
+      setAuthMessage(
+        isApprovalSchemaError(usernameLookupError)
+          ? "Signup approval is not configured yet. Ask an admin to apply the signup approval schema."
+          : usernameLookupError.message
+      );
+      return;
+    }
+
+    if (existingUsername?.id) {
+      setAuthLoading(false);
+      freshAuthActionRef.current = false;
+      setAuthMessage("That username is already taken. Choose another username.");
+      return;
+    }
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password: authPassword,
       options: {
         data: {
-          account_status: "pending"
+          account_status: "pending",
+          username,
+          display_name: displayName
         }
       }
     });
@@ -2279,28 +2385,40 @@ export default function App() {
 
     const newUserId = data?.user?.id;
     if (newUserId) {
-      const pendingRecord = {
-        user_id: newUserId,
-        email,
-        status: "pending",
-        name: email.split("@")[0],
-        created_at: new Date().toISOString()
-      };
+      const pendingRecord = buildPendingAccountRecord(newUserId, email, {
+        username,
+        display_name: displayName || username
+      });
       const { error: notificationError } = await supabase
         .from("pending_teacher_accounts")
         .upsert(pendingRecord, { onConflict: "user_id" });
 
-      if (notificationError && !isMissingTableError(notificationError, "pending_teacher_accounts")) {
+      if (notificationError) {
         console.warn("Could not create pending teacher notification.", notificationError);
+        setTeacherAccountStatus("approval_setup_required");
+        setTeacherAccountRecord({
+          user_id: newUserId,
+          email,
+          username,
+          status: "approval_setup_required",
+          approval_status: "approval_setup_required"
+        });
+        setAuthMessage(
+          notificationError?.code === "23505"
+            ? "Account created, but that username is already taken. Ask an admin to update the pending request before approval."
+            : isApprovalSchemaError(notificationError)
+            ? "Account created, but signup approval is not configured yet. Ask an admin to apply the signup approval schema."
+            : "Account created, but the approval request could not be saved. Ask an admin to check signup approvals."
+        );
+        return;
       }
 
-      if (!notificationError) {
-        setTeacherAccountStatus("pending");
-        setTeacherAccountRecord(pendingRecord);
-      }
+      setTeacherAccountStatus("pending");
+      setTeacherAccountRecord(pendingRecord);
     }
 
-    setAuthMessage("Account created. Check your email if confirmation is enabled. Your account may need admin approval before teacher tools open.");
+    setAuthPassword("");
+    setAuthMessage("Your account request has been submitted. An administrator must approve your account before you can use LiteracyPath.");
   }
 
   async function logInTeacher() {
@@ -6147,6 +6265,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           setAuthEmail={setAuthEmail}
           authPassword={authPassword}
           setAuthPassword={setAuthPassword}
+          authUsername={authUsername}
+          setAuthUsername={setAuthUsername}
+          authDisplayName={authDisplayName}
+          setAuthDisplayName={setAuthDisplayName}
           authLoading={authLoading}
           authMessage={authMessage}
           signUpTeacher={signUpTeacher}
@@ -6168,6 +6290,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           setAuthEmail={setAuthEmail}
           authPassword={authPassword}
           setAuthPassword={setAuthPassword}
+          authUsername={authUsername}
+          setAuthUsername={setAuthUsername}
+          authDisplayName={authDisplayName}
+          setAuthDisplayName={setAuthDisplayName}
           authLoading={authLoading}
           authMessage={authMessage}
           signUpTeacher={signUpTeacher}
@@ -6190,15 +6316,30 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   }
 
   if (!isTeacherAccountApproved()) {
-    const status = teacherAccountRecord?.status || teacherAccountStatus;
+    const status = normalizeApprovalStatus(teacherAccountRecord, teacherAccountStatus);
+    const isRejected = status === "rejected" || status === "disabled";
+    const isSetupRequired = status === "approval_setup_required";
     return (
       <div className="app auth-shell">
         <div className="card page-card page-stack auth-card">
           <div className="auth-heading">
-            <h2>Account Waiting For Approval</h2>
+            <h2>
+              {isSetupRequired
+                ? "Signup Approval Setup Needed"
+                : isRejected
+                  ? "Account Not Approved"
+                  : "Account Waiting For Approval"}
+            </h2>
             <p className="muted-text">
-              Your account is currently {status}. Please contact your school administrator.
+              {isSetupRequired
+                ? "LiteracyPath requires the signup approval table before this account can enter the app. Ask an admin to apply the signup approval schema."
+                : isRejected
+                  ? "This account request was rejected. Please contact your school administrator if you think this is a mistake."
+                  : "Your account request has been submitted. An administrator must approve your account before you can use LiteracyPath."}
             </p>
+            {teacherAccountRecord?.username && (
+              <p className="muted-text">Username: {teacherAccountRecord.username}</p>
+            )}
           </div>
           <button className="main-button" onClick={logOutTeacher} type="button">
             Log Out

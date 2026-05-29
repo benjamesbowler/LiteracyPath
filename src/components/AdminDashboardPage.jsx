@@ -20,6 +20,15 @@ import {
   exportAssessmentAttemptsCsv,
   summarizeAssessmentHistory
 } from "../data/assessmentHistoryStore";
+import {
+  deleteSavedElAssessmentReport,
+  getSavedElAssessmentReports
+} from "../data/elAssessmentReportStore.js";
+import {
+  downloadElAssessmentReport,
+  exportClassElAssessmentExcel,
+  exportStudentElAssessmentExcel
+} from "../utils/exportElAssessmentExcel.js";
 import { exportGuidedReadingCompletionExcel } from "../utils/exportGuidedReadingCompletionExcel.js";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
@@ -934,6 +943,37 @@ export function AdminDashboardPage({
   const [mediaFilter, setMediaFilter] = useState("all");
   const [statusFilterLocal, setStatusFilterLocal] = useState("all");
   const [exportNotice, setExportNotice] = useState("");
+  const [selectedElClassId, setSelectedElClassId] = useState("");
+  const [selectedElStudentId, setSelectedElStudentId] = useState("");
+  const [savedElReports, setSavedElReports] = useState([]);
+  const [elReportNotice, setElReportNotice] = useState("");
+  const teacherStorageId = teacherId || "local";
+  const selectedClassId = selectedElClassId || classes[0]?.id || "";
+  const elClassStudents = students.filter(student => !selectedClassId || student.classId === selectedClassId || student.class_id === selectedClassId);
+  const selectedStudent = elClassStudents.find(student => student.id === selectedElStudentId) || elClassStudents[0] || students[0] || null;
+
+  function refreshSavedElReports() {
+    setSavedElReports(getSavedElAssessmentReports({ teacherId: teacherStorageId }));
+  }
+
+  useEffect(() => {
+    refreshSavedElReports();
+  }, [teacherStorageId]);
+
+  useEffect(() => {
+    if (!selectedElClassId && classes[0]?.id) {
+      setSelectedElClassId(classes[0].id);
+    }
+  }, [classes, selectedElClassId]);
+
+  useEffect(() => {
+    if (!selectedElStudentId && selectedStudent?.id) {
+      setSelectedElStudentId(selectedStudent.id);
+    }
+    if (selectedElStudentId && elClassStudents.length > 0 && !elClassStudents.some(student => student.id === selectedElStudentId)) {
+      setSelectedElStudentId(elClassStudents[0].id);
+    }
+  }, [elClassStudents, selectedElStudentId, selectedStudent]);
   const templateOptions = useMemo(() => Array.from(new Set(
     questionBankCoverage.flatMap(row => Object.keys(row.templates || {}))
   )).sort(), [questionBankCoverage]);
@@ -1071,6 +1111,64 @@ export function AdminDashboardPage({
     }
   }
 
+  async function handleStudentElAssessmentExport() {
+    setElReportNotice("");
+    if (!selectedStudent?.id) {
+      setElReportNotice("Choose a student before exporting an individual EL report.");
+      return;
+    }
+    try {
+      const report = await exportStudentElAssessmentExcel({
+        assessmentHistory,
+        students,
+        classes,
+        studentId: selectedStudent.id,
+        classId: selectedClassId || selectedStudent.classId || selectedStudent.class_id || "",
+        teacherId: teacherStorageId
+      });
+      refreshSavedElReports();
+      setElReportNotice(`Student EL assessment Excel exported for ${report.studentName}.`);
+    } catch (error) {
+      console.error("Student EL assessment Excel export failed.", error);
+      setElReportNotice("Could not export the student EL assessment Excel.");
+    }
+  }
+
+  async function handleClassElAssessmentExport() {
+    setElReportNotice("");
+    try {
+      const report = await exportClassElAssessmentExcel({
+        assessmentHistory,
+        students,
+        classes,
+        classId: selectedClassId,
+        teacherId: teacherStorageId
+      });
+      refreshSavedElReports();
+      setElReportNotice(`Class EL assessment Excel exported for ${report.className}.`);
+    } catch (error) {
+      console.error("Class EL assessment Excel export failed.", error);
+      setElReportNotice("Could not export the class EL assessment Excel.");
+    }
+  }
+
+  async function handleDownloadSavedElReport(report) {
+    setElReportNotice("");
+    try {
+      await downloadElAssessmentReport(report);
+      setElReportNotice(`Downloaded ${report.fileName || "saved EL report"}.`);
+    } catch (error) {
+      console.error("Saved EL assessment report download failed.", error);
+      setElReportNotice("Could not download the saved EL report.");
+    }
+  }
+
+  function handleDeleteSavedElReport(reportId) {
+    deleteSavedElAssessmentReport(reportId, { teacherId: teacherStorageId });
+    refreshSavedElReports();
+    setElReportNotice("Saved EL report deleted from this browser.");
+  }
+
   const adminSections = isTeacherMode
     ? [
       { id: "teacherReport", label: "Teacher Dashboard", count: assessmentHistory.length },
@@ -1082,7 +1180,7 @@ export function AdminDashboardPage({
       { id: "overview", label: "Overview", count: null },
       { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
       { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
-      { id: "signups", label: "New Teacher Signups", count: pendingAccounts.length },
+      { id: "signups", label: "Signup Requests", count: pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length },
       { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
       { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
       { id: "teachers", label: "Teachers", count: teachers.length },
@@ -1205,6 +1303,123 @@ export function AdminDashboardPage({
             </div>
           </div>
           {exportNotice && <p className="message">{exportNotice}</p>}
+
+          <div className="teacher-report-card el-assessment-dashboard-section">
+            <div className="admin-section-heading">
+              <div>
+                <h4>EL Assessment Snapshot</h4>
+                <p className="muted-text">
+                  Export individual and whole-class Skills Block reports, save report history, and compare progress over time.
+                </p>
+              </div>
+              <span className="admin-count-pill">{savedElReports.length} saved EL reports</span>
+            </div>
+
+            {assessmentHistory.length === 0 && (
+              <p className="message">No EL assessment records yet. Complete student assessments to generate EL reports.</p>
+            )}
+            {elReportNotice && <p className="message">{elReportNotice}</p>}
+
+            <div className="teacher-report-metrics">
+              <article>
+                <span>EL assessments</span>
+                <strong>{assessmentSummary.attempts}</strong>
+              </article>
+              <article>
+                <span>Average accuracy</span>
+                <strong>{assessmentSummary.averageAccuracy}%</strong>
+              </article>
+              <article>
+                <span>Focus skills</span>
+                <strong>{assessmentSummary.weakestSkills.length}</strong>
+              </article>
+            </div>
+
+            <div className="el-assessment-export-row">
+              <label>
+                Class report
+                <select
+                  disabled={classes.length === 0}
+                  onChange={event => {
+                    setSelectedElClassId(event.target.value);
+                    setSelectedElStudentId("");
+                  }}
+                  value={selectedClassId}
+                >
+                  {classes.length === 0 ? (
+                    <option value="">No classes yet</option>
+                  ) : classes.map(row => (
+                    <option key={row.id} value={row.id}>{row.name}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Student report
+                <select
+                  disabled={elClassStudents.length === 0}
+                  onChange={event => setSelectedElStudentId(event.target.value)}
+                  value={selectedElStudentId || elClassStudents[0]?.id || ""}
+                >
+                  {elClassStudents.length === 0 ? (
+                    <option value="">No students yet</option>
+                  ) : elClassStudents.map(student => (
+                    <option key={student.id} value={student.id}>{student.name}</option>
+                  ))}
+                </select>
+              </label>
+              <button
+                className="lp-button lp-button-secondary"
+                disabled={elClassStudents.length === 0}
+                onClick={handleStudentElAssessmentExport}
+                type="button"
+              >
+                Export Student EL Assessment Excel
+              </button>
+              <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
+                Export Class EL Assessment Excel
+              </button>
+            </div>
+
+            <div className="teacher-report-grid compact">
+              <article className="teacher-report-card">
+                <h5>Progress Comparison</h5>
+                <MiniLineChart points={classChartPoints} label="EL class accuracy over time" />
+                {classChartPoints.length < 2 && <p className="muted-text">Generate another report later to compare progress over time.</p>}
+              </article>
+              <article className="teacher-report-card">
+                <h5>Current EL Focus</h5>
+                {assessmentSummary.weakestSkills.length ? assessmentSummary.weakestSkills.slice(0, 4).map(skill => (
+                  <p key={skill.skillId || skill.skillName}><strong>{skill.skillName}</strong> · {skill.accuracy}% · {skill.status}</p>
+                )) : <p>No saved assessment attempts yet.</p>}
+              </article>
+            </div>
+
+            <div className="el-saved-reports">
+              <h5>Saved EL Reports</h5>
+              {savedElReports.length === 0 ? (
+                <p>No saved EL reports yet.</p>
+              ) : savedElReports.slice(0, 10).map(report => (
+                <article className="el-saved-report-row" key={report.reportId}>
+                  <div>
+                    <strong>{report.reportType === "individual" ? "Student" : "Class"} EL report</strong>
+                    <span>{report.studentName || report.className || "Unknown"} · {report.generatedAt ? new Date(report.generatedAt).toLocaleDateString() : ""}</span>
+                    <small>{report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
+                  </div>
+                  <div className="button-row">
+                    <button className="report-button" onClick={() => handleDownloadSavedElReport(report)} type="button">Download Again</button>
+                    <button
+                      className="report-button"
+                      onClick={() => setElReportNotice(report.comparison?.note || `Compared with ${report.comparison?.previousGeneratedAt ? new Date(report.comparison.previousGeneratedAt).toLocaleDateString() : "no previous report available yet"}. Accuracy change: ${report.comparison?.accuracyChange || 0}%.`)}
+                      type="button"
+                    >
+                      Compare
+                    </button>
+                    <button className="report-button danger" onClick={() => handleDeleteSavedElReport(report.reportId)} type="button">Delete local copy</button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
 
           <div className="teacher-report-metrics">
             <article>
@@ -1382,22 +1597,23 @@ export function AdminDashboardPage({
       <section className="card page-stack admin-section admin-section-panel">
         <div className="admin-section-heading">
           <div>
-            <h3>New Teacher Signups</h3>
-            <p className="muted-text">Approve, reject, disable, or mark teacher accounts reviewed. Email notification can be added later with a Supabase Edge Function.</p>
+            <h3>Signup Requests</h3>
+            <p className="muted-text">Approve or reject teacher account requests. Pending requests are blocked from the app until approved.</p>
           </div>
-          <span className="admin-count-pill">{pendingAccounts.length}</span>
+          <span className="admin-count-pill">{pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length}</span>
         </div>
         {pendingAccounts.length === 0 ? (
-          <p>No pending account notifications loaded.</p>
+          <p>No signup requests loaded.</p>
         ) : (
           <div className="admin-table-wrap">
             <table className="dashboard-table admin-table admin-responsive-table">
               <thead>
                 <tr>
                   <th>Email</th>
+                  <th>Username</th>
                   <th>Name</th>
                   <th>Status</th>
-                  <th>Signup Date</th>
+                  <th>Requested</th>
                   <th>Reviewed</th>
                   <th>Actions</th>
                 </tr>
@@ -1406,23 +1622,18 @@ export function AdminDashboardPage({
                 {pendingAccounts.map(account => (
                   <tr key={account.id || account.user_id || account.email}>
                     <td data-label="Email">{account.email || "Email unavailable"}</td>
-                    <td data-label="Name">{account.name || "-"}</td>
-                    <td data-label="Status">{account.status || "pending"}</td>
-                    <td data-label="Signup Date">{account.created_at ? new Date(account.created_at).toLocaleDateString() : ""}</td>
+                    <td data-label="Username">{account.username || "-"}</td>
+                    <td data-label="Name">{account.display_name || account.name || "-"}</td>
+                    <td data-label="Status">{account.approval_status || account.status || "pending"}</td>
+                    <td data-label="Requested">{(account.requested_at || account.created_at) ? new Date(account.requested_at || account.created_at).toLocaleDateString() : ""}</td>
                     <td data-label="Reviewed">{account.reviewed_at ? new Date(account.reviewed_at).toLocaleDateString() : "Not reviewed"}</td>
                     <td data-label="Actions">
                       <div className="admin-row-actions">
                         <button className="report-button" onClick={() => updateTeacherAccountStatus?.(account.id, "approved")} type="button">
                           Approve
                         </button>
-                        <button className="report-button" onClick={() => updateTeacherAccountStatus?.(account.id, account.status || "pending")} type="button">
-                          Mark Reviewed
-                        </button>
                         <button className="report-button danger" onClick={() => updateTeacherAccountStatus?.(account.id, "rejected")} type="button">
                           Reject
-                        </button>
-                        <button className="report-button danger" onClick={() => updateTeacherAccountStatus?.(account.id, "disabled")} type="button">
-                          Disable
                         </button>
                       </div>
                     </td>

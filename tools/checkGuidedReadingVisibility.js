@@ -103,7 +103,22 @@ const allowedFictionIds = new Set([
   "moonwood-tales-c-07",
   "moonwood-tales-c-08",
   "moonwood-tales-c-09",
-  "moonwood-tales-c-10"
+  "moonwood-tales-c-10",
+  "moonwood-tales-c-11",
+  "moonwood-tales-c-12",
+  "moonwood-tales-c-13",
+  "moonwood-tales-c-14",
+  "moonwood-tales-c-15",
+  "moonwood-tales-c-16",
+  "moonwood-tales-c-17",
+  "moonwood-tales-c-18",
+  "moonwood-tales-c-19",
+  "moonwood-tales-c-20",
+  "moonwood-tales-c-21",
+  "moonwood-tales-c-22",
+  "moonwood-tales-c-23",
+  "moonwood-tales-c-24",
+  "moonwood-tales-c-25"
 ]);
 const unexpectedFictionBooks = fictionBooks.filter(book => !allowedFictionIds.has(book.id));
 const removedNonfictionIds = new Set(["gr-c-36", "gr-d-41"]);
@@ -115,14 +130,14 @@ if (unexpectedFictionBooks.length) {
 if (!nonfictionBooks.length) {
   failures.push("No nonfiction Guided Reading books remain visible.");
 }
-if (fictionBooks.length !== 85) {
-  failures.push(`Expected 85 fiction books, found ${fictionBooks.length}.`);
+if (fictionBooks.length !== 100) {
+  failures.push(`Expected 100 fiction books, found ${fictionBooks.length}.`);
 }
 if (nonfictionBooks.length !== 76) {
   failures.push(`Expected 76 nonfiction books after true Level A nonfiction import, found ${nonfictionBooks.length}.`);
 }
-if (guidedReadingBooks.length !== 161) {
-  failures.push(`Expected 161 total Guided Reading books after true Level A nonfiction import, found ${guidedReadingBooks.length}.`);
+if (guidedReadingBooks.length !== 176) {
+  failures.push(`Expected 176 total Guided Reading books after true Level A nonfiction import, found ${guidedReadingBooks.length}.`);
 }
 if (removedNonfictionRestored.length) {
   failures.push(`Deleted nonfiction books are still visible: ${removedNonfictionRestored.map(book => book.id).join(", ")}`);

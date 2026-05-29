@@ -1,0 +1,390 @@
+import {
+  buildClassElAssessmentReportData,
+  buildStudentElAssessmentReportData,
+  getSavedElAssessmentReports,
+  saveElAssessmentReport
+} from "../data/elAssessmentReportStore.js";
+
+export const EL_STUDENT_REPORT_SHEETS = [
+  "Student Summary",
+  "Skill Detail",
+  "Assessment Attempts",
+  "Progress Over Time",
+  "Comparison"
+];
+
+export const EL_CLASS_REPORT_SHEETS = [
+  "Class Summary",
+  "Student Overview",
+  "Skill Heatmap",
+  "Skill Summary",
+  "Small Groups",
+  "Progress Comparison"
+];
+
+function formatDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "" : date.toISOString().slice(0, 10);
+}
+
+function list(value) {
+  return Array.isArray(value) ? value.join(", ") : String(value || "");
+}
+
+function yesNo(value) {
+  return value ? "Yes" : "No";
+}
+
+function addRowsOrEmpty(sheet, rows, mapper) {
+  if (!rows.length) {
+    sheet.addRow(mapper(null));
+    return;
+  }
+  rows.forEach(row => sheet.addRow(mapper(row)));
+}
+
+function styleWorksheet(sheet) {
+  sheet.getRow(1).font = { bold: true };
+  sheet.getRow(1).fill = {
+    type: "pattern",
+    pattern: "solid",
+    fgColor: { argb: "FFEAF7EE" }
+  };
+  sheet.views = [{ state: "frozen", ySplit: 1 }];
+  sheet.eachRow(row => {
+    row.alignment = { vertical: "top", wrapText: true };
+  });
+}
+
+function setColumns(sheet, headers, wideHeaders = []) {
+  sheet.columns = headers.map(header => ({
+    header,
+    key: header,
+    width: wideHeaders.includes(header) ? 38 : Math.max(16, Math.min(30, header.length + 8))
+  }));
+}
+
+async function createWorkbook() {
+  const module = await import("exceljs");
+  const ExcelJS = module.default || module["module.exports"] || module;
+  const workbook = new ExcelJS.Workbook();
+  workbook.creator = "LiteracyPath";
+  workbook.created = new Date();
+  return workbook;
+}
+
+async function downloadWorkbook(workbook, fileName) {
+  const buffer = await workbook.xlsx.writeBuffer();
+  const blob = new Blob([buffer], {
+    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = fileName;
+  anchor.click();
+  URL.revokeObjectURL(url);
+}
+
+export async function createStudentElAssessmentWorkbook(report) {
+  const workbook = await createWorkbook();
+
+  const summarySheet = workbook.addWorksheet("Student Summary");
+  setColumns(summarySheet, ["Field", "Value"], ["Value"]);
+  [
+    ["Student Name", report.studentName || "Unknown Student"],
+    ["Class Name", report.className || "Unknown Class"],
+    ["Report Date", formatDate(report.generatedAt)],
+    ["Date Range", `${formatDate(report.dateRange?.start) || "No records"} to ${formatDate(report.dateRange?.end) || "No records"}`],
+    ["Total Assessments", report.summary?.totalAssessments || 0],
+    ["Average Accuracy", `${report.summary?.averageAccuracy || 0}%`],
+    ["Skills Mastered", report.summary?.masteredSkillCount || 0],
+    ["Skills Developing", report.summary?.developingSkillCount || 0],
+    ["Skills Needing Support", report.summary?.needsSupportSkillCount || 0],
+    ["Current Recommended Focus", list(report.summary?.focusSkills) || "No records yet"]
+  ].forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
+
+  const skillSheet = workbook.addWorksheet("Skill Detail");
+  setColumns(skillSheet, [
+    "Skill Area",
+    "Skill Name",
+    "Current Level",
+    "Attempts",
+    "Accuracy",
+    "Mastery Status",
+    "Items Mastered",
+    "Items Missed",
+    "Last Assessed",
+    "Recommended Next Step"
+  ], ["Items Mastered", "Items Missed", "Recommended Next Step"]);
+  addRowsOrEmpty(skillSheet, report.skillRows || [], row => row ? {
+    "Skill Area": row.skillArea,
+    "Skill Name": row.skillName,
+    "Current Level": row.currentLevel,
+    "Attempts": row.attempts,
+    "Accuracy": `${row.accuracy || 0}%`,
+    "Mastery Status": row.masteryStatus,
+    "Items Mastered": list(row.itemsMastered),
+    "Items Missed": list(row.itemsMissed),
+    "Last Assessed": formatDate(row.lastAssessed),
+    "Recommended Next Step": row.recommendedNextStep
+  } : {
+    "Skill Area": "No records yet",
+    "Skill Name": "",
+    "Current Level": "",
+    "Attempts": 0,
+    "Accuracy": "0%",
+    "Mastery Status": "Not Assessed",
+    "Items Mastered": "",
+    "Items Missed": "",
+    "Last Assessed": "",
+    "Recommended Next Step": "Complete an assessment to gather evidence."
+  });
+
+  const attemptsSheet = workbook.addWorksheet("Assessment Attempts");
+  setColumns(attemptsSheet, [
+    "Date",
+    "Skill",
+    "Level",
+    "Questions",
+    "Correct",
+    "Accuracy",
+    "Passed / Needs Retry / Mastered",
+    "Items Covered",
+    "Missed Items"
+  ], ["Items Covered", "Missed Items"]);
+  addRowsOrEmpty(attemptsSheet, report.attemptRows || [], row => row ? {
+    "Date": formatDate(row.date),
+    "Skill": row.skill,
+    "Level": row.level,
+    "Questions": row.questions,
+    "Correct": row.correct,
+    "Accuracy": `${row.accuracy || 0}%`,
+    "Passed / Needs Retry / Mastered": row.status,
+    "Items Covered": list(row.itemsCovered),
+    "Missed Items": list(row.missedItems)
+  } : {
+    "Date": "No records yet",
+    "Skill": "",
+    "Level": "",
+    "Questions": 0,
+    "Correct": 0,
+    "Accuracy": "0%",
+    "Passed / Needs Retry / Mastered": "",
+    "Items Covered": "",
+    "Missed Items": ""
+  });
+
+  const progressSheet = workbook.addWorksheet("Progress Over Time");
+  setColumns(progressSheet, ["Date", "Skill", "Accuracy", "Mastered Skill Count", "Level", "Notes"], ["Notes"]);
+  addRowsOrEmpty(progressSheet, report.progressRows || [], row => row ? {
+    "Date": formatDate(row.date),
+    "Skill": row.skill,
+    "Accuracy": `${row.accuracy || 0}%`,
+    "Mastered Skill Count": row.masteredSkillCount,
+    "Level": row.level,
+    "Notes": row.notes
+  } : {
+    "Date": "No records yet",
+    "Skill": "",
+    "Accuracy": "0%",
+    "Mastered Skill Count": 0,
+    "Level": "",
+    "Notes": "No assessment progress data yet."
+  });
+
+  const comparisonSheet = workbook.addWorksheet("Comparison");
+  setColumns(comparisonSheet, [
+    "Previous Report Date",
+    "Current Report Date",
+    "Accuracy Change",
+    "Newly Mastered Skills",
+    "Skills Still Needing Support",
+    "Suggested Teacher Action"
+  ], ["Newly Mastered Skills", "Skills Still Needing Support", "Suggested Teacher Action"]);
+  const comparison = report.comparison || {};
+  comparisonSheet.addRow({
+    "Previous Report Date": formatDate(comparison.previousGeneratedAt) || "No previous report available yet.",
+    "Current Report Date": formatDate(report.generatedAt),
+    "Accuracy Change": `${comparison.accuracyChange || 0}%`,
+    "Newly Mastered Skills": list(comparison.newlyMasteredSkills),
+    "Skills Still Needing Support": list(comparison.persistentFocusSkills || report.summary?.focusSkills),
+    "Suggested Teacher Action": comparison.note || "Review focus skills and update small-group practice."
+  });
+
+  workbook.worksheets.forEach(styleWorksheet);
+  return workbook;
+}
+
+export async function createClassElAssessmentWorkbook(report) {
+  const workbook = await createWorkbook();
+
+  const summarySheet = workbook.addWorksheet("Class Summary");
+  setColumns(summarySheet, ["Field", "Value"], ["Value"]);
+  [
+    ["Class Name", report.className || "Unknown Class"],
+    ["Report Date", formatDate(report.generatedAt)],
+    ["Date Range", `${formatDate(report.dateRange?.start) || "No records"} to ${formatDate(report.dateRange?.end) || "No records"}`],
+    ["Total Students", report.summary?.totalStudents || report.studentRows?.length || 0],
+    ["Total Assessments", report.summary?.totalAssessments || 0],
+    ["Class Average Accuracy", `${report.summary?.averageAccuracy || 0}%`],
+    ["Strongest Skills", list(report.summary?.strongestSkills) || "No records yet"],
+    ["Weakest Skills", list(report.summary?.focusSkills) || "No records yet"],
+    ["Students Needing Support", list(report.summary?.studentsNeedingSupport) || "No records yet"],
+    ["Students Ready for Challenge", list(report.summary?.studentsReadyForChallenge) || "No records yet"]
+  ].forEach(row => summarySheet.addRow({ Field: row[0], Value: row[1] }));
+
+  const studentSheet = workbook.addWorksheet("Student Overview");
+  setColumns(studentSheet, [
+    "Student Name",
+    "Assessments Completed",
+    "Average Accuracy",
+    "Skills Mastered",
+    "Skills Developing",
+    "Skills Needing Support",
+    "Current Level / Stage",
+    "Last Assessment Date",
+    "Recommended Focus"
+  ], ["Recommended Focus"]);
+  addRowsOrEmpty(studentSheet, report.studentRows || [], row => row ? {
+    "Student Name": row.studentName,
+    "Assessments Completed": row.assessmentsCompleted,
+    "Average Accuracy": `${row.averageAccuracy || 0}%`,
+    "Skills Mastered": row.skillsMastered,
+    "Skills Developing": row.skillsDeveloping,
+    "Skills Needing Support": row.skillsNeedingSupport,
+    "Current Level / Stage": row.currentLevel,
+    "Last Assessment Date": formatDate(row.lastAssessmentDate),
+    "Recommended Focus": row.recommendedFocus
+  } : {
+    "Student Name": "No records yet",
+    "Assessments Completed": 0,
+    "Average Accuracy": "0%",
+    "Skills Mastered": 0,
+    "Skills Developing": 0,
+    "Skills Needing Support": 0,
+    "Current Level / Stage": "",
+    "Last Assessment Date": "",
+    "Recommended Focus": "Complete assessments to populate this report."
+  });
+
+  const heatmapSheet = workbook.addWorksheet("Skill Heatmap");
+  const skillNames = Object.keys(report.heatmapRows?.[0]?.values || {});
+  setColumns(heatmapSheet, ["Student", ...skillNames], skillNames);
+  addRowsOrEmpty(heatmapSheet, report.heatmapRows || [], row => row ? {
+    Student: row.studentName,
+    ...row.values
+  } : {
+    Student: "No records yet"
+  });
+
+  const skillSheet = workbook.addWorksheet("Skill Summary");
+  setColumns(skillSheet, [
+    "Skill Area",
+    "Skill Name",
+    "Students Mastered",
+    "Students Developing",
+    "Students Needing Support",
+    "Not Assessed",
+    "Class Average Accuracy",
+    "Suggested Small Group"
+  ], ["Suggested Small Group"]);
+  addRowsOrEmpty(skillSheet, report.skillRows || [], row => row ? {
+    "Skill Area": row.skillArea,
+    "Skill Name": row.skillName,
+    "Students Mastered": row.studentsMastered,
+    "Students Developing": row.studentsDeveloping,
+    "Students Needing Support": row.studentsNeedingSupport,
+    "Not Assessed": row.notAssessed,
+    "Class Average Accuracy": `${row.classAverageAccuracy || 0}%`,
+    "Suggested Small Group": row.suggestedSmallGroup
+  } : {
+    "Skill Area": "No records yet",
+    "Skill Name": "",
+    "Students Mastered": 0,
+    "Students Developing": 0,
+    "Students Needing Support": 0,
+    "Not Assessed": 0,
+    "Class Average Accuracy": "0%",
+    "Suggested Small Group": ""
+  });
+
+  const groupsSheet = workbook.addWorksheet("Small Groups");
+  setColumns(groupsSheet, ["Group Name / Focus", "Skill", "Students", "Reason", "Suggested Activity / Next Step"], ["Students", "Reason", "Suggested Activity / Next Step"]);
+  addRowsOrEmpty(groupsSheet, report.smallGroups || [], row => row ? {
+    "Group Name / Focus": row.groupName,
+    "Skill": row.skill,
+    "Students": list(row.students),
+    "Reason": row.reason,
+    "Suggested Activity / Next Step": row.suggestedActivity
+  } : {
+    "Group Name / Focus": "No groups yet",
+    "Skill": "",
+    "Students": "",
+    "Reason": "No assessment records yet.",
+    "Suggested Activity / Next Step": "Complete assessments to create small groups."
+  });
+
+  const comparisonSheet = workbook.addWorksheet("Progress Comparison");
+  setColumns(comparisonSheet, [
+    "Previous Report Date",
+    "Current Report Date",
+    "Class Accuracy Change",
+    "Mastered Count Change",
+    "New Class Strengths",
+    "Persistent Class Gaps",
+    "Students With Strong Growth",
+    "Students Needing Follow-up"
+  ], ["New Class Strengths", "Persistent Class Gaps", "Students With Strong Growth", "Students Needing Follow-up"]);
+  const comparison = report.comparison || {};
+  comparisonSheet.addRow({
+    "Previous Report Date": formatDate(comparison.previousGeneratedAt) || "No previous report available yet.",
+    "Current Report Date": formatDate(report.generatedAt),
+    "Class Accuracy Change": `${comparison.accuracyChange || 0}%`,
+    "Mastered Count Change": comparison.masteredSkillChange || 0,
+    "New Class Strengths": list(comparison.newlyMasteredSkills || report.summary?.strongestSkills),
+    "Persistent Class Gaps": list(comparison.persistentFocusSkills || report.summary?.focusSkills),
+    "Students With Strong Growth": "",
+    "Students Needing Follow-up": list(report.summary?.studentsNeedingSupport)
+  });
+
+  workbook.worksheets.forEach(styleWorksheet);
+  return workbook;
+}
+
+export async function exportStudentElAssessmentExcel(options = {}) {
+  const previousReports = getSavedElAssessmentReports({
+    teacherId: options.teacherId || "local",
+    reportType: "individual",
+    classId: options.classId || "",
+    studentId: options.studentId || ""
+  });
+  const report = buildStudentElAssessmentReportData({ ...options, previousReports });
+  const workbook = await createStudentElAssessmentWorkbook(report);
+  await downloadWorkbook(workbook, report.fileName);
+  await saveElAssessmentReport(report, options);
+  return report;
+}
+
+export async function exportClassElAssessmentExcel(options = {}) {
+  const previousReports = getSavedElAssessmentReports({
+    teacherId: options.teacherId || "local",
+    reportType: "whole_class",
+    classId: options.classId || ""
+  });
+  const report = buildClassElAssessmentReportData({ ...options, previousReports });
+  const workbook = await createClassElAssessmentWorkbook(report);
+  await downloadWorkbook(workbook, report.fileName);
+  await saveElAssessmentReport(report, options);
+  return report;
+}
+
+export async function downloadElAssessmentReport(report = {}) {
+  const workbook = report.reportType === "individual"
+    ? await createStudentElAssessmentWorkbook(report)
+    : await createClassElAssessmentWorkbook(report);
+  await downloadWorkbook(workbook, report.fileName || `el-assessment-report-${formatDate(new Date())}.xlsx`);
+  return report;
+}
+

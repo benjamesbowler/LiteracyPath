@@ -51,6 +51,8 @@ function createMissingSupabaseClient() {
       }),
       signUp: () => response(),
       signInWithPassword: () => response(),
+      resetPasswordForEmail: () => response(),
+      updateUser: () => response(),
       signOut: () => response()
     },
     from: () => queryBuilder()

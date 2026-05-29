@@ -28,6 +28,7 @@ import { templateExpansion6 } from "../../data/templateExpansion6.js";
 import { templateExpansion7 } from "../../data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../../data/questionBankExpansion8.js";
 import { generatedEarlySkillQuestions } from "../../data/generated/earlySkillQuestions.generated.js";
+import { hfwAssessmentQuestions } from "../../data/generated/hfwAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../../data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../../data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../../data/generatedQuestions.js";
@@ -148,6 +149,7 @@ export const runtimeQuestionSources = [
   ...templateExpansion7,
   ...questionBankExpansion8,
   ...generatedEarlySkillQuestions,
+  ...hfwAssessmentQuestions,
   ...skillLevelGapQuestions,
   ...hfwLevel2Questions,
   ...generatedQuestions,
