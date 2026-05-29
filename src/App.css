@@ -5262,6 +5262,48 @@ select:focus {
   font-size: 1rem;
 }
 
+.teacher-report-metrics.compact {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.teacher-report-metrics.compact strong {
+  font-size: 1.35rem;
+}
+
+.teacher-pattern-summary-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.teacher-skill-chip {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  background: #f8fafc;
+  color: var(--lp-color-text-strong);
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 7px 10px;
+}
+
+.teacher-skill-chip.strong {
+  background: #ecfdf3;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+.teacher-skill-chip.watch {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #9a3412;
+}
+
+.teacher-skill-chip.support {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
 .el-assessment-dashboard-section {
   gap: 14px;
 }
@@ -5293,6 +5335,140 @@ select:focus {
 
 .teacher-report-grid.compact {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.detailed-report-workspace {
+  gap: 16px;
+}
+
+.detailed-report-controls {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.detailed-report-controls label,
+.detailed-report-section-toggles label {
+  display: grid;
+  gap: 6px;
+  color: var(--lp-color-text-muted);
+  font-weight: 850;
+}
+
+.detailed-report-controls select,
+.detailed-report-controls input {
+  width: 100%;
+  min-height: 44px;
+}
+
+.detailed-report-section-toggles {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  margin: 0;
+  padding: 14px;
+}
+
+.detailed-report-section-toggles legend {
+  color: var(--lp-color-text-strong);
+  font-weight: 900;
+  padding: 0 6px;
+}
+
+.detailed-report-section-toggles label {
+  align-items: center;
+  grid-template-columns: auto 1fr;
+}
+
+.detailed-report-actions {
+  justify-content: flex-start;
+}
+
+.teacher-hints-panel {
+  background: #f8fafc;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.teacher-hints-panel h5,
+.teacher-hints-panel p {
+  margin: 0;
+}
+
+.detailed-report-section {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.detailed-report-section summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.detailed-report-section summary span {
+  color: var(--lp-color-text-muted);
+  font-weight: 800;
+}
+
+.bounded-report-table {
+  max-height: min(540px, 62vh);
+  overflow: auto;
+  padding: 0 12px 12px;
+}
+
+.report-status-pill {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 5px 9px;
+}
+
+.report-status-pill.mastered {
+  background: var(--color-success-soft);
+  color: #115e59;
+}
+
+.report-status-pill.developing {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.report-status-pill.needs_support {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.guided-reading-detail-cards {
+  display: grid;
+  gap: 10px;
+  padding: 0 12px 12px;
+}
+
+.guided-reading-detail-cards article {
+  background: #f8fafc;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+}
+
+.guided-reading-detail-cards span,
+.guided-reading-detail-cards small {
+  color: var(--lp-color-text-muted);
+  font-weight: 750;
 }
 
 .el-saved-reports {
@@ -5677,6 +5853,31 @@ select:focus {
   .el-saved-report-row {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .detailed-report-controls,
+  .detailed-report-section-toggles {
+    grid-template-columns: 1fr;
+  }
+
+  .detailed-report-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .detailed-report-actions button,
+  .detailed-report-section summary {
+    width: 100%;
+  }
+
+  .detailed-report-section summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .bounded-report-table {
+    max-height: none;
+    overflow-x: visible;
   }
 
   .el-saved-report-row .button-row {

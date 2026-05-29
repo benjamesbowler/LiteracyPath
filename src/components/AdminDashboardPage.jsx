@@ -21,6 +21,12 @@ import {
   summarizeAssessmentHistory
 } from "../data/assessmentHistoryStore";
 import {
+  DEFAULT_REPORT_SECTIONS,
+  buildIndividualStudentDetailedReport,
+  buildWholeClassDetailedReport,
+  formatDetailedReportAsText
+} from "../data/studentDetailedReportBuilder.js";
+import {
   deleteSavedElAssessmentReport,
   getSavedElAssessmentReports
 } from "../data/elAssessmentReportStore.js";
@@ -967,6 +973,10 @@ export function AdminDashboardPage({
   const [selectedElStudentId, setSelectedElStudentId] = useState("");
   const [savedElReports, setSavedElReports] = useState([]);
   const [elReportNotice, setElReportNotice] = useState("");
+  const [detailedReportType, setDetailedReportType] = useState("individual");
+  const [detailedReportSections, setDetailedReportSections] = useState(DEFAULT_REPORT_SECTIONS);
+  const [reportDateStart, setReportDateStart] = useState("");
+  const [reportDateEnd, setReportDateEnd] = useState("");
   const teacherStorageId = teacherId || "local";
   const selectedClassId = selectedElClassId || classes[0]?.id || "";
   const elClassStudents = students.filter(student => !selectedClassId || student.classId === selectedClassId || student.class_id === selectedClassId);
@@ -1148,6 +1158,33 @@ export function AdminDashboardPage({
       examples: Array.from(row.examples).slice(0, 6)
     };
   }).sort((a, b) => a.pattern.localeCompare(b.pattern));
+  const detailedDateRange = {
+    start: reportDateStart,
+    end: reportDateEnd ? `${reportDateEnd}T23:59:59.999Z` : ""
+  };
+  const individualDetailedReport = useMemo(() =>
+    buildIndividualStudentDetailedReport({
+      student: selectedStudent || {},
+      classes,
+      assessmentHistory,
+      teacherId: teacherStorageId,
+      dateRange: detailedDateRange,
+      selectedSections: detailedReportSections
+    }),
+  [selectedStudent, classes, assessmentHistory, teacherStorageId, reportDateStart, reportDateEnd, detailedReportSections]);
+  const classDetailedReport = useMemo(() =>
+    buildWholeClassDetailedReport({
+      students,
+      classes,
+      assessmentHistory,
+      teacherId: teacherStorageId,
+      classId: selectedClassId,
+      dateRange: detailedDateRange
+    }),
+  [students, classes, assessmentHistory, teacherStorageId, selectedClassId, reportDateStart, reportDateEnd]);
+  const teacherHints = detailedReportType === "class"
+    ? classDetailedReport.recommendations.hints
+    : individualDetailedReport.recommendations.hints;
 
   function openAdminQaPage(page) {
     setAdminQaPage(page);
@@ -1238,6 +1275,35 @@ export function AdminDashboardPage({
     deleteSavedElAssessmentReport(reportId, { teacherId: teacherStorageId });
     refreshSavedElReports();
     setElReportNotice("Saved EL report deleted from this browser.");
+  }
+
+  function handleDetailedTextExport() {
+    if (detailedReportType === "class") {
+      const lines = [
+        "LiteracyPath Whole Class Report",
+        `Class: ${classDetailedReport.className}`,
+        `Generated: ${new Date(classDetailedReport.generatedAt).toLocaleDateString()}`,
+        "",
+        `Summary: ${classDetailedReport.summary.assessedStudents}/${classDetailedReport.summary.totalStudents} students assessed, ${classDetailedReport.summary.averageAccuracy}% average accuracy.`,
+        "",
+        "Class Matrices",
+        ...classDetailedReport.matrices.flatMap(matrix => [
+          matrix.sectionName,
+          ...matrix.rows.map(row => `- ${row.label}: ${row.masteredStudents} mastered, ${row.developingStudents} developing, ${row.needsSupportStudents} need support${row.studentsNeedingSupport.length ? ` (${row.studentsNeedingSupport.join(", ")})` : ""}`),
+          ""
+        ]),
+        "Recommendations",
+        ...classDetailedReport.recommendations.hints.map(hint => `- ${hint}`)
+      ];
+      downloadTextFile("literacypath-class-report.txt", lines.join("\n"), "text/plain");
+      return;
+    }
+
+    downloadTextFile(
+      `literacypath-${(individualDetailedReport.studentName || "student").replace(/[^a-z0-9]+/gi, "_").toLowerCase()}-report.txt`,
+      formatDetailedReportAsText(individualDetailedReport),
+      "text/plain"
+    );
   }
 
   const adminSections = isTeacherMode
@@ -1448,6 +1514,237 @@ export function AdminDashboardPage({
             </div>
           </div>
           {exportNotice && <p className="message">{exportNotice}</p>}
+
+          <div className="teacher-report-card detailed-report-workspace">
+            <div className="admin-section-heading">
+              <div>
+                <h4>Detailed Assessment Report</h4>
+                <p className="muted-text">View exact attempted letters, sounds, patterns, words, guided reading books, and support needs.</p>
+              </div>
+              <span className="admin-count-pill">{detailedReportType === "class" ? "Whole Class" : "Individual"}</span>
+            </div>
+
+            <div className="detailed-report-controls">
+              <label>
+                Report type
+                <select value={detailedReportType} onChange={event => setDetailedReportType(event.target.value)}>
+                  <option value="individual">Individual Student Report</option>
+                  <option value="class">Whole Class Report</option>
+                </select>
+              </label>
+              <label>
+                Class
+                <select
+                  disabled={classes.length === 0}
+                  onChange={event => {
+                    setSelectedElClassId(event.target.value);
+                    setSelectedElStudentId("");
+                  }}
+                  value={selectedClassId}
+                >
+                  {classes.length === 0 ? <option value="">No classes yet</option> : classes.map(row => (
+                    <option key={row.id} value={row.id}>{row.name}</option>
+                  ))}
+                </select>
+              </label>
+              {detailedReportType === "individual" && (
+                <label>
+                  Student
+                  <select
+                    disabled={elClassStudents.length === 0}
+                    onChange={event => setSelectedElStudentId(event.target.value)}
+                    value={selectedElStudentId || elClassStudents[0]?.id || ""}
+                  >
+                    {elClassStudents.length === 0 ? <option value="">No students yet</option> : elClassStudents.map(student => (
+                      <option key={student.id} value={student.id}>{student.name}</option>
+                    ))}
+                  </select>
+                </label>
+              )}
+              <label>
+                From
+                <input type="date" value={reportDateStart} onChange={event => setReportDateStart(event.target.value)} />
+              </label>
+              <label>
+                To
+                <input type="date" value={reportDateEnd} onChange={event => setReportDateEnd(event.target.value)} />
+              </label>
+            </div>
+
+            <fieldset className="detailed-report-section-toggles">
+              <legend>Report sections</legend>
+              {Object.keys(DEFAULT_REPORT_SECTIONS).map(sectionId => (
+                <label key={sectionId}>
+                  <input
+                    checked={Boolean(detailedReportSections[sectionId])}
+                    onChange={event => setDetailedReportSections(prev => ({
+                      ...prev,
+                      [sectionId]: event.target.checked
+                    }))}
+                    type="checkbox"
+                  />
+                  {sectionId.replace(/([A-Z])/g, " $1").replace(/^./, char => char.toUpperCase())}
+                </label>
+              ))}
+            </fieldset>
+
+            <div className="button-row detailed-report-actions">
+              <button className="lp-button lp-button-secondary" onClick={handleDetailedTextExport} type="button">
+                Export Report
+              </button>
+              <button className="lp-button lp-button-secondary" onClick={detailedReportType === "class" ? handleClassElAssessmentExport : handleStudentElAssessmentExport} type="button">
+                Export Excel
+              </button>
+            </div>
+
+            {teacherHints.length > 0 && (
+              <div className="teacher-hints-panel">
+                <h5>Teacher Hints</h5>
+                {teacherHints.slice(0, 5).map((hint, index) => <p key={`${hint}-${index}`}>{hint}</p>)}
+              </div>
+            )}
+
+            {detailedReportType === "individual" ? (
+              <div className="detailed-individual-report">
+                <div className="teacher-report-metrics compact">
+                  <article>
+                    <span>Assessments</span>
+                    <strong>{individualDetailedReport.summary.attemptsCount}</strong>
+                  </article>
+                  <article>
+                    <span>Accuracy</span>
+                    <strong>{individualDetailedReport.summary.accuracy}%</strong>
+                  </article>
+                  <article>
+                    <span>Mastered items</span>
+                    <strong>{individualDetailedReport.summary.masteredItems}</strong>
+                  </article>
+                  <article>
+                    <span>Need support</span>
+                    <strong>{individualDetailedReport.summary.needsSupportItems}</strong>
+                  </article>
+                </div>
+
+                {individualDetailedReport.skillSections.length === 0 ? (
+                  <p className="message">No attempted assessment items yet for this student. Complete an assessment to populate exact item detail.</p>
+                ) : individualDetailedReport.skillSections.map(section => (
+                  <details className="detailed-report-section" key={section.skillName} open>
+                    <summary>
+                      <strong>{section.skillName}</strong>
+                      <span>{section.correctCount}/{section.totalQuestions} correct · {section.accuracy}%</span>
+                    </summary>
+                    <div className="bounded-report-table">
+                      <table className="dashboard-table admin-table admin-responsive-table">
+                        <thead>
+                          <tr>
+                            <th>Item</th>
+                            <th>Status</th>
+                            <th>Correct</th>
+                            <th>Accuracy</th>
+                            <th>Examples</th>
+                            <th>Needs Support Examples</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {section.itemRows.map(row => (
+                            <tr key={`${section.skillName}-${row.itemType}-${row.itemKey}`}>
+                              <td data-label="Item">{row.label}</td>
+                              <td data-label="Status"><span className={`report-status-pill ${row.status}`}>{row.statusLabel}</span></td>
+                              <td data-label="Correct">{row.correct}/{row.attempts}</td>
+                              <td data-label="Accuracy">{row.accuracy}%</td>
+                              <td data-label="Examples">{row.exampleWords.join(", ") || "No examples saved"}</td>
+                              <td data-label="Needs Support">{row.missedExamples.join(", ") || "None"}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </details>
+                ))}
+
+                {detailedReportSections.guidedReadingBooks && (
+                  <details className="detailed-report-section" open>
+                    <summary>
+                      <strong>Guided Reading</strong>
+                      <span>{individualDetailedReport.guidedReading.completedBooks} completed · {individualDetailedReport.guidedReading.inProgressBooks} in progress</span>
+                    </summary>
+                    {individualDetailedReport.guidedReading.bookRows.length === 0 ? (
+                      <p>No guided reading records yet.</p>
+                    ) : (
+                      <div className="guided-reading-detail-cards">
+                        {individualDetailedReport.guidedReading.bookRows.map(row => (
+                          <article key={row.bookId}>
+                            <strong>{row.title}</strong>
+                            <span>Level {row.level} · {row.status} · {row.pagesRead}/{row.totalPages} pages</span>
+                            {row.supportWords.length > 0 && <small>Needs support: {row.supportWords.join(", ")}</small>}
+                            {row.correctWords.length > 0 && <small>Read correctly: {row.correctWords.slice(0, 12).join(", ")}</small>}
+                          </article>
+                        ))}
+                      </div>
+                    )}
+                  </details>
+                )}
+              </div>
+            ) : (
+              <div className="detailed-class-report">
+                <div className="teacher-report-metrics compact">
+                  <article>
+                    <span>Students</span>
+                    <strong>{classDetailedReport.summary.totalStudents}</strong>
+                  </article>
+                  <article>
+                    <span>Assessed</span>
+                    <strong>{classDetailedReport.summary.assessedStudents}</strong>
+                  </article>
+                  <article>
+                    <span>Average</span>
+                    <strong>{classDetailedReport.summary.averageAccuracy}%</strong>
+                  </article>
+                  <article>
+                    <span>Need support</span>
+                    <strong>{classDetailedReport.summary.studentsNeedingSupport.length}</strong>
+                  </article>
+                </div>
+
+                {classDetailedReport.matrices.length === 0 ? (
+                  <p className="message">No class assessment matrix yet. Complete assessments with students to populate class statistics.</p>
+                ) : classDetailedReport.matrices.map(matrix => (
+                  <details className="detailed-report-section" key={matrix.sectionName} open>
+                    <summary>
+                      <strong>{matrix.sectionName}</strong>
+                      <span>{matrix.rows.length} attempted item(s)</span>
+                    </summary>
+                    <div className="bounded-report-table">
+                      <table className="dashboard-table admin-table admin-responsive-table">
+                        <thead>
+                          <tr>
+                            <th>Item</th>
+                            <th>Attempted</th>
+                            <th>Mastered</th>
+                            <th>Developing</th>
+                            <th>Needs Support</th>
+                            <th>Support Students</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {matrix.rows.slice(0, 40).map(row => (
+                            <tr key={`${matrix.sectionName}-${row.label}`}>
+                              <td data-label="Item">{row.label}</td>
+                              <td data-label="Attempted">{row.attemptedStudents}</td>
+                              <td data-label="Mastered">{row.masteredStudents}</td>
+                              <td data-label="Developing">{row.developingStudents}</td>
+                              <td data-label="Needs Support">{row.needsSupportStudents}</td>
+                              <td data-label="Support Students">{row.studentsNeedingSupport.join(", ") || "None"}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            )}
+          </div>
 
           <div className="teacher-report-card el-assessment-dashboard-section">
             <div className="admin-section-heading">
