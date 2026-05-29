@@ -27,7 +27,8 @@ export function FinishedReportPage({
   patternAssessment = [],
   exportLetterAssessment,
   exportPatternAssessment,
-  guidedReadingRecords = {}
+  guidedReadingRecords = {},
+  returnToTeacherDashboard
 }) {
   const latestCheckpointIndex = Math.max(
     -1,
@@ -53,6 +54,12 @@ export function FinishedReportPage({
         <button className="main-button" onClick={startAssessment}>
           Enter Full Screen Assessment
         </button>
+
+        {returnToTeacherDashboard && (
+          <button className="report-button" onClick={returnToTeacherDashboard} type="button">
+            Return to Teacher Dashboard
+          </button>
+        )}
 
         <button className="report-button" onClick={goToOverview}>
           Student Overview
@@ -218,6 +225,12 @@ export function FinishedReportPage({
         {patternAssessment.length > 0 && (
           <button className="report-button" onClick={exportPatternAssessment} type="button">
             Export Pattern Excel
+          </button>
+        )}
+
+        {returnToTeacherDashboard && (
+          <button className="report-button" onClick={returnToTeacherDashboard} type="button">
+            Return to Teacher Dashboard
           </button>
         )}
       </div>

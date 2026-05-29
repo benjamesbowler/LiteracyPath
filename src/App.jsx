@@ -6177,6 +6177,15 @@ export default function App() {
 
   }
 
+  function returnToTeacherDashboard() {
+    answerInFlightRef.current = false;
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setCheckpointDecision(null);
+    setShowReport(false);
+    setAppView("teacherDashboard");
+  }
+
   function continueCheckpointSkill() {
     const stageIndex = checkpointDecision?.skillIndex ?? currentSkillIndex;
     startAssessment(stageIndex);
@@ -6756,6 +6765,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           letterAssessment={letterAssessment}
           exportLetterAssessment={exportLetterAssessment}
           resetLetterAssessment={resetLetterAssessment}
+          returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
         />
       )}
 
@@ -6769,6 +6779,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           patternAssessment={patternAssessment}
           exportPatternAssessment={exportPatternAssessment}
           resetPatternAssessment={resetPatternAssessment}
+          returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
         />
       )}
 
@@ -6863,6 +6874,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             exportLetterAssessment={exportLetterAssessment}
             exportPatternAssessment={exportPatternAssessment}
             guidedReadingRecords={guidedReadingRecords}
+            returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
           />
         </Suspense>
       )}

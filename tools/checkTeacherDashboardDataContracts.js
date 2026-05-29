@@ -66,6 +66,18 @@ if (emptySummary.attempts !== 0) failures.push("Empty summary should have zero a
 if (summary.attempts !== 1 || summary.averageAccuracy !== 100) failures.push("Summary did not compute the sample attempt correctly.");
 if (!csv.includes("Sample Student") || !csv.includes("Final Sounds")) failures.push("CSV export is missing expected fields.");
 if (!appPagesSource.includes("Teacher Dashboard")) failures.push("Top navigation is missing visible Teacher Dashboard text.");
+if (!appPagesSource.includes("Return to Teacher Dashboard") && !adminDashboardSource.includes("Return to Teacher Dashboard")) {
+  failures.push("Assessment completion UI is missing Return to Teacher Dashboard text.");
+}
+if (!appSource.includes("function returnToTeacherDashboard()")) {
+  failures.push("App.jsx is missing the shared returnToTeacherDashboard handler.");
+}
+if (!appSource.includes('setAppView("teacherDashboard")')) {
+  failures.push("Return to Teacher Dashboard should navigate to the teacherDashboard app state.");
+}
+if (!appSource.includes("returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}")) {
+  failures.push("Teacher-facing completion screens should receive the teacher dashboard return handler.");
+}
 if (topNavigationSource.includes("goToReports") || topNavigationSource.includes(">Reports</button>")) {
   failures.push("Teacher Mode top navigation should not show a standalone Reports button.");
 }

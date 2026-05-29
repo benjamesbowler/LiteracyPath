@@ -4037,7 +4037,8 @@ export function AdvancedPhonicsPatternAssessmentPage({
   recordPatternResult,
   patternAssessment,
   exportPatternAssessment,
-  resetPatternAssessment
+  resetPatternAssessment,
+  returnToTeacherDashboard
 }) {
   const [soundCorrect, setSoundCorrect] = useState(false);
   const [wordCorrect, setWordCorrect] = useState(false);
@@ -4144,6 +4145,16 @@ export function AdvancedPhonicsPatternAssessmentPage({
             >
               Restart Pattern Assessment
             </button>
+
+            {returnToTeacherDashboard && (
+              <button
+                className="report-button"
+                onClick={returnToTeacherDashboard}
+                type="button"
+              >
+                Return to Teacher Dashboard
+              </button>
+            )}
           </div>
         </section>
       )}
@@ -4159,7 +4170,8 @@ export function LetterAssessmentPage({
   recordLetterResult,
   letterAssessment,
   exportLetterAssessment,
-  resetLetterAssessment
+  resetLetterAssessment,
+  returnToTeacherDashboard
 }) {
   const [knowsName, setKnowsName] = useState(false);
   const [knowsSound, setKnowsSound] = useState(false);
@@ -4260,6 +4272,16 @@ export function LetterAssessmentPage({
             >
               Restart Letter Assessment
             </button>
+
+            {returnToTeacherDashboard && (
+              <button
+                className="report-button"
+                onClick={returnToTeacherDashboard}
+                type="button"
+              >
+                Return to Teacher Dashboard
+              </button>
+            )}
           </div>
         </section>
       )}
@@ -4726,7 +4748,8 @@ export function FinishedReportPage({
   letterAssessment = [],
   patternAssessment = [],
   exportLetterAssessment,
-  exportPatternAssessment
+  exportPatternAssessment,
+  returnToTeacherDashboard
 }) {
   const latestCheckpointIndex = Math.max(
     -1,
@@ -4755,6 +4778,12 @@ export function FinishedReportPage({
         <button className="report-button" onClick={goToOverview}>
           Return to Dashboard
         </button>
+
+        {returnToTeacherDashboard && (
+          <button className="report-button" onClick={returnToTeacherDashboard} type="button">
+            Return to Teacher Dashboard
+          </button>
+        )}
 
         <button className="report-button" onClick={goToOverview}>
           Return to Menu
@@ -4909,6 +4938,12 @@ export function FinishedReportPage({
         {patternAssessment.length > 0 && (
           <button className="report-button" onClick={exportPatternAssessment} type="button">
             Export Pattern Excel
+          </button>
+        )}
+
+        {returnToTeacherDashboard && (
+          <button className="report-button" onClick={returnToTeacherDashboard} type="button">
+            Return to Teacher Dashboard
           </button>
         )}
       </div>
