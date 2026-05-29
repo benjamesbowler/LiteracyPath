@@ -1195,8 +1195,7 @@ export function AdminDashboardPage({
       { id: "guidedReading", label: "Guided Reading", count: guidedReadingInsight.active },
       { id: "assessmentProgress", label: "Assessment", count: assessmentHistory.length },
       { id: "hfw", label: "HFW", count: hfwAssessedCount },
-      { id: "exports", label: "Exports", count: null },
-      { id: "teacherTools", label: "Tools", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 }
+      { id: "exports", label: "Exports", count: null }
     ]
     : [
       { id: "overview", label: "Overview", count: null },
@@ -2049,7 +2048,7 @@ export function AdminDashboardPage({
       </section>
       )}
 
-      {((!isTeacherMode && activeSection === "assessmentAudio") || (isTeacherMode && activeSection === "teacherTools")) && (
+      {!isTeacherMode && activeSection === "assessmentAudio" && (
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Assessment Audio Coverage</h3>
         <p className="muted-text">

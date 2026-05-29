@@ -78,6 +78,15 @@ if (!adminDashboardSource.includes("aria-selected")) failures.push("Teacher Dash
 if (!adminDashboardSource.includes("teacher-section-select")) failures.push("Teacher Dashboard mobile section selector class is missing.");
 if (!adminDashboardSource.includes("teacher-scroll-panel")) failures.push("Teacher Dashboard long lists should use bounded scroll panels.");
 if (!adminDashboardSource.includes("el-report-control-column")) failures.push("EL report export controls should be grouped by report type.");
+if (adminDashboardSource.includes('id: "teacherTools"')) {
+  failures.push("Teacher Dashboard should not expose a technical Tools section.");
+}
+if (adminDashboardSource.includes('isTeacherMode && activeSection === "teacherTools"')) {
+  failures.push("Assessment Audio Coverage must not render in Teacher Dashboard mode.");
+}
+if (!adminDashboardSource.includes('!isTeacherMode && activeSection === "assessmentAudio"')) {
+  failures.push("Assessment Audio Coverage should remain available in Admin Dashboard only.");
+}
 requiredTeacherSections.forEach(([id, label]) => {
   if (!adminDashboardSource.includes(`id: "${id}"`)) {
     failures.push(`Teacher Dashboard section id is missing: ${id}.`);
