@@ -45,6 +45,51 @@ const SECTION_VISUALS = {
   teacherNotes: { icon: "Tip", color: "green", title: "Tips" }
 };
 
+const LEARN_IMAGE_BY_WORD = {
+  alligator: "/media/learn/images/cycle-01/alligator.png",
+  ant: "/media/learn/images/cycle-01/ant.png",
+  apple: "/media/learn/images/cycle-01/apple.png",
+  map: "/media/learn/images/cycle-01/map.png",
+  mat: "/media/learn/images/cycle-01/mat.png",
+  moon: "/media/learn/images/cycle-01/moon.png",
+  mouse: "/media/learn/images/cycle-01/mouse.png",
+  ball: "/media/learn/images/cycle-08/ball.png",
+  bag: "/media/initial-sounds/images/b/bag.webp",
+  bat: "/media/learn/images/cycle-08/bat.png",
+  bear: "/media/learn/images/cycle-08/bear.png",
+  bell: "/media/initial-sounds/images/b/bell.webp",
+  book: "/media/learn/images/cycle-08/book.png",
+  watch: "/media/learn/images/cycle-08/watch.png",
+  watermelon: "/media/learn/images/cycle-08/watermelon.png",
+  wave: "/media/vocabulary/images/wave.webp",
+  wig: "/media/initial-sounds/images/w/wig.webp",
+  wolf: "/media/learn/images/cycle-08/wolf.png",
+  chair: "/media/learn/images/cycle-15/chair.png",
+  cheese: "/media/learn/images/cycle-15/cheese.png",
+  chip: "/media/learn/images/cycle-15/chip.png",
+  shark: "/media/learn/images/cycle-15/shark.png",
+  sheep: "/media/learn/images/cycle-15/sheep.png",
+  ship: "/media/learn/images/cycle-15/ship.png",
+  shop: "/media/learn/images/cycle-15/shop.png",
+  teeth: "/media/learn/images/cycle-15/teeth.png",
+  thin: "/media/learn/images/cycle-15/thin.png",
+  three: "/media/learn/images/cycle-15/three-objects.png",
+  thumb: "/media/learn/images/cycle-15/thumb.png",
+  bang: "/media/learn/images/cycle-23/bang.png",
+  gong: "/media/learn/images/cycle-23/gong.png",
+  hang: "/media/learn/images/cycle-23/hang.png",
+  hung: "/media/learn/images/cycle-23/hung.png",
+  king: "/media/learn/images/cycle-23/king.png",
+  long: "/media/learn/images/cycle-23/long.png",
+  rang: "/media/learn/images/cycle-23/rang.png",
+  ring: "/media/learn/images/cycle-23/ring.png",
+  rung: "/media/learn/images/cycle-23/rung.png",
+  sang: "/media/learn/images/cycle-23/sang.png",
+  sing: "/media/learn/images/cycle-23/sing.png",
+  song: "/media/learn/images/cycle-23/song.png",
+  sung: "/media/learn/images/cycle-23/sung.png"
+};
+
 const CYCLE_GROUPS = [
   { id: "foundations", label: "BOY / Foundations", matcher: cycle => cycle.id === "boy-assessment" },
   { id: "cycles-1-4", label: "Cycles 1-4", matcher: cycle => cycle.cycleNumber >= 1 && cycle.cycleNumber <= 4 || cycle.id === "review-cycles-1-4" },
@@ -95,6 +140,30 @@ function getTeacherSoundCue(card = {}) {
   if (card.sound === "/ă/") return "short a as in apple";
   if (card.sound) return `${card.sound} as in ${(card.examples || [])[0] || card.spelling}`;
   return `pattern ${card.grapheme || card.spelling}`;
+}
+
+function getLessonGoalCards(cycle) {
+  const sounds = cycle.focusLetters.concat(cycle.reviewLetters)
+    .map(card => `${card.grapheme} ${getDisplaySound(card)}`.trim())
+    .filter(Boolean)
+    .slice(0, 4);
+  return [
+    cycle.childFriendlyGoal || (sounds.length ? `I can read ${sounds.join(" and ")}.` : "I can learn today's reading routine."),
+    sounds.length ? `Sound cards: ${sounds.join(", ")}` : "",
+    cycle.highFrequencyWords.length ? `Quick words: ${cycle.highFrequencyWords.slice(0, 3).join(", ")}` : ""
+  ].filter(Boolean);
+}
+
+function getLearnImageKey(value = "") {
+  const text = String(value).toLowerCase().trim();
+  if (!text) return "";
+  if (text.includes("=")) return text.split("=").pop().replace(/[^a-z-]+/g, "").replace(/-/g, "");
+  if (text.includes("->")) return text.split("->")[0].replace(/[^a-z-]+/g, "").replace(/-/g, "");
+  return text.replace(/[^a-z-]+/g, "").replace(/-/g, "");
+}
+
+function getLearnImageSrc(value = "") {
+  return LEARN_IMAGE_BY_WORD[getLearnImageKey(value)] || "";
 }
 
 function makeSoundSafariSlide(card, otherCard, index) {
@@ -205,17 +274,39 @@ function VisualBadge({ sectionId, label }) {
 }
 
 function LessonPictureCard({ word, sound, className = "" }) {
-  const letter = String(word || "").slice(0, 1).toUpperCase();
+  const text = String(word || "");
+  const letter = text.slice(0, 1).toUpperCase();
+  const imageSrc = getLearnImageSrc(text);
+  const isActionCard = /->|\+|=/.test(text);
+  const cardClassName = [
+    "learn-picture-card",
+    imageSrc ? "has-image" : "no-image",
+    isActionCard ? "action-card" : "",
+    className
+  ].filter(Boolean).join(" ");
   return (
-    <div className={`learn-picture-card ${className}`.trim()}>
-      {/* TODO: swap this placeholder for first-party Learn image assets once Kimi files are imported. */}
-      <div className="learn-picture-placeholder" aria-hidden="true">
-        <span>{letter}</span>
-      </div>
-      <b>{letter}</b>
-      <strong>{word}</strong>
+    <div className={cardClassName}>
+      {imageSrc ? (
+        <img alt="" aria-hidden="true" className="learn-picture-image" src={imageSrc} />
+      ) : (
+        <div className="learn-picture-placeholder" aria-hidden="true">
+          <span>{isActionCard ? "Build" : letter}</span>
+        </div>
+      )}
+      {!isActionCard && <b>{letter}</b>}
+      <strong>{text}</strong>
       {sound && <small>{sound}</small>}
     </div>
+  );
+}
+
+function ResourcePictureToken({ word }) {
+  const imageSrc = getLearnImageSrc(word);
+  return (
+    <span className={imageSrc ? "learn-resource-picture-token has-image" : "learn-resource-picture-token"} key={word}>
+      {imageSrc && <img alt="" aria-hidden="true" src={imageSrc} />}
+      <b>{word}</b>
+    </span>
   );
 }
 
@@ -467,7 +558,7 @@ function ClayMatPreview({ mat }) {
             <strong>{section.label}</strong>
             <div className="clay-outline" aria-hidden="true">{section.outline}</div>
             <div className="learn-picture-box-row">
-              {section.picturePrompts.map(prompt => <span key={`${section.label}-${prompt}`}>{prompt}</span>)}
+              {section.picturePrompts.map(prompt => <ResourcePictureToken key={`${section.label}-${prompt}`} word={prompt} />)}
             </div>
             <i className="handwriting-lines" aria-hidden="true"></i>
             <small>Write: {section.handwriting.join(", ")}</small>
@@ -491,7 +582,7 @@ function VocabularyMatPreview({ mat }) {
           <article className="learn-resource-panel" key={group.label}>
             <strong>{group.label}</strong>
             <div className="learn-picture-box-row">
-              {group.words.map(word => <span key={`${group.label}-${word}`}>{word}</span>)}
+              {group.words.map(word => <ResourcePictureToken key={`${group.label}-${word}`} word={word} />)}
             </div>
           </article>
         ))}
@@ -557,12 +648,12 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             <VisualBadge sectionId={game.id === "hfw-flash" ? "highFrequencyWords" : "rhyming"} />
             <strong>{game.title}</strong>
             <p>{game.prompt}</p>
-            {game.teacherInstruction && <small><b>Teacher:</b> {game.teacherInstruction}</small>}
-            {game.studentAction && <small><b>Students:</b> {game.studentAction}</small>}
             {game.baskets && <div className="learn-game-baskets">{game.baskets.map(basket => <span key={basket}>{basket}</span>)}</div>}
             <div className="learn-word-chip-row">{(game.cards || []).map(card => <b key={`${game.id}-${card}`}>{card}</b>)}</div>
             <details>
               <summary>Teacher Reveal</summary>
+              {game.teacherInstruction && <p><strong>Teacher move:</strong> {game.teacherInstruction}</p>}
+              {game.studentAction && <p><strong>Child action:</strong> {game.studentAction}</p>}
               <p>{game.answer}</p>
               {game.supportPrompt && <p><strong>Support:</strong> {game.supportPrompt}</p>}
               {game.challengePrompt && <p><strong>Challenge:</strong> {game.challengePrompt}</p>}
@@ -631,11 +722,12 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       );
     }
     if (slide.type === "targets") {
+      const lessonGoalCards = getLessonGoalCards(cycle);
       return (
         <article className="learn-deck-slide targets-slide">
           <h1>Today We Learn</h1>
           <div className="learn-slide-focus">
-            {(cycle.sections.overview.goals || []).slice(0, 3).map(goal => <span key={goal}>{goal}</span>)}
+            {lessonGoalCards.map(goal => <span key={goal}>{goal}</span>)}
           </div>
           <p className="learn-slide-tip">First sounds and patterns first. High-frequency words get their own quick practice.</p>
         </article>
@@ -653,10 +745,11 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
                 <strong>{word}</strong>
               </div>
             ))}
-            {cycle.phonemicAwareness.slice(0, 2).map(skill => (
-              <div className="learn-picture-card" key={`review-${skill}`}>
-                <span>Ear</span>
-                <strong>{skill}</strong>
+            {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 2).map(card => (
+              <div className="learn-picture-card" key={`review-${card.grapheme}-${card.sound}`}>
+                <span>Sound</span>
+                <strong>{card.grapheme}</strong>
+                <small>{getDisplaySound(card)}</small>
               </div>
             ))}
           </div>
@@ -670,8 +763,8 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           <div className="learn-slide-kicker">Meet {slide.card.grapheme} {displaySound}</div>
           <LetterCard card={slide.card} lessonMode />
           <div className="learn-slide-callout">
-            <strong>Teacher: My turn. Your turn.</strong>
-            <p>Children: Say {displaySound}. Touch the letter. Say it again.</p>
+            <strong>My turn. Your turn.</strong>
+            <p>Say {displaySound}. Touch the letter. Say it again.</p>
           </div>
         </article>
       );
@@ -690,22 +783,24 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       );
     }
     if (slide.type === "game") {
+      const gameCards = slide.game.cards || [];
+      const gameClassName = ["learn-deck-slide", "game-slide", gameCards.length > 8 ? "dense-game" : ""].filter(Boolean).join(" ");
       return (
-        <article className="learn-deck-slide game-slide" data-slide-type="game">
+        <article className={gameClassName} data-slide-type="game">
           <h1>{slide.game.title}</h1>
           <div className="learn-game-instruction">
             <p>{slide.game.prompt}</p>
-            {slide.game.teacherInstruction && <small><strong>Teacher:</strong> {slide.game.teacherInstruction}</small>}
-            {slide.game.studentAction && <small><strong>Students:</strong> {slide.game.studentAction}</small>}
           </div>
           {slide.game.baskets && <div className="learn-game-baskets large">{slide.game.baskets.map(basket => <span key={basket}>{basket}</span>)}</div>}
           <div className="learn-picture-card-grid card-row">
-            {(slide.game.cards || []).map(card => (
-              <LessonPictureCard key={card} word={card} />
+            {gameCards.map((card, cardIndex) => (
+              <LessonPictureCard key={`${slide.game.id || slide.id}-${card}-${cardIndex}`} word={card} />
             ))}
           </div>
           <details className="learn-teacher-reveal">
             <summary>Teacher Reveal</summary>
+            {slide.game.teacherInstruction && <p><strong>Teacher move:</strong> {slide.game.teacherInstruction}</p>}
+            {slide.game.studentAction && <p><strong>Child action:</strong> {slide.game.studentAction}</p>}
             <p>{slide.game.answer}</p>
             {slide.game.supportPrompt && <p>Support: {slide.game.supportPrompt}</p>}
             {slide.game.challengePrompt && <p>Challenge: {slide.game.challengePrompt}</p>}
@@ -718,7 +813,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
         <article className="learn-deck-slide video-slide">
           <h1>Teacher Video Search</h1>
           <p>No autoplay. No embedded copied videos. Open a teacher-controlled search only when useful.</p>
-          <div className="learn-video-grid">
+          <div className="learn-video-grid deck-video-searches">
             {(cycle.sections.videoResources || []).slice(0, 3).map(resource => (
               <a href={makeYouTubeQueryUrl(resource.query)} key={`deck-${resource.label}`} target="_blank" rel="noreferrer">
                 <VisualBadge sectionId="poemAndChant" />
@@ -737,7 +832,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           <div className="learn-poem deck-poem">
             {cycle.sections.poemAndChant.lines.map(line => <p key={line}>{line}</p>)}
           </div>
-          <p className="learn-slide-tip">{cycle.sections.poemAndChant.teacherTip || cycle.sections.poemAndChant.rhythm}</p>
+          <p className="learn-slide-tip">{cycle.sections.poemAndChant.rhythm}</p>
         </article>
       );
     }
@@ -752,10 +847,25 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       );
     }
     if (slide.type === "guidedReading") {
+      const books = [
+        ["Fiction", guidedReadingRecommendations.fiction],
+        ["Non-Fiction", guidedReadingRecommendations.nonfiction]
+      ].filter(([, recommendation]) => recommendation?.book);
       return (
         <article className="learn-deck-slide guided-reading-slide">
           <h1>Read This Week</h1>
-          {renderGuidedReadingRecommendations({ deck: true })}
+          <p>Choose one fiction book and one non-fiction book for small group reading.</p>
+          <div className="learn-guided-book-strip">
+            {books.map(([label, recommendation]) => (
+              <article key={label}>
+                <VisualBadge sectionId="decoding" label="Book" />
+                <span>{label}</span>
+                <strong>{recommendation.book.title}</strong>
+                <small>{formatGuidedReadingType(recommendation.type)} · {recommendation.book.level}</small>
+              </article>
+            ))}
+          </div>
+          {guidedReadingRecommendations.note && <p className="learn-slide-tip">{guidedReadingRecommendations.note}</p>}
         </article>
       );
     }
@@ -774,8 +884,16 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       return (
         <article className="learn-deck-slide worksheet-slide">
           <h1>Worksheet Time</h1>
-          <p>Choose a worksheet, print it, and practice with pencil, voice, and movement.</p>
-          <WorksheetGenerator cycle={cycle} compact />
+          <p>Print after the lesson. Practice with pencil, voice, and movement.</p>
+          <div className="learn-print-choice-grid">
+            {(cycle.sections.worksheets.templates || []).slice(0, 3).map(template => (
+              <article key={template}>
+                <VisualBadge sectionId="worksheets" />
+                <strong>{template}</strong>
+                <span>{makeWorksheetItems(cycle, template, 1)[0]}</span>
+              </article>
+            ))}
+          </div>
         </article>
       );
     }

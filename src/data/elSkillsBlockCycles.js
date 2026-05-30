@@ -212,11 +212,11 @@ const PRIORITY_CYCLE_CONTENT = {
         "A, a, apple,",
         "A, a, ant.",
         "M, m, mouse,",
-        "March, march, march.",
+        "M, m, moon.",
         "I am me.",
-        "I am Sam.",
+        "I am here.",
         "A and M,",
-        "I can say am."
+        "we can hear."
       ],
       callAndResponse: [
         { teacher: "What sound does A make?", students: "/ă/ /ă/ /ă/!" },
@@ -225,12 +225,12 @@ const PRIORITY_CYCLE_CONTENT = {
         { teacher: "Read this word: I.", students: "I!" }
       ]
     },
-    hfwSentences: { am: "I am Sam.", I: "I am me." },
+    hfwSentences: { am: "I am here.", I: "I am me." },
     games: [
       {
         id: "sound-safari",
         title: "Sound Safari",
-        prompt: "Find a word that starts with /ă/. Then find a word that starts with /m/.",
+        prompt: "First find /ă/. Then find /m/.",
         teacherInstruction: "Show four cards. Say one target sound. Children point before you reveal.",
         studentAction: "Point to the card, say the word, then repeat the first sound.",
         baskets: ["/ă/", "/m/"],
@@ -243,7 +243,7 @@ const PRIORITY_CYCLE_CONTENT = {
       {
         id: "letter-sort",
         title: "Letter Sort",
-        prompt: "Sort each picture into A/a or M/m.",
+        prompt: "Say the picture. Sort it under A/a or M/m.",
         teacherInstruction: "Place two basket labels on the board: A/a and M/m.",
         studentAction: "Say the picture word and place it under the matching first sound.",
         baskets: ["A/a", "M/m"],
@@ -256,7 +256,7 @@ const PRIORITY_CYCLE_CONTENT = {
       {
         id: "hfw-flash",
         title: "HFW Flash",
-        prompt: "Read am and I as whole words.",
+        prompt: "Read am. Read I. These are quick words.",
         teacherInstruction: "Flash one word. Children read, spell, skywrite, then read again.",
         studentAction: "Read the word, spell it with finger taps, and use it in the frame.",
         cards: ["am", "I", "I am"],
@@ -268,7 +268,7 @@ const PRIORITY_CYCLE_CONTENT = {
       {
         id: "beat-builder",
         title: "Beat Builder",
-        prompt: "Say the compound word. Take away the first part.",
+        prompt: "Say the big word. Take away the first part.",
         teacherInstruction: "Tap both word parts on two hands. Hide the first hand and ask what is left.",
         studentAction: "Say the whole word, tap two parts, then say the part left.",
         cards: ["sunshine -> shine", "rainbow -> bow", "cupcake -> cake"],
@@ -280,7 +280,7 @@ const PRIORITY_CYCLE_CONTENT = {
       {
         id: "writing-mission",
         title: "Writing Mission",
-        prompt: "Trace A/a, trace M/m, then write am and I.",
+        prompt: "Trace A/a. Trace M/m. Then write am and I.",
         teacherInstruction: "Model skywriting before pencil work.",
         studentAction: "Say the sound while tracing each letter. Read each HFW after writing.",
         cards: ["A", "a", "M", "m", "am", "I"],
@@ -344,12 +344,12 @@ const PRIORITY_CYCLE_CONTENT = {
     teacherGoal: "Students identify Bb /b/ and Ww /w/, practise HFW not and that, and listen for changes in teacher-led word chains.",
     cardDetails: {
       b: {
-        examples: ["bear", "ball", "bat", "book", "bag", "bell"],
+        examples: ["bear", "ball", "bat", "book"],
         articulation: "Put your lips together, then bounce them open for /b/.",
         teacherScript: "B says /b/. Bounce your lips open: /b/. Say bear, ball, bat, book."
       },
       w: {
-        examples: ["wolf", "watch", "watermelon", "wave", "web", "wig"],
+        examples: ["wolf", "watch", "watermelon", "wave"],
         articulation: "Round your lips like a tiny circle for /w/.",
         teacherScript: "W says /w/. Make your lips round: /w/. Say wolf, watch, watermelon, wave."
       }
@@ -361,10 +361,10 @@ const PRIORITY_CYCLE_CONTENT = {
       lines: [
         "B, b, bear,",
         "B, b, ball.",
-        "W, w, wave,",
-        "Big and tall.",
+        "W, w, wolf,",
+        "Watch it walk.",
         "Bear has a book.",
-        "Wolf has a hat.",
+        "Wolf has a watch.",
         "I can read not.",
         "I can read that."
       ],
@@ -418,24 +418,24 @@ const PRIORITY_CYCLE_CONTENT = {
       {
         id: "beat-builder",
         title: "Beat Builder",
-        prompt: "Say a CVC word. Take away the first sound.",
-        teacherInstruction: "This is oral onset deletion. Stretch the word, remove the first sound, and say what remains.",
-        studentAction: "Repeat the word, chop off the first sound with one hand, and say the rest.",
-        cards: ["bat -> at", "web -> eb", "wig -> ig"],
-        targetItems: ["bat", "web", "wig"],
-        answer: "bat without /b/ is at. web without /w/ is eb. wig without /w/ is ig.",
+        prompt: "Say the word. Take away the first sound.",
+        teacherInstruction: "This is oral onset deletion. Stretch the word, remove the first sound, and say the sound chunk left.",
+        studentAction: "Repeat the word, move the first sound away, and say what is left.",
+        cards: ["bat -> at", "bit -> it", "wag -> ag"],
+        targetItems: ["bat", "bit", "wag"],
+        answer: "bat without /b/ is at. bit without /b/ is it. wag without /w/ is ag.",
         supportPrompt: "Use sound boxes and counters.",
-        challengePrompt: "Try bag without /b/: ag."
+        challengePrompt: "Try web without /w/: eb."
       },
       {
         id: "word-chain",
         title: "Teacher-Led Word Chain",
-        prompt: "Listen for what changed: wit -> bit -> bat -> mat -> mad.",
+        prompt: "Listen for what changed: bat -> bit -> wit -> wig.",
         teacherInstruction: "Build one word at a time with letter cards. Ask: What changed?",
         studentAction: "Read with the teacher and name the changed sound or letter.",
-        cards: ["wit", "bit", "bat", "mat", "mad"],
-        targetItems: ["wit", "bit", "bat", "mat", "mad"],
-        answer: "w changed to b, i changed to a, b changed to m, t changed to d.",
+        cards: ["bat", "bit", "wit", "wig"],
+        targetItems: ["bat", "bit", "wit", "wig"],
+        answer: "a changed to i, b changed to w, and t changed to g.",
         supportPrompt: "Only compare two words at a time.",
         challengePrompt: "Students build the next teacher-given word with cards."
       },
@@ -454,15 +454,15 @@ const PRIORITY_CYCLE_CONTENT = {
     ],
     phonemicAwarenessItems: [
       { prompt: "Say bat. Take away /b/. What is left?", answer: "at" },
-      { prompt: "Say web. Take away /w/. What is left?", answer: "eb" },
-      { prompt: "Say wig. Take away /w/. What is left?", answer: "ig" }
+      { prompt: "Say bit. Take away /b/. What is left?", answer: "it" },
+      { prompt: "Say wag. Take away /w/. What is left?", answer: "ag" }
     ],
     rhymingItems: [["bat", "hat"], ["ball", "fall"], ["wig", "big"], ["book", "look"]],
     decoding: {
       note: "Use this chain as teacher-led review. Children listen for what changed and read with support.",
       chains: [
-        { start: "wit", steps: ["wit", "bit", "bat", "mat", "mad"] },
-        { start: "bat", steps: ["bat", "bag", "big", "wig"] },
+        { start: "bat", steps: ["bat", "bit", "wit", "wig"] },
+        { start: "book", steps: ["read book", "find /b/", "read wolf", "find /w/"] },
         { start: "not", steps: ["read not", "spell n o t", "read that", "use both words"] }
       ]
     },
@@ -479,7 +479,7 @@ const PRIORITY_CYCLE_CONTENT = {
       "Sort bear, ball, bat, book, wolf, watch, watermelon, wave.",
       "Read, trace, and write not.",
       "Read, trace, and write that.",
-      "Teacher-led chain: wit -> bit -> bat -> mat -> mad. Circle what changed.",
+      "Teacher-led chain: bat -> bit -> wit -> wig. Circle what changed.",
       "Draw one B word and one W word.",
       "Complete the frame: That is not __."
     ],
@@ -497,7 +497,7 @@ const PRIORITY_CYCLE_CONTENT = {
         { label: "Bb /b/ Words", words: ["bear", "ball", "bat", "book", "bag", "bell"] },
         { label: "Ww /w/ Words", words: ["wolf", "watch", "watermelon", "wave", "web", "wig"] },
         { label: "High-Frequency Words", words: ["not", "that"] },
-        { label: "Teacher-Led Chain", words: ["wit", "bit", "bat", "mat", "mad"] }
+        { label: "Teacher-Led Chain", words: ["bat", "bit", "wit", "wig"] }
       ]
     }
   },
@@ -589,9 +589,9 @@ const PRIORITY_CYCLE_CONTENT = {
         prompt: "Say a two-syllable word. Take away the first part.",
         teacherInstruction: "Tap two syllables and remove the first syllable orally.",
         studentAction: "Tap, remove, and say what remains.",
-        cards: ["sunset -> set", "pancake -> cake", "rabbit -> bit"],
-        targetItems: ["sunset", "pancake", "rabbit"],
-        answer: "sunset without sun is set. pancake without pan is cake. rabbit without rab is bit.",
+        cards: ["sunset -> set", "pancake -> cake", "rainbow -> bow"],
+        targetItems: ["sunset", "pancake", "rainbow"],
+        answer: "sunset without sun is set. pancake without pan is cake. rainbow without rain is bow.",
         supportPrompt: "Use two counters for two spoken parts.",
         challengePrompt: "Try toothbrush without tooth: brush."
       },
@@ -778,7 +778,7 @@ const PRIORITY_CYCLE_CONTENT = {
     phonemicAwarenessItems: [
       { prompt: "Say ring. Change /r/ to /s/. What word?", answer: "sing" },
       { prompt: "Say bang. Change /b/ to /r/. What word?", answer: "rang" },
-      { prompt: "Say toothbrush. Take away brush. What is left?", answer: "tooth" }
+      { prompt: "Say sung. Change /s/ to /h/. What word?", answer: "hung" }
     ],
     rhymingItems: [["ring", "sing"], ["king", "ring"], ["song", "long"], ["sung", "hung"]],
     decoding: {

@@ -6382,19 +6382,40 @@ select:focus {
 .learn-picture-box-row {
   display: grid;
   gap: 8px;
-  grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(94px, 1fr));
 }
 
-.learn-picture-box-row span {
+.learn-picture-box-row span,
+.learn-resource-picture-token {
   display: grid;
-  min-height: 58px;
-  place-items: end center;
+  min-height: 76px;
+  place-items: center;
   padding: 8px;
   border: 1px solid #111827;
   border-radius: 10px;
   background: #ffffff;
   color: #111827;
   font-weight: 900;
+  text-align: center;
+}
+
+.learn-resource-picture-token {
+  gap: 6px;
+  overflow: hidden;
+}
+
+.learn-resource-picture-token img {
+  width: 100%;
+  max-width: 96px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.learn-resource-picture-token b {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .worksheet-title {
@@ -6655,20 +6676,37 @@ select:focus {
   align-content: stretch;
   gap: 7px;
   min-height: 190px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .learn-lesson-player .game-slide .learn-picture-card {
-  grid-template-rows: 50px 24px auto;
-  min-height: 138px;
+  grid-template-rows: minmax(54px, 1fr) 24px auto;
+  min-height: 142px;
   padding: 8px;
 }
 
-.learn-lesson-player .game-slide .learn-picture-placeholder {
-  min-height: 50px;
+.learn-lesson-player .dense-game .learn-picture-card {
+  grid-template-rows: 44px 20px auto;
+  min-height: 110px;
+  padding: 6px;
+  gap: 4px;
+}
+
+.learn-lesson-player .game-slide .learn-picture-placeholder,
+.learn-lesson-player .game-slide .learn-picture-image {
+  min-height: 52px;
+  height: 52px;
+}
+
+.learn-lesson-player .dense-game .learn-picture-placeholder,
+.learn-lesson-player .dense-game .learn-picture-image {
+  min-height: 44px;
+  height: 44px;
 }
 
 .learn-lesson-player .game-slide .learn-picture-card strong {
-  font-size: clamp(1.25rem, 2.1vw, 1.8rem);
+  font-size: clamp(1.05rem, 1.65vw, 1.45rem);
 }
 
 .learn-lesson-player .game-slide .learn-picture-card > b {
@@ -6681,6 +6719,10 @@ select:focus {
   font-size: clamp(2.35rem, 4.5vw, 3.7rem);
 }
 
+.learn-lesson-player .dense-game h1 {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+}
+
 .learn-picture-placeholder {
   display: grid;
   width: 100%;
@@ -6689,6 +6731,13 @@ select:focus {
   border: 2px dashed #a7bdd0;
   border-radius: 12px;
   background: #ffffff;
+}
+
+.learn-picture-image {
+  display: block;
+  width: 100%;
+  height: 112px;
+  object-fit: contain;
 }
 
 .learn-picture-placeholder span,
@@ -6718,9 +6767,11 @@ select:focus {
 }
 
 .learn-picture-card strong {
+  max-width: 100%;
   color: #1A3A6B;
   font-size: var(--lesson-card-word-size);
   line-height: 1.05;
+  overflow-wrap: anywhere;
 }
 
 .learn-picture-card small {
@@ -6853,6 +6904,13 @@ select:focus {
   font-size: clamp(1.1rem, 2.4vw, 1.65rem);
 }
 
+.learn-lesson-player .dense-game .learn-game-baskets.large span {
+  min-width: 94px;
+  min-height: 36px;
+  padding: 6px 10px;
+  font-size: clamp(0.95rem, 1.7vw, 1.25rem);
+}
+
 .learn-teacher-reveal {
   width: min(100%, 900px);
   max-height: 38px;
@@ -6880,9 +6938,105 @@ select:focus {
 }
 
 .deck-poem {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px 18px;
   width: min(100%, 920px);
-  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  padding: 12px;
+  font-size: clamp(1.05rem, 1.95vw, 1.55rem);
+  line-height: 1.15;
   text-align: left;
+}
+
+.deck-poem p {
+  margin: 0;
+}
+
+.chant-slide .learn-slide-tip,
+.video-slide .learn-slide-tip,
+.guided-reading-slide .learn-slide-tip {
+  font-size: clamp(0.9rem, 1.55vw, 1.1rem);
+}
+
+.deck-video-searches {
+  width: min(100%, 1040px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.deck-video-searches a {
+  gap: 6px;
+  min-height: 126px;
+  padding: 10px;
+}
+
+.deck-video-searches a span,
+.deck-video-searches a small {
+  overflow-wrap: anywhere;
+}
+
+.learn-guided-book-strip,
+.learn-print-choice-grid {
+  display: grid;
+  width: min(100%, 1080px);
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.learn-guided-book-strip article,
+.learn-print-choice-grid article {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  min-height: 150px;
+  align-content: center;
+  justify-items: center;
+  padding: 14px;
+  border: 2px solid #d8e4ee;
+  border-radius: 14px;
+  background: #f8fbfd;
+  color: #1A3A6B;
+}
+
+.learn-guided-book-strip strong,
+.learn-print-choice-grid strong {
+  max-width: 100%;
+  color: #1A3A6B;
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.learn-guided-book-strip span,
+.learn-guided-book-strip small,
+.learn-print-choice-grid span {
+  max-width: 100%;
+  color: var(--lp-color-text-muted);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 850;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.learn-lesson-player .writing-slide .learn-writing-grid {
+  width: min(100%, 1080px);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 8px;
+}
+
+.learn-lesson-player .writing-slide .learn-writing-grid article {
+  gap: 5px;
+  min-height: 0;
+  padding: 10px;
+}
+
+.learn-lesson-player .writing-slide .learn-writing-grid article p {
+  font-size: clamp(0.95rem, 1.55vw, 1.2rem);
+  line-height: 1.15;
+}
+
+.learn-lesson-player .writing-slide .handwriting-lines {
+  height: 24px;
+  margin-top: 2px;
 }
 
 .hfw-slide strong {
