@@ -5887,6 +5887,53 @@ select:focus {
   gap: 10px;
 }
 
+.learn-child-path {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px;
+  border: 2px solid #bae6fd;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f0f9ff, #ffffff);
+}
+
+.learn-child-path article {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.learn-child-path article span {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 999px;
+  background: #0f766e;
+  color: #ffffff;
+  font-weight: 950;
+}
+
+.learn-child-path article strong {
+  color: #075985;
+  font-size: 1.1rem;
+}
+
+.learn-child-path article p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-weight: 800;
+}
+
+.learn-child-path .lp-button {
+  grid-column: 1 / -1;
+  width: fit-content;
+}
+
 .learn-daily-flow {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
@@ -6112,6 +6159,103 @@ select:focus {
   font-weight: 950;
 }
 
+.learn-guided-reading-week {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f0fdfa, #ffffff);
+}
+
+.learn-guided-reading-week.deck {
+  width: min(100%, 1100px);
+  text-align: left;
+}
+
+.learn-guided-book-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.learn-guided-book-card {
+  display: grid;
+  grid-template-columns: minmax(96px, 140px) minmax(0, 1fr);
+  gap: 14px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.learn-guided-book-card.empty {
+  grid-template-columns: 1fr;
+  background: #f8fafc;
+}
+
+.learn-guided-cover {
+  display: grid;
+  min-height: 138px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #dbeafe, #ecfeff);
+}
+
+.learn-guided-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.learn-guided-cover span {
+  color: #0f766e;
+  font-size: 3rem;
+  font-weight: 950;
+}
+
+.learn-guided-book-copy {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  align-content: start;
+}
+
+.learn-guided-book-copy > span,
+.learn-guided-book-copy small,
+.learn-guided-warning {
+  color: var(--lp-color-text-muted);
+  font-weight: 850;
+}
+
+.learn-guided-book-copy strong {
+  color: #0f766e;
+  font-size: 1.2rem;
+}
+
+.learn-guided-book-copy p {
+  margin: 0;
+}
+
+.learn-recommendation-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.learn-recommendation-tags b {
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
 .learn-game-card {
   background: linear-gradient(135deg, #ffffff, #f5f3ff);
 }
@@ -6182,6 +6326,73 @@ select:focus {
   border-radius: 18px;
   background: #ffffff;
   color: #111827;
+}
+
+.learn-print-resource-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.learn-resource-preview {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 18px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.learn-resource-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.learn-resource-panel {
+  display: grid;
+  gap: 10px;
+  min-height: 190px;
+  padding: 14px;
+  border: 2px solid #111827;
+  border-radius: 14px;
+  background: #ffffff;
+  break-inside: avoid;
+}
+
+.learn-resource-panel > strong {
+  font-size: 1.15rem;
+}
+
+.clay-outline {
+  display: grid;
+  min-height: 128px;
+  place-items: center;
+  border: 3px dashed #111827;
+  border-radius: 18px;
+  color: #111827;
+  font-family: var(--lp-font-reading);
+  font-size: clamp(3.2rem, 11vw, 6.5rem);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.learn-picture-box-row {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+}
+
+.learn-picture-box-row span {
+  display: grid;
+  min-height: 58px;
+  place-items: end center;
+  padding: 8px;
+  border: 1px solid #111827;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  font-weight: 900;
 }
 
 .worksheet-title {
@@ -6474,15 +6685,20 @@ select:focus {
   }
 
   .worksheet-preview,
-  .worksheet-preview * {
+  .worksheet-preview *,
+  .learn-resource-preview,
+  .learn-resource-preview * {
     visibility: visible;
   }
 
-  .worksheet-preview {
-    position: absolute;
-    inset: 0;
+  .worksheet-preview,
+  .learn-resource-preview {
     border: 0;
     box-shadow: none;
+  }
+
+  .worksheet-preview {
+    position: relative;
   }
 }
 
@@ -6529,20 +6745,27 @@ select:focus {
   .learn-letter-grid,
   .hfw-learn-grid,
   .learn-daily-flow,
+  .learn-child-path,
   .learn-call-response,
   .learn-tip-grid,
   .learn-chain-grid,
   .learn-writing-grid,
   .learn-game-grid,
   .learn-video-grid,
+  .learn-guided-book-grid,
   .learn-picture-card-grid,
   .learn-slide-focus,
+  .learn-resource-grid,
   .worksheet-item-grid,
   .worksheet-controls {
     grid-template-columns: 1fr;
   }
 
   .learn-letter-card {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-guided-book-card {
     grid-template-columns: 1fr;
   }
 

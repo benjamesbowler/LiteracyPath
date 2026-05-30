@@ -13,6 +13,9 @@ import {
 } from "../data/guidedReadingBooks.js";
 
 const WORKSHEET_TYPES = [
+  "cycle worksheet pack",
+  "clay mat",
+  "vocabulary mat",
   "letter tracing",
   "letter/sound matching",
   "circle the beginning sound",
@@ -113,11 +116,15 @@ function buildLessonSlides(cycle) {
   ]).filter(Boolean);
   const slides = [
     { id: "welcome", type: "title", title: `${cycle.title}: ${getCycleLearnTitle(cycle)}`, sectionId: "overview" },
+    { id: "targets", type: "targets", title: "Today We Learn", sectionId: "overview" },
+    { id: "quick-review", type: "review", title: "Quick Review", sectionId: "overview" },
     ...letterSlides,
     games[1] && { id: "letter-sort", type: "game", title: games[1].title, sectionId: "rhyming", game: games[1] },
     { id: "chant", type: "chant", title: cycle.sections.poemAndChant.title, sectionId: "poemAndChant" },
     ...hfwCards.slice(0, 3).map((card, index) => ({ id: `hfw-${index}`, type: "hfw", title: `High-Frequency Word: ${card.word}`, sectionId: "highFrequencyWords", card })),
     games[3] && { id: "beat-builder", type: "game", title: games[3].title, sectionId: "phonemicAwareness", game: games[3] },
+    games.find(game => game.id === "word-chain") && { id: "word-chain", type: "game", title: "Chaining / Word Building", sectionId: "decoding", game: games.find(game => game.id === "word-chain") },
+    { id: "video-search", type: "video", title: "Teacher Video Search", sectionId: "teacherNotes" },
     { id: "read-this-week", type: "guidedReading", title: "Read This Week", sectionId: "overview" },
     { id: "writing", type: "writing", title: "Writing Mission", sectionId: "writing" },
     { id: "worksheet", type: "worksheet", title: "Worksheet Time", sectionId: "worksheets" },
@@ -133,7 +140,19 @@ function makeWorksheetItems(cycle, worksheetType, count) {
   const hfw = cycle.highFrequencyWords || [];
   const paItems = cycle.sections.phonemicAwareness.practiceItems || [];
   const examples = letters.flatMap(card => card.examples || []);
+  const customTasks = cycle.sections.worksheets?.tasks?.[worksheetType] || [];
+  const clayTasks = (cycle.sections.clayMat?.sections || []).flatMap(section => [
+    `Clay build: ${section.outline}. Say ${section.label}.`,
+    `Picture check: ${section.picturePrompts.join(", ")}.`,
+    `Write on the line: ${section.handwriting.join(", ")}.`
+  ]);
+  const vocabularyTasks = (cycle.sections.vocabularyMat?.groups || []).flatMap(group => [
+    `${group.label}: read ${group.words.join(", ")}.`
+  ]);
   const baseItems = {
+    "cycle worksheet pack": customTasks,
+    "clay mat": clayTasks,
+    "vocabulary mat": vocabularyTasks,
     "letter tracing": letters.map(card => `Trace ${card.grapheme}. Write ${card.spelling}. Say ${card.sound || card.grapheme}.`),
     "letter/sound matching": letters.map(card => `Match ${card.grapheme} to ${card.sound || card.spelling}.`),
     "circle the beginning sound": examples.map(word => `Circle the first sound in ${word}.`),
@@ -396,6 +415,57 @@ function ChildLessonPath({ cycle, onStartLesson }) {
   );
 }
 
+function ClayMatPreview({ mat }) {
+  if (!mat) return null;
+  return (
+    <section className="learn-resource-preview clay-mat-preview" aria-label={mat.title}>
+      <div className="worksheet-title">
+        <strong>{mat.title}</strong>
+        <span>{mat.directions}</span>
+        <div className="worksheet-student-line">
+          <span>Name:</span>
+          <span>Date:</span>
+        </div>
+      </div>
+      <div className="learn-resource-grid">
+        {mat.sections.map(section => (
+          <article className="learn-resource-panel" key={section.label}>
+            <strong>{section.label}</strong>
+            <div className="clay-outline" aria-hidden="true">{section.outline}</div>
+            <div className="learn-picture-box-row">
+              {section.picturePrompts.map(prompt => <span key={`${section.label}-${prompt}`}>{prompt}</span>)}
+            </div>
+            <i className="handwriting-lines" aria-hidden="true"></i>
+            <small>Write: {section.handwriting.join(", ")}</small>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function VocabularyMatPreview({ mat }) {
+  if (!mat) return null;
+  return (
+    <section className="learn-resource-preview vocabulary-mat-preview" aria-label={mat.title}>
+      <div className="worksheet-title">
+        <strong>{mat.title}</strong>
+        <span>Read the word bank. Sort, say, and use the words with teacher support.</span>
+      </div>
+      <div className="learn-resource-grid">
+        {mat.groups.map(group => (
+          <article className="learn-resource-panel" key={group.label}>
+            <strong>{group.label}</strong>
+            <div className="learn-picture-box-row">
+              {group.words.map(word => <span key={`${group.label}-${word}`}>{word}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBook = null }) {
   const recommendedCycle = getRecommendedElSkillsBlockCycle({ assessmentSummary });
   const [selectedCycleId, setSelectedCycleId] = useState(recommendedCycle?.id || "cycle-1");
@@ -453,11 +523,15 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             <VisualBadge sectionId={game.id === "hfw-flash" ? "highFrequencyWords" : "rhyming"} />
             <strong>{game.title}</strong>
             <p>{game.prompt}</p>
+            {game.teacherInstruction && <small><b>Teacher:</b> {game.teacherInstruction}</small>}
+            {game.studentAction && <small><b>Students:</b> {game.studentAction}</small>}
             {game.baskets && <div className="learn-game-baskets">{game.baskets.map(basket => <span key={basket}>{basket}</span>)}</div>}
             <div className="learn-word-chip-row">{(game.cards || []).map(card => <b key={`${game.id}-${card}`}>{card}</b>)}</div>
             <details>
               <summary>Teacher Reveal</summary>
               <p>{game.answer}</p>
+              {game.supportPrompt && <p><strong>Support:</strong> {game.supportPrompt}</p>}
+              {game.challengePrompt && <p><strong>Challenge:</strong> {game.challengePrompt}</p>}
             </details>
           </article>
         ))}
@@ -522,6 +596,39 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
         </article>
       );
     }
+    if (slide.type === "targets") {
+      return (
+        <article className="learn-deck-slide targets-slide">
+          <h1>Today We Learn</h1>
+          <div className="learn-slide-focus">
+            {(cycle.sections.overview.goals || []).slice(0, 3).map(goal => <span key={goal}>{goal}</span>)}
+          </div>
+          <p className="learn-slide-tip">First sounds and patterns first. High-frequency words get their own quick practice.</p>
+        </article>
+      );
+    }
+    if (slide.type === "review") {
+      return (
+        <article className="learn-deck-slide review-slide">
+          <h1>Quick Review</h1>
+          <p>Read the cards we already know. Then get ready for today's new sound.</p>
+          <div className="learn-picture-card-grid">
+            {cycle.highFrequencyWords.slice(0, 4).map(word => (
+              <div className="learn-picture-card" key={`review-${word}`}>
+                <span>Word</span>
+                <strong>{word}</strong>
+              </div>
+            ))}
+            {cycle.phonemicAwareness.slice(0, 2).map(skill => (
+              <div className="learn-picture-card" key={`review-${skill}`}>
+                <span>Ear</span>
+                <strong>{skill}</strong>
+              </div>
+            ))}
+          </div>
+        </article>
+      );
+    }
     if (slide.type === "letter") {
       return (
         <article className="learn-deck-slide letter-slide">
@@ -557,7 +664,8 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           <VisualBadge sectionId="rhyming" />
           <h1>{slide.game.title}</h1>
           <p>{slide.game.prompt}</p>
-          <p className="learn-slide-tip">Children point first. Teacher reveals after everyone has a turn.</p>
+          {slide.game.teacherInstruction && <p className="learn-slide-tip">Teacher: {slide.game.teacherInstruction}</p>}
+          {slide.game.studentAction && <p className="learn-slide-tip">Students: {slide.game.studentAction}</p>}
           {slide.game.baskets && <div className="learn-game-baskets large">{slide.game.baskets.map(basket => <span key={basket}>{basket}</span>)}</div>}
           <div className="learn-picture-card-grid">
             {(slide.game.cards || []).map(card => (
@@ -570,7 +678,26 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           <details>
             <summary>Teacher Reveal</summary>
             <p>{slide.game.answer}</p>
+            {slide.game.supportPrompt && <p>Support: {slide.game.supportPrompt}</p>}
+            {slide.game.challengePrompt && <p>Challenge: {slide.game.challengePrompt}</p>}
           </details>
+        </article>
+      );
+    }
+    if (slide.type === "video") {
+      return (
+        <article className="learn-deck-slide video-slide">
+          <h1>Teacher Video Search</h1>
+          <p>No autoplay. No embedded copied videos. Open a teacher-controlled search only when useful.</p>
+          <div className="learn-video-grid">
+            {(cycle.sections.videoResources || []).slice(0, 3).map(resource => (
+              <a href={makeYouTubeQueryUrl(resource.query)} key={`deck-${resource.label}`} target="_blank" rel="noreferrer">
+                <VisualBadge sectionId="poemAndChant" />
+                <span>{resource.label}</span>
+                <small>{resource.query}</small>
+              </a>
+            ))}
+          </div>
         </article>
       );
     }
@@ -837,8 +964,12 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             <VisualBadge sectionId="worksheets" />
             <div>
               <h4>Worksheet Generator</h4>
-              <p>Create printable cycle practice from the selected cycle content.</p>
+              <p>Create printable cycle practice, clay mats, and vocabulary mats from the selected cycle content.</p>
             </div>
+          </div>
+          <div className="learn-print-resource-stack">
+            <ClayMatPreview mat={cycle.sections.clayMat} />
+            <VocabularyMatPreview mat={cycle.sections.vocabularyMat} />
           </div>
           <WorksheetGenerator cycle={cycle} compact={lessonMode} />
         </div>
