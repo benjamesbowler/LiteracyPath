@@ -6,6 +6,11 @@ import {
   getElSkillsBlockCycle,
   getRecommendedElSkillsBlockCycle
 } from "../data/elSkillsBlockCycles.js";
+import {
+  formatGuidedReadingType,
+  guidedReadingBooks,
+  normalizeGuidedReadingType
+} from "../data/guidedReadingBooks.js";
 
 const WORKSHEET_TYPES = [
   "letter tracing",
@@ -78,23 +83,42 @@ function getCycleLearnTitle(cycle) {
   return focus ? `${focus} Sound Safari` : `${cycle.title} Learning`;
 }
 
+function makeSoundSafariSlide(card, otherCard, index) {
+  if (!card) return null;
+  const targetWords = (card.examples || []).slice(0, 3);
+  const distractors = (otherCard?.examples || []).slice(0, 2);
+  const cards = [...targetWords.slice(0, 2), ...distractors].filter(Boolean);
+  return {
+    id: `sound-safari-${index}`,
+    type: "game",
+    title: `${card.sound || card.grapheme} Sound Safari`,
+    sectionId: "rhyming",
+    game: {
+      title: `${card.sound || card.grapheme} Sound Safari`,
+      prompt: `Point to words that start with ${card.sound || card.grapheme}.`,
+      cards,
+      answer: targetWords.slice(0, 2).join(", ")
+    }
+  };
+}
+
 function buildLessonSlides(cycle) {
   const cards = cycle.sections.letterLearning.cards || [];
   const hfwCards = cycle.sections.highFrequencyWords.cards || [];
   const games = cycle.sections.games || [];
-  const firstCard = cards[0];
-  const secondCard = cards[1];
+  const letterSlides = cards.slice(0, 3).flatMap((card, index) => [
+    { id: `letter-${index + 1}`, type: "letter", title: `Meet ${card.grapheme}`, sectionId: "letterLearning", card },
+    { id: `examples-${index + 1}`, type: "examples", title: `${card.grapheme} picture words`, sectionId: "letterLearning", card },
+    makeSoundSafariSlide(card, cards.find((item, itemIndex) => itemIndex !== index), index + 1)
+  ]).filter(Boolean);
   const slides = [
     { id: "welcome", type: "title", title: `${cycle.title}: ${getCycleLearnTitle(cycle)}`, sectionId: "overview" },
-    firstCard && { id: "letter-1", type: "letter", title: `${firstCard.grapheme} says ${firstCard.sound}`, sectionId: "letterLearning", card: firstCard },
-    firstCard && { id: "examples-1", type: "examples", title: `${firstCard.grapheme} words`, sectionId: "letterLearning", card: firstCard },
-    games[0] && { id: "game-1", type: "game", title: games[0].title, sectionId: "rhyming", game: games[0] },
-    secondCard && { id: "letter-2", type: "letter", title: `${secondCard.grapheme} says ${secondCard.sound}`, sectionId: "letterLearning", card: secondCard },
-    secondCard && { id: "examples-2", type: "examples", title: `${secondCard.grapheme} words`, sectionId: "letterLearning", card: secondCard },
-    games[1] && { id: "game-2", type: "game", title: games[1].title, sectionId: "rhyming", game: games[1] },
+    ...letterSlides,
+    games[1] && { id: "letter-sort", type: "game", title: games[1].title, sectionId: "rhyming", game: games[1] },
     { id: "chant", type: "chant", title: cycle.sections.poemAndChant.title, sectionId: "poemAndChant" },
     ...hfwCards.slice(0, 3).map((card, index) => ({ id: `hfw-${index}`, type: "hfw", title: `High-Frequency Word: ${card.word}`, sectionId: "highFrequencyWords", card })),
-    games[2] && { id: "pa-game", type: "game", title: games[2].title, sectionId: "phonemicAwareness", game: games[2] },
+    games[3] && { id: "beat-builder", type: "game", title: games[3].title, sectionId: "phonemicAwareness", game: games[3] },
+    { id: "read-this-week", type: "guidedReading", title: "Read This Week", sectionId: "overview" },
     { id: "writing", type: "writing", title: "Writing Mission", sectionId: "writing" },
     { id: "worksheet", type: "worksheet", title: "Worksheet Time", sectionId: "worksheets" },
     { id: "celebrate", type: "celebrate", title: "Great learning!", sectionId: "overview" }
@@ -284,7 +308,95 @@ function getGroupedCycles(cycles) {
   })).filter(group => group.cycles.length);
 }
 
-export function LearnAreaPage({ assessmentSummary = null }) {
+function getRecommendationBook(recommendation) {
+  if (!recommendation?.bookId) return null;
+  return guidedReadingBooks.find(book => book.id === recommendation.bookId) || null;
+}
+
+function getBookCover(book) {
+  return book?.coverImage || book?.cover || book?.coverUrl || "";
+}
+
+function GuidedReadingRecommendationCard({ label, recommendation, onOpenGuidedReadingBook }) {
+  const book = getRecommendationBook(recommendation);
+
+  if (!recommendation) {
+    return (
+      <article className="learn-guided-book-card empty">
+        <span>{label}</span>
+        <strong>No strong match yet</strong>
+        <p>Needs future guided-reading book.</p>
+      </article>
+    );
+  }
+
+  const cover = getBookCover(book);
+  const typeLabel = formatGuidedReadingType(normalizeGuidedReadingType(book?.type || recommendation.type));
+  return (
+    <article className="learn-guided-book-card">
+      <div className="learn-guided-cover" aria-hidden="true">
+        {cover ? <img alt="" src={cover} /> : <span>{typeLabel.slice(0, 1)}</span>}
+      </div>
+      <div className="learn-guided-book-copy">
+        <span>{label}</span>
+        <strong>{book?.title || recommendation.title || "Guided Reading book"}</strong>
+        <small>Level {book?.level || recommendation.level || "TBD"} · {typeLabel}</small>
+        <p>{recommendation.reason}</p>
+        <div className="learn-recommendation-tags">
+          {(recommendation.skillConnections || []).slice(0, 4).map(item => <b key={`skill-${item}`}>{item}</b>)}
+          {(recommendation.hfwConnections || []).slice(0, 4).map(item => <b key={`hfw-${item}`}>{item}</b>)}
+          {(recommendation.patternConnections || []).slice(0, 4).map(item => <b key={`pattern-${item}`}>{item}</b>)}
+        </div>
+        {book ? (
+          <button className="lp-button lp-button-primary" onClick={() => onOpenGuidedReadingBook?.(book.id)} type="button">
+            Open Book
+          </button>
+        ) : (
+          <p className="learn-guided-warning">Book registry match missing. Review this recommendation.</p>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function ChildLessonPath({ cycle, onStartLesson }) {
+  const focusCards = cycle.sections.letterLearning.cards || [];
+  const hfwWords = cycle.highFrequencyWords || [];
+  return (
+    <section className="learn-child-path" aria-label="Child lesson path">
+      <article>
+        <span>1</span>
+        <strong>Look</strong>
+        <p>{focusCards.length ? `Meet ${focusCards.map(card => card.grapheme).slice(0, 3).join(" and ")}.` : "Look at today's review cards."}</p>
+      </article>
+      <article>
+        <span>2</span>
+        <strong>Say</strong>
+        <p>{focusCards.length ? `Say ${focusCards.map(card => card.sound || card.grapheme).slice(0, 3).join(" and ")}.` : "Say the review sounds."}</p>
+      </article>
+      <article>
+        <span>3</span>
+        <strong>Play</strong>
+        <p>Point, sort, clap, and answer with your teacher.</p>
+      </article>
+      <article>
+        <span>4</span>
+        <strong>Read</strong>
+        <p>{hfwWords.length ? `Read ${hfwWords.slice(0, 3).join(", ")} and this week's books.` : "Read this week's books."}</p>
+      </article>
+      <article>
+        <span>5</span>
+        <strong>Write</strong>
+        <p>Sky-write first. Then pencil-write on the line.</p>
+      </article>
+      <button className="lp-button lp-button-primary" onClick={onStartLesson} type="button">
+        Start Child Lesson Path
+      </button>
+    </section>
+  );
+}
+
+export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBook = null }) {
   const recommendedCycle = getRecommendedElSkillsBlockCycle({ assessmentSummary });
   const [selectedCycleId, setSelectedCycleId] = useState(recommendedCycle?.id || "cycle-1");
   const [activeSection, setActiveSection] = useState("overview");
@@ -301,6 +413,7 @@ export function LearnAreaPage({ assessmentSummary = null }) {
   const lessonSlides = useMemo(() => buildLessonSlides(cycle), [cycle]);
   const lessonSlide = lessonSlides[lessonSlideIndex] || lessonSlides[0];
   const youtubeSearchUrl = makeYouTubeSearchUrl(cycle);
+  const guidedReadingRecommendations = cycle.guidedReadingRecommendations || {};
 
   useEffect(() => {
     if (!isLessonMode) return undefined;
@@ -367,27 +480,56 @@ export function LearnAreaPage({ assessmentSummary = null }) {
     );
   }
 
+  function renderGuidedReadingRecommendations({ deck = false } = {}) {
+    return (
+      <section className={deck ? "learn-guided-reading-week deck" : "learn-guided-reading-week"} aria-label="Guided Reading This Week">
+        <div className="learn-section-heading">
+          <VisualBadge sectionId="decoding" label="Book" />
+          <div>
+            <h4>Guided Reading This Week</h4>
+            <p>Read one fiction and one non-fiction book this week. Listen for our cycle sounds and words.</p>
+          </div>
+        </div>
+        <div className="learn-guided-book-grid">
+          <GuidedReadingRecommendationCard
+            label="Fiction Book"
+            onOpenGuidedReadingBook={onOpenGuidedReadingBook}
+            recommendation={guidedReadingRecommendations.fiction}
+          />
+          <GuidedReadingRecommendationCard
+            label="Non-Fiction Book"
+            onOpenGuidedReadingBook={onOpenGuidedReadingBook}
+            recommendation={guidedReadingRecommendations.nonfiction}
+          />
+        </div>
+        {guidedReadingRecommendations.note && <p className="learn-guided-warning">{guidedReadingRecommendations.note}</p>}
+      </section>
+    );
+  }
+
   function renderLessonSlide(slide) {
     if (!slide) return null;
     if (slide.type === "title") {
       return (
         <article className="learn-deck-slide title-slide">
           <VisualBadge sectionId="overview" label={cycle.cycleNumber ? String(cycle.cycleNumber) : "Go"} />
-          <p>Today we learn</p>
+          <p>Eyes up. Voices ready.</p>
           <h1>{slide.title}</h1>
           <div className="learn-slide-focus">
             {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 4).map(card => <span key={`${card.grapheme}-${card.sound}`}>{card.grapheme} {card.sound}</span>)}
           </div>
+          <p className="learn-slide-tip">We will see it, say it, find it, play it, read it, and write it.</p>
         </article>
       );
     }
     if (slide.type === "letter") {
       return (
         <article className="learn-deck-slide letter-slide">
+          <p>Meet the sound</p>
           <LetterCard card={slide.card} lessonMode />
           <div className="learn-slide-callout">
-            <strong>My turn. Your turn.</strong>
-            <p>Say the sound. Keep it short and clean.</p>
+            <strong>Teacher: My turn. Your turn.</strong>
+            <p>Children: Say {slide.card.sound || slide.card.grapheme}. Touch the letter. Say it again.</p>
           </div>
         </article>
       );
@@ -396,6 +538,7 @@ export function LearnAreaPage({ assessmentSummary = null }) {
       return (
         <article className="learn-deck-slide examples-slide">
           <h1>{slide.title}</h1>
+          <p>Say the word. Stretch the first sound. Touch the picture card.</p>
           <div className="learn-picture-card-grid">
             {(slide.card.examples || []).slice(0, 6).map(word => (
               <div className="learn-picture-card" key={word}>
@@ -414,6 +557,7 @@ export function LearnAreaPage({ assessmentSummary = null }) {
           <VisualBadge sectionId="rhyming" />
           <h1>{slide.game.title}</h1>
           <p>{slide.game.prompt}</p>
+          <p className="learn-slide-tip">Children point first. Teacher reveals after everyone has a turn.</p>
           {slide.game.baskets && <div className="learn-game-baskets large">{slide.game.baskets.map(basket => <span key={basket}>{basket}</span>)}</div>}
           <div className="learn-picture-card-grid">
             {(slide.game.cards || []).map(card => (
@@ -444,10 +588,18 @@ export function LearnAreaPage({ assessmentSummary = null }) {
     if (slide.type === "hfw") {
       return (
         <article className="learn-deck-slide hfw-slide">
-          <p>Quick Word</p>
+          <p>Quick word. Read it as a whole word.</p>
           <strong>{slide.card.word}</strong>
           <span>{slide.card.spellIt}</span>
-          <small>{slide.card.sentence}</small>
+          <small>{slide.card.sentence} Read it. Spell it. Clap it. Write it in the air.</small>
+        </article>
+      );
+    }
+    if (slide.type === "guidedReading") {
+      return (
+        <article className="learn-deck-slide guided-reading-slide">
+          <h1>Read This Week</h1>
+          {renderGuidedReadingRecommendations({ deck: true })}
         </article>
       );
     }
@@ -455,6 +607,7 @@ export function LearnAreaPage({ assessmentSummary = null }) {
       return (
         <article className="learn-deck-slide writing-slide">
           <h1>Writing Mission</h1>
+          <p>Say it, sky-write it, then write it on the line.</p>
           <div className="learn-writing-grid">
             {cycle.sections.writing.formationPractice.slice(0, 4).map((item, index) => <article key={item}><span>{index + 1}</span><p>{item}</p><i className="handwriting-lines" aria-hidden="true"></i></article>)}
           </div>
@@ -497,6 +650,7 @@ export function LearnAreaPage({ assessmentSummary = null }) {
             <article><VisualBadge sectionId="decoding" /><strong>Routines</strong><p>{listText(cycle.routines)}</p></article>
           </div>
           <h5>Daily Flow</h5>
+          <ChildLessonPath cycle={cycle} onStartLesson={() => openLesson()} />
           <div className="learn-daily-flow">
             {cycle.dailyFlow.map(day => (
               <article key={`${day.day}-${day.focus}`}>
@@ -508,6 +662,7 @@ export function LearnAreaPage({ assessmentSummary = null }) {
           </div>
           <h5>Quick Games</h5>
           {renderGameCards()}
+          {renderGuidedReadingRecommendations()}
           <h5>Video Resources</h5>
           {renderVideoResources()}
         </div>

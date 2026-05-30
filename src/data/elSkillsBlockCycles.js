@@ -79,6 +79,75 @@ const FORMATION = {
   }
 };
 
+const GUIDED_READING_FICTION_SEQUENCE = [
+  { bookId: "bob-and-nan-01", title: "Bob and Nan", level: "A" },
+  { bookId: "bob-and-nan-03-fluff", title: "Bob, Nan and Fluff", level: "A" },
+  { bookId: "bob-and-nan-02-park", title: "Bob and Nan go to the Park", level: "A" },
+  { bookId: "bob-and-nan-06-zoo", title: "Nan and Bob go to the Zoo", level: "A" },
+  { bookId: "james-and-anna-02-chips", title: "James and Anna and Chips", level: "B" },
+  { bookId: "james-and-anna-05-tree-house", title: "James and Anna build a Tree House", level: "B" },
+  { bookId: "ja-b-06", title: "James and Anna visit Grandma's Farm", level: "B" },
+  { bookId: "ja-b-09", title: "James and Anna's New Bikes", level: "B" },
+  { bookId: "dino-pals-15-sneezy-and-the-waterfall", title: "Sneezy and the Waterfall", level: "B" },
+  { bookId: "moonwood-tales-c-01", title: "Moonwood Tales 1", level: "C" },
+  { bookId: "ab-c-01", title: "Aiden and Betty Start Grade 1", level: "C" },
+  { bookId: "moonwood-tales-c-05", title: "Moonwood Tales 5", level: "C" }
+];
+
+const GUIDED_READING_NONFICTION_SEQUENCE = [
+  { bookId: "first-facts-level-a-13-fruit", title: "Fruit", level: "A" },
+  { bookId: "first-facts-level-a-08-my-pet", title: "My Pet", level: "A" },
+  { bookId: "first-facts-level-a-11-at-the-farm", title: "At the Farm", level: "A" },
+  { bookId: "first-facts-level-a-07-bugs", title: "Bugs", level: "A" },
+  { bookId: "first-facts-level-a-05-the-sky", title: "The Sky", level: "A" },
+  { bookId: "first-facts-level-a-01-colors", title: "Colors", level: "A" },
+  { bookId: "first-facts-level-a-06-animals-can", title: "Animals Can!", level: "A" },
+  { bookId: "first-facts-level-a-17-a-seed-grows", title: "A Seed Grows", level: "A" },
+  { bookId: "gr-a-27", title: "Day and Night", level: "B" },
+  { bookId: "gr-a-26", title: "What Is a Map?", level: "B" },
+  { bookId: "gr-b-31", title: "Animal Homes", level: "B" },
+  { bookId: "gr-c-37", title: "How Seeds Travel", level: "C" }
+];
+
+function selectGuidedReadingBook(sequence, cycleNumber) {
+  if (!cycleNumber) return sequence[0] || null;
+  const index = Math.min(sequence.length - 1, Math.max(0, Math.floor((cycleNumber - 1) / 3)));
+  return sequence[index] || null;
+}
+
+function makeGuidedReadingRecommendation(book, type, seed, focusLetters) {
+  if (!book) return null;
+  const skillConnections = focusLetters
+    .map(card => `${card.grapheme} ${card.sound || ""}`.trim())
+    .filter(Boolean);
+  const hfwConnections = seed.highFrequencyWords || [];
+  const patternConnections = focusLetters.map(card => card.spelling).filter(Boolean);
+  const focusLabel = skillConnections.length ? skillConnections.slice(0, 3).join(", ") : "review routines";
+  return {
+    bookId: book.bookId,
+    title: book.title,
+    level: book.level,
+    type,
+    reason: type === "fiction"
+      ? `A ${book.level}-level fiction read that gives students story language while listening for ${focusLabel}.`
+      : `A ${book.level}-level non-fiction read that builds knowledge and gives students a real-world reason to listen for ${focusLabel}.`,
+    skillConnections,
+    hfwConnections,
+    patternConnections,
+    imageQaStatus: "not_flagged"
+  };
+}
+
+function makeGuidedReadingRecommendations(seed, focusLetters) {
+  const fiction = selectGuidedReadingBook(GUIDED_READING_FICTION_SEQUENCE, seed.cycleNumber);
+  const nonfiction = selectGuidedReadingBook(GUIDED_READING_NONFICTION_SEQUENCE, seed.cycleNumber);
+  return {
+    fiction: makeGuidedReadingRecommendation(fiction, "fiction", seed, focusLetters),
+    nonfiction: makeGuidedReadingRecommendation(nonfiction, "nonfiction", seed, focusLetters),
+    note: fiction && nonfiction ? "" : "No strong match yet. Needs future guided-reading book."
+  };
+}
+
 const CYCLE_SEEDS = [
   { id: "boy-assessment", title: "BOY Assessment", type: "assessment", phase: "baseline", focusLetters: [], highFrequencyWords: [], phonemicAwareness: ["Letter Identification", "Phonological and Phonemic Awareness"], routines: ["NWEA MAP BOY", "Use results to assign small group and individual work cycles"], friday: "Benchmark planning" },
   { cycleNumber: 1, phase: "early-letter-sound", focusLetters: [["Aa", "/ă/", "a", "Monday"], ["Mm", "/m/", "m", "Tuesday"]], highFrequencyWords: ["am", "I"], phonemicAwareness: ["Delete the first part of compound words", "Rhyming recognition"], friday: "Cycle Practice" },
@@ -147,10 +216,10 @@ function makeLetterCard(card) {
     ...card,
     examples,
     articulation: card.sound
-      ? `Say ${card.sound}. Notice what your mouth, tongue, and breath do. Keep the sound short and clean.`
+      ? `Say ${card.sound}. Keep it short and clean.`
       : "Say the pattern smoothly and connect it to familiar words.",
-    childExplanation: `${card.grapheme} helps us read and write words. We say it, hear it, trace it, and use it in a word.`,
-    teacherScript: `Point to ${card.grapheme}. Say: My turn, ${card.sound || card.grapheme}. Your turn. Touch the spelling ${card.spelling}. Let's find it in a word.`,
+    childExplanation: `${card.grapheme} says ${card.sound || card.grapheme}. We can hear it, say it, and find it in words.`,
+    teacherScript: `Point to ${card.grapheme}. Say: My turn, ${card.sound || card.grapheme}. Your turn. Touch ${card.spelling}. Find a word that starts with it.`,
     formation: [formation.upper, formation.lower]
   };
 }
@@ -255,10 +324,10 @@ function makePhonemicAwareness(seed) {
     : deletionItems;
   return {
     focus,
-    teacherWording: `Today we will listen carefully to word parts. I will say a word, then we will take away or change one part and say what is left.`,
+    teacherWording: "Listen. Say the whole word. Take away one part. Say what is left.",
     practiceItems: items,
-    supportPrompt: "Use two hand motions: one hand for the first part, one hand for the second part. Hide the part that is removed.",
-    challengePrompt: "Ask children to make a new example for a partner after they answer."
+    supportPrompt: "Hold up two hands for two word parts. Put one hand down when that part goes away.",
+    challengePrompt: "Let a child be the teacher and give the next word."
   };
 }
 
@@ -484,6 +553,7 @@ function buildCycle(seed) {
     phonemicAwareness: seed.phonemicAwareness || [],
     routines: seed.routines || ["Fluency", "Call and Response", "Feel the Beat", "Chaining"],
     friday: seed.friday || "Cycle Practice",
+    guidedReadingRecommendations: makeGuidedReadingRecommendations(seed, allFocus),
     dailyFlow: makeDailyFlow(seed, allFocus),
     sections: buildSections({ ...seed, title }, allFocus),
     searchText: [

@@ -62,6 +62,16 @@ elSkillsBlockCycles.forEach(cycle => {
   if (!Array.isArray(cycle.phonemicAwareness) || cycle.phonemicAwareness.length === 0) {
     failures.push(`${cycle.id} is missing phonemicAwareness focus.`);
   }
+  if (!cycle.guidedReadingRecommendations) {
+    failures.push(`${cycle.id} is missing guidedReadingRecommendations.`);
+  } else {
+    ["fiction", "nonfiction"].forEach(kind => {
+      const recommendation = cycle.guidedReadingRecommendations[kind];
+      if (recommendation && !recommendation.bookId) {
+        failures.push(`${cycle.id} ${kind} Guided Reading recommendation is missing a bookId.`);
+      }
+    });
+  }
   if (!cycle.sections) {
     failures.push(`${cycle.id} is missing sections.`);
     return;
@@ -124,7 +134,15 @@ if (!cycle1?.searchText.includes("compound") || !cycle1?.searchText.includes("rh
   "learn-hfw-card",
   "learn-video-resource",
   "learn-game-card",
-  "worksheet-task-card"
+  "worksheet-task-card",
+  "Guided Reading This Week",
+  "Read This Week",
+  "learn-guided-reading-week",
+  "learn-guided-book-card",
+  "Fiction Book",
+  "Non-Fiction Book",
+  "Open Book",
+  "onOpenGuidedReadingBook"
 ].forEach(needle => {
   includes(learnSource, needle, `LearnAreaPage is missing ${needle}.`);
 });
@@ -142,6 +160,9 @@ if (!cycle1?.searchText.includes("compound") || !cycle1?.searchText.includes("rh
   ".learn-game-card",
   ".learn-video-grid",
   ".worksheet-task-card",
+  ".learn-guided-reading-week",
+  ".learn-guided-book-grid",
+  ".learn-guided-book-card",
   ".worksheet-preview",
   "@media (max-width: 760px)"
 ].forEach(needle => {
