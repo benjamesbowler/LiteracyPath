@@ -2110,6 +2110,8 @@ export function GuidedReadingPage({
   guidedReadingRecords = {},
   saveGuidedReadingRecord,
   speakText,
+  launchBookId = "",
+  onLaunchBookHandled = null,
   returnToElAssessments,
   viewReports
 }) {
@@ -2168,6 +2170,24 @@ export function GuidedReadingPage({
   const allPagesHaveAudio = Boolean(selectedBook?.pages?.length) &&
     selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
   const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
+
+  useEffect(() => {
+    if (!launchBookId) return;
+    const launchedBook = runtimeGuidedReadingBooks.find(book => book.id === launchBookId);
+    if (!launchedBook) {
+      onLaunchBookHandled?.();
+      return;
+    }
+    setSelectedBookId(launchedBook.id);
+    setSelectedLibraryType(normalizeGuidedReadingType(launchedBook.type));
+    setSelectedLibraryLevel(launchedBook.level || "");
+    setPageIndex(0);
+    setShowSummary(false);
+    setReaderOpen(true);
+    setReadingMode("reading");
+    onLaunchBookHandled?.();
+  }, [launchBookId, onLaunchBookHandled, runtimeGuidedReadingBooks]);
+
   const recommendedBooks = recommendBooksForStudent({
     books: runtimeGuidedReadingBooks,
     studentProgress: {
@@ -2726,32 +2746,75 @@ export function GuidedReadingPage({
     highlightTimerRef.current = setTimeout(() => setHighlightedWordIndex(null), 700);
   }
 
-  function playWordAudio(word, wordIndex) {
+  function getGuidedReadingWordAudioCandidates(word = {}) {
     const guidedReadingWordSlug = String(word?.text || "")
       .toLowerCase()
       .replace(/['’]/g, "")
       .replace(/[^a-z0-9-]+/g, "-")
       .replace(/^-+|-+$/g, "");
-    const derivedGuidedReadingAudioPath = guidedReadingWordSlug
-      ? `/guided-reading/audio/words/${guidedReadingWordSlug}.mp3`
-      : "";
-    const guidedReadingAudioPath = guidedReadingWordSlug && String(word?.audioPath || "").startsWith("/guided-reading/audio/words/")
-      ? word.audioPath
-      : derivedGuidedReadingAudioPath;
-    const approvedAudioPath = guidedReadingAudioPath || getApprovedAudioPath(word?.text, word?.audioPath);
-    if (!approvedAudioPath) {
-      setAudioNotice("Using browser voice for this word while word audio is pending.");
+
+    if (!guidedReadingWordSlug) return [];
+
+    return [
+      word?.audioPath,
+      `/audio/child-mode/clean-human/words/${guidedReadingWordSlug}.mp3`,
+      `/audio/child-mode/clean-human/hfw/${guidedReadingWordSlug}.mp3`,
+      `/audio/child-mode/words/${guidedReadingWordSlug}.mp3`,
+      `/audio/child-mode/hfw/${guidedReadingWordSlug}.mp3`,
+      `/guided-reading/audio/words/${guidedReadingWordSlug}.mp3`
+    ].filter(Boolean).filter(audioPath =>
+      String(audioPath).includes("/words/") || String(audioPath).includes("/hfw/")
+    );
+  }
+
+  async function findExistingGuidedReadingWordAudio(word = {}) {
+    const candidates = [...new Set(getGuidedReadingWordAudioCandidates(word))];
+    for (const candidate of candidates) {
+      try {
+        const response = await fetch(candidate, { method: "HEAD" });
+        if (response.ok) return candidate;
+      } catch {
+        // Try the next candidate. Missing word audio is reported below in development.
+      }
+    }
+    return "";
+  }
+
+  async function playWordAudio(word, wordIndex) {
+    const resolvedAudioPath = await findExistingGuidedReadingWordAudio(word);
+    if (!resolvedAudioPath) {
+      if (import.meta.env.DEV) {
+        console.warn("Missing Guided Reading word audio:", {
+          word: word?.text || "",
+          bookId: selectedBook?.id || "",
+          pageNumber: page?.pageNumber || pageIndex + 1
+        });
+      }
+      setAudioNotice("Word audio is not ready for this word yet.");
       brieflyHighlightWord(wordIndex);
-      speakWithBrowserVoice(word?.text || "");
       return;
     }
 
     setAudioNotice("");
     brieflyHighlightWord(wordIndex);
-    speakText(word.text, approvedAudioPath, {
-      allowBrowserFallback: false,
-      requireApprovedAudio: true
-    });
+    try {
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      const audio = new Audio(resolvedAudioPath);
+      await audio.play();
+    } catch (error) {
+      if (import.meta.env.DEV) {
+        console.warn("Guided Reading word audio failed to play:", {
+          word: word?.text || "",
+          audioPath: resolvedAudioPath,
+          bookId: selectedBook?.id || "",
+          pageNumber: page?.pageNumber || pageIndex + 1,
+          error
+        });
+      }
+      setAudioNotice("Word audio is not ready for this word yet.");
+    }
   }
 
   function handleWordClick(wordIndex, event) {

@@ -37,6 +37,8 @@ import {
 } from "../utils/exportElAssessmentExcel.js";
 import { exportGuidedReadingCompletionExcel } from "../utils/exportGuidedReadingCompletionExcel.js";
 import assessmentAudioCoverage from "../content/assessments/assessmentAudioCoverageSummary.generated.json";
+import guidedReadingImageTextQa from "../content/guidedReading/imageTextArtifactSummary.generated.json";
+import guidedReadingWordAudioCoverage from "../content/guidedReading/wordAudioCoverageSummary.generated.json";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -1234,7 +1236,8 @@ export function AdminDashboardPage({
         classes,
         studentId: selectedStudent.id,
         classId: selectedClassId || selectedStudent.classId || selectedStudent.class_id || "",
-        teacherId: teacherStorageId
+        teacherId: teacherStorageId,
+        selectedSections: detailedReportSections
       });
       refreshSavedElReports();
       setElReportNotice(`Student EL assessment Excel exported for ${report.studentName}.`);
@@ -1252,7 +1255,8 @@ export function AdminDashboardPage({
         students,
         classes,
         classId: selectedClassId,
-        teacherId: teacherStorageId
+        teacherId: teacherStorageId,
+        selectedSections: detailedReportSections
       });
       refreshSavedElReports();
       setElReportNotice(`Class EL assessment Excel exported for ${report.className}.`);
@@ -1325,6 +1329,7 @@ export function AdminDashboardPage({
       { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
       { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length },
       { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
+      { id: "guidedMediaQa", label: "Guided Reading Media QA", count: (guidedReadingImageTextQa.needsManualReviewCount || 0) + (guidedReadingImageTextQa.needsReplacementCount || 0) + (guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || 0) },
       { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
       { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
       { id: "teachers", label: "Teachers", count: teachers.length },
@@ -2540,6 +2545,91 @@ export function AdminDashboardPage({
         {(guidedReadingInsight.missingImages > 0 || guidedReadingInsight.missingText > 0) && (
           <p className="message warning">Guided Reading warning: {guidedReadingInsight.missingImages} missing page images and {guidedReadingInsight.missingText} missing text fields.</p>
         )}
+      </section>
+      )}
+
+      {!isTeacherMode && activeSection === "guidedMediaQa" && (
+      <section className="report-panel page-stack admin-section admin-section-panel guided-media-qa-panel">
+        <div className="admin-section-heading">
+          <div>
+            <h3>Guided Reading Media QA</h3>
+            <p className="muted-text">Admin-only audit for Guided Reading image text artifacts and missing clickable word audio.</p>
+          </div>
+          <span className="admin-count-pill">Admin only</span>
+        </div>
+
+        <div className="summary-grid compact-summary-grid">
+          <article>
+            <span>Active books scanned</span>
+            <strong>{guidedReadingWordAudioCoverage.activeBooksScanned || guidedReadingImageTextQa.activeBooksScanned || 0}</strong>
+          </article>
+          <article>
+            <span>Images manual review</span>
+            <strong>{guidedReadingImageTextQa.needsManualReviewCount || 0}</strong>
+          </article>
+          <article>
+            <span>Images replacement</span>
+            <strong>{guidedReadingImageTextQa.needsReplacementCount || 0}</strong>
+          </article>
+          <article>
+            <span>Missing word audio</span>
+            <strong>{guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || 0}</strong>
+          </article>
+          <article>
+            <span>Books affected</span>
+            <strong>{guidedReadingWordAudioCoverage.booksWithMissingWordAudio || 0}</strong>
+          </article>
+        </div>
+
+        <div className="teacher-report-grid">
+          <article className="teacher-report-card">
+            <h4>Audit Outputs</h4>
+            <ul className="admin-qa-file-list">
+              <li><code>docs/guided-reading/guided_reading_image_text_artifact_audit.md</code></li>
+              <li><code>docs/guided-reading/manual_image_text_artifact_review.md</code></li>
+              <li><code>docs/guided-reading/guided_reading_word_audio_inventory.md</code></li>
+              <li><code>docs/assets/kimi_guided_reading_image_replacement_request.md</code></li>
+              <li><code>docs/assets/kimi_guided_reading_missing_word_audio_request.md</code></li>
+            </ul>
+          </article>
+          <article className="teacher-report-card">
+            <h4>Image QA Issue Books</h4>
+            {(guidedReadingImageTextQa.booksWithImageQaIssues || []).length ? (
+              (guidedReadingImageTextQa.booksWithImageQaIssues || []).slice(0, 8).map(row => (
+                <p key={row.bookId}><strong>{row.title}</strong> · {row.manualReview || 0} review · {row.replacement || 0} replacement · {row.broken || 0} broken</p>
+              ))
+            ) : (
+              <p>No replacement/manual-review image issues are currently summarized.</p>
+            )}
+          </article>
+        </div>
+
+        <div className="admin-table-wrap teacher-scroll-panel">
+          <table className="dashboard-table admin-table admin-responsive-table">
+            <thead>
+              <tr>
+                <th>Book</th>
+                <th>Missing Unique Words</th>
+                <th>Missing Occurrences</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(guidedReadingWordAudioCoverage.worstAffectedBooks || []).length ? (
+                guidedReadingWordAudioCoverage.worstAffectedBooks.map(row => (
+                  <tr key={row.bookId}>
+                    <td data-label="Book">{row.title}</td>
+                    <td data-label="Missing Unique Words">{row.missingWordCount}</td>
+                    <td data-label="Missing Occurrences">{row.missingOccurrences}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="3">No missing clickable word audio is currently summarized.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </section>
       )}
 

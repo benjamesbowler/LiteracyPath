@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { guidedReadingBooks } from "../src/data/guidedReadingBooks.js";
@@ -12,7 +12,11 @@ const publicRoot = path.join(repoRoot, "public");
 const auditPath = path.join(repoRoot, "docs/guided-reading/guided_reading_image_text_artifact_audit.md");
 const auditJsonPath = path.join(repoRoot, "docs/guided-reading/guided_reading_image_text_artifact_audit.json");
 const contactSheetPath = path.join(repoRoot, "docs/guided-reading/image_text_artifact_contact_sheet.md");
+const contactSheetDirPath = path.join(repoRoot, "docs/guided-reading/contact-sheets/image_text_artifact_contact_sheet.md");
+const manualReviewPath = path.join(repoRoot, "docs/guided-reading/manual_image_text_artifact_review.md");
+const manualReviewStatusPath = path.join(repoRoot, "docs/guided-reading/manual_image_text_artifact_review_status.json");
 const replacementRequestPath = path.join(repoRoot, "docs/assets/kimi_guided_reading_image_replacement_request.md");
+const summaryJsonPath = path.join(repoRoot, "src/content/guidedReading/imageTextArtifactSummary.generated.json");
 
 const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp"]);
 const REPLACEMENT_TERMS = /\b(random|nonsense|watermark|misspell|incorrect|unrelated|artifact|bad text|fake letters|replace|broken)\b/i;
@@ -47,6 +51,28 @@ function imageMetadata(filePath) {
   };
 }
 
+function imageReviewKey(reference = {}) {
+  return `${reference.bookId}:${reference.kind}:${reference.pageNumber || "cover"}`;
+}
+
+function loadManualReviewStatuses() {
+  if (!existsSync(manualReviewStatusPath)) return {};
+  try {
+    return JSON.parse(readFileSync(manualReviewStatusPath, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
+function ensureManualReviewStatusFile() {
+  if (existsSync(manualReviewStatusPath)) return;
+  ensureDir(manualReviewStatusPath);
+  writeFileSync(manualReviewStatusPath, `${JSON.stringify({
+    instructions: "Set each item key to clean, needs_replacement, or uncertain after human visual review. Optional notes and issueLabels are supported.",
+    items: {}
+  }, null, 2)}\n`);
+}
+
 function hasTesseract() {
   try {
     execFileSync("tesseract", ["--version"], { stdio: ["ignore", "ignore", "ignore"] });
@@ -57,7 +83,7 @@ function hasTesseract() {
 }
 
 function collectReferences() {
-  return guidedReadingBooks.flatMap(book => {
+  return guidedReadingBooks.filter(book => book.active !== false).flatMap(book => {
     const references = [];
     if (book.coverImage || book.cover || book.coverUrl) {
       references.push({
@@ -94,7 +120,7 @@ function collectReferences() {
   });
 }
 
-function classify(reference, ocrAvailable) {
+function classify(reference, ocrAvailable, manualStatuses = {}) {
   const filePath = publicUrlToFile(reference.imagePath);
   const exists = Boolean(filePath && existsSync(filePath));
   const textEvidence = [
@@ -114,28 +140,50 @@ function classify(reference, ocrAvailable) {
   }
 
   if (Number(statSync(filePath).size) === 0) {
-    issues.push("zero_byte_file");
+    issues.push("broken_reference");
     return { status: "NEEDS_REPLACEMENT", issues, action: "Regenerate image; current file is empty.", filePath, metadata: imageMetadata(filePath) };
   }
 
   if (reference.embeddedImageText) {
-    issues.push("embedded_text_declared");
+    issues.push("page_text_embedded_when_app_renders_text");
     status = REPLACEMENT_TERMS.test(reference.embeddedImageText) ? "NEEDS_REPLACEMENT" : "NEEDS_HUMAN_REVIEW";
     action = "Review declared embedded text against the intended page text.";
   }
 
   if (REPLACEMENT_TERMS.test(textEvidence)) {
-    issues.push("metadata_mentions_text_artifact");
+    issues.push("random_embedded_text");
     status = "NEEDS_REPLACEMENT";
     action = "Request a clean replacement image with no random embedded text.";
   } else if (status === "LIKELY_CLEAN_METADATA" && MANUAL_REVIEW_TERMS.test(textEvidence) && !/no embedded image text/i.test(textEvidence)) {
-    issues.push("possible_intended_text_or_label");
+    issues.push(reference.kind === "cover" ? "cover_title_mismatch" : "text_not_matching_page");
     status = "NEEDS_HUMAN_REVIEW";
     action = "Human should verify that any visible text is intentional and correct.";
   }
 
   if (!ocrAvailable && status === "LIKELY_CLEAN_METADATA") {
     issues.push("ocr_not_available_spot_check");
+  }
+
+  const manual = manualStatuses.items?.[imageReviewKey(reference)] || manualStatuses[imageReviewKey(reference)] || null;
+  if (manual) {
+    const manualStatus = typeof manual === "string" ? manual : manual.status;
+    const manualNotes = typeof manual === "object" ? manual.notes : "";
+    const manualIssueLabels = Array.isArray(manual.issueLabels) ? manual.issueLabels : [];
+    if (manualStatus === "clean") {
+      status = "LIKELY_CLEAN_METADATA";
+      action = manualNotes || "Human reviewed as clean.";
+      issues.push("manual_review_clean");
+    }
+    if (manualStatus === "uncertain") {
+      status = "NEEDS_HUMAN_REVIEW";
+      action = manualNotes || "Human marked this image uncertain.";
+      issues.push("manual_review_uncertain");
+    }
+    if (manualStatus === "needs_replacement") {
+      status = "NEEDS_REPLACEMENT";
+      action = manualNotes || "Human marked this image for replacement.";
+      issues.push(...(manualIssueLabels.length ? manualIssueLabels : ["random_embedded_text"]));
+    }
   }
 
   return { status, issues, action, filePath, metadata: imageMetadata(filePath) };
@@ -151,11 +199,14 @@ function markdownTable(rows, columns) {
 
 function main() {
   const ocrAvailable = hasTesseract();
+  ensureManualReviewStatusFile();
+  const manualStatuses = loadManualReviewStatuses();
   const references = collectReferences();
   const physicalImages = walkImages(path.join(publicRoot, "guided-reading"));
   const items = references.map(reference => ({
     ...reference,
-    ...classify(reference, ocrAvailable)
+    reviewKey: imageReviewKey(reference),
+    ...classify(reference, ocrAvailable, manualStatuses)
   }));
 
   const replacementItems = items.filter(item => item.status === "NEEDS_REPLACEMENT" || item.status === "BROKEN_REFERENCE");
@@ -174,7 +225,7 @@ function main() {
   const summary = {
     generatedAt: new Date().toISOString(),
     ocrAvailable,
-    totalBooksScanned: guidedReadingBooks.length,
+    totalBooksScanned: guidedReadingBooks.filter(book => book.active !== false).length,
     totalReferencedImagesScanned: items.length,
     totalPhysicalGuidedReadingImages: physicalImages.length,
     likelyCleanCount: likelyCleanItems.length,
@@ -245,12 +296,24 @@ function main() {
     "- Missing and zero-byte files are treated as replacement/blocking issues.",
     "- `embeddedImageText` metadata is treated as text evidence and requires review unless clearly clean.",
     "- Existing `qaNotes` that explicitly say `No embedded image text` are treated as likely clean by metadata.",
-    "- Because OCR is not available here, this audit creates a contact sheet for visual spot-checking instead of pretending to hear/see text perfectly."
+    "- Because OCR is not available here, this audit creates a contact sheet for visual spot-checking instead of pretending to see text perfectly.",
+    `- Manual review statuses are loaded from \`docs/guided-reading/manual_image_text_artifact_review_status.json\`.`
   ];
   writeFileSync(auditPath, `${auditLines.join("\n")}\n`);
 
   ensureDir(auditJsonPath);
   writeFileSync(auditJsonPath, `${JSON.stringify({ summary, items }, null, 2)}\n`);
+  ensureDir(summaryJsonPath);
+  writeFileSync(summaryJsonPath, `${JSON.stringify({
+    generatedAt: summary.generatedAt,
+    activeBooksScanned: summary.totalBooksScanned,
+    totalImagesScanned: summary.totalReferencedImagesScanned,
+    likelyCleanCount: summary.likelyCleanCount,
+    needsManualReviewCount: summary.needsManualReviewCount,
+    needsReplacementCount: summary.needsReplacementCount,
+    brokenReferenceCount: summary.brokenReferenceCount,
+    booksWithImageQaIssues: [...booksWithIssues.values()].slice(0, 20)
+  }, null, 2)}\n`);
 
   const contactRows = [...replacementItems, ...manualReviewItems].slice(0, 120);
   const contactLines = [
@@ -268,6 +331,7 @@ function main() {
       `![${item.title} ${item.kind}](${item.imagePath})`,
       "",
       `- Book ID: ${item.bookId}`,
+      `- Review key: ${item.reviewKey}`,
       `- Status: ${item.status}`,
       `- Issues: ${item.issues.join(", ") || "none"}`,
       `- Intended text: ${item.intendedText || "none"}`,
@@ -277,6 +341,49 @@ function main() {
   ];
   ensureDir(contactSheetPath);
   writeFileSync(contactSheetPath, `${contactLines.join("\n")}\n`);
+  ensureDir(contactSheetDirPath);
+  writeFileSync(contactSheetDirPath, `${contactLines.join("\n")}\n`);
+
+  const manualReviewLines = [
+    "# Manual Guided Reading Image Text Artifact Review",
+    "",
+    `Generated: ${summary.generatedAt}`,
+    "",
+    "Use this file while reviewing the contact sheet. Put final statuses into `manual_image_text_artifact_review_status.json`, then rerun `node tools/auditGuidedReadingImageTextArtifacts.js`.",
+    "",
+    "Allowed manual statuses:",
+    "",
+    "- `clean`",
+    "- `needs_replacement`",
+    "- `uncertain`",
+    "",
+    "Common issue labels:",
+    "",
+    "- `random_embedded_text`",
+    "- `nonsense_letters`",
+    "- `misspelled_text`",
+    "- `watermark_like_text`",
+    "- `unrelated_signage`",
+    "- `text_not_matching_page`",
+    "- `fake_ai_letters`",
+    "- `cover_title_mismatch`",
+    "- `page_text_embedded_when_app_renders_text`",
+    "",
+    "## Review Queue",
+    "",
+    markdownTable([...manualReviewItems, ...replacementItems], [
+      { label: "Review key", value: row => row.reviewKey },
+      { label: "Book ID", value: row => row.bookId },
+      { label: "Title", value: row => row.title },
+      { label: "Page/Cover", value: row => row.kind === "cover" ? "cover" : `page ${row.pageNumber}` },
+      { label: "Image", value: row => row.imagePath },
+      { label: "Expected text", value: row => row.intendedText || "" },
+      { label: "Current status", value: row => row.status },
+      { label: "Manual status", value: () => "clean / needs_replacement / uncertain" }
+    ])
+  ];
+  ensureDir(manualReviewPath);
+  writeFileSync(manualReviewPath, `${manualReviewLines.join("\n")}\n`);
 
   const replacementLines = [
     "# Kimi Guided Reading Image Replacement Request",
@@ -302,6 +409,7 @@ function main() {
         `### ${item.title} · ${item.kind === "cover" ? "cover" : `page ${item.pageNumber}`}`,
         "",
         `- bookId: ${item.bookId}`,
+        `- review key: ${item.reviewKey}`,
         `- current image path: ${item.imagePath}`,
         `- target replacement path: ${item.imagePath}`,
         `- intended page text: ${item.intendedText || item.title}`,

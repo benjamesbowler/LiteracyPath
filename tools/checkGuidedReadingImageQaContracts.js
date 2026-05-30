@@ -20,6 +20,7 @@ function includes(source, needle, message) {
 
 const learnSource = read("src/components/LearnAreaPage.jsx");
 const dataSource = read("src/data/elSkillsBlockCycles.js");
+const adminSource = read("src/components/AdminDashboardPage.jsx");
 
 elSkillsBlockCycles.forEach(cycle => {
   if (!cycle.guidedReadingRecommendations) {
@@ -71,10 +72,28 @@ elSkillsBlockCycles.forEach(cycle => {
   "docs/guided-reading/guided_reading_image_text_artifact_audit.md",
   "docs/guided-reading/guided_reading_image_text_artifact_audit.json",
   "docs/guided-reading/image_text_artifact_contact_sheet.md",
-  "docs/assets/kimi_guided_reading_image_replacement_request.md"
+  "docs/guided-reading/contact-sheets/image_text_artifact_contact_sheet.md",
+  "docs/guided-reading/manual_image_text_artifact_review.md",
+  "docs/guided-reading/manual_image_text_artifact_review_status.json",
+  "docs/assets/kimi_guided_reading_image_replacement_request.md",
+  "docs/guided-reading/guided_reading_word_audio_inventory.md",
+  "docs/assets/kimi_guided_reading_missing_word_audio_request.md",
+  "src/content/guidedReading/imageTextArtifactSummary.generated.json",
+  "src/content/guidedReading/wordAudioCoverageSummary.generated.json"
 ].forEach(path => {
   if (!exists(path)) failures.push(`${path} is missing. Run the Guided Reading image artifact audit.`);
 });
+
+[
+  "Guided Reading Media QA",
+  "guidedMediaQa",
+  "guidedReadingImageTextQa",
+  "guidedReadingWordAudioCoverage",
+  "!isTeacherMode && activeSection === \"guidedMediaQa\"",
+  "uniqueWordsMissingAudio",
+  "needsManualReviewCount",
+  "needsReplacementCount"
+].forEach(needle => includes(adminSource, needle, `Admin Dashboard is missing admin-only Guided Reading media QA visibility: ${needle}.`));
 
 if (exists("docs/guided-reading/guided_reading_image_text_artifact_audit.json")) {
   const audit = JSON.parse(read("docs/guided-reading/guided_reading_image_text_artifact_audit.json"));
