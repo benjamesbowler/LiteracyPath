@@ -5571,10 +5571,12 @@ select:focus {
 .learn-recommendation {
   display: grid;
   gap: 6px;
-  padding: 16px;
+  align-content: center;
+  padding: 14px;
   border: 1px solid var(--color-border-soft);
-  border-radius: 22px;
-  background: #ecfeff;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.08);
 }
 
 .learn-recommendation span,
@@ -5652,7 +5654,7 @@ select:focus {
 
 .learn-cycle-card {
   min-width: 0;
-  border-radius: 20px;
+  border-radius: 14px;
   background: linear-gradient(135deg, #ffffff, #f8fafc);
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
 }
@@ -5662,9 +5664,9 @@ select:focus {
   grid-template-columns: auto minmax(0, 1fr);
   gap: 5px 10px;
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid var(--color-border-soft);
-  border-radius: 20px;
+  border-radius: 14px;
   background: transparent;
   color: var(--lp-color-text-strong);
   text-align: left;
@@ -5750,15 +5752,15 @@ select:focus {
 
 .learn-hero-copy {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   align-content: center;
 }
 
 .learn-hero-copy h2 {
   margin: 0;
   color: #0f766e;
-  font-size: clamp(2.1rem, 6vw, 4.2rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.04;
 }
 
 .learn-hero-actions {
@@ -6478,26 +6480,33 @@ select:focus {
   inset: 0;
   display: grid;
   grid-template-rows: auto auto minmax(0, 1fr) auto;
-  gap: 12px;
-  padding: clamp(10px, 2vw, 22px);
+  gap: 8px;
+  height: 100dvh;
+  padding: 10px 14px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at top left, rgba(251, 191, 36, 0.22), transparent 28rem),
-    radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.2), transparent 30rem),
-    linear-gradient(135deg, #f0fdfa, #fff7ed);
+  background: #eef5f8;
+}
+
+.learn-lesson-player {
+  --lesson-title-size: clamp(2.45rem, 5.2vw, 4rem);
+  --lesson-subtitle-size: clamp(1.4rem, 3.4vw, 2.5rem);
+  --lesson-note-size: clamp(1rem, 2.3vw, 1.55rem);
+  --lesson-card-word-size: clamp(1.75rem, 3.1vw, 2.75rem);
+  --lesson-small-size: clamp(0.9rem, 1.5vw, 1.15rem);
 }
 
 .learn-fullscreen-header,
 .learn-fullscreen-footer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  padding: 12px 14px;
-  border: 1px solid rgba(15, 118, 110, 0.18);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 1px solid rgba(26, 58, 107, 0.12);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
 
 .learn-fullscreen-header h2,
@@ -6507,15 +6516,17 @@ select:focus {
 }
 
 .learn-fullscreen-header h2 {
-  color: #0f766e;
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #1A3A6B;
+  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+  line-height: 1.12;
 }
 
 .learn-fullscreen-header p,
 .learn-fullscreen-footer strong,
 .learn-fullscreen-actions span {
   color: var(--lp-color-text-muted);
-  font-weight: 900;
+  font-size: 0.82rem;
+  font-weight: 850;
 }
 
 .learn-fullscreen-actions {
@@ -6528,14 +6539,15 @@ select:focus {
 
 .learn-progress-strip {
   display: flex;
-  gap: 7px;
+  gap: 5px;
   align-items: center;
+  min-height: 14px;
 }
 
 .learn-progress-strip button {
   flex: 1;
-  min-width: 28px;
-  min-height: 18px;
+  min-width: 20px;
+  min-height: 10px;
   padding: 0;
   border: 0;
   border-radius: 999px;
@@ -6543,7 +6555,7 @@ select:focus {
 }
 
 .learn-progress-strip button.active {
-  background: #0f766e;
+  background: #1A3A6B;
 }
 
 .learn-progress-strip span {
@@ -6552,108 +6564,330 @@ select:focus {
 
 .learn-fullscreen-stage {
   min-height: 0;
-  overflow: auto;
+  overflow: hidden;
+  display: grid;
+  place-items: stretch center;
 }
 
 .learn-fullscreen-stage .lesson-panel,
 .learn-deck-slide {
   min-height: 100%;
-  align-content: start;
-  padding: clamp(16px, 3vw, 32px);
+  align-content: center;
+  padding: clamp(18px, 3vw, 34px);
 }
 
 .learn-deck-slide {
   display: grid;
-  gap: clamp(16px, 3vw, 28px);
+  gap: clamp(10px, 1.7vw, 18px);
   place-items: center;
-  min-height: 100%;
-  border: 1px solid rgba(15, 118, 110, 0.18);
-  border-radius: 34px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
+  width: min(100%, 1320px);
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(26, 58, 107, 0.14);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
   text-align: center;
 }
 
 .learn-deck-slide h1 {
   margin: 0;
-  color: #0f766e;
-  font-size: clamp(2.4rem, 7vw, 6rem);
-  line-height: 0.95;
+  color: #1A3A6B;
+  font-size: var(--lesson-title-size);
+  line-height: 1.05;
+  letter-spacing: 0;
 }
 
 .learn-deck-slide p {
-  max-width: 900px;
+  max-width: 980px;
   margin: 0;
-  font-size: clamp(1.15rem, 2.7vw, 2rem);
-  font-weight: 850;
+  font-size: var(--lesson-subtitle-size);
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.learn-lesson-player .title-slide h1 {
+  max-width: 1120px;
+  font-size: clamp(2.35rem, 4.6vw, 3.65rem);
+}
+
+.learn-lesson-player .title-slide p {
+  font-size: clamp(1.2rem, 2.2vw, 1.95rem);
 }
 
 .learn-deck-slide.title-slide {
-  background:
-    radial-gradient(circle at top left, rgba(251, 191, 36, 0.22), transparent 24rem),
-    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.16), transparent 24rem),
-    #ffffff;
+  background: #ffffff;
 }
 
 .learn-slide-focus,
 .learn-picture-card-grid {
   display: grid;
-  width: min(100%, 980px);
-  gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  width: min(100%, 1120px);
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .learn-slide-focus span,
 .learn-picture-card {
   display: grid;
-  min-height: 150px;
+  min-height: 128px;
   place-items: center;
-  padding: 18px;
-  border: 2px solid #bae6fd;
-  border-radius: 28px;
-  background: linear-gradient(180deg, #ffffff, #f0f9ff);
-  color: #075985;
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  padding: 12px;
+  border: 2px solid #d8e4ee;
+  border-radius: 14px;
+  background: #f8fbfd;
+  color: #1A3A6B;
+  font-size: var(--lesson-card-word-size);
   font-weight: 950;
 }
 
-.learn-picture-card span {
+.learn-lesson-player .learn-picture-card-grid.card-row {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.learn-lesson-player .game-slide .learn-picture-card-grid.card-row {
+  grid-template-columns: repeat(auto-fit, minmax(122px, 1fr));
+}
+
+.learn-picture-card {
+  grid-template-rows: minmax(72px, 1fr) auto auto auto;
+  align-content: stretch;
+  gap: 7px;
+  min-height: 190px;
+}
+
+.learn-lesson-player .game-slide .learn-picture-card {
+  grid-template-rows: 50px 24px auto;
+  min-height: 138px;
+  padding: 8px;
+}
+
+.learn-lesson-player .game-slide .learn-picture-placeholder {
+  min-height: 50px;
+}
+
+.learn-lesson-player .game-slide .learn-picture-card strong {
+  font-size: clamp(1.25rem, 2.1vw, 1.8rem);
+}
+
+.learn-lesson-player .game-slide .learn-picture-card > b {
+  width: 26px;
+  height: 26px;
+  font-size: 0.8rem;
+}
+
+.learn-lesson-player .game-slide h1 {
+  font-size: clamp(2.35rem, 4.5vw, 3.7rem);
+}
+
+.learn-picture-placeholder {
   display: grid;
-  width: 76px;
-  height: 76px;
+  width: 100%;
+  min-height: 76px;
   place-items: center;
-  border-radius: 28px;
-  background: #fef3c7;
-  color: #92400e;
-  font-size: 2.4rem;
+  border: 2px dashed #a7bdd0;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.learn-picture-placeholder span,
+.learn-picture-card > span {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 999px;
+  background: #FFFBEA;
+  color: #9a5d00;
+  font-size: 1.35rem;
+  font-weight: 950;
+}
+
+.learn-picture-card > b {
+  display: inline-grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  justify-self: center;
+  border-radius: 999px;
+  background: #1A3A6B;
+  color: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .learn-picture-card strong {
-  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  color: #1A3A6B;
+  font-size: var(--lesson-card-word-size);
+  line-height: 1.05;
 }
 
 .learn-picture-card small {
   color: var(--lp-color-text-muted);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
   font-weight: 900;
 }
 
 .learn-slide-callout,
 .learn-slide-tip {
+  width: min(100%, 1000px);
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #EAF4FB;
+  color: #1A3A6B;
+  font-size: var(--lesson-note-size);
+  line-height: 1.18;
+}
+
+.learn-slide-callout p,
+.learn-slide-tip {
+  font-size: var(--lesson-note-size);
+}
+
+.learn-slide-kicker {
+  color: #1A3A6B;
+  font-size: var(--lesson-subtitle-size);
+  font-weight: 950;
+}
+
+.learn-lesson-player .letter-slide {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.learn-lesson-player .letter-card.lesson-card {
+  width: min(100%, 1120px);
+}
+
+.learn-lesson-player .learn-letter-card.lesson-card {
+  width: min(100%, 1120px);
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  align-items: stretch;
+  gap: 18px;
   padding: 16px;
-  border-radius: 24px;
-  background: #ecfdf5;
-  color: #115e59;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.learn-lesson-player .learn-letter-card.lesson-card .learn-letter-tile {
+  width: 100%;
+  min-height: 260px;
+  border-radius: 16px;
+}
+
+.learn-lesson-player .learn-letter-card.lesson-card .learn-letter-tile strong {
+  font-size: clamp(5.4rem, 13vw, 9rem);
+}
+
+.learn-lesson-player .learn-letter-card.lesson-card .learn-letter-tile span {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+}
+
+.learn-lesson-player .learn-letter-card.lesson-card .learn-letter-body {
+  align-content: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.learn-lesson-player .learn-sound-bubble {
+  min-height: 46px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: #1A3A6B;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 3vw, 2.15rem);
+}
+
+.learn-lesson-player .learn-letter-body p {
+  font-size: var(--lesson-note-size);
+}
+
+.learn-lesson-player .learn-letter-body small,
+.learn-lesson-player .teacher-script {
+  font-size: var(--lesson-small-size);
+}
+
+.learn-lesson-player .learn-word-chip-row {
+  max-height: 42px;
+  overflow: hidden;
+}
+
+.learn-lesson-player .learn-formation-steps {
+  gap: 8px;
+}
+
+.learn-lesson-player .formation-line {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.learn-game-instruction {
+  display: grid;
+  width: min(100%, 1060px);
+  gap: 5px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: #EAF4FB;
+  color: #1A3A6B;
+}
+
+.learn-game-instruction p {
+  max-width: none;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+}
+
+.learn-game-instruction small {
+  font-size: var(--lesson-small-size);
+  font-weight: 800;
+}
+
+.learn-lesson-player .learn-game-baskets.large {
+  justify-content: center;
+}
+
+.learn-lesson-player .learn-game-baskets.large span {
+  min-width: 112px;
+  min-height: 44px;
+  border-radius: 12px;
+  font-size: clamp(1.1rem, 2.4vw, 1.65rem);
+}
+
+.learn-teacher-reveal {
+  width: min(100%, 900px);
+  max-height: 38px;
+  overflow: hidden;
+  padding: 5px 10px;
+  border: 1px solid #d8e4ee;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1A3A6B;
+  text-align: left;
+}
+
+.learn-teacher-reveal summary {
+  font-size: var(--lesson-small-size);
+}
+
+.learn-teacher-reveal[open] {
+  max-height: 108px;
+  overflow: auto;
+}
+
+.learn-teacher-reveal p {
+  font-size: var(--lesson-small-size);
+  font-weight: 750;
 }
 
 .deck-poem {
   width: min(100%, 920px);
-  font-size: clamp(1.7rem, 4vw, 3.2rem);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
   text-align: left;
 }
 
 .hfw-slide strong {
   color: #4d7c0f;
-  font-size: clamp(5rem, 16vw, 12rem);
+  font-size: clamp(5rem, 13vw, 9rem);
   line-height: 0.9;
 }
 
@@ -6677,6 +6911,37 @@ select:focus {
 
 .learn-fullscreen-footer {
   grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.learn-fullscreen-footer strong {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-height: 760px) {
+  .learn-fullscreen-mode {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .learn-deck-slide {
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .learn-picture-card {
+    min-height: 154px;
+  }
+
+  .learn-lesson-player .learn-letter-card.lesson-card .learn-letter-tile {
+    min-height: 210px;
+  }
+
+  .learn-lesson-player .learn-letter-card.lesson-card {
+    padding: 12px;
+  }
 }
 
 @media print {
@@ -6819,6 +7084,16 @@ select:focus {
 
   .learn-picture-card {
     min-height: 112px;
+  }
+
+  .learn-lesson-player .learn-picture-card-grid.card-row,
+  .learn-lesson-player .game-slide .learn-picture-card-grid.card-row,
+  .learn-lesson-player .learn-letter-card.lesson-card {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-lesson-player .learn-letter-card.lesson-card .learn-letter-tile {
+    min-height: 140px;
   }
 
   .worksheet-student-line {

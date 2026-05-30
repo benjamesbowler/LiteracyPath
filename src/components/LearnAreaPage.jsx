@@ -86,21 +86,38 @@ function getCycleLearnTitle(cycle) {
   return focus ? `${focus} Sound Safari` : `${cycle.title} Learning`;
 }
 
+function getDisplaySound(card = {}) {
+  if (card.sound === "/ă/") return "/a/";
+  return card.sound || card.grapheme || "";
+}
+
+function getTeacherSoundCue(card = {}) {
+  if (card.sound === "/ă/") return "short a as in apple";
+  if (card.sound) return `${card.sound} as in ${(card.examples || [])[0] || card.spelling}`;
+  return `pattern ${card.grapheme || card.spelling}`;
+}
+
 function makeSoundSafariSlide(card, otherCard, index) {
   if (!card) return null;
   const targetWords = (card.examples || []).slice(0, 3);
   const distractors = (otherCard?.examples || []).slice(0, 2);
   const cards = [...targetWords.slice(0, 2), ...distractors].filter(Boolean);
+  const displaySound = getDisplaySound(card);
   return {
     id: `sound-safari-${index}`,
     type: "game",
-    title: `${card.sound || card.grapheme} Sound Safari`,
+    title: `${displaySound} Sound Safari`,
     sectionId: "rhyming",
     game: {
-      title: `${card.sound || card.grapheme} Sound Safari`,
-      prompt: `Point to words that start with ${card.sound || card.grapheme}.`,
+      title: `${displaySound} Sound Safari`,
+      prompt: `Point to words that start with ${displaySound}.`,
+      teacherInstruction: "Show the cards in one row. Say the target sound, then wait while children point.",
+      studentAction: "Point first, say the word, and repeat the first sound.",
       cards,
-      answer: targetWords.slice(0, 2).join(", ")
+      targetItems: targetWords.slice(0, 2),
+      answer: `${displaySound}: ${targetWords.slice(0, 2).join(", ")}`,
+      supportPrompt: `Stretch the first sound before naming the picture: ${targetWords[0] || "word"}.`,
+      challengePrompt: `Ask children to name one more ${displaySound} word.`
     }
   };
 }
@@ -116,10 +133,10 @@ function buildLessonSlides(cycle) {
   ]).filter(Boolean);
   const slides = [
     { id: "welcome", type: "title", title: `${cycle.title}: ${getCycleLearnTitle(cycle)}`, sectionId: "overview" },
-    { id: "targets", type: "targets", title: "Today We Learn", sectionId: "overview" },
-    { id: "quick-review", type: "review", title: "Quick Review", sectionId: "overview" },
     ...letterSlides,
     games[1] && { id: "letter-sort", type: "game", title: games[1].title, sectionId: "rhyming", game: games[1] },
+    { id: "targets", type: "targets", title: "Today We Learn", sectionId: "overview" },
+    { id: "quick-review", type: "review", title: "Quick Review", sectionId: "overview" },
     { id: "chant", type: "chant", title: cycle.sections.poemAndChant.title, sectionId: "poemAndChant" },
     ...hfwCards.slice(0, 3).map((card, index) => ({ id: `hfw-${index}`, type: "hfw", title: `High-Frequency Word: ${card.word}`, sectionId: "highFrequencyWords", card })),
     games[3] && { id: "beat-builder", type: "game", title: games[3].title, sectionId: "phonemicAwareness", game: games[3] },
@@ -184,6 +201,21 @@ function VisualBadge({ sectionId, label }) {
     <span className={`learn-visual-badge ${visual.color}`} aria-hidden="true">
       {label || visual.icon}
     </span>
+  );
+}
+
+function LessonPictureCard({ word, sound, className = "" }) {
+  const letter = String(word || "").slice(0, 1).toUpperCase();
+  return (
+    <div className={`learn-picture-card ${className}`.trim()}>
+      {/* TODO: swap this placeholder for first-party Learn image assets once Kimi files are imported. */}
+      <div className="learn-picture-placeholder" aria-hidden="true">
+        <span>{letter}</span>
+      </div>
+      <b>{letter}</b>
+      <strong>{word}</strong>
+      {sound && <small>{sound}</small>}
+    </div>
   );
 }
 
@@ -273,6 +305,8 @@ function WorksheetGenerator({ cycle, compact = false }) {
 function LetterCard({ card, lessonMode = false }) {
   const [upper = card.grapheme, lower = ""] = String(card.grapheme || "").split("/");
   const displayLower = lower || String(card.spelling || "").slice(0, 2);
+  const displaySound = getDisplaySound(card);
+  const teacherSoundCue = getTeacherSoundCue(card);
   return (
     <article className={lessonMode ? "learn-letter-card lesson-card" : "learn-letter-card"}>
       <div className="learn-letter-tile" aria-label={`${card.grapheme} letter tile`}>
@@ -280,10 +314,10 @@ function LetterCard({ card, lessonMode = false }) {
         <span>{displayLower}</span>
       </div>
       <div className="learn-letter-body">
-        <span className="learn-sound-bubble">{card.sound || "review"}</span>
-        <p>{card.childExplanation}</p>
+        <span className="learn-sound-bubble">{displaySound || "review"}</span>
+        <p>{lessonMode ? teacherSoundCue : card.childExplanation}</p>
         <small>{card.articulation}</small>
-        <div className="learn-word-chip-row">
+        <div className="learn-word-chip-row" aria-label="Example words">
           {(card.examples || []).map(word => <b key={word}>{word}</b>)}
         </div>
         <div className="learn-formation-steps">
@@ -585,12 +619,12 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
     if (!slide) return null;
     if (slide.type === "title") {
       return (
-        <article className="learn-deck-slide title-slide">
+        <article className="learn-deck-slide title-slide" data-slide-type="title">
           <VisualBadge sectionId="overview" label={cycle.cycleNumber ? String(cycle.cycleNumber) : "Go"} />
           <p>Eyes up. Voices ready.</p>
           <h1>{slide.title}</h1>
           <div className="learn-slide-focus">
-            {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 4).map(card => <span key={`${card.grapheme}-${card.sound}`}>{card.grapheme} {card.sound}</span>)}
+            {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 4).map(card => <span key={`${card.grapheme}-${card.sound}`}>{card.grapheme} {getDisplaySound(card)}</span>)}
           </div>
           <p className="learn-slide-tip">We will see it, say it, find it, play it, read it, and write it.</p>
         </article>
@@ -630,29 +664,26 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       );
     }
     if (slide.type === "letter") {
+      const displaySound = getDisplaySound(slide.card);
       return (
-        <article className="learn-deck-slide letter-slide">
-          <p>Meet the sound</p>
+        <article className="learn-deck-slide letter-slide" data-slide-type="letter">
+          <div className="learn-slide-kicker">Meet {slide.card.grapheme} {displaySound}</div>
           <LetterCard card={slide.card} lessonMode />
           <div className="learn-slide-callout">
             <strong>Teacher: My turn. Your turn.</strong>
-            <p>Children: Say {slide.card.sound || slide.card.grapheme}. Touch the letter. Say it again.</p>
+            <p>Children: Say {displaySound}. Touch the letter. Say it again.</p>
           </div>
         </article>
       );
     }
     if (slide.type === "examples") {
       return (
-        <article className="learn-deck-slide examples-slide">
+        <article className="learn-deck-slide examples-slide" data-slide-type="examples">
           <h1>{slide.title}</h1>
           <p>Say the word. Stretch the first sound. Touch the picture card.</p>
-          <div className="learn-picture-card-grid">
-            {(slide.card.examples || []).slice(0, 6).map(word => (
-              <div className="learn-picture-card" key={word}>
-                <span>{word.slice(0, 1).toUpperCase()}</span>
-                <strong>{word}</strong>
-                <small>{slide.card.sound}</small>
-              </div>
+          <div className="learn-picture-card-grid card-row">
+            {(slide.card.examples || []).slice(0, 4).map(word => (
+              <LessonPictureCard key={word} sound={getDisplaySound(slide.card)} word={word} />
             ))}
           </div>
         </article>
@@ -660,22 +691,20 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
     }
     if (slide.type === "game") {
       return (
-        <article className="learn-deck-slide game-slide">
-          <VisualBadge sectionId="rhyming" />
+        <article className="learn-deck-slide game-slide" data-slide-type="game">
           <h1>{slide.game.title}</h1>
-          <p>{slide.game.prompt}</p>
-          {slide.game.teacherInstruction && <p className="learn-slide-tip">Teacher: {slide.game.teacherInstruction}</p>}
-          {slide.game.studentAction && <p className="learn-slide-tip">Students: {slide.game.studentAction}</p>}
+          <div className="learn-game-instruction">
+            <p>{slide.game.prompt}</p>
+            {slide.game.teacherInstruction && <small><strong>Teacher:</strong> {slide.game.teacherInstruction}</small>}
+            {slide.game.studentAction && <small><strong>Students:</strong> {slide.game.studentAction}</small>}
+          </div>
           {slide.game.baskets && <div className="learn-game-baskets large">{slide.game.baskets.map(basket => <span key={basket}>{basket}</span>)}</div>}
-          <div className="learn-picture-card-grid">
+          <div className="learn-picture-card-grid card-row">
             {(slide.game.cards || []).map(card => (
-              <div className="learn-picture-card" key={card}>
-                <span>{card.slice(0, 1).toUpperCase()}</span>
-                <strong>{card}</strong>
-              </div>
+              <LessonPictureCard key={card} word={card} />
             ))}
           </div>
-          <details>
+          <details className="learn-teacher-reveal">
             <summary>Teacher Reveal</summary>
             <p>{slide.game.answer}</p>
             {slide.game.supportPrompt && <p>Support: {slide.game.supportPrompt}</p>}
@@ -714,7 +743,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
     }
     if (slide.type === "hfw") {
       return (
-        <article className="learn-deck-slide hfw-slide">
+        <article className="learn-deck-slide hfw-slide" data-slide-type="hfw">
           <p>Quick word. Read it as a whole word.</p>
           <strong>{slide.card.word}</strong>
           <span>{slide.card.spellIt}</span>
@@ -1005,14 +1034,13 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
   return (
     <main className="learn-area-page page-stack">
       {isLessonMode && (
-        <section className="learn-fullscreen-mode" aria-label={`${cycle.title} full screen lesson`}>
+        <section className="learn-fullscreen-mode learn-lesson-player" aria-label={`${cycle.title} full screen lesson`}>
           <header className="learn-fullscreen-header">
             <div>
-              <p>{cycle.title} - {getCycleLearnTitle(cycle)} - Slide {lessonSlideIndex + 1} of {lessonSlides.length}</p>
-              <h2>{lessonSlide?.title || cycle.title}</h2>
+              <p>{isPreviewMode ? "Preview Lesson" : "Full-Screen Lesson"}</p>
+              <h2>{cycle.title}</h2>
             </div>
             <div className="learn-fullscreen-actions">
-              {isPreviewMode && <span>Preview Lesson</span>}
               <span>Slide {lessonSlideIndex + 1} of {lessonSlides.length}</span>
               <button className="lp-button lp-button-secondary" onClick={() => setIsLessonMode(false)} type="button">
                 Exit Lesson
@@ -1044,7 +1072,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             >
               Previous Slide
             </button>
-            <strong>{cycle.title} - {getCycleLearnTitle(cycle)} - Slide {lessonSlideIndex + 1} of {lessonSlides.length}</strong>
+            <strong>{lessonSlide?.title || getCycleLearnTitle(cycle)}</strong>
             <button
               className="lp-button lp-button-primary"
               disabled={lessonSlideIndex === lessonSlides.length - 1}
