@@ -1,0 +1,151 @@
+{
+  "generatedAt": "2026-05-30T03:31:49.904Z",
+  "activeBooksScanned": 176,
+  "totalImagesScanned": 1793,
+  "likelyCleanCount": 1737,
+  "needsManualReviewCount": 56,
+  "needsReplacementCount": 0,
+  "brokenReferenceCount": 0,
+  "booksWithImageQaIssues": [
+    {
+      "bookId": "gr-a-26",
+      "title": "Pets",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-a-27",
+      "title": "The Sun",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-a-28",
+      "title": "Colors",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-a-29",
+      "title": "My Body",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-b-31",
+      "title": "Seasons",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-b-32",
+      "title": "Fruits",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-b-33",
+      "title": "Tools",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-b-34",
+      "title": "Day and Night",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-b-35",
+      "title": "Community Helpers",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-c-37",
+      "title": "Water",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-c-38",
+      "title": "Five Senses",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-c-39",
+      "title": "Shapes",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-d-42",
+      "title": "Our Earth",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-d-43",
+      "title": "Healthy Habits",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-d-44",
+      "title": "Animal Homes",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-d-45",
+      "title": "Space",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-e-46",
+      "title": "Reptiles",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-e-47",
+      "title": "How Things Grow",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-e-48",
+      "title": "Magnets",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    },
+    {
+      "bookId": "gr-e-49",
+      "title": "Clothes",
+      "replacement": 0,
+      "manualReview": 1,
+      "broken": 0
+    }
+  ]
+}

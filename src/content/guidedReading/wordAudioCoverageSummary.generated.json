@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-05-30T03:31:49.914Z",
+  "activeBooksScanned": 176,
+  "totalPagesScanned": 1617,
+  "totalUniqueWords": 2933,
+  "uniqueWordsWithAudio": 2287,
+  "uniqueWordsMissingAudio": 646,
+  "totalMissingWordOccurrences": 1646,
+  "booksWithMissingWordAudio": 75,
+  "invalidWordAudioPathCount": 0,
+  "worstAffectedBooks": [
+    {
+      "bookId": "level-c-nonfiction-06-spiders",
+      "title": "Spiders",
+      "missingWordCount": 47,
+      "missingOccurrences": 69
+    },
+    {
+      "bookId": "moonwood-tales-c-14",
+      "title": "Wren and Flint Get Lost",
+      "missingWordCount": 29,
+      "missingOccurrences": 67
+    },
+    {
+      "bookId": "level-c-nonfiction-09-caves",
+      "title": "Caves",
+      "missingWordCount": 48,
+      "missingOccurrences": 63
+    },
+    {
+      "bookId": "level-c-nonfiction-02-volcanoes",
+      "title": "Volcanoes",
+      "missingWordCount": 46,
+      "missingOccurrences": 62
+    },
+    {
+      "bookId": "moonwood-tales-c-13",
+      "title": "Glimmer and Spark Make a Deal",
+      "missingWordCount": 22,
+      "missingOccurrences": 62
+    },
+    {
+      "bookId": "moonwood-tales-c-22",
+      "title": "The Big Moonwood Race",
+      "missingWordCount": 35,
+      "missingOccurrences": 61
+    },
+    {
+      "bookId": "level-c-nonfiction-03-penguins",
+      "title": "Penguins",
+      "missingWordCount": 44,
+      "missingOccurrences": 59
+    },
+    {
+      "bookId": "moonwood-tales-c-23",
+      "title": "The Fog Marsh Mystery",
+      "missingWordCount": 26,
+      "missingOccurrences": 57
+    },
+    {
+      "bookId": "level-c-nonfiction-07-under-the-ocean",
+      "title": "Under the Ocean",
+      "missingWordCount": 44,
+      "missingOccurrences": 56
+    },
+    {
+      "bookId": "moonwood-tales-c-24",
+      "title": "Glimmer Breathes Fire at Last",
+      "missingWordCount": 22,
+      "missingOccurrences": 52
+    }
+  ]
+}
