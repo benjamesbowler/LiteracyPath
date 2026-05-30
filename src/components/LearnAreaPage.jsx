@@ -62,8 +62,10 @@ const LEARN_IMAGE_BY_WORD = {
   watch: "/media/learn/images/cycle-08/watch.png",
   watermelon: "/media/learn/images/cycle-08/watermelon.png",
   wave: "/media/vocabulary/images/wave.webp",
+  web: "/images/child-mode/initial-sounds/web.png",
   wig: "/media/initial-sounds/images/w/wig.webp",
   wolf: "/media/learn/images/cycle-08/wolf.png",
+  wag: "/media/vocabulary/images/wag.webp",
   chair: "/media/learn/images/cycle-15/chair.png",
   cheese: "/media/learn/images/cycle-15/cheese.png",
   chip: "/media/learn/images/cycle-15/chip.png",
@@ -88,6 +90,16 @@ const LEARN_IMAGE_BY_WORD = {
   sing: "/media/learn/images/cycle-23/sing.png",
   song: "/media/learn/images/cycle-23/song.png",
   sung: "/media/learn/images/cycle-23/sung.png"
+};
+
+const LEARN_IMAGE_ALIAS_BY_WORD = {
+  sunshine: "/media/initial-sounds/images/s/sun.webp",
+  rainbow: "/media/initial-sounds/images/r/rainbow.webp",
+  cupcake: "/media/vocabulary/images/cupcake.webp",
+  pancake: "/media/vocabulary/images/pancake.webp",
+  cake: "/media/initial-sounds/images/c/cake.webp",
+  cup: "/media/initial-sounds/images/c/cup.webp",
+  bow: "/media/vocabulary/images/bow.webp"
 };
 
 const CYCLE_GROUPS = [
@@ -163,7 +175,12 @@ function getLearnImageKey(value = "") {
 }
 
 function getLearnImageSrc(value = "") {
-  return LEARN_IMAGE_BY_WORD[getLearnImageKey(value)] || "";
+  const key = getLearnImageKey(value);
+  return LEARN_IMAGE_BY_WORD[key] || LEARN_IMAGE_ALIAS_BY_WORD[key] || "";
+}
+
+function getActionCardParts(value = "") {
+  return String(value).split(/\s*(?:->|\+|=)\s*/).map(part => part.trim()).filter(Boolean);
 }
 
 function makeSoundSafariSlide(card, otherCard, index) {
@@ -278,6 +295,7 @@ function LessonPictureCard({ word, sound, className = "" }) {
   const letter = text.slice(0, 1).toUpperCase();
   const imageSrc = getLearnImageSrc(text);
   const isActionCard = /->|\+|=/.test(text);
+  const actionParts = isActionCard ? getActionCardParts(text) : [];
   const cardClassName = [
     "learn-picture-card",
     imageSrc ? "has-image" : "no-image",
@@ -288,14 +306,40 @@ function LessonPictureCard({ word, sound, className = "" }) {
     <div className={cardClassName}>
       {imageSrc ? (
         <img alt="" aria-hidden="true" className="learn-picture-image" src={imageSrc} />
+      ) : isActionCard && actionParts.length ? (
+        <div className="learn-action-visual" aria-hidden="true">
+          {actionParts.slice(0, 3).map((part, index) => (
+            <span key={`${text}-${part}-${index}`}>{part.slice(0, 1).toUpperCase()}</span>
+          ))}
+        </div>
       ) : (
         <div className="learn-picture-placeholder" aria-hidden="true">
-          <span>{isActionCard ? "Build" : letter}</span>
+          <span>{letter}</span>
         </div>
       )}
       {!isActionCard && <b>{letter}</b>}
       <strong>{text}</strong>
       {sound && <small>{sound}</small>}
+    </div>
+  );
+}
+
+function StrokeDirectionCard({ card }) {
+  const label = String(card?.grapheme || card?.spelling || "").replace("/", " ");
+  const displaySound = getDisplaySound(card);
+  return (
+    <div className="learn-stroke-card" aria-label={`${label} stroke model`}>
+      <div className="learn-stroke-canvas" aria-hidden="true">
+        <span className="stroke-start one">1</span>
+        <span className="stroke-arrow arrow-one"></span>
+        <strong>{label}</strong>
+        <span className="stroke-start two">2</span>
+        <span className="stroke-arrow arrow-two"></span>
+      </div>
+      <div className="learn-stroke-caption">
+        <strong>{label}</strong>
+        <span>{displaySound}</span>
+      </div>
     </div>
   );
 }
@@ -398,8 +442,22 @@ function LetterCard({ card, lessonMode = false }) {
   const displayLower = lower || String(card.spelling || "").slice(0, 2);
   const displaySound = getDisplaySound(card);
   const teacherSoundCue = getTeacherSoundCue(card);
+  if (lessonMode) {
+    return (
+      <article className="learn-letter-card lesson-card visual-letter-card">
+        <StrokeDirectionCard card={card} />
+        <div className="learn-letter-picture-bank">
+          {(card.examples || []).slice(0, 4).map(word => <ResourcePictureToken key={`${card.grapheme}-${word}`} word={word} />)}
+        </div>
+        <div className="learn-sound-callout">
+          <span>{displaySound || "review"}</span>
+          <strong>{teacherSoundCue}</strong>
+        </div>
+      </article>
+    );
+  }
   return (
-    <article className={lessonMode ? "learn-letter-card lesson-card" : "learn-letter-card"}>
+    <article className="learn-letter-card">
       <div className="learn-letter-tile" aria-label={`${card.grapheme} letter tile`}>
         <strong>{upper}</strong>
         <span>{displayLower}</span>
@@ -411,12 +469,6 @@ function LetterCard({ card, lessonMode = false }) {
         <div className="learn-word-chip-row" aria-label="Example words">
           {(card.examples || []).map(word => <b key={word}>{word}</b>)}
         </div>
-        <div className="learn-formation-steps">
-          {(card.formation || []).map((line, index) => (
-            <p className="formation-line" key={line}><span>{index + 1}</span>{line}</p>
-          ))}
-        </div>
-        <p className="teacher-script">{card.teacherScript}</p>
       </div>
     </article>
   );
@@ -763,8 +815,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           <div className="learn-slide-kicker">Meet {slide.card.grapheme} {displaySound}</div>
           <LetterCard card={slide.card} lessonMode />
           <div className="learn-slide-callout">
-            <strong>My turn. Your turn.</strong>
-            <p>Say {displaySound}. Touch the letter. Say it again.</p>
+            <strong>Watch the stroke model. Say {displaySound}.</strong>
           </div>
         </article>
       );
@@ -773,7 +824,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       return (
         <article className="learn-deck-slide examples-slide" data-slide-type="examples">
           <h1>{slide.title}</h1>
-          <p>Say the word. Stretch the first sound. Touch the picture card.</p>
+          <p>Listen for {getDisplaySound(slide.card)}. Choose the matching picture.</p>
           <div className="learn-picture-card-grid card-row">
             {(slide.card.examples || []).slice(0, 4).map(word => (
               <LessonPictureCard key={word} sound={getDisplaySound(slide.card)} word={word} />
@@ -873,9 +924,9 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       return (
         <article className="learn-deck-slide writing-slide">
           <h1>Writing Mission</h1>
-          <p>Say it, sky-write it, then write it on the line.</p>
-          <div className="learn-writing-grid">
-            {cycle.sections.writing.formationPractice.slice(0, 4).map((item, index) => <article key={item}><span>{index + 1}</span><p>{item}</p><i className="handwriting-lines" aria-hidden="true"></i></article>)}
+          <p>Watch the stroke model. Then write on the line.</p>
+          <div className="learn-writing-stroke-grid">
+            {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 4).map(card => <StrokeDirectionCard key={`${card.grapheme}-${card.spelling}`} card={card} />)}
           </div>
         </article>
       );

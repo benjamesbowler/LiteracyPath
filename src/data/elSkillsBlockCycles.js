@@ -421,9 +421,9 @@ const PRIORITY_CYCLE_CONTENT = {
         prompt: "Say the word. Take away the first sound.",
         teacherInstruction: "This is oral onset deletion. Stretch the word, remove the first sound, and say the sound chunk left.",
         studentAction: "Repeat the word, move the first sound away, and say what is left.",
-        cards: ["bat -> at", "bit -> it", "wag -> ag"],
-        targetItems: ["bat", "bit", "wag"],
-        answer: "bat without /b/ is at. bit without /b/ is it. wag without /w/ is ag.",
+        cards: ["bat -> at", "wig -> ig", "wag -> ag"],
+        targetItems: ["bat", "wig", "wag"],
+        answer: "bat without /b/ is at. wig without /w/ is ig. wag without /w/ is ag.",
         supportPrompt: "Use sound boxes and counters.",
         challengePrompt: "Try web without /w/: eb."
       },
@@ -454,7 +454,7 @@ const PRIORITY_CYCLE_CONTENT = {
     ],
     phonemicAwarenessItems: [
       { prompt: "Say bat. Take away /b/. What is left?", answer: "at" },
-      { prompt: "Say bit. Take away /b/. What is left?", answer: "it" },
+      { prompt: "Say wig. Take away /w/. What is left?", answer: "ig" },
       { prompt: "Say wag. Take away /w/. What is left?", answer: "ag" }
     ],
     rhymingItems: [["bat", "hat"], ["ball", "fall"], ["wig", "big"], ["book", "look"]],
@@ -589,9 +589,9 @@ const PRIORITY_CYCLE_CONTENT = {
         prompt: "Say a two-syllable word. Take away the first part.",
         teacherInstruction: "Tap two syllables and remove the first syllable orally.",
         studentAction: "Tap, remove, and say what remains.",
-        cards: ["sunset -> set", "pancake -> cake", "rainbow -> bow"],
-        targetItems: ["sunset", "pancake", "rainbow"],
-        answer: "sunset without sun is set. pancake without pan is cake. rainbow without rain is bow.",
+        cards: ["cupcake -> cake", "pancake -> cake", "rainbow -> bow"],
+        targetItems: ["cupcake", "pancake", "rainbow"],
+        answer: "cupcake without cup is cake. pancake without pan is cake. rainbow without rain is bow.",
         supportPrompt: "Use two counters for two spoken parts.",
         challengePrompt: "Try toothbrush without tooth: brush."
       },
