@@ -79,7 +79,7 @@ const allSources = [learnDecksSource, playerSource, layerSource, learnAreaSource
 ].forEach(needle => requireIncludes(layerSource, needle, `LearnDeckInteractionLayer is missing ${needle}.`));
 
 [
-  "Teacher-Created Cycle 1 Slide Packs",
+  "Teacher-Created ${cycle.title} Slide Packs",
   "Open Lesson",
   "Download PPTX",
   "download href",

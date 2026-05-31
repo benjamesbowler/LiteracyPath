@@ -1,18 +1,30 @@
 import { useEffect, useState } from "react";
 import { LearnDeckInteractionLayer } from "./LearnDeckInteractionLayer.jsx";
+import { resolveDeckSlideImage, resolveLearnAudio, resolveLearnImage } from "../utils/mediaResolver.js";
 
 function LearnDeckSlideImage({ slide, deck }) {
-  if (!slide?.image) {
+  const resolvedImage = resolveDeckSlideImage(slide, { label: slide?.alt || deck?.title });
+  const [failedImage, setFailedImage] = useState({ src: "", failed: false });
+  const imageFailed = failedImage.failed && failedImage.src === resolvedImage.src;
+
+  if (!resolvedImage.available || imageFailed) {
     return (
       <div className="learn-deck-image-placeholder">
         <span>Slide image needed</span>
-        <strong>{deck.title}</strong>
-        <small>{slide?.alt || slide?.id || "Teacher-created slide visual will appear here."}</small>
+        <strong>{deck?.title}</strong>
+        <small>{resolvedImage.label || slide?.id || "Teacher-created slide visual will appear here."}</small>
       </div>
     );
   }
 
-  return <img alt={slide.alt || `${deck.title} slide`} className="learn-deck-slide-image" src={slide.image} />;
+  return (
+    <img
+      alt={slide.alt || `${deck.title} slide`}
+      className="learn-deck-slide-image"
+      onError={() => setFailedImage({ src: resolvedImage.src, failed: true })}
+      src={resolvedImage.src}
+    />
+  );
 }
 
 function LearnDeckTeacherLinks({ slide }) {
@@ -27,6 +39,37 @@ function LearnDeckTeacherLinks({ slide }) {
       ))}
     </div>
   );
+}
+
+function collectLearnDeckMediaWarnings(deck) {
+  return (deck?.slides || []).flatMap(slide => {
+    const warnings = [];
+    if (slide.image && !resolveDeckSlideImage(slide).available) {
+      warnings.push({ slideId: slide.id, mediaType: "slide-image", value: slide.image });
+    }
+
+    (slide.cards || []).forEach(card => {
+      if (card.image && !resolveLearnImage(card.image, { label: card.label }).available) {
+        warnings.push({ slideId: slide.id, cardId: card.id, mediaType: "card-image", value: card.image });
+      }
+      if (card.audio && !resolveLearnAudio(card.audio, { label: card.label }).available) {
+        warnings.push({ slideId: slide.id, cardId: card.id, mediaType: "card-audio", value: card.audio });
+      }
+    });
+
+    (slide.groups || []).forEach(group => {
+      (group.words || []).forEach(word => {
+        if (word.image && !resolveLearnImage(word.image, { label: word.label }).available) {
+          warnings.push({ slideId: slide.id, wordId: word.id, mediaType: "word-image", value: word.image });
+        }
+        if (word.audio && !resolveLearnAudio(word.audio, { label: word.label }).available) {
+          warnings.push({ slideId: slide.id, wordId: word.id, mediaType: "word-audio", value: word.audio });
+        }
+      });
+    });
+
+    return warnings;
+  });
 }
 
 export function LearnDeckPlayer({ deck, onExit }) {
@@ -58,6 +101,17 @@ export function LearnDeckPlayer({ deck, onExit }) {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onExit, slides.length]);
+
+  useEffect(() => {
+    if (!import.meta.env.DEV || !deck) return;
+    const warnings = collectLearnDeckMediaWarnings(deck);
+    if (warnings.length) {
+      console.warn("Learn deck has media paths that the resolver will treat as unavailable.", {
+        deckId: deck.id,
+        warnings
+      });
+    }
+  }, [deck]);
 
   if (!deck) return null;
 
