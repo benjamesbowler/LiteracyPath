@@ -402,11 +402,7 @@ function StrokeDirectionCard({ card }) {
   return (
     <div className="learn-stroke-card" aria-label={`${label} stroke model`}>
       <div className="learn-stroke-canvas" aria-hidden="true">
-        <span className="stroke-start one">1</span>
-        <span className="stroke-arrow arrow-one"></span>
         <strong>{label}</strong>
-        <span className="stroke-start two">2</span>
-        <span className="stroke-arrow arrow-two"></span>
       </div>
       <div className="learn-stroke-caption">
         <strong>{label}</strong>
@@ -919,7 +915,6 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
   const [activeSection, setActiveSection] = useState("overview");
   const [lessonSlideIndex, setLessonSlideIndex] = useState(0);
   const [isLessonMode, setIsLessonMode] = useState(false);
-  const [isPreviewMode, setIsPreviewMode] = useState(false);
   const [activeLearnDeck, setActiveLearnDeck] = useState(null);
   const [search, setSearch] = useState("");
   const cycle = getElSkillsBlockCycle(selectedCycleId);
@@ -962,8 +957,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
     setActiveLearnDeck(null);
   }
 
-  function openLesson({ preview = false } = {}) {
-    setIsPreviewMode(preview);
+  function openLesson() {
     setLessonSlideIndex(0);
 
     if (hasTeacherCreatedDecks) {
@@ -1224,7 +1218,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       return (
         <article className="learn-deck-slide writing-slide">
           <h1>Writing Mission</h1>
-          <p>Watch the stroke model. Then write on the line.</p>
+          <p>Use your writing paper. Say the sound, then write each letter.</p>
           <div className="learn-writing-stroke-grid">
             {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 4).map(card => <StrokeDirectionCard key={`${card.grapheme}-${card.spelling}`} card={card} />)}
           </div>
@@ -1463,7 +1457,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             <VisualBadge sectionId="writing" />
             <div>
               <h4>Writing / Encoding Practice</h4>
-              <p>Use the stroke model, then move to word writing and a shared sentence.</p>
+              <p>Use teacher-made writing visuals, then move to word writing and a shared sentence.</p>
             </div>
           </div>
           <div className="learn-writing-grid">
@@ -1517,7 +1511,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           <div className="learn-overview-cell"><strong>Progress Link</strong><p>{cycle.sections.teacherNotes.progressConnection}</p></div>
           <div className="learn-overview-cell learn-video-resource">
             <strong>Teacher video option</strong>
-            <p>Use only teacher-approved videos. LiteracyPath does not autoplay or embed video inside lessons.</p>
+            <p>Use teacher-approved playable videos. LiteracyPath never autoplays video.</p>
             <a href={youtubeSearchUrl} target="_blank" rel="noreferrer">Find teacher-approved YouTube model</a>
           </div>
         </div>
@@ -1545,14 +1539,11 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       {isLessonMode && (
         <section className="learn-fullscreen-mode learn-lesson-player" aria-label={`${cycle.title} full screen lesson`}>
           <header className="learn-fullscreen-header">
-            <div>
-              <p>{isPreviewMode ? "Preview Lesson" : "Full-Screen Lesson"}</p>
-              <h2>{cycle.title}</h2>
-            </div>
+            <strong className="learn-fullscreen-title">{lessonSlide?.title || cycle.title}</strong>
             <div className="learn-fullscreen-actions">
               <span>Slide {lessonSlideIndex + 1} of {lessonSlides.length}</span>
               <button className="lp-button lp-button-secondary" onClick={() => setIsLessonMode(false)} type="button">
-                Exit Lesson
+                Exit
               </button>
             </div>
           </header>
@@ -1579,7 +1570,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
               onClick={() => setLessonSlideIndex(index => Math.max(index - 1, 0))}
               type="button"
             >
-              Previous Slide
+              Previous
             </button>
             <strong>{lessonSlide?.title || getCycleLearnTitle(cycle)}</strong>
             <button
@@ -1588,54 +1579,43 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
               onClick={() => setLessonSlideIndex(index => Math.min(index + 1, lessonSlides.length - 1))}
               type="button"
             >
-              Next Slide
+              Next
             </button>
           </footer>
         </section>
       )}
       {activeLearnDeck && <LearnDeckPlayer deck={activeLearnDeck} onExit={() => setActiveLearnDeck(null)} />}
 
-      <section className="card page-card learn-hero">
-        <div className="learn-hero-copy">
-          <p className="panel-label">Learn</p>
-          <h2>EL Skills Block Learn</h2>
-          <p>Choose a Kindergarten Skills Block cycle and open a bright, teacher-led lesson with printable practice.</p>
+      <section className="card page-card learn-browser">
+        <div className="learn-workspace-header">
+          <div className="learn-workspace-title">
+            <p className="panel-label">Learn</p>
+            <h2>EL Skills Block Learn</h2>
+            <span>{recommendedCycle?.title ? `Recommended: ${recommendedCycle.title}` : "Choose a cycle to start teaching."}</span>
+          </div>
           <div className="learn-hero-actions">
             <button className="lp-button lp-button-primary" onClick={() => openLesson()} type="button">
-              Start Full-Screen Lesson
+              Start Lesson
             </button>
-            <button className="lp-button lp-button-secondary" onClick={() => openLesson({ preview: true })} type="button">
-              Preview Lesson
+            <button className="lp-button lp-button-secondary" onClick={() => openLesson()} type="button">
+              Preview
             </button>
             <button className="lp-button lp-button-secondary" onClick={() => setActiveSection("worksheets")} type="button">
-              Generate Worksheets
+              Worksheets
             </button>
           </div>
-          {!hasTeacherCreatedDecks && (
-            <aside className="learn-deck-status-note">
-              Teacher-created deck not added for this cycle yet. The lesson button opens the built-in lesson, and the section tabs below remain available for cycle content.
-            </aside>
-          )}
-        </div>
-        <div className="learn-recommendation">
-          <span>Recommended cycle</span>
-          <strong>{recommendedCycle?.title || "Choose a cycle"}</strong>
-          <small>{assessmentSummary?.attempts ? "Based on saved class/student assessment evidence." : "Choose a cycle to start teaching."}</small>
-        </div>
-      </section>
-
-      <section className="card page-card learn-browser">
-        <div className="learn-toolbar">
-          <label>
-            Search cycles, letters, sounds, HFW, or skills
-            <input value={search} onChange={event => setSearch(event.target.value)} placeholder="Search: sh, am, rhyming, Cycle 15..." />
-          </label>
-          <label className="learn-mobile-cycle-select">
-            Choose cycle
-            <select value={selectedCycleId} onChange={event => openCycle(event.target.value)}>
-              {elSkillsBlockCycles.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}
-            </select>
-          </label>
+          <div className="learn-toolbar">
+            <label>
+              Search cycles
+              <input value={search} onChange={event => setSearch(event.target.value)} placeholder="sh, am, rhyming, Cycle 15..." />
+            </label>
+            <label className="learn-mobile-cycle-select">
+              Cycle
+              <select value={selectedCycleId} onChange={event => openCycle(event.target.value)}>
+                {elSkillsBlockCycles.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}
+              </select>
+            </label>
+          </div>
         </div>
 
         <div className="learn-layout">
@@ -1664,19 +1644,8 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             <div className="learn-cycle-header visual">
               <div>
                 <p className="panel-label">EL Skills Block</p>
-                <h3>{cycle.title}</h3>
+                <h3 className="learn-cycle-title">{cycle.title}</h3>
                 <p>{cycle.phase.replace(/-/g, " ")} - {cycle.friday}</p>
-                <div className="learn-hero-actions">
-                  <button className="lp-button lp-button-primary" onClick={() => openLesson()} type="button">
-                    Start Full-Screen Lesson
-                  </button>
-                  <button className="lp-button lp-button-secondary" onClick={() => openLesson({ preview: true })} type="button">
-                    Preview Lesson
-                  </button>
-                  <button className="lp-button lp-button-secondary" onClick={() => setActiveSection("worksheets")} type="button">
-                    Generate Worksheets
-                  </button>
-                </div>
                 {!hasTeacherCreatedDecks && (
                   <aside className="learn-deck-status-note">
                     Teacher-created deck not added for this cycle yet - use the built-in lesson or section tabs below.

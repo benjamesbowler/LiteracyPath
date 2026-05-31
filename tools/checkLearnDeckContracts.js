@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from "node:fs";
+import { learnDecks } from "../src/data/learnDecks.js";
 
 const failures = [];
 
@@ -44,6 +45,27 @@ const interactionSources = [
 ].map(read).join("\n");
 const allSources = [learnDecksSource, playerSource, layerSource, learnAreaSource, cssSource, interactionSources].join("\n");
 
+const prohibitedOfficialSlides = {
+  "cycle-01-lesson-01": [1, 2, 3, 4, 25],
+  "cycle-01-lesson-02": [1, 2, 3, 4, 25],
+  "cycle-01-lesson-03": [1, 2, 3, 24, 25, 26, 27, 28, 29, 30, 31]
+};
+
+Object.entries(prohibitedOfficialSlides).forEach(([deckId, slideNumbers]) => {
+  const deck = learnDecks.find(item => item.id === deckId);
+  if (!deck) {
+    fail(`${deckId} is missing from learnDecks.`);
+    return;
+  }
+
+  const renderedOfficialSlides = new Set((deck.slides || []).map(slide => slide.originalSlideNumber));
+  slideNumbers.forEach(slideNumber => {
+    if (renderedOfficialSlides.has(slideNumber)) {
+      fail(`${deckId} still renders official/red-text slide ${slideNumber}.`);
+    }
+  });
+});
+
 [
   "cycle-01-lesson-01",
   "cycle-01-lesson-02",
@@ -59,10 +81,9 @@ const allSources = [learnDecksSource, playerSource, layerSource, learnAreaSource
 ].forEach(needle => requireIncludes(learnDecksSource, needle, `learnDecks.js is missing ${needle}.`));
 
 [
-  "Teacher-Created Interactive Deck",
   "Previous",
   "Next",
-  "Exit Lesson",
+  "Exit",
   "Slide {slideIndex + 1} of {slides.length}",
   "object-fit",
   "learn-deck-image-placeholder",
@@ -99,7 +120,7 @@ if (/\bautoPlay\s*=|\bautoplay\s*=/.test(allSources)) {
   fail("Learn decks must not autoplay media.");
 }
 
-if (/<iframe|officeapps|view\.officeapps|docs\.google\.com\/presentation/i.test(allSources)) {
+if (/officeapps|view\.officeapps|docs\.google\.com\/presentation/i.test(allSources)) {
   fail("Learn decks must not use external PPT/PPTX viewers or embeds.");
 }
 

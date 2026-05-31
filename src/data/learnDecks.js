@@ -10,13 +10,17 @@ const cycleOneLessonDecks = [
     id: "cycle-01-lesson-01",
     lessonNumber: 1,
     title: "Cycle 1 Lesson 1: Introducing Poem Launch and Getting to Know Letters: Mm",
-    slideCount: 25
+    slideCount: 25,
+    // EL logo/title, EL learning target/red-text pages, and red check pages stay out of the in-app player.
+    hiddenSlides: [1, 2, 3, 4, 25]
   },
   {
     id: "cycle-01-lesson-02",
     lessonNumber: 2,
     title: "Cycle 1 Lesson 2: Poem Launch and Getting to Know Letters: Aa",
     slideCount: 25,
+    // EL logo/title, EL learning target/red-text pages, and red check pages stay out of the in-app player.
+    hiddenSlides: [1, 2, 3, 4, 25],
     teacherLinks: {
       4: [
         {
@@ -42,7 +46,9 @@ const cycleOneLessonDecks = [
     id: "cycle-01-lesson-03",
     lessonNumber: 3,
     title: "Cycle 1 Lesson 3: Introducing Fluency and Call and Response",
-    slideCount: 31
+    slideCount: 31,
+    // EL logo/title, EL learning target/red-text pages, and red writing/check pages stay out of the in-app player.
+    hiddenSlides: [1, 2, 3, 24, 25, 26, 27, 28, 29, 30, 31]
   }
 ];
 
@@ -52,9 +58,11 @@ function pad(value) {
 
 function buildCycleOneSlides(deck) {
   const lessonSlug = `lesson-${pad(deck.lessonNumber)}`;
+  const hiddenSlides = new Set(deck.hiddenSlides || []);
 
   return Array.from({ length: deck.slideCount }, (_, index) => {
     const slideNumber = index + 1;
+    if (hiddenSlides.has(slideNumber)) return null;
     const links = deck.teacherLinks?.[slideNumber];
 
     return {
@@ -62,9 +70,10 @@ function buildCycleOneSlides(deck) {
       type: "image",
       image: `/learn-decks/cycle-01/${lessonSlug}/slide-${pad(slideNumber)}.webp`,
       alt: `${deck.title} slide ${slideNumber}`,
+      originalSlideNumber: slideNumber,
       ...(links ? { prompt: "Teacher resource available for this slide.", links } : {})
     };
-  });
+  }).filter(Boolean);
 }
 
 export const learnDecks = cycleOneLessonDecks.map(deck => ({
