@@ -181,12 +181,11 @@ export function getMasteryRule(skillLabel) {
     reviewAfter: 20
   };
 
-  const originalRoundLength = Math.max(1, rule.roundLength || 10);
-  const passRate = (rule.passScore || Math.ceil(originalRoundLength * 0.8)) / originalRoundLength;
+  const roundLength = Math.max(1, rule.roundLength || 10);
 
   return {
     ...rule,
-    roundLength: 15,
-    passScore: Math.ceil(passRate * 15)
+    roundLength,
+    passScore: Math.min(roundLength, Math.max(1, rule.passScore || Math.ceil(roundLength * 0.8)))
   };
 }

@@ -1819,7 +1819,17 @@ function AutoFitReadingText({
     }, 350));
 
     if (typeof document !== "undefined" && document.fonts?.ready) {
-      document.fonts.ready.then(() => fitText("fonts-ready")).catch(() => {});
+      const fontReadyTimeout = new Promise(resolve => {
+        const timeoutId = window.setTimeout(resolve, 1200);
+        timerIds.push(timeoutId);
+      });
+      Promise.race([document.fonts.ready, fontReadyTimeout])
+        .then(() => {
+          if (!cancelled) fitText("fonts-ready");
+        })
+        .catch(() => {
+          if (!cancelled) fitText("fonts-ready-fallback");
+        });
     }
 
     let frameObserver;

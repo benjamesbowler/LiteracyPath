@@ -1263,15 +1263,11 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
 
 const configuredCoverageTotals = coverageExpectations;
 
-function getCoverageItemKeysForStage(stage) {
+function getCoverageItemKeysForStage(stage, { finalSoundLevel = null } = {}) {
   const configured = configuredCoverageTotals[stage?.id];
   if (configured?.itemKeys?.length && configured?.itemType) {
-    const level =
-      stage?.id === "final_sounds" && typeof getNextFinalSoundLevel === "function"
-        ? getNextFinalSoundLevel()
-        : null;
-    const itemKeys = level && configured.levels?.[level]
-      ? configured.levels[level]
+    const itemKeys = finalSoundLevel && configured.levels?.[finalSoundLevel]
+      ? configured.levels[finalSoundLevel]
       : configured.itemKeys;
     return new Set(
       itemKeys.map(itemKey =>
@@ -3793,7 +3789,9 @@ export default function App() {
   }
 
   function getCoveredStageItemKeys(stage) {
-    const expectedKeys = getCoverageItemKeysForStage(stage);
+    const expectedKeys = getCoverageItemKeysForStage(stage, {
+      finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null
+    });
     const covered = new Set(
       Object.values(itemMastery || {})
         .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0))
@@ -3818,7 +3816,9 @@ export default function App() {
   function getUncoveredRhymingQuestionsForRound(questions, stage) {
     if (stage?.id !== "rhyming") return [];
 
-    const expectedKeys = getCoverageItemKeysForStage(stage);
+    const expectedKeys = getCoverageItemKeysForStage(stage, {
+      finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null
+    });
     const coveredKeys = getCoveredStageItemKeys(stage);
     const currentRoundKeys = new Set(roundItemKeysRef.current);
     const missingKeys = new Set(
@@ -4456,7 +4456,9 @@ export default function App() {
     if (configuredStage) return configuredStage.id;
 
     return skillTree.find(stage => {
-      const keys = getCoverageItemKeysForStage(stage);
+      const keys = getCoverageItemKeysForStage(stage, {
+        finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null
+      });
       return keys.has(getItemMasteryStateKey(row.itemKey, row.itemType));
     })?.id || "";
   }
@@ -4737,7 +4739,9 @@ export default function App() {
       }
     }
 
-    const expectedKeys = Array.from(getCoverageItemKeysForStage(stage));
+    const expectedKeys = Array.from(getCoverageItemKeysForStage(stage, {
+      finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null
+    }));
     const expectedKeySet = new Set(expectedKeys);
     const alreadyCoveredKeys = new Set(
       getCoveredStageItemKeys(stage)
