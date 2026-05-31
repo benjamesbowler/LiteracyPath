@@ -161,8 +161,9 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId, index) {
 }
 
 function isMultipleChoice(question) {
+  const templateType = String(question.templateType || question.formatType || "").toUpperCase();
   return question.questionType !== "fix_sentence" &&
-    question.templateType !== "PUT_SOUNDS_IN_ORDER" &&
+    !["PUT_SOUNDS_IN_ORDER", "HFW_LETTER_BUILD"].includes(templateType) &&
     !["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(question.questionType);
 }
 

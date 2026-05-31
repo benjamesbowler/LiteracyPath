@@ -1,4 +1,8 @@
 import { getHfwRuntimeEligibilityIssues } from "./hfwRuntimeEligibility.js";
+import {
+  BLENDS_ALLOWED_FORMATS,
+  getBlendsRuntimeEligibilityIssues
+} from "./blendsRuntimeEligibility.js";
 
 const normalize = value =>
   String(value || "")
@@ -76,13 +80,8 @@ const ROUTING_RULES = {
     singleTemplate: false
   },
   blends: {
-    allowedFormats: new Set([
-      "PICTURE_AUDIO_TO_PATTERN",
-      "IMAGE_WORD_PATTERN_MATCH",
-      "HEARD_WORD_TO_PRINT_MINIMAL_PAIR",
-      "BLEND_SOUNDS",
-      "MULTIPLE_CHOICE"
-    ]),
+    allowedFormats: BLENDS_ALLOWED_FORMATS,
+    blendsOnly: true,
     singleTemplate: false
   },
   digraphs: {
@@ -129,6 +128,10 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   if (rule.sightWordsOnly) {
     const hfwIssues = getHfwRuntimeEligibilityIssues(question, stageId);
     if (hfwIssues.length) return `High-Frequency Words routing violation: ${hfwIssues.join("; ")}`;
+  }
+  if (rule.blendsOnly) {
+    const blendIssues = getBlendsRuntimeEligibilityIssues(question, stageId);
+    if (blendIssues.length) return `Blends routing violation: ${blendIssues.join("; ")}`;
   }
   return "";
 }

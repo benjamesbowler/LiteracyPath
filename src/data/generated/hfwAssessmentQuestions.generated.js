@@ -459,6 +459,7 @@ function makeQuestionsForWord(config, bandIndex, word, wordIndex) {
     passage: scene.sentence,
     active: true,
     source: "hfw_no_audio_2026_06",
+    disableAudio: true,
     tags: ["hfw", config.skillId, word]
   };
   const tiles = letterTiles(word, wordIndex + bandIndex * 25);

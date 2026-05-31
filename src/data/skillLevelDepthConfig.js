@@ -134,8 +134,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Blends",
     aliases: ["blends"],
     levels: {
-      1: { designed: true, rule: "Common initial blends.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "BLEND_SOUNDS", "MULTIPLE_CHOICE"] },
-      2: { designed: true, rule: "Final blends and mixed blend discrimination.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "BLEND_SOUNDS", "MULTIPLE_CHOICE"] }
+      1: { designed: true, rule: "Beginning blend image-card word recognition only.", allowedFormats: ["BLEND_IMAGE_CHOICE"] },
+      2: { designed: true, rule: "Beginning and ending blend completion from a picture and partial word.", allowedFormats: ["BLEND_COMPLETE_WORD"] }
     }
   },
   {

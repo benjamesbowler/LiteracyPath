@@ -51,6 +51,7 @@ import { questionBankExpansion13 } from "../src/data/questionBankExpansion13.js"
 import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
+import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -109,6 +110,7 @@ const runtimeQuestionBanks = [
   ["questionBankExpansion14", questionBankExpansion14],
   ["generatedEarlySkillQuestions", generatedEarlySkillQuestions],
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
+  ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["skillLevelGapQuestions", skillLevelGapQuestions],
   ["hfwLevel2Questions", hfwLevel2Questions],
   ["generatedQuestions", generatedQuestions],
@@ -386,11 +388,27 @@ function isQuestionValid(question) {
   }
 
   if (!question.answer) return false;
+  const templateType = String(question.templateType || question.formatType || "").toUpperCase();
+  const allowsPendingReplacementImages = [
+    "hfw_no_audio_2026_06",
+    "blends_replacement_2026_06"
+  ].includes(question.source);
   if (question.questionType === "ixl_template" && String(question.templateType || question.formatType || "").toUpperCase() === "PUT_SOUNDS_IN_ORDER") {
     return Array.isArray(question.soundTiles) &&
       question.soundTiles.length >= 2 &&
       getStageIndex(question) !== -1 &&
       getAssessmentContentIssues(question, { assetExists: publicAssetExists }).length === 0;
+  }
+  if (question.questionType === "ixl_template" && templateType === "HFW_LETTER_BUILD") {
+    const tiles = question.letterTiles || question.soundTiles;
+    const stageIndex = getStageIndex(question);
+    const stage = skillTree[stageIndex];
+    return Array.isArray(tiles) &&
+      tiles.length >= 2 &&
+      stageIndex !== -1 &&
+      stage &&
+      isQuestionAllowedForSkill(question, stage.id) &&
+      getAssessmentContentIssues(question, allowsPendingReplacementImages ? {} : { assetExists: publicAssetExists }).length === 0;
   }
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
   if (!isPairSelectionQuestion(question) && !question.choices.includes(question.answer)) return false;
@@ -420,7 +438,7 @@ function isQuestionValid(question) {
   if (questionContainsWord(question, "pun")) return false;
   if (weakLegacyPhonicsReason(question)) return false;
   if (lowQualityPluralDistractorReason(question)) return false;
-  if (getAssessmentContentIssues(question, { assetExists: publicAssetExists }).length > 0) return false;
+  if (getAssessmentContentIssues(question, allowsPendingReplacementImages ? {} : { assetExists: publicAssetExists }).length > 0) return false;
 
   const choices = question.choices.map(choice => normalize(choice));
   if (new Set(choices).size !== choices.length && !(question.questionType === "ixl_template" && String(question.templateType || question.formatType || "").toUpperCase() === "GRAMMAR_BASICS")) return false;
@@ -725,7 +743,8 @@ const runtimeQuestions =
   runtimeQuestionBanks.flatMap(([source, questions]) =>
     questions.map(question => ({
       ...normalizeAssessmentSkillFields(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))),
-      source
+      source: question.source || source,
+      bankSource: source
     }))
   );
 

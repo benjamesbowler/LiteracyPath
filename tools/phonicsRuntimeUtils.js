@@ -442,8 +442,9 @@ export function questionFilterReason(question = {}) {
     const routeIssue = getQuestionRoutingIssue(question, skillId);
     if (routeIssue) return `wrong skill/template: ${routeIssue}`;
     if (skillId.startsWith("hfw_")) {
-      const hfwIssues = getHfwRuntimeEligibilityIssues(question, skillId, { pathExists: publicPathExists });
+      const hfwIssues = getHfwRuntimeEligibilityIssues(question, skillId);
       if (hfwIssues.length > 0) return `hfw runtime ineligible: ${hfwIssues.join("; ")}`;
+      return "";
     }
     if (skillId === "blends") {
       const blendIssues = getBlendsRuntimeEligibilityIssues(question, skillId);

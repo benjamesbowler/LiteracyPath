@@ -141,13 +141,16 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     ...question,
     skillId: question.skillId || skillId
   };
+  const suppressAudio = question.disableAudio === true || question.noAudio === true;
 
   if (targetAsset) {
     enriched.targetWord = enriched.targetWord || targetWord;
     enriched.imageUrl = enriched.imageUrl || enriched.imagePath || enriched.image || targetAsset.image;
     enriched.imagePath = enriched.imagePath || enriched.imageUrl || enriched.image || targetAsset.image;
-    enriched.audioUrl = enriched.audioUrl || enriched.audioPath || enriched.audio || targetAsset.audio;
-    enriched.audioPath = enriched.audioPath || enriched.audioUrl || enriched.audio || targetAsset.audio;
+    if (!suppressAudio) {
+      enriched.audioUrl = enriched.audioUrl || enriched.audioPath || enriched.audio || targetAsset.audio;
+      enriched.audioPath = enriched.audioPath || enriched.audioUrl || enriched.audio || targetAsset.audio;
+    }
   }
 
   if (Array.isArray(enriched.answerOptions) && !isGraphemeChoiceQuestion(enriched)) {

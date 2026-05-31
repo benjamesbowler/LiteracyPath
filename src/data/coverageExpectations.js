@@ -1,3 +1,8 @@
+import {
+  ALL_BLEND_PATTERNS,
+  BEGINNING_BLEND_PATTERNS
+} from "./blendPatternData.js";
+
 export const initialSoundExpectedItemKeys = [
   "a",
   "b",
@@ -191,5 +196,16 @@ export const coverageExpectations = {
   hfw_76_100: {
     total: 25,
     unit: "words"
+  },
+  blends: {
+    itemType: "phonics_pattern",
+    itemKeys: ALL_BLEND_PATTERNS,
+    levels: {
+      1: BEGINNING_BLEND_PATTERNS,
+      2: ALL_BLEND_PATTERNS
+    },
+    total: ALL_BLEND_PATTERNS.length,
+    unit: "blend patterns",
+    note: "Blends uses replacement-only content: Level 1 covers beginning blends with image-card choices; Level 2 mixes beginning and ending blends with picture-backed word completion."
   }
 };
