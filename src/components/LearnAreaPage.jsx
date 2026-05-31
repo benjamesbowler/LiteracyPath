@@ -11,6 +11,8 @@ import {
   guidedReadingBooks,
   normalizeGuidedReadingType
 } from "../data/guidedReadingBooks.js";
+import { countInteractiveSlides, getLearnDecksForCycle } from "../data/learnDecks.js";
+import { LearnDeckPlayer } from "./LearnDeckPlayer.jsx";
 
 const WORKSHEET_TYPES = [
   "cycle worksheet pack",
@@ -798,7 +800,7 @@ function getPptGamePanels(cycle) {
   ];
 }
 
-function ChildLessonPath({ cycle, onStartLesson }) {
+function ChildLessonPath({ cycle, disabled = false, onStartLesson }) {
   const focusCards = cycle.sections.letterLearning.cards || [];
   const hfwWords = cycle.highFrequencyWords || [];
   return (
@@ -828,7 +830,7 @@ function ChildLessonPath({ cycle, onStartLesson }) {
         <strong>Write</strong>
         <p>Sky-write first. Then pencil-write on the line.</p>
       </article>
-      <button className="lp-button lp-button-primary" onClick={onStartLesson} type="button">
+      <button className="lp-button lp-button-primary" disabled={disabled} onClick={onStartLesson} type="button">
         Start Child Lesson Path
       </button>
     </section>
@@ -893,6 +895,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
   const [lessonSlideIndex, setLessonSlideIndex] = useState(0);
   const [isLessonMode, setIsLessonMode] = useState(false);
   const [isPreviewMode, setIsPreviewMode] = useState(false);
+  const [activeLearnDeck, setActiveLearnDeck] = useState(null);
   const [search, setSearch] = useState("");
   const cycle = getElSkillsBlockCycle(selectedCycleId);
   const filteredCycles = elSkillsBlockCycles.filter(item =>
@@ -905,6 +908,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
   const youtubeSearchUrl = makeYouTubeSearchUrl(cycle);
   const guidedReadingRecommendations = cycle.guidedReadingRecommendations || {};
   const bestGuidedReader = getBestGuidedReader(cycle, guidedReadingRecommendations);
+  const teacherCreatedDecks = useMemo(() => getLearnDecksForCycle(cycle.id), [cycle.id]);
 
   useEffect(() => {
     if (!isLessonMode) return undefined;
@@ -927,12 +931,61 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
     setSelectedCycleId(id);
     setActiveSection("overview");
     setLessonSlideIndex(0);
+    setActiveLearnDeck(null);
   }
 
   function openLesson({ preview = false } = {}) {
-    setLessonSlideIndex(0);
     setIsPreviewMode(preview);
-    setIsLessonMode(true);
+
+    if (teacherCreatedDecks.length) {
+      setIsLessonMode(false);
+      setActiveLearnDeck(teacherCreatedDecks[0]);
+      return;
+    }
+
+    setLessonSlideIndex(0);
+    setIsLessonMode(false);
+  }
+
+  function renderTeacherCreatedDecks() {
+    return (
+      <section className="learn-created-decks-panel" aria-label="Teacher-Created Cycle 1 Slide Packs">
+        <div className="learn-section-heading">
+          <VisualBadge sectionId="overview" label="Deck" />
+          <div>
+            <h4>Teacher-Created Cycle 1 Slide Packs</h4>
+            <p>These in-app lessons use the original teacher-made PowerPoint slides as the full slide stage, with teacher-opened resource links only.</p>
+          </div>
+        </div>
+        {teacherCreatedDecks.length ? (
+          <div className="learn-created-deck-card-grid">
+            {teacherCreatedDecks.map(deck => {
+              const interactiveCount = countInteractiveSlides(deck);
+              return (
+                <article className="learn-created-deck-card" key={deck.id}>
+                  <span>Cycle {deck.cycleNumber} · Lesson {deck.lessonNumber}</span>
+                  <strong>{deck.title}</strong>
+                  <small>{deck.slides.length} slides{interactiveCount ? ` · ${interactiveCount} teacher links` : ""}</small>
+                  <div className="learn-created-deck-actions">
+                    <button className="lp-button lp-button-primary" onClick={() => setActiveLearnDeck(deck)} type="button">Open Lesson</button>
+                    {deck.pptxDownload ? (
+                      <a className="lp-button lp-button-secondary" download href={deck.pptxDownload}>Download PPTX</a>
+                    ) : (
+                      <span className="learn-pptx-download-only">PPTX download-only: file not added yet</span>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="learn-created-deck-empty">
+            <strong>No teacher-created deck yet for this cycle.</strong>
+            <p>Add exported slide images and metadata in the Learn Decks data file.</p>
+          </div>
+        )}
+      </section>
+    );
   }
 
   function renderGameCards() {
@@ -1209,7 +1262,8 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             <article><VisualBadge sectionId="decoding" /><strong>Routines</strong><p>{listText(cycle.routines)}</p></article>
           </div>
           <h5>Daily Flow</h5>
-          <ChildLessonPath cycle={cycle} onStartLesson={() => openLesson()} />
+          <ChildLessonPath cycle={cycle} disabled={!teacherCreatedDecks.length} onStartLesson={() => openLesson()} />
+          {renderTeacherCreatedDecks()}
           <div className="learn-daily-flow">
             {cycle.dailyFlow.map(day => (
               <article key={`${day.day}-${day.focus}`}>
@@ -1492,6 +1546,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           </footer>
         </section>
       )}
+      {activeLearnDeck && <LearnDeckPlayer deck={activeLearnDeck} onExit={() => setActiveLearnDeck(null)} />}
 
       <section className="card page-card learn-hero">
         <div className="learn-hero-copy">
@@ -1499,10 +1554,10 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           <h2>EL Skills Block Learn</h2>
           <p>Choose a Kindergarten Skills Block cycle and open a bright, teacher-led lesson with printable practice.</p>
           <div className="learn-hero-actions">
-            <button className="lp-button lp-button-primary" onClick={() => openLesson()} type="button">
+            <button className="lp-button lp-button-primary" disabled={!teacherCreatedDecks.length} onClick={() => openLesson()} type="button">
               Start Full-Screen Lesson
             </button>
-            <button className="lp-button lp-button-secondary" onClick={() => openLesson({ preview: true })} type="button">
+            <button className="lp-button lp-button-secondary" disabled={!teacherCreatedDecks.length} onClick={() => openLesson({ preview: true })} type="button">
               Preview Lesson
             </button>
             <button className="lp-button lp-button-secondary" onClick={() => setActiveSection("worksheets")} type="button">
@@ -1560,10 +1615,10 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
                 <h3>{cycle.title}</h3>
                 <p>{cycle.phase.replace(/-/g, " ")} - {cycle.friday}</p>
                 <div className="learn-hero-actions">
-                  <button className="lp-button lp-button-primary" onClick={() => openLesson()} type="button">
+                  <button className="lp-button lp-button-primary" disabled={!teacherCreatedDecks.length} onClick={() => openLesson()} type="button">
                     Start Full-Screen Lesson
                   </button>
-                  <button className="lp-button lp-button-secondary" onClick={() => openLesson({ preview: true })} type="button">
+                  <button className="lp-button lp-button-secondary" disabled={!teacherCreatedDecks.length} onClick={() => openLesson({ preview: true })} type="button">
                     Preview Lesson
                   </button>
                   <button className="lp-button lp-button-secondary" onClick={() => setActiveSection("worksheets")} type="button">
