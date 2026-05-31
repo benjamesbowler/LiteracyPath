@@ -30,6 +30,7 @@ import { questionBankExpansion13 } from "../src/data/questionBankExpansion13.js"
 import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
+import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -43,6 +44,10 @@ import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
 import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
 import { getHfwRuntimeEligibilityIssues, isRuntimeEligibleHfwQuestion } from "../src/data/hfwRuntimeEligibility.js";
+import {
+  getBlendsRuntimeEligibilityIssues,
+  isRuntimeEligibleBlendsQuestion
+} from "../src/data/blendsRuntimeEligibility.js";
 import {
   getFinalSoundsLevel1QuestionIssues,
   isFinalSoundsLevel1Question
@@ -68,6 +73,7 @@ const questionBanks = [
   ["safeContentExpansionQuestions", safeContentExpansionQuestions],
   ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
+  ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -407,6 +413,8 @@ export function getCoreSkillId(question = {}) {
   if (id === "hfw_76_100" || id === "high_frequency_words_76_100" || label.includes("high-frequency words 76-100")) return "hfw_76_100";
   if (id === "hfw_51_100" || id === "high_frequency_words_51_100" || label.includes("high-frequency words 51-100")) return "";
   if (id.includes("cvc") || label.includes("cvc") || label.includes("short vowel")) return "cvc_short_vowels";
+  if (id === "blends" || label.includes("blend")) return "blends";
+  if (id === "digraphs" || label.includes("digraph")) return "digraphs";
   return "";
 }
 
@@ -436,6 +444,10 @@ export function questionFilterReason(question = {}) {
     if (skillId.startsWith("hfw_")) {
       const hfwIssues = getHfwRuntimeEligibilityIssues(question, skillId, { pathExists: publicPathExists });
       if (hfwIssues.length > 0) return `hfw runtime ineligible: ${hfwIssues.join("; ")}`;
+    }
+    if (skillId === "blends") {
+      const blendIssues = getBlendsRuntimeEligibilityIssues(question, skillId);
+      return blendIssues.length > 0 ? `blends runtime ineligible: ${blendIssues.join("; ")}` : "";
     }
     const eligibilityIssues = getEarlySkillRuntimeEligibilityIssues(question, {
       skillId: normalizeEarlySkillId(skillId),
@@ -510,6 +522,12 @@ export function selectableRuntimeQuestionsForSkill(skillId) {
     return buildRuntimeQuestionsForSkill(skillId).filter(question =>
       (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
       isRuntimeEligibleHfwQuestion(question, skillId)
+    );
+  }
+  if (skillId === "blends") {
+    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+      (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
+      isRuntimeEligibleBlendsQuestion(question, skillId)
     );
   }
   return buildRuntimeQuestionsForSkill(skillId).filter(question =>

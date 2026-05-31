@@ -75,6 +75,7 @@ import {
   isValidFinalSoundWordForEarlyLevel
 } from "./data/earlyPhonicsValidation";
 import { getHfwRuntimeEligibilityIssues } from "./data/hfwRuntimeEligibility";
+import { getBlendsRuntimeEligibilityIssues } from "./data/blendsRuntimeEligibility";
 import { isHighFrequencyWordSkill } from "./data/highFrequencyWordBands";
 import {
   buildFinalSoundAvailableWordMap,
@@ -111,6 +112,7 @@ import { qbFillGaps } from "./data/qbFillGaps";
 import { generatedQuestions } from "./data/generatedQuestions";
 import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.generated.js";
+import { blendsAssessmentQuestions } from "./data/generated/blendsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
@@ -1211,6 +1213,10 @@ function isQuestionValid(q) {
     const hfwIssues = getHfwRuntimeEligibilityIssues(q, candidateStage.id);
     if (hfwIssues.length > 0) return false;
   }
+  if (candidateStage?.id === "blends") {
+    const blendIssues = getBlendsRuntimeEligibilityIssues(q, candidateStage.id);
+    if (blendIssues.length > 0) return false;
+  }
   if (
     PURE_EARLY_PHONICS_SKILL_IDS.has(candidateSkillId) &&
     !isRuntimeEligibleEarlySkillQuestion(q, {
@@ -1309,6 +1315,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...ixlStyleSeedQuestions,
   ...safeContentExpansionQuestions,
   ...hfwAssessmentQuestions,
+  ...blendsAssessmentQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,
