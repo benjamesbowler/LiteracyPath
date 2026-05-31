@@ -43,6 +43,12 @@ import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
+import { questionBankExpansion9 } from "../src/data/questionBankExpansion9.js";
+import { questionBankExpansion10 } from "../src/data/questionBankExpansion10.js";
+import { questionBankExpansion11 } from "../src/data/questionBankExpansion11.js";
+import { questionBankExpansion12 } from "../src/data/questionBankExpansion12.js";
+import { questionBankExpansion13 } from "../src/data/questionBankExpansion13.js";
+import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
@@ -63,6 +69,11 @@ import {
   isReviewNeededAudioPath
 } from "../src/data/audioPreferenceManifest.js";
 import { getAssessmentContentIssues } from "../src/assessmentContentValidation.js";
+import { isQuestionAllowedForSkill } from "../src/data/skillTemplateRouting.js";
+import {
+  normalizeAssessmentSkillFields,
+  resolveAssessmentSkillId
+} from "../src/data/assessmentSkillMapping.js";
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -90,6 +101,12 @@ const runtimeQuestionBanks = [
   ["templateExpansion6", templateExpansion6],
   ["templateExpansion7", templateExpansion7],
   ["questionBankExpansion8", questionBankExpansion8],
+  ["questionBankExpansion9", questionBankExpansion9],
+  ["questionBankExpansion10", questionBankExpansion10],
+  ["questionBankExpansion11", questionBankExpansion11],
+  ["questionBankExpansion12", questionBankExpansion12],
+  ["questionBankExpansion13", questionBankExpansion13],
+  ["questionBankExpansion14", questionBankExpansion14],
   ["generatedEarlySkillQuestions", generatedEarlySkillQuestions],
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
   ["skillLevelGapQuestions", skillLevelGapQuestions],
@@ -200,9 +217,16 @@ function inferCoverageMetadata(question, stageLabel) {
 }
 
 function getStageIndex(question) {
-  const skill = normalize(question.skill);
+  const mappedSkillId = resolveAssessmentSkillId(question);
+  if (mappedSkillId) {
+    const idIndex = skillTree.findIndex(stage => stage.id === mappedSkillId);
+    if (idIndex !== -1) return idIndex;
+  }
+
+  const skill = normalize(question.skillId || question.skill || question.skillName || question.stage);
 
   const exactIndex = skillTree.findIndex(stage =>
+    stage.id === skill ||
     stage.match.some(term => skill === normalize(term))
   );
 
@@ -369,7 +393,10 @@ function isQuestionValid(question) {
   }
   if (!Array.isArray(question.choices) || question.choices.length < 2) return false;
   if (!isPairSelectionQuestion(question) && !question.choices.includes(question.answer)) return false;
-  if (getStageIndex(question) === -1) return false;
+  const stageIndex = getStageIndex(question);
+  const stage = skillTree[stageIndex];
+  if (stageIndex === -1 || !stage) return false;
+  if (!isQuestionAllowedForSkill(question, stage.id)) return false;
   if (
     String(question.skillId || "").toLowerCase() === "rhyming" &&
     String(question.formatType || question.templateType || "").toUpperCase() !== "RHYMING_PICTURE"
@@ -696,7 +723,7 @@ function expectedKeysForStage(stage, runtimeKeys) {
 const runtimeQuestions =
   runtimeQuestionBanks.flatMap(([source, questions]) =>
     questions.map(question => ({
-      ...enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question)),
+      ...normalizeAssessmentSkillFields(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))),
       source
     }))
   );

@@ -40,6 +40,12 @@ import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
+import { questionBankExpansion9 } from "../src/data/questionBankExpansion9.js";
+import { questionBankExpansion10 } from "../src/data/questionBankExpansion10.js";
+import { questionBankExpansion11 } from "../src/data/questionBankExpansion11.js";
+import { questionBankExpansion12 } from "../src/data/questionBankExpansion12.js";
+import { questionBankExpansion13 } from "../src/data/questionBankExpansion13.js";
+import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
@@ -153,6 +159,12 @@ const questionBanks = [
   ["src/data/templateExpansion6.js", templateExpansion6],
   ["src/data/templateExpansion7.js", templateExpansion7],
   ["src/data/questionBankExpansion8.js", questionBankExpansion8],
+  ["src/data/questionBankExpansion9.js", questionBankExpansion9],
+  ["src/data/questionBankExpansion10.js", questionBankExpansion10],
+  ["src/data/questionBankExpansion11.js", questionBankExpansion11],
+  ["src/data/questionBankExpansion12.js", questionBankExpansion12],
+  ["src/data/questionBankExpansion13.js", questionBankExpansion13],
+  ["src/data/questionBankExpansion14.js", questionBankExpansion14],
   ["src/data/generated/earlySkillQuestions.generated.js", generatedEarlySkillQuestions],
   ["src/data/generated/hfwAssessmentQuestions.generated.js", hfwAssessmentQuestions],
   ["src/data/generated/skillLevelGapQuestions.generated.js", skillLevelGapQuestions],

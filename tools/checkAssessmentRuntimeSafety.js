@@ -20,6 +20,12 @@ import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
+import { questionBankExpansion9 } from "../src/data/questionBankExpansion9.js";
+import { questionBankExpansion10 } from "../src/data/questionBankExpansion10.js";
+import { questionBankExpansion11 } from "../src/data/questionBankExpansion11.js";
+import { questionBankExpansion12 } from "../src/data/questionBankExpansion12.js";
+import { questionBankExpansion13 } from "../src/data/questionBankExpansion13.js";
+import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
@@ -28,6 +34,10 @@ import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
 import { normalizeAssessmentAudioRoles } from "../src/utils/assessmentAudioRoles.js";
+import {
+  getAssessmentSkillLabel,
+  resolveAssessmentSkillId
+} from "../src/data/assessmentSkillMapping.js";
 
 const banks = [
   masteryCoreQuestions,
@@ -51,6 +61,12 @@ const banks = [
   templateExpansion6,
   templateExpansion7,
   questionBankExpansion8,
+  questionBankExpansion9,
+  questionBankExpansion10,
+  questionBankExpansion11,
+  questionBankExpansion12,
+  questionBankExpansion13,
+  questionBankExpansion14,
   generatedEarlySkillQuestions,
   skillLevelGapQuestions,
   hfwLevel2Questions,
@@ -64,7 +80,13 @@ function normalize(value) {
 }
 
 function getStageIndex(question) {
-  const skill = normalize(question?.skill || question?.skillName || question?.skillId);
+  const mappedSkillId = resolveAssessmentSkillId(question);
+  if (mappedSkillId) {
+    const idIndex = skillTree.findIndex(stage => stage.id === mappedSkillId);
+    if (idIndex !== -1) return idIndex;
+  }
+
+  const skill = normalize(question?.skillId || question?.skill || question?.skillName || question?.stage);
   const exactIndex = skillTree.findIndex(stage =>
     stage.id === skill ||
     stage.match.some(term => skill === normalize(term))
@@ -93,11 +115,13 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId, index) {
   if (!rawQuestion) return null;
 
   const skillId =
-    rawQuestion.skillId ??
-    rawQuestion.skill_id ??
-    fallbackSkillId ??
-    rawQuestion.skill ??
+    resolveAssessmentSkillId(rawQuestion, fallbackSkillId) ||
+    rawQuestion.skillId ||
+    rawQuestion.skill_id ||
+    fallbackSkillId ||
+    rawQuestion.skill ||
     null;
+  const skillLabel = getAssessmentSkillLabel(skillId);
   const answerOptions = Array.isArray(rawQuestion.answerOptions)
     ? rawQuestion.answerOptions.map(normalizeTemplateOption)
     : Array.isArray(rawQuestion.options)
@@ -123,6 +147,8 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId, index) {
     ...rawQuestion,
     id: rawQuestion.id ?? `${skillId || "unknown-skill"}-${index}`,
     skillId,
+    skill: skillLabel || rawQuestion.skill || rawQuestion.skillName || skillId || "",
+    skillName: skillLabel || rawQuestion.skillName || rawQuestion.skill || skillId || "",
     questionType: rawQuestion.questionType || "multiple_choice",
     templateType: rawQuestion.templateType || rawQuestion.formatType || rawQuestion.questionType || "MULTIPLE_CHOICE",
     prompt,

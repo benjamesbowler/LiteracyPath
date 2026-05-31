@@ -24,6 +24,12 @@ import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
+import { questionBankExpansion9 } from "../src/data/questionBankExpansion9.js";
+import { questionBankExpansion10 } from "../src/data/questionBankExpansion10.js";
+import { questionBankExpansion11 } from "../src/data/questionBankExpansion11.js";
+import { questionBankExpansion12 } from "../src/data/questionBankExpansion12.js";
+import { questionBankExpansion13 } from "../src/data/questionBankExpansion13.js";
+import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
@@ -31,6 +37,7 @@ import { enrichListenAndFindWordQuestion } from "../src/data/listenAndFindAssets
 import { enrichInitialSoundPairQuestion } from "../src/data/initialSoundPairAssets.js";
 import { applyQuestionFormatMetadata } from "../src/questionFormatFramework.js";
 import { getAssessmentContentIssues } from "../src/assessmentContentValidation.js";
+import { resolveAssessmentSkillId } from "../src/data/assessmentSkillMapping.js";
 import {
   getQuestionPromptAnswerSignature,
   getQuestionSignature,
@@ -65,6 +72,12 @@ const runtimeQuestionBanks = [
   ["templateExpansion6", templateExpansion6],
   ["templateExpansion7", templateExpansion7],
   ["questionBankExpansion8", questionBankExpansion8],
+  ["questionBankExpansion9", questionBankExpansion9],
+  ["questionBankExpansion10", questionBankExpansion10],
+  ["questionBankExpansion11", questionBankExpansion11],
+  ["questionBankExpansion12", questionBankExpansion12],
+  ["questionBankExpansion13", questionBankExpansion13],
+  ["questionBankExpansion14", questionBankExpansion14],
   ["generatedQuestions", generatedQuestions],
   ["fixSentenceQuestions", fixSentenceQuestions],
   ["templateComprehensionAdvanced", templateComprehensionAdvanced]
@@ -83,8 +96,15 @@ function publicAssetExists(assetPath) {
 }
 
 function getStageIndex(question) {
-  const skill = normalize(question.skill);
+  const mappedSkillId = resolveAssessmentSkillId(question);
+  if (mappedSkillId) {
+    const idIndex = skillTree.findIndex(stage => stage.id === mappedSkillId);
+    if (idIndex !== -1) return idIndex;
+  }
+
+  const skill = normalize(question.skillId || question.skill || question.skillName || question.stage);
   const exactIndex = skillTree.findIndex(stage =>
+    stage.id === skill ||
     stage.match.some(term => skill === normalize(term))
   );
 

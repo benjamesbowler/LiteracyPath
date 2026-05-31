@@ -22,6 +22,12 @@ import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
+import { questionBankExpansion9 } from "../src/data/questionBankExpansion9.js";
+import { questionBankExpansion10 } from "../src/data/questionBankExpansion10.js";
+import { questionBankExpansion11 } from "../src/data/questionBankExpansion11.js";
+import { questionBankExpansion12 } from "../src/data/questionBankExpansion12.js";
+import { questionBankExpansion13 } from "../src/data/questionBankExpansion13.js";
+import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
@@ -38,6 +44,10 @@ import {
   SHORT_VOWEL_LISTEN_PROMPT
 } from "../src/utils/assessmentAudioRoles.js";
 import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
+import {
+  getAssessmentSkillLabel,
+  resolveAssessmentSkillId
+} from "../src/data/assessmentSkillMapping.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = path.join(repoRoot, "public");
@@ -66,6 +76,12 @@ const banks = [
   ["templateExpansion6", templateExpansion6],
   ["templateExpansion7", templateExpansion7],
   ["questionBankExpansion8", questionBankExpansion8],
+  ["questionBankExpansion9", questionBankExpansion9],
+  ["questionBankExpansion10", questionBankExpansion10],
+  ["questionBankExpansion11", questionBankExpansion11],
+  ["questionBankExpansion12", questionBankExpansion12],
+  ["questionBankExpansion13", questionBankExpansion13],
+  ["questionBankExpansion14", questionBankExpansion14],
   ["generatedEarlySkillQuestions", generatedEarlySkillQuestions],
   ["skillLevelGapQuestions", skillLevelGapQuestions],
   ["hfwLevel2Questions", hfwLevel2Questions],
@@ -84,7 +100,8 @@ function normalizeTemplateOption(option) {
 }
 
 function normalizeRawQuestion(rawQuestion, sourceName, index) {
-  const skillId = rawQuestion.skillId ?? rawQuestion.skill_id ?? rawQuestion.skill ?? null;
+  const skillId = resolveAssessmentSkillId(rawQuestion) || rawQuestion.skillId || rawQuestion.skill_id || rawQuestion.skill || null;
+  const skillLabel = getAssessmentSkillLabel(skillId);
   const answerOptions = Array.isArray(rawQuestion.answerOptions)
     ? rawQuestion.answerOptions.map(normalizeTemplateOption)
     : Array.isArray(rawQuestion.options)
@@ -110,8 +127,8 @@ function normalizeRawQuestion(rawQuestion, sourceName, index) {
     ...rawQuestion,
     id: rawQuestion.id ?? `${skillId || "unknown-skill"}-${sourceName}-${index}`,
     skillId,
-    skill: rawQuestion.skill || rawQuestion.skillName || skillId || "",
-    skillName: rawQuestion.skillName || rawQuestion.skill || skillId || "",
+    skill: skillLabel || rawQuestion.skill || rawQuestion.skillName || skillId || "",
+    skillName: skillLabel || rawQuestion.skillName || rawQuestion.skill || skillId || "",
     prompt,
     question: typeof rawQuestion.question === "string" ? rawQuestion.question : prompt,
     targetWord: rawQuestion.targetWord ?? rawQuestion.word ?? "",

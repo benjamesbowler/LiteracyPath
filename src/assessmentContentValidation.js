@@ -73,7 +73,7 @@ function countMatchingChoices(question, predicate) {
 function repeatedAnswerIssue(question) {
   const templateType = String(question?.templateType || question?.formatType || "").toUpperCase();
   if (templateType === "GRAMMAR_BASICS") {
-    const exactChoices = choices(question).map(choice => String(choice || "").trim()).filter(Boolean);
+    const exactChoices = choices(question).map(choice => String(choice || "").trim().toLowerCase()).filter(Boolean);
     return new Set(exactChoices).size === exactChoices.length
       ? ""
       : "duplicate or visually identical answer choices";

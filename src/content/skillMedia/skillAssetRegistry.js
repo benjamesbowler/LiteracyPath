@@ -27,6 +27,12 @@ import { templateExpansion5 } from "../../data/templateExpansion5.js";
 import { templateExpansion6 } from "../../data/templateExpansion6.js";
 import { templateExpansion7 } from "../../data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../../data/questionBankExpansion8.js";
+import { questionBankExpansion9 } from "../../data/questionBankExpansion9.js";
+import { questionBankExpansion10 } from "../../data/questionBankExpansion10.js";
+import { questionBankExpansion11 } from "../../data/questionBankExpansion11.js";
+import { questionBankExpansion12 } from "../../data/questionBankExpansion12.js";
+import { questionBankExpansion13 } from "../../data/questionBankExpansion13.js";
+import { questionBankExpansion14 } from "../../data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../../data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../../data/generated/hfwAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../../data/generated/skillLevelGapQuestions.generated.js";
@@ -148,6 +154,12 @@ export const runtimeQuestionSources = [
   ...templateExpansion6,
   ...templateExpansion7,
   ...questionBankExpansion8,
+  ...questionBankExpansion9,
+  ...questionBankExpansion10,
+  ...questionBankExpansion11,
+  ...questionBankExpansion12,
+  ...questionBankExpansion13,
+  ...questionBankExpansion14,
   ...generatedEarlySkillQuestions,
   ...hfwAssessmentQuestions,
   ...skillLevelGapQuestions,

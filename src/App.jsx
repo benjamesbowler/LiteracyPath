@@ -44,6 +44,10 @@ import {
   isSingleTemplateSkill
 } from "./data/skillTemplateRouting";
 import {
+  getAssessmentSkillLabel,
+  resolveAssessmentSkillId
+} from "./data/assessmentSkillMapping";
+import {
   formatGuidedReadingType,
   getGuidedReadingWordStatusRows,
   summarizeGuidedReadingProgress,
@@ -91,6 +95,12 @@ import { templateExpansion5 } from "./data/templateExpansion5";
 import { templateExpansion6 } from "./data/templateExpansion6";
 import { templateExpansion7 } from "./data/templateExpansion7";
 import { questionBankExpansion8 } from "./data/questionBankExpansion8";
+import { questionBankExpansion9 } from "./data/questionBankExpansion9";
+import { questionBankExpansion10 } from "./data/questionBankExpansion10";
+import { questionBankExpansion11 } from "./data/questionBankExpansion11";
+import { questionBankExpansion12 } from "./data/questionBankExpansion12";
+import { questionBankExpansion13 } from "./data/questionBankExpansion13";
+import { questionBankExpansion14 } from "./data/questionBankExpansion14";
 import { generatedQuestions } from "./data/generatedQuestions";
 import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.generated.js";
@@ -142,6 +152,25 @@ import {
   isGenericInstructionAudioPath,
   normalizeAssessmentAudioRoles
 } from "./utils/assessmentAudioRoles";
+import { APP_VIEWS } from "./appState/appViews.js";
+import {
+  getPersistedAppView,
+  getRestoredAppView,
+  isFocusedAssessmentView,
+  shouldShowDashboardSummary,
+  shouldShowFooterUtilityActions
+} from "./appState/appViewHelpers.js";
+import {
+  getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession,
+  getSelectedClassName,
+  getTeacherProfileStorageKey
+} from "./appState/studentSessionHelpers.js";
+import {
+  calculateAccuracy,
+  calculateRoundCorrect,
+  calculateRoundProgress,
+  getAssessmentAttemptType
+} from "./appState/assessmentSessionHelpers.js";
 
 // dynamic mastery system
 
@@ -201,9 +230,16 @@ function normalize(text) {
 }
 
 function getStageIndex(question) {
-  const skill = normalize(question.skill);
+  const mappedSkillId = resolveAssessmentSkillId(question);
+  if (mappedSkillId) {
+    const idIndex = skillTree.findIndex(stage => stage.id === mappedSkillId);
+    if (idIndex !== -1) return idIndex;
+  }
+
+  const skill = normalize(question.skillId || question.skill || question.skillName || question.stage);
 
   const exactIndex = skillTree.findIndex(stage =>
+    stage.id === skill ||
     stage.match.some(term => skill === normalize(term))
   );
 
@@ -431,11 +467,13 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId = null, index 
   if (!rawQuestion) return null;
 
   const skillId =
-    rawQuestion.skillId ??
-    rawQuestion.skill_id ??
-    fallbackSkillId ??
-    rawQuestion.skill ??
+    resolveAssessmentSkillId(rawQuestion, fallbackSkillId) ||
+    rawQuestion.skillId ||
+    rawQuestion.skill_id ||
+    fallbackSkillId ||
+    rawQuestion.skill ||
     null;
+  const skillLabel = getAssessmentSkillLabel(skillId);
   let answerOptions = Array.isArray(rawQuestion.answerOptions)
     ? rawQuestion.answerOptions.map(normalizeTemplateOption)
     : Array.isArray(rawQuestion.options)
@@ -464,8 +502,8 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId = null, index 
     ...rawQuestion,
     id: rawQuestion.id ?? `${skillId || "unknown-skill"}-${index}`,
     skillId,
-    skill: rawQuestion.skill || rawQuestion.skillName || skillId || "",
-    skillName: rawQuestion.skillName || rawQuestion.skill || skillId || "",
+    skill: skillLabel || rawQuestion.skill || rawQuestion.skillName || skillId || "",
+    skillName: skillLabel || rawQuestion.skillName || rawQuestion.skill || skillId || "",
     prompt,
     question: typeof rawQuestion.question === "string" ? rawQuestion.question : prompt,
     targetWord: rawQuestion.targetWord ?? rawQuestion.word ?? "",
@@ -1266,6 +1304,12 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...templateExpansion6,
   ...templateExpansion7,
   ...questionBankExpansion8,
+  ...questionBankExpansion9,
+  ...questionBankExpansion10,
+  ...questionBankExpansion11,
+  ...questionBankExpansion12,
+  ...questionBankExpansion13,
+  ...questionBankExpansion14,
   ...generatedEarlySkillQuestions,
   ...skillLevelGapQuestions,
   ...hfwLevel2Questions,
@@ -1474,7 +1518,7 @@ export default function App() {
   const [newClassName, setNewClassName] = useState("");
   const [classDashboard, setClassDashboard] = useState([]);
   const [showClassDashboard, setShowClassDashboard] = useState(false);
-  const [appView, setAppView] = useState("select");
+  const [appView, setAppView] = useState(APP_VIEWS.SELECT);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [nameSaved, setNameSaved] = useState(false);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
@@ -1597,12 +1641,11 @@ export default function App() {
   }, [roundQuestionIds]);
 
   const profileStorageKey =
-    teacherId ? `readingMasteryProfile:${teacherId}` : null;
+    getTeacherProfileStorageKey(teacherId);
 
   function getGuidedReadingStorageKey(selectedStudentId = studentId) {
     // TODO(guided-reading-persistence): Move these records into Supabase once a stable table/schema is approved.
-    if (!teacherId || !selectedStudentId) return null;
-    return `guidedReadingAssessment:${teacherId}:${selectedStudentId}`;
+    return getGuidedReadingStorageKeyForSession({ teacherId, studentId: selectedStudentId });
   }
 
   function loadGuidedReadingRecords(selectedStudentId = studentId) {
@@ -1640,7 +1683,7 @@ export default function App() {
     setNewClassName("");
     setClassDashboard([]);
     setShowClassDashboard(false);
-    setAppView("select");
+    setAppView(APP_VIEWS.SELECT);
     setNameSaved(false);
     setCurrentSkillIndex(0);
     setRoundAnswers([]);
@@ -1684,7 +1727,7 @@ export default function App() {
     setStudentName("");
     setStudentId(null);
     setNameSaved(false);
-    setAppView("select");
+    setAppView(APP_VIEWS.SELECT);
     setRoundAnswers([]);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
@@ -1793,7 +1836,7 @@ export default function App() {
   }, [teacherId]);
 
   useEffect(() => {
-    if (isAdmin && appView === "admin") {
+    if (isAdmin && appView === APP_VIEWS.ADMIN_DASHBOARD) {
       loadAdminDashboard();
     }
   }, [isAdmin, appView]);
@@ -1856,7 +1899,7 @@ export default function App() {
         const restoredRoundAnswers = Array.isArray(data.roundAnswers) ? data.roundAnswers : [];
         const restoredStudentId = data.studentId || null;
         const restoredStudentName = data.studentName || "";
-        const restoredAppView = restoredStudentId ? data.appView || "overview" : "select";
+        const restoredAppView = getRestoredAppView({ restoredStudentId, storedAppView: data.appView });
 
         setStudentId(restoredStudentId);
         setStudentName(restoredStudentName);
@@ -1885,7 +1928,7 @@ export default function App() {
         setCurrentQuestion(null);
 
         loadStudents(savedClassId);
-        if (restoredAppView === "assessment") {
+        if (restoredAppView === APP_VIEWS.ASSESSMENT) {
           setAssessmentTransitioning(true);
           setTimeout(() => {
             pickQuestion(data.assessmentMode || "mastery", restoredRoundAnswers.length, restoredSkillIndex);
@@ -1914,7 +1957,7 @@ export default function App() {
         studentName,
         studentId,
         selectedClassId,
-        appView: studentId ? appView : "select",
+        appView: getPersistedAppView({ studentId, appView }),
         assessmentMode,
         currentSkillIndex,
         roundAnswers,
@@ -2293,7 +2336,7 @@ export default function App() {
       return;
     }
 
-    setAppView("admin");
+    setAppView(APP_VIEWS.ADMIN_DASHBOARD);
     loadAdminDashboard();
   }
 
@@ -2880,7 +2923,7 @@ export default function App() {
       setRoundAnswers([]);
       setCurrentQuestion(null);
       setFeedback(null);
-      setAppView("select");
+      setAppView(APP_VIEWS.SELECT);
     }
 
     await loadStudents(selectedClassId);
@@ -2985,7 +3028,7 @@ export default function App() {
       setRoundAnswers([]);
       setCurrentQuestion(null);
       setFeedback(null);
-      setAppView("select");
+      setAppView(APP_VIEWS.SELECT);
     }
 
     await loadClasses();
@@ -3057,7 +3100,7 @@ export default function App() {
 
     resetCurrentStudentLocalProgress({ clearFormalAssessments: includeFormalAssessments });
     setResetProgressDialogOpen(false);
-    setAppView("overview");
+    setAppView(APP_VIEWS.OVERVIEW);
     setMessage(
       includeFormalAssessments
         ? "Student progress and local EL assessment results were reset."
@@ -3074,7 +3117,7 @@ export default function App() {
     setStudentId(selectedStudentId);
     setStudentName(selectedStudentName);
     setNameSaved(true);
-    setAppView("overview");
+    setAppView(APP_VIEWS.OVERVIEW);
     setCheckpointDecision(null);
 
     const { data: answerRows, error: answerError } = await supabase
@@ -3251,7 +3294,7 @@ export default function App() {
       setGuidedReadingRecords({});
       setNameSaved(true);
       setCurrentSkillIndex(0);
-      setAppView("overview");
+      setAppView(APP_VIEWS.OVERVIEW);
       await loadStudents(selectedClassId);
       setMessage(`Student created and selected: ${data.name || clean}`);
       return;
@@ -4971,7 +5014,7 @@ export default function App() {
         roundQuestionIdsRef.current = [];
         setTimeout(() => {
           answerInFlightRef.current = false;
-          setAppView("finished");
+          setAppView(APP_VIEWS.FINISHED);
           setShowReport(true);
         }, 500);
         return;
@@ -5025,7 +5068,7 @@ export default function App() {
         stage,
         checkpoint,
         questionRecords: roundRecords,
-        assessmentType: assessmentMode === "mastery" ? "skill_checkpoint" : assessmentMode
+        assessmentType: getAssessmentAttemptType(assessmentMode)
       });
 
       setMastery(prev => ({
@@ -5050,7 +5093,7 @@ export default function App() {
       setCurrentQuestion(null);
       setFeedback(null);
       setAssessmentTransitioning(false);
-      setAppView("checkpoint");
+      setAppView(APP_VIEWS.CHECKPOINT);
       answerInFlightRef.current = false;
       return;
     } else {
@@ -5519,7 +5562,7 @@ export default function App() {
     setPatternIndex(0);
     setPatternAssessment([]);
     setPatternAttempt(attempt => attempt + 1);
-    setAppView("advancedPhonics");
+    setAppView(APP_VIEWS.ADVANCED_PHONICS);
   }
 
   function archivePatternAssessment(nextAssessment) {
@@ -6367,7 +6410,7 @@ export default function App() {
     roundItemKeysRef.current = [];
     roundQuestionIdsRef.current = [];
     setMessage("");
-    setAppView("assessment");
+    setAppView(APP_VIEWS.ASSESSMENT);
     pickQuestion("mastery", 0, nextStageIndex);
   }
 
@@ -6393,7 +6436,7 @@ export default function App() {
     initialSoundRoundQueueRef.current = [];
     initialSoundRoundMetaRef.current = null;
     setMessage("");
-    setAppView("assessment");
+    setAppView(APP_VIEWS.ASSESSMENT);
     pickQuestion("targetedReview", 0);
   }
 
@@ -6407,7 +6450,7 @@ export default function App() {
     initialSoundRoundQueueRef.current = [];
     initialSoundRoundMetaRef.current = null;
     setShowReport(true);
-    setAppView("finished");
+    setAppView(APP_VIEWS.FINISHED);
   }
 
   async function goToOverview() {
@@ -6416,7 +6459,7 @@ export default function App() {
     setFeedback(null);
     setCheckpointDecision(null);
     setShowReport(false);
-    setAppView("overview");
+    setAppView(APP_VIEWS.OVERVIEW);
 
   }
 
@@ -6426,7 +6469,7 @@ export default function App() {
     setFeedback(null);
     setCheckpointDecision(null);
     setShowReport(false);
-    setAppView("teacherDashboard");
+    setAppView(APP_VIEWS.TEACHER_DASHBOARD);
   }
 
   function continueCheckpointSkill() {
@@ -6582,18 +6625,18 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     setFeedback(null);
     setMessage("");
     setShowClassDashboard(false);
-    setAppView("select");
+    setAppView(APP_VIEWS.SELECT);
     loadClasses();
     loadStudents(selectedClassId);
   }
 
   function viewReport() {
     setShowReport(true);
-    setAppView("finished");
+    setAppView(APP_VIEWS.FINISHED);
   }
 
   const reportsAssessmentHistory = useMemo(() => {
-    if (appView !== "reports") return [];
+    if (appView !== APP_VIEWS.REPORTS) return [];
     const start = typeof performance !== "undefined" ? performance.now() : Date.now();
     const rows = assessmentHistory.filter(record => !studentId || record.studentId === studentId);
     if (import.meta.env.DEV) {
@@ -6609,10 +6652,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   }, [appView, assessmentHistory, studentId]);
 
   const reportSkillMasterySummary = useMemo(() => {
-    if (appView !== "reports" && appView !== "finished") return [];
+    if (appView !== APP_VIEWS.REPORTS && appView !== APP_VIEWS.FINISHED) return [];
     const start = typeof performance !== "undefined" ? performance.now() : Date.now();
     const rows = buildSkillMasterySummary();
-    if (import.meta.env.DEV && appView === "reports") {
+    if (import.meta.env.DEV && appView === APP_VIEWS.REPORTS) {
       const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
       console.debug("[Reports] skill mastery summary", {
         durationMs: duration,
@@ -6741,15 +6784,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     );
   }
 
-  const roundCorrect = roundAnswers.filter(Boolean).length;
-  const roundProgress = Math.round((roundAnswers.length / ROUND_LENGTH) * 100);
-  const accuracy = totalAnswered === 0 ? 0 : Math.round((correctAnswered / totalAnswered) * 100);
+  const roundCorrect = calculateRoundCorrect(roundAnswers);
+  const roundProgress = calculateRoundProgress(roundAnswers, ROUND_LENGTH);
+  const accuracy = calculateAccuracy({ totalAnswered, correctAnswered });
   const questionBankCoverage = questionBankCoverageSnapshot;
-  const isFocusedAssessment =
-    appView === "assessment" ||
-    appView === "checkpoint" ||
-    appView === "letters" ||
-    appView === "advancedPhonics";
+  const isFocusedAssessment = isFocusedAssessmentView(appView);
   const appShellClassName = [
     "app",
     isFocusedAssessment ? "assessment-app" : ""
@@ -6766,12 +6805,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           studentName={studentName}
           currentStage={currentStage}
           goToOverview={goToOverview}
-          goToSkills={() => setAppView("skills")}
-          goToElAssessments={() => setAppView("elAssessments")}
-          goToGuidedReading={() => setAppView("guidedReading")}
-          goToTeacherDashboard={() => setAppView("teacherDashboard")}
-          goToLearn={() => setAppView("learn")}
-          goToTools={() => setAppView("tools")}
+          goToSkills={() => setAppView(APP_VIEWS.SKILLS)}
+          goToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
+          goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+          goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
+          goToLearn={() => setAppView(APP_VIEWS.LEARN)}
+          goToTools={() => setAppView(APP_VIEWS.TOOLS)}
           switchStudent={switchStudent}
           viewReport={viewReport}
           teacherEmail={teacherUser.email}
@@ -6781,7 +6820,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && appView === "select" && (
+      {!isFocusedAssessment && appView === APP_VIEWS.SELECT && (
         <motion.div
           className="hero"
           initial={{ y: -12, opacity: 0 }}
@@ -6790,7 +6829,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           <h1>Reading Mastery</h1>
           <p>Structured EL-style reading skill progression</p>
 
-          {appView === "select" && !nameSaved && (
+          {appView === APP_VIEWS.SELECT && !nameSaved && (
             <StudentSelectPage
               classList={classList}
               selectedClassId={selectedClassId}
@@ -6820,7 +6859,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </motion.div>
       )}
 
-      {appView === "admin" && isAdmin && (
+      {appView === APP_VIEWS.ADMIN_DASHBOARD && isAdmin && (
         <Suspense fallback={<LazyPageFallback label="Loading admin dashboard..." />}>
           <AdminDashboardPage
             teachers={adminTeachers}
@@ -6843,7 +6882,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </Suspense>
       )}
 
-      {appView === "teacherDashboard" && (
+      {appView === APP_VIEWS.TEACHER_DASHBOARD && (
         <Suspense fallback={<LazyPageFallback label="Loading teacher dashboard..." />}>
           <AdminDashboardPage
             teachers={[]}
@@ -6855,7 +6894,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             students={studentList.map(row => ({
               ...row,
               teacher_id: teacherId,
-              className: classList.find(cls => cls.id === row.class_id)?.name || "Selected class"
+              className: getSelectedClassName(classList, row.class_id)
             }))}
             pendingAccounts={[]}
             loading={false}
@@ -6880,16 +6919,16 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </Suspense>
       )}
 
-      {appView === "learn" && (
+      {appView === APP_VIEWS.LEARN && (
         <Suspense fallback={<LazyPageFallback label="Loading EL Skills Block Learn..." />}>
           <LearnAreaPage assessmentSummary={summarizeAssessmentHistory(assessmentHistory, {
-            students: studentList.map(row => ({ ...row, className: classList.find(cls => cls.id === row.class_id)?.name || "" })),
+            students: studentList.map(row => ({ ...row, className: getSelectedClassName(classList, row.class_id, "") })),
             classes: classList
           })} />
         </Suspense>
       )}
 
-      {appView === "overview" && nameSaved && (
+      {appView === APP_VIEWS.OVERVIEW && nameSaved && (
         <StudentOverviewPage
           studentName={studentName}
           currentSkillIndex={currentSkillIndex}
@@ -6925,7 +6964,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {appView === "skills" && nameSaved && (
+      {appView === APP_VIEWS.SKILLS && nameSaved && (
         <SkillsProgressPage
           studentName={studentName}
           skillTree={skillTree}
@@ -6944,12 +6983,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {appView === "elAssessments" && nameSaved && (
+      {appView === APP_VIEWS.EL_ASSESSMENTS && nameSaved && (
         <ELAssessmentsPage
           studentName={studentName}
-          startLetterAssessment={() => setAppView("letters")}
+          startLetterAssessment={() => setAppView(APP_VIEWS.LETTERS)}
           startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
-          openGuidedReading={() => setAppView("guidedReading")}
+          openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
           letterAssessment={letterAssessment}
           patternAssessment={patternAssessment}
           exportLetterAssessment={exportLetterAssessment}
@@ -6957,23 +6996,23 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {appView === "guidedReading" && nameSaved && (
+      {appView === APP_VIEWS.GUIDED_READING && nameSaved && (
         <GuidedReadingPage
           studentId={studentId}
           studentName={studentName}
           guidedReadingRecords={guidedReadingRecords}
           saveGuidedReadingRecord={saveGuidedReadingRecord}
           speakText={speakText}
-          returnToElAssessments={() => setAppView("elAssessments")}
-          viewReports={() => setAppView("reports")}
+          returnToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
+          viewReports={() => setAppView(APP_VIEWS.REPORTS)}
         />
       )}
 
-      {appView === "reports" && nameSaved && (
+      {appView === APP_VIEWS.REPORTS && nameSaved && (
         <TeacherReportsPage
           studentName={studentName}
-          viewFinishedReport={() => setAppView("finished")}
-          openGuidedReading={() => setAppView("guidedReading")}
+          viewFinishedReport={() => setAppView(APP_VIEWS.FINISHED)}
+          openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
           guidedReadingRecords={guidedReadingRecords}
           assessmentHistory={reportsAssessmentHistory}
           skillMasterySummary={reportSkillMasterySummary}
@@ -6987,7 +7026,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {appView === "tools" && nameSaved && (
+      {appView === APP_VIEWS.TOOLS && nameSaved && (
         <TeacherSettingsToolsPage
           studentName={studentName}
           switchStudent={switchStudent}
@@ -6997,7 +7036,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {!isFocusedAssessment && appView !== "admin" && appView !== "teacherDashboard" && appView !== "learn" && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && (
+      {shouldShowDashboardSummary({ appView, isFocusedAssessment }) && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -7008,7 +7047,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {appView === "letters" && (
+      {appView === APP_VIEWS.LETTERS && (
         <LetterAssessmentPage
           studentName={studentName}
           letterIndex={letterIndex}
@@ -7022,7 +7061,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {appView === "advancedPhonics" && (
+      {appView === APP_VIEWS.ADVANCED_PHONICS && (
         <AdvancedPhonicsPatternAssessmentPage
           studentName={studentName}
           patternIndex={patternIndex}
@@ -7036,7 +7075,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         />
       )}
 
-      {appView === "assessment" && (
+      {appView === APP_VIEWS.ASSESSMENT && (
         <AssessmentErrorBoundary
           resetKey={`${
             currentQuestion?.id
@@ -7072,7 +7111,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </AssessmentErrorBoundary>
       )}
 
-      {appView === "checkpoint" && (
+      {appView === APP_VIEWS.CHECKPOINT && (
         <CheckpointDecisionPage
           checkpoint={checkpointDecision}
           continueSkill={continueCheckpointSkill}
@@ -7093,7 +7132,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         onCancel={() => setResetProgressDialogOpen(false)}
       />
 
-      {appView === "finished" && (
+      {appView === APP_VIEWS.FINISHED && (
         <Suspense fallback={<LazyPageFallback label="Loading report..." />}>
           <FinishedReportPage
             startAssessment={startAssessment}
@@ -7132,7 +7171,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </Suspense>
       )}
 
-      {!isFocusedAssessment && appView !== "overview" && appView !== "skills" && appView !== "elAssessments" && appView !== "guidedReading" && appView !== "reports" && appView !== "tools" && appView !== "admin" && appView !== "teacherDashboard" && appView !== "learn" && (
+      {shouldShowFooterUtilityActions({ appView, isFocusedAssessment }) && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
             Switch Student
