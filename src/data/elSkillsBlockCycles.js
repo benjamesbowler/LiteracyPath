@@ -66,16 +66,16 @@ const LETTER_EXAMPLES = {
 
 const FORMATION = {
   a: {
-    upper: "Uppercase A: slant down, slant down, cross.",
-    lower: "Lowercase a: circle around, short stick down."
+    upper: "Use the Aa stroke model image.",
+    lower: "Write Aa after watching the model."
   },
   m: {
-    upper: "Uppercase M: down, slant down, slant up, down.",
-    lower: "Lowercase m: short stick, bump, bump."
+    upper: "Use the Mm stroke model image.",
+    lower: "Write Mm after watching the model."
   },
   default: {
-    upper: "Say the letter name, trace the big letter, then write it with a steady pencil.",
-    lower: "Say the sound, trace the small letter, then write it on the line."
+    upper: "Use the stroke model image.",
+    lower: "Write after watching the model."
   }
 };
 
@@ -194,14 +194,14 @@ const PRIORITY_CYCLE_CONTENT = {
       a: {
         examples: ["apple", "ant", "alligator"],
         articulation: "Open your mouth wide for the short /ă/ sound.",
-        teacherScript: "A can say /ă/. Say /ă/ like apple. Touch A. Touch a. Say /ă/ again.",
-        formation: ["Uppercase A: slant down, slant down, cross in the middle.", "Lowercase a: circle around, short line down."]
+        teacherScript: "A can say /ă/. Say /ă/ like apple. Show the Aa card, then match it to apple and ant.",
+        formation: ["Use the Aa stroke model image.", "Write Aa on the practice line after the model."]
       },
       m: {
         examples: ["moon", "mouse", "map"],
         articulation: "Put your lips together and hum for /m/.",
-        teacherScript: "M says /m/. Put your lips together and hum: /m/. Touch M. Touch m. Say /m/ again.",
-        formation: ["Uppercase M: straight down, slant down, slant up, straight down.", "Lowercase m: short line down, bump, bump."]
+        teacherScript: "M says /m/. Say /m/ like moon. Show the Mm card, then match it to mouse and map.",
+        formation: ["Use the Mm stroke model image.", "Write Mm on the practice line after the model."]
       }
     },
     poem: {
@@ -231,8 +231,8 @@ const PRIORITY_CYCLE_CONTENT = {
         id: "sound-safari",
         title: "Sound Safari",
         prompt: "First find /ă/. Then find /m/.",
-        teacherInstruction: "Show four cards. Say one target sound. Children point before you reveal.",
-        studentAction: "Point to the card, say the word, then repeat the first sound.",
+        teacherInstruction: "Show four cards. Say one target sound. Children choose before you reveal.",
+        studentAction: "Choose the card, say the word, then repeat the first sound.",
         baskets: ["/ă/", "/m/"],
         cards: ["apple", "ant", "mouse", "map"],
         targetItems: ["apple", "ant", "mouse", "map"],
@@ -280,9 +280,9 @@ const PRIORITY_CYCLE_CONTENT = {
       {
         id: "writing-mission",
         title: "Writing Mission",
-        prompt: "Trace A/a. Trace M/m. Then write am and I.",
-        teacherInstruction: "Model skywriting before pencil work.",
-        studentAction: "Say the sound while tracing each letter. Read each HFW after writing.",
+        prompt: "Watch the stroke model for A/a and M/m. Then write am and I.",
+        teacherInstruction: "Show the stroke model before pencil work.",
+        studentAction: "Say the sound while writing each letter. Read each HFW after writing.",
         cards: ["A", "a", "M", "m", "am", "I"],
         targetItems: ["Aa", "Mm", "am", "I"],
         answer: "Letter writing supports Aa /ă/ and Mm /m/. Word writing supports HFW am and I.",
@@ -299,31 +299,31 @@ const PRIORITY_CYCLE_CONTENT = {
     decoding: {
       note: "No independent decoding is required in Cycle 1. Children identify Aa /ă/ and Mm /m/ and read am and I as high-frequency words.",
       chains: [
-        { start: "Aa /ă/", steps: ["hear /ă/", "say apple", "say ant", "touch A/a"] },
-        { start: "Mm /m/", steps: ["lips together", "say /m/", "say moon", "touch M/m"] },
+        { start: "Aa /ă/", steps: ["hear /ă/", "say apple", "say ant", "match A/a"] },
+        { start: "Mm /m/", steps: ["hear /m/", "say moon", "say mouse", "match M/m"] },
         { start: "HFW", steps: ["look: am", "spell: a m", "read: am", "write: am"] }
       ]
     },
     writing: {
-      formationPractice: ["Trace A. Trace a. Say /ă/ each time.", "Trace M. Trace m. Say /m/ each time."],
-      wordWriting: ["Trace am. Write am. Read am.", "Trace I. Write I. Read I."],
+      formationPractice: ["Use the Aa stroke model, then write A and a.", "Use the Mm stroke model, then write M and m."],
+      wordWriting: ["Read am. Write am. Read am.", "Read I. Write I. Read I."],
       sentenceFrame: "I am __.",
       dictation: ["A", "a", "M", "m", "am", "I"],
       interactiveWritingPrompt: "Write: I am. Add a child name orally."
     },
     worksheetTasks: [
-      "Trace A/a. Say /ă/ after each trace.",
-      "Trace M/m. Say /m/ after each trace.",
+      "Use the Aa stroke model. Write A/a. Say /ă/.",
+      "Use the Mm stroke model. Write M/m. Say /m/.",
       "Circle pictures that start with /ă/: apple, ant, alligator.",
       "Circle pictures that start with /m/: moon, mouse, map.",
-      "Trace and write am.",
-      "Trace and write I.",
+      "Read and write am.",
+      "Read and write I.",
       "Draw something that starts with A.",
       "Draw something that starts with M."
     ],
     clayMat: {
       title: "Cycle 1 Clay Mat: Aa and Mm",
-      directions: "Roll clay snakes. Build the big letter. Trace it with your finger. Say the sound.",
+      directions: "Roll clay snakes. Build the big letter. Follow the model with your finger. Say the sound.",
       sections: [
         { label: "Aa /ă/", outline: "A a", picturePrompts: ["apple", "ant", "alligator"], handwriting: ["A", "a"] },
         { label: "Mm /m/", outline: "M m", picturePrompts: ["moon", "mouse", "map"], handwriting: ["M", "m"] }
@@ -467,18 +467,18 @@ const PRIORITY_CYCLE_CONTENT = {
       ]
     },
     writing: {
-      formationPractice: ["Trace B. Trace b. Say /b/.", "Trace W. Trace w. Say /w/."],
-      wordWriting: ["Trace and write not.", "Trace and write that."],
+      formationPractice: ["Use the Bb stroke model, then write B and b.", "Use the Ww stroke model, then write W and w."],
+      wordWriting: ["Read and write not.", "Read and write that."],
       sentenceFrame: "That is not __.",
       dictation: ["B", "b", "W", "w", "not", "that"],
       interactiveWritingPrompt: "Write a class sentence: That is not a ball."
     },
     worksheetTasks: [
-      "Trace B/b and circle the best B/b.",
-      "Trace W/w and circle the best W/w.",
+      "Use the Bb stroke model. Write B/b and circle the best B/b.",
+      "Use the Ww stroke model. Write W/w and circle the best W/w.",
       "Sort bear, ball, bat, book, wolf, watch, watermelon, wave.",
-      "Read, trace, and write not.",
-      "Read, trace, and write that.",
+      "Read and write not.",
+      "Read and write that.",
       "Teacher-led chain: bat -> bit -> wit -> wig. Circle what changed.",
       "Draw one B word and one W word.",
       "Complete the frame: That is not __."
@@ -623,19 +623,19 @@ const PRIORITY_CYCLE_CONTENT = {
       ]
     },
     writing: {
-      formationPractice: ["Trace sh. Say /sh/.", "Trace ch. Say /ch/.", "Trace th. Say /th/."],
-      wordWriting: ["Trace and write good.", "Trace and write look."],
+      formationPractice: ["Use the sh model, then write sh.", "Use the ch model, then write ch.", "Use the th model, then write th."],
+      wordWriting: ["Read and write good.", "Read and write look."],
       sentenceFrame: "Look at the __.",
       dictation: ["sh", "ch", "th", "ship", "chip", "thin", "good", "look"],
       interactiveWritingPrompt: "Write: Look at the ship."
     },
     worksheetTasks: [
-      "Trace sh, ch, and th.",
+      "Use the stroke models for sh, ch, and th.",
       "Sort ship, sheep, shop, chip, chair, cheese, thumb, three, teeth.",
       "Circle the digraph at the start of each word.",
       "Build and write ship, chip, and thin.",
-      "Read, trace, and write good.",
-      "Read, trace, and write look.",
+      "Read and write good.",
+      "Read and write look.",
       "Draw one sh word, one ch word, and one th word.",
       "Complete the frame: Look at the __."
     ],
@@ -791,19 +791,19 @@ const PRIORITY_CYCLE_CONTENT = {
       ]
     },
     writing: {
-      formationPractice: ["Trace ng. Say /ng/.", "Trace ang, ing, ong, ung. Read each rime."],
-      wordWriting: ["Trace and write only.", "Trace and write other."],
+      formationPractice: ["Use the ng model, then write ng.", "Use the ang, ing, ong, ung models, then read each rime."],
+      wordWriting: ["Read and write only.", "Read and write other."],
       sentenceFrame: "Only one __ can __.",
       dictation: ["ng", "ing", "ring", "sing", "song", "only", "other"],
       interactiveWritingPrompt: "Write: Only one king can sing."
     },
     worksheetTasks: [
-      "Trace ng, ang, ing, ong, and ung.",
+      "Use the stroke models for ng, ang, ing, ong, and ung.",
       "Build r + ing, s + ing, and k + ing.",
       "Sort bang, sang, rang, ring, sing, king, song, long, gong, sung, hung, rung.",
       "Circle the rime chunk in each word.",
-      "Read, trace, and write only.",
-      "Read, trace, and write other.",
+      "Read and write only.",
+      "Read and write other.",
       "Complete a rime chain: ring, sing, king.",
       "Write one word from each family: ang, ing, ong, ung."
     ],
@@ -864,7 +864,7 @@ function makeLetterCard(card) {
       ? `Say ${card.sound}. Keep it short and clean.`
       : "Say the pattern smoothly and connect it to familiar words.",
     childExplanation: `${card.grapheme} says ${card.sound || card.grapheme}. We can hear it, say it, and find it in words.`,
-    teacherScript: `Point to ${card.grapheme}. Say: My turn, ${card.sound || card.grapheme}. Your turn. Touch ${card.spelling}. Find a word that starts with it.`,
+    teacherScript: `Show ${card.grapheme}. Say: My turn, ${card.sound || card.grapheme}. Your turn. Match ${card.spelling} to a word that starts with it.`,
     formation: [formation.upper, formation.lower]
   };
 }
@@ -1071,12 +1071,12 @@ function makeVideoResources(seed, focusLetters) {
   const baseTerms = focusTerms.length ? focusTerms : [cycleLabel];
   return [
     ...baseTerms.map(term => ({
-      label: `Find Little Fox video for ${term}`,
-      query: `Little Fox English ${term} phonics`
+      label: `Teacher search for ${term}`,
+      query: `${term} phonics kindergarten`
     })),
     {
-      label: `Find phonics video for ${cycleLabel}`,
-      query: `Little Fox English ${baseTerms.join(" ")} phonics chant`
+      label: `Teacher search for ${cycleLabel}`,
+      query: `${baseTerms.join(" ")} phonics chant kindergarten`
     }
   ];
 }

@@ -57,18 +57,21 @@ const LEARN_IMAGE_BY_WORD = {
   bag: "/media/initial-sounds/images/b/bag.webp",
   bat: "/media/learn/images/cycle-08/bat.png",
   bear: "/media/learn/images/cycle-08/bear.png",
+  bit: "/media/learn/images/cycle-08/bit.png",
   bell: "/media/initial-sounds/images/b/bell.webp",
   book: "/media/learn/images/cycle-08/book.png",
   watch: "/media/learn/images/cycle-08/watch.png",
   watermelon: "/media/learn/images/cycle-08/watermelon.png",
   wave: "/media/vocabulary/images/wave.webp",
-  web: "/images/child-mode/initial-sounds/web.png",
+  web: "/media/learn/images/cycle-08/web.png",
   wig: "/media/initial-sounds/images/w/wig.webp",
   wolf: "/media/learn/images/cycle-08/wolf.png",
   wag: "/media/vocabulary/images/wag.webp",
   chair: "/media/learn/images/cycle-15/chair.png",
   cheese: "/media/learn/images/cycle-15/cheese.png",
+  chin: "/media/learn/images/cycle-15/chin.png",
   chip: "/media/learn/images/cycle-15/chip.png",
+  chop: "/media/learn/images/cycle-15/chop.png",
   shark: "/media/learn/images/cycle-15/shark.png",
   sheep: "/media/learn/images/cycle-15/sheep.png",
   ship: "/media/learn/images/cycle-15/ship.png",
@@ -83,6 +86,8 @@ const LEARN_IMAGE_BY_WORD = {
   hung: "/media/learn/images/cycle-23/hung.png",
   king: "/media/learn/images/cycle-23/king.png",
   long: "/media/learn/images/cycle-23/long.png",
+  only: "/media/learn/images/cycle-23/only.png",
+  other: "/media/learn/images/cycle-23/other.png",
   rang: "/media/learn/images/cycle-23/rang.png",
   ring: "/media/learn/images/cycle-23/ring.png",
   rung: "/media/learn/images/cycle-23/rung.png",
@@ -100,6 +105,48 @@ const LEARN_IMAGE_ALIAS_BY_WORD = {
   cake: "/media/initial-sounds/images/c/cake.webp",
   cup: "/media/initial-sounds/images/c/cup.webp",
   bow: "/media/vocabulary/images/bow.webp"
+};
+
+const LEARN_AUDIO_BY_CYCLE = {
+  1: {
+    chant: "/media/learn/audio/cycle-01/ant-and-mouse-chant.mp3",
+    cues: {
+      a: "/media/learn/audio/cycle-01/a-short-sound.mp3",
+      m: "/media/learn/audio/cycle-01/m-sound.mp3"
+    }
+  },
+  8: {
+    chant: "/media/learn/audio/cycle-08/bear-and-wave-chant.mp3",
+    cues: {
+      b: "/media/learn/audio/cycle-08/b-sound.mp3",
+      w: "/media/learn/audio/cycle-08/w-sound.mp3"
+    }
+  },
+  15: {
+    chant: "/media/learn/audio/cycle-15/three-sound-friends-chant.mp3",
+    cues: {
+      sh: "/media/learn/audio/cycle-15/digraph-cues.mp3",
+      ch: "/media/learn/audio/cycle-15/digraph-cues.mp3",
+      th: "/media/learn/audio/cycle-15/digraph-cues.mp3"
+    }
+  },
+  23: {
+    chant: "/media/learn/audio/cycle-23/king-can-sing-chant.mp3",
+    cues: {
+      ng: "/media/learn/audio/cycle-23/ng-rime-cues.mp3",
+      ang: "/media/learn/audio/cycle-23/ng-rime-cues.mp3",
+      ing: "/media/learn/audio/cycle-23/ng-rime-cues.mp3",
+      ong: "/media/learn/audio/cycle-23/ng-rime-cues.mp3",
+      ung: "/media/learn/audio/cycle-23/ng-rime-cues.mp3"
+    }
+  }
+};
+
+const GUIDED_READER_OVERRIDES = {
+  1: "first-facts-level-a-13-fruit",
+  8: "first-facts-level-a-11-at-the-farm",
+  15: "james-and-anna-03-shopping",
+  23: "first-facts-level-a-17-a-seed-grows"
 };
 
 const CYCLE_GROUPS = [
@@ -196,9 +243,9 @@ function makeSoundSafariSlide(card, otherCard, index) {
     sectionId: "rhyming",
     game: {
       title: `${displaySound} Sound Safari`,
-      prompt: `Point to words that start with ${displaySound}.`,
-      teacherInstruction: "Show the cards in one row. Say the target sound, then wait while children point.",
-      studentAction: "Point first, say the word, and repeat the first sound.",
+      prompt: `Choose the pictures that start with ${displaySound}.`,
+      teacherInstruction: "Show the cards in one row. Say the target sound, then wait while children choose.",
+      studentAction: "Choose a picture, say the word, and repeat the first sound.",
       cards,
       targetItems: targetWords.slice(0, 2),
       answer: `${displaySound}: ${targetWords.slice(0, 2).join(", ")}`,
@@ -227,10 +274,10 @@ function buildLessonSlides(cycle) {
     ...hfwCards.slice(0, 3).map((card, index) => ({ id: `hfw-${index}`, type: "hfw", title: `High-Frequency Word: ${card.word}`, sectionId: "highFrequencyWords", card })),
     games[3] && { id: "beat-builder", type: "game", title: games[3].title, sectionId: "phonemicAwareness", game: games[3] },
     games.find(game => game.id === "word-chain") && { id: "word-chain", type: "game", title: "Chaining / Word Building", sectionId: "decoding", game: games.find(game => game.id === "word-chain") },
-    { id: "video-search", type: "video", title: "Teacher Video Search", sectionId: "teacherNotes" },
-    { id: "read-this-week", type: "guidedReading", title: "Read This Week", sectionId: "overview" },
+    { id: "guided-reader", type: "guidedReading", title: "Guided Reader", sectionId: "overview" },
     { id: "writing", type: "writing", title: "Writing Mission", sectionId: "writing" },
-    { id: "worksheet", type: "worksheet", title: "Worksheet Time", sectionId: "worksheets" },
+    { id: "ppt-games", type: "pptGames", title: "Lesson Games", sectionId: "rhyming" },
+    { id: "activity-stations", type: "activities", title: "Activity Stations", sectionId: "worksheets" },
     { id: "celebrate", type: "celebrate", title: "Great learning!", sectionId: "overview" }
   ].filter(Boolean);
   return slides;
@@ -256,13 +303,13 @@ function makeWorksheetItems(cycle, worksheetType, count) {
     "cycle worksheet pack": customTasks,
     "clay mat": clayTasks,
     "vocabulary mat": vocabularyTasks,
-    "letter tracing": letters.map(card => `Trace ${card.grapheme}. Write ${card.spelling}. Say ${card.sound || card.grapheme}.`),
+    "letter tracing": letters.map(card => `Use the stroke model for ${card.grapheme}. Write ${card.spelling}. Say ${card.sound || card.grapheme}.`),
     "letter/sound matching": letters.map(card => `Match ${card.grapheme} to ${card.sound || card.spelling}.`),
     "circle the beginning sound": examples.map(word => `Circle the first sound in ${word}.`),
     "circle the ending sound": examples.map(word => `Circle the ending sound in ${word}.`),
     "rhyme match": (cycle.sections.rhyming.activities?.[0]?.items || []).map(pair => `Do these rhyme? ${pair[0]} / ${pair[1]}`),
     "cut-and-paste HFW": hfw.map(word => `Cut and paste ${word} into the sentence: I see ${word}.`),
-    "read/write HFW": hfw.map(word => `Read ${word}. Trace it. Write it.`),
+    "read/write HFW": hfw.map(word => `Read ${word}. Write it. Read it again.`),
     "CVC decoding": examples.map(word => `Tap the sounds and read: ${word}`),
     "chaining practice": (cycle.sections.decoding.chains || []).flatMap(chain => chain.steps.map(step => `${chain.start}: ${step}`)),
     "dictation": cycle.sections.writing.dictation.map(word => `Teacher says: ${word}. Student writes it.`),
@@ -513,6 +560,81 @@ function getBookCover(book) {
   return book?.coverImage || book?.cover || book?.coverUrl || "";
 }
 
+function getCardAudioSrc(cycle, card = {}) {
+  const cycleAudio = LEARN_AUDIO_BY_CYCLE[cycle.cycleNumber];
+  const key = String(card.spelling || card.grapheme || "").toLowerCase().replace(/[^a-z]+/g, "");
+  return cycleAudio?.cues?.[key] || "";
+}
+
+function getChantAudioSrc(cycle) {
+  return LEARN_AUDIO_BY_CYCLE[cycle.cycleNumber]?.chant || "";
+}
+
+function getBookSearchText(book = {}) {
+  return [
+    book.title,
+    book.type,
+    book.level,
+    ...(book.targetSkills || []),
+    ...(book.pages || []).map(page => page.text)
+  ].join(" ").toLowerCase();
+}
+
+function getCycleReaderTerms(cycle) {
+  return [
+    ...cycle.highFrequencyWords,
+    ...cycle.focusLetters.flatMap(card => [card.spelling, card.grapheme, ...(card.examples || [])]),
+    ...cycle.reviewLetters.flatMap(card => [card.spelling, card.grapheme, ...(card.examples || [])])
+  ]
+    .map(term => String(term || "").toLowerCase().replace(/[^a-z]+/g, " ").trim())
+    .filter(Boolean);
+}
+
+function scoreGuidedReader(book, cycle) {
+  if (!book) return -1;
+  const text = getBookSearchText(book);
+  const terms = getCycleReaderTerms(cycle);
+  let score = 0;
+  terms.forEach(term => {
+    if (!term || term.length < 2) return;
+    const matches = text.match(new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "g"));
+    if (matches) score += matches.length * (term.length <= 2 ? 1 : 4);
+  });
+  if (book.level === "A") score += 3;
+  if (book.level === "B") score += 2;
+  if (book.active !== false) score += 1;
+  return score;
+}
+
+function getBestGuidedReader(cycle, recommendations = {}) {
+  const override = GUIDED_READER_OVERRIDES[cycle.cycleNumber];
+  const overrideBook = override ? guidedReadingBooks.find(book => book.id === override) : null;
+  if (overrideBook) return overrideBook;
+
+  const recommendedBooks = [recommendations.nonfiction, recommendations.fiction]
+    .map(getRecommendationBook)
+    .filter(Boolean);
+  const candidates = recommendedBooks.length ? recommendedBooks : guidedReadingBooks;
+  return candidates
+    .map(book => ({ book, score: scoreGuidedReader(book, cycle) }))
+    .sort((a, b) => b.score - a.score)[0]?.book || null;
+}
+
+function getReaderMatchTags(book, cycle) {
+  if (!book) return [];
+  const text = getBookSearchText(book);
+  const seen = new Set();
+  return getCycleReaderTerms(cycle)
+    .filter(term => term.length > 1 && text.includes(term) && !seen.has(term) && seen.add(term))
+    .slice(0, 5);
+}
+
+function getGuidedReaderPages(book) {
+  return (book?.pages || [])
+    .filter(page => page.active !== false && page.qaStatus !== "rejected")
+    .slice(0, 3);
+}
+
 function GuidedReadingRecommendationCard({ label, recommendation, onOpenGuidedReadingBook }) {
   const book = getRecommendationBook(recommendation);
 
@@ -553,6 +675,127 @@ function GuidedReadingRecommendationCard({ label, recommendation, onOpenGuidedRe
       </div>
     </article>
   );
+}
+
+function EmbeddedGuidedReader({ book, cycle, onOpenGuidedReadingBook }) {
+  const pages = getGuidedReaderPages(book);
+  const cover = getBookCover(book);
+  const typeLabel = formatGuidedReadingType(normalizeGuidedReadingType(book?.type));
+  const matchTags = getReaderMatchTags(book, cycle);
+
+  if (!book) {
+    return (
+      <div className="learn-reader-embed empty">
+        <h1>Guided Reader</h1>
+        <p>No local reader is matched yet for this cycle.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="learn-reader-embed">
+      <div className="learn-reader-lead">
+        <div className="learn-reader-cover" aria-hidden="true">
+          {cover ? <img alt="" src={cover} /> : <span>{book.title.slice(0, 1)}</span>}
+        </div>
+        <div>
+          <span>Read This Week · Best local match</span>
+          <h1>{book.title}</h1>
+          <p>Level {book.level} · {typeLabel}. Read with teacher control and listen for this cycle's sound or word pattern.</p>
+          <div className="learn-reader-tags">
+            {matchTags.length
+              ? matchTags.map(tag => <b key={`reader-tag-${tag}`}>{tag}</b>)
+              : cycle.focusLetters.slice(0, 4).map(card => <b key={`reader-tag-${card.spelling}`}>{card.grapheme}</b>)}
+          </div>
+          <button className="lp-button lp-button-primary" onClick={() => onOpenGuidedReadingBook?.(book.id)} type="button">
+            Open Full Reader
+          </button>
+        </div>
+      </div>
+      <div className="learn-reader-page-strip">
+        {pages.map(page => (
+          <article key={`${book.id}-${page.pageNumber || page.storyPageNumber}`}>
+            {page.image && <img alt="" src={page.image} />}
+            <strong>Page {page.storyPageNumber || page.pageNumber}</strong>
+            <p>{String(page.text || "").replace(/\s+/g, " ")}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function LessonAudioControl({ src, label }) {
+  if (!src) return null;
+  return (
+    <div className="learn-audio-control">
+      <span>{label}</span>
+      <audio controls preload="none" src={src} />
+    </div>
+  );
+}
+
+function getActivityStations(cycle) {
+  const letters = cycle.focusLetters.concat(cycle.reviewLetters);
+  const firstLetters = letters.map(card => card.grapheme).slice(0, 4).join(" / ");
+  const hfw = cycle.highFrequencyWords.slice(0, 3).join(", ");
+  const games = cycle.sections.games || [];
+  return [
+    {
+      title: "Picture Sound Sort",
+      action: firstLetters ? `Sort picture cards under ${firstLetters}.` : "Sort review picture cards.",
+      check: games.find(game => game.id === "letter-sort")?.answer || "Teacher checks the picture sort."
+    },
+    {
+      title: "Hidden Picture Reveal",
+      action: "Cover three pictures. Reveal one square at a time. Children name the picture and sound.",
+      check: "Accept the target sound first, then the whole word."
+    },
+    {
+      title: "High-Frequency Flash",
+      action: hfw ? `Read, clap, and air-write ${hfw}.` : "Read, clap, and air-write review words.",
+      check: "Children read the word without sounding it out."
+    },
+    {
+      title: "Build and Blend",
+      action: (games.find(game => game.id === "beat-builder")?.cards || cycle.sections.decoding.chains?.[0]?.steps || []).slice(0, 3).join("  ·  "),
+      check: games.find(game => game.id === "beat-builder")?.answer || "Children say each part, then the whole word."
+    },
+    {
+      title: "Clay or Marker Mat",
+      action: "Build the target letter or pattern, say the sound, then match a picture.",
+      check: "Teacher listens for the sound and checks the mat match."
+    },
+    {
+      title: "Quick Exit",
+      action: "One sound, one word, one picture before leaving the station.",
+      check: "Record support needs for tomorrow's small group."
+    }
+  ];
+}
+
+function getPptGamePanels(cycle) {
+  const games = cycle.sections.games || [];
+  const soundCards = cycle.focusLetters.concat(cycle.reviewLetters).flatMap(card => card.examples || []).slice(0, 6);
+  const chain = games.find(game => game.id === "word-chain");
+  const hfw = games.find(game => game.id === "hfw-flash");
+  return [
+    {
+      title: "Mystery Picture Reveal",
+      prompt: "Click a covered picture. Children say the first sound, then name the picture.",
+      cards: soundCards
+    },
+    {
+      title: "Choose the Match",
+      prompt: "Show three pictures. Children vote for the picture that matches the sound.",
+      cards: soundCards.slice(0, 3)
+    },
+    {
+      title: chain ? "Word Chain Click-Through" : "Word Beat Click-Through",
+      prompt: chain ? chain.teacherInstruction : hfw?.teacherInstruction || "Click each card. Children read, clap, and answer.",
+      cards: (chain?.cards || hfw?.cards || cycle.highFrequencyWords).slice(0, 6)
+    }
+  ];
 }
 
 function ChildLessonPath({ cycle, onStartLesson }) {
@@ -661,6 +904,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
   const lessonSlide = lessonSlides[lessonSlideIndex] || lessonSlides[0];
   const youtubeSearchUrl = makeYouTubeSearchUrl(cycle);
   const guidedReadingRecommendations = cycle.guidedReadingRecommendations || {};
+  const bestGuidedReader = getBestGuidedReader(cycle, guidedReadingRecommendations);
 
   useEffect(() => {
     if (!isLessonMode) return undefined;
@@ -814,6 +1058,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
         <article className="learn-deck-slide letter-slide" data-slide-type="letter">
           <div className="learn-slide-kicker">Meet {slide.card.grapheme} {displaySound}</div>
           <LetterCard card={slide.card} lessonMode />
+          <LessonAudioControl label={`${slide.card.grapheme} sound cue`} src={getCardAudioSrc(cycle, slide.card)} />
           <div className="learn-slide-callout">
             <strong>Watch the stroke model. Say {displaySound}.</strong>
           </div>
@@ -859,30 +1104,15 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
         </article>
       );
     }
-    if (slide.type === "video") {
-      return (
-        <article className="learn-deck-slide video-slide">
-          <h1>Teacher Video Search</h1>
-          <p>No autoplay. No embedded copied videos. Open a teacher-controlled search only when useful.</p>
-          <div className="learn-video-grid deck-video-searches">
-            {(cycle.sections.videoResources || []).slice(0, 3).map(resource => (
-              <a href={makeYouTubeQueryUrl(resource.query)} key={`deck-${resource.label}`} target="_blank" rel="noreferrer">
-                <VisualBadge sectionId="poemAndChant" />
-                <span>{resource.label}</span>
-                <small>{resource.query}</small>
-              </a>
-            ))}
-          </div>
-        </article>
-      );
-    }
     if (slide.type === "chant") {
+      const chantAudio = getChantAudioSrc(cycle);
       return (
         <article className="learn-deck-slide chant-slide">
           <h1>{cycle.sections.poemAndChant.title}</h1>
           <div className="learn-poem deck-poem">
             {cycle.sections.poemAndChant.lines.map(line => <p key={line}>{line}</p>)}
           </div>
+          <LessonAudioControl label="Teacher-controlled chant audio" src={chantAudio} />
           <p className="learn-slide-tip">{cycle.sections.poemAndChant.rhythm}</p>
         </article>
       );
@@ -898,25 +1128,9 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       );
     }
     if (slide.type === "guidedReading") {
-      const books = [
-        ["Fiction", guidedReadingRecommendations.fiction],
-        ["Non-Fiction", guidedReadingRecommendations.nonfiction]
-      ].filter(([, recommendation]) => recommendation?.book);
       return (
         <article className="learn-deck-slide guided-reading-slide">
-          <h1>Read This Week</h1>
-          <p>Choose one fiction book and one non-fiction book for small group reading.</p>
-          <div className="learn-guided-book-strip">
-            {books.map(([label, recommendation]) => (
-              <article key={label}>
-                <VisualBadge sectionId="decoding" label="Book" />
-                <span>{label}</span>
-                <strong>{recommendation.book.title}</strong>
-                <small>{formatGuidedReadingType(recommendation.type)} · {recommendation.book.level}</small>
-              </article>
-            ))}
-          </div>
-          {guidedReadingRecommendations.note && <p className="learn-slide-tip">{guidedReadingRecommendations.note}</p>}
+          <EmbeddedGuidedReader book={bestGuidedReader} cycle={cycle} onOpenGuidedReadingBook={onOpenGuidedReadingBook} />
         </article>
       );
     }
@@ -931,17 +1145,37 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
         </article>
       );
     }
-    if (slide.type === "worksheet") {
+    if (slide.type === "pptGames") {
       return (
-        <article className="learn-deck-slide worksheet-slide">
-          <h1>Worksheet Time</h1>
-          <p>Print after the lesson. Practice with pencil, voice, and movement.</p>
-          <div className="learn-print-choice-grid">
-            {(cycle.sections.worksheets.templates || []).slice(0, 3).map(template => (
-              <article key={template}>
-                <VisualBadge sectionId="worksheets" />
-                <strong>{template}</strong>
-                <span>{makeWorksheetItems(cycle, template, 1)[0]}</span>
+        <article className="learn-deck-slide ppt-games-slide">
+          <h1>Lesson Games</h1>
+          <p>Teacher-led click-through games for this cycle.</p>
+          <div className="learn-ppt-game-grid">
+            {getPptGamePanels(cycle).map(panel => (
+              <article key={panel.title}>
+                <strong>{panel.title}</strong>
+                <p>{panel.prompt}</p>
+                <div className="learn-picture-card-grid mini">
+                  {panel.cards.map((card, index) => <LessonPictureCard key={`${panel.title}-${card}-${index}`} word={card} />)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </article>
+      );
+    }
+    if (slide.type === "activities") {
+      return (
+        <article className="learn-deck-slide activities-slide">
+          <h1>Activity Stations</h1>
+          <p>Use these during skills block rotation, small group, or partner practice.</p>
+          <div className="learn-activity-station-grid">
+            {getActivityStations(cycle).slice(0, 3).map((station, index) => (
+              <article key={station.title}>
+                <span>Station {index + 1}</span>
+                <strong>{station.title}</strong>
+                <p>{station.action}</p>
+                <small>{station.check}</small>
               </article>
             ))}
           </div>
@@ -1142,11 +1376,16 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             <VisualBadge sectionId="writing" />
             <div>
               <h4>Writing / Encoding Practice</h4>
-              <p>Move from formation to word writing and a shared sentence.</p>
+              <p>Use the stroke model, then move to word writing and a shared sentence.</p>
             </div>
           </div>
           <div className="learn-writing-grid">
-            {cycle.sections.writing.formationPractice.map((item, index) => <article key={item}><span>{index + 1}</span><p>{item}</p><i className="handwriting-lines" aria-hidden="true"></i></article>)}
+            {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 4).map(card => (
+              <article className="learn-writing-model-card" key={`${card.grapheme}-${card.spelling}`}>
+                <StrokeDirectionCard card={card} />
+                <i className="handwriting-lines" aria-hidden="true"></i>
+              </article>
+            ))}
             {cycle.sections.writing.wordWriting.map(item => <article key={item}><span>W</span><p>{item}</p><i className="handwriting-lines" aria-hidden="true"></i></article>)}
             <article><span>S</span><p>Sentence frame: {cycle.sections.writing.sentenceFrame}</p><i className="handwriting-lines" aria-hidden="true"></i></article>
             <article><span>I</span><p>Interactive writing: {cycle.sections.writing.interactiveWritingPrompt}</p><i className="handwriting-lines" aria-hidden="true"></i></article>
