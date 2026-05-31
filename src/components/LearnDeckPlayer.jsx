@@ -30,15 +30,23 @@ function LearnDeckTeacherLinks({ slide }) {
 }
 
 export function LearnDeckPlayer({ deck, onExit }) {
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [slideState, setSlideState] = useState({ deckId: "", index: 0 });
   const slides = deck?.slides || [];
+  const deckId = deck?.id || "";
+  const slideIndex = slideState.deckId === deckId ? slideState.index : 0;
   const slide = slides[slideIndex] || slides[0];
   const canGoPrevious = slideIndex > 0;
   const canGoNext = slideIndex < slides.length - 1;
 
-  useEffect(() => {
-    setSlideIndex(0);
-  }, [deck?.id]);
+  function setSlideIndex(nextIndexOrUpdater) {
+    setSlideState(current => {
+      const currentIndex = current.deckId === deckId ? current.index : 0;
+      const nextIndex = typeof nextIndexOrUpdater === "function"
+        ? nextIndexOrUpdater(currentIndex)
+        : nextIndexOrUpdater;
+      return { deckId, index: nextIndex };
+    });
+  }
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -63,6 +71,19 @@ export function LearnDeckPlayer({ deck, onExit }) {
         <span className="learn-created-slide-counter">Slide {slideIndex + 1} of {slides.length}</span>
         <button className="lp-button lp-button-secondary" onClick={onExit} type="button">Exit Lesson</button>
       </header>
+      <nav className="learn-progress-strip" aria-label={`Deck progress slide ${slideIndex + 1} of ${slides.length}`}>
+        {slides.map((item, index) => (
+          <button
+            aria-label={`Go to slide ${index + 1}: ${item.prompt || item.alt || item.id || deck.title}`}
+            className={index === slideIndex ? "active" : ""}
+            key={item.id || `${deck.id}-slide-${index}`}
+            onClick={() => setSlideIndex(index)}
+            type="button"
+          >
+            <span></span>
+          </button>
+        ))}
+      </nav>
       <main className="learn-created-deck-stage">
         <LearnDeckSlideImage deck={deck} slide={slide} />
         <LearnDeckInteractionLayer slide={slide} />

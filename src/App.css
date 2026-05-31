@@ -5862,6 +5862,7 @@ select:focus {
 }
 
 .learn-overview-grid article,
+.learn-overview-cell,
 .learn-letter-card,
 .hfw-learn-grid article,
 .learn-activity-card,
@@ -5873,10 +5874,28 @@ select:focus {
   background: #f8fafc;
 }
 
-.learn-overview-grid.visual article {
+.learn-overview-grid.visual article,
+.learn-overview-grid.visual .learn-overview-cell {
   display: grid;
   gap: 8px;
   background: linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+.learn-deck-status-note,
+.learn-game-success,
+.learn-section-missing-renderer {
+  padding: 10px 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-weight: 850;
+}
+
+.learn-game-success {
+  border-color: #bbf7d0;
+  background: #ecfdf5;
+  color: #166534;
 }
 
 .learn-daily-flow,
@@ -7628,9 +7647,7 @@ select:focus {
   }
 
   .learn-cycle-groups {
-    max-height: none;
-    overflow: visible;
-    padding-right: 0;
+    display: none;
   }
 
   .learn-cycle-grid {
@@ -7763,6 +7780,16 @@ select:focus {
 
   .worksheet-student-line {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .learn-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .learn-layout {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -10602,6 +10629,9 @@ select:focus {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
   .learning-world-app *,
   .learning-world-shell * {
     animation-duration: 0.001ms !important;

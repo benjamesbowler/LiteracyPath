@@ -930,12 +930,16 @@ export function ChildModePage({ returnToTeacher, onAnswer }) {
   }
 
   function completeMission(result = {}) {
-    const starsEarned = result.starsEarned || activeMission.starReward || activeMission.shards * 5;
     const missionId = result.missionId || activeMission.id;
+    const alreadyCompleteBeforeUpdate = Boolean(progress.completedMissions?.[missionId]);
+    const starsEarned = alreadyCompleteBeforeUpdate
+      ? 0
+      : result.starsEarned || activeMission.starReward || activeMission.shards * 5;
 
     setCompletion({ ...result, starsEarned, missionId });
     setProgress(current => {
       const alreadyComplete = current.completedMissions?.[missionId];
+      const rewardStars = alreadyComplete ? 0 : starsEarned;
       const currentZone = current.zones?.["phonics-lab"] || { completed: 0, total: echoMissions.length, stars: 0 };
       const nextCompleted = alreadyComplete
         ? currentZone.completed
@@ -943,7 +947,7 @@ export function ChildModePage({ returnToTeacher, onAnswer }) {
 
       return {
         ...current,
-        stars: current.stars + starsEarned,
+        stars: current.stars + rewardStars,
         completedMissions: {
           ...(current.completedMissions || {}),
           [missionId]: true
@@ -954,7 +958,7 @@ export function ChildModePage({ returnToTeacher, onAnswer }) {
             ...currentZone,
             total: echoMissions.length,
             completed: nextCompleted,
-            stars: (currentZone.stars || 0) + starsEarned
+            stars: (currentZone.stars || 0) + rewardStars
           }
         }
       };

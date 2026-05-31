@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { LearnAudioButton, LearnCardImage } from "./LearnCardMedia.jsx";
 
 export function SoundSafariGame({ slide }) {
   const [foundIds, setFoundIds] = useState(() => new Set());
   const [missedIds, setMissedIds] = useState(() => new Set());
+  const missedTimersRef = useRef(new Map());
   const cards = slide.cards || [];
+  const isComplete = useMemo(() => {
+    const correctCards = cards.filter(card => card.correct);
+    return correctCards.length > 0 && correctCards.every(card => foundIds.has(card.id));
+  }, [cards, foundIds]);
+
+  useEffect(() => () => {
+    missedTimersRef.current.forEach(timeoutId => window.clearTimeout(timeoutId));
+    missedTimersRef.current.clear();
+  }, []);
 
   function chooseCard(card) {
     if (card.correct) {
@@ -17,9 +27,23 @@ export function SoundSafariGame({ slide }) {
       return;
     }
     setMissedIds(current => new Set(current).add(card.id));
+    if (missedTimersRef.current.has(card.id)) {
+      window.clearTimeout(missedTimersRef.current.get(card.id));
+    }
+    const timeoutId = window.setTimeout(() => {
+      setMissedIds(current => {
+        const next = new Set(current);
+        next.delete(card.id);
+        return next;
+      });
+      missedTimersRef.current.delete(card.id);
+    }, 700);
+    missedTimersRef.current.set(card.id, timeoutId);
   }
 
   function reset() {
+    missedTimersRef.current.forEach(timeoutId => window.clearTimeout(timeoutId));
+    missedTimersRef.current.clear();
     setFoundIds(new Set());
     setMissedIds(new Set());
   }
@@ -52,6 +76,11 @@ export function SoundSafariGame({ slide }) {
           </button>
         ))}
       </div>
+      {isComplete && (
+        <p className="learn-game-success" role="status">
+          You found every target sound.
+        </p>
+      )}
     </section>
   );
 }

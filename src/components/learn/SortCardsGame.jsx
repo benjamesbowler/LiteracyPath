@@ -8,6 +8,9 @@ export function SortCardsGame({ slide }) {
   const cards = slide.cards || [];
   const zones = slide.zones || [];
   const placedIds = useMemo(() => new Set(Object.keys(placements)), [placements]);
+  const isComplete = useMemo(() =>
+    cards.length > 0 && cards.every(card => placements[card.id] === card.zone),
+  [cards, placements]);
 
   function placeSelectedCard(zoneId) {
     if (!selectedCardId) {
@@ -21,12 +24,18 @@ export function SortCardsGame({ slide }) {
     setSelectedCardId("");
   }
 
+  function reset() {
+    setSelectedCardId("");
+    setPlacements({});
+    setFeedback("");
+  }
+
   return (
     <section className="learn-overlay-panel sort-cards-game" aria-label="Sort cards game">
       <div className="learn-overlay-header">
         <strong>{slide.prompt || "Sort the cards."}</strong>
         <div>
-          <button className="lp-button lp-button-secondary" onClick={() => setPlacements({})} type="button">Reset</button>
+          <button className="lp-button lp-button-secondary" onClick={reset} type="button">Reset</button>
           <details className="learn-answer-reveal">
             <summary>Reveal Answers</summary>
             {cards.map(card => <p key={`answer-${card.id}`}>{card.label}: {zones.find(zone => zone.id === card.zone)?.label || card.zone}</p>)}
@@ -51,7 +60,10 @@ export function SortCardsGame({ slide }) {
               placedIds.has(card.id) ? (placements[card.id] === card.zone ? "correct" : "needs-review") : ""
             ].filter(Boolean).join(" ")}
             key={card.id}
-            onClick={() => setSelectedCardId(card.id)}
+            onClick={() => {
+              if (placedIds.has(card.id)) return;
+              setSelectedCardId(card.id);
+            }}
             type="button"
           >
             <LearnCardImage image={card.image} label={card.label} />
@@ -61,6 +73,11 @@ export function SortCardsGame({ slide }) {
         ))}
       </div>
       {feedback && <p className="learn-game-feedback">{feedback}</p>}
+      {isComplete && (
+        <p className="learn-game-success" role="status">
+          All sorted. Nice listening and matching.
+        </p>
+      )}
     </section>
   );
 }

@@ -1,6 +1,6 @@
 import { Component, lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import "./App.css";
 import { supabase } from "./supabaseClient";
 import { getMasteryRule } from "./masterySystem";
@@ -870,6 +870,25 @@ function hydrateAnswerRecord(record = {}) {
   };
 }
 
+function normalizeAnswerRecordShape(record = {}) {
+  const hasBooleanIsCorrect = typeof record.isCorrect === "boolean";
+  const inferredIsCorrect = hasBooleanIsCorrect
+    ? record.isCorrect
+    : Boolean(record.correct === true || record.correct === "true");
+
+  if (!hasBooleanIsCorrect && import.meta.env.DEV) {
+    console.warn("Answer record missing boolean isCorrect; normalizing at save boundary.", record);
+  }
+
+  return {
+    ...record,
+    isCorrect: inferredIsCorrect,
+    correct: typeof record.correct === "boolean"
+      ? record.correctAnswer || ""
+      : record.correct || record.correctAnswer || ""
+  };
+}
+
 function applyItemMetadata(question) {
   const metadata = inferItemMetadata(question);
   return metadata
@@ -1436,6 +1455,8 @@ function buildQuestionBankCoverage(questions = []) {
   return Array.from(rowsBySkill.values()).sort((a, b) => a.skill.localeCompare(b.skill));
 }
 
+const questionBankCoverageSnapshot = buildQuestionBankCoverage(allQuestions);
+
 const letterAssessmentOrder = [
   "m", "T", "b", "S", "a", "F", "d", "R", "p", "E", "g", "H", "c",
   "M", "t", "B", "s", "A", "f", "D", "r", "P", "e", "G", "h", "C",
@@ -1493,6 +1514,7 @@ export default function App() {
   const [showConfetti, setShowConfetti] = useState(false);
   const [showReport, setShowReport] = useState(false);
   const [allowPassageAudio, setAllowPassageAudio] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   const [assessmentMode, setAssessmentMode] =
     useState("mastery");
@@ -1545,13 +1567,15 @@ export default function App() {
   const PASS_SCORE =
     masteryRule.passScore;
 
-  const currentStageQuestions =
+  const currentStageQuestions = useMemo(() =>
     allQuestions.filter(q =>
       getStageIndex(q) === currentSkillIndex
-    );
+    ),
+  [currentSkillIndex]);
 
-  const weaknessSnapshot =
-    calculateWeaknessSnapshot(answerHistory);
+  const weaknessSnapshot = useMemo(() =>
+    calculateWeaknessSnapshot(answerHistory),
+  [answerHistory]);
 
   const teacherId =
     teacherUser?.id || null;
@@ -4551,20 +4575,21 @@ export default function App() {
 
   async function saveAnswerToSupabase(record) {
     if (!studentId || !teacherId) return;
+    const normalizedRecord = normalizeAnswerRecordShape(record);
 
     const { error } = await supabase
       .from("answers")
       .insert({
         student_id: studentId,
         teacher_id: teacherId,
-        skill: record.skill,
-        stage: record.stage,
-        diagnostic_target: record.diagnosticTarget,
-        question: record.question,
-        passage: record.passage,
-        chosen_answer: record.chosen,
-        correct_answer: record.correct,
-        is_correct: record.isCorrect
+        skill: normalizedRecord.skill,
+        stage: normalizedRecord.stage,
+        diagnostic_target: normalizedRecord.diagnosticTarget,
+        question: normalizedRecord.question,
+        passage: normalizedRecord.passage,
+        chosen_answer: normalizedRecord.chosen,
+        correct_answer: normalizedRecord.correct,
+        is_correct: normalizedRecord.isCorrect
       });
 
     if (error) {
@@ -4880,7 +4905,7 @@ export default function App() {
 
     setTotalAnswered(n => n + 1);
 
-    const answerRecord = {
+    const answerRecord = normalizeAnswerRecordShape({
       questionId: answeredQuestion.id,
       questionSignature: getRuntimeQuestionSignature(answeredQuestion),
       promptAnswerSignature: getRuntimeQuestionPromptAnswerSignature(answeredQuestion),
@@ -4911,7 +4936,7 @@ export default function App() {
         : questionPathStep.level || answeredQuestion.level || "",
       itemPhase: questionPathStep.phase || "",
       selectionReason: answeredQuestion.selectionReason || ""
-    };
+    });
 
     debugAssessmentCoverage("assessment answer", {
       questionId: answeredQuestion.id,
@@ -6719,7 +6744,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const roundCorrect = roundAnswers.filter(Boolean).length;
   const roundProgress = Math.round((roundAnswers.length / ROUND_LENGTH) * 100);
   const accuracy = totalAnswered === 0 ? 0 : Math.round((correctAnswered / totalAnswered) * 100);
-  const questionBankCoverage = buildQuestionBankCoverage(allQuestions);
+  const questionBankCoverage = questionBankCoverageSnapshot;
   const isFocusedAssessment =
     appView === "assessment" ||
     appView === "checkpoint" ||
@@ -6732,7 +6757,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
   return (
     <div className={appShellClassName}>
-      {showConfetti && <Confetti recycle={false} numberOfPieces={90} />}
+      {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
       {!isFocusedAssessment && (
         <TopNavigation

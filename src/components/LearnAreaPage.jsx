@@ -928,11 +928,13 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
   );
   const groupedCycles = getGroupedCycles(filteredCycles);
   const letterCards = cycle.sections.letterLearning.cards || [];
-  const lessonSlides = buildLessonSlides(cycle);
+  const lessonSlides = useMemo(() => buildLessonSlides(cycle), [selectedCycleId]);
   const lessonSlide = lessonSlides[lessonSlideIndex] || lessonSlides[0];
   const youtubeSearchUrl = makeYouTubeSearchUrl(cycle);
-  const guidedReadingRecommendations = cycle.guidedReadingRecommendations || {};
-  const bestGuidedReader = getBestGuidedReader(cycle, guidedReadingRecommendations);
+  const guidedReadingRecommendations = useMemo(() => cycle.guidedReadingRecommendations || {}, [selectedCycleId]);
+  const bestGuidedReader = useMemo(() =>
+    getBestGuidedReader(cycle, guidedReadingRecommendations),
+  [selectedCycleId, guidedReadingRecommendations]);
   const teacherCreatedDecks = getLearnDecksForCycle(cycle.id);
   const hasTeacherCreatedDecks = teacherCreatedDecks.length > 0;
 
@@ -1287,10 +1289,10 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             </div>
           </div>
           <div className="learn-overview-grid visual">
-            <article><VisualBadge sectionId="letterLearning" /><strong>Letters / Sounds</strong><p>{listText(cycle.focusLetters.concat(cycle.reviewLetters).map(card => `${card.grapheme} ${card.sound || ""}`.trim()))}</p></article>
-            <article><VisualBadge sectionId="highFrequencyWords" /><strong>High-Frequency Words</strong><p>{listText(cycle.highFrequencyWords)}</p></article>
-            <article><VisualBadge sectionId="phonemicAwareness" /><strong>Phonemic Awareness</strong><p>{listText(cycle.phonemicAwareness)}</p></article>
-            <article><VisualBadge sectionId="decoding" /><strong>Routines</strong><p>{listText(cycle.routines)}</p></article>
+            <div className="learn-overview-cell"><VisualBadge sectionId="letterLearning" /><strong>Letters / Sounds</strong><p>{listText(cycle.focusLetters.concat(cycle.reviewLetters).map(card => `${card.grapheme} ${card.sound || ""}`.trim()))}</p></div>
+            <div className="learn-overview-cell"><VisualBadge sectionId="highFrequencyWords" /><strong>High-Frequency Words</strong><p>{listText(cycle.highFrequencyWords)}</p></div>
+            <div className="learn-overview-cell"><VisualBadge sectionId="phonemicAwareness" /><strong>Phonemic Awareness</strong><p>{listText(cycle.phonemicAwareness)}</p></div>
+            <div className="learn-overview-cell"><VisualBadge sectionId="decoding" /><strong>Routines</strong><p>{listText(cycle.routines)}</p></div>
           </div>
           <h5>Daily Flow</h5>
           <ChildLessonPath cycle={cycle} onStartLesson={() => openLesson()} />
@@ -1498,7 +1500,8 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
       );
     }
 
-    return (
+    if (sectionId === "teacherNotes") {
+      return (
         <div className="learn-section-panel">
         <div className="learn-section-heading">
           <VisualBadge sectionId="teacherNotes" />
@@ -1508,18 +1511,31 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           </div>
         </div>
         <div className="learn-overview-grid visual">
-          <article><strong>Small Group Support</strong><ul>{cycle.sections.teacherNotes.supportIdeas.map(item => <li key={item}>{item}</li>)}</ul></article>
-          <article><strong>Extension</strong><ul>{cycle.sections.teacherNotes.extensionIdeas.map(item => <li key={item}>{item}</li>)}</ul></article>
-          <article><strong>Reteach</strong><ul>{cycle.sections.teacherNotes.reteachSuggestions.map(item => <li key={item}>{item}</li>)}</ul></article>
-          <article><strong>Progress Link</strong><p>{cycle.sections.teacherNotes.progressConnection}</p></article>
-          <article className="learn-video-resource">
+          <div className="learn-overview-cell"><strong>Small Group Support</strong><ul>{cycle.sections.teacherNotes.supportIdeas.map(item => <li key={item}>{item}</li>)}</ul></div>
+          <div className="learn-overview-cell"><strong>Extension</strong><ul>{cycle.sections.teacherNotes.extensionIdeas.map(item => <li key={item}>{item}</li>)}</ul></div>
+          <div className="learn-overview-cell"><strong>Reteach</strong><ul>{cycle.sections.teacherNotes.reteachSuggestions.map(item => <li key={item}>{item}</li>)}</ul></div>
+          <div className="learn-overview-cell"><strong>Progress Link</strong><p>{cycle.sections.teacherNotes.progressConnection}</p></div>
+          <div className="learn-overview-cell learn-video-resource">
             <strong>Teacher video option</strong>
             <p>Use only teacher-approved videos. LiteracyPath does not autoplay or embed video inside lessons.</p>
             <a href={youtubeSearchUrl} target="_blank" rel="noreferrer">Find teacher-approved YouTube model</a>
-          </article>
+          </div>
         </div>
         <h5>Little Fox / Teacher-Approved Video Searches</h5>
         {renderVideoResources()}
+      </div>
+      );
+    }
+
+    return (
+      <div className="learn-section-panel learn-section-missing-renderer" role="status">
+        <div className="learn-section-heading">
+          <VisualBadge sectionId="teacherNotes" label="QA" />
+          <div>
+            <h4>Section not found</h4>
+            <p>Section "{sectionId}" has no renderer - add it to renderSection.</p>
+          </div>
+        </div>
       </div>
     );
   }
@@ -1595,6 +1611,11 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
               Generate Worksheets
             </button>
           </div>
+          {!hasTeacherCreatedDecks && (
+            <aside className="learn-deck-status-note">
+              Teacher-created deck not added for this cycle yet. The lesson button opens the built-in lesson, and the section tabs below remain available for cycle content.
+            </aside>
+          )}
         </div>
         <div className="learn-recommendation">
           <span>Recommended cycle</span>
@@ -1656,6 +1677,11 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
                     Generate Worksheets
                   </button>
                 </div>
+                {!hasTeacherCreatedDecks && (
+                  <aside className="learn-deck-status-note">
+                    Teacher-created deck not added for this cycle yet - use the built-in lesson or section tabs below.
+                  </aside>
+                )}
               </div>
               <div className="learn-focus-tags">
                 {cycle.focusLetters.concat(cycle.reviewLetters).slice(0, 8).map(card => <span key={`${card.grapheme}-${card.spelling}`}>{card.grapheme} {card.sound}</span>)}
