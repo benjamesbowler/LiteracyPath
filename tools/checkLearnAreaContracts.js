@@ -26,9 +26,13 @@ const appSource = requireFile("src/App.jsx");
 const appPagesSource = requireFile("src/components/AppPages.jsx");
 const cssSource = requireFile("src/App.css");
 
-includes(appSource, 'appView === "learn"', "App.jsx does not render the learn app view.");
+if (!appSource.includes('appView === "learn"') && !appSource.includes("appView === APP_VIEWS.LEARN")) {
+  failures.push("App.jsx does not render the learn app view.");
+}
 includes(appSource, "LearnAreaPage", "App.jsx does not import/render LearnAreaPage.");
-includes(appSource, 'setAppView("learn")', "App.jsx does not set appView to learn.");
+if (!appSource.includes('setAppView("learn")') && !appSource.includes("setAppView(APP_VIEWS.LEARN)")) {
+  failures.push("App.jsx does not set appView to learn.");
+}
 includes(appPagesSource, "goToLearn", "AppPages.jsx TopNavigation is missing goToLearn.");
 if (!/>\s*Learn\s*</.test(appPagesSource)) {
   failures.push("Teacher navigation is missing visible Learn text.");
