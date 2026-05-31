@@ -101,6 +101,12 @@ import { questionBankExpansion11 } from "./data/questionBankExpansion11";
 import { questionBankExpansion12 } from "./data/questionBankExpansion12";
 import { questionBankExpansion13 } from "./data/questionBankExpansion13";
 import { questionBankExpansion14 } from "./data/questionBankExpansion14";
+import { qbAssess_svd } from "./data/qbAssess_svd";
+import { qbAssess_hfw1 } from "./data/qbAssess_hfw1";
+import { qbAssess_hfw2 } from "./data/qbAssess_hfw2";
+import { qbAssess_sc } from "./data/qbAssess_sc";
+import { qbAssess_rc } from "./data/qbAssess_rc";
+import { qbAssess_inf } from "./data/qbAssess_inf";
 import { generatedQuestions } from "./data/generatedQuestions";
 import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.generated.js";
@@ -1310,6 +1316,12 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...questionBankExpansion12,
   ...questionBankExpansion13,
   ...questionBankExpansion14,
+  ...qbAssess_svd,
+  ...qbAssess_hfw1,
+  ...qbAssess_hfw2,
+  ...qbAssess_sc,
+  ...qbAssess_rc,
+  ...qbAssess_inf,
   ...generatedEarlySkillQuestions,
   ...skillLevelGapQuestions,
   ...hfwLevel2Questions,

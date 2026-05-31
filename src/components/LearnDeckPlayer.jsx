@@ -2,9 +2,68 @@ import { useEffect, useState } from "react";
 import { LearnDeckInteractionLayer } from "./LearnDeckInteractionLayer.jsx";
 import { resolveDeckSlideImage, resolveLearnAudio, resolveLearnImage } from "../utils/mediaResolver.js";
 
+function getYouTubeEmbedUrl(value = "") {
+  const rawUrl = String(value || "").trim();
+  if (!rawUrl) return "";
+
+  try {
+    const url = new URL(rawUrl);
+    if (url.hostname === "youtu.be") {
+      const videoId = url.pathname.replace("/", "");
+      return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}` : "";
+    }
+    if (url.hostname.endsWith("youtube.com")) {
+      if (url.pathname.startsWith("/embed/")) return rawUrl;
+      const videoId = url.searchParams.get("v");
+      return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}` : "";
+    }
+  } catch {
+    return "";
+  }
+
+  return "";
+}
+
+function LearnDeckVideo({ slide }) {
+  const localVideo = slide?.video || slide?.videoPath || "";
+  const embedUrl = slide?.embedUrl || getYouTubeEmbedUrl(slide?.videoUrl);
+
+  if (localVideo) {
+    return (
+      <video className="learn-deck-video" controls preload="metadata" src={localVideo}>
+        Video playback is not available in this browser.
+      </video>
+    );
+  }
+
+  if (embedUrl) {
+    return (
+      <iframe
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="learn-deck-video"
+        loading="lazy"
+        referrerPolicy="strict-origin-when-cross-origin"
+        src={embedUrl}
+        title={slide?.alt || slide?.prompt || "Learn deck video"}
+      />
+    );
+  }
+
+  return (
+    <div className="learn-deck-image-placeholder">
+      <span>Video needed</span>
+      <strong>{slide?.prompt || "Playable video will appear here."}</strong>
+      <small>Static video placeholder slides are hidden until a playable video source is added.</small>
+    </div>
+  );
+}
+
 function LearnDeckSlideImage({ slide, deck }) {
-  const resolvedImage = resolveDeckSlideImage(slide, { label: slide?.alt || deck?.title });
   const [failedImage, setFailedImage] = useState({ src: "", failed: false });
+  if (slide?.type === "video") return <LearnDeckVideo slide={slide} />;
+
+  const resolvedImage = resolveDeckSlideImage(slide, { label: slide?.alt || deck?.title });
   const imageFailed = failedImage.failed && failedImage.src === resolvedImage.src;
 
   if (!resolvedImage.available || imageFailed) {
@@ -118,12 +177,9 @@ export function LearnDeckPlayer({ deck, onExit }) {
   return (
     <div className="learn-created-deck-fullscreen" role="dialog" aria-modal="true" aria-label={`${deck.title} interactive Learn deck`}>
       <header className="learn-created-deck-header">
-        <div>
-          <p>Teacher-Created Interactive Deck</p>
-          <h2>{deck.title}</h2>
-        </div>
+        <strong>{slide?.prompt || slide?.alt || deck.title}</strong>
         <span className="learn-created-slide-counter">Slide {slideIndex + 1} of {slides.length}</span>
-        <button className="lp-button lp-button-secondary" onClick={onExit} type="button">Exit Lesson</button>
+        <button className="lp-button lp-button-secondary" onClick={onExit} type="button">Exit</button>
       </header>
       <nav className="learn-progress-strip" aria-label={`Deck progress slide ${slideIndex + 1} of ${slides.length}`}>
         {slides.map((item, index) => (
