@@ -107,6 +107,7 @@ import { qbAssess_hfw2 } from "./data/qbAssess_hfw2";
 import { qbAssess_sc } from "./data/qbAssess_sc";
 import { qbAssess_rc } from "./data/qbAssess_rc";
 import { qbAssess_inf } from "./data/qbAssess_inf";
+import { qbFillGaps } from "./data/qbFillGaps";
 import { generatedQuestions } from "./data/generatedQuestions";
 import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.generated.js";
@@ -1322,6 +1323,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...qbAssess_sc,
   ...qbAssess_rc,
   ...qbAssess_inf,
+  ...qbFillGaps,
   ...generatedEarlySkillQuestions,
   ...skillLevelGapQuestions,
   ...hfwLevel2Questions,
@@ -1598,6 +1600,8 @@ export default function App() {
   const [resetProgressDialogOpen, setResetProgressDialogOpen] = useState(false);
   const [resettingProgress, setResettingProgress] = useState(false);
   const answerInFlightRef = useRef(false);
+  // Guards auto-advance setTimeout callbacks from firing after endAssessment is called.
+  const assessmentActiveRef = useRef(false);
   const answerHistoryRef = useRef(answerHistory);
   const roundItemKeysRef = useRef(roundItemKeys);
   const roundQuestionIdsRef = useRef(roundQuestionIds);
@@ -5050,6 +5054,7 @@ export default function App() {
       setCurrentQuestion(null);
       if (isCorrect) {
         setTimeout(() => {
+          if (!assessmentActiveRef.current) return; // endAssessment was called during this 750ms window
           setAssessmentTransitioning(true);
           setFeedback(null);
           pickQuestion("targetedReview", nextRound.length);
@@ -5128,6 +5133,7 @@ export default function App() {
     setCurrentQuestion(null);
     if (isCorrect) {
       setTimeout(() => {
+        if (!assessmentActiveRef.current) return; // endAssessment was called during this 750ms window
         setAssessmentTransitioning(true);
         setFeedback(null);
         pickQuestion("mastery", nextRound.length, stageIndex);
@@ -6410,6 +6416,7 @@ export default function App() {
       selectedQuestionIds: previewQuestions.map(question => question.id)
     });
 
+    assessmentActiveRef.current = true;
     setCurrentSkillIndex(nextStageIndex);
     setAssessmentMode("mastery");
     setFeedback(null);
@@ -6454,6 +6461,7 @@ export default function App() {
 
   function endAssessment() {
     answerInFlightRef.current = false;
+    assessmentActiveRef.current = false; // cancel any pending auto-advance timeouts
     setCurrentQuestion(null);
     setFeedback(null);
     setCheckpointDecision(null);

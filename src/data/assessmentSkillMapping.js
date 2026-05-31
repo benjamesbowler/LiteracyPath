@@ -137,7 +137,6 @@ function classifySpellingQuestion(question = {}) {
 
 function inferAssessmentSkillId(question = {}) {
   const rawSkill = normalizeAssessmentSkillKey(question.skill || question.skillName || question.stage || "");
-  if (rawSkill === "reading_comprehension") return classifyComprehensionQuestion(question);
   if (rawSkill === "phonics") return classifyPhonicsQuestion(question);
   if (rawSkill === "spelling") return classifySpellingQuestion(question);
   return "";

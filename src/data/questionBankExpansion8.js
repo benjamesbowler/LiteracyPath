@@ -424,7 +424,7 @@ function makeComprehensionQuestions(set, setIndex) {
     prompt: question,
     questionType: "multiple_choice",
     formatType: "COMPREHENSION",
-    itemType: "reading_comprehension",
+    itemType: "comprehension",
     itemKey: `${groupId}_${String(index + 1).padStart(2, "0")}`,
     choices,
     answer,

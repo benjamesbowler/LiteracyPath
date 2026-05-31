@@ -4157,7 +4157,8 @@ select:focus {
 
 .ixl-answer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  /* minmax(min(190px,45%),1fr) prevents 2-col layout from exceeding viewport on 375px phones */
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 45%), 1fr));
   gap: 14px;
 }
 
@@ -8921,6 +8922,76 @@ select:focus {
 
   .guided-book-cover {
     object-fit: contain;
+  }
+}
+
+/* ── Very small phones (iPhone SE 375px and below) ─────────────────────────
+   Prevents assessment card content overflow and improves readability.      */
+@media (max-width: 375px) {
+  /* Assessment card: allow scroll instead of hard-clipping content */
+  .assessment-card {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Shrink question heading so it fits on one line more often */
+  .assessment-card .question-line h2 {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  /* Passage text — tighten to fit */
+  .assessment-card .passage {
+    font-size: 14px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+  }
+
+  /* Choice buttons — slightly smaller min-height so 4 buttons fit */
+  .assessment-card .choice-button {
+    min-height: 52px;
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+
+  /* Two-column answer grids: force each item to 44% so 2 cols always fit */
+  .ixl-answer-grid,
+  .short-vowel-word-choice-grid,
+  .vowel-choice-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  /* HFW passage sentence — reduce padding so it doesn't crowd choices */
+  .assessment-passage-card {
+    padding: 6px 8px;
+  }
+
+  /* Top nav — tighten on tiny screens */
+  .top-nav {
+    padding: 4px 6px;
+  }
+
+  /* End assessment button — always fully visible */
+  .assessment-end-button {
+    font-size: 13px;
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
+}
+
+/* ── Laptop screens (1280px–1440px) ─────────────────────────────────────
+   Ensure assessment and learn pages don't feel empty on standard laptops. */
+@media (min-width: 1280px) and (max-width: 1440px) {
+  /* Assessment card: cap at a comfortable reading width */
+  .assessment-card {
+    max-width: 900px;
+  }
+
+  /* Learn layout sidebar: allow slightly wider cycle list */
+  .learn-cycle-groups {
+    min-width: 280px;
+    max-width: 320px;
   }
 }
 

@@ -98,7 +98,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_007",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "rhyming",
     "difficulty": 1,
     "passage": "",
     "question": "Choose the word that rhymes with 'hat'.",
@@ -113,7 +113,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_008",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
     "question": "Which letter comes at the end of the word 'pig'?",
@@ -242,7 +242,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_017",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "rhyming",
     "difficulty": 1,
     "passage": "",
     "question": "Which word rhymes with 'pin'?",
@@ -417,7 +417,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_032",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "blends",
     "difficulty": 1,
     "passage": "",
     "question": "In stop, which letter comes after s?",
@@ -433,7 +433,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_033",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "rhyming",
     "difficulty": 1,
     "passage": "",
     "question": "Which word rhymes with 'cap'?",
@@ -464,7 +464,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_036",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "long vowels",
     "difficulty": 1,
     "passage": "",
     "question": "Which word has the long 'a' sound?",
@@ -527,7 +527,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_040",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
     "question": "What sounds do the letters 'th' make together?",
@@ -558,7 +558,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_042",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
     "question": "Which word contains the 'ck' sound at the end?",
@@ -589,7 +589,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_044",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
     "question": "Which letter is the first sound you hear in 'bat'?",
@@ -604,7 +604,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_046",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
     "question": "Which letter is at the end of the word 'fan'?",
@@ -636,7 +636,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_048",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
     "question": "What sound do the letters 'ck' make at the end of a word like 'duck'?",
@@ -683,7 +683,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_052",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
     "question": "What letter do you see at the end of the word 'bag'?",
@@ -827,7 +827,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_062",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
     "question": "What two letters make the sound at the start of the word 'this'?",
@@ -842,7 +842,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_063",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
     "question": "Which letter is at the beginning of the word 'run'?",
@@ -857,7 +857,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_064",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "rhyming",
     "difficulty": 1,
     "passage": "",
     "question": "Choose the word that rhymes with 'pig'.",
@@ -936,7 +936,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_072",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
     "question": "What letter is at the end of the word 'zip'?",
@@ -1048,7 +1048,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_081",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "digraphs",
     "difficulty": 1,
     "passage": "",
     "question": "Choose the correct pair that matches the word: 'ship'.",
@@ -1111,7 +1111,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_085",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
     "question": "Which letter is the last sound you hear in 'cat'?",
@@ -1190,7 +1190,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_091",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "rhyming",
     "difficulty": 1,
     "passage": "",
     "question": "Which word rhymes with 'hat'?",
@@ -1205,7 +1205,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_094",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
     "question": "Which letter is at the end of the word 'sun'?",
@@ -1269,7 +1269,7 @@ export const generatedQuestions = [
   {
     "id": "phonics_k_099",
     "grade": "K",
-    "skill": "phonics",
+    "skill": "initial sounds",
     "difficulty": 1,
     "passage": "",
     "question": "Which letter comes at the beginning of the word 'pig'?",
@@ -1300,7 +1300,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-002",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The sun shines bright.",
     "question": "Select the word that spells the round, bright ball in the sky.",
@@ -1315,7 +1315,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-003",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The dog runs fast.",
     "question": "Which word is spelled correctly?",
@@ -1331,7 +1331,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-005",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The sun is hot.",
     "question": "Which word is spelled correctly?",
@@ -1347,7 +1347,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-006",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The fish swims.",
     "question": "Which word is spelled correctly?",
@@ -1363,7 +1363,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-007",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "I see a red ball.",
     "question": "Which word is the color of strawberries?",
@@ -1378,7 +1378,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-008",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The boy has a hat.",
     "question": "Which word is spelled correctly?",
@@ -1394,7 +1394,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-009",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The cat is black.",
     "question": "Which word is spelled correctly?",
@@ -1410,7 +1410,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-010",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "We run fast.",
     "question": "Which word means to move quickly on foot?",
@@ -1425,7 +1425,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-011",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The bed is soft.",
     "question": "Which word is spelled correctly?",
@@ -1441,7 +1441,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-015",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "I like to jump.",
     "question": "Which word means to leap into the air?",
@@ -1456,7 +1456,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-016",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The frog is green.",
     "question": "Which word is spelled correctly?",
@@ -1472,7 +1472,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-017",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "I have a red apple.",
     "question": "Which word is spelled correctly?",
@@ -1488,7 +1488,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-018",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The fish swims in water.",
     "question": "Which word is spelled correctly?",
@@ -1504,7 +1504,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-020",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The sun sets in the west.",
     "question": "Which word means the opposite of East?",
@@ -1519,7 +1519,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-022",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The bee makes honey.",
     "question": "Which word is spelled correctly?",
@@ -1535,7 +1535,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-025",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "She can run fast.",
     "question": "Which word means to move very quickly?",
@@ -1550,7 +1550,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-026",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The bird flies high.",
     "question": "Which word is spelled correctly?",
@@ -1566,7 +1566,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-028",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "I sit on a red chair.",
     "question": "Which word is spelled correctly?",
@@ -1582,7 +1582,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-029",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The clock tells time.",
     "question": "Which word is spelled correctly?",
@@ -1598,7 +1598,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-1-030",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "We see stars at night.",
     "question": "Which word is spelled correctly?",
@@ -1614,7 +1614,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-032",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The dog plays with a ball outside.",
     "question": "Which word is spelled correctly?",
@@ -1630,7 +1630,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-033",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "She can swim in the pool.",
     "question": "Which word is spelled correctly?",
@@ -1646,7 +1646,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-034",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "We eat lunch at noon.",
     "question": "Which word is spelled correctly?",
@@ -1662,7 +1662,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-035",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "He found a shell by the beach.",
     "question": "Which word is spelled correctly?",
@@ -1678,7 +1678,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-036",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The frog jumps on the rock.",
     "question": "Which word is spelled correctly?",
@@ -1694,7 +1694,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-037",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "We like to read books.",
     "question": "Which word is spelled correctly?",
@@ -1710,7 +1710,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-038",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "My baby sister smiles a lot.",
     "question": "Which word is spelled correctly?",
@@ -1726,7 +1726,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-039",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The sun comes up in the morning.",
     "question": "Which word means the early part of the day?",
@@ -1741,7 +1741,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-041",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "They packed their lunch in the basket.",
     "question": "Which word is spelled correctly?",
@@ -1757,7 +1757,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-042",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The clock on the wall is ticking.",
     "question": "Which word is spelled correctly?",
@@ -1773,7 +1773,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-043",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "We live in a house.",
     "question": "Which word is spelled correctly?",
@@ -1789,7 +1789,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-045",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The dog likes to chase the ball.",
     "question": "Which word means to run after something to catch it?",
@@ -1804,7 +1804,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-046",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The children built a sandcastle on the beach.",
     "question": "Which word is spelled correctly?",
@@ -1820,7 +1820,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-047",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "I planted a seed in the garden.",
     "question": "Which word is spelled correctly?",
@@ -1836,7 +1836,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-048",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The squirrel climbed the tall tree.",
     "question": "Which word is spelled correctly?",
@@ -1852,7 +1852,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-049",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "She wrote a letter to her friend.",
     "question": "Which word is spelled correctly?",
@@ -1868,7 +1868,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-050",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The moon shines bright at night.",
     "question": "Which word is spelled correctly?",
@@ -1884,7 +1884,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-051",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The butterfly is colorful and flies gracefully.",
     "question": "Which word is spelled correctly?",
@@ -1900,7 +1900,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-052",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The kitten plays with a ball of yarn.",
     "question": "Which word is spelled correctly?",
@@ -1916,7 +1916,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-053",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "A rainbow has many colors after the rain.",
     "question": "Which word is spelled correctly?",
@@ -1932,7 +1932,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-055",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The farmer grows vegetables in his field.",
     "question": "Which word is spelled correctly?",
@@ -1948,7 +1948,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-056",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The children enjoyed the library books.",
     "question": "Which word is spelled correctly?",
@@ -1964,7 +1964,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-057",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "He tied his shoes before running.",
     "question": "Which word is spelled correctly?",
@@ -1980,7 +1980,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-058",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The snow fell softly in winter.",
     "question": "Which word is spelled correctly?",
@@ -1996,7 +1996,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-059",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The little boy asked a question.",
     "question": "Which word is spelled correctly?",
@@ -2012,7 +2012,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-060",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The rain stopped and the sun came out.",
     "question": "Which word is spelled correctly?",
@@ -2028,7 +2028,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-061",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "We like to eat sweet fruits.",
     "question": "Which word is spelled correctly?",
@@ -2044,7 +2044,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-062",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The bell rings at school.",
     "question": "Which word is spelled correctly?",
@@ -2060,7 +2060,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-063",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "Close the door please.",
     "question": "Which word means to shut something?",
@@ -2075,7 +2075,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-064",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The river flows down to the lake.",
     "question": "Which word is spelled correctly?",
@@ -2091,7 +2091,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-065",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The puppy wagged its tail happily.",
     "question": "Which word is spelled correctly?",
@@ -2107,7 +2107,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-066",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "I see a red fox.",
     "question": "Which word is spelled correctly?",
@@ -2123,7 +2123,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-067",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The cat has soft fur.",
     "question": "Which word is spelled correctly?",
@@ -2139,7 +2139,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-070",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The sun is warm.",
     "question": "Which word means the opposite of cold?",
@@ -2154,7 +2154,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-071",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The bird has a beak.",
     "question": "Which word is spelled correctly?",
@@ -2170,7 +2170,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-075",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The sun is yellow.",
     "question": "Which word is spelled correctly?",
@@ -2186,7 +2186,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-076",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The little girl wears a purple dress.",
     "question": "Which word is spelled correctly?",
@@ -2202,7 +2202,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-077",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The garden grows many flowers.",
     "question": "Which word is spelled correctly?",
@@ -2218,7 +2218,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-078",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The scientist reads books in the library.",
     "question": "Which word is spelled correctly?",
@@ -2234,7 +2234,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-079",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The cat climbed up the tall tree.",
     "question": "Which word is spelled correctly?",
@@ -2250,7 +2250,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-080",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The boy opened his backpack.",
     "question": "Which word is spelled correctly?",
@@ -2266,7 +2266,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-081",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "She wears a jacket when it is cold.",
     "question": "Which word is spelled correctly?",
@@ -2282,7 +2282,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-083",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The dog barks loudly.",
     "question": "Which word is spelled correctly?",
@@ -2298,7 +2298,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-084",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The fish swims in the pond.",
     "question": "Which word is spelled correctly?",
@@ -2314,7 +2314,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-085",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The cat has a tail.",
     "question": "Which word is spelled correctly?",
@@ -2330,7 +2330,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-086",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The sun is bright.",
     "question": "Which word is spelled correctly?",
@@ -2346,7 +2346,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-087",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The grass is green.",
     "question": "Which word is spelled correctly?",
@@ -2362,7 +2362,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-088",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The clock shows the time.",
     "question": "Which word is spelled correctly?",
@@ -2378,7 +2378,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-090",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The farmer farms the land.",
     "question": "Which word is spelled correctly?",
@@ -2394,7 +2394,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-091",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The lion is the king of the jungle.",
     "question": "Which word is spelled correctly?",
@@ -2410,7 +2410,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-092",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "We see stars in the night sky.",
     "question": "Which word is spelled correctly?",
@@ -2426,7 +2426,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-096",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The rabbit hops quickly.",
     "question": "Which word is spelled correctly?",
@@ -2442,7 +2442,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-097",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The children played soccer.",
     "question": "Which word is spelled correctly?",
@@ -2458,7 +2458,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-098",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The snow covers the ground in winter.",
     "question": "Which word is spelled correctly?",
@@ -2474,7 +2474,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-099",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The children learn in school every day.",
     "question": "Which word is spelled correctly?",
@@ -2490,7 +2490,7 @@ export const generatedQuestions = [
   {
     "id": "spelling-k-2-100",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "passage": "The cat chased the mouse.",
     "question": "Which word is spelled correctly?",
@@ -6281,7 +6281,7 @@ export const generatedQuestions = [
   {
     "id": "RC001",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Tom has a red ball. He throws the ball to his dog. The dog catches the ball and brings it back.",
     "question": "Who catches the ball?",
@@ -6297,7 +6297,7 @@ export const generatedQuestions = [
   {
     "id": "RC002",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Lucy wakes up early. She eats breakfast and puts on her shoes. Then she goes outside to play.",
     "question": "What does Lucy do after breakfast?",
@@ -6313,7 +6313,7 @@ export const generatedQuestions = [
   {
     "id": "RC003",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "sequencing",
     "difficulty": 2,
     "passage": "Ben has three apples. He gives one to his sister. How many apples does Ben have now?",
     "question": "How many apples does Ben have after giving one away?",
@@ -6329,7 +6329,7 @@ export const generatedQuestions = [
   {
     "id": "RC004",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "sequencing",
     "difficulty": 2,
     "passage": "Sara likes to read stories about animals. She reads a book about a bear and a fox.",
     "question": "What does Sara like to read about?",
@@ -6345,7 +6345,7 @@ export const generatedQuestions = [
   {
     "id": "RC005",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "The sun is shining. Mia wears her hat and goes to the park.",
     "question": "Why does Mia wear her hat?",
@@ -6361,7 +6361,7 @@ export const generatedQuestions = [
   {
     "id": "RC006",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "cause and effect",
     "difficulty": 2,
     "passage": "A cat and a mouse live in a small house. The mouse is very quick. The cat tries to catch the mouse but cannot.",
     "question": "Why can't the cat catch the mouse?",
@@ -6377,7 +6377,7 @@ export const generatedQuestions = [
   {
     "id": "RC007",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "cause and effect",
     "difficulty": 2,
     "passage": "Jake finds a shiny rock near the river. He cleans the rock and shows it to his mother.",
     "question": "What does Jake do with the rock he finds?",
@@ -6393,7 +6393,7 @@ export const generatedQuestions = [
   {
     "id": "RC008",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Emma and her brother plant flowers in the garden. They water the flowers every day to help them grow.",
     "question": "What do Emma and her brother do to help the flowers grow?",
@@ -6409,7 +6409,7 @@ export const generatedQuestions = [
   {
     "id": "RC009",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "The little bird is learning to fly. It tries again and again, flapping its wings.",
     "question": "What is the little bird doing?",
@@ -6425,7 +6425,7 @@ export const generatedQuestions = [
   {
     "id": "RC010",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "Liam likes to read books about space. He knows that planets move around the sun.",
     "question": "What does Liam know about planets?",
@@ -6441,7 +6441,7 @@ export const generatedQuestions = [
   {
     "id": "RC011",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Molly wanted to bake cookies. She followed the recipe carefully and mixed flour, sugar, and eggs. When she finished, she put the dough in the oven.",
     "question": "What did Molly do before putting the dough in the oven?",
@@ -6457,7 +6457,7 @@ export const generatedQuestions = [
   {
     "id": "RC012",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "sequencing",
     "difficulty": 2,
     "passage": "The rain stopped, and a rainbow appeared in the sky. Sara pointed to the colors and smiled.",
     "question": "What did Sara see after the rain stopped?",
@@ -6473,7 +6473,7 @@ export const generatedQuestions = [
   {
     "id": "RC013",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "sequencing",
     "difficulty": 2,
     "passage": "Jack wanted to help his family. He picked up his toys and cleaned his room before dinner.",
     "question": "How did Jack help his family?",
@@ -6489,7 +6489,7 @@ export const generatedQuestions = [
   {
     "id": "RC014",
     "grade": "1",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "A butterfly landed on the flower. It spread its colorful wings and flew away.",
     "question": "What did the butterfly do on the flower?",
@@ -6521,7 +6521,7 @@ export const generatedQuestions = [
   {
     "id": "RC016",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Anna has a pet rabbit. She feeds it carrots every day and cleans its cage on Saturday.",
     "question": "How often does Anna feed her rabbit?",
@@ -6537,7 +6537,7 @@ export const generatedQuestions = [
   {
     "id": "RC017",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "Ben likes to ride his bike to school. Today, he wore a helmet to stay safe.",
     "question": "Why did Ben wear a helmet?",
@@ -6553,7 +6553,7 @@ export const generatedQuestions = [
   {
     "id": "RC018",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "cause and effect",
     "difficulty": 2,
     "passage": "The garden has many flowers. Some are red, some are yellow, and others are purple.",
     "question": "What colors are the flowers in the garden?",
@@ -6569,7 +6569,7 @@ export const generatedQuestions = [
   {
     "id": "RC019",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Lily reads her book quietly in the library. She likes books about animals and nature.",
     "question": "Where is Lily reading her book?",
@@ -6585,7 +6585,7 @@ export const generatedQuestions = [
   {
     "id": "RC020",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "Tommy cleaned his room. He put his toys away and made his bed.",
     "question": "What did Tommy do first?",
@@ -6601,7 +6601,7 @@ export const generatedQuestions = [
   {
     "id": "RC021",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "sequencing",
     "difficulty": 2,
     "passage": "Sarah learned that frogs start life as tadpoles in water. Tadpoles then grow legs and turn into frogs.",
     "question": "What do tadpoles become as they grow?",
@@ -6617,7 +6617,7 @@ export const generatedQuestions = [
   {
     "id": "RC022",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "David put on his raincoat and grabbed his umbrella before going outside because it was raining.",
     "question": "Why did David grab his umbrella?",
@@ -6633,7 +6633,7 @@ export const generatedQuestions = [
   {
     "id": "RC023",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "cause and effect",
     "difficulty": 2,
     "passage": "Four puppies played in the yard. They ran, jumped, and chased each other happily.",
     "question": "How many puppies were playing?",
@@ -6649,7 +6649,7 @@ export const generatedQuestions = [
   {
     "id": "RC024",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "Mrs. Green reads stories to her students every afternoon after lunch.",
     "question": "When does Mrs. Green read stories to students?",
@@ -6665,7 +6665,7 @@ export const generatedQuestions = [
   {
     "id": "RC025",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "The snow covered the ground. People wore warm coats and gloves to stay warm.",
     "question": "Why did people wear warm coats and gloves?",
@@ -6681,7 +6681,7 @@ export const generatedQuestions = [
   {
     "id": "RC026",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "cause and effect",
     "difficulty": 2,
     "passage": "Michael and his family went to the beach. They built a big sandcastle and collected seashells along the shore.",
     "question": "What did Michael's family do at the beach?",
@@ -6697,7 +6697,7 @@ export const generatedQuestions = [
   {
     "id": "RC027",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "After school, Jenny and Carlos finished their homework. Then they played board games until dinner time.",
     "question": "What did Jenny and Carlos do before playing board games?",
@@ -6713,7 +6713,7 @@ export const generatedQuestions = [
   {
     "id": "RC028",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "sequencing",
     "difficulty": 2,
     "passage": "The old tree had many branches. Birds nested in the branches and sang beautiful songs in the morning.",
     "question": "What did the birds do in the tree?",
@@ -6729,7 +6729,7 @@ export const generatedQuestions = [
   {
     "id": "RC029",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "Tommy found a caterpillar on a leaf. He watched it closely as it moved slowly.",
     "question": "What did Tommy find on the leaf?",
@@ -6745,7 +6745,7 @@ export const generatedQuestions = [
   {
     "id": "RC030",
     "grade": "2",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Ella helps her dad wash the car every weekend. She enjoys making the car shiny and clean.",
     "question": "When does Ella help wash the car?",
@@ -6761,7 +6761,7 @@ export const generatedQuestions = [
   {
     "id": "RC031",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "Mark studies the planets. He knows that Earth is the third planet from the sun.",
     "question": "Which planet is Earth from the sun?",
@@ -6777,7 +6777,7 @@ export const generatedQuestions = [
   {
     "id": "RC032",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Sally visits the library every Saturday. She loves to read books about animals and history.",
     "question": "How often does Sally visit the library?",
@@ -6793,7 +6793,7 @@ export const generatedQuestions = [
   {
     "id": "RC033",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "The farmers planted corn and carrots in the field. They watered the plants to help them grow.",
     "question": "What did the farmers plant?",
@@ -6809,7 +6809,7 @@ export const generatedQuestions = [
   {
     "id": "RC034",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "David likes to ride his bike around the park. He always wears a helmet for safety.",
     "question": "What does David always wear when riding his bike?",
@@ -6825,7 +6825,7 @@ export const generatedQuestions = [
   {
     "id": "RC035",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "Luna found a lost puppy. She gave it food and water and asked her parents to help find its owner.",
     "question": "What did Luna do when she found the puppy?",
@@ -6841,7 +6841,7 @@ export const generatedQuestions = [
   {
     "id": "RC036",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "The strong wind blew the leaves across the yard. Anna and her brother jumped and tried to catch them.",
     "question": "What did Anna and her brother try to catch?",
@@ -6857,7 +6857,7 @@ export const generatedQuestions = [
   {
     "id": "RC037",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "Jason studied hard every night. He wanted to do well on his math test.",
     "question": "Why did Jason study hard?",
@@ -6873,7 +6873,7 @@ export const generatedQuestions = [
   {
     "id": "RC038",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "cause and effect",
     "difficulty": 2,
     "passage": "The children planted trees in the park. As the trees grow, they will provide shade and homes for birds.",
     "question": "What will the trees provide as they grow?",
@@ -6906,7 +6906,7 @@ export const generatedQuestions = [
   {
     "id": "RC040",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "The sun sets in the west. At night, the stars shine bright in the sky.",
     "question": "Where does the sun set?",
@@ -6922,7 +6922,7 @@ export const generatedQuestions = [
   {
     "id": "RC041",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "During the field trip, Sam took notes about animals in the forest. He saw deer, rabbits, and colorful birds.",
     "question": "Which animals did Sam see in the forest?",
@@ -6938,7 +6938,7 @@ export const generatedQuestions = [
   {
     "id": "RC042",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "In science class, Emma learned that plants need sunlight, water, and air to stay alive and grow.",
     "question": "What do plants need to grow?",
@@ -6954,7 +6954,7 @@ export const generatedQuestions = [
   {
     "id": "RC043",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 2,
     "passage": "The river was calm and clear. Fish swam slowly beneath the water's surface and frogs croaked nearby.",
     "question": "What animals were near the river?",
@@ -6970,7 +6970,7 @@ export const generatedQuestions = [
   {
     "id": "RC044",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "key details",
     "difficulty": 1,
     "passage": "On hot days, many people go to the pool to swim and cool off.",
     "question": "Why do people go to the pool on hot days?",
@@ -6986,7 +6986,7 @@ export const generatedQuestions = [
   {
     "id": "RC045",
     "grade": "3",
-    "skill": "reading comprehension",
+    "skill": "cause and effect",
     "difficulty": 2,
     "passage": "Jacob helped his grandmother bake a pie. He mixed the ingredients and rolled out the dough carefully.",
     "question": "How did Jacob help his grandmother?",

@@ -378,7 +378,7 @@ export const comprehensionParagraphExpansionQuestions = [
     prompt: "What can you infer about the weather?",
     choices: ["It is raining.", "It is very hot.", "It is snowing.", "It is nighttime."],
     answer: "It is raining.",
-    itemType: "reading_comprehension",
+    itemType: "inference",
     itemKey: "p3_inference_paragraph_001",
     formatType: "COMPREHENSION"
   },
@@ -393,7 +393,7 @@ export const comprehensionParagraphExpansionQuestions = [
     prompt: "What does delighted mean in the passage?",
     choices: ["very happy", "very sleepy", "a little angry", "hard to find"],
     answer: "very happy",
-    itemType: "reading_comprehension",
+    itemType: "context_clues",
     itemKey: "p3_context_clues_paragraph_001",
     formatType: "COMPREHENSION"
   }

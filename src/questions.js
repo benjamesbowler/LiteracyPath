@@ -82,7 +82,7 @@ export const questions = [
   {
     "id": "spelling_001",
     "grade": "K",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 1,
     "question": "Which word is spelled correctly?",
     "image": "☀️",
@@ -97,7 +97,7 @@ export const questions = [
   {
     "id": "spelling_002",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "question": "Which word is spelled correctly?",
     "image": "🐕",
@@ -113,7 +113,7 @@ export const questions = [
   {
     "id": "spelling_003",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 3,
     "question": "Which word is spelled correctly?",
     "image": "🏫",
@@ -128,7 +128,7 @@ export const questions = [
   {
     "id": "vocab_001",
     "grade": "K",
-    "skill": "vocabulary",
+    "skill": "nouns",
     "difficulty": 1,
     "question": "Which one is an animal?",
     "image": "🐶",
@@ -143,7 +143,7 @@ export const questions = [
   {
     "id": "vocab_002",
     "grade": "K",
-    "skill": "vocabulary",
+    "skill": "nouns",
     "difficulty": 1,
     "question": "Which one is a fruit?",
     "image": "🍎",
@@ -159,7 +159,7 @@ export const questions = [
   {
     "id": "vocab_003",
     "grade": "1",
-    "skill": "vocabulary",
+    "skill": "antonyms synonyms",
     "difficulty": 2,
     "question": "Which word means the same as big?",
     "image": "🐘",
@@ -342,7 +342,7 @@ export const questions = [
   {
     "id": "picture_001",
     "grade": "K",
-    "skill": "picture comprehension",
+    "skill": "sentence comprehension",
     "difficulty": 1,
     "question": "Look at the picture. What is happening?",
     "image": "👧📖",
@@ -374,7 +374,7 @@ export const questions = [
   {
     "id": "story_001",
     "grade": "1",
-    "skill": "story comprehension",
+    "skill": "sentence comprehension",
     "difficulty": 3,
     "passage": "Tom has a red ball. He kicks the ball to Sam. Sam laughs and kicks it back.",
     "question": "Who kicks the ball back?",
@@ -487,7 +487,7 @@ export const questions = [
   {
     "id": "vocab_busy_001",
     "grade": "1",
-    "skill": "vocabulary meaning",
+    "skill": "context clues",
     "difficulty": 2,
     "passage": "The classroom was busy. Children were reading, writing, and building.",
     "question": "What does busy mean?",
@@ -503,7 +503,7 @@ export const questions = [
   {
     "id": "vocab_locate_001",
     "grade": "2",
-    "skill": "vocabulary meaning",
+    "skill": "context clues",
     "difficulty": 3,
     "question": "What does locate mean?",
     "image": "🔍",
@@ -518,7 +518,7 @@ export const questions = [
   {
     "id": "vocab_approach_001",
     "grade": "2",
-    "skill": "vocabulary meaning",
+    "skill": "context clues",
     "difficulty": 3,
     "passage": "The dog began to approach the gate.",
     "question": "What does approach mean?",
@@ -534,7 +534,7 @@ export const questions = [
   {
     "id": "spelling_dock_001",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "question": "Which word is spelled correctly?",
     "image": "🛶",
@@ -549,7 +549,7 @@ export const questions = [
   {
     "id": "spelling_friends_001",
     "grade": "2",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 3,
     "question": "Which word is spelled correctly?",
     "image": "🧒🧒",
@@ -564,7 +564,7 @@ export const questions = [
   {
     "id": "spelling_winter_001",
     "grade": "1",
-    "skill": "spelling",
+    "skill": "short vowel discrimination",
     "difficulty": 2,
     "question": "Which word is spelled correctly?",
     "image": "❄️",
@@ -656,7 +656,7 @@ export const questions = [
   {
     "id": "riddle_box_001",
     "grade": "1",
-    "skill": "riddles",
+    "skill": "sentence comprehension",
     "questionType": "riddle",
     "difficulty": 2,
     "passage": "I am square. Shoes come in me. Presents come in me. What am I?",
@@ -671,7 +671,7 @@ export const questions = [
   {
     "id": "emotion_afraid_001",
     "grade": "1",
-    "skill": "emotion recognition",
+    "skill": "sentence comprehension",
     "questionType": "image_choice",
     "difficulty": 2,
     "question": "How does the boy feel?",
