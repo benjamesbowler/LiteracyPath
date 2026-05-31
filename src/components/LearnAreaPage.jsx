@@ -34,6 +34,18 @@ const WORKSHEET_TYPES = [
   "cycle check worksheet"
 ];
 
+const WORKSHEET_DIFFICULTY_LABELS = {
+  support: "Support",
+  core: "Core",
+  challenge: "Challenge"
+};
+
+const WORKSHEET_DIRECTIONS_BY_DIFFICULTY = {
+  support: "Say each sound with your teacher. Trace first, then write.",
+  core: "Say each sound. Read each word. Use your best pencil work.",
+  challenge: "Read carefully. Write clearly, then add one more word or sentence when asked."
+};
+
 const SECTION_VISUALS = {
   overview: { icon: "Map", color: "teal", title: "Plan" },
   letterLearning: { icon: "Aa", color: "rose", title: "Letters" },
@@ -285,7 +297,17 @@ function buildLessonSlides(cycle) {
   return slides;
 }
 
-function makeWorksheetItems(cycle, worksheetType, count) {
+function formatWorksheetItemForDifficulty(item, difficulty) {
+  if (difficulty === "support") {
+    return `Teacher support: ${item}`;
+  }
+  if (difficulty === "challenge") {
+    return `${item} Add one more example or a sentence.`;
+  }
+  return item;
+}
+
+function makeWorksheetItems(cycle, worksheetType, count, difficulty = "core") {
   const letters = cycle.sections?.letterLearning?.cards?.length
     ? cycle.sections.letterLearning.cards
     : [...(cycle.focusLetters || []), ...(cycle.reviewLetters || [])];
@@ -327,7 +349,8 @@ function makeWorksheetItems(cycle, worksheetType, count) {
     cycle.phonemicAwareness?.[0] || "Practice the phonemic awareness focus."
   ];
   const source = selected.length ? selected : fallback;
-  return Array.from({ length: count }, (_, index) => source[index % source.length]);
+  const adjustedSource = source.map(item => formatWorksheetItemForDifficulty(item, difficulty));
+  return Array.from({ length: count }, (_, index) => adjustedSource[index % adjustedSource.length]);
 }
 
 function VisualBadge({ sectionId, label }) {
@@ -412,8 +435,10 @@ function WorksheetGenerator({ cycle, compact = false }) {
   const [includePictures, setIncludePictures] = useState(false);
 
   const items = useMemo(() =>
-    makeWorksheetItems(cycle, worksheetType, Number(itemCount) || 8),
-  [cycle, worksheetType, itemCount]);
+    makeWorksheetItems(cycle, worksheetType, Number(itemCount) || 8, difficulty),
+  [cycle, worksheetType, itemCount, difficulty]);
+  const difficultyLabel = WORKSHEET_DIFFICULTY_LABELS[difficulty] || WORKSHEET_DIFFICULTY_LABELS.core;
+  const directions = WORKSHEET_DIRECTIONS_BY_DIFFICULTY[difficulty] || WORKSHEET_DIRECTIONS_BY_DIFFICULTY.core;
 
   return (
     <div className={compact ? "worksheet-generator compact" : "worksheet-generator"}>
@@ -455,7 +480,7 @@ function WorksheetGenerator({ cycle, compact = false }) {
       <div className="worksheet-preview" aria-label="Printable worksheet preview">
         <div className="worksheet-title">
           <strong>{cycle.title}: {worksheetType}</strong>
-          <span>{difficulty} practice - {itemCount} items</span>
+          <span>{difficultyLabel} practice - {itemCount} items</span>
           <div className="worksheet-student-line">
             <span>Name:</span>
             <span>Date:</span>
@@ -463,7 +488,7 @@ function WorksheetGenerator({ cycle, compact = false }) {
         </div>
         <div className="worksheet-directions">
           <strong>Directions</strong>
-          <p>Say each sound. Read each word. Use your best pencil work.</p>
+          <p>{directions}</p>
         </div>
         <div className="worksheet-item-grid">
           {items.map((item, index) => (
@@ -903,12 +928,13 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
   );
   const groupedCycles = getGroupedCycles(filteredCycles);
   const letterCards = cycle.sections.letterLearning.cards || [];
-  const lessonSlides = useMemo(() => buildLessonSlides(cycle), [cycle]);
+  const lessonSlides = buildLessonSlides(cycle);
   const lessonSlide = lessonSlides[lessonSlideIndex] || lessonSlides[0];
   const youtubeSearchUrl = makeYouTubeSearchUrl(cycle);
   const guidedReadingRecommendations = cycle.guidedReadingRecommendations || {};
   const bestGuidedReader = getBestGuidedReader(cycle, guidedReadingRecommendations);
-  const teacherCreatedDecks = useMemo(() => getLearnDecksForCycle(cycle.id), [cycle.id]);
+  const teacherCreatedDecks = getLearnDecksForCycle(cycle.id);
+  const hasTeacherCreatedDecks = teacherCreatedDecks.length > 0;
 
   useEffect(() => {
     if (!isLessonMode) return undefined;
@@ -936,24 +962,29 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
 
   function openLesson({ preview = false } = {}) {
     setIsPreviewMode(preview);
+    setLessonSlideIndex(0);
 
-    if (teacherCreatedDecks.length) {
+    if (hasTeacherCreatedDecks) {
       setIsLessonMode(false);
       setActiveLearnDeck(teacherCreatedDecks[0]);
       return;
     }
 
-    setLessonSlideIndex(0);
-    setIsLessonMode(false);
+    setActiveLearnDeck(null);
+    setIsLessonMode(true);
   }
 
   function renderTeacherCreatedDecks() {
+    const deckHeading = cycle.cycleNumber
+      ? `Teacher-Created ${cycle.title} Slide Packs`
+      : "Teacher-Created Slide Packs";
+
     return (
-      <section className="learn-created-decks-panel" aria-label="Teacher-Created Cycle 1 Slide Packs">
+      <section className="learn-created-decks-panel" aria-label={deckHeading}>
         <div className="learn-section-heading">
           <VisualBadge sectionId="overview" label="Deck" />
           <div>
-            <h4>Teacher-Created Cycle 1 Slide Packs</h4>
+            <h4>{deckHeading}</h4>
             <p>These in-app lessons use the original teacher-made PowerPoint slides as the full slide stage, with teacher-opened resource links only.</p>
           </div>
         </div>
@@ -1262,7 +1293,7 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
             <article><VisualBadge sectionId="decoding" /><strong>Routines</strong><p>{listText(cycle.routines)}</p></article>
           </div>
           <h5>Daily Flow</h5>
-          <ChildLessonPath cycle={cycle} disabled={!teacherCreatedDecks.length} onStartLesson={() => openLesson()} />
+          <ChildLessonPath cycle={cycle} onStartLesson={() => openLesson()} />
           {renderTeacherCreatedDecks()}
           <div className="learn-daily-flow">
             {cycle.dailyFlow.map(day => (
@@ -1554,10 +1585,10 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
           <h2>EL Skills Block Learn</h2>
           <p>Choose a Kindergarten Skills Block cycle and open a bright, teacher-led lesson with printable practice.</p>
           <div className="learn-hero-actions">
-            <button className="lp-button lp-button-primary" disabled={!teacherCreatedDecks.length} onClick={() => openLesson()} type="button">
+            <button className="lp-button lp-button-primary" onClick={() => openLesson()} type="button">
               Start Full-Screen Lesson
             </button>
-            <button className="lp-button lp-button-secondary" disabled={!teacherCreatedDecks.length} onClick={() => openLesson({ preview: true })} type="button">
+            <button className="lp-button lp-button-secondary" onClick={() => openLesson({ preview: true })} type="button">
               Preview Lesson
             </button>
             <button className="lp-button lp-button-secondary" onClick={() => setActiveSection("worksheets")} type="button">
@@ -1615,10 +1646,10 @@ export function LearnAreaPage({ assessmentSummary = null, onOpenGuidedReadingBoo
                 <h3>{cycle.title}</h3>
                 <p>{cycle.phase.replace(/-/g, " ")} - {cycle.friday}</p>
                 <div className="learn-hero-actions">
-                  <button className="lp-button lp-button-primary" disabled={!teacherCreatedDecks.length} onClick={() => openLesson()} type="button">
+                  <button className="lp-button lp-button-primary" onClick={() => openLesson()} type="button">
                     Start Full-Screen Lesson
                   </button>
-                  <button className="lp-button lp-button-secondary" disabled={!teacherCreatedDecks.length} onClick={() => openLesson({ preview: true })} type="button">
+                  <button className="lp-button lp-button-secondary" onClick={() => openLesson({ preview: true })} type="button">
                     Preview Lesson
                   </button>
                   <button className="lp-button lp-button-secondary" onClick={() => setActiveSection("worksheets")} type="button">
