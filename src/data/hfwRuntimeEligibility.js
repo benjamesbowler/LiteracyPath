@@ -10,13 +10,8 @@ import {
 } from "./highFrequencyWordBands.js";
 
 const HFW_ALLOWED_FORMATS = new Set([
-  "HFW_AUDIO_FIND_WORD",
-  "LISTEN_FIND_WORD",
-  "HFW_SENTENCE_CLOZE",
-  "CLOZE_CHOICE",
-  "SENTENCE_CLOZE",
-  "HFW_SENTENCE_PLACEMENT",
-  "HFW_IMAGE_CONTEXT_CLOZE"
+  "HFW_IMAGE_CONTEXT_CLOZE",
+  "HFW_LETTER_BUILD"
 ]);
 
 const HFW_BLOCKED_FORMATS = new Set([
@@ -138,6 +133,9 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   const pathExists = typeof options.pathExists === "function" ? options.pathExists : null;
   const audioPath = question.audioPath || question.audioUrl || question.audio || "";
   const imagePath = question.imagePath || question.imageUrl || question.image || "";
+  const letterTiles = Array.isArray(question.letterTiles) && question.letterTiles.length
+    ? question.letterTiles
+    : question.soundTiles;
 
   if (declaredQuestionBand && declaredQuestionBand !== bandId) {
     issues.push(`belongs to ${declaredQuestionBand}, not ${bandId}`);
@@ -152,7 +150,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   } else if (!bandSet?.has(primaryWord)) {
     issues.push(`target word "${primaryWord}" is outside ${bandId}`);
   }
-  if (optionValues.length !== 4) {
+  if (format !== "HFW_LETTER_BUILD" && optionValues.length !== 4) {
     issues.push(`HFW live questions require exactly 4 answer options, found ${optionValues.length}`);
   }
   if (["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD", "HFW_SENTENCE_CLOZE", "SENTENCE_CLOZE", "CLOZE_CHOICE", "HFW_IMAGE_CONTEXT_CLOZE"].includes(format)) {
@@ -194,6 +192,30 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   if (format === "HFW_IMAGE_CONTEXT_CLOZE") {
     if (!imagePath) {
       issues.push("image-context HFW question needs a context image");
+    } else if (pathExists && !pathExists(imagePath)) {
+      issues.push(`image file does not exist: ${imagePath}`);
+    }
+  }
+  if (format === "HFW_LETTER_BUILD") {
+    const targetLetters = primaryWord.split("");
+    const tileLetters = (letterTiles || []).map(value => String(value || "").toLowerCase());
+    if (!Array.isArray(letterTiles) || letterTiles.length !== 12) {
+      issues.push(`letter-build HFW questions need exactly 12 letter tiles, found ${letterTiles?.length || 0}`);
+    }
+    const available = tileLetters.reduce((counts, letter) => ({
+      ...counts,
+      [letter]: (counts[letter] || 0) + 1
+    }), {});
+    for (const letter of targetLetters) {
+      if (!available[letter]) {
+        issues.push(`letter-build tiles are missing "${letter}" for "${primaryWord}"`);
+        break;
+      }
+      available[letter] -= 1;
+    }
+    if (audioPath) issues.push("letter-build HFW questions must not include audio");
+    if (!imagePath) {
+      issues.push("letter-build HFW question needs a context image");
     } else if (pathExists && !pathExists(imagePath)) {
       issues.push(`image file does not exist: ${imagePath}`);
     }

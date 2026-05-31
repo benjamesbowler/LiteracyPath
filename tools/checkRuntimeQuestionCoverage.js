@@ -128,7 +128,8 @@ const coverageEnabledStages = new Set([
   "Short Vowel Discrimination",
   "High-Frequency Words 1-25",
   "High-Frequency Words 26-50",
-  "High-Frequency Words 51-100",
+  "High-Frequency Words 51-75",
+  "High-Frequency Words 76-100",
   "Blends",
   "Digraphs",
   "Long Vowels and Silent E",
@@ -887,7 +888,7 @@ function buildStageAudit(stage, index) {
     pedagogicalNotes.push(`Missing expected itemKeys: ${missingKeys.join(", ")}.`);
   }
 
-  if (expectedTotal > runtimeKeys.length && stage.id !== "hfw_51_100") {
+  if (expectedTotal > runtimeKeys.length) {
     pedagogicalNotes.push(`Configured expected total is ${expectedTotal}, but runtime has ${runtimeKeys.length} unique itemKeys.`);
   }
 
@@ -899,9 +900,6 @@ function buildStageAudit(stage, index) {
     pedagogicalNotes.push("Live Initial Sounds is intentionally restricted to static image/audio pair-select items. Other alphabet sounds need real assets before activation.");
   }
 
-  if (stage.id === "hfw_51_100") {
-    pedagogicalNotes.push("The app currently models HFW 51-100 as one combined band; 51-75 and 76-100 are not separate runtime stages yet.");
-  }
 
   return {
     stage,
@@ -1275,7 +1273,7 @@ function writeCoverageAuditDoc() {
     "",
     "## Structural Notes",
     "",
-    "- High-Frequency Words 51-75 and 76-100 are requested audit bands, but the current app has one combined `High-Frequency Words 51-100` runtime stage. This audit reports the active combined stage and flags the split as a content architecture follow-up rather than inventing stages in the audit.",
+    "- High-Frequency Words are modeled as four active runtime bands: 1-25, 26-50, 51-75, and 76-100.",
     "- Final Sounds still uses mostly legacy text/decoding formats in the active pool. The audit marks it below standard and under-covered; converting it to asset-backed pair selection needs real final-sound image/audio sets.",
     "- Initial Sounds uses the asset-backed pair-select format in live runtime only; old text-choice anchor prompts are excluded from live eligibility.",
     "- Assessment choices and visual cards are randomized once when a question is prepared, then remain stable for that attempt; answer checking uses words/IDs rather than card position.",

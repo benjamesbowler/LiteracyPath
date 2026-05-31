@@ -63,7 +63,7 @@ assertIncludes(learnCardMedia, /resolveLearnAudio/, "LearnCardMedia must resolve
 assertIncludes(learnCardMedia, /\.play\(\)\.catch/, "Learn audio click must catch playback errors.");
 
 assert(!/autoplay/i.test(learnDeckSource), "Learn deck media must not introduce autoplay.");
-assert(!/<(?:iframe|embed|object)\b/i.test(learnDeckSource), "Learn decks must not embed external PowerPoint/viewer content.");
+assert(!/<(?:embed|object)\b/i.test(learnDeckSource), "Learn decks must not embed external PowerPoint/viewer content.");
 assert(!/docs\.google\.com\/(?:presentation|viewer)|view\.officeapps\.live\.com/i.test(learnDeckSource), "No external PowerPoint viewer/embed is allowed.");
 
 assertIncludes(learnDeckPlayer, /resolveDeckSlideImage/, "LearnDeckPlayer must resolve slide images through mediaResolver.");

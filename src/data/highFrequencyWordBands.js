@@ -6,27 +6,27 @@ const normalizeWord = value =>
     .trim();
 
 export const HFW_WORDS_1_25 = [
-  "a", "am", "and", "big", "can", "come", "down", "for", "go", "i", "in", "is", "it", "like", "little", "look",
-  "me", "my", "not", "on", "one", "play", "said", "see", "that", "the", "to", "up", "want", "we", "with", "you"
+  "the", "to", "and", "a", "i", "you", "it", "in", "said", "for",
+  "up", "look", "is", "go", "we", "little", "can", "see", "me", "my",
+  "on", "one", "big", "come", "like"
 ];
 
 export const HFW_WORDS_26_50 = [
-  "after", "all", "are", "around", "asked", "away", "blue", "but", "came", "cold", "find", "for", "from", "funny",
-  "have", "he", "help", "helps", "here", "into", "jump", "just", "made", "make", "now", "open", "play", "red",
-  "round", "run", "she", "sleep", "that", "then", "they", "this", "three", "two", "under", "very", "was", "went",
-  "were", "what", "when", "where", "will", "with", "yellow"
+  "down", "not", "play", "all", "are", "as", "be", "but", "came", "from",
+  "have", "he", "she", "they", "was", "with", "that", "then", "this", "what",
+  "when", "where", "will", "help", "make"
 ];
 
 export const HFW_WORDS_51_75 = [
-  "after", "again", "an", "any", "around", "as", "ask", "away", "be", "before", "by", "came", "cold", "come",
-  "could", "down", "every", "find", "fly", "found", "from", "funny", "give", "going", "had", "has", "have", "help",
-  "helps", "her", "here", "him", "his", "how", "into", "just", "know", "let", "like", "little", "live"
+  "after", "again", "an", "any", "around", "ask", "away", "before", "by", "could",
+  "every", "find", "fly", "found", "funny", "give", "going", "had", "has", "her",
+  "here", "him", "his", "how", "into"
 ];
 
 export const HFW_WORDS_76_100 = [
-  "look", "made", "may", "must", "new", "now", "of", "old", "once", "open", "our", "out", "over", "please", "pretty",
-  "put", "read", "round", "saw", "say", "some", "soon", "stop", "take", "thank", "them", "think", "this", "under",
-  "walk", "want", "well", "went", "were", "what", "when", "white", "who", "will", "yes"
+  "just", "know", "let", "live", "made", "may", "must", "new", "now", "of",
+  "old", "once", "open", "our", "out", "over", "please", "pretty", "put", "read",
+  "round", "some", "take", "thank", "yes"
 ];
 
 export const HFW_WORDS_51_100 = [...new Set([...HFW_WORDS_51_75, ...HFW_WORDS_76_100])];
@@ -35,8 +35,7 @@ export const HFW_WORD_BANDS = {
   hfw_1_25: HFW_WORDS_1_25,
   hfw_26_50: HFW_WORDS_26_50,
   hfw_51_75: HFW_WORDS_51_75,
-  hfw_76_100: HFW_WORDS_76_100,
-  hfw_51_100: HFW_WORDS_51_100
+  hfw_76_100: HFW_WORDS_76_100
 };
 
 export const HFW_WORD_BAND_SETS = Object.fromEntries(
@@ -47,7 +46,7 @@ export const HFW_WORD_BAND_SETS = Object.fromEntries(
 );
 
 export const ALL_HFW_WORDS = [...new Set(Object.values(HFW_WORDS_1_25)
-  .concat(HFW_WORDS_26_50, HFW_WORDS_51_100)
+  .concat(HFW_WORDS_26_50, HFW_WORDS_51_75, HFW_WORDS_76_100)
   .map(normalizeWord)
   .filter(Boolean))].sort();
 
@@ -59,12 +58,14 @@ export function normalizeHfwSkillId(value = "") {
   if (text.includes("26-50") || text.includes("25-50")) return "hfw_26_50";
   if (text.includes("51-75") || text.includes("50-75")) return "hfw_51_75";
   if (text.includes("76-100") || text.includes("75-100")) return "hfw_76_100";
-  if (text.includes("51-100") || text.includes("50-100")) return "hfw_51_100";
+  if (text.includes("51-100") || text.includes("50-100")) return "";
   const normalized = text.replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
   if (HFW_WORD_BANDS[normalized]) return normalized;
   if (normalized === "high_frequency_words_1_25") return "hfw_1_25";
   if (normalized === "high_frequency_words_26_50") return "hfw_26_50";
-  if (normalized === "high_frequency_words_51_100") return "hfw_51_100";
+  if (normalized === "high_frequency_words_51_75") return "hfw_51_75";
+  if (normalized === "high_frequency_words_76_100") return "hfw_76_100";
+  if (normalized === "high_frequency_words_51_100") return "";
   return "";
 }
 

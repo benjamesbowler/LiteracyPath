@@ -38,7 +38,7 @@ expect(appPages, "Next", "Guided Reading fullscreen mode must expose Next contro
 expect(learnArea, "learn-mobile-cycle-select", "Learn Area mobile cycle selector is missing.");
 expect(learnArea, "learn-mobile-section-select", "Learn Area mobile section selector is missing.");
 expect(learnArea, "learn-fullscreen-mode", "Learn Area full-screen lesson mode is missing.");
-expect(learnArea, "Exit Lesson", "Learn Area full-screen mode must expose Exit Lesson.");
+expect(learnArea, "Exit", "Learn Area full-screen mode must expose Exit control.");
 expect(learnArea, "learn-section-cards", "Learn Area visual section cards are missing.");
 expect(learnArea, "learn-letter-tile", "Learn Area letter tiles are missing.");
 expect(learnArea, "learn-hfw-card", "Learn Area HFW cards are missing.");

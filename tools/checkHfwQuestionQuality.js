@@ -10,7 +10,7 @@ import {
   writeFile
 } from "./phonicsRuntimeUtils.js";
 
-const hfwSkillIds = ["hfw_1_25", "hfw_26_50", "hfw_51_100"];
+const hfwSkillIds = ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"];
 const weakPromptPattern = /\b(find the word|which word is|find word)\s*:?\s*["“”']?[a-z]+\b/i;
 const audioFormats = new Set(["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD"]);
 

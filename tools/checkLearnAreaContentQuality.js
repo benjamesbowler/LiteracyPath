@@ -120,7 +120,9 @@ if (cycle8) {
   requireIncludes(cycle8.highFrequencyWords, ["not", "that"], "Cycle 8 HFW");
   requireIncludes(wordsFromCards(cycle8), ["bear", "ball", "bat", "book", "wolf", "watch", "watermelon", "wave"], "Cycle 8 word bank");
   const chainText = JSON.stringify(cycle8.sections?.decoding || {});
-  if (!chainText.includes("wit") || !chainText.includes("mad")) fail("Cycle 8 needs the teacher-led wit -> bit -> bat -> mat -> mad chain.");
+  if (!chainText.includes("bat") || !chainText.includes("bit") || !chainText.includes("wit") || !chainText.includes("wig")) {
+    fail("Cycle 8 needs a teacher-led B/W chain such as bat -> bit -> wit -> wig.");
+  }
 }
 
 if (cycle15) {

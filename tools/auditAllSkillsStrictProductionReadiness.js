@@ -56,7 +56,8 @@ const skillCategories = {
   short_vowel_discrimination: "Phonics",
   hfw_1_25: "High-Frequency Words",
   hfw_26_50: "High-Frequency Words",
-  hfw_51_100: "High-Frequency Words",
+  hfw_51_75: "High-Frequency Words",
+  hfw_76_100: "High-Frequency Words",
   blends: "Phonics",
   digraphs: "Phonics",
   long_vowels_silent_e: "Phonics",
@@ -116,7 +117,7 @@ const comprehensionSkills = new Set([
   "theme_higher_comprehension"
 ]);
 
-const hfwSkills = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_100"]);
+const hfwSkills = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]);
 
 function ensureDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });

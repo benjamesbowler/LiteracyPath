@@ -50,7 +50,7 @@ const phonicsMediaSkills = new Set([
   "r_controlled_vowels"
 ]);
 
-const hfwSkills = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_100"]);
+const hfwSkills = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]);
 const grammarVocabularySkills = new Set([
   "nouns",
   "verbs",
@@ -314,7 +314,7 @@ function getRuntimeIssues(config, question = {}) {
     if (missing.length) issues.push(`missing audio file: ${missing.slice(0, 4).join(", ")}`);
   }
 
-  if (template === "UNKNOWN" && !["hfw_51_100", ...grammarVocabularySkills, ...comprehensionSkills].includes(skillId)) {
+  if (template === "UNKNOWN" && !grammarVocabularySkills.has(skillId) && !comprehensionSkills.has(skillId)) {
     issues.push("UNKNOWN runtime format on non-text skill");
   }
 

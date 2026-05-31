@@ -7,6 +7,11 @@ const normalize = value =>
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
 
+const HFW_ALLOWED_FORMATS = new Set([
+  "HFW_IMAGE_CONTEXT_CLOZE",
+  "HFW_LETTER_BUILD"
+]);
+
 export const APPROVED_SIGHT_WORDS = new Set([
   "a", "again", "after", "all", "am", "an", "and", "any", "are", "around", "as", "ask", "asked", "away",
   "be", "before", "big", "blue", "but", "by", "came", "can", "cold", "come", "could", "down", "every",
@@ -51,17 +56,22 @@ const ROUTING_RULES = {
     singleTemplate: false
   },
   hfw_1_25: {
-    allowedFormats: new Set(["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD", "HFW_SENTENCE_CLOZE", "CLOZE_CHOICE", "SENTENCE_CLOZE", "HFW_SENTENCE_PLACEMENT", "HFW_IMAGE_CONTEXT_CLOZE"]),
+    allowedFormats: HFW_ALLOWED_FORMATS,
     sightWordsOnly: true,
     singleTemplate: false
   },
   hfw_26_50: {
-    allowedFormats: new Set(["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD", "HFW_SENTENCE_CLOZE", "CLOZE_CHOICE", "SENTENCE_CLOZE", "HFW_SENTENCE_PLACEMENT", "HFW_IMAGE_CONTEXT_CLOZE"]),
+    allowedFormats: HFW_ALLOWED_FORMATS,
     sightWordsOnly: true,
     singleTemplate: false
   },
-  hfw_51_100: {
-    allowedFormats: new Set(["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD", "HFW_SENTENCE_CLOZE", "CLOZE_CHOICE", "SENTENCE_CLOZE", "HFW_SENTENCE_PLACEMENT", "HFW_IMAGE_CONTEXT_CLOZE"]),
+  hfw_51_75: {
+    allowedFormats: HFW_ALLOWED_FORMATS,
+    sightWordsOnly: true,
+    singleTemplate: false
+  },
+  hfw_76_100: {
+    allowedFormats: HFW_ALLOWED_FORMATS,
     sightWordsOnly: true,
     singleTemplate: false
   },

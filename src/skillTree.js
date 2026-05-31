@@ -35,9 +35,14 @@ export const skillTree = [
     match: ["high-frequency words 26-50", "hfw 26-50"]
   },
   {
-    id: "hfw_51_100",
-    label: "High-Frequency Words 51-100",
-    match: ["high-frequency words 51-100", "hfw 51-100"]
+    id: "hfw_51_75",
+    label: "High-Frequency Words 51-75",
+    match: ["high-frequency words 51-75", "hfw 51-75"]
+  },
+  {
+    id: "hfw_76_100",
+    label: "High-Frequency Words 76-100",
+    match: ["high-frequency words 76-100", "hfw 76-100"]
   },
   {
     id: "blends",

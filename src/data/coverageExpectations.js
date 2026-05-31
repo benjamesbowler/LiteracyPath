@@ -184,8 +184,12 @@ export const coverageExpectations = {
     total: 25,
     unit: "words"
   },
-  hfw_51_100: {
-    total: 50,
+  hfw_51_75: {
+    total: 25,
+    unit: "words"
+  },
+  hfw_76_100: {
+    total: 25,
     unit: "words"
   }
 };

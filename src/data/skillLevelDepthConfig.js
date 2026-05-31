@@ -98,8 +98,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 1-25",
     aliases: ["high-frequency words 1-25"],
     levels: {
-      1: { designed: true, rule: "Recognition, listening, and simple cloze tasks for the first 25 high-frequency words.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "COMPREHENSION", "MULTIPLE_CHOICE"] },
-      2: { designed: true, rule: "Sentence-level cloze tasks using the same 1-25 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
+      1: { designed: true, rule: "Image-context sentence cloze tasks for the first 25 high-frequency words.", allowedFormats: ["HFW_IMAGE_CONTEXT_CLOZE"] },
+      2: { designed: true, rule: "Letter-build spelling tasks using the same 1-25 band.", allowedFormats: ["HFW_LETTER_BUILD"] }
     }
   },
   {
@@ -107,17 +107,26 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "High-Frequency Words 26-50",
     aliases: ["high-frequency words 26-50"],
     levels: {
-      1: { designed: true, rule: "Recognition, listening, and simple cloze tasks for high-frequency words 26-50.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "COMPREHENSION", "MULTIPLE_CHOICE"] },
-      2: { designed: true, rule: "Sentence-level cloze tasks using the 26-50 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
+      1: { designed: true, rule: "Image-context sentence cloze tasks for high-frequency words 26-50.", allowedFormats: ["HFW_IMAGE_CONTEXT_CLOZE"] },
+      2: { designed: true, rule: "Letter-build spelling tasks using the 26-50 band.", allowedFormats: ["HFW_LETTER_BUILD"] }
     }
   },
   {
-    skillId: "hfw_51_100",
-    skillName: "High-Frequency Words 51-100",
-    aliases: ["high-frequency words 51-100", "high-frequency words 51-75", "high-frequency words 76-100"],
+    skillId: "hfw_51_75",
+    skillName: "High-Frequency Words 51-75",
+    aliases: ["high-frequency words 51-75"],
     levels: {
-      1: { designed: true, rule: "Recognition and sentence-context tasks for high-frequency words 51-100.", allowedFormats: ["LISTEN_FIND_WORD", "READ_FIND_WORD", "CLOZE_CHOICE", "SENTENCE_CLOZE", "COMPREHENSION", "UNKNOWN", "MULTIPLE_CHOICE"] },
-      2: { designed: true, rule: "Sentence-level cloze tasks using the 51-100 band.", allowedFormats: ["SENTENCE_CLOZE", "CLOZE_CHOICE", "MULTIPLE_CHOICE"] }
+      1: { designed: true, rule: "Image-context sentence cloze tasks for high-frequency words 51-75.", allowedFormats: ["HFW_IMAGE_CONTEXT_CLOZE"] },
+      2: { designed: true, rule: "Letter-build spelling tasks using the 51-75 band.", allowedFormats: ["HFW_LETTER_BUILD"] }
+    }
+  },
+  {
+    skillId: "hfw_76_100",
+    skillName: "High-Frequency Words 76-100",
+    aliases: ["high-frequency words 76-100"],
+    levels: {
+      1: { designed: true, rule: "Image-context sentence cloze tasks for high-frequency words 76-100.", allowedFormats: ["HFW_IMAGE_CONTEXT_CLOZE"] },
+      2: { designed: true, rule: "Letter-build spelling tasks using the 76-100 band.", allowedFormats: ["HFW_LETTER_BUILD"] }
     }
   },
   {

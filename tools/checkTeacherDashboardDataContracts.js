@@ -73,7 +73,7 @@ if (!appPagesSource.includes("Return to Teacher Dashboard") && !adminDashboardSo
 if (!appSource.includes("function returnToTeacherDashboard()")) {
   failures.push("App.jsx is missing the shared returnToTeacherDashboard handler.");
 }
-if (!appSource.includes('setAppView("teacherDashboard")')) {
+if (!appSource.includes('setAppView("teacherDashboard")') && !appSource.includes("setAppView(APP_VIEWS.TEACHER_DASHBOARD)")) {
   failures.push("Return to Teacher Dashboard should navigate to the teacherDashboard app state.");
 }
 if (!appSource.includes("returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}")) {
@@ -82,7 +82,9 @@ if (!appSource.includes("returnToTeacherDashboard={teacherId ? returnToTeacherDa
 if (topNavigationSource.includes("goToReports") || topNavigationSource.includes(">Reports</button>")) {
   failures.push("Teacher Mode top navigation should not show a standalone Reports button.");
 }
-if (!appSource.includes('appView === "teacherDashboard"')) failures.push("App.jsx does not render a teacherDashboard app state.");
+if (!appSource.includes('appView === "teacherDashboard"') && !appSource.includes("appView === APP_VIEWS.TEACHER_DASHBOARD")) {
+  failures.push("App.jsx does not render a teacherDashboard app state.");
+}
 if (!adminDashboardSource.includes('useState(isTeacherMode ? "teacherOverview" : "overview")')) failures.push("Teacher Dashboard should default to the Overview section.");
 if (!adminDashboardSource.includes("Choose dashboard section")) failures.push("Teacher Dashboard mobile section dropdown label is missing.");
 if (!adminDashboardSource.includes('role="tablist"')) failures.push("Teacher Dashboard tablist navigation is missing.");

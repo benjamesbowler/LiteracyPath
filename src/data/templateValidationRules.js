@@ -130,6 +130,12 @@ export const templateValidationRules = {
     requiredMedia: ["targetImage"],
     allowedRenderModes: ["main_image_sentence_choice"]
   },
+  HFW_LETTER_BUILD: {
+    requiredFields: ["targetWord", "soundTiles", "sentence", "targetImage"],
+    optionalFields: ["letterTiles", "explanation", "hint"],
+    requiredMedia: ["targetImage"],
+    allowedRenderModes: ["letter_build"]
+  },
   PICTURE_TO_PRINT: {
     requiredFields: ["targetImage", "answerOptions"],
     optionalFields: ["approvedAudio", "explanation", "hint"],
@@ -230,7 +236,7 @@ export function validateQuestionTemplate(question = {}, options = {}) {
     }
   }
 
-  if (templateType !== "PUT_SOUNDS_IN_ORDER" && optionCount(question) < 2) {
+  if (!["PUT_SOUNDS_IN_ORDER", "HFW_LETTER_BUILD"].includes(templateType) && optionCount(question) < 2) {
     issues.push(`template ${templateType} needs at least 2 answer options`);
   }
   if (templateType === "PAIR_SELECT" && optionCount(question) < 3) issues.push("PAIR_SELECT needs at least 3 cards");

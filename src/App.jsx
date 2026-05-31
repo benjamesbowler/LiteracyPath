@@ -1184,10 +1184,17 @@ function isQuestionValid(q) {
     return getStageIndex(q) !== -1;
   }
 
-  if (q.templateType === "PUT_SOUNDS_IN_ORDER") {
-    return Array.isArray(q.soundTiles) &&
-      q.soundTiles.length >= 2 &&
-      getStageIndex(q) !== -1 &&
+  if (q.templateType === "PUT_SOUNDS_IN_ORDER" || q.templateType === "HFW_LETTER_BUILD") {
+    const tiles = q.templateType === "HFW_LETTER_BUILD" ? (q.letterTiles || q.soundTiles) : q.soundTiles;
+    const candidateStageIndex = getStageIndex(q);
+    const candidateStage = skillTree[candidateStageIndex];
+    if (isHfwStage(candidateStage)) {
+      const hfwIssues = getHfwRuntimeEligibilityIssues(q, candidateStage.id);
+      if (hfwIssues.length > 0 || !isQuestionAllowedForSkill(q, candidateStage.id)) return false;
+    }
+    return Array.isArray(tiles) &&
+      tiles.length >= 2 &&
+      candidateStageIndex !== -1 &&
       isAssessmentContentValid(q);
   }
 
@@ -4101,6 +4108,9 @@ export default function App() {
     const preparedSoundTiles = Array.isArray(normalizedQuestion.soundTiles)
       ? shuffleArray(normalizedQuestion.soundTiles)
       : normalizedQuestion.soundTiles;
+    const preparedLetterTiles = Array.isArray(normalizedQuestion.letterTiles)
+      ? shuffleArray(normalizedQuestion.letterTiles)
+      : normalizedQuestion.letterTiles;
 
     return {
       ...normalizedQuestion,
@@ -4108,7 +4118,8 @@ export default function App() {
       choices: preparedChoices,
       answerOptions: preparedAnswerOptions,
       imageCards: preparedCards,
-      soundTiles: preparedSoundTiles
+      soundTiles: preparedSoundTiles,
+      letterTiles: preparedLetterTiles
     };
   }
 
@@ -5356,6 +5367,11 @@ export default function App() {
       String(question.formatType || question.templateType || "").toUpperCase() === "ENDING_SOUND";
     if (isFinalSoundsEndingQuestion) return Boolean(getTargetObjectImage(question));
     if (isListenChooseVowelQuestion(question)) return false;
+    if (String(question.formatType || question.templateType || "").toUpperCase().startsWith("HFW_")) return Boolean(
+      question.imagePath ||
+      question.imageUrl ||
+      question.image
+    );
     if (
       normalizeEarlySkillId(question.skillId || question.skill || "") === "rhyming" &&
       String(question.formatType || question.templateType || "").toUpperCase() === "RHYMING_PICTURE"

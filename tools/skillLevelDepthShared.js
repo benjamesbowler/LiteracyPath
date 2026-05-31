@@ -55,7 +55,9 @@ export function getDepthSkillId(question = {}) {
   if (raw.includes("cvc") || raw.includes("short_vowels") || raw.includes("short_vowel")) return "cvc_short_vowels";
   if (raw.includes("high_frequency_words_1_25")) return "hfw_1_25";
   if (raw.includes("high_frequency_words_26_50")) return "hfw_26_50";
-  if (raw.includes("high_frequency_words_51_100") || raw.includes("high_frequency_words_51_75") || raw.includes("high_frequency_words_76_100")) return "hfw_51_100";
+  if (raw.includes("high_frequency_words_51_75")) return "hfw_51_75";
+  if (raw.includes("high_frequency_words_76_100")) return "hfw_76_100";
+  if (raw.includes("high_frequency_words_51_100")) return "";
   if (raw.includes("blend")) return "blends";
   if (raw.includes("digraph")) return "digraphs";
   if (raw.includes("long_vowel") || raw.includes("silent_e")) return "long_vowels_silent_e";
@@ -80,7 +82,9 @@ export function getDepthSkillId(question = {}) {
 
   if (text.includes("high-frequency words 1-25")) return "hfw_1_25";
   if (text.includes("high-frequency words 26-50")) return "hfw_26_50";
-  if (text.includes("high-frequency words 51-100")) return "hfw_51_100";
+  if (text.includes("high-frequency words 51-75")) return "hfw_51_75";
+  if (text.includes("high-frequency words 76-100")) return "hfw_76_100";
+  if (text.includes("high-frequency words 51-100")) return "";
   return "";
 }
 

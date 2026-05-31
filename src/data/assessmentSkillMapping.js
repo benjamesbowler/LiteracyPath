@@ -35,7 +35,11 @@ const aliasPairs = [
   ["antonyms", "antonyms_synonyms"],
   ["synonyms", "antonyms_synonyms"],
   ["sight_words", "hfw_1_25"],
-  ["high_frequency_words", "hfw_1_25"]
+  ["high_frequency_words", "hfw_1_25"],
+  ["high_frequency_words_1_25", "hfw_1_25"],
+  ["high_frequency_words_26_50", "hfw_26_50"],
+  ["high_frequency_words_51_75", "hfw_51_75"],
+  ["high_frequency_words_76_100", "hfw_76_100"]
 ];
 
 const assessmentSkillAliases = new Map(

@@ -30,7 +30,8 @@ export const EL_SKILL_AREAS = [
     skills: [
       "High-Frequency Words 1-25",
       "High-Frequency Words 26-50",
-      "High-Frequency Words 51-100"
+      "High-Frequency Words 51-75",
+      "High-Frequency Words 76-100"
     ]
   },
   {

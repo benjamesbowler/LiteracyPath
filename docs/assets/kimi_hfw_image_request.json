@@ -1,0 +1,1014 @@
+{
+  "title": "Kimi HFW Context Image Request",
+  "count": 100,
+  "requiredOutputDirectory": "/public/images/assessment/hfw",
+  "globalRequirements": [
+    "Create one 4:3 landscape WebP image per entry.",
+    "Do not include any printed words, letters, labels, captions, signs, speech bubbles, UI, or watermarks.",
+    "Use bright, child-safe K-2 literacy assessment illustrations.",
+    "Make the action and sentence context clear without revealing the missing high-frequency word.",
+    "Save each image at the exact outputPath."
+  ],
+  "images": [
+    {
+      "id": "hfw_the",
+      "targetWord": "the",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/the.webp",
+      "sentence": "I see ___ dog.",
+      "visualDescription": "one friendly dog sitting beside a child in a sunny park",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I see ___ dog.\". Show one friendly dog sitting beside a child in a sunny park. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_to",
+      "targetWord": "to",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/to.webp",
+      "sentence": "We go ___ school.",
+      "visualDescription": "two children walking toward a small school building with backpacks",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We go ___ school.\". Show two children walking toward a small school building with backpacks. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_and",
+      "targetWord": "and",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/and.webp",
+      "sentence": "Mom ___ I read.",
+      "visualDescription": "a parent and child reading one picture book together on a sofa",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Mom ___ I read.\". Show a parent and child reading one picture book together on a sofa. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_a",
+      "targetWord": "a",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/a.webp",
+      "sentence": "I see ___ cat.",
+      "visualDescription": "one cat curled on a soft rug beside a child",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I see ___ cat.\". Show one cat curled on a soft rug beside a child. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_i",
+      "targetWord": "i",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/i.webp",
+      "sentence": "___ can read.",
+      "visualDescription": "one smiling child holding an open picture book",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ can read.\". Show one smiling child holding an open picture book. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_you",
+      "targetWord": "you",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/you.webp",
+      "sentence": "Can ___ jump?",
+      "visualDescription": "one child jumping over a chalk line on a playground",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Can ___ jump?\". Show one child jumping over a chalk line on a playground. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_it",
+      "targetWord": "it",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/it.webp",
+      "sentence": "I found ___.",
+      "visualDescription": "a child pointing to a small toy on the floor",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I found ___.\". Show a child pointing to a small toy on the floor. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_in",
+      "targetWord": "in",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/in.webp",
+      "sentence": "The toy is ___ the box.",
+      "visualDescription": "a toy bear sitting inside an open box",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"The toy is ___ the box.\". Show a toy bear sitting inside an open box. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_said",
+      "targetWord": "said",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/said.webp",
+      "sentence": "Dad ___ yes.",
+      "visualDescription": "a dad smiling and giving a thumbs-up to a child",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Dad ___ yes.\". Show a dad smiling and giving a thumbs-up to a child. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_for",
+      "targetWord": "for",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/for.webp",
+      "sentence": "This book is ___ you.",
+      "visualDescription": "a child handing a book to a friend",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"This book is ___ you.\". Show a child handing a book to a friend. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_up",
+      "targetWord": "up",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/up.webp",
+      "sentence": "Look ___ at the kite.",
+      "visualDescription": "a child looking up at a bright kite in the sky",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Look ___ at the kite.\". Show a child looking up at a bright kite in the sky. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_look",
+      "targetWord": "look",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/look.webp",
+      "sentence": "___ at the bird.",
+      "visualDescription": "a child pointing at a bird on a fence",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ at the bird.\". Show a child pointing at a bird on a fence. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_is",
+      "targetWord": "is",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/is.webp",
+      "sentence": "The sun ___ hot.",
+      "visualDescription": "a bright sun shining over a child wearing a hat",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"The sun ___ hot.\". Show a bright sun shining over a child wearing a hat. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_go",
+      "targetWord": "go",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/go.webp",
+      "sentence": "We ___ home.",
+      "visualDescription": "two children walking along a path toward a house",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We ___ home.\". Show two children walking along a path toward a house. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_we",
+      "targetWord": "we",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/we.webp",
+      "sentence": "___ can help.",
+      "visualDescription": "two children carrying classroom supplies together",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ can help.\". Show two children carrying classroom supplies together. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_little",
+      "targetWord": "little",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/little.webp",
+      "sentence": "The bug is ___.",
+      "visualDescription": "a tiny ladybug on a large green leaf",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"The bug is ___.\". Show a tiny ladybug on a large green leaf. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_can",
+      "targetWord": "can",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/can.webp",
+      "sentence": "We ___ swim.",
+      "visualDescription": "children swimming safely in a clear pool",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We ___ swim.\". Show children swimming safely in a clear pool. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_see",
+      "targetWord": "see",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/see.webp",
+      "sentence": "I ___ a red ball.",
+      "visualDescription": "a child looking at a red ball on the grass",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ a red ball.\". Show a child looking at a red ball on the grass. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_me",
+      "targetWord": "me",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/me.webp",
+      "sentence": "Come with ___.",
+      "visualDescription": "one child inviting another child to walk together",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Come with ___.\". Show one child inviting another child to walk together. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_my",
+      "targetWord": "my",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/my.webp",
+      "sentence": "This is ___ hat.",
+      "visualDescription": "a child holding their own bright hat",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"This is ___ hat.\". Show a child holding their own bright hat. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_on",
+      "targetWord": "on",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/on.webp",
+      "sentence": "The cup is ___ the table.",
+      "visualDescription": "a cup sitting on a kitchen table",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"The cup is ___ the table.\". Show a cup sitting on a kitchen table. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_one",
+      "targetWord": "one",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/one.webp",
+      "sentence": "I have ___ apple.",
+      "visualDescription": "a child holding one red apple",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I have ___ apple.\". Show a child holding one red apple. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_big",
+      "targetWord": "big",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/big.webp",
+      "sentence": "The box is ___.",
+      "visualDescription": "a large cardboard box next to a small chair",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"The box is ___.\". Show a large cardboard box next to a small chair. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_come",
+      "targetWord": "come",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/come.webp",
+      "sentence": "Please ___ here.",
+      "visualDescription": "a teacher gently waving a child toward the reading rug",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Please ___ here.\". Show a teacher gently waving a child toward the reading rug. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_like",
+      "targetWord": "like",
+      "skillId": "hfw_1_25",
+      "skillName": "High-Frequency Words 1-25",
+      "outputPath": "/images/assessment/hfw/like.webp",
+      "sentence": "I ___ this book.",
+      "visualDescription": "a child smiling while holding a favorite book",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ this book.\". Show a child smiling while holding a favorite book. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_down",
+      "targetWord": "down",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/down.webp",
+      "sentence": "Sit ___ here.",
+      "visualDescription": "a child sitting down on a classroom rug",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Sit ___ here.\". Show a child sitting down on a classroom rug. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_not",
+      "targetWord": "not",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/not.webp",
+      "sentence": "I am ___ done.",
+      "visualDescription": "a child still coloring a picture at a desk",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I am ___ done.\". Show a child still coloring a picture at a desk. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_play",
+      "targetWord": "play",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/play.webp",
+      "sentence": "We ___ outside.",
+      "visualDescription": "children playing with a ball outside",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We ___ outside.\". Show children playing with a ball outside. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_all",
+      "targetWord": "all",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/all.webp",
+      "sentence": "___ the kids read.",
+      "visualDescription": "a group of children reading books together",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ the kids read.\". Show a group of children reading books together. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_are",
+      "targetWord": "are",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/are.webp",
+      "sentence": "They ___ here.",
+      "visualDescription": "several children standing together at the classroom door",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"They ___ here.\". Show several children standing together at the classroom door. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_as",
+      "targetWord": "as",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/as.webp",
+      "sentence": "Run ___ fast as you can.",
+      "visualDescription": "a child running quickly on a playground track",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Run ___ fast as you can.\". Show a child running quickly on a playground track. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_be",
+      "targetWord": "be",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/be.webp",
+      "sentence": "I will ___ kind.",
+      "visualDescription": "a child sharing crayons with a classmate",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I will ___ kind.\". Show a child sharing crayons with a classmate. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_but",
+      "targetWord": "but",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/but.webp",
+      "sentence": "I ran, ___ I stopped.",
+      "visualDescription": "a child stopping at the end of a running game",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ran, ___ I stopped.\". Show a child stopping at the end of a running game. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_came",
+      "targetWord": "came",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/came.webp",
+      "sentence": "He ___ home.",
+      "visualDescription": "a boy arriving at the front door of a house",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"He ___ home.\". Show a boy arriving at the front door of a house. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_from",
+      "targetWord": "from",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/from.webp",
+      "sentence": "This note is ___ Mom.",
+      "visualDescription": "a child receiving a note from a parent",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"This note is ___ Mom.\". Show a child receiving a note from a parent. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_have",
+      "targetWord": "have",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/have.webp",
+      "sentence": "I ___ a book.",
+      "visualDescription": "a child holding a book at a desk",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ a book.\". Show a child holding a book at a desk. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_he",
+      "targetWord": "he",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/he.webp",
+      "sentence": "___ has a hat.",
+      "visualDescription": "a boy wearing a blue hat",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ has a hat.\". Show a boy wearing a blue hat. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_she",
+      "targetWord": "she",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/she.webp",
+      "sentence": "___ can read.",
+      "visualDescription": "a girl reading a picture book",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ can read.\". Show a girl reading a picture book. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_they",
+      "targetWord": "they",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/they.webp",
+      "sentence": "___ are ready.",
+      "visualDescription": "three children with backpacks ready to leave",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ are ready.\". Show three children with backpacks ready to leave. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_was",
+      "targetWord": "was",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/was.webp",
+      "sentence": "It ___ fun.",
+      "visualDescription": "children smiling after a game with blocks",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"It ___ fun.\". Show children smiling after a game with blocks. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_with",
+      "targetWord": "with",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/with.webp",
+      "sentence": "Read ___ me.",
+      "visualDescription": "two children reading the same book together",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Read ___ me.\". Show two children reading the same book together. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_that",
+      "targetWord": "that",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/that.webp",
+      "sentence": "I like ___ book.",
+      "visualDescription": "a child pointing to a book on a shelf",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I like ___ book.\". Show a child pointing to a book on a shelf. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_then",
+      "targetWord": "then",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/then.webp",
+      "sentence": "We read, ___ we write.",
+      "visualDescription": "children reading first and then writing in notebooks",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We read, ___ we write.\". Show children reading first and then writing in notebooks. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_this",
+      "targetWord": "this",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/this.webp",
+      "sentence": "___ is my bag.",
+      "visualDescription": "a child pointing to a backpack beside a chair",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ is my bag.\". Show a child pointing to a backpack beside a chair. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_what",
+      "targetWord": "what",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/what.webp",
+      "sentence": "___ is that?",
+      "visualDescription": "a child wondering about a wrapped object on a table",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ is that?\". Show a child wondering about a wrapped object on a table. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_when",
+      "targetWord": "when",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/when.webp",
+      "sentence": "___ do we go?",
+      "visualDescription": "a child looking at a clock near the classroom door",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ do we go?\". Show a child looking at a clock near the classroom door. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_where",
+      "targetWord": "where",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/where.webp",
+      "sentence": "___ is my hat?",
+      "visualDescription": "a child searching for a hat near cubbies",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ is my hat?\". Show a child searching for a hat near cubbies. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_will",
+      "targetWord": "will",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/will.webp",
+      "sentence": "I ___ read.",
+      "visualDescription": "a child choosing a book to read next",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ read.\". Show a child choosing a book to read next. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_help",
+      "targetWord": "help",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/help.webp",
+      "sentence": "I can ___ you.",
+      "visualDescription": "one child helping another pick up pencils",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I can ___ you.\". Show one child helping another pick up pencils. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_make",
+      "targetWord": "make",
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "outputPath": "/images/assessment/hfw/make.webp",
+      "sentence": "I can ___ lunch.",
+      "visualDescription": "a child helping prepare a simple sandwich",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I can ___ lunch.\". Show a child helping prepare a simple sandwich. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_after",
+      "targetWord": "after",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/after.webp",
+      "sentence": "We eat ___ class.",
+      "visualDescription": "children eating a snack after a lesson",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We eat ___ class.\". Show children eating a snack after a lesson. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_again",
+      "targetWord": "again",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/again.webp",
+      "sentence": "Read it ___.",
+      "visualDescription": "a child asking for a story to be read another time",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Read it ___.\". Show a child asking for a story to be read another time. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_an",
+      "targetWord": "an",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/an.webp",
+      "sentence": "I see ___ egg.",
+      "visualDescription": "a child looking at one egg in a nest",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I see ___ egg.\". Show a child looking at one egg in a nest. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_any",
+      "targetWord": "any",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/any.webp",
+      "sentence": "Do you have ___ crayons?",
+      "visualDescription": "a child looking into an almost empty crayon box",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Do you have ___ crayons?\". Show a child looking into an almost empty crayon box. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_around",
+      "targetWord": "around",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/around.webp",
+      "sentence": "We walk ___ the tree.",
+      "visualDescription": "children walking in a circle around a tree",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We walk ___ the tree.\". Show children walking in a circle around a tree. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_ask",
+      "targetWord": "ask",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/ask.webp",
+      "sentence": "I will ___ Mom.",
+      "visualDescription": "a child talking to a parent in the kitchen",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I will ___ Mom.\". Show a child talking to a parent in the kitchen. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_away",
+      "targetWord": "away",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/away.webp",
+      "sentence": "The bird flew ___.",
+      "visualDescription": "a bird flying away from a branch",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"The bird flew ___.\". Show a bird flying away from a branch. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_before",
+      "targetWord": "before",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/before.webp",
+      "sentence": "Wash hands ___ lunch.",
+      "visualDescription": "a child washing hands before eating lunch",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Wash hands ___ lunch.\". Show a child washing hands before eating lunch. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_by",
+      "targetWord": "by",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/by.webp",
+      "sentence": "Sit ___ me.",
+      "visualDescription": "two children sitting side by side on a rug",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Sit ___ me.\". Show two children sitting side by side on a rug. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_could",
+      "targetWord": "could",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/could.webp",
+      "sentence": "I ___ help.",
+      "visualDescription": "a child offering to help carry books",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ help.\". Show a child offering to help carry books. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_every",
+      "targetWord": "every",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/every.webp",
+      "sentence": "Read ___ day.",
+      "visualDescription": "a child reading on a calendar-marked day",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Read ___ day.\". Show a child reading on a calendar-marked day. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_find",
+      "targetWord": "find",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/find.webp",
+      "sentence": "Can you ___ it?",
+      "visualDescription": "a child searching under a table for a toy",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Can you ___ it?\". Show a child searching under a table for a toy. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_fly",
+      "targetWord": "fly",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/fly.webp",
+      "sentence": "Birds can ___.",
+      "visualDescription": "birds flying above a garden",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Birds can ___.\". Show birds flying above a garden. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_found",
+      "targetWord": "found",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/found.webp",
+      "sentence": "I ___ my hat.",
+      "visualDescription": "a child finding a hat under a bench",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ my hat.\". Show a child finding a hat under a bench. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_funny",
+      "targetWord": "funny",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/funny.webp",
+      "sentence": "That joke is ___.",
+      "visualDescription": "children laughing together at a silly puppet",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"That joke is ___.\". Show children laughing together at a silly puppet. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_give",
+      "targetWord": "give",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/give.webp",
+      "sentence": "Please ___ me one.",
+      "visualDescription": "a child handing one block to a friend",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Please ___ me one.\". Show a child handing one block to a friend. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_going",
+      "targetWord": "going",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/going.webp",
+      "sentence": "We are ___ home.",
+      "visualDescription": "children leaving school with backpacks",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We are ___ home.\". Show children leaving school with backpacks. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_had",
+      "targetWord": "had",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/had.webp",
+      "sentence": "I ___ fun.",
+      "visualDescription": "a child smiling after a playground game",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ fun.\". Show a child smiling after a playground game. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_has",
+      "targetWord": "has",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/has.webp",
+      "sentence": "She ___ a book.",
+      "visualDescription": "a girl holding a book in both hands",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"She ___ a book.\". Show a girl holding a book in both hands. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_her",
+      "targetWord": "her",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/her.webp",
+      "sentence": "This is ___ bag.",
+      "visualDescription": "a girl standing beside her backpack",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"This is ___ bag.\". Show a girl standing beside her backpack. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_here",
+      "targetWord": "here",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/here.webp",
+      "sentence": "Come ___ now.",
+      "visualDescription": "a teacher pointing to a spot on the rug",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Come ___ now.\". Show a teacher pointing to a spot on the rug. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_him",
+      "targetWord": "him",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/him.webp",
+      "sentence": "I can help ___.",
+      "visualDescription": "a child helping a boy tie a shoe",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I can help ___.\". Show a child helping a boy tie a shoe. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_his",
+      "targetWord": "his",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/his.webp",
+      "sentence": "That is ___ cap.",
+      "visualDescription": "a boy picking up his cap",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"That is ___ cap.\". Show a boy picking up his cap. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_how",
+      "targetWord": "how",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/how.webp",
+      "sentence": "___ did you do it?",
+      "visualDescription": "a curious child watching a friend build a tall block tower",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ did you do it?\". Show a curious child watching a friend build a tall block tower. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_into",
+      "targetWord": "into",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "outputPath": "/images/assessment/hfw/into.webp",
+      "sentence": "Put it ___ the bag.",
+      "visualDescription": "a child putting a lunchbox into a backpack",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Put it ___ the bag.\". Show a child putting a lunchbox into a backpack. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_just",
+      "targetWord": "just",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/just.webp",
+      "sentence": "I ___ saw it.",
+      "visualDescription": "a child spotting a butterfly nearby",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ saw it.\". Show a child spotting a butterfly nearby. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_know",
+      "targetWord": "know",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/know.webp",
+      "sentence": "I ___ that word.",
+      "visualDescription": "a child recognizing a word card",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I ___ that word.\". Show a child recognizing a word card. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_let",
+      "targetWord": "let",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/let.webp",
+      "sentence": "___ me try.",
+      "visualDescription": "a child asking for a turn with a puzzle",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ me try.\". Show a child asking for a turn with a puzzle. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_live",
+      "targetWord": "live",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/live.webp",
+      "sentence": "We ___ here.",
+      "visualDescription": "a family standing outside their home",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We ___ here.\". Show a family standing outside their home. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_made",
+      "targetWord": "made",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/made.webp",
+      "sentence": "We ___ a fort.",
+      "visualDescription": "children proud of a blanket fort",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We ___ a fort.\". Show children proud of a blanket fort. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_may",
+      "targetWord": "may",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/may.webp",
+      "sentence": "You ___ go.",
+      "visualDescription": "a teacher nodding as a child lines up",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"You ___ go.\". Show a teacher nodding as a child lines up. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_must",
+      "targetWord": "must",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/must.webp",
+      "sentence": "We ___ stop.",
+      "visualDescription": "children stopping at a red crosswalk sign",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We ___ stop.\". Show children stopping at a red crosswalk sign. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_new",
+      "targetWord": "new",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/new.webp",
+      "sentence": "I have a ___ book.",
+      "visualDescription": "a child opening a brand-new book",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I have a ___ book.\". Show a child opening a brand-new book. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_now",
+      "targetWord": "now",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/now.webp",
+      "sentence": "Read it ___.",
+      "visualDescription": "a child ready to read right away",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Read it ___.\". Show a child ready to read right away. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_of",
+      "targetWord": "of",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/of.webp",
+      "sentence": "One ___ them ran.",
+      "visualDescription": "one child running from a small group",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"One ___ them ran.\". Show one child running from a small group. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_old",
+      "targetWord": "old",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/old.webp",
+      "sentence": "This book is ___.",
+      "visualDescription": "a child holding an old worn book carefully",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"This book is ___.\". Show a child holding an old worn book carefully. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_once",
+      "targetWord": "once",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/once.webp",
+      "sentence": "Read it ___.",
+      "visualDescription": "a child listening to a story one time",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Read it ___.\". Show a child listening to a story one time. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_open",
+      "targetWord": "open",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/open.webp",
+      "sentence": "Please ___ the door.",
+      "visualDescription": "a child opening a classroom door",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Please ___ the door.\". Show a child opening a classroom door. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_our",
+      "targetWord": "our",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/our.webp",
+      "sentence": "This is ___ class.",
+      "visualDescription": "children standing proudly in their classroom",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"This is ___ class.\". Show children standing proudly in their classroom. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_out",
+      "targetWord": "out",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/out.webp",
+      "sentence": "Go ___ to play.",
+      "visualDescription": "children going outside to play",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Go ___ to play.\". Show children going outside to play. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_over",
+      "targetWord": "over",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/over.webp",
+      "sentence": "Jump ___ the line.",
+      "visualDescription": "a child jumping over a line on the ground",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"Jump ___ the line.\". Show a child jumping over a line on the ground. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_please",
+      "targetWord": "please",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/please.webp",
+      "sentence": "___ help me.",
+      "visualDescription": "a child politely asking for help with a zipper",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ help me.\". Show a child politely asking for help with a zipper. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_pretty",
+      "targetWord": "pretty",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/pretty.webp",
+      "sentence": "The flower is ___.",
+      "visualDescription": "a child looking at a colorful flower",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"The flower is ___.\". Show a child looking at a colorful flower. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_put",
+      "targetWord": "put",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/put.webp",
+      "sentence": "___ it here.",
+      "visualDescription": "a child placing a toy on a shelf",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ it here.\". Show a child placing a toy on a shelf. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_read",
+      "targetWord": "read",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/read.webp",
+      "sentence": "We ___ books.",
+      "visualDescription": "children reading books at a table",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"We ___ books.\". Show children reading books at a table. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_round",
+      "targetWord": "round",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/round.webp",
+      "sentence": "The coin is ___.",
+      "visualDescription": "a round coin on a table beside square blocks",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"The coin is ___.\". Show a round coin on a table beside square blocks. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_some",
+      "targetWord": "some",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/some.webp",
+      "sentence": "I want ___ water.",
+      "visualDescription": "a child asking for a cup of water",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I want ___ water.\". Show a child asking for a cup of water. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_take",
+      "targetWord": "take",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/take.webp",
+      "sentence": "___ one card.",
+      "visualDescription": "a child taking one card from a stack",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ one card.\". Show a child taking one card from a stack. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_thank",
+      "targetWord": "thank",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/thank.webp",
+      "sentence": "___ you for helping.",
+      "visualDescription": "a child thanking a friend who helped clean up",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"___ you for helping.\". Show a child thanking a friend who helped clean up. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    },
+    {
+      "id": "hfw_yes",
+      "targetWord": "yes",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "outputPath": "/images/assessment/hfw/yes.webp",
+      "sentence": "I said ___.",
+      "visualDescription": "a child happily answering yes to a teacher",
+      "prompt": "Create a bright, child-safe literacy assessment illustration for the sentence \"I said ___.\". Show a child happily answering yes to a teacher. Do not include printed words, letters, captions, signs, labels, speech bubbles, or UI elements. Use a clean classroom-reader style, simple background, warm natural colors, clear action, and a 4:3 landscape composition. The image should help a K-2 child understand the sentence context without revealing the missing high-frequency word."
+    }
+  ]
+}

@@ -23,7 +23,7 @@ const skillChecks = [
   { id: "short_vowel_discrimination", label: "Short Vowel Discrimination", itemTypes: new Set(["short_vowel"]), forbidden: /\b(rhym|beginning sound|initial sound|ending sound|final sound)\b/i }
 ];
 
-const hfwSkillIds = ["hfw_1_25", "hfw_26_50", "hfw_51_100"];
+const hfwSkillIds = ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"];
 const hfwForbiddenPrompt = /\b(short [aeiou]|short vowel|cvc|rhym|rime|beginning sound|initial sound|first sound|ending sound|final sound|blend|digraph|matches the picture|which word has the short)\b/i;
 
 function format(question = {}) {
@@ -173,7 +173,7 @@ Generated: ${new Date().toISOString()}
 
 - Fatal routing failures: ${failures.length}
 - HFW skills checked: ${hfwSkillIds.join(", ")}
-- HFW band structure in this app: 1-25, 26-50, combined 51-100
+- HFW band structure in this app: 1-25, 26-50, 51-75, 76-100
 - Mixed answer-card audio availability rows hidden by uniform renderer: ${mixedAudioRows.length}
 
 ## HFW Runtime Bands
