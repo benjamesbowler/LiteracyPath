@@ -3674,7 +3674,7 @@ export default function App() {
     const phaseFilteredStageQuestions = levelFilteredStageQuestions.filter(question =>
       (getAssessmentQuestionPhase(question) || pathStep.phase) === pathStep.phase
     );
-    const pathFilteredStageQuestions = phaseFilteredStageQuestions.length > 0
+    const pathFilteredStageQuestions = phaseFilteredStageQuestions.length >= ROUND_LENGTH
       ? phaseFilteredStageQuestions
       : levelFilteredStageQuestions;
     const finalSoundLevelOneGuardedQuestions = isFinalSoundsStage(stage) && pathStep.level === 1
