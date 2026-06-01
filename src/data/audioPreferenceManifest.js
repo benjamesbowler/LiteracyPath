@@ -390,6 +390,7 @@ export function getPreferredAudioPath(keyOrText, fallbackPath = "") {
 
 export function getApprovedAudioPath(keyOrText, fallbackPath = "") {
   if (fallbackPath && approvedInitialSoundAudioPaths.has(fallbackPath)) return fallbackPath;
+  if (fallbackPath && /^\/audio\/assessment\/(?:digraphs|long-vowels)\/[a-z0-9-]+\.mp3$/i.test(fallbackPath)) return fallbackPath;
 
   const preference = getAudioPreferenceForPath(fallbackPath) || getAudioPreference(keyOrText);
 
