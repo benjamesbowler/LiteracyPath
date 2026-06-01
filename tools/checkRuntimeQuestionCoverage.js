@@ -17,6 +17,7 @@ import { ixlStyleSeedQuestions } from "../src/data/ixlStyleSeedQuestions.js";
 import { kimiDataset7Candidates } from "../src/data/imported/kimiDataset7Candidates.js";
 import { kimiDataset7Summary } from "../src/data/imported/kimiDataset7Summary.js";
 import { coverageExpectations } from "../src/data/coverageExpectations.js";
+import { enrichQuestionWithExistingMedia } from "../src/data/questionMediaResolver.js";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "../src/data/listenAndFindAssets.js";
 import {
   enrichInitialSoundPairQuestion,
@@ -371,6 +372,34 @@ function lowQualityPluralDistractorReason(question) {
     : "";
 }
 
+function choiceWord(value = "") {
+  if (Array.isArray(value)) return choiceWord(value[0]);
+  if (value && typeof value === "object") {
+    return choiceWord(value.word || value.value || value.label || value.text || value.answer);
+  }
+  return String(value || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9'-]+/g, " ")
+    .trim();
+}
+
+function hasShortVowelChoiceShortcut(question) {
+  if (String(question.skillId || "").toLowerCase() !== "short_vowel_discrimination") return false;
+  const choices = (question.choices || []).map(choiceWord).filter(Boolean);
+  const answer = choiceWord(question.answer || question.correctAnswer);
+  if (choices.length !== 4 || !answer || !choices.includes(answer)) return false;
+  if (!choices.every(choice => /^[a-z]+$/.test(choice) && /[aeiou]/.test(choice))) return false;
+
+  const initialCounts = choices.reduce((counts, choice) => {
+    counts[choice[0]] = (counts[choice[0]] || 0) + 1;
+    return counts;
+  }, {});
+  const maxInitialCount = Math.max(...Object.values(initialCounts));
+
+  return maxInitialCount >= 3;
+}
+
 function isQuestionValid(question) {
   if (!question) return false;
   if (!question.id || !question.skill || !(question.prompt || question.question)) return false;
@@ -438,6 +467,7 @@ function isQuestionValid(question) {
   if (questionContainsWord(question, "pun")) return false;
   if (weakLegacyPhonicsReason(question)) return false;
   if (lowQualityPluralDistractorReason(question)) return false;
+  if (hasShortVowelChoiceShortcut(question)) return false;
   if (getAssessmentContentIssues(question, allowsPendingReplacementImages ? {} : { assetExists: publicAssetExists }).length > 0) return false;
 
   const choices = question.choices.map(choice => normalize(choice));
@@ -742,7 +772,7 @@ function expectedKeysForStage(stage, runtimeKeys) {
 const runtimeQuestions =
   runtimeQuestionBanks.flatMap(([source, questions]) =>
     questions.map(question => ({
-      ...normalizeAssessmentSkillFields(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))),
+      ...normalizeAssessmentSkillFields(enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question)))),
       source: question.source || source,
       bankSource: source
     }))

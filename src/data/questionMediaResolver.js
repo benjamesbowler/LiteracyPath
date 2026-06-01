@@ -30,7 +30,7 @@ function normalizeSkillId(value = "") {
   if (text.includes("initial")) return "initial_sounds";
   if (text.includes("final") || text.includes("ending")) return "final_sounds";
   if (text.includes("rhym")) return "rhyming";
-  if (text.includes("short_vowel_discrimination")) return "short_vowel_discrimination";
+  if (text.includes("short_vowel_discrimination") || text.includes("short vowel discrimination")) return "short_vowel_discrimination";
   if (text.includes("cvc") || text.includes("short vowel")) return "cvc_short_vowels";
   if (text.includes("blend")) return "blends";
   if (text.includes("digraph")) return "digraphs";
@@ -94,6 +94,165 @@ function optionWord(option) {
   return normalizeWord(answerValue(option));
 }
 
+const SHORT_VOWEL_WORDS = {
+  a: [
+    "bag", "bat", "cap", "cat", "fan", "had", "hat", "jam", "mad", "man",
+    "map", "mat", "nap", "pad", "pan", "ram", "rag", "sad", "sap", "tap"
+  ],
+  e: [
+    "bed", "beg", "den", "hen", "jet", "leg", "men", "net", "peg", "pen",
+    "pet", "red", "ten", "web", "wet"
+  ],
+  i: [
+    "big", "bin", "fin", "fish", "hit", "kit", "lid", "lip", "mix", "pig",
+    "pin", "rib", "sip", "sit", "wig"
+  ],
+  o: [
+    "box", "cot", "dog", "dot", "fox", "hop", "log", "mop", "nod", "not",
+    "pot", "rod", "sock", "top"
+  ],
+  u: [
+    "bug", "cup", "cut", "duck", "fun", "hut", "mud", "mug", "nut", "pup",
+    "rug", "sub", "sun", "tub"
+  ]
+};
+
+const SHORT_VOWEL_VALUES = Object.keys(SHORT_VOWEL_WORDS);
+
+function shortVowelInWord(word = "") {
+  return String(word || "").match(/[aeiou]/)?.[0] || "";
+}
+
+function shortVowelTargetFromQuestion(question = {}, answerWord = "") {
+  const text = String([
+    question.itemKey,
+    question.targetSound,
+    question.phonicsPattern,
+    question.question,
+    question.prompt,
+    question.spokenPrompt
+  ].join(" ")).toLowerCase();
+  const explicit = text.match(/short[_ -]?([aeiou])/);
+  if (explicit) return explicit[1];
+  const anchor = text.match(/(?:same middle sound as|same sound in the middle as|middle sound as|sound as)\s+['"]?([a-z]+)['"]?/);
+  if (anchor) return shortVowelInWord(anchor[1]);
+  return shortVowelInWord(answerWord);
+}
+
+function deterministicHash(value = "") {
+  return Array.from(String(value)).reduce((hash, char) => ((hash << 5) - hash + char.charCodeAt(0)) | 0, 0);
+}
+
+function rotate(values = [], seed = 0) {
+  if (!values.length) return [];
+  const offset = Math.abs(seed) % values.length;
+  return [...values.slice(offset), ...values.slice(0, offset)];
+}
+
+function optionHasUsableMedia(word) {
+  return Boolean(resolveWordAsset(word)?.image);
+}
+
+function candidateWordsForVowel(vowel, exclude = new Set()) {
+  return (SHORT_VOWEL_WORDS[vowel] || [])
+    .filter(word => !exclude.has(word))
+    .filter(optionHasUsableMedia);
+}
+
+function addDiverseWords(selected, candidates, limit) {
+  for (const word of candidates) {
+    if (selected.length >= limit) break;
+    if (selected.includes(word)) continue;
+    const initials = selected.map(item => item[0]);
+    if (initials.includes(word[0])) continue;
+    selected.push(word);
+  }
+  for (const word of candidates) {
+    if (selected.length >= limit) break;
+    if (!selected.includes(word)) selected.push(word);
+  }
+  return selected;
+}
+
+function buildBalancedShortVowelChoices(question = {}, answerWord = "") {
+  const promptText = String([question.question, question.prompt, question.spokenPrompt].join(" ")).toLowerCase();
+  const seed = deterministicHash(question.id || `${promptText}-${answerWord}`);
+  const answerVowel = shortVowelInWord(answerWord);
+  const targetVowel = shortVowelTargetFromQuestion(question, answerWord) || answerVowel;
+  const exclude = new Set([answerWord]);
+  const selected = [answerWord];
+
+  if (/\bdoes\s+not\b/.test(promptText) && targetVowel) {
+    const sameVowelCandidates = rotate(candidateWordsForVowel(targetVowel, exclude), seed)
+      .filter(word => shortVowelInWord(word) === targetVowel);
+    return addDiverseWords(selected, sameVowelCandidates, 4);
+  }
+
+  const distractorVowels = rotate(
+    SHORT_VOWEL_VALUES.filter(vowel => vowel !== targetVowel),
+    seed
+  );
+
+  for (const vowel of distractorVowels) {
+    const candidates = rotate(candidateWordsForVowel(vowel, exclude), seed + vowel.charCodeAt(0));
+    addDiverseWords(selected, candidates, Math.min(4, selected.length + 1));
+  }
+
+  if (selected.length < 4) {
+    const fallback = rotate(
+      SHORT_VOWEL_VALUES.flatMap(vowel => candidateWordsForVowel(vowel, exclude)),
+      seed
+    );
+    addDiverseWords(selected, fallback, 4);
+  }
+
+  return selected.slice(0, 4);
+}
+
+function shouldBalanceShortVowelChoices(question = {}, skillId = "") {
+  if (skillId !== "short_vowel_discrimination") return false;
+  if (isGraphemeChoiceQuestion(question)) return false;
+  const choices = question.choices || question.answerOptions || [];
+  if (!Array.isArray(choices) || choices.length !== 4) return false;
+  const answerWord = optionWord(question.correctAnswer || question.answer);
+  if (!answerWord || !shortVowelInWord(answerWord)) return false;
+  return choices.every(choice => {
+    const word = optionWord(choice);
+    return word && /^[a-z]+$/.test(word) && shortVowelInWord(word);
+  });
+}
+
+function hasShortVowelShortcutPattern(choices = [], answerWord = "") {
+  const words = choices.map(optionWord).filter(Boolean);
+  if (words.length !== 4) return false;
+  const initialCounts = words.reduce((counts, word) => {
+    counts[word[0]] = (counts[word[0]] || 0) + 1;
+    return counts;
+  }, {});
+  const maxInitialCount = Math.max(...Object.values(initialCounts));
+  return maxInitialCount >= 3;
+}
+
+export function balanceShortVowelDiscriminationChoices(question = {}) {
+  const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
+  if (!shouldBalanceShortVowelChoices(question, skillId)) return question;
+
+  const answerWord = optionWord(question.correctAnswer || question.answer);
+  const currentChoices = question.choices || question.answerOptions || [];
+  if (!hasShortVowelShortcutPattern(currentChoices, answerWord)) return question;
+
+  const choices = buildBalancedShortVowelChoices(question, answerWord);
+  if (choices.length !== 4 || !choices.includes(answerWord)) return question;
+
+  return {
+    ...question,
+    choices,
+    answerOptions: choices,
+    options: Array.isArray(question.options) ? choices : question.options,
+    shortVowelDistractorsBalanced: true
+  };
+}
+
 function enrichOption(option) {
   const word = optionWord(option);
   if (!word) return option;
@@ -151,6 +310,11 @@ export function enrichQuestionWithExistingMedia(question = {}) {
       enriched.audioUrl = enriched.audioUrl || enriched.audioPath || enriched.audio || targetAsset.audio;
       enriched.audioPath = enriched.audioPath || enriched.audioUrl || enriched.audio || targetAsset.audio;
     }
+  }
+
+  const balanced = balanceShortVowelDiscriminationChoices(enriched);
+  if (balanced !== enriched) {
+    Object.assign(enriched, balanced);
   }
 
   if (Array.isArray(enriched.answerOptions) && !isGraphemeChoiceQuestion(enriched)) {
