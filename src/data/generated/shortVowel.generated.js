@@ -662,9 +662,9 @@ export const shortVowelGeneratedQuestions = [
       "o",
       "u"
     ],
-    "imageKey": "bid",
-    "imageUrl": "/images/child-mode/cvc/bid.png",
-    "imagePath": "/images/child-mode/cvc/bid.png",
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
     "audioKey": "bid",
     "audioUrl": "/audio/child-mode/words/bid.mp3",
     "audioPath": "/audio/child-mode/words/bid.mp3",
@@ -733,58 +733,6 @@ export const shortVowelGeneratedQuestions = [
       "generated",
       "short-vowel-discrimination",
       "word-choice"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_bid"
-  },
-  {
-    "id": "gen_short_vowel_i_bid_4_picture",
-    "skillId": "short_vowel_discrimination",
-    "skillName": "Short Vowel Discrimination",
-    "skill": "Short Vowel Discrimination",
-    "level": 1,
-    "templateType": "PICTURE_TO_PRINT_MATCH",
-    "formatType": "PICTURE_TO_PRINT_MATCH",
-    "questionType": "picture_to_print_match",
-    "prompt": "Pick the word that matches the picture.",
-    "question": "Pick the word that matches the picture.",
-    "spokenPrompt": "Pick the word that matches the picture.",
-    "audioText": "bid",
-    "targetWord": "bid",
-    "correctAnswer": "bid",
-    "answer": "bid",
-    "choices": [
-      "bid",
-      "cap",
-      "dog",
-      "gum"
-    ],
-    "answerOptions": [
-      "bid",
-      "cap",
-      "dog",
-      "gum"
-    ],
-    "imageKey": "bid",
-    "imageUrl": "/images/child-mode/cvc/bid.png",
-    "imagePath": "/images/child-mode/cvc/bid.png",
-    "audioKey": "bid",
-    "audioUrl": "/audio/child-mode/words/bid.mp3",
-    "audioPath": "/audio/child-mode/words/bid.mp3",
-    "phonicsPattern": "short_i",
-    "targetSound": "short_i",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_i",
-    "itemKey": "short_i",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "short-vowel-discrimination",
-      "picture-word"
     ],
     "active": true,
     "qaStatus": "approved",
@@ -1546,15 +1494,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bus",
     "choices": [
       "bus",
-      "cap",
+      "cot",
       "dig",
-      "hen"
+      "fan"
     ],
     "answerOptions": [
       "bus",
-      "cap",
+      "cot",
       "dig",
-      "hen"
+      "fan"
     ],
     "imageKey": "bus",
     "imageUrl": "/images/child-mode/short-u/bus.png",
@@ -2020,15 +1968,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cap",
     "choices": [
       "cap",
-      "dig",
-      "gum",
-      "hen"
+      "dog",
+      "fin",
+      "gum"
     ],
     "answerOptions": [
       "cap",
-      "dig",
-      "gum",
-      "hen"
+      "dog",
+      "fin",
+      "gum"
     ],
     "imageKey": "cap",
     "imageUrl": "/images/child-mode/cvc/cap.png",
@@ -2494,13 +2442,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cub",
     "choices": [
       "cub",
-      "dig",
+      "dog",
       "fan",
       "hen"
     ],
     "answerOptions": [
       "cub",
-      "dig",
+      "dog",
       "fan",
       "hen"
     ],
@@ -2968,15 +2916,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "answerOptions": [
       "dad",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "imageKey": "dad",
     "imageUrl": "/media/vocabulary/images/dad.webp",
@@ -3758,15 +3706,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dot",
     "choices": [
       "dot",
-      "fin",
       "gum",
-      "ham"
+      "ham",
+      "jet"
     ],
     "answerOptions": [
       "dot",
-      "fin",
       "gum",
-      "ham"
+      "ham",
+      "jet"
     ],
     "imageKey": "dot",
     "imageUrl": "/images/child-mode/cvc/dot.png",
@@ -3916,14 +3864,14 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dug",
     "choices": [
       "dug",
-      "hat",
-      "jet",
+      "hen",
+      "jam",
       "kid"
     ],
     "answerOptions": [
       "dug",
-      "hat",
-      "jet",
+      "hen",
+      "jam",
       "kid"
     ],
     "imageKey": "dug",
@@ -4074,13 +4022,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "hop",
+      "hot",
       "jet",
       "kid"
     ],
     "answerOptions": [
       "fan",
-      "hop",
+      "hot",
       "jet",
       "kid"
     ],
@@ -4548,13 +4496,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fun",
     "choices": [
       "fun",
-      "hop",
+      "hot",
       "jam",
       "kid"
     ],
     "answerOptions": [
       "fun",
-      "hop",
+      "hot",
       "jam",
       "kid"
     ],
@@ -4706,13 +4654,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "gem",
     "choices": [
       "gem",
-      "ham",
+      "hat",
       "jug",
       "kid"
     ],
     "answerOptions": [
       "gem",
-      "ham",
+      "hat",
       "jug",
       "kid"
     ],
@@ -4864,15 +4812,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "gum",
     "choices": [
       "gum",
-      "jam",
+      "jet",
       "kid",
-      "leg"
+      "log"
     ],
     "answerOptions": [
       "gum",
-      "jam",
+      "jet",
       "kid",
-      "leg"
+      "log"
     ],
     "imageKey": "gum",
     "imageUrl": "/images/child-mode/initial-sounds/gum.png",
@@ -5180,15 +5128,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "leg",
+      "lid",
       "mop",
-      "pig"
+      "pen"
     ],
     "answerOptions": [
       "hat",
-      "leg",
+      "lid",
       "mop",
-      "pig"
+      "pen"
     ],
     "imageKey": "hat",
     "imageUrl": "/images/child-mode/cvc/hat.png",
@@ -5812,15 +5760,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hop",
     "choices": [
       "hop",
-      "kid",
       "leg",
-      "man"
+      "man",
+      "pig"
     ],
     "answerOptions": [
       "hop",
-      "kid",
       "leg",
-      "man"
+      "man",
+      "pig"
     ],
     "imageKey": "hop",
     "imageUrl": "/images/child-mode/initial-sounds/hop.png",
@@ -6128,13 +6076,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hut",
     "choices": [
       "hut",
-      "lip",
+      "log",
       "man",
       "pen"
     ],
     "answerOptions": [
       "hut",
-      "lip",
+      "log",
       "man",
       "pen"
     ],
@@ -6602,13 +6550,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "man",
+      "mat",
       "pen",
       "sit"
     ],
     "answerOptions": [
       "jug",
-      "man",
+      "mat",
       "pen",
       "sit"
     ],
@@ -7076,15 +7024,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lab",
     "choices": [
       "lab",
-      "pot",
       "red",
-      "sit"
+      "sit",
+      "top"
     ],
     "answerOptions": [
       "lab",
-      "pot",
       "red",
-      "sit"
+      "sit",
+      "top"
     ],
     "imageKey": "lab",
     "imageUrl": "/media/final-sounds/images/b/lab.webp",
@@ -7392,13 +7340,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "leg",
     "choices": [
       "leg",
-      "man",
+      "mat",
       "pig",
       "rug"
     ],
     "answerOptions": [
       "leg",
-      "man",
+      "mat",
       "pig",
       "rug"
     ],
@@ -8024,13 +7972,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "rug",
+      "run",
       "sit",
       "ten"
     ],
     "answerOptions": [
       "mad",
-      "rug",
+      "run",
       "sit",
       "ten"
     ],
@@ -8182,15 +8130,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "run",
       "sit",
-      "ten"
+      "ten",
+      "bug"
     ],
     "answerOptions": [
       "man",
-      "run",
       "sit",
-      "ten"
+      "ten",
+      "bug"
     ],
     "imageKey": "man",
     "imageUrl": "/images/child-mode/cvc/man.png",
@@ -8656,13 +8604,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mud",
     "choices": [
       "mud",
-      "ram",
+      "rat",
       "sit",
       "ten"
     ],
     "answerOptions": [
       "mud",
-      "ram",
+      "rat",
       "sit",
       "ten"
     ],
@@ -8814,15 +8762,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "rat",
-      "sit",
-      "ten"
+      "red",
+      "sad",
+      "top"
     ],
     "answerOptions": [
       "mug",
-      "rat",
-      "sit",
-      "ten"
+      "red",
+      "sad",
+      "top"
     ],
     "imageKey": "mug",
     "imageUrl": "/images/child-mode/cvc/mug.png",
@@ -8972,15 +8920,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "nap",
     "choices": [
       "nap",
-      "ten",
-      "wig",
-      "bug"
+      "top",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "nap",
-      "ten",
-      "wig",
-      "bug"
+      "top",
+      "web",
+      "zip"
     ],
     "imageKey": "nap",
     "imageUrl": "/images/child-mode/cvc/nap.png",
@@ -9130,13 +9078,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "top",
+      "tub",
       "web",
       "zip"
     ],
     "answerOptions": [
       "pad",
-      "top",
+      "tub",
       "web",
       "zip"
     ],
@@ -9288,15 +9236,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "tub",
       "web",
-      "zip"
+      "zip",
+      "bug"
     ],
     "answerOptions": [
       "pan",
-      "tub",
       "web",
-      "zip"
+      "zip",
+      "bug"
     ],
     "imageKey": "pan",
     "imageUrl": "/images/child-mode/cvc/pan.png",
@@ -9446,13 +9394,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "peg",
     "choices": [
       "peg",
-      "ram",
+      "rat",
       "sit",
       "top"
     ],
     "answerOptions": [
       "peg",
-      "ram",
+      "rat",
       "sit",
       "top"
     ],
@@ -9604,14 +9552,14 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pen",
     "choices": [
       "pen",
-      "rat",
-      "sit",
+      "rug",
+      "sad",
       "top"
     ],
     "answerOptions": [
       "pen",
-      "rat",
-      "sit",
+      "rug",
+      "sad",
       "top"
     ],
     "imageKey": "pen",
@@ -10236,15 +10184,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "run",
       "sad",
-      "ten"
+      "ten",
+      "wig"
     ],
     "answerOptions": [
       "pot",
-      "run",
       "sad",
-      "ten"
+      "ten",
+      "wig"
     ],
     "imageKey": "pot",
     "imageUrl": "/images/child-mode/cvc/pot.png",
@@ -10394,15 +10342,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pup",
     "choices": [
       "pup",
-      "tap",
-      "web",
-      "zip"
+      "ten",
+      "van",
+      "wig"
     ],
     "answerOptions": [
       "pup",
-      "tap",
-      "web",
-      "zip"
+      "ten",
+      "van",
+      "wig"
     ],
     "imageKey": "pup",
     "imageUrl": "/media/vocabulary/images/pup.webp",
@@ -10552,13 +10500,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rag",
     "choices": [
       "rag",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "rag",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -10710,13 +10658,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "ram",
     "choices": [
       "ram",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "ram",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -10868,13 +10816,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "rat",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -11026,15 +10974,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "red",
     "choices": [
       "red",
-      "sit",
+      "sun",
       "tag",
-      "bug"
+      "wig"
     ],
     "answerOptions": [
       "red",
-      "sit",
+      "sun",
       "tag",
-      "bug"
+      "wig"
     ],
     "imageKey": "red",
     "imageUrl": "/images/child-mode/short-e/red.png",
@@ -11500,14 +11448,14 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rub",
     "choices": [
       "rub",
-      "wig",
       "yak",
+      "zip",
       "cot"
     ],
     "answerOptions": [
       "rub",
-      "wig",
       "yak",
+      "zip",
       "cot"
     ],
     "imageKey": "rub",
@@ -11658,14 +11606,14 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "yak",
       "zip",
+      "bad",
       "cot"
     ],
     "answerOptions": [
       "rug",
-      "yak",
       "zip",
+      "bad",
       "cot"
     ],
     "imageKey": "rug",
@@ -11974,13 +11922,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "sad",
     "choices": [
       "sad",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "sad",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -12132,13 +12080,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "sap",
     "choices": [
       "sap",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "sap",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -12922,13 +12870,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "tab",
     "choices": [
       "tab",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "tab",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -13080,13 +13028,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "tag",
     "choices": [
       "tag",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "tag",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -13238,13 +13186,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "tap",
     "choices": [
       "tap",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "tap",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -14028,13 +13976,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "van",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -14186,13 +14134,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "wag",
     "choices": [
       "wag",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "wag",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -14818,13 +14766,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "yak",
     "choices": [
       "yak",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "yak",
-      "bid",
+      "big",
       "cot",
       "dug"
     ],
@@ -15134,13 +15082,13 @@ export const shortVowelGeneratedQuestions = [
     "answer": "zip",
     "choices": [
       "zip",
-      "bad",
+      "bag",
       "cot",
       "dug"
     ],
     "answerOptions": [
       "zip",
-      "bad",
+      "bag",
       "cot",
       "dug"
     ],

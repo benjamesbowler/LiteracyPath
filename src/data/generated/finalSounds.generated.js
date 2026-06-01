@@ -885,58 +885,6 @@ export const finalSoundsGeneratedQuestions = [
     "sourceLexiconId": "lex_bad"
   },
   {
-    "id": "gen_final_l1_d_bid_1_sound",
-    "skillId": "final_sounds",
-    "skillName": "Final Sounds",
-    "skill": "Final Sounds",
-    "level": 1,
-    "templateType": "ENDING_SOUND",
-    "formatType": "ENDING_SOUND",
-    "questionType": "ending_sound",
-    "prompt": "Listen to the word. What sound does \"bid\" end with?",
-    "question": "Listen to the word. What sound does \"bid\" end with?",
-    "spokenPrompt": "Listen to bid. What sound does it end with?",
-    "audioText": "bid",
-    "targetWord": "bid",
-    "correctAnswer": "d",
-    "answer": "d",
-    "choices": [
-      "d",
-      "b",
-      "g",
-      "l"
-    ],
-    "answerOptions": [
-      "d",
-      "b",
-      "g",
-      "l"
-    ],
-    "imageKey": "bid",
-    "imageUrl": "/images/child-mode/cvc/bid.png",
-    "imagePath": "/images/child-mode/cvc/bid.png",
-    "audioKey": "bid",
-    "audioUrl": "/audio/child-mode/words/bid.mp3",
-    "audioPath": "/audio/child-mode/words/bid.mp3",
-    "phonicsPattern": "d",
-    "targetSound": "d",
-    "targetFinalSound": "d",
-    "finalSoundType": "single_letter",
-    "coverageTarget": "d",
-    "itemKey": "d",
-    "itemType": "final_sound",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "tags": [
-      "generated",
-      "final-sound",
-      "single-letter-final"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_bid"
-  },
-  {
     "id": "gen_final_l1_d_dad_2_sound",
     "skillId": "final_sounds",
     "skillName": "Final Sounds",
