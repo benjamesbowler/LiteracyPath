@@ -1,6 +1,6 @@
 # Early Skill Generated Bank Check
 
-Generated: 2026-06-01T06:56:18.625Z
+Generated: 2026-06-01T07:41:17.564Z
 
 ## Generated File Counts
 
@@ -9,7 +9,7 @@ Generated: 2026-06-01T06:56:18.625Z
 | cvc_short_vowels | 286 |
 | final_sounds | 271 |
 | rhyming | 266 |
-| short_vowel_discrimination | 285 |
+| short_vowel_discrimination | 188 |
 
 ## Failures
 
@@ -242,7 +242,7 @@ Generated: 2026-06-01T06:56:18.625Z
 ## Short Vowel Discrimination
 
 - Skill ID: short_vowel_discrimination
-- Runtime/generated items checked: 285
+- Runtime/generated items checked: 188
 - Minimum expected: 150
 - Required targets: short_a, short_e, short_i, short_o, short_u
 - Covered targets: short_a, short_i, short_u, short_o, short_e
@@ -254,17 +254,16 @@ Generated: 2026-06-01T06:56:18.625Z
 
 | Template | Count |
 | --- | ---: |
-| LISTEN_CHOOSE_VOWEL | 95 |
-| PICTURE_TO_PRINT_MATCH | 95 |
-| SHORT_VOWEL_WORD | 95 |
+| LISTEN_CHOOSE_VOWEL | 94 |
+| SHORT_VOWEL_WORD | 94 |
 
 ### Coverage Targets
 
 | Target | Count |
 | --- | ---: |
-| short_a | 93 |
-| short_e | 39 |
-| short_i | 60 |
-| short_o | 33 |
-| short_u | 60 |
+| short_a | 62 |
+| short_e | 26 |
+| short_i | 38 |
+| short_o | 22 |
+| short_u | 40 |
 

@@ -1,6 +1,6 @@
 # Skill Level Depth Check
 
-Generated: 2026-06-01T06:56:44.089Z
+Generated: 2026-06-01T07:41:39.421Z
 
 Failures: 0
 Warnings: 0
@@ -15,8 +15,8 @@ Warnings: 0
 | Rhyming | 2 | yes | 54 | 27 | 200 | checked |
 | CVC Short Vowels | 1 | yes | 261 | 71 | 200 | checked |
 | CVC Short Vowels | 2 | yes | 190 | 80 | 200 | checked |
-| Short Vowel Discrimination | 1 | yes | 377 | 107 | 200 | checked |
-| Short Vowel Discrimination | 2 | yes | 54 | 54 | 200 | checked |
+| Short Vowel Discrimination | 1 | yes | 148 | 74 | 200 | checked |
+| Short Vowel Discrimination | 2 | yes | 148 | 82 | 200 | checked |
 | High-Frequency Words 1-25 | 1 | yes | 121 | 40 | 200 | checked |
 | High-Frequency Words 1-25 | 2 | yes | 95 | 40 | 200 | checked |
 | High-Frequency Words 26-50 | 1 | yes | 82 | 44 | 200 | checked |

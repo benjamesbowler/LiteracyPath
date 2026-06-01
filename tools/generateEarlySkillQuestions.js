@@ -510,9 +510,13 @@ function generateShortVowelDiscriminationQuestions(entries) {
   const cvcEntries = entries.filter(entry =>
     entry.phonicsTags.includes("cvc") &&
     vowels.includes(entry.medialVowel) &&
-    isSimpleCvcWord(entry.lowercaseWord)
+    isSimpleCvcWord(entry.lowercaseWord) &&
+    hasImage(entry) &&
+    hasApprovedAudio(entry)
   );
   return cvcEntries.slice(0, 180).flatMap((entry, index) => {
+    const level = index % 2 === 0 ? 1 : 2;
+    const phase = Math.floor(index / 2) % 2 === 0 ? 1 : 2;
     const wordOptions = balancedCvcOptions(entry, [
       ...cvcEntries.filter(item => item.medialVowel !== entry.medialVowel),
       ...cvcEntries.filter(item => item.medialVowel === entry.medialVowel && item.lowercaseWord !== entry.lowercaseWord)
@@ -520,20 +524,13 @@ function generateShortVowelDiscriminationQuestions(entries) {
       seed: index,
       preferDifferentVowel: true
     });
-    const imageWordOptions = balancedCvcOptions(entry, [
-      ...cvcEntries.filter(item => item.medialVowel !== entry.medialVowel && hasImage(item)),
-      ...cvcEntries.filter(item => item.medialVowel === entry.medialVowel && item.lowercaseWord !== entry.lowercaseWord && hasImage(item))
-    ], {
-      seed: index,
-      requireImage: true,
-      preferDifferentVowel: true
-    });
     return [
-      ...(hasApprovedAudio(entry) ? [makeBase({
+      makeBase({
         id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_listen`,
         skillId: "short_vowel_discrimination",
         skillName: "Short Vowel Discrimination",
-        level: 1,
+        level,
+        phase,
         templateType: "LISTEN_CHOOSE_VOWEL",
         prompt: `Listen to "${entry.word}". Which short vowel sound do you hear?`,
         spokenPrompt: `Listen to ${entry.word}. Which short vowel sound do you hear?`,
@@ -548,12 +545,13 @@ function generateShortVowelDiscriminationQuestions(entries) {
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "short-vowel-discrimination", "listen-vowel"]
-      })] : []),
-      ...(hasApprovedAudio(entry) ? [makeBase({
+      }),
+      makeBase({
         id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_word`,
         skillId: "short_vowel_discrimination",
         skillName: "Short Vowel Discrimination",
-        level: 1,
+        level,
+        phase,
         templateType: "SHORT_VOWEL_WORD",
         prompt: `Which word has the short ${entry.medialVowel} sound?`,
         spokenPrompt: `Which word has the short ${entry.medialVowel} sound?`,
@@ -562,35 +560,13 @@ function generateShortVowelDiscriminationQuestions(entries) {
         answerOptions: wordOptions,
         coverageTarget: `short_${entry.medialVowel}`,
         phonicsPattern: `short_${entry.medialVowel}`,
-        imageUrl: "",
+        imageUrl: getEntryImageUrl(entry),
         audioText: hasApprovedAudio(entry) ? entry.lowercaseWord : "",
         audioUrl: getEntryAudioUrl(entry),
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "short-vowel-discrimination", "word-choice"]
-      })] : []),
-      ...(hasImage(entry)
-        ? [makeBase({
-            id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_picture`,
-            skillId: "short_vowel_discrimination",
-            skillName: "Short Vowel Discrimination",
-            level: 1,
-            templateType: "PICTURE_TO_PRINT_MATCH",
-            prompt: "Pick the word that matches the picture.",
-            spokenPrompt: "Pick the word that matches the picture.",
-            targetWord: entry.lowercaseWord,
-            correctAnswer: entry.lowercaseWord,
-            answerOptions: imageWordOptions.length === 4 ? imageWordOptions : wordOptions,
-            coverageTarget: `short_${entry.medialVowel}`,
-            phonicsPattern: `short_${entry.medialVowel}`,
-            imageUrl: getEntryImageUrl(entry),
-            audioText: hasApprovedAudio(entry) ? entry.lowercaseWord : "",
-            audioUrl: getEntryAudioUrl(entry),
-            sourceLexiconId: entry.id,
-            itemType: "short_vowel",
-            tags: ["generated", "short-vowel-discrimination", "picture-word"]
-          })]
-        : [])
+      })
     ];
   });
 }

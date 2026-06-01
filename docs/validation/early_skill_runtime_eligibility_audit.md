@@ -1,6 +1,6 @@
 # Early Skill Runtime Eligibility Audit
 
-Generated: 2026-06-01T06:56:21.777Z
+Generated: 2026-06-01T07:41:20.290Z
 
 ## initial_sounds
 
@@ -160,23 +160,25 @@ Generated: 2026-06-01T06:56:21.777Z
 
 ## short_vowel_discrimination
 
-- Total candidate questions: 615
-- Runtime eligible questions: 431
+- Total candidate questions: 518
+- Runtime eligible questions: 296
 
 ### Level 1
 
-- Accepted count: 377
+- Accepted count: 148
 - Coverage targets: 5
 - Missing image references among accepted: 0
 - Missing audio references among accepted: 0
 
 | Rejection reason | Count |
 |---|---:|
+| routing/template mismatch: PICTURE_TO_PRINT_MATCH is not allowed for short_vowel_discrimination | 39 |
 | routing/template mismatch: UNKNOWN is not allowed for short_vowel_discrimination | 9 |
 | question is inactive | 2 |
-| missing required runtime image | 2 |
-| question would render with an empty or broken visual area | 2 |
+| Short Vowel Discrimination question is missing a real target-word object image | 1 |
+| missing required runtime image | 1 |
+| question would render with an empty or broken visual area | 1 |
 
-- Fresh round proof: gen_short_vowel_e_pet_61_listen (pet), gen_short_vowel_a_wag_89_picture (wag), gen_short_vowel_o_dot_23_listen (dot), recovery_short_vowel_listen_12 (wig), gen_short_vowel_u_tub_86_word (tub), p3_short_vowel_listen_3 (map), p3_short_vowel_listen_11 (pot), recovery_short_vowel_listen_4 (cap), p3_short_vowel_listen_7 (pig), ixl_short_vowel_2 (map), recovery_short_vowel_picture_10 (jet), recovery_short_vowel_picture_11 (pig), gen_short_vowel_a_lap_45_listen (lap), gen_short_vowel_e_pen_60_picture (pen), p3_short_vowel_listen_9 (sit)
-- Review round proof: gen_short_vowel_e_web_90_word (web), p3_short_vowel_listen_13 (cup), gen_short_vowel_a_tap_83_listen (tap), gen_short_vowel_i_lip_48_picture (lip), recovery_short_vowel_picture_20 (mop), p3_short_vowel_listen_6 (red), recovery_short_vowel_picture_1 (cat), gen_short_vowel_u_mug_55_picture (mug), gen_short_vowel_a_cab_10_word (cab), gen_short_vowel_a_bag_1_picture (bag), gen_short_vowel_u_tug_87_picture (tug), gen_short_vowel_u_sun_80_word (sun), p3_short_vowel_listen_3 (map), p3_short_vowel_listen_14 (mud), gen_short_vowel_u_jug_41_listen (jug)
+- Fresh round proof: gen_short_vowel_o_dot_22_listen (dot), gen_short_vowel_a_bat_2_word (bat), recovery_short_vowel_listen_10 (jet), p3_short_vowel_listen_8 (fin), recovery_short_vowel_listen_25 (nut), gen_short_vowel_e_peg_58_word (peg), gen_short_vowel_u_sub_78_listen (sub), p3_short_vowel_listen_14 (mud), p3_short_vowel_listen_4 (bed), gen_short_vowel_e_peg_58_listen (peg), p3_short_vowel_listen_10 (dog), gen_short_vowel_o_hot_36_listen (hot), gen_short_vowel_a_fan_24_word (fan), gen_short_vowel_i_pin_62_listen (pin), gen_short_vowel_e_gem_28_word (gem)
+- Review round proof: gen_short_vowel_a_wag_88_listen (wag), gen_short_vowel_u_mug_54_word (mug), p3_short_vowel_listen_11 (pot), p3_short_vowel_listen_8 (fin), ixl_short_vowel_9 (jet), gen_short_vowel_u_jug_40_listen (jug), gen_short_vowel_a_pad_56_word (pad), ixl_short_vowel_15 (ship), gen_short_vowel_i_kit_42_listen (kit), recovery_short_vowel_listen_20 (mop), gen_short_vowel_a_tap_82_listen (tap), gen_short_vowel_e_den_18_word (den), gen_short_vowel_e_pet_60_word (pet), gen_short_vowel_i_lid_46_listen (lid), recovery_short_vowel_listen_14 (pin)
 

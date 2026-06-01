@@ -314,6 +314,15 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
     }
   }
 
+  if (skillId === "short_vowel_discrimination") {
+    if (!getTargetWord(question)) {
+      issues.push("Short Vowel Discrimination question is missing targetWord");
+    }
+    if (!hasRuntimeTargetImage(question, context)) {
+      issues.push("Short Vowel Discrimination question is missing a real target-word object image");
+    }
+  }
+
   if (question.hideWrittenLabels === true && !hasRuntimeImage(question, context)) {
     issues.push("written labels are hidden while image support is incomplete");
   }
