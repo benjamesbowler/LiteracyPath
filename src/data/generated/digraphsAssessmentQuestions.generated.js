@@ -112,6 +112,10 @@ function partialWord(word, pattern) {
   return word.replace(pattern, "__");
 }
 
+function phaseForIndex(index) {
+  return ((index - 1) % 30) < 15 ? 1 : 2;
+}
+
 function imageCard(item) {
   const image = wordPath(item.word, "webp");
   return {
@@ -128,6 +132,7 @@ function imageCard(item) {
 
 function baseQuestion(pattern, word, visualDescription, index, level) {
   const imagePath = wordPath(word, "webp");
+  const phase = phaseForIndex(index);
   return {
     grade: "K-2",
     skillId: "digraphs",
@@ -135,9 +140,9 @@ function baseQuestion(pattern, word, visualDescription, index, level) {
     skill: "Digraphs",
     level,
     difficulty: level,
-    phase: level,
-    assessmentPhase: level,
-    phaseTarget: `level_${level}_phase_${level}`,
+    phase,
+    assessmentPhase: phase,
+    phaseTarget: `level_${level}_phase_${phase}`,
     targetPattern: pattern,
     phonicsPattern: pattern,
     targetWord: word,
@@ -175,6 +180,7 @@ function makeLevelOneQuestion(pattern, word, visualDescription, patternIndex, wo
     answer: word,
     requireOptionImages: true,
     requireOptionAudio: false,
+    disableAudio: true,
     hideWrittenLabels: false,
     explanation: `The word "${word}" uses the "${pattern}" digraph.`
   };
@@ -183,6 +189,7 @@ function makeLevelOneQuestion(pattern, word, visualDescription, patternIndex, wo
 function makeLevelTwoQuestion(pattern, word, visualDescription, patternIndex, wordIndex) {
   const index = patternIndex * 10 + wordIndex + 1;
   const options = patternOptions(pattern, wordIndex + patternIndex);
+  const audioPath = wordPath(word, "mp3");
   return {
     ...baseQuestion(pattern, word, visualDescription, index, 2),
     id: `digraphs_l2_${String(index).padStart(2, "0")}_${pattern}_${slug(word)}`,
@@ -191,6 +198,9 @@ function makeLevelTwoQuestion(pattern, word, visualDescription, patternIndex, wo
     formatType: "DIGRAPH_COMPLETE_WORD",
     prompt: "Choose the correct digraph to complete the word.",
     question: "Choose the correct digraph to complete the word.",
+    audioText: word,
+    audioPath,
+    audioUrl: audioPath,
     partialWord: partialWord(word, pattern),
     choices: options,
     answerOptions: options.map(option => ({ value: option, label: option })),

@@ -14,6 +14,8 @@ const HFW_BAND_CONFIGS = [
   { skillId: "hfw_76_100", skillName: "High-Frequency Words 76-100", words: HFW_WORDS_76_100 }
 ];
 
+const HFW_EXTRA_VARIANT_COUNT = 5;
+
 const HFW_SCENES = {
   "the": {
     "sentence": "I see ___ dog.",
@@ -439,7 +441,15 @@ function letterTiles(word, index) {
   return tiles.slice(0, 12);
 }
 
-function makeQuestionsForWord(config, bandIndex, word, wordIndex) {
+function phaseForSequence(sequenceIndex) {
+  return sequenceIndex < 15 ? 1 : 2;
+}
+
+function phaseTarget(level, phase) {
+  return `level_${level}_phase_${phase}`;
+}
+
+function makeLevelOneQuestion(config, bandIndex, word, wordIndex, sequenceIndex, variantIndex = 0) {
   const scene = HFW_SCENES[word];
   const imagePath = `/images/assessment/hfw/${slug(word)}.webp`;
   const base = {
@@ -462,50 +472,104 @@ function makeQuestionsForWord(config, bandIndex, word, wordIndex) {
     disableAudio: true,
     tags: ["hfw", config.skillId, word]
   };
+  const phase = phaseForSequence(sequenceIndex);
+  const options = wordOptions(word, config.words, bandIndex + variantIndex, wordIndex + variantIndex * 7);
+
+  return {
+    ...base,
+    id: `hfw_${slug(config.skillId)}_${String(sequenceIndex + 1).padStart(2, "0")}_${slug(word)}_l1_cloze${variantIndex ? `_v${variantIndex + 1}` : ""}`,
+    level: 1,
+    difficulty: 1,
+    phase,
+    assessmentPhase: phase,
+    phaseTarget: phaseTarget(1, phase),
+    templateType: "HFW_IMAGE_CONTEXT_CLOZE",
+    formatType: "HFW_IMAGE_CONTEXT_CLOZE",
+    questionType: "multiple_choice",
+    prompt: "Choose the word that completes the sentence.",
+    question: "Choose the word that completes the sentence.",
+    answerOptions: options,
+    choices: options,
+    correctAnswer: word,
+    answer: word,
+    explanation: `The word "${word}" completes the sentence.`
+  };
+}
+
+function makeLevelTwoQuestion(config, bandIndex, word, wordIndex, sequenceIndex, variantIndex = 0) {
+  const scene = HFW_SCENES[word];
+  const imagePath = `/images/assessment/hfw/${slug(word)}.webp`;
+  const phase = phaseForSequence(sequenceIndex);
+  const tileSeed = wordIndex + bandIndex * 25 + variantIndex * 31;
   const tiles = letterTiles(word, wordIndex + bandIndex * 25);
 
+  return {
+    grade: "K-2",
+    skillId: config.skillId,
+    skillName: config.skillName,
+    skill: config.skillName,
+    targetWord: word,
+    itemType: "sight_word",
+    itemKey: word,
+    imagePath,
+    imageUrl: imagePath,
+    targetImage: imagePath,
+    targetImagePath: imagePath,
+    imageAlt: scene.visual,
+    sentence: scene.sentence,
+    passage: scene.sentence,
+    active: true,
+    source: "hfw_no_audio_2026_06",
+    disableAudio: true,
+    tags: ["hfw", config.skillId, word],
+    id: `hfw_${slug(config.skillId)}_${String(sequenceIndex + 1).padStart(2, "0")}_${slug(word)}_l2_build${variantIndex ? `_v${variantIndex + 1}` : ""}`,
+    level: 2,
+    difficulty: 2,
+    phase,
+    assessmentPhase: phase,
+    phaseTarget: phaseTarget(2, phase),
+    templateType: "HFW_LETTER_BUILD",
+    formatType: "HFW_LETTER_BUILD",
+    questionType: "ixl_template",
+    prompt: "Build the missing word.",
+    question: "Build the missing word.",
+    answerOptions: [],
+    choices: [],
+    letterTiles: letterTiles(word, tileSeed),
+    soundTiles: letterTiles(word, tileSeed),
+    correctAnswer: word,
+    answer: word,
+    blankSlots: word.length,
+    explanation: `The letters spell "${word}".`
+  };
+}
+
+function makeQuestionsForBand(config, bandIndex) {
+  const extraWords = config.words.slice(0, HFW_EXTRA_VARIANT_COUNT);
+  const levelOneWords = [
+    ...config.words.map((word, wordIndex) => ({ word, wordIndex, variantIndex: 0 })),
+    ...extraWords.map((word, extraIndex) => ({
+      word,
+      wordIndex: extraIndex,
+      variantIndex: 1
+    }))
+  ];
+  const levelTwoWords = [
+    ...config.words.map((word, wordIndex) => ({ word, wordIndex, variantIndex: 0 })),
+    ...extraWords.map((word, extraIndex) => ({
+      word,
+      wordIndex: extraIndex,
+      variantIndex: 1
+    }))
+  ];
+
   return [
-    {
-      ...base,
-      id: `hfw_${slug(config.skillId)}_${String(wordIndex + 1).padStart(2, "0")}_${slug(word)}_l1_cloze`,
-      level: 1,
-      difficulty: 1,
-      phase: 1,
-      assessmentPhase: 1,
-      phaseTarget: "level_1_phase_1",
-      templateType: "HFW_IMAGE_CONTEXT_CLOZE",
-      formatType: "HFW_IMAGE_CONTEXT_CLOZE",
-      questionType: "multiple_choice",
-      prompt: "Choose the word that completes the sentence.",
-      question: "Choose the word that completes the sentence.",
-      answerOptions: wordOptions(word, config.words, bandIndex, wordIndex),
-      choices: wordOptions(word, config.words, bandIndex, wordIndex),
-      correctAnswer: word,
-      answer: word,
-      explanation: `The word "${word}" completes the sentence.`
-    },
-    {
-      ...base,
-      id: `hfw_${slug(config.skillId)}_${String(wordIndex + 1).padStart(2, "0")}_${slug(word)}_l2_build`,
-      level: 2,
-      difficulty: 2,
-      phase: 2,
-      assessmentPhase: 2,
-      phaseTarget: "level_2_phase_2",
-      templateType: "HFW_LETTER_BUILD",
-      formatType: "HFW_LETTER_BUILD",
-      questionType: "ixl_template",
-      prompt: "Build the missing word.",
-      question: "Build the missing word.",
-      answerOptions: [],
-      choices: [],
-      letterTiles: tiles,
-      soundTiles: tiles,
-      correctAnswer: word,
-      answer: word,
-      blankSlots: word.length,
-      explanation: `The letters spell "${word}".`
-    }
+    ...levelOneWords.map((item, sequenceIndex) =>
+      makeLevelOneQuestion(config, bandIndex, item.word, item.wordIndex, sequenceIndex, item.variantIndex)
+    ),
+    ...levelTwoWords.map((item, sequenceIndex) =>
+      makeLevelTwoQuestion(config, bandIndex, item.word, item.wordIndex, sequenceIndex, item.variantIndex)
+    )
   ];
 }
 
@@ -526,5 +590,5 @@ export const HFW_IMAGE_REQUESTS = HFW_BAND_CONFIGS.flatMap(config =>
 );
 
 export const hfwAssessmentQuestions = HFW_BAND_CONFIGS.flatMap((config, bandIndex) =>
-  config.words.flatMap((word, wordIndex) => makeQuestionsForWord(config, bandIndex, word, wordIndex))
+  makeQuestionsForBand(config, bandIndex)
 );
