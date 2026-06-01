@@ -3533,6 +3533,14 @@ export default function App() {
 
   function getNextAssessmentPathStep(stage) {
     if (
+      isFinalSoundsStage(stage) &&
+      getFinalSoundsLevelOneMasteryDepth().levelOneMastered &&
+      configuredCoverageTotals[stage?.id]?.levels?.[2]?.length
+    ) {
+      return { level: 2, phase: 1 };
+    }
+
+    if (
       stage &&
       !isInitialSoundsStage(stage) &&
       !isFinalSoundsStage(stage) &&
@@ -4932,7 +4940,9 @@ export default function App() {
           level: 1,
           phase: Number(currentRoundRecords.at(-1)?.itemPhase || 1) === 2 ? 2 : 1
         };
-        const pathStatus = getCheckpointPathStatus(stage, currentStep);
+        const pathStatus = getCheckpointPathStatus(stage, currentStep, {
+          coverageComplete: depth.levelOneMastered
+        });
         const effectivePassed = passed;
         const missingCoverage = finalSoundLevelOneTargets.filter(target => !depth.coveredTargets.includes(target));
         const stillNeedsPractice = depth.stillNeedsPractice;
@@ -4975,6 +4985,9 @@ export default function App() {
             requiredSuccessfulRounds: depth.requiredSuccessfulRounds,
             stillNeedsPractice,
             contentGaps: depth.contentGaps,
+            allSoundsMastered: depth.allSoundsMastered,
+            enoughSuccessfulRounds: depth.enoughSuccessfulRounds,
+            levelOneMastered: depth.levelOneMastered,
             bySound: depth.bySound
           }
         };
