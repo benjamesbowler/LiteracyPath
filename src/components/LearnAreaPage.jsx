@@ -42,7 +42,7 @@ export function LearnAreaPage() {
       <section className="learn-story-quest-library card">
         <div className="learn-story-quest-copy">
           <span className="story-quest-kicker">Read</span>
-          <h2>Read with Sam and Alf</h2>
+          <h2>Read with Sam and Pam</h2>
           <p>Read a bright decodable story, hear each page, and collect story words as you go.</p>
         </div>
         <div className="learn-story-quest-list">

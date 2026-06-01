@@ -35,8 +35,11 @@ const NESTED_COLLECTION_FIELDS = [
   "answerOptions",
   "cards",
   "imageCards",
+  "promptImageCards",
+  "promptCards",
   "soundTiles",
   "letterTiles",
+  "tiles",
   "options"
 ];
 
@@ -68,11 +71,17 @@ function collectMediaFromValue(value, media, depth = 0) {
   AUDIO_FIELDS.forEach(field => addSrc(media.audio, value[field]));
 
   if (value.choiceImages && typeof value.choiceImages === "object") {
-    Object.values(value.choiceImages).forEach(src => addSrc(media.images, src));
+    Object.values(value.choiceImages).forEach(src => {
+      addSrc(media.images, src);
+      collectMediaFromValue(src, media, depth + 1);
+    });
   }
 
   if (value.choiceAudio && typeof value.choiceAudio === "object") {
-    Object.values(value.choiceAudio).forEach(src => addSrc(media.audio, src));
+    Object.values(value.choiceAudio).forEach(src => {
+      addSrc(media.audio, src);
+      collectMediaFromValue(src, media, depth + 1);
+    });
   }
 
   NESTED_COLLECTION_FIELDS.forEach(field => {
@@ -127,7 +136,7 @@ export function preloadAudio(src) {
       resolve(result);
     };
 
-    audio.preload = "metadata";
+    audio.preload = "auto";
     audio.onloadedmetadata = () => finish(true);
     audio.oncanplaythrough = () => finish(true);
     audio.onerror = () => finish(false);
@@ -139,6 +148,13 @@ export function preloadAudio(src) {
     audio.src = normalized;
     try {
       audio.load();
+      if (typeof fetch === "function") {
+        fetch(normalized, { cache: "force-cache" })
+          .then(response => {
+            if (response.ok) finish(true);
+          })
+          .catch(() => {});
+      }
     } catch {
       finish(false);
     }
