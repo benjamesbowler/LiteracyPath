@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { APPROVED_SIGHT_WORDS } from "../src/data/skillTemplateRouting.js";
+import { HFW_WORD_BANDS } from "../src/data/highFrequencyWordBands.js";
 import { kimiVocabulary500Lexicon } from "../src/data/kimiVocabulary500Lexicon.js";
 import {
   finalSoundExpectedItemKeys,
@@ -15,7 +16,9 @@ import {
 import {
   auditSkillLevelDepth,
   docsValidationDir,
-  ensureDir
+  ensureDir,
+  getRuntimeSafeDepthQuestions,
+  uniqueRuntimeQuestions
 } from "./skillLevelDepthShared.js";
 import { publicPathExists, repoRoot } from "./phonicsRuntimeUtils.js";
 
@@ -23,6 +26,7 @@ const generatedPath = path.join(repoRoot, "src", "data", "generated", "skillLeve
 const manifestPath = path.join(docsValidationDir, "skill_level_gap_questions_generation.json");
 const markdownPath = path.join(docsValidationDir, "skill_level_gap_questions_generation.md");
 const GENERATED_SOURCE = "skill_level_depth_gap_generator";
+const PHASE_BUFFER_SIZE = SKILL_LEVEL_DEPTH_TARGETS.phaseBufferSize || Math.ceil(SKILL_LEVEL_DEPTH_TARGETS.phaseSize * 1.5);
 const SHORT_VOWEL_LABELS = ["short_a", "short_e", "short_i", "short_o", "short_u"];
 const SINGLE_LETTER_SOUNDS = "abcdefghijklmnopqrstuvwxyz".split("");
 const BASIC_FINAL_SOUNDS = finalSoundExpectedItemKeys;
@@ -49,8 +53,13 @@ function rotate(items, offset) {
   return items.slice(start).concat(items.slice(0, start));
 }
 
+const BLOCKED_RUNTIME_MEDIA_TOKEN = /(?:blank|placeholder|fallback|missing|unavailable|coming-soon)/i;
+
 function hasMedia(entry) {
-  return entry?.status === "approved" && publicPathExists(entry.imagePath) && publicPathExists(entry.audioPath);
+  return entry?.status === "approved" &&
+    !BLOCKED_RUNTIME_MEDIA_TOKEN.test(`${entry.word || ""} ${entry.imagePath || ""} ${entry.audioPath || ""}`) &&
+    publicPathExists(entry.imagePath) &&
+    publicPathExists(entry.audioPath);
 }
 
 const lexicon = kimiVocabulary500Lexicon
@@ -67,6 +76,47 @@ function byWord(word) {
 
 function entriesFor(predicate) {
   return lexicon.filter(predicate);
+}
+
+const SHORT_VOWEL_MEDIA_RESERVE = [
+  ["bat", "short_a"], ["bed", "short_e"], ["box", "short_o"], ["bus", "short_u"],
+  ["cap", "short_a"], ["cat", "short_a"], ["cup", "short_u"], ["dog", "short_o"],
+  ["fan", "short_a"], ["fox", "short_o"], ["gum", "short_u"], ["ham", "short_a"],
+  ["hat", "short_a"], ["hen", "short_e"], ["jam", "short_a"], ["map", "short_a"],
+  ["mat", "short_a"], ["net", "short_e"], ["pan", "short_a"], ["pen", "short_e"],
+  ["pin", "short_i"], ["pot", "short_o"], ["rug", "short_u"], ["sun", "short_u"],
+  ["tap", "short_a"], ["top", "short_o"]
+].map(([word, shortVowel]) => ({
+  word,
+  normalizedWord: word,
+  displayWord: word,
+  imagePath: `/media/initial-sounds/images/${word[0]}/${word}.webp`,
+  audioPath: `/media/initial-sounds/audio/${word[0]}/${word}.mp3`,
+  status: "approved",
+  isConcrete: true,
+  isImageable: true,
+  phonics: {
+    initialSound: word[0],
+    finalSound: word.slice(-1),
+    cvc: word.length === 3,
+    shortVowel
+  },
+  skills: {
+    cvcShortVowels: {
+      eligible: true,
+      minLevel: 1
+    }
+  }
+})).filter(hasMedia);
+
+function entriesWithShortVowelReserve(predicate) {
+  const seen = new Set();
+  return [...lexicon, ...SHORT_VOWEL_MEDIA_RESERVE]
+    .filter(entry => {
+      if (seen.has(entry.word)) return false;
+      seen.add(entry.word);
+      return predicate(entry);
+    });
 }
 
 function entrySkillEligible(skillKey, level, entry) {
@@ -155,19 +205,21 @@ function makeInitialQuestions(level, needed) {
 }
 
 function makeShortVowelQuestions(skillId, skillName, level, needed) {
-  const pool = entriesFor(entry =>
+  const pool = entriesWithShortVowelReserve(entry =>
     entry.isConcrete &&
     entry.isImageable &&
     entry.phonics?.shortVowel &&
     (level === 1 ? entry.phonics?.cvc : true) &&
     (skillId === "cvc_short_vowels" ? entry.skills?.cvcShortVowels?.eligible : true)
   );
-  return pool.slice(0, needed).map((entry, index) => {
+  const makeQuestion = (entry, index, variant = 0) => {
     const itemKey = entry.phonics.shortVowel;
     const vowel = itemKey.replace("short_", "");
-    const templateType = index % 2 === 0 ? "LISTEN_CHOOSE_VOWEL" : "SHORT_VOWEL_WORD";
+    const templateType = variant === 1
+      ? "MISSING_VOWEL_CVC"
+      : index % 2 === 0 ? "LISTEN_CHOOSE_VOWEL" : "SHORT_VOWEL_WORD";
     return mediaQuestion({
-      id: `gap_${slug(skillId)}_l${level}_${slug(entry.word)}_${index + 1}`,
+      id: `gap_${slug(skillId)}_l${level}_${slug(entry.word)}_${index + 1}${variant ? `_v${variant + 1}` : ""}`,
       skillId,
       skillName,
       level,
@@ -182,9 +234,17 @@ function makeShortVowelQuestions(skillId, skillName, level, needed) {
       targetVowel: vowel,
       shortVowel: itemKey,
       phonicsPattern: itemKey,
+      partialWord: variant === 1 ? entry.word.replace(/[aeiou]/, "_") : undefined,
       explanation: `${entry.displayWord} has the ${itemKey.replace("_", " ")} sound.`
     });
-  });
+  };
+  const primary = pool.slice(0, needed).map((entry, index) => makeQuestion(entry, index, 0));
+  if (primary.length >= needed) return primary;
+  const variants = pool
+    .filter(entry => /^[a-z]{3,5}$/.test(entry.word))
+    .slice(0, needed - primary.length)
+    .map((entry, index) => makeQuestion(entry, primary.length + index, 1));
+  return [...primary, ...variants].slice(0, needed);
 }
 
 function makeRhymingQuestions(level, needed) {
@@ -353,9 +413,70 @@ function makeRControlledQuestions(level, needed) {
 }
 
 const HFW_BANDS = {
+  ...HFW_WORD_BANDS,
   hfw_26_50: ["he", "she", "they", "was", "with", "for", "all", "are", "but", "under", "then", "that", "have", "from", "this", "what", "were", "when", "where", "went", "came", "will", "into", "just", "now"],
   hfw_51_100: ["after", "again", "any", "around", "ask", "away", "be", "before", "by", "cold", "come", "could", "down", "every", "find", "fly", "found", "funny", "give", "going", "has", "help", "helps", "her", "here", "him", "his", "how", "know", "let", "like", "little", "live", "look", "made", "make", "may", "me", "must", "new", "not", "old", "once", "open", "our", "out", "over", "play", "please", "pretty", "put", "read"]
 };
+
+function getQuestionPhase(question = {}) {
+  const raw = question.phase ?? question.assessmentPhase ?? question.levelPhase ?? question.phaseTarget ?? "";
+  const numeric = Number(raw);
+  if (numeric === 1 || numeric === 2) return numeric;
+  const text = String(raw || "").toLowerCase();
+  if (/\bphase_?1\b|level_?\d_?phase_?1|p1/.test(text)) return 1;
+  if (/\bphase_?2\b|level_?\d_?phase_?2|p2/.test(text)) return 2;
+  return 0;
+}
+
+function makeSkillLevelKey(skillId, level) {
+  return `${skillId || ""}::${Number(level || 1) >= 2 ? 2 : 1}`;
+}
+
+function buildBasePhaseCounts() {
+  const counts = new Map();
+  const baseQuestions = uniqueRuntimeQuestions(
+    getRuntimeSafeDepthQuestions().filter(question =>
+      !question.depthFilterReason &&
+      question.depthSkillId &&
+      question._source !== "skillLevelGapQuestions"
+    )
+  );
+
+  for (const question of baseQuestions) {
+    const key = makeSkillLevelKey(question.depthSkillId, question.depthLevel);
+    const current = counts.get(key) || { 1: 0, 2: 0 };
+    const phase = getQuestionPhase(question);
+    if (phase === 1 || phase === 2) {
+      current[phase] += 1;
+    } else {
+      current[1] += 1;
+      current[2] += 1;
+    }
+    counts.set(key, current);
+  }
+
+  return counts;
+}
+
+function withGeneratedPhaseMetadata(questions = [], basePhaseCounts = buildBasePhaseCounts()) {
+  const nextCounts = new Map(
+    [...basePhaseCounts.entries()].map(([key, value]) => [key, { ...value }])
+  );
+  return questions.map(question => {
+    const key = makeSkillLevelKey(question.skillId, question.level);
+    const current = nextCounts.get(key) || { 1: 0, 2: 0 };
+    const level = Number(question.level || 1) >= 2 ? 2 : 1;
+    const phase = current[1] <= current[2] || current[2] >= PHASE_BUFFER_SIZE ? 1 : 2;
+    current[phase] += 1;
+    nextCounts.set(key, current);
+    return {
+      ...question,
+      phase,
+      assessmentPhase: phase,
+      phaseTarget: `level_${level}_phase_${phase}`
+    };
+  });
+}
 
 function makeHfwQuestions(skillId, skillName, level, needed) {
   const band = HFW_BANDS[skillId] || [];
@@ -536,7 +657,10 @@ const PLURALS = [
   ["teeth", "tooth"], ["mice", "mouse"], ["geese", "goose"],
   ["foxes", "fox"], ["brushes", "brush"], ["benches", "bench"], ["classes", "class"], ["toys", "toy"], ["trays", "tray"],
   ["keys", "key"], ["boys", "boy"], ["ladies", "lady"], ["stories", "story"], ["loaves", "loaf"], ["scarves", "scarf"],
-  ["men", "man"], ["women", "woman"], ["people", "person"], ["oxen", "ox"]
+  ["men", "man"], ["women", "woman"], ["people", "person"], ["oxen", "ox"],
+  ["cars", "car"], ["boats", "boat"], ["chairs", "chair"], ["pencils", "pencil"],
+  ["flowers", "flower"], ["apples", "apple"], ["bikes", "bike"], ["shoes", "shoe"],
+  ["lamps", "lamp"], ["doors", "door"], ["classes", "class"], ["watches", "watch"]
 ];
 
 function makePluralQuestions(skillName, level, needed) {
@@ -644,7 +768,21 @@ const ANTONYM_SYNONYM = [
   ["brave", "bold", "Which word means about the same as brave?", ["bold", "scared", "small", "soft"]],
   ["smart", "clever", "Which word means about the same as smart?", ["clever", "sleepy", "empty", "dark"]],
   ["pretty", "beautiful", "Which word means about the same as pretty?", ["beautiful", "dirty", "cold", "slow"]],
-  ["easy", "simple", "Which word means about the same as easy?", ["simple", "hard", "heavy", "late"]]
+  ["easy", "simple", "Which word means about the same as easy?", ["simple", "hard", "heavy", "late"]],
+  ["new", "old", "Which word means the opposite of new?", ["old", "fresh", "clean", "young"]],
+  ["early", "late", "Which word means the opposite of early?", ["late", "first", "soon", "quick"]],
+  ["empty", "blank", "Which word means about the same as empty?", ["blank", "full", "heavy", "bright"]],
+  ["tiny", "small", "Which word means about the same as tiny?", ["small", "huge", "wide", "loud"]],
+  ["under", "over", "Which word means the opposite of under?", ["over", "below", "inside", "near"]],
+  ["front", "back", "Which word means the opposite of front?", ["back", "first", "near", "open"]],
+  ["day", "night", "Which word means the opposite of day?", ["night", "light", "sun", "morning"]],
+  ["push", "pull", "Which word means the opposite of push?", ["pull", "move", "hold", "lift"]],
+  ["laugh", "giggle", "Which word means about the same as laugh?", ["giggle", "cry", "sleep", "whisper"]],
+  ["cry", "weep", "Which word means about the same as cry?", ["weep", "smile", "run", "jump"]],
+  ["calm", "peaceful", "Which word means about the same as calm?", ["peaceful", "angry", "noisy", "fast"]],
+  ["rough", "smooth", "Which word means the opposite of rough?", ["smooth", "bumpy", "hard", "dark"]],
+  ["strong", "weak", "Which word means the opposite of strong?", ["weak", "powerful", "big", "safe"]],
+  ["true", "false", "Which word means the opposite of true?", ["false", "right", "same", "kind"]]
 ];
 
 const HOMOPHONES = [
@@ -792,9 +930,9 @@ function generateFor(skillId, skillName, level, needed) {
 
 function neededForLevel(levelAudit) {
   if (!levelAudit.designed || levelAudit.passesDepth) return 0;
-  if (levelAudit.runtimeSafeQuestionCount === 0) return SKILL_LEVEL_DEPTH_TARGETS.minimumPerLevel + 5;
-  if (levelAudit.missingCount > 0) return levelAudit.missingCount + 5;
-  return 15;
+  if (levelAudit.runtimeSafeQuestionCount === 0) return SKILL_LEVEL_DEPTH_TARGETS.minimumPerLevel + 8;
+  if (levelAudit.missingCount > 0) return levelAudit.missingCount + 8;
+  return SKILL_LEVEL_DEPTH_TARGETS.phaseBufferSize || 23;
 }
 
 function main() {
@@ -827,10 +965,11 @@ function main() {
   }
 
   ensureDir(path.dirname(generatedPath));
+  const phasedGenerated = withGeneratedPhaseMetadata(generated);
   const file = [
     "// Generated by tools/generateSkillLevelGapQuestions.js. Do not edit by hand.",
     "",
-    `export const skillLevelGapQuestions = ${JSON.stringify(generated, null, 2)};`,
+    `export const skillLevelGapQuestions = ${JSON.stringify(phasedGenerated, null, 2)};`,
     ""
   ].join("\n");
   fs.writeFileSync(generatedPath, file);
@@ -839,14 +978,14 @@ function main() {
   fs.writeFileSync(manifestPath, JSON.stringify({
     generatedAt: new Date().toISOString(),
     source: GENERATED_SOURCE,
-    totalQuestions: generated.length,
+    totalQuestions: phasedGenerated.length,
     summary
   }, null, 2));
 
   const rows = summary.map(item =>
     `| ${item.skillName} | ${item.level} | ${item.startingCount} | ${item.requested} | ${item.generated} |`
   ).join("\n");
-  fs.writeFileSync(markdownPath, `# Skill Level Gap Question Generation\n\nGenerated: ${new Date().toISOString()}\n\nGenerated questions: ${generated.length}\n\n| Skill | Level | Starting Count | Requested | Generated |\n|---|---:|---:|---:|---:|\n${rows || "| None | - | - | - | - |"}\n`);
+  fs.writeFileSync(markdownPath, `# Skill Level Gap Question Generation\n\nGenerated: ${new Date().toISOString()}\n\nGenerated questions: ${phasedGenerated.length}\n\n| Skill | Level | Starting Count | Requested | Generated |\n|---|---:|---:|---:|---:|\n${rows || "| None | - | - | - | - |"}\n`);
 
   console.log(`Generated ${generated.length} skill-level gap questions.`);
 }

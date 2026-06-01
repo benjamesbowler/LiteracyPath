@@ -7,7 +7,8 @@ import {
 
 export const SKILL_LEVEL_DEPTH_TARGETS = {
   phaseSize: 15,
-  minimumPerLevel: 30,
+  phaseBufferSize: 23,
+  minimumPerLevel: 46,
   simulationRounds: 100
 };
 

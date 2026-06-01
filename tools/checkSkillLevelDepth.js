@@ -103,8 +103,8 @@ function main() {
   }
 
   for (const config of managedAssessmentSkillDepthConfig) {
-    const skillQuestions = uniqueRuntimeQuestions(
-      allQuestions.filter(question => question.depthSkillId === config.skillId && !question.depthFilterReason)
+    const skillQuestions = allQuestions.filter(question =>
+      question.depthSkillId === config.skillId && !question.depthFilterReason
     );
 
     for (const level of [1, 2]) {
@@ -122,7 +122,7 @@ function main() {
         continue;
       }
 
-      const levelItems = skillQuestions.filter(question => question.depthLevel === level);
+      const levelItems = uniqueRuntimeQuestions(skillQuestions.filter(question => question.depthLevel === level));
       const uniqueTargets = new Set(levelItems.map(targetWord).filter(Boolean));
       let simulatedRounds = 0;
       for (let seed = 0; seed < SKILL_LEVEL_DEPTH_TARGETS.simulationRounds; seed += 1) {

@@ -9,7 +9,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -48,7 +48,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "airplane",
     "imageKey": "airplane",
     "targetSound": "a",
-    "explanation": "airplane starts with /a/."
+    "explanation": "airplane starts with /a/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_alligator",
@@ -58,7 +60,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -97,7 +99,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "alligator",
     "imageKey": "alligator",
     "targetSound": "a",
-    "explanation": "alligator starts with /a/."
+    "explanation": "alligator starts with /a/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_almond",
@@ -107,7 +111,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -146,7 +150,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "almond",
     "imageKey": "almond",
     "targetSound": "a",
-    "explanation": "almond starts with /a/."
+    "explanation": "almond starts with /a/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_anteater",
@@ -156,7 +162,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -195,7 +201,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "anteater",
     "imageKey": "anteater",
     "targetSound": "a",
-    "explanation": "anteater starts with /a/."
+    "explanation": "anteater starts with /a/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_arch",
@@ -205,7 +213,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -244,7 +252,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "arch",
     "imageKey": "arch",
     "targetSound": "a",
-    "explanation": "arch starts with /a/."
+    "explanation": "arch starts with /a/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_arm",
@@ -254,7 +264,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -293,7 +303,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "arm",
     "imageKey": "arm",
     "targetSound": "a",
-    "explanation": "arm starts with /a/."
+    "explanation": "arm starts with /a/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_armchair",
@@ -303,7 +315,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -342,7 +354,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "armchair",
     "imageKey": "armchair",
     "targetSound": "a",
-    "explanation": "armchair starts with /a/."
+    "explanation": "armchair starts with /a/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_artichoke",
@@ -352,7 +366,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -391,7 +405,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "artichoke",
     "imageKey": "artichoke",
     "targetSound": "a",
-    "explanation": "artichoke starts with /a/."
+    "explanation": "artichoke starts with /a/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_ash",
@@ -401,7 +417,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -440,7 +456,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "ash",
     "imageKey": "ash",
     "targetSound": "a",
-    "explanation": "ash starts with /a/."
+    "explanation": "ash starts with /a/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_asparagus",
@@ -450,7 +468,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -489,7 +507,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "asparagus",
     "imageKey": "asparagus",
     "targetSound": "a",
-    "explanation": "asparagus starts with /a/."
+    "explanation": "asparagus starts with /a/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_back",
@@ -499,7 +519,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -538,7 +558,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "back",
     "imageKey": "back",
     "targetSound": "b",
-    "explanation": "back starts with /b/."
+    "explanation": "back starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_badge",
@@ -548,7 +570,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -587,7 +609,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "badge",
     "imageKey": "badge",
     "targetSound": "b",
-    "explanation": "badge starts with /b/."
+    "explanation": "badge starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_badger",
@@ -597,7 +621,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -636,7 +660,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "badger",
     "imageKey": "badger",
     "targetSound": "b",
-    "explanation": "badger starts with /b/."
+    "explanation": "badger starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_bamboo",
@@ -646,7 +672,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -685,7 +711,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "bamboo",
     "imageKey": "bamboo",
     "targetSound": "b",
-    "explanation": "bamboo starts with /b/."
+    "explanation": "bamboo starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_bandage",
@@ -695,7 +723,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -734,7 +762,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "bandage",
     "imageKey": "bandage",
     "targetSound": "b",
-    "explanation": "bandage starts with /b/."
+    "explanation": "bandage starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_bark",
@@ -744,7 +774,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -783,7 +813,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "bark",
     "imageKey": "bark",
     "targetSound": "b",
-    "explanation": "bark starts with /b/."
+    "explanation": "bark starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_barn",
@@ -793,7 +825,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -832,7 +864,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "barn",
     "imageKey": "barn",
     "targetSound": "b",
-    "explanation": "barn starts with /b/."
+    "explanation": "barn starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_barrel",
@@ -842,7 +876,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -881,7 +915,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "barrel",
     "imageKey": "barrel",
     "targetSound": "b",
-    "explanation": "barrel starts with /b/."
+    "explanation": "barrel starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_basketball",
@@ -891,7 +927,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -930,7 +966,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "basketball",
     "imageKey": "basketball",
     "targetSound": "b",
-    "explanation": "basketball starts with /b/."
+    "explanation": "basketball starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_beach",
@@ -940,7 +978,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -979,7 +1017,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "beach",
     "imageKey": "beach",
     "targetSound": "b",
-    "explanation": "beach starts with /b/."
+    "explanation": "beach starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_beachball",
@@ -989,7 +1029,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1028,7 +1068,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "beachball",
     "imageKey": "beachball",
     "targetSound": "b",
-    "explanation": "beachball starts with /b/."
+    "explanation": "beachball starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_bead",
@@ -1038,7 +1080,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1077,7 +1119,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "bead",
     "imageKey": "bead",
     "targetSound": "b",
-    "explanation": "bead starts with /b/."
+    "explanation": "bead starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_beak",
@@ -1087,7 +1131,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1126,7 +1170,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "beak",
     "imageKey": "beak",
     "targetSound": "b",
-    "explanation": "beak starts with /b/."
+    "explanation": "beak starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_bean",
@@ -1136,7 +1182,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1175,7 +1221,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "bean",
     "imageKey": "bean",
     "targetSound": "b",
-    "explanation": "bean starts with /b/."
+    "explanation": "bean starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_beef",
@@ -1185,7 +1233,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1224,7 +1272,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "beef",
     "imageKey": "beef",
     "targetSound": "b",
-    "explanation": "beef starts with /b/."
+    "explanation": "beef starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_beehive",
@@ -1234,7 +1284,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1273,7 +1323,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "beehive",
     "imageKey": "beehive",
     "targetSound": "b",
-    "explanation": "beehive starts with /b/."
+    "explanation": "beehive starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_beet",
@@ -1283,7 +1335,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1322,7 +1374,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "beet",
     "imageKey": "beet",
     "targetSound": "b",
-    "explanation": "beet starts with /b/."
+    "explanation": "beet starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_beetle",
@@ -1332,7 +1386,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1371,7 +1425,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "beetle",
     "imageKey": "beetle",
     "targetSound": "b",
-    "explanation": "beetle starts with /b/."
+    "explanation": "beetle starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_behind",
@@ -1381,7 +1437,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1420,7 +1476,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "behind",
     "imageKey": "behind",
     "targetSound": "b",
-    "explanation": "behind starts with /b/."
+    "explanation": "behind starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_belt",
@@ -1430,7 +1488,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1469,7 +1527,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "belt",
     "imageKey": "belt",
     "targetSound": "b",
-    "explanation": "belt starts with /b/."
+    "explanation": "belt starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_bench",
@@ -1479,7 +1539,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1518,7 +1578,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "bench",
     "imageKey": "bench",
     "targetSound": "b",
-    "explanation": "bench starts with /b/."
+    "explanation": "bench starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_bend",
@@ -1528,7 +1590,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1567,7 +1629,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "bend",
     "imageKey": "bend",
     "targetSound": "b",
-    "explanation": "bend starts with /b/."
+    "explanation": "bend starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_berry",
@@ -1577,7 +1641,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1616,7 +1680,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "berry",
     "imageKey": "berry",
     "targetSound": "b",
-    "explanation": "berry starts with /b/."
+    "explanation": "berry starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_initial_l2_bike",
@@ -1626,7 +1692,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1665,7 +1731,9 @@ export const skillLevelGapQuestions = [
     "audioKey": "bike",
     "imageKey": "bike",
     "targetSound": "b",
-    "explanation": "bike starts with /b/."
+    "explanation": "bike starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_initial_l2_birdhouse",
@@ -1675,7 +1743,7 @@ export const skillLevelGapQuestions = [
     "skill": "Initial Sounds",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "FIRST_SOUND",
     "formatType": "FIRST_SOUND",
     "questionType": "multiple_choice",
@@ -1714,7 +1782,978 @@ export const skillLevelGapQuestions = [
     "audioKey": "birdhouse",
     "imageKey": "birdhouse",
     "targetSound": "b",
-    "explanation": "birdhouse starts with /b/."
+    "explanation": "birdhouse starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_blackberry",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "blackberry",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "g",
+      "h",
+      "i"
+    ],
+    "choices": [
+      "b",
+      "g",
+      "h",
+      "i"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/blackberry.webp",
+    "imagePath": "/media/vocabulary/images/blackberry.webp",
+    "audioUrl": "/media/vocabulary/audio/blackberry.mp3",
+    "audioPath": "/media/vocabulary/audio/blackberry.mp3",
+    "audioText": "blackberry",
+    "spokenPrompt": "blackberry",
+    "audioKey": "blackberry",
+    "imageKey": "blackberry",
+    "targetSound": "b",
+    "explanation": "blackberry starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_initial_l2_blade",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "blade",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "j",
+      "k",
+      "l"
+    ],
+    "choices": [
+      "b",
+      "j",
+      "k",
+      "l"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/blade.webp",
+    "imagePath": "/media/vocabulary/images/blade.webp",
+    "audioUrl": "/media/vocabulary/audio/blade.mp3",
+    "audioPath": "/media/vocabulary/audio/blade.mp3",
+    "audioText": "blade",
+    "spokenPrompt": "blade",
+    "audioKey": "blade",
+    "imageKey": "blade",
+    "targetSound": "b",
+    "explanation": "blade starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_blender",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "blender",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "m",
+      "n",
+      "o"
+    ],
+    "choices": [
+      "b",
+      "m",
+      "n",
+      "o"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/blender.webp",
+    "imagePath": "/media/vocabulary/images/blender.webp",
+    "audioUrl": "/media/vocabulary/audio/blender.mp3",
+    "audioPath": "/media/vocabulary/audio/blender.mp3",
+    "audioText": "blender",
+    "spokenPrompt": "blender",
+    "audioKey": "blender",
+    "imageKey": "blender",
+    "targetSound": "b",
+    "explanation": "blender starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_initial_l2_blimp",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "blimp",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "p",
+      "q",
+      "r"
+    ],
+    "choices": [
+      "b",
+      "p",
+      "q",
+      "r"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/blimp.webp",
+    "imagePath": "/media/vocabulary/images/blimp.webp",
+    "audioUrl": "/media/vocabulary/audio/blimp.mp3",
+    "audioPath": "/media/vocabulary/audio/blimp.mp3",
+    "audioText": "blimp",
+    "spokenPrompt": "blimp",
+    "audioKey": "blimp",
+    "imageKey": "blimp",
+    "targetSound": "b",
+    "explanation": "blimp starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_blob",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "blob",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "s",
+      "t",
+      "u"
+    ],
+    "choices": [
+      "b",
+      "s",
+      "t",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/blob.webp",
+    "imagePath": "/media/vocabulary/images/blob.webp",
+    "audioUrl": "/media/vocabulary/audio/blob.mp3",
+    "audioPath": "/media/vocabulary/audio/blob.mp3",
+    "audioText": "blob",
+    "spokenPrompt": "blob",
+    "audioKey": "blob",
+    "imageKey": "blob",
+    "targetSound": "b",
+    "explanation": "blob starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_initial_l2_block",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "block",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "v",
+      "w",
+      "x"
+    ],
+    "choices": [
+      "b",
+      "v",
+      "w",
+      "x"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/block.webp",
+    "imagePath": "/media/vocabulary/images/block.webp",
+    "audioUrl": "/media/vocabulary/audio/block.mp3",
+    "audioPath": "/media/vocabulary/audio/block.mp3",
+    "audioText": "block",
+    "spokenPrompt": "block",
+    "audioKey": "block",
+    "imageKey": "block",
+    "targetSound": "b",
+    "explanation": "block starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_blossom",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "blossom",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "y",
+      "z",
+      "a"
+    ],
+    "choices": [
+      "b",
+      "y",
+      "z",
+      "a"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/blossom.webp",
+    "imagePath": "/media/vocabulary/images/blossom.webp",
+    "audioUrl": "/media/vocabulary/audio/blossom.mp3",
+    "audioPath": "/media/vocabulary/audio/blossom.mp3",
+    "audioText": "blossom",
+    "spokenPrompt": "blossom",
+    "audioKey": "blossom",
+    "imageKey": "blossom",
+    "targetSound": "b",
+    "explanation": "blossom starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_initial_l2_blueberry",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "blueberry",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "choices": [
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/blueberry.webp",
+    "imagePath": "/media/vocabulary/images/blueberry.webp",
+    "audioUrl": "/media/vocabulary/audio/blueberry.mp3",
+    "audioPath": "/media/vocabulary/audio/blueberry.mp3",
+    "audioText": "blueberry",
+    "spokenPrompt": "blueberry",
+    "audioKey": "blueberry",
+    "imageKey": "blueberry",
+    "targetSound": "b",
+    "explanation": "blueberry starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_bluebird",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "bluebird",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "f",
+      "g",
+      "h"
+    ],
+    "choices": [
+      "b",
+      "f",
+      "g",
+      "h"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/bluebird.webp",
+    "imagePath": "/media/vocabulary/images/bluebird.webp",
+    "audioUrl": "/media/vocabulary/audio/bluebird.mp3",
+    "audioPath": "/media/vocabulary/audio/bluebird.mp3",
+    "audioText": "bluebird",
+    "spokenPrompt": "bluebird",
+    "audioKey": "bluebird",
+    "imageKey": "bluebird",
+    "targetSound": "b",
+    "explanation": "bluebird starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_initial_l2_bluejay",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "bluejay",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "i",
+      "j",
+      "k"
+    ],
+    "choices": [
+      "b",
+      "i",
+      "j",
+      "k"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/bluejay.webp",
+    "imagePath": "/media/vocabulary/images/bluejay.webp",
+    "audioUrl": "/media/vocabulary/audio/bluejay.mp3",
+    "audioPath": "/media/vocabulary/audio/bluejay.mp3",
+    "audioText": "bluejay",
+    "spokenPrompt": "bluejay",
+    "audioKey": "bluejay",
+    "imageKey": "bluejay",
+    "targetSound": "b",
+    "explanation": "bluejay starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_board",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "board",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "l",
+      "m",
+      "n"
+    ],
+    "choices": [
+      "b",
+      "l",
+      "m",
+      "n"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/board.webp",
+    "imagePath": "/media/vocabulary/images/board.webp",
+    "audioUrl": "/media/vocabulary/audio/board.mp3",
+    "audioPath": "/media/vocabulary/audio/board.mp3",
+    "audioText": "board",
+    "spokenPrompt": "board",
+    "audioKey": "board",
+    "imageKey": "board",
+    "targetSound": "b",
+    "explanation": "board starts with /b/.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_initial_l2_bone",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "bone",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "o",
+      "p",
+      "q"
+    ],
+    "choices": [
+      "b",
+      "o",
+      "p",
+      "q"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/bone.webp",
+    "imagePath": "/media/vocabulary/images/bone.webp",
+    "audioUrl": "/media/vocabulary/audio/bone.mp3",
+    "audioPath": "/media/vocabulary/audio/bone.mp3",
+    "audioText": "bone",
+    "spokenPrompt": "bone",
+    "audioKey": "bone",
+    "imageKey": "bone",
+    "targetSound": "b",
+    "explanation": "bone starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_bookcase",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "bookcase",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "r",
+      "s",
+      "t"
+    ],
+    "choices": [
+      "b",
+      "r",
+      "s",
+      "t"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/bookcase.webp",
+    "imagePath": "/media/vocabulary/images/bookcase.webp",
+    "audioUrl": "/media/vocabulary/audio/bookcase.mp3",
+    "audioPath": "/media/vocabulary/audio/bookcase.mp3",
+    "audioText": "bookcase",
+    "spokenPrompt": "bookcase",
+    "audioKey": "bookcase",
+    "imageKey": "bookcase",
+    "targetSound": "b",
+    "explanation": "bookcase starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_bookend",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "bookend",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "u",
+      "v",
+      "w"
+    ],
+    "choices": [
+      "b",
+      "u",
+      "v",
+      "w"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/bookend.webp",
+    "imagePath": "/media/vocabulary/images/bookend.webp",
+    "audioUrl": "/media/vocabulary/audio/bookend.mp3",
+    "audioPath": "/media/vocabulary/audio/bookend.mp3",
+    "audioText": "bookend",
+    "spokenPrompt": "bookend",
+    "audioKey": "bookend",
+    "imageKey": "bookend",
+    "targetSound": "b",
+    "explanation": "bookend starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_boot",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "boot",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "x",
+      "y",
+      "z"
+    ],
+    "choices": [
+      "b",
+      "x",
+      "y",
+      "z"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/boot.webp",
+    "imagePath": "/media/vocabulary/images/boot.webp",
+    "audioUrl": "/media/vocabulary/audio/boot.mp3",
+    "audioPath": "/media/vocabulary/audio/boot.mp3",
+    "audioText": "boot",
+    "spokenPrompt": "boot",
+    "audioKey": "boot",
+    "imageKey": "boot",
+    "targetSound": "b",
+    "explanation": "boot starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_booth",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "booth",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "a",
+      "c",
+      "d"
+    ],
+    "choices": [
+      "b",
+      "a",
+      "c",
+      "d"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/booth.webp",
+    "imagePath": "/media/vocabulary/images/booth.webp",
+    "audioUrl": "/media/vocabulary/audio/booth.mp3",
+    "audioPath": "/media/vocabulary/audio/booth.mp3",
+    "audioText": "booth",
+    "spokenPrompt": "booth",
+    "audioKey": "booth",
+    "imageKey": "booth",
+    "targetSound": "b",
+    "explanation": "booth starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_bottle",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "bottle",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "e",
+      "f",
+      "g"
+    ],
+    "choices": [
+      "b",
+      "e",
+      "f",
+      "g"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/bottle.webp",
+    "imagePath": "/media/vocabulary/images/bottle.webp",
+    "audioUrl": "/media/vocabulary/audio/bottle.mp3",
+    "audioPath": "/media/vocabulary/audio/bottle.mp3",
+    "audioText": "bottle",
+    "spokenPrompt": "bottle",
+    "audioKey": "bottle",
+    "imageKey": "bottle",
+    "targetSound": "b",
+    "explanation": "bottle starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_bowl",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "bowl",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "h",
+      "i",
+      "j"
+    ],
+    "choices": [
+      "b",
+      "h",
+      "i",
+      "j"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/bowl.webp",
+    "imagePath": "/media/vocabulary/images/bowl.webp",
+    "audioUrl": "/media/vocabulary/audio/bowl.mp3",
+    "audioPath": "/media/vocabulary/audio/bowl.mp3",
+    "audioText": "bowl",
+    "spokenPrompt": "bowl",
+    "audioKey": "bowl",
+    "imageKey": "bowl",
+    "targetSound": "b",
+    "explanation": "bowl starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_initial_l2_bracelet",
+    "grade": "K",
+    "skillId": "initial_sounds",
+    "skillName": "Initial Sounds",
+    "skill": "Initial Sounds",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "FIRST_SOUND",
+    "formatType": "FIRST_SOUND",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. What sound does it start with?",
+    "question": "Listen to the word. What sound does it start with?",
+    "targetWord": "bracelet",
+    "itemType": "initial_sound",
+    "itemKey": "b",
+    "correctAnswer": "b",
+    "answer": "b",
+    "answerOptions": [
+      "b",
+      "k",
+      "l",
+      "m"
+    ],
+    "choices": [
+      "b",
+      "k",
+      "l",
+      "m"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "initial_sounds"
+    ],
+    "imageUrl": "/media/vocabulary/images/bracelet.webp",
+    "imagePath": "/media/vocabulary/images/bracelet.webp",
+    "audioUrl": "/media/vocabulary/audio/bracelet.mp3",
+    "audioPath": "/media/vocabulary/audio/bracelet.mp3",
+    "audioText": "bracelet",
+    "spokenPrompt": "bracelet",
+    "audioKey": "bracelet",
+    "imageKey": "bracelet",
+    "targetSound": "b",
+    "explanation": "bracelet starts with /b/.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_ack_back_sack_1",
@@ -1724,7 +2763,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -1801,7 +2840,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/almond.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_ick_brick_kick_1",
@@ -1811,7 +2852,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -1888,7 +2929,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/almond.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_or_horn_storm_1",
@@ -1898,7 +2941,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -1975,7 +3018,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/almond.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_eep_sheep_sleep_1",
@@ -1985,7 +3030,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2062,7 +3107,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/almond.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_ing_swing_wing_1",
@@ -2072,7 +3119,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2149,7 +3196,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/almond.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_all_tall_wall_1",
@@ -2159,7 +3208,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2236,7 +3285,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/almond.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_ack_sack_back_2",
@@ -2246,7 +3297,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2323,7 +3374,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/arm.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_ick_kick_brick_2",
@@ -2333,7 +3386,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2410,7 +3463,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/arm.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_or_storm_horn_2",
@@ -2420,7 +3475,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2497,7 +3552,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/arm.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_eep_sleep_sheep_2",
@@ -2507,7 +3564,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2584,7 +3641,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/arm.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_ing_wing_swing_2",
@@ -2594,7 +3653,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2671,7 +3730,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/arm.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_all_wall_tall_2",
@@ -2681,7 +3742,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2758,7 +3819,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/arm.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_ack_back_sack_3",
@@ -2768,7 +3831,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2845,7 +3908,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/asparagus.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_ick_brick_kick_3",
@@ -2855,7 +3920,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -2932,7 +3997,9 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/asparagus.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_rhyming_l2_or_horn_storm_3",
@@ -2942,7 +4009,7 @@ export const skillLevelGapQuestions = [
     "skill": "Rhyming",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "RHYMING_PICTURE",
     "formatType": "RHYMING_PICTURE",
     "questionType": "multiple_choice",
@@ -3019,7 +4086,1611 @@ export const skillLevelGapQuestions = [
         "imageUrl": "/media/vocabulary/images/asparagus.webp",
         "isCorrect": false
       }
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_eep_sheep_sleep_3",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with sheep?",
+    "question": "Which word rhymes with sheep?",
+    "targetWord": "sheep",
+    "itemType": "rhyming_family",
+    "itemKey": "eep",
+    "correctAnswer": "sleep",
+    "answer": "sleep",
+    "answerOptions": [
+      "sleep",
+      "artichoke",
+      "ash",
+      "asparagus"
+    ],
+    "choices": [
+      "sleep",
+      "artichoke",
+      "ash",
+      "asparagus"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "eep",
+    "targetImageUrl": "/media/vocabulary/images/sheep.webp",
+    "imageUrl": "/media/vocabulary/images/sheep.webp",
+    "imagePath": "/media/vocabulary/images/sheep.webp",
+    "audioUrl": "/media/vocabulary/audio/sheep.mp3",
+    "audioPath": "/media/vocabulary/audio/sheep.mp3",
+    "correctAnswers": [
+      "sleep"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "sleep",
+        "word": "sleep",
+        "label": "sleep",
+        "value": "sleep",
+        "image": "/media/vocabulary/images/sleep.webp",
+        "imageUrl": "/media/vocabulary/images/sleep.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "artichoke",
+        "word": "artichoke",
+        "label": "artichoke",
+        "value": "artichoke",
+        "image": "/media/vocabulary/images/artichoke.webp",
+        "imageUrl": "/media/vocabulary/images/artichoke.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "ash",
+        "word": "ash",
+        "label": "ash",
+        "value": "ash",
+        "image": "/media/vocabulary/images/ash.webp",
+        "imageUrl": "/media/vocabulary/images/ash.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "asparagus",
+        "word": "asparagus",
+        "label": "asparagus",
+        "value": "asparagus",
+        "image": "/media/vocabulary/images/asparagus.webp",
+        "imageUrl": "/media/vocabulary/images/asparagus.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_ing_swing_wing_3",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with swing?",
+    "question": "Which word rhymes with swing?",
+    "targetWord": "swing",
+    "itemType": "rhyming_family",
+    "itemKey": "ing",
+    "correctAnswer": "wing",
+    "answer": "wing",
+    "answerOptions": [
+      "wing",
+      "artichoke",
+      "ash",
+      "asparagus"
+    ],
+    "choices": [
+      "wing",
+      "artichoke",
+      "ash",
+      "asparagus"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ing",
+    "targetImageUrl": "/media/vocabulary/images/swing.webp",
+    "imageUrl": "/media/vocabulary/images/swing.webp",
+    "imagePath": "/media/vocabulary/images/swing.webp",
+    "audioUrl": "/media/vocabulary/audio/swing.mp3",
+    "audioPath": "/media/vocabulary/audio/swing.mp3",
+    "correctAnswers": [
+      "wing"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "wing",
+        "word": "wing",
+        "label": "wing",
+        "value": "wing",
+        "image": "/media/vocabulary/images/wing.webp",
+        "imageUrl": "/media/vocabulary/images/wing.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "artichoke",
+        "word": "artichoke",
+        "label": "artichoke",
+        "value": "artichoke",
+        "image": "/media/vocabulary/images/artichoke.webp",
+        "imageUrl": "/media/vocabulary/images/artichoke.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "ash",
+        "word": "ash",
+        "label": "ash",
+        "value": "ash",
+        "image": "/media/vocabulary/images/ash.webp",
+        "imageUrl": "/media/vocabulary/images/ash.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "asparagus",
+        "word": "asparagus",
+        "label": "asparagus",
+        "value": "asparagus",
+        "image": "/media/vocabulary/images/asparagus.webp",
+        "imageUrl": "/media/vocabulary/images/asparagus.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_all_tall_wall_3",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with tall?",
+    "question": "Which word rhymes with tall?",
+    "targetWord": "tall",
+    "itemType": "rhyming_family",
+    "itemKey": "all",
+    "correctAnswer": "wall",
+    "answer": "wall",
+    "answerOptions": [
+      "wall",
+      "artichoke",
+      "ash",
+      "asparagus"
+    ],
+    "choices": [
+      "wall",
+      "artichoke",
+      "ash",
+      "asparagus"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "all",
+    "targetImageUrl": "/media/vocabulary/images/tall.webp",
+    "imageUrl": "/media/vocabulary/images/tall.webp",
+    "imagePath": "/media/vocabulary/images/tall.webp",
+    "audioUrl": "/media/vocabulary/audio/tall.mp3",
+    "audioPath": "/media/vocabulary/audio/tall.mp3",
+    "correctAnswers": [
+      "wall"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "wall",
+        "word": "wall",
+        "label": "wall",
+        "value": "wall",
+        "image": "/media/vocabulary/images/wall.webp",
+        "imageUrl": "/media/vocabulary/images/wall.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "artichoke",
+        "word": "artichoke",
+        "label": "artichoke",
+        "value": "artichoke",
+        "image": "/media/vocabulary/images/artichoke.webp",
+        "imageUrl": "/media/vocabulary/images/artichoke.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "ash",
+        "word": "ash",
+        "label": "ash",
+        "value": "ash",
+        "image": "/media/vocabulary/images/ash.webp",
+        "imageUrl": "/media/vocabulary/images/ash.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "asparagus",
+        "word": "asparagus",
+        "label": "asparagus",
+        "value": "asparagus",
+        "image": "/media/vocabulary/images/asparagus.webp",
+        "imageUrl": "/media/vocabulary/images/asparagus.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_ack_sack_back_4",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with sack?",
+    "question": "Which word rhymes with sack?",
+    "targetWord": "sack",
+    "itemType": "rhyming_family",
+    "itemKey": "ack",
+    "correctAnswer": "back",
+    "answer": "back",
+    "answerOptions": [
+      "back",
+      "badger",
+      "bagel",
+      "balcony"
+    ],
+    "choices": [
+      "back",
+      "badger",
+      "bagel",
+      "balcony"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ack",
+    "targetImageUrl": "/media/vocabulary/images/sack.webp",
+    "imageUrl": "/media/vocabulary/images/sack.webp",
+    "imagePath": "/media/vocabulary/images/sack.webp",
+    "audioUrl": "/media/vocabulary/audio/sack.mp3",
+    "audioPath": "/media/vocabulary/audio/sack.mp3",
+    "correctAnswers": [
+      "back"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "back",
+        "word": "back",
+        "label": "back",
+        "value": "back",
+        "image": "/media/vocabulary/images/back.webp",
+        "imageUrl": "/media/vocabulary/images/back.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "badger",
+        "word": "badger",
+        "label": "badger",
+        "value": "badger",
+        "image": "/media/vocabulary/images/badger.webp",
+        "imageUrl": "/media/vocabulary/images/badger.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bagel",
+        "word": "bagel",
+        "label": "bagel",
+        "value": "bagel",
+        "image": "/media/vocabulary/images/bagel.webp",
+        "imageUrl": "/media/vocabulary/images/bagel.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "balcony",
+        "word": "balcony",
+        "label": "balcony",
+        "value": "balcony",
+        "image": "/media/vocabulary/images/balcony.webp",
+        "imageUrl": "/media/vocabulary/images/balcony.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_ick_kick_brick_4",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with kick?",
+    "question": "Which word rhymes with kick?",
+    "targetWord": "kick",
+    "itemType": "rhyming_family",
+    "itemKey": "ick",
+    "correctAnswer": "brick",
+    "answer": "brick",
+    "answerOptions": [
+      "brick",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "choices": [
+      "brick",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ick",
+    "targetImageUrl": "/media/vocabulary/images/kick.webp",
+    "imageUrl": "/media/vocabulary/images/kick.webp",
+    "imagePath": "/media/vocabulary/images/kick.webp",
+    "audioUrl": "/media/vocabulary/audio/kick.mp3",
+    "audioPath": "/media/vocabulary/audio/kick.mp3",
+    "correctAnswers": [
+      "brick"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "brick",
+        "word": "brick",
+        "label": "brick",
+        "value": "brick",
+        "image": "/media/vocabulary/images/brick.webp",
+        "imageUrl": "/media/vocabulary/images/brick.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "badge",
+        "word": "badge",
+        "label": "badge",
+        "value": "badge",
+        "image": "/media/vocabulary/images/badge.webp",
+        "imageUrl": "/media/vocabulary/images/badge.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "badger",
+        "word": "badger",
+        "label": "badger",
+        "value": "badger",
+        "image": "/media/vocabulary/images/badger.webp",
+        "imageUrl": "/media/vocabulary/images/badger.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bagel",
+        "word": "bagel",
+        "label": "bagel",
+        "value": "bagel",
+        "image": "/media/vocabulary/images/bagel.webp",
+        "imageUrl": "/media/vocabulary/images/bagel.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_or_storm_horn_4",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with storm?",
+    "question": "Which word rhymes with storm?",
+    "targetWord": "storm",
+    "itemType": "rhyming_family",
+    "itemKey": "or",
+    "correctAnswer": "horn",
+    "answer": "horn",
+    "answerOptions": [
+      "horn",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "choices": [
+      "horn",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "or",
+    "targetImageUrl": "/media/vocabulary/images/storm.webp",
+    "imageUrl": "/media/vocabulary/images/storm.webp",
+    "imagePath": "/media/vocabulary/images/storm.webp",
+    "audioUrl": "/media/vocabulary/audio/storm.mp3",
+    "audioPath": "/media/vocabulary/audio/storm.mp3",
+    "correctAnswers": [
+      "horn"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "horn",
+        "word": "horn",
+        "label": "horn",
+        "value": "horn",
+        "image": "/media/vocabulary/images/horn.webp",
+        "imageUrl": "/media/vocabulary/images/horn.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "badge",
+        "word": "badge",
+        "label": "badge",
+        "value": "badge",
+        "image": "/media/vocabulary/images/badge.webp",
+        "imageUrl": "/media/vocabulary/images/badge.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "badger",
+        "word": "badger",
+        "label": "badger",
+        "value": "badger",
+        "image": "/media/vocabulary/images/badger.webp",
+        "imageUrl": "/media/vocabulary/images/badger.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bagel",
+        "word": "bagel",
+        "label": "bagel",
+        "value": "bagel",
+        "image": "/media/vocabulary/images/bagel.webp",
+        "imageUrl": "/media/vocabulary/images/bagel.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_eep_sleep_sheep_4",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with sleep?",
+    "question": "Which word rhymes with sleep?",
+    "targetWord": "sleep",
+    "itemType": "rhyming_family",
+    "itemKey": "eep",
+    "correctAnswer": "sheep",
+    "answer": "sheep",
+    "answerOptions": [
+      "sheep",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "choices": [
+      "sheep",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "eep",
+    "targetImageUrl": "/media/vocabulary/images/sleep.webp",
+    "imageUrl": "/media/vocabulary/images/sleep.webp",
+    "imagePath": "/media/vocabulary/images/sleep.webp",
+    "audioUrl": "/media/vocabulary/audio/sleep.mp3",
+    "audioPath": "/media/vocabulary/audio/sleep.mp3",
+    "correctAnswers": [
+      "sheep"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "sheep",
+        "word": "sheep",
+        "label": "sheep",
+        "value": "sheep",
+        "image": "/media/vocabulary/images/sheep.webp",
+        "imageUrl": "/media/vocabulary/images/sheep.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "badge",
+        "word": "badge",
+        "label": "badge",
+        "value": "badge",
+        "image": "/media/vocabulary/images/badge.webp",
+        "imageUrl": "/media/vocabulary/images/badge.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "badger",
+        "word": "badger",
+        "label": "badger",
+        "value": "badger",
+        "image": "/media/vocabulary/images/badger.webp",
+        "imageUrl": "/media/vocabulary/images/badger.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bagel",
+        "word": "bagel",
+        "label": "bagel",
+        "value": "bagel",
+        "image": "/media/vocabulary/images/bagel.webp",
+        "imageUrl": "/media/vocabulary/images/bagel.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_ing_wing_swing_4",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with wing?",
+    "question": "Which word rhymes with wing?",
+    "targetWord": "wing",
+    "itemType": "rhyming_family",
+    "itemKey": "ing",
+    "correctAnswer": "swing",
+    "answer": "swing",
+    "answerOptions": [
+      "swing",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "choices": [
+      "swing",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ing",
+    "targetImageUrl": "/media/vocabulary/images/wing.webp",
+    "imageUrl": "/media/vocabulary/images/wing.webp",
+    "imagePath": "/media/vocabulary/images/wing.webp",
+    "audioUrl": "/media/vocabulary/audio/wing.mp3",
+    "audioPath": "/media/vocabulary/audio/wing.mp3",
+    "correctAnswers": [
+      "swing"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "swing",
+        "word": "swing",
+        "label": "swing",
+        "value": "swing",
+        "image": "/media/vocabulary/images/swing.webp",
+        "imageUrl": "/media/vocabulary/images/swing.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "badge",
+        "word": "badge",
+        "label": "badge",
+        "value": "badge",
+        "image": "/media/vocabulary/images/badge.webp",
+        "imageUrl": "/media/vocabulary/images/badge.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "badger",
+        "word": "badger",
+        "label": "badger",
+        "value": "badger",
+        "image": "/media/vocabulary/images/badger.webp",
+        "imageUrl": "/media/vocabulary/images/badger.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bagel",
+        "word": "bagel",
+        "label": "bagel",
+        "value": "bagel",
+        "image": "/media/vocabulary/images/bagel.webp",
+        "imageUrl": "/media/vocabulary/images/bagel.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_rhyming_l2_all_wall_tall_4",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with wall?",
+    "question": "Which word rhymes with wall?",
+    "targetWord": "wall",
+    "itemType": "rhyming_family",
+    "itemKey": "all",
+    "correctAnswer": "tall",
+    "answer": "tall",
+    "answerOptions": [
+      "tall",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "choices": [
+      "tall",
+      "badge",
+      "badger",
+      "bagel"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "all",
+    "targetImageUrl": "/media/vocabulary/images/wall.webp",
+    "imageUrl": "/media/vocabulary/images/wall.webp",
+    "imagePath": "/media/vocabulary/images/wall.webp",
+    "audioUrl": "/media/vocabulary/audio/wall.mp3",
+    "audioPath": "/media/vocabulary/audio/wall.mp3",
+    "correctAnswers": [
+      "tall"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "tall",
+        "word": "tall",
+        "label": "tall",
+        "value": "tall",
+        "image": "/media/vocabulary/images/tall.webp",
+        "imageUrl": "/media/vocabulary/images/tall.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "badge",
+        "word": "badge",
+        "label": "badge",
+        "value": "badge",
+        "image": "/media/vocabulary/images/badge.webp",
+        "imageUrl": "/media/vocabulary/images/badge.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "badger",
+        "word": "badger",
+        "label": "badger",
+        "value": "badger",
+        "image": "/media/vocabulary/images/badger.webp",
+        "imageUrl": "/media/vocabulary/images/badger.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bagel",
+        "word": "bagel",
+        "label": "bagel",
+        "value": "bagel",
+        "image": "/media/vocabulary/images/bagel.webp",
+        "imageUrl": "/media/vocabulary/images/bagel.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_ack_back_sack_5",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with back?",
+    "question": "Which word rhymes with back?",
+    "targetWord": "back",
+    "itemType": "rhyming_family",
+    "itemKey": "ack",
+    "correctAnswer": "sack",
+    "answer": "sack",
+    "answerOptions": [
+      "sack",
+      "bandage",
+      "bar",
+      "bark"
+    ],
+    "choices": [
+      "sack",
+      "bandage",
+      "bar",
+      "bark"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ack",
+    "targetImageUrl": "/media/vocabulary/images/back.webp",
+    "imageUrl": "/media/vocabulary/images/back.webp",
+    "imagePath": "/media/vocabulary/images/back.webp",
+    "audioUrl": "/media/vocabulary/audio/back.mp3",
+    "audioPath": "/media/vocabulary/audio/back.mp3",
+    "correctAnswers": [
+      "sack"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "sack",
+        "word": "sack",
+        "label": "sack",
+        "value": "sack",
+        "image": "/media/vocabulary/images/sack.webp",
+        "imageUrl": "/media/vocabulary/images/sack.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "bandage",
+        "word": "bandage",
+        "label": "bandage",
+        "value": "bandage",
+        "image": "/media/vocabulary/images/bandage.webp",
+        "imageUrl": "/media/vocabulary/images/bandage.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bar",
+        "word": "bar",
+        "label": "bar",
+        "value": "bar",
+        "image": "/media/vocabulary/images/bar.webp",
+        "imageUrl": "/media/vocabulary/images/bar.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bark",
+        "word": "bark",
+        "label": "bark",
+        "value": "bark",
+        "image": "/media/vocabulary/images/bark.webp",
+        "imageUrl": "/media/vocabulary/images/bark.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_rhyming_l2_ick_brick_kick_5",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with brick?",
+    "question": "Which word rhymes with brick?",
+    "targetWord": "brick",
+    "itemType": "rhyming_family",
+    "itemKey": "ick",
+    "correctAnswer": "kick",
+    "answer": "kick",
+    "answerOptions": [
+      "kick",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "choices": [
+      "kick",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ick",
+    "targetImageUrl": "/media/vocabulary/images/brick.webp",
+    "imageUrl": "/media/vocabulary/images/brick.webp",
+    "imagePath": "/media/vocabulary/images/brick.webp",
+    "audioUrl": "/media/vocabulary/audio/brick.mp3",
+    "audioPath": "/media/vocabulary/audio/brick.mp3",
+    "correctAnswers": [
+      "kick"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "kick",
+        "word": "kick",
+        "label": "kick",
+        "value": "kick",
+        "image": "/media/vocabulary/images/kick.webp",
+        "imageUrl": "/media/vocabulary/images/kick.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "bamboo",
+        "word": "bamboo",
+        "label": "bamboo",
+        "value": "bamboo",
+        "image": "/media/vocabulary/images/bamboo.webp",
+        "imageUrl": "/media/vocabulary/images/bamboo.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bandage",
+        "word": "bandage",
+        "label": "bandage",
+        "value": "bandage",
+        "image": "/media/vocabulary/images/bandage.webp",
+        "imageUrl": "/media/vocabulary/images/bandage.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bar",
+        "word": "bar",
+        "label": "bar",
+        "value": "bar",
+        "image": "/media/vocabulary/images/bar.webp",
+        "imageUrl": "/media/vocabulary/images/bar.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_or_horn_storm_5",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with horn?",
+    "question": "Which word rhymes with horn?",
+    "targetWord": "horn",
+    "itemType": "rhyming_family",
+    "itemKey": "or",
+    "correctAnswer": "storm",
+    "answer": "storm",
+    "answerOptions": [
+      "storm",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "choices": [
+      "storm",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "or",
+    "targetImageUrl": "/media/vocabulary/images/horn.webp",
+    "imageUrl": "/media/vocabulary/images/horn.webp",
+    "imagePath": "/media/vocabulary/images/horn.webp",
+    "audioUrl": "/media/vocabulary/audio/horn.mp3",
+    "audioPath": "/media/vocabulary/audio/horn.mp3",
+    "correctAnswers": [
+      "storm"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "storm",
+        "word": "storm",
+        "label": "storm",
+        "value": "storm",
+        "image": "/media/vocabulary/images/storm.webp",
+        "imageUrl": "/media/vocabulary/images/storm.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "bamboo",
+        "word": "bamboo",
+        "label": "bamboo",
+        "value": "bamboo",
+        "image": "/media/vocabulary/images/bamboo.webp",
+        "imageUrl": "/media/vocabulary/images/bamboo.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bandage",
+        "word": "bandage",
+        "label": "bandage",
+        "value": "bandage",
+        "image": "/media/vocabulary/images/bandage.webp",
+        "imageUrl": "/media/vocabulary/images/bandage.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bar",
+        "word": "bar",
+        "label": "bar",
+        "value": "bar",
+        "image": "/media/vocabulary/images/bar.webp",
+        "imageUrl": "/media/vocabulary/images/bar.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_eep_sheep_sleep_5",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with sheep?",
+    "question": "Which word rhymes with sheep?",
+    "targetWord": "sheep",
+    "itemType": "rhyming_family",
+    "itemKey": "eep",
+    "correctAnswer": "sleep",
+    "answer": "sleep",
+    "answerOptions": [
+      "sleep",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "choices": [
+      "sleep",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "eep",
+    "targetImageUrl": "/media/vocabulary/images/sheep.webp",
+    "imageUrl": "/media/vocabulary/images/sheep.webp",
+    "imagePath": "/media/vocabulary/images/sheep.webp",
+    "audioUrl": "/media/vocabulary/audio/sheep.mp3",
+    "audioPath": "/media/vocabulary/audio/sheep.mp3",
+    "correctAnswers": [
+      "sleep"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "sleep",
+        "word": "sleep",
+        "label": "sleep",
+        "value": "sleep",
+        "image": "/media/vocabulary/images/sleep.webp",
+        "imageUrl": "/media/vocabulary/images/sleep.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "bamboo",
+        "word": "bamboo",
+        "label": "bamboo",
+        "value": "bamboo",
+        "image": "/media/vocabulary/images/bamboo.webp",
+        "imageUrl": "/media/vocabulary/images/bamboo.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bandage",
+        "word": "bandage",
+        "label": "bandage",
+        "value": "bandage",
+        "image": "/media/vocabulary/images/bandage.webp",
+        "imageUrl": "/media/vocabulary/images/bandage.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bar",
+        "word": "bar",
+        "label": "bar",
+        "value": "bar",
+        "image": "/media/vocabulary/images/bar.webp",
+        "imageUrl": "/media/vocabulary/images/bar.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_ing_swing_wing_5",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with swing?",
+    "question": "Which word rhymes with swing?",
+    "targetWord": "swing",
+    "itemType": "rhyming_family",
+    "itemKey": "ing",
+    "correctAnswer": "wing",
+    "answer": "wing",
+    "answerOptions": [
+      "wing",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "choices": [
+      "wing",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ing",
+    "targetImageUrl": "/media/vocabulary/images/swing.webp",
+    "imageUrl": "/media/vocabulary/images/swing.webp",
+    "imagePath": "/media/vocabulary/images/swing.webp",
+    "audioUrl": "/media/vocabulary/audio/swing.mp3",
+    "audioPath": "/media/vocabulary/audio/swing.mp3",
+    "correctAnswers": [
+      "wing"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "wing",
+        "word": "wing",
+        "label": "wing",
+        "value": "wing",
+        "image": "/media/vocabulary/images/wing.webp",
+        "imageUrl": "/media/vocabulary/images/wing.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "bamboo",
+        "word": "bamboo",
+        "label": "bamboo",
+        "value": "bamboo",
+        "image": "/media/vocabulary/images/bamboo.webp",
+        "imageUrl": "/media/vocabulary/images/bamboo.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bandage",
+        "word": "bandage",
+        "label": "bandage",
+        "value": "bandage",
+        "image": "/media/vocabulary/images/bandage.webp",
+        "imageUrl": "/media/vocabulary/images/bandage.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bar",
+        "word": "bar",
+        "label": "bar",
+        "value": "bar",
+        "image": "/media/vocabulary/images/bar.webp",
+        "imageUrl": "/media/vocabulary/images/bar.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_all_tall_wall_5",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with tall?",
+    "question": "Which word rhymes with tall?",
+    "targetWord": "tall",
+    "itemType": "rhyming_family",
+    "itemKey": "all",
+    "correctAnswer": "wall",
+    "answer": "wall",
+    "answerOptions": [
+      "wall",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "choices": [
+      "wall",
+      "bamboo",
+      "bandage",
+      "bar"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "all",
+    "targetImageUrl": "/media/vocabulary/images/tall.webp",
+    "imageUrl": "/media/vocabulary/images/tall.webp",
+    "imagePath": "/media/vocabulary/images/tall.webp",
+    "audioUrl": "/media/vocabulary/audio/tall.mp3",
+    "audioPath": "/media/vocabulary/audio/tall.mp3",
+    "correctAnswers": [
+      "wall"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "wall",
+        "word": "wall",
+        "label": "wall",
+        "value": "wall",
+        "image": "/media/vocabulary/images/wall.webp",
+        "imageUrl": "/media/vocabulary/images/wall.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "bamboo",
+        "word": "bamboo",
+        "label": "bamboo",
+        "value": "bamboo",
+        "image": "/media/vocabulary/images/bamboo.webp",
+        "imageUrl": "/media/vocabulary/images/bamboo.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bandage",
+        "word": "bandage",
+        "label": "bandage",
+        "value": "bandage",
+        "image": "/media/vocabulary/images/bandage.webp",
+        "imageUrl": "/media/vocabulary/images/bandage.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "bar",
+        "word": "bar",
+        "label": "bar",
+        "value": "bar",
+        "image": "/media/vocabulary/images/bar.webp",
+        "imageUrl": "/media/vocabulary/images/bar.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_ack_sack_back_6",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with sack?",
+    "question": "Which word rhymes with sack?",
+    "targetWord": "sack",
+    "itemType": "rhyming_family",
+    "itemKey": "ack",
+    "correctAnswer": "back",
+    "answer": "back",
+    "answerOptions": [
+      "back",
+      "barrel",
+      "basil",
+      "basketball"
+    ],
+    "choices": [
+      "back",
+      "barrel",
+      "basil",
+      "basketball"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ack",
+    "targetImageUrl": "/media/vocabulary/images/sack.webp",
+    "imageUrl": "/media/vocabulary/images/sack.webp",
+    "imagePath": "/media/vocabulary/images/sack.webp",
+    "audioUrl": "/media/vocabulary/audio/sack.mp3",
+    "audioPath": "/media/vocabulary/audio/sack.mp3",
+    "correctAnswers": [
+      "back"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "back",
+        "word": "back",
+        "label": "back",
+        "value": "back",
+        "image": "/media/vocabulary/images/back.webp",
+        "imageUrl": "/media/vocabulary/images/back.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "barrel",
+        "word": "barrel",
+        "label": "barrel",
+        "value": "barrel",
+        "image": "/media/vocabulary/images/barrel.webp",
+        "imageUrl": "/media/vocabulary/images/barrel.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "basil",
+        "word": "basil",
+        "label": "basil",
+        "value": "basil",
+        "image": "/media/vocabulary/images/basil.webp",
+        "imageUrl": "/media/vocabulary/images/basil.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "basketball",
+        "word": "basketball",
+        "label": "basketball",
+        "value": "basketball",
+        "image": "/media/vocabulary/images/basketball.webp",
+        "imageUrl": "/media/vocabulary/images/basketball.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_ick_kick_brick_6",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with kick?",
+    "question": "Which word rhymes with kick?",
+    "targetWord": "kick",
+    "itemType": "rhyming_family",
+    "itemKey": "ick",
+    "correctAnswer": "brick",
+    "answer": "brick",
+    "answerOptions": [
+      "brick",
+      "barn",
+      "barrel",
+      "basil"
+    ],
+    "choices": [
+      "brick",
+      "barn",
+      "barrel",
+      "basil"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "ick",
+    "targetImageUrl": "/media/vocabulary/images/kick.webp",
+    "imageUrl": "/media/vocabulary/images/kick.webp",
+    "imagePath": "/media/vocabulary/images/kick.webp",
+    "audioUrl": "/media/vocabulary/audio/kick.mp3",
+    "audioPath": "/media/vocabulary/audio/kick.mp3",
+    "correctAnswers": [
+      "brick"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "brick",
+        "word": "brick",
+        "label": "brick",
+        "value": "brick",
+        "image": "/media/vocabulary/images/brick.webp",
+        "imageUrl": "/media/vocabulary/images/brick.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "barn",
+        "word": "barn",
+        "label": "barn",
+        "value": "barn",
+        "image": "/media/vocabulary/images/barn.webp",
+        "imageUrl": "/media/vocabulary/images/barn.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "barrel",
+        "word": "barrel",
+        "label": "barrel",
+        "value": "barrel",
+        "image": "/media/vocabulary/images/barrel.webp",
+        "imageUrl": "/media/vocabulary/images/barrel.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "basil",
+        "word": "basil",
+        "label": "basil",
+        "value": "basil",
+        "image": "/media/vocabulary/images/basil.webp",
+        "imageUrl": "/media/vocabulary/images/basil.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_rhyming_l2_or_storm_horn_6",
+    "grade": "K",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "RHYMING_PICTURE",
+    "formatType": "RHYMING_PICTURE",
+    "questionType": "multiple_choice",
+    "prompt": "Which word rhymes with storm?",
+    "question": "Which word rhymes with storm?",
+    "targetWord": "storm",
+    "itemType": "rhyming_family",
+    "itemKey": "or",
+    "correctAnswer": "horn",
+    "answer": "horn",
+    "answerOptions": [
+      "horn",
+      "barn",
+      "barrel",
+      "basil"
+    ],
+    "choices": [
+      "horn",
+      "barn",
+      "barrel",
+      "basil"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "rhyming"
+    ],
+    "rimeFamily": "or",
+    "targetImageUrl": "/media/vocabulary/images/storm.webp",
+    "imageUrl": "/media/vocabulary/images/storm.webp",
+    "imagePath": "/media/vocabulary/images/storm.webp",
+    "audioUrl": "/media/vocabulary/audio/storm.mp3",
+    "audioPath": "/media/vocabulary/audio/storm.mp3",
+    "correctAnswers": [
+      "horn"
+    ],
+    "requiredSelections": 1,
+    "imageCards": [
+      {
+        "id": "horn",
+        "word": "horn",
+        "label": "horn",
+        "value": "horn",
+        "image": "/media/vocabulary/images/horn.webp",
+        "imageUrl": "/media/vocabulary/images/horn.webp",
+        "isCorrect": true
+      },
+      {
+        "id": "barn",
+        "word": "barn",
+        "label": "barn",
+        "value": "barn",
+        "image": "/media/vocabulary/images/barn.webp",
+        "imageUrl": "/media/vocabulary/images/barn.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "barrel",
+        "word": "barrel",
+        "label": "barrel",
+        "value": "barrel",
+        "image": "/media/vocabulary/images/barrel.webp",
+        "imageUrl": "/media/vocabulary/images/barrel.webp",
+        "isCorrect": false
+      },
+      {
+        "id": "basil",
+        "word": "basil",
+        "label": "basil",
+        "value": "basil",
+        "image": "/media/vocabulary/images/basil.webp",
+        "imageUrl": "/media/vocabulary/images/basil.webp",
+        "isCorrect": false
+      }
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_bar_1",
@@ -3029,7 +5700,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3072,7 +5743,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "bar has the short a sound."
+    "explanation": "bar has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_bib_2",
@@ -3082,7 +5755,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3125,7 +5798,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "bib has the short i sound."
+    "explanation": "bib has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_bow_3",
@@ -3135,7 +5810,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3178,7 +5853,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "o",
     "shortVowel": "short_o",
     "phonicsPattern": "short_o",
-    "explanation": "bow has the short o sound."
+    "explanation": "bow has the short o sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_cab_4",
@@ -3188,7 +5865,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3231,7 +5908,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "cab has the short a sound."
+    "explanation": "cab has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_can_5",
@@ -3241,7 +5920,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3284,7 +5963,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "can has the short a sound."
+    "explanation": "can has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_cob_6",
@@ -3294,7 +5975,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3337,7 +6018,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "o",
     "shortVowel": "short_o",
     "phonicsPattern": "short_o",
-    "explanation": "cob has the short o sound."
+    "explanation": "cob has the short o sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_cub_7",
@@ -3347,7 +6030,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3390,7 +6073,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "cub has the short u sound."
+    "explanation": "cub has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_dab_8",
@@ -3400,7 +6085,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3443,7 +6128,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "dab has the short a sound."
+    "explanation": "dab has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_dad_9",
@@ -3453,7 +6140,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3496,7 +6183,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "dad has the short a sound."
+    "explanation": "dad has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_den_10",
@@ -3506,7 +6195,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3549,7 +6238,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "e",
     "shortVowel": "short_e",
     "phonicsPattern": "short_e",
-    "explanation": "den has the short e sound."
+    "explanation": "den has the short e sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_dip_11",
@@ -3559,7 +6250,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3602,7 +6293,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "dip has the short i sound."
+    "explanation": "dip has the short i sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_fig_12",
@@ -3612,7 +6305,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3655,7 +6348,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "fig has the short i sound."
+    "explanation": "fig has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_fun_13",
@@ -3665,7 +6360,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3708,7 +6403,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "fun has the short u sound."
+    "explanation": "fun has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_gem_14",
@@ -3718,7 +6415,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3761,7 +6458,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "e",
     "shortVowel": "short_e",
     "phonicsPattern": "short_e",
-    "explanation": "gem has the short e sound."
+    "explanation": "gem has the short e sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_hay_15",
@@ -3771,7 +6470,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3814,7 +6513,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "hay has the short a sound."
+    "explanation": "hay has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_hip_16",
@@ -3824,7 +6525,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3867,7 +6568,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "hip has the short i sound."
+    "explanation": "hip has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_kit_17",
@@ -3877,7 +6580,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -3920,7 +6623,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "kit has the short i sound."
+    "explanation": "kit has the short i sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_lab_18",
@@ -3930,7 +6635,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -3973,7 +6678,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "lab has the short a sound."
+    "explanation": "lab has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_lap_19",
@@ -3983,7 +6690,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4026,7 +6733,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "lap has the short a sound."
+    "explanation": "lap has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_lip_20",
@@ -4036,7 +6745,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4079,7 +6788,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "lip has the short i sound."
+    "explanation": "lip has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_mad_21",
@@ -4089,7 +6800,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4132,7 +6843,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "mad has the short a sound."
+    "explanation": "mad has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_mix_22",
@@ -4142,7 +6855,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4185,7 +6898,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "mix has the short i sound."
+    "explanation": "mix has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_pad_23",
@@ -4195,7 +6910,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4238,7 +6953,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "pad has the short a sound."
+    "explanation": "pad has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_peg_24",
@@ -4248,7 +6965,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4291,7 +7008,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "e",
     "shortVowel": "short_e",
     "phonicsPattern": "short_e",
-    "explanation": "peg has the short e sound."
+    "explanation": "peg has the short e sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_pet_25",
@@ -4301,7 +7020,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4344,7 +7063,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "e",
     "shortVowel": "short_e",
     "phonicsPattern": "short_e",
-    "explanation": "pet has the short e sound."
+    "explanation": "pet has the short e sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_pup_26",
@@ -4354,7 +7075,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4397,7 +7118,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "pup has the short u sound."
+    "explanation": "pup has the short u sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_rag_27",
@@ -4407,7 +7130,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4450,7 +7173,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "rag has the short a sound."
+    "explanation": "rag has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_rib_28",
@@ -4460,7 +7185,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4503,7 +7228,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "rib has the short i sound."
+    "explanation": "rib has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_rod_29",
@@ -4513,7 +7240,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4556,7 +7283,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "o",
     "shortVowel": "short_o",
     "phonicsPattern": "short_o",
-    "explanation": "rod has the short o sound."
+    "explanation": "rod has the short o sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_rub_30",
@@ -4566,7 +7295,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4609,7 +7338,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "rub has the short u sound."
+    "explanation": "rub has the short u sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_sad_31",
@@ -4619,7 +7350,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4662,7 +7393,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "sad has the short a sound."
+    "explanation": "sad has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_sap_32",
@@ -4672,7 +7405,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4715,7 +7448,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "sap has the short a sound."
+    "explanation": "sap has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_saw_33",
@@ -4725,7 +7460,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4768,7 +7503,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "saw has the short a sound."
+    "explanation": "saw has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cvc_short_vowels_l2_sip_34",
@@ -4778,7 +7515,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4821,7 +7558,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "sip has the short i sound."
+    "explanation": "sip has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cvc_short_vowels_l2_sub_35",
@@ -4831,7 +7570,7 @@ export const skillLevelGapQuestions = [
     "skill": "CVC Short Vowels",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4874,7 +7613,1054 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "sub has the short u sound."
+    "explanation": "sub has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_tab_36",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "tab",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/vocabulary/images/tab.webp",
+    "imagePath": "/media/vocabulary/images/tab.webp",
+    "audioUrl": "/media/vocabulary/audio/tab.mp3",
+    "audioPath": "/media/vocabulary/audio/tab.mp3",
+    "audioText": "tab",
+    "spokenPrompt": "tab",
+    "audioKey": "tab",
+    "imageKey": "tab",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "tab has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_tag_37",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "tag",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/vocabulary/images/tag.webp",
+    "imagePath": "/media/vocabulary/images/tag.webp",
+    "audioUrl": "/media/vocabulary/audio/tag.mp3",
+    "audioPath": "/media/vocabulary/audio/tag.mp3",
+    "audioText": "tag",
+    "spokenPrompt": "tag",
+    "audioKey": "tag",
+    "imageKey": "tag",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "tag has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_tug_38",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "tug",
+    "itemType": "short_vowel",
+    "itemKey": "short_u",
+    "correctAnswer": "u",
+    "answer": "u",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/vocabulary/images/tug.webp",
+    "imagePath": "/media/vocabulary/images/tug.webp",
+    "audioUrl": "/media/vocabulary/audio/tug.mp3",
+    "audioPath": "/media/vocabulary/audio/tug.mp3",
+    "audioText": "tug",
+    "spokenPrompt": "tug",
+    "audioKey": "tug",
+    "imageKey": "tug",
+    "targetVowel": "u",
+    "shortVowel": "short_u",
+    "phonicsPattern": "short_u",
+    "explanation": "tug has the short u sound.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_wag_39",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "wag",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/vocabulary/images/wag.webp",
+    "imagePath": "/media/vocabulary/images/wag.webp",
+    "audioUrl": "/media/vocabulary/audio/wag.mp3",
+    "audioPath": "/media/vocabulary/audio/wag.mp3",
+    "audioText": "wag",
+    "spokenPrompt": "wag",
+    "audioKey": "wag",
+    "imageKey": "wag",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "wag has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_wax_40",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "wax",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/vocabulary/images/wax.webp",
+    "imagePath": "/media/vocabulary/images/wax.webp",
+    "audioUrl": "/media/vocabulary/audio/wax.mp3",
+    "audioPath": "/media/vocabulary/audio/wax.mp3",
+    "audioText": "wax",
+    "spokenPrompt": "wax",
+    "audioKey": "wax",
+    "imageKey": "wax",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "wax has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_wet_41",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "wet",
+    "itemType": "short_vowel",
+    "itemKey": "short_e",
+    "correctAnswer": "e",
+    "answer": "e",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/vocabulary/images/wet.webp",
+    "imagePath": "/media/vocabulary/images/wet.webp",
+    "audioUrl": "/media/vocabulary/audio/wet.mp3",
+    "audioPath": "/media/vocabulary/audio/wet.mp3",
+    "audioText": "wet",
+    "spokenPrompt": "wet",
+    "audioKey": "wet",
+    "imageKey": "wet",
+    "targetVowel": "e",
+    "shortVowel": "short_e",
+    "phonicsPattern": "short_e",
+    "explanation": "wet has the short e sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_yen_42",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "yen",
+    "itemType": "short_vowel",
+    "itemKey": "short_e",
+    "correctAnswer": "e",
+    "answer": "e",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/vocabulary/images/yen.webp",
+    "imagePath": "/media/vocabulary/images/yen.webp",
+    "audioUrl": "/media/vocabulary/audio/yen.mp3",
+    "audioPath": "/media/vocabulary/audio/yen.mp3",
+    "audioText": "yen",
+    "spokenPrompt": "yen",
+    "audioKey": "yen",
+    "imageKey": "yen",
+    "targetVowel": "e",
+    "shortVowel": "short_e",
+    "phonicsPattern": "short_e",
+    "explanation": "yen has the short e sound.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_zip_43",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "zip",
+    "itemType": "short_vowel",
+    "itemKey": "short_i",
+    "correctAnswer": "i",
+    "answer": "i",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/vocabulary/images/zip.webp",
+    "imagePath": "/media/vocabulary/images/zip.webp",
+    "audioUrl": "/media/vocabulary/audio/zip.mp3",
+    "audioPath": "/media/vocabulary/audio/zip.mp3",
+    "audioText": "zip",
+    "spokenPrompt": "zip",
+    "audioKey": "zip",
+    "imageKey": "zip",
+    "targetVowel": "i",
+    "shortVowel": "short_i",
+    "phonicsPattern": "short_i",
+    "explanation": "zip has the short i sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_bat_44",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "bat",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
+    "imagePath": "/media/initial-sounds/images/b/bat.webp",
+    "audioUrl": "/media/initial-sounds/audio/b/bat.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/bat.mp3",
+    "audioText": "bat",
+    "spokenPrompt": "bat",
+    "audioKey": "bat",
+    "imageKey": "bat",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "bat has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_bed_45",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "bed",
+    "itemType": "short_vowel",
+    "itemKey": "short_e",
+    "correctAnswer": "e",
+    "answer": "e",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/b/bed.webp",
+    "imagePath": "/media/initial-sounds/images/b/bed.webp",
+    "audioUrl": "/media/initial-sounds/audio/b/bed.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/bed.mp3",
+    "audioText": "bed",
+    "spokenPrompt": "bed",
+    "audioKey": "bed",
+    "imageKey": "bed",
+    "targetVowel": "e",
+    "shortVowel": "short_e",
+    "phonicsPattern": "short_e",
+    "explanation": "bed has the short e sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_box_46",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "box",
+    "itemType": "short_vowel",
+    "itemKey": "short_o",
+    "correctAnswer": "o",
+    "answer": "o",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/b/box.webp",
+    "imagePath": "/media/initial-sounds/images/b/box.webp",
+    "audioUrl": "/media/initial-sounds/audio/b/box.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/box.mp3",
+    "audioText": "box",
+    "spokenPrompt": "box",
+    "audioKey": "box",
+    "imageKey": "box",
+    "targetVowel": "o",
+    "shortVowel": "short_o",
+    "phonicsPattern": "short_o",
+    "explanation": "box has the short o sound.",
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_bus_47",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "bus",
+    "itemType": "short_vowel",
+    "itemKey": "short_u",
+    "correctAnswer": "u",
+    "answer": "u",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/b/bus.webp",
+    "imagePath": "/media/initial-sounds/images/b/bus.webp",
+    "audioUrl": "/media/initial-sounds/audio/b/bus.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/bus.mp3",
+    "audioText": "bus",
+    "spokenPrompt": "bus",
+    "audioKey": "bus",
+    "imageKey": "bus",
+    "targetVowel": "u",
+    "shortVowel": "short_u",
+    "phonicsPattern": "short_u",
+    "explanation": "bus has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_cap_48",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "cap",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/c/cap.webp",
+    "imagePath": "/media/initial-sounds/images/c/cap.webp",
+    "audioUrl": "/media/initial-sounds/audio/c/cap.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/cap.mp3",
+    "audioText": "cap",
+    "spokenPrompt": "cap",
+    "audioKey": "cap",
+    "imageKey": "cap",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "cap has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_cat_49",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "cat",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/c/cat.webp",
+    "imagePath": "/media/initial-sounds/images/c/cat.webp",
+    "audioUrl": "/media/initial-sounds/audio/c/cat.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/cat.mp3",
+    "audioText": "cat",
+    "spokenPrompt": "cat",
+    "audioKey": "cat",
+    "imageKey": "cat",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "cat has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_cup_50",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "cup",
+    "itemType": "short_vowel",
+    "itemKey": "short_u",
+    "correctAnswer": "u",
+    "answer": "u",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/c/cup.webp",
+    "imagePath": "/media/initial-sounds/images/c/cup.webp",
+    "audioUrl": "/media/initial-sounds/audio/c/cup.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/cup.mp3",
+    "audioText": "cup",
+    "spokenPrompt": "cup",
+    "audioKey": "cup",
+    "imageKey": "cup",
+    "targetVowel": "u",
+    "shortVowel": "short_u",
+    "phonicsPattern": "short_u",
+    "explanation": "cup has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_dog_51",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "dog",
+    "itemType": "short_vowel",
+    "itemKey": "short_o",
+    "correctAnswer": "o",
+    "answer": "o",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/d/dog.webp",
+    "imagePath": "/media/initial-sounds/images/d/dog.webp",
+    "audioUrl": "/media/initial-sounds/audio/d/dog.mp3",
+    "audioPath": "/media/initial-sounds/audio/d/dog.mp3",
+    "audioText": "dog",
+    "spokenPrompt": "dog",
+    "audioKey": "dog",
+    "imageKey": "dog",
+    "targetVowel": "o",
+    "shortVowel": "short_o",
+    "phonicsPattern": "short_o",
+    "explanation": "dog has the short o sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_fan_52",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "fan",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
+    "imagePath": "/media/initial-sounds/images/f/fan.webp",
+    "audioUrl": "/media/initial-sounds/audio/f/fan.mp3",
+    "audioPath": "/media/initial-sounds/audio/f/fan.mp3",
+    "audioText": "fan",
+    "spokenPrompt": "fan",
+    "audioKey": "fan",
+    "imageKey": "fan",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "fan has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_fox_53",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "fox",
+    "itemType": "short_vowel",
+    "itemKey": "short_o",
+    "correctAnswer": "o",
+    "answer": "o",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/f/fox.webp",
+    "imagePath": "/media/initial-sounds/images/f/fox.webp",
+    "audioUrl": "/media/initial-sounds/audio/f/fox.mp3",
+    "audioPath": "/media/initial-sounds/audio/f/fox.mp3",
+    "audioText": "fox",
+    "spokenPrompt": "fox",
+    "audioKey": "fox",
+    "imageKey": "fox",
+    "targetVowel": "o",
+    "shortVowel": "short_o",
+    "phonicsPattern": "short_o",
+    "explanation": "fox has the short o sound.",
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cvc_short_vowels_l2_gum_54",
+    "grade": "K",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC Short Vowels",
+    "skill": "CVC Short Vowels",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "gum",
+    "itemType": "short_vowel",
+    "itemKey": "short_u",
+    "correctAnswer": "u",
+    "answer": "u",
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "cvc_short_vowels"
+    ],
+    "imageUrl": "/media/initial-sounds/images/g/gum.webp",
+    "imagePath": "/media/initial-sounds/images/g/gum.webp",
+    "audioUrl": "/media/initial-sounds/audio/g/gum.mp3",
+    "audioPath": "/media/initial-sounds/audio/g/gum.mp3",
+    "audioText": "gum",
+    "spokenPrompt": "gum",
+    "audioKey": "gum",
+    "imageKey": "gum",
+    "targetVowel": "u",
+    "shortVowel": "short_u",
+    "phonicsPattern": "short_u",
+    "explanation": "gum has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_bar_1",
@@ -4884,7 +8670,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -4927,7 +8713,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "bar has the short a sound."
+    "explanation": "bar has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_bib_2",
@@ -4937,7 +8725,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -4980,7 +8768,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "bib has the short i sound."
+    "explanation": "bib has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_bow_3",
@@ -4990,7 +8780,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5033,7 +8823,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "o",
     "shortVowel": "short_o",
     "phonicsPattern": "short_o",
-    "explanation": "bow has the short o sound."
+    "explanation": "bow has the short o sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_cab_4",
@@ -5043,7 +8835,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5086,7 +8878,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "cab has the short a sound."
+    "explanation": "cab has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_can_5",
@@ -5096,7 +8890,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5139,7 +8933,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "can has the short a sound."
+    "explanation": "can has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_cob_6",
@@ -5149,7 +8945,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5192,7 +8988,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "o",
     "shortVowel": "short_o",
     "phonicsPattern": "short_o",
-    "explanation": "cob has the short o sound."
+    "explanation": "cob has the short o sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_cub_7",
@@ -5202,7 +9000,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5245,7 +9043,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "cub has the short u sound."
+    "explanation": "cub has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_dab_8",
@@ -5255,7 +9055,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5298,7 +9098,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "dab has the short a sound."
+    "explanation": "dab has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_dad_9",
@@ -5308,7 +9110,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5351,7 +9153,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "dad has the short a sound."
+    "explanation": "dad has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_den_10",
@@ -5361,7 +9165,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5404,7 +9208,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "e",
     "shortVowel": "short_e",
     "phonicsPattern": "short_e",
-    "explanation": "den has the short e sound."
+    "explanation": "den has the short e sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_dip_11",
@@ -5414,7 +9220,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5457,7 +9263,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "dip has the short i sound."
+    "explanation": "dip has the short i sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_fig_12",
@@ -5467,7 +9275,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5510,7 +9318,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "fig has the short i sound."
+    "explanation": "fig has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_fun_13",
@@ -5520,7 +9330,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5563,7 +9373,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "fun has the short u sound."
+    "explanation": "fun has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_gem_14",
@@ -5573,7 +9385,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5616,7 +9428,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "e",
     "shortVowel": "short_e",
     "phonicsPattern": "short_e",
-    "explanation": "gem has the short e sound."
+    "explanation": "gem has the short e sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_hay_15",
@@ -5626,7 +9440,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5669,7 +9483,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "hay has the short a sound."
+    "explanation": "hay has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_hip_16",
@@ -5679,7 +9495,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5722,7 +9538,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "hip has the short i sound."
+    "explanation": "hip has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_kit_17",
@@ -5732,7 +9550,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5775,7 +9593,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "kit has the short i sound."
+    "explanation": "kit has the short i sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_lab_18",
@@ -5785,7 +9605,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5828,7 +9648,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "lab has the short a sound."
+    "explanation": "lab has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_lap_19",
@@ -5838,7 +9660,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5881,7 +9703,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "lap has the short a sound."
+    "explanation": "lap has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_lip_20",
@@ -5891,7 +9715,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -5934,7 +9758,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "lip has the short i sound."
+    "explanation": "lip has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_mad_21",
@@ -5944,7 +9770,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -5987,7 +9813,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "mad has the short a sound."
+    "explanation": "mad has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_mix_22",
@@ -5997,7 +9825,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -6040,7 +9868,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "mix has the short i sound."
+    "explanation": "mix has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_pad_23",
@@ -6050,7 +9880,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -6093,7 +9923,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "pad has the short a sound."
+    "explanation": "pad has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_peg_24",
@@ -6103,7 +9935,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -6146,7 +9978,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "e",
     "shortVowel": "short_e",
     "phonicsPattern": "short_e",
-    "explanation": "peg has the short e sound."
+    "explanation": "peg has the short e sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_pet_25",
@@ -6156,7 +9990,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -6199,7 +10033,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "e",
     "shortVowel": "short_e",
     "phonicsPattern": "short_e",
-    "explanation": "pet has the short e sound."
+    "explanation": "pet has the short e sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_pup_26",
@@ -6209,7 +10045,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -6252,7 +10088,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "pup has the short u sound."
+    "explanation": "pup has the short u sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_rag_27",
@@ -6262,7 +10100,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -6305,7 +10143,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "rag has the short a sound."
+    "explanation": "rag has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_rib_28",
@@ -6315,7 +10155,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -6358,7 +10198,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "rib has the short i sound."
+    "explanation": "rib has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_rod_29",
@@ -6368,7 +10210,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -6411,7 +10253,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "o",
     "shortVowel": "short_o",
     "phonicsPattern": "short_o",
-    "explanation": "rod has the short o sound."
+    "explanation": "rod has the short o sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_rub_30",
@@ -6421,7 +10265,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -6464,7 +10308,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "rub has the short u sound."
+    "explanation": "rub has the short u sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_sad_31",
@@ -6474,7 +10320,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -6517,7 +10363,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "sad has the short a sound."
+    "explanation": "sad has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_sap_32",
@@ -6527,7 +10375,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -6570,7 +10418,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "sap has the short a sound."
+    "explanation": "sap has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_saw_33",
@@ -6580,7 +10430,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -6623,7 +10473,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "a",
     "shortVowel": "short_a",
     "phonicsPattern": "short_a",
-    "explanation": "saw has the short a sound."
+    "explanation": "saw has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_short_vowel_discrimination_l2_sip_34",
@@ -6633,7 +10485,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_2",
     "templateType": "SHORT_VOWEL_WORD",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
@@ -6676,7 +10528,9 @@ export const skillLevelGapQuestions = [
     "targetVowel": "i",
     "shortVowel": "short_i",
     "phonicsPattern": "short_i",
-    "explanation": "sip has the short i sound."
+    "explanation": "sip has the short i sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_short_vowel_discrimination_l2_sub_35",
@@ -6686,7 +10540,7 @@ export const skillLevelGapQuestions = [
     "skill": "Short Vowel Discrimination",
     "level": 2,
     "difficulty": 2,
-    "phaseTarget": "level_2",
+    "phaseTarget": "level_2_phase_1",
     "templateType": "LISTEN_CHOOSE_VOWEL",
     "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
@@ -6729,992 +10583,1064 @@ export const skillLevelGapQuestions = [
     "targetVowel": "u",
     "shortVowel": "short_u",
     "phonicsPattern": "short_u",
-    "explanation": "sub has the short u sound."
+    "explanation": "sub has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_he",
+    "id": "gap_short_vowel_discrimination_l2_tab_36",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: he.",
-    "question": "Find the word: he.",
-    "targetWord": "he",
-    "itemType": "sight_word",
-    "itemKey": "he",
-    "correctAnswer": "he",
-    "answer": "he",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "tab",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
     "answerOptions": [
-      "he",
-      "she",
-      "they",
-      "was"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "he",
-      "she",
-      "they",
-      "was"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/vocabulary/images/tab.webp",
+    "imagePath": "/media/vocabulary/images/tab.webp",
+    "audioUrl": "/media/vocabulary/audio/tab.mp3",
+    "audioPath": "/media/vocabulary/audio/tab.mp3",
+    "audioText": "tab",
+    "spokenPrompt": "tab",
+    "audioKey": "tab",
+    "imageKey": "tab",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "tab has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_26_50_l1_she",
+    "id": "gap_short_vowel_discrimination_l2_tag_37",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: she.",
-    "question": "Find the word: she.",
-    "targetWord": "she",
-    "itemType": "sight_word",
-    "itemKey": "she",
-    "correctAnswer": "she",
-    "answer": "she",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "tag",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
     "answerOptions": [
-      "she",
-      "with",
-      "for",
-      "all"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "she",
-      "with",
-      "for",
-      "all"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/vocabulary/images/tag.webp",
+    "imagePath": "/media/vocabulary/images/tag.webp",
+    "audioUrl": "/media/vocabulary/audio/tag.mp3",
+    "audioPath": "/media/vocabulary/audio/tag.mp3",
+    "audioText": "tag",
+    "spokenPrompt": "tag",
+    "audioKey": "tag",
+    "imageKey": "tag",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "tag has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_they",
+    "id": "gap_short_vowel_discrimination_l2_tug_38",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: they.",
-    "question": "Find the word: they.",
-    "targetWord": "they",
-    "itemType": "sight_word",
-    "itemKey": "they",
-    "correctAnswer": "they",
-    "answer": "they",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "tug",
+    "itemType": "short_vowel",
+    "itemKey": "short_u",
+    "correctAnswer": "u",
+    "answer": "u",
     "answerOptions": [
-      "they",
-      "are",
-      "but",
-      "under"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "they",
-      "are",
-      "but",
-      "under"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/vocabulary/images/tug.webp",
+    "imagePath": "/media/vocabulary/images/tug.webp",
+    "audioUrl": "/media/vocabulary/audio/tug.mp3",
+    "audioPath": "/media/vocabulary/audio/tug.mp3",
+    "audioText": "tug",
+    "spokenPrompt": "tug",
+    "audioKey": "tug",
+    "imageKey": "tug",
+    "targetVowel": "u",
+    "shortVowel": "short_u",
+    "phonicsPattern": "short_u",
+    "explanation": "tug has the short u sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_26_50_l1_was",
+    "id": "gap_short_vowel_discrimination_l2_wag_39",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: was.",
-    "question": "Find the word: was.",
-    "targetWord": "was",
-    "itemType": "sight_word",
-    "itemKey": "was",
-    "correctAnswer": "was",
-    "answer": "was",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "wag",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
     "answerOptions": [
-      "was",
-      "then",
-      "that",
-      "have"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "was",
-      "then",
-      "that",
-      "have"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/vocabulary/images/wag.webp",
+    "imagePath": "/media/vocabulary/images/wag.webp",
+    "audioUrl": "/media/vocabulary/audio/wag.mp3",
+    "audioPath": "/media/vocabulary/audio/wag.mp3",
+    "audioText": "wag",
+    "spokenPrompt": "wag",
+    "audioKey": "wag",
+    "imageKey": "wag",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "wag has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_with",
+    "id": "gap_short_vowel_discrimination_l2_wax_40",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: with.",
-    "question": "Find the word: with.",
-    "targetWord": "with",
-    "itemType": "sight_word",
-    "itemKey": "with",
-    "correctAnswer": "with",
-    "answer": "with",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "wax",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
     "answerOptions": [
-      "with",
-      "from",
-      "this",
-      "what"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "with",
-      "from",
-      "this",
-      "what"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/vocabulary/images/wax.webp",
+    "imagePath": "/media/vocabulary/images/wax.webp",
+    "audioUrl": "/media/vocabulary/audio/wax.mp3",
+    "audioPath": "/media/vocabulary/audio/wax.mp3",
+    "audioText": "wax",
+    "spokenPrompt": "wax",
+    "audioKey": "wax",
+    "imageKey": "wax",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "wax has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_26_50_l1_for",
+    "id": "gap_short_vowel_discrimination_l2_wet_41",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: for.",
-    "question": "Find the word: for.",
-    "targetWord": "for",
-    "itemType": "sight_word",
-    "itemKey": "for",
-    "correctAnswer": "for",
-    "answer": "for",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "wet",
+    "itemType": "short_vowel",
+    "itemKey": "short_e",
+    "correctAnswer": "e",
+    "answer": "e",
     "answerOptions": [
-      "for",
-      "were",
-      "when",
-      "where"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "for",
-      "were",
-      "when",
-      "where"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/vocabulary/images/wet.webp",
+    "imagePath": "/media/vocabulary/images/wet.webp",
+    "audioUrl": "/media/vocabulary/audio/wet.mp3",
+    "audioPath": "/media/vocabulary/audio/wet.mp3",
+    "audioText": "wet",
+    "spokenPrompt": "wet",
+    "audioKey": "wet",
+    "imageKey": "wet",
+    "targetVowel": "e",
+    "shortVowel": "short_e",
+    "phonicsPattern": "short_e",
+    "explanation": "wet has the short e sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_all",
+    "id": "gap_short_vowel_discrimination_l2_yen_42",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: all.",
-    "question": "Find the word: all.",
-    "targetWord": "all",
-    "itemType": "sight_word",
-    "itemKey": "all",
-    "correctAnswer": "all",
-    "answer": "all",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "yen",
+    "itemType": "short_vowel",
+    "itemKey": "short_e",
+    "correctAnswer": "e",
+    "answer": "e",
     "answerOptions": [
-      "all",
-      "went",
-      "came",
-      "will"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "all",
-      "went",
-      "came",
-      "will"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/vocabulary/images/yen.webp",
+    "imagePath": "/media/vocabulary/images/yen.webp",
+    "audioUrl": "/media/vocabulary/audio/yen.mp3",
+    "audioPath": "/media/vocabulary/audio/yen.mp3",
+    "audioText": "yen",
+    "spokenPrompt": "yen",
+    "audioKey": "yen",
+    "imageKey": "yen",
+    "targetVowel": "e",
+    "shortVowel": "short_e",
+    "phonicsPattern": "short_e",
+    "explanation": "yen has the short e sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_26_50_l1_are",
+    "id": "gap_short_vowel_discrimination_l2_zip_43",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: are.",
-    "question": "Find the word: are.",
-    "targetWord": "are",
-    "itemType": "sight_word",
-    "itemKey": "are",
-    "correctAnswer": "are",
-    "answer": "are",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "zip",
+    "itemType": "short_vowel",
+    "itemKey": "short_i",
+    "correctAnswer": "i",
+    "answer": "i",
     "answerOptions": [
-      "are",
-      "into",
-      "just",
-      "now"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "are",
-      "into",
-      "just",
-      "now"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/vocabulary/images/zip.webp",
+    "imagePath": "/media/vocabulary/images/zip.webp",
+    "audioUrl": "/media/vocabulary/audio/zip.mp3",
+    "audioPath": "/media/vocabulary/audio/zip.mp3",
+    "audioText": "zip",
+    "spokenPrompt": "zip",
+    "audioKey": "zip",
+    "imageKey": "zip",
+    "targetVowel": "i",
+    "shortVowel": "short_i",
+    "phonicsPattern": "short_i",
+    "explanation": "zip has the short i sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_but",
+    "id": "gap_short_vowel_discrimination_l2_bat_44",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: but.",
-    "question": "Find the word: but.",
-    "targetWord": "but",
-    "itemType": "sight_word",
-    "itemKey": "but",
-    "correctAnswer": "but",
-    "answer": "but",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "bat",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
     "answerOptions": [
-      "but",
-      "he",
-      "she",
-      "they"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "but",
-      "he",
-      "she",
-      "they"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
+    "imagePath": "/media/initial-sounds/images/b/bat.webp",
+    "audioUrl": "/media/initial-sounds/audio/b/bat.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/bat.mp3",
+    "audioText": "bat",
+    "spokenPrompt": "bat",
+    "audioKey": "bat",
+    "imageKey": "bat",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "bat has the short a sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_26_50_l1_under",
+    "id": "gap_short_vowel_discrimination_l2_bed_45",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: under.",
-    "question": "Find the word: under.",
-    "targetWord": "under",
-    "itemType": "sight_word",
-    "itemKey": "under",
-    "correctAnswer": "under",
-    "answer": "under",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "bed",
+    "itemType": "short_vowel",
+    "itemKey": "short_e",
+    "correctAnswer": "e",
+    "answer": "e",
     "answerOptions": [
-      "under",
-      "was",
-      "with",
-      "for"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "under",
-      "was",
-      "with",
-      "for"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/b/bed.webp",
+    "imagePath": "/media/initial-sounds/images/b/bed.webp",
+    "audioUrl": "/media/initial-sounds/audio/b/bed.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/bed.mp3",
+    "audioText": "bed",
+    "spokenPrompt": "bed",
+    "audioKey": "bed",
+    "imageKey": "bed",
+    "targetVowel": "e",
+    "shortVowel": "short_e",
+    "phonicsPattern": "short_e",
+    "explanation": "bed has the short e sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_then",
+    "id": "gap_short_vowel_discrimination_l2_box_46",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: then.",
-    "question": "Find the word: then.",
-    "targetWord": "then",
-    "itemType": "sight_word",
-    "itemKey": "then",
-    "correctAnswer": "then",
-    "answer": "then",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "box",
+    "itemType": "short_vowel",
+    "itemKey": "short_o",
+    "correctAnswer": "o",
+    "answer": "o",
     "answerOptions": [
-      "then",
-      "all",
-      "are",
-      "but"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "then",
-      "all",
-      "are",
-      "but"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/b/box.webp",
+    "imagePath": "/media/initial-sounds/images/b/box.webp",
+    "audioUrl": "/media/initial-sounds/audio/b/box.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/box.mp3",
+    "audioText": "box",
+    "spokenPrompt": "box",
+    "audioKey": "box",
+    "imageKey": "box",
+    "targetVowel": "o",
+    "shortVowel": "short_o",
+    "phonicsPattern": "short_o",
+    "explanation": "box has the short o sound.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_26_50_l1_that",
+    "id": "gap_short_vowel_discrimination_l2_bus_47",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: that.",
-    "question": "Find the word: that.",
-    "targetWord": "that",
-    "itemType": "sight_word",
-    "itemKey": "that",
-    "correctAnswer": "that",
-    "answer": "that",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "bus",
+    "itemType": "short_vowel",
+    "itemKey": "short_u",
+    "correctAnswer": "u",
+    "answer": "u",
     "answerOptions": [
-      "that",
-      "under",
-      "then",
-      "have"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "that",
-      "under",
-      "then",
-      "have"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/b/bus.webp",
+    "imagePath": "/media/initial-sounds/images/b/bus.webp",
+    "audioUrl": "/media/initial-sounds/audio/b/bus.mp3",
+    "audioPath": "/media/initial-sounds/audio/b/bus.mp3",
+    "audioText": "bus",
+    "spokenPrompt": "bus",
+    "audioKey": "bus",
+    "imageKey": "bus",
+    "targetVowel": "u",
+    "shortVowel": "short_u",
+    "phonicsPattern": "short_u",
+    "explanation": "bus has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_have",
+    "id": "gap_short_vowel_discrimination_l2_cap_48",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: have.",
-    "question": "Find the word: have.",
-    "targetWord": "have",
-    "itemType": "sight_word",
-    "itemKey": "have",
-    "correctAnswer": "have",
-    "answer": "have",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "cap",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
     "answerOptions": [
-      "have",
-      "from",
-      "this",
-      "what"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "have",
-      "from",
-      "this",
-      "what"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/c/cap.webp",
+    "imagePath": "/media/initial-sounds/images/c/cap.webp",
+    "audioUrl": "/media/initial-sounds/audio/c/cap.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/cap.mp3",
+    "audioText": "cap",
+    "spokenPrompt": "cap",
+    "audioKey": "cap",
+    "imageKey": "cap",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "cap has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_from",
+    "id": "gap_short_vowel_discrimination_l2_cat_49",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: from.",
-    "question": "Find the word: from.",
-    "targetWord": "from",
-    "itemType": "sight_word",
-    "itemKey": "from",
-    "correctAnswer": "from",
-    "answer": "from",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "cat",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
     "answerOptions": [
-      "from",
-      "were",
-      "when",
-      "where"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "from",
-      "were",
-      "when",
-      "where"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/c/cat.webp",
+    "imagePath": "/media/initial-sounds/images/c/cat.webp",
+    "audioUrl": "/media/initial-sounds/audio/c/cat.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/cat.mp3",
+    "audioText": "cat",
+    "spokenPrompt": "cat",
+    "audioKey": "cat",
+    "imageKey": "cat",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "cat has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_this",
+    "id": "gap_short_vowel_discrimination_l2_cup_50",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: this.",
-    "question": "Find the word: this.",
-    "targetWord": "this",
-    "itemType": "sight_word",
-    "itemKey": "this",
-    "correctAnswer": "this",
-    "answer": "this",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "cup",
+    "itemType": "short_vowel",
+    "itemKey": "short_u",
+    "correctAnswer": "u",
+    "answer": "u",
     "answerOptions": [
-      "this",
-      "went",
-      "came",
-      "will"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "this",
-      "went",
-      "came",
-      "will"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/c/cup.webp",
+    "imagePath": "/media/initial-sounds/images/c/cup.webp",
+    "audioUrl": "/media/initial-sounds/audio/c/cup.mp3",
+    "audioPath": "/media/initial-sounds/audio/c/cup.mp3",
+    "audioText": "cup",
+    "spokenPrompt": "cup",
+    "audioKey": "cup",
+    "imageKey": "cup",
+    "targetVowel": "u",
+    "shortVowel": "short_u",
+    "phonicsPattern": "short_u",
+    "explanation": "cup has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_what",
+    "id": "gap_short_vowel_discrimination_l2_dog_51",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: what.",
-    "question": "Find the word: what.",
-    "targetWord": "what",
-    "itemType": "sight_word",
-    "itemKey": "what",
-    "correctAnswer": "what",
-    "answer": "what",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "dog",
+    "itemType": "short_vowel",
+    "itemKey": "short_o",
+    "correctAnswer": "o",
+    "answer": "o",
     "answerOptions": [
-      "what",
-      "into",
-      "just",
-      "now"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "what",
-      "into",
-      "just",
-      "now"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/d/dog.webp",
+    "imagePath": "/media/initial-sounds/images/d/dog.webp",
+    "audioUrl": "/media/initial-sounds/audio/d/dog.mp3",
+    "audioPath": "/media/initial-sounds/audio/d/dog.mp3",
+    "audioText": "dog",
+    "spokenPrompt": "dog",
+    "audioKey": "dog",
+    "imageKey": "dog",
+    "targetVowel": "o",
+    "shortVowel": "short_o",
+    "phonicsPattern": "short_o",
+    "explanation": "dog has the short o sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_were",
+    "id": "gap_short_vowel_discrimination_l2_fan_52",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: were.",
-    "question": "Find the word: were.",
-    "targetWord": "were",
-    "itemType": "sight_word",
-    "itemKey": "were",
-    "correctAnswer": "were",
-    "answer": "were",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "fan",
+    "itemType": "short_vowel",
+    "itemKey": "short_a",
+    "correctAnswer": "a",
+    "answer": "a",
     "answerOptions": [
-      "were",
-      "he",
-      "she",
-      "they"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "were",
-      "he",
-      "she",
-      "they"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
+    "imagePath": "/media/initial-sounds/images/f/fan.webp",
+    "audioUrl": "/media/initial-sounds/audio/f/fan.mp3",
+    "audioPath": "/media/initial-sounds/audio/f/fan.mp3",
+    "audioText": "fan",
+    "spokenPrompt": "fan",
+    "audioKey": "fan",
+    "imageKey": "fan",
+    "targetVowel": "a",
+    "shortVowel": "short_a",
+    "phonicsPattern": "short_a",
+    "explanation": "fan has the short a sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_when",
+    "id": "gap_short_vowel_discrimination_l2_fox_53",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "LISTEN_CHOOSE_VOWEL",
+    "formatType": "LISTEN_CHOOSE_VOWEL",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: when.",
-    "question": "Find the word: when.",
-    "targetWord": "when",
-    "itemType": "sight_word",
-    "itemKey": "when",
-    "correctAnswer": "when",
-    "answer": "when",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "fox",
+    "itemType": "short_vowel",
+    "itemKey": "short_o",
+    "correctAnswer": "o",
+    "answer": "o",
     "answerOptions": [
-      "when",
-      "was",
-      "with",
-      "for"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "when",
-      "was",
-      "with",
-      "for"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/f/fox.webp",
+    "imagePath": "/media/initial-sounds/images/f/fox.webp",
+    "audioUrl": "/media/initial-sounds/audio/f/fox.mp3",
+    "audioPath": "/media/initial-sounds/audio/f/fox.mp3",
+    "audioText": "fox",
+    "spokenPrompt": "fox",
+    "audioKey": "fox",
+    "imageKey": "fox",
+    "targetVowel": "o",
+    "shortVowel": "short_o",
+    "phonicsPattern": "short_o",
+    "explanation": "fox has the short o sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_where",
+    "id": "gap_short_vowel_discrimination_l2_gum_54",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "SHORT_VOWEL_WORD",
+    "formatType": "SHORT_VOWEL_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Find the word: where.",
-    "question": "Find the word: where.",
-    "targetWord": "where",
-    "itemType": "sight_word",
-    "itemKey": "where",
-    "correctAnswer": "where",
-    "answer": "where",
+    "prompt": "Listen to the word. Which short vowel sound do you hear?",
+    "question": "Listen to the word. Which short vowel sound do you hear?",
+    "targetWord": "gum",
+    "itemType": "short_vowel",
+    "itemKey": "short_u",
+    "correctAnswer": "u",
+    "answer": "u",
     "answerOptions": [
-      "where",
-      "all",
-      "are",
-      "but"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "choices": [
-      "where",
-      "all",
-      "are",
-      "but"
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
+      "level-2",
+      "short_vowel_discrimination"
+    ],
+    "imageUrl": "/media/initial-sounds/images/g/gum.webp",
+    "imagePath": "/media/initial-sounds/images/g/gum.webp",
+    "audioUrl": "/media/initial-sounds/audio/g/gum.mp3",
+    "audioPath": "/media/initial-sounds/audio/g/gum.mp3",
+    "audioText": "gum",
+    "spokenPrompt": "gum",
+    "audioKey": "gum",
+    "imageKey": "gum",
+    "targetVowel": "u",
+    "shortVowel": "short_u",
+    "phonicsPattern": "short_u",
+    "explanation": "gum has the short u sound.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_26_50_l1_went",
+    "id": "gap_hfw_51_75_l1_after",
     "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: went.",
-    "question": "Find the word: went.",
-    "targetWord": "went",
-    "itemType": "sight_word",
-    "itemKey": "went",
-    "correctAnswer": "went",
-    "answer": "went",
-    "answerOptions": [
-      "went",
-      "under",
-      "then",
-      "that"
-    ],
-    "choices": [
-      "went",
-      "under",
-      "then",
-      "that"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
-  },
-  {
-    "id": "gap_hfw_26_50_l1_came",
-    "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: came.",
-    "question": "Find the word: came.",
-    "targetWord": "came",
-    "itemType": "sight_word",
-    "itemKey": "came",
-    "correctAnswer": "came",
-    "answer": "came",
-    "answerOptions": [
-      "came",
-      "have",
-      "from",
-      "this"
-    ],
-    "choices": [
-      "came",
-      "have",
-      "from",
-      "this"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
-  },
-  {
-    "id": "gap_hfw_26_50_l1_will",
-    "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: will.",
-    "question": "Find the word: will.",
-    "targetWord": "will",
-    "itemType": "sight_word",
-    "itemKey": "will",
-    "correctAnswer": "will",
-    "answer": "will",
-    "answerOptions": [
-      "will",
-      "what",
-      "were",
-      "when"
-    ],
-    "choices": [
-      "will",
-      "what",
-      "were",
-      "when"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
-  },
-  {
-    "id": "gap_hfw_26_50_l1_into",
-    "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: into.",
-    "question": "Find the word: into.",
-    "targetWord": "into",
-    "itemType": "sight_word",
-    "itemKey": "into",
-    "correctAnswer": "into",
-    "answer": "into",
-    "answerOptions": [
-      "into",
-      "where",
-      "went",
-      "came"
-    ],
-    "choices": [
-      "into",
-      "where",
-      "went",
-      "came"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
-  },
-  {
-    "id": "gap_hfw_26_50_l1_just",
-    "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: just.",
-    "question": "Find the word: just.",
-    "targetWord": "just",
-    "itemType": "sight_word",
-    "itemKey": "just",
-    "correctAnswer": "just",
-    "answer": "just",
-    "answerOptions": [
-      "just",
-      "will",
-      "into",
-      "now"
-    ],
-    "choices": [
-      "just",
-      "will",
-      "into",
-      "now"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
-  },
-  {
-    "id": "gap_hfw_26_50_l1_now",
-    "grade": "K",
-    "skillId": "hfw_26_50",
-    "skillName": "High-Frequency Words 26-50",
-    "skill": "High-Frequency Words 26-50",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: now.",
-    "question": "Find the word: now.",
-    "targetWord": "now",
-    "itemType": "sight_word",
-    "itemKey": "now",
-    "correctAnswer": "now",
-    "answer": "now",
-    "answerOptions": [
-      "now",
-      "he",
-      "she",
-      "they"
-    ],
-    "choices": [
-      "now",
-      "he",
-      "she",
-      "they"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_26_50"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_after",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -7728,32 +11654,34 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "after",
       "again",
-      "any",
-      "around"
+      "an",
+      "any"
     ],
     "choices": [
       "after",
       "again",
-      "any",
-      "around"
+      "an",
+      "any"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_again",
+    "id": "gap_hfw_51_75_l1_again",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -7766,33 +11694,76 @@ export const skillLevelGapQuestions = [
     "answer": "again",
     "answerOptions": [
       "again",
+      "around",
       "ask",
-      "away",
-      "be"
+      "away"
     ],
     "choices": [
       "again",
+      "around",
       "ask",
-      "away",
-      "be"
+      "away"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_any",
+    "id": "gap_hfw_51_75_l1_an",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: an.",
+    "question": "Find the word: an.",
+    "targetWord": "an",
+    "itemType": "sight_word",
+    "itemKey": "an",
+    "correctAnswer": "an",
+    "answer": "an",
+    "answerOptions": [
+      "an",
+      "before",
+      "by",
+      "could"
+    ],
+    "choices": [
+      "an",
+      "before",
+      "by",
+      "could"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l1_any",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -7805,33 +11776,35 @@ export const skillLevelGapQuestions = [
     "answer": "any",
     "answerOptions": [
       "any",
-      "before",
-      "by",
-      "cold"
+      "every",
+      "find",
+      "fly"
     ],
     "choices": [
       "any",
-      "before",
-      "by",
-      "cold"
+      "every",
+      "find",
+      "fly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_around",
+    "id": "gap_hfw_51_75_l1_around",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -7844,33 +11817,35 @@ export const skillLevelGapQuestions = [
     "answer": "around",
     "answerOptions": [
       "around",
-      "come",
-      "could",
-      "down"
+      "found",
+      "funny",
+      "give"
     ],
     "choices": [
       "around",
-      "come",
-      "could",
-      "down"
+      "found",
+      "funny",
+      "give"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_ask",
+    "id": "gap_hfw_51_75_l1_ask",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -7883,33 +11858,35 @@ export const skillLevelGapQuestions = [
     "answer": "ask",
     "answerOptions": [
       "ask",
-      "every",
-      "find",
-      "fly"
+      "going",
+      "had",
+      "has"
     ],
     "choices": [
       "ask",
-      "every",
-      "find",
-      "fly"
+      "going",
+      "had",
+      "has"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_away",
+    "id": "gap_hfw_51_75_l1_away",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -7922,72 +11899,35 @@ export const skillLevelGapQuestions = [
     "answer": "away",
     "answerOptions": [
       "away",
-      "found",
-      "funny",
-      "give"
+      "her",
+      "here",
+      "him"
     ],
     "choices": [
       "away",
-      "found",
-      "funny",
-      "give"
+      "her",
+      "here",
+      "him"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_be",
+    "id": "gap_hfw_51_75_l1_before",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: be.",
-    "question": "Find the word: be.",
-    "targetWord": "be",
-    "itemType": "sight_word",
-    "itemKey": "be",
-    "correctAnswer": "be",
-    "answer": "be",
-    "answerOptions": [
-      "be",
-      "going",
-      "has",
-      "help"
-    ],
-    "choices": [
-      "be",
-      "going",
-      "has",
-      "help"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_before",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8000,33 +11940,35 @@ export const skillLevelGapQuestions = [
     "answer": "before",
     "answerOptions": [
       "before",
-      "helps",
-      "her",
-      "here"
+      "his",
+      "how",
+      "into"
     ],
     "choices": [
       "before",
-      "helps",
-      "her",
-      "here"
+      "his",
+      "how",
+      "into"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_by",
+    "id": "gap_hfw_51_75_l1_by",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8039,111 +11981,35 @@ export const skillLevelGapQuestions = [
     "answer": "by",
     "answerOptions": [
       "by",
-      "him",
-      "his",
-      "how"
+      "after",
+      "again",
+      "an"
     ],
     "choices": [
       "by",
-      "him",
-      "his",
-      "how"
+      "after",
+      "again",
+      "an"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_cold",
+    "id": "gap_hfw_51_75_l1_could",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: cold.",
-    "question": "Find the word: cold.",
-    "targetWord": "cold",
-    "itemType": "sight_word",
-    "itemKey": "cold",
-    "correctAnswer": "cold",
-    "answer": "cold",
-    "answerOptions": [
-      "cold",
-      "know",
-      "let",
-      "like"
-    ],
-    "choices": [
-      "cold",
-      "know",
-      "let",
-      "like"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_come",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: come.",
-    "question": "Find the word: come.",
-    "targetWord": "come",
-    "itemType": "sight_word",
-    "itemKey": "come",
-    "correctAnswer": "come",
-    "answer": "come",
-    "answerOptions": [
-      "come",
-      "little",
-      "live",
-      "look"
-    ],
-    "choices": [
-      "come",
-      "little",
-      "live",
-      "look"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_could",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8156,72 +12022,35 @@ export const skillLevelGapQuestions = [
     "answer": "could",
     "answerOptions": [
       "could",
-      "made",
-      "make",
-      "may"
+      "any",
+      "around",
+      "ask"
     ],
     "choices": [
       "could",
-      "made",
-      "make",
-      "may"
+      "any",
+      "around",
+      "ask"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_down",
+    "id": "gap_hfw_51_75_l1_every",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: down.",
-    "question": "Find the word: down.",
-    "targetWord": "down",
-    "itemType": "sight_word",
-    "itemKey": "down",
-    "correctAnswer": "down",
-    "answer": "down",
-    "answerOptions": [
-      "down",
-      "me",
-      "must",
-      "new"
-    ],
-    "choices": [
-      "down",
-      "me",
-      "must",
-      "new"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_every",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8234,33 +12063,35 @@ export const skillLevelGapQuestions = [
     "answer": "every",
     "answerOptions": [
       "every",
-      "not",
-      "old",
-      "once"
+      "away",
+      "before",
+      "by"
     ],
     "choices": [
       "every",
-      "not",
-      "old",
-      "once"
+      "away",
+      "before",
+      "by"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_find",
+    "id": "gap_hfw_51_75_l1_find",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8273,33 +12104,35 @@ export const skillLevelGapQuestions = [
     "answer": "find",
     "answerOptions": [
       "find",
-      "open",
-      "our",
-      "out"
+      "could",
+      "every",
+      "fly"
     ],
     "choices": [
       "find",
-      "open",
-      "our",
-      "out"
+      "could",
+      "every",
+      "fly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_fly",
+    "id": "gap_hfw_51_75_l1_fly",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8312,33 +12145,35 @@ export const skillLevelGapQuestions = [
     "answer": "fly",
     "answerOptions": [
       "fly",
-      "over",
-      "play",
-      "please"
+      "found",
+      "funny",
+      "give"
     ],
     "choices": [
       "fly",
-      "over",
-      "play",
-      "please"
+      "found",
+      "funny",
+      "give"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_found",
+    "id": "gap_hfw_51_75_l1_found",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8351,33 +12186,35 @@ export const skillLevelGapQuestions = [
     "answer": "found",
     "answerOptions": [
       "found",
-      "pretty",
-      "put",
-      "read"
+      "going",
+      "had",
+      "has"
     ],
     "choices": [
       "found",
-      "pretty",
-      "put",
-      "read"
+      "going",
+      "had",
+      "has"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_funny",
+    "id": "gap_hfw_51_75_l1_funny",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8390,33 +12227,35 @@ export const skillLevelGapQuestions = [
     "answer": "funny",
     "answerOptions": [
       "funny",
-      "after",
-      "again",
-      "any"
+      "her",
+      "here",
+      "him"
     ],
     "choices": [
       "funny",
-      "after",
-      "again",
-      "any"
+      "her",
+      "here",
+      "him"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_give",
+    "id": "gap_hfw_51_75_l1_give",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8429,33 +12268,35 @@ export const skillLevelGapQuestions = [
     "answer": "give",
     "answerOptions": [
       "give",
-      "around",
-      "ask",
-      "away"
+      "his",
+      "how",
+      "into"
     ],
     "choices": [
       "give",
-      "around",
-      "ask",
-      "away"
+      "his",
+      "how",
+      "into"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_going",
+    "id": "gap_hfw_51_75_l1_going",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8468,33 +12309,76 @@ export const skillLevelGapQuestions = [
     "answer": "going",
     "answerOptions": [
       "going",
-      "be",
-      "before",
-      "by"
+      "after",
+      "again",
+      "an"
     ],
     "choices": [
       "going",
-      "be",
-      "before",
-      "by"
+      "after",
+      "again",
+      "an"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_has",
+    "id": "gap_hfw_51_75_l1_had",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: had.",
+    "question": "Find the word: had.",
+    "targetWord": "had",
+    "itemType": "sight_word",
+    "itemKey": "had",
+    "correctAnswer": "had",
+    "answer": "had",
+    "answerOptions": [
+      "had",
+      "any",
+      "around",
+      "ask"
+    ],
+    "choices": [
+      "had",
+      "any",
+      "around",
+      "ask"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l1_has",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8507,111 +12391,35 @@ export const skillLevelGapQuestions = [
     "answer": "has",
     "answerOptions": [
       "has",
-      "cold",
-      "come",
-      "could"
+      "away",
+      "before",
+      "by"
     ],
     "choices": [
       "has",
-      "cold",
-      "come",
-      "could"
+      "away",
+      "before",
+      "by"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_help",
+    "id": "gap_hfw_51_75_l1_her",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: help.",
-    "question": "Find the word: help.",
-    "targetWord": "help",
-    "itemType": "sight_word",
-    "itemKey": "help",
-    "correctAnswer": "help",
-    "answer": "help",
-    "answerOptions": [
-      "help",
-      "down",
-      "every",
-      "find"
-    ],
-    "choices": [
-      "help",
-      "down",
-      "every",
-      "find"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_helps",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: helps.",
-    "question": "Find the word: helps.",
-    "targetWord": "helps",
-    "itemType": "sight_word",
-    "itemKey": "helps",
-    "correctAnswer": "helps",
-    "answer": "helps",
-    "answerOptions": [
-      "helps",
-      "fly",
-      "found",
-      "funny"
-    ],
-    "choices": [
-      "helps",
-      "fly",
-      "found",
-      "funny"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_her",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8624,33 +12432,35 @@ export const skillLevelGapQuestions = [
     "answer": "her",
     "answerOptions": [
       "her",
-      "give",
-      "going",
-      "has"
+      "could",
+      "every",
+      "find"
     ],
     "choices": [
       "her",
-      "give",
-      "going",
-      "has"
+      "could",
+      "every",
+      "find"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_here",
+    "id": "gap_hfw_51_75_l1_here",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8663,33 +12473,35 @@ export const skillLevelGapQuestions = [
     "answer": "here",
     "answerOptions": [
       "here",
-      "help",
-      "helps",
-      "her"
+      "fly",
+      "found",
+      "funny"
     ],
     "choices": [
       "here",
-      "help",
-      "helps",
-      "her"
+      "fly",
+      "found",
+      "funny"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_him",
+    "id": "gap_hfw_51_75_l1_him",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8702,33 +12514,35 @@ export const skillLevelGapQuestions = [
     "answer": "him",
     "answerOptions": [
       "him",
-      "here",
-      "his",
-      "how"
+      "give",
+      "going",
+      "had"
     ],
     "choices": [
       "him",
-      "here",
-      "his",
-      "how"
+      "give",
+      "going",
+      "had"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_his",
+    "id": "gap_hfw_51_75_l1_his",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8741,33 +12555,35 @@ export const skillLevelGapQuestions = [
     "answer": "his",
     "answerOptions": [
       "his",
-      "know",
-      "let",
-      "like"
+      "has",
+      "her",
+      "here"
     ],
     "choices": [
       "his",
-      "know",
-      "let",
-      "like"
+      "has",
+      "her",
+      "here"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_how",
+    "id": "gap_hfw_51_75_l1_how",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8780,33 +12596,1060 @@ export const skillLevelGapQuestions = [
     "answer": "how",
     "answerOptions": [
       "how",
-      "little",
-      "live",
-      "look"
+      "him",
+      "his",
+      "into"
     ],
     "choices": [
       "how",
-      "little",
-      "live",
-      "look"
+      "him",
+      "his",
+      "into"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_know",
+    "id": "gap_hfw_51_75_l2_after",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: after.",
+    "question": "Find the word: after.",
+    "targetWord": "after",
+    "itemType": "sight_word",
+    "itemKey": "after",
+    "correctAnswer": "after",
+    "answer": "after",
+    "answerOptions": [
+      "after",
+      "again",
+      "an",
+      "any"
+    ],
+    "choices": [
+      "after",
+      "again",
+      "an",
+      "any"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_again",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: again.",
+    "question": "Find the word: again.",
+    "targetWord": "again",
+    "itemType": "sight_word",
+    "itemKey": "again",
+    "correctAnswer": "again",
+    "answer": "again",
+    "answerOptions": [
+      "again",
+      "around",
+      "ask",
+      "away"
+    ],
+    "choices": [
+      "again",
+      "around",
+      "ask",
+      "away"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_hfw_51_75_l2_an",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: an.",
+    "question": "Find the word: an.",
+    "targetWord": "an",
+    "itemType": "sight_word",
+    "itemKey": "an",
+    "correctAnswer": "an",
+    "answer": "an",
+    "answerOptions": [
+      "an",
+      "before",
+      "by",
+      "could"
+    ],
+    "choices": [
+      "an",
+      "before",
+      "by",
+      "could"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_any",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: any.",
+    "question": "Find the word: any.",
+    "targetWord": "any",
+    "itemType": "sight_word",
+    "itemKey": "any",
+    "correctAnswer": "any",
+    "answer": "any",
+    "answerOptions": [
+      "any",
+      "every",
+      "find",
+      "fly"
+    ],
+    "choices": [
+      "any",
+      "every",
+      "find",
+      "fly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_hfw_51_75_l2_around",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: around.",
+    "question": "Find the word: around.",
+    "targetWord": "around",
+    "itemType": "sight_word",
+    "itemKey": "around",
+    "correctAnswer": "around",
+    "answer": "around",
+    "answerOptions": [
+      "around",
+      "found",
+      "funny",
+      "give"
+    ],
+    "choices": [
+      "around",
+      "found",
+      "funny",
+      "give"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_ask",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: ask.",
+    "question": "Find the word: ask.",
+    "targetWord": "ask",
+    "itemType": "sight_word",
+    "itemKey": "ask",
+    "correctAnswer": "ask",
+    "answer": "ask",
+    "answerOptions": [
+      "ask",
+      "going",
+      "had",
+      "has"
+    ],
+    "choices": [
+      "ask",
+      "going",
+      "had",
+      "has"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_hfw_51_75_l2_away",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: away.",
+    "question": "Find the word: away.",
+    "targetWord": "away",
+    "itemType": "sight_word",
+    "itemKey": "away",
+    "correctAnswer": "away",
+    "answer": "away",
+    "answerOptions": [
+      "away",
+      "her",
+      "here",
+      "him"
+    ],
+    "choices": [
+      "away",
+      "her",
+      "here",
+      "him"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_before",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: before.",
+    "question": "Find the word: before.",
+    "targetWord": "before",
+    "itemType": "sight_word",
+    "itemKey": "before",
+    "correctAnswer": "before",
+    "answer": "before",
+    "answerOptions": [
+      "before",
+      "his",
+      "how",
+      "into"
+    ],
+    "choices": [
+      "before",
+      "his",
+      "how",
+      "into"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_hfw_51_75_l2_by",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: by.",
+    "question": "Find the word: by.",
+    "targetWord": "by",
+    "itemType": "sight_word",
+    "itemKey": "by",
+    "correctAnswer": "by",
+    "answer": "by",
+    "answerOptions": [
+      "by",
+      "after",
+      "again",
+      "an"
+    ],
+    "choices": [
+      "by",
+      "after",
+      "again",
+      "an"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_could",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: could.",
+    "question": "Find the word: could.",
+    "targetWord": "could",
+    "itemType": "sight_word",
+    "itemKey": "could",
+    "correctAnswer": "could",
+    "answer": "could",
+    "answerOptions": [
+      "could",
+      "any",
+      "around",
+      "ask"
+    ],
+    "choices": [
+      "could",
+      "any",
+      "around",
+      "ask"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_hfw_51_75_l2_every",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: every.",
+    "question": "Find the word: every.",
+    "targetWord": "every",
+    "itemType": "sight_word",
+    "itemKey": "every",
+    "correctAnswer": "every",
+    "answer": "every",
+    "answerOptions": [
+      "every",
+      "away",
+      "before",
+      "by"
+    ],
+    "choices": [
+      "every",
+      "away",
+      "before",
+      "by"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_find",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: find.",
+    "question": "Find the word: find.",
+    "targetWord": "find",
+    "itemType": "sight_word",
+    "itemKey": "find",
+    "correctAnswer": "find",
+    "answer": "find",
+    "answerOptions": [
+      "find",
+      "could",
+      "every",
+      "fly"
+    ],
+    "choices": [
+      "find",
+      "could",
+      "every",
+      "fly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_hfw_51_75_l2_fly",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: fly.",
+    "question": "Find the word: fly.",
+    "targetWord": "fly",
+    "itemType": "sight_word",
+    "itemKey": "fly",
+    "correctAnswer": "fly",
+    "answer": "fly",
+    "answerOptions": [
+      "fly",
+      "found",
+      "funny",
+      "give"
+    ],
+    "choices": [
+      "fly",
+      "found",
+      "funny",
+      "give"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_found",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: found.",
+    "question": "Find the word: found.",
+    "targetWord": "found",
+    "itemType": "sight_word",
+    "itemKey": "found",
+    "correctAnswer": "found",
+    "answer": "found",
+    "answerOptions": [
+      "found",
+      "going",
+      "had",
+      "has"
+    ],
+    "choices": [
+      "found",
+      "going",
+      "had",
+      "has"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_hfw_51_75_l2_funny",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: funny.",
+    "question": "Find the word: funny.",
+    "targetWord": "funny",
+    "itemType": "sight_word",
+    "itemKey": "funny",
+    "correctAnswer": "funny",
+    "answer": "funny",
+    "answerOptions": [
+      "funny",
+      "her",
+      "here",
+      "him"
+    ],
+    "choices": [
+      "funny",
+      "her",
+      "here",
+      "him"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_give",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: give.",
+    "question": "Find the word: give.",
+    "targetWord": "give",
+    "itemType": "sight_word",
+    "itemKey": "give",
+    "correctAnswer": "give",
+    "answer": "give",
+    "answerOptions": [
+      "give",
+      "his",
+      "how",
+      "into"
+    ],
+    "choices": [
+      "give",
+      "his",
+      "how",
+      "into"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_hfw_51_75_l2_going",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: going.",
+    "question": "Find the word: going.",
+    "targetWord": "going",
+    "itemType": "sight_word",
+    "itemKey": "going",
+    "correctAnswer": "going",
+    "answer": "going",
+    "answerOptions": [
+      "going",
+      "after",
+      "again",
+      "an"
+    ],
+    "choices": [
+      "going",
+      "after",
+      "again",
+      "an"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_had",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: had.",
+    "question": "Find the word: had.",
+    "targetWord": "had",
+    "itemType": "sight_word",
+    "itemKey": "had",
+    "correctAnswer": "had",
+    "answer": "had",
+    "answerOptions": [
+      "had",
+      "any",
+      "around",
+      "ask"
+    ],
+    "choices": [
+      "had",
+      "any",
+      "around",
+      "ask"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_has",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: has.",
+    "question": "Find the word: has.",
+    "targetWord": "has",
+    "itemType": "sight_word",
+    "itemKey": "has",
+    "correctAnswer": "has",
+    "answer": "has",
+    "answerOptions": [
+      "has",
+      "away",
+      "before",
+      "by"
+    ],
+    "choices": [
+      "has",
+      "away",
+      "before",
+      "by"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_her",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: her.",
+    "question": "Find the word: her.",
+    "targetWord": "her",
+    "itemType": "sight_word",
+    "itemKey": "her",
+    "correctAnswer": "her",
+    "answer": "her",
+    "answerOptions": [
+      "her",
+      "could",
+      "every",
+      "find"
+    ],
+    "choices": [
+      "her",
+      "could",
+      "every",
+      "find"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_here",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: here.",
+    "question": "Find the word: here.",
+    "targetWord": "here",
+    "itemType": "sight_word",
+    "itemKey": "here",
+    "correctAnswer": "here",
+    "answer": "here",
+    "answerOptions": [
+      "here",
+      "fly",
+      "found",
+      "funny"
+    ],
+    "choices": [
+      "here",
+      "fly",
+      "found",
+      "funny"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_him",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: him.",
+    "question": "Find the word: him.",
+    "targetWord": "him",
+    "itemType": "sight_word",
+    "itemKey": "him",
+    "correctAnswer": "him",
+    "answer": "him",
+    "answerOptions": [
+      "him",
+      "give",
+      "going",
+      "had"
+    ],
+    "choices": [
+      "him",
+      "give",
+      "going",
+      "had"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_his",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: his.",
+    "question": "Find the word: his.",
+    "targetWord": "his",
+    "itemType": "sight_word",
+    "itemKey": "his",
+    "correctAnswer": "his",
+    "answer": "his",
+    "answerOptions": [
+      "his",
+      "has",
+      "her",
+      "here"
+    ],
+    "choices": [
+      "his",
+      "has",
+      "her",
+      "here"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_51_75_l2_how",
+    "grade": "K",
+    "skillId": "hfw_51_75",
+    "skillName": "High-Frequency Words 51-75",
+    "skill": "High-Frequency Words 51-75",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: how.",
+    "question": "Find the word: how.",
+    "targetWord": "how",
+    "itemType": "sight_word",
+    "itemKey": "how",
+    "correctAnswer": "how",
+    "answer": "how",
+    "answerOptions": [
+      "how",
+      "him",
+      "his",
+      "into"
+    ],
+    "choices": [
+      "how",
+      "him",
+      "his",
+      "into"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-2",
+      "hfw_51_75"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_76_100_l1_just",
+    "grade": "K",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
+    "questionType": "multiple_choice",
+    "prompt": "Find the word: just.",
+    "question": "Find the word: just.",
+    "targetWord": "just",
+    "itemType": "sight_word",
+    "itemKey": "just",
+    "correctAnswer": "just",
+    "answer": "just",
+    "answerOptions": [
+      "just",
+      "know",
+      "let",
+      "live"
+    ],
+    "choices": [
+      "just",
+      "know",
+      "let",
+      "live"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "hfw_76_100"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_hfw_76_100_l1_know",
+    "grade": "K",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8820,32 +13663,34 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "know",
       "made",
-      "make",
-      "may"
+      "may",
+      "must"
     ],
     "choices": [
       "know",
       "made",
-      "make",
-      "may"
+      "may",
+      "must"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_76_100"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_let",
+    "id": "gap_hfw_76_100_l1_let",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8858,111 +13703,35 @@ export const skillLevelGapQuestions = [
     "answer": "let",
     "answerOptions": [
       "let",
-      "me",
-      "must",
-      "new"
+      "new",
+      "now",
+      "of"
     ],
     "choices": [
       "let",
-      "me",
-      "must",
-      "new"
+      "new",
+      "now",
+      "of"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_76_100"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_hfw_51_100_l1_like",
+    "id": "gap_hfw_76_100_l1_live",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: like.",
-    "question": "Find the word: like.",
-    "targetWord": "like",
-    "itemType": "sight_word",
-    "itemKey": "like",
-    "correctAnswer": "like",
-    "answer": "like",
-    "answerOptions": [
-      "like",
-      "not",
-      "old",
-      "once"
-    ],
-    "choices": [
-      "like",
-      "not",
-      "old",
-      "once"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_little",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: little.",
-    "question": "Find the word: little.",
-    "targetWord": "little",
-    "itemType": "sight_word",
-    "itemKey": "little",
-    "correctAnswer": "little",
-    "answer": "little",
-    "answerOptions": [
-      "little",
-      "open",
-      "our",
-      "out"
-    ],
-    "choices": [
-      "little",
-      "open",
-      "our",
-      "out"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_live",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -8975,72 +13744,35 @@ export const skillLevelGapQuestions = [
     "answer": "live",
     "answerOptions": [
       "live",
-      "over",
-      "play",
-      "please"
+      "old",
+      "once",
+      "open"
     ],
     "choices": [
       "live",
-      "over",
-      "play",
-      "please"
+      "old",
+      "once",
+      "open"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_76_100"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_hfw_51_100_l1_look",
+    "id": "gap_hfw_76_100_l1_made",
     "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "READ_FIND_WORD",
-    "formatType": "READ_FIND_WORD",
-    "questionType": "multiple_choice",
-    "prompt": "Find the word: look.",
-    "question": "Find the word: look.",
-    "targetWord": "look",
-    "itemType": "sight_word",
-    "itemKey": "look",
-    "correctAnswer": "look",
-    "answer": "look",
-    "answerOptions": [
-      "look",
-      "pretty",
-      "put",
-      "read"
-    ],
-    "choices": [
-      "look",
-      "pretty",
-      "put",
-      "read"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "hfw_51_100"
-    ]
-  },
-  {
-    "id": "gap_hfw_51_100_l1_made",
-    "grade": "K",
-    "skillId": "hfw_51_100",
-    "skillName": "High-Frequency Words 51-100",
-    "skill": "High-Frequency Words 51-100",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "READ_FIND_WORD",
     "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
@@ -9053,2323 +13785,1788 @@ export const skillLevelGapQuestions = [
     "answer": "made",
     "answerOptions": [
       "made",
-      "after",
-      "again",
-      "any"
+      "our",
+      "out",
+      "over"
     ],
     "choices": [
       "made",
-      "after",
-      "again",
-      "any"
+      "our",
+      "out",
+      "over"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "hfw_51_100"
-    ]
+      "hfw_76_100"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_ch_arch",
+    "id": "gap_hfw_76_100_l1_may",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "arch",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: may.",
+    "question": "Find the word: may.",
+    "targetWord": "may",
+    "itemType": "sight_word",
+    "itemKey": "may",
+    "correctAnswer": "may",
+    "answer": "may",
     "answerOptions": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "may",
+      "please",
+      "pretty",
+      "put"
     ],
     "choices": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "may",
+      "please",
+      "pretty",
+      "put"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/arch.webp",
-    "imagePath": "/media/vocabulary/images/arch.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "arch",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "arch uses the ch pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_digraphs_l1_sh_ash",
+    "id": "gap_hfw_76_100_l1_must",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "ash",
-    "itemType": "phonics_pattern",
-    "itemKey": "sh",
-    "correctAnswer": "sh",
-    "answer": "sh",
+    "prompt": "Find the word: must.",
+    "question": "Find the word: must.",
+    "targetWord": "must",
+    "itemType": "sight_word",
+    "itemKey": "must",
+    "correctAnswer": "must",
+    "answer": "must",
     "answerOptions": [
-      "sh",
-      "wh",
-      "ch",
-      "th"
+      "must",
+      "read",
+      "round",
+      "some"
     ],
     "choices": [
-      "sh",
-      "wh",
-      "ch",
-      "th"
+      "must",
+      "read",
+      "round",
+      "some"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/ash.webp",
-    "imagePath": "/media/vocabulary/images/ash.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "ash",
-    "targetPattern": "sh",
-    "phonicsPattern": "sh",
-    "explanation": "ash uses the sh pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_ch_beach",
+    "id": "gap_hfw_76_100_l1_new",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "beach",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: new.",
+    "question": "Find the word: new.",
+    "targetWord": "new",
+    "itemType": "sight_word",
+    "itemKey": "new",
+    "correctAnswer": "new",
+    "answer": "new",
     "answerOptions": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "new",
+      "take",
+      "thank",
+      "yes"
     ],
     "choices": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "new",
+      "take",
+      "thank",
+      "yes"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/beach.webp",
-    "imagePath": "/media/vocabulary/images/beach.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "beach",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "beach uses the ch pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_digraphs_l1_ch_bench",
+    "id": "gap_hfw_76_100_l1_now",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "bench",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: now.",
+    "question": "Find the word: now.",
+    "targetWord": "now",
+    "itemType": "sight_word",
+    "itemKey": "now",
+    "correctAnswer": "now",
+    "answer": "now",
     "answerOptions": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "now",
+      "just",
+      "know",
+      "let"
     ],
     "choices": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "now",
+      "just",
+      "know",
+      "let"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/bench.webp",
-    "imagePath": "/media/vocabulary/images/bench.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "bench",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "bench uses the ch pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_th_booth",
+    "id": "gap_hfw_76_100_l1_of",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "booth",
-    "itemType": "phonics_pattern",
-    "itemKey": "th",
-    "correctAnswer": "th",
-    "answer": "th",
+    "prompt": "Find the word: of.",
+    "question": "Find the word: of.",
+    "targetWord": "of",
+    "itemType": "sight_word",
+    "itemKey": "of",
+    "correctAnswer": "of",
+    "answer": "of",
     "answerOptions": [
-      "th",
-      "wh",
-      "ch",
-      "sh"
+      "of",
+      "live",
+      "made",
+      "may"
     ],
     "choices": [
-      "th",
-      "wh",
-      "ch",
-      "sh"
+      "of",
+      "live",
+      "made",
+      "may"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/booth.webp",
-    "imagePath": "/media/vocabulary/images/booth.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "booth",
-    "targetPattern": "th",
-    "phonicsPattern": "th",
-    "explanation": "booth uses the th pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_digraphs_l1_ch_branch",
+    "id": "gap_hfw_76_100_l1_old",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "branch",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: old.",
+    "question": "Find the word: old.",
+    "targetWord": "old",
+    "itemType": "sight_word",
+    "itemKey": "old",
+    "correctAnswer": "old",
+    "answer": "old",
     "answerOptions": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "old",
+      "must",
+      "new",
+      "now"
     ],
     "choices": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "old",
+      "must",
+      "new",
+      "now"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/branch.webp",
-    "imagePath": "/media/vocabulary/images/branch.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "branch",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "branch uses the ch pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_ch_chain",
+    "id": "gap_hfw_76_100_l1_once",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "chain",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: once.",
+    "question": "Find the word: once.",
+    "targetWord": "once",
+    "itemType": "sight_word",
+    "itemKey": "once",
+    "correctAnswer": "once",
+    "answer": "once",
     "answerOptions": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "once",
+      "of",
+      "old",
+      "open"
     ],
     "choices": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "once",
+      "of",
+      "old",
+      "open"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/chain.webp",
-    "imagePath": "/media/vocabulary/images/chain.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "chain",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "chain uses the ch pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_digraphs_l1_ch_chalk",
+    "id": "gap_hfw_76_100_l1_open",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "chalk",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: open.",
+    "question": "Find the word: open.",
+    "targetWord": "open",
+    "itemType": "sight_word",
+    "itemKey": "open",
+    "correctAnswer": "open",
+    "answer": "open",
     "answerOptions": [
-      "ch",
-      "wh",
-      "sh",
-      "th"
+      "open",
+      "our",
+      "out",
+      "over"
     ],
     "choices": [
-      "ch",
-      "wh",
-      "sh",
-      "th"
+      "open",
+      "our",
+      "out",
+      "over"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/chalk.webp",
-    "imagePath": "/media/vocabulary/images/chalk.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "chalk",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "chalk uses the ch pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_ch_cheese",
+    "id": "gap_hfw_76_100_l1_our",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "cheese",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: our.",
+    "question": "Find the word: our.",
+    "targetWord": "our",
+    "itemType": "sight_word",
+    "itemKey": "our",
+    "correctAnswer": "our",
+    "answer": "our",
     "answerOptions": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "our",
+      "please",
+      "pretty",
+      "put"
     ],
     "choices": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "our",
+      "please",
+      "pretty",
+      "put"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cheese.webp",
-    "imagePath": "/media/vocabulary/images/cheese.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "cheese",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "cheese uses the ch pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_digraphs_l1_ch_cheetah",
+    "id": "gap_hfw_76_100_l1_out",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "cheetah",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: out.",
+    "question": "Find the word: out.",
+    "targetWord": "out",
+    "itemType": "sight_word",
+    "itemKey": "out",
+    "correctAnswer": "out",
+    "answer": "out",
     "answerOptions": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "out",
+      "read",
+      "round",
+      "some"
     ],
     "choices": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "out",
+      "read",
+      "round",
+      "some"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cheetah.webp",
-    "imagePath": "/media/vocabulary/images/cheetah.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "cheetah",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "cheetah uses the ch pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_ch_chef",
+    "id": "gap_hfw_76_100_l1_over",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "chef",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: over.",
+    "question": "Find the word: over.",
+    "targetWord": "over",
+    "itemType": "sight_word",
+    "itemKey": "over",
+    "correctAnswer": "over",
+    "answer": "over",
     "answerOptions": [
-      "ch",
-      "wh",
-      "sh",
-      "th"
+      "over",
+      "take",
+      "thank",
+      "yes"
     ],
     "choices": [
-      "ch",
-      "wh",
-      "sh",
-      "th"
+      "over",
+      "take",
+      "thank",
+      "yes"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/chef.webp",
-    "imagePath": "/media/vocabulary/images/chef.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "chef",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "chef uses the ch pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_digraphs_l1_ch_cherry",
+    "id": "gap_hfw_76_100_l1_please",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "cherry",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: please.",
+    "question": "Find the word: please.",
+    "targetWord": "please",
+    "itemType": "sight_word",
+    "itemKey": "please",
+    "correctAnswer": "please",
+    "answer": "please",
     "answerOptions": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "please",
+      "just",
+      "know",
+      "let"
     ],
     "choices": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "please",
+      "just",
+      "know",
+      "let"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cherry.webp",
-    "imagePath": "/media/vocabulary/images/cherry.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "cherry",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "cherry uses the ch pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_ch_chessboard",
+    "id": "gap_hfw_76_100_l1_pretty",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "chessboard",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: pretty.",
+    "question": "Find the word: pretty.",
+    "targetWord": "pretty",
+    "itemType": "sight_word",
+    "itemKey": "pretty",
+    "correctAnswer": "pretty",
+    "answer": "pretty",
     "answerOptions": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "pretty",
+      "live",
+      "made",
+      "may"
     ],
     "choices": [
-      "ch",
-      "sh",
-      "th",
-      "wh"
+      "pretty",
+      "live",
+      "made",
+      "may"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/chessboard.webp",
-    "imagePath": "/media/vocabulary/images/chessboard.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "chessboard",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "chessboard uses the ch pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_ch_chest",
+    "id": "gap_hfw_76_100_l1_put",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "chest",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: put.",
+    "question": "Find the word: put.",
+    "targetWord": "put",
+    "itemType": "sight_word",
+    "itemKey": "put",
+    "correctAnswer": "put",
+    "answer": "put",
     "answerOptions": [
-      "ch",
-      "wh",
-      "sh",
-      "th"
+      "put",
+      "must",
+      "new",
+      "now"
     ],
     "choices": [
-      "ch",
-      "wh",
-      "sh",
-      "th"
+      "put",
+      "must",
+      "new",
+      "now"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/chest.webp",
-    "imagePath": "/media/vocabulary/images/chest.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "chest",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "chest uses the ch pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_digraphs_l1_ch_chestnut",
+    "id": "gap_hfw_76_100_l1_read",
     "grade": "K",
-    "skillId": "digraphs",
-    "skillName": "Digraphs",
-    "skill": "Digraphs",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "PICTURE_AUDIO_TO_PATTERN",
-    "formatType": "PICTURE_AUDIO_TO_PATTERN",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which letters make the special sound in this word?",
-    "question": "Which letters make the special sound in this word?",
-    "targetWord": "chestnut",
-    "itemType": "phonics_pattern",
-    "itemKey": "ch",
-    "correctAnswer": "ch",
-    "answer": "ch",
+    "prompt": "Find the word: read.",
+    "question": "Find the word: read.",
+    "targetWord": "read",
+    "itemType": "sight_word",
+    "itemKey": "read",
+    "correctAnswer": "read",
+    "answer": "read",
     "answerOptions": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "read",
+      "of",
+      "old",
+      "once"
     ],
     "choices": [
-      "ch",
-      "th",
-      "wh",
-      "sh"
+      "read",
+      "of",
+      "old",
+      "once"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "digraphs"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/chestnut.webp",
-    "imagePath": "/media/vocabulary/images/chestnut.webp",
-    "spokenPrompt": "Which letters make the special sound in this word?",
-    "imageKey": "chestnut",
-    "targetPattern": "ch",
-    "phonicsPattern": "ch",
-    "explanation": "chestnut uses the ch pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_bandage",
+    "id": "gap_hfw_76_100_l1_round",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "bandage",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: round.",
+    "question": "Find the word: round.",
+    "targetWord": "round",
+    "itemType": "sight_word",
+    "itemKey": "round",
+    "correctAnswer": "round",
+    "answer": "round",
     "answerOptions": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "round",
+      "open",
+      "our",
+      "out"
     ],
     "choices": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "round",
+      "open",
+      "our",
+      "out"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "long_vowels_silent_e"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/bandage.webp",
-    "imagePath": "/media/vocabulary/images/bandage.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "bandage",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "bandage uses the a_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_i_e_bike",
+    "id": "gap_hfw_76_100_l1_some",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "bike",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
+    "prompt": "Find the word: some.",
+    "question": "Find the word: some.",
+    "targetWord": "some",
+    "itemType": "sight_word",
+    "itemKey": "some",
+    "correctAnswer": "some",
+    "answer": "some",
     "answerOptions": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "some",
+      "over",
+      "please",
+      "pretty"
     ],
     "choices": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "some",
+      "over",
+      "please",
+      "pretty"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "long_vowels_silent_e"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/bike.webp",
-    "imagePath": "/media/vocabulary/images/bike.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "bike",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "bike uses the i_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_blade",
+    "id": "gap_hfw_76_100_l1_take",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "blade",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: take.",
+    "question": "Find the word: take.",
+    "targetWord": "take",
+    "itemType": "sight_word",
+    "itemKey": "take",
+    "correctAnswer": "take",
+    "answer": "take",
     "answerOptions": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "take",
+      "put",
+      "read",
+      "round"
     ],
     "choices": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "take",
+      "put",
+      "read",
+      "round"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "long_vowels_silent_e"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/blade.webp",
-    "imagePath": "/media/vocabulary/images/blade.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "blade",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "blade uses the a_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_o_e_bone",
+    "id": "gap_hfw_76_100_l1_thank",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "bone",
-    "itemType": "phonics_pattern",
-    "itemKey": "o_e",
-    "correctAnswer": "o_e",
-    "answer": "o_e",
+    "prompt": "Find the word: thank.",
+    "question": "Find the word: thank.",
+    "targetWord": "thank",
+    "itemType": "sight_word",
+    "itemKey": "thank",
+    "correctAnswer": "thank",
+    "answer": "thank",
     "answerOptions": [
-      "o_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "thank",
+      "some",
+      "take",
+      "yes"
     ],
     "choices": [
-      "o_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "thank",
+      "some",
+      "take",
+      "yes"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
       "level-1",
-      "long_vowels_silent_e"
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/bone.webp",
-    "imagePath": "/media/vocabulary/images/bone.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "bone",
-    "targetPattern": "o_e",
-    "phonicsPattern": "o_e",
-    "explanation": "bone uses the o_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_cabbage",
+    "id": "gap_hfw_76_100_l2_just",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "cabbage",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: just.",
+    "question": "Find the word: just.",
+    "targetWord": "just",
+    "itemType": "sight_word",
+    "itemKey": "just",
+    "correctAnswer": "just",
+    "answer": "just",
     "answerOptions": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "just",
+      "know",
+      "let",
+      "live"
     ],
     "choices": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "just",
+      "know",
+      "let",
+      "live"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cabbage.webp",
-    "imagePath": "/media/vocabulary/images/cabbage.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "cabbage",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "cabbage uses the a_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_cage",
+    "id": "gap_hfw_76_100_l2_know",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "cage",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: know.",
+    "question": "Find the word: know.",
+    "targetWord": "know",
+    "itemType": "sight_word",
+    "itemKey": "know",
+    "correctAnswer": "know",
+    "answer": "know",
     "answerOptions": [
-      "a_e",
-      "u_e",
-      "e_e",
-      "i_e"
+      "know",
+      "made",
+      "may",
+      "must"
     ],
     "choices": [
-      "a_e",
-      "u_e",
-      "e_e",
-      "i_e"
+      "know",
+      "made",
+      "may",
+      "must"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cage.webp",
-    "imagePath": "/media/vocabulary/images/cage.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "cage",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "cage uses the a_e pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_cane",
+    "id": "gap_hfw_76_100_l2_let",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "cane",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: let.",
+    "question": "Find the word: let.",
+    "targetWord": "let",
+    "itemType": "sight_word",
+    "itemKey": "let",
+    "correctAnswer": "let",
+    "answer": "let",
     "answerOptions": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "let",
+      "new",
+      "now",
+      "of"
     ],
     "choices": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "let",
+      "new",
+      "now",
+      "of"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cane.webp",
-    "imagePath": "/media/vocabulary/images/cane.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "cane",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "cane uses the a_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_cape",
+    "id": "gap_hfw_76_100_l2_live",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "cape",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: live.",
+    "question": "Find the word: live.",
+    "targetWord": "live",
+    "itemType": "sight_word",
+    "itemKey": "live",
+    "correctAnswer": "live",
+    "answer": "live",
     "answerOptions": [
-      "a_e",
-      "u_e",
-      "e_e",
-      "i_e"
+      "live",
+      "old",
+      "once",
+      "open"
     ],
     "choices": [
-      "a_e",
-      "u_e",
-      "e_e",
-      "i_e"
+      "live",
+      "old",
+      "once",
+      "open"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cape.webp",
-    "imagePath": "/media/vocabulary/images/cape.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "cape",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "cape uses the a_e pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_cave",
+    "id": "gap_hfw_76_100_l2_made",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "cave",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: made.",
+    "question": "Find the word: made.",
+    "targetWord": "made",
+    "itemType": "sight_word",
+    "itemKey": "made",
+    "correctAnswer": "made",
+    "answer": "made",
     "answerOptions": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "made",
+      "our",
+      "out",
+      "over"
     ],
     "choices": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "made",
+      "our",
+      "out",
+      "over"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cave.webp",
-    "imagePath": "/media/vocabulary/images/cave.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "cave",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "cave uses the a_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_i_e_chime",
+    "id": "gap_hfw_76_100_l2_may",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "chime",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
+    "prompt": "Find the word: may.",
+    "question": "Find the word: may.",
+    "targetWord": "may",
+    "itemType": "sight_word",
+    "itemKey": "may",
+    "correctAnswer": "may",
+    "answer": "may",
     "answerOptions": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "may",
+      "please",
+      "pretty",
+      "put"
     ],
     "choices": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "may",
+      "please",
+      "pretty",
+      "put"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/chime.webp",
-    "imagePath": "/media/vocabulary/images/chime.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "chime",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "chime uses the i_e pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_o_e_cone",
+    "id": "gap_hfw_76_100_l2_must",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "cone",
-    "itemType": "phonics_pattern",
-    "itemKey": "o_e",
-    "correctAnswer": "o_e",
-    "answer": "o_e",
+    "prompt": "Find the word: must.",
+    "question": "Find the word: must.",
+    "targetWord": "must",
+    "itemType": "sight_word",
+    "itemKey": "must",
+    "correctAnswer": "must",
+    "answer": "must",
     "answerOptions": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
+      "must",
+      "read",
+      "round",
+      "some"
     ],
     "choices": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
+      "must",
+      "read",
+      "round",
+      "some"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cone.webp",
-    "imagePath": "/media/vocabulary/images/cone.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "cone",
-    "targetPattern": "o_e",
-    "phonicsPattern": "o_e",
-    "explanation": "cone uses the o_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_crane",
+    "id": "gap_hfw_76_100_l2_new",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "crane",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: new.",
+    "question": "Find the word: new.",
+    "targetWord": "new",
+    "itemType": "sight_word",
+    "itemKey": "new",
+    "correctAnswer": "new",
+    "answer": "new",
     "answerOptions": [
-      "a_e",
-      "u_e",
-      "e_e",
-      "i_e"
+      "new",
+      "take",
+      "thank",
+      "yes"
     ],
     "choices": [
-      "a_e",
-      "u_e",
-      "e_e",
-      "i_e"
+      "new",
+      "take",
+      "thank",
+      "yes"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/crane.webp",
-    "imagePath": "/media/vocabulary/images/crane.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "crane",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "crane uses the a_e pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_i_e_crocodile",
+    "id": "gap_hfw_76_100_l2_now",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "crocodile",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
+    "prompt": "Find the word: now.",
+    "question": "Find the word: now.",
+    "targetWord": "now",
+    "itemType": "sight_word",
+    "itemKey": "now",
+    "correctAnswer": "now",
+    "answer": "now",
     "answerOptions": [
-      "i_e",
-      "a_e",
-      "o_e",
-      "u_e"
+      "now",
+      "just",
+      "know",
+      "let"
     ],
     "choices": [
-      "i_e",
-      "a_e",
-      "o_e",
-      "u_e"
+      "now",
+      "just",
+      "know",
+      "let"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/crocodile.webp",
-    "imagePath": "/media/vocabulary/images/crocodile.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "crocodile",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "crocodile uses the i_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_u_e_cube",
+    "id": "gap_hfw_76_100_l2_of",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "cube",
-    "itemType": "phonics_pattern",
-    "itemKey": "u_e",
-    "correctAnswer": "u_e",
-    "answer": "u_e",
+    "prompt": "Find the word: of.",
+    "question": "Find the word: of.",
+    "targetWord": "of",
+    "itemType": "sight_word",
+    "itemKey": "of",
+    "correctAnswer": "of",
+    "answer": "of",
     "answerOptions": [
-      "u_e",
-      "o_e",
-      "e_e",
-      "a_e"
+      "of",
+      "live",
+      "made",
+      "may"
     ],
     "choices": [
-      "u_e",
-      "o_e",
-      "e_e",
-      "a_e"
+      "of",
+      "live",
+      "made",
+      "may"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cube.webp",
-    "imagePath": "/media/vocabulary/images/cube.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "cube",
-    "targetPattern": "u_e",
-    "phonicsPattern": "u_e",
-    "explanation": "cube uses the u_e pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_cupcake",
+    "id": "gap_hfw_76_100_l2_old",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "cupcake",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: old.",
+    "question": "Find the word: old.",
+    "targetWord": "old",
+    "itemType": "sight_word",
+    "itemKey": "old",
+    "correctAnswer": "old",
+    "answer": "old",
     "answerOptions": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "old",
+      "must",
+      "new",
+      "now"
     ],
     "choices": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "old",
+      "must",
+      "new",
+      "now"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/cupcake.webp",
-    "imagePath": "/media/vocabulary/images/cupcake.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "cupcake",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "cupcake uses the a_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_i_e_dice",
+    "id": "gap_hfw_76_100_l2_once",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "dice",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
+    "prompt": "Find the word: once.",
+    "question": "Find the word: once.",
+    "targetWord": "once",
+    "itemType": "sight_word",
+    "itemKey": "once",
+    "correctAnswer": "once",
+    "answer": "once",
     "answerOptions": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "once",
+      "of",
+      "old",
+      "open"
     ],
     "choices": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "once",
+      "of",
+      "old",
+      "open"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/dice.webp",
-    "imagePath": "/media/vocabulary/images/dice.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "dice",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "dice uses the i_e pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_i_e_dime",
+    "id": "gap_hfw_76_100_l2_open",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "dime",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
+    "prompt": "Find the word: open.",
+    "question": "Find the word: open.",
+    "targetWord": "open",
+    "itemType": "sight_word",
+    "itemKey": "open",
+    "correctAnswer": "open",
+    "answer": "open",
     "answerOptions": [
-      "i_e",
-      "a_e",
-      "o_e",
-      "u_e"
+      "open",
+      "our",
+      "out",
+      "over"
     ],
     "choices": [
-      "i_e",
-      "a_e",
-      "o_e",
-      "u_e"
+      "open",
+      "our",
+      "out",
+      "over"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/dime.webp",
-    "imagePath": "/media/vocabulary/images/dime.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "dime",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "dime uses the i_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_o_e_dove",
+    "id": "gap_hfw_76_100_l2_our",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "dove",
-    "itemType": "phonics_pattern",
-    "itemKey": "o_e",
-    "correctAnswer": "o_e",
-    "answer": "o_e",
+    "prompt": "Find the word: our.",
+    "question": "Find the word: our.",
+    "targetWord": "our",
+    "itemType": "sight_word",
+    "itemKey": "our",
+    "correctAnswer": "our",
+    "answer": "our",
     "answerOptions": [
-      "o_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "our",
+      "please",
+      "pretty",
+      "put"
     ],
     "choices": [
-      "o_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "our",
+      "please",
+      "pretty",
+      "put"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/dove.webp",
-    "imagePath": "/media/vocabulary/images/dove.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "dove",
-    "targetPattern": "o_e",
-    "phonicsPattern": "o_e",
-    "explanation": "dove uses the o_e pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_e_e_eye",
+    "id": "gap_hfw_76_100_l2_out",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "eye",
-    "itemType": "phonics_pattern",
-    "itemKey": "e_e",
-    "correctAnswer": "e_e",
-    "answer": "e_e",
+    "prompt": "Find the word: out.",
+    "question": "Find the word: out.",
+    "targetWord": "out",
+    "itemType": "sight_word",
+    "itemKey": "out",
+    "correctAnswer": "out",
+    "answer": "out",
     "answerOptions": [
-      "e_e",
-      "a_e",
-      "i_e",
-      "o_e"
+      "out",
+      "read",
+      "round",
+      "some"
     ],
     "choices": [
-      "e_e",
-      "a_e",
-      "i_e",
-      "o_e"
+      "out",
+      "read",
+      "round",
+      "some"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/eye.webp",
-    "imagePath": "/media/vocabulary/images/eye.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "eye",
-    "targetPattern": "e_e",
-    "phonicsPattern": "e_e",
-    "explanation": "eye uses the e_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_i_e_file",
+    "id": "gap_hfw_76_100_l2_over",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_2",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "file",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
+    "prompt": "Find the word: over.",
+    "question": "Find the word: over.",
+    "targetWord": "over",
+    "itemType": "sight_word",
+    "itemKey": "over",
+    "correctAnswer": "over",
+    "answer": "over",
     "answerOptions": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "over",
+      "take",
+      "thank",
+      "yes"
     ],
     "choices": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "over",
+      "take",
+      "thank",
+      "yes"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/file.webp",
-    "imagePath": "/media/vocabulary/images/file.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "file",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "file uses the i_e pattern."
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_flame",
+    "id": "gap_hfw_76_100_l2_please",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "flame",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: please.",
+    "question": "Find the word: please.",
+    "targetWord": "please",
+    "itemType": "sight_word",
+    "itemKey": "please",
+    "correctAnswer": "please",
+    "answer": "please",
     "answerOptions": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "please",
+      "just",
+      "know",
+      "let"
     ],
     "choices": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
+      "please",
+      "just",
+      "know",
+      "let"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/flame.webp",
-    "imagePath": "/media/vocabulary/images/flame.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "flame",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "flame uses the a_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_u_e_flute",
+    "id": "gap_hfw_76_100_l2_pretty",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "flute",
-    "itemType": "phonics_pattern",
-    "itemKey": "u_e",
-    "correctAnswer": "u_e",
-    "answer": "u_e",
+    "prompt": "Find the word: pretty.",
+    "question": "Find the word: pretty.",
+    "targetWord": "pretty",
+    "itemType": "sight_word",
+    "itemKey": "pretty",
+    "correctAnswer": "pretty",
+    "answer": "pretty",
     "answerOptions": [
-      "u_e",
-      "o_e",
-      "e_e",
-      "a_e"
+      "pretty",
+      "live",
+      "made",
+      "may"
     ],
     "choices": [
-      "u_e",
-      "o_e",
-      "e_e",
-      "a_e"
+      "pretty",
+      "live",
+      "made",
+      "may"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/flute.webp",
-    "imagePath": "/media/vocabulary/images/flute.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "flute",
-    "targetPattern": "u_e",
-    "phonicsPattern": "u_e",
-    "explanation": "flute uses the u_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_o_e_foxglove",
+    "id": "gap_hfw_76_100_l2_put",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "foxglove",
-    "itemType": "phonics_pattern",
-    "itemKey": "o_e",
-    "correctAnswer": "o_e",
-    "answer": "o_e",
+    "prompt": "Find the word: put.",
+    "question": "Find the word: put.",
+    "targetWord": "put",
+    "itemType": "sight_word",
+    "itemKey": "put",
+    "correctAnswer": "put",
+    "answer": "put",
     "answerOptions": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
+      "put",
+      "must",
+      "new",
+      "now"
     ],
     "choices": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
+      "put",
+      "must",
+      "new",
+      "now"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/foxglove.webp",
-    "imagePath": "/media/vocabulary/images/foxglove.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "foxglove",
-    "targetPattern": "o_e",
-    "phonicsPattern": "o_e",
-    "explanation": "foxglove uses the o_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_a_e_frame",
+    "id": "gap_hfw_76_100_l2_read",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "frame",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
+    "prompt": "Find the word: read.",
+    "question": "Find the word: read.",
+    "targetWord": "read",
+    "itemType": "sight_word",
+    "itemKey": "read",
+    "correctAnswer": "read",
+    "answer": "read",
     "answerOptions": [
-      "a_e",
-      "u_e",
-      "e_e",
-      "i_e"
+      "read",
+      "of",
+      "old",
+      "once"
     ],
     "choices": [
-      "a_e",
-      "u_e",
-      "e_e",
-      "i_e"
+      "read",
+      "of",
+      "old",
+      "once"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/frame.webp",
-    "imagePath": "/media/vocabulary/images/frame.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "frame",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "frame uses the a_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_o_e_glove",
+    "id": "gap_hfw_76_100_l2_round",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "glove",
-    "itemType": "phonics_pattern",
-    "itemKey": "o_e",
-    "correctAnswer": "o_e",
-    "answer": "o_e",
+    "prompt": "Find the word: round.",
+    "question": "Find the word: round.",
+    "targetWord": "round",
+    "itemType": "sight_word",
+    "itemKey": "round",
+    "correctAnswer": "round",
+    "answer": "round",
     "answerOptions": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
+      "round",
+      "open",
+      "our",
+      "out"
     ],
     "choices": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
+      "round",
+      "open",
+      "our",
+      "out"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/glove.webp",
-    "imagePath": "/media/vocabulary/images/glove.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "glove",
-    "targetPattern": "o_e",
-    "phonicsPattern": "o_e",
-    "explanation": "glove uses the o_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_i_e_hive",
+    "id": "gap_hfw_76_100_l2_some",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "hive",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
+    "prompt": "Find the word: some.",
+    "question": "Find the word: some.",
+    "targetWord": "some",
+    "itemType": "sight_word",
+    "itemKey": "some",
+    "correctAnswer": "some",
+    "answer": "some",
     "answerOptions": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "some",
+      "over",
+      "please",
+      "pretty"
     ],
     "choices": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
+      "some",
+      "over",
+      "please",
+      "pretty"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/hive.webp",
-    "imagePath": "/media/vocabulary/images/hive.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "hive",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "hive uses the i_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_o_e_hose",
+    "id": "gap_hfw_76_100_l2_take",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "hose",
-    "itemType": "phonics_pattern",
-    "itemKey": "o_e",
-    "correctAnswer": "o_e",
-    "answer": "o_e",
+    "prompt": "Find the word: take.",
+    "question": "Find the word: take.",
+    "targetWord": "take",
+    "itemType": "sight_word",
+    "itemKey": "take",
+    "correctAnswer": "take",
+    "answer": "take",
     "answerOptions": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
+      "take",
+      "put",
+      "read",
+      "round"
     ],
     "choices": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
+      "take",
+      "put",
+      "read",
+      "round"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/hose.webp",
-    "imagePath": "/media/vocabulary/images/hose.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "hose",
-    "targetPattern": "o_e",
-    "phonicsPattern": "o_e",
-    "explanation": "hose uses the o_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_long_vowels_silent_e_l1_e_e_ice",
+    "id": "gap_hfw_76_100_l2_thank",
     "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
+    "skillId": "hfw_76_100",
+    "skillName": "High-Frequency Words 76-100",
+    "skill": "High-Frequency Words 76-100",
+    "level": 2,
+    "difficulty": 2,
+    "phaseTarget": "level_2_phase_1",
+    "templateType": "READ_FIND_WORD",
+    "formatType": "READ_FIND_WORD",
     "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "ice",
-    "itemType": "phonics_pattern",
-    "itemKey": "e_e",
-    "correctAnswer": "e_e",
-    "answer": "e_e",
+    "prompt": "Find the word: thank.",
+    "question": "Find the word: thank.",
+    "targetWord": "thank",
+    "itemType": "sight_word",
+    "itemKey": "thank",
+    "correctAnswer": "thank",
+    "answer": "thank",
     "answerOptions": [
-      "e_e",
-      "o_e",
-      "u_e",
-      "a_e"
+      "thank",
+      "some",
+      "take",
+      "yes"
     ],
     "choices": [
-      "e_e",
-      "o_e",
-      "u_e",
-      "a_e"
+      "thank",
+      "some",
+      "take",
+      "yes"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
     "tags": [
       "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
+      "level-2",
+      "hfw_76_100"
     ],
-    "imageUrl": "/media/vocabulary/images/ice.webp",
-    "imagePath": "/media/vocabulary/images/ice.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "ice",
-    "targetPattern": "e_e",
-    "phonicsPattern": "e_e",
-    "explanation": "ice uses the e_e pattern."
-  },
-  {
-    "id": "gap_long_vowels_silent_e_l1_e_e_lettuce",
-    "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "lettuce",
-    "itemType": "phonics_pattern",
-    "itemKey": "e_e",
-    "correctAnswer": "e_e",
-    "answer": "e_e",
-    "answerOptions": [
-      "e_e",
-      "a_e",
-      "i_e",
-      "o_e"
-    ],
-    "choices": [
-      "e_e",
-      "a_e",
-      "i_e",
-      "o_e"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
-    ],
-    "imageUrl": "/media/vocabulary/images/lettuce.webp",
-    "imagePath": "/media/vocabulary/images/lettuce.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "lettuce",
-    "targetPattern": "e_e",
-    "phonicsPattern": "e_e",
-    "explanation": "lettuce uses the e_e pattern."
-  },
-  {
-    "id": "gap_long_vowels_silent_e_l1_i_e_lime",
-    "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "lime",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
-    "answerOptions": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
-    ],
-    "choices": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
-    ],
-    "imageUrl": "/media/vocabulary/images/lime.webp",
-    "imagePath": "/media/vocabulary/images/lime.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "lime",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "lime uses the i_e pattern."
-  },
-  {
-    "id": "gap_long_vowels_silent_e_l1_o_e_mole",
-    "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "mole",
-    "itemType": "phonics_pattern",
-    "itemKey": "o_e",
-    "correctAnswer": "o_e",
-    "answer": "o_e",
-    "answerOptions": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
-    ],
-    "choices": [
-      "o_e",
-      "a_e",
-      "i_e",
-      "u_e"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
-    ],
-    "imageUrl": "/media/vocabulary/images/mole.webp",
-    "imagePath": "/media/vocabulary/images/mole.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "mole",
-    "targetPattern": "o_e",
-    "phonicsPattern": "o_e",
-    "explanation": "mole uses the o_e pattern."
-  },
-  {
-    "id": "gap_long_vowels_silent_e_l1_u_e_mule",
-    "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "mule",
-    "itemType": "phonics_pattern",
-    "itemKey": "u_e",
-    "correctAnswer": "u_e",
-    "answer": "u_e",
-    "answerOptions": [
-      "u_e",
-      "o_e",
-      "e_e",
-      "a_e"
-    ],
-    "choices": [
-      "u_e",
-      "o_e",
-      "e_e",
-      "a_e"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
-    ],
-    "imageUrl": "/media/vocabulary/images/mule.webp",
-    "imagePath": "/media/vocabulary/images/mule.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "mule",
-    "targetPattern": "u_e",
-    "phonicsPattern": "u_e",
-    "explanation": "mule uses the u_e pattern."
-  },
-  {
-    "id": "gap_long_vowels_silent_e_l1_a_e_pancake",
-    "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "pancake",
-    "itemType": "phonics_pattern",
-    "itemKey": "a_e",
-    "correctAnswer": "a_e",
-    "answer": "a_e",
-    "answerOptions": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
-    ],
-    "choices": [
-      "a_e",
-      "i_e",
-      "o_e",
-      "u_e"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
-    ],
-    "imageUrl": "/media/vocabulary/images/pancake.webp",
-    "imagePath": "/media/vocabulary/images/pancake.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "pancake",
-    "targetPattern": "a_e",
-    "phonicsPattern": "a_e",
-    "explanation": "pancake uses the a_e pattern."
-  },
-  {
-    "id": "gap_long_vowels_silent_e_l1_i_e_pine",
-    "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "pine",
-    "itemType": "phonics_pattern",
-    "itemKey": "i_e",
-    "correctAnswer": "i_e",
-    "answer": "i_e",
-    "answerOptions": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
-    ],
-    "choices": [
-      "i_e",
-      "u_e",
-      "e_e",
-      "a_e"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
-    ],
-    "imageUrl": "/media/vocabulary/images/pine.webp",
-    "imagePath": "/media/vocabulary/images/pine.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "pine",
-    "targetPattern": "i_e",
-    "phonicsPattern": "i_e",
-    "explanation": "pine uses the i_e pattern."
-  },
-  {
-    "id": "gap_long_vowels_silent_e_l1_e_e_pinecone",
-    "grade": "K",
-    "skillId": "long_vowels_silent_e",
-    "skillName": "Long Vowels and Silent E",
-    "skill": "Long Vowels and Silent E",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which silent-e pattern is in this word?",
-    "question": "Which silent-e pattern is in this word?",
-    "targetWord": "pinecone",
-    "itemType": "phonics_pattern",
-    "itemKey": "e_e",
-    "correctAnswer": "e_e",
-    "answer": "e_e",
-    "answerOptions": [
-      "e_e",
-      "a_e",
-      "i_e",
-      "o_e"
-    ],
-    "choices": [
-      "e_e",
-      "a_e",
-      "i_e",
-      "o_e"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "long_vowels_silent_e"
-    ],
-    "imageUrl": "/media/vocabulary/images/pinecone.webp",
-    "imagePath": "/media/vocabulary/images/pinecone.webp",
-    "spokenPrompt": "Which silent-e pattern is in this word?",
-    "imageKey": "pinecone",
-    "targetPattern": "e_e",
-    "phonicsPattern": "e_e",
-    "explanation": "pinecone uses the e_e pattern."
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ai_airplane",
@@ -11379,7 +15576,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11415,7 +15612,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "airplane",
     "targetPattern": "ai",
     "phonicsPattern": "ai",
-    "explanation": "airplane uses the ai pattern."
+    "explanation": "airplane uses the ai pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ea_anteater",
@@ -11425,7 +15624,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11461,7 +15660,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "anteater",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "anteater uses the ea pattern."
+    "explanation": "anteater uses the ea pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ai_armchair",
@@ -11471,7 +15672,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11507,7 +15708,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "armchair",
     "targetPattern": "ai",
     "phonicsPattern": "ai",
-    "explanation": "armchair uses the ai pattern."
+    "explanation": "armchair uses the ai pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_ea_beach",
@@ -11517,7 +15720,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11553,7 +15756,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "beach",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "beach uses the ea pattern."
+    "explanation": "beach uses the ea pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ea_beachball",
@@ -11563,7 +15768,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11599,7 +15804,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "beachball",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "beachball uses the ea pattern."
+    "explanation": "beachball uses the ea pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_ea_bead",
@@ -11609,7 +15816,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11645,7 +15852,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "bead",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "bead uses the ea pattern."
+    "explanation": "bead uses the ea pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ea_beak",
@@ -11655,7 +15864,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11691,7 +15900,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "beak",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "beak uses the ea pattern."
+    "explanation": "beak uses the ea pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_ea_bean",
@@ -11701,7 +15912,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11737,7 +15948,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "bean",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "bean uses the ea pattern."
+    "explanation": "bean uses the ea pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ee_beef",
@@ -11747,7 +15960,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11783,7 +15996,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "beef",
     "targetPattern": "ee",
     "phonicsPattern": "ee",
-    "explanation": "beef uses the ee pattern."
+    "explanation": "beef uses the ee pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_ee_beehive",
@@ -11793,7 +16008,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11829,7 +16044,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "beehive",
     "targetPattern": "ee",
     "phonicsPattern": "ee",
-    "explanation": "beehive uses the ee pattern."
+    "explanation": "beehive uses the ee pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ee_beet",
@@ -11839,7 +16056,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11875,7 +16092,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "beet",
     "targetPattern": "ee",
     "phonicsPattern": "ee",
-    "explanation": "beet uses the ee pattern."
+    "explanation": "beet uses the ee pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_ee_beetle",
@@ -11885,7 +16104,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11921,7 +16140,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "beetle",
     "targetPattern": "ee",
     "phonicsPattern": "ee",
-    "explanation": "beetle uses the ee pattern."
+    "explanation": "beetle uses the ee pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ay_bluejay",
@@ -11931,7 +16152,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -11967,7 +16188,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "bluejay",
     "targetPattern": "ay",
     "phonicsPattern": "ay",
-    "explanation": "bluejay uses the ay pattern."
+    "explanation": "bluejay uses the ay pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_oa_board",
@@ -11977,7 +16200,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12013,7 +16236,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "board",
     "targetPattern": "oa",
     "phonicsPattern": "oa",
-    "explanation": "board uses the oa pattern."
+    "explanation": "board uses the oa pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ea_bread",
@@ -12023,7 +16248,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12059,7 +16284,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "bread",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "bread uses the ea pattern."
+    "explanation": "bread uses the ea pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_ee_canteen",
@@ -12069,7 +16296,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12105,7 +16332,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "canteen",
     "targetPattern": "ee",
     "phonicsPattern": "ee",
-    "explanation": "canteen uses the ee pattern."
+    "explanation": "canteen uses the ee pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ai_chain",
@@ -12115,7 +16344,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12151,7 +16380,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "chain",
     "targetPattern": "ai",
     "phonicsPattern": "ai",
-    "explanation": "chain uses the ai pattern."
+    "explanation": "chain uses the ai pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_ee_cheese",
@@ -12161,7 +16392,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12197,7 +16428,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "cheese",
     "targetPattern": "ee",
     "phonicsPattern": "ee",
-    "explanation": "cheese uses the ee pattern."
+    "explanation": "cheese uses the ee pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ee_cheetah",
@@ -12207,7 +16440,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12243,7 +16476,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "cheetah",
     "targetPattern": "ee",
     "phonicsPattern": "ee",
-    "explanation": "cheetah uses the ee pattern."
+    "explanation": "cheetah uses the ee pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_vowel_teams_l1_oa_chessboard",
@@ -12253,7 +16488,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12289,7 +16524,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "chessboard",
     "targetPattern": "oa",
     "phonicsPattern": "oa",
-    "explanation": "chessboard uses the oa pattern."
+    "explanation": "chessboard uses the oa pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ay_clay",
@@ -12299,7 +16536,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12335,7 +16572,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "clay",
     "targetPattern": "ay",
     "phonicsPattern": "ay",
-    "explanation": "clay uses the ay pattern."
+    "explanation": "clay uses the ay pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ea_clean",
@@ -12345,7 +16584,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12381,7 +16620,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "clean",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "clean uses the ea pattern."
+    "explanation": "clean uses the ea pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_oa_clipboard",
@@ -12391,7 +16632,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12427,7 +16668,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "clipboard",
     "targetPattern": "oa",
     "phonicsPattern": "oa",
-    "explanation": "clipboard uses the oa pattern."
+    "explanation": "clipboard uses the oa pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_oa_coal",
@@ -12437,7 +16680,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12473,7 +16716,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "coal",
     "targetPattern": "oa",
     "phonicsPattern": "oa",
-    "explanation": "coal uses the oa pattern."
+    "explanation": "coal uses the oa pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_oa_cocoa",
@@ -12483,7 +16728,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12519,7 +16764,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "cocoa",
     "targetPattern": "oa",
     "phonicsPattern": "oa",
-    "explanation": "cocoa uses the oa pattern."
+    "explanation": "cocoa uses the oa pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ea_cornbread",
@@ -12529,7 +16776,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12565,7 +16812,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "cornbread",
     "targetPattern": "ea",
     "phonicsPattern": "ea",
-    "explanation": "cornbread uses the ea pattern."
+    "explanation": "cornbread uses the ea pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_vowel_teams_l1_ay_crayon",
@@ -12575,7 +16824,7 @@ export const skillLevelGapQuestions = [
     "skill": "Vowel Teams",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -12611,375 +16860,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "crayon",
     "targetPattern": "ay",
     "phonicsPattern": "ay",
-    "explanation": "crayon uses the ay pattern."
-  },
-  {
-    "id": "gap_vowel_teams_l1_ai_curtain",
-    "grade": "K",
-    "skillId": "vowel_teams",
-    "skillName": "Vowel Teams",
-    "skill": "Vowel Teams",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which vowel team is in this word?",
-    "question": "Which vowel team is in this word?",
-    "targetWord": "curtain",
-    "itemType": "phonics_pattern",
-    "itemKey": "ai",
-    "correctAnswer": "ai",
-    "answer": "ai",
-    "answerOptions": [
-      "ai",
-      "ay",
-      "oa",
-      "ea"
-    ],
-    "choices": [
-      "ai",
-      "ay",
-      "oa",
-      "ea"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "vowel_teams"
-    ],
-    "imageUrl": "/media/vocabulary/images/curtain.webp",
-    "imagePath": "/media/vocabulary/images/curtain.webp",
-    "spokenPrompt": "Which vowel team is in this word?",
-    "imageKey": "curtain",
-    "targetPattern": "ai",
-    "phonicsPattern": "ai",
-    "explanation": "curtain uses the ai pattern."
-  },
-  {
-    "id": "gap_vowel_teams_l1_ai_drain",
-    "grade": "K",
-    "skillId": "vowel_teams",
-    "skillName": "Vowel Teams",
-    "skill": "Vowel Teams",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which vowel team is in this word?",
-    "question": "Which vowel team is in this word?",
-    "targetWord": "drain",
-    "itemType": "phonics_pattern",
-    "itemKey": "ai",
-    "correctAnswer": "ai",
-    "answer": "ai",
-    "answerOptions": [
-      "ai",
-      "ea",
-      "ee",
-      "ay"
-    ],
-    "choices": [
-      "ai",
-      "ea",
-      "ee",
-      "ay"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "vowel_teams"
-    ],
-    "imageUrl": "/media/vocabulary/images/drain.webp",
-    "imagePath": "/media/vocabulary/images/drain.webp",
-    "spokenPrompt": "Which vowel team is in this word?",
-    "imageKey": "drain",
-    "targetPattern": "ai",
-    "phonicsPattern": "ai",
-    "explanation": "drain uses the ai pattern."
-  },
-  {
-    "id": "gap_vowel_teams_l1_ea_earring",
-    "grade": "K",
-    "skillId": "vowel_teams",
-    "skillName": "Vowel Teams",
-    "skill": "Vowel Teams",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which vowel team is in this word?",
-    "question": "Which vowel team is in this word?",
-    "targetWord": "earring",
-    "itemType": "phonics_pattern",
-    "itemKey": "ea",
-    "correctAnswer": "ea",
-    "answer": "ea",
-    "answerOptions": [
-      "ea",
-      "ay",
-      "oa",
-      "ai"
-    ],
-    "choices": [
-      "ea",
-      "ay",
-      "oa",
-      "ai"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "vowel_teams"
-    ],
-    "imageUrl": "/media/vocabulary/images/earring.webp",
-    "imagePath": "/media/vocabulary/images/earring.webp",
-    "spokenPrompt": "Which vowel team is in this word?",
-    "imageKey": "earring",
-    "targetPattern": "ea",
-    "phonicsPattern": "ea",
-    "explanation": "earring uses the ea pattern."
-  },
-  {
-    "id": "gap_vowel_teams_l1_ee_eel",
-    "grade": "K",
-    "skillId": "vowel_teams",
-    "skillName": "Vowel Teams",
-    "skill": "Vowel Teams",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which vowel team is in this word?",
-    "question": "Which vowel team is in this word?",
-    "targetWord": "eel",
-    "itemType": "phonics_pattern",
-    "itemKey": "ee",
-    "correctAnswer": "ee",
-    "answer": "ee",
-    "answerOptions": [
-      "ee",
-      "ai",
-      "ea",
-      "ay"
-    ],
-    "choices": [
-      "ee",
-      "ai",
-      "ea",
-      "ay"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "vowel_teams"
-    ],
-    "imageUrl": "/media/vocabulary/images/eel.webp",
-    "imagePath": "/media/vocabulary/images/eel.webp",
-    "spokenPrompt": "Which vowel team is in this word?",
-    "imageKey": "eel",
-    "targetPattern": "ee",
-    "phonicsPattern": "ee",
-    "explanation": "eel uses the ee pattern."
-  },
-  {
-    "id": "gap_vowel_teams_l1_ea_fernleaf",
-    "grade": "K",
-    "skillId": "vowel_teams",
-    "skillName": "Vowel Teams",
-    "skill": "Vowel Teams",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which vowel team is in this word?",
-    "question": "Which vowel team is in this word?",
-    "targetWord": "fernleaf",
-    "itemType": "phonics_pattern",
-    "itemKey": "ea",
-    "correctAnswer": "ea",
-    "answer": "ea",
-    "answerOptions": [
-      "ea",
-      "ay",
-      "oa",
-      "ai"
-    ],
-    "choices": [
-      "ea",
-      "ay",
-      "oa",
-      "ai"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "vowel_teams"
-    ],
-    "imageUrl": "/media/vocabulary/images/fernleaf.webp",
-    "imagePath": "/media/vocabulary/images/fernleaf.webp",
-    "spokenPrompt": "Which vowel team is in this word?",
-    "imageKey": "fernleaf",
-    "targetPattern": "ea",
-    "phonicsPattern": "ea",
-    "explanation": "fernleaf uses the ea pattern."
-  },
-  {
-    "id": "gap_vowel_teams_l1_oa_foam",
-    "grade": "K",
-    "skillId": "vowel_teams",
-    "skillName": "Vowel Teams",
-    "skill": "Vowel Teams",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which vowel team is in this word?",
-    "question": "Which vowel team is in this word?",
-    "targetWord": "foam",
-    "itemType": "phonics_pattern",
-    "itemKey": "oa",
-    "correctAnswer": "oa",
-    "answer": "oa",
-    "answerOptions": [
-      "oa",
-      "ai",
-      "ea",
-      "ee"
-    ],
-    "choices": [
-      "oa",
-      "ai",
-      "ea",
-      "ee"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "vowel_teams"
-    ],
-    "imageUrl": "/media/vocabulary/images/foam.webp",
-    "imagePath": "/media/vocabulary/images/foam.webp",
-    "spokenPrompt": "Which vowel team is in this word?",
-    "imageKey": "foam",
-    "targetPattern": "oa",
-    "phonicsPattern": "oa",
-    "explanation": "foam uses the oa pattern."
-  },
-  {
-    "id": "gap_vowel_teams_l1_ea_greenbean",
-    "grade": "K",
-    "skillId": "vowel_teams",
-    "skillName": "Vowel Teams",
-    "skill": "Vowel Teams",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which vowel team is in this word?",
-    "question": "Which vowel team is in this word?",
-    "targetWord": "greenbean",
-    "itemType": "phonics_pattern",
-    "itemKey": "ea",
-    "correctAnswer": "ea",
-    "answer": "ea",
-    "answerOptions": [
-      "ea",
-      "ay",
-      "oa",
-      "ai"
-    ],
-    "choices": [
-      "ea",
-      "ay",
-      "oa",
-      "ai"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "vowel_teams"
-    ],
-    "imageUrl": "/media/vocabulary/images/greenbean.webp",
-    "imagePath": "/media/vocabulary/images/greenbean.webp",
-    "spokenPrompt": "Which vowel team is in this word?",
-    "imageKey": "greenbean",
-    "targetPattern": "ea",
-    "phonicsPattern": "ea",
-    "explanation": "greenbean uses the ea pattern."
-  },
-  {
-    "id": "gap_vowel_teams_l1_ai_hairpin",
-    "grade": "K",
-    "skillId": "vowel_teams",
-    "skillName": "Vowel Teams",
-    "skill": "Vowel Teams",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which vowel team is in this word?",
-    "question": "Which vowel team is in this word?",
-    "targetWord": "hairpin",
-    "itemType": "phonics_pattern",
-    "itemKey": "ai",
-    "correctAnswer": "ai",
-    "answer": "ai",
-    "answerOptions": [
-      "ai",
-      "ea",
-      "ee",
-      "ay"
-    ],
-    "choices": [
-      "ai",
-      "ea",
-      "ee",
-      "ay"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "vowel_teams"
-    ],
-    "imageUrl": "/media/vocabulary/images/hairpin.webp",
-    "imagePath": "/media/vocabulary/images/hairpin.webp",
-    "spokenPrompt": "Which vowel team is in this word?",
-    "imageKey": "hairpin",
-    "targetPattern": "ai",
-    "phonicsPattern": "ai",
-    "explanation": "hairpin uses the ai pattern."
+    "explanation": "crayon uses the ay pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ir_airplane",
@@ -12989,7 +16872,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13025,7 +16908,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "airplane",
     "targetPattern": "ir",
     "phonicsPattern": "ir",
-    "explanation": "airplane uses the ir pattern."
+    "explanation": "airplane uses the ir pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_or_alligator",
@@ -13035,7 +16920,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13071,7 +16956,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "alligator",
     "targetPattern": "or",
     "phonicsPattern": "or",
-    "explanation": "alligator uses the or pattern."
+    "explanation": "alligator uses the or pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_r_controlled_vowels_l1_er_anteater",
@@ -13081,7 +16968,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13117,7 +17004,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "anteater",
     "targetPattern": "er",
     "phonicsPattern": "er",
-    "explanation": "anteater uses the er pattern."
+    "explanation": "anteater uses the er pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_arch",
@@ -13127,7 +17016,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13163,7 +17052,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "arch",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "arch uses the ar pattern."
+    "explanation": "arch uses the ar pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_arm",
@@ -13173,7 +17064,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13209,7 +17100,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "arm",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "arm uses the ar pattern."
+    "explanation": "arm uses the ar pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_armchair",
@@ -13219,7 +17112,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13255,7 +17148,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "armchair",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "armchair uses the ar pattern."
+    "explanation": "armchair uses the ar pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_artichoke",
@@ -13265,7 +17160,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13301,7 +17196,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "artichoke",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "artichoke uses the ar pattern."
+    "explanation": "artichoke uses the ar pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_asparagus",
@@ -13311,7 +17208,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13347,7 +17244,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "asparagus",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "asparagus uses the ar pattern."
+    "explanation": "asparagus uses the ar pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_r_controlled_vowels_l1_er_badger",
@@ -13357,7 +17256,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13393,7 +17292,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "badger",
     "targetPattern": "er",
     "phonicsPattern": "er",
-    "explanation": "badger uses the er pattern."
+    "explanation": "badger uses the er pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_bar",
@@ -13403,7 +17304,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13439,7 +17340,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "bar",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "bar uses the ar pattern."
+    "explanation": "bar uses the ar pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_bark",
@@ -13449,7 +17352,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13485,7 +17388,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "bark",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "bark uses the ar pattern."
+    "explanation": "bark uses the ar pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_barn",
@@ -13495,7 +17400,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13531,7 +17436,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "barn",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "barn uses the ar pattern."
+    "explanation": "barn uses the ar pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_barrel",
@@ -13541,7 +17448,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13577,7 +17484,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "barrel",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "barrel uses the ar pattern."
+    "explanation": "barrel uses the ar pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_er_berry",
@@ -13587,7 +17496,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13623,7 +17532,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "berry",
     "targetPattern": "er",
     "phonicsPattern": "er",
-    "explanation": "berry uses the er pattern."
+    "explanation": "berry uses the er pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_r_controlled_vowels_l1_ir_birdhouse",
@@ -13633,7 +17544,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13669,7 +17580,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "birdhouse",
     "targetPattern": "ir",
     "phonicsPattern": "ir",
-    "explanation": "birdhouse uses the ir pattern."
+    "explanation": "birdhouse uses the ir pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_er_blackberry",
@@ -13679,7 +17592,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13715,7 +17628,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "blackberry",
     "targetPattern": "er",
     "phonicsPattern": "er",
-    "explanation": "blackberry uses the er pattern."
+    "explanation": "blackberry uses the er pattern.",
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_r_controlled_vowels_l1_er_blender",
@@ -13725,7 +17640,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13761,7 +17676,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "blender",
     "targetPattern": "er",
     "phonicsPattern": "er",
-    "explanation": "blender uses the er pattern."
+    "explanation": "blender uses the er pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_er_blueberry",
@@ -13771,7 +17688,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13807,7 +17724,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "blueberry",
     "targetPattern": "er",
     "phonicsPattern": "er",
-    "explanation": "blueberry uses the er pattern."
+    "explanation": "blueberry uses the er pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ir_bluebird",
@@ -13817,7 +17736,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13853,7 +17772,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "bluebird",
     "targetPattern": "ir",
     "phonicsPattern": "ir",
-    "explanation": "bluebird uses the ir pattern."
+    "explanation": "bluebird uses the ir pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_board",
@@ -13863,7 +17784,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13899,7 +17820,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "board",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "board uses the ar pattern."
+    "explanation": "board uses the ar pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_er_butter",
@@ -13909,7 +17832,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13945,7 +17868,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "butter",
     "targetPattern": "er",
     "phonicsPattern": "er",
-    "explanation": "butter uses the er pattern."
+    "explanation": "butter uses the er pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_er_butternut",
@@ -13955,7 +17880,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -13991,7 +17916,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "butternut",
     "targetPattern": "er",
     "phonicsPattern": "er",
-    "explanation": "butternut uses the er pattern."
+    "explanation": "butternut uses the er pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_canary",
@@ -14001,7 +17928,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -14037,7 +17964,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "canary",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "canary uses the ar pattern."
+    "explanation": "canary uses the ar pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_r_controlled_vowels_l1_ar_card",
@@ -14047,7 +17976,7 @@ export const skillLevelGapQuestions = [
     "skill": "R-Controlled Vowels",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "DECODING",
     "formatType": "DECODING",
     "questionType": "multiple_choice",
@@ -14083,4577 +18012,9 @@ export const skillLevelGapQuestions = [
     "imageKey": "card",
     "targetPattern": "ar",
     "phonicsPattern": "ar",
-    "explanation": "card uses the ar pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_ar_cardigan",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "cardigan",
-    "itemType": "phonics_pattern",
-    "itemKey": "ar",
-    "correctAnswer": "ar",
-    "answer": "ar",
-    "answerOptions": [
-      "ar",
-      "ir",
-      "or",
-      "er"
-    ],
-    "choices": [
-      "ar",
-      "ir",
-      "or",
-      "er"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/cardigan.webp",
-    "imagePath": "/media/vocabulary/images/cardigan.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "cardigan",
-    "targetPattern": "ar",
-    "phonicsPattern": "ar",
-    "explanation": "cardigan uses the ar pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_ar_carnation",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "carnation",
-    "itemType": "phonics_pattern",
-    "itemKey": "ar",
-    "correctAnswer": "ar",
-    "answer": "ar",
-    "answerOptions": [
-      "ar",
-      "er",
-      "ur",
-      "ir"
-    ],
-    "choices": [
-      "ar",
-      "er",
-      "ur",
-      "ir"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/carnation.webp",
-    "imagePath": "/media/vocabulary/images/carnation.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "carnation",
-    "targetPattern": "ar",
-    "phonicsPattern": "ar",
-    "explanation": "carnation uses the ar pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_ar_cart",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "cart",
-    "itemType": "phonics_pattern",
-    "itemKey": "ar",
-    "correctAnswer": "ar",
-    "answer": "ar",
-    "answerOptions": [
-      "ar",
-      "ir",
-      "or",
-      "er"
-    ],
-    "choices": [
-      "ar",
-      "ir",
-      "or",
-      "er"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/cart.webp",
-    "imagePath": "/media/vocabulary/images/cart.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "cart",
-    "targetPattern": "ar",
-    "phonicsPattern": "ar",
-    "explanation": "cart uses the ar pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_er_cauliflower",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "cauliflower",
-    "itemType": "phonics_pattern",
-    "itemKey": "er",
-    "correctAnswer": "er",
-    "answer": "er",
-    "answerOptions": [
-      "er",
-      "ar",
-      "ur",
-      "ir"
-    ],
-    "choices": [
-      "er",
-      "ar",
-      "ur",
-      "ir"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/cauliflower.webp",
-    "imagePath": "/media/vocabulary/images/cauliflower.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "cauliflower",
-    "targetPattern": "er",
-    "phonicsPattern": "er",
-    "explanation": "cauliflower uses the er pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_er_celery",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "celery",
-    "itemType": "phonics_pattern",
-    "itemKey": "er",
-    "correctAnswer": "er",
-    "answer": "er",
-    "answerOptions": [
-      "er",
-      "ir",
-      "or",
-      "ar"
-    ],
-    "choices": [
-      "er",
-      "ir",
-      "or",
-      "ar"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/celery.webp",
-    "imagePath": "/media/vocabulary/images/celery.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "celery",
-    "targetPattern": "er",
-    "phonicsPattern": "er",
-    "explanation": "celery uses the er pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_er_cherry",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "cherry",
-    "itemType": "phonics_pattern",
-    "itemKey": "er",
-    "correctAnswer": "er",
-    "answer": "er",
-    "answerOptions": [
-      "er",
-      "ar",
-      "ur",
-      "ir"
-    ],
-    "choices": [
-      "er",
-      "ar",
-      "ur",
-      "ir"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/cherry.webp",
-    "imagePath": "/media/vocabulary/images/cherry.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "cherry",
-    "targetPattern": "er",
-    "phonicsPattern": "er",
-    "explanation": "cherry uses the er pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_ar_chessboard",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "chessboard",
-    "itemType": "phonics_pattern",
-    "itemKey": "ar",
-    "correctAnswer": "ar",
-    "answer": "ar",
-    "answerOptions": [
-      "ar",
-      "ir",
-      "or",
-      "er"
-    ],
-    "choices": [
-      "ar",
-      "ir",
-      "or",
-      "er"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/chessboard.webp",
-    "imagePath": "/media/vocabulary/images/chessboard.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "chessboard",
-    "targetPattern": "ar",
-    "phonicsPattern": "ar",
-    "explanation": "chessboard uses the ar pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_ir_circle",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "circle",
-    "itemType": "phonics_pattern",
-    "itemKey": "ir",
-    "correctAnswer": "ir",
-    "answer": "ir",
-    "answerOptions": [
-      "ir",
-      "ar",
-      "ur",
-      "or"
-    ],
-    "choices": [
-      "ir",
-      "ar",
-      "ur",
-      "or"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/circle.webp",
-    "imagePath": "/media/vocabulary/images/circle.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "circle",
-    "targetPattern": "ir",
-    "phonicsPattern": "ir",
-    "explanation": "circle uses the ir pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_ar_clipboard",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "clipboard",
-    "itemType": "phonics_pattern",
-    "itemKey": "ar",
-    "correctAnswer": "ar",
-    "answer": "ar",
-    "answerOptions": [
-      "ar",
-      "ir",
-      "or",
-      "er"
-    ],
-    "choices": [
-      "ar",
-      "ir",
-      "or",
-      "er"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/clipboard.webp",
-    "imagePath": "/media/vocabulary/images/clipboard.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "clipboard",
-    "targetPattern": "ar",
-    "phonicsPattern": "ar",
-    "explanation": "clipboard uses the ar pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_ar_collar",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "collar",
-    "itemType": "phonics_pattern",
-    "itemKey": "ar",
-    "correctAnswer": "ar",
-    "answer": "ar",
-    "answerOptions": [
-      "ar",
-      "er",
-      "ur",
-      "ir"
-    ],
-    "choices": [
-      "ar",
-      "er",
-      "ur",
-      "ir"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/collar.webp",
-    "imagePath": "/media/vocabulary/images/collar.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "collar",
-    "targetPattern": "ar",
-    "phonicsPattern": "ar",
-    "explanation": "collar uses the ar pattern."
-  },
-  {
-    "id": "gap_r_controlled_vowels_l1_or_cord",
-    "grade": "K",
-    "skillId": "r_controlled_vowels",
-    "skillName": "R-Controlled Vowels",
-    "skill": "R-Controlled Vowels",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "DECODING",
-    "formatType": "DECODING",
-    "questionType": "multiple_choice",
-    "prompt": "Which r-controlled vowel pattern is in this word?",
-    "question": "Which r-controlled vowel pattern is in this word?",
-    "targetWord": "cord",
-    "itemType": "phonics_pattern",
-    "itemKey": "or",
-    "correctAnswer": "or",
-    "answer": "or",
-    "answerOptions": [
-      "or",
-      "ir",
-      "er",
-      "ar"
-    ],
-    "choices": [
-      "or",
-      "ir",
-      "er",
-      "ar"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "r_controlled_vowels"
-    ],
-    "imageUrl": "/media/vocabulary/images/cord.webp",
-    "imagePath": "/media/vocabulary/images/cord.webp",
-    "spokenPrompt": "Which r-controlled vowel pattern is in this word?",
-    "imageKey": "cord",
-    "targetPattern": "or",
-    "phonicsPattern": "or",
-    "explanation": "cord uses the or pattern."
-  },
-  {
-    "id": "gap_nouns_l1_airplane_1",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "airplane",
-    "itemType": "nouns",
-    "itemKey": "airplane",
-    "correctAnswer": "airplane",
-    "answer": "airplane",
-    "answerOptions": [
-      "airplane",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "choices": [
-      "airplane",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/airplane.webp",
-    "imagePath": "/media/vocabulary/images/airplane.webp"
-  },
-  {
-    "id": "gap_nouns_l1_alligator_2",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "alligator",
-    "itemType": "nouns",
-    "itemKey": "alligator",
-    "correctAnswer": "alligator",
-    "answer": "alligator",
-    "answerOptions": [
-      "alligator",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "choices": [
-      "alligator",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/alligator.webp",
-    "imagePath": "/media/vocabulary/images/alligator.webp"
-  },
-  {
-    "id": "gap_nouns_l1_almond_3",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "almond",
-    "itemType": "nouns",
-    "itemKey": "almond",
-    "correctAnswer": "almond",
-    "answer": "almond",
-    "answerOptions": [
-      "almond",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "almond",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/almond.webp",
-    "imagePath": "/media/vocabulary/images/almond.webp"
-  },
-  {
-    "id": "gap_nouns_l1_anteater_4",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "anteater",
-    "itemType": "nouns",
-    "itemKey": "anteater",
-    "correctAnswer": "anteater",
-    "answer": "anteater",
-    "answerOptions": [
-      "anteater",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "choices": [
-      "anteater",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/anteater.webp",
-    "imagePath": "/media/vocabulary/images/anteater.webp"
-  },
-  {
-    "id": "gap_nouns_l1_applesauce_5",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "applesauce",
-    "itemType": "nouns",
-    "itemKey": "applesauce",
-    "correctAnswer": "applesauce",
-    "answer": "applesauce",
-    "answerOptions": [
-      "applesauce",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "choices": [
-      "applesauce",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/applesauce.webp",
-    "imagePath": "/media/vocabulary/images/applesauce.webp"
-  },
-  {
-    "id": "gap_nouns_l1_arch_6",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "arch",
-    "itemType": "nouns",
-    "itemKey": "arch",
-    "correctAnswer": "arch",
-    "answer": "arch",
-    "answerOptions": [
-      "arch",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "arch",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/arch.webp",
-    "imagePath": "/media/vocabulary/images/arch.webp"
-  },
-  {
-    "id": "gap_nouns_l1_arm_7",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "arm",
-    "itemType": "nouns",
-    "itemKey": "arm",
-    "correctAnswer": "arm",
-    "answer": "arm",
-    "answerOptions": [
-      "arm",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "choices": [
-      "arm",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/arm.webp",
-    "imagePath": "/media/vocabulary/images/arm.webp"
-  },
-  {
-    "id": "gap_nouns_l1_armchair_8",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "armchair",
-    "itemType": "nouns",
-    "itemKey": "armchair",
-    "correctAnswer": "armchair",
-    "answer": "armchair",
-    "answerOptions": [
-      "armchair",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "choices": [
-      "armchair",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/armchair.webp",
-    "imagePath": "/media/vocabulary/images/armchair.webp"
-  },
-  {
-    "id": "gap_nouns_l1_artichoke_9",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "artichoke",
-    "itemType": "nouns",
-    "itemKey": "artichoke",
-    "correctAnswer": "artichoke",
-    "answer": "artichoke",
-    "answerOptions": [
-      "artichoke",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "artichoke",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/artichoke.webp",
-    "imagePath": "/media/vocabulary/images/artichoke.webp"
-  },
-  {
-    "id": "gap_nouns_l1_ash_10",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "ash",
-    "itemType": "nouns",
-    "itemKey": "ash",
-    "correctAnswer": "ash",
-    "answer": "ash",
-    "answerOptions": [
-      "ash",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "choices": [
-      "ash",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/ash.webp",
-    "imagePath": "/media/vocabulary/images/ash.webp"
-  },
-  {
-    "id": "gap_nouns_l1_asparagus_11",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "asparagus",
-    "itemType": "nouns",
-    "itemKey": "asparagus",
-    "correctAnswer": "asparagus",
-    "answer": "asparagus",
-    "answerOptions": [
-      "asparagus",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "choices": [
-      "asparagus",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/asparagus.webp",
-    "imagePath": "/media/vocabulary/images/asparagus.webp"
-  },
-  {
-    "id": "gap_nouns_l1_back_12",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "back",
-    "itemType": "nouns",
-    "itemKey": "back",
-    "correctAnswer": "back",
-    "answer": "back",
-    "answerOptions": [
-      "back",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "back",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/back.webp",
-    "imagePath": "/media/vocabulary/images/back.webp"
-  },
-  {
-    "id": "gap_nouns_l1_badge_13",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "badge",
-    "itemType": "nouns",
-    "itemKey": "badge",
-    "correctAnswer": "badge",
-    "answer": "badge",
-    "answerOptions": [
-      "badge",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "choices": [
-      "badge",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/badge.webp",
-    "imagePath": "/media/vocabulary/images/badge.webp"
-  },
-  {
-    "id": "gap_nouns_l1_badger_14",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "badger",
-    "itemType": "nouns",
-    "itemKey": "badger",
-    "correctAnswer": "badger",
-    "answer": "badger",
-    "answerOptions": [
-      "badger",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "choices": [
-      "badger",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/badger.webp",
-    "imagePath": "/media/vocabulary/images/badger.webp"
-  },
-  {
-    "id": "gap_nouns_l1_bagel_15",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "bagel",
-    "itemType": "nouns",
-    "itemKey": "bagel",
-    "correctAnswer": "bagel",
-    "answer": "bagel",
-    "answerOptions": [
-      "bagel",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "bagel",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/bagel.webp",
-    "imagePath": "/media/vocabulary/images/bagel.webp"
-  },
-  {
-    "id": "gap_nouns_l1_balcony_16",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "balcony",
-    "itemType": "nouns",
-    "itemKey": "balcony",
-    "correctAnswer": "balcony",
-    "answer": "balcony",
-    "answerOptions": [
-      "balcony",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "choices": [
-      "balcony",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/balcony.webp",
-    "imagePath": "/media/vocabulary/images/balcony.webp"
-  },
-  {
-    "id": "gap_nouns_l1_bamboo_17",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "bamboo",
-    "itemType": "nouns",
-    "itemKey": "bamboo",
-    "correctAnswer": "bamboo",
-    "answer": "bamboo",
-    "answerOptions": [
-      "bamboo",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "choices": [
-      "bamboo",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/bamboo.webp",
-    "imagePath": "/media/vocabulary/images/bamboo.webp"
-  },
-  {
-    "id": "gap_nouns_l1_bandage_18",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "bandage",
-    "itemType": "nouns",
-    "itemKey": "bandage",
-    "correctAnswer": "bandage",
-    "answer": "bandage",
-    "answerOptions": [
-      "bandage",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "bandage",
-      "under",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/bandage.webp",
-    "imagePath": "/media/vocabulary/images/bandage.webp"
-  },
-  {
-    "id": "gap_nouns_l1_bar_19",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "bar",
-    "itemType": "nouns",
-    "itemKey": "bar",
-    "correctAnswer": "bar",
-    "answer": "bar",
-    "answerOptions": [
-      "bar",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "choices": [
-      "bar",
-      "jump",
-      "soft",
-      "under"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/bar.webp",
-    "imagePath": "/media/vocabulary/images/bar.webp"
-  },
-  {
-    "id": "gap_nouns_l1_bark_20",
-    "grade": "K",
-    "skillId": "nouns",
-    "skillName": "Nouns",
-    "skill": "Nouns",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word names a person, place, animal, or thing?",
-    "question": "Which word names a person, place, animal, or thing?",
-    "targetWord": "bark",
-    "itemType": "nouns",
-    "itemKey": "bark",
-    "correctAnswer": "bark",
-    "answer": "bark",
-    "answerOptions": [
-      "bark",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "choices": [
-      "bark",
-      "soft",
-      "under",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "nouns"
-    ],
-    "imageUrl": "/media/vocabulary/images/bark.webp",
-    "imagePath": "/media/vocabulary/images/bark.webp"
-  },
-  {
-    "id": "gap_verbs_l1_bend_1",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "bend",
-    "itemType": "verbs",
-    "itemKey": "bend",
-    "correctAnswer": "bend",
-    "answer": "bend",
-    "answerOptions": [
-      "bend",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "choices": [
-      "bend",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/bend.webp",
-    "imagePath": "/media/vocabulary/images/bend.webp"
-  },
-  {
-    "id": "gap_verbs_l1_climb_2",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "climb",
-    "itemType": "verbs",
-    "itemKey": "climb",
-    "correctAnswer": "climb",
-    "answer": "climb",
-    "answerOptions": [
-      "climb",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "choices": [
-      "climb",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/climb.webp",
-    "imagePath": "/media/vocabulary/images/climb.webp"
-  },
-  {
-    "id": "gap_verbs_l1_crawl_3",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "crawl",
-    "itemType": "verbs",
-    "itemKey": "crawl",
-    "correctAnswer": "crawl",
-    "answer": "crawl",
-    "answerOptions": [
-      "crawl",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "choices": [
-      "crawl",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/crawl.webp",
-    "imagePath": "/media/vocabulary/images/crawl.webp"
-  },
-  {
-    "id": "gap_verbs_l1_draw_4",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "draw",
-    "itemType": "verbs",
-    "itemKey": "draw",
-    "correctAnswer": "draw",
-    "answer": "draw",
-    "answerOptions": [
-      "draw",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "choices": [
-      "draw",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/draw.webp",
-    "imagePath": "/media/vocabulary/images/draw.webp"
-  },
-  {
-    "id": "gap_verbs_l1_drink_5",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "drink",
-    "itemType": "verbs",
-    "itemKey": "drink",
-    "correctAnswer": "drink",
-    "answer": "drink",
-    "answerOptions": [
-      "drink",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "choices": [
-      "drink",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/drink.webp",
-    "imagePath": "/media/vocabulary/images/drink.webp"
-  },
-  {
-    "id": "gap_verbs_l1_drop_6",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "drop",
-    "itemType": "verbs",
-    "itemKey": "drop",
-    "correctAnswer": "drop",
-    "answer": "drop",
-    "answerOptions": [
-      "drop",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "choices": [
-      "drop",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/drop.webp",
-    "imagePath": "/media/vocabulary/images/drop.webp"
-  },
-  {
-    "id": "gap_verbs_l1_kick_7",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "kick",
-    "itemType": "verbs",
-    "itemKey": "kick",
-    "correctAnswer": "kick",
-    "answer": "kick",
-    "answerOptions": [
-      "kick",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "choices": [
-      "kick",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/kick.webp",
-    "imagePath": "/media/vocabulary/images/kick.webp"
-  },
-  {
-    "id": "gap_verbs_l1_laugh_8",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "laugh",
-    "itemType": "verbs",
-    "itemKey": "laugh",
-    "correctAnswer": "laugh",
-    "answer": "laugh",
-    "answerOptions": [
-      "laugh",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "choices": [
-      "laugh",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/laugh.webp",
-    "imagePath": "/media/vocabulary/images/laugh.webp"
-  },
-  {
-    "id": "gap_verbs_l1_lift_9",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "lift",
-    "itemType": "verbs",
-    "itemKey": "lift",
-    "correctAnswer": "lift",
-    "answer": "lift",
-    "answerOptions": [
-      "lift",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "choices": [
-      "lift",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/lift.webp",
-    "imagePath": "/media/vocabulary/images/lift.webp"
-  },
-  {
-    "id": "gap_verbs_l1_mix_10",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "mix",
-    "itemType": "verbs",
-    "itemKey": "mix",
-    "correctAnswer": "mix",
-    "answer": "mix",
-    "answerOptions": [
-      "mix",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "choices": [
-      "mix",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/mix.webp",
-    "imagePath": "/media/vocabulary/images/mix.webp"
-  },
-  {
-    "id": "gap_verbs_l1_paint_11",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "paint",
-    "itemType": "verbs",
-    "itemKey": "paint",
-    "correctAnswer": "paint",
-    "answer": "paint",
-    "answerOptions": [
-      "paint",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "choices": [
-      "paint",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/paint.webp",
-    "imagePath": "/media/vocabulary/images/paint.webp"
-  },
-  {
-    "id": "gap_verbs_l1_pick_12",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "pick",
-    "itemType": "verbs",
-    "itemKey": "pick",
-    "correctAnswer": "pick",
-    "answer": "pick",
-    "answerOptions": [
-      "pick",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "choices": [
-      "pick",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/pick.webp",
-    "imagePath": "/media/vocabulary/images/pick.webp"
-  },
-  {
-    "id": "gap_verbs_l1_plant_13",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "plant",
-    "itemType": "verbs",
-    "itemKey": "plant",
-    "correctAnswer": "plant",
-    "answer": "plant",
-    "answerOptions": [
-      "plant",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "choices": [
-      "plant",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/plant.webp",
-    "imagePath": "/media/vocabulary/images/plant.webp"
-  },
-  {
-    "id": "gap_verbs_l1_pull_14",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "pull",
-    "itemType": "verbs",
-    "itemKey": "pull",
-    "correctAnswer": "pull",
-    "answer": "pull",
-    "answerOptions": [
-      "pull",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "choices": [
-      "pull",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/pull.webp",
-    "imagePath": "/media/vocabulary/images/pull.webp"
-  },
-  {
-    "id": "gap_verbs_l1_push_15",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "push",
-    "itemType": "verbs",
-    "itemKey": "push",
-    "correctAnswer": "push",
-    "answer": "push",
-    "answerOptions": [
-      "push",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "choices": [
-      "push",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/push.webp",
-    "imagePath": "/media/vocabulary/images/push.webp"
-  },
-  {
-    "id": "gap_verbs_l1_read_16",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "read",
-    "itemType": "verbs",
-    "itemKey": "read",
-    "correctAnswer": "read",
-    "answer": "read",
-    "answerOptions": [
-      "read",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "choices": [
-      "read",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/read.webp",
-    "imagePath": "/media/vocabulary/images/read.webp"
-  },
-  {
-    "id": "gap_verbs_l1_ride_17",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "ride",
-    "itemType": "verbs",
-    "itemKey": "ride",
-    "correctAnswer": "ride",
-    "answer": "ride",
-    "answerOptions": [
-      "ride",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "choices": [
-      "ride",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/ride.webp",
-    "imagePath": "/media/vocabulary/images/ride.webp"
-  },
-  {
-    "id": "gap_verbs_l1_roll_18",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "roll",
-    "itemType": "verbs",
-    "itemKey": "roll",
-    "correctAnswer": "roll",
-    "answer": "roll",
-    "answerOptions": [
-      "roll",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "choices": [
-      "roll",
-      "behind",
-      "cat",
-      "small"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/roll.webp",
-    "imagePath": "/media/vocabulary/images/roll.webp"
-  },
-  {
-    "id": "gap_verbs_l1_skip_19",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "skip",
-    "itemType": "verbs",
-    "itemKey": "skip",
-    "correctAnswer": "skip",
-    "answer": "skip",
-    "answerOptions": [
-      "skip",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "choices": [
-      "skip",
-      "cat",
-      "small",
-      "behind"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/skip.webp",
-    "imagePath": "/media/vocabulary/images/skip.webp"
-  },
-  {
-    "id": "gap_verbs_l1_sleep_20",
-    "grade": "K",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is an action?",
-    "question": "Which word is an action?",
-    "targetWord": "sleep",
-    "itemType": "verbs",
-    "itemKey": "sleep",
-    "correctAnswer": "sleep",
-    "answer": "sleep",
-    "answerOptions": [
-      "sleep",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "choices": [
-      "sleep",
-      "small",
-      "behind",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "verbs"
-    ],
-    "imageUrl": "/media/vocabulary/images/sleep.webp",
-    "imagePath": "/media/vocabulary/images/sleep.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_bright_1",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "bright",
-    "itemType": "adjectives",
-    "itemKey": "bright",
-    "correctAnswer": "bright",
-    "answer": "bright",
-    "answerOptions": [
-      "bright",
-      "cup",
-      "run",
-      "above"
-    ],
-    "choices": [
-      "bright",
-      "cup",
-      "run",
-      "above"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/bright.webp",
-    "imagePath": "/media/vocabulary/images/bright.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_clean_2",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "clean",
-    "itemType": "adjectives",
-    "itemKey": "clean",
-    "correctAnswer": "clean",
-    "answer": "clean",
-    "answerOptions": [
-      "clean",
-      "run",
-      "above",
-      "cup"
-    ],
-    "choices": [
-      "clean",
-      "run",
-      "above",
-      "cup"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/clean.webp",
-    "imagePath": "/media/vocabulary/images/clean.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_closed_3",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "closed",
-    "itemType": "adjectives",
-    "itemKey": "closed",
-    "correctAnswer": "closed",
-    "answer": "closed",
-    "answerOptions": [
-      "closed",
-      "above",
-      "cup",
-      "run"
-    ],
-    "choices": [
-      "closed",
-      "above",
-      "cup",
-      "run"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/closed.webp",
-    "imagePath": "/media/vocabulary/images/closed.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_cold_4",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "cold",
-    "itemType": "adjectives",
-    "itemKey": "cold",
-    "correctAnswer": "cold",
-    "answer": "cold",
-    "answerOptions": [
-      "cold",
-      "cup",
-      "run",
-      "above"
-    ],
-    "choices": [
-      "cold",
-      "cup",
-      "run",
-      "above"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/cold.webp",
-    "imagePath": "/media/vocabulary/images/cold.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_dark_5",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "dark",
-    "itemType": "adjectives",
-    "itemKey": "dark",
-    "correctAnswer": "dark",
-    "answer": "dark",
-    "answerOptions": [
-      "dark",
-      "run",
-      "above",
-      "cup"
-    ],
-    "choices": [
-      "dark",
-      "run",
-      "above",
-      "cup"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/dark.webp",
-    "imagePath": "/media/vocabulary/images/dark.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_dirty_6",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "dirty",
-    "itemType": "adjectives",
-    "itemKey": "dirty",
-    "correctAnswer": "dirty",
-    "answer": "dirty",
-    "answerOptions": [
-      "dirty",
-      "above",
-      "cup",
-      "run"
-    ],
-    "choices": [
-      "dirty",
-      "above",
-      "cup",
-      "run"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/dirty.webp",
-    "imagePath": "/media/vocabulary/images/dirty.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_dry_7",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "dry",
-    "itemType": "adjectives",
-    "itemKey": "dry",
-    "correctAnswer": "dry",
-    "answer": "dry",
-    "answerOptions": [
-      "dry",
-      "cup",
-      "run",
-      "above"
-    ],
-    "choices": [
-      "dry",
-      "cup",
-      "run",
-      "above"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/dry.webp",
-    "imagePath": "/media/vocabulary/images/dry.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_fast_8",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "fast",
-    "itemType": "adjectives",
-    "itemKey": "fast",
-    "correctAnswer": "fast",
-    "answer": "fast",
-    "answerOptions": [
-      "fast",
-      "run",
-      "above",
-      "cup"
-    ],
-    "choices": [
-      "fast",
-      "run",
-      "above",
-      "cup"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/fast.webp",
-    "imagePath": "/media/vocabulary/images/fast.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_flat_9",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "flat",
-    "itemType": "adjectives",
-    "itemKey": "flat",
-    "correctAnswer": "flat",
-    "answer": "flat",
-    "answerOptions": [
-      "flat",
-      "above",
-      "cup",
-      "run"
-    ],
-    "choices": [
-      "flat",
-      "above",
-      "cup",
-      "run"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/flat.webp",
-    "imagePath": "/media/vocabulary/images/flat.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_full_10",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "full",
-    "itemType": "adjectives",
-    "itemKey": "full",
-    "correctAnswer": "full",
-    "answer": "full",
-    "answerOptions": [
-      "full",
-      "cup",
-      "run",
-      "above"
-    ],
-    "choices": [
-      "full",
-      "cup",
-      "run",
-      "above"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/full.webp",
-    "imagePath": "/media/vocabulary/images/full.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_happy_11",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "happy",
-    "itemType": "adjectives",
-    "itemKey": "happy",
-    "correctAnswer": "happy",
-    "answer": "happy",
-    "answerOptions": [
-      "happy",
-      "run",
-      "above",
-      "cup"
-    ],
-    "choices": [
-      "happy",
-      "run",
-      "above",
-      "cup"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/happy.webp",
-    "imagePath": "/media/vocabulary/images/happy.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_hard_12",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "hard",
-    "itemType": "adjectives",
-    "itemKey": "hard",
-    "correctAnswer": "hard",
-    "answer": "hard",
-    "answerOptions": [
-      "hard",
-      "above",
-      "cup",
-      "run"
-    ],
-    "choices": [
-      "hard",
-      "above",
-      "cup",
-      "run"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/hard.webp",
-    "imagePath": "/media/vocabulary/images/hard.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_heavy_13",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "heavy",
-    "itemType": "adjectives",
-    "itemKey": "heavy",
-    "correctAnswer": "heavy",
-    "answer": "heavy",
-    "answerOptions": [
-      "heavy",
-      "cup",
-      "run",
-      "above"
-    ],
-    "choices": [
-      "heavy",
-      "cup",
-      "run",
-      "above"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/heavy.webp",
-    "imagePath": "/media/vocabulary/images/heavy.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_light_14",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "light",
-    "itemType": "adjectives",
-    "itemKey": "light",
-    "correctAnswer": "light",
-    "answer": "light",
-    "answerOptions": [
-      "light",
-      "run",
-      "above",
-      "cup"
-    ],
-    "choices": [
-      "light",
-      "run",
-      "above",
-      "cup"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/light.webp",
-    "imagePath": "/media/vocabulary/images/light.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_long_15",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "long",
-    "itemType": "adjectives",
-    "itemKey": "long",
-    "correctAnswer": "long",
-    "answer": "long",
-    "answerOptions": [
-      "long",
-      "above",
-      "cup",
-      "run"
-    ],
-    "choices": [
-      "long",
-      "above",
-      "cup",
-      "run"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/long.webp",
-    "imagePath": "/media/vocabulary/images/long.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_mad_16",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "mad",
-    "itemType": "adjectives",
-    "itemKey": "mad",
-    "correctAnswer": "mad",
-    "answer": "mad",
-    "answerOptions": [
-      "mad",
-      "cup",
-      "run",
-      "above"
-    ],
-    "choices": [
-      "mad",
-      "cup",
-      "run",
-      "above"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/mad.webp",
-    "imagePath": "/media/vocabulary/images/mad.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_open_17",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "open",
-    "itemType": "adjectives",
-    "itemKey": "open",
-    "correctAnswer": "open",
-    "answer": "open",
-    "answerOptions": [
-      "open",
-      "run",
-      "above",
-      "cup"
-    ],
-    "choices": [
-      "open",
-      "run",
-      "above",
-      "cup"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/open.webp",
-    "imagePath": "/media/vocabulary/images/open.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_round_18",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "round",
-    "itemType": "adjectives",
-    "itemKey": "round",
-    "correctAnswer": "round",
-    "answer": "round",
-    "answerOptions": [
-      "round",
-      "above",
-      "cup",
-      "run"
-    ],
-    "choices": [
-      "round",
-      "above",
-      "cup",
-      "run"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/round.webp",
-    "imagePath": "/media/vocabulary/images/round.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_short_19",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "short",
-    "itemType": "adjectives",
-    "itemKey": "short",
-    "correctAnswer": "short",
-    "answer": "short",
-    "answerOptions": [
-      "short",
-      "cup",
-      "run",
-      "above"
-    ],
-    "choices": [
-      "short",
-      "cup",
-      "run",
-      "above"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/short.webp",
-    "imagePath": "/media/vocabulary/images/short.webp"
-  },
-  {
-    "id": "gap_adjectives_l1_slow_20",
-    "grade": "K",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word describes something?",
-    "question": "Which word describes something?",
-    "targetWord": "slow",
-    "itemType": "adjectives",
-    "itemKey": "slow",
-    "correctAnswer": "slow",
-    "answer": "slow",
-    "answerOptions": [
-      "slow",
-      "run",
-      "above",
-      "cup"
-    ],
-    "choices": [
-      "slow",
-      "run",
-      "above",
-      "cup"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "adjectives"
-    ],
-    "imageUrl": "/media/vocabulary/images/slow.webp",
-    "imagePath": "/media/vocabulary/images/slow.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_above_1",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "above",
-    "itemType": "prepositions_of_place",
-    "itemKey": "above",
-    "correctAnswer": "above",
-    "answer": "above",
-    "answerOptions": [
-      "above",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "choices": [
-      "above",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/above.webp",
-    "imagePath": "/media/vocabulary/images/above.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_below_2",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "below",
-    "itemType": "prepositions_of_place",
-    "itemKey": "below",
-    "correctAnswer": "below",
-    "answer": "below",
-    "answerOptions": [
-      "below",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "choices": [
-      "below",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/below.webp",
-    "imagePath": "/media/vocabulary/images/below.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_behind_3",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "behind",
-    "itemType": "prepositions_of_place",
-    "itemKey": "behind",
-    "correctAnswer": "behind",
-    "answer": "behind",
-    "answerOptions": [
-      "behind",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "choices": [
-      "behind",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/behind.webp",
-    "imagePath": "/media/vocabulary/images/behind.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_beside_4",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "beside",
-    "itemType": "prepositions_of_place",
-    "itemKey": "beside",
-    "correctAnswer": "beside",
-    "answer": "beside",
-    "answerOptions": [
-      "beside",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "beside",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/beside.webp",
-    "imagePath": "/media/vocabulary/images/beside.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_between_5",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "between",
-    "itemType": "prepositions_of_place",
-    "itemKey": "between",
-    "correctAnswer": "between",
-    "answer": "between",
-    "answerOptions": [
-      "between",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "choices": [
-      "between",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/between.webp",
-    "imagePath": "/media/vocabulary/images/between.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_inside_6",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "inside",
-    "itemType": "prepositions_of_place",
-    "itemKey": "inside",
-    "correctAnswer": "inside",
-    "answer": "inside",
-    "answerOptions": [
-      "inside",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "choices": [
-      "inside",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_outside_7",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "outside",
-    "itemType": "prepositions_of_place",
-    "itemKey": "outside",
-    "correctAnswer": "outside",
-    "answer": "outside",
-    "answerOptions": [
-      "outside",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "choices": [
-      "outside",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/outside.webp",
-    "imagePath": "/media/vocabulary/images/outside.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_under_8",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "under",
-    "itemType": "prepositions_of_place",
-    "itemKey": "under",
-    "correctAnswer": "under",
-    "answer": "under",
-    "answerOptions": [
-      "under",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "choices": [
-      "under",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_over_9",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "over",
-    "itemType": "prepositions_of_place",
-    "itemKey": "over",
-    "correctAnswer": "over",
-    "answer": "over",
-    "answerOptions": [
-      "over",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "choices": [
-      "over",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/over.webp",
-    "imagePath": "/media/vocabulary/images/over.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_near_10",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "near",
-    "itemType": "prepositions_of_place",
-    "itemKey": "near",
-    "correctAnswer": "near",
-    "answer": "near",
-    "answerOptions": [
-      "near",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "near",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/near.webp",
-    "imagePath": "/media/vocabulary/images/near.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_far_11",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "far",
-    "itemType": "prepositions_of_place",
-    "itemKey": "far",
-    "correctAnswer": "far",
-    "answer": "far",
-    "answerOptions": [
-      "far",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "choices": [
-      "far",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/far.webp",
-    "imagePath": "/media/vocabulary/images/far.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_around_12",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "around",
-    "itemType": "prepositions_of_place",
-    "itemKey": "around",
-    "correctAnswer": "around",
-    "answer": "around",
-    "answerOptions": [
-      "around",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "choices": [
-      "around",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/around.webp",
-    "imagePath": "/media/vocabulary/images/around.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_through_13",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "through",
-    "itemType": "prepositions_of_place",
-    "itemKey": "through",
-    "correctAnswer": "through",
-    "answer": "through",
-    "answerOptions": [
-      "through",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "choices": [
-      "through",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/through.webp",
-    "imagePath": "/media/vocabulary/images/through.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_across_14",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "across",
-    "itemType": "prepositions_of_place",
-    "itemKey": "across",
-    "correctAnswer": "across",
-    "answer": "across",
-    "answerOptions": [
-      "across",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "choices": [
-      "across",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_against_15",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "against",
-    "itemType": "prepositions_of_place",
-    "itemKey": "against",
-    "correctAnswer": "against",
-    "answer": "against",
-    "answerOptions": [
-      "against",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "choices": [
-      "against",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_beneath_16",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "beneath",
-    "itemType": "prepositions_of_place",
-    "itemKey": "beneath",
-    "correctAnswer": "beneath",
-    "answer": "beneath",
-    "answerOptions": [
-      "beneath",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "beneath",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_next_to_17",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "next to",
-    "itemType": "prepositions_of_place",
-    "itemKey": "next to",
-    "correctAnswer": "next to",
-    "answer": "next to",
-    "answerOptions": [
-      "next to",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "choices": [
-      "next to",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_in_front_of_18",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "in front of",
-    "itemType": "prepositions_of_place",
-    "itemKey": "in front of",
-    "correctAnswer": "in front of",
-    "answer": "in front of",
-    "answerOptions": [
-      "in front of",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "choices": [
-      "in front of",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_on_top_of_19",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "on top of",
-    "itemType": "prepositions_of_place",
-    "itemKey": "on top of",
-    "correctAnswer": "on top of",
-    "answer": "on top of",
-    "answerOptions": [
-      "on top of",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "choices": [
-      "on top of",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l1_along_20",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which word or phrase tells where something is?",
-    "question": "Which word or phrase tells where something is?",
-    "targetWord": "along",
-    "itemType": "prepositions_of_place",
-    "itemKey": "along",
-    "correctAnswer": "along",
-    "answer": "along",
-    "answerOptions": [
-      "along",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "choices": [
-      "along",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_above_1",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "above",
-    "itemType": "prepositions_of_place",
-    "itemKey": "above",
-    "correctAnswer": "above",
-    "answer": "above",
-    "answerOptions": [
-      "above",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "choices": [
-      "above",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/above.webp",
-    "imagePath": "/media/vocabulary/images/above.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_below_2",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "below",
-    "itemType": "prepositions_of_place",
-    "itemKey": "below",
-    "correctAnswer": "below",
-    "answer": "below",
-    "answerOptions": [
-      "below",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "choices": [
-      "below",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/below.webp",
-    "imagePath": "/media/vocabulary/images/below.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_behind_3",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "behind",
-    "itemType": "prepositions_of_place",
-    "itemKey": "behind",
-    "correctAnswer": "behind",
-    "answer": "behind",
-    "answerOptions": [
-      "behind",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "choices": [
-      "behind",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/behind.webp",
-    "imagePath": "/media/vocabulary/images/behind.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_beside_4",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "beside",
-    "itemType": "prepositions_of_place",
-    "itemKey": "beside",
-    "correctAnswer": "beside",
-    "answer": "beside",
-    "answerOptions": [
-      "beside",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "beside",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/beside.webp",
-    "imagePath": "/media/vocabulary/images/beside.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_between_5",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "between",
-    "itemType": "prepositions_of_place",
-    "itemKey": "between",
-    "correctAnswer": "between",
-    "answer": "between",
-    "answerOptions": [
-      "between",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "choices": [
-      "between",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/between.webp",
-    "imagePath": "/media/vocabulary/images/between.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_inside_6",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "inside",
-    "itemType": "prepositions_of_place",
-    "itemKey": "inside",
-    "correctAnswer": "inside",
-    "answer": "inside",
-    "answerOptions": [
-      "inside",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "choices": [
-      "inside",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_outside_7",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "outside",
-    "itemType": "prepositions_of_place",
-    "itemKey": "outside",
-    "correctAnswer": "outside",
-    "answer": "outside",
-    "answerOptions": [
-      "outside",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "choices": [
-      "outside",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/outside.webp",
-    "imagePath": "/media/vocabulary/images/outside.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_under_8",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "under",
-    "itemType": "prepositions_of_place",
-    "itemKey": "under",
-    "correctAnswer": "under",
-    "answer": "under",
-    "answerOptions": [
-      "under",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "choices": [
-      "under",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_over_9",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "over",
-    "itemType": "prepositions_of_place",
-    "itemKey": "over",
-    "correctAnswer": "over",
-    "answer": "over",
-    "answerOptions": [
-      "over",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "choices": [
-      "over",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/over.webp",
-    "imagePath": "/media/vocabulary/images/over.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_near_10",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "near",
-    "itemType": "prepositions_of_place",
-    "itemKey": "near",
-    "correctAnswer": "near",
-    "answer": "near",
-    "answerOptions": [
-      "near",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "near",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/near.webp",
-    "imagePath": "/media/vocabulary/images/near.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_far_11",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "far",
-    "itemType": "prepositions_of_place",
-    "itemKey": "far",
-    "correctAnswer": "far",
-    "answer": "far",
-    "answerOptions": [
-      "far",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "choices": [
-      "far",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/far.webp",
-    "imagePath": "/media/vocabulary/images/far.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_around_12",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "around",
-    "itemType": "prepositions_of_place",
-    "itemKey": "around",
-    "correctAnswer": "around",
-    "answer": "around",
-    "answerOptions": [
-      "around",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "choices": [
-      "around",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/around.webp",
-    "imagePath": "/media/vocabulary/images/around.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_through_13",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "through",
-    "itemType": "prepositions_of_place",
-    "itemKey": "through",
-    "correctAnswer": "through",
-    "answer": "through",
-    "answerOptions": [
-      "through",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "choices": [
-      "through",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ],
-    "imageUrl": "/media/vocabulary/images/through.webp",
-    "imagePath": "/media/vocabulary/images/through.webp"
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_across_14",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "across",
-    "itemType": "prepositions_of_place",
-    "itemKey": "across",
-    "correctAnswer": "across",
-    "answer": "across",
-    "answerOptions": [
-      "across",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "choices": [
-      "across",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_against_15",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "against",
-    "itemType": "prepositions_of_place",
-    "itemKey": "against",
-    "correctAnswer": "against",
-    "answer": "against",
-    "answerOptions": [
-      "against",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "choices": [
-      "against",
-      "happy",
-      "book",
-      "jump"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_beneath_16",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "beneath",
-    "itemType": "prepositions_of_place",
-    "itemKey": "beneath",
-    "correctAnswer": "beneath",
-    "answer": "beneath",
-    "answerOptions": [
-      "beneath",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "choices": [
-      "beneath",
-      "book",
-      "jump",
-      "soft"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_next_to_17",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "next to",
-    "itemType": "prepositions_of_place",
-    "itemKey": "next to",
-    "correctAnswer": "next to",
-    "answer": "next to",
-    "answerOptions": [
-      "next to",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "choices": [
-      "next to",
-      "jump",
-      "soft",
-      "cat"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_in_front_of_18",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "in front of",
-    "itemType": "prepositions_of_place",
-    "itemKey": "in front of",
-    "correctAnswer": "in front of",
-    "answer": "in front of",
-    "answerOptions": [
-      "in front of",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "choices": [
-      "in front of",
-      "soft",
-      "cat",
-      "draw"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_on_top_of_19",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "on top of",
-    "itemType": "prepositions_of_place",
-    "itemKey": "on top of",
-    "correctAnswer": "on top of",
-    "answer": "on top of",
-    "answerOptions": [
-      "on top of",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "choices": [
-      "on top of",
-      "cat",
-      "draw",
-      "happy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
-  },
-  {
-    "id": "gap_prepositions_of_place_l2_along_20",
-    "grade": "K",
-    "skillId": "prepositions_of_place",
-    "skillName": "Prepositions of Place",
-    "skill": "Prepositions of Place",
-    "level": 2,
-    "difficulty": 2,
-    "phaseTarget": "level_2",
-    "templateType": "GRAMMAR_BASICS",
-    "formatType": "GRAMMAR_BASICS",
-    "questionType": "multiple_choice",
-    "prompt": "Which more precise word or phrase tells where something is?",
-    "question": "Which more precise word or phrase tells where something is?",
-    "targetWord": "along",
-    "itemType": "prepositions_of_place",
-    "itemKey": "along",
-    "correctAnswer": "along",
-    "answer": "along",
-    "answerOptions": [
-      "along",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "choices": [
-      "along",
-      "draw",
-      "happy",
-      "book"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-2",
-      "prepositions_of_place"
-    ]
+    "explanation": "card uses the ar pattern.",
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_cats_1",
@@ -18663,7 +18024,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -18692,7 +18053,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_dogs_2",
@@ -18702,7 +18065,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -18731,7 +18094,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_cups_3",
@@ -18741,7 +18106,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -18770,7 +18135,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_books_4",
@@ -18780,7 +18147,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -18809,7 +18176,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_birds_5",
@@ -18819,7 +18188,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -18848,7 +18217,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_bags_6",
@@ -18858,7 +18229,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -18887,7 +18258,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_boxes_7",
@@ -18897,7 +18270,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -18926,7 +18299,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_wishes_8",
@@ -18936,7 +18311,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -18965,7 +18340,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_buses_9",
@@ -18975,7 +18352,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19004,7 +18381,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_dishes_10",
@@ -19014,7 +18393,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19043,7 +18422,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_babies_11",
@@ -19053,7 +18434,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19082,7 +18463,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_puppies_12",
@@ -19092,7 +18475,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19121,7 +18504,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_berries_13",
@@ -19131,7 +18516,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19160,7 +18545,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_leaves_14",
@@ -19170,7 +18557,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19199,7 +18586,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_wolves_15",
@@ -19209,7 +18598,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19238,7 +18627,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_knives_16",
@@ -19248,7 +18639,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19277,7 +18668,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_children_17",
@@ -19287,7 +18680,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19316,7 +18709,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_feet_18",
@@ -19326,7 +18721,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19355,7 +18750,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_teeth_19",
@@ -19365,7 +18762,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19394,7 +18791,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_mice_20",
@@ -19404,7 +18803,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19433,7 +18832,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_geese_21",
@@ -19443,7 +18844,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19472,7 +18873,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_foxes_22",
@@ -19482,7 +18885,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19511,7 +18914,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_brushes_23",
@@ -19521,7 +18926,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19550,7 +18955,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_benches_24",
@@ -19560,7 +18967,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19589,7 +18996,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_classes_25",
@@ -19599,7 +19008,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19628,7 +19037,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_toys_26",
@@ -19638,7 +19049,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19667,7 +19078,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_plurals_l1_trays_27",
@@ -19677,7 +19090,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19706,7 +19119,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_plurals_l1_keys_28",
@@ -19716,7 +19131,7 @@ export const skillLevelGapQuestions = [
     "skill": "Plurals",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "PLURAL_SPELLING_CONTEXT",
     "formatType": "PLURAL_SPELLING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19745,7 +19160,788 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "plurals"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_boys_29",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one boy?",
+    "question": "Which word means more than one boy?",
+    "targetWord": "boys",
+    "itemType": "plural",
+    "itemKey": "boy",
+    "correctAnswer": "boys",
+    "answer": "boys",
+    "answerOptions": [
+      "boys",
+      "boy",
+      "boyes",
+      "boyies"
+    ],
+    "choices": [
+      "boys",
+      "boy",
+      "boyes",
+      "boyies"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_plurals_l1_ladies_30",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one lady?",
+    "question": "Which word means more than one lady?",
+    "targetWord": "ladies",
+    "itemType": "plural",
+    "itemKey": "lady",
+    "correctAnswer": "ladies",
+    "answer": "ladies",
+    "answerOptions": [
+      "ladies",
+      "lady",
+      "ladys",
+      "ladyes"
+    ],
+    "choices": [
+      "ladies",
+      "lady",
+      "ladys",
+      "ladyes"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_stories_31",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one story?",
+    "question": "Which word means more than one story?",
+    "targetWord": "stories",
+    "itemType": "plural",
+    "itemKey": "story",
+    "correctAnswer": "stories",
+    "answer": "stories",
+    "answerOptions": [
+      "stories",
+      "story",
+      "storys",
+      "storyes"
+    ],
+    "choices": [
+      "stories",
+      "story",
+      "storys",
+      "storyes"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_plurals_l1_loaves_32",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one loaf?",
+    "question": "Which word means more than one loaf?",
+    "targetWord": "loaves",
+    "itemType": "plural",
+    "itemKey": "loaf",
+    "correctAnswer": "loaves",
+    "answer": "loaves",
+    "answerOptions": [
+      "loaves",
+      "loaf",
+      "loafs",
+      "loafes"
+    ],
+    "choices": [
+      "loaves",
+      "loaf",
+      "loafs",
+      "loafes"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_scarves_33",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one scarf?",
+    "question": "Which word means more than one scarf?",
+    "targetWord": "scarves",
+    "itemType": "plural",
+    "itemKey": "scarf",
+    "correctAnswer": "scarves",
+    "answer": "scarves",
+    "answerOptions": [
+      "scarves",
+      "scarf",
+      "scarfs",
+      "scarfes"
+    ],
+    "choices": [
+      "scarves",
+      "scarf",
+      "scarfs",
+      "scarfes"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_plurals_l1_men_34",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one man?",
+    "question": "Which word means more than one man?",
+    "targetWord": "men",
+    "itemType": "plural",
+    "itemKey": "man",
+    "correctAnswer": "men",
+    "answer": "men",
+    "answerOptions": [
+      "men",
+      "man",
+      "mans",
+      "manes"
+    ],
+    "choices": [
+      "men",
+      "man",
+      "mans",
+      "manes"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_women_35",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one woman?",
+    "question": "Which word means more than one woman?",
+    "targetWord": "women",
+    "itemType": "plural",
+    "itemKey": "woman",
+    "correctAnswer": "women",
+    "answer": "women",
+    "answerOptions": [
+      "women",
+      "woman",
+      "womans",
+      "womanes"
+    ],
+    "choices": [
+      "women",
+      "woman",
+      "womans",
+      "womanes"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_plurals_l1_people_36",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one person?",
+    "question": "Which word means more than one person?",
+    "targetWord": "people",
+    "itemType": "plural",
+    "itemKey": "person",
+    "correctAnswer": "people",
+    "answer": "people",
+    "answerOptions": [
+      "people",
+      "person",
+      "persons",
+      "persones"
+    ],
+    "choices": [
+      "people",
+      "person",
+      "persons",
+      "persones"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_oxen_37",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one ox?",
+    "question": "Which word means more than one ox?",
+    "targetWord": "oxen",
+    "itemType": "plural",
+    "itemKey": "ox",
+    "correctAnswer": "oxen",
+    "answer": "oxen",
+    "answerOptions": [
+      "oxen",
+      "ox",
+      "oxs",
+      "oxes"
+    ],
+    "choices": [
+      "oxen",
+      "ox",
+      "oxs",
+      "oxes"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_plurals_l1_cars_38",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one car?",
+    "question": "Which word means more than one car?",
+    "targetWord": "cars",
+    "itemType": "plural",
+    "itemKey": "car",
+    "correctAnswer": "cars",
+    "answer": "cars",
+    "answerOptions": [
+      "cars",
+      "car",
+      "cares",
+      "caries"
+    ],
+    "choices": [
+      "cars",
+      "car",
+      "cares",
+      "caries"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_boats_39",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one boat?",
+    "question": "Which word means more than one boat?",
+    "targetWord": "boats",
+    "itemType": "plural",
+    "itemKey": "boat",
+    "correctAnswer": "boats",
+    "answer": "boats",
+    "answerOptions": [
+      "boats",
+      "boat",
+      "boates",
+      "boaties"
+    ],
+    "choices": [
+      "boats",
+      "boat",
+      "boates",
+      "boaties"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_plurals_l1_chairs_40",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one chair?",
+    "question": "Which word means more than one chair?",
+    "targetWord": "chairs",
+    "itemType": "plural",
+    "itemKey": "chair",
+    "correctAnswer": "chairs",
+    "answer": "chairs",
+    "answerOptions": [
+      "chairs",
+      "chair",
+      "chaires",
+      "chairies"
+    ],
+    "choices": [
+      "chairs",
+      "chair",
+      "chaires",
+      "chairies"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_pencils_41",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one pencil?",
+    "question": "Which word means more than one pencil?",
+    "targetWord": "pencils",
+    "itemType": "plural",
+    "itemKey": "pencil",
+    "correctAnswer": "pencils",
+    "answer": "pencils",
+    "answerOptions": [
+      "pencils",
+      "pencil",
+      "penciles",
+      "pencilies"
+    ],
+    "choices": [
+      "pencils",
+      "pencil",
+      "penciles",
+      "pencilies"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_flowers_42",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one flower?",
+    "question": "Which word means more than one flower?",
+    "targetWord": "flowers",
+    "itemType": "plural",
+    "itemKey": "flower",
+    "correctAnswer": "flowers",
+    "answer": "flowers",
+    "answerOptions": [
+      "flowers",
+      "flower",
+      "floweres",
+      "floweries"
+    ],
+    "choices": [
+      "flowers",
+      "flower",
+      "floweres",
+      "floweries"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_apples_43",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one apple?",
+    "question": "Which word means more than one apple?",
+    "targetWord": "apples",
+    "itemType": "plural",
+    "itemKey": "apple",
+    "correctAnswer": "apples",
+    "answer": "apples",
+    "answerOptions": [
+      "apples",
+      "apple",
+      "applees",
+      "appleies"
+    ],
+    "choices": [
+      "apples",
+      "apple",
+      "applees",
+      "appleies"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_bikes_44",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one bike?",
+    "question": "Which word means more than one bike?",
+    "targetWord": "bikes",
+    "itemType": "plural",
+    "itemKey": "bike",
+    "correctAnswer": "bikes",
+    "answer": "bikes",
+    "answerOptions": [
+      "bikes",
+      "bike",
+      "bikees",
+      "bikeies"
+    ],
+    "choices": [
+      "bikes",
+      "bike",
+      "bikees",
+      "bikeies"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_shoes_45",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one shoe?",
+    "question": "Which word means more than one shoe?",
+    "targetWord": "shoes",
+    "itemType": "plural",
+    "itemKey": "shoe",
+    "correctAnswer": "shoes",
+    "answer": "shoes",
+    "answerOptions": [
+      "shoes",
+      "shoe",
+      "shoees",
+      "shoeies"
+    ],
+    "choices": [
+      "shoes",
+      "shoe",
+      "shoees",
+      "shoeies"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_lamps_46",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one lamp?",
+    "question": "Which word means more than one lamp?",
+    "targetWord": "lamps",
+    "itemType": "plural",
+    "itemKey": "lamp",
+    "correctAnswer": "lamps",
+    "answer": "lamps",
+    "answerOptions": [
+      "lamps",
+      "lamp",
+      "lampes",
+      "lampies"
+    ],
+    "choices": [
+      "lamps",
+      "lamp",
+      "lampes",
+      "lampies"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_plurals_l1_doors_47",
+    "grade": "K",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "PLURAL_SPELLING_CONTEXT",
+    "formatType": "PLURAL_SPELLING_CONTEXT",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means more than one door?",
+    "question": "Which word means more than one door?",
+    "targetWord": "doors",
+    "itemType": "plural",
+    "itemKey": "door",
+    "correctAnswer": "doors",
+    "answer": "doors",
+    "answerOptions": [
+      "doors",
+      "door",
+      "doores",
+      "doories"
+    ],
+    "choices": [
+      "doors",
+      "door",
+      "doores",
+      "doories"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "plurals"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_unhappy_1",
@@ -19755,7 +19951,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19784,7 +19980,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_prefixes_suffixes_l1_unkind_2",
@@ -19794,7 +19992,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19823,7 +20021,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_reread_3",
@@ -19833,7 +20033,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19862,7 +20062,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_prefixes_suffixes_l1_replay_4",
@@ -19872,7 +20074,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19901,7 +20103,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_careful_5",
@@ -19911,7 +20115,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19940,7 +20144,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_prefixes_suffixes_l1_helpful_6",
@@ -19950,7 +20156,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -19979,7 +20185,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_careless_7",
@@ -19989,7 +20197,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -20018,7 +20226,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_fearless_8",
@@ -20028,7 +20238,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -20057,7 +20267,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_redo_9",
@@ -20067,7 +20279,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -20096,7 +20308,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_return_10",
@@ -20106,7 +20320,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -20135,7 +20349,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_preview_11",
@@ -20145,7 +20361,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -20174,7 +20390,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_preheat_12",
@@ -20184,7 +20402,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -20213,7 +20431,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_prefixes_suffixes_l1_teacher_13",
@@ -20223,7 +20443,7 @@ export const skillLevelGapQuestions = [
     "skill": "Prefixes and Suffixes",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "MORPHEME_MEANING_CONTEXT",
     "formatType": "MORPHEME_MEANING_CONTEXT",
     "questionType": "multiple_choice",
@@ -20252,319 +20472,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "prefixes_suffixes"
-    ]
-  },
-  {
-    "id": "gap_prefixes_suffixes_l1_player_14",
-    "grade": "K",
-    "skillId": "prefixes_suffixes",
-    "skillName": "Prefixes and Suffixes",
-    "skill": "Prefixes and Suffixes",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "MORPHEME_MEANING_CONTEXT",
-    "formatType": "MORPHEME_MEANING_CONTEXT",
-    "questionType": "multiple_choice",
-    "prompt": "What does player mean?",
-    "question": "What does player mean?",
-    "targetWord": "player",
-    "itemType": "morpheme",
-    "itemKey": "er",
-    "correctAnswer": "a person who plays",
-    "answer": "a person who plays",
-    "answerOptions": [
-      "a person who plays",
-      "play again",
-      "not play",
-      "without play"
     ],
-    "choices": [
-      "a person who plays",
-      "play again",
-      "not play",
-      "without play"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prefixes_suffixes"
-    ]
-  },
-  {
-    "id": "gap_prefixes_suffixes_l1_joyful_15",
-    "grade": "K",
-    "skillId": "prefixes_suffixes",
-    "skillName": "Prefixes and Suffixes",
-    "skill": "Prefixes and Suffixes",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "MORPHEME_MEANING_CONTEXT",
-    "formatType": "MORPHEME_MEANING_CONTEXT",
-    "questionType": "multiple_choice",
-    "prompt": "What does joyful mean?",
-    "question": "What does joyful mean?",
-    "targetWord": "joyful",
-    "itemType": "morpheme",
-    "itemKey": "ful",
-    "correctAnswer": "full of joy",
-    "answer": "full of joy",
-    "answerOptions": [
-      "full of joy",
-      "without joy",
-      "joy again",
-      "not joy"
-    ],
-    "choices": [
-      "full of joy",
-      "without joy",
-      "joy again",
-      "not joy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prefixes_suffixes"
-    ]
-  },
-  {
-    "id": "gap_prefixes_suffixes_l1_hopeful_16",
-    "grade": "K",
-    "skillId": "prefixes_suffixes",
-    "skillName": "Prefixes and Suffixes",
-    "skill": "Prefixes and Suffixes",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "MORPHEME_MEANING_CONTEXT",
-    "formatType": "MORPHEME_MEANING_CONTEXT",
-    "questionType": "multiple_choice",
-    "prompt": "What does hopeful mean?",
-    "question": "What does hopeful mean?",
-    "targetWord": "hopeful",
-    "itemType": "morpheme",
-    "itemKey": "ful",
-    "correctAnswer": "full of hope",
-    "answer": "full of hope",
-    "answerOptions": [
-      "full of hope",
-      "without hope",
-      "hope again",
-      "not hope"
-    ],
-    "choices": [
-      "full of hope",
-      "without hope",
-      "hope again",
-      "not hope"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prefixes_suffixes"
-    ]
-  },
-  {
-    "id": "gap_prefixes_suffixes_l1_colorful_17",
-    "grade": "K",
-    "skillId": "prefixes_suffixes",
-    "skillName": "Prefixes and Suffixes",
-    "skill": "Prefixes and Suffixes",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "MORPHEME_MEANING_CONTEXT",
-    "formatType": "MORPHEME_MEANING_CONTEXT",
-    "questionType": "multiple_choice",
-    "prompt": "What does colorful mean?",
-    "question": "What does colorful mean?",
-    "targetWord": "colorful",
-    "itemType": "morpheme",
-    "itemKey": "ful",
-    "correctAnswer": "full of color",
-    "answer": "full of color",
-    "answerOptions": [
-      "full of color",
-      "without color",
-      "color again",
-      "not color"
-    ],
-    "choices": [
-      "full of color",
-      "without color",
-      "color again",
-      "not color"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prefixes_suffixes"
-    ]
-  },
-  {
-    "id": "gap_prefixes_suffixes_l1_hopeless_18",
-    "grade": "K",
-    "skillId": "prefixes_suffixes",
-    "skillName": "Prefixes and Suffixes",
-    "skill": "Prefixes and Suffixes",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "MORPHEME_MEANING_CONTEXT",
-    "formatType": "MORPHEME_MEANING_CONTEXT",
-    "questionType": "multiple_choice",
-    "prompt": "What does hopeless mean?",
-    "question": "What does hopeless mean?",
-    "targetWord": "hopeless",
-    "itemType": "morpheme",
-    "itemKey": "less",
-    "correctAnswer": "without hope",
-    "answer": "without hope",
-    "answerOptions": [
-      "without hope",
-      "full of hope",
-      "hope again",
-      "not hope"
-    ],
-    "choices": [
-      "without hope",
-      "full of hope",
-      "hope again",
-      "not hope"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prefixes_suffixes"
-    ]
-  },
-  {
-    "id": "gap_prefixes_suffixes_l1_useless_19",
-    "grade": "K",
-    "skillId": "prefixes_suffixes",
-    "skillName": "Prefixes and Suffixes",
-    "skill": "Prefixes and Suffixes",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "MORPHEME_MEANING_CONTEXT",
-    "formatType": "MORPHEME_MEANING_CONTEXT",
-    "questionType": "multiple_choice",
-    "prompt": "What does useless mean?",
-    "question": "What does useless mean?",
-    "targetWord": "useless",
-    "itemType": "morpheme",
-    "itemKey": "less",
-    "correctAnswer": "not useful",
-    "answer": "not useful",
-    "answerOptions": [
-      "not useful",
-      "full of use",
-      "use again",
-      "before use"
-    ],
-    "choices": [
-      "not useful",
-      "full of use",
-      "use again",
-      "before use"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prefixes_suffixes"
-    ]
-  },
-  {
-    "id": "gap_prefixes_suffixes_l1_dislike_20",
-    "grade": "K",
-    "skillId": "prefixes_suffixes",
-    "skillName": "Prefixes and Suffixes",
-    "skill": "Prefixes and Suffixes",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "MORPHEME_MEANING_CONTEXT",
-    "formatType": "MORPHEME_MEANING_CONTEXT",
-    "questionType": "multiple_choice",
-    "prompt": "What does dislike mean?",
-    "question": "What does dislike mean?",
-    "targetWord": "dislike",
-    "itemType": "morpheme",
-    "itemKey": "dislike",
-    "correctAnswer": "not like",
-    "answer": "not like",
-    "answerOptions": [
-      "not like",
-      "like again",
-      "full of like",
-      "before like"
-    ],
-    "choices": [
-      "not like",
-      "like again",
-      "full of like",
-      "before like"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prefixes_suffixes"
-    ]
-  },
-  {
-    "id": "gap_prefixes_suffixes_l1_disagree_21",
-    "grade": "K",
-    "skillId": "prefixes_suffixes",
-    "skillName": "Prefixes and Suffixes",
-    "skill": "Prefixes and Suffixes",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "MORPHEME_MEANING_CONTEXT",
-    "formatType": "MORPHEME_MEANING_CONTEXT",
-    "questionType": "multiple_choice",
-    "prompt": "What does disagree mean?",
-    "question": "What does disagree mean?",
-    "targetWord": "disagree",
-    "itemType": "morpheme",
-    "itemKey": "disagree",
-    "correctAnswer": "not agree",
-    "answer": "not agree",
-    "answerOptions": [
-      "not agree",
-      "agree again",
-      "full of agree",
-      "before agree"
-    ],
-    "choices": [
-      "not agree",
-      "agree again",
-      "full of agree",
-      "before agree"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "prefixes_suffixes"
-    ]
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_hot_1",
@@ -20574,7 +20484,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20603,7 +20513,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_big_2",
@@ -20613,7 +20525,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20642,7 +20554,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_happy_3",
@@ -20652,7 +20566,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20681,7 +20595,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_fast_4",
@@ -20691,7 +20607,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20720,7 +20636,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_open_5",
@@ -20730,7 +20648,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20759,7 +20677,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_wet_6",
@@ -20769,7 +20689,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20798,7 +20718,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_tall_7",
@@ -20808,7 +20730,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20837,7 +20759,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_light_8",
@@ -20847,7 +20771,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20876,7 +20800,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_hard_9",
@@ -20886,7 +20812,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20915,7 +20841,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_clean_10",
@@ -20925,7 +20853,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20954,7 +20882,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_full_11",
@@ -20964,7 +20894,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -20993,7 +20923,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_near_12",
@@ -21003,7 +20935,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21032,7 +20964,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_begin_13",
@@ -21042,7 +20976,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21071,7 +21005,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_end_14",
@@ -21081,7 +21017,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21110,7 +21046,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_little_15",
@@ -21120,7 +21058,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21149,7 +21087,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_large_16",
@@ -21159,7 +21099,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21188,7 +21128,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_quiet_17",
@@ -21198,7 +21140,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21227,7 +21169,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_loud_18",
@@ -21237,7 +21181,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21266,7 +21210,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_sad_19",
@@ -21276,7 +21222,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21305,7 +21251,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_angry_20",
@@ -21315,7 +21263,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21344,7 +21292,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_kind_21",
@@ -21354,7 +21304,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21383,7 +21333,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_quick_22",
@@ -21393,7 +21345,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21422,7 +21374,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_slow_23",
@@ -21432,7 +21386,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21461,7 +21415,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_high_24",
@@ -21471,7 +21427,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21500,7 +21456,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_inside_25",
@@ -21510,7 +21468,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21539,7 +21497,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_before_26",
@@ -21549,7 +21509,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21578,7 +21538,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_many_27",
@@ -21588,7 +21550,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21617,7 +21579,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_safe_28",
@@ -21627,7 +21591,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21656,7 +21620,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_same_29",
@@ -21666,7 +21632,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21695,7 +21661,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_brave_30",
@@ -21705,7 +21673,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21734,7 +21702,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_smart_31",
@@ -21744,7 +21714,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21773,7 +21743,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_antonyms_synonyms_l1_pretty_32",
@@ -21783,7 +21755,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21812,7 +21784,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_antonyms_synonyms_l1_easy_33",
@@ -21822,7 +21796,7 @@ export const skillLevelGapQuestions = [
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21851,17 +21825,593 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_antonyms_synonyms_l1_hot_34",
+    "id": "gap_antonyms_synonyms_l1_new_34",
     "grade": "K",
     "skillId": "antonyms_synonyms",
     "skillName": "Antonyms and Synonyms",
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of new?",
+    "question": "Which word means the opposite of new?",
+    "targetWord": "new",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "new",
+    "correctAnswer": "old",
+    "answer": "old",
+    "answerOptions": [
+      "old",
+      "fresh",
+      "clean",
+      "young"
+    ],
+    "choices": [
+      "old",
+      "fresh",
+      "clean",
+      "young"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_early_35",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of early?",
+    "question": "Which word means the opposite of early?",
+    "targetWord": "early",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "early",
+    "correctAnswer": "late",
+    "answer": "late",
+    "answerOptions": [
+      "late",
+      "first",
+      "soon",
+      "quick"
+    ],
+    "choices": [
+      "late",
+      "first",
+      "soon",
+      "quick"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_empty_36",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means about the same as empty?",
+    "question": "Which word means about the same as empty?",
+    "targetWord": "empty",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "empty",
+    "correctAnswer": "blank",
+    "answer": "blank",
+    "answerOptions": [
+      "blank",
+      "full",
+      "heavy",
+      "bright"
+    ],
+    "choices": [
+      "blank",
+      "full",
+      "heavy",
+      "bright"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_tiny_37",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means about the same as tiny?",
+    "question": "Which word means about the same as tiny?",
+    "targetWord": "tiny",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "tiny",
+    "correctAnswer": "small",
+    "answer": "small",
+    "answerOptions": [
+      "small",
+      "huge",
+      "wide",
+      "loud"
+    ],
+    "choices": [
+      "small",
+      "huge",
+      "wide",
+      "loud"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_under_38",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of under?",
+    "question": "Which word means the opposite of under?",
+    "targetWord": "under",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "under",
+    "correctAnswer": "over",
+    "answer": "over",
+    "answerOptions": [
+      "over",
+      "below",
+      "inside",
+      "near"
+    ],
+    "choices": [
+      "over",
+      "below",
+      "inside",
+      "near"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_front_39",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of front?",
+    "question": "Which word means the opposite of front?",
+    "targetWord": "front",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "front",
+    "correctAnswer": "back",
+    "answer": "back",
+    "answerOptions": [
+      "back",
+      "first",
+      "near",
+      "open"
+    ],
+    "choices": [
+      "back",
+      "first",
+      "near",
+      "open"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_day_40",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of day?",
+    "question": "Which word means the opposite of day?",
+    "targetWord": "day",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "day",
+    "correctAnswer": "night",
+    "answer": "night",
+    "answerOptions": [
+      "night",
+      "light",
+      "sun",
+      "morning"
+    ],
+    "choices": [
+      "night",
+      "light",
+      "sun",
+      "morning"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_push_41",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of push?",
+    "question": "Which word means the opposite of push?",
+    "targetWord": "push",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "push",
+    "correctAnswer": "pull",
+    "answer": "pull",
+    "answerOptions": [
+      "pull",
+      "move",
+      "hold",
+      "lift"
+    ],
+    "choices": [
+      "pull",
+      "move",
+      "hold",
+      "lift"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_laugh_42",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means about the same as laugh?",
+    "question": "Which word means about the same as laugh?",
+    "targetWord": "laugh",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "laugh",
+    "correctAnswer": "giggle",
+    "answer": "giggle",
+    "answerOptions": [
+      "giggle",
+      "cry",
+      "sleep",
+      "whisper"
+    ],
+    "choices": [
+      "giggle",
+      "cry",
+      "sleep",
+      "whisper"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_cry_43",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means about the same as cry?",
+    "question": "Which word means about the same as cry?",
+    "targetWord": "cry",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "cry",
+    "correctAnswer": "weep",
+    "answer": "weep",
+    "answerOptions": [
+      "weep",
+      "smile",
+      "run",
+      "jump"
+    ],
+    "choices": [
+      "weep",
+      "smile",
+      "run",
+      "jump"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_calm_44",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means about the same as calm?",
+    "question": "Which word means about the same as calm?",
+    "targetWord": "calm",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "calm",
+    "correctAnswer": "peaceful",
+    "answer": "peaceful",
+    "answerOptions": [
+      "peaceful",
+      "angry",
+      "noisy",
+      "fast"
+    ],
+    "choices": [
+      "peaceful",
+      "angry",
+      "noisy",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_rough_45",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of rough?",
+    "question": "Which word means the opposite of rough?",
+    "targetWord": "rough",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "rough",
+    "correctAnswer": "smooth",
+    "answer": "smooth",
+    "answerOptions": [
+      "smooth",
+      "bumpy",
+      "hard",
+      "dark"
+    ],
+    "choices": [
+      "smooth",
+      "bumpy",
+      "hard",
+      "dark"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_strong_46",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of strong?",
+    "question": "Which word means the opposite of strong?",
+    "targetWord": "strong",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "strong",
+    "correctAnswer": "weak",
+    "answer": "weak",
+    "answerOptions": [
+      "weak",
+      "powerful",
+      "big",
+      "safe"
+    ],
+    "choices": [
+      "weak",
+      "powerful",
+      "big",
+      "safe"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_true_47",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of true?",
+    "question": "Which word means the opposite of true?",
+    "targetWord": "true",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "true",
+    "correctAnswer": "false",
+    "answer": "false",
+    "answerOptions": [
+      "false",
+      "right",
+      "same",
+      "kind"
+    ],
+    "choices": [
+      "false",
+      "right",
+      "same",
+      "kind"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_hot_48",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21890,17 +22440,19 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
-    "id": "gap_antonyms_synonyms_l1_big_35",
+    "id": "gap_antonyms_synonyms_l1_big_49",
     "grade": "K",
     "skillId": "antonyms_synonyms",
     "skillName": "Antonyms and Synonyms",
     "skill": "Antonyms and Synonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -21929,7 +22481,214 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "antonyms_synonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_happy_50",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means about the same as happy?",
+    "question": "Which word means about the same as happy?",
+    "targetWord": "happy",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "happy",
+    "correctAnswer": "glad",
+    "answer": "glad",
+    "answerOptions": [
+      "glad",
+      "sad",
+      "mad",
+      "tired"
+    ],
+    "choices": [
+      "glad",
+      "sad",
+      "mad",
+      "tired"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_fast_51",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means about the same as fast?",
+    "question": "Which word means about the same as fast?",
+    "targetWord": "fast",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "fast",
+    "correctAnswer": "quick",
+    "answer": "quick",
+    "answerOptions": [
+      "quick",
+      "slow",
+      "quiet",
+      "soft"
+    ],
+    "choices": [
+      "quick",
+      "slow",
+      "quiet",
+      "soft"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_open_52",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of open?",
+    "question": "Which word means the opposite of open?",
+    "targetWord": "open",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "open",
+    "correctAnswer": "closed",
+    "answer": "closed",
+    "answerOptions": [
+      "closed",
+      "wide",
+      "ready",
+      "near"
+    ],
+    "choices": [
+      "closed",
+      "wide",
+      "ready",
+      "near"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_wet_53",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of wet?",
+    "question": "Which word means the opposite of wet?",
+    "targetWord": "wet",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "wet",
+    "correctAnswer": "dry",
+    "answer": "dry",
+    "answerOptions": [
+      "dry",
+      "cold",
+      "dark",
+      "flat"
+    ],
+    "choices": [
+      "dry",
+      "cold",
+      "dark",
+      "flat"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_antonyms_synonyms_l1_tall_54",
+    "grade": "K",
+    "skillId": "antonyms_synonyms",
+    "skillName": "Antonyms and Synonyms",
+    "skill": "Antonyms and Synonyms",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Which word means the opposite of tall?",
+    "question": "Which word means the opposite of tall?",
+    "targetWord": "tall",
+    "itemType": "antonyms_synonyms",
+    "itemKey": "tall",
+    "correctAnswer": "short",
+    "answer": "short",
+    "answerOptions": [
+      "short",
+      "long",
+      "high",
+      "wide"
+    ],
+    "choices": [
+      "short",
+      "long",
+      "high",
+      "wide"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "antonyms_synonyms"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_see_1",
@@ -21939,7 +22698,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -21968,7 +22727,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_one_2",
@@ -21978,7 +22739,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22007,7 +22768,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_homophones_homonyms_l1_two_3",
@@ -22017,7 +22780,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22046,7 +22809,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_hear_4",
@@ -22056,7 +22821,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22085,7 +22850,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_homophones_homonyms_l1_night_5",
@@ -22095,7 +22862,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22124,7 +22891,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_flower_6",
@@ -22134,7 +22903,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22163,7 +22932,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_homophones_homonyms_l1_blue_7",
@@ -22173,7 +22944,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22202,7 +22973,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_dear_8",
@@ -22212,7 +22985,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22241,7 +23014,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_homophones_homonyms_l1_deer_9",
@@ -22251,7 +23026,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22280,7 +23055,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_pair_10",
@@ -22290,7 +23067,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22319,7 +23096,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_homophones_homonyms_l1_pear_11",
@@ -22329,7 +23108,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22358,7 +23137,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_mail_12",
@@ -22368,7 +23149,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22397,7 +23178,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_homophones_homonyms_l1_tail_13",
@@ -22407,7 +23190,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22436,7 +23219,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_tale_14",
@@ -22446,7 +23231,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22475,7 +23260,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_homophones_homonyms_l1_right_15",
@@ -22485,7 +23272,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22514,7 +23301,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_write_16",
@@ -22524,7 +23313,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22553,7 +23342,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_homophones_homonyms_l1_ate_17",
@@ -22563,7 +23354,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22592,7 +23383,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_eight_18",
@@ -22602,7 +23395,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22631,7 +23424,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_week_19",
@@ -22641,7 +23436,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22670,7 +23465,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_weak_20",
@@ -22680,7 +23477,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22709,7 +23506,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_road_21",
@@ -22719,7 +23518,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22748,7 +23547,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_rode_22",
@@ -22758,7 +23559,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22787,7 +23588,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_meet_23",
@@ -22797,7 +23600,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22826,7 +23629,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_homophones_homonyms_l1_meat_24",
@@ -22836,7 +23641,7 @@ export const skillLevelGapQuestions = [
     "skill": "Homophones and Homonyms",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "HOMOPHONE_MEANING",
     "formatType": "HOMOPHONE_MEANING",
     "questionType": "multiple_choice",
@@ -22865,436 +23670,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_hole_25",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means an opening?",
-    "question": "Which word means an opening?",
-    "targetWord": "hole",
-    "itemType": "homophones_homonyms",
-    "itemKey": "hole",
-    "correctAnswer": "whole",
-    "answer": "whole",
-    "answerOptions": [
-      "whole",
-      "hole",
-      "home",
-      "hold"
     ],
-    "choices": [
-      "whole",
-      "hole",
-      "home",
-      "hold"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_whole_26",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means all of something?",
-    "question": "Which word means all of something?",
-    "targetWord": "whole",
-    "itemType": "homophones_homonyms",
-    "itemKey": "whole",
-    "correctAnswer": "hole",
-    "answer": "hole",
-    "answerOptions": [
-      "hole",
-      "whole",
-      "while",
-      "white"
-    ],
-    "choices": [
-      "hole",
-      "whole",
-      "while",
-      "white"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_sale_27",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means a time when things cost less?",
-    "question": "Which word means a time when things cost less?",
-    "targetWord": "sale",
-    "itemType": "homophones_homonyms",
-    "itemKey": "sale",
-    "correctAnswer": "sail",
-    "answer": "sail",
-    "answerOptions": [
-      "sail",
-      "sale",
-      "seal",
-      "soil"
-    ],
-    "choices": [
-      "sail",
-      "sale",
-      "seal",
-      "soil"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_sail_28",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word is part of a boat?",
-    "question": "Which word is part of a boat?",
-    "targetWord": "sail",
-    "itemType": "homophones_homonyms",
-    "itemKey": "sail",
-    "correctAnswer": "sale",
-    "answer": "sale",
-    "answerOptions": [
-      "sale",
-      "sail",
-      "seal",
-      "soil"
-    ],
-    "choices": [
-      "sale",
-      "sail",
-      "seal",
-      "soil"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_wait_29",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means stay until later?",
-    "question": "Which word means stay until later?",
-    "targetWord": "wait",
-    "itemType": "homophones_homonyms",
-    "itemKey": "wait",
-    "correctAnswer": "weight",
-    "answer": "weight",
-    "answerOptions": [
-      "weight",
-      "wait",
-      "wet",
-      "went"
-    ],
-    "choices": [
-      "weight",
-      "wait",
-      "wet",
-      "went"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_weight_30",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means how heavy something is?",
-    "question": "Which word means how heavy something is?",
-    "targetWord": "weight",
-    "itemType": "homophones_homonyms",
-    "itemKey": "weight",
-    "correctAnswer": "wait",
-    "answer": "wait",
-    "answerOptions": [
-      "wait",
-      "weight",
-      "wet",
-      "went"
-    ],
-    "choices": [
-      "wait",
-      "weight",
-      "wet",
-      "went"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_no_31",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means not any?",
-    "question": "Which word means not any?",
-    "targetWord": "no",
-    "itemType": "homophones_homonyms",
-    "itemKey": "no",
-    "correctAnswer": "know",
-    "answer": "know",
-    "answerOptions": [
-      "know",
-      "no",
-      "now",
-      "new"
-    ],
-    "choices": [
-      "know",
-      "no",
-      "now",
-      "new"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_know_32",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means understand?",
-    "question": "Which word means understand?",
-    "targetWord": "know",
-    "itemType": "homophones_homonyms",
-    "itemKey": "know",
-    "correctAnswer": "no",
-    "answer": "no",
-    "answerOptions": [
-      "no",
-      "know",
-      "now",
-      "new"
-    ],
-    "choices": [
-      "no",
-      "know",
-      "now",
-      "new"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_by_33",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means near?",
-    "question": "Which word means near?",
-    "targetWord": "by",
-    "itemType": "homophones_homonyms",
-    "itemKey": "by",
-    "correctAnswer": "buy",
-    "answer": "buy",
-    "answerOptions": [
-      "buy",
-      "by",
-      "bye",
-      "be"
-    ],
-    "choices": [
-      "buy",
-      "by",
-      "bye",
-      "be"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_buy_34",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means get with money?",
-    "question": "Which word means get with money?",
-    "targetWord": "buy",
-    "itemType": "homophones_homonyms",
-    "itemKey": "buy",
-    "correctAnswer": "by",
-    "answer": "by",
-    "answerOptions": [
-      "by",
-      "buy",
-      "bye",
-      "boy"
-    ],
-    "choices": [
-      "by",
-      "buy",
-      "bye",
-      "boy"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
-  },
-  {
-    "id": "gap_homophones_homonyms_l1_bear_35",
-    "grade": "K",
-    "skillId": "homophones_homonyms",
-    "skillName": "Homophones and Homonyms",
-    "skill": "Homophones and Homonyms",
-    "level": 1,
-    "difficulty": 1,
-    "phaseTarget": "level_1",
-    "templateType": "HOMOPHONE_MEANING",
-    "formatType": "HOMOPHONE_MEANING",
-    "questionType": "multiple_choice",
-    "prompt": "Which word means an animal?",
-    "question": "Which word means an animal?",
-    "targetWord": "bear",
-    "itemType": "homophones_homonyms",
-    "itemKey": "bear",
-    "correctAnswer": "bare",
-    "answer": "bare",
-    "answerOptions": [
-      "bare",
-      "bear",
-      "beard",
-      "bird"
-    ],
-    "choices": [
-      "bare",
-      "bear",
-      "beard",
-      "bird"
-    ],
-    "active": true,
-    "source": "skill_level_depth_gap_generator",
-    "tags": [
-      "generated-gap",
-      "level-1",
-      "homophones_homonyms"
-    ]
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_1",
@@ -23304,7 +23682,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23333,7 +23711,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_2",
@@ -23343,7 +23723,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23372,7 +23752,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_3",
@@ -23382,7 +23764,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23411,7 +23793,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_4",
@@ -23421,7 +23805,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23450,7 +23834,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_5",
@@ -23460,7 +23846,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23489,7 +23875,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_6",
@@ -23499,7 +23887,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23528,7 +23916,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_7",
@@ -23538,7 +23928,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23567,7 +23957,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_8",
@@ -23577,7 +23969,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23606,7 +23998,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_9",
@@ -23616,7 +24010,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23645,7 +24039,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_10",
@@ -23655,7 +24051,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23684,7 +24080,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_11",
@@ -23694,7 +24092,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23723,7 +24121,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_12",
@@ -23733,7 +24133,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23762,7 +24162,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_13",
@@ -23772,7 +24174,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23801,7 +24203,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_14",
@@ -23811,7 +24215,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23840,7 +24244,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_15",
@@ -23850,7 +24256,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23879,7 +24285,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_16",
@@ -23889,7 +24297,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23918,7 +24326,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_17",
@@ -23928,7 +24338,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23957,7 +24367,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sentence_comprehension_l1_dog_run_18",
@@ -23967,7 +24379,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -23996,7 +24408,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sentence_comprehension_l1_cat_sleep_19",
@@ -24006,7 +24420,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sentence Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24035,7 +24449,788 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sentence_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_20",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Jude has a leaf. What is the dog doing?",
+    "question": "The dog runs in the yard. Jude has a leaf. What is the dog doing?",
+    "targetWord": "dog_run_Jude_leaf",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_20",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_21",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Ana has a ball. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Ana has a ball. What is the cat doing?",
+    "targetWord": "cat_sleep_Ana_ball",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_21",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_22",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Ben has a book. What is the dog doing?",
+    "question": "The dog runs in the yard. Ben has a book. What is the dog doing?",
+    "targetWord": "dog_run_Ben_book",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_22",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_23",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Mia has a kite. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Mia has a kite. What is the cat doing?",
+    "targetWord": "cat_sleep_Mia_kite",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_23",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_24",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Sam has a cup. What is the dog doing?",
+    "question": "The dog runs in the yard. Sam has a cup. What is the dog doing?",
+    "targetWord": "dog_run_Sam_cup",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_24",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_25",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Noah has a map. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Noah has a map. What is the cat doing?",
+    "targetWord": "cat_sleep_Noah_map",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_25",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_26",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Lia has a seed. What is the dog doing?",
+    "question": "The dog runs in the yard. Lia has a seed. What is the dog doing?",
+    "targetWord": "dog_run_Lia_seed",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_26",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_27",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Max has a shell. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Max has a shell. What is the cat doing?",
+    "targetWord": "cat_sleep_Max_shell",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_27",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_28",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Nina has a drum. What is the dog doing?",
+    "question": "The dog runs in the yard. Nina has a drum. What is the dog doing?",
+    "targetWord": "dog_run_Nina_drum",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_28",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_29",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Omar has a box. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Omar has a box. What is the cat doing?",
+    "targetWord": "cat_sleep_Omar_box",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_29",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_30",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Zoe has a hat. What is the dog doing?",
+    "question": "The dog runs in the yard. Zoe has a hat. What is the dog doing?",
+    "targetWord": "dog_run_Zoe_hat",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_30",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_31",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Tess has a bag. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Tess has a bag. What is the cat doing?",
+    "targetWord": "cat_sleep_Tess_bag",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_31",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_32",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Ivy has a toy. What is the dog doing?",
+    "question": "The dog runs in the yard. Ivy has a toy. What is the dog doing?",
+    "targetWord": "dog_run_Ivy_toy",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_32",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_33",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Leo has a bike. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Leo has a bike. What is the cat doing?",
+    "targetWord": "cat_sleep_Leo_bike",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_33",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_34",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Ruby has a paint. What is the dog doing?",
+    "question": "The dog runs in the yard. Ruby has a paint. What is the dog doing?",
+    "targetWord": "dog_run_Ruby_paint",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_34",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_35",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Finn has a apple. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Finn has a apple. What is the cat doing?",
+    "targetWord": "cat_sleep_Finn_apple",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_35",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_36",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Maya has a flower. What is the dog doing?",
+    "question": "The dog runs in the yard. Maya has a flower. What is the dog doing?",
+    "targetWord": "dog_run_Maya_flower",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_36",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_cat_sleep_37",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cat sleeps on the mat. Eli has a pencil. What is the cat doing?",
+    "question": "The cat sleeps on the mat. Eli has a pencil. What is the cat doing?",
+    "targetWord": "cat_sleep_Eli_pencil",
+    "itemType": "sentence_comprehension",
+    "itemKey": "cat_sleep_37",
+    "correctAnswer": "sleeping",
+    "answer": "sleeping",
+    "answerOptions": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "choices": [
+      "sleeping",
+      "jumping",
+      "swimming",
+      "reading"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sentence_comprehension_l1_dog_run_38",
+    "grade": "K",
+    "skillId": "sentence_comprehension",
+    "skillName": "Sentence Comprehension",
+    "skill": "Sentence Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The dog runs in the yard. Ava has a paper. What is the dog doing?",
+    "question": "The dog runs in the yard. Ava has a paper. What is the dog doing?",
+    "targetWord": "dog_run_Ava_paper",
+    "itemType": "sentence_comprehension",
+    "itemKey": "dog_run_38",
+    "correctAnswer": "running",
+    "answer": "running",
+    "answerOptions": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "choices": [
+      "running",
+      "drawing",
+      "eating",
+      "sleeping"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sentence_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_apple_ball_1",
@@ -24045,7 +25240,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24074,7 +25269,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_2",
@@ -24084,7 +25281,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24113,7 +25310,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_3",
@@ -24123,7 +25322,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24152,7 +25351,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_4",
@@ -24162,7 +25363,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24191,7 +25392,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_5",
@@ -24201,7 +25404,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24230,7 +25433,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_6",
@@ -24240,7 +25445,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24269,7 +25474,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_7",
@@ -24279,7 +25486,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24308,7 +25515,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_8",
@@ -24318,7 +25527,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24347,7 +25556,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_9",
@@ -24357,7 +25568,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24386,7 +25597,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_10",
@@ -24396,7 +25609,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24425,7 +25638,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_11",
@@ -24435,7 +25650,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24464,7 +25679,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_12",
@@ -24474,7 +25691,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24503,7 +25720,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_13",
@@ -24513,7 +25732,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24542,7 +25761,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_14",
@@ -24552,7 +25773,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24581,7 +25802,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_15",
@@ -24591,7 +25814,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24620,7 +25843,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_16",
@@ -24630,7 +25855,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24659,7 +25884,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_17",
@@ -24669,7 +25896,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24698,7 +25925,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_18",
@@ -24708,7 +25937,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24737,7 +25966,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_19",
@@ -24747,7 +25978,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24776,7 +26007,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_20",
@@ -24786,7 +26019,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24815,7 +26048,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_21",
@@ -24825,7 +26060,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24854,7 +26089,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_22",
@@ -24864,7 +26101,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24893,7 +26130,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_23",
@@ -24903,7 +26142,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24932,7 +26171,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_24",
@@ -24942,7 +26183,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -24971,7 +26212,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_25",
@@ -24981,7 +26224,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25010,7 +26253,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_26",
@@ -25020,7 +26265,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25049,7 +26294,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_27",
@@ -25059,7 +26306,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25088,7 +26335,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_28",
@@ -25098,7 +26347,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25127,7 +26376,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_29",
@@ -25137,7 +26388,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25166,7 +26417,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_30",
@@ -25176,7 +26429,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25205,7 +26458,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_31",
@@ -25215,7 +26470,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25244,7 +26499,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_32",
@@ -25254,7 +26511,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25283,7 +26540,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_33",
@@ -25293,7 +26552,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25322,7 +26581,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_key_details_l1_fish_home_34",
@@ -25332,7 +26593,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25361,7 +26622,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_key_details_l1_apple_ball_35",
@@ -25371,7 +26634,7 @@ export const skillLevelGapQuestions = [
     "skill": "Key Details",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25400,7 +26663,296 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "key_details"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_key_details_l1_fish_home_36",
+    "grade": "K",
+    "skillId": "key_details",
+    "skillName": "Key Details",
+    "skill": "Key Details",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "A big fish swims where frogs live. Maya has a flower. Where does the fish swim?",
+    "question": "A big fish swims where frogs live. Maya has a flower. Where does the fish swim?",
+    "targetWord": "fish_home_Maya_flower",
+    "itemType": "key_details",
+    "itemKey": "fish_home_36",
+    "correctAnswer": "pond",
+    "answer": "pond",
+    "answerOptions": [
+      "pond",
+      "tree",
+      "bed",
+      "desk"
+    ],
+    "choices": [
+      "pond",
+      "tree",
+      "bed",
+      "desk"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "key_details"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_key_details_l1_apple_ball_37",
+    "grade": "K",
+    "skillId": "key_details",
+    "skillName": "Key Details",
+    "skill": "Key Details",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Mia has a ball the color of an apple. She rolls it to Sam. Eli has a pencil. What color is the ball?",
+    "question": "Mia has a ball the color of an apple. She rolls it to Sam. Eli has a pencil. What color is the ball?",
+    "targetWord": "apple_ball_Eli_pencil",
+    "itemType": "key_details",
+    "itemKey": "apple_ball_37",
+    "correctAnswer": "red",
+    "answer": "red",
+    "answerOptions": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+    ],
+    "choices": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "key_details"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_key_details_l1_fish_home_38",
+    "grade": "K",
+    "skillId": "key_details",
+    "skillName": "Key Details",
+    "skill": "Key Details",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "A big fish swims where frogs live. Ava has a paper. Where does the fish swim?",
+    "question": "A big fish swims where frogs live. Ava has a paper. Where does the fish swim?",
+    "targetWord": "fish_home_Ava_paper",
+    "itemType": "key_details",
+    "itemKey": "fish_home_38",
+    "correctAnswer": "pond",
+    "answer": "pond",
+    "answerOptions": [
+      "pond",
+      "tree",
+      "bed",
+      "desk"
+    ],
+    "choices": [
+      "pond",
+      "tree",
+      "bed",
+      "desk"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "key_details"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_key_details_l1_apple_ball_39",
+    "grade": "K",
+    "skillId": "key_details",
+    "skillName": "Key Details",
+    "skill": "Key Details",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Mia has a ball the color of an apple. She rolls it to Sam. Nora has a snack. What color is the ball?",
+    "question": "Mia has a ball the color of an apple. She rolls it to Sam. Nora has a snack. What color is the ball?",
+    "targetWord": "apple_ball_Nora_snack",
+    "itemType": "key_details",
+    "itemKey": "apple_ball_39",
+    "correctAnswer": "red",
+    "answer": "red",
+    "answerOptions": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+    ],
+    "choices": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "key_details"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_key_details_l1_fish_home_40",
+    "grade": "K",
+    "skillId": "key_details",
+    "skillName": "Key Details",
+    "skill": "Key Details",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "A big fish swims where frogs live. Jude has a leaf. Where does the fish swim?",
+    "question": "A big fish swims where frogs live. Jude has a leaf. Where does the fish swim?",
+    "targetWord": "fish_home_Jude_leaf",
+    "itemType": "key_details",
+    "itemKey": "fish_home_40",
+    "correctAnswer": "pond",
+    "answer": "pond",
+    "answerOptions": [
+      "pond",
+      "tree",
+      "bed",
+      "desk"
+    ],
+    "choices": [
+      "pond",
+      "tree",
+      "bed",
+      "desk"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "key_details"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_key_details_l1_apple_ball_41",
+    "grade": "K",
+    "skillId": "key_details",
+    "skillName": "Key Details",
+    "skill": "Key Details",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Mia has a ball the color of an apple. She rolls it to Sam. Ana has a ball. What color is the ball?",
+    "question": "Mia has a ball the color of an apple. She rolls it to Sam. Ana has a ball. What color is the ball?",
+    "targetWord": "apple_ball_Ana_ball",
+    "itemType": "key_details",
+    "itemKey": "apple_ball_41",
+    "correctAnswer": "red",
+    "answer": "red",
+    "answerOptions": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+    ],
+    "choices": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "key_details"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_key_details_l1_fish_home_42",
+    "grade": "K",
+    "skillId": "key_details",
+    "skillName": "Key Details",
+    "skill": "Key Details",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "A big fish swims where frogs live. Ben has a book. Where does the fish swim?",
+    "question": "A big fish swims where frogs live. Ben has a book. Where does the fish swim?",
+    "targetWord": "fish_home_Ben_book",
+    "itemType": "key_details",
+    "itemKey": "fish_home_42",
+    "correctAnswer": "pond",
+    "answer": "pond",
+    "answerOptions": [
+      "pond",
+      "tree",
+      "bed",
+      "desk"
+    ],
+    "choices": [
+      "pond",
+      "tree",
+      "bed",
+      "desk"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "key_details"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_plant_seed_1",
@@ -25410,7 +26962,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25439,7 +26991,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_2",
@@ -25449,7 +27003,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25478,7 +27032,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_3",
@@ -25488,7 +27044,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25517,7 +27073,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_4",
@@ -25527,7 +27085,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25556,7 +27114,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_5",
@@ -25566,7 +27126,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25595,7 +27155,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_6",
@@ -25605,7 +27167,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25634,7 +27196,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_7",
@@ -25644,7 +27208,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25673,7 +27237,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_8",
@@ -25683,7 +27249,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25712,7 +27278,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_9",
@@ -25722,7 +27290,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25751,7 +27319,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_10",
@@ -25761,7 +27331,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25790,7 +27360,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_11",
@@ -25800,7 +27372,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25829,7 +27401,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_12",
@@ -25839,7 +27413,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25868,7 +27442,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_13",
@@ -25878,7 +27454,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25907,7 +27483,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_14",
@@ -25917,7 +27495,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25946,7 +27524,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_15",
@@ -25956,7 +27536,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -25985,7 +27565,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_16",
@@ -25995,7 +27577,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26024,7 +27606,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_17",
@@ -26034,7 +27618,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26063,7 +27647,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_18",
@@ -26073,7 +27659,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26102,7 +27688,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_19",
@@ -26112,7 +27700,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26141,7 +27729,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_20",
@@ -26151,7 +27741,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26180,7 +27770,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_21",
@@ -26190,7 +27782,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26219,7 +27811,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_22",
@@ -26229,7 +27823,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26258,7 +27852,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_23",
@@ -26268,7 +27864,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26297,7 +27893,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_24",
@@ -26307,7 +27905,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26336,7 +27934,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_25",
@@ -26346,7 +27946,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26375,7 +27975,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_26",
@@ -26385,7 +27987,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26414,7 +28016,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_27",
@@ -26424,7 +28028,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26453,7 +28057,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_28",
@@ -26463,7 +28069,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26492,7 +28098,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_29",
@@ -26502,7 +28110,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26531,7 +28139,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_30",
@@ -26541,7 +28151,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26570,7 +28180,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_31",
@@ -26580,7 +28192,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26609,7 +28221,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_32",
@@ -26619,7 +28233,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26648,7 +28262,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_33",
@@ -26658,7 +28274,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26687,7 +28303,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_sequencing_l1_make_sandwich_34",
@@ -26697,7 +28315,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26726,7 +28344,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_sequencing_l1_plant_seed_35",
@@ -26736,7 +28356,7 @@ export const skillLevelGapQuestions = [
     "skill": "Sequencing",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26765,7 +28385,788 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "sequencing"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_36",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Maya has a flower. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Maya has a flower. What does Ben do last?",
+    "targetWord": "make_sandwich_Maya_flower",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_36",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_37",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Eli has a pencil. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Eli has a pencil. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Eli_pencil",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_37",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_38",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Ava has a paper. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Ava has a paper. What does Ben do last?",
+    "targetWord": "make_sandwich_Ava_paper",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_38",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_39",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Nora has a snack. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Nora has a snack. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Nora_snack",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_39",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_40",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Jude has a leaf. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Jude has a leaf. What does Ben do last?",
+    "targetWord": "make_sandwich_Jude_leaf",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_40",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_41",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Ana has a ball. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Ana has a ball. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Ana_ball",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_41",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_42",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Ben has a book. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Ben has a book. What does Ben do last?",
+    "targetWord": "make_sandwich_Ben_book",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_42",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_43",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Mia has a kite. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Mia has a kite. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Mia_kite",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_43",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_44",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Sam has a cup. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Sam has a cup. What does Ben do last?",
+    "targetWord": "make_sandwich_Sam_cup",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_44",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_45",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Noah has a map. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Noah has a map. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Noah_map",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_45",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_46",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Lia has a seed. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Lia has a seed. What does Ben do last?",
+    "targetWord": "make_sandwich_Lia_seed",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_46",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_47",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Max has a shell. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Max has a shell. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Max_shell",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_47",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_48",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Nina has a drum. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Nina has a drum. What does Ben do last?",
+    "targetWord": "make_sandwich_Nina_drum",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_48",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_49",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Omar has a box. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Omar has a box. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Omar_box",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_49",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_50",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Zoe has a hat. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Zoe has a hat. What does Ben do last?",
+    "targetWord": "make_sandwich_Zoe_hat",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_50",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_51",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Tess has a bag. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Tess has a bag. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Tess_bag",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_51",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_52",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Ivy has a toy. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Ivy has a toy. What does Ben do last?",
+    "targetWord": "make_sandwich_Ivy_toy",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_52",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_plant_seed_53",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Leo has a bike. What happens after Ana plants the seed?",
+    "question": "First, Ana plants a seed. Next, she adds water. Later, a sprout grows. Leo has a bike. What happens after Ana plants the seed?",
+    "targetWord": "plant_seed_Leo_bike",
+    "itemType": "sequencing",
+    "itemKey": "plant_seed_53",
+    "correctAnswer": "water the seed",
+    "answer": "water the seed",
+    "answerOptions": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "choices": [
+      "water the seed",
+      "eat the seed",
+      "read the seed",
+      "hide the seed"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_sequencing_l1_make_sandwich_54",
+    "grade": "K",
+    "skillId": "sequencing",
+    "skillName": "Sequencing",
+    "skill": "Sequencing",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Ruby has a paint. What does Ben do last?",
+    "question": "First, Ben gets bread. Next, he adds cheese. Last, he takes a bite. Ruby has a paint. What does Ben do last?",
+    "targetWord": "make_sandwich_Ruby_paint",
+    "itemType": "sequencing",
+    "itemKey": "make_sandwich_54",
+    "correctAnswer": "eat lunch",
+    "answer": "eat lunch",
+    "answerOptions": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "choices": [
+      "eat lunch",
+      "get bread",
+      "add cheese",
+      "pack toys"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "sequencing"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_park_fun_1",
@@ -26775,7 +29176,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26804,7 +29205,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_2",
@@ -26814,7 +29217,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26843,7 +29246,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_3",
@@ -26853,7 +29258,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26882,7 +29287,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_4",
@@ -26892,7 +29299,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26921,7 +29328,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_5",
@@ -26931,7 +29340,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26960,7 +29369,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_6",
@@ -26970,7 +29381,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -26999,7 +29410,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_7",
@@ -27009,7 +29422,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27038,7 +29451,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_8",
@@ -27048,7 +29463,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27077,7 +29492,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_9",
@@ -27087,7 +29504,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27116,7 +29533,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_10",
@@ -27126,7 +29545,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27155,7 +29574,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_11",
@@ -27165,7 +29586,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27194,7 +29615,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_12",
@@ -27204,7 +29627,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27233,7 +29656,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_13",
@@ -27243,7 +29668,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27272,7 +29697,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_14",
@@ -27282,7 +29709,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27311,7 +29738,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_15",
@@ -27321,7 +29750,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27350,7 +29779,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_16",
@@ -27360,7 +29791,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27389,7 +29820,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_17",
@@ -27399,7 +29832,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27428,7 +29861,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_18",
@@ -27438,7 +29873,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27467,7 +29902,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_19",
@@ -27477,7 +29914,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27506,7 +29943,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_20",
@@ -27516,7 +29955,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27545,7 +29984,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_21",
@@ -27555,7 +29996,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27584,7 +30025,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_22",
@@ -27594,7 +30037,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27623,7 +30066,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_23",
@@ -27633,7 +30078,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27662,7 +30107,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_24",
@@ -27672,7 +30119,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27701,7 +30148,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_25",
@@ -27711,7 +30160,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27740,7 +30189,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_26",
@@ -27750,7 +30201,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27779,7 +30230,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_27",
@@ -27789,7 +30242,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27818,7 +30271,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_28",
@@ -27828,7 +30283,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27857,7 +30312,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_29",
@@ -27867,7 +30324,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27896,7 +30353,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_30",
@@ -27906,7 +30365,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27935,7 +30394,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_31",
@@ -27945,7 +30406,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -27974,7 +30435,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_32",
@@ -27984,7 +30447,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28013,7 +30476,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_33",
@@ -28023,7 +30488,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28052,7 +30517,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_main_idea_l1_pet_care_34",
@@ -28062,7 +30529,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28091,7 +30558,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_main_idea_l1_park_fun_35",
@@ -28101,7 +30570,7 @@ export const skillLevelGapQuestions = [
     "skill": "Main Idea",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28130,7 +30599,788 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "main_idea"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_36",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Maya has a flower. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Maya has a flower. What is this mostly about?",
+    "targetWord": "pet_care_Maya_flower",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_36",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_37",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Eli has a pencil. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Eli has a pencil. What is this mostly about?",
+    "targetWord": "park_fun_Eli_pencil",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_37",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_38",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Ava has a paper. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Ava has a paper. What is this mostly about?",
+    "targetWord": "pet_care_Ava_paper",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_38",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_39",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Nora has a snack. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Nora has a snack. What is this mostly about?",
+    "targetWord": "park_fun_Nora_snack",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_39",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_40",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Jude has a leaf. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Jude has a leaf. What is this mostly about?",
+    "targetWord": "pet_care_Jude_leaf",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_40",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_41",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Ana has a ball. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Ana has a ball. What is this mostly about?",
+    "targetWord": "park_fun_Ana_ball",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_41",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_42",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Ben has a book. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Ben has a book. What is this mostly about?",
+    "targetWord": "pet_care_Ben_book",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_42",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_43",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Mia has a kite. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Mia has a kite. What is this mostly about?",
+    "targetWord": "park_fun_Mia_kite",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_43",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_44",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Sam has a cup. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Sam has a cup. What is this mostly about?",
+    "targetWord": "pet_care_Sam_cup",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_44",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_45",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Noah has a map. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Noah has a map. What is this mostly about?",
+    "targetWord": "park_fun_Noah_map",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_45",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_46",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Lia has a seed. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Lia has a seed. What is this mostly about?",
+    "targetWord": "pet_care_Lia_seed",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_46",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_47",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Max has a shell. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Max has a shell. What is this mostly about?",
+    "targetWord": "park_fun_Max_shell",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_47",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_48",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Nina has a drum. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Nina has a drum. What is this mostly about?",
+    "targetWord": "pet_care_Nina_drum",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_48",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_49",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Omar has a box. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Omar has a box. What is this mostly about?",
+    "targetWord": "park_fun_Omar_box",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_49",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_50",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Zoe has a hat. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Zoe has a hat. What is this mostly about?",
+    "targetWord": "pet_care_Zoe_hat",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_50",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_51",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Tess has a bag. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Tess has a bag. What is this mostly about?",
+    "targetWord": "park_fun_Tess_bag",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_51",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_52",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Ivy has a toy. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Ivy has a toy. What is this mostly about?",
+    "targetWord": "pet_care_Ivy_toy",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_52",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_park_fun_53",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Kids slide. Kids swing. Kids run on the grass. Leo has a bike. What is this mostly about?",
+    "question": "Kids slide. Kids swing. Kids run on the grass. Leo has a bike. What is this mostly about?",
+    "targetWord": "park_fun_Leo_bike",
+    "itemType": "main_idea",
+    "itemKey": "park_fun_53",
+    "correctAnswer": "playing at the park",
+    "answer": "playing at the park",
+    "answerOptions": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "choices": [
+      "playing at the park",
+      "making soup",
+      "washing a car",
+      "reading a map"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_main_idea_l1_pet_care_54",
+    "grade": "K",
+    "skillId": "main_idea",
+    "skillName": "Main Idea",
+    "skill": "Main Idea",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Ruby has a paint. What is this mostly about?",
+    "question": "Lena feeds the dog. She fills the water bowl. She brushes the dog. Ruby has a paint. What is this mostly about?",
+    "targetWord": "pet_care_Ruby_paint",
+    "itemType": "main_idea",
+    "itemKey": "pet_care_54",
+    "correctAnswer": "caring for a pet",
+    "answer": "caring for a pet",
+    "answerOptions": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "choices": [
+      "caring for a pet",
+      "riding a bike",
+      "baking bread",
+      "building a tower"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "main_idea"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_1",
@@ -28140,7 +31390,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28169,7 +31419,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_2",
@@ -28179,7 +31431,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28208,7 +31460,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_3",
@@ -28218,7 +31472,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28247,7 +31501,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_4",
@@ -28257,7 +31513,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28286,7 +31542,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_5",
@@ -28296,7 +31554,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28325,7 +31583,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_6",
@@ -28335,7 +31595,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28364,7 +31624,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_7",
@@ -28374,7 +31636,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28403,7 +31665,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_8",
@@ -28413,7 +31677,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28442,7 +31706,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_9",
@@ -28452,7 +31718,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28481,7 +31747,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_10",
@@ -28491,7 +31759,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28520,7 +31788,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_11",
@@ -28530,7 +31800,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28559,7 +31829,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_12",
@@ -28569,7 +31841,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28598,7 +31870,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_13",
@@ -28608,7 +31882,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28637,7 +31911,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_14",
@@ -28647,7 +31923,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28676,7 +31952,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_15",
@@ -28686,7 +31964,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28715,7 +31993,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_16",
@@ -28725,7 +32005,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28754,7 +32034,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_17",
@@ -28764,7 +32046,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28793,7 +32075,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_18",
@@ -28803,7 +32087,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28832,7 +32116,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_19",
@@ -28842,7 +32128,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28871,7 +32157,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_20",
@@ -28881,7 +32169,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28910,7 +32198,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_21",
@@ -28920,7 +32210,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28949,7 +32239,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_22",
@@ -28959,7 +32251,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -28988,7 +32280,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_23",
@@ -28998,7 +32292,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29027,7 +32321,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_24",
@@ -29037,7 +32333,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29066,7 +32362,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_25",
@@ -29076,7 +32374,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29105,7 +32403,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_26",
@@ -29115,7 +32415,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29144,7 +32444,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_27",
@@ -29154,7 +32456,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29183,7 +32485,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_28",
@@ -29193,7 +32497,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29222,7 +32526,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_29",
@@ -29232,7 +32538,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29261,7 +32567,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_30",
@@ -29271,7 +32579,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29300,7 +32608,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_31",
@@ -29310,7 +32620,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29339,7 +32649,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_32",
@@ -29349,7 +32661,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29378,7 +32690,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_inference_l1_rain_boots_33",
@@ -29388,7 +32702,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29417,7 +32731,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_inference_l1_sleepy_yawn_34",
@@ -29427,7 +32743,7 @@ export const skillLevelGapQuestions = [
     "skill": "Inference",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29456,7 +32772,788 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "inference"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_35",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Finn has a apple. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Finn has a apple. What is probably happening outside?",
+    "targetWord": "rain_boots_Finn_apple",
+    "itemType": "inference",
+    "itemKey": "rain_boots_35",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_36",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Maya has a flower. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Maya has a flower. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Maya_flower",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_36",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_37",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Eli has a pencil. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Eli has a pencil. What is probably happening outside?",
+    "targetWord": "rain_boots_Eli_pencil",
+    "itemType": "inference",
+    "itemKey": "rain_boots_37",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_38",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Ava has a paper. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Ava has a paper. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Ava_paper",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_38",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_39",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Nora has a snack. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Nora has a snack. What is probably happening outside?",
+    "targetWord": "rain_boots_Nora_snack",
+    "itemType": "inference",
+    "itemKey": "rain_boots_39",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_40",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Jude has a leaf. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Jude has a leaf. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Jude_leaf",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_40",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_41",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Ana has a ball. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Ana has a ball. What is probably happening outside?",
+    "targetWord": "rain_boots_Ana_ball",
+    "itemType": "inference",
+    "itemKey": "rain_boots_41",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_42",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Ben has a book. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Ben has a book. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Ben_book",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_42",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_43",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Mia has a kite. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Mia has a kite. What is probably happening outside?",
+    "targetWord": "rain_boots_Mia_kite",
+    "itemType": "inference",
+    "itemKey": "rain_boots_43",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_44",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Sam has a cup. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Sam has a cup. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Sam_cup",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_44",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_45",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Noah has a map. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Noah has a map. What is probably happening outside?",
+    "targetWord": "rain_boots_Noah_map",
+    "itemType": "inference",
+    "itemKey": "rain_boots_45",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_46",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Lia has a seed. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Lia has a seed. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Lia_seed",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_46",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_47",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Max has a shell. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Max has a shell. What is probably happening outside?",
+    "targetWord": "rain_boots_Max_shell",
+    "itemType": "inference",
+    "itemKey": "rain_boots_47",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_48",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Nina has a drum. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Nina has a drum. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Nina_drum",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_48",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_49",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Omar has a box. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Omar has a box. What is probably happening outside?",
+    "targetWord": "rain_boots_Omar_box",
+    "itemType": "inference",
+    "itemKey": "rain_boots_49",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_50",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Zoe has a hat. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Zoe has a hat. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Zoe_hat",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_50",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_51",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Tess has a bag. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Tess has a bag. What is probably happening outside?",
+    "targetWord": "rain_boots_Tess_bag",
+    "itemType": "inference",
+    "itemKey": "rain_boots_51",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_sleepy_yawn_52",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Ava rubs her eyes and yawns. Ivy has a toy. How does Ava probably feel?",
+    "question": "Ava rubs her eyes and yawns. Ivy has a toy. How does Ava probably feel?",
+    "targetWord": "sleepy_yawn_Ivy_toy",
+    "itemType": "inference",
+    "itemKey": "sleepy_yawn_52",
+    "correctAnswer": "tired",
+    "answer": "tired",
+    "answerOptions": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "choices": [
+      "tired",
+      "hungry",
+      "angry",
+      "cold"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_inference_l1_rain_boots_53",
+    "grade": "K",
+    "skillId": "inference",
+    "skillName": "Inference",
+    "skill": "Inference",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Noah puts on boots and takes an umbrella. Leo has a bike. What is probably happening outside?",
+    "question": "Noah puts on boots and takes an umbrella. Leo has a bike. What is probably happening outside?",
+    "targetWord": "rain_boots_Leo_bike",
+    "itemType": "inference",
+    "itemKey": "rain_boots_53",
+    "correctAnswer": "it is raining",
+    "answer": "it is raining",
+    "answerOptions": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "choices": [
+      "it is raining",
+      "it is snowing",
+      "it is bedtime",
+      "it is lunch"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "inference"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_spill_1",
@@ -29466,7 +33563,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29495,7 +33592,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_2",
@@ -29505,7 +33604,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29534,7 +33633,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_3",
@@ -29544,7 +33645,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29573,7 +33674,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_4",
@@ -29583,7 +33686,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29612,7 +33715,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_5",
@@ -29622,7 +33727,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29651,7 +33756,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_6",
@@ -29661,7 +33768,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29690,7 +33797,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_7",
@@ -29700,7 +33809,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29729,7 +33838,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_8",
@@ -29739,7 +33850,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29768,7 +33879,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_9",
@@ -29778,7 +33891,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29807,7 +33920,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_10",
@@ -29817,7 +33932,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29846,7 +33961,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_11",
@@ -29856,7 +33973,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29885,7 +34002,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_12",
@@ -29895,7 +34014,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29924,7 +34043,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_13",
@@ -29934,7 +34055,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -29963,7 +34084,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_14",
@@ -29973,7 +34096,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30002,7 +34125,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_15",
@@ -30012,7 +34137,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30041,7 +34166,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_16",
@@ -30051,7 +34178,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30080,7 +34207,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_17",
@@ -30090,7 +34219,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30119,7 +34248,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_18",
@@ -30129,7 +34260,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30158,7 +34289,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_19",
@@ -30168,7 +34301,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30197,7 +34330,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_20",
@@ -30207,7 +34342,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30236,7 +34371,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_21",
@@ -30246,7 +34383,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30275,7 +34412,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_22",
@@ -30285,7 +34424,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30314,7 +34453,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_23",
@@ -30324,7 +34465,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30353,7 +34494,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_24",
@@ -30363,7 +34506,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30392,7 +34535,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_25",
@@ -30402,7 +34547,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30431,7 +34576,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_26",
@@ -30441,7 +34588,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30470,7 +34617,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_27",
@@ -30480,7 +34629,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30509,7 +34658,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_28",
@@ -30519,7 +34670,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30548,7 +34699,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_29",
@@ -30558,7 +34711,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30587,7 +34740,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_30",
@@ -30597,7 +34752,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30626,7 +34781,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_31",
@@ -30636,7 +34793,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30665,7 +34822,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_32",
@@ -30675,7 +34834,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30704,7 +34863,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_33",
@@ -30714,7 +34875,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30743,7 +34904,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_cause_effect_l1_sun_melt_34",
@@ -30753,7 +34916,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30782,7 +34945,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_cause_effect_l1_spill_35",
@@ -30792,7 +34957,7 @@ export const skillLevelGapQuestions = [
     "skill": "Cause and Effect",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30821,7 +34986,788 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "cause_effect"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_36",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Maya has a flower. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Maya has a flower. What caused the ice to melt?",
+    "targetWord": "sun_melt_Maya_flower",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_36",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_37",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Eli has a pencil. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Eli has a pencil. Why did water run across the table?",
+    "targetWord": "spill_Eli_pencil",
+    "itemType": "cause_effect",
+    "itemKey": "spill_37",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_38",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Ava has a paper. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Ava has a paper. What caused the ice to melt?",
+    "targetWord": "sun_melt_Ava_paper",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_38",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_39",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Nora has a snack. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Nora has a snack. Why did water run across the table?",
+    "targetWord": "spill_Nora_snack",
+    "itemType": "cause_effect",
+    "itemKey": "spill_39",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_40",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Jude has a leaf. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Jude has a leaf. What caused the ice to melt?",
+    "targetWord": "sun_melt_Jude_leaf",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_40",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_41",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Ana has a ball. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Ana has a ball. Why did water run across the table?",
+    "targetWord": "spill_Ana_ball",
+    "itemType": "cause_effect",
+    "itemKey": "spill_41",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_42",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Ben has a book. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Ben has a book. What caused the ice to melt?",
+    "targetWord": "sun_melt_Ben_book",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_42",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_43",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Mia has a kite. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Mia has a kite. Why did water run across the table?",
+    "targetWord": "spill_Mia_kite",
+    "itemType": "cause_effect",
+    "itemKey": "spill_43",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_44",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Sam has a cup. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Sam has a cup. What caused the ice to melt?",
+    "targetWord": "sun_melt_Sam_cup",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_44",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_45",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Noah has a map. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Noah has a map. Why did water run across the table?",
+    "targetWord": "spill_Noah_map",
+    "itemType": "cause_effect",
+    "itemKey": "spill_45",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_46",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Lia has a seed. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Lia has a seed. What caused the ice to melt?",
+    "targetWord": "sun_melt_Lia_seed",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_46",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_47",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Max has a shell. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Max has a shell. Why did water run across the table?",
+    "targetWord": "spill_Max_shell",
+    "itemType": "cause_effect",
+    "itemKey": "spill_47",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_48",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Nina has a drum. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Nina has a drum. What caused the ice to melt?",
+    "targetWord": "sun_melt_Nina_drum",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_48",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_49",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Omar has a box. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Omar has a box. Why did water run across the table?",
+    "targetWord": "spill_Omar_box",
+    "itemType": "cause_effect",
+    "itemKey": "spill_49",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_50",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Zoe has a hat. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Zoe has a hat. What caused the ice to melt?",
+    "targetWord": "sun_melt_Zoe_hat",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_50",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_51",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Tess has a bag. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Tess has a bag. Why did water run across the table?",
+    "targetWord": "spill_Tess_bag",
+    "itemType": "cause_effect",
+    "itemKey": "spill_51",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_52",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Ivy has a toy. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Ivy has a toy. What caused the ice to melt?",
+    "targetWord": "sun_melt_Ivy_toy",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_52",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_spill_53",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The cup tipped over, so water ran across the table. Leo has a bike. Why did water run across the table?",
+    "question": "The cup tipped over, so water ran across the table. Leo has a bike. Why did water run across the table?",
+    "targetWord": "spill_Leo_bike",
+    "itemType": "cause_effect",
+    "itemKey": "spill_53",
+    "correctAnswer": "the cup fell",
+    "answer": "the cup fell",
+    "answerOptions": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "choices": [
+      "the cup fell",
+      "the lamp turned on",
+      "the dog barked",
+      "the door opened"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_cause_effect_l1_sun_melt_54",
+    "grade": "K",
+    "skillId": "cause_effect",
+    "skillName": "Cause and Effect",
+    "skill": "Cause and Effect",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Bright sunshine warmed the ice, so it began to melt. Ruby has a paint. What caused the ice to melt?",
+    "question": "Bright sunshine warmed the ice, so it began to melt. Ruby has a paint. What caused the ice to melt?",
+    "targetWord": "sun_melt_Ruby_paint",
+    "itemType": "cause_effect",
+    "itemKey": "sun_melt_54",
+    "correctAnswer": "warm sunlight",
+    "answer": "warm sunlight",
+    "answerOptions": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "choices": [
+      "warm sunlight",
+      "a cold wind",
+      "a dark room",
+      "a soft pillow"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "cause_effect"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_1",
@@ -30831,7 +35777,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30860,7 +35806,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_2",
@@ -30870,7 +35818,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30899,7 +35847,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_3",
@@ -30909,7 +35859,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30938,7 +35888,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_4",
@@ -30948,7 +35900,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -30977,7 +35929,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_5",
@@ -30987,7 +35941,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31016,7 +35970,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_6",
@@ -31026,7 +35982,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31055,7 +36011,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_7",
@@ -31065,7 +36023,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31094,7 +36052,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_8",
@@ -31104,7 +36064,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31133,7 +36093,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_9",
@@ -31143,7 +36105,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31172,7 +36134,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_10",
@@ -31182,7 +36146,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31211,7 +36175,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_11",
@@ -31221,7 +36187,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31250,7 +36216,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_12",
@@ -31260,7 +36228,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31289,7 +36257,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_13",
@@ -31299,7 +36269,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31328,7 +36298,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_14",
@@ -31338,7 +36310,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31367,7 +36339,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_15",
@@ -31377,7 +36351,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31406,7 +36380,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_16",
@@ -31416,7 +36392,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31445,7 +36421,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_17",
@@ -31455,7 +36433,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31484,7 +36462,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_18",
@@ -31494,7 +36474,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31523,7 +36503,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_19",
@@ -31533,7 +36515,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31562,7 +36544,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_20",
@@ -31572,7 +36556,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31601,7 +36585,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_21",
@@ -31611,7 +36597,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31640,7 +36626,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_22",
@@ -31650,7 +36638,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31679,7 +36667,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_23",
@@ -31689,7 +36679,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31718,7 +36708,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_24",
@@ -31728,7 +36720,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31757,7 +36749,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_25",
@@ -31767,7 +36761,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31796,7 +36790,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_26",
@@ -31806,7 +36802,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31835,7 +36831,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_27",
@@ -31845,7 +36843,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31874,7 +36872,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_28",
@@ -31884,7 +36884,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31913,7 +36913,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_29",
@@ -31923,7 +36925,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31952,7 +36954,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_30",
@@ -31962,7 +36966,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -31991,7 +36995,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_31",
@@ -32001,7 +37007,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32030,7 +37036,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_32",
@@ -32040,7 +37048,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32069,7 +37077,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_context_clues_l1_chilly_33",
@@ -32079,7 +37089,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32108,7 +37118,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_context_clues_l1_giggle_34",
@@ -32118,7 +37130,7 @@ export const skillLevelGapQuestions = [
     "skill": "Context Clues",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32147,7 +37159,788 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "context_clues"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_35",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Finn has a apple. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Finn has a apple. What does chilly mean?",
+    "targetWord": "chilly_Finn_apple",
+    "itemType": "context_clues",
+    "itemKey": "chilly_35",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_36",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Maya has a flower. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Maya has a flower. What does giggle mean?",
+    "targetWord": "giggle_Maya_flower",
+    "itemType": "context_clues",
+    "itemKey": "giggle_36",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_37",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Eli has a pencil. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Eli has a pencil. What does chilly mean?",
+    "targetWord": "chilly_Eli_pencil",
+    "itemType": "context_clues",
+    "itemKey": "chilly_37",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_38",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Ava has a paper. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Ava has a paper. What does giggle mean?",
+    "targetWord": "giggle_Ava_paper",
+    "itemType": "context_clues",
+    "itemKey": "giggle_38",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_39",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Nora has a snack. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Nora has a snack. What does chilly mean?",
+    "targetWord": "chilly_Nora_snack",
+    "itemType": "context_clues",
+    "itemKey": "chilly_39",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_40",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Jude has a leaf. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Jude has a leaf. What does giggle mean?",
+    "targetWord": "giggle_Jude_leaf",
+    "itemType": "context_clues",
+    "itemKey": "giggle_40",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_41",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Ana has a ball. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Ana has a ball. What does chilly mean?",
+    "targetWord": "chilly_Ana_ball",
+    "itemType": "context_clues",
+    "itemKey": "chilly_41",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_42",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Ben has a book. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Ben has a book. What does giggle mean?",
+    "targetWord": "giggle_Ben_book",
+    "itemType": "context_clues",
+    "itemKey": "giggle_42",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_43",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Mia has a kite. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Mia has a kite. What does chilly mean?",
+    "targetWord": "chilly_Mia_kite",
+    "itemType": "context_clues",
+    "itemKey": "chilly_43",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_44",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Sam has a cup. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Sam has a cup. What does giggle mean?",
+    "targetWord": "giggle_Sam_cup",
+    "itemType": "context_clues",
+    "itemKey": "giggle_44",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_45",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Noah has a map. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Noah has a map. What does chilly mean?",
+    "targetWord": "chilly_Noah_map",
+    "itemType": "context_clues",
+    "itemKey": "chilly_45",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_46",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Lia has a seed. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Lia has a seed. What does giggle mean?",
+    "targetWord": "giggle_Lia_seed",
+    "itemType": "context_clues",
+    "itemKey": "giggle_46",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_47",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Max has a shell. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Max has a shell. What does chilly mean?",
+    "targetWord": "chilly_Max_shell",
+    "itemType": "context_clues",
+    "itemKey": "chilly_47",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_48",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Nina has a drum. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Nina has a drum. What does giggle mean?",
+    "targetWord": "giggle_Nina_drum",
+    "itemType": "context_clues",
+    "itemKey": "giggle_48",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_49",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Omar has a box. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Omar has a box. What does chilly mean?",
+    "targetWord": "chilly_Omar_box",
+    "itemType": "context_clues",
+    "itemKey": "chilly_49",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_50",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Zoe has a hat. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Zoe has a hat. What does giggle mean?",
+    "targetWord": "giggle_Zoe_hat",
+    "itemType": "context_clues",
+    "itemKey": "giggle_50",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_51",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Tess has a bag. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Tess has a bag. What does chilly mean?",
+    "targetWord": "chilly_Tess_bag",
+    "itemType": "context_clues",
+    "itemKey": "chilly_51",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_giggle_52",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "The joke made Ana giggle and smile. Ivy has a toy. What does giggle mean?",
+    "question": "The joke made Ana giggle and smile. Ivy has a toy. What does giggle mean?",
+    "targetWord": "giggle_Ivy_toy",
+    "itemType": "context_clues",
+    "itemKey": "giggle_52",
+    "correctAnswer": "laugh softly",
+    "answer": "laugh softly",
+    "answerOptions": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "choices": [
+      "laugh softly",
+      "sleep deeply",
+      "walk slowly",
+      "eat quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_context_clues_l1_chilly_53",
+    "grade": "K",
+    "skillId": "context_clues",
+    "skillName": "Context Clues",
+    "skill": "Context Clues",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "It was chilly, so Max put on a coat. Leo has a bike. What does chilly mean?",
+    "question": "It was chilly, so Max put on a coat. Leo has a bike. What does chilly mean?",
+    "targetWord": "chilly_Leo_bike",
+    "itemType": "context_clues",
+    "itemKey": "chilly_53",
+    "correctAnswer": "cold",
+    "answer": "cold",
+    "answerOptions": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "choices": [
+      "cold",
+      "loud",
+      "tiny",
+      "fast"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "context_clues"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_1",
@@ -32157,7 +37950,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32186,7 +37979,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_2",
@@ -32196,7 +37991,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32225,7 +38020,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_3",
@@ -32235,7 +38032,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32264,7 +38061,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_4",
@@ -32274,7 +38073,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32303,7 +38102,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_5",
@@ -32313,7 +38114,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32342,7 +38143,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_6",
@@ -32352,7 +38155,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32381,7 +38184,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_7",
@@ -32391,7 +38196,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32420,7 +38225,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_8",
@@ -32430,7 +38237,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32459,7 +38266,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_9",
@@ -32469,7 +38278,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32498,7 +38307,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_10",
@@ -32508,7 +38319,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32537,7 +38348,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_11",
@@ -32547,7 +38360,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32576,7 +38389,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_12",
@@ -32586,7 +38401,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32615,7 +38430,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_13",
@@ -32625,7 +38442,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32654,7 +38471,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_14",
@@ -32664,7 +38483,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32693,7 +38512,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_15",
@@ -32703,7 +38524,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32732,7 +38553,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_16",
@@ -32742,7 +38565,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32771,7 +38594,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_17",
@@ -32781,7 +38606,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32810,7 +38635,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_18",
@@ -32820,7 +38647,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32849,7 +38676,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_19",
@@ -32859,7 +38688,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32888,7 +38717,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_20",
@@ -32898,7 +38729,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32927,7 +38758,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_21",
@@ -32937,7 +38770,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -32966,7 +38799,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_22",
@@ -32976,7 +38811,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33005,7 +38840,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_23",
@@ -33015,7 +38852,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33044,7 +38881,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_24",
@@ -33054,7 +38893,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33083,7 +38922,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_25",
@@ -33093,7 +38934,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33122,7 +38963,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_26",
@@ -33132,7 +38975,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33161,7 +39004,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_27",
@@ -33171,7 +39016,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33200,7 +39045,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_28",
@@ -33210,7 +39057,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33239,7 +39086,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_29",
@@ -33249,7 +39098,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33278,7 +39127,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_30",
@@ -33288,7 +39139,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33317,7 +39168,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_31",
@@ -33327,7 +39180,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33356,7 +39209,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_32",
@@ -33366,7 +39221,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33395,7 +39250,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_33",
@@ -33405,7 +39262,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33434,7 +39291,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   },
   {
     "id": "gap_theme_higher_comprehension_l1_try_again_34",
@@ -33444,7 +39303,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_2",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33473,7 +39332,9 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
   },
   {
     "id": "gap_theme_higher_comprehension_l1_help_friend_35",
@@ -33483,7 +39344,7 @@ export const skillLevelGapQuestions = [
     "skill": "Theme and Higher Comprehension",
     "level": 1,
     "difficulty": 1,
-    "phaseTarget": "level_1",
+    "phaseTarget": "level_1_phase_1",
     "templateType": "COMPREHENSION",
     "formatType": "COMPREHENSION",
     "questionType": "multiple_choice",
@@ -33512,6 +39373,787 @@ export const skillLevelGapQuestions = [
       "generated-gap",
       "level-1",
       "theme_higher_comprehension"
-    ]
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_36",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Maya has a flower. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Maya has a flower. What lesson fits this story?",
+    "targetWord": "try_again_Maya_flower",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_36",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_37",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Eli has a pencil. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Eli has a pencil. What lesson fits this story?",
+    "targetWord": "help_friend_Eli_pencil",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_37",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_38",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Ava has a paper. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Ava has a paper. What lesson fits this story?",
+    "targetWord": "try_again_Ava_paper",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_38",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_39",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Nora has a snack. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Nora has a snack. What lesson fits this story?",
+    "targetWord": "help_friend_Nora_snack",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_39",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_40",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Jude has a leaf. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Jude has a leaf. What lesson fits this story?",
+    "targetWord": "try_again_Jude_leaf",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_40",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_41",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Ana has a ball. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Ana has a ball. What lesson fits this story?",
+    "targetWord": "help_friend_Ana_ball",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_41",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_42",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Ben has a book. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Ben has a book. What lesson fits this story?",
+    "targetWord": "try_again_Ben_book",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_42",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_43",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Mia has a kite. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Mia has a kite. What lesson fits this story?",
+    "targetWord": "help_friend_Mia_kite",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_43",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_44",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Sam has a cup. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Sam has a cup. What lesson fits this story?",
+    "targetWord": "try_again_Sam_cup",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_44",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_45",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Noah has a map. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Noah has a map. What lesson fits this story?",
+    "targetWord": "help_friend_Noah_map",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_45",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_46",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_2",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Lia has a seed. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Lia has a seed. What lesson fits this story?",
+    "targetWord": "try_again_Lia_seed",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_46",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 2,
+    "assessmentPhase": 2
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_47",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Max has a shell. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Max has a shell. What lesson fits this story?",
+    "targetWord": "help_friend_Max_shell",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_47",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_48",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Nina has a drum. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Nina has a drum. What lesson fits this story?",
+    "targetWord": "try_again_Nina_drum",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_48",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_49",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Omar has a box. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Omar has a box. What lesson fits this story?",
+    "targetWord": "help_friend_Omar_box",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_49",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_50",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Zoe has a hat. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Zoe has a hat. What lesson fits this story?",
+    "targetWord": "try_again_Zoe_hat",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_50",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_51",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Tess has a bag. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Tess has a bag. What lesson fits this story?",
+    "targetWord": "help_friend_Tess_bag",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_51",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_52",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Ivy has a toy. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Ivy has a toy. What lesson fits this story?",
+    "targetWord": "try_again_Ivy_toy",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_52",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_help_friend_53",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Tom dropped his crayons. Lia helped him pick them up. Leo has a bike. What lesson fits this story?",
+    "question": "Tom dropped his crayons. Lia helped him pick them up. Leo has a bike. What lesson fits this story?",
+    "targetWord": "help_friend_Leo_bike",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "help_friend_53",
+    "correctAnswer": "friends help each other",
+    "answer": "friends help each other",
+    "answerOptions": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "choices": [
+      "friends help each other",
+      "always hide crayons",
+      "never share",
+      "run away quickly"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
+  },
+  {
+    "id": "gap_theme_higher_comprehension_l1_try_again_54",
+    "grade": "K",
+    "skillId": "theme_higher_comprehension",
+    "skillName": "Theme and Higher Comprehension",
+    "skill": "Theme and Higher Comprehension",
+    "level": 1,
+    "difficulty": 1,
+    "phaseTarget": "level_1_phase_1",
+    "templateType": "COMPREHENSION",
+    "formatType": "COMPREHENSION",
+    "questionType": "multiple_choice",
+    "prompt": "Nina missed the basket. She tried again and made it. Ruby has a paint. What lesson fits this story?",
+    "question": "Nina missed the basket. She tried again and made it. Ruby has a paint. What lesson fits this story?",
+    "targetWord": "try_again_Ruby_paint",
+    "itemType": "theme_higher_comprehension",
+    "itemKey": "try_again_54",
+    "correctAnswer": "keep trying",
+    "answer": "keep trying",
+    "answerOptions": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "choices": [
+      "keep trying",
+      "give up",
+      "hide the ball",
+      "walk home"
+    ],
+    "active": true,
+    "source": "skill_level_depth_gap_generator",
+    "tags": [
+      "generated-gap",
+      "level-1",
+      "theme_higher_comprehension"
+    ],
+    "phase": 1,
+    "assessmentPhase": 1
   }
 ];
