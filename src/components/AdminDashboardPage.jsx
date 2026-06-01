@@ -194,6 +194,14 @@ function statusLabel(status) {
   return String(status || "").replaceAll("_", " ");
 }
 
+function getTeacherAccountApprovalStatus(account = {}) {
+  return String(account.approval_status || account.status || "pending").toLowerCase();
+}
+
+function isPendingTeacherAccount(account = {}) {
+  return getTeacherAccountApprovalStatus(account) === "pending";
+}
+
 function normalizePatternLabel(value = "") {
   return String(value || "")
     .trim()
@@ -978,6 +986,7 @@ export function AdminDashboardPage({
   const [detailedReportType, setDetailedReportType] = useState("individual");
   const [detailedReportSections, setDetailedReportSections] = useState(DEFAULT_REPORT_SECTIONS);
   const [formalReportScope, setFormalReportScope] = useState("individual");
+  const [showReviewedSignupAccounts, setShowReviewedSignupAccounts] = useState(false);
   const [formalReportSubsection, setFormalReportSubsection] = useState("letters");
   const [reportDateStart, setReportDateStart] = useState("");
   const [reportDateEnd, setReportDateEnd] = useState("");
@@ -1312,6 +1321,10 @@ export function AdminDashboardPage({
     );
   }
 
+  const pendingSignupAccounts = pendingAccounts.filter(isPendingTeacherAccount);
+  const reviewedSignupAccounts = pendingAccounts.filter(account => !isPendingTeacherAccount(account));
+  const visibleSignupCount = pendingSignupAccounts.length;
+
   const adminSections = isTeacherMode
     ? [
       { id: "teacherOverview", label: "Overview", count: null },
@@ -1327,7 +1340,7 @@ export function AdminDashboardPage({
       { id: "overview", label: "Overview", count: null },
       { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
       { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
-      { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length },
+      { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : visibleSignupCount },
       { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
       { id: "guidedMediaQa", label: "Guided Reading Media QA", count: (guidedReadingImageTextQa.needsManualReviewCount || 0) + (guidedReadingImageTextQa.needsReplacementCount || 0) + (guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || 0) },
       { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
@@ -2450,14 +2463,24 @@ export function AdminDashboardPage({
             <h3>Signup Requests</h3>
             <p className="muted-text">Approve or reject teacher account requests. Pending requests are blocked from the app until approved.</p>
           </div>
-          <span className="admin-count-pill">{pendingAccountsWarning ? "Unavailable" : pendingAccounts.filter(account => (account.approval_status || account.status || "pending") === "pending").length}</span>
+          <span className="admin-count-pill">{pendingAccountsWarning ? "Unavailable" : visibleSignupCount}</span>
         </div>
+        {!pendingAccountsWarning && reviewedSignupAccounts.length > 0 && (
+          <label className="admin-inline-toggle">
+            <input
+              checked={showReviewedSignupAccounts}
+              onChange={event => setShowReviewedSignupAccounts(event.target.checked)}
+              type="checkbox"
+            />
+            <span>Show reviewed accounts</span>
+          </label>
+        )}
         {pendingAccountsWarning ? (
           <div className="admin-section-warning" role="status">
             {pendingAccountsWarning}
           </div>
-        ) : pendingAccounts.length === 0 ? (
-          <p>No signup requests loaded.</p>
+        ) : pendingSignupAccounts.length === 0 ? (
+          <p>No pending signup requests.</p>
         ) : (
           <div className="admin-table-wrap">
             <table className="dashboard-table admin-table admin-responsive-table">
@@ -2473,28 +2496,74 @@ export function AdminDashboardPage({
                 </tr>
               </thead>
               <tbody>
-                {pendingAccounts.map(account => (
-                  <tr key={account.id || account.user_id || account.email}>
-                    <td data-label="Email">{account.email || "Email unavailable"}</td>
-                    <td data-label="Username">{account.username || "-"}</td>
-                    <td data-label="Name">{account.display_name || account.name || "-"}</td>
-                    <td data-label="Status">{account.approval_status || account.status || "pending"}</td>
-                    <td data-label="Requested">{(account.requested_at || account.created_at) ? new Date(account.requested_at || account.created_at).toLocaleDateString() : ""}</td>
-                    <td data-label="Reviewed">{account.reviewed_at ? new Date(account.reviewed_at).toLocaleDateString() : "Not reviewed"}</td>
-                    <td data-label="Actions">
-                      <div className="admin-row-actions">
-                        <button className="report-button" onClick={() => updateTeacherAccountStatus?.(account.id, "approved")} type="button">
-                          Approve
-                        </button>
-                        <button className="report-button danger" onClick={() => updateTeacherAccountStatus?.(account.id, "rejected")} type="button">
-                          Reject
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+                {pendingSignupAccounts.map(account => {
+                  const accountStatus = getTeacherAccountApprovalStatus(account);
+                  const isPending = accountStatus === "pending";
+
+                  return (
+                    <tr key={account.id || account.user_id || account.email}>
+                      <td data-label="Email">{account.email || "Email unavailable"}</td>
+                      <td data-label="Username">{account.username || "-"}</td>
+                      <td data-label="Name">{account.display_name || account.name || "-"}</td>
+                      <td data-label="Status">{accountStatus}</td>
+                      <td data-label="Requested">{(account.requested_at || account.created_at) ? new Date(account.requested_at || account.created_at).toLocaleDateString() : ""}</td>
+                      <td data-label="Reviewed">{account.reviewed_at ? new Date(account.reviewed_at).toLocaleDateString() : "Not reviewed"}</td>
+                      <td data-label="Actions">
+                        {isPending ? (
+                          <div className="admin-row-actions">
+                            <button className="report-button" onClick={() => updateTeacherAccountStatus?.(account.id, "approved")} type="button">
+                              Approve
+                            </button>
+                            <button className="report-button danger" onClick={() => updateTeacherAccountStatus?.(account.id, "rejected")} type="button">
+                              Reject
+                            </button>
+                          </div>
+                        ) : (
+                          <span className="muted-text">Reviewed</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
+          </div>
+        )}
+        {!pendingAccountsWarning && showReviewedSignupAccounts && reviewedSignupAccounts.length > 0 && (
+          <div className="admin-reviewed-signups">
+            <h4>Reviewed accounts</h4>
+            <div className="admin-table-wrap">
+              <table className="dashboard-table admin-table admin-responsive-table">
+                <thead>
+                  <tr>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Requested</th>
+                    <th>Reviewed</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {reviewedSignupAccounts.map(account => {
+                    const accountStatus = getTeacherAccountApprovalStatus(account);
+
+                    return (
+                      <tr key={account.id || account.user_id || account.email}>
+                        <td data-label="Email">{account.email || "Email unavailable"}</td>
+                        <td data-label="Username">{account.username || "-"}</td>
+                        <td data-label="Name">{account.display_name || account.name || "-"}</td>
+                        <td data-label="Status">{accountStatus}</td>
+                        <td data-label="Requested">{(account.requested_at || account.created_at) ? new Date(account.requested_at || account.created_at).toLocaleDateString() : ""}</td>
+                        <td data-label="Reviewed">{account.reviewed_at ? new Date(account.reviewed_at).toLocaleDateString() : "Not reviewed"}</td>
+                        <td data-label="Actions"><span className="muted-text">Reviewed</span></td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </section>

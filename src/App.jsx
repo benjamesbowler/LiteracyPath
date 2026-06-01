@@ -2542,17 +2542,22 @@ export default function App() {
       statusUpdate.approved_by = teacherId;
       statusUpdate.rejected_at = null;
       statusUpdate.rejected_by = null;
+      statusUpdate.rejection_reason = null;
     }
 
     if (status === "rejected") {
       statusUpdate.rejected_at = now;
       statusUpdate.rejected_by = teacherId;
+      statusUpdate.approved_at = null;
+      statusUpdate.approved_by = null;
     }
 
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from("pending_teacher_accounts")
       .update(statusUpdate)
-      .eq("id", accountId);
+      .eq("id", accountId)
+      .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+      .maybeSingle();
 
     if (error) {
       console.error("Teacher account status update failed.", error);
@@ -2560,7 +2565,13 @@ export default function App() {
       return;
     }
 
-    await loadAdminDashboard();
+    setAdminPendingAccounts(previousAccounts =>
+      previousAccounts.map(account =>
+        account.id === accountId
+          ? { ...account, ...statusUpdate, ...(data || {}) }
+          : account
+      )
+    );
     setMessage(`Teacher account marked ${status}.`);
   }
 
