@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { preloadQuestionMedia, preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
 
 function StoryQuestImage({ src, title }) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -102,14 +103,12 @@ export function StoryQuestPlayer({ quest, onExit }) {
   }, [currentPage?.audioUrl]);
 
   useEffect(() => {
-    if (!currentPage?.choices || typeof Image === "undefined") return;
-    currentPage.choices
-      .map(choice => pageById.get(choice.nextPageId)?.imageUrl)
-      .filter(Boolean)
-      .forEach(src => {
-        const image = new Image();
-        image.src = src;
-      });
+    if (!currentPage) return;
+    const nextPages = (currentPage.choices || [])
+      .map(choice => pageById.get(choice.nextPageId))
+      .filter(Boolean);
+    void preloadQuestionMedia(currentPage);
+    void preloadQuestionMediaBatch(nextPages);
   }, [currentPage, pageById]);
 
   function stopAudio() {

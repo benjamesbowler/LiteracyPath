@@ -1,10 +1,33 @@
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
+import { preloadQuestionMedia, preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
 
 export function LearnAreaPage() {
   const [activeQuestId, setActiveQuestId] = useState("");
   const activeQuest = storyQuests.find(quest => quest.id === activeQuestId) || null;
+
+  useEffect(() => {
+    storyQuests.forEach(quest => {
+      void preloadQuestionMedia({
+        imageUrl: quest.coverImageUrl || quest.pages?.[0]?.imageUrl,
+        audioUrl: quest.pages?.[0]?.audioUrl,
+      });
+      void preloadQuestionMediaBatch((quest.pages || []).slice(0, 2));
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!activeQuestId || typeof window === "undefined") return;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [activeQuestId]);
+
+  function startQuest(questId) {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+    setActiveQuestId(questId);
+  }
 
   if (activeQuest) {
     return (
@@ -41,7 +64,7 @@ export function LearnAreaPage() {
                   ))}
                 </div>
               </div>
-              <button className="lp-button lp-button-primary" onClick={() => setActiveQuestId(quest.id)} type="button">
+              <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">
                 Start Reading
               </button>
             </article>
