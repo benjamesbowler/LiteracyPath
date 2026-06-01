@@ -4155,6 +4155,51 @@ select:focus {
   min-height: 0;
 }
 
+.hfw-letter-build-panel {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  gap: 14px;
+}
+
+.hfw-letter-build-sentence {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 84px;
+  padding: 14px 18px;
+  border: 2px dashed #9fd5cc;
+  border-radius: 20px;
+  background: #f7fffc;
+  color: var(--lp-color-text-strong);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.hfw-letter-build-slots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 54px;
+  min-height: 58px;
+}
+
+.hfw-letter-slot {
+  flex: 0 0 auto;
+}
+
+.hfw-letter-slot.filled {
+  width: 46px;
+  min-width: 46px;
+  min-height: 52px;
+  border-radius: 12px;
+  font-size: 26px;
+  text-transform: lowercase;
+}
+
 .ixl-answer-grid {
   display: grid;
   /* minmax(min(190px,45%),1fr) prevents 2-col layout from exceeding viewport on 375px phones */

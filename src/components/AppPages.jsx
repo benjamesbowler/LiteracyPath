@@ -622,8 +622,220 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
   );
 }
 
+function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText }) {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const answerOptions = currentQuestion.answerOptions || [];
+  const normalizedAnswerOptions = answerOptions.map(option => ({
+    ...normalizeAnswerOption(option),
+    media: getAnswerOptionMedia(option)
+  }));
+  const sentence = currentQuestion.sentence || "";
+  const [beforeBlank, afterBlank = ""] = sentence.split("___");
+
+  useEffect(() => {
+    setSelectedOption(null);
+  }, [currentQuestion.id]);
+
+  function selectOption(option) {
+    setSelectedOption(option);
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+    const value = event.dataTransfer.getData("text/plain");
+    const option = normalizedAnswerOptions.find(item => item.value === value);
+    if (option) selectOption(option);
+  }
+
+  return (
+    <div className="ixl-template-panel grammar-sentence-fit-panel">
+      <div
+        className="sound-order-build grammar-sentence-drop-zone"
+        onDragOver={event => event.preventDefault()}
+        onDrop={handleDrop}
+        aria-label="Sentence answer"
+      >
+        <span>{beforeBlank}</span>
+        <span className={selectedOption ? "sound-order-selected-tile" : "sound-order-empty-slot"}>
+          {selectedOption?.label || ""}
+        </span>
+        <span>{afterBlank}</span>
+      </div>
+
+      <div className="ixl-answer-grid four-options">
+        {normalizedAnswerOptions.map((option, index) => {
+          const audioPath = getApprovedAudioPath(option.label, option.media.audio || "");
+          const selected = selectedOption?.value === option.value;
+
+          return (
+            <article
+              className={selected ? "ixl-answer-card selected" : "ixl-answer-card"}
+              key={`${option.value}-${index}`}
+            >
+              <button
+                className="ixl-answer-button"
+                draggable
+                onClick={() => selectOption(option)}
+                onDragStart={event => event.dataTransfer.setData("text/plain", option.value)}
+                type="button"
+              >
+                <strong>{option.label}</strong>
+              </button>
+
+              {audioPath && (
+                <AssessmentAudioButton
+                  text={option.label}
+                  audioPath={audioPath}
+                  speakText={speakText}
+                  label={`Hear ${option.label}`}
+                  className="initial-sound-card-audio"
+                />
+              )}
+            </article>
+          );
+        })}
+      </div>
+
+      <div className="button-row ixl-template-actions">
+        <button
+          className="reset-button"
+          onClick={() => setSelectedOption(null)}
+          type="button"
+        >
+          Reset
+        </button>
+        <button
+          className="main-button"
+          disabled={!selectedOption}
+          onClick={() => answerQuestion(selectedOption.value)}
+          type="button"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function HfwLetterBuildQuestion({ currentQuestion, answerQuestion }) {
+  const [selectedTiles, setSelectedTiles] = useState([]);
+  const targetWord = getHfwLetterBuildTarget(currentQuestion);
+  const targetLength = targetWord.length || Number(currentQuestion.blankSlots) || 0;
+  const rawTiles = currentQuestion.letterTiles || currentQuestion.soundTiles || [];
+  const tiles = rawTiles.length > 0
+    ? rawTiles
+    : targetWord.split("");
+  const selectedIndexes = new Set(selectedTiles.map(item => item.index));
+  const builtWord = selectedTiles.map(item => item.tile).join("").toLowerCase();
+  const sentence = String(currentQuestion.sentence || currentQuestion.context || currentQuestion.passage || "")
+    .replace(/_{2,}/g, "___");
+  const [sentenceBefore, sentenceAfter = ""] = sentence.includes("___")
+    ? sentence.split("___")
+    : ["", sentence];
+
+  useEffect(() => {
+    setSelectedTiles([]);
+  }, [currentQuestion.id]);
+
+  function addTile(tile, index) {
+    if (selectedIndexes.has(index) || selectedTiles.length >= targetLength) return;
+    setSelectedTiles(previous => [...previous, { tile: String(tile || "").toLowerCase(), index }]);
+  }
+
+  function removeTile(index) {
+    setSelectedTiles(previous => previous.filter((_, itemIndex) => itemIndex !== index));
+  }
+
+  function handleDragStart(event, index) {
+    event.dataTransfer.setData("text/plain", String(index));
+    event.dataTransfer.effectAllowed = "move";
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+    const tileIndex = Number(event.dataTransfer.getData("text/plain"));
+    if (!Number.isInteger(tileIndex)) return;
+    addTile(tiles[tileIndex], tileIndex);
+  }
+
+  return (
+    <div className="ixl-template-panel hfw-letter-build-panel">
+      <div
+        className="hfw-letter-build-sentence"
+        onDragOver={event => event.preventDefault()}
+        onDrop={handleDrop}
+      >
+        <span>{sentenceBefore}</span>
+        <span className="hfw-letter-build-slots" aria-label="Built word">
+          {Array.from({ length: targetLength }, (_, index) => {
+            const selected = selectedTiles[index];
+            return selected ? (
+              <button
+                className="sound-order-selected-tile hfw-letter-slot filled"
+                key={`${selected.tile}-${selected.index}`}
+                onClick={() => removeTile(index)}
+                type="button"
+                aria-label={`Remove ${selected.tile}`}
+              >
+                {selected.tile}
+              </button>
+            ) : (
+              <span
+                className="sound-order-empty-slot hfw-letter-slot"
+                key={`empty-${index}`}
+                aria-hidden="true"
+              />
+            );
+          })}
+        </span>
+        <span>{sentenceAfter}</span>
+      </div>
+
+      <div className="sound-order-tile-row hfw-letter-tile-row" aria-label="Choose letters">
+        {tiles.map((tile, index) => {
+          const disabled = selectedIndexes.has(index) || selectedTiles.length >= targetLength;
+          return (
+            <button
+              className="sound-order-tile"
+              disabled={disabled}
+              draggable={!disabled}
+              key={`${tile}-${index}`}
+              onClick={() => addTile(tile, index)}
+              onDragStart={event => handleDragStart(event, index)}
+              type="button"
+              aria-label={`Add ${tile}`}
+            >
+              {tile}
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="button-row ixl-template-actions">
+        <button
+          className="reset-button"
+          onClick={() => setSelectedTiles([])}
+          type="button"
+        >
+          Reset
+        </button>
+        <button
+          className="main-button"
+          disabled={builtWord.length !== targetLength}
+          onClick={() => answerQuestion(builtWord)}
+          type="button"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
+  const isHfwLetterBuild = isHfwLetterBuildQuestion(currentQuestion);
+  const isGrammarSentenceFit = isGrammarSentenceFitQuestion(currentQuestion);
   const isSoundOrder = currentQuestion.templateType === "PUT_SOUNDS_IN_ORDER";
   const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
   const isShortVowelWordChoiceItem = isShortVowelWordChoiceQuestion(currentQuestion);
@@ -655,6 +867,25 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
     setSelectedTiles([]);
   }, [currentQuestion.id]);
 
+  if (isGrammarSentenceFit) {
+    return (
+      <GrammarSentenceFitQuestion
+        currentQuestion={currentQuestion}
+        answerQuestion={answerQuestion}
+        speakText={speakText}
+      />
+    );
+  }
+
+  if (isHfwLetterBuild) {
+    return (
+      <HfwLetterBuildQuestion
+        currentQuestion={currentQuestion}
+        answerQuestion={answerQuestion}
+      />
+    );
+  }
+
   function addTile(tile, index) {
     setSelectedTiles(previous => [...previous, { tile, index }]);
   }
@@ -664,14 +895,18 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
   }
 
   if (isSoundOrder) {
+    const tiles = currentQuestion.soundTiles || [];
     const selectedIndexes = new Set(selectedTiles.map(item => item.index));
     const builtWord = selectedTiles.map(item => item.tile).join("");
+    const targetLength = String(currentQuestion.correctAnswer || currentQuestion.answer || "").length;
 
     return (
-      <div className="ixl-template-panel">
+      <div className={isHfwLetterBuild ? "ixl-template-panel hfw-letter-build-panel" : "ixl-template-panel"}>
         <div className="sound-order-build" aria-label="Built word">
-          {selectedTiles.length === 0 ? (
-            <span className="sound-order-placeholder">Tap the sounds in order</span>
+          {selectedTiles.length === 0 && !isHfwLetterBuild ? (
+            <span className="sound-order-placeholder">
+              Tap the sounds in order
+            </span>
           ) : (
             selectedTiles.map((item, index) => (
               <button
@@ -684,10 +919,15 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
               </button>
             ))
           )}
+          {isHfwLetterBuild && selectedTiles.length < targetLength && (
+            Array.from({ length: targetLength - selectedTiles.length }, (_, index) => (
+              <span className="sound-order-empty-slot" key={`empty-${index}`} aria-hidden="true"></span>
+            ))
+          )}
         </div>
 
-        <div className="sound-order-tile-row">
-          {(currentQuestion.soundTiles || []).map((tile, index) => (
+        <div className={isHfwLetterBuild ? "sound-order-tile-row hfw-letter-tile-row" : "sound-order-tile-row"}>
+          {tiles.map((tile, index) => (
             <button
               className="sound-order-tile"
               disabled={selectedIndexes.has(index)}
@@ -710,7 +950,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
           </button>
           <button
             className="main-button"
-            disabled={builtWord.length !== String(currentQuestion.correctAnswer || currentQuestion.answer || "").length}
+            disabled={builtWord.length !== targetLength}
             onClick={() => answerQuestion(builtWord)}
             type="button"
           >
@@ -825,6 +1065,22 @@ function isHfwAudioFindWordQuestion(question = {}) {
   return skillId.startsWith("hfw_") && ["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD"].includes(format);
 }
 
+function isHfwLetterBuildQuestion(question = {}) {
+  const skillId = String(question?.skillId || "").toLowerCase();
+  const format = String(question?.formatType || question?.templateType || "").toUpperCase();
+  return skillId.startsWith("hfw_") && format === "HFW_LETTER_BUILD";
+}
+
+function isGrammarSentenceFitQuestion(question = {}) {
+  return String(question?.formatType || question?.templateType || "").toUpperCase() === "GRAMMAR_SENTENCE_FIT";
+}
+
+function getHfwLetterBuildTarget(question = {}) {
+  return String(question.targetWord || question.correctAnswer || question.answer || "")
+    .trim()
+    .toLowerCase();
+}
+
 function stripTargetWordFromPrompt(prompt = "", targetWord = "") {
   const safePrompt = String(prompt || "");
   const word = String(targetWord || "").trim();
@@ -847,18 +1103,22 @@ function formatAnswerForFeedback(value = "") {
   return String(value || "").split("|").filter(Boolean).join(", ");
 }
 
-function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, isShortVowelWordChoice, isListenChooseVowel, speakText, shouldShowImage }) {
+function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelection, isVisualCardChoice, isIxlStyleTemplate, isShortVowelWordChoice, isListenChooseVowel, isGrammarSentenceFit, speakText, shouldShowImage }) {
   if (!currentQuestion) return null;
 
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
+  const isHfwLetterBuildItem = isHfwLetterBuildQuestion(currentQuestion);
+  const isHfwQuestion = String(currentQuestion.skillId || "").toLowerCase().startsWith("hfw_");
   const stimulusAudioText = currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer;
-  const approvedStimulusAudioPath = isListenChooseVowel
+  const approvedStimulusAudioPath = isHfwQuestion
+    ? ""
+    : isListenChooseVowel
     ? getTargetWordAudioPath(currentQuestion.targetWord || currentQuestion.audioText, currentQuestion.audioPath || currentQuestion.audioUrl || "")
     : getApprovedAudioPath(
       stimulusAudioText,
       isRhymingPictureItem ? "" : currentQuestion.audioPath
     );
-  const rawStimulusAudioPath = isRhymingPictureItem ? "" : currentQuestion.audioPath || currentQuestion.audioUrl || "";
+  const rawStimulusAudioPath = isHfwQuestion || isRhymingPictureItem ? "" : currentQuestion.audioPath || currentQuestion.audioUrl || "";
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const targetObjectImage = getTargetObjectImage(currentQuestion);
   const stimulusImage = isFinalSoundsEndingItem
@@ -874,6 +1134,17 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
     );
   const hasPromptImages = currentQuestion.promptImageCards?.length > 0;
   const hasPassage = Boolean(currentQuestion.passage || currentQuestion.sentence || currentQuestion.context);
+  const visiblePassageTexts = [];
+  const visiblePassageKeys = new Set();
+  function addVisiblePassageText(value) {
+    const text = String(value || "").trim();
+    const key = text.replace(/\s+/g, " ");
+    if (!text || visiblePassageKeys.has(key)) return;
+    visiblePassageKeys.add(key);
+    visiblePassageTexts.push(text);
+  }
+  if (!isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.passage);
+  if (!isGrammarSentenceFit && !isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.sentence || currentQuestion.context);
   const hasMainImage = isListenChooseVowel || isShortVowelWordChoice
     ? false
     : isRhymingPictureItem
@@ -965,17 +1236,11 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
         </div>
       )}
 
-      {currentQuestion.passage && (
-        <div className="passage-wrap assessment-passage-card">
-          <p className="passage">{currentQuestion.passage}</p>
+      {visiblePassageTexts.map(text => (
+        <div className="passage-wrap assessment-passage-card" key={text}>
+          <p className="passage">{text}</p>
         </div>
-      )}
-
-      {(currentQuestion.sentence || currentQuestion.context) && (
-        <div className="passage-wrap assessment-passage-card">
-          <p className="passage">{currentQuestion.sentence || currentQuestion.context}</p>
-        </div>
-      )}
+      ))}
     </div>
   );
 }
@@ -4418,6 +4683,8 @@ export function AssessmentPage({
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const isShortVowelWordChoiceItem = isShortVowelWordChoiceQuestion(currentQuestion);
   const isListenChooseVowelItem = isListenChooseVowelQuestion(currentQuestion);
+  const isGrammarSentenceFitItem = isGrammarSentenceFitQuestion(currentQuestion);
+  const isHfwSkillItem = String(safeSkillId || "").toLowerCase().startsWith("hfw_");
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
       <div className="assessment-meta">
@@ -4636,7 +4903,7 @@ export function AssessmentPage({
       currentQuestion?.audioText ||
       ""
     );
-  const promptAudioPath = isRhymingPictureItem
+  const promptAudioPath = isHfwSkillItem || isRhymingPictureItem
     ? ""
     : getApprovedAudioPath(
       isHfwAudioFindWordQuestion(currentQuestion)
@@ -4644,7 +4911,7 @@ export function AssessmentPage({
         : promptAudioText,
       (isPairSelection || isHfwAudioFindWordQuestion(currentQuestion)) ? currentQuestion?.audioPath || currentQuestion?.audioUrl || "" : ""
     );
-  const rawPromptAudioPath = (isPairSelection || isHfwAudioFindWordQuestion(currentQuestion))
+  const rawPromptAudioPath = !isHfwSkillItem && (isPairSelection || isHfwAudioFindWordQuestion(currentQuestion))
     ? currentQuestion?.audioPath || currentQuestion?.audioUrl || ""
     : "";
   const normalizedChoices = (currentQuestion?.choices || []).map(choice => ({
@@ -4659,6 +4926,7 @@ export function AssessmentPage({
   );
   const showTextChoiceAudio =
     (!isListenAndFindWord || isShortVowelWordChoiceItem) &&
+    !String(safeSkillId || "").toLowerCase().startsWith("hfw_") &&
     !isPairSelection &&
     !isVisualCardChoice &&
     !isIxlStyleTemplate &&
@@ -4717,6 +4985,7 @@ export function AssessmentPage({
               isIxlStyleTemplate={isIxlStyleTemplate}
               isShortVowelWordChoice={isShortVowelWordChoiceItem}
               isListenChooseVowel={isListenChooseVowelItem}
+              isGrammarSentenceFit={isGrammarSentenceFitItem}
               speakText={speakText}
               shouldShowImage={shouldShowImage}
             />
