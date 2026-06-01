@@ -985,6 +985,19 @@ function isApprovalSchemaError(error) {
     /column .* does not exist|schema cache|pending_teacher_accounts/i.test(error?.message || "");
 }
 
+function isDuplicateAuthSignupError(error, data = null) {
+  const text = [
+    error?.code,
+    error?.message,
+    error?.details,
+    error?.hint
+  ].filter(Boolean).join(" ");
+  const identities = data?.user?.identities;
+
+  return /user already registered|already registered|already exists|email.*already|duplicate/i.test(text) ||
+    (Array.isArray(identities) && identities.length === 0);
+}
+
 function isSupabasePermissionError(error) {
   const text = [
     error?.code,
@@ -2603,14 +2616,7 @@ export default function App() {
       .maybeSingle();
 
     if (usernameLookupError) {
-      setAuthLoading(false);
-      freshAuthActionRef.current = false;
-      setAuthMessage(
-        isApprovalSchemaError(usernameLookupError)
-          ? "Signup approval is not configured yet. Ask an admin to apply the signup approval schema."
-          : usernameLookupError.message
-      );
-      return;
+      console.warn("Could not check pending teacher username before signup.", usernameLookupError);
     }
 
     if (existingUsername?.id) {
@@ -2636,7 +2642,17 @@ export default function App() {
 
     if (error) {
       freshAuthActionRef.current = false;
-      setAuthMessage(error.message);
+      setAuthMessage(
+        isDuplicateAuthSignupError(error)
+          ? "This email already has an account request or account. Please wait for approval or contact an administrator."
+          : error.message
+      );
+      return;
+    }
+
+    if (isDuplicateAuthSignupError(null, data)) {
+      freshAuthActionRef.current = false;
+      setAuthMessage("This email already has an account request or account. Please wait for approval or contact an administrator.");
       return;
     }
 
@@ -2646,32 +2662,19 @@ export default function App() {
         username,
         display_name: displayName || username
       });
-      const { error: notificationError } = await supabase
+      const { data: pendingAccount, error: notificationError } = await supabase
         .from("pending_teacher_accounts")
-        .upsert(pendingRecord, { onConflict: "user_id" });
+        .upsert(pendingRecord, { onConflict: "user_id" })
+        .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+        .maybeSingle();
 
       if (notificationError) {
-        console.warn("Could not create pending teacher notification.", notificationError);
-        setTeacherAccountStatus("approval_setup_required");
-        setTeacherAccountRecord({
-          user_id: newUserId,
-          email,
-          username,
-          status: "approval_setup_required",
-          approval_status: "approval_setup_required"
-        });
-        setAuthMessage(
-          notificationError?.code === "23505"
-            ? "Account created, but that username is already taken. Ask an admin to update the pending request before approval."
-            : isApprovalSchemaError(notificationError)
-            ? "Account created, but signup approval is not configured yet. Ask an admin to apply the signup approval schema."
-            : "Account created, but the approval request could not be saved. Ask an admin to check signup approvals."
-        );
-        return;
+        console.warn("Could not upsert pending teacher notification after signup. The database trigger should create this request.", notificationError);
       }
 
+      const nextRecord = pendingAccount || pendingRecord;
       setTeacherAccountStatus("pending");
-      setTeacherAccountRecord(pendingRecord);
+      setTeacherAccountRecord(nextRecord);
     }
 
     setAuthPassword("");
