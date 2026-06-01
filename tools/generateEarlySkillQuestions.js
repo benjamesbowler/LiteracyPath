@@ -10,7 +10,10 @@ import {
   isValidFinalSoundWordForLevelTwo
 } from "../src/data/earlyPhonicsValidation.js";
 import { finalSoundAnchors } from "../src/data/phonicsAnchors.js";
-import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
+import {
+  getApprovedAudioPath,
+  getAudioPreferenceStatus
+} from "../src/data/audioPreferenceManifest.js";
 import {
   finalSoundExpectedItemKeys,
   finalSoundLevelTwoExpectedItemKeys,
@@ -64,6 +67,7 @@ function hasImage(entry) {
 }
 
 function getEntryAudioUrl(entry) {
+  if (getAudioPreferenceStatus(entry.lowercaseWord) === "review_needed") return "";
   const preferred = getApprovedAudioPath(entry.lowercaseWord, "");
   if (preferred && publicPathExists(preferred)) return preferred;
   if (!hasAudio(entry) || !audioStemMatchesWord(entry)) return "";

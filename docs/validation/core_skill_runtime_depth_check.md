@@ -5,8 +5,8 @@ Date: 2026-05-25
 | Skill | Runtime-Selectable Items | Minimum | Sample Round Size | Status |
 | --- | ---: | ---: | ---: | --- |
 | Initial Sounds | 473 | 100 | 15 | pass |
-| Ending Sounds | 452 | 100 | 15 | pass |
-| CVC Short Vowels | 452 | 100 | 15 | pass |
+| Ending Sounds | 451 | 100 | 15 | pass |
+| CVC Short Vowels | 451 | 100 | 15 | pass |
 | Rhyming Words | 223 | 100 | 15 | pass |
 
 ## Sample Rounds

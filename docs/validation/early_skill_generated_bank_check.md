@@ -1,15 +1,15 @@
 # Early Skill Generated Bank Check
 
-Generated: 2026-06-01T06:23:17.378Z
+Generated: 2026-06-01T06:31:24.024Z
 
 ## Generated File Counts
 
 | Skill | Generated Questions |
 | --- | ---: |
-| cvc_short_vowels | 287 |
-| final_sounds | 272 |
+| cvc_short_vowels | 286 |
+| final_sounds | 271 |
 | rhyming | 270 |
-| short_vowel_discrimination | 287 |
+| short_vowel_discrimination | 285 |
 
 ## Failures
 
@@ -65,7 +65,7 @@ Generated: 2026-06-01T06:23:17.378Z
 ## Final Sounds
 
 - Skill ID: final_sounds
-- Runtime/generated items checked: 452
+- Runtime/generated items checked: 451
 - Minimum expected: 200
 - Required targets: b, d, g, l, m, n, p, t, sh, th, ll, ng, nd, nk, st, sk, ft, lt
 - Covered targets: d, g, k, l, m, n, p, r, s, t, b, sh, ck, ng, nd, nt, mp, rk, sk, ll, f, th, nk, st, ft, lt
@@ -77,7 +77,7 @@ Generated: 2026-06-01T06:23:17.378Z
 
 | Template | Count |
 | --- | ---: |
-| ENDING_SOUND | 295 |
+| ENDING_SOUND | 294 |
 | ENDING_SOUND_WORD_MATCH | 79 |
 | FINAL_SOUND_PAIR_SELECT | 73 |
 | multiple_choice | 5 |
@@ -104,7 +104,7 @@ Generated: 2026-06-01T06:23:17.378Z
 | ng | 20 |
 | nk | 4 |
 | nt | 1 |
-| p | 31 |
+| p | 30 |
 | r | 7 |
 | rk | 2 |
 | s | 6 |
@@ -117,7 +117,7 @@ Generated: 2026-06-01T06:23:17.378Z
 ## CVC Short Vowels
 
 - Skill ID: cvc_short_vowels
-- Runtime/generated items checked: 452
+- Runtime/generated items checked: 451
 - Minimum expected: 250
 - Required targets: short_a, short_e, short_i, short_o, short_u
 - Covered targets: bag, bat, cap, cat, cup, dog, dot, fin, hat, jam, leg, log, man, map, mud, mug, nap, pen, pig, pot, ram, red, sit, sun, wig, lid, short_a, short_e, short_i, short_o, short_u, bed, pan, pin, web, jet, fish, sock, duck, fox, bug
@@ -135,7 +135,7 @@ Generated: 2026-06-01T06:23:17.378Z
 | MISSING_VOWEL_CVC | 110 |
 | PICTURE_TO_PRINT_MATCH | 96 |
 | PUT_SOUNDS_IN_ORDER | 29 |
-| SHORT_VOWEL_WORD | 123 |
+| SHORT_VOWEL_WORD | 122 |
 
 ### Coverage Targets
 
@@ -175,7 +175,7 @@ Generated: 2026-06-01T06:23:17.378Z
 | red | 1 |
 | short_a | 118 |
 | short_e | 49 |
-| short_i | 74 |
+| short_i | 73 |
 | short_o | 42 |
 | short_u | 72 |
 | sit | 2 |
@@ -242,7 +242,7 @@ Generated: 2026-06-01T06:23:17.378Z
 ## Short Vowel Discrimination
 
 - Skill ID: short_vowel_discrimination
-- Runtime/generated items checked: 287
+- Runtime/generated items checked: 285
 - Minimum expected: 150
 - Required targets: short_a, short_e, short_i, short_o, short_u
 - Covered targets: short_a, short_i, short_u, short_o, short_e
@@ -254,9 +254,9 @@ Generated: 2026-06-01T06:23:17.378Z
 
 | Template | Count |
 | --- | ---: |
-| LISTEN_CHOOSE_VOWEL | 96 |
+| LISTEN_CHOOSE_VOWEL | 95 |
 | PICTURE_TO_PRINT_MATCH | 95 |
-| SHORT_VOWEL_WORD | 96 |
+| SHORT_VOWEL_WORD | 95 |
 
 ### Coverage Targets
 
@@ -264,7 +264,7 @@ Generated: 2026-06-01T06:23:17.378Z
 | --- | ---: |
 | short_a | 93 |
 | short_e | 39 |
-| short_i | 62 |
+| short_i | 60 |
 | short_o | 33 |
 | short_u | 60 |
 

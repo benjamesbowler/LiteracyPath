@@ -1,6 +1,6 @@
 # Early Skill Runtime Eligibility Audit
 
-Generated: 2026-06-01T06:23:20.262Z
+Generated: 2026-06-01T06:31:10.941Z
 
 ## initial_sounds
 
@@ -45,12 +45,12 @@ Generated: 2026-06-01T06:23:20.262Z
 
 ## final_sounds
 
-- Total candidate questions: 533
-- Runtime eligible questions: 452
+- Total candidate questions: 532
+- Runtime eligible questions: 451
 
 ### Level 1
 
-- Accepted count: 191
+- Accepted count: 190
 - Coverage targets: 8
 - Missing image references among accepted: 0
 - Missing audio references among accepted: 0
@@ -70,8 +70,8 @@ Generated: 2026-06-01T06:23:20.262Z
 | Final Sounds Level 1 answer option "accordion" is not an allowed single letter | 81 |
 | Final Sounds Level 1 answer option "acorn" is not an allowed single letter | 81 |
 
-- Fresh round proof: ending_l1_031_fan (fan), gen_final_l1_l_nail_2_sound (nail), gen_final_l1_g_tag_15_sound (tag), gen_final_l1_d_mud_6_sound (mud), ending_l1_021_jam (jam), ending_l1_023_hat (hat), gen_final_l1_b_rub_11_sound (rub), ixl_ending_sound_4 (map), ending_l1_029_pen (pen), ending_l1_013_bib (bib), gen_final_l1_m_gum_1_sound (gum), ending_l1_019_dab (dab), gen_final_l1_g_log_9_sound (log), ixl_ending_sound_8 (bag), ending_l1_008_bag (bag)
-- Review round proof: qb8_final_09 (ram), qb8_final_07 (mug), ixl_ending_sound_13 (tub), gen_final_l1_p_up_15_sound (up), gen_final_l1_t_bat_0_sound (bat), ending_l1_031_fan (fan), ending_l1_045_jewel (jewel), gen_final_l1_d_red_8_sound (red), ending_l1_021_jam (jam), qb8_final_06 (log), gen_final_l1_p_zip_16_sound (zip), ending_l1_041_crab (crab), gen_final_l1_p_cap_0_sound (cap), ending_l1_027_cap (cap), gen_final_l1_b_tab_13_sound (tab)
+- Fresh round proof: gen_final_l1_n_hen_7_sound (hen), qb8_final_13 (map), gen_final_l1_d_pad_7_sound (pad), ending_l1_012_cab (cab), gen_final_l1_l_curl_0_sound (curl), gen_final_l1_g_log_9_sound (log), gen_final_l1_t_wet_18_sound (wet), ending_l1_033_ram (ram), ending_l1_022_sun (sun), gen_final_l1_n_fan_4_sound (fan), gen_final_l1_d_rod_9_sound (rod), gen_final_l1_b_rib_10_sound (rib), ending_l1_009_cup (cup), gen_final_l1_p_cap_0_sound (cap), gen_final_l1_d_kid_3_sound (kid)
+- Review round proof: gen_final_l1_p_tap_13_sound (tap), gen_final_l1_n_run_14_sound (run), gen_final_l1_d_pad_7_sound (pad), ending_l1_008_bag (bag), gen_final_l1_m_gem_0_sound (gem), qb8_final_15 (pot), ending_l1_016_lab (lab), ixl_ending_sound_23 (seal), ending_l1_004_map (map), ending_l1_031_fan (fan), gen_final_l1_t_cart_1_sound (cart), gen_final_l1_p_hip_4_sound (hip), gen_final_l1_g_tag_15_sound (tag), ending_l1_029_pen (pen), ending_l1_038_cut (cut)
 
 ### Level 2
 
@@ -96,12 +96,12 @@ Generated: 2026-06-01T06:23:20.262Z
 
 ## cvc_short_vowels
 
-- Total candidate questions: 516
-- Runtime eligible questions: 452
+- Total candidate questions: 515
+- Runtime eligible questions: 451
 
 ### Level 1
 
-- Accepted count: 398
+- Accepted count: 397
 - Coverage targets: 41
 - Missing image references among accepted: 0
 - Missing audio references among accepted: 0
@@ -116,8 +116,8 @@ Generated: 2026-06-01T06:23:20.262Z
 | question is inactive | 2 |
 | listen prompt is missing required runtime audio | 1 |
 
-- Fresh round proof: gen_cvc_short_i_bib_0_vowel (bib), exp7_cvc_13 (pot), exp7_cvc_5 (fin), gen_cvc_short_a_tab_25_vowel (tab), ixl_sound_order_21 (fox), exp7_cvc_21 (wig), ixl_complete_word_9 (cup), cvc_listen_find_010 (hat), cvc_listen_find_014 (man), exp7_cvc_15 (bag), ixl_sound_order_26 (sit), ixl_sound_order_12 (jam), gen_cvc_short_o_dog_2_missing (dog), ixl_complete_word_10 (web), gen_cvc_short_a_sad_23_vowel (sad)
-- Review round proof: cvc_listen_find_009 (fin), gen_cvc_short_o_hot_5_missing (hot), ixl_complete_word_12 (jam), gen_cvc_short_u_mud_10_picture (mud), gen_cvc_short_e_wet_11_missing (wet), cvc_listen_find_010 (hat), gen_cvc_short_a_van_28_picture (van), ixl_complete_word_3 (bed), ixl_sound_order_4 (map), cvc_listen_find_024 (sit), gen_cvc_short_i_bib_0_vowel (bib), cvc_listen_find_006 (cup), gen_cvc_short_a_bag_1_vowel (bag), gen_cvc_short_i_kid_10_missing (kid), gen_cvc_short_e_web_10_picture (web)
+- Fresh round proof: gen_cvc_short_e_web_10_missing (web), cvc_listen_find_009 (fin), exp7_cvc_21 (wig), recovery_cvc_pen_picture_2 (pen), cvc_listen_find_002 (bat), p3_cvc_missing_vowel_10 (dog), gen_cvc_short_u_rug_14_missing (rug), cvc_listen_find_015 (map), gen_cvc_short_a_hat_10_picture (hat), p3_cvc_missing_vowel_7 (pig), cvc_listen_find_027 (lid), ixl_sound_order_14 (sock), cvc_listen_find_017 (mug), ixl_sound_order_21 (fox), gen_cvc_short_a_dad_7_missing (dad)
+- Review round proof: ixl_sound_order_18 (log), gen_cvc_short_o_cob_0_vowel (cob), ixl_sound_order_12 (jam), cvc_listen_find_021 (pot), ixl_sound_order_29 (man), cvc_listen_find_007 (dog), exp7_cvc_9 (ram), cvc_listen_find_027 (lid), gen_cvc_short_i_bib_0_missing (bib), gen_cvc_short_e_ten_9_picture (ten), cvc_listen_find_025 (sun), ixl_sound_order_25 (fin), ixl_complete_word_5 (pan), ixl_complete_word_10 (web), gen_cvc_short_i_bin_3_picture (bin)
 
 ## rhyming
 
@@ -160,12 +160,12 @@ Generated: 2026-06-01T06:23:20.262Z
 
 ## short_vowel_discrimination
 
-- Total candidate questions: 617
-- Runtime eligible questions: 433
+- Total candidate questions: 615
+- Runtime eligible questions: 431
 
 ### Level 1
 
-- Accepted count: 379
+- Accepted count: 377
 - Coverage targets: 5
 - Missing image references among accepted: 0
 - Missing audio references among accepted: 0
@@ -177,6 +177,6 @@ Generated: 2026-06-01T06:23:20.262Z
 | missing required runtime image | 2 |
 | question would render with an empty or broken visual area | 2 |
 
-- Fresh round proof: gen_short_vowel_i_dip_21_picture (dip), p3_short_vowel_listen_3 (map), p3_short_vowel_listen_14 (mud), gen_short_vowel_e_red_69_listen (red), gen_short_vowel_o_cob_13_listen (cob), p3_short_vowel_listen_12 (log), gen_short_vowel_i_fin_27_listen (fin), gen_short_vowel_u_rug_73_picture (rug), gen_short_vowel_i_kid_42_word (kid), gen_short_vowel_e_hen_33_picture (hen), gen_short_vowel_u_bus_9_listen (bus), gen_short_vowel_u_tug_87_listen (tug), p3_short_vowel_listen_5 (pen), recovery_short_vowel_picture_9 (net), p3_short_vowel_listen_4 (bed)
-- Review round proof: ixl_short_vowel_6 (hat), ixl_short_vowel_19 (dog), gen_short_vowel_i_sip_77_listen (sip), recovery_short_vowel_picture_23 (mug), recovery_short_vowel_picture_9 (net), gen_short_vowel_a_jam_39_listen (jam), gen_short_vowel_a_ram_67_listen (ram), gen_short_vowel_i_lid_47_listen (lid), p3_short_vowel_listen_12 (log), gen_short_vowel_a_lap_45_picture (lap), gen_short_vowel_i_hit_35_picture (hit), gen_short_vowel_i_fig_26_word (fig), recovery_short_vowel_listen_12 (wig), gen_short_vowel_u_rug_73_listen (rug), gen_short_vowel_i_fin_27_listen (fin)
+- Fresh round proof: gen_short_vowel_e_pet_61_listen (pet), gen_short_vowel_a_wag_89_picture (wag), gen_short_vowel_o_dot_23_listen (dot), recovery_short_vowel_listen_12 (wig), gen_short_vowel_u_tub_86_word (tub), p3_short_vowel_listen_3 (map), p3_short_vowel_listen_11 (pot), recovery_short_vowel_listen_4 (cap), p3_short_vowel_listen_7 (pig), ixl_short_vowel_2 (map), recovery_short_vowel_picture_10 (jet), recovery_short_vowel_picture_11 (pig), gen_short_vowel_a_lap_45_listen (lap), gen_short_vowel_e_pen_60_picture (pen), p3_short_vowel_listen_9 (sit)
+- Review round proof: gen_short_vowel_e_web_90_word (web), p3_short_vowel_listen_13 (cup), gen_short_vowel_a_tap_83_listen (tap), gen_short_vowel_i_lip_48_picture (lip), recovery_short_vowel_picture_20 (mop), p3_short_vowel_listen_6 (red), recovery_short_vowel_picture_1 (cat), gen_short_vowel_u_mug_55_picture (mug), gen_short_vowel_a_cab_10_word (cab), gen_short_vowel_a_bag_1_picture (bag), gen_short_vowel_u_tug_87_picture (tug), gen_short_vowel_u_sun_80_word (sun), p3_short_vowel_listen_3 (map), p3_short_vowel_listen_14 (mud), gen_short_vowel_u_jug_41_listen (jug)
 

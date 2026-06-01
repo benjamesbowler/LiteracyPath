@@ -222,6 +222,10 @@ const approvedGuidedReadingVocabularyAudio = {
   stronger: "/media/vocabulary/audio/stronger.mp3"
 };
 
+const approvedAssessmentWordAudioOverrides = {
+  sip: "/audio/child-mode/clean-human/phrases/sip.mp3"
+};
+
 export const audioPreferenceManifest = Object.fromEntries([
   ...Object.entries(kimiVocabulary500AudioPreferences),
   ...approvedWordAudioKeys.map(word => [
@@ -270,6 +274,19 @@ export const audioPreferenceManifest = Object.fromEntries([
         notes: "Approved imported vocabulary audio from the strict missing-media repair pack."
       })
     ]),
+  ...Object.entries(approvedAssessmentWordAudioOverrides).map(([word, fallbackPath]) => [
+    word,
+    approvedPreference({
+      key: word,
+      word,
+      category: "words",
+      fallbackPath,
+      deprecatedAudioPaths: [`/media/vocabulary/audio/${word}.mp3`],
+      reviewNeededPaths: [`/media/vocabulary/audio/${word}.mp3`],
+      source: "live assessment audio review",
+      notes: "Approved clean exact-word replacement for active assessment playback; older vocabulary audio is blocked because live testing showed separated phoneme/letter playback."
+    })
+  ]),
   ...approvedHfwAudioKeys.map(word => [
     `hfw:${word}`,
     approvedPreference({
