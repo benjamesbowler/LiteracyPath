@@ -137,11 +137,7 @@ function inferRoundPhase({ level, progress, roundNumber, availableLetters }) {
 }
 
 function stableShuffleLetters(letters, random) {
-  return shuffleItems(letters, random).sort((a, b) => {
-    const ai = INITIAL_SOUND_LETTERS.indexOf(a);
-    const bi = INITIAL_SOUND_LETTERS.indexOf(b);
-    return ai - bi;
-  });
+  return shuffleItems(letters, random);
 }
 
 function getProgressSets(studentProgress = {}) {

@@ -41,10 +41,16 @@ export const masteryRules = {
     reviewAfter: 20
   },
 
-  "High-Frequency Words 51-100": {
-    roundLength: 12,
-    passScore: 10,
-    reviewAfter: 25
+  "High-Frequency Words 51-75": {
+    roundLength: 10,
+    passScore: 9,
+    reviewAfter: 20
+  },
+
+  "High-Frequency Words 76-100": {
+    roundLength: 10,
+    passScore: 9,
+    reviewAfter: 20
   },
 
   "Blends": {
@@ -174,18 +180,25 @@ export const masteryRules = {
   }
 };
 
+const MIN_PHASE_ROUND_LENGTH = 15;
+const DEFAULT_PASS_RATE = 0.8;
+
 export function getMasteryRule(skillLabel) {
   const rule = masteryRules[skillLabel] || {
-    roundLength: 10,
-    passScore: 8,
+    roundLength: MIN_PHASE_ROUND_LENGTH,
+    passScore: Math.ceil(MIN_PHASE_ROUND_LENGTH * DEFAULT_PASS_RATE),
     reviewAfter: 20
   };
 
-  const roundLength = Math.max(1, rule.roundLength || 10);
+  const roundLength = Math.max(MIN_PHASE_ROUND_LENGTH, rule.roundLength || MIN_PHASE_ROUND_LENGTH);
+  const passScore = Math.max(
+    Math.ceil(roundLength * DEFAULT_PASS_RATE),
+    rule.passScore || 0
+  );
 
   return {
     ...rule,
     roundLength,
-    passScore: Math.min(roundLength, Math.max(1, rule.passScore || Math.ceil(roundLength * 0.8)))
+    passScore: Math.min(roundLength, Math.max(1, passScore))
   };
 }

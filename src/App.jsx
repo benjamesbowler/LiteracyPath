@@ -236,7 +236,12 @@ function isHfwStage(stage = {}) {
 }
 
 function shuffleArray(array) {
-  return [...array].sort(() => Math.random() - 0.5);
+  const next = [...array];
+  for (let index = next.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [next[index], next[swapIndex]] = [next[swapIndex], next[index]];
+  }
+  return next;
 }
 
 function normalize(text) {
@@ -3566,7 +3571,7 @@ export default function App() {
       studentProgress: { initialSoundsProgress: progress },
       level,
       roundNumber: null,
-      seed: Date.now(),
+      seed: Date.now() + Math.floor(Math.random() * 1000000),
       itemFilter: item => isRuntimeEligibleEarlySkillQuestion(item, {
         skillId: "initial_sounds",
         level
