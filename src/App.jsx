@@ -186,6 +186,10 @@ import {
   calculateRoundProgress,
   getAssessmentAttemptType
 } from "./appState/assessmentSessionHelpers.js";
+import {
+  preloadQuestionMedia,
+  preloadQuestionMediaBatch
+} from "./utils/preloadQuestionMedia.js";
 
 // dynamic mastery system
 
@@ -1774,6 +1778,11 @@ export default function App() {
   useEffect(() => {
     roundQuestionIdsRef.current = roundQuestionIds;
   }, [roundQuestionIds]);
+
+  useEffect(() => {
+    if (!currentQuestion || !isFocusedAssessmentView(appView)) return;
+    void preloadQuestionMedia(currentQuestion);
+  }, [appView, currentQuestion?.id]);
 
   const profileStorageKey =
     getTeacherProfileStorageKey(teacherId);
@@ -4318,6 +4327,10 @@ export default function App() {
     };
   }
 
+  function preloadAssessmentQuestionWindow(questions = []) {
+    void preloadQuestionMediaBatch(questions.filter(Boolean).slice(0, 3));
+  }
+
   function pickQuestion(mode = assessmentMode, answeredCount = roundAnswers.length, stageIndexOverride = currentSkillIndex) {
     answerInFlightRef.current = false;
     setMessage("");
@@ -4335,7 +4348,9 @@ export default function App() {
         return;
       }
 
-      setCurrentQuestion(prepareQuestion(reviewPool[0], true));
+      const preparedReviewQuestion = prepareQuestion(reviewPool[0], true);
+      preloadAssessmentQuestionWindow([preparedReviewQuestion, ...reviewPool.slice(1, 3)]);
+      setCurrentQuestion(preparedReviewQuestion);
       setAssessmentTransitioning(false);
       return;
     }
@@ -4368,7 +4383,12 @@ export default function App() {
         remainingQueue: initialSoundRoundQueueRef.current.map(item => `${item.letter}:${item.targetWord}`)
       });
 
-      setCurrentQuestion(prepareQuestion(picked));
+      const preparedInitialSoundQuestion = prepareQuestion(picked);
+      preloadAssessmentQuestionWindow([
+        preparedInitialSoundQuestion,
+        ...initialSoundRoundQueueRef.current.slice(0, 2)
+      ]);
+      setCurrentQuestion(preparedInitialSoundQuestion);
       setAssessmentTransitioning(false);
       return;
     }
@@ -4418,7 +4438,12 @@ export default function App() {
       recentItemKeys: getRecentStageItemKeys(activeStage.label)
     });
 
-    setCurrentQuestion(prepareQuestion(picked));
+    const preparedQuestion = prepareQuestion(picked);
+    preloadAssessmentQuestionWindow([
+      preparedQuestion,
+      ...prioritized.filter(question => question.id !== picked.id).slice(0, 2)
+    ]);
+    setCurrentQuestion(preparedQuestion);
     setAssessmentTransitioning(false);
   }
 

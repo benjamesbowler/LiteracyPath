@@ -18,6 +18,7 @@
     "validate:answer-options": "node tools/auditAnswerOptionRendering.js",
     "audit:image-quality": "node tools/auditImageQuality.js",
     "check:media-quality": "node tools/checkMediaQualityManifest.js",
+    "check:assessment-media-sizes": "node tools/checkAssessmentMediaSizes.js",
     "check:hfw-coverage": "node tools/checkHighFrequencyWordsCoverage.js",
     "check:guided-reading-visibility": "node tools/checkGuidedReadingVisibility.js",
     "validate:skill-banks": "node tools/auditSkillBanks.js",
