@@ -241,6 +241,7 @@ function makeBase({
   finalSoundType = "",
   distractorType = "contrast",
   difficulty = level,
+  phase = 1,
   imageUrl = "",
   audioUrl = "",
   sourceLexiconId = "",
@@ -281,6 +282,8 @@ function makeBase({
     itemType,
     distractorType,
     difficulty,
+    assessmentPhase: phase,
+    phaseTarget: `level_${level}_phase_${phase}`,
     tags,
     active: true,
     qaStatus: "approved",
@@ -417,6 +420,8 @@ function generateCvcQuestions(entries) {
   vowels.forEach(vowel => {
     const targetEntries = cvcEntries.filter(entry => entry.medialVowel === vowel);
     targetEntries.slice(0, 55).forEach((entry, index) => {
+      const level = index % 2 === 0 ? 1 : 2;
+      const phase = Math.floor(index / 2) % 2 === 0 ? 1 : 2;
       const contrastEntries = cvcEntries.filter(item => item.medialVowel !== vowel);
       const wordOptions = balancedCvcOptions(entry, contrastEntries, {
         seed: index,
@@ -432,7 +437,8 @@ function generateCvcQuestions(entries) {
           id: `gen_cvc_short_${vowel}_${normalize(entry.lowercaseWord)}_${index}_vowel`,
           skillId: "cvc_short_vowels",
           skillName: "CVC and Short Vowels",
-          level: 1,
+          level,
+          phase,
           templateType: "SHORT_VOWEL_WORD",
           prompt: `Which word has the short ${vowel} sound?`,
           spokenPrompt: `Which word has the short ${vowel} sound?`,
@@ -450,11 +456,12 @@ function generateCvcQuestions(entries) {
         }));
       }
       out.push(makeBase({
-        id: `gen_cvc_short_${vowel}_${normalize(entry.lowercaseWord)}_${index}_missing`,
-        skillId: "cvc_short_vowels",
-        skillName: "CVC and Short Vowels",
-        level: 1,
-        templateType: "MISSING_VOWEL_CVC",
+          id: `gen_cvc_short_${vowel}_${normalize(entry.lowercaseWord)}_${index}_missing`,
+          skillId: "cvc_short_vowels",
+          skillName: "CVC and Short Vowels",
+          level,
+          phase,
+          templateType: "MISSING_VOWEL_CVC",
         prompt: `Choose the missing vowel in ${entry.lowercaseWord.replace(vowel, "_")}.`,
         spokenPrompt: `Choose the missing vowel in ${entry.lowercaseWord.replace(vowel, "_")}.`,
         targetWord: entry.lowercaseWord,
@@ -474,7 +481,8 @@ function generateCvcQuestions(entries) {
           id: `gen_cvc_short_${vowel}_${normalize(entry.lowercaseWord)}_${index}_picture`,
           skillId: "cvc_short_vowels",
           skillName: "CVC and Short Vowels",
-          level: 1,
+          level,
+          phase,
           templateType: "PICTURE_TO_PRINT_MATCH",
           prompt: "Pick the word that matches the picture.",
           spokenPrompt: "Pick the word that matches the picture.",
@@ -605,6 +613,7 @@ function generateRhymingQuestions(entries) {
     available.forEach((entry, index) => {
       const rhymeWords = available.map(item => item.lowercaseWord).filter(word => word !== entry.lowercaseWord);
       rhymeWords.slice(0, 4).forEach((rhymeWord, rhymeIndex) => {
+        const phase = (index + rhymeIndex) % 2 === 0 ? 1 : 2;
         const options = balancedRhymeOptions(rhymeWord, distractorPool, {
           family,
           seed: index + rhymeIndex
@@ -614,6 +623,7 @@ function generateRhymingQuestions(entries) {
           skillId: "rhyming",
           skillName: "Rhyming",
           level,
+          phase,
           templateType: rhymeIndex % 2 === 0 ? "READ_FIND_RHYME" : "LISTEN_FIND_RHYME",
           prompt: `Which word rhymes with ${entry.word}?`,
           targetWord: entry.lowercaseWord,

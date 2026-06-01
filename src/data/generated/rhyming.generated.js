@@ -43,6 +43,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -95,6 +97,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -147,6 +151,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -199,6 +205,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -251,6 +259,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -303,6 +313,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -355,6 +367,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -407,6 +421,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -459,6 +475,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -511,6 +529,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -563,6 +583,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -615,6 +637,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -667,6 +691,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -719,6 +745,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -771,6 +799,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -823,6 +853,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -875,6 +907,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -927,6 +961,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -979,6 +1015,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1031,6 +1069,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1083,6 +1123,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1135,6 +1177,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1187,6 +1231,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1239,6 +1285,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1291,6 +1339,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1343,6 +1393,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1395,6 +1447,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1447,6 +1501,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1499,6 +1555,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1551,6 +1609,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1603,6 +1663,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1655,6 +1717,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1707,6 +1771,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1759,6 +1825,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1811,6 +1879,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -1863,6 +1933,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1915,6 +1987,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -1967,6 +2041,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2019,6 +2095,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2071,6 +2149,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2123,6 +2203,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2175,6 +2257,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2227,6 +2311,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2279,6 +2365,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2331,6 +2419,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2383,6 +2473,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2435,6 +2527,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2487,6 +2581,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2539,6 +2635,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2591,6 +2689,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2643,6 +2743,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2695,6 +2797,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2747,6 +2851,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2799,6 +2905,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2851,6 +2959,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -2903,6 +3013,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -2955,6 +3067,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3007,6 +3121,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3059,6 +3175,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3111,6 +3229,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3163,6 +3283,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3215,6 +3337,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3267,6 +3391,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3319,6 +3445,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3371,6 +3499,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3423,6 +3553,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3475,6 +3607,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3527,6 +3661,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3579,6 +3715,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3631,6 +3769,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3683,6 +3823,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3735,6 +3877,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3787,6 +3931,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3839,6 +3985,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3891,6 +4039,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -3943,6 +4093,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -3995,6 +4147,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4047,6 +4201,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4099,6 +4255,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4151,6 +4309,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4203,6 +4363,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4255,6 +4417,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4307,6 +4471,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4359,6 +4525,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4411,6 +4579,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4463,6 +4633,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4515,6 +4687,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4567,6 +4741,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4619,6 +4795,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4671,6 +4849,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4723,6 +4903,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4775,6 +4957,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4827,6 +5011,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4879,6 +5065,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -4931,6 +5119,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -4983,6 +5173,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5035,6 +5227,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5087,6 +5281,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5139,6 +5335,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5191,6 +5389,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5243,6 +5443,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5295,6 +5497,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5347,6 +5551,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5399,6 +5605,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5451,6 +5659,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5503,6 +5713,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5555,6 +5767,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5607,6 +5821,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5659,6 +5875,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5711,6 +5929,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5763,6 +5983,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5815,6 +6037,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5867,6 +6091,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -5919,6 +6145,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -5971,6 +6199,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6023,6 +6253,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6075,6 +6307,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6127,6 +6361,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6179,6 +6415,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6231,6 +6469,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6283,6 +6523,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6335,6 +6577,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6387,6 +6631,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6439,6 +6685,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6491,6 +6739,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6543,6 +6793,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6595,6 +6847,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6647,6 +6901,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6699,6 +6955,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6751,6 +7009,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6803,6 +7063,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6855,6 +7117,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -6907,6 +7171,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -6959,6 +7225,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7011,6 +7279,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7063,6 +7333,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7115,6 +7387,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7167,6 +7441,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7219,6 +7495,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7271,6 +7549,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7323,6 +7603,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7375,6 +7657,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7427,6 +7711,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7479,6 +7765,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7531,6 +7819,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7583,6 +7873,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7635,6 +7927,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7687,6 +7981,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7739,6 +8035,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7791,6 +8089,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7843,6 +8143,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7895,6 +8197,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -7947,6 +8251,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -7999,6 +8305,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8051,6 +8359,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8103,6 +8413,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8155,6 +8467,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8207,6 +8521,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8259,6 +8575,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8311,6 +8629,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8363,6 +8683,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8415,6 +8737,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8467,6 +8791,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8519,6 +8845,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8571,6 +8899,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8623,6 +8953,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8675,6 +9007,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8727,6 +9061,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8779,6 +9115,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8831,6 +9169,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8883,6 +9223,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -8935,6 +9277,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -8987,6 +9331,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9039,6 +9385,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9091,6 +9439,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9143,6 +9493,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9195,6 +9547,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9247,6 +9601,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9299,6 +9655,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9351,6 +9709,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9403,6 +9763,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9455,6 +9817,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9507,6 +9871,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9559,6 +9925,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9611,6 +9979,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9663,6 +10033,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9715,6 +10087,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9767,6 +10141,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9819,6 +10195,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9871,6 +10249,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -9923,6 +10303,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -9975,6 +10357,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10027,6 +10411,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10079,6 +10465,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10131,6 +10519,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10183,6 +10573,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10235,6 +10627,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10287,6 +10681,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10339,6 +10735,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10391,6 +10789,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10443,6 +10843,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10495,6 +10897,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10547,6 +10951,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10599,6 +11005,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10651,6 +11059,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10703,6 +11113,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10755,6 +11167,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10807,6 +11221,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10859,6 +11275,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -10911,6 +11329,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -10963,6 +11383,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11015,6 +11437,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11067,6 +11491,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11119,6 +11545,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11171,6 +11599,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11223,6 +11653,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11275,6 +11707,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11327,6 +11761,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11379,6 +11815,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11431,6 +11869,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11483,6 +11923,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11535,6 +11977,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11587,6 +12031,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11639,6 +12085,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11691,6 +12139,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11743,6 +12193,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11795,6 +12247,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -11847,6 +12301,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11899,6 +12355,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -11951,6 +12409,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12003,6 +12463,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12055,6 +12517,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12107,6 +12571,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12159,6 +12625,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12211,6 +12679,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12263,6 +12733,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12315,6 +12787,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12367,6 +12841,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12419,6 +12895,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12471,6 +12949,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12523,6 +13003,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12575,6 +13057,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12627,6 +13111,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12679,6 +13165,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12731,6 +13219,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12783,6 +13273,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12835,6 +13327,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -12887,6 +13381,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12939,6 +13435,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -12991,6 +13489,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13043,6 +13543,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -13095,6 +13597,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13147,6 +13651,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13199,6 +13705,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -13251,6 +13759,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -13303,6 +13813,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13355,6 +13867,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -13407,6 +13921,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13459,6 +13975,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -13511,6 +14029,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13563,6 +14083,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13615,6 +14137,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -13667,6 +14191,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -13719,6 +14245,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13771,58 +14299,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_corn"
-  },
-  {
-    "id": "gen_rhyme_or_corn_storm_0_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 2,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with corn?",
-    "question": "Which word rhymes with corn?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "corn",
-    "correctAnswer": "storm",
-    "answer": "storm",
-    "choices": [
-      "storm",
-      "boat",
-      "cot",
-      "dog"
-    ],
-    "answerOptions": [
-      "storm",
-      "boat",
-      "cot",
-      "dog"
-    ],
-    "imageKey": "corn",
-    "imageUrl": "/images/child-mode/initial-sounds/corn.png",
-    "imagePath": "/images/child-mode/initial-sounds/corn.png",
-    "audioKey": "corn",
-    "audioUrl": "/audio/child-mode/clean-human/words/corn.mp3",
-    "audioPath": "/audio/child-mode/clean-human/words/corn.mp3",
-    "phonicsPattern": "or",
-    "targetSound": "or",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "or",
-    "itemKey": "or",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "rhyming",
@@ -13875,6 +14353,8 @@ export const rhymingGeneratedQuestions = [
     "itemType": "rhyming_family",
     "distractorType": "contrast",
     "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "rhyming",
@@ -13883,161 +14363,5 @@ export const rhymingGeneratedQuestions = [
     "active": true,
     "qaStatus": "approved",
     "sourceLexiconId": "lex_horn"
-  },
-  {
-    "id": "gen_rhyme_or_horn_storm_1_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 2,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with horn?",
-    "question": "Which word rhymes with horn?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "horn",
-    "correctAnswer": "storm",
-    "answer": "storm",
-    "choices": [
-      "storm",
-      "boat",
-      "cot",
-      "dog"
-    ],
-    "answerOptions": [
-      "storm",
-      "boat",
-      "cot",
-      "dog"
-    ],
-    "imageKey": "horn",
-    "imageUrl": "/media/vocabulary/images/horn.webp",
-    "imagePath": "/media/vocabulary/images/horn.webp",
-    "audioKey": "horn",
-    "audioUrl": "/media/vocabulary/audio/horn.mp3",
-    "audioPath": "/media/vocabulary/audio/horn.mp3",
-    "phonicsPattern": "or",
-    "targetSound": "or",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "or",
-    "itemKey": "or",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 2,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_horn"
-  },
-  {
-    "id": "gen_rhyme_or_storm_corn_2_0",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 2,
-    "templateType": "READ_FIND_RHYME",
-    "formatType": "READ_FIND_RHYME",
-    "questionType": "read_find_rhyme",
-    "prompt": "Which word rhymes with storm?",
-    "question": "Which word rhymes with storm?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "storm",
-    "correctAnswer": "corn",
-    "answer": "corn",
-    "choices": [
-      "corn",
-      "boat",
-      "dog",
-      "fox"
-    ],
-    "answerOptions": [
-      "corn",
-      "boat",
-      "dog",
-      "fox"
-    ],
-    "imageKey": "storm",
-    "imageUrl": "/media/vocabulary/images/storm.webp",
-    "imagePath": "/media/vocabulary/images/storm.webp",
-    "audioKey": "storm",
-    "audioUrl": "/media/vocabulary/audio/storm.mp3",
-    "audioPath": "/media/vocabulary/audio/storm.mp3",
-    "phonicsPattern": "or",
-    "targetSound": "or",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "or",
-    "itemKey": "or",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 2,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_storm"
-  },
-  {
-    "id": "gen_rhyme_or_storm_horn_2_1",
-    "skillId": "rhyming",
-    "skillName": "Rhyming",
-    "skill": "Rhyming",
-    "level": 2,
-    "templateType": "LISTEN_FIND_RHYME",
-    "formatType": "LISTEN_FIND_RHYME",
-    "questionType": "listen_find_rhyme",
-    "prompt": "Which word rhymes with storm?",
-    "question": "Which word rhymes with storm?",
-    "spokenPrompt": "",
-    "audioText": "",
-    "targetWord": "storm",
-    "correctAnswer": "horn",
-    "answer": "horn",
-    "choices": [
-      "horn",
-      "boat",
-      "cot",
-      "dog"
-    ],
-    "answerOptions": [
-      "horn",
-      "boat",
-      "cot",
-      "dog"
-    ],
-    "imageKey": "storm",
-    "imageUrl": "/media/vocabulary/images/storm.webp",
-    "imagePath": "/media/vocabulary/images/storm.webp",
-    "audioKey": "storm",
-    "audioUrl": "/media/vocabulary/audio/storm.mp3",
-    "audioPath": "/media/vocabulary/audio/storm.mp3",
-    "phonicsPattern": "or",
-    "targetSound": "or",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "or",
-    "itemKey": "or",
-    "itemType": "rhyming_family",
-    "distractorType": "contrast",
-    "difficulty": 2,
-    "tags": [
-      "generated",
-      "rhyming",
-      "same-rime"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_storm"
   }
 ];

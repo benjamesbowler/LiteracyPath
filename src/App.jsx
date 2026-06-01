@@ -3531,7 +3531,20 @@ export default function App() {
     return expectedKeys.every(key => coveredKeys.has(key));
   }
 
+  function hasAssessmentPathQuestions(stage, step = {}) {
+    if (!stage || !step) return false;
+    const stageIndex = skillTree.findIndex(item => item.id === stage.id);
+    return allQuestions.filter(question =>
+      getStageIndex(question) === stageIndex &&
+      !isQuestionBlockedByMediaQa(question) &&
+      getAssessmentQuestionLevel(stage, question) === Number(step.level || 1) &&
+      (getAssessmentQuestionPhase(question) || Number(step.phase || 1)) === Number(step.phase || 1)
+    ).length >= ROUND_LENGTH;
+  }
+
   function getNextAssessmentPathStep(stage) {
+    const passedKeys = getPassedAssessmentPathKeys(stage);
+
     if (
       isFinalSoundsStage(stage) &&
       getFinalSoundsLevelOneMasteryDepth().levelOneMastered &&
@@ -3540,19 +3553,33 @@ export default function App() {
       return { level: 2, phase: 1 };
     }
 
-    if (
-      stage &&
-      !isInitialSoundsStage(stage) &&
-      !isFinalSoundsStage(stage) &&
-      isConfiguredLevelCoverageComplete(stage, 1) &&
-      getConfiguredLevelCoverageKeys(stage, 2).length > 0 &&
-      !isConfiguredLevelCoverageComplete(stage, 2)
-    ) {
-      return { level: 2, phase: 1 };
+    if (stage && !isInitialSoundsStage(stage) && !isFinalSoundsStage(stage)) {
+      const hasLevelTwoContent = getConfiguredLevelCoverageKeys(stage, 2).length > 0;
+      const levelOneComplete = hasLevelTwoContent && isConfiguredLevelCoverageComplete(stage, 1);
+      const levelTwoComplete = hasLevelTwoContent && isConfiguredLevelCoverageComplete(stage, 2);
+      const hasLevelTwoHistory = getStageAssessmentRecords(stage)
+        .some(record => Number(record.itemLevel || 1) >= 2);
+      const nextLevelOneStep = ASSESSMENT_PATH_STEPS.find(step =>
+        Number(step.level || 1) === 1 &&
+        !passedKeys.has(getAssessmentPathKey(step)) &&
+        hasAssessmentPathQuestions(stage, step)
+      );
+      const nextLevelTwoStep = ASSESSMENT_PATH_STEPS.find(step =>
+        Number(step.level || 1) === 2 &&
+        !passedKeys.has(getAssessmentPathKey(step)) &&
+        hasAssessmentPathQuestions(stage, step)
+      );
+
+      if (hasLevelTwoContent && !levelTwoComplete) {
+        if (hasLevelTwoHistory) return nextLevelTwoStep || { level: 2, phase: 1 };
+        if (levelOneComplete && !nextLevelOneStep) return nextLevelTwoStep || { level: 2, phase: 1 };
+      }
     }
 
-    const passedKeys = getPassedAssessmentPathKeys(stage);
-    return ASSESSMENT_PATH_STEPS.find(step => !passedKeys.has(getAssessmentPathKey(step))) ||
+    return ASSESSMENT_PATH_STEPS.find(step =>
+      !passedKeys.has(getAssessmentPathKey(step)) &&
+      hasAssessmentPathQuestions(stage, step)
+    ) ||
       ASSESSMENT_PATH_STEPS.at(-1);
   }
 
@@ -3561,13 +3588,15 @@ export default function App() {
     const index = Math.max(0, ASSESSMENT_PATH_STEPS.findIndex(step => getAssessmentPathKey(step) === currentKey));
     const nextStep = ASSESSMENT_PATH_STEPS[index + 1] || null;
     const configured = configuredCoverageTotals[stage?.id];
+    const nextStepHasQuestions = nextStep ? hasAssessmentPathQuestions(stage, nextStep) : false;
     const levelOneCompleteWithLevelTwoReady =
       options.coverageComplete &&
       Number(currentStep.level || 1) === 1 &&
+      (Number(currentStep.phase || 1) === 2 || !nextStepHasQuestions) &&
       configured?.levels?.[2]?.length;
     const finalStepComplete = levelOneCompleteWithLevelTwoReady
       ? false
-      : options.coverageComplete || !nextStep;
+      : (options.coverageComplete && !nextStepHasQuestions) || !nextStep;
     const nextActionLabel = levelOneCompleteWithLevelTwoReady
       ? "Start Level 2"
       : finalStepComplete
@@ -4037,17 +4066,21 @@ export default function App() {
       finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null,
       level: options.level || null
     });
-    const covered = new Set(
+    const covered = new Set();
+
+    if (!options.level) {
       Object.values(itemMastery || {})
         .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0))
         .map(row => getItemMasteryStateKey(row.itemKey, row.itemType))
         .filter(key => expectedKeys.has(key))
-    );
+        .forEach(key => covered.add(key));
+    }
 
     answerHistoryRef.current
       .filter(record =>
         record.isCorrect &&
-        (record.stage === stage?.label || record.skillId === stage?.id)
+        (record.stage === stage?.label || record.skillId === stage?.id) &&
+        (!options.level || Number(record.itemLevel || 1) === Number(options.level))
       )
       .map(inferAnswerRecordMetadata)
       .filter(metadata => metadata?.itemKey && metadata?.itemType)
@@ -4060,11 +4093,12 @@ export default function App() {
 
   function getUncoveredRhymingQuestionsForRound(questions, stage) {
     if (stage?.id !== "rhyming") return [];
+    const pathStep = getNextAssessmentPathStep(stage);
 
     const expectedKeys = getCoverageItemKeysForStage(stage, {
-      finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null
+      level: pathStep.level
     });
-    const coveredKeys = getCoveredStageItemKeys(stage);
+    const coveredKeys = getCoveredStageItemKeys(stage, { level: pathStep.level });
     const currentRoundKeys = new Set(roundItemKeysRef.current);
     const missingKeys = new Set(
       Array.from(expectedKeys).filter(key => !coveredKeys.has(key) && !currentRoundKeys.has(key))
@@ -4994,12 +5028,21 @@ export default function App() {
       }
     }
 
+    const score = nextRound.filter(Boolean).length;
+    const currentRoundRecords = getStageAssessmentRecords(stage).slice(-nextRound.length);
+    const currentStep = currentRoundRecords.length
+      ? {
+        level: Number(currentRoundRecords.at(-1)?.itemLevel || 1) >= 2 ? 2 : 1,
+        phase: Number(currentRoundRecords.at(-1)?.itemPhase || 1) === 2 ? 2 : 1
+      }
+      : getNextAssessmentPathStep(stage);
     const expectedKeys = Array.from(getCoverageItemKeysForStage(stage, {
-      finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null
+      finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null,
+      level: currentStep.level
     }));
     const expectedKeySet = new Set(expectedKeys);
     const alreadyCoveredKeys = new Set(
-      getCoveredStageItemKeys(stage)
+      getCoveredStageItemKeys(stage, { level: currentStep.level })
     );
     const coveredKeys = new Set(alreadyCoveredKeys);
 
@@ -5008,7 +5051,7 @@ export default function App() {
       .forEach(key => coveredKeys.add(key));
 
     const configured = configuredCoverageTotals[stage.id];
-    const coverageTotal = configured?.total || expectedKeys.length;
+    const coverageTotal = expectedKeys.length || configured?.total || 0;
     const coverageUnit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words" : "items");
     const remainingItems = expectedKeys
       .filter(key => !coveredKeys.has(key))
@@ -5026,17 +5069,9 @@ export default function App() {
     const totalCoveredItems = Array.from(coveredKeys)
       .map(formatCoverageKeyLabel)
       .slice(0, 60);
-    const score = nextRound.filter(Boolean).length;
     const coverageComplete = expectedKeys.length
       ? expectedKeys.every(key => coveredKeys.has(key))
       : true;
-    const currentRoundRecords = getStageAssessmentRecords(stage).slice(-nextRound.length);
-    const currentStep = currentRoundRecords.length
-      ? {
-        level: Number(currentRoundRecords.at(-1)?.itemLevel || 1) >= 2 ? 2 : 1,
-        phase: Number(currentRoundRecords.at(-1)?.itemPhase || 1) === 2 ? 2 : 1
-      }
-      : getNextAssessmentPathStep(stage);
     const pathStatus = getCheckpointPathStatus(stage, currentStep, { coverageComplete });
     const effectivePassed = passed;
 

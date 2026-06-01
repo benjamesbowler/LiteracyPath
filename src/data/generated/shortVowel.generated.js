@@ -45,6 +45,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -97,6 +99,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -149,6 +153,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -203,6 +209,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -255,6 +263,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -307,6 +317,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -361,6 +373,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -413,6 +427,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -465,6 +481,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -519,6 +537,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -571,6 +591,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -623,6 +645,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -677,6 +701,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -729,6 +755,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -783,6 +811,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -835,6 +865,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -887,6 +919,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -941,6 +975,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -993,6 +1029,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1045,6 +1083,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1099,6 +1139,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1151,6 +1193,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1203,6 +1247,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1257,6 +1303,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1309,6 +1357,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1361,6 +1411,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1415,6 +1467,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1467,6 +1521,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1519,6 +1575,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1573,6 +1631,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1625,6 +1685,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1677,6 +1739,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1731,6 +1795,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1783,6 +1849,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1835,6 +1903,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1889,6 +1959,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1941,6 +2013,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -1993,6 +2067,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2047,6 +2123,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2099,6 +2177,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2151,6 +2231,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2205,6 +2287,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2257,6 +2341,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2309,6 +2395,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2363,6 +2451,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2415,6 +2505,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2467,6 +2559,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2521,6 +2615,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2573,6 +2669,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2625,6 +2723,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2679,6 +2779,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2731,6 +2833,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2783,6 +2887,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2837,6 +2943,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2889,6 +2997,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2941,6 +3051,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -2995,6 +3107,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3047,6 +3161,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3099,6 +3215,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3153,6 +3271,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3205,6 +3325,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3257,6 +3379,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3311,6 +3435,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3363,6 +3489,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3415,6 +3543,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3469,6 +3599,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3521,6 +3653,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3573,6 +3707,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3627,6 +3763,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3679,6 +3817,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3731,6 +3871,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3785,6 +3927,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3837,6 +3981,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3889,6 +4035,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3943,6 +4091,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -3995,6 +4145,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4047,6 +4199,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4101,6 +4255,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4153,6 +4309,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4205,6 +4363,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4259,6 +4419,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4311,6 +4473,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4363,6 +4527,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4417,6 +4583,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4469,6 +4637,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4521,6 +4691,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4575,6 +4747,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4627,6 +4801,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4679,6 +4855,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4733,6 +4911,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4785,6 +4965,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4837,6 +5019,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4891,6 +5075,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4943,6 +5129,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -4995,6 +5183,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5049,6 +5239,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5101,6 +5293,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5153,6 +5347,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5207,6 +5403,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5259,6 +5457,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5311,6 +5511,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5365,6 +5567,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5417,6 +5621,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5469,6 +5675,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5523,6 +5731,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5575,6 +5785,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5627,6 +5839,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5681,6 +5895,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5733,6 +5949,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5785,6 +6003,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5839,6 +6059,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5891,6 +6113,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5943,6 +6167,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -5997,6 +6223,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6049,6 +6277,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6101,6 +6331,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6155,6 +6387,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6207,6 +6441,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6259,6 +6495,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6313,6 +6551,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6365,6 +6605,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6417,6 +6659,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6471,6 +6715,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6523,6 +6769,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6575,6 +6823,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6629,6 +6879,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6681,6 +6933,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6733,6 +6987,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6787,6 +7043,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6839,6 +7097,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6891,6 +7151,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6945,6 +7207,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -6997,6 +7261,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7049,6 +7315,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7103,6 +7371,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7155,6 +7425,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7207,6 +7479,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7261,6 +7535,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7313,6 +7589,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7365,6 +7643,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7419,6 +7699,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7471,6 +7753,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7523,6 +7807,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7577,6 +7863,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7629,6 +7917,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7681,6 +7971,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7735,6 +8027,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7787,6 +8081,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7839,6 +8135,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7893,6 +8191,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7945,6 +8245,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -7997,6 +8299,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8051,6 +8355,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8103,6 +8409,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8155,6 +8463,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8209,6 +8519,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8261,6 +8573,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8313,6 +8627,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8367,6 +8683,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8419,6 +8737,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8471,6 +8791,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8525,6 +8847,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8577,6 +8901,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8629,6 +8955,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8683,6 +9011,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8735,6 +9065,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8787,6 +9119,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8841,6 +9175,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8893,6 +9229,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8945,6 +9283,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -8999,6 +9339,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9051,6 +9393,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9103,6 +9447,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9157,6 +9503,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9209,6 +9557,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9261,6 +9611,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9315,6 +9667,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9367,6 +9721,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9419,6 +9775,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9473,6 +9831,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9525,6 +9885,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9577,6 +9939,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9631,6 +9995,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9683,6 +10049,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9735,6 +10103,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9789,6 +10159,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9841,6 +10213,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9893,6 +10267,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9947,6 +10323,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -9999,6 +10377,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10051,6 +10431,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10105,6 +10487,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10157,6 +10541,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10209,6 +10595,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10263,6 +10651,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10315,6 +10705,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10367,6 +10759,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10421,6 +10815,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10473,6 +10869,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10525,6 +10923,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10579,6 +10979,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10631,6 +11033,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10683,6 +11087,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10737,6 +11143,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10789,6 +11197,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10841,6 +11251,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10895,6 +11307,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10947,6 +11361,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -10999,6 +11415,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11053,6 +11471,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11105,6 +11525,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11157,6 +11579,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11211,6 +11635,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11263,6 +11689,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11315,6 +11743,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11369,6 +11799,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11421,6 +11853,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11473,6 +11907,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11527,6 +11963,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11579,6 +12017,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11631,6 +12071,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11685,6 +12127,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11737,6 +12181,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11789,6 +12235,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11843,6 +12291,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11895,6 +12345,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -11947,6 +12399,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12001,6 +12455,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12053,6 +12509,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12105,6 +12563,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12159,6 +12619,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12211,6 +12673,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12263,6 +12727,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12317,6 +12783,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12369,6 +12837,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12421,6 +12891,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12475,6 +12947,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12527,6 +13001,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12579,6 +13055,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12633,6 +13111,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12685,6 +13165,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12737,6 +13219,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12791,6 +13275,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12843,6 +13329,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12895,6 +13383,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -12949,6 +13439,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13001,6 +13493,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13053,6 +13547,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13107,6 +13603,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13159,6 +13657,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13211,6 +13711,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13265,6 +13767,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13317,6 +13821,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13369,6 +13875,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13423,6 +13931,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13475,6 +13985,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13527,6 +14039,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13581,6 +14095,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13633,6 +14149,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13685,6 +14203,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13739,6 +14259,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13791,6 +14313,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13843,6 +14367,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13897,6 +14423,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -13949,6 +14477,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14001,6 +14531,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14055,6 +14587,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14107,6 +14641,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14159,6 +14695,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14213,6 +14751,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14265,6 +14805,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14317,6 +14859,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14371,6 +14915,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14423,6 +14969,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14475,6 +15023,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14529,6 +15079,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14581,6 +15133,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14633,6 +15187,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14687,6 +15243,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14739,6 +15297,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14791,6 +15351,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14845,6 +15407,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14897,6 +15461,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -14949,6 +15515,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",
@@ -15001,6 +15569,8 @@ export const shortVowelGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "short-vowel-discrimination",

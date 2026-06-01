@@ -1,6 +1,6 @@
 # Early Skill Generated Bank Check
 
-Generated: 2026-06-01T06:31:24.024Z
+Generated: 2026-06-01T06:56:18.625Z
 
 ## Generated File Counts
 
@@ -8,7 +8,7 @@ Generated: 2026-06-01T06:31:24.024Z
 | --- | ---: |
 | cvc_short_vowels | 286 |
 | final_sounds | 271 |
-| rhyming | 270 |
+| rhyming | 266 |
 | short_vowel_discrimination | 285 |
 
 ## Failures

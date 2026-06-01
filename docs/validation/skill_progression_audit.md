@@ -6,14 +6,11 @@ Date: 2026-05-25
 
 - Managed skills simulated: 11
 - Fatal progression failures: 0
-- Progression warnings: 54
+- Progression warnings: 49
 
 ## Warnings
 
-- Ending Sounds L1 round 2: reused recent IDs gen_final_l1_n_fun_6_sound, gen_final_l1_t_hot_8_sound.
-- Ending Sounds L1 round 2: reused recent words fun, hot.
-- Ending Sounds L1 round 3: reused recent IDs gen_final_l1_d_pad_7_sound.
-- Ending Sounds L1 round 3: reused recent words pad.
+- Ending Sounds L1 round 3: reused recent words web.
 - Ending Sounds L2 round 2: reused recent IDs kimi7_final_b_1.
 - Ending Sounds L2 round 2: reused recent words desk, crab.
 - Ending Sounds L2 round 3: reused recent IDs kimi7_final_b_1.
@@ -24,8 +21,9 @@ Date: 2026-05-25
 - Rhyming Words L1 round 3: reused recent words rain, chair.
 - Rhyming Words L2 round 3: reused recent IDs gap_rhyming_l2_ack_back_sack_5, gen_rhyme_ird_third_bird_1_0, coverage_rhyme_l2_ish_002.
 - Rhyming Words L2 round 3: reused recent words back, third, dish.
-- Short Vowels L1 round 2: reused recent words hat.
-- Short Vowels L1 round 3: reused recent words bad.
+- Short Vowels L1 round 2: reused recent IDs gen_short_vowel_a_tag_82_listen.
+- Short Vowels L1 round 2: reused recent words cup, tag, sun.
+- Short Vowels L1 round 3: reused recent words run, jet.
 - Short Vowels L2 round 2: reused recent IDs gap_short_vowel_discrimination_l2_wag_39.
 - Short Vowels L2 round 2: reused recent words wag.
 - Short Vowels L2 round 3: reused recent IDs gap_short_vowel_discrimination_l2_rag_27, gap_short_vowel_discrimination_l2_hay_15, gap_short_vowel_discrimination_l2_mad_21, gap_short_vowel_discrimination_l2_rod_29.
@@ -51,12 +49,9 @@ Date: 2026-05-25
 - Long Vowels and Silent E L1 round 3: reused recent words cube, tube, huge, rose, grape, these.
 - Long Vowels and Silent E L2 round 3: reused recent IDs long_vowels_l2_21_ea_leaf, long_vowels_l2_29_eigh_eight, long_vowels_l2_09_ew_dew, long_vowels_l2_15_igh_light, long_vowels_l2_24_ow_bowl, long_vowels_l2_05_y_sky.
 - Long Vowels and Silent E L2 round 3: reused recent words leaf, eight, dew, light, bowl, sky.
-- CVC Words L1 round 2: reused recent words dog.
-- CVC Words L1 round 3: reused recent words dog.
-- CVC Words L2 round 2: reused recent IDs gap_cvc_short_vowels_l2_wag_39.
-- CVC Words L2 round 2: reused recent words wag.
-- CVC Words L2 round 3: reused recent IDs gap_cvc_short_vowels_l2_rag_27, gap_cvc_short_vowels_l2_hay_15, gap_cvc_short_vowels_l2_mad_21, gap_cvc_short_vowels_l2_rod_29.
-- CVC Words L2 round 3: reused recent words rag, hay, mad, rod.
+- CVC Words L2 round 2: reused recent words gum.
+- CVC Words L2 round 3: reused recent IDs gap_cvc_short_vowels_l2_hip_16.
+- CVC Words L2 round 3: reused recent words hip.
 - Sentence Picture Matching: no media-complete items available for progression simulation.
 - Vocabulary/Categories L1 round 1: selected 14, fewer than available unique target cap 15.
 - Vocabulary/Categories L1 round 2: selected 14, fewer than available unique target cap 15.
@@ -88,15 +83,15 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Media-complete items: 382
+- Media-complete items: 380
 - Media-complete targets: 26
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 8/8 | b, d, g, l, m, n, p, t, t, m, t, b, t, d, n | bib, lid, bag, owl, ram, pin, cup, hot, sit, jam, bat, rub, jet, sad, fun |
-| L1 R2 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, g, n, g, n, d, t, b | web, pad, jug, nail, ham, sun, pup, pot, log, bin, peg, fun, rod, hot, orb |
-| L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, t, b, t, d, n, p, d | cab, red, rag, seal, yam, yen, top, cat, pet, bib, jet, pad, fan, dip, bid |
+| L1 R1 | 1 | 15 | 8/8 | b, d, g, l, m, n, p, t, p, b, t, n, b, b, b | bib, red, bag, curl, jam, pin, cap, rat, cup, cub, pot, man, lab, curb, dab |
+| L1 R2 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, l, m, m, b, p, d, g | web, bad, fig, jewel, gum, fan, lip, hot, pencil, ram, yam, tab, harp, pad, bug |
+| L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, b, d, n, l, t, g, n | cab, sad, dog, fossil, ham, hen, sip, wet, web, red, yen, curl, mat, big, pen |
 | L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, sock, mud, leaf, raft, bag, desk, ball, football, quilt, drum, lamp, ten, pond, spring |
 | L2 R2 | 2 | 15 | 15/15 | nk, nt, p, r, rk, s, sh, sk, st, t, th, b, ck, d, f | ink, tent, cap, car, park, bus, brush, desk, chest, jet, moth, crab, duck, red, roof |
 | L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, rock, bid, leaf, soft, dog, snake, whale, grill, belt, ham, lamp, fan, hand, building |
@@ -104,7 +99,7 @@ Date: 2026-05-25
 ## Rhyming Words
 
 - Skill ID: rhyming
-- Media-complete items: 546
+- Media-complete items: 542
 - Media-complete targets: 41
 - Blocked expected targets: none
 
@@ -115,20 +110,20 @@ Date: 2026-05-25
 | L1 R3 | 3 | 15 | 15/15 | ad, ag, ain, air, am, an, ap, at, ed, ee, eg, en, et, ig, in | sad, rag, rain, chair, yam, pan, cap, mat, red, bee, leg, ten, jet, wig, bin |
 | L2 R1 | 1 | 15 | 15/15 | ack, ake, all, ar, eep, ell, ick, ide, ill, ing, ird, ish, oat, ock, or | sack, snake, tall, jar, sleep, shell, brick, ride, pill, wing, bird, fish, goat, sock, horn |
 | L2 R2 | 2 | 15 | 15/15 | uck, ack, ake, all, ar, eep, ell, ick, ide, ill, ing, ird, ish, oat, ock | truck, back, cake, ball, car, sheep, bell, kick, slide, hill, swing, third, dish, boat, clock |
-| L2 R3 | 3 | 15 | 15/15 | ack, ake, all, ar, eep, ell, ick, ide, ill, ing, ird, ish, oat, ock, or | back, lake, wall, star, jeep, well, brick, ride, pill, king, third, dish, coat, lock, storm |
+| L2 R3 | 3 | 15 | 15/15 | ack, ake, all, ar, eep, ell, ick, ide, ill, ing, ird, ish, oat, ock, or | back, lake, wall, star, jeep, well, brick, ride, pill, king, third, dish, coat, lock, corn |
 
 ## Short Vowels
 
 - Skill ID: short_vowels
-- Media-complete items: 449
+- Media-complete items: 445
 - Media-complete targets: 5
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short a, short a, short a, short a, short a, short u, short e, short o, short a | hat, peg, sit, hot, mud, pin, pad, bag, jam, dab, cab, jug, ten, dog, mat |
-| L1 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short u, short a, short o, short u, short e, short a, short e, short e, short a | bad, jet, pig, log, bun, nut, rub, wag, pot, rug, den, hat, red, pen, fan |
-| L1 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short a, short a, short o, short u, short i, short o, short a, short e, short a | pan, web, kid, cob, bug, hot, lab, mad, dot, bus, fig, dog, cap, pet, bad |
+| L1 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short a, short a, short o, short i, short o, short a, short u, short u, short e, short i | hat, peg, wig, log, rug, tag, pan, rod, big, pot, lab, sun, cup, pet, ship |
+| L1 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short a, short u, short u, short o, short a, short u, short i, short u, short a | bag, jet, fig, dog, bug, cup, tag, tub, sun, shop, tap, run, lid, duck, ram |
+| L1 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short e, short a, short u, short a, short a, short u, short e, short e, short a, short i | sad, pen, fin, dot, dug, wet, dab, bun, yak, mat, run, jet, den, can, big |
 | L2 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short e, short u, short e, short i, short i, short u, short u, short a, short a, short a | wax, pet, fig, fox, tug, den, fun, gem, mix, zip, gum, bus, wag, saw, cat |
 | L2 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short a, short a, short o, short a, short a, short a, short a, short e, short a | bar, bed, hip, box, cup, rib, hay, sad, rod, sap, rag, mad, wag, yen, lab |
 | L2 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short a, short a, short a, short i, short a, short a, short a, short i, short o | lap, wet, dip, dog, rub, kit, can, rag, cap, fig, hay, mad, dad, mix, rod |
@@ -181,18 +176,18 @@ Date: 2026-05-25
 ## CVC Words
 
 - Skill ID: cvc_words
-- Media-complete items: 306
+- Media-complete items: 302
 - Media-complete targets: 35
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
 | L1 R1 | 1 | 15 | 15/15 | bag, bat, bed, bug, cap, cat, cup, dog, duck, fin, fish, fox, hat, jam, jet | bag, bat, bed, bug, cap, cat, cup, dog, duck, fin, fish, fox, hat, jam, jet |
-| L1 R2 | 2 | 15 | 15/15 | lid, log, man, map, mug, pan, pen, pin, pot, ram, short a, short e, short i, short o, short u | lid, log, man, map, mug, pan, pen, pin, pot, ram, lab, gem, kid, dog, fun |
+| L1 R2 | 2 | 15 | 15/15 | lid, log, man, map, mug, pan, pen, pin, pot, ram, short a, short e, short i, short o, short u | lid, log, man, map, mug, pan, pen, pin, pot, ram, sap, den, pig, hop, mud |
 | L1 R3 | 2 | 15 | 15/15 | sit, sock, sun, web, wig, bag, bat, bed, bug, cap, cat, cup, dog, duck, fin | sit, sock, sun, web, wig, bag, bat, bed, bug, cap, cat, cup, dog, duck, fin |
-| L2 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short e, short u, short e, short i, short i, short u, short u, short a, short a, short a | wax, pet, fig, fox, tug, den, fun, gem, mix, zip, gum, bus, wag, saw, cat |
-| L2 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short a, short a, short o, short a, short a, short a, short a, short e, short a | bar, bed, hip, box, cup, rib, hay, sad, rod, sap, rag, mad, wag, yen, lab |
-| L2 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short a, short a, short a, short i, short a, short a, short a, short i, short o | lap, wet, dip, dog, rub, kit, can, rag, cap, fig, hay, mad, dad, mix, rod |
+| L2 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short u, short i, short a, short e, short a, short u, short a, short e, short e | wag, ten, dip, dot, fun, zip, sun, wig, bar, jet, jam, gum, ham, pet, gem |
+| L2 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short i, short a, short i, short a, short a, short i, short u, short i, short a | tab, peg, kit, box, sub, lip, bib, sad, hip, tap, rag, fig, gum, sip, sap |
+| L2 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short a, short o, short u, short i, short a, short o, short u, short u, short i, short a | ram, wet, rib, rod, cub, mad, cot, run, pin, ham, bow, tug, dug, hip, nap |
 
 ## High Frequency Words
 

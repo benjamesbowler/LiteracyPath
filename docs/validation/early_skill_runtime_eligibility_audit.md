@@ -1,6 +1,6 @@
 # Early Skill Runtime Eligibility Audit
 
-Generated: 2026-06-01T06:31:10.941Z
+Generated: 2026-06-01T06:56:21.777Z
 
 ## initial_sounds
 
@@ -101,7 +101,7 @@ Generated: 2026-06-01T06:31:10.941Z
 
 ### Level 1
 
-- Accepted count: 397
+- Accepted count: 261
 - Coverage targets: 41
 - Missing image references among accepted: 0
 - Missing audio references among accepted: 0
@@ -109,19 +109,19 @@ Generated: 2026-06-01T06:31:10.941Z
 | Rejection reason | Count |
 |---|---:|
 | routing/template mismatch: MULTIPLE_CHOICE is not allowed for cvc_short_vowels | 27 |
-| question would render with an empty or broken visual area | 7 |
+| question would render with an empty or broken visual area | 6 |
 | routing/template mismatch: UNKNOWN is not allowed for cvc_short_vowels | 5 |
-| missing required runtime image | 4 |
 | runtime card set is incomplete | 3 |
+| missing required runtime image | 3 |
 | question is inactive | 2 |
 | listen prompt is missing required runtime audio | 1 |
 
-- Fresh round proof: gen_cvc_short_e_web_10_missing (web), cvc_listen_find_009 (fin), exp7_cvc_21 (wig), recovery_cvc_pen_picture_2 (pen), cvc_listen_find_002 (bat), p3_cvc_missing_vowel_10 (dog), gen_cvc_short_u_rug_14_missing (rug), cvc_listen_find_015 (map), gen_cvc_short_a_hat_10_picture (hat), p3_cvc_missing_vowel_7 (pig), cvc_listen_find_027 (lid), ixl_sound_order_14 (sock), cvc_listen_find_017 (mug), ixl_sound_order_21 (fox), gen_cvc_short_a_dad_7_missing (dad)
-- Review round proof: ixl_sound_order_18 (log), gen_cvc_short_o_cob_0_vowel (cob), ixl_sound_order_12 (jam), cvc_listen_find_021 (pot), ixl_sound_order_29 (man), cvc_listen_find_007 (dog), exp7_cvc_9 (ram), cvc_listen_find_027 (lid), gen_cvc_short_i_bib_0_missing (bib), gen_cvc_short_e_ten_9_picture (ten), cvc_listen_find_025 (sun), ixl_sound_order_25 (fin), ixl_complete_word_5 (pan), ixl_complete_word_10 (web), gen_cvc_short_i_bin_3_picture (bin)
+- Fresh round proof: gen_cvc_short_u_tub_18_picture (tub), ixl_sound_order_16 (sun), exp7_cvc_4 (mud), ixl_sound_order_18 (log), cvc_listen_find_006 (cup), cvc_listen_find_009 (fin), exp7_cvc_26 (bat), cvc_listen_find_005 (cat), ixl_sound_order_2 (dog), exp7_cvc_25 (van), gen_cvc_short_o_hop_4_missing (hop), ixl_sound_order_23 (wig), exp7_cvc_14 (leg), gen_cvc_short_o_cob_0_missing (cob), ixl_complete_word_14 (hat)
+- Review round proof: ixl_sound_order_14 (sock), exp7_cvc_19 (pig), ixl_sound_order_23 (wig), p3_cvc_missing_vowel_6 (red), gen_cvc_short_o_log_6_vowel (log), ixl_sound_order_21 (fox), cvc_listen_find_019 (pen), gen_cvc_short_a_can_4_vowel (can), ixl_complete_word_11 (jet), p3_cvc_missing_vowel_15 (sun), gen_cvc_short_i_fig_6_picture (fig), ixl_sound_order_10 (web), ixl_sound_order_2 (dog), ixl_complete_word_5 (pan), ixl_sound_order_7 (bat)
 
 ## rhyming
 
-- Total candidate questions: 641
+- Total candidate questions: 637
 - Runtime eligible questions: 223
 
 ### Level 1
