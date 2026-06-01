@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 function StoryQuestImage({ src, title }) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -39,6 +40,20 @@ export function StoryQuestPlayer({ quest, onExit }) {
   const currentPage = pageById.get(currentPageId) || quest?.pages?.[0] || null;
   const currentPageNumber = quest?.pages?.findIndex(page => page.id === currentPage?.id) + 1 || 1;
   const totalPages = quest?.pages?.length || 0;
+  const visitedPageIds = useMemo(() => new Set([...history, currentPageId].filter(Boolean)), [currentPageId, history]);
+  const foundWords = useMemo(() => {
+    const targetWords = new Set((quest?.targetWords || []).map(word => word.toLowerCase()));
+    return Array.from(new Set(
+      (quest?.pages || [])
+        .filter(page => visitedPageIds.has(page.id))
+        .flatMap(page => page.skillTags || [])
+        .map(tag => String(tag).toLowerCase())
+        .filter(tag => targetWords.has(tag))
+    ));
+  }, [quest, visitedPageIds]);
+  const currentPageWords = (currentPage?.skillTags || [])
+    .filter(tag => !["short_a", "hfw_1_25"].includes(String(tag).toLowerCase()))
+    .slice(0, 4);
 
   useEffect(() => {
     setCurrentPageId(quest?.startPageId || quest?.pages?.[0]?.id || "");
@@ -85,6 +100,17 @@ export function StoryQuestPlayer({ quest, onExit }) {
       audio.pause();
     };
   }, [currentPage?.audioUrl]);
+
+  useEffect(() => {
+    if (!currentPage?.choices || typeof Image === "undefined") return;
+    currentPage.choices
+      .map(choice => pageById.get(choice.nextPageId)?.imageUrl)
+      .filter(Boolean)
+      .forEach(src => {
+        const image = new Image();
+        image.src = src;
+      });
+  }, [currentPage, pageById]);
 
   function stopAudio() {
     if (!audioRef.current) return;
@@ -138,10 +164,10 @@ export function StoryQuestPlayer({ quest, onExit }) {
   }
 
   return (
-    <section className="story-quest-player card" aria-label={`${quest.title} Story Quest`}>
+    <section className="story-quest-player story-quest-reader card" aria-label={`${quest.title} Story Quest`}>
       <header className="story-quest-header">
         <div>
-          <span className="story-quest-kicker">Story Quest</span>
+          <span className="story-quest-kicker">Read</span>
           <h2>{quest.title}</h2>
           <p>{quest.skillFocus} - {quest.cycleFocus}</p>
         </div>
@@ -162,12 +188,34 @@ export function StoryQuestPlayer({ quest, onExit }) {
 
       <div className="story-quest-progress" aria-label={`Page ${currentPageNumber} of ${totalPages}`}>
         <span>Page {currentPageNumber} of {totalPages}</span>
-        <div>
+        <div className="story-quest-progress-bar">
           <span style={{ width: `${totalPages ? (currentPageNumber / totalPages) * 100 : 0}%` }} />
+        </div>
+        <div className="story-quest-page-dots" aria-hidden="true">
+          {(quest.pages || []).map((page, index) => (
+            <span
+              className={[
+                index + 1 === currentPageNumber ? "active" : "",
+                visitedPageIds.has(page.id) ? "visited" : ""
+              ].filter(Boolean).join(" ")}
+              key={page.id}
+            />
+          ))}
         </div>
       </div>
 
-      <StoryQuestImage src={currentPage.imageUrl} title={quest.title} />
+      <AnimatePresence mode="wait">
+        <motion.div
+          className="story-quest-image-stage"
+          key={`${currentPage.id}-image`}
+          initial={{ opacity: 0, y: 12, scale: 0.985 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -8, scale: 0.99 }}
+          transition={{ duration: 0.24 }}
+        >
+          <StoryQuestImage src={currentPage.imageUrl} title={quest.title} />
+        </motion.div>
+      </AnimatePresence>
 
       <div className="story-quest-read-row">
         <button
@@ -178,10 +226,36 @@ export function StoryQuestPlayer({ quest, onExit }) {
         >
           {audioChecking ? "Checking Audio" : audioAvailable ? "Replay Audio" : "Audio Coming Soon"}
         </button>
-        <div className="story-quest-text" aria-live="polite">
-          {(currentPage.text || []).map((line, index) => (
-            <p key={`${currentPage.id}-${index}`}>{line}</p>
-          ))}
+        <AnimatePresence mode="wait">
+          <motion.div
+            animate={{ opacity: 1, y: 0 }}
+            aria-live="polite"
+            className="story-quest-text"
+            exit={{ opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: 8 }}
+            key={`${currentPage.id}-text`}
+            transition={{ duration: 0.2 }}
+          >
+            {(currentPage.text || []).map((line, index) => (
+              <p key={`${currentPage.id}-${index}`}>{line}</p>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="story-quest-word-panel" aria-label="Story words found">
+        <span>{foundWords.length}/{quest.targetWords.length} story words found</span>
+        <div>
+          {(quest.targetWords || []).map(word => {
+            const normalizedWord = word.toLowerCase();
+            const found = foundWords.includes(normalizedWord);
+            const current = currentPageWords.map(item => String(item).toLowerCase()).includes(normalizedWord);
+            return (
+              <span className={[found ? "found" : "", current ? "current" : ""].filter(Boolean).join(" ")} key={word}>
+                {word}
+              </span>
+            );
+          })}
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 const samAlfImagePath = page => `/images/story-quests/sam-alf/page-${String(page).padStart(2, "0")}.webp`;
 const samAlfAudioPath = page => `/audio/story-quests/sam-alf/page-${String(page).padStart(2, "0")}.mp3`;
+const samAlfWordImagePath = word => `/images/story-quests/sam-alf/words/word-${word}.webp`;
 
 export const storyQuests = [
   {
@@ -9,6 +10,11 @@ export const storyQuests = [
     cycleFocus: "short a CVC + HFW 1-25",
     targetWords: ["Sam", "Alf", "am", "cat", "mat", "bag", "map", "van", "jam"],
     highFrequencyWords: ["I", "am", "you", "go", "to", "the", "see", "can", "we"],
+    coverImageUrl: "/images/story-quests/sam-alf/cover.webp",
+    wordCards: ["bag", "cat", "jam", "map", "mat", "van"].map(word => ({
+      word,
+      imageUrl: samAlfWordImagePath(word)
+    })),
     startPageId: "page-01",
     pages: [
       {
@@ -24,7 +30,7 @@ export const storyQuests = [
       },
       {
         id: "page-02",
-        text: ["Sam can go to the van.", "Alf can see a map."],
+        text: ["Sam and Alf go to the van.", "Sam has a map."],
         imageUrl: samAlfImagePath(2),
         audioUrl: samAlfAudioPath(2),
         skillTags: ["short_a", "van", "map"],
@@ -35,7 +41,7 @@ export const storyQuests = [
       },
       {
         id: "page-03",
-        text: ["Alf can see a cat.", "The cat can go to the mat."],
+        text: ["Alf can see a cat.", "The cat is on a mat."],
         imageUrl: samAlfImagePath(3),
         audioUrl: samAlfAudioPath(3),
         skillTags: ["short_a", "cat", "mat"],
@@ -46,7 +52,7 @@ export const storyQuests = [
       },
       {
         id: "page-04",
-        text: ["Sam can see the bag.", "Alf can see jam."],
+        text: ["Sam has the bag.", "Alf can see jam in the bag."],
         imageUrl: samAlfImagePath(4),
         audioUrl: samAlfAudioPath(4),
         skillTags: ["short_a", "bag", "jam"],
@@ -57,7 +63,7 @@ export const storyQuests = [
       },
       {
         id: "page-05",
-        text: ["Alf can see the map.", "Sam can see the cat."],
+        text: ["Alf has the map.", "Sam can see the cat on the map."],
         imageUrl: samAlfImagePath(5),
         audioUrl: samAlfAudioPath(5),
         skillTags: ["short_a", "map", "cat"],
@@ -68,7 +74,7 @@ export const storyQuests = [
       },
       {
         id: "page-06",
-        text: ["We go to the mat.", "The cat can see Sam."],
+        text: ["We go to the mat.", "The cat sat by Sam and Alf."],
         imageUrl: samAlfImagePath(6),
         audioUrl: samAlfAudioPath(6),
         skillTags: ["short_a", "mat", "cat"],
@@ -79,7 +85,7 @@ export const storyQuests = [
       },
       {
         id: "page-07",
-        text: ["Sam can see jam.", "Alf can see the bag."],
+        text: ["Sam can see jam.", "Alf can see the cat."],
         imageUrl: samAlfImagePath(7),
         audioUrl: samAlfAudioPath(7),
         skillTags: ["short_a", "jam", "cat"],
@@ -101,7 +107,7 @@ export const storyQuests = [
       },
       {
         id: "page-09",
-        text: ["Sam can go to the van.", "Alf can see the cat."],
+        text: ["Sam and Alf go to the van.", "The cat can go too."],
         imageUrl: samAlfImagePath(9),
         audioUrl: samAlfAudioPath(9),
         skillTags: ["short_a", "van", "cat"],
@@ -112,7 +118,7 @@ export const storyQuests = [
       },
       {
         id: "page-10",
-        text: ["Sam can go in the van.", "Alf can go in the van."],
+        text: ["Sam, Alf, and the cat go in the van.", "We can go out again."],
         imageUrl: samAlfImagePath(10),
         audioUrl: samAlfAudioPath(10),
         skillTags: ["short_a", "sam", "alf", "cat", "van"],

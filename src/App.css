@@ -11263,7 +11263,7 @@ select:focus {
   font-weight: 900;
 }
 
-.story-quest-progress > div {
+.story-quest-progress-bar {
   width: 100%;
   height: 8px;
   overflow: hidden;
@@ -11271,7 +11271,7 @@ select:focus {
   background: #e5e7eb;
 }
 
-.story-quest-progress > div > span {
+.story-quest-progress-bar > span {
   display: block;
   height: 100%;
   border-radius: inherit;
@@ -11360,6 +11360,174 @@ select:focus {
 .story-quest-audio-button:disabled {
   cursor: not-allowed;
   opacity: 0.58;
+}
+
+.story-quest-learn-page {
+  gap: 16px;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(255, 183, 3, 0.14), transparent 26rem),
+    radial-gradient(circle at 90% 8%, rgba(142, 202, 230, 0.18), transparent 24rem),
+    #fff8f0;
+}
+
+.learn-story-quest-library,
+.story-quest-reader {
+  border: 1px solid rgba(186, 202, 222, 0.8);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.11);
+}
+
+.learn-story-quest-card {
+  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr) auto;
+  padding: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+}
+
+.learn-story-quest-cover {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+}
+
+.learn-story-quest-card-copy {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.learn-story-word-preview,
+.learn-story-word-card-grid,
+.story-quest-word-panel > div,
+.story-quest-page-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.learn-story-word-preview span,
+.story-quest-word-panel > div > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border: 1px solid #bfd7cf;
+  border-radius: 999px;
+  background: #eef9f4;
+  color: #28665f;
+  font-family: var(--lp-font-reading);
+  font-weight: 900;
+}
+
+.learn-story-word-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.learn-story-word-card {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  padding: 12px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.learn-story-word-card img {
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #f8fafc;
+}
+
+.learn-story-word-card strong {
+  color: #172033;
+  font-family: var(--lp-font-reading);
+  font-size: 1.2rem;
+}
+
+.story-quest-reader {
+  gap: 12px;
+  padding: clamp(12px, 2vw, 20px);
+  background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
+}
+
+.story-quest-image-stage {
+  display: grid;
+  justify-items: center;
+}
+
+.story-quest-image,
+.story-quest-image-placeholder {
+  width: min(100%, 860px);
+  border-width: 2px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.13);
+}
+
+.story-quest-page-dots {
+  align-items: center;
+  justify-content: center;
+}
+
+.story-quest-page-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #d0d5dd;
+}
+
+.story-quest-page-dots span.visited {
+  background: #93d5c0;
+}
+
+.story-quest-page-dots span.active {
+  width: 28px;
+  background: #4f63d7;
+}
+
+.story-quest-word-panel {
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.story-quest-word-panel > span {
+  color: #667085;
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.story-quest-word-panel span.found {
+  border-color: #93d5c0;
+  background: #dff7eb;
+  color: #1f6658;
+}
+
+.story-quest-word-panel span.current {
+  border-color: #ffb703;
+  background: #fff3c4;
+  color: #8a4f00;
+}
+
+.story-quest-choice-button {
+  min-height: 82px;
+  border: 2px solid #c7d2fe;
+  background: linear-gradient(180deg, #f4f6ff 0%, #e9edff 100%);
+  box-shadow: 0 8px 18px rgba(79, 99, 215, 0.12);
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.story-quest-choice-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(79, 99, 215, 0.18);
 }
 
 .learn-area-page {
