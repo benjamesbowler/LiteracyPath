@@ -33,6 +33,7 @@ import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuest
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
 import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsAssessmentQuestions.generated.js";
+import { grammarAssessmentQuestions } from "../src/data/generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -86,6 +87,7 @@ const questionBanks = [
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
   ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
+  ["grammarAssessmentQuestions", grammarAssessmentQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -119,6 +121,7 @@ export function writeFile(filePath, content) {
 }
 
 export function publicPathExists(assetPath = "") {
+  if (String(assetPath || "").startsWith("data:image/")) return true;
   return Boolean(
     assetPath &&
     String(assetPath).startsWith("/") &&
@@ -428,6 +431,9 @@ export function getCoreSkillId(question = {}) {
   if (id === "blends" || label.includes("blend")) return "blends";
   if (id === "digraphs" || label.includes("digraph")) return "digraphs";
   if (id === "long_vowels" || id === "long_vowels_silent_e" || label.includes("long vowel") || label.includes("silent e")) return "long_vowels_silent_e";
+  if (id === "nouns" || label.includes("noun")) return "nouns";
+  if (id === "verbs" || label.includes("verb")) return "verbs";
+  if (id === "adjectives" || label.includes("adjective")) return "adjectives";
   return "";
 }
 

@@ -78,6 +78,11 @@ function answerValue(value) {
 }
 
 function inferTargetWord(question = {}) {
+  const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName);
+  const shouldUseAnswerAsWord =
+    MEDIA_SKILLS.has(skillId) &&
+    !isGraphemeChoiceQuestion(question);
+
   return normalizeWord(
     question.targetWord ||
     question.word ||
@@ -86,7 +91,7 @@ function inferTargetWord(question = {}) {
     question.anchorWord ||
     question.representedWord ||
     question.depthTargetWord ||
-    (MEDIA_SKILLS.has(normalizeSkillId(question.skillId || question.skill || question.skillName)) ? answerValue(question.correctAnswer || question.answer) : "")
+    (shouldUseAnswerAsWord ? answerValue(question.correctAnswer || question.answer) : "")
   );
 }
 
@@ -222,7 +227,7 @@ function shouldBalanceShortVowelChoices(question = {}, skillId = "") {
   });
 }
 
-function hasShortVowelShortcutPattern(choices = [], answerWord = "") {
+function hasShortVowelShortcutPattern(choices = []) {
   const words = choices.map(optionWord).filter(Boolean);
   if (words.length !== 4) return false;
   const initialCounts = words.reduce((counts, word) => {
@@ -239,7 +244,7 @@ export function balanceShortVowelDiscriminationChoices(question = {}) {
 
   const answerWord = optionWord(question.correctAnswer || question.answer);
   const currentChoices = question.choices || question.answerOptions || [];
-  if (!hasShortVowelShortcutPattern(currentChoices, answerWord)) return question;
+  if (!hasShortVowelShortcutPattern(currentChoices)) return question;
 
   const choices = buildBalancedShortVowelChoices(question, answerWord);
   if (choices.length !== 4 || !choices.includes(answerWord)) return question;
