@@ -200,7 +200,7 @@ export function auditSkillLevelDepth(options = {}) {
   const excludeSources = new Set(options.excludeSources || []);
   const all = getRuntimeSafeDepthQuestions().filter(question => !excludeSources.has(question._source));
   return managedAssessmentSkillDepthConfig.map(config => {
-    const skillQuestions = uniqueRuntimeQuestions(all.filter(question => question.depthSkillId === config.skillId));
+    const skillQuestions = all.filter(question => question.depthSkillId === config.skillId);
     const rejected = all
       .filter(question => question.depthSkillId === config.skillId && question.depthFilterReason)
       .slice(0, 12)
@@ -215,7 +215,7 @@ export function auditSkillLevelDepth(options = {}) {
       const levelConfig = config.levels[levelNumber];
       const designed = Boolean(levelConfig?.designed);
       const levelItems = designed
-        ? skillQuestions.filter(question => question.depthLevel === levelNumber && !question.depthFilterReason)
+        ? uniqueRuntimeQuestions(skillQuestions.filter(question => question.depthLevel === levelNumber && !question.depthFilterReason))
         : [];
       const uniqueTargets = new Set(levelItems.map(question => question.depthTargetWord).filter(Boolean));
       const uniqueItemKeys = new Set(levelItems.map(question => question.depthItemKey).filter(Boolean));

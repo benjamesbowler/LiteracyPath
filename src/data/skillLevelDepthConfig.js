@@ -162,8 +162,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Vowel Teams",
     aliases: ["vowel teams"],
     levels: {
-      1: { designed: true, rule: "Common ai, ay, ee, ea, oa.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] },
-      2: { designed: true, rule: "oi, oy, ow, ou and ambiguous pairs.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] }
+      1: { designed: true, rule: "Image-backed vowel-team completion using common ai, ay, ee, ea, oa patterns.", allowedFormats: ["LONG_VOWEL_TEAM_COMPLETE"] },
+      2: { designed: true, rule: "Image-backed vowel-team completion using oi, oy, ow, ou and ambiguous pairs; no silent-e items.", allowedFormats: ["LONG_VOWEL_TEAM_COMPLETE"] }
     }
   },
   {

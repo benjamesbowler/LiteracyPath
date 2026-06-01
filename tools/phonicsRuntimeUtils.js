@@ -111,6 +111,23 @@ const questionBanks = [
   ["templateComprehensionAdvanced", templateComprehensionAdvanced]
 ];
 
+const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
+  "prepositions_of_place",
+  "plurals",
+  "prefixes_suffixes",
+  "antonyms_synonyms",
+  "homophones_homonyms",
+  "vowel_teams",
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme_higher_comprehension"
+]);
+
 export function ensureDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
 }
@@ -280,6 +297,14 @@ function getCanonicalAssessmentLevel(question = {}) {
   return 1;
 }
 
+function keepRuntimeQuestion(question = {}) {
+  const skillId = getCanonicalAssessmentSkillId(question);
+  if (!REPLACED_LEGACY_ASSESSMENT_SKILLS.has(skillId)) return true;
+  return question._source === "skillLevelGapQuestions" ||
+    question.source === "skill_level_depth_gap_generator" ||
+    question.tags?.includes("generated-gap");
+}
+
 function getExplicitAssessmentPhase(question = {}) {
   const raw = question.phase ?? question.phaseTarget ?? question.assessmentPhase ?? question.levelPhase ?? "";
   if (raw === 1 || raw === "1") return 1;
@@ -412,7 +437,7 @@ export function loadCoreQuestionPool() {
       _sourceIndex: index
     }))
   );
-  return applyAssessmentPhaseMetadata(pool);
+  return applyAssessmentPhaseMetadata(pool).filter(keepRuntimeQuestion);
 }
 
 export function getCoreSkillId(question = {}) {

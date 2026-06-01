@@ -1360,6 +1360,43 @@ function dedupeQuestionsByRuntimeSignature(questions) {
   return canonical;
 }
 
+const GENERATED_REPLACEMENT_SOURCE = "skill_level_depth_gap_generator";
+const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
+  "prepositions_of_place",
+  "plurals",
+  "prefixes_suffixes",
+  "antonyms_synonyms",
+  "homophones_homonyms",
+  "vowel_teams",
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme_higher_comprehension"
+]);
+
+function normalizeRuntimeSkillId(value = "") {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function isGeneratedReplacementQuestion(question = {}) {
+  return question.source === GENERATED_REPLACEMENT_SOURCE ||
+    question.tags?.includes("generated-gap");
+}
+
+function keepRuntimeQuestion(question = {}) {
+  const skillId = normalizeRuntimeSkillId(question.skillId || question.assessmentSkillId || question.skillName || question.skill || "");
+  if (!REPLACED_LEGACY_ASSESSMENT_SKILLS.has(skillId)) return true;
+  return isGeneratedReplacementQuestion(question);
+}
+
 const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...masteryCoreQuestions,
   ...masteryExtraQuestions,
@@ -1411,7 +1448,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
       normalizeAssessmentAudioRoles(normalizeAssessmentQuestion(question, null, index))
     ))))
   ))
-).filter(isQuestionValid));
+).filter(isQuestionValid).filter(keepRuntimeQuestion));
 
 const configuredCoverageTotals = coverageExpectations;
 

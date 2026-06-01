@@ -5,7 +5,9 @@ const TEXT_TILE_FORMATS = new Set([
   "MISSING_VOWEL_CVC",
   "LISTEN_CHOOSE_VOWEL",
   "ENDING_SOUND",
-  "FIRST_SOUND"
+  "FIRST_SOUND",
+  "LONG_VOWEL_SILENT_E_PATTERN",
+  "LONG_VOWEL_TEAM_COMPLETE"
 ]);
 
 const CONDITIONAL_TEXT_TILE_FORMATS = new Set([
@@ -59,9 +61,14 @@ export function getAssessmentChoiceLabels(question = {}) {
 }
 
 export function isShortGraphemeLabel(value = "") {
-  const label = String(value || "").trim();
+  const label = String(value || "").trim().replace(/^\/+|\/+$/g, "");
   if (!label) return false;
   return GRAPHEME_PATTERN.test(label);
+}
+
+function isCompactLetterPattern(value = "") {
+  const label = String(value || "").trim().replace(/^\/+|\/+$/g, "");
+  return /^[a-z]{1,3}$/i.test(label);
 }
 
 export function hasOptionImageChoiceLeak(question = {}) {
@@ -94,6 +101,7 @@ export function isGraphemeChoiceQuestion(question = {}) {
   if (CONDITIONAL_TEXT_TILE_FORMATS.has(format) && allShortLabels) return true;
   if (hasBlank && allShortLabels) return true;
   if (/\bcomplete the word\b/.test(prompt)) return true;
+  if (/\b(?:letter|sound|correct)?\s*pair\b/.test(prompt) && labels.length > 0 && labels.every(isCompactLetterPattern)) return true;
   if (/\b(?:which|what) sound\b/.test(prompt) && allShortLabels) return true;
   if (/\bmissing (?:sound|vowel|letter)\b/.test(prompt) && allShortLabels) return true;
   if (allShortLabels && labels.length <= 6 && !IMAGE_CHOICE_FORMATS.has(format)) return true;

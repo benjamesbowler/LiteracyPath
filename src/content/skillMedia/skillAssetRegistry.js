@@ -35,6 +35,9 @@ import { questionBankExpansion13 } from "../../data/questionBankExpansion13.js";
 import { questionBankExpansion14 } from "../../data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../../data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../../data/generated/hfwAssessmentQuestions.generated.js";
+import { digraphsAssessmentQuestions } from "../../data/generated/digraphsAssessmentQuestions.generated.js";
+import { longVowelsAssessmentQuestions } from "../../data/generated/longVowelsAssessmentQuestions.generated.js";
+import { grammarAssessmentQuestions } from "../../data/generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../../data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../../data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../../data/generatedQuestions.js";
@@ -99,7 +102,16 @@ export const managedSkillDefinitions = {
     levels: [1, 2],
     requiredMedia: ["image", "audio"],
     minimumValidItems: 52,
-    expectedTargets: ["sh", "ch", "th", "wh", "ck", "ng"]
+    expectedTargets: ["ch", "sh", "th", "wh", "ph", "ck"]
+  },
+  long_vowels: {
+    label: "Long Vowels and Silent E",
+    aliases: ["long_vowels_silent_e"],
+    itemType: "phonics_pattern",
+    levels: [1, 2],
+    requiredMedia: ["image", "audio"],
+    minimumValidItems: 60,
+    expectedTargets: ["a_e", "e_e", "i_e", "o_e", "u_e", "ay", "ai", "y", "ie", "ew", "oo", "ee", "igh", "oa", "oe", "ea", "ow", "ue", "ui", "eigh"]
   },
   cvc_words: {
     label: "CVC Words",
@@ -111,7 +123,7 @@ export const managedSkillDefinitions = {
   },
   high_frequency_words: {
     label: "High Frequency Words",
-    aliases: ["sight_words", "hfw", "highFrequencyWords", "hfw_1_25", "hfw_26_50", "hfw_51_100"],
+    aliases: ["sight_words", "hfw", "highFrequencyWords", "hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"],
     itemType: "sight_word",
     levels: [1, 2, 3],
     requiredMedia: [],
@@ -132,6 +144,39 @@ export const managedSkillDefinitions = {
     minimumValidItems: 30
   }
 };
+
+const GENERATED_REPLACEMENT_SOURCE = "skill_level_depth_gap_generator";
+const replacedLegacyAssessmentSkills = new Set([
+  "prepositions_of_place",
+  "plurals",
+  "prefixes_suffixes",
+  "antonyms_synonyms",
+  "homophones_homonyms",
+  "vowel_teams",
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme_higher_comprehension"
+]);
+
+function normalizeRuntimeSkillId(value = "") {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function keepRuntimeQuestion(question = {}) {
+  const skillId = normalizeRuntimeSkillId(question.skillId || question.assessmentSkillId || question.skillName || question.skill || "");
+  if (!replacedLegacyAssessmentSkills.has(skillId)) return true;
+  return question.source === GENERATED_REPLACEMENT_SOURCE ||
+    question.tags?.includes("generated-gap");
+}
 
 export const runtimeQuestionSources = [
   ...masteryCoreQuestions,
@@ -162,12 +207,15 @@ export const runtimeQuestionSources = [
   ...questionBankExpansion14,
   ...generatedEarlySkillQuestions,
   ...hfwAssessmentQuestions,
+  ...digraphsAssessmentQuestions,
+  ...longVowelsAssessmentQuestions,
+  ...grammarAssessmentQuestions,
   ...skillLevelGapQuestions,
   ...hfwLevel2Questions,
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
-];
+].filter(keepRuntimeQuestion);
 
 export function normalizeSkillId(value = "") {
   const normalized = String(value || "")

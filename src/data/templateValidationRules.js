@@ -45,6 +45,11 @@ function approvedTargetAudio(question = {}) {
   return getApprovedAudioPath(key, question.audioPath || question.audioUrl || "");
 }
 
+function allowsPendingTargetAudio(question = {}) {
+  return question.pendingAudio === true ||
+    question.source === "long_vowels_replacement_2026_06";
+}
+
 function cardWord(card) {
   return normalize(card?.word || card?.value || card?.id || card);
 }
@@ -172,6 +177,54 @@ export const templateValidationRules = {
     requiredMedia: [],
     allowedRenderModes: ["audio_visual_choice"]
   },
+  BLEND_IMAGE_CHOICE: {
+    requiredFields: ["targetWord", "answerOptions"],
+    optionalFields: ["explanation", "hint"],
+    requiredMedia: ["cardImages"],
+    allowedRenderModes: ["visual_choice"]
+  },
+  BLEND_COMPLETE_WORD: {
+    requiredFields: ["targetWord", "answerOptions", "partialWord", "targetImage"],
+    optionalFields: ["explanation", "hint"],
+    requiredMedia: ["targetImage"],
+    allowedRenderModes: ["main_image_text_choice"]
+  },
+  DIGRAPH_IMAGE_CHOICE: {
+    requiredFields: ["targetWord", "answerOptions"],
+    optionalFields: ["explanation", "hint", "approvedAudio"],
+    requiredMedia: ["cardImages"],
+    allowedRenderModes: ["visual_choice"]
+  },
+  DIGRAPH_COMPLETE_WORD: {
+    requiredFields: ["targetWord", "answerOptions", "partialWord", "targetImage"],
+    optionalFields: ["explanation", "hint", "approvedAudio"],
+    requiredMedia: ["targetImage"],
+    allowedRenderModes: ["main_image_text_choice"]
+  },
+  LONG_VOWEL_SILENT_E_PATTERN: {
+    requiredFields: ["targetWord", "answerOptions", "targetImage"],
+    optionalFields: ["approvedAudio", "explanation", "hint"],
+    requiredMedia: ["targetImage"],
+    allowedRenderModes: ["main_image_text_choice"]
+  },
+  LONG_VOWEL_TEAM_COMPLETE: {
+    requiredFields: ["targetWord", "answerOptions", "partialWord", "targetImage"],
+    optionalFields: ["approvedAudio", "explanation", "hint"],
+    requiredMedia: ["targetImage"],
+    allowedRenderModes: ["main_image_text_choice"]
+  },
+  GRAMMAR_IMAGE_CHOICE: {
+    requiredFields: ["targetWord", "answerOptions"],
+    optionalFields: ["explanation", "hint"],
+    requiredMedia: ["cardImages"],
+    allowedRenderModes: ["visual_choice"]
+  },
+  GRAMMAR_SENTENCE_FIT: {
+    requiredFields: ["targetWord", "answerOptions", "sentence", "targetImage"],
+    optionalFields: ["explanation", "hint"],
+    requiredMedia: ["targetImage", "answerAudio"],
+    allowedRenderModes: ["main_image_sentence_word_bank"]
+  },
   PUT_SOUNDS_IN_ORDER: {
     requiredFields: ["targetWord", "soundTiles"],
     optionalFields: ["targetImage", "approvedAudio"],
@@ -261,7 +314,7 @@ export function validateQuestionTemplate(question = {}, options = {}) {
     issues.push("find-the-word prompt has no visible target word or approved audio");
   }
 
-  if (question.audioPath && !approvedTargetAudio(question)) {
+  if (question.audioPath && !approvedTargetAudio(question) && !allowsPendingTargetAudio(question)) {
     issues.push("audio path is present but not approved for active assessment");
   }
 

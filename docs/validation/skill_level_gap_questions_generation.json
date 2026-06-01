@@ -1,223 +1,303 @@
 {
-  "generatedAt": "2026-05-27T05:00:51.615Z",
+  "generatedAt": "2026-06-01T05:30:56.872Z",
   "source": "skill_level_depth_gap_generator",
-  "totalQuestions": 781,
+  "totalQuestions": 1603,
   "summary": [
     {
       "skillId": "initial_sounds",
       "skillName": "Initial Sounds",
       "level": 2,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 54,
+      "requested": 54
     },
     {
       "skillId": "rhyming",
       "skillName": "Rhyming",
       "level": 2,
-      "startingCount": 20,
-      "generated": 15,
-      "requested": 15
+      "startingCount": 21,
+      "generated": 33,
+      "requested": 33
     },
     {
       "skillId": "cvc_short_vowels",
       "skillName": "CVC Short Vowels",
       "level": 2,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 54,
+      "requested": 54
     },
     {
       "skillId": "short_vowel_discrimination",
       "skillName": "Short Vowel Discrimination",
       "level": 2,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 54,
+      "requested": 54
     },
     {
-      "skillId": "hfw_26_50",
-      "skillName": "High-Frequency Words 26-50",
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
       "level": 1,
-      "startingCount": 23,
-      "generated": 25,
-      "requested": 12
+      "startingCount": 30,
+      "generated": 24,
+      "requested": 24
     },
     {
-      "skillId": "hfw_51_100",
-      "skillName": "High-Frequency Words 51-100",
-      "level": 1,
-      "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "level": 2,
+      "startingCount": 30,
+      "generated": 24,
+      "requested": 24
     },
     {
-      "skillId": "digraphs",
-      "skillName": "Digraphs",
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
       "level": 1,
-      "startingCount": 39,
-      "generated": 15,
-      "requested": 15
+      "startingCount": 30,
+      "generated": 24,
+      "requested": 24
     },
     {
-      "skillId": "long_vowels_silent_e",
-      "skillName": "Long Vowels and Silent E",
-      "level": 1,
-      "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "level": 2,
+      "startingCount": 30,
+      "generated": 24,
+      "requested": 24
     },
     {
       "skillId": "vowel_teams",
       "skillName": "Vowel Teams",
       "level": 1,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "vowel_teams",
+      "skillName": "Vowel Teams",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "r_controlled_vowels",
       "skillName": "R-Controlled Vowels",
       "level": 1,
-      "startingCount": 0,
-      "generated": 35,
-      "requested": 35
-    },
-    {
-      "skillId": "nouns",
-      "skillName": "Nouns",
-      "level": 1,
-      "startingCount": 15,
-      "generated": 20,
-      "requested": 20
-    },
-    {
-      "skillId": "verbs",
-      "skillName": "Verbs",
-      "level": 1,
-      "startingCount": 21,
-      "generated": 20,
-      "requested": 14
-    },
-    {
-      "skillId": "adjectives",
-      "skillName": "Adjectives",
-      "level": 1,
-      "startingCount": 22,
-      "generated": 20,
-      "requested": 13
+      "startingCount": 30,
+      "generated": 24,
+      "requested": 24
     },
     {
       "skillId": "prepositions_of_place",
       "skillName": "Prepositions of Place",
       "level": 1,
-      "startingCount": 29,
-      "generated": 20,
-      "requested": 6
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "prepositions_of_place",
       "skillName": "Prepositions of Place",
       "level": 2,
-      "startingCount": 32,
-      "generated": 20,
-      "requested": 15
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "plurals",
       "skillName": "Plurals",
       "level": 1,
-      "startingCount": 7,
-      "generated": 28,
-      "requested": 28
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "plurals",
+      "skillName": "Plurals",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "prefixes_suffixes",
       "skillName": "Prefixes and Suffixes",
       "level": 1,
-      "startingCount": 14,
-      "generated": 21,
-      "requested": 21
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "prefixes_suffixes",
+      "skillName": "Prefixes and Suffixes",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "antonyms_synonyms",
       "skillName": "Antonyms and Synonyms",
       "level": 1,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "skillName": "Antonyms and Synonyms",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "homophones_homonyms",
       "skillName": "Homophones and Homonyms",
       "level": 1,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "homophones_homonyms",
+      "skillName": "Homophones and Homonyms",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "sentence_comprehension",
       "skillName": "Sentence Comprehension",
       "level": 1,
-      "startingCount": 16,
-      "generated": 19,
-      "requested": 19
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "sentence_comprehension",
+      "skillName": "Sentence Comprehension",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "key_details",
       "skillName": "Key Details",
       "level": 1,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "key_details",
+      "skillName": "Key Details",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "sequencing",
       "skillName": "Sequencing",
       "level": 1,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "sequencing",
+      "skillName": "Sequencing",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "main_idea",
       "skillName": "Main Idea",
       "level": 1,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "main_idea",
+      "skillName": "Main Idea",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "inference",
       "skillName": "Inference",
       "level": 1,
-      "startingCount": 1,
-      "generated": 34,
-      "requested": 34
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "inference",
+      "skillName": "Inference",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "cause_effect",
       "skillName": "Cause and Effect",
       "level": 1,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "cause_effect",
+      "skillName": "Cause and Effect",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "context_clues",
       "skillName": "Context Clues",
       "level": 1,
-      "startingCount": 1,
-      "generated": 34,
-      "requested": 34
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "context_clues",
+      "skillName": "Context Clues",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     },
     {
       "skillId": "theme_higher_comprehension",
       "skillName": "Theme and Higher Comprehension",
       "level": 1,
       "startingCount": 0,
-      "generated": 35,
-      "requested": 35
+      "generated": 46,
+      "requested": 46
+    },
+    {
+      "skillId": "theme_higher_comprehension",
+      "skillName": "Theme and Higher Comprehension",
+      "level": 2,
+      "startingCount": 0,
+      "generated": 46,
+      "requested": 46
     }
   ]
 }

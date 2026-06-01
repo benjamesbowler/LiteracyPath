@@ -30,6 +30,33 @@ const PHASE_BUFFER_SIZE = SKILL_LEVEL_DEPTH_TARGETS.phaseBufferSize || Math.ceil
 const SHORT_VOWEL_LABELS = ["short_a", "short_e", "short_i", "short_o", "short_u"];
 const SINGLE_LETTER_SOUNDS = "abcdefghijklmnopqrstuvwxyz".split("");
 const BASIC_FINAL_SOUNDS = finalSoundExpectedItemKeys;
+const REPLACED_LEGACY_SKILLS = new Set([
+  "prepositions_of_place",
+  "plurals",
+  "prefixes_suffixes",
+  "antonyms_synonyms",
+  "homophones_homonyms",
+  "vowel_teams",
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme_higher_comprehension"
+]);
+const HIGHER_COMPREHENSION_SKILLS = new Set([
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme_higher_comprehension"
+]);
+const REPLACEMENT_QUESTION_COUNT = SKILL_LEVEL_DEPTH_TARGETS.minimumPerLevel;
 
 function normalize(value = "") {
   return String(value || "").toLowerCase().trim();
@@ -340,6 +367,10 @@ function makePatternQuestions({ skillId, skillName, level, needed, templateType 
     }, entry, {
       targetPattern: pattern,
       phonicsPattern: pattern,
+      partialWord: entry.word.includes(pattern) ? entry.word.replace(pattern, "_") : "",
+      targetImage: entry.imagePath,
+      targetImagePath: entry.imagePath,
+      targetImageUrl: entry.imagePath,
       explanation: `${entry.displayWord} uses the ${pattern} pattern.`
     });
     delete question.audioUrl;
@@ -390,11 +421,13 @@ function makeVowelTeamQuestions(level, needed) {
     skillName: "Vowel Teams",
     level,
     needed,
-    templateType: "DECODING",
+    templateType: "LONG_VOWEL_TEAM_COMPLETE",
     skillKey: "vowelTeams",
-    patternGetter: entry => entry.phonics?.vowelTeam || "",
-    patterns: level === 1 ? ["ai", "ay", "ee", "ea", "oa"] : null,
-    prompt: "Which vowel team is in this word?"
+    patternGetter: entry => entry.phonics?.cvce ? "" : entry.phonics?.vowelTeam || "",
+    patterns: level === 1 ? ["ai", "ay", "ee", "ea", "oa"] : ["ai", "ay", "ee", "ea", "oa", "oi", "oy", "ou", "ow", "ue", "ui", "oo", "oe"],
+    prompt: level === 1
+      ? "Look at the picture. Which vowel team completes the word?"
+      : "Look at the picture. Which vowel team best completes the word?"
   });
 }
 
@@ -438,6 +471,7 @@ function buildBasePhaseCounts() {
     getRuntimeSafeDepthQuestions().filter(question =>
       !question.depthFilterReason &&
       question.depthSkillId &&
+      !REPLACED_LEGACY_SKILLS.has(question.depthSkillId) &&
       question._source !== "skillLevelGapQuestions"
     )
   );
@@ -555,9 +589,14 @@ function makeVocabularyGrammarQuestions(skillId, skillName, level, needed) {
       "above", "below", "behind", "beside", "between", "inside", "outside", "under", "over", "near",
       "far", "around", "through", "across", "against", "beneath", "next to", "in front of", "on top of",
       "along", "past", "toward", "away from", "around the corner", "by", "within", "beyond", "underneath",
-      "among", "opposite"
+      "among", "opposite", "beside the gate", "under the bridge", "inside the basket", "behind the curtain",
+      "between the trees", "near the river", "across the path", "around the bend", "toward the door",
+      "away from the road", "beneath the shelf", "on the left", "on the right", "at the front",
+      "at the back", "in the middle", "outside the tent", "past the bench", "along the fence",
+      "through the tunnel"
     ];
-    return spatial.slice(0, Math.max(needed, 20)).map((answer, index) => {
+    const rows = level === 1 ? spatial : [...spatial].reverse();
+    return rows.slice(0, Math.max(needed, 20)).map((answer, index) => {
       const entry = byWord(answer);
       return baseQuestion({
         id: `gap_${slug(skillId)}_l${level}_${slug(answer)}_${index + 1}`,
@@ -660,18 +699,25 @@ const PLURALS = [
   ["men", "man"], ["women", "woman"], ["people", "person"], ["oxen", "ox"],
   ["cars", "car"], ["boats", "boat"], ["chairs", "chair"], ["pencils", "pencil"],
   ["flowers", "flower"], ["apples", "apple"], ["bikes", "bike"], ["shoes", "shoe"],
-  ["lamps", "lamp"], ["doors", "door"], ["classes", "class"], ["watches", "watch"]
+  ["lamps", "lamp"], ["doors", "door"], ["watches", "watch"], ["churches", "church"], ["bunches", "bunch"],
+  ["potatoes", "potato"], ["tomatoes", "tomato"], ["heroes", "hero"], ["echoes", "echo"], ["pianos", "piano"],
+  ["radios", "radio"], ["roofs", "roof"], ["chiefs", "chief"], ["shelves", "shelf"], ["halves", "half"],
+  ["calves", "calf"], ["elves", "elf"], ["deer", "deer"], ["sheep", "sheep"], ["fish", "fish"],
+  ["cacti", "cactus"], ["fungi", "fungus"], ["nuclei", "nucleus"], ["radii", "radius"], ["indices", "index"]
 ];
 
 function makePluralQuestions(skillName, level, needed) {
-  return PLURALS.slice(0, needed).map(([plural, singular], index) => baseQuestion({
+  const rows = level === 1 ? PLURALS : [...PLURALS].reverse();
+  return rows.slice(0, needed).map(([plural, singular], index) => baseQuestion({
     id: `gap_plurals_l${level}_${slug(plural)}_${index + 1}`,
     skillId: "plurals",
     skillName,
     level,
     phaseTarget: `level_${level}`,
     templateType: "PLURAL_SPELLING_CONTEXT",
-    prompt: `Which word means more than one ${singular}?`,
+    prompt: level === 2
+      ? `Choose the correct plural for the sentence: We saw three ${singular} on the way home.`
+      : `Which word means more than one ${singular}?`,
     correctAnswer: plural,
     answerOptions: choiceList(plural, [singular, `${singular}s`, `${singular}es`, `${singular}ies`]),
     targetWord: plural,
@@ -715,18 +761,37 @@ const MORPHEMES = [
   ["washable", "able to be washed", ["able to be washed", "not washed", "washed again", "full of wash"]],
   ["readable", "able to be read", ["able to be read", "not read", "read again", "full of reading"]],
   ["carefully", "in a careful way", ["in a careful way", "without care", "care again", "not care"]],
-  ["fearfully", "in a fearful way", ["in a fearful way", "without fear", "fear again", "not fear"]]
+  ["fearfully", "in a fearful way", ["in a fearful way", "without fear", "fear again", "not fear"]],
+  ["unpack", "take things out", ["take things out", "pack again", "not pack", "pack before"]],
+  ["unfold", "open something folded", ["open something folded", "fold again", "not fold", "full of fold"]],
+  ["rebuild", "build again", ["build again", "not build", "build before", "full of building"]],
+  ["recheck", "check again", ["check again", "not check", "check before", "full of checking"]],
+  ["pretest", "a test before", ["a test before", "not a test", "test again", "full of test"]],
+  ["precut", "cut before", ["cut before", "cut again", "not cut", "full of cut"]],
+  ["singer", "a person who sings", ["a person who sings", "sing again", "not sing", "full of song"]],
+  ["runner", "a person who runs", ["a person who runs", "run again", "not run", "without running"]],
+  ["painter", "a person who paints", ["a person who paints", "paint again", "not paint", "full of paint"]],
+  ["sadness", "being sad", ["being sad", "not sad", "sad again", "before sad"]],
+  ["neatness", "being neat", ["being neat", "not neat", "neat again", "before neat"]],
+  ["thankful", "full of thanks", ["full of thanks", "without thanks", "thanks again", "not thanks"]],
+  ["playful", "full of play", ["full of play", "without play", "play again", "not play"]],
+  ["painless", "without pain", ["without pain", "full of pain", "pain again", "not pain"]],
+  ["wireless", "without wires", ["without wires", "full of wires", "wire again", "before wires"]],
+  ["movable", "able to be moved", ["able to be moved", "not moved", "move again", "full of move"]]
 ];
 
 function makeMorphemeQuestions(skillName, level, needed) {
-  return cycleRows(MORPHEMES, needed).map(([word, answer, choices], index) => baseQuestion({
+  const rows = level === 1 ? MORPHEMES : [...MORPHEMES].reverse();
+  return cycleRows(rows, needed).map(([word, answer, choices], index) => baseQuestion({
     id: `gap_prefixes_suffixes_l${level}_${slug(word)}_${index + 1}`,
     skillId: "prefixes_suffixes",
     skillName,
     level,
     phaseTarget: `level_${level}`,
     templateType: "MORPHEME_MEANING_CONTEXT",
-    prompt: `What does ${word} mean?`,
+    prompt: level === 2
+      ? `In a sentence, what does the word ${word} mean?`
+      : `What does ${word} mean?`,
     correctAnswer: answer,
     answerOptions: choiceList(answer, choices.filter(choice => choice !== answer)),
     targetWord: word,
@@ -827,18 +892,29 @@ const HOMOPHONES = [
   ["steak", "stake", "Which word means a piece of meat?", ["steak", "stake", "stick", "stack"]],
   ["stake", "steak", "Which word means a pointed stick?", ["stake", "steak", "stack", "stick"]],
   ["stair", "stare", "Which word means a step?", ["stair", "stare", "star", "start"]],
-  ["stare", "stair", "Which word means to look for a long time?", ["stare", "stair", "star", "start"]]
+  ["stare", "stair", "Which word means to look for a long time?", ["stare", "stair", "star", "start"]],
+  ["sun", "son", "Which word names the star that gives Earth light?", ["sun", "son", "soon", "some"]],
+  ["son", "sun", "Which word means a male child?", ["son", "sun", "soon", "some"]],
+  ["plain", "plane", "Which word means simple or not fancy?", ["plain", "plane", "plan", "plant"]],
+  ["plane", "plain", "Which word names something that flies?", ["plane", "plain", "plan", "plant"]],
+  ["break", "brake", "Which word means to crack or damage something?", ["break", "brake", "brick", "back"]],
+  ["brake", "break", "Which word means a part that stops a bike or car?", ["brake", "break", "brick", "back"]],
+  ["threw", "through", "Which word means tossed?", ["threw", "through", "throw", "three"]],
+  ["through", "threw", "Which word means from one side to the other?", ["through", "threw", "throw", "three"]],
+  ["made", "maid", "Which word means created or built?", ["made", "maid", "make", "mate"]],
+  ["maid", "made", "Which word can mean a person who cleans rooms?", ["maid", "made", "make", "mate"]]
 ];
 
 function makeMeaningQuestions(skillId, skillName, level, needed, rows) {
-  return cycleRows(rows, needed).map(([target, answer, prompt, choices], index) => baseQuestion({
+  const levelRows = level === 1 ? rows : [...rows].reverse();
+  return cycleRows(levelRows, needed).map(([target, answer, prompt, choices], index) => baseQuestion({
     id: `gap_${slug(skillId)}_l${level}_${slug(target)}_${index + 1}`,
     skillId,
     skillName,
     level,
     phaseTarget: `level_${level}`,
     templateType: skillId === "homophones_homonyms" ? "HOMOPHONE_MEANING" : "COMPREHENSION",
-    prompt,
+    prompt: level === 2 ? `${prompt} Use the meaning that fits best.` : prompt,
     correctAnswer: answer,
     answerOptions: choiceList(answer, choices.filter(choice => choice !== answer)),
     targetWord: target,
@@ -909,6 +985,173 @@ function makeComprehensionQuestions(skillId, skillName, level, needed) {
   });
 }
 
+const STORY_NAMES = [
+  "Mara", "Theo", "Lena", "Isaac", "Priya", "Owen", "Sofia", "Miles", "Nora", "Jalen",
+  "Ruby", "Eli", "Amara", "Finn", "Tessa", "Noah", "Ivy", "Caleb", "Mina", "Leo",
+  "Grace", "Arlo", "Nina", "Mateo", "Clara", "Jonah", "Zara", "Hugo", "Maya", "Felix",
+  "Rosa", "Ezra", "Lila", "Kai", "Anya", "Jude", "Molly", "Samir", "Ava", "Ben",
+  "Poppy", "Oscar", "Hana", "Dylan", "Sara", "Micah"
+];
+const STORY_PARTNERS = [
+  "Grandad", "Aunt Jo", "Mr. Patel", "Miss Green", "her cousin", "his sister", "the coach", "the librarian",
+  "a park ranger", "the baker", "the bus driver", "the art teacher", "her neighbor", "his dad", "the nurse",
+  "a museum guide", "the gardener", "her brother", "the farmer", "the lifeguard"
+];
+const STORY_SETTINGS = [
+  ["forest", "forest trail", "fallen log"], ["beach", "quiet beach", "tide pool"], ["river", "river path", "wooden dock"],
+  ["camp", "summer camp", "canvas tent"], ["bridge", "stone bridge", "old railing"], ["snow", "snowy hill", "sled track"],
+  ["cave", "shallow cave", "rock wall"], ["bike", "bike path", "repair bench"], ["paint", "art room", "paint table"],
+  ["bread", "bakery kitchen", "cooling rack"], ["path", "garden path", "rose arch"], ["squirrel", "park tree", "bench"],
+  ["field", "wide field", "weather vane"], ["clock", "town square", "clock tower"], ["bucket", "school garden", "water barrel"],
+  ["canoe", "lake shore", "red canoe"], ["firetruck", "fire station", "open garage"], ["basketball", "playground court", "painted line"],
+  ["flowerpot", "greenhouse", "seed tray"], ["chessboard", "game club", "corner table"], ["cactus", "desert garden", "stone path"],
+  ["crayon", "classroom", "supply shelf"], ["cloud", "weather station", "rain gauge"]
+];
+const STORY_DISCOVERIES = [
+  "a blue feather", "three smooth shells", "a bent key", "a torn map corner", "a tiny paw print", "a loose red button",
+  "a folded note", "a cracked tile", "a silver coin", "a muddy boot print", "a green ribbon", "a painted pebble",
+  "a nest of dry grass", "a missing library card", "a basket of warm rolls", "a broken wheel", "a lantern with no oil",
+  "a packet of seeds", "a striped scarf", "a whistle on a string", "a jar of rainwater", "a wooden tag", "a small brass bell"
+];
+const STORY_ACTIONS = [
+  "made a careful note", "added the detail to a field journal", "asked an adult for help", "wrote the place in a notebook",
+  "chose a safer spot nearby", "hung a sign beside the area", "checked the owner tag", "waited for it to dry",
+  "compared the find with a picture", "visited the lost-and-found table", "measured the find twice", "shared the detail with the group"
+];
+
+function storySetting(index) {
+  return STORY_SETTINGS[index % STORY_SETTINGS.length];
+}
+
+function storyImageExtra(imageWord, index) {
+  const entry = byWord(imageWord) || byWord(STORY_SETTINGS[index % STORY_SETTINGS.length][0]) || byWord("forest");
+  return entry ? {
+    imageUrl: entry.imagePath,
+    imagePath: entry.imagePath,
+    targetImage: entry.imagePath,
+    targetImagePath: entry.imagePath,
+    imageAlt: entry.displayWord || entry.word
+  } : {};
+}
+
+function storyOptions(answer, distractors, index) {
+  return choiceList(answer, rotate(distractors.filter(item => item !== answer), index), 4);
+}
+
+function buildHigherStoryQuestion(skillId, skillName, level, index) {
+  const name = STORY_NAMES[(index + level * 5) % STORY_NAMES.length];
+  const partner = STORY_PARTNERS[(index * 2 + level) % STORY_PARTNERS.length];
+  const [imageWord, setting, landmark] = storySetting(index + level * 7 + skillId.length);
+  const discovery = STORY_DISCOVERIES[(index * 3 + level) % STORY_DISCOVERIES.length];
+  const action = STORY_ACTIONS[(index * 5 + level) % STORY_ACTIONS.length];
+  const extraSentence = level === 2
+    ? `Later, ${partner} asked ${name} to explain the choice, so ${name} used details from the whole trip.`
+    : `Later, ${name} told the class about it.`;
+  const baseId = `gap_${slug(skillId)}_l${level}_story_${String(index + 1).padStart(2, "0")}`;
+
+  if (skillId === "sentence_comprehension") {
+    const passage = `${name} visited the ${setting} with ${partner}. They wanted to complete a class observation project. Near the ${landmark}, ${name} noticed ${discovery}. ${partner} ${action} before they walked back. ${extraSentence}`;
+    const question = `What did ${name} notice near the ${landmark}?`;
+    return { id: baseId, passage, question, answer: discovery, choices: storyOptions(discovery, STORY_DISCOVERIES, index), imageWord };
+  }
+
+  if (skillId === "key_details") {
+    const number = (index % 6) + 3;
+    const container = ["blue basket", "wooden tray", "green box", "canvas bag", "small cart", "wide bucket"][index % 6];
+    const passage = `${name} helped ${partner} at the ${setting}. They counted ${number} items and placed them in a ${container}. One item had to stay beside the ${landmark} because it was still wet. Before leaving, ${name} checked the list again. ${extraSentence}`;
+    const question = `Where did they place the ${number} items?`;
+    return { id: baseId, passage, question, answer: `in a ${container}`, choices: storyOptions(`in a ${container}`, ["on a shelf", "under a chair", "inside a jar", "beside the gate", "near the river", "in a red wagon"], index), imageWord };
+  }
+
+  if (skillId === "sequencing") {
+    const first = ["read the sign", "filled the bucket", "checked the map", "opened the kit", "put on gloves", "called the team"][index % 6];
+    const second = ["marked the safe path", "watered the smallest plants", "sorted the tools", "tied the loose rope", "brushed dirt from the label", "packed the snacks"][index % 6];
+    const third = ["walked back to the meeting place", "wrote the result on the board", "shared the news with the group", "closed the gate", "returned the key", "took one final photograph"][index % 6];
+    const passage = `${name} met ${partner} at the ${setting}. First, ${name} ${first}. After that, ${name} ${second} beside the ${landmark}. When the job was finished, ${name} ${third}. ${extraSentence}`;
+    const question = `What did ${name} do after ${name} ${first}?`;
+    return { id: baseId, passage, question, answer: second, choices: storyOptions(second, [first, third, "went home without helping", "hid the tools", "forgot the plan", "locked the door"], index), imageWord };
+  }
+
+  if (skillId === "main_idea") {
+    const topic = ["solving a small problem", "getting ready for a community event", "taking care of a special place", "learning how a tool works", "helping a visitor feel welcome", "preparing safely before an activity"][index % 6];
+    const passage = `${name} and ${partner} spent the morning at the ${setting}. They checked the ${landmark}, gathered supplies, and made sure everyone knew the plan. When a small problem came up, they talked it through instead of rushing. By the end, the whole group understood what to do next. ${extraSentence}`;
+    const question = "What is the passage mostly about?";
+    return { id: baseId, passage, question, answer: topic, choices: storyOptions(topic, ["losing a favorite toy", "arguing about a game", "buying food for dinner", "watching a race", "taking a long nap", "drawing a funny picture"], index), imageWord };
+  }
+
+  if (skillId === "inference") {
+    const feeling = ["proud", "worried", "relieved", "curious", "disappointed", "confident"][index % 6];
+    const clue = {
+      proud: "stood taller and smiled when the group thanked them",
+      worried: "kept checking the sky and held the notebook tightly",
+      relieved: "let out a long breath when the missing item was found",
+      curious: "asked three more questions and leaned closer to see",
+      disappointed: "looked down when the plan had to change",
+      confident: "explained the next step without needing help"
+    }[feeling];
+    const passage = `${name} arrived at the ${setting} with ${partner}. The plan changed when they reached the ${landmark}. ${name} ${clue}. Instead of leaving, ${name} listened carefully and chose what to do next. ${extraSentence}`;
+    const question = `How did ${name} probably feel?`;
+    return { id: baseId, passage, question, answer: feeling, choices: storyOptions(feeling, ["angry", "sleepy", "hungry", "jealous", "bored", "silly"], index), imageWord };
+  }
+
+  if (skillId === "cause_effect") {
+    const cause = ["the wind knocked over the sign", "the bucket had a small crack", "the path was covered with ice", "the lantern battery was weak", "the gate latch was loose", "rain filled the low part of the trail"][index % 6];
+    const effect = ["the group had to choose a different route", "water dripped across the floor", "everyone walked slowly and held the rail", "the corner of the room stayed dim", "the gate swung open again", "the children moved the picnic uphill"][index % 6];
+    const passage = `${name} joined ${partner} at the ${setting}. Everything seemed ready until ${cause}. Because of that, ${effect}. ${name} helped fix the problem before anyone continued. ${extraSentence}`;
+    const question = "What caused this problem?";
+    return { id: baseId, passage, question, answer: cause, choices: storyOptions(cause, ["the lunch was packed early", "the team sang a song", "the clock was painted blue", "the notebook had a sticker", "the chairs were stacked neatly", "the window was clean"], index), imageWord };
+  }
+
+  if (skillId === "context_clues") {
+    const rows = [
+      ["fragile", "easily broken", "glass ornament", "wrapped it in cloth and carried it with both hands"],
+      ["drenched", "very wet", "raincoat", "dripped water onto the floor"],
+      ["cautious", "careful", "new bridge plank", "tested it before stepping forward"],
+      ["scarce", "hard to find", "dry firewood", "found only two small sticks in the whole box"],
+      ["gleaming", "shining brightly", "silver badge", "caught the sunlight and flashed like glass"],
+      ["sturdy", "strong", "wooden crate", "held the heavy basket without bending"]
+    ];
+    const [word, meaning, object, clue] = rows[index % rows.length];
+    const passage = `${name} found a ${object} at the ${setting}. ${partner} said the ${object} was ${word}. ${name} knew that because ${partner} ${clue}. They handled it in the safest way they could. ${extraSentence}`;
+    const question = `What does ${word} mean in the passage?`;
+    return { id: baseId, passage, question, answer: meaning, choices: storyOptions(meaning, ["very loud", "not important", "easy to hide", "full of color", "moving quickly", "made of paper"], index), imageWord };
+  }
+
+  const lesson = ["think before acting", "ask for help when a job is too hard", "small choices can keep people safe", "practice helps you improve", "kindness can solve a problem", "be honest when something goes wrong"][index % 6];
+  const mistake = ["rushed ahead without reading the sign", "tried to carry too much at once", "ignored the loose rope", "gave up after the first try", "kept the useful clue secret", "hid a mistake instead of explaining it"][index % 6];
+  const repair = ["stopped, looked again, and made a safer plan", "shared the load with a friend", "asked an adult to tie it properly", "tried a slower method and succeeded", "told the group what had been found", "told the truth and helped fix it"][index % 6];
+  const passage = `${name} went to the ${setting} with ${partner}. At first, ${name} ${mistake}. The problem grew near the ${landmark}, and the group had to pause. Then ${name} ${repair}. ${extraSentence}`;
+  const question = "What lesson best fits this story?";
+  return { id: baseId, passage, question, answer: lesson, choices: storyOptions(lesson, ["always work alone", "never change a plan", "hide problems from others", "winning matters most", "quiet places are boring", "tools are not useful"], index), imageWord };
+}
+
+function makeHigherQualityComprehensionQuestions(skillId, skillName, level, needed) {
+  return Array.from({ length: needed }, (_, index) => {
+    const story = buildHigherStoryQuestion(skillId, skillName, level, index);
+    return baseQuestion({
+      id: story.id,
+      skillId,
+      skillName,
+      level,
+      phaseTarget: `level_${level}`,
+      templateType: "COMPREHENSION",
+      prompt: story.question,
+      correctAnswer: story.answer,
+      answerOptions: story.choices,
+      targetWord: `${skillId}_${level}_${index + 1}`,
+      itemType: skillId,
+      itemKey: `${skillId}_${level}_${index + 1}`,
+      extra: {
+        passage: story.passage,
+        question: story.question,
+        spokenPrompt: story.question,
+        contextImageWord: story.imageWord,
+        ...storyImageExtra(story.imageWord, index)
+      }
+    });
+  });
+}
+
 function generateFor(skillId, skillName, level, needed) {
   if (needed <= 0) return [];
   if (skillId === "initial_sounds") return makeInitialQuestions(level, needed);
@@ -925,10 +1168,12 @@ function generateFor(skillId, skillName, level, needed) {
   if (skillId === "prefixes_suffixes") return makeMorphemeQuestions(skillName, level, needed);
   if (skillId === "antonyms_synonyms") return makeMeaningQuestions(skillId, skillName, level, needed, ANTONYM_SYNONYM);
   if (skillId === "homophones_homonyms") return makeMeaningQuestions(skillId, skillName, level, needed, HOMOPHONES);
+  if (HIGHER_COMPREHENSION_SKILLS.has(skillId)) return makeHigherQualityComprehensionQuestions(skillId, skillName, level, needed);
   return makeComprehensionQuestions(skillId, skillName, level, needed);
 }
 
-function neededForLevel(levelAudit) {
+function neededForLevel(levelAudit, skillId = "") {
+  if (REPLACED_LEGACY_SKILLS.has(skillId)) return REPLACEMENT_QUESTION_COUNT;
   if (!levelAudit.designed || levelAudit.passesDepth) return 0;
   if (levelAudit.runtimeSafeQuestionCount === 0) return SKILL_LEVEL_DEPTH_TARGETS.minimumPerLevel + 8;
   if (levelAudit.missingCount > 0) return levelAudit.missingCount + 8;
@@ -947,7 +1192,7 @@ function main() {
       const levelAudit = skill.levels[levelNumber];
       const levelConfig = config?.levels[levelNumber];
       if (!levelConfig?.designed) continue;
-      const needed = neededForLevel(levelAudit);
+      const needed = neededForLevel(levelAudit, skill.skillId);
       if (!needed) continue;
       const questions = generateFor(skill.skillId, skill.skillName, levelNumber, needed)
         .filter(question => question && !seenIds.has(question.id));
