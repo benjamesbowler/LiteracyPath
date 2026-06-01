@@ -993,9 +993,9 @@ const STORY_NAMES = [
   "Poppy", "Oscar", "Hana", "Dylan", "Sara", "Micah"
 ];
 const STORY_PARTNERS = [
-  "Grandad", "Aunt Jo", "Mr. Patel", "Miss Green", "her cousin", "his sister", "the coach", "the librarian",
-  "a park ranger", "the baker", "the bus driver", "the art teacher", "her neighbor", "his dad", "the nurse",
-  "a museum guide", "the gardener", "her brother", "the farmer", "the lifeguard"
+  "Grandad", "Aunt Jo", "Mr. Patel", "Miss Green", "Cousin Maya", "Uncle Ray", "Coach Lee", "Ms. Rivera",
+  "Park Ranger Kim", "Baker Tom", "Driver Noor", "Ms. Chen", "Neighbor Rosa", "Dad", "Nurse Ali",
+  "Guide Elena", "Gardener Ben", "Brother Jay", "Farmer Luis", "Lifeguard Mina"
 ];
 const STORY_SETTINGS = [
   ["forest", "forest trail", "fallen log"], ["beach", "quiet beach", "tide pool"], ["river", "river path", "wooden dock"],
@@ -1015,9 +1015,22 @@ const STORY_DISCOVERIES = [
 ];
 const STORY_ACTIONS = [
   "made a careful note", "added the detail to a field journal", "asked an adult for help", "wrote the place in a notebook",
-  "chose a safer spot nearby", "hung a sign beside the area", "checked the owner tag", "waited for it to dry",
+  "chose a safer spot nearby", "marked the place on the class map", "checked the owner tag", "sketched the detail carefully",
   "compared the find with a picture", "visited the lost-and-found table", "measured the find twice", "shared the detail with the group"
 ];
+const STORY_OBSERVATION_ACTIONS = [
+  "made a careful note about it",
+  "added the detail to the project journal",
+  "asked an adult what to do next",
+  "marked the place on the class map",
+  "sketched it on the observation sheet",
+  "took a photo for the class record"
+];
+
+function sentenceStart(value = "") {
+  const text = String(value || "").trim();
+  return text ? text[0].toUpperCase() + text.slice(1) : text;
+}
 
 function storySetting(index) {
   return STORY_SETTINGS[index % STORY_SETTINGS.length];
@@ -1038,21 +1051,478 @@ function storyOptions(answer, distractors, index) {
   return choiceList(answer, rotate(distractors.filter(item => item !== answer), index), 4);
 }
 
+function buildSentenceComprehensionStory(level, index) {
+  const baseId = `gap_sentence_comprehension_l${level}_story_${String(index + 1).padStart(2, "0")}`;
+  const stories = [
+    {
+      passage: "Mia helped plant bean seeds in the school garden. The soil was dry, so she filled a small watering can. Her classmate held the seed packet while Mia watered each row. By Friday, tiny green shoots were poking through the soil.",
+      question: "What did Mia fill before watering the rows?",
+      answer: "a small watering can",
+      choices: ["a small watering can", "a lunch box", "a red basket", "a glass jar"],
+      imageWord: "bucket"
+    },
+    {
+      passage: "Jonah walked along the beach with his aunt. They collected empty shells for a science tray. One shell had a tiny crab tucked inside it. Jonah left that shell on the sand and chose three empty shells instead.",
+      question: "Why did they leave one shell on the sand?",
+      answer: "a tiny crab was inside it",
+      choices: ["a tiny crab was inside it", "it was too heavy to lift", "it belonged to a shop", "the shell was painted blue"],
+      imageWord: "beach"
+    },
+    {
+      passage: "Sofia borrowed a mystery book from the library. At home, a bookmark fell out from the middle pages. The bookmark had another student's name on it. The next morning, Sofia gave it to the librarian so it could be returned.",
+      question: "Who did the bookmark belong to?",
+      answer: "another student",
+      choices: ["another student", "the librarian", "a visitor", "the bus driver"],
+      imageWord: "bookcase"
+    },
+    {
+      passage: "Arlo carried warm rolls from the bakery counter. The paper bag tore before he reached the door. Two rolls slipped onto a clean tray near the counter. Baker Tom gave Arlo a stronger bag, and Arlo carried the rolls home carefully.",
+      question: "What happened before Baker Tom gave a stronger bag?",
+      answer: "the first bag tore",
+      choices: ["the first bag tore", "the bread burned", "the shop closed", "the tray broke"],
+      imageWord: "bread"
+    },
+    {
+      passage: "Nina rode her bike along the park path. A loose chain made the pedals stop turning. She walked the bike to a repair bench near the gate. Her dad fixed the chain with a small tool, and Nina rode slowly home.",
+      question: "Why did the pedals stop turning?",
+      answer: "the bike chain was loose",
+      choices: ["the bike chain was loose", "the tire was purple", "the path was too short", "the bell was loud"],
+      imageWord: "bike"
+    },
+    {
+      passage: "Leo painted a picture of a red fire truck. His first brush was too wide for the ladder. Ms. Chen found a thinner brush in the art box. Leo used it to paint neat silver lines, and the ladder looked clearer.",
+      question: "What did Leo use the thinner brush to paint?",
+      answer: "neat silver lines",
+      choices: ["neat silver lines", "green leaves", "a yellow moon", "large black wheels"],
+      imageWord: "paint"
+    },
+    {
+      passage: "Ruby watched dark clouds gather over the field. The class had planned to eat lunch outside. Miss Green heard thunder in the distance. She moved everyone into the hall before the rain began, so the lunches stayed dry.",
+      question: "Where did Miss Green move the class?",
+      answer: "into the hall",
+      choices: ["into the hall", "onto the field", "behind the shed", "beside the road"],
+      imageWord: "cloud"
+    },
+    {
+      passage: "Eli saw a small squirrel near the park bench. It held an acorn and stayed very still. Park Ranger Kim asked the children to step back quietly. After a minute, the squirrel ran up the tree.",
+      question: "What did the squirrel do after everyone stepped back?",
+      answer: "ran up the tree",
+      choices: ["ran up the tree", "jumped into a pond", "took a sandwich", "hid under a hat"],
+      imageWord: "squirrel"
+    },
+    {
+      passage: "Amara helped set up chairs for a class game. One chair had a cracked leg. Amara moved it away from the circle. Coach Lee brought a safe chair from the hallway, and the game began after every seat was checked.",
+      question: "Why did Amara move one chair away?",
+      answer: "it had a cracked leg",
+      choices: ["it had a cracked leg", "it was painted red", "it was too clean", "it had a soft cushion"],
+      imageWord: "chessboard"
+    },
+    {
+      passage: "Caleb followed a river path with his walking group. A paper map showed two trails back to the car park. The shorter trail was closed because a branch had fallen across it. The group chose the longer trail and reached the car park safely.",
+      question: "Why did the group take the longer trail?",
+      answer: "the shorter trail was closed",
+      choices: ["the shorter trail was closed", "the map was missing", "the car park moved", "the river was dry"],
+      imageWord: "river"
+    },
+    {
+      passage: "Grace helped sort crayons after art time. The blue crayons went in one cup, and the red crayons went in another. A green crayon had rolled under the table. Grace found it and put it in the green box.",
+      question: "Where was the green crayon?",
+      answer: "under the table",
+      choices: ["under the table", "inside a shoe", "on the window", "behind the clock"],
+      imageWord: "crayon"
+    },
+    {
+      passage: "Hugo and Jay built a small tent at camp. The first pole was in the wrong sleeve. The tent leaned to one side and would not stand properly. Jay pulled the pole out and tried again, and this time the tent stood straight.",
+      question: "What made the tent lean to one side?",
+      answer: "a pole was in the wrong sleeve",
+      choices: ["a pole was in the wrong sleeve", "the tent was full of books", "the grass was blue", "the door was zipped"],
+      imageWord: "camp"
+    },
+    {
+      passage: "Maya watched Farmer Luis feed the chickens. One small chick stayed near the fence and did not eat. Farmer Luis checked the feed bowl and found it was empty on that side. He poured in more grain, and the chick hurried over.",
+      question: "What did Farmer Luis pour into the bowl?",
+      answer: "more grain",
+      choices: ["more grain", "cold water", "red paint", "clean sand"],
+      imageWord: "chicken"
+    },
+    {
+      passage: "Felix visited the clock tower in the town square. The big hand pointed to twelve, and the small hand pointed to three. Ms. Rivera said the class had ten minutes before the bus came. Felix sat on the bench and waited.",
+      question: "What time did the clock show?",
+      answer: "three o'clock",
+      choices: ["three o'clock", "twelve o'clock", "ten o'clock", "six o'clock"],
+      imageWord: "clock"
+    },
+    {
+      passage: "Lila carried a basket of clean towels at the pool. A wet towel was lying beside the door. Lifeguard Mina said wet towels could make people slip. Lila picked it up and put it in the laundry bin.",
+      question: "Why was the wet towel a problem?",
+      answer: "people could slip on it",
+      choices: ["people could slip on it", "it was too colorful", "it belonged in a book", "it made the door taller"],
+      imageWord: "towel"
+    },
+    {
+      passage: "Kai made a card for the school fair. The glue bottle was almost empty, so the paper would not stick. He asked for help at the craft table. Nurse Ali found a new bottle in the supply box, and Kai finished the card before lunch.",
+      question: "What was wrong with the first glue bottle?",
+      answer: "it was almost empty",
+      choices: ["it was almost empty", "it was too heavy", "it was full of paint", "it was locked"],
+      imageWord: "card"
+    },
+    {
+      passage: "Rosa packed her school bag before the trip. She put her notebook, pencil, and water bottle inside. When the bus arrived, she noticed her permission slip was still on the kitchen table. Her uncle brought it to school before the class left.",
+      question: "What did Rosa forget at home?",
+      answer: "her permission slip",
+      choices: ["her permission slip", "her water bottle", "her pencil", "her notebook"],
+      imageWord: "bag"
+    },
+    {
+      passage: "Oscar helped his grandmother make soup. He washed the carrots and placed them on the cutting board. The pot began to bubble, so his grandmother turned the heat down. Oscar stirred the soup slowly while it cooked.",
+      question: "What did Oscar do after washing the carrots?",
+      answer: "placed them on the cutting board",
+      choices: ["placed them on the cutting board", "poured soup into a cup", "opened the front door", "washed the floor"],
+      imageWord: "carrot"
+    },
+    {
+      passage: "Hana found a library card on the playground. The name on the card was not hers. She gave it to the office before morning lessons began. At lunch, the owner came to the office and got the card back.",
+      question: "Where did Hana take the library card?",
+      answer: "to the office",
+      choices: ["to the office", "to the garden", "to the lunch table", "to the bus stop"],
+      imageWord: "card"
+    },
+    {
+      passage: "Dylan practiced for the class concert. His music sheet kept sliding off the stand. He used a small clip to hold the page in place. When the song began, Dylan could read every line.",
+      question: "Why did Dylan use a clip?",
+      answer: "to hold the music page in place",
+      choices: ["to hold the music page in place", "to open a lunch bag", "to fix a shoe", "to mark a race track"],
+      imageWord: "music"
+    },
+    {
+      passage: "Sara saw puddles on the sidewalk after the rain. She stepped around the largest puddle to keep her socks dry. A younger child started to run through the same spot. Sara pointed to a dry path beside the fence.",
+      question: "Why did Sara step around the largest puddle?",
+      answer: "to keep her socks dry",
+      choices: ["to keep her socks dry", "to find a lost toy", "to count the fence posts", "to pick a flower"],
+      imageWord: "rain"
+    },
+    {
+      passage: "Micah helped carry boxes into the classroom. One box rattled when he lifted it. He set it down gently and told the teacher. The teacher opened the box and found glass jars wrapped in paper.",
+      question: "Why did Micah set the rattling box down gently?",
+      answer: "it had glass jars inside",
+      choices: ["it had glass jars inside", "it was full of pillows", "it was empty", "it had a sandwich inside"],
+      imageWord: "box"
+    },
+    {
+      passage: "Tessa visited the animal shelter with her class. A small dog stayed at the back of its pen. The worker spoke softly and held out a treat. After a moment, the dog walked closer and wagged its tail.",
+      question: "What helped the dog walk closer?",
+      answer: "the worker spoke softly and offered a treat",
+      choices: ["the worker spoke softly and offered a treat", "the class shouted loudly", "the door slammed shut", "the room became dark"],
+      imageWord: "dog"
+    },
+    {
+      passage: "Noah cleaned his desk after math. He found three pencils, a ruler, and a folded note. The note reminded him to return a book to the library. Noah put the book in his bag before recess.",
+      question: "What did the note remind Noah to do?",
+      answer: "return a book to the library",
+      choices: ["return a book to the library", "feed the class fish", "paint a picture", "bring a coat"],
+      imageWord: "book"
+    },
+    {
+      passage: "Ivy helped her dad wash the car. She sprayed water on the wheels first because they were muddy. Then she used a sponge on the doors. When the car dried, the wheels looked clean again.",
+      question: "Which part of the car did Ivy wash first?",
+      answer: "the wheels",
+      choices: ["the wheels", "the windows", "the seats", "the roof"],
+      imageWord: "car"
+    },
+    {
+      passage: "Ben made a paper boat during craft time. He folded the corners carefully, but one side opened up. His friend showed him how to press the crease harder. Ben fixed the fold and floated the boat in a tub of water.",
+      question: "How did Ben fix the paper boat?",
+      answer: "he pressed the crease harder",
+      choices: ["he pressed the crease harder", "he painted it red", "he cut it in half", "he put it in his pocket"],
+      imageWord: "boat"
+    },
+    {
+      passage: "Poppy went to the market with her mother. They needed apples for a pie. The first bag had a bruised apple on top, so Poppy chose a different bag. At home, every apple in the second bag was firm.",
+      question: "Why did Poppy choose a different bag?",
+      answer: "the first bag had a bruised apple",
+      choices: ["the first bag had a bruised apple", "the pie was already baked", "the market was closed", "the apples were too loud"],
+      imageWord: "apple"
+    },
+    {
+      passage: "Samir watched a worker repair the school gate. The gate squeaked every time someone opened it. The worker added oil to the hinge and moved the gate back and forth. After that, the gate opened quietly.",
+      question: "What made the gate open quietly?",
+      answer: "oil on the hinge",
+      choices: ["oil on the hinge", "paint on the wall", "a new lunch bell", "water in a cup"],
+      imageWord: "gate"
+    },
+    {
+      passage: "Ava helped decorate the classroom window. She cut stars from yellow paper and taped them around the edges. One star fell because the tape was too small. Ava used a longer piece of tape, and the star stayed up.",
+      question: "Why did one star fall?",
+      answer: "the tape was too small",
+      choices: ["the tape was too small", "the paper was yellow", "the window was open", "the stars were counted"],
+      imageWord: "star"
+    },
+    {
+      passage: "Molly read a recipe for banana muffins. The recipe said to mash two bananas before adding the flour. Molly mashed the bananas with a fork. Then she poured in the flour and mixed the batter.",
+      question: "What did Molly do before adding the flour?",
+      answer: "mashed two bananas",
+      choices: ["mashed two bananas", "washed the dishes", "opened a window", "cut paper stars"],
+      imageWord: "banana"
+    },
+    {
+      passage: "Ezra built a tower with wooden blocks. The tower fell each time he put a large block on top. He tried again with the largest blocks at the bottom. This time the tower stood until cleanup.",
+      question: "What helped the tower stand?",
+      answer: "putting the largest blocks at the bottom",
+      choices: ["putting the largest blocks at the bottom", "using fewer colors", "building near the sink", "closing the classroom door"],
+      imageWord: "blocks"
+    },
+    {
+      passage: "Clara watered the classroom plant on Monday. By Wednesday, the leaves drooped and the soil felt dry. Clara told the teacher instead of adding too much water at once. The teacher showed her how to give the plant a small drink.",
+      question: "What did Clara notice about the plant?",
+      answer: "the leaves drooped and the soil was dry",
+      choices: ["the leaves drooped and the soil was dry", "the pot was full of toys", "the flowers were made of paper", "the plant had no leaves at all"],
+      imageWord: "flowerpot"
+    },
+    {
+      passage: "Jude helped his team find a missing soccer ball. They checked behind the goal and under the bench. Jude heard a soft thump inside the storage shed. The ball had rolled through the open shed door.",
+      question: "Where was the missing soccer ball?",
+      answer: "inside the storage shed",
+      choices: ["inside the storage shed", "under a lunch tray", "on the bus", "beside the library desk"],
+      imageWord: "ball"
+    },
+    {
+      passage: "Anya carried a tray of seedlings to the greenhouse. A cold wind blew when the door opened. She waited until the wind stopped before setting the tray down. None of the small plants tipped over.",
+      question: "Why did Anya wait before setting down the tray?",
+      answer: "a cold wind was blowing",
+      choices: ["a cold wind was blowing", "the tray was empty", "the floor was covered in paint", "the plants were made of glass"],
+      imageWord: "flowerpot"
+    },
+    {
+      passage: "Jalen helped clean the lunch tables. He sprayed the first table and wiped it with a blue cloth. A sticky spot was still there, so he wiped it again. When the spot was gone, he moved to the next table.",
+      question: "What did Jalen do when the sticky spot stayed on the table?",
+      answer: "wiped it again",
+      choices: ["wiped it again", "sat on the table", "closed the lunchroom", "hid the cloth"],
+      imageWord: "table"
+    },
+    {
+      passage: "Nora took care of the class calendar. She crossed off Monday and circled Friday because the class trip was on Friday. Several students asked how many days were left. Nora counted Tuesday, Wednesday, and Thursday.",
+      question: "Which day did Nora circle on the calendar?",
+      answer: "Friday",
+      choices: ["Friday", "Monday", "Tuesday", "Sunday"],
+      imageWord: "calendar"
+    },
+    {
+      passage: "Theo helped Jay build a bird feeder. They filled it with seeds and hung it from a low branch. A gust of wind swung the feeder sideways. Theo tied the string tighter so the feeder would not fall.",
+      question: "Why did Theo tie the string tighter?",
+      answer: "the feeder swung sideways in the wind",
+      choices: ["the feeder swung sideways in the wind", "the seeds were too small", "the branch was painted", "the birds were reading"],
+      imageWord: "bird"
+    },
+    {
+      passage: "Mara helped set out cups for the school picnic. She counted twenty students but placed only eighteen cups. Her friend noticed the mistake before lunch began. Mara added two more cups to the table.",
+      question: "How many cups did Mara add?",
+      answer: "two",
+      choices: ["two", "three", "eight", "twenty"],
+      imageWord: "cup"
+    },
+    {
+      passage: "Owen cleaned his paintbrush at the sink. Blue paint stayed near the metal band of the brush. He rinsed it again and gently squeezed the bristles with a paper towel. The brush was clean before he put it away.",
+      question: "What color paint stayed on Owen's brush?",
+      answer: "blue",
+      choices: ["blue", "green", "yellow", "black"],
+      imageWord: "paint"
+    },
+    {
+      passage: "Sienna visited the fire station with her class. A firefighter showed them a heavy jacket and helmet. Sienna tried to lift the jacket with both hands. She was surprised because it weighed more than her school bag.",
+      question: "What surprised Sienna about the jacket?",
+      answer: "it was very heavy",
+      choices: ["it was very heavy", "it was made of paper", "it had no sleeves", "it was kept in a lunch box"],
+      imageWord: "firetruck"
+    },
+    {
+      passage: "Miles helped his grandad rake leaves. The wind blew leaves back across the path. Grandad held the bag open while Miles pushed the leaves inside. They tied the bag before the wind could scatter them again.",
+      question: "Who held the bag open?",
+      answer: "Grandad",
+      choices: ["Grandad", "Miles", "the teacher", "the bus driver"],
+      imageWord: "leaf"
+    },
+    {
+      passage: "Priya made a poster about sea turtles. She wrote the title at the top in large letters. Then she added a drawing of a turtle crawling toward the water. Her teacher asked her to label the beach and the ocean.",
+      question: "What did Priya draw on the poster?",
+      answer: "a turtle crawling toward the water",
+      choices: ["a turtle crawling toward the water", "a bike beside a gate", "a bowl of soup", "a chair with a cracked leg"],
+      imageWord: "turtle"
+    },
+    {
+      passage: "Lucas helped unpack groceries. The eggs were in a carton at the top of the bag. Lucas lifted them out first so they would not crack. Then he put the heavier cans on the shelf.",
+      question: "Why did Lucas lift out the eggs first?",
+      answer: "so they would not crack",
+      choices: ["so they would not crack", "so the cans would freeze", "so the shelf would move", "so the bag would turn blue"],
+      imageWord: "egg"
+    },
+    {
+      passage: "Zara listened to the morning announcements. The principal said the playground was closed until the ice melted. Zara put her ball back in her cubby. At recess, her class played board games inside.",
+      question: "Why did Zara put her ball away?",
+      answer: "the playground was closed",
+      choices: ["the playground was closed", "the ball was missing", "the classroom was too dark", "the principal needed a pencil"],
+      imageWord: "ball"
+    },
+    {
+      passage: "Finn helped his neighbor carry books to a little free library. The shelf was almost full. Finn placed the small books upright and stacked the large books on the bottom. Then there was room for the whole pile.",
+      question: "Where did Finn put the large books?",
+      answer: "on the bottom",
+      choices: ["on the bottom", "in his lunch box", "under the rug", "beside the sink"],
+      imageWord: "book"
+    },
+    {
+      passage: "Olive watched Noah pack a picnic basket. Noah put sandwiches in first and fruit on top. Olive added napkins beside the plates. When they reached the park, the sandwiches were not squashed.",
+      question: "What did Olive add to the basket?",
+      answer: "napkins",
+      choices: ["napkins", "paintbrushes", "library cards", "wet towels"],
+      imageWord: "basket"
+    },
+    {
+      passage: "Max found a tear in his raincoat before school. His mother put a patch over the small hole. At recess, rain fell hard on the playground. Max stayed dry because the patch covered the tear.",
+      question: "Why did Max stay dry at recess?",
+      answer: "the patch covered the tear",
+      choices: ["the patch covered the tear", "the rain stopped forever", "his shoes were new", "the playground was inside"],
+      imageWord: "raincoat"
+    },
+    {
+      passage: "Lena helped measure a sunflower in the school garden. The plant was taller than the ruler. She marked the ruler's height with a piece of string and measured again. The class learned the sunflower was two rulers tall.",
+      question: "What did Lena use to mark the ruler's height?",
+      answer: "a piece of string",
+      choices: ["a piece of string", "a wet towel", "a library card", "a soup spoon"],
+      imageWord: "flower"
+    },
+    {
+      passage: "Adam fed the class fish before the bell. He checked the chart and saw that the fish needed only one pinch of food. A friend wanted to add more, but Adam pointed to the chart. The fish ate the right amount.",
+      question: "How did Adam know how much food to give?",
+      answer: "he checked the chart",
+      choices: ["he checked the chart", "he guessed without looking", "he asked the fish", "he counted the chairs"],
+      imageWord: "fish"
+    },
+    {
+      passage: "Ella helped her team build a marble run. The marble stopped at a flat piece of track. Ella lifted one end to make a gentle slope. The marble rolled all the way to the cup.",
+      question: "What change helped the marble roll?",
+      answer: "Ella made a gentle slope",
+      choices: ["Ella made a gentle slope", "Ella hid the cup", "Ella painted the marble", "Ella closed the box"],
+      imageWord: "cup"
+    },
+    {
+      passage: "Remy brought a plant to the classroom window. The label said the plant needed sunlight. He placed it on the sunny sill instead of the dark shelf. By the end of the week, new leaves had opened.",
+      question: "Where did Remy place the plant?",
+      answer: "on the sunny sill",
+      choices: ["on the sunny sill", "inside a backpack", "under a blanket", "behind the door"],
+      imageWord: "flowerpot"
+    },
+    {
+      passage: "Keira helped her little cousin zip a coat. The zipper stuck halfway up. Keira pulled the cloth away from the teeth and tried again slowly. This time the zipper closed without catching.",
+      question: "Why was the zipper stuck?",
+      answer: "cloth was caught in the teeth",
+      choices: ["cloth was caught in the teeth", "the coat was wet paint", "the cousin lost a shoe", "the zipper was on a book"],
+      imageWord: "coat"
+    },
+    {
+      passage: "Ryan set the timer for silent reading. He meant to set it for ten minutes, but it rang after one minute. Ryan checked the screen and fixed the number. The class read quietly until the timer rang again.",
+      question: "What mistake did Ryan make with the timer?",
+      answer: "he set it for one minute",
+      choices: ["he set it for one minute", "he left it outside", "he painted it green", "he put it in the sink"],
+      imageWord: "clock"
+    },
+    {
+      passage: "Isla helped wash strawberries for snack. She put them in a bowl and rinsed them under cool water. One strawberry had a soft brown spot, so Isla set it aside. The rest went into cups for the class.",
+      question: "Why did Isla set one strawberry aside?",
+      answer: "it had a soft brown spot",
+      choices: ["it had a soft brown spot", "it was shaped like a cup", "it was too loud", "it had a ribbon"],
+      imageWord: "strawberry"
+    },
+    {
+      passage: "Ethan carried the class flag during sports day. The wind blew the flag around his face. He lowered the pole until the gust passed. Then he lifted the flag again and led the class to the field.",
+      question: "Why did Ethan lower the flag pole?",
+      answer: "wind blew the flag around his face",
+      choices: ["wind blew the flag around his face", "the field was closed", "the class had finished lunch", "the flag was made of stone"],
+      imageWord: "flag"
+    },
+    {
+      passage: "Layla helped choose books for a reading basket. She picked one funny book, one animal book, and one book about space. The basket was for students who finished work early. Layla put the basket beside the reading rug.",
+      question: "Who was the reading basket for?",
+      answer: "students who finished work early",
+      choices: ["students who finished work early", "drivers at the bus stop", "people buying apples", "players on a soccer field"],
+      imageWord: "book"
+    },
+    {
+      passage: "Cole heard a tapping sound near the window. A tree branch was touching the glass each time the wind blew. His teacher moved the class reading spot away from the window. Later, the caretaker trimmed the branch.",
+      question: "What made the tapping sound?",
+      answer: "a tree branch touching the glass",
+      choices: ["a tree branch touching the glass", "a pencil in a drawer", "a bell in a basket", "a dog under the table"],
+      imageWord: "tree"
+    },
+    {
+      passage: "Mina helped arrange flowers for the front desk. The tall flowers tipped over in the short jar. She chose a taller vase and added water to the bottom. The flowers stood straight when the office opened.",
+      question: "Why did Mina choose a taller vase?",
+      answer: "the tall flowers tipped over in the short jar",
+      choices: ["the tall flowers tipped over in the short jar", "the desk was outside", "the water was too loud", "the office was closed forever"],
+      imageWord: "flower"
+    },
+    {
+      passage: "Omar found mud on the hallway floor. He saw wet footprints leading from the playground door. Omar told the custodian before anyone slipped. The custodian placed a caution sign and mopped the floor.",
+      question: "Why did Omar tell the custodian?",
+      answer: "mud on the floor could make someone slip",
+      choices: ["mud on the floor could make someone slip", "the playground door was painted", "the hallway had a clock", "the footprints were in a book"],
+      imageWord: "mud"
+    },
+    {
+      passage: "Talia practiced spelling words with magnetic letters. She spelled train but forgot the letter r. Her partner read the word aloud as tain. Talia added the missing r and read train correctly.",
+      question: "Which letter did Talia forget?",
+      answer: "r",
+      choices: ["r", "m", "s", "o"],
+      imageWord: "train"
+    },
+    {
+      passage: "Henry helped his class check the weather chart. The morning was sunny, but dark clouds came after lunch. Henry moved the marker from sunny to cloudy. The class decided to take jackets to recess.",
+      question: "Why did Henry move the weather marker?",
+      answer: "dark clouds came after lunch",
+      choices: ["dark clouds came after lunch", "the chart was missing", "the jackets were wet", "the class had no recess"],
+      imageWord: "cloud"
+    },
+    {
+      passage: "Nadia brought a folder to the office. The top paper had the principal's name on it. She handed the folder to the secretary instead of leaving it on a chair. The secretary placed it safely on the principal's desk.",
+      question: "Who did Nadia give the folder to?",
+      answer: "the secretary",
+      choices: ["the secretary", "the bus driver", "the art teacher", "the lunch helper"],
+      imageWord: "folder"
+    }
+  ];
+
+  const levelTwoDetails = [
+    "The class used the important details to explain the answer.",
+    "The teacher asked everyone to point to the clue that proved the answer.",
+    "Students talked about why the final action made sense.",
+    "The group explained how the problem changed from the beginning to the end.",
+    "The class compared two details before choosing the best answer.",
+    "Everyone checked the story again to make sure the answer fit."
+  ];
+  const story = { ...stories[index % stories.length] };
+  if (level === 2) {
+    story.passage = `${story.passage} ${levelTwoDetails[index % levelTwoDetails.length]}`;
+  }
+  return {
+    id: baseId,
+    ...story,
+    choices: storyOptions(story.answer, story.choices, index)
+  };
+}
+
 function buildHigherStoryQuestion(skillId, skillName, level, index) {
   const name = STORY_NAMES[(index + level * 5) % STORY_NAMES.length];
   const partner = STORY_PARTNERS[(index * 2 + level) % STORY_PARTNERS.length];
   const [imageWord, setting, landmark] = storySetting(index + level * 7 + skillId.length);
   const discovery = STORY_DISCOVERIES[(index * 3 + level) % STORY_DISCOVERIES.length];
   const action = STORY_ACTIONS[(index * 5 + level) % STORY_ACTIONS.length];
+  const partnerStart = sentenceStart(partner);
   const extraSentence = level === 2
-    ? `Later, ${partner} asked ${name} to explain the choice, so ${name} used details from the whole trip.`
+    ? `Later, ${partnerStart} asked ${name} to explain the choice, so ${name} used details from the whole trip.`
     : `Later, ${name} told the class about it.`;
   const baseId = `gap_${slug(skillId)}_l${level}_story_${String(index + 1).padStart(2, "0")}`;
 
   if (skillId === "sentence_comprehension") {
-    const passage = `${name} visited the ${setting} with ${partner}. They wanted to complete a class observation project. Near the ${landmark}, ${name} noticed ${discovery}. ${partner} ${action} before they walked back. ${extraSentence}`;
-    const question = `What did ${name} notice near the ${landmark}?`;
-    return { id: baseId, passage, question, answer: discovery, choices: storyOptions(discovery, STORY_DISCOVERIES, index), imageWord };
+    return buildSentenceComprehensionStory(level, index);
   }
 
   if (skillId === "key_details") {
@@ -1112,7 +1582,7 @@ function buildHigherStoryQuestion(skillId, skillName, level, index) {
       ["sturdy", "strong", "wooden crate", "held the heavy basket without bending"]
     ];
     const [word, meaning, object, clue] = rows[index % rows.length];
-    const passage = `${name} found a ${object} at the ${setting}. ${partner} said the ${object} was ${word}. ${name} knew that because ${partner} ${clue}. They handled it in the safest way they could. ${extraSentence}`;
+    const passage = `${name} found a ${object} at the ${setting}. ${partnerStart} said the ${object} was ${word}. ${name} knew that because ${partnerStart} ${clue}. They handled it in the safest way they could. ${extraSentence}`;
     const question = `What does ${word} mean in the passage?`;
     return { id: baseId, passage, question, answer: meaning, choices: storyOptions(meaning, ["very loud", "not important", "easy to hide", "full of color", "moving quickly", "made of paper"], index), imageWord };
   }
