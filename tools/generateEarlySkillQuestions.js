@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { masterWordLexicon } from "../src/content/lexicon/masterWordLexicon.js";
 import { rhymeGroups, getRhymeGroup } from "../src/data/rhymeGroups.js";
+import { getChildWordAsset } from "../src/data/childAssets.js";
 import {
   isFinalSoundsLevel1Question,
   isValidFinalSoundWordForEarlyLevel,
@@ -11,7 +12,6 @@ import {
 import { finalSoundAnchors } from "../src/data/phonicsAnchors.js";
 import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
 import {
-  cvcShortVowelExpectedItemKeys,
   finalSoundExpectedItemKeys,
   finalSoundLevelTwoExpectedItemKeys,
   rhymingExpectedItemKeys,
@@ -37,16 +37,41 @@ function publicPathExists(assetPath = "") {
   return Boolean(assetPath && String(assetPath).startsWith("/") && fs.existsSync(path.join(rootDir, "public", assetPath.slice(1))));
 }
 
-function hasImage(entry) {
-  return publicPathExists(entry.imageUrl);
-}
-
 function hasAudio(entry) {
   return publicPathExists(entry.audioUrl);
 }
 
+function imageStemMatchesWord(entry) {
+  const imageStem = normalize(path.basename(String(entry.imageUrl || ""), path.extname(String(entry.imageUrl || ""))));
+  return imageStem === normalize(entry.lowercaseWord);
+}
+
+function audioStemMatchesWord(entry) {
+  const audioStem = normalize(path.basename(String(entry.audioUrl || ""), path.extname(String(entry.audioUrl || ""))));
+  return audioStem === normalize(entry.lowercaseWord);
+}
+
+function getEntryImageUrl(entry) {
+  const asset = getChildWordAsset(entry.lowercaseWord);
+  if (asset?.image && publicPathExists(asset.image)) return asset.image;
+  if (asset?.fallbackImage && publicPathExists(asset.fallbackImage)) return asset.fallbackImage;
+  if (!publicPathExists(entry.imageUrl) || !imageStemMatchesWord(entry)) return "";
+  return entry.imageUrl;
+}
+
+function hasImage(entry) {
+  return Boolean(getEntryImageUrl(entry));
+}
+
+function getEntryAudioUrl(entry) {
+  const preferred = getApprovedAudioPath(entry.lowercaseWord, "");
+  if (preferred && publicPathExists(preferred)) return preferred;
+  if (!hasAudio(entry) || !audioStemMatchesWord(entry)) return "";
+  return getApprovedAudioPath(entry.lowercaseWord, entry.audioUrl);
+}
+
 function hasApprovedAudio(entry) {
-  return Boolean(hasAudio(entry) && getApprovedAudioPath(entry.lowercaseWord, entry.audioUrl));
+  return Boolean(getEntryAudioUrl(entry));
 }
 
 function unique(list) {
@@ -89,6 +114,109 @@ function optionWords(correct, pool, count = 4) {
     correct,
     ...pool.filter(word => word !== correct)
   ]).slice(0, count);
+}
+
+function firstVowel(word = "") {
+  return String(word || "").toLowerCase().match(/[aeiou]/)?.[0] || "";
+}
+
+function wordRime(word = "") {
+  const value = String(word || "").toLowerCase();
+  const index = value.search(/[aeiou]/);
+  return index === -1 ? value.slice(1) : value.slice(index);
+}
+
+function hasChildWordImage(word = "") {
+  const asset = getChildWordAsset(word);
+  return Boolean(asset?.image || asset?.fallbackImage);
+}
+
+function byRotatingIndex(items = [], seed = 0) {
+  if (!items.length) return [];
+  const start = Math.abs(seed) % items.length;
+  return items.slice(start).concat(items.slice(0, start));
+}
+
+function scoreDistractorWord(word, selected, correct, options = {}) {
+  const initial = word[0] || "";
+  const rime = wordRime(word);
+  const vowel = firstVowel(word);
+  const selectedInitials = new Set(selected.map(item => item[0] || ""));
+  const selectedRimes = new Set(selected.map(wordRime));
+  const selectedVowels = new Set(selected.map(firstVowel));
+  let score = 0;
+
+  if (initial && initial !== correct[0]) score += 8;
+  if (!selectedInitials.has(initial)) score += 12;
+  if (rime && rime !== wordRime(correct)) score += 8;
+  if (!selectedRimes.has(rime)) score += 12;
+  if (vowel && !selectedVowels.has(vowel)) score += 6;
+  if (options.preferDifferentVowel && vowel !== firstVowel(correct)) score += 8;
+  if (options.preferSameVowel && vowel === firstVowel(correct)) score += 14;
+  if (options.requireImage && hasChildWordImage(word)) score += 5;
+
+  return score;
+}
+
+function balancedWordOptions(correct, pool, options = {}) {
+  const count = options.count || 4;
+  const requireImage = Boolean(options.requireImage);
+  const candidates = unique(pool)
+    .filter(word => word !== correct)
+    .filter(word => !requireImage || hasChildWordImage(word));
+  const selected = [];
+
+  while (selected.length < count - 1 && selected.length < candidates.length) {
+    const next = candidates
+      .filter(word => !selected.includes(word))
+      .sort((a, b) =>
+        scoreDistractorWord(b, selected, correct, options) -
+        scoreDistractorWord(a, selected, correct, options)
+      )[0];
+    if (!next) break;
+    selected.push(next);
+  }
+
+  return unique([correct, ...selected]).slice(0, count);
+}
+
+function balancedCvcOptions(entry, poolEntries, options = {}) {
+  const pool = byRotatingIndex(poolEntries, options.seed || 0)
+    .map(item => item.lowercaseWord)
+    .filter(Boolean);
+  return balancedWordOptions(entry.lowercaseWord, pool, options);
+}
+
+function balancedRhymeOptions(correct, distractorPool, options = {}) {
+  const selected = [];
+  const usedFamilies = new Set();
+  const rotated = byRotatingIndex(distractorPool, options.seed || 0);
+
+  while (selected.length < 3) {
+    const next = rotated
+      .filter(word => !selected.includes(word))
+      .filter(word => {
+        const family = getRhymeGroup(word);
+        return family && family !== options.family && !usedFamilies.has(family);
+      })
+      .sort((a, b) =>
+        scoreDistractorWord(b, selected, correct, { requireImage: true, preferSameVowel: true }) -
+        scoreDistractorWord(a, selected, correct, { requireImage: true, preferSameVowel: true })
+      )[0];
+    if (!next) break;
+    selected.push(next);
+    usedFamilies.add(getRhymeGroup(next));
+  }
+
+  if (selected.length < 3) {
+    for (const word of rotated) {
+      if (word === correct || selected.includes(word)) continue;
+      selected.push(word);
+      if (selected.length >= 3) break;
+    }
+  }
+
+  return unique([correct, ...selected]).slice(0, 4);
 }
 
 function makeBase({
@@ -182,7 +310,9 @@ function generateFinalSoundQuestions(entries) {
       items.filter(entry =>
         level === 1
           ? entry.finalSound === target
-          : isValidFinalSoundWordForLevelTwo(entry.lowercaseWord, target)
+          : entry.lowercaseWord !== target &&
+            entry.lowercaseWord.length > target.length &&
+            isValidFinalSoundWordForLevelTwo(entry.lowercaseWord, target)
       )
     ]));
     targets.forEach(target => {
@@ -231,8 +361,8 @@ function generateFinalSoundQuestions(entries) {
             phonicsPattern: target,
             targetFinalSound: target,
             finalSoundType,
-            imageUrl: entry.imageUrl,
-            audioUrl: entry.audioUrl,
+            imageUrl: getEntryImageUrl(entry),
+            audioUrl: getEntryAudioUrl(entry),
             sourceLexiconId: entry.id,
             itemType: "final_sound",
             tags: ["generated", "final-sound", level === 1 ? "single-letter-final" : "complex-final"]
@@ -283,8 +413,16 @@ function generateCvcQuestions(entries) {
   vowels.forEach(vowel => {
     const targetEntries = cvcEntries.filter(entry => entry.medialVowel === vowel);
     targetEntries.slice(0, 55).forEach((entry, index) => {
-      const contrastWords = cvcEntries.filter(item => item.medialVowel !== vowel).map(item => item.lowercaseWord);
-      const wordOptions = optionWords(entry.lowercaseWord, contrastWords, 4);
+      const contrastEntries = cvcEntries.filter(item => item.medialVowel !== vowel);
+      const wordOptions = balancedCvcOptions(entry, contrastEntries, {
+        seed: index,
+        preferDifferentVowel: true
+      });
+      const imageWordOptions = balancedCvcOptions(entry, contrastEntries.filter(hasImage), {
+        seed: index,
+        requireImage: true,
+        preferDifferentVowel: true
+      });
       if (hasApprovedAudio(entry)) {
         out.push(makeBase({
           id: `gen_cvc_short_${vowel}_${normalize(entry.lowercaseWord)}_${index}_vowel`,
@@ -297,11 +435,11 @@ function generateCvcQuestions(entries) {
           audioText: entry.lowercaseWord,
           targetWord: entry.lowercaseWord,
           correctAnswer: entry.lowercaseWord,
-          answerOptions: wordOptions,
+          answerOptions: imageWordOptions.length === 4 ? imageWordOptions : wordOptions,
           coverageTarget: `short_${vowel}`,
           phonicsPattern: `short_${vowel}`,
           imageUrl: "",
-          audioUrl: entry.audioUrl,
+          audioUrl: getEntryAudioUrl(entry),
           sourceLexiconId: entry.id,
           itemType: "short_vowel",
           tags: ["generated", "cvc", "short-vowel"]
@@ -320,9 +458,9 @@ function generateCvcQuestions(entries) {
         answerOptions: vowels,
         coverageTarget: `short_${vowel}`,
         phonicsPattern: `short_${vowel}`,
-        imageUrl: hasImage(entry) ? entry.imageUrl : "",
+        imageUrl: getEntryImageUrl(entry),
         audioText: hasApprovedAudio(entry) ? entry.lowercaseWord : "",
-        audioUrl: hasApprovedAudio(entry) ? entry.audioUrl : "",
+        audioUrl: getEntryAudioUrl(entry),
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "cvc", "missing-vowel"]
@@ -338,12 +476,12 @@ function generateCvcQuestions(entries) {
           spokenPrompt: "Pick the word that matches the picture.",
           targetWord: entry.lowercaseWord,
           correctAnswer: entry.lowercaseWord,
-          answerOptions: wordOptions,
+          answerOptions: imageWordOptions.length === 4 ? imageWordOptions : wordOptions,
           coverageTarget: `short_${vowel}`,
           phonicsPattern: `short_${vowel}`,
-          imageUrl: entry.imageUrl,
+          imageUrl: getEntryImageUrl(entry),
           audioText: hasApprovedAudio(entry) ? entry.lowercaseWord : "",
-          audioUrl: hasApprovedAudio(entry) ? entry.audioUrl : "",
+          audioUrl: getEntryAudioUrl(entry),
           sourceLexiconId: entry.id,
           itemType: "short_vowel",
           tags: ["generated", "cvc", "picture-word"]
@@ -363,13 +501,21 @@ function generateShortVowelDiscriminationQuestions(entries) {
     isSimpleCvcWord(entry.lowercaseWord)
   );
   return cvcEntries.slice(0, 180).flatMap((entry, index) => {
-    const sameVowelWords = cvcEntries
-      .filter(item => item.medialVowel === entry.medialVowel && item.lowercaseWord !== entry.lowercaseWord)
-      .map(item => item.lowercaseWord);
-    const contrastWords = cvcEntries
-      .filter(item => item.medialVowel !== entry.medialVowel)
-      .map(item => item.lowercaseWord);
-    const wordOptions = optionWords(entry.lowercaseWord, [...contrastWords, ...sameVowelWords], 4);
+    const wordOptions = balancedCvcOptions(entry, [
+      ...cvcEntries.filter(item => item.medialVowel !== entry.medialVowel),
+      ...cvcEntries.filter(item => item.medialVowel === entry.medialVowel && item.lowercaseWord !== entry.lowercaseWord)
+    ], {
+      seed: index,
+      preferDifferentVowel: true
+    });
+    const imageWordOptions = balancedCvcOptions(entry, [
+      ...cvcEntries.filter(item => item.medialVowel !== entry.medialVowel && hasImage(item)),
+      ...cvcEntries.filter(item => item.medialVowel === entry.medialVowel && item.lowercaseWord !== entry.lowercaseWord && hasImage(item))
+    ], {
+      seed: index,
+      requireImage: true,
+      preferDifferentVowel: true
+    });
     return [
       ...(hasApprovedAudio(entry) ? [makeBase({
         id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_listen`,
@@ -385,8 +531,8 @@ function generateShortVowelDiscriminationQuestions(entries) {
         answerOptions: vowels,
         coverageTarget: `short_${entry.medialVowel}`,
         phonicsPattern: `short_${entry.medialVowel}`,
-        imageUrl: hasImage(entry) ? entry.imageUrl : "",
-        audioUrl: entry.audioUrl,
+        imageUrl: getEntryImageUrl(entry),
+        audioUrl: getEntryAudioUrl(entry),
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "short-vowel-discrimination", "listen-vowel"]
@@ -406,7 +552,7 @@ function generateShortVowelDiscriminationQuestions(entries) {
         phonicsPattern: `short_${entry.medialVowel}`,
         imageUrl: "",
         audioText: hasApprovedAudio(entry) ? entry.lowercaseWord : "",
-        audioUrl: hasApprovedAudio(entry) ? entry.audioUrl : "",
+        audioUrl: getEntryAudioUrl(entry),
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "short-vowel-discrimination", "word-choice"]
@@ -422,12 +568,12 @@ function generateShortVowelDiscriminationQuestions(entries) {
             spokenPrompt: "Pick the word that matches the picture.",
             targetWord: entry.lowercaseWord,
             correctAnswer: entry.lowercaseWord,
-            answerOptions: wordOptions,
+            answerOptions: imageWordOptions.length === 4 ? imageWordOptions : wordOptions,
             coverageTarget: `short_${entry.medialVowel}`,
             phonicsPattern: `short_${entry.medialVowel}`,
-            imageUrl: entry.imageUrl,
+            imageUrl: getEntryImageUrl(entry),
             audioText: hasApprovedAudio(entry) ? entry.lowercaseWord : "",
-            audioUrl: hasApprovedAudio(entry) ? entry.audioUrl : "",
+            audioUrl: getEntryAudioUrl(entry),
             sourceLexiconId: entry.id,
             itemType: "short_vowel",
             tags: ["generated", "short-vowel-discrimination", "picture-word"]
@@ -455,7 +601,10 @@ function generateRhymingQuestions(entries) {
     available.forEach((entry, index) => {
       const rhymeWords = available.map(item => item.lowercaseWord).filter(word => word !== entry.lowercaseWord);
       rhymeWords.slice(0, 4).forEach((rhymeWord, rhymeIndex) => {
-        const options = optionWords(rhymeWord, distractorPool, 4);
+        const options = balancedRhymeOptions(rhymeWord, distractorPool, {
+          family,
+          seed: index + rhymeIndex
+        });
         out.push(makeBase({
           id: `gen_rhyme_${family}_${normalize(entry.lowercaseWord)}_${normalize(rhymeWord)}_${index}_${rhymeIndex}`,
           skillId: "rhyming",
@@ -468,8 +617,8 @@ function generateRhymingQuestions(entries) {
           answerOptions: options,
           coverageTarget: family,
           phonicsPattern: family,
-          imageUrl: entry.imageUrl,
-          audioUrl: entry.audioUrl,
+          imageUrl: getEntryImageUrl(entry),
+          audioUrl: getEntryAudioUrl(entry),
           sourceLexiconId: entry.id,
           itemType: "rhyming_family",
           tags: ["generated", "rhyming", "same-rime"]

@@ -18,19 +18,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "hat",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "bat",
-    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
-    "imagePath": "/media/initial-sounds/images/b/bat.webp",
+    "imageUrl": "/images/child-mode/cvc/bat.png",
+    "imagePath": "/images/child-mode/cvc/bat.png",
     "audioKey": "bat",
     "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
@@ -70,19 +70,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "mat",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "bat",
-    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
-    "imagePath": "/media/initial-sounds/images/b/bat.webp",
+    "imageUrl": "/images/child-mode/cvc/bat.png",
+    "imagePath": "/images/child-mode/cvc/bat.png",
     "audioKey": "bat",
     "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
@@ -122,19 +122,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "rat",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "imageKey": "bat",
-    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
-    "imagePath": "/media/initial-sounds/images/b/bat.webp",
+    "imageUrl": "/images/child-mode/cvc/bat.png",
+    "imagePath": "/images/child-mode/cvc/bat.png",
     "audioKey": "bat",
     "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
@@ -174,19 +174,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "hat",
-    "imageUrl": "/media/initial-sounds/images/h/hat.webp",
-    "imagePath": "/media/initial-sounds/images/h/hat.webp",
+    "imageUrl": "/images/child-mode/cvc/hat.png",
+    "imagePath": "/images/child-mode/cvc/hat.png",
     "audioKey": "hat",
     "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
@@ -226,19 +226,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "mat",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "imageKey": "hat",
-    "imageUrl": "/media/initial-sounds/images/h/hat.webp",
-    "imagePath": "/media/initial-sounds/images/h/hat.webp",
+    "imageUrl": "/images/child-mode/cvc/hat.png",
+    "imagePath": "/images/child-mode/cvc/hat.png",
     "audioKey": "hat",
     "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
@@ -278,19 +278,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "rat",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "hat",
-    "imageUrl": "/media/initial-sounds/images/h/hat.webp",
-    "imagePath": "/media/initial-sounds/images/h/hat.webp",
+    "imageUrl": "/images/child-mode/cvc/hat.png",
+    "imagePath": "/images/child-mode/cvc/hat.png",
     "audioKey": "hat",
     "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
@@ -330,19 +330,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "mat",
-    "imageUrl": "/media/initial-sounds/images/m/mat.webp",
-    "imagePath": "/media/initial-sounds/images/m/mat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/mat.png",
+    "imagePath": "/images/child-mode/initial-sounds/mat.png",
     "audioKey": "mat",
     "audioUrl": "/audio/child-mode/clean-human/words/mat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mat.mp3",
@@ -382,19 +382,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "hat",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "mat",
-    "imageUrl": "/media/initial-sounds/images/m/mat.webp",
-    "imagePath": "/media/initial-sounds/images/m/mat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/mat.png",
+    "imagePath": "/images/child-mode/initial-sounds/mat.png",
     "audioKey": "mat",
     "audioUrl": "/audio/child-mode/clean-human/words/mat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mat.mp3",
@@ -434,19 +434,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "rat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "mat",
-    "imageUrl": "/media/initial-sounds/images/m/mat.webp",
-    "imagePath": "/media/initial-sounds/images/m/mat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/mat.png",
+    "imagePath": "/images/child-mode/initial-sounds/mat.png",
     "audioKey": "mat",
     "audioUrl": "/audio/child-mode/clean-human/words/mat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mat.mp3",
@@ -486,19 +486,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "rat",
-    "imageUrl": "/media/initial-sounds/images/r/rat.webp",
-    "imagePath": "/media/initial-sounds/images/r/rat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+    "imagePath": "/images/child-mode/initial-sounds/rat.png",
     "audioKey": "rat",
     "audioUrl": "/audio/child-mode/clean-human/words/rat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rat.mp3",
@@ -538,19 +538,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "jam"
     ],
     "answerOptions": [
       "hat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "jam"
     ],
     "imageKey": "rat",
-    "imageUrl": "/media/initial-sounds/images/r/rat.webp",
-    "imagePath": "/media/initial-sounds/images/r/rat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+    "imagePath": "/images/child-mode/initial-sounds/rat.png",
     "audioKey": "rat",
     "audioUrl": "/audio/child-mode/clean-human/words/rat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rat.mp3",
@@ -590,19 +590,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "mat",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "rat",
-    "imageUrl": "/media/initial-sounds/images/r/rat.webp",
-    "imagePath": "/media/initial-sounds/images/r/rat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+    "imagePath": "/images/child-mode/initial-sounds/rat.png",
     "audioKey": "rat",
     "audioUrl": "/audio/child-mode/clean-human/words/rat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rat.mp3",
@@ -642,19 +642,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "fan",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "ham"
     ],
     "imageKey": "pan",
-    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
-    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "imageUrl": "/images/child-mode/cvc/pan.png",
+    "imagePath": "/images/child-mode/cvc/pan.png",
     "audioKey": "pan",
     "audioUrl": "/audio/child-mode/clean-human/words/pan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pan.mp3",
@@ -694,19 +694,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "can",
     "choices": [
       "can",
-      "back",
       "bad",
-      "bag"
+      "ham",
+      "mat"
     ],
     "answerOptions": [
       "can",
-      "back",
       "bad",
-      "bag"
+      "ham",
+      "mat"
     ],
     "imageKey": "pan",
-    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
-    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "imageUrl": "/images/child-mode/cvc/pan.png",
+    "imagePath": "/images/child-mode/cvc/pan.png",
     "audioKey": "pan",
     "audioUrl": "/audio/child-mode/clean-human/words/pan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pan.mp3",
@@ -746,19 +746,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "man",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "ham"
     ],
     "imageKey": "pan",
-    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
-    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "imageUrl": "/images/child-mode/cvc/pan.png",
+    "imagePath": "/images/child-mode/cvc/pan.png",
     "audioKey": "pan",
     "audioUrl": "/audio/child-mode/clean-human/words/pan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pan.mp3",
@@ -798,19 +798,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "van",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "ham"
     ],
     "imageKey": "pan",
-    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
-    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "imageUrl": "/images/child-mode/cvc/pan.png",
+    "imagePath": "/images/child-mode/cvc/pan.png",
     "audioKey": "pan",
     "audioUrl": "/audio/child-mode/clean-human/words/pan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pan.mp3",
@@ -850,19 +850,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "pan",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "ham"
     ],
     "imageKey": "fan",
-    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
-    "imagePath": "/media/initial-sounds/images/f/fan.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/fan.png",
+    "imagePath": "/images/child-mode/initial-sounds/fan.png",
     "audioKey": "fan",
     "audioUrl": "/audio/child-mode/clean-human/words/fan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/fan.mp3",
@@ -902,19 +902,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "can",
     "choices": [
       "can",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "ham",
+      "mat"
     ],
     "answerOptions": [
       "can",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "ham",
+      "mat"
     ],
     "imageKey": "fan",
-    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
-    "imagePath": "/media/initial-sounds/images/f/fan.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/fan.png",
+    "imagePath": "/images/child-mode/initial-sounds/fan.png",
     "audioKey": "fan",
     "audioUrl": "/audio/child-mode/clean-human/words/fan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/fan.mp3",
@@ -954,19 +954,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "man",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "ham"
     ],
     "imageKey": "fan",
-    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
-    "imagePath": "/media/initial-sounds/images/f/fan.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/fan.png",
+    "imagePath": "/images/child-mode/initial-sounds/fan.png",
     "audioKey": "fan",
     "audioUrl": "/audio/child-mode/clean-human/words/fan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/fan.mp3",
@@ -1006,19 +1006,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "van",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "ham"
     ],
     "imageKey": "fan",
-    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
-    "imagePath": "/media/initial-sounds/images/f/fan.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/fan.png",
+    "imagePath": "/images/child-mode/initial-sounds/fan.png",
     "audioKey": "fan",
     "audioUrl": "/audio/child-mode/clean-human/words/fan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/fan.mp3",
@@ -1058,15 +1058,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "pan",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "ham"
     ],
     "imageKey": "can",
     "imageUrl": "/media/vocabulary/images/can.webp",
@@ -1110,15 +1110,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "fan",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "ham"
     ],
     "imageKey": "can",
     "imageUrl": "/media/vocabulary/images/can.webp",
@@ -1162,15 +1162,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "man",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "ham"
     ],
     "imageKey": "can",
     "imageUrl": "/media/vocabulary/images/can.webp",
@@ -1214,15 +1214,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "ham",
+      "mat"
     ],
     "answerOptions": [
       "van",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "ham",
+      "mat"
     ],
     "imageKey": "can",
     "imageUrl": "/media/vocabulary/images/can.webp",
@@ -1266,19 +1266,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "pan",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "ham"
     ],
     "imageKey": "man",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/clean-human/words/man.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/man.mp3",
@@ -1318,19 +1318,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "fan",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "ham"
     ],
     "imageKey": "man",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/clean-human/words/man.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/man.mp3",
@@ -1370,19 +1370,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "can",
     "choices": [
       "can",
-      "back",
-      "bad",
-      "bag"
+      "ham",
+      "mat",
+      "nap"
     ],
     "answerOptions": [
       "can",
-      "back",
-      "bad",
-      "bag"
+      "ham",
+      "mat",
+      "nap"
     ],
     "imageKey": "man",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/clean-human/words/man.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/man.mp3",
@@ -1422,19 +1422,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "ham",
+      "mat"
     ],
     "answerOptions": [
       "van",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "ham",
+      "mat"
     ],
     "imageKey": "man",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/clean-human/words/man.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/man.mp3",
@@ -1474,19 +1474,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "ham"
     ],
     "answerOptions": [
       "pan",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "ham"
     ],
     "imageKey": "van",
-    "imageUrl": "/media/initial-sounds/images/v/van.webp",
-    "imagePath": "/media/initial-sounds/images/v/van.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/van.png",
+    "imagePath": "/images/child-mode/initial-sounds/van.png",
     "audioKey": "van",
     "audioUrl": "/audio/child-mode/words/van.mp3",
     "audioPath": "/audio/child-mode/words/van.mp3",
@@ -1526,19 +1526,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "ham",
+      "mat"
     ],
     "answerOptions": [
       "fan",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "ham",
+      "mat"
     ],
     "imageKey": "van",
-    "imageUrl": "/media/initial-sounds/images/v/van.webp",
-    "imagePath": "/media/initial-sounds/images/v/van.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/van.png",
+    "imagePath": "/images/child-mode/initial-sounds/van.png",
     "audioKey": "van",
     "audioUrl": "/audio/child-mode/words/van.mp3",
     "audioPath": "/audio/child-mode/words/van.mp3",
@@ -1578,19 +1578,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "can",
     "choices": [
       "can",
-      "back",
-      "bad",
-      "bag"
+      "ham",
+      "mat",
+      "nap"
     ],
     "answerOptions": [
       "can",
-      "back",
-      "bad",
-      "bag"
+      "ham",
+      "mat",
+      "nap"
     ],
     "imageKey": "van",
-    "imageUrl": "/media/initial-sounds/images/v/van.webp",
-    "imagePath": "/media/initial-sounds/images/v/van.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/van.png",
+    "imagePath": "/images/child-mode/initial-sounds/van.png",
     "audioKey": "van",
     "audioUrl": "/audio/child-mode/words/van.mp3",
     "audioPath": "/audio/child-mode/words/van.mp3",
@@ -1630,19 +1630,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "ham",
+      "nap"
     ],
     "answerOptions": [
       "man",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "ham",
+      "nap"
     ],
     "imageKey": "van",
-    "imageUrl": "/media/initial-sounds/images/v/van.webp",
-    "imagePath": "/media/initial-sounds/images/v/van.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/van.png",
+    "imagePath": "/images/child-mode/initial-sounds/van.png",
     "audioKey": "van",
     "audioUrl": "/audio/child-mode/words/van.mp3",
     "audioPath": "/audio/child-mode/words/van.mp3",
@@ -1682,19 +1682,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "nap",
     "choices": [
       "nap",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "nap",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "cap",
-    "imageUrl": "/media/initial-sounds/images/c/cap.webp",
-    "imagePath": "/media/initial-sounds/images/c/cap.webp",
+    "imageUrl": "/images/child-mode/cvc/cap.png",
+    "imagePath": "/images/child-mode/cvc/cap.png",
     "audioKey": "cap",
     "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
@@ -1734,19 +1734,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "tap",
     "choices": [
       "tap",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "tap",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "cap",
-    "imageUrl": "/media/initial-sounds/images/c/cap.webp",
-    "imagePath": "/media/initial-sounds/images/c/cap.webp",
+    "imageUrl": "/images/child-mode/cvc/cap.png",
+    "imagePath": "/images/child-mode/cvc/cap.png",
     "audioKey": "cap",
     "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
@@ -1786,19 +1786,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "cap",
     "choices": [
       "cap",
-      "back",
       "bad",
-      "bag"
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "cap",
-      "back",
       "bad",
-      "bag"
+      "fan",
+      "ham"
     ],
     "imageKey": "nap",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/nap.png",
+    "imagePath": "/images/child-mode/cvc/nap.png",
     "audioKey": "nap",
     "audioUrl": "/audio/child-mode/clean-human/words/nap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/nap.mp3",
@@ -1838,19 +1838,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "tap",
     "choices": [
       "tap",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "tap",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "imageKey": "nap",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/nap.png",
+    "imagePath": "/images/child-mode/cvc/nap.png",
     "audioKey": "nap",
     "audioUrl": "/audio/child-mode/clean-human/words/nap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/nap.mp3",
@@ -1890,19 +1890,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "cap",
     "choices": [
       "cap",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "cap",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "fan",
+      "ham"
     ],
     "imageKey": "tap",
-    "imageUrl": "/media/initial-sounds/images/t/tap.webp",
-    "imagePath": "/media/initial-sounds/images/t/tap.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/tap.png",
+    "imagePath": "/images/child-mode/initial-sounds/tap.png",
     "audioKey": "tap",
     "audioUrl": "/audio/child-mode/clean-human/words/tap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/tap.mp3",
@@ -1942,19 +1942,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "nap",
     "choices": [
       "nap",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "nap",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "tap",
-    "imageUrl": "/media/initial-sounds/images/t/tap.webp",
-    "imagePath": "/media/initial-sounds/images/t/tap.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/tap.png",
+    "imagePath": "/images/child-mode/initial-sounds/tap.png",
     "audioKey": "tap",
     "audioUrl": "/audio/child-mode/clean-human/words/tap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/tap.mp3",
@@ -1994,19 +1994,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "ham",
     "choices": [
       "ham",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "ham",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "jam",
-    "imageUrl": "/media/initial-sounds/images/j/jam.webp",
-    "imagePath": "/media/initial-sounds/images/j/jam.webp",
+    "imageUrl": "/images/child-mode/short-a/jam.png",
+    "imagePath": "/images/child-mode/short-a/jam.png",
     "audioKey": "jam",
     "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
@@ -2046,19 +2046,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "ram",
     "choices": [
       "ram",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "ram",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "jam",
-    "imageUrl": "/media/initial-sounds/images/j/jam.webp",
-    "imagePath": "/media/initial-sounds/images/j/jam.webp",
+    "imageUrl": "/images/child-mode/short-a/jam.png",
+    "imagePath": "/images/child-mode/short-a/jam.png",
     "audioKey": "jam",
     "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
@@ -2098,19 +2098,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "yam",
     "choices": [
       "yam",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "yam",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "imageKey": "jam",
-    "imageUrl": "/media/initial-sounds/images/j/jam.webp",
-    "imagePath": "/media/initial-sounds/images/j/jam.webp",
+    "imageUrl": "/images/child-mode/short-a/jam.png",
+    "imagePath": "/images/child-mode/short-a/jam.png",
     "audioKey": "jam",
     "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
@@ -2150,19 +2150,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "jam",
     "choices": [
       "jam",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "jam",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "ham",
-    "imageUrl": "/media/initial-sounds/images/h/ham.webp",
-    "imagePath": "/media/initial-sounds/images/h/ham.webp",
+    "imageUrl": "/images/child-mode/short-a/ham.png",
+    "imagePath": "/images/child-mode/short-a/ham.png",
     "audioKey": "ham",
     "audioUrl": "/audio/child-mode/clean-human/words/ham.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ham.mp3",
@@ -2202,19 +2202,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "ram",
     "choices": [
       "ram",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "ram",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "imageKey": "ham",
-    "imageUrl": "/media/initial-sounds/images/h/ham.webp",
-    "imagePath": "/media/initial-sounds/images/h/ham.webp",
+    "imageUrl": "/images/child-mode/short-a/ham.png",
+    "imagePath": "/images/child-mode/short-a/ham.png",
     "audioKey": "ham",
     "audioUrl": "/audio/child-mode/clean-human/words/ham.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ham.mp3",
@@ -2254,19 +2254,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "yam",
     "choices": [
       "yam",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "yam",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "ham",
-    "imageUrl": "/media/initial-sounds/images/h/ham.webp",
-    "imagePath": "/media/initial-sounds/images/h/ham.webp",
+    "imageUrl": "/images/child-mode/short-a/ham.png",
+    "imagePath": "/images/child-mode/short-a/ham.png",
     "audioKey": "ham",
     "audioUrl": "/audio/child-mode/clean-human/words/ham.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ham.mp3",
@@ -2306,15 +2306,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "jam",
     "choices": [
       "jam",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "jam",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "imageKey": "ram",
     "imageUrl": "/images/child-mode/short-a/ram.png",
@@ -2358,15 +2358,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "ham",
     "choices": [
       "ham",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "ham",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "ram",
     "imageUrl": "/images/child-mode/short-a/ram.png",
@@ -2410,15 +2410,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "yam",
     "choices": [
       "yam",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "yam",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "fan"
     ],
     "imageKey": "ram",
     "imageUrl": "/images/child-mode/short-a/ram.png",
@@ -2462,15 +2462,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "jam",
     "choices": [
       "jam",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "jam",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "yam",
     "imageUrl": "/media/initial-sounds/images/y/yam.webp",
@@ -2514,15 +2514,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "ham",
     "choices": [
       "ham",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "ham",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "fan"
     ],
     "imageKey": "yam",
     "imageUrl": "/media/initial-sounds/images/y/yam.webp",
@@ -2566,15 +2566,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "ram",
     "choices": [
       "ram",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "hat"
     ],
     "answerOptions": [
       "ram",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "hat"
     ],
     "imageKey": "yam",
     "imageUrl": "/media/initial-sounds/images/y/yam.webp",
@@ -2618,19 +2618,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "tag",
     "choices": [
       "tag",
-      "back",
       "bad",
-      "ball"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "tag",
-      "back",
       "bad",
-      "ball"
+      "cake",
+      "fan"
     ],
     "imageKey": "bag",
-    "imageUrl": "/media/initial-sounds/images/b/bag.webp",
-    "imagePath": "/media/initial-sounds/images/b/bag.webp",
+    "imageUrl": "/images/child-mode/cvc/bag.png",
+    "imagePath": "/images/child-mode/cvc/bag.png",
     "audioKey": "bag",
     "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
@@ -2670,19 +2670,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wag",
     "choices": [
       "wag",
-      "back",
       "bad",
-      "ball"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "wag",
-      "back",
       "bad",
-      "ball"
+      "cake",
+      "fan"
     ],
     "imageKey": "bag",
-    "imageUrl": "/media/initial-sounds/images/b/bag.webp",
-    "imagePath": "/media/initial-sounds/images/b/bag.webp",
+    "imageUrl": "/images/child-mode/cvc/bag.png",
+    "imagePath": "/images/child-mode/cvc/bag.png",
     "audioKey": "bag",
     "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
@@ -2722,19 +2722,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "rag",
     "choices": [
       "rag",
-      "back",
-      "bad",
-      "ball"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "rag",
-      "back",
-      "bad",
-      "ball"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "bag",
-    "imageUrl": "/media/initial-sounds/images/b/bag.webp",
-    "imagePath": "/media/initial-sounds/images/b/bag.webp",
+    "imageUrl": "/images/child-mode/cvc/bag.png",
+    "imagePath": "/images/child-mode/cvc/bag.png",
     "audioKey": "bag",
     "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
@@ -2774,19 +2774,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bag",
     "choices": [
       "bag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "tag",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/media/rhyming/images/tag.webp",
+    "imagePath": "/media/rhyming/images/tag.webp",
     "audioKey": "tag",
     "audioUrl": "/media/vocabulary/audio/tag.mp3",
     "audioPath": "/media/vocabulary/audio/tag.mp3",
@@ -2826,19 +2826,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wag",
     "choices": [
       "wag",
-      "back",
-      "bad",
-      "ball"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "wag",
-      "back",
-      "bad",
-      "ball"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "tag",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/media/rhyming/images/tag.webp",
+    "imagePath": "/media/rhyming/images/tag.webp",
     "audioKey": "tag",
     "audioUrl": "/media/vocabulary/audio/tag.mp3",
     "audioPath": "/media/vocabulary/audio/tag.mp3",
@@ -2878,19 +2878,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "rag",
     "choices": [
       "rag",
-      "back",
-      "bad",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "rag",
-      "back",
-      "bad",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "imageKey": "tag",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/media/rhyming/images/tag.webp",
+    "imagePath": "/media/rhyming/images/tag.webp",
     "audioKey": "tag",
     "audioUrl": "/media/vocabulary/audio/tag.mp3",
     "audioPath": "/media/vocabulary/audio/tag.mp3",
@@ -2930,15 +2930,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bag",
     "choices": [
       "bag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "wag",
     "imageUrl": "/media/vocabulary/images/wag.webp",
@@ -2982,15 +2982,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "tag",
     "choices": [
       "tag",
-      "back",
-      "bad",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "tag",
-      "back",
-      "bad",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "imageKey": "wag",
     "imageUrl": "/media/vocabulary/images/wag.webp",
@@ -3034,15 +3034,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "rag",
     "choices": [
       "rag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "rag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "wag",
     "imageUrl": "/media/vocabulary/images/wag.webp",
@@ -3086,15 +3086,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bag",
     "choices": [
       "bag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "rag",
     "imageUrl": "/media/vocabulary/images/rag.webp",
@@ -3138,15 +3138,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "tag",
     "choices": [
       "tag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "tag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "rag",
     "imageUrl": "/media/vocabulary/images/rag.webp",
@@ -3190,15 +3190,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "wag",
     "choices": [
       "wag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "wag",
-      "back",
-      "bad",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "rag",
     "imageUrl": "/media/vocabulary/images/rag.webp",
@@ -3242,19 +3242,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "sad",
     "choices": [
       "sad",
-      "back",
       "bag",
-      "ball"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "sad",
-      "back",
       "bag",
-      "ball"
+      "cake",
+      "fan"
     ],
     "imageKey": "bad",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/images/child-mode/cvc/bad.png",
+    "imagePath": "/images/child-mode/cvc/bad.png",
     "audioKey": "bad",
     "audioUrl": "/audio/child-mode/words/bad.mp3",
     "audioPath": "/audio/child-mode/words/bad.mp3",
@@ -3294,19 +3294,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "back",
       "bag",
-      "ball"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "dad",
-      "back",
       "bag",
-      "ball"
+      "cake",
+      "fan"
     ],
     "imageKey": "bad",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/images/child-mode/cvc/bad.png",
+    "imagePath": "/images/child-mode/cvc/bad.png",
     "audioKey": "bad",
     "audioUrl": "/audio/child-mode/words/bad.mp3",
     "audioPath": "/audio/child-mode/words/bad.mp3",
@@ -3346,19 +3346,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "back",
-      "bag",
-      "ball"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "mad",
-      "back",
-      "bag",
-      "ball"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "bad",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/images/child-mode/cvc/bad.png",
+    "imagePath": "/images/child-mode/cvc/bad.png",
     "audioKey": "bad",
     "audioUrl": "/audio/child-mode/words/bad.mp3",
     "audioPath": "/audio/child-mode/words/bad.mp3",
@@ -3398,19 +3398,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "back",
-      "bag",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "pad",
-      "back",
-      "bag",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "imageKey": "bad",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/images/child-mode/cvc/bad.png",
+    "imagePath": "/images/child-mode/cvc/bad.png",
     "audioKey": "bad",
     "audioUrl": "/audio/child-mode/words/bad.mp3",
     "audioPath": "/audio/child-mode/words/bad.mp3",
@@ -3450,19 +3450,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bad",
     "choices": [
       "bad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "sad",
-    "imageUrl": "/images/child-mode/cvc/bad.png",
-    "imagePath": "/images/child-mode/cvc/bad.png",
+    "imageUrl": "/media/rhyming/images/sad.webp",
+    "imagePath": "/media/rhyming/images/sad.webp",
     "audioKey": "sad",
     "audioUrl": "/media/vocabulary/audio/sad.mp3",
     "audioPath": "/media/vocabulary/audio/sad.mp3",
@@ -3502,19 +3502,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "back",
-      "bag",
-      "ball"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "dad",
-      "back",
-      "bag",
-      "ball"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "sad",
-    "imageUrl": "/images/child-mode/cvc/bad.png",
-    "imagePath": "/images/child-mode/cvc/bad.png",
+    "imageUrl": "/media/rhyming/images/sad.webp",
+    "imagePath": "/media/rhyming/images/sad.webp",
     "audioKey": "sad",
     "audioUrl": "/media/vocabulary/audio/sad.mp3",
     "audioPath": "/media/vocabulary/audio/sad.mp3",
@@ -3554,19 +3554,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "back",
-      "bag",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "mad",
-      "back",
-      "bag",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "imageKey": "sad",
-    "imageUrl": "/images/child-mode/cvc/bad.png",
-    "imagePath": "/images/child-mode/cvc/bad.png",
+    "imageUrl": "/media/rhyming/images/sad.webp",
+    "imagePath": "/media/rhyming/images/sad.webp",
     "audioKey": "sad",
     "audioUrl": "/media/vocabulary/audio/sad.mp3",
     "audioPath": "/media/vocabulary/audio/sad.mp3",
@@ -3606,19 +3606,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "pad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "sad",
-    "imageUrl": "/images/child-mode/cvc/bad.png",
-    "imagePath": "/images/child-mode/cvc/bad.png",
+    "imageUrl": "/media/rhyming/images/sad.webp",
+    "imagePath": "/media/rhyming/images/sad.webp",
     "audioKey": "sad",
     "audioUrl": "/media/vocabulary/audio/sad.mp3",
     "audioPath": "/media/vocabulary/audio/sad.mp3",
@@ -3658,15 +3658,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bad",
     "choices": [
       "bad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "dad",
     "imageUrl": "/media/vocabulary/images/dad.webp",
@@ -3710,15 +3710,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sad",
     "choices": [
       "sad",
-      "back",
-      "bag",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "sad",
-      "back",
-      "bag",
-      "ball"
+      "bat",
+      "cake",
+      "fan"
     ],
     "imageKey": "dad",
     "imageUrl": "/media/vocabulary/images/dad.webp",
@@ -3762,15 +3762,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "mad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "dad",
     "imageUrl": "/media/vocabulary/images/dad.webp",
@@ -3814,15 +3814,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "pad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "dad",
     "imageUrl": "/media/vocabulary/images/dad.webp",
@@ -3866,15 +3866,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bad",
     "choices": [
       "bad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "mad",
     "imageUrl": "/media/vocabulary/images/mad.webp",
@@ -3918,15 +3918,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sad",
     "choices": [
       "sad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "sad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "mad",
     "imageUrl": "/media/vocabulary/images/mad.webp",
@@ -3970,15 +3970,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "dad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "mad",
     "imageUrl": "/media/vocabulary/images/mad.webp",
@@ -4022,15 +4022,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "pad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "mad",
     "imageUrl": "/media/vocabulary/images/mad.webp",
@@ -4074,15 +4074,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bad",
     "choices": [
       "bad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "bad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "pad",
     "imageUrl": "/media/vocabulary/images/pad.webp",
@@ -4126,15 +4126,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sad",
     "choices": [
       "sad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "sad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "pad",
     "imageUrl": "/media/vocabulary/images/pad.webp",
@@ -4178,15 +4178,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "dad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "pad",
     "imageUrl": "/media/vocabulary/images/pad.webp",
@@ -4230,15 +4230,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "mad",
-      "back",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "pad",
     "imageUrl": "/media/vocabulary/images/pad.webp",
@@ -4282,19 +4282,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "hen",
     "choices": [
       "hen",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "answerOptions": [
       "hen",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "imageKey": "pen",
-    "imageUrl": "/media/initial-sounds/images/p/pen.webp",
-    "imagePath": "/media/initial-sounds/images/p/pen.webp",
+    "imageUrl": "/images/child-mode/short-e/pen.png",
+    "imagePath": "/images/child-mode/short-e/pen.png",
     "audioKey": "pen",
     "audioUrl": "/audio/child-mode/clean-human/words/pen.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pen.mp3",
@@ -4334,19 +4334,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "ten",
     "choices": [
       "ten",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "answerOptions": [
       "ten",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "imageKey": "pen",
-    "imageUrl": "/media/initial-sounds/images/p/pen.webp",
-    "imagePath": "/media/initial-sounds/images/p/pen.webp",
+    "imageUrl": "/images/child-mode/short-e/pen.png",
+    "imagePath": "/images/child-mode/short-e/pen.png",
     "audioKey": "pen",
     "audioUrl": "/audio/child-mode/clean-human/words/pen.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pen.mp3",
@@ -4386,19 +4386,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pen",
     "choices": [
       "pen",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "answerOptions": [
       "pen",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "imageKey": "hen",
-    "imageUrl": "/media/initial-sounds/images/h/hen.webp",
-    "imagePath": "/media/initial-sounds/images/h/hen.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+    "imagePath": "/images/child-mode/initial-sounds/hen.png",
     "audioKey": "hen",
     "audioUrl": "/audio/child-mode/clean-human/words/hen.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hen.mp3",
@@ -4438,19 +4438,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "ten",
     "choices": [
       "ten",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "answerOptions": [
       "ten",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "imageKey": "hen",
-    "imageUrl": "/media/initial-sounds/images/h/hen.webp",
-    "imagePath": "/media/initial-sounds/images/h/hen.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+    "imagePath": "/images/child-mode/initial-sounds/hen.png",
     "audioKey": "hen",
     "audioUrl": "/audio/child-mode/clean-human/words/hen.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hen.mp3",
@@ -4490,19 +4490,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pen",
     "choices": [
       "pen",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "answerOptions": [
       "pen",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "imageKey": "ten",
-    "imageUrl": "/images/child-mode/short-e/pen.png",
-    "imagePath": "/images/child-mode/short-e/pen.png",
+    "imageUrl": "/images/child-mode/initial-sounds/ten.png",
+    "imagePath": "/images/child-mode/initial-sounds/ten.png",
     "audioKey": "ten",
     "audioUrl": "/audio/child-mode/clean-human/words/ten.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ten.mp3",
@@ -4542,19 +4542,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "hen",
     "choices": [
       "hen",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "answerOptions": [
       "hen",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "jet"
     ],
     "imageKey": "ten",
-    "imageUrl": "/images/child-mode/short-e/pen.png",
-    "imagePath": "/images/child-mode/short-e/pen.png",
+    "imageUrl": "/images/child-mode/initial-sounds/ten.png",
+    "imagePath": "/images/child-mode/initial-sounds/ten.png",
     "audioKey": "ten",
     "audioUrl": "/audio/child-mode/clean-human/words/ten.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ten.mp3",
@@ -4594,19 +4594,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pet",
     "choices": [
       "pet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "pet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "jet",
-    "imageUrl": "/media/initial-sounds/images/j/jet.webp",
-    "imagePath": "/media/initial-sounds/images/j/jet.webp",
+    "imageUrl": "/images/child-mode/short-e/jet.png",
+    "imagePath": "/images/child-mode/short-e/jet.png",
     "audioKey": "jet",
     "audioUrl": "/audio/child-mode/clean-human/words/jet.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jet.mp3",
@@ -4646,19 +4646,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wet",
     "choices": [
       "wet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "wet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "jet",
-    "imageUrl": "/media/initial-sounds/images/j/jet.webp",
-    "imagePath": "/media/initial-sounds/images/j/jet.webp",
+    "imageUrl": "/images/child-mode/short-e/jet.png",
+    "imagePath": "/images/child-mode/short-e/jet.png",
     "audioKey": "jet",
     "audioUrl": "/audio/child-mode/clean-human/words/jet.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jet.mp3",
@@ -4698,15 +4698,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "jet",
     "choices": [
       "jet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "jet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "pet",
     "imageUrl": "/media/vocabulary/images/pet.webp",
@@ -4750,15 +4750,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "wet",
     "choices": [
       "wet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "wet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "pet",
     "imageUrl": "/media/vocabulary/images/pet.webp",
@@ -4802,15 +4802,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "jet",
     "choices": [
       "jet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "jet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "wet",
     "imageUrl": "/media/vocabulary/images/wet.webp",
@@ -4854,15 +4854,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pet",
     "choices": [
       "pet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "pet",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "wet",
     "imageUrl": "/media/vocabulary/images/wet.webp",
@@ -4906,19 +4906,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "egg",
     "choices": [
       "egg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "answerOptions": [
       "egg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "imageKey": "leg",
-    "imageUrl": "/media/initial-sounds/images/l/leg.webp",
-    "imagePath": "/media/initial-sounds/images/l/leg.webp",
+    "imageUrl": "/images/child-mode/short-e/leg.png",
+    "imagePath": "/images/child-mode/short-e/leg.png",
     "audioKey": "leg",
     "audioUrl": "/audio/child-mode/clean-human/words/leg.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/leg.mp3",
@@ -4958,19 +4958,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "peg",
     "choices": [
       "peg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "answerOptions": [
       "peg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "imageKey": "leg",
-    "imageUrl": "/media/initial-sounds/images/l/leg.webp",
-    "imagePath": "/media/initial-sounds/images/l/leg.webp",
+    "imageUrl": "/images/child-mode/short-e/leg.png",
+    "imagePath": "/images/child-mode/short-e/leg.png",
     "audioKey": "leg",
     "audioUrl": "/audio/child-mode/clean-human/words/leg.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/leg.mp3",
@@ -5010,19 +5010,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "leg",
     "choices": [
       "leg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "answerOptions": [
       "leg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "imageKey": "egg",
-    "imageUrl": "/media/initial-sounds/images/e/egg.webp",
-    "imagePath": "/media/initial-sounds/images/e/egg.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/egg.png",
+    "imagePath": "/images/child-mode/initial-sounds/egg.png",
     "audioKey": "egg",
     "audioUrl": "/audio/child-mode/clean-human/words/egg.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/egg.mp3",
@@ -5062,19 +5062,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "peg",
     "choices": [
       "peg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "answerOptions": [
       "peg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "imageKey": "egg",
-    "imageUrl": "/media/initial-sounds/images/e/egg.webp",
-    "imagePath": "/media/initial-sounds/images/e/egg.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/egg.png",
+    "imagePath": "/images/child-mode/initial-sounds/egg.png",
     "audioKey": "egg",
     "audioUrl": "/audio/child-mode/clean-human/words/egg.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/egg.mp3",
@@ -5114,15 +5114,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "leg",
     "choices": [
       "leg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "answerOptions": [
       "leg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "imageKey": "peg",
     "imageUrl": "/media/vocabulary/images/peg.webp",
@@ -5166,15 +5166,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "egg",
     "choices": [
       "egg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "answerOptions": [
       "egg",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "hen",
+      "jet"
     ],
     "imageKey": "peg",
     "imageUrl": "/media/vocabulary/images/peg.webp",
@@ -5218,19 +5218,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wig",
     "choices": [
       "wig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "wig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "pig",
-    "imageUrl": "/media/initial-sounds/images/p/pig.webp",
-    "imagePath": "/media/initial-sounds/images/p/pig.webp",
+    "imageUrl": "/images/child-mode/short-i/pig.png",
+    "imagePath": "/images/child-mode/short-i/pig.png",
     "audioKey": "pig",
     "audioUrl": "/audio/child-mode/clean-human/words/pig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pig.mp3",
@@ -5270,19 +5270,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "fish",
+      "hit"
     ],
     "answerOptions": [
       "dig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "fish",
+      "hit"
     ],
     "imageKey": "pig",
-    "imageUrl": "/media/initial-sounds/images/p/pig.webp",
-    "imagePath": "/media/initial-sounds/images/p/pig.webp",
+    "imageUrl": "/images/child-mode/short-i/pig.png",
+    "imagePath": "/images/child-mode/short-i/pig.png",
     "audioKey": "pig",
     "audioUrl": "/audio/child-mode/clean-human/words/pig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pig.mp3",
@@ -5322,19 +5322,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "back",
-      "bad",
-      "bag"
+      "dish",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "big",
-      "back",
-      "bad",
-      "bag"
+      "dish",
+      "fin",
+      "hit"
     ],
     "imageKey": "pig",
-    "imageUrl": "/media/initial-sounds/images/p/pig.webp",
-    "imagePath": "/media/initial-sounds/images/p/pig.webp",
+    "imageUrl": "/images/child-mode/short-i/pig.png",
+    "imagePath": "/images/child-mode/short-i/pig.png",
     "audioKey": "pig",
     "audioUrl": "/audio/child-mode/clean-human/words/pig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pig.mp3",
@@ -5374,19 +5374,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fig",
     "choices": [
       "fig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "fig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "pig",
-    "imageUrl": "/media/initial-sounds/images/p/pig.webp",
-    "imagePath": "/media/initial-sounds/images/p/pig.webp",
+    "imageUrl": "/images/child-mode/short-i/pig.png",
+    "imagePath": "/images/child-mode/short-i/pig.png",
     "audioKey": "pig",
     "audioUrl": "/audio/child-mode/clean-human/words/pig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pig.mp3",
@@ -5426,19 +5426,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "pig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "wig",
-    "imageUrl": "/media/initial-sounds/images/w/wig.webp",
-    "imagePath": "/media/initial-sounds/images/w/wig.webp",
+    "imageUrl": "/images/child-mode/short-i/wig.png",
+    "imagePath": "/images/child-mode/short-i/wig.png",
     "audioKey": "wig",
     "audioUrl": "/audio/child-mode/clean-human/words/wig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/wig.mp3",
@@ -5478,19 +5478,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "fish",
+      "hit"
     ],
     "answerOptions": [
       "dig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "fish",
+      "hit"
     ],
     "imageKey": "wig",
-    "imageUrl": "/media/initial-sounds/images/w/wig.webp",
-    "imagePath": "/media/initial-sounds/images/w/wig.webp",
+    "imageUrl": "/images/child-mode/short-i/wig.png",
+    "imagePath": "/images/child-mode/short-i/wig.png",
     "audioKey": "wig",
     "audioUrl": "/audio/child-mode/clean-human/words/wig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/wig.mp3",
@@ -5530,19 +5530,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "back",
-      "bad",
-      "bag"
+      "dish",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "big",
-      "back",
-      "bad",
-      "bag"
+      "dish",
+      "fin",
+      "hit"
     ],
     "imageKey": "wig",
-    "imageUrl": "/media/initial-sounds/images/w/wig.webp",
-    "imagePath": "/media/initial-sounds/images/w/wig.webp",
+    "imageUrl": "/images/child-mode/short-i/wig.png",
+    "imagePath": "/images/child-mode/short-i/wig.png",
     "audioKey": "wig",
     "audioUrl": "/audio/child-mode/clean-human/words/wig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/wig.mp3",
@@ -5582,19 +5582,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fig",
     "choices": [
       "fig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "fig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "wig",
-    "imageUrl": "/media/initial-sounds/images/w/wig.webp",
-    "imagePath": "/media/initial-sounds/images/w/wig.webp",
+    "imageUrl": "/images/child-mode/short-i/wig.png",
+    "imagePath": "/images/child-mode/short-i/wig.png",
     "audioKey": "wig",
     "audioUrl": "/audio/child-mode/clean-human/words/wig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/wig.mp3",
@@ -5634,19 +5634,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "pig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "dig",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
     "audioKey": "dig",
     "audioUrl": "/audio/child-mode/clean-human/words/dig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -5686,19 +5686,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wig",
     "choices": [
       "wig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "wig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "dig",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
     "audioKey": "dig",
     "audioUrl": "/audio/child-mode/clean-human/words/dig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -5738,19 +5738,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "back",
-      "bad",
-      "bag"
+      "dish",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "big",
-      "back",
-      "bad",
-      "bag"
+      "dish",
+      "fin",
+      "hit"
     ],
     "imageKey": "dig",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
     "audioKey": "dig",
     "audioUrl": "/audio/child-mode/clean-human/words/dig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -5790,19 +5790,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fig",
     "choices": [
       "fig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "fig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "dig",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
     "audioKey": "dig",
     "audioUrl": "/audio/child-mode/clean-human/words/dig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -5842,19 +5842,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "pig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "big",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/short-i/big.png",
+    "imagePath": "/images/child-mode/short-i/big.png",
     "audioKey": "big",
     "audioUrl": "/audio/child-mode/words/big.mp3",
     "audioPath": "/audio/child-mode/words/big.mp3",
@@ -5894,19 +5894,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wig",
     "choices": [
       "wig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "wig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "big",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/short-i/big.png",
+    "imagePath": "/images/child-mode/short-i/big.png",
     "audioKey": "big",
     "audioUrl": "/audio/child-mode/words/big.mp3",
     "audioPath": "/audio/child-mode/words/big.mp3",
@@ -5946,19 +5946,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "fish",
+      "hit"
     ],
     "answerOptions": [
       "dig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "fish",
+      "hit"
     ],
     "imageKey": "big",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/short-i/big.png",
+    "imagePath": "/images/child-mode/short-i/big.png",
     "audioKey": "big",
     "audioUrl": "/audio/child-mode/words/big.mp3",
     "audioPath": "/audio/child-mode/words/big.mp3",
@@ -5998,19 +5998,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fig",
     "choices": [
       "fig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "fig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "big",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/short-i/big.png",
+    "imagePath": "/images/child-mode/short-i/big.png",
     "audioKey": "big",
     "audioUrl": "/audio/child-mode/words/big.mp3",
     "audioPath": "/audio/child-mode/words/big.mp3",
@@ -6050,15 +6050,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "pig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "fig",
     "imageUrl": "/media/vocabulary/images/fig.webp",
@@ -6102,15 +6102,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "wig",
     "choices": [
       "wig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "wig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "dish",
+      "hit"
     ],
     "imageKey": "fig",
     "imageUrl": "/media/vocabulary/images/fig.webp",
@@ -6154,15 +6154,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "fish",
+      "hit"
     ],
     "answerOptions": [
       "dig",
-      "back",
-      "bad",
-      "bag"
+      "bin",
+      "fish",
+      "hit"
     ],
     "imageKey": "fig",
     "imageUrl": "/media/vocabulary/images/fig.webp",
@@ -6206,15 +6206,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "back",
-      "bad",
-      "bag"
+      "dish",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "big",
-      "back",
-      "bad",
-      "bag"
+      "dish",
+      "fin",
+      "hit"
     ],
     "imageKey": "fig",
     "imageUrl": "/media/vocabulary/images/fig.webp",
@@ -6258,19 +6258,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fin",
     "choices": [
       "fin",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "fin",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "hit"
     ],
     "imageKey": "pin",
-    "imageUrl": "/media/initial-sounds/images/p/pin.webp",
-    "imagePath": "/media/initial-sounds/images/p/pin.webp",
+    "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
+    "imagePath": "/images/child-mode/minimal-pairs/pin.png",
     "audioKey": "pin",
     "audioUrl": "/audio/child-mode/clean-human/words/pin.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pin.mp3",
@@ -6310,19 +6310,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bin",
     "choices": [
       "bin",
-      "back",
-      "bad",
-      "bag"
+      "dig",
+      "fish",
+      "hit"
     ],
     "answerOptions": [
       "bin",
-      "back",
-      "bad",
-      "bag"
+      "dig",
+      "fish",
+      "hit"
     ],
     "imageKey": "pin",
-    "imageUrl": "/media/initial-sounds/images/p/pin.webp",
-    "imagePath": "/media/initial-sounds/images/p/pin.webp",
+    "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
+    "imagePath": "/images/child-mode/minimal-pairs/pin.png",
     "audioKey": "pin",
     "audioUrl": "/audio/child-mode/clean-human/words/pin.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pin.mp3",
@@ -6362,15 +6362,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pin",
     "choices": [
       "pin",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "pin",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "hit"
     ],
     "imageKey": "fin",
     "imageUrl": "/images/child-mode/short-i/fin.png",
@@ -6414,15 +6414,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bin",
     "choices": [
       "bin",
-      "back",
-      "bad",
-      "bag"
+      "dig",
+      "fish",
+      "hit"
     ],
     "answerOptions": [
       "bin",
-      "back",
-      "bad",
-      "bag"
+      "dig",
+      "fish",
+      "hit"
     ],
     "imageKey": "fin",
     "imageUrl": "/images/child-mode/short-i/fin.png",
@@ -6466,19 +6466,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pin",
     "choices": [
       "pin",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "pin",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "hit"
     ],
     "imageKey": "bin",
-    "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
-    "imagePath": "/images/child-mode/minimal-pairs/pin.png",
+    "imageUrl": "/images/child-mode/initial-sounds/bin.png",
+    "imagePath": "/images/child-mode/initial-sounds/bin.png",
     "audioKey": "bin",
     "audioUrl": "/audio/child-mode/words/bin.mp3",
     "audioPath": "/audio/child-mode/words/bin.mp3",
@@ -6518,19 +6518,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fin",
     "choices": [
       "fin",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "hit"
     ],
     "answerOptions": [
       "fin",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "hit"
     ],
     "imageKey": "bin",
-    "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
-    "imagePath": "/images/child-mode/minimal-pairs/pin.png",
+    "imageUrl": "/images/child-mode/initial-sounds/bin.png",
+    "imagePath": "/images/child-mode/initial-sounds/bin.png",
     "audioKey": "bin",
     "audioUrl": "/audio/child-mode/words/bin.mp3",
     "audioPath": "/audio/child-mode/words/bin.mp3",
@@ -6570,15 +6570,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sip",
     "choices": [
       "sip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "sip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "lip",
     "imageUrl": "/media/rhyming/images/lip.webp",
@@ -6622,15 +6622,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "dip",
     "choices": [
       "dip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "dip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "fin",
+      "hit"
     ],
     "imageKey": "lip",
     "imageUrl": "/media/rhyming/images/lip.webp",
@@ -6674,15 +6674,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "zip",
     "choices": [
       "zip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "zip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "lip",
     "imageUrl": "/media/rhyming/images/lip.webp",
@@ -6726,15 +6726,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "lip",
     "choices": [
       "lip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "lip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "sip",
     "imageUrl": "/media/vocabulary/images/sip.webp",
@@ -6778,15 +6778,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "dip",
     "choices": [
       "dip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "dip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "fin",
+      "hit"
     ],
     "imageKey": "sip",
     "imageUrl": "/media/vocabulary/images/sip.webp",
@@ -6830,15 +6830,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "zip",
     "choices": [
       "zip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "zip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "sip",
     "imageUrl": "/media/vocabulary/images/sip.webp",
@@ -6882,15 +6882,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "lip",
     "choices": [
       "lip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "lip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "dip",
     "imageUrl": "/media/vocabulary/images/dip.webp",
@@ -6934,15 +6934,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sip",
     "choices": [
       "sip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "sip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "dip",
     "imageUrl": "/media/vocabulary/images/dip.webp",
@@ -6986,15 +6986,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "zip",
     "choices": [
       "zip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "zip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "dip",
     "imageUrl": "/media/vocabulary/images/dip.webp",
@@ -7038,19 +7038,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "lip",
     "choices": [
       "lip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "lip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "zip",
-    "imageUrl": "/media/initial-sounds/images/z/zip.webp",
-    "imagePath": "/media/initial-sounds/images/z/zip.webp",
+    "imageUrl": "/images/child-mode/short-i/zip.png",
+    "imagePath": "/images/child-mode/short-i/zip.png",
     "audioKey": "zip",
     "audioUrl": "/media/initial-sounds/audio/z/zip.mp3",
     "audioPath": "/media/initial-sounds/audio/z/zip.mp3",
@@ -7090,19 +7090,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "sip",
     "choices": [
       "sip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "sip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "zip",
-    "imageUrl": "/media/initial-sounds/images/z/zip.webp",
-    "imagePath": "/media/initial-sounds/images/z/zip.webp",
+    "imageUrl": "/images/child-mode/short-i/zip.png",
+    "imagePath": "/images/child-mode/short-i/zip.png",
     "audioKey": "zip",
     "audioUrl": "/media/initial-sounds/audio/z/zip.mp3",
     "audioPath": "/media/initial-sounds/audio/z/zip.mp3",
@@ -7142,19 +7142,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dip",
     "choices": [
       "dip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "dip",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "fin",
+      "hit"
     ],
     "imageKey": "zip",
-    "imageUrl": "/media/initial-sounds/images/z/zip.webp",
-    "imagePath": "/media/initial-sounds/images/z/zip.webp",
+    "imageUrl": "/images/child-mode/short-i/zip.png",
+    "imagePath": "/images/child-mode/short-i/zip.png",
     "audioKey": "zip",
     "audioUrl": "/media/initial-sounds/audio/z/zip.mp3",
     "audioPath": "/media/initial-sounds/audio/z/zip.mp3",
@@ -7194,15 +7194,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "hit",
     "choices": [
       "hit",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "hit",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "sit",
     "imageUrl": "/images/child-mode/short-i/sit.png",
@@ -7246,19 +7246,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "sit",
     "choices": [
       "sit",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "sit",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "hit",
-    "imageUrl": "/images/child-mode/short-i/sit.png",
-    "imagePath": "/images/child-mode/short-i/sit.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hit.png",
+    "imagePath": "/images/child-mode/initial-sounds/hit.png",
     "audioKey": "hit",
     "audioUrl": "/audio/child-mode/clean-human/words/hit.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hit.mp3",
@@ -7298,19 +7298,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "log",
     "choices": [
       "log",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dot"
     ],
     "answerOptions": [
       "log",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dot"
     ],
     "imageKey": "dog",
-    "imageUrl": "/media/initial-sounds/images/d/dog.webp",
-    "imagePath": "/media/initial-sounds/images/d/dog.webp",
+    "imageUrl": "/images/child-mode/cvc/dog.png",
+    "imagePath": "/images/child-mode/cvc/dog.png",
     "audioKey": "dog",
     "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dog.mp3",
@@ -7350,19 +7350,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dog",
     "choices": [
       "dog",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "fox"
     ],
     "answerOptions": [
       "dog",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "fox"
     ],
     "imageKey": "log",
-    "imageUrl": "/media/initial-sounds/images/l/log.webp",
-    "imagePath": "/media/initial-sounds/images/l/log.webp",
+    "imageUrl": "/images/child-mode/cvc/log.png",
+    "imagePath": "/images/child-mode/cvc/log.png",
     "audioKey": "log",
     "audioUrl": "/audio/child-mode/clean-human/words/log.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/log.mp3",
@@ -7402,15 +7402,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "hop",
     "choices": [
       "hop",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "hop",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "mop",
     "imageUrl": "/images/child-mode/short-o/mop.png",
@@ -7454,15 +7454,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "top",
     "choices": [
       "top",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "top",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "mop",
     "imageUrl": "/images/child-mode/short-o/mop.png",
@@ -7506,19 +7506,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mop",
     "choices": [
       "mop",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "mop",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "hop",
-    "imageUrl": "/images/child-mode/short-o/mop.png",
-    "imagePath": "/images/child-mode/short-o/mop.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
     "audioKey": "hop",
     "audioUrl": "/audio/child-mode/words/hop.mp3",
     "audioPath": "/audio/child-mode/words/hop.mp3",
@@ -7558,19 +7558,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "top",
     "choices": [
       "top",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "top",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "hop",
-    "imageUrl": "/images/child-mode/short-o/mop.png",
-    "imagePath": "/images/child-mode/short-o/mop.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
     "audioKey": "hop",
     "audioUrl": "/audio/child-mode/words/hop.mp3",
     "audioPath": "/audio/child-mode/words/hop.mp3",
@@ -7610,19 +7610,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mop",
     "choices": [
       "mop",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "mop",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "top",
-    "imageUrl": "/media/initial-sounds/images/t/top.webp",
-    "imagePath": "/media/initial-sounds/images/t/top.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/top.png",
+    "imagePath": "/images/child-mode/initial-sounds/top.png",
     "audioKey": "top",
     "audioUrl": "/audio/child-mode/words/top.mp3",
     "audioPath": "/audio/child-mode/words/top.mp3",
@@ -7662,19 +7662,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "hop",
     "choices": [
       "hop",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "hop",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "top",
-    "imageUrl": "/media/initial-sounds/images/t/top.webp",
-    "imagePath": "/media/initial-sounds/images/t/top.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/top.png",
+    "imagePath": "/images/child-mode/initial-sounds/top.png",
     "audioKey": "top",
     "audioUrl": "/audio/child-mode/words/top.mp3",
     "audioPath": "/audio/child-mode/words/top.mp3",
@@ -7714,15 +7714,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "pot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "hot",
     "imageUrl": "/images/child-mode/initial-sounds/hot.png",
@@ -7766,15 +7766,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "dot",
     "choices": [
       "dot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "fox"
     ],
     "answerOptions": [
       "dot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "fox"
     ],
     "imageKey": "hot",
     "imageUrl": "/images/child-mode/initial-sounds/hot.png",
@@ -7818,15 +7818,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "cot",
     "choices": [
       "cot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "cot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "imageKey": "hot",
     "imageUrl": "/images/child-mode/initial-sounds/hot.png",
@@ -7870,19 +7870,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "hot",
     "choices": [
       "hot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "hot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "pot",
-    "imageUrl": "/media/initial-sounds/images/p/pot.webp",
-    "imagePath": "/media/initial-sounds/images/p/pot.webp",
+    "imageUrl": "/images/child-mode/cvc/pot.png",
+    "imagePath": "/images/child-mode/cvc/pot.png",
     "audioKey": "pot",
     "audioUrl": "/audio/child-mode/clean-human/words/pot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pot.mp3",
@@ -7922,19 +7922,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dot",
     "choices": [
       "dot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "fox"
     ],
     "answerOptions": [
       "dot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "fox"
     ],
     "imageKey": "pot",
-    "imageUrl": "/media/initial-sounds/images/p/pot.webp",
-    "imagePath": "/media/initial-sounds/images/p/pot.webp",
+    "imageUrl": "/images/child-mode/cvc/pot.png",
+    "imagePath": "/images/child-mode/cvc/pot.png",
     "audioKey": "pot",
     "audioUrl": "/audio/child-mode/clean-human/words/pot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pot.mp3",
@@ -7974,19 +7974,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "cot",
     "choices": [
       "cot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "cot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "imageKey": "pot",
-    "imageUrl": "/media/initial-sounds/images/p/pot.webp",
-    "imagePath": "/media/initial-sounds/images/p/pot.webp",
+    "imageUrl": "/images/child-mode/cvc/pot.png",
+    "imagePath": "/images/child-mode/cvc/pot.png",
     "audioKey": "pot",
     "audioUrl": "/audio/child-mode/clean-human/words/pot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pot.mp3",
@@ -8026,19 +8026,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "hot",
     "choices": [
       "hot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "hot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "dot",
-    "imageUrl": "/images/child-mode/initial-sounds/hot.png",
-    "imagePath": "/images/child-mode/initial-sounds/hot.png",
+    "imageUrl": "/images/child-mode/cvc/dot.png",
+    "imagePath": "/images/child-mode/cvc/dot.png",
     "audioKey": "dot",
     "audioUrl": "/audio/child-mode/clean-human/words/dot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dot.mp3",
@@ -8078,19 +8078,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "pot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "dot",
-    "imageUrl": "/images/child-mode/initial-sounds/hot.png",
-    "imagePath": "/images/child-mode/initial-sounds/hot.png",
+    "imageUrl": "/images/child-mode/cvc/dot.png",
+    "imagePath": "/images/child-mode/cvc/dot.png",
     "audioKey": "dot",
     "audioUrl": "/audio/child-mode/clean-human/words/dot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dot.mp3",
@@ -8130,19 +8130,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "cot",
     "choices": [
       "cot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "cot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "imageKey": "dot",
-    "imageUrl": "/images/child-mode/initial-sounds/hot.png",
-    "imagePath": "/images/child-mode/initial-sounds/hot.png",
+    "imageUrl": "/images/child-mode/cvc/dot.png",
+    "imagePath": "/images/child-mode/cvc/dot.png",
     "audioKey": "dot",
     "audioUrl": "/audio/child-mode/clean-human/words/dot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dot.mp3",
@@ -8182,15 +8182,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "hot",
     "choices": [
       "hot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "hot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "cot",
     "imageUrl": "/images/child-mode/minimal-pairs/cot.png",
@@ -8234,15 +8234,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "pot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "cot",
     "imageUrl": "/images/child-mode/minimal-pairs/cot.png",
@@ -8286,15 +8286,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "dot",
     "choices": [
       "dot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "fox"
     ],
     "answerOptions": [
       "dot",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "fox"
     ],
     "imageKey": "cot",
     "imageUrl": "/images/child-mode/minimal-pairs/cot.png",
@@ -8338,15 +8338,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "rug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "bug",
     "imageUrl": "/images/child-mode/cvc/bug.png",
@@ -8390,15 +8390,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "mug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "bug",
     "imageUrl": "/images/child-mode/cvc/bug.png",
@@ -8442,15 +8442,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "jug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "bug",
     "imageUrl": "/images/child-mode/cvc/bug.png",
@@ -8494,19 +8494,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "bug",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "imageKey": "rug",
-    "imageUrl": "/media/initial-sounds/images/r/rug.webp",
-    "imagePath": "/media/initial-sounds/images/r/rug.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rug.png",
+    "imagePath": "/images/child-mode/initial-sounds/rug.png",
     "audioKey": "rug",
     "audioUrl": "/audio/child-mode/clean-human/words/rug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rug.mp3",
@@ -8546,19 +8546,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "mug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "rug",
-    "imageUrl": "/media/initial-sounds/images/r/rug.webp",
-    "imagePath": "/media/initial-sounds/images/r/rug.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rug.png",
+    "imagePath": "/images/child-mode/initial-sounds/rug.png",
     "audioKey": "rug",
     "audioUrl": "/audio/child-mode/clean-human/words/rug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rug.mp3",
@@ -8598,19 +8598,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "jug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "rug",
-    "imageUrl": "/media/initial-sounds/images/r/rug.webp",
-    "imagePath": "/media/initial-sounds/images/r/rug.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rug.png",
+    "imagePath": "/images/child-mode/initial-sounds/rug.png",
     "audioKey": "rug",
     "audioUrl": "/audio/child-mode/clean-human/words/rug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rug.mp3",
@@ -8650,19 +8650,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "bug",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "imageKey": "mug",
-    "imageUrl": "/media/initial-sounds/images/m/mug.webp",
-    "imagePath": "/media/initial-sounds/images/m/mug.webp",
+    "imageUrl": "/images/child-mode/cvc/mug.png",
+    "imagePath": "/images/child-mode/cvc/mug.png",
     "audioKey": "mug",
     "audioUrl": "/audio/child-mode/clean-human/words/mug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mug.mp3",
@@ -8702,19 +8702,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "rug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "mug",
-    "imageUrl": "/media/initial-sounds/images/m/mug.webp",
-    "imagePath": "/media/initial-sounds/images/m/mug.webp",
+    "imageUrl": "/images/child-mode/cvc/mug.png",
+    "imagePath": "/images/child-mode/cvc/mug.png",
     "audioKey": "mug",
     "audioUrl": "/audio/child-mode/clean-human/words/mug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mug.mp3",
@@ -8754,19 +8754,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "jug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "mug",
-    "imageUrl": "/media/initial-sounds/images/m/mug.webp",
-    "imagePath": "/media/initial-sounds/images/m/mug.webp",
+    "imageUrl": "/images/child-mode/cvc/mug.png",
+    "imagePath": "/images/child-mode/cvc/mug.png",
     "audioKey": "mug",
     "audioUrl": "/audio/child-mode/clean-human/words/mug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mug.mp3",
@@ -8806,19 +8806,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "bug",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "imageKey": "jug",
-    "imageUrl": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
+    "imageUrl": "/images/child-mode/initial-sounds/jug.png",
+    "imagePath": "/images/child-mode/initial-sounds/jug.png",
     "audioKey": "jug",
     "audioUrl": "/audio/child-mode/words/jug.mp3",
     "audioPath": "/audio/child-mode/words/jug.mp3",
@@ -8858,19 +8858,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "rug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "jug",
-    "imageUrl": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
+    "imageUrl": "/images/child-mode/initial-sounds/jug.png",
+    "imagePath": "/images/child-mode/initial-sounds/jug.png",
     "audioKey": "jug",
     "audioUrl": "/audio/child-mode/words/jug.mp3",
     "audioPath": "/audio/child-mode/words/jug.mp3",
@@ -8910,19 +8910,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "mug",
-      "back",
-      "bad",
-      "bag"
+      "bun",
+      "cup",
+      "duck"
     ],
     "imageKey": "jug",
-    "imageUrl": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
+    "imageUrl": "/images/child-mode/initial-sounds/jug.png",
+    "imagePath": "/images/child-mode/initial-sounds/jug.png",
     "audioKey": "jug",
     "audioUrl": "/audio/child-mode/words/jug.mp3",
     "audioPath": "/audio/child-mode/words/jug.mp3",
@@ -8962,19 +8962,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "run",
     "choices": [
       "run",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "run",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "sun",
-    "imageUrl": "/media/initial-sounds/images/s/sun.webp",
-    "imagePath": "/media/initial-sounds/images/s/sun.webp",
+    "imageUrl": "/images/child-mode/cvc/sun.png",
+    "imagePath": "/images/child-mode/cvc/sun.png",
     "audioKey": "sun",
     "audioUrl": "/audio/child-mode/clean-human/words/sun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/sun.mp3",
@@ -9014,19 +9014,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fun",
     "choices": [
       "fun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "fun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "sun",
-    "imageUrl": "/media/initial-sounds/images/s/sun.webp",
-    "imagePath": "/media/initial-sounds/images/s/sun.webp",
+    "imageUrl": "/images/child-mode/cvc/sun.png",
+    "imagePath": "/images/child-mode/cvc/sun.png",
     "audioKey": "sun",
     "audioUrl": "/audio/child-mode/clean-human/words/sun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/sun.mp3",
@@ -9066,19 +9066,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bun",
     "choices": [
       "bun",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "bun",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "imageKey": "sun",
-    "imageUrl": "/media/initial-sounds/images/s/sun.webp",
-    "imagePath": "/media/initial-sounds/images/s/sun.webp",
+    "imageUrl": "/images/child-mode/cvc/sun.png",
+    "imagePath": "/images/child-mode/cvc/sun.png",
     "audioKey": "sun",
     "audioUrl": "/audio/child-mode/clean-human/words/sun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/sun.mp3",
@@ -9118,19 +9118,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "sun",
     "choices": [
       "sun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "sun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "run",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/initial-sounds/run.png",
+    "imagePath": "/images/child-mode/initial-sounds/run.png",
     "audioKey": "run",
     "audioUrl": "/audio/child-mode/clean-human/words/run.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/run.mp3",
@@ -9170,19 +9170,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fun",
     "choices": [
       "fun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "fun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "run",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/initial-sounds/run.png",
+    "imagePath": "/images/child-mode/initial-sounds/run.png",
     "audioKey": "run",
     "audioUrl": "/audio/child-mode/clean-human/words/run.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/run.mp3",
@@ -9222,19 +9222,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bun",
     "choices": [
       "bun",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "bun",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "imageKey": "run",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/initial-sounds/run.png",
+    "imagePath": "/images/child-mode/initial-sounds/run.png",
     "audioKey": "run",
     "audioUrl": "/audio/child-mode/clean-human/words/run.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/run.mp3",
@@ -9274,15 +9274,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sun",
     "choices": [
       "sun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "sun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "fun",
     "imageUrl": "/media/vocabulary/images/fun.webp",
@@ -9326,15 +9326,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "run",
     "choices": [
       "run",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "run",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "fun",
     "imageUrl": "/media/vocabulary/images/fun.webp",
@@ -9378,15 +9378,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bun",
     "choices": [
       "bun",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "bun",
-      "back",
-      "bad",
-      "bag"
+      "cup",
+      "duck",
+      "hut"
     ],
     "imageKey": "fun",
     "imageUrl": "/media/vocabulary/images/fun.webp",
@@ -9430,19 +9430,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "sun",
     "choices": [
       "sun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "sun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "bun",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/short-u/bun.png",
+    "imagePath": "/images/child-mode/short-u/bun.png",
     "audioKey": "bun",
     "audioUrl": "/audio/child-mode/clean-human/words/bun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bun.mp3",
@@ -9482,19 +9482,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "run",
     "choices": [
       "run",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "run",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "bun",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/short-u/bun.png",
+    "imagePath": "/images/child-mode/short-u/bun.png",
     "audioKey": "bun",
     "audioUrl": "/audio/child-mode/clean-human/words/bun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bun.mp3",
@@ -9534,19 +9534,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fun",
     "choices": [
       "fun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "answerOptions": [
       "fun",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "duck"
     ],
     "imageKey": "bun",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/short-u/bun.png",
+    "imagePath": "/images/child-mode/short-u/bun.png",
     "audioKey": "bun",
     "audioUrl": "/audio/child-mode/clean-human/words/bun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bun.mp3",
@@ -9586,19 +9586,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pup",
     "choices": [
       "pup",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "pup",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "imageKey": "cup",
-    "imageUrl": "/media/initial-sounds/images/c/cup.webp",
-    "imagePath": "/media/initial-sounds/images/c/cup.webp",
+    "imageUrl": "/images/child-mode/short-u/cup.png",
+    "imagePath": "/images/child-mode/short-u/cup.png",
     "audioKey": "cup",
     "audioUrl": "/audio/child-mode/clean-human/words/cup.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cup.mp3",
@@ -9638,19 +9638,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "up",
     "choices": [
       "up",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "up",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "imageKey": "cup",
-    "imageUrl": "/media/initial-sounds/images/c/cup.webp",
-    "imagePath": "/media/initial-sounds/images/c/cup.webp",
+    "imageUrl": "/images/child-mode/short-u/cup.png",
+    "imagePath": "/images/child-mode/short-u/cup.png",
     "audioKey": "cup",
     "audioUrl": "/audio/child-mode/clean-human/words/cup.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cup.mp3",
@@ -9690,15 +9690,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "cup",
     "choices": [
       "cup",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "cup",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "imageKey": "pup",
     "imageUrl": "/media/vocabulary/images/pup.webp",
@@ -9742,15 +9742,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "up",
     "choices": [
       "up",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "up",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "imageKey": "pup",
     "imageUrl": "/media/vocabulary/images/pup.webp",
@@ -9794,19 +9794,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "cup",
     "choices": [
       "cup",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "cup",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "imageKey": "up",
-    "imageUrl": "/media/initial-sounds/images/u/up.webp",
-    "imagePath": "/media/initial-sounds/images/u/up.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/up.png",
+    "imagePath": "/images/child-mode/initial-sounds/up.png",
     "audioKey": "up",
     "audioUrl": "/audio/child-mode/words/up.mp3",
     "audioPath": "/audio/child-mode/words/up.mp3",
@@ -9846,19 +9846,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "pup",
     "choices": [
       "pup",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "answerOptions": [
       "pup",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "duck",
+      "hut"
     ],
     "imageKey": "up",
-    "imageUrl": "/media/initial-sounds/images/u/up.webp",
-    "imagePath": "/media/initial-sounds/images/u/up.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/up.png",
+    "imagePath": "/images/child-mode/initial-sounds/up.png",
     "audioKey": "up",
     "audioUrl": "/audio/child-mode/words/up.mp3",
     "audioPath": "/audio/child-mode/words/up.mp3",
@@ -9898,19 +9898,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "king",
     "choices": [
       "king",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "king",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "ring",
-    "imageUrl": "/media/initial-sounds/images/r/ring.webp",
-    "imagePath": "/media/initial-sounds/images/r/ring.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/ring.png",
+    "imagePath": "/images/child-mode/initial-sounds/ring.png",
     "audioKey": "ring",
     "audioUrl": "/audio/child-mode/words/ring.mp3",
     "audioPath": "/audio/child-mode/words/ring.mp3",
@@ -9950,19 +9950,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wing",
     "choices": [
       "wing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "wing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "ring",
-    "imageUrl": "/media/initial-sounds/images/r/ring.webp",
-    "imagePath": "/media/initial-sounds/images/r/ring.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/ring.png",
+    "imagePath": "/images/child-mode/initial-sounds/ring.png",
     "audioKey": "ring",
     "audioUrl": "/audio/child-mode/words/ring.mp3",
     "audioPath": "/audio/child-mode/words/ring.mp3",
@@ -10002,19 +10002,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "swing",
     "choices": [
       "swing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "swing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "ring",
-    "imageUrl": "/media/initial-sounds/images/r/ring.webp",
-    "imagePath": "/media/initial-sounds/images/r/ring.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/ring.png",
+    "imagePath": "/images/child-mode/initial-sounds/ring.png",
     "audioKey": "ring",
     "audioUrl": "/audio/child-mode/words/ring.mp3",
     "audioPath": "/audio/child-mode/words/ring.mp3",
@@ -10054,19 +10054,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "ring",
     "choices": [
       "ring",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "ring",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "king",
-    "imageUrl": "/media/initial-sounds/images/k/king.webp",
-    "imagePath": "/media/initial-sounds/images/k/king.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/king.png",
+    "imagePath": "/images/child-mode/initial-sounds/king.png",
     "audioKey": "king",
     "audioUrl": "/audio/child-mode/words/king.mp3",
     "audioPath": "/audio/child-mode/words/king.mp3",
@@ -10106,19 +10106,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wing",
     "choices": [
       "wing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "wing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "king",
-    "imageUrl": "/media/initial-sounds/images/k/king.webp",
-    "imagePath": "/media/initial-sounds/images/k/king.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/king.png",
+    "imagePath": "/images/child-mode/initial-sounds/king.png",
     "audioKey": "king",
     "audioUrl": "/audio/child-mode/words/king.mp3",
     "audioPath": "/audio/child-mode/words/king.mp3",
@@ -10158,19 +10158,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "swing",
     "choices": [
       "swing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "swing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "king",
-    "imageUrl": "/media/initial-sounds/images/k/king.webp",
-    "imagePath": "/media/initial-sounds/images/k/king.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/king.png",
+    "imagePath": "/images/child-mode/initial-sounds/king.png",
     "audioKey": "king",
     "audioUrl": "/audio/child-mode/words/king.mp3",
     "audioPath": "/audio/child-mode/words/king.mp3",
@@ -10210,15 +10210,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "ring",
     "choices": [
       "ring",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "ring",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "wing",
     "imageUrl": "/media/vocabulary/images/wing.webp",
@@ -10262,15 +10262,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "king",
     "choices": [
       "king",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "king",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "wing",
     "imageUrl": "/media/vocabulary/images/wing.webp",
@@ -10314,15 +10314,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "swing",
     "choices": [
       "swing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "swing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "wing",
     "imageUrl": "/media/vocabulary/images/wing.webp",
@@ -10366,15 +10366,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "ring",
     "choices": [
       "ring",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "ring",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "swing",
     "imageUrl": "/media/vocabulary/images/swing.webp",
@@ -10418,15 +10418,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "king",
     "choices": [
       "king",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "king",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "swing",
     "imageUrl": "/media/vocabulary/images/swing.webp",
@@ -10470,15 +10470,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "wing",
     "choices": [
       "wing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "wing",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "swing",
     "imageUrl": "/media/vocabulary/images/swing.webp",
@@ -10522,19 +10522,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "rock",
     "choices": [
       "rock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "rock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "sock",
-    "imageUrl": "/media/initial-sounds/images/s/sock.webp",
-    "imagePath": "/media/initial-sounds/images/s/sock.webp",
+    "imageUrl": "/images/child-mode/short-o/sock.png",
+    "imagePath": "/images/child-mode/short-o/sock.png",
     "audioKey": "sock",
     "audioUrl": "/audio/child-mode/words/sock.mp3",
     "audioPath": "/audio/child-mode/words/sock.mp3",
@@ -10574,19 +10574,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "lock",
     "choices": [
       "lock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "lock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "sock",
-    "imageUrl": "/media/initial-sounds/images/s/sock.webp",
-    "imagePath": "/media/initial-sounds/images/s/sock.webp",
+    "imageUrl": "/images/child-mode/short-o/sock.png",
+    "imagePath": "/images/child-mode/short-o/sock.png",
     "audioKey": "sock",
     "audioUrl": "/audio/child-mode/words/sock.mp3",
     "audioPath": "/audio/child-mode/words/sock.mp3",
@@ -10626,19 +10626,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "clock",
     "choices": [
       "clock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "clock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "imageKey": "sock",
-    "imageUrl": "/media/initial-sounds/images/s/sock.webp",
-    "imagePath": "/media/initial-sounds/images/s/sock.webp",
+    "imageUrl": "/images/child-mode/short-o/sock.png",
+    "imagePath": "/images/child-mode/short-o/sock.png",
     "audioKey": "sock",
     "audioUrl": "/audio/child-mode/words/sock.mp3",
     "audioPath": "/audio/child-mode/words/sock.mp3",
@@ -10678,15 +10678,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sock",
     "choices": [
       "sock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "sock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "rock",
     "imageUrl": "/images/child-mode/short-o/rock.png",
@@ -10730,15 +10730,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "lock",
     "choices": [
       "lock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "lock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "rock",
     "imageUrl": "/images/child-mode/short-o/rock.png",
@@ -10782,15 +10782,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "clock",
     "choices": [
       "clock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "clock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "imageKey": "rock",
     "imageUrl": "/images/child-mode/short-o/rock.png",
@@ -10834,15 +10834,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sock",
     "choices": [
       "sock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "sock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "lock",
     "imageUrl": "/media/initial-sounds/images/l/lock.webp",
@@ -10886,15 +10886,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "rock",
     "choices": [
       "rock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "rock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "lock",
     "imageUrl": "/media/initial-sounds/images/l/lock.webp",
@@ -10938,15 +10938,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "clock",
     "choices": [
       "clock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "clock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "imageKey": "lock",
     "imageUrl": "/media/initial-sounds/images/l/lock.webp",
@@ -10990,15 +10990,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sock",
     "choices": [
       "sock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "sock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "clock",
     "imageUrl": "/media/vocabulary/images/clock.webp",
@@ -11042,15 +11042,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "rock",
     "choices": [
       "rock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "rock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "clock",
     "imageUrl": "/media/vocabulary/images/clock.webp",
@@ -11094,15 +11094,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "lock",
     "choices": [
       "lock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "lock",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "corn",
+      "dog"
     ],
     "imageKey": "clock",
     "imageUrl": "/media/vocabulary/images/clock.webp",
@@ -11147,14 +11147,14 @@ export const rhymingGeneratedQuestions = [
     "choices": [
       "sack",
       "bad",
-      "bag",
-      "ball"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "sack",
       "bad",
-      "bag",
-      "ball"
+      "cake",
+      "fan"
     ],
     "imageKey": "back",
     "imageUrl": "/media/vocabulary/images/back.webp",
@@ -11198,15 +11198,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "back",
     "choices": [
       "back",
-      "bad",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "back",
-      "bad",
-      "bag",
-      "ball"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "sack",
     "imageUrl": "/media/vocabulary/images/sack.webp",
@@ -11250,15 +11250,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "brick",
     "choices": [
       "brick",
-      "back",
-      "bad",
-      "bag"
+      "dig",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "brick",
-      "back",
-      "bad",
-      "bag"
+      "dig",
+      "fin",
+      "hit"
     ],
     "imageKey": "kick",
     "imageUrl": "/media/vocabulary/images/kick.webp",
@@ -11302,15 +11302,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "kick",
     "choices": [
       "kick",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "kick",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "brick",
     "imageUrl": "/media/vocabulary/images/brick.webp",
@@ -11354,15 +11354,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "pill",
     "choices": [
       "pill",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "pill",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "hill",
     "imageUrl": "/media/initial-sounds/images/h/hill.webp",
@@ -11406,15 +11406,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "hill",
     "choices": [
       "hill",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "hill",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "pill",
     "imageUrl": "/media/vocabulary/images/pill.webp",
@@ -11458,19 +11458,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "wall",
     "choices": [
       "wall",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "wall",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "ball",
-    "imageUrl": "/media/initial-sounds/images/b/ball.webp",
-    "imagePath": "/media/initial-sounds/images/b/ball.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/ball.png",
+    "imagePath": "/images/child-mode/initial-sounds/ball.png",
     "audioKey": "ball",
     "audioUrl": "/audio/child-mode/clean-human/words/ball.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ball.mp3",
@@ -11510,19 +11510,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "tall",
     "choices": [
       "tall",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "tall",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "ball",
-    "imageUrl": "/media/initial-sounds/images/b/ball.webp",
-    "imagePath": "/media/initial-sounds/images/b/ball.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/ball.png",
+    "imagePath": "/images/child-mode/initial-sounds/ball.png",
     "audioKey": "ball",
     "audioUrl": "/audio/child-mode/clean-human/words/ball.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ball.mp3",
@@ -11562,15 +11562,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "ball",
     "choices": [
       "ball",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "ball",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "wall",
     "imageUrl": "/media/vocabulary/images/wall.webp",
@@ -11614,15 +11614,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "tall",
     "choices": [
       "tall",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "tall",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "imageKey": "wall",
     "imageUrl": "/media/vocabulary/images/wall.webp",
@@ -11666,15 +11666,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "ball",
     "choices": [
       "ball",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "ball",
-      "back",
-      "bad",
-      "bag"
+      "cake",
+      "fan",
+      "ham"
     ],
     "imageKey": "tall",
     "imageUrl": "/media/vocabulary/images/tall.webp",
@@ -11718,15 +11718,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "wall",
     "choices": [
       "wall",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "wall",
-      "back",
-      "bad",
-      "bag"
+      "bat",
+      "cake",
+      "fan"
     ],
     "imageKey": "tall",
     "imageUrl": "/media/vocabulary/images/tall.webp",
@@ -11770,19 +11770,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "shell",
     "choices": [
       "shell",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "shell",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "bell",
-    "imageUrl": "/media/initial-sounds/images/b/bell.webp",
-    "imagePath": "/media/initial-sounds/images/b/bell.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/bell.png",
+    "imagePath": "/images/child-mode/initial-sounds/bell.png",
     "audioKey": "bell",
     "audioUrl": "/audio/child-mode/clean-human/words/bell.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bell.mp3",
@@ -11822,19 +11822,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "well",
     "choices": [
       "well",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "well",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "bell",
-    "imageUrl": "/media/initial-sounds/images/b/bell.webp",
-    "imagePath": "/media/initial-sounds/images/b/bell.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/bell.png",
+    "imagePath": "/images/child-mode/initial-sounds/bell.png",
     "audioKey": "bell",
     "audioUrl": "/audio/child-mode/clean-human/words/bell.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bell.mp3",
@@ -11874,19 +11874,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "bell",
     "choices": [
       "bell",
-      "back",
-      "bad",
-      "bag"
+      "egg",
+      "hen",
+      "jet"
     ],
     "answerOptions": [
       "bell",
-      "back",
-      "bad",
-      "bag"
+      "egg",
+      "hen",
+      "jet"
     ],
     "imageKey": "shell",
-    "imageUrl": "/media/initial-sounds/images/s/shell.webp",
-    "imagePath": "/media/initial-sounds/images/s/shell.webp",
+    "imageUrl": "/images/child-mode/digraphs/shell.png",
+    "imagePath": "/images/child-mode/digraphs/shell.png",
     "audioKey": "shell",
     "audioUrl": "/audio/child-mode/clean-human/words/shell.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/shell.mp3",
@@ -11926,19 +11926,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "well",
     "choices": [
       "well",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "well",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "shell",
-    "imageUrl": "/media/initial-sounds/images/s/shell.webp",
-    "imagePath": "/media/initial-sounds/images/s/shell.webp",
+    "imageUrl": "/images/child-mode/digraphs/shell.png",
+    "imagePath": "/images/child-mode/digraphs/shell.png",
     "audioKey": "shell",
     "audioUrl": "/audio/child-mode/clean-human/words/shell.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/shell.mp3",
@@ -11978,15 +11978,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bell",
     "choices": [
       "bell",
-      "back",
-      "bad",
-      "bag"
+      "egg",
+      "hen",
+      "jet"
     ],
     "answerOptions": [
       "bell",
-      "back",
-      "bad",
-      "bag"
+      "egg",
+      "hen",
+      "jet"
     ],
     "imageKey": "well",
     "imageUrl": "/media/vocabulary/images/well.webp",
@@ -12030,15 +12030,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "shell",
     "choices": [
       "shell",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "shell",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "well",
     "imageUrl": "/media/vocabulary/images/well.webp",
@@ -12082,19 +12082,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "dish",
     "choices": [
       "dish",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "dish",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "fin",
+      "hit"
     ],
     "imageKey": "fish",
-    "imageUrl": "/media/initial-sounds/images/f/fish.webp",
-    "imagePath": "/media/initial-sounds/images/f/fish.webp",
+    "imageUrl": "/images/child-mode/cvc/fish.png",
+    "imagePath": "/images/child-mode/cvc/fish.png",
     "audioKey": "fish",
     "audioUrl": "/audio/child-mode/words/fish.mp3",
     "audioPath": "/audio/child-mode/words/fish.mp3",
@@ -12134,19 +12134,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "fish",
     "choices": [
       "fish",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "hit",
+      "king"
     ],
     "answerOptions": [
       "fish",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "hit",
+      "king"
     ],
     "imageKey": "dish",
-    "imageUrl": "/media/initial-sounds/images/d/dish.webp",
-    "imagePath": "/media/initial-sounds/images/d/dish.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/dish.png",
+    "imagePath": "/images/child-mode/initial-sounds/dish.png",
     "audioKey": "dish",
     "audioUrl": "/audio/child-mode/clean-human/words/dish.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dish.mp3",
@@ -12186,19 +12186,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "truck",
     "choices": [
       "truck",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "hut"
     ],
     "answerOptions": [
       "truck",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "hut"
     ],
     "imageKey": "duck",
-    "imageUrl": "/media/initial-sounds/images/d/duck.webp",
-    "imagePath": "/media/initial-sounds/images/d/duck.webp",
+    "imageUrl": "/images/child-mode/short-u/duck.png",
+    "imagePath": "/images/child-mode/short-u/duck.png",
     "audioKey": "duck",
     "audioUrl": "/audio/child-mode/words/duck.mp3",
     "audioPath": "/audio/child-mode/words/duck.mp3",
@@ -12238,15 +12238,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "duck",
     "choices": [
       "duck",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "hut"
     ],
     "answerOptions": [
       "duck",
-      "back",
-      "bad",
-      "bag"
+      "bug",
+      "cup",
+      "hut"
     ],
     "imageKey": "truck",
     "imageUrl": "/media/initial-sounds/images/t/truck.webp",
@@ -12290,19 +12290,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "lake",
     "choices": [
       "lake",
-      "back",
       "bad",
-      "bag"
+      "cap",
+      "fan"
     ],
     "answerOptions": [
       "lake",
-      "back",
       "bad",
-      "bag"
+      "cap",
+      "fan"
     ],
     "imageKey": "cake",
-    "imageUrl": "/media/initial-sounds/images/c/cake.webp",
-    "imagePath": "/media/initial-sounds/images/c/cake.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/cake.png",
+    "imagePath": "/images/child-mode/initial-sounds/cake.png",
     "audioKey": "cake",
     "audioUrl": "/audio/child-mode/clean-human/words/cake.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cake.mp3",
@@ -12342,19 +12342,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "snake",
     "choices": [
       "snake",
-      "back",
       "bad",
-      "bag"
+      "cap",
+      "fan"
     ],
     "answerOptions": [
       "snake",
-      "back",
       "bad",
-      "bag"
+      "cap",
+      "fan"
     ],
     "imageKey": "cake",
-    "imageUrl": "/media/initial-sounds/images/c/cake.webp",
-    "imagePath": "/media/initial-sounds/images/c/cake.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/cake.png",
+    "imagePath": "/images/child-mode/initial-sounds/cake.png",
     "audioKey": "cake",
     "audioUrl": "/audio/child-mode/clean-human/words/cake.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cake.mp3",
@@ -12394,15 +12394,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "cake",
     "choices": [
       "cake",
-      "back",
       "bad",
-      "bag"
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "cake",
-      "back",
       "bad",
-      "bag"
+      "fan",
+      "ham"
     ],
     "imageKey": "lake",
     "imageUrl": "/media/initial-sounds/images/l/lake.webp",
@@ -12446,15 +12446,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "snake",
     "choices": [
       "snake",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cap",
+      "fan"
     ],
     "answerOptions": [
       "snake",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cap",
+      "fan"
     ],
     "imageKey": "lake",
     "imageUrl": "/media/initial-sounds/images/l/lake.webp",
@@ -12498,19 +12498,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "cake",
     "choices": [
       "cake",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "cake",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "fan",
+      "ham"
     ],
     "imageKey": "snake",
-    "imageUrl": "/media/initial-sounds/images/s/snake.webp",
-    "imagePath": "/media/initial-sounds/images/s/snake.webp",
+    "imageUrl": "/images/child-mode/blends/snake.png",
+    "imagePath": "/images/child-mode/blends/snake.png",
     "audioKey": "snake",
     "audioUrl": "/audio/child-mode/clean-human/words/snake.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/snake.mp3",
@@ -12550,19 +12550,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "lake",
     "choices": [
       "lake",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cap",
+      "fan"
     ],
     "answerOptions": [
       "lake",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cap",
+      "fan"
     ],
     "imageKey": "snake",
-    "imageUrl": "/media/initial-sounds/images/s/snake.webp",
-    "imagePath": "/media/initial-sounds/images/s/snake.webp",
+    "imageUrl": "/images/child-mode/blends/snake.png",
+    "imagePath": "/images/child-mode/blends/snake.png",
     "audioKey": "snake",
     "audioUrl": "/audio/child-mode/clean-human/words/snake.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/snake.mp3",
@@ -12585,6 +12585,110 @@ export const rhymingGeneratedQuestions = [
     "sourceLexiconId": "lex_snake"
   },
   {
+    "id": "gen_rhyme_ide_ride_slide_0_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with ride?",
+    "question": "Which word rhymes with ride?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "ride",
+    "correctAnswer": "slide",
+    "answer": "slide",
+    "choices": [
+      "slide",
+      "big",
+      "dish",
+      "fin"
+    ],
+    "answerOptions": [
+      "slide",
+      "big",
+      "dish",
+      "fin"
+    ],
+    "imageKey": "ride",
+    "imageUrl": "/media/vocabulary/images/ride.webp",
+    "imagePath": "/media/vocabulary/images/ride.webp",
+    "audioKey": "ride",
+    "audioUrl": "/media/vocabulary/audio/ride.mp3",
+    "audioPath": "/media/vocabulary/audio/ride.mp3",
+    "phonicsPattern": "ide",
+    "targetSound": "ide",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ide",
+    "itemKey": "ide",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_ride"
+  },
+  {
+    "id": "gen_rhyme_ide_slide_ride_1_0",
+    "skillId": "rhyming",
+    "skillName": "Rhyming",
+    "skill": "Rhyming",
+    "level": 2,
+    "templateType": "READ_FIND_RHYME",
+    "formatType": "READ_FIND_RHYME",
+    "questionType": "read_find_rhyme",
+    "prompt": "Which word rhymes with slide?",
+    "question": "Which word rhymes with slide?",
+    "spokenPrompt": "",
+    "audioText": "",
+    "targetWord": "slide",
+    "correctAnswer": "ride",
+    "answer": "ride",
+    "choices": [
+      "ride",
+      "big",
+      "dish",
+      "fin"
+    ],
+    "answerOptions": [
+      "ride",
+      "big",
+      "dish",
+      "fin"
+    ],
+    "imageKey": "slide",
+    "imageUrl": "/images/child-mode/blends/slide.png",
+    "imagePath": "/images/child-mode/blends/slide.png",
+    "audioKey": "slide",
+    "audioUrl": "/audio/child-mode/clean-human/words/slide.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/slide.mp3",
+    "phonicsPattern": "ide",
+    "targetSound": "ide",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "ide",
+    "itemKey": "ide",
+    "itemType": "rhyming_family",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "tags": [
+      "generated",
+      "rhyming",
+      "same-rime"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_slide"
+  },
+  {
     "id": "gen_rhyme_oat_boat_coat_0_0",
     "skillId": "rhyming",
     "skillName": "Rhyming",
@@ -12602,19 +12706,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "coat",
     "choices": [
       "coat",
-      "back",
-      "bad",
-      "bag"
+      "box",
+      "dog",
+      "hop"
     ],
     "answerOptions": [
       "coat",
-      "back",
-      "bad",
-      "bag"
+      "box",
+      "dog",
+      "hop"
     ],
     "imageKey": "boat",
-    "imageUrl": "/media/initial-sounds/images/b/boat.webp",
-    "imagePath": "/media/initial-sounds/images/b/boat.webp",
+    "imageUrl": "/images/child-mode/vowels/boat.png",
+    "imagePath": "/images/child-mode/vowels/boat.png",
     "audioKey": "boat",
     "audioUrl": "/audio/child-mode/clean-human/words/boat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/boat.mp3",
@@ -12654,19 +12758,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "goat",
     "choices": [
       "goat",
-      "back",
-      "bad",
-      "bag"
+      "box",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "goat",
-      "back",
-      "bad",
-      "bag"
+      "box",
+      "corn",
+      "dog"
     ],
     "imageKey": "boat",
-    "imageUrl": "/media/initial-sounds/images/b/boat.webp",
-    "imagePath": "/media/initial-sounds/images/b/boat.webp",
+    "imageUrl": "/images/child-mode/vowels/boat.png",
+    "imagePath": "/images/child-mode/vowels/boat.png",
     "audioKey": "boat",
     "audioUrl": "/audio/child-mode/clean-human/words/boat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/boat.mp3",
@@ -12706,19 +12810,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "boat",
     "choices": [
       "boat",
-      "back",
-      "bad",
-      "bag"
+      "corn",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "boat",
-      "back",
-      "bad",
-      "bag"
+      "corn",
+      "dog",
+      "fox"
     ],
     "imageKey": "coat",
-    "imageUrl": "/media/initial-sounds/images/c/coat.webp",
-    "imagePath": "/media/initial-sounds/images/c/coat.webp",
+    "imageUrl": "/images/child-mode/vowels/coat.png",
+    "imagePath": "/images/child-mode/vowels/coat.png",
     "audioKey": "coat",
     "audioUrl": "/audio/child-mode/clean-human/words/coat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/coat.mp3",
@@ -12758,19 +12862,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "goat",
     "choices": [
       "goat",
-      "back",
-      "bad",
-      "bag"
+      "box",
+      "corn",
+      "dog"
     ],
     "answerOptions": [
       "goat",
-      "back",
-      "bad",
-      "bag"
+      "box",
+      "corn",
+      "dog"
     ],
     "imageKey": "coat",
-    "imageUrl": "/media/initial-sounds/images/c/coat.webp",
-    "imagePath": "/media/initial-sounds/images/c/coat.webp",
+    "imageUrl": "/images/child-mode/vowels/coat.png",
+    "imagePath": "/images/child-mode/vowels/coat.png",
     "audioKey": "coat",
     "audioUrl": "/audio/child-mode/clean-human/words/coat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/coat.mp3",
@@ -12810,19 +12914,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "boat",
     "choices": [
       "boat",
-      "back",
-      "bad",
-      "bag"
+      "corn",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "boat",
-      "back",
-      "bad",
-      "bag"
+      "corn",
+      "dog",
+      "fox"
     ],
     "imageKey": "goat",
-    "imageUrl": "/media/initial-sounds/images/g/goat.webp",
-    "imagePath": "/media/initial-sounds/images/g/goat.webp",
+    "imageUrl": "/images/child-mode/vowels/goat.png",
+    "imagePath": "/images/child-mode/vowels/goat.png",
     "audioKey": "goat",
     "audioUrl": "/audio/child-mode/clean-human/words/goat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/goat.mp3",
@@ -12862,19 +12966,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "coat",
     "choices": [
       "coat",
-      "back",
-      "bad",
-      "bag"
+      "box",
+      "dog",
+      "hop"
     ],
     "answerOptions": [
       "coat",
-      "back",
-      "bad",
-      "bag"
+      "box",
+      "dog",
+      "hop"
     ],
     "imageKey": "goat",
-    "imageUrl": "/media/initial-sounds/images/g/goat.webp",
-    "imagePath": "/media/initial-sounds/images/g/goat.webp",
+    "imageUrl": "/images/child-mode/vowels/goat.png",
+    "imagePath": "/images/child-mode/vowels/goat.png",
     "audioKey": "goat",
     "audioUrl": "/audio/child-mode/clean-human/words/goat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/goat.mp3",
@@ -12914,15 +13018,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "jeep",
     "choices": [
       "jeep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "jeep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "sheep",
     "imageUrl": "/media/vocabulary/images/sheep.webp",
@@ -12966,15 +13070,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sleep",
     "choices": [
       "sleep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "sleep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "sheep",
     "imageUrl": "/media/vocabulary/images/sheep.webp",
@@ -13018,15 +13122,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sheep",
     "choices": [
       "sheep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "sheep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "jeep",
     "imageUrl": "/media/initial-sounds/images/j/jeep.webp",
@@ -13070,15 +13174,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sleep",
     "choices": [
       "sleep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "sleep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "jeep",
     "imageUrl": "/media/initial-sounds/images/j/jeep.webp",
@@ -13122,15 +13226,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "sheep",
     "choices": [
       "sheep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "sheep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "sleep",
     "imageUrl": "/media/vocabulary/images/sleep.webp",
@@ -13174,15 +13278,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "jeep",
     "choices": [
       "jeep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "answerOptions": [
       "jeep",
-      "back",
-      "bad",
-      "bag"
+      "bear",
+      "egg",
+      "hen"
     ],
     "imageKey": "sleep",
     "imageUrl": "/media/vocabulary/images/sleep.webp",
@@ -13226,19 +13330,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "third",
     "choices": [
       "third",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "answerOptions": [
       "third",
-      "back",
-      "bad",
-      "bag"
+      "big",
+      "dish",
+      "fin"
     ],
     "imageKey": "bird",
-    "imageUrl": "/media/initial-sounds/images/b/bird.webp",
-    "imagePath": "/media/initial-sounds/images/b/bird.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/bird.png",
+    "imagePath": "/images/child-mode/initial-sounds/bird.png",
     "audioKey": "bird",
     "audioUrl": "/audio/child-mode/clean-human/words/bird.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bird.mp3",
@@ -13278,15 +13382,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "bird",
     "choices": [
       "bird",
-      "back",
-      "bad",
-      "bag"
+      "dig",
+      "fin",
+      "hit"
     ],
     "answerOptions": [
       "bird",
-      "back",
-      "bad",
-      "bag"
+      "dig",
+      "fin",
+      "hit"
     ],
     "imageKey": "third",
     "imageUrl": "/media/vocabulary/images/third.webp",
@@ -13330,19 +13434,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "star",
     "choices": [
       "star",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "star",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "car",
-    "imageUrl": "/media/initial-sounds/images/c/car.webp",
-    "imagePath": "/media/initial-sounds/images/c/car.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/car.png",
+    "imagePath": "/images/child-mode/initial-sounds/car.png",
     "audioKey": "car",
     "audioUrl": "/audio/child-mode/clean-human/words/car.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/car.mp3",
@@ -13382,19 +13486,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "jar",
     "choices": [
       "jar",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "jar",
-      "back",
       "bad",
-      "bag"
+      "cake",
+      "fan"
     ],
     "imageKey": "car",
-    "imageUrl": "/media/initial-sounds/images/c/car.webp",
-    "imagePath": "/media/initial-sounds/images/c/car.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/car.png",
+    "imagePath": "/images/child-mode/initial-sounds/car.png",
     "audioKey": "car",
     "audioUrl": "/audio/child-mode/clean-human/words/car.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/car.mp3",
@@ -13434,19 +13538,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "car",
     "choices": [
       "car",
-      "back",
       "bad",
-      "bag"
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "car",
-      "back",
       "bad",
-      "bag"
+      "fan",
+      "ham"
     ],
     "imageKey": "star",
-    "imageUrl": "/media/initial-sounds/images/s/star.webp",
-    "imagePath": "/media/initial-sounds/images/s/star.webp",
+    "imageUrl": "/images/child-mode/blends/star.png",
+    "imagePath": "/images/child-mode/blends/star.png",
     "audioKey": "star",
     "audioUrl": "/audio/child-mode/clean-human/words/star.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/star.mp3",
@@ -13486,19 +13590,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "jar",
     "choices": [
       "jar",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "jar",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "cake",
+      "fan"
     ],
     "imageKey": "star",
-    "imageUrl": "/media/initial-sounds/images/s/star.webp",
-    "imagePath": "/media/initial-sounds/images/s/star.webp",
+    "imageUrl": "/images/child-mode/blends/star.png",
+    "imagePath": "/images/child-mode/blends/star.png",
     "audioKey": "star",
     "audioUrl": "/audio/child-mode/clean-human/words/star.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/star.mp3",
@@ -13538,15 +13642,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "car",
     "choices": [
       "car",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "fan",
+      "ham"
     ],
     "answerOptions": [
       "car",
-      "back",
-      "bad",
-      "bag"
+      "bag",
+      "fan",
+      "ham"
     ],
     "imageKey": "jar",
     "imageUrl": "/media/initial-sounds/images/j/jar.webp",
@@ -13590,15 +13694,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "star",
     "choices": [
       "star",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "answerOptions": [
       "star",
-      "back",
-      "bad",
-      "bag"
+      "ball",
+      "cake",
+      "fan"
     ],
     "imageKey": "jar",
     "imageUrl": "/media/initial-sounds/images/j/jar.webp",
@@ -13642,19 +13746,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "horn",
     "choices": [
       "horn",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "cot",
+      "dog"
     ],
     "answerOptions": [
       "horn",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "cot",
+      "dog"
     ],
     "imageKey": "corn",
-    "imageUrl": "/media/initial-sounds/images/c/corn.webp",
-    "imagePath": "/media/initial-sounds/images/c/corn.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/corn.png",
+    "imagePath": "/images/child-mode/initial-sounds/corn.png",
     "audioKey": "corn",
     "audioUrl": "/audio/child-mode/clean-human/words/corn.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/corn.mp3",
@@ -13694,19 +13798,19 @@ export const rhymingGeneratedQuestions = [
     "answer": "storm",
     "choices": [
       "storm",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "cot",
+      "dog"
     ],
     "answerOptions": [
       "storm",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "cot",
+      "dog"
     ],
     "imageKey": "corn",
-    "imageUrl": "/media/initial-sounds/images/c/corn.webp",
-    "imagePath": "/media/initial-sounds/images/c/corn.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/corn.png",
+    "imagePath": "/images/child-mode/initial-sounds/corn.png",
     "audioKey": "corn",
     "audioUrl": "/audio/child-mode/clean-human/words/corn.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/corn.mp3",
@@ -13746,15 +13850,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "corn",
     "choices": [
       "corn",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "corn",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "imageKey": "horn",
     "imageUrl": "/media/vocabulary/images/horn.webp",
@@ -13798,15 +13902,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "storm",
     "choices": [
       "storm",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "cot",
+      "dog"
     ],
     "answerOptions": [
       "storm",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "cot",
+      "dog"
     ],
     "imageKey": "horn",
     "imageUrl": "/media/vocabulary/images/horn.webp",
@@ -13850,15 +13954,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "corn",
     "choices": [
       "corn",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "answerOptions": [
       "corn",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "dog",
+      "fox"
     ],
     "imageKey": "storm",
     "imageUrl": "/media/vocabulary/images/storm.webp",
@@ -13902,15 +14006,15 @@ export const rhymingGeneratedQuestions = [
     "answer": "horn",
     "choices": [
       "horn",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "cot",
+      "dog"
     ],
     "answerOptions": [
       "horn",
-      "back",
-      "bad",
-      "bag"
+      "boat",
+      "cot",
+      "dog"
     ],
     "imageKey": "storm",
     "imageUrl": "/media/vocabulary/images/storm.webp",

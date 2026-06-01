@@ -14,19 +14,60 @@ function hasWordImage(word) {
   return Boolean(asset?.image || asset?.fallbackImage);
 }
 
+function firstVowel(word = "") {
+  return String(word || "").toLowerCase().match(/[aeiou]/)?.[0] || "";
+}
+
+function wordRime(word = "") {
+  const value = String(word || "").toLowerCase();
+  const index = value.search(/[aeiou]/);
+  return index === -1 ? value.slice(1) : value.slice(index);
+}
+
 function usableWordsForFamily(family) {
   return (rhymeGroups[family] || []).filter(hasWordImage);
 }
 
 function distractorsForFamily(family, count, variantIndex) {
-  const otherWords = Object.entries(rhymeGroups)
+  const targetVowel = firstVowel(family);
+  const otherFamilies = Object.entries(rhymeGroups)
     .filter(([otherFamily]) => otherFamily !== family)
-    .flatMap(([, words]) => words)
-    .filter(hasWordImage);
-  const start = variantIndex % Math.max(1, otherWords.length);
-  const rotated = otherWords.slice(start).concat(otherWords.slice(0, start));
+    .map(([otherFamily, words]) => [
+      otherFamily,
+      words.filter(hasWordImage)
+    ])
+    .filter(([, words]) => words.length > 0);
+  const start = variantIndex % Math.max(1, otherFamilies.length);
+  const rotated = otherFamilies.slice(start).concat(otherFamilies.slice(0, start))
+    .sort(([familyA], [familyB]) =>
+      Number(firstVowel(familyB) === targetVowel) - Number(firstVowel(familyA) === targetVowel)
+    );
+  const selected = [];
+  const usedInitials = new Set();
+  const usedRimes = new Set();
+  const usedVowels = new Set();
 
-  return rotated.slice(0, count);
+  for (const [, words] of rotated) {
+    const word = words
+      .slice()
+      .sort((a, b) => {
+        const score = item => (
+          (usedInitials.has(item[0]) ? 0 : 8) +
+          (usedRimes.has(wordRime(item)) ? 0 : 8) +
+          (usedVowels.has(firstVowel(item)) ? 0 : 4) +
+          (targetVowel && firstVowel(item) === targetVowel ? 16 : 0)
+        );
+        return score(b) - score(a);
+      })[0];
+    if (!word || selected.includes(word)) continue;
+    selected.push(word);
+    usedInitials.add(word[0]);
+    usedRimes.add(wordRime(word));
+    usedVowels.add(firstVowel(word));
+    if (selected.length >= count) break;
+  }
+
+  return selected;
 }
 
 function pictureVariantsForFamily(family) {
@@ -62,7 +103,7 @@ function pictureVariantsForFamily(family) {
     }
   }
 
-  return variants.slice(0, levelOneFamilies.has(family) ? 10 : 8);
+  return variants.slice(0, levelOneFamilies.has(family) ? 24 : 16);
 }
 
 function makeRhymeQuestion(family, variant, index, level) {

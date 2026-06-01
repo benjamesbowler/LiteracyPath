@@ -215,8 +215,11 @@ export function hasCompleteRuntimeCards(question = {}, options = {}) {
   if (isListenAndFindWordQuestion(question)) {
     const diagnostics = getListenAndFindAssetDiagnostics(question);
     if (!diagnostics || diagnostics.missingImages.length || diagnostics.missingChoiceAssets.length || diagnostics.missingAudio || !diagnostics.usesSingleWordAudioText) return false;
-    const imagePaths = Object.values(diagnostics.question.choiceImages || {}).map(asset => asset?.image).filter(Boolean);
-    return imagePaths.length >= 2 && imagePaths.every(path => pathAllowed(path, "image", options));
+    const choices = diagnostics.question.choices || [];
+    const imagePaths = choices.map(choice => diagnostics.question.choiceImages?.[choice]?.image || "");
+    return imagePaths.length === choices.length &&
+      imagePaths.length >= 4 &&
+      imagePaths.every(path => pathAllowed(path, "image", options));
   }
 
   return true;

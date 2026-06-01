@@ -31,8 +31,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "bad",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/images/child-mode/cvc/bad.png",
+    "imagePath": "/images/child-mode/cvc/bad.png",
     "audioKey": "bad",
     "audioUrl": "/audio/child-mode/words/bad.mp3",
     "audioPath": "/audio/child-mode/words/bad.mp3",
@@ -72,15 +72,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bad",
     "choices": [
       "bad",
-      "bib",
-      "bid",
-      "big"
+      "cob",
+      "den",
+      "fig"
     ],
     "answerOptions": [
       "bad",
-      "bib",
-      "bid",
-      "big"
+      "cob",
+      "den",
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -124,19 +124,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bad",
     "choices": [
       "bad",
-      "bib",
-      "bid",
-      "big"
+      "cot",
+      "dig",
+      "gum"
     ],
     "answerOptions": [
       "bad",
-      "bib",
-      "bid",
-      "big"
+      "cot",
+      "dig",
+      "gum"
     ],
     "imageKey": "bad",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/images/child-mode/cvc/bad.png",
+    "imagePath": "/images/child-mode/cvc/bad.png",
     "audioKey": "bad",
     "audioUrl": "/audio/child-mode/words/bad.mp3",
     "audioPath": "/audio/child-mode/words/bad.mp3",
@@ -189,8 +189,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "bag",
-    "imageUrl": "/media/initial-sounds/images/b/bag.webp",
-    "imagePath": "/media/initial-sounds/images/b/bag.webp",
+    "imageUrl": "/images/child-mode/cvc/bag.png",
+    "imagePath": "/images/child-mode/cvc/bag.png",
     "audioKey": "bag",
     "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
@@ -230,15 +230,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bag",
     "choices": [
       "bag",
-      "bib",
-      "bid",
-      "big"
+      "cob",
+      "den",
+      "fig"
     ],
     "answerOptions": [
       "bag",
-      "bib",
-      "bid",
-      "big"
+      "cob",
+      "den",
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -282,19 +282,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bag",
     "choices": [
       "bag",
-      "bib",
-      "bid",
-      "big"
+      "cot",
+      "dig",
+      "gum"
     ],
     "answerOptions": [
       "bag",
-      "bib",
-      "bid",
-      "big"
+      "cot",
+      "dig",
+      "gum"
     ],
     "imageKey": "bag",
-    "imageUrl": "/media/initial-sounds/images/b/bag.webp",
-    "imagePath": "/media/initial-sounds/images/b/bag.webp",
+    "imageUrl": "/images/child-mode/cvc/bag.png",
+    "imagePath": "/images/child-mode/cvc/bag.png",
     "audioKey": "bag",
     "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
@@ -347,8 +347,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "bat",
-    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
-    "imagePath": "/media/initial-sounds/images/b/bat.webp",
+    "imageUrl": "/images/child-mode/cvc/bat.png",
+    "imagePath": "/images/child-mode/cvc/bat.png",
     "audioKey": "bat",
     "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
@@ -388,15 +388,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "bib",
-      "bid",
-      "big"
+      "cob",
+      "den",
+      "fig"
     ],
     "answerOptions": [
       "bat",
-      "bib",
-      "bid",
-      "big"
+      "cob",
+      "den",
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -440,19 +440,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bat",
     "choices": [
       "bat",
-      "bib",
-      "bid",
-      "big"
+      "cot",
+      "dig",
+      "gum"
     ],
     "answerOptions": [
       "bat",
-      "bib",
-      "bid",
-      "big"
+      "cot",
+      "dig",
+      "gum"
     ],
     "imageKey": "bat",
-    "imageUrl": "/media/initial-sounds/images/b/bat.webp",
-    "imagePath": "/media/initial-sounds/images/b/bat.webp",
+    "imageUrl": "/images/child-mode/cvc/bat.png",
+    "imagePath": "/images/child-mode/cvc/bat.png",
     "audioKey": "bat",
     "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
@@ -546,15 +546,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bib",
     "choices": [
       "bib",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fun"
     ],
     "answerOptions": [
       "bib",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -598,15 +598,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bib",
     "choices": [
       "bib",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dog",
+      "gum"
     ],
     "answerOptions": [
       "bib",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dog",
+      "gum"
     ],
     "imageKey": "bib",
     "imageUrl": "/media/final-sounds/images/b/bib.webp",
@@ -662,9 +662,9 @@ export const shortVowelGeneratedQuestions = [
       "o",
       "u"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "bid",
+    "imageUrl": "/images/child-mode/cvc/bid.png",
+    "imagePath": "/images/child-mode/cvc/bid.png",
     "audioKey": "bid",
     "audioUrl": "/audio/child-mode/words/bid.mp3",
     "audioPath": "/audio/child-mode/words/bid.mp3",
@@ -704,15 +704,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bid",
     "choices": [
       "bid",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fun"
     ],
     "answerOptions": [
       "bid",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -733,6 +733,58 @@ export const shortVowelGeneratedQuestions = [
       "generated",
       "short-vowel-discrimination",
       "word-choice"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_bid"
+  },
+  {
+    "id": "gen_short_vowel_i_bid_4_picture",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "bid",
+    "targetWord": "bid",
+    "correctAnswer": "bid",
+    "answer": "bid",
+    "choices": [
+      "bid",
+      "cap",
+      "dog",
+      "gum"
+    ],
+    "answerOptions": [
+      "bid",
+      "cap",
+      "dog",
+      "gum"
+    ],
+    "imageKey": "bid",
+    "imageUrl": "/images/child-mode/cvc/bid.png",
+    "imagePath": "/images/child-mode/cvc/bid.png",
+    "audioKey": "bid",
+    "audioUrl": "/audio/child-mode/words/bid.mp3",
+    "audioPath": "/audio/child-mode/words/bid.mp3",
+    "phonicsPattern": "short_i",
+    "targetSound": "short_i",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_i",
+    "itemKey": "short_i",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "picture-word"
     ],
     "active": true,
     "qaStatus": "approved",
@@ -769,8 +821,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "big",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/short-i/big.png",
+    "imagePath": "/images/child-mode/short-i/big.png",
     "audioKey": "big",
     "audioUrl": "/audio/child-mode/words/big.mp3",
     "audioPath": "/audio/child-mode/words/big.mp3",
@@ -810,15 +862,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fun"
     ],
     "answerOptions": [
       "big",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -862,19 +914,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dog",
+      "gum"
     ],
     "answerOptions": [
       "big",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dog",
+      "gum"
     ],
     "imageKey": "big",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/short-i/big.png",
+    "imagePath": "/images/child-mode/short-i/big.png",
     "audioKey": "big",
     "audioUrl": "/audio/child-mode/words/big.mp3",
     "audioPath": "/audio/child-mode/words/big.mp3",
@@ -927,8 +979,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "bin",
-    "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
-    "imagePath": "/images/child-mode/minimal-pairs/pin.png",
+    "imageUrl": "/images/child-mode/initial-sounds/bin.png",
+    "imagePath": "/images/child-mode/initial-sounds/bin.png",
     "audioKey": "bin",
     "audioUrl": "/audio/child-mode/words/bin.mp3",
     "audioPath": "/audio/child-mode/words/bin.mp3",
@@ -968,15 +1020,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bin",
     "choices": [
       "bin",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fun"
     ],
     "answerOptions": [
       "bin",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1020,19 +1072,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bin",
     "choices": [
       "bin",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dog",
+      "gum"
     ],
     "answerOptions": [
       "bin",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dog",
+      "gum"
     ],
     "imageKey": "bin",
-    "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
-    "imagePath": "/images/child-mode/minimal-pairs/pin.png",
+    "imageUrl": "/images/child-mode/initial-sounds/bin.png",
+    "imagePath": "/images/child-mode/initial-sounds/bin.png",
     "audioKey": "bin",
     "audioUrl": "/audio/child-mode/words/bin.mp3",
     "audioPath": "/audio/child-mode/words/bin.mp3",
@@ -1126,15 +1178,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fig"
     ],
     "answerOptions": [
       "bug",
-      "bad",
-      "bag",
-      "bat"
+      "cab",
+      "den",
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1178,15 +1230,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dig",
+      "hen"
     ],
     "answerOptions": [
       "bug",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dig",
+      "hen"
     ],
     "imageKey": "bug",
     "imageUrl": "/images/child-mode/cvc/bug.png",
@@ -1243,8 +1295,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "bun",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/short-u/bun.png",
+    "imagePath": "/images/child-mode/short-u/bun.png",
     "audioKey": "bun",
     "audioUrl": "/audio/child-mode/clean-human/words/bun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bun.mp3",
@@ -1284,15 +1336,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bun",
     "choices": [
       "bun",
-      "bad",
-      "bag",
-      "bat"
+      "can",
+      "den",
+      "fig"
     ],
     "answerOptions": [
       "bun",
-      "bad",
-      "bag",
-      "bat"
+      "can",
+      "den",
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1336,19 +1388,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bun",
     "choices": [
       "bun",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dig",
+      "hen"
     ],
     "answerOptions": [
       "bun",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dig",
+      "hen"
     ],
     "imageKey": "bun",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/short-u/bun.png",
+    "imagePath": "/images/child-mode/short-u/bun.png",
     "audioKey": "bun",
     "audioUrl": "/audio/child-mode/clean-human/words/bun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bun.mp3",
@@ -1401,8 +1453,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "bus",
-    "imageUrl": "/media/initial-sounds/images/b/bus.webp",
-    "imagePath": "/media/initial-sounds/images/b/bus.webp",
+    "imageUrl": "/images/child-mode/short-u/bus.png",
+    "imagePath": "/images/child-mode/short-u/bus.png",
     "audioKey": "bus",
     "audioUrl": "/audio/child-mode/clean-human/words/bus.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bus.mp3",
@@ -1442,15 +1494,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bus",
     "choices": [
       "bus",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "den",
+      "fig"
     ],
     "answerOptions": [
       "bus",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "den",
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1494,19 +1546,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "bus",
     "choices": [
       "bus",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dig",
+      "hen"
     ],
     "answerOptions": [
       "bus",
-      "bad",
-      "bag",
-      "bat"
+      "cap",
+      "dig",
+      "hen"
     ],
     "imageKey": "bus",
-    "imageUrl": "/media/initial-sounds/images/b/bus.webp",
-    "imagePath": "/media/initial-sounds/images/b/bus.webp",
+    "imageUrl": "/images/child-mode/short-u/bus.png",
+    "imagePath": "/images/child-mode/short-u/bus.png",
     "audioKey": "bus",
     "audioUrl": "/audio/child-mode/clean-human/words/bus.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/bus.mp3",
@@ -1600,15 +1652,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cab",
     "choices": [
       "cab",
-      "bib",
-      "bid",
-      "big"
+      "den",
+      "fig",
+      "gum"
     ],
     "answerOptions": [
       "cab",
-      "bib",
-      "bid",
-      "big"
+      "den",
+      "fig",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1652,15 +1704,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cab",
     "choices": [
       "cab",
-      "bib",
-      "bid",
-      "big"
+      "dig",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "cab",
-      "bib",
-      "bid",
-      "big"
+      "dig",
+      "gum",
+      "hen"
     ],
     "imageKey": "cab",
     "imageUrl": "/media/final-sounds/images/b/cab.webp",
@@ -1758,15 +1810,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "can",
     "choices": [
       "can",
-      "bib",
-      "bid",
-      "big"
+      "den",
+      "fig",
+      "gum"
     ],
     "answerOptions": [
       "can",
-      "bib",
-      "bid",
-      "big"
+      "den",
+      "fig",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1810,15 +1862,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "can",
     "choices": [
       "can",
-      "bib",
-      "bid",
-      "big"
+      "dig",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "can",
-      "bib",
-      "bid",
-      "big"
+      "dig",
+      "gum",
+      "hen"
     ],
     "imageKey": "can",
     "imageUrl": "/media/vocabulary/images/can.webp",
@@ -1875,8 +1927,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "cap",
-    "imageUrl": "/media/initial-sounds/images/c/cap.webp",
-    "imagePath": "/media/initial-sounds/images/c/cap.webp",
+    "imageUrl": "/images/child-mode/cvc/cap.png",
+    "imagePath": "/images/child-mode/cvc/cap.png",
     "audioKey": "cap",
     "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
@@ -1916,15 +1968,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cap",
     "choices": [
       "cap",
-      "bib",
-      "bid",
-      "big"
+      "dig",
+      "fun",
+      "gem"
     ],
     "answerOptions": [
       "cap",
-      "bib",
-      "bid",
-      "big"
+      "dig",
+      "fun",
+      "gem"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1968,19 +2020,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cap",
     "choices": [
       "cap",
-      "bib",
-      "bid",
-      "big"
+      "dig",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "cap",
-      "bib",
-      "bid",
-      "big"
+      "dig",
+      "gum",
+      "hen"
     ],
     "imageKey": "cap",
-    "imageUrl": "/media/initial-sounds/images/c/cap.webp",
-    "imagePath": "/media/initial-sounds/images/c/cap.webp",
+    "imageUrl": "/images/child-mode/cvc/cap.png",
+    "imagePath": "/images/child-mode/cvc/cap.png",
     "audioKey": "cap",
     "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
@@ -2074,15 +2126,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cob",
     "choices": [
       "cob",
-      "bad",
-      "bag",
-      "bat"
+      "dab",
+      "fig",
+      "gem"
     ],
     "answerOptions": [
       "cob",
-      "bad",
-      "bag",
-      "bat"
+      "dab",
+      "fig",
+      "gem"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2126,15 +2178,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cob",
     "choices": [
       "cob",
-      "bad",
-      "bag",
-      "bat"
+      "dig",
+      "fan",
+      "gum"
     ],
     "answerOptions": [
       "cob",
-      "bad",
-      "bag",
-      "bat"
+      "dig",
+      "fan",
+      "gum"
     ],
     "imageKey": "cob",
     "imageUrl": "/media/final-sounds/images/b/cob.webp",
@@ -2232,15 +2284,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cot",
     "choices": [
       "cot",
-      "bad",
-      "bag",
-      "bat"
+      "dab",
+      "fig",
+      "gem"
     ],
     "answerOptions": [
       "cot",
-      "bad",
-      "bag",
-      "bat"
+      "dab",
+      "fig",
+      "gem"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2284,15 +2336,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cot",
     "choices": [
       "cot",
-      "bad",
-      "bag",
-      "bat"
+      "dig",
+      "fan",
+      "gum"
     ],
     "answerOptions": [
       "cot",
-      "bad",
-      "bag",
-      "bat"
+      "dig",
+      "fan",
+      "gum"
     ],
     "imageKey": "cot",
     "imageUrl": "/images/child-mode/minimal-pairs/cot.png",
@@ -2390,15 +2442,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cub",
     "choices": [
       "cub",
-      "bad",
-      "bag",
-      "bat"
+      "dig",
+      "fan",
+      "gem"
     ],
     "answerOptions": [
       "cub",
-      "bad",
-      "bag",
-      "bat"
+      "dig",
+      "fan",
+      "gem"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2442,15 +2494,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cub",
     "choices": [
       "cub",
-      "bad",
-      "bag",
-      "bat"
+      "dig",
+      "fan",
+      "hen"
     ],
     "answerOptions": [
       "cub",
-      "bad",
-      "bag",
-      "bat"
+      "dig",
+      "fan",
+      "hen"
     ],
     "imageKey": "cub",
     "imageUrl": "/media/final-sounds/images/b/cub.webp",
@@ -2507,8 +2559,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "cup",
-    "imageUrl": "/media/initial-sounds/images/c/cup.webp",
-    "imagePath": "/media/initial-sounds/images/c/cup.webp",
+    "imageUrl": "/images/child-mode/short-u/cup.png",
+    "imagePath": "/images/child-mode/short-u/cup.png",
     "audioKey": "cup",
     "audioUrl": "/audio/child-mode/clean-human/words/cup.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cup.mp3",
@@ -2548,15 +2600,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cup",
     "choices": [
       "cup",
-      "bad",
-      "bag",
-      "bat"
+      "dip",
+      "fan",
+      "gem"
     ],
     "answerOptions": [
       "cup",
-      "bad",
-      "bag",
-      "bat"
+      "dip",
+      "fan",
+      "gem"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2600,19 +2652,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "cup",
     "choices": [
       "cup",
-      "bad",
-      "bag",
-      "bat"
+      "dog",
+      "fan",
+      "hen"
     ],
     "answerOptions": [
       "cup",
-      "bad",
-      "bag",
-      "bat"
+      "dog",
+      "fan",
+      "hen"
     ],
     "imageKey": "cup",
-    "imageUrl": "/media/initial-sounds/images/c/cup.webp",
-    "imagePath": "/media/initial-sounds/images/c/cup.webp",
+    "imageUrl": "/images/child-mode/short-u/cup.png",
+    "imagePath": "/images/child-mode/short-u/cup.png",
     "audioKey": "cup",
     "audioUrl": "/audio/child-mode/clean-human/words/cup.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/cup.mp3",
@@ -2706,15 +2758,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dab",
     "choices": [
       "dab",
-      "bib",
-      "bid",
-      "big"
+      "fig",
+      "gem",
+      "hop"
     ],
     "answerOptions": [
       "dab",
-      "bib",
-      "bid",
-      "big"
+      "fig",
+      "gem",
+      "hop"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2758,15 +2810,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dab",
     "choices": [
       "dab",
-      "bib",
-      "bid",
-      "big"
+      "fin",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "dab",
-      "bib",
-      "bid",
-      "big"
+      "fin",
+      "gum",
+      "hen"
     ],
     "imageKey": "dab",
     "imageUrl": "/media/final-sounds/images/b/dab.webp",
@@ -2864,15 +2916,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "bib",
-      "bid",
-      "big"
+      "fin",
+      "gem",
+      "hop"
     ],
     "answerOptions": [
       "dad",
-      "bib",
-      "bid",
-      "big"
+      "fin",
+      "gem",
+      "hop"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2916,15 +2968,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "bib",
-      "bid",
-      "big"
+      "fin",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "dad",
-      "bib",
-      "bid",
-      "big"
+      "fin",
+      "gum",
+      "hen"
     ],
     "imageKey": "dad",
     "imageUrl": "/media/vocabulary/images/dad.webp",
@@ -3022,15 +3074,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "den",
     "choices": [
       "den",
-      "bad",
-      "bag",
-      "bat"
+      "fan",
+      "gum",
+      "hip"
     ],
     "answerOptions": [
       "den",
-      "bad",
-      "bag",
-      "bat"
+      "fan",
+      "gum",
+      "hip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3074,15 +3126,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "den",
     "choices": [
       "den",
-      "bad",
-      "bag",
-      "bat"
+      "fan",
+      "gum",
+      "hit"
     ],
     "answerOptions": [
       "den",
-      "bad",
-      "bag",
-      "bat"
+      "fan",
+      "gum",
+      "hit"
     ],
     "imageKey": "den",
     "imageUrl": "/media/vocabulary/images/den.webp",
@@ -3139,8 +3191,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "dig",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
     "audioKey": "dig",
     "audioUrl": "/audio/child-mode/clean-human/words/dig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -3180,15 +3232,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "bad",
-      "bag",
-      "bat"
+      "fun",
+      "gem",
+      "ham"
     ],
     "answerOptions": [
       "dig",
-      "bad",
-      "bag",
-      "bat"
+      "fun",
+      "gem",
+      "ham"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3232,19 +3284,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "bad",
-      "bag",
-      "bat"
+      "gum",
+      "ham",
+      "jet"
     ],
     "answerOptions": [
       "dig",
-      "bad",
-      "bag",
-      "bat"
+      "gum",
+      "ham",
+      "jet"
     ],
     "imageKey": "dig",
-    "imageUrl": "/images/child-mode/short-i/pig.png",
-    "imagePath": "/images/child-mode/short-i/pig.png",
+    "imageUrl": "/images/child-mode/cvc/dig.png",
+    "imagePath": "/images/child-mode/cvc/dig.png",
     "audioKey": "dig",
     "audioUrl": "/audio/child-mode/clean-human/words/dig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dig.mp3",
@@ -3338,15 +3390,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dip",
     "choices": [
       "dip",
-      "bad",
-      "bag",
-      "bat"
+      "gem",
+      "ham",
+      "jug"
     ],
     "answerOptions": [
       "dip",
-      "bad",
-      "bag",
-      "bat"
+      "gem",
+      "ham",
+      "jug"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3390,15 +3442,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dip",
     "choices": [
       "dip",
-      "bad",
-      "bag",
-      "bat"
+      "gum",
+      "ham",
+      "jet"
     ],
     "answerOptions": [
       "dip",
-      "bad",
-      "bag",
-      "bat"
+      "gum",
+      "ham",
+      "jet"
     ],
     "imageKey": "dip",
     "imageUrl": "/media/vocabulary/images/dip.webp",
@@ -3455,8 +3507,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "dog",
-    "imageUrl": "/media/initial-sounds/images/d/dog.webp",
-    "imagePath": "/media/initial-sounds/images/d/dog.webp",
+    "imageUrl": "/images/child-mode/cvc/dog.png",
+    "imagePath": "/images/child-mode/cvc/dog.png",
     "audioKey": "dog",
     "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dog.mp3",
@@ -3496,15 +3548,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dog",
     "choices": [
       "dog",
-      "bad",
-      "bag",
-      "bat"
+      "fig",
+      "gem",
+      "ham"
     ],
     "answerOptions": [
       "dog",
-      "bad",
-      "bag",
-      "bat"
+      "fig",
+      "gem",
+      "ham"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3548,19 +3600,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dog",
     "choices": [
       "dog",
-      "bad",
-      "bag",
-      "bat"
+      "fin",
+      "gum",
+      "ham"
     ],
     "answerOptions": [
       "dog",
-      "bad",
-      "bag",
-      "bat"
+      "fin",
+      "gum",
+      "ham"
     ],
     "imageKey": "dog",
-    "imageUrl": "/media/initial-sounds/images/d/dog.webp",
-    "imagePath": "/media/initial-sounds/images/d/dog.webp",
+    "imageUrl": "/images/child-mode/cvc/dog.png",
+    "imagePath": "/images/child-mode/cvc/dog.png",
     "audioKey": "dog",
     "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dog.mp3",
@@ -3613,8 +3665,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "dot",
-    "imageUrl": "/images/child-mode/initial-sounds/hot.png",
-    "imagePath": "/images/child-mode/initial-sounds/hot.png",
+    "imageUrl": "/images/child-mode/cvc/dot.png",
+    "imagePath": "/images/child-mode/cvc/dot.png",
     "audioKey": "dot",
     "audioUrl": "/audio/child-mode/clean-human/words/dot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dot.mp3",
@@ -3654,15 +3706,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dot",
     "choices": [
       "dot",
-      "bad",
-      "bag",
-      "bat"
+      "fin",
+      "gem",
+      "ham"
     ],
     "answerOptions": [
       "dot",
-      "bad",
-      "bag",
-      "bat"
+      "fin",
+      "gem",
+      "ham"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3706,19 +3758,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dot",
     "choices": [
       "dot",
-      "bad",
-      "bag",
-      "bat"
+      "fin",
+      "gum",
+      "ham"
     ],
     "answerOptions": [
       "dot",
-      "bad",
-      "bag",
-      "bat"
+      "fin",
+      "gum",
+      "ham"
     ],
     "imageKey": "dot",
-    "imageUrl": "/images/child-mode/initial-sounds/hot.png",
-    "imagePath": "/images/child-mode/initial-sounds/hot.png",
+    "imageUrl": "/images/child-mode/cvc/dot.png",
+    "imagePath": "/images/child-mode/cvc/dot.png",
     "audioKey": "dot",
     "audioUrl": "/audio/child-mode/clean-human/words/dot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dot.mp3",
@@ -3770,9 +3822,9 @@ export const shortVowelGeneratedQuestions = [
       "o",
       "u"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "dug",
+    "imageUrl": "/images/child-mode/cvc/dug.png",
+    "imagePath": "/images/child-mode/cvc/dug.png",
     "audioKey": "dug",
     "audioUrl": "/audio/child-mode/clean-human/words/dug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/dug.mp3",
@@ -3812,15 +3864,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "dug",
     "choices": [
       "dug",
-      "bad",
-      "bag",
-      "bat"
+      "hat",
+      "jet",
+      "kid"
     ],
     "answerOptions": [
       "dug",
-      "bad",
-      "bag",
-      "bat"
+      "hat",
+      "jet",
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3841,6 +3893,58 @@ export const shortVowelGeneratedQuestions = [
       "generated",
       "short-vowel-discrimination",
       "word-choice"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_dug"
+  },
+  {
+    "id": "gen_short_vowel_u_dug_24_picture",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "dug",
+    "targetWord": "dug",
+    "correctAnswer": "dug",
+    "answer": "dug",
+    "choices": [
+      "dug",
+      "hat",
+      "jet",
+      "kid"
+    ],
+    "answerOptions": [
+      "dug",
+      "hat",
+      "jet",
+      "kid"
+    ],
+    "imageKey": "dug",
+    "imageUrl": "/images/child-mode/cvc/dug.png",
+    "imagePath": "/images/child-mode/cvc/dug.png",
+    "audioKey": "dug",
+    "audioUrl": "/audio/child-mode/clean-human/words/dug.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/dug.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "picture-word"
     ],
     "active": true,
     "qaStatus": "approved",
@@ -3877,8 +3981,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "fan",
-    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
-    "imagePath": "/media/initial-sounds/images/f/fan.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/fan.png",
+    "imagePath": "/images/child-mode/initial-sounds/fan.png",
     "audioKey": "fan",
     "audioUrl": "/audio/child-mode/clean-human/words/fan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/fan.mp3",
@@ -3918,15 +4022,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "bib",
-      "bid",
-      "big"
+      "hop",
+      "jet",
+      "kid"
     ],
     "answerOptions": [
       "fan",
-      "bib",
-      "bid",
-      "big"
+      "hop",
+      "jet",
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3970,19 +4074,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "bib",
-      "bid",
-      "big"
+      "hop",
+      "jet",
+      "kid"
     ],
     "answerOptions": [
       "fan",
-      "bib",
-      "bid",
-      "big"
+      "hop",
+      "jet",
+      "kid"
     ],
     "imageKey": "fan",
-    "imageUrl": "/media/initial-sounds/images/f/fan.webp",
-    "imagePath": "/media/initial-sounds/images/f/fan.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/fan.png",
+    "imagePath": "/images/child-mode/initial-sounds/fan.png",
     "audioKey": "fan",
     "audioUrl": "/audio/child-mode/clean-human/words/fan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/fan.mp3",
@@ -4076,15 +4180,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fig",
     "choices": [
       "fig",
-      "bad",
-      "bag",
-      "bat"
+      "hop",
+      "jam",
+      "leg"
     ],
     "answerOptions": [
       "fig",
-      "bad",
-      "bag",
-      "bat"
+      "hop",
+      "jam",
+      "leg"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4128,15 +4232,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fig",
     "choices": [
       "fig",
-      "bad",
-      "bag",
-      "bat"
+      "hop",
+      "jam",
+      "leg"
     ],
     "answerOptions": [
       "fig",
-      "bad",
-      "bag",
-      "bat"
+      "hop",
+      "jam",
+      "leg"
     ],
     "imageKey": "fig",
     "imageUrl": "/media/vocabulary/images/fig.webp",
@@ -4234,15 +4338,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fin",
     "choices": [
       "fin",
-      "bad",
-      "bag",
-      "bat"
+      "hot",
+      "jam",
+      "leg"
     ],
     "answerOptions": [
       "fin",
-      "bad",
-      "bag",
-      "bat"
+      "hot",
+      "jam",
+      "leg"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4286,15 +4390,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fin",
     "choices": [
       "fin",
-      "bad",
-      "bag",
-      "bat"
+      "hot",
+      "jam",
+      "leg"
     ],
     "answerOptions": [
       "fin",
-      "bad",
-      "bag",
-      "bat"
+      "hot",
+      "jam",
+      "leg"
     ],
     "imageKey": "fin",
     "imageUrl": "/images/child-mode/short-i/fin.png",
@@ -4392,15 +4496,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fun",
     "choices": [
       "fun",
-      "bad",
-      "bag",
-      "bat"
+      "hop",
+      "jam",
+      "kid"
     ],
     "answerOptions": [
       "fun",
-      "bad",
-      "bag",
-      "bat"
+      "hop",
+      "jam",
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4444,15 +4548,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "fun",
     "choices": [
       "fun",
-      "bad",
-      "bag",
-      "bat"
+      "hop",
+      "jam",
+      "kid"
     ],
     "answerOptions": [
       "fun",
-      "bad",
-      "bag",
-      "bat"
+      "hop",
+      "jam",
+      "kid"
     ],
     "imageKey": "fun",
     "imageUrl": "/media/vocabulary/images/fun.webp",
@@ -4550,15 +4654,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "gem",
     "choices": [
       "gem",
-      "bad",
-      "bag",
-      "bat"
+      "ham",
+      "jug",
+      "kid"
     ],
     "answerOptions": [
       "gem",
-      "bad",
-      "bag",
-      "bat"
+      "ham",
+      "jug",
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4602,15 +4706,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "gem",
     "choices": [
       "gem",
-      "bad",
-      "bag",
-      "bat"
+      "ham",
+      "jug",
+      "kid"
     ],
     "answerOptions": [
       "gem",
-      "bad",
-      "bag",
-      "bat"
+      "ham",
+      "jug",
+      "kid"
     ],
     "imageKey": "gem",
     "imageUrl": "/media/vocabulary/images/gem.webp",
@@ -4667,8 +4771,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "gum",
-    "imageUrl": "/media/initial-sounds/images/g/gum.webp",
-    "imagePath": "/media/initial-sounds/images/g/gum.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/gum.png",
+    "imagePath": "/images/child-mode/initial-sounds/gum.png",
     "audioKey": "gum",
     "audioUrl": "/audio/child-mode/words/gum.mp3",
     "audioPath": "/audio/child-mode/words/gum.mp3",
@@ -4708,15 +4812,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "gum",
     "choices": [
       "gum",
-      "bad",
-      "bag",
-      "bat"
+      "jam",
+      "kid",
+      "leg"
     ],
     "answerOptions": [
       "gum",
-      "bad",
-      "bag",
-      "bat"
+      "jam",
+      "kid",
+      "leg"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4760,19 +4864,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "gum",
     "choices": [
       "gum",
-      "bad",
-      "bag",
-      "bat"
+      "jam",
+      "kid",
+      "leg"
     ],
     "answerOptions": [
       "gum",
-      "bad",
-      "bag",
-      "bat"
+      "jam",
+      "kid",
+      "leg"
     ],
     "imageKey": "gum",
-    "imageUrl": "/media/initial-sounds/images/g/gum.webp",
-    "imagePath": "/media/initial-sounds/images/g/gum.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/gum.png",
+    "imagePath": "/images/child-mode/initial-sounds/gum.png",
     "audioKey": "gum",
     "audioUrl": "/audio/child-mode/words/gum.mp3",
     "audioPath": "/audio/child-mode/words/gum.mp3",
@@ -4825,8 +4929,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "ham",
-    "imageUrl": "/media/initial-sounds/images/h/ham.webp",
-    "imagePath": "/media/initial-sounds/images/h/ham.webp",
+    "imageUrl": "/images/child-mode/short-a/ham.png",
+    "imagePath": "/images/child-mode/short-a/ham.png",
     "audioKey": "ham",
     "audioUrl": "/audio/child-mode/clean-human/words/ham.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ham.mp3",
@@ -4866,15 +4970,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "ham",
     "choices": [
       "ham",
-      "bib",
-      "bid",
-      "big"
+      "kit",
+      "leg",
+      "mop"
     ],
     "answerOptions": [
       "ham",
-      "bib",
-      "bid",
-      "big"
+      "kit",
+      "leg",
+      "mop"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4918,19 +5022,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "ham",
     "choices": [
       "ham",
-      "bib",
-      "bid",
-      "big"
+      "leg",
+      "mop",
+      "pig"
     ],
     "answerOptions": [
       "ham",
-      "bib",
-      "bid",
-      "big"
+      "leg",
+      "mop",
+      "pig"
     ],
     "imageKey": "ham",
-    "imageUrl": "/media/initial-sounds/images/h/ham.webp",
-    "imagePath": "/media/initial-sounds/images/h/ham.webp",
+    "imageUrl": "/images/child-mode/short-a/ham.png",
+    "imagePath": "/images/child-mode/short-a/ham.png",
     "audioKey": "ham",
     "audioUrl": "/audio/child-mode/clean-human/words/ham.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ham.mp3",
@@ -4983,8 +5087,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "hat",
-    "imageUrl": "/media/initial-sounds/images/h/hat.webp",
-    "imagePath": "/media/initial-sounds/images/h/hat.webp",
+    "imageUrl": "/images/child-mode/cvc/hat.png",
+    "imagePath": "/images/child-mode/cvc/hat.png",
     "audioKey": "hat",
     "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
@@ -5024,15 +5128,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "bib",
-      "bid",
-      "big"
+      "leg",
+      "mop",
+      "pig"
     ],
     "answerOptions": [
       "hat",
-      "bib",
-      "bid",
-      "big"
+      "leg",
+      "mop",
+      "pig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5076,19 +5180,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "bib",
-      "bid",
-      "big"
+      "leg",
+      "mop",
+      "pig"
     ],
     "answerOptions": [
       "hat",
-      "bib",
-      "bid",
-      "big"
+      "leg",
+      "mop",
+      "pig"
     ],
     "imageKey": "hat",
-    "imageUrl": "/media/initial-sounds/images/h/hat.webp",
-    "imagePath": "/media/initial-sounds/images/h/hat.webp",
+    "imageUrl": "/images/child-mode/cvc/hat.png",
+    "imagePath": "/images/child-mode/cvc/hat.png",
     "audioKey": "hat",
     "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
@@ -5141,8 +5245,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "hen",
-    "imageUrl": "/media/initial-sounds/images/h/hen.webp",
-    "imagePath": "/media/initial-sounds/images/h/hen.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+    "imagePath": "/images/child-mode/initial-sounds/hen.png",
     "audioKey": "hen",
     "audioUrl": "/audio/child-mode/clean-human/words/hen.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hen.mp3",
@@ -5182,15 +5286,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hen",
     "choices": [
       "hen",
-      "bad",
-      "bag",
-      "bat"
+      "jam",
+      "kid",
+      "log"
     ],
     "answerOptions": [
       "hen",
-      "bad",
-      "bag",
-      "bat"
+      "jam",
+      "kid",
+      "log"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5234,19 +5338,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hen",
     "choices": [
       "hen",
-      "bad",
-      "bag",
-      "bat"
+      "jam",
+      "kid",
+      "log"
     ],
     "answerOptions": [
       "hen",
-      "bad",
-      "bag",
-      "bat"
+      "jam",
+      "kid",
+      "log"
     ],
     "imageKey": "hen",
-    "imageUrl": "/media/initial-sounds/images/h/hen.webp",
-    "imagePath": "/media/initial-sounds/images/h/hen.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+    "imagePath": "/images/child-mode/initial-sounds/hen.png",
     "audioKey": "hen",
     "audioUrl": "/audio/child-mode/clean-human/words/hen.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hen.mp3",
@@ -5340,15 +5444,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hip",
     "choices": [
       "hip",
-      "bad",
-      "bag",
-      "bat"
+      "leg",
+      "mad",
+      "pot"
     ],
     "answerOptions": [
       "hip",
-      "bad",
-      "bag",
-      "bat"
+      "leg",
+      "mad",
+      "pot"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5392,15 +5496,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hip",
     "choices": [
       "hip",
-      "bad",
-      "bag",
-      "bat"
+      "leg",
+      "man",
+      "pot"
     ],
     "answerOptions": [
       "hip",
-      "bad",
-      "bag",
-      "bat"
+      "leg",
+      "man",
+      "pot"
     ],
     "imageKey": "hip",
     "imageUrl": "/media/vocabulary/images/hip.webp",
@@ -5457,8 +5561,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "hit",
-    "imageUrl": "/images/child-mode/short-i/sit.png",
-    "imagePath": "/images/child-mode/short-i/sit.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hit.png",
+    "imagePath": "/images/child-mode/initial-sounds/hit.png",
     "audioKey": "hit",
     "audioUrl": "/audio/child-mode/clean-human/words/hit.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hit.mp3",
@@ -5498,15 +5602,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hit",
     "choices": [
       "hit",
-      "bad",
-      "bag",
-      "bat"
+      "log",
+      "mad",
+      "peg"
     ],
     "answerOptions": [
       "hit",
-      "bad",
-      "bag",
-      "bat"
+      "log",
+      "mad",
+      "peg"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5550,19 +5654,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hit",
     "choices": [
       "hit",
-      "bad",
-      "bag",
-      "bat"
+      "log",
+      "man",
+      "pen"
     ],
     "answerOptions": [
       "hit",
-      "bad",
-      "bag",
-      "bat"
+      "log",
+      "man",
+      "pen"
     ],
     "imageKey": "hit",
-    "imageUrl": "/images/child-mode/short-i/sit.png",
-    "imagePath": "/images/child-mode/short-i/sit.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hit.png",
+    "imagePath": "/images/child-mode/initial-sounds/hit.png",
     "audioKey": "hit",
     "audioUrl": "/audio/child-mode/clean-human/words/hit.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/hit.mp3",
@@ -5615,8 +5719,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "hop",
-    "imageUrl": "/images/child-mode/short-o/mop.png",
-    "imagePath": "/images/child-mode/short-o/mop.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
     "audioKey": "hop",
     "audioUrl": "/audio/child-mode/words/hop.mp3",
     "audioPath": "/audio/child-mode/words/hop.mp3",
@@ -5656,15 +5760,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hop",
     "choices": [
       "hop",
-      "bad",
-      "bag",
-      "bat"
+      "kid",
+      "lab",
+      "mud"
     ],
     "answerOptions": [
       "hop",
-      "bad",
-      "bag",
-      "bat"
+      "kid",
+      "lab",
+      "mud"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5708,19 +5812,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hop",
     "choices": [
       "hop",
-      "bad",
-      "bag",
-      "bat"
+      "kid",
+      "leg",
+      "man"
     ],
     "answerOptions": [
       "hop",
-      "bad",
-      "bag",
-      "bat"
+      "kid",
+      "leg",
+      "man"
     ],
     "imageKey": "hop",
-    "imageUrl": "/images/child-mode/short-o/mop.png",
-    "imagePath": "/images/child-mode/short-o/mop.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hop.png",
+    "imagePath": "/images/child-mode/initial-sounds/hop.png",
     "audioKey": "hop",
     "audioUrl": "/audio/child-mode/words/hop.mp3",
     "audioPath": "/audio/child-mode/words/hop.mp3",
@@ -5814,15 +5918,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hot",
     "choices": [
       "hot",
-      "bad",
-      "bag",
-      "bat"
+      "kit",
+      "lab",
+      "mud"
     ],
     "answerOptions": [
       "hot",
-      "bad",
-      "bag",
-      "bat"
+      "kit",
+      "lab",
+      "mud"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5866,15 +5970,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hot",
     "choices": [
       "hot",
-      "bad",
-      "bag",
-      "bat"
+      "leg",
+      "man",
+      "pig"
     ],
     "answerOptions": [
       "hot",
-      "bad",
-      "bag",
-      "bat"
+      "leg",
+      "man",
+      "pig"
     ],
     "imageKey": "hot",
     "imageUrl": "/images/child-mode/initial-sounds/hot.png",
@@ -5931,8 +6035,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "hut",
-    "imageUrl": "/images/child-mode/minimal-pairs/cut.png",
-    "imagePath": "/images/child-mode/minimal-pairs/cut.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hut.png",
+    "imagePath": "/images/child-mode/initial-sounds/hut.png",
     "audioKey": "hut",
     "audioUrl": "/audio/child-mode/words/hut.mp3",
     "audioPath": "/audio/child-mode/words/hut.mp3",
@@ -5972,15 +6076,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hut",
     "choices": [
       "hut",
-      "bad",
-      "bag",
-      "bat"
+      "lip",
+      "mad",
+      "peg"
     ],
     "answerOptions": [
       "hut",
-      "bad",
-      "bag",
-      "bat"
+      "lip",
+      "mad",
+      "peg"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6024,19 +6128,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "hut",
     "choices": [
       "hut",
-      "bad",
-      "bag",
-      "bat"
+      "lip",
+      "man",
+      "pen"
     ],
     "answerOptions": [
       "hut",
-      "bad",
-      "bag",
-      "bat"
+      "lip",
+      "man",
+      "pen"
     ],
     "imageKey": "hut",
-    "imageUrl": "/images/child-mode/minimal-pairs/cut.png",
-    "imagePath": "/images/child-mode/minimal-pairs/cut.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hut.png",
+    "imagePath": "/images/child-mode/initial-sounds/hut.png",
     "audioKey": "hut",
     "audioUrl": "/audio/child-mode/words/hut.mp3",
     "audioPath": "/audio/child-mode/words/hut.mp3",
@@ -6089,8 +6193,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "jam",
-    "imageUrl": "/media/initial-sounds/images/j/jam.webp",
-    "imagePath": "/media/initial-sounds/images/j/jam.webp",
+    "imageUrl": "/images/child-mode/short-a/jam.png",
+    "imagePath": "/images/child-mode/short-a/jam.png",
     "audioKey": "jam",
     "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
@@ -6130,15 +6234,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "jam",
     "choices": [
       "jam",
-      "bib",
-      "bid",
-      "big"
+      "peg",
+      "rib",
+      "sub"
     ],
     "answerOptions": [
       "jam",
-      "bib",
-      "bid",
-      "big"
+      "peg",
+      "rib",
+      "sub"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6182,19 +6286,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "jam",
     "choices": [
       "jam",
-      "bib",
-      "bid",
-      "big"
+      "pen",
+      "rug",
+      "sit"
     ],
     "answerOptions": [
       "jam",
-      "bib",
-      "bid",
-      "big"
+      "pen",
+      "rug",
+      "sit"
     ],
     "imageKey": "jam",
-    "imageUrl": "/media/initial-sounds/images/j/jam.webp",
-    "imagePath": "/media/initial-sounds/images/j/jam.webp",
+    "imageUrl": "/images/child-mode/short-a/jam.png",
+    "imagePath": "/images/child-mode/short-a/jam.png",
     "audioKey": "jam",
     "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
@@ -6247,8 +6351,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "jet",
-    "imageUrl": "/media/initial-sounds/images/j/jet.webp",
-    "imagePath": "/media/initial-sounds/images/j/jet.webp",
+    "imageUrl": "/images/child-mode/short-e/jet.png",
+    "imagePath": "/images/child-mode/short-e/jet.png",
     "audioKey": "jet",
     "audioUrl": "/audio/child-mode/clean-human/words/jet.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jet.mp3",
@@ -6288,15 +6392,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "jet",
     "choices": [
       "jet",
-      "bad",
-      "bag",
-      "bat"
+      "lab",
+      "mop",
+      "pig"
     ],
     "answerOptions": [
       "jet",
-      "bad",
-      "bag",
-      "bat"
+      "lab",
+      "mop",
+      "pig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6340,19 +6444,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "jet",
     "choices": [
       "jet",
-      "bad",
-      "bag",
-      "bat"
+      "lid",
+      "man",
+      "pot"
     ],
     "answerOptions": [
       "jet",
-      "bad",
-      "bag",
-      "bat"
+      "lid",
+      "man",
+      "pot"
     ],
     "imageKey": "jet",
-    "imageUrl": "/media/initial-sounds/images/j/jet.webp",
-    "imagePath": "/media/initial-sounds/images/j/jet.webp",
+    "imageUrl": "/images/child-mode/short-e/jet.png",
+    "imagePath": "/images/child-mode/short-e/jet.png",
     "audioKey": "jet",
     "audioUrl": "/audio/child-mode/clean-human/words/jet.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/jet.mp3",
@@ -6405,8 +6509,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "jug",
-    "imageUrl": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
+    "imageUrl": "/images/child-mode/initial-sounds/jug.png",
+    "imagePath": "/images/child-mode/initial-sounds/jug.png",
     "audioKey": "jug",
     "audioUrl": "/audio/child-mode/words/jug.mp3",
     "audioPath": "/audio/child-mode/words/jug.mp3",
@@ -6446,15 +6550,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "bad",
-      "bag",
-      "bat"
+      "man",
+      "peg",
+      "rib"
     ],
     "answerOptions": [
       "jug",
-      "bad",
-      "bag",
-      "bat"
+      "man",
+      "peg",
+      "rib"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6498,19 +6602,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "bad",
-      "bag",
-      "bat"
+      "man",
+      "pen",
+      "sit"
     ],
     "answerOptions": [
       "jug",
-      "bad",
-      "bag",
-      "bat"
+      "man",
+      "pen",
+      "sit"
     ],
     "imageKey": "jug",
-    "imageUrl": "/images/child-mode/cvc/bug.png",
-    "imagePath": "/images/child-mode/cvc/bug.png",
+    "imageUrl": "/images/child-mode/initial-sounds/jug.png",
+    "imagePath": "/images/child-mode/initial-sounds/jug.png",
     "audioKey": "jug",
     "audioUrl": "/audio/child-mode/words/jug.mp3",
     "audioPath": "/audio/child-mode/words/jug.mp3",
@@ -6563,8 +6667,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "kid",
-    "imageUrl": "/media/initial-sounds/images/k/kid.webp",
-    "imagePath": "/media/initial-sounds/images/k/kid.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/kid.png",
+    "imagePath": "/images/child-mode/initial-sounds/kid.png",
     "audioKey": "kid",
     "audioUrl": "/audio/child-mode/clean-human/words/kid.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/kid.mp3",
@@ -6604,15 +6708,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "kid",
     "choices": [
       "kid",
-      "bad",
-      "bag",
-      "bat"
+      "nap",
+      "peg",
+      "rod"
     ],
     "answerOptions": [
       "kid",
-      "bad",
-      "bag",
-      "bat"
+      "nap",
+      "peg",
+      "rod"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6656,19 +6760,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "kid",
     "choices": [
       "kid",
-      "bad",
-      "bag",
-      "bat"
+      "nap",
+      "pen",
+      "rug"
     ],
     "answerOptions": [
       "kid",
-      "bad",
-      "bag",
-      "bat"
+      "nap",
+      "pen",
+      "rug"
     ],
     "imageKey": "kid",
-    "imageUrl": "/media/initial-sounds/images/k/kid.webp",
-    "imagePath": "/media/initial-sounds/images/k/kid.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/kid.png",
+    "imagePath": "/images/child-mode/initial-sounds/kid.png",
     "audioKey": "kid",
     "audioUrl": "/audio/child-mode/clean-human/words/kid.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/kid.mp3",
@@ -6762,15 +6866,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "kit",
     "choices": [
       "kit",
-      "bad",
-      "bag",
-      "bat"
+      "pad",
+      "red",
+      "sub"
     ],
     "answerOptions": [
       "kit",
-      "bad",
-      "bag",
-      "bat"
+      "pad",
+      "red",
+      "sub"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6814,15 +6918,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "kit",
     "choices": [
       "kit",
-      "bad",
-      "bag",
-      "bat"
+      "pan",
+      "red",
+      "sun"
     ],
     "answerOptions": [
       "kit",
-      "bad",
-      "bag",
-      "bat"
+      "pan",
+      "red",
+      "sun"
     ],
     "imageKey": "kit",
     "imageUrl": "/media/vocabulary/images/kit.webp",
@@ -6920,15 +7024,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lab",
     "choices": [
       "lab",
-      "bib",
-      "bid",
-      "big"
+      "pot",
+      "red",
+      "sip"
     ],
     "answerOptions": [
       "lab",
-      "bib",
-      "bid",
-      "big"
+      "pot",
+      "red",
+      "sip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6972,15 +7076,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lab",
     "choices": [
       "lab",
-      "bib",
-      "bid",
-      "big"
+      "pot",
+      "red",
+      "sit"
     ],
     "answerOptions": [
       "lab",
-      "bib",
-      "bid",
-      "big"
+      "pot",
+      "red",
+      "sit"
     ],
     "imageKey": "lab",
     "imageUrl": "/media/final-sounds/images/b/lab.webp",
@@ -7078,15 +7182,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lap",
     "choices": [
       "lap",
-      "bib",
-      "bid",
-      "big"
+      "pup",
+      "red",
+      "sip"
     ],
     "answerOptions": [
       "lap",
-      "bib",
-      "bid",
-      "big"
+      "pup",
+      "red",
+      "sip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7130,15 +7234,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lap",
     "choices": [
       "lap",
-      "bib",
-      "bid",
-      "big"
+      "red",
+      "sit",
+      "top"
     ],
     "answerOptions": [
       "lap",
-      "bib",
-      "bid",
-      "big"
+      "red",
+      "sit",
+      "top"
     ],
     "imageKey": "lap",
     "imageUrl": "/media/vocabulary/images/lap.webp",
@@ -7195,8 +7299,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "leg",
-    "imageUrl": "/media/initial-sounds/images/l/leg.webp",
-    "imagePath": "/media/initial-sounds/images/l/leg.webp",
+    "imageUrl": "/images/child-mode/short-e/leg.png",
+    "imagePath": "/images/child-mode/short-e/leg.png",
     "audioKey": "leg",
     "audioUrl": "/audio/child-mode/clean-human/words/leg.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/leg.mp3",
@@ -7236,15 +7340,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "leg",
     "choices": [
       "leg",
-      "bad",
-      "bag",
-      "bat"
+      "man",
+      "pig",
+      "rod"
     ],
     "answerOptions": [
       "leg",
-      "bad",
-      "bag",
-      "bat"
+      "man",
+      "pig",
+      "rod"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7288,19 +7392,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "leg",
     "choices": [
       "leg",
-      "bad",
-      "bag",
-      "bat"
+      "man",
+      "pig",
+      "rug"
     ],
     "answerOptions": [
       "leg",
-      "bad",
-      "bag",
-      "bat"
+      "man",
+      "pig",
+      "rug"
     ],
     "imageKey": "leg",
-    "imageUrl": "/media/initial-sounds/images/l/leg.webp",
-    "imagePath": "/media/initial-sounds/images/l/leg.webp",
+    "imageUrl": "/images/child-mode/short-e/leg.png",
+    "imagePath": "/images/child-mode/short-e/leg.png",
     "audioKey": "leg",
     "audioUrl": "/audio/child-mode/clean-human/words/leg.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/leg.mp3",
@@ -7394,15 +7498,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lid",
     "choices": [
       "lid",
-      "bad",
-      "bag",
-      "bat"
+      "pet",
+      "rag",
+      "sub"
     ],
     "answerOptions": [
       "lid",
-      "bad",
-      "bag",
-      "bat"
+      "pet",
+      "rag",
+      "sub"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7446,15 +7550,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lid",
     "choices": [
       "lid",
-      "bad",
-      "bag",
-      "bat"
+      "pot",
+      "ram",
+      "sun"
     ],
     "answerOptions": [
       "lid",
-      "bad",
-      "bag",
-      "bat"
+      "pot",
+      "ram",
+      "sun"
     ],
     "imageKey": "lid",
     "imageUrl": "/images/child-mode/short-i/lid.png",
@@ -7552,15 +7656,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lip",
     "choices": [
       "lip",
-      "bad",
-      "bag",
-      "bat"
+      "pot",
+      "rag",
+      "sub"
     ],
     "answerOptions": [
       "lip",
-      "bad",
-      "bag",
-      "bat"
+      "pot",
+      "rag",
+      "sub"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7604,15 +7708,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "lip",
     "choices": [
       "lip",
-      "bad",
-      "bag",
-      "bat"
+      "pot",
+      "ram",
+      "sun"
     ],
     "answerOptions": [
       "lip",
-      "bad",
-      "bag",
-      "bat"
+      "pot",
+      "ram",
+      "sun"
     ],
     "imageKey": "lip",
     "imageUrl": "/media/rhyming/images/lip.webp",
@@ -7669,8 +7773,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "log",
-    "imageUrl": "/media/initial-sounds/images/l/log.webp",
-    "imagePath": "/media/initial-sounds/images/l/log.webp",
+    "imageUrl": "/images/child-mode/cvc/log.png",
+    "imagePath": "/images/child-mode/cvc/log.png",
     "audioKey": "log",
     "audioUrl": "/audio/child-mode/clean-human/words/log.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/log.mp3",
@@ -7710,15 +7814,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "log",
     "choices": [
       "log",
-      "bad",
-      "bag",
-      "bat"
+      "pad",
+      "red",
+      "sip"
     ],
     "answerOptions": [
       "log",
-      "bad",
-      "bag",
-      "bat"
+      "pad",
+      "red",
+      "sip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7762,19 +7866,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "log",
     "choices": [
       "log",
-      "bad",
-      "bag",
-      "bat"
+      "pan",
+      "red",
+      "sit"
     ],
     "answerOptions": [
       "log",
-      "bad",
-      "bag",
-      "bat"
+      "pan",
+      "red",
+      "sit"
     ],
     "imageKey": "log",
-    "imageUrl": "/media/initial-sounds/images/l/log.webp",
-    "imagePath": "/media/initial-sounds/images/l/log.webp",
+    "imageUrl": "/images/child-mode/cvc/log.png",
+    "imagePath": "/images/child-mode/cvc/log.png",
     "audioKey": "log",
     "audioUrl": "/audio/child-mode/clean-human/words/log.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/log.mp3",
@@ -7868,15 +7972,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "bib",
-      "bid",
-      "big"
+      "rug",
+      "sip",
+      "ten"
     ],
     "answerOptions": [
       "mad",
-      "bib",
-      "bid",
-      "big"
+      "rug",
+      "sip",
+      "ten"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7920,15 +8024,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "bib",
-      "bid",
-      "big"
+      "rug",
+      "sit",
+      "ten"
     ],
     "answerOptions": [
       "mad",
-      "bib",
-      "bid",
-      "big"
+      "rug",
+      "sit",
+      "ten"
     ],
     "imageKey": "mad",
     "imageUrl": "/media/vocabulary/images/mad.webp",
@@ -7985,8 +8089,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "man",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/clean-human/words/man.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/man.mp3",
@@ -8026,15 +8130,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "bib",
-      "bid",
-      "big"
+      "run",
+      "sip",
+      "ten"
     ],
     "answerOptions": [
       "man",
-      "bib",
-      "bid",
-      "big"
+      "run",
+      "sip",
+      "ten"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8078,19 +8182,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "bib",
-      "bid",
-      "big"
+      "run",
+      "sit",
+      "ten"
     ],
     "answerOptions": [
       "man",
-      "bib",
-      "bid",
-      "big"
+      "run",
+      "sit",
+      "ten"
     ],
     "imageKey": "man",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "imagePath": "/images/child-mode/cvc/man.png",
     "audioKey": "man",
     "audioUrl": "/audio/child-mode/clean-human/words/man.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/man.mp3",
@@ -8143,8 +8247,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "mat",
-    "imageUrl": "/media/initial-sounds/images/m/mat.webp",
-    "imagePath": "/media/initial-sounds/images/m/mat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/mat.png",
+    "imagePath": "/images/child-mode/initial-sounds/mat.png",
     "audioKey": "mat",
     "audioUrl": "/audio/child-mode/clean-human/words/mat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mat.mp3",
@@ -8184,15 +8288,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "bib",
-      "bid",
-      "big"
+      "sip",
+      "ten",
+      "bug"
     ],
     "answerOptions": [
       "mat",
-      "bib",
-      "bid",
-      "big"
+      "sip",
+      "ten",
+      "bug"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8236,19 +8340,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "bib",
-      "bid",
-      "big"
+      "sit",
+      "ten",
+      "bug"
     ],
     "answerOptions": [
       "mat",
-      "bib",
-      "bid",
-      "big"
+      "sit",
+      "ten",
+      "bug"
     ],
     "imageKey": "mat",
-    "imageUrl": "/media/initial-sounds/images/m/mat.webp",
-    "imagePath": "/media/initial-sounds/images/m/mat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/mat.png",
+    "imagePath": "/images/child-mode/initial-sounds/mat.png",
     "audioKey": "mat",
     "audioUrl": "/audio/child-mode/clean-human/words/mat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mat.mp3",
@@ -8342,15 +8446,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mop",
     "choices": [
       "mop",
-      "bad",
-      "bag",
-      "bat"
+      "pet",
+      "rag",
+      "sip"
     ],
     "answerOptions": [
       "mop",
-      "bad",
-      "bag",
-      "bat"
+      "pet",
+      "rag",
+      "sip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8394,15 +8498,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mop",
     "choices": [
       "mop",
-      "bad",
-      "bag",
-      "bat"
+      "pig",
+      "ram",
+      "sun"
     ],
     "answerOptions": [
       "mop",
-      "bad",
-      "bag",
-      "bat"
+      "pig",
+      "ram",
+      "sun"
     ],
     "imageKey": "mop",
     "imageUrl": "/images/child-mode/short-o/mop.png",
@@ -8458,9 +8562,9 @@ export const shortVowelGeneratedQuestions = [
       "o",
       "u"
     ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
+    "imageKey": "mud",
+    "imageUrl": "/images/child-mode/short-u/mud.png",
+    "imagePath": "/images/child-mode/short-u/mud.png",
     "audioKey": "mud",
     "audioUrl": "/audio/child-mode/clean-human/words/mud.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mud.mp3",
@@ -8500,15 +8604,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mud",
     "choices": [
       "mud",
-      "bad",
-      "bag",
-      "bat"
+      "ram",
+      "sip",
+      "ten"
     ],
     "answerOptions": [
       "mud",
-      "bad",
-      "bag",
-      "bat"
+      "ram",
+      "sip",
+      "ten"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8529,6 +8633,58 @@ export const shortVowelGeneratedQuestions = [
       "generated",
       "short-vowel-discrimination",
       "word-choice"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_mud"
+  },
+  {
+    "id": "gen_short_vowel_u_mud_54_picture",
+    "skillId": "short_vowel_discrimination",
+    "skillName": "Short Vowel Discrimination",
+    "skill": "Short Vowel Discrimination",
+    "level": 1,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "mud",
+    "targetWord": "mud",
+    "correctAnswer": "mud",
+    "answer": "mud",
+    "choices": [
+      "mud",
+      "ram",
+      "sit",
+      "ten"
+    ],
+    "answerOptions": [
+      "mud",
+      "ram",
+      "sit",
+      "ten"
+    ],
+    "imageKey": "mud",
+    "imageUrl": "/images/child-mode/short-u/mud.png",
+    "imagePath": "/images/child-mode/short-u/mud.png",
+    "audioKey": "mud",
+    "audioUrl": "/audio/child-mode/clean-human/words/mud.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/mud.mp3",
+    "phonicsPattern": "short_u",
+    "targetSound": "short_u",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_u",
+    "itemKey": "short_u",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "tags": [
+      "generated",
+      "short-vowel-discrimination",
+      "picture-word"
     ],
     "active": true,
     "qaStatus": "approved",
@@ -8565,8 +8721,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "mug",
-    "imageUrl": "/media/initial-sounds/images/m/mug.webp",
-    "imagePath": "/media/initial-sounds/images/m/mug.webp",
+    "imageUrl": "/images/child-mode/cvc/mug.png",
+    "imagePath": "/images/child-mode/cvc/mug.png",
     "audioKey": "mug",
     "audioUrl": "/audio/child-mode/clean-human/words/mug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mug.mp3",
@@ -8606,15 +8762,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "bad",
-      "bag",
-      "bat"
+      "rat",
+      "sip",
+      "ten"
     ],
     "answerOptions": [
       "mug",
-      "bad",
-      "bag",
-      "bat"
+      "rat",
+      "sip",
+      "ten"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8658,19 +8814,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "bad",
-      "bag",
-      "bat"
+      "rat",
+      "sit",
+      "ten"
     ],
     "answerOptions": [
       "mug",
-      "bad",
-      "bag",
-      "bat"
+      "rat",
+      "sit",
+      "ten"
     ],
     "imageKey": "mug",
-    "imageUrl": "/media/initial-sounds/images/m/mug.webp",
-    "imagePath": "/media/initial-sounds/images/m/mug.webp",
+    "imageUrl": "/images/child-mode/cvc/mug.png",
+    "imagePath": "/images/child-mode/cvc/mug.png",
     "audioKey": "mug",
     "audioUrl": "/audio/child-mode/clean-human/words/mug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/mug.mp3",
@@ -8723,8 +8879,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "nap",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/nap.png",
+    "imagePath": "/images/child-mode/cvc/nap.png",
     "audioKey": "nap",
     "audioUrl": "/audio/child-mode/clean-human/words/nap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/nap.mp3",
@@ -8764,15 +8920,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "nap",
     "choices": [
       "nap",
-      "bib",
-      "bid",
-      "big"
+      "ten",
+      "wig",
+      "bug"
     ],
     "answerOptions": [
       "nap",
-      "bib",
-      "bid",
-      "big"
+      "ten",
+      "wig",
+      "bug"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8816,19 +8972,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "nap",
     "choices": [
       "nap",
-      "bib",
-      "bid",
-      "big"
+      "ten",
+      "wig",
+      "bug"
     ],
     "answerOptions": [
       "nap",
-      "bib",
-      "bid",
-      "big"
+      "ten",
+      "wig",
+      "bug"
     ],
     "imageKey": "nap",
-    "imageUrl": "/images/child-mode/cvc/cat.png",
-    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/nap.png",
+    "imagePath": "/images/child-mode/cvc/nap.png",
     "audioKey": "nap",
     "audioUrl": "/audio/child-mode/clean-human/words/nap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/nap.mp3",
@@ -8922,15 +9078,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "bib",
-      "bid",
-      "big"
+      "top",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "pad",
-      "bib",
-      "bid",
-      "big"
+      "top",
+      "web",
+      "zip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8974,15 +9130,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "bib",
-      "bid",
-      "big"
+      "top",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "pad",
-      "bib",
-      "bid",
-      "big"
+      "top",
+      "web",
+      "zip"
     ],
     "imageKey": "pad",
     "imageUrl": "/media/vocabulary/images/pad.webp",
@@ -9039,8 +9195,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "pan",
-    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
-    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "imageUrl": "/images/child-mode/cvc/pan.png",
+    "imagePath": "/images/child-mode/cvc/pan.png",
     "audioKey": "pan",
     "audioUrl": "/audio/child-mode/clean-human/words/pan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pan.mp3",
@@ -9080,15 +9236,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "bib",
-      "bid",
-      "big"
+      "tub",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "pan",
-      "bib",
-      "bid",
-      "big"
+      "tub",
+      "web",
+      "zip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9132,19 +9288,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "bib",
-      "bid",
-      "big"
+      "tub",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "pan",
-      "bib",
-      "bid",
-      "big"
+      "tub",
+      "web",
+      "zip"
     ],
     "imageKey": "pan",
-    "imageUrl": "/media/initial-sounds/images/p/pan.webp",
-    "imagePath": "/media/initial-sounds/images/p/pan.webp",
+    "imageUrl": "/images/child-mode/cvc/pan.png",
+    "imagePath": "/images/child-mode/cvc/pan.png",
     "audioKey": "pan",
     "audioUrl": "/audio/child-mode/clean-human/words/pan.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pan.mp3",
@@ -9238,15 +9394,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "peg",
     "choices": [
       "peg",
-      "bad",
-      "bag",
-      "bat"
+      "ram",
+      "sip",
+      "top"
     ],
     "answerOptions": [
       "peg",
-      "bad",
-      "bag",
-      "bat"
+      "ram",
+      "sip",
+      "top"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9290,15 +9446,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "peg",
     "choices": [
       "peg",
-      "bad",
-      "bag",
-      "bat"
+      "ram",
+      "sit",
+      "top"
     ],
     "answerOptions": [
       "peg",
-      "bad",
-      "bag",
-      "bat"
+      "ram",
+      "sit",
+      "top"
     ],
     "imageKey": "peg",
     "imageUrl": "/media/vocabulary/images/peg.webp",
@@ -9355,8 +9511,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "pen",
-    "imageUrl": "/media/initial-sounds/images/p/pen.webp",
-    "imagePath": "/media/initial-sounds/images/p/pen.webp",
+    "imageUrl": "/images/child-mode/short-e/pen.png",
+    "imagePath": "/images/child-mode/short-e/pen.png",
     "audioKey": "pen",
     "audioUrl": "/audio/child-mode/clean-human/words/pen.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pen.mp3",
@@ -9396,15 +9552,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pen",
     "choices": [
       "pen",
-      "bad",
-      "bag",
-      "bat"
+      "rat",
+      "sip",
+      "top"
     ],
     "answerOptions": [
       "pen",
-      "bad",
-      "bag",
-      "bat"
+      "rat",
+      "sip",
+      "top"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9448,19 +9604,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pen",
     "choices": [
       "pen",
-      "bad",
-      "bag",
-      "bat"
+      "rat",
+      "sit",
+      "top"
     ],
     "answerOptions": [
       "pen",
-      "bad",
-      "bag",
-      "bat"
+      "rat",
+      "sit",
+      "top"
     ],
     "imageKey": "pen",
-    "imageUrl": "/media/initial-sounds/images/p/pen.webp",
-    "imagePath": "/media/initial-sounds/images/p/pen.webp",
+    "imageUrl": "/images/child-mode/short-e/pen.png",
+    "imagePath": "/images/child-mode/short-e/pen.png",
     "audioKey": "pen",
     "audioUrl": "/audio/child-mode/clean-human/words/pen.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pen.mp3",
@@ -9554,15 +9710,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pet",
     "choices": [
       "pet",
-      "bad",
-      "bag",
-      "bat"
+      "rib",
+      "sad",
+      "top"
     ],
     "answerOptions": [
       "pet",
-      "bad",
-      "bag",
-      "bat"
+      "rib",
+      "sad",
+      "top"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9606,15 +9762,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pet",
     "choices": [
       "pet",
-      "bad",
-      "bag",
-      "bat"
+      "rug",
+      "sad",
+      "top"
     ],
     "answerOptions": [
       "pet",
-      "bad",
-      "bag",
-      "bat"
+      "rug",
+      "sad",
+      "top"
     ],
     "imageKey": "pet",
     "imageUrl": "/media/vocabulary/images/pet.webp",
@@ -9671,8 +9827,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "pig",
-    "imageUrl": "/media/initial-sounds/images/p/pig.webp",
-    "imagePath": "/media/initial-sounds/images/p/pig.webp",
+    "imageUrl": "/images/child-mode/short-i/pig.png",
+    "imagePath": "/images/child-mode/short-i/pig.png",
     "audioKey": "pig",
     "audioUrl": "/audio/child-mode/clean-human/words/pig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pig.mp3",
@@ -9712,15 +9868,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "bad",
-      "bag",
-      "bat"
+      "tab",
+      "web",
+      "bug"
     ],
     "answerOptions": [
       "pig",
-      "bad",
-      "bag",
-      "bat"
+      "tab",
+      "web",
+      "bug"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9764,19 +9920,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "bad",
-      "bag",
-      "bat"
+      "tag",
+      "web",
+      "bug"
     ],
     "answerOptions": [
       "pig",
-      "bad",
-      "bag",
-      "bat"
+      "tag",
+      "web",
+      "bug"
     ],
     "imageKey": "pig",
-    "imageUrl": "/media/initial-sounds/images/p/pig.webp",
-    "imagePath": "/media/initial-sounds/images/p/pig.webp",
+    "imageUrl": "/images/child-mode/short-i/pig.png",
+    "imagePath": "/images/child-mode/short-i/pig.png",
     "audioKey": "pig",
     "audioUrl": "/audio/child-mode/clean-human/words/pig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pig.mp3",
@@ -9829,8 +9985,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "pin",
-    "imageUrl": "/media/initial-sounds/images/p/pin.webp",
-    "imagePath": "/media/initial-sounds/images/p/pin.webp",
+    "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
+    "imagePath": "/images/child-mode/minimal-pairs/pin.png",
     "audioKey": "pin",
     "audioUrl": "/audio/child-mode/clean-human/words/pin.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pin.mp3",
@@ -9870,15 +10026,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pin",
     "choices": [
       "pin",
-      "bad",
-      "bag",
-      "bat"
+      "tag",
+      "web",
+      "bug"
     ],
     "answerOptions": [
       "pin",
-      "bad",
-      "bag",
-      "bat"
+      "tag",
+      "web",
+      "bug"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9922,19 +10078,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pin",
     "choices": [
       "pin",
-      "bad",
-      "bag",
-      "bat"
+      "tag",
+      "web",
+      "bug"
     ],
     "answerOptions": [
       "pin",
-      "bad",
-      "bag",
-      "bat"
+      "tag",
+      "web",
+      "bug"
     ],
     "imageKey": "pin",
-    "imageUrl": "/media/initial-sounds/images/p/pin.webp",
-    "imagePath": "/media/initial-sounds/images/p/pin.webp",
+    "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
+    "imagePath": "/images/child-mode/minimal-pairs/pin.png",
     "audioKey": "pin",
     "audioUrl": "/audio/child-mode/clean-human/words/pin.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pin.mp3",
@@ -9987,8 +10143,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "pot",
-    "imageUrl": "/media/initial-sounds/images/p/pot.webp",
-    "imagePath": "/media/initial-sounds/images/p/pot.webp",
+    "imageUrl": "/images/child-mode/cvc/pot.png",
+    "imagePath": "/images/child-mode/cvc/pot.png",
     "audioKey": "pot",
     "audioUrl": "/audio/child-mode/clean-human/words/pot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pot.mp3",
@@ -10028,15 +10184,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "bad",
-      "bag",
-      "bat"
+      "run",
+      "sad",
+      "ten"
     ],
     "answerOptions": [
       "pot",
-      "bad",
-      "bag",
-      "bat"
+      "run",
+      "sad",
+      "ten"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -10080,19 +10236,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "bad",
-      "bag",
-      "bat"
+      "run",
+      "sad",
+      "ten"
     ],
     "answerOptions": [
       "pot",
-      "bad",
-      "bag",
-      "bat"
+      "run",
+      "sad",
+      "ten"
     ],
     "imageKey": "pot",
-    "imageUrl": "/media/initial-sounds/images/p/pot.webp",
-    "imagePath": "/media/initial-sounds/images/p/pot.webp",
+    "imageUrl": "/images/child-mode/cvc/pot.png",
+    "imagePath": "/images/child-mode/cvc/pot.png",
     "audioKey": "pot",
     "audioUrl": "/audio/child-mode/clean-human/words/pot.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pot.mp3",
@@ -10186,15 +10342,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pup",
     "choices": [
       "pup",
-      "bad",
-      "bag",
-      "bat"
+      "tap",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "pup",
-      "bad",
-      "bag",
-      "bat"
+      "tap",
+      "web",
+      "zip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -10238,15 +10394,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "pup",
     "choices": [
       "pup",
-      "bad",
-      "bag",
-      "bat"
+      "tap",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "pup",
-      "bad",
-      "bag",
-      "bat"
+      "tap",
+      "web",
+      "zip"
     ],
     "imageKey": "pup",
     "imageUrl": "/media/vocabulary/images/pup.webp",
@@ -10345,14 +10501,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "rag",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "rag",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -10396,15 +10552,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rag",
     "choices": [
       "rag",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "rag",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "rag",
     "imageUrl": "/media/vocabulary/images/rag.webp",
@@ -10503,14 +10659,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "ram",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "ram",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -10554,15 +10710,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "ram",
     "choices": [
       "ram",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "ram",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "ram",
     "imageUrl": "/images/child-mode/short-a/ram.png",
@@ -10619,8 +10775,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "rat",
-    "imageUrl": "/media/initial-sounds/images/r/rat.webp",
-    "imagePath": "/media/initial-sounds/images/r/rat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+    "imagePath": "/images/child-mode/initial-sounds/rat.png",
     "audioKey": "rat",
     "audioUrl": "/audio/child-mode/clean-human/words/rat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rat.mp3",
@@ -10661,14 +10817,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "rat",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "rat",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -10712,19 +10868,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "rat",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "rat",
-    "imageUrl": "/media/initial-sounds/images/r/rat.webp",
-    "imagePath": "/media/initial-sounds/images/r/rat.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+    "imagePath": "/images/child-mode/initial-sounds/rat.png",
     "audioKey": "rat",
     "audioUrl": "/audio/child-mode/clean-human/words/rat.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rat.mp3",
@@ -10777,8 +10933,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "red",
-    "imageUrl": "/images/child-mode/cvc/bed.png",
-    "imagePath": "/images/child-mode/cvc/bed.png",
+    "imageUrl": "/images/child-mode/short-e/red.png",
+    "imagePath": "/images/child-mode/short-e/red.png",
     "audioKey": "red",
     "audioUrl": "/audio/child-mode/clean-human/words/red.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/red.mp3",
@@ -10818,15 +10974,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "red",
     "choices": [
       "red",
-      "bad",
-      "bag",
-      "bat"
+      "sit",
+      "tab",
+      "bug"
     ],
     "answerOptions": [
       "red",
-      "bad",
-      "bag",
-      "bat"
+      "sit",
+      "tab",
+      "bug"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -10870,19 +11026,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "red",
     "choices": [
       "red",
-      "bad",
-      "bag",
-      "bat"
+      "sit",
+      "tag",
+      "bug"
     ],
     "answerOptions": [
       "red",
-      "bad",
-      "bag",
-      "bat"
+      "sit",
+      "tag",
+      "bug"
     ],
     "imageKey": "red",
-    "imageUrl": "/images/child-mode/cvc/bed.png",
-    "imagePath": "/images/child-mode/cvc/bed.png",
+    "imageUrl": "/images/child-mode/short-e/red.png",
+    "imagePath": "/images/child-mode/short-e/red.png",
     "audioKey": "red",
     "audioUrl": "/audio/child-mode/clean-human/words/red.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/red.mp3",
@@ -10976,15 +11132,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rib",
     "choices": [
       "rib",
-      "bad",
-      "bag",
-      "bat"
+      "wag",
+      "yen",
+      "bug"
     ],
     "answerOptions": [
       "rib",
-      "bad",
-      "bag",
-      "bat"
+      "wag",
+      "yen",
+      "bug"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11028,15 +11184,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rib",
     "choices": [
       "rib",
-      "bad",
-      "bag",
-      "bat"
+      "web",
+      "yak",
+      "bug"
     ],
     "answerOptions": [
       "rib",
-      "bad",
-      "bag",
-      "bat"
+      "web",
+      "yak",
+      "bug"
     ],
     "imageKey": "rib",
     "imageUrl": "/media/vocabulary/images/rib.webp",
@@ -11134,15 +11290,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rod",
     "choices": [
       "rod",
-      "bad",
-      "bag",
-      "bat"
+      "tab",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "rod",
-      "bad",
-      "bag",
-      "bat"
+      "tab",
+      "web",
+      "zip"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11186,15 +11342,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rod",
     "choices": [
       "rod",
-      "bad",
-      "bag",
-      "bat"
+      "tag",
+      "web",
+      "zip"
     ],
     "answerOptions": [
       "rod",
-      "bad",
-      "bag",
-      "bat"
+      "tag",
+      "web",
+      "zip"
     ],
     "imageKey": "rod",
     "imageUrl": "/media/vocabulary/images/rod.webp",
@@ -11292,15 +11448,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rub",
     "choices": [
       "rub",
-      "bad",
-      "bag",
-      "bat"
+      "wig",
+      "yak",
+      "cob"
     ],
     "answerOptions": [
       "rub",
-      "bad",
-      "bag",
-      "bat"
+      "wig",
+      "yak",
+      "cob"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11344,15 +11500,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rub",
     "choices": [
       "rub",
-      "bad",
-      "bag",
-      "bat"
+      "wig",
+      "yak",
+      "cot"
     ],
     "answerOptions": [
       "rub",
-      "bad",
-      "bag",
-      "bat"
+      "wig",
+      "yak",
+      "cot"
     ],
     "imageKey": "rub",
     "imageUrl": "/media/final-sounds/images/b/rub.webp",
@@ -11409,8 +11565,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "rug",
-    "imageUrl": "/media/initial-sounds/images/r/rug.webp",
-    "imagePath": "/media/initial-sounds/images/r/rug.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rug.png",
+    "imagePath": "/images/child-mode/initial-sounds/rug.png",
     "audioKey": "rug",
     "audioUrl": "/audio/child-mode/clean-human/words/rug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rug.mp3",
@@ -11450,15 +11606,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "bad",
-      "bag",
-      "bat"
+      "yak",
+      "zip",
+      "cob"
     ],
     "answerOptions": [
       "rug",
-      "bad",
-      "bag",
-      "bat"
+      "yak",
+      "zip",
+      "cob"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11502,19 +11658,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "bad",
-      "bag",
-      "bat"
+      "yak",
+      "zip",
+      "cot"
     ],
     "answerOptions": [
       "rug",
-      "bad",
-      "bag",
-      "bat"
+      "yak",
+      "zip",
+      "cot"
     ],
     "imageKey": "rug",
-    "imageUrl": "/media/initial-sounds/images/r/rug.webp",
-    "imagePath": "/media/initial-sounds/images/r/rug.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/rug.png",
+    "imagePath": "/images/child-mode/initial-sounds/rug.png",
     "audioKey": "rug",
     "audioUrl": "/audio/child-mode/clean-human/words/rug.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/rug.mp3",
@@ -11567,8 +11723,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "run",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/initial-sounds/run.png",
+    "imagePath": "/images/child-mode/initial-sounds/run.png",
     "audioKey": "run",
     "audioUrl": "/audio/child-mode/clean-human/words/run.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/run.mp3",
@@ -11608,15 +11764,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "run",
     "choices": [
       "run",
-      "bad",
-      "bag",
-      "bat"
+      "yen",
+      "zip",
+      "bad"
     ],
     "answerOptions": [
       "run",
-      "bad",
-      "bag",
-      "bat"
+      "yen",
+      "zip",
+      "bad"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11660,19 +11816,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "run",
     "choices": [
       "run",
+      "zip",
       "bad",
-      "bag",
-      "bat"
+      "cot"
     ],
     "answerOptions": [
       "run",
+      "zip",
       "bad",
-      "bag",
-      "bat"
+      "cot"
     ],
     "imageKey": "run",
-    "imageUrl": "/images/child-mode/cvc/sun.png",
-    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/initial-sounds/run.png",
+    "imagePath": "/images/child-mode/initial-sounds/run.png",
     "audioKey": "run",
     "audioUrl": "/audio/child-mode/clean-human/words/run.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/run.mp3",
@@ -11725,8 +11881,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "sad",
-    "imageUrl": "/images/child-mode/cvc/bad.png",
-    "imagePath": "/images/child-mode/cvc/bad.png",
+    "imageUrl": "/media/rhyming/images/sad.webp",
+    "imagePath": "/media/rhyming/images/sad.webp",
     "audioKey": "sad",
     "audioUrl": "/media/vocabulary/audio/sad.mp3",
     "audioPath": "/media/vocabulary/audio/sad.mp3",
@@ -11767,14 +11923,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sad",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "sad",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11818,19 +11974,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "sad",
     "choices": [
       "sad",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "sad",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "sad",
-    "imageUrl": "/images/child-mode/cvc/bad.png",
-    "imagePath": "/images/child-mode/cvc/bad.png",
+    "imageUrl": "/media/rhyming/images/sad.webp",
+    "imagePath": "/media/rhyming/images/sad.webp",
     "audioKey": "sad",
     "audioUrl": "/media/vocabulary/audio/sad.mp3",
     "audioPath": "/media/vocabulary/audio/sad.mp3",
@@ -11925,14 +12081,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sap",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "sap",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11976,15 +12132,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "sap",
     "choices": [
       "sap",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "sap",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "sap",
     "imageUrl": "/media/vocabulary/images/sap.webp",
@@ -12083,14 +12239,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sip",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "sip",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -12135,14 +12291,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sip",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "sip",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dug"
     ],
     "imageKey": "sip",
     "imageUrl": "/media/vocabulary/images/sip.webp",
@@ -12241,14 +12397,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sit",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "sit",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -12293,14 +12449,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sit",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "sit",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dug"
     ],
     "imageKey": "sit",
     "imageUrl": "/images/child-mode/short-i/sit.png",
@@ -12399,14 +12555,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sub",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "sub",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -12451,14 +12607,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sub",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "answerOptions": [
       "sub",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "imageKey": "sub",
     "imageUrl": "/media/final-sounds/images/b/sub.webp",
@@ -12515,8 +12671,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "sun",
-    "imageUrl": "/media/initial-sounds/images/s/sun.webp",
-    "imagePath": "/media/initial-sounds/images/s/sun.webp",
+    "imageUrl": "/images/child-mode/cvc/sun.png",
+    "imagePath": "/images/child-mode/cvc/sun.png",
     "audioKey": "sun",
     "audioUrl": "/audio/child-mode/clean-human/words/sun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/sun.mp3",
@@ -12557,14 +12713,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sun",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "sun",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -12609,18 +12765,18 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "sun",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "answerOptions": [
       "sun",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "imageKey": "sun",
-    "imageUrl": "/media/initial-sounds/images/s/sun.webp",
-    "imagePath": "/media/initial-sounds/images/s/sun.webp",
+    "imageUrl": "/images/child-mode/cvc/sun.png",
+    "imagePath": "/images/child-mode/cvc/sun.png",
     "audioKey": "sun",
     "audioUrl": "/audio/child-mode/clean-human/words/sun.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/sun.mp3",
@@ -12715,14 +12871,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "tab",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "tab",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -12766,15 +12922,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "tab",
     "choices": [
       "tab",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "tab",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "tab",
     "imageUrl": "/media/vocabulary/images/tab.webp",
@@ -12831,8 +12987,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "tag",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/media/rhyming/images/tag.webp",
+    "imagePath": "/media/rhyming/images/tag.webp",
     "audioKey": "tag",
     "audioUrl": "/media/vocabulary/audio/tag.mp3",
     "audioPath": "/media/vocabulary/audio/tag.mp3",
@@ -12873,14 +13029,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "tag",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "tag",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -12924,19 +13080,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "tag",
     "choices": [
       "tag",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "tag",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "tag",
-    "imageUrl": "/images/child-mode/cvc/bat.png",
-    "imagePath": "/images/child-mode/cvc/bat.png",
+    "imageUrl": "/media/rhyming/images/tag.webp",
+    "imagePath": "/media/rhyming/images/tag.webp",
     "audioKey": "tag",
     "audioUrl": "/media/vocabulary/audio/tag.mp3",
     "audioPath": "/media/vocabulary/audio/tag.mp3",
@@ -12989,8 +13145,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "tap",
-    "imageUrl": "/media/initial-sounds/images/t/tap.webp",
-    "imagePath": "/media/initial-sounds/images/t/tap.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/tap.png",
+    "imagePath": "/images/child-mode/initial-sounds/tap.png",
     "audioKey": "tap",
     "audioUrl": "/audio/child-mode/clean-human/words/tap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/tap.mp3",
@@ -13031,14 +13187,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "tap",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "tap",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13082,19 +13238,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "tap",
     "choices": [
       "tap",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "tap",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "tap",
-    "imageUrl": "/media/initial-sounds/images/t/tap.webp",
-    "imagePath": "/media/initial-sounds/images/t/tap.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/tap.png",
+    "imagePath": "/images/child-mode/initial-sounds/tap.png",
     "audioKey": "tap",
     "audioUrl": "/audio/child-mode/clean-human/words/tap.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/tap.mp3",
@@ -13147,8 +13303,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "ten",
-    "imageUrl": "/images/child-mode/short-e/pen.png",
-    "imagePath": "/images/child-mode/short-e/pen.png",
+    "imageUrl": "/images/child-mode/initial-sounds/ten.png",
+    "imagePath": "/images/child-mode/initial-sounds/ten.png",
     "audioKey": "ten",
     "audioUrl": "/audio/child-mode/clean-human/words/ten.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ten.mp3",
@@ -13189,14 +13345,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "ten",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "dig"
     ],
     "answerOptions": [
       "ten",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "dig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13241,18 +13397,18 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "ten",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "answerOptions": [
       "ten",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "imageKey": "ten",
-    "imageUrl": "/images/child-mode/short-e/pen.png",
-    "imagePath": "/images/child-mode/short-e/pen.png",
+    "imageUrl": "/images/child-mode/initial-sounds/ten.png",
+    "imagePath": "/images/child-mode/initial-sounds/ten.png",
     "audioKey": "ten",
     "audioUrl": "/audio/child-mode/clean-human/words/ten.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/ten.mp3",
@@ -13305,8 +13461,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "top",
-    "imageUrl": "/media/initial-sounds/images/t/top.webp",
-    "imagePath": "/media/initial-sounds/images/t/top.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/top.png",
+    "imagePath": "/images/child-mode/initial-sounds/top.png",
     "audioKey": "top",
     "audioUrl": "/audio/child-mode/words/top.mp3",
     "audioPath": "/audio/child-mode/words/top.mp3",
@@ -13347,14 +13503,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "top",
       "bad",
-      "bag",
-      "bat"
+      "cub",
+      "den"
     ],
     "answerOptions": [
       "top",
       "bad",
-      "bag",
-      "bat"
+      "cub",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13399,18 +13555,18 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "top",
       "bad",
-      "bag",
-      "bat"
+      "cup",
+      "dig"
     ],
     "answerOptions": [
       "top",
       "bad",
-      "bag",
-      "bat"
+      "cup",
+      "dig"
     ],
     "imageKey": "top",
-    "imageUrl": "/media/initial-sounds/images/t/top.webp",
-    "imagePath": "/media/initial-sounds/images/t/top.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/top.png",
+    "imagePath": "/images/child-mode/initial-sounds/top.png",
     "audioKey": "top",
     "audioUrl": "/audio/child-mode/words/top.mp3",
     "audioPath": "/audio/child-mode/words/top.mp3",
@@ -13463,8 +13619,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "tub",
-    "imageUrl": "/media/initial-sounds/images/t/tub.webp",
-    "imagePath": "/media/initial-sounds/images/t/tub.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/tub.png",
+    "imagePath": "/images/child-mode/initial-sounds/tub.png",
     "audioKey": "tub",
     "audioUrl": "/audio/child-mode/clean-human/words/tub.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/tub.mp3",
@@ -13505,14 +13661,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "tub",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "tub",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13557,18 +13713,18 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "tub",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "answerOptions": [
       "tub",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "imageKey": "tub",
-    "imageUrl": "/media/initial-sounds/images/t/tub.webp",
-    "imagePath": "/media/initial-sounds/images/t/tub.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/tub.png",
+    "imagePath": "/images/child-mode/initial-sounds/tub.png",
     "audioKey": "tub",
     "audioUrl": "/audio/child-mode/clean-human/words/tub.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/tub.mp3",
@@ -13663,14 +13819,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "tug",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "tug",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13715,14 +13871,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "tug",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "answerOptions": [
       "tug",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "imageKey": "tug",
     "imageUrl": "/media/vocabulary/images/tug.webp",
@@ -13779,8 +13935,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "van",
-    "imageUrl": "/media/initial-sounds/images/v/van.webp",
-    "imagePath": "/media/initial-sounds/images/v/van.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/van.png",
+    "imagePath": "/images/child-mode/initial-sounds/van.png",
     "audioKey": "van",
     "audioUrl": "/audio/child-mode/words/van.mp3",
     "audioPath": "/audio/child-mode/words/van.mp3",
@@ -13821,14 +13977,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "van",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "van",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13872,19 +14028,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "van",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "van",
-    "imageUrl": "/media/initial-sounds/images/v/van.webp",
-    "imagePath": "/media/initial-sounds/images/v/van.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/van.png",
+    "imagePath": "/images/child-mode/initial-sounds/van.png",
     "audioKey": "van",
     "audioUrl": "/audio/child-mode/words/van.mp3",
     "audioPath": "/audio/child-mode/words/van.mp3",
@@ -13979,14 +14135,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "wag",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "wag",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14030,15 +14186,15 @@ export const shortVowelGeneratedQuestions = [
     "answer": "wag",
     "choices": [
       "wag",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "wag",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "wag",
     "imageUrl": "/media/vocabulary/images/wag.webp",
@@ -14095,8 +14251,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "web",
-    "imageUrl": "/media/initial-sounds/images/w/web.webp",
-    "imagePath": "/media/initial-sounds/images/w/web.webp",
+    "imageUrl": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "audioKey": "web",
     "audioUrl": "/audio/child-mode/clean-human/words/web.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/web.mp3",
@@ -14137,14 +14293,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "web",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "dig"
     ],
     "answerOptions": [
       "web",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "dig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14189,18 +14345,18 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "web",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "answerOptions": [
       "web",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "imageKey": "web",
-    "imageUrl": "/media/initial-sounds/images/w/web.webp",
-    "imagePath": "/media/initial-sounds/images/w/web.webp",
+    "imageUrl": "/images/child-mode/short-e/web.png",
+    "imagePath": "/images/child-mode/short-e/web.png",
     "audioKey": "web",
     "audioUrl": "/audio/child-mode/clean-human/words/web.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/web.mp3",
@@ -14295,14 +14451,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "wet",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "dig"
     ],
     "answerOptions": [
       "wet",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "dig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14347,14 +14503,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "wet",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "answerOptions": [
       "wet",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "imageKey": "wet",
     "imageUrl": "/media/vocabulary/images/wet.webp",
@@ -14411,8 +14567,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "wig",
-    "imageUrl": "/media/initial-sounds/images/w/wig.webp",
-    "imagePath": "/media/initial-sounds/images/w/wig.webp",
+    "imageUrl": "/images/child-mode/short-i/wig.png",
+    "imagePath": "/images/child-mode/short-i/wig.png",
     "audioKey": "wig",
     "audioUrl": "/audio/child-mode/clean-human/words/wig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/wig.mp3",
@@ -14453,14 +14609,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "wig",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "wig",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14505,18 +14661,18 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "wig",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "wig",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dug"
     ],
     "imageKey": "wig",
-    "imageUrl": "/media/initial-sounds/images/w/wig.webp",
-    "imagePath": "/media/initial-sounds/images/w/wig.webp",
+    "imageUrl": "/images/child-mode/short-i/wig.png",
+    "imagePath": "/images/child-mode/short-i/wig.png",
     "audioKey": "wig",
     "audioUrl": "/audio/child-mode/clean-human/words/wig.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/wig.mp3",
@@ -14569,8 +14725,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "yak",
-    "imageUrl": "/media/initial-sounds/images/y/yak.webp",
-    "imagePath": "/media/initial-sounds/images/y/yak.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/yak.png",
+    "imagePath": "/images/child-mode/initial-sounds/yak.png",
     "audioKey": "yak",
     "audioUrl": "/audio/child-mode/clean-human/words/yak.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/yak.mp3",
@@ -14611,14 +14767,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "yak",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "yak",
       "bib",
-      "bid",
-      "big"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14662,19 +14818,19 @@ export const shortVowelGeneratedQuestions = [
     "answer": "yak",
     "choices": [
       "yak",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "yak",
-      "bib",
       "bid",
-      "big"
+      "cot",
+      "dug"
     ],
     "imageKey": "yak",
-    "imageUrl": "/media/initial-sounds/images/y/yak.webp",
-    "imagePath": "/media/initial-sounds/images/y/yak.webp",
+    "imageUrl": "/images/child-mode/initial-sounds/yak.png",
+    "imagePath": "/images/child-mode/initial-sounds/yak.png",
     "audioKey": "yak",
     "audioUrl": "/audio/child-mode/clean-human/words/yak.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/yak.mp3",
@@ -14769,14 +14925,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "yen",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "dig"
     ],
     "answerOptions": [
       "yen",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "dig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14821,14 +14977,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "yen",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "answerOptions": [
       "yen",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dig"
     ],
     "imageKey": "yen",
     "imageUrl": "/media/vocabulary/images/yen.webp",
@@ -14885,8 +15041,8 @@ export const shortVowelGeneratedQuestions = [
       "u"
     ],
     "imageKey": "zip",
-    "imageUrl": "/media/initial-sounds/images/z/zip.webp",
-    "imagePath": "/media/initial-sounds/images/z/zip.webp",
+    "imageUrl": "/images/child-mode/short-i/zip.png",
+    "imagePath": "/images/child-mode/short-i/zip.png",
     "audioKey": "zip",
     "audioUrl": "/media/initial-sounds/audio/z/zip.mp3",
     "audioPath": "/media/initial-sounds/audio/z/zip.mp3",
@@ -14927,14 +15083,14 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "zip",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "answerOptions": [
       "zip",
       "bad",
-      "bag",
-      "bat"
+      "cob",
+      "den"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14979,18 +15135,18 @@ export const shortVowelGeneratedQuestions = [
     "choices": [
       "zip",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dug"
     ],
     "answerOptions": [
       "zip",
       "bad",
-      "bag",
-      "bat"
+      "cot",
+      "dug"
     ],
     "imageKey": "zip",
-    "imageUrl": "/media/initial-sounds/images/z/zip.webp",
-    "imagePath": "/media/initial-sounds/images/z/zip.webp",
+    "imageUrl": "/images/child-mode/short-i/zip.png",
+    "imagePath": "/images/child-mode/short-i/zip.png",
     "audioKey": "zip",
     "audioUrl": "/media/initial-sounds/audio/z/zip.mp3",
     "audioPath": "/media/initial-sounds/audio/z/zip.mp3",

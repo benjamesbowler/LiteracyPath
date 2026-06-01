@@ -332,6 +332,17 @@ function getFirstVowelLetter(value = "") {
   return String(value || "").toLowerCase().match(/[aeiou]/)?.[0] || "";
 }
 
+function getWordRime(value = "") {
+  const word = String(value || "").toLowerCase().trim();
+  const index = word.search(/[aeiou]/);
+  return index === -1 ? word.slice(1) : word.slice(index);
+}
+
+function hasChildWordImage(word = "") {
+  const asset = getChildWordAsset(word);
+  return Boolean(asset?.image || asset?.fallbackImage);
+}
+
 function isShortVowelWordCategoryQuestion(question = {}) {
   const skillId = String(question.skillId || question.skill || question.skillName || "").toLowerCase();
   const format = String(question.formatType || question.templateType || "").toUpperCase();
@@ -407,10 +418,26 @@ function normalizeShortVowelWordCategoryOptions(rawQuestion = {}, answerOptions 
 
   addWord(correctWord);
 
-  for (const option of existingByWord.values()) {
+  const existingCandidates = Array.from(existingByWord.values())
+    .filter(option => option.value !== correctWord)
+    .filter(option => !targetVowel || getFirstVowelLetter(option.value) !== targetVowel)
+    .sort((a, b) => {
+      const score = option => {
+        const word = option.value;
+        const selectedInitials = new Set(normalizedOptions.map(item => item.value[0]));
+        const selectedRimes = new Set(normalizedOptions.map(item => getWordRime(item.value)));
+        return (
+          (hasChildWordImage(word) ? 8 : 0) +
+          (selectedInitials.has(word[0]) ? 0 : 6) +
+          (selectedRimes.has(getWordRime(word)) ? 0 : 6)
+        );
+      };
+      return score(b) - score(a);
+    });
+
+  for (const option of existingCandidates) {
     const word = option.value;
     if (word === correctWord) continue;
-    if (targetVowel && getFirstVowelLetter(word) === targetVowel) continue;
     addWord(word, option);
     if (normalizedOptions.length >= 4) break;
   }
@@ -1370,11 +1397,12 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
 
 const configuredCoverageTotals = coverageExpectations;
 
-function getCoverageItemKeysForStage(stage, { finalSoundLevel = null } = {}) {
+function getCoverageItemKeysForStage(stage, { finalSoundLevel = null, level = null } = {}) {
   const configured = configuredCoverageTotals[stage?.id];
   if (configured?.itemKeys?.length && configured?.itemType) {
-    const itemKeys = finalSoundLevel && configured.levels?.[finalSoundLevel]
-      ? configured.levels[finalSoundLevel]
+    const requestedLevel = finalSoundLevel || level;
+    const itemKeys = requestedLevel && configured.levels?.[requestedLevel]
+      ? configured.levels[requestedLevel]
       : configured.itemKeys;
     return new Set(
       itemKeys.map(itemKey =>
@@ -3432,23 +3460,62 @@ export default function App() {
     return passedKeys;
   }
 
+  function getConfiguredLevelCoverageKeys(stage, level) {
+    const configured = configuredCoverageTotals[stage?.id];
+    if (!configured?.levels?.[level]?.length || !configured?.itemType) return [];
+    return configured.levels[level].map(itemKey =>
+      getItemMasteryStateKeyForValues(itemKey, configured.itemType)
+    );
+  }
+
+  function isConfiguredLevelCoverageComplete(stage, level) {
+    const expectedKeys = getConfiguredLevelCoverageKeys(stage, level);
+    if (!expectedKeys.length) return false;
+    const coveredKeys = getCoveredStageItemKeys(stage, { level });
+    return expectedKeys.every(key => coveredKeys.has(key));
+  }
+
   function getNextAssessmentPathStep(stage) {
+    if (
+      stage &&
+      !isInitialSoundsStage(stage) &&
+      !isFinalSoundsStage(stage) &&
+      isConfiguredLevelCoverageComplete(stage, 1) &&
+      getConfiguredLevelCoverageKeys(stage, 2).length > 0 &&
+      !isConfiguredLevelCoverageComplete(stage, 2)
+    ) {
+      return { level: 2, phase: 1 };
+    }
+
     const passedKeys = getPassedAssessmentPathKeys(stage);
     return ASSESSMENT_PATH_STEPS.find(step => !passedKeys.has(getAssessmentPathKey(step))) ||
       ASSESSMENT_PATH_STEPS.at(-1);
   }
 
-  function getCheckpointPathStatus(stage, currentStep = {}) {
+  function getCheckpointPathStatus(stage, currentStep = {}, options = {}) {
     const currentKey = getAssessmentPathKey(currentStep);
     const index = Math.max(0, ASSESSMENT_PATH_STEPS.findIndex(step => getAssessmentPathKey(step) === currentKey));
     const nextStep = ASSESSMENT_PATH_STEPS[index + 1] || null;
+    const configured = configuredCoverageTotals[stage?.id];
+    const levelOneCompleteWithLevelTwoReady =
+      options.coverageComplete &&
+      Number(currentStep.level || 1) === 1 &&
+      configured?.levels?.[2]?.length;
+    const finalStepComplete = levelOneCompleteWithLevelTwoReady
+      ? false
+      : options.coverageComplete || !nextStep;
+    const nextActionLabel = levelOneCompleteWithLevelTwoReady
+      ? "Start Level 2"
+      : finalStepComplete
+        ? "Move to next skill"
+        : ASSESSMENT_PATH_STEPS[index].nextLabel;
     return {
       level: Number(currentStep.level || 1) >= 2 ? 2 : 1,
       phase: Number(currentStep.phase || 1) === 2 ? 2 : 1,
       label: getAssessmentPathLabel(currentStep),
       nextStep,
-      nextActionLabel: nextStep ? ASSESSMENT_PATH_STEPS[index].nextLabel : "Move to next skill",
-      finalStepComplete: !nextStep,
+      nextActionLabel,
+      finalStepComplete,
       nextSkillLabel: skillTree[(skillTree.findIndex(item => item.id === stage?.id) + 1)]?.label || ""
     };
   }
@@ -3901,9 +3968,10 @@ export default function App() {
     return row?.mastered || row?.correct > 0 ? 5 : 3;
   }
 
-  function getCoveredStageItemKeys(stage) {
+  function getCoveredStageItemKeys(stage, options = {}) {
     const expectedKeys = getCoverageItemKeysForStage(stage, {
-      finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null
+      finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null,
+      level: options.level || null
     });
     const covered = new Set(
       Object.values(itemMastery || {})
@@ -4900,7 +4968,7 @@ export default function App() {
         phase: Number(currentRoundRecords.at(-1)?.itemPhase || 1) === 2 ? 2 : 1
       }
       : getNextAssessmentPathStep(stage);
-    const pathStatus = getCheckpointPathStatus(stage, currentStep);
+    const pathStatus = getCheckpointPathStatus(stage, currentStep, { coverageComplete });
     const effectivePassed = passed;
 
     return {
