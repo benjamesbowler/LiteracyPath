@@ -77,6 +77,7 @@ import {
 import { getHfwRuntimeEligibilityIssues } from "./data/hfwRuntimeEligibility";
 import { getBlendsRuntimeEligibilityIssues } from "./data/blendsRuntimeEligibility";
 import { getDigraphsRuntimeEligibilityIssues } from "./data/digraphsRuntimeEligibility";
+import { getLongVowelsRuntimeEligibilityIssues } from "./data/longVowelsRuntimeEligibility";
 import { isHighFrequencyWordSkill } from "./data/highFrequencyWordBands";
 import {
   buildFinalSoundAvailableWordMap,
@@ -115,6 +116,7 @@ import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestio
 import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.generated.js";
 import { blendsAssessmentQuestions } from "./data/generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "./data/generated/digraphsAssessmentQuestions.generated.js";
+import { longVowelsAssessmentQuestions } from "./data/generated/longVowelsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
@@ -1223,6 +1225,10 @@ function isQuestionValid(q) {
     const digraphIssues = getDigraphsRuntimeEligibilityIssues(q, candidateStage.id);
     if (digraphIssues.length > 0) return false;
   }
+  if (candidateStage?.id === "long_vowels") {
+    const longVowelIssues = getLongVowelsRuntimeEligibilityIssues(q, candidateStage.id);
+    if (longVowelIssues.length > 0) return false;
+  }
   if (
     PURE_EARLY_PHONICS_SKILL_IDS.has(candidateSkillId) &&
     !isRuntimeEligibleEarlySkillQuestion(q, {
@@ -1323,6 +1329,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...hfwAssessmentQuestions,
   ...blendsAssessmentQuestions,
   ...digraphsAssessmentQuestions,
+  ...longVowelsAssessmentQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,

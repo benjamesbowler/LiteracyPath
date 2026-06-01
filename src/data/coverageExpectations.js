@@ -3,6 +3,11 @@ import {
   BEGINNING_BLEND_PATTERNS
 } from "./blendPatternData.js";
 import { ALL_DIGRAPH_PATTERNS } from "./digraphPatternData.js";
+import {
+  ALL_LONG_VOWEL_PATTERNS,
+  LONG_VOWEL_TEAM_PATTERNS,
+  SILENT_E_PATTERNS
+} from "./longVowelPatternData.js";
 
 export const initialSoundExpectedItemKeys = [
   "a",
@@ -219,5 +224,16 @@ export const coverageExpectations = {
     total: ALL_DIGRAPH_PATTERNS.length,
     unit: "digraph patterns",
     note: "Digraphs uses replacement-only content: Level 1 selects image-backed words that use the target digraph; Level 2 completes image-backed words with the correct digraph."
+  },
+  long_vowels: {
+    itemType: "phonics_pattern",
+    itemKeys: ALL_LONG_VOWEL_PATTERNS,
+    levels: {
+      1: SILENT_E_PATTERNS,
+      2: LONG_VOWEL_TEAM_PATTERNS
+    },
+    total: ALL_LONG_VOWEL_PATTERNS.length,
+    unit: "long-vowel patterns",
+    note: "Long Vowels and Silent E uses replacement-only content: Level 1 selects silent-e spelling patterns; Level 2 completes image-backed words with long-vowel teams and related long-vowel spellings."
   }
 };

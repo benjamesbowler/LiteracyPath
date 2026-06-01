@@ -54,6 +54,7 @@ import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQu
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
+import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -114,6 +115,7 @@ const runtimeQuestionBanks = [
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
+  ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
   ["skillLevelGapQuestions", skillLevelGapQuestions],
   ["hfwLevel2Questions", hfwLevel2Questions],
   ["generatedQuestions", generatedQuestions],
@@ -423,7 +425,8 @@ function isQuestionValid(question) {
   const allowsPendingReplacementImages = [
     "hfw_no_audio_2026_06",
     "blends_replacement_2026_06",
-    "digraphs_replacement_2026_06"
+    "digraphs_replacement_2026_06",
+    "long_vowels_replacement_2026_06"
   ].includes(question.source);
   if (question.questionType === "ixl_template" && String(question.templateType || question.formatType || "").toUpperCase() === "PUT_SOUNDS_IN_ORDER") {
     return Array.isArray(question.soundTiles) &&

@@ -29,6 +29,7 @@ import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js"
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
+import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -54,6 +55,7 @@ const banks = [
   safeContentExpansionQuestions,
   hfwAssessmentQuestions,
   digraphsAssessmentQuestions,
+  longVowelsAssessmentQuestions,
   templateQuestions,
   templateExpansion,
   templateExpansion2,

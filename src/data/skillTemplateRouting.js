@@ -7,6 +7,10 @@ import {
   DIGRAPHS_ALLOWED_FORMATS,
   getDigraphsRuntimeEligibilityIssues
 } from "./digraphsRuntimeEligibility.js";
+import {
+  LONG_VOWELS_ALLOWED_FORMATS,
+  getLongVowelsRuntimeEligibilityIssues
+} from "./longVowelsRuntimeEligibility.js";
 
 const normalize = value =>
   String(value || "")
@@ -92,6 +96,16 @@ const ROUTING_RULES = {
     allowedFormats: DIGRAPHS_ALLOWED_FORMATS,
     digraphsOnly: true,
     singleTemplate: false
+  },
+  long_vowels: {
+    allowedFormats: LONG_VOWELS_ALLOWED_FORMATS,
+    longVowelsOnly: true,
+    singleTemplate: false
+  },
+  long_vowels_silent_e: {
+    allowedFormats: LONG_VOWELS_ALLOWED_FORMATS,
+    longVowelsOnly: true,
+    singleTemplate: false
   }
 };
 
@@ -141,6 +155,10 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   if (rule.digraphsOnly) {
     const digraphIssues = getDigraphsRuntimeEligibilityIssues(question, stageId);
     if (digraphIssues.length) return `Digraphs routing violation: ${digraphIssues.join("; ")}`;
+  }
+  if (rule.longVowelsOnly) {
+    const longVowelIssues = getLongVowelsRuntimeEligibilityIssues(question, stageId);
+    if (longVowelIssues.length) return `Long Vowels routing violation: ${longVowelIssues.join("; ")}`;
   }
   return "";
 }

@@ -152,8 +152,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Long Vowels and Silent E",
     aliases: ["long vowels and silent e", "long vowels", "silent e"],
     levels: {
-      1: { designed: true, rule: "Simple a_e, i_e, o_e, u_e, e_e.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] },
-      2: { designed: true, rule: "Short/long minimal-pair contrasts.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] }
+      1: { designed: true, rule: "Image-backed silent-e pattern choice using a_e, e_e, i_e, o_e, and u_e.", allowedFormats: ["LONG_VOWEL_SILENT_E_PATTERN"] },
+      2: { designed: true, rule: "Image-backed long-vowel spelling completion using vowel teams and related long-vowel spellings.", allowedFormats: ["LONG_VOWEL_TEAM_COMPLETE"] }
     }
   },
   {

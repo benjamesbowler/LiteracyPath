@@ -32,6 +32,7 @@ import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQu
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
+import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -53,6 +54,10 @@ import {
   getDigraphsRuntimeEligibilityIssues,
   isRuntimeEligibleDigraphsQuestion
 } from "../src/data/digraphsRuntimeEligibility.js";
+import {
+  getLongVowelsRuntimeEligibilityIssues,
+  isRuntimeEligibleLongVowelsQuestion
+} from "../src/data/longVowelsRuntimeEligibility.js";
 import {
   getFinalSoundsLevel1QuestionIssues,
   isFinalSoundsLevel1Question
@@ -80,6 +85,7 @@ const questionBanks = [
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
+  ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -421,6 +427,7 @@ export function getCoreSkillId(question = {}) {
   if (id.includes("cvc") || label.includes("cvc") || label.includes("short vowel")) return "cvc_short_vowels";
   if (id === "blends" || label.includes("blend")) return "blends";
   if (id === "digraphs" || label.includes("digraph")) return "digraphs";
+  if (id === "long_vowels" || id === "long_vowels_silent_e" || label.includes("long vowel") || label.includes("silent e")) return "long_vowels_silent_e";
   return "";
 }
 
@@ -459,6 +466,10 @@ export function questionFilterReason(question = {}) {
     if (skillId === "digraphs") {
       const digraphIssues = getDigraphsRuntimeEligibilityIssues(question, skillId);
       return digraphIssues.length > 0 ? `digraphs runtime ineligible: ${digraphIssues.join("; ")}` : "";
+    }
+    if (skillId === "long_vowels_silent_e") {
+      const longVowelIssues = getLongVowelsRuntimeEligibilityIssues(question, skillId);
+      return longVowelIssues.length > 0 ? `long vowels runtime ineligible: ${longVowelIssues.join("; ")}` : "";
     }
     const eligibilityIssues = getEarlySkillRuntimeEligibilityIssues(question, {
       skillId: normalizeEarlySkillId(skillId),
@@ -545,6 +556,12 @@ export function selectableRuntimeQuestionsForSkill(skillId) {
     return buildRuntimeQuestionsForSkill(skillId).filter(question =>
       (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
       isRuntimeEligibleDigraphsQuestion(question, skillId)
+    );
+  }
+  if (skillId === "long_vowels_silent_e") {
+    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+      (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
+      isRuntimeEligibleLongVowelsQuestion(question, skillId)
     );
   }
   return buildRuntimeQuestionsForSkill(skillId).filter(question =>
