@@ -4570,6 +4570,24 @@ select:focus {
   border-color: var(--lp-color-success);
 }
 
+.sound-order-empty-slot {
+  width: 46px;
+  height: 58px;
+  border-bottom: 4px solid #5aa99a;
+  display: inline-block;
+}
+
+.hfw-letter-tile-row {
+  grid-template-columns: repeat(12, minmax(34px, 1fr));
+}
+
+.hfw-letter-tile-row .sound-order-tile {
+  min-height: 52px;
+  border-radius: 12px;
+  font-size: 24px;
+  text-transform: lowercase;
+}
+
 .ixl-template-actions {
   justify-content: center;
 }

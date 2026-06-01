@@ -117,6 +117,7 @@ import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.
 import { blendsAssessmentQuestions } from "./data/generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "./data/generated/digraphsAssessmentQuestions.generated.js";
 import { longVowelsAssessmentQuestions } from "./data/generated/longVowelsAssessmentQuestions.generated.js";
+import { grammarAssessmentQuestions } from "./data/generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
@@ -1330,6 +1331,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...blendsAssessmentQuestions,
   ...digraphsAssessmentQuestions,
   ...longVowelsAssessmentQuestions,
+  ...grammarAssessmentQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,

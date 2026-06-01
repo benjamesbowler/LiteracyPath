@@ -55,6 +55,7 @@ import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuest
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
 import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsAssessmentQuestions.generated.js";
+import { grammarAssessmentQuestions } from "../src/data/generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -116,6 +117,7 @@ const runtimeQuestionBanks = [
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
   ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
+  ["grammarAssessmentQuestions", grammarAssessmentQuestions],
   ["skillLevelGapQuestions", skillLevelGapQuestions],
   ["hfwLevel2Questions", hfwLevel2Questions],
   ["generatedQuestions", generatedQuestions],
@@ -141,7 +143,10 @@ const coverageEnabledStages = new Set([
   "Digraphs",
   "Long Vowels and Silent E",
   "Vowel Teams",
-  "R-Controlled Vowels"
+  "R-Controlled Vowels",
+  "Nouns",
+  "Verbs",
+  "Adjectives"
 ]);
 
 const vowelTeamPatterns = ["ai", "ay", "ee", "ea", "oa", "ow", "igh", "ie", "oo", "ue", "ew", "oi", "oy", "ou", "aw"];
@@ -496,6 +501,7 @@ function isQuestionValid(question) {
 }
 
 function publicAssetExists(assetPath) {
+  if (String(assetPath || "").startsWith("data:image/")) return true;
   return Boolean(
     assetPath &&
     String(assetPath).startsWith("/") &&

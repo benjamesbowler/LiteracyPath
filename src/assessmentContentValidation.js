@@ -223,6 +223,14 @@ function audioIssue(question, assetExists) {
     if (missing.length) return `missing approved card audio: ${missing.map(card => card.word).join(", ")}`;
   }
 
+  if (formatType === "GRAMMAR_SENTENCE_FIT" && question?.requireOptionAudio === true) {
+    const options = question?.answerOptions || [];
+    const missing = options.filter(option =>
+      !getApprovedAudioPath(option?.word || option?.value || option?.label, option?.audio || option?.audioPath || option?.audioUrl || "")
+    );
+    if (missing.length) return `missing approved answer audio: ${missing.map(option => option.word || option.label || option.value).join(", ")}`;
+  }
+
   const cards = question?.imageCards || [];
   const cardAudioCount = cards.filter(card => {
     const explicitAudioPath = card?.audio || card?.audioPath || card?.audioUrl || "";

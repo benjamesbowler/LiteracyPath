@@ -24,6 +24,13 @@ const HFW_ALLOWED_FORMATS = new Set([
   "HFW_LETTER_BUILD"
 ]);
 
+const GRAMMAR_ALLOWED_FORMATS = new Set([
+  "GRAMMAR_IMAGE_CHOICE",
+  "GRAMMAR_SENTENCE_FIT"
+]);
+
+const GRAMMAR_REPLACEMENT_SOURCE = "grammar_replacement_2026_06";
+
 export const APPROVED_SIGHT_WORDS = new Set([
   "a", "again", "after", "all", "am", "an", "and", "any", "are", "around", "as", "ask", "asked", "away",
   "be", "before", "big", "blue", "but", "by", "came", "can", "cold", "come", "could", "down", "every",
@@ -106,6 +113,21 @@ const ROUTING_RULES = {
     allowedFormats: LONG_VOWELS_ALLOWED_FORMATS,
     longVowelsOnly: true,
     singleTemplate: false
+  },
+  nouns: {
+    allowedFormats: GRAMMAR_ALLOWED_FORMATS,
+    grammarPart: "noun",
+    singleTemplate: false
+  },
+  verbs: {
+    allowedFormats: GRAMMAR_ALLOWED_FORMATS,
+    grammarPart: "verb",
+    singleTemplate: false
+  },
+  adjectives: {
+    allowedFormats: GRAMMAR_ALLOWED_FORMATS,
+    grammarPart: "adjective",
+    singleTemplate: false
   }
 };
 
@@ -127,6 +149,55 @@ function promptLooksLikeEndingSound(question = {}) {
 
 function promptLooksLikeInitialSound(question = {}) {
   return /\b(start|starts|starting|first|beginning|initial)\b/.test(String([question.prompt, question.question, question.spokenPrompt].filter(Boolean).join(" ")).toLowerCase());
+}
+
+function optionValue(option = {}) {
+  if (option && typeof option === "object") return option.value || option.word || option.label || option.text || "";
+  return option || "";
+}
+
+function optionPart(option = {}) {
+  return String(option?.partOfSpeech || "").toLowerCase();
+}
+
+function hasOptionAudio(option = {}) {
+  return Boolean(option?.audio || option?.audioPath || option?.audioUrl);
+}
+
+function getGrammarRuntimeEligibilityIssues(question = {}, expectedPart = "") {
+  const issues = [];
+  const format = getQuestionRoutingFormat(question);
+  const choices = Array.isArray(question.choices) ? question.choices : [];
+  const answer = String(question.answer || question.correctAnswer || "").toLowerCase();
+
+  if (question.source !== GRAMMAR_REPLACEMENT_SOURCE) issues.push("Grammar skills must use the replacement bank");
+  if (!GRAMMAR_ALLOWED_FORMATS.has(format)) issues.push(`${format} is not an allowed grammar replacement format`);
+  if (question.partOfSpeech !== expectedPart) issues.push(`expected ${expectedPart} question`);
+  if (!answer || !choices.map(choice => String(choice).toLowerCase()).includes(answer)) issues.push("correct answer is missing from choices");
+
+  if (format === "GRAMMAR_IMAGE_CHOICE") {
+    const cards = question.imageCards || [];
+    const matchingCards = cards.filter(card => optionPart(card) === expectedPart);
+    if (question.questionType !== "visual_card_choice") issues.push("Level 1 grammar questions must use visual cards");
+    if (cards.length !== 4) issues.push("Level 1 grammar questions need exactly four image cards");
+    if (!cards.every(card => card.image || card.imagePath || card.imageUrl)) issues.push("Level 1 grammar image cards need images");
+    if (matchingCards.length !== 1) issues.push(`Level 1 grammar questions need exactly one ${expectedPart} card`);
+    if (matchingCards[0] && String(optionValue(matchingCards[0])).toLowerCase() !== answer) {
+      issues.push(`the only ${expectedPart} card must be the correct answer`);
+    }
+  }
+
+  if (format === "GRAMMAR_SENTENCE_FIT") {
+    const options = question.answerOptions || [];
+    if (question.questionType !== "ixl_template") issues.push("Level 2 grammar questions must use the word-tile template");
+    if (!question.sentence || !String(question.sentence).includes("___")) issues.push("Level 2 grammar questions need a sentence with a blank");
+    if (!(question.imagePath || question.imageUrl || question.targetImage)) issues.push("Level 2 grammar questions need a sentence image");
+    if (options.length !== 4) issues.push("Level 2 grammar questions need exactly four word choices");
+    if (!options.every(option => optionPart(option) === expectedPart)) issues.push(`Level 2 grammar choices must all be ${expectedPart}s`);
+    if (!options.every(hasOptionAudio)) issues.push("Level 2 grammar choices must all include audio");
+  }
+
+  return [...new Set(issues)];
 }
 
 export function getQuestionRoutingIssue(question = {}, stageId = "") {
@@ -159,6 +230,10 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   if (rule.longVowelsOnly) {
     const longVowelIssues = getLongVowelsRuntimeEligibilityIssues(question, stageId);
     if (longVowelIssues.length) return `Long Vowels routing violation: ${longVowelIssues.join("; ")}`;
+  }
+  if (rule.grammarPart) {
+    const grammarIssues = getGrammarRuntimeEligibilityIssues(question, rule.grammarPart);
+    if (grammarIssues.length) return `Grammar routing violation: ${grammarIssues.join("; ")}`;
   }
   return "";
 }

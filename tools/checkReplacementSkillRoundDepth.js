@@ -19,7 +19,10 @@ const SKILLS = [
   { id: "hfw_76_100", label: "High-Frequency Words 76-100", minTotal: 60, forbidQuestionAudio: true },
   { id: "blends", label: "Blends", minTotal: 60 },
   { id: "digraphs", label: "Digraphs", minTotal: 60, requireDigraphMedia: true },
-  { id: "long_vowels_silent_e", label: "Long Vowels and Silent E", minTotal: 60 }
+  { id: "long_vowels_silent_e", label: "Long Vowels and Silent E", minTotal: 60 },
+  { id: "nouns", label: "Nouns", minTotal: 60, allowAnswerOptionAudio: true },
+  { id: "verbs", label: "Verbs", minTotal: 60, allowAnswerOptionAudio: true },
+  { id: "adjectives", label: "Adjectives", minTotal: 60, allowAnswerOptionAudio: true }
 ];
 
 function stepKey(question = {}) {
@@ -92,7 +95,7 @@ for (const skill of SKILLS) {
   if (duplicateSignatureCount) failures.push(`${skill.label}: ${duplicateSignatureCount} duplicate runtime signatures`);
   if (contentIssueRows.length) failures.push(`${skill.label}: ${contentIssueRows.length} content issue rows`);
   if (skill.forbidQuestionAudio && questionAudioRows.length) failures.push(`${skill.label}: ${questionAudioRows.length} HFW rows include question audio`);
-  if (answerOptionAudioRows.length) failures.push(`${skill.label}: ${answerOptionAudioRows.length} rows include answer-option audio`);
+  if (!skill.allowAnswerOptionAudio && answerOptionAudioRows.length) failures.push(`${skill.label}: ${answerOptionAudioRows.length} rows include answer-option audio`);
   if (missingMediaRows.length) failures.push(`${skill.label}: ${missingMediaRows.length} rows reference missing imported media`);
 
   summaryRows.push([

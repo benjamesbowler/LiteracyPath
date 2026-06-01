@@ -174,10 +174,34 @@ export const managedAssessmentSkillDepthConfig = [
       2: { designed: true, rule: "Mixed r-controlled word discrimination.", allowedFormats: ["DECODING", "MULTIPLE_CHOICE"] }
     }
   },
+  {
+    skillId: "nouns",
+    skillName: "Nouns",
+    aliases: ["nouns"],
+    levels: {
+      1: { designed: true, rule: "Choose the noun from four image cards with three non-noun distractors.", allowedFormats: ["GRAMMAR_IMAGE_CHOICE"] },
+      2: { designed: true, rule: "Choose the noun that best completes an image-backed sentence from four audio-supported noun word tiles.", allowedFormats: ["GRAMMAR_SENTENCE_FIT"] }
+    }
+  },
+  {
+    skillId: "verbs",
+    skillName: "Verbs",
+    aliases: ["verbs"],
+    levels: {
+      1: { designed: true, rule: "Choose the verb from four image cards with three non-verb distractors.", allowedFormats: ["GRAMMAR_IMAGE_CHOICE"] },
+      2: { designed: true, rule: "Choose the verb that best completes an image-backed sentence from four audio-supported verb word tiles.", allowedFormats: ["GRAMMAR_SENTENCE_FIT"] }
+    }
+  },
+  {
+    skillId: "adjectives",
+    skillName: "Adjectives",
+    aliases: ["adjectives"],
+    levels: {
+      1: { designed: true, rule: "Choose the adjective from four image cards with three non-adjective distractors.", allowedFormats: ["GRAMMAR_IMAGE_CHOICE"] },
+      2: { designed: true, rule: "Choose the adjective that best completes an image-backed sentence from four audio-supported adjective word tiles.", allowedFormats: ["GRAMMAR_SENTENCE_FIT"] }
+    }
+  },
   ...[
-    ["nouns", "Nouns"],
-    ["verbs", "Verbs"],
-    ["adjectives", "Adjectives"],
     ["prepositions_of_place", "Prepositions of Place"],
     ["plurals", "Plurals"],
     ["prefixes_suffixes", "Prefixes and Suffixes"],
