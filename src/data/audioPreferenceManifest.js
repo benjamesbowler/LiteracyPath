@@ -22,6 +22,18 @@ function phraseAudioPath(phrase) {
   return `/audio/child-mode/phrases/${phrase}.mp3`;
 }
 
+function cleanHumanInstructionAudioPath(file) {
+  return `/audio/child-mode/clean-human/instructions/${file}.mp3`;
+}
+
+function cleanHumanGraphemeAudioPath(group, file) {
+  return `/audio/child-mode/clean-human/graphemes/${group}/${file}.mp3`;
+}
+
+function cleanHumanMorphologyAudioPath(file) {
+  return `/audio/child-mode/clean-human/morphology/${file}.mp3`;
+}
+
 function cleanAudioPath(key, category, fallbackPath) {
   const cleanKey = String(key || "").replace(/^hfw:/, "");
   const clean = getKimiCleanAudio(cleanKey);
@@ -94,10 +106,17 @@ const approvedWordAudioKeys = [
 ];
 
 const approvedHfwAudioKeys = [
-  "a", "all", "and", "at", "big", "but", "can", "for", "he", "his",
-  "i", "in", "is", "it", "of", "on", "said", "she", "that", "the",
-  "then", "they", "this", "to", "under", "was", "we", "with", "you",
-  "did", "her", "time"
+  "the", "of", "and", "a", "to", "in", "is", "you", "that", "it",
+  "he", "for", "was", "on", "are", "as", "with", "his", "they", "at",
+  "be", "this", "from", "i", "have", "or", "by", "one", "had", "not",
+  "but", "what", "all", "were", "we", "when", "your", "can", "said", "there",
+  "use", "an", "each", "which", "she", "do", "how", "their", "if", "will",
+  "up", "other", "about", "out", "many", "then", "them", "these", "so", "some",
+  "her", "would", "make", "like", "into", "him", "has", "two", "more", "go",
+  "no", "way", "could", "my", "than", "first", "been", "call", "who", "its",
+  "now", "find", "long", "down", "day", "did", "get", "come", "made", "may",
+  "part", "over", "new", "sound", "take", "only", "little", "work", "know", "place",
+  "time", "under", "big"
 ];
 
 const approvedPhraseAudioKeys = [
@@ -180,17 +199,7 @@ const blockedWordAudio = {
   }
 };
 
-const blockedHfwAudio = {
-  for: {
-    fallbackPath: "/audio/child-mode/clean-human/hfw/for.mp3",
-    reviewNeededPaths: [
-      "/audio/child-mode/clean-human/hfw/for.mp3",
-      "/audio/child-mode/hfw/for.mp3"
-    ],
-    source: "live HFW audio review",
-    notes: "Blocked from HFW audio-recognition after live testing showed the audio spelled the letters instead of saying the whole word."
-  }
-};
+const blockedHfwAudio = {};
 
 const approvedFinalSoundsBWordAudio = {
   bib: "/media/final-sounds/audio/b/bib.mp3",
@@ -226,8 +235,116 @@ const approvedAssessmentWordAudioOverrides = {
   sip: "/audio/child-mode/clean-human/phrases/sip.mp3"
 };
 
+const approvedLowerSkillInstructionAudio = [
+  ["Choose the word that completes the sentence.", "choose_word_completes_sentence"],
+  ["Build the missing word.", "build_missing_word"],
+  ["Select the blend that completes the word.", "select_blend_completes_word"],
+  ["Choose the noun.", "choose_noun"],
+  ["Choose the noun that best fits the sentence.", "choose_noun_fits_sentence"],
+  ["Choose the verb.", "choose_verb"],
+  ["Choose the verb that best fits the sentence.", "choose_verb_fits_sentence"],
+  ["Choose the adjective.", "choose_adjective"],
+  ["Choose the adjective that best fits the sentence.", "choose_adjective_fits_sentence"],
+  ["Which word or phrase tells where something is?", "which_word_tells_where"],
+  ["Which more precise word or phrase tells where something is?", "which_more_precise_where"],
+  ["Which word tells us where something is?", "which_word_where"],
+  ["Which word is plural?", "which_word_plural"],
+  ["Find the plural noun.", "find_plural_noun"],
+  ["What is the correct plural?", "what_correct_plural"],
+  ["Choose the plural noun.", "choose_plural_noun"],
+  ["Which pair shares the same vowel team sound?", "which_same_vowel_team"],
+  ["Which two words have the same r-controlled vowel sound?", "which_same_rcontrolled"]
+];
+
+const approvedLowerSkillGraphemeAudio = [
+  ...["b", "c", "d", "f", "g", "h", "j", "l", "m", "n", "p", "r", "s", "t", "v", "w", "y", "z"]
+    .map(key => ({ key, text: `/${key}/`, group: "consonants", file: key })),
+  ...["short_a", "short_e", "short_i", "short_o", "short_u"]
+    .map(key => ({ key, text: key.replace("_", " "), group: "short_vowels", file: key })),
+  ...["sh", "ch", "th", "wh", "ph", "ck", "ng", "ll", "ss", "ff", "nd", "mp", "sk", "ft", "st"]
+    .map(key => ({ key, text: key, group: "digraphs_blends", file: key })),
+  ...["ai", "ay", "ea", "ee", "eigh", "ew", "ie", "igh", "oa", "oe", "oi", "oo", "ou", "ow", "oy", "ue", "ui"]
+    .map(key => ({ key, text: key, group: "vowel_teams", file: key })),
+  ...["a_e", "e_e", "i_e", "o_e", "u_e"]
+    .map(key => ({ key, text: key.replace("_", ", silent "), group: "silent_e", file: key })),
+  ...["ar", "er", "ir", "or", "ur"]
+    .map(key => ({ key, text: key, group: "r_controlled", file: key }))
+];
+
+const approvedLowerSkillMorphologyAudio = [
+  ["not kind", "not_kind"],
+  ["full of care", "full_of_care"],
+  ["without care", "without_care"],
+  ["play again", "play_again"],
+  ["care again", "care_again"],
+  ["inside", "inside"],
+  ["under", "under"],
+  ["beside", "beside"],
+  ["above", "above"],
+  ["below", "below"],
+  ["between", "between"],
+  ["near", "near"],
+  ["before", "before"],
+  ["after", "after"],
+  ["right", "right"],
+  ["plain", "plain"],
+  ["ate", "ate"],
+  ["eight", "eight"],
+  ["hole", "hole"],
+  ["whole", "whole"],
+  ["know", "know"],
+  ["no", "no"],
+  ["plane", "plane"],
+  ["to", "to"],
+  ["too", "too"],
+  ["two", "two"],
+  ["write", "write"]
+];
+
 export const audioPreferenceManifest = Object.fromEntries([
   ...Object.entries(kimiVocabulary500AudioPreferences),
+  ...approvedLowerSkillInstructionAudio.map(([text, file]) => {
+    const key = normalizeAudioPreferenceKey(text);
+    return [
+      key,
+      approvedPreference({
+        key,
+        word: text,
+        category: "instructions",
+        fallbackPath: cleanHumanInstructionAudioPath(file),
+        source: "Kimi Agent Clean Child Audio Prompts",
+        notes: "Approved clean lower-skill assessment instruction prompt."
+      })
+    ];
+  }),
+  ...approvedLowerSkillGraphemeAudio.map(item => {
+    const key = normalizeAudioPreferenceKey(item.key);
+    return [
+      key,
+      approvedPreference({
+        key,
+        word: item.text,
+        category: "graphemes",
+        fallbackPath: cleanHumanGraphemeAudioPath(item.group, item.file),
+        source: "Kimi Agent Clean Child Audio Prompts",
+        notes: "Approved clean lower-skill grapheme or sound option audio."
+      })
+    ];
+  }),
+  ...approvedLowerSkillMorphologyAudio.map(([text, file]) => {
+    const key = normalizeAudioPreferenceKey(text);
+    return [
+      key,
+      approvedPreference({
+        key,
+        word: text,
+        category: "morphology",
+        fallbackPath: cleanHumanMorphologyAudioPath(file),
+        source: "Kimi Agent Clean Child Audio Prompts",
+        notes: "Approved clean lower-skill morphology, preposition, or homophone option audio."
+      })
+    ];
+  }),
   ...approvedWordAudioKeys.map(word => [
     word,
     approvedPreference({
@@ -382,6 +499,12 @@ for (const preference of Object.values(audioPreferenceManifest)) {
 }
 
 export function getAudioPreference(keyOrText) {
+  const rawKey = String(keyOrText || "").trim();
+  if (/^hfw:/i.test(rawKey)) {
+    const normalizedHfwKey = normalizeAudioPreferenceKey(rawKey.replace(/^hfw:/i, ""));
+    return audioPreferenceManifest[`hfw:${normalizedHfwKey}`] || null;
+  }
+
   const normalizedKey = normalizeAudioPreferenceKey(keyOrText);
   return audioPreferenceManifest[normalizedKey] ||
     audioPreferenceManifest[`hfw:${normalizedKey}`] ||

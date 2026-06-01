@@ -4109,6 +4109,7 @@ export function CheckpointDecisionPage({
   const initialLevel = checkpoint.initialSoundDebug?.level || 1;
   const currentLevelMastered = Boolean(checkpoint.initialSoundDebug?.currentLevelMastered);
   const levelOneMastered = Boolean(checkpoint.initialSoundDebug?.levelOneMastered);
+  const finalSoundsLevelOneMastered = Boolean(checkpoint.masteryDepth?.levelOneMastered);
   const pathStatus = checkpoint.pathStatus || {
     level: initialLevel || 1,
     phase: 1,
@@ -4285,7 +4286,9 @@ export function CheckpointDecisionPage({
               <h3>{checkpoint.masteryDepth.label} depth</h3>
               <p className="muted-text">
                 Successful rounds: {checkpoint.masteryDepth.successfulRounds}/{checkpoint.masteryDepth.requiredSuccessfulRounds}.
-                Level 2 stays locked until every Level 1 sound has enough correct examples.
+                {finalSoundsLevelOneMastered
+                  ? " Level 1 depth is complete. Level 2 is unlocked."
+                  : " Level 2 stays locked until every Level 1 sound has enough correct examples."}
               </p>
               <div className="word-chip-row">
                 {Object.values(checkpoint.masteryDepth.bySound || {}).map(row => (
@@ -4918,10 +4921,14 @@ export function AssessmentPage({
     ...normalizeAnswerOption(choice),
     media: getAnswerOptionMedia(choice)
   }));
+  const getChoiceAudioText = choice =>
+    isListenChooseVowelItem && /^[aeiou]$/i.test(choice.label)
+      ? `short ${choice.label.toLowerCase()}`
+      : choice.label;
   const textChoiceAudioPaths = Object.fromEntries(
     normalizedChoices.map(choice => [
       choice.value,
-      getApprovedAudioPath(choice.label, choice.media.audio || "")
+      getApprovedAudioPath(getChoiceAudioText(choice), choice.media.audio || "")
     ])
   );
   const showTextChoiceAudio =
@@ -5035,7 +5042,7 @@ export function AssessmentPage({
                   >
                     {showTextChoiceAudio && (
                       <AssessmentAudioButton
-                        text={choice.label}
+                        text={getChoiceAudioText(choice)}
                         audioPath={textChoiceAudioPaths[choice.value]}
                         speakText={speakText}
                         label={`Listen to ${choice.label}`}
