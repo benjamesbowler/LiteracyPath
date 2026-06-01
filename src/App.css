@@ -11171,6 +11171,197 @@ select:focus {
   font-weight: 900;
 }
 
+.story-quest-learn-page {
+  padding: 14px;
+  overflow: auto;
+}
+
+.learn-story-quest-library,
+.story-quest-player {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.learn-story-quest-library {
+  display: grid;
+  gap: 18px;
+}
+
+.learn-story-quest-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.story-quest-kicker {
+  color: #35756f;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.learn-story-quest-copy h2,
+.learn-story-quest-card h3,
+.story-quest-header h2 {
+  margin: 0;
+  color: #172033;
+  letter-spacing: 0;
+}
+
+.learn-story-quest-copy p,
+.learn-story-quest-card p,
+.learn-story-quest-card span,
+.story-quest-header p {
+  margin: 0;
+  color: #667085;
+  font-weight: 700;
+}
+
+.learn-story-quest-list {
+  display: grid;
+  gap: 12px;
+}
+
+.learn-story-quest-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.story-quest-player {
+  display: grid;
+  gap: 14px;
+  min-height: min(780px, calc(100dvh - 170px));
+}
+
+.story-quest-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+}
+
+.story-quest-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.story-quest-progress {
+  display: grid;
+  gap: 6px;
+  color: #667085;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.story-quest-progress > div {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.story-quest-progress > div > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #4f63d7;
+}
+
+.story-quest-image,
+.story-quest-image-placeholder {
+  width: min(100%, 720px);
+  aspect-ratio: 16 / 9;
+  justify-self: center;
+  border: 1px solid #d9e2ec;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.story-quest-image {
+  display: block;
+  object-fit: contain;
+}
+
+.story-quest-image-placeholder {
+  display: grid;
+  place-items: center;
+  color: #667085;
+  font-family: var(--lp-font-reading);
+  font-size: clamp(1.2rem, 2.4vw, 2rem);
+  font-weight: 900;
+  text-align: center;
+}
+
+.story-quest-read-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.story-quest-audio-button {
+  min-width: 160px;
+}
+
+.story-quest-text {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  background: #fffdf8;
+  font-family: var(--lp-font-reading);
+}
+
+.story-quest-text p {
+  margin: 0;
+  color: #172033;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.story-quest-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.story-quest-choice-button {
+  min-height: 74px;
+  padding: 16px;
+  border: 1px solid #b9c5da;
+  border-radius: 8px;
+  background: #eef2ff;
+  color: #172033;
+  font-family: var(--lp-font-reading);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 900;
+}
+
+.story-quest-choice-button:hover:not(:disabled) {
+  border-color: #4f63d7;
+  background: #e0e7ff;
+}
+
+.story-quest-choice-button:disabled,
+.story-quest-audio-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
 .learn-area-page {
   width: min(100%, 1540px);
   min-height: calc(100dvh - 150px);
@@ -11835,6 +12026,16 @@ select:focus {
   .learn-cycle-groups {
     min-height: 0;
   }
+
+  .story-quest-read-row,
+  .story-quest-header,
+  .learn-story-quest-card {
+    grid-template-columns: 1fr;
+  }
+
+  .story-quest-header-actions {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 760px) {
@@ -11847,6 +12048,14 @@ select:focus {
   .learn-progress-strip {
     right: 116px;
     left: 6px;
+  }
+
+  .story-quest-learn-page {
+    padding: 8px;
+  }
+
+  .story-quest-choice-grid {
+    grid-template-columns: 1fr;
   }
 
   .learn-fullscreen-footer,
