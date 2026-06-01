@@ -53,6 +53,7 @@ import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js"
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
+import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -112,6 +113,7 @@ const runtimeQuestionBanks = [
   ["generatedEarlySkillQuestions", generatedEarlySkillQuestions],
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
+  ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
   ["skillLevelGapQuestions", skillLevelGapQuestions],
   ["hfwLevel2Questions", hfwLevel2Questions],
   ["generatedQuestions", generatedQuestions],
@@ -143,7 +145,7 @@ const coverageEnabledStages = new Set([
 const vowelTeamPatterns = ["ai", "ay", "ee", "ea", "oa", "ow", "igh", "ie", "oo", "ue", "ew", "oi", "oy", "ou", "aw"];
 const rControlledPatterns = ["ar", "er", "ir", "or", "ur"];
 const blendPatterns = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];
-const digraphPatterns = ["sh", "ch", "th", "wh", "ph"];
+const digraphPatterns = ["sh", "ch", "th", "wh", "ph", "ck"];
 
 function findPattern(patterns, text) {
   const normalized = normalize(text);
@@ -420,7 +422,8 @@ function isQuestionValid(question) {
   const templateType = String(question.templateType || question.formatType || "").toUpperCase();
   const allowsPendingReplacementImages = [
     "hfw_no_audio_2026_06",
-    "blends_replacement_2026_06"
+    "blends_replacement_2026_06",
+    "digraphs_replacement_2026_06"
   ].includes(question.source);
   if (question.questionType === "ixl_template" && String(question.templateType || question.formatType || "").toUpperCase() === "PUT_SOUNDS_IN_ORDER") {
     return Array.isArray(question.soundTiles) &&

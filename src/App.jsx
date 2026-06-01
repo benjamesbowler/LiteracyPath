@@ -76,6 +76,7 @@ import {
 } from "./data/earlyPhonicsValidation";
 import { getHfwRuntimeEligibilityIssues } from "./data/hfwRuntimeEligibility";
 import { getBlendsRuntimeEligibilityIssues } from "./data/blendsRuntimeEligibility";
+import { getDigraphsRuntimeEligibilityIssues } from "./data/digraphsRuntimeEligibility";
 import { isHighFrequencyWordSkill } from "./data/highFrequencyWordBands";
 import {
   buildFinalSoundAvailableWordMap,
@@ -113,6 +114,7 @@ import { generatedQuestions } from "./data/generatedQuestions";
 import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.generated.js";
 import { blendsAssessmentQuestions } from "./data/generated/blendsAssessmentQuestions.generated.js";
+import { digraphsAssessmentQuestions } from "./data/generated/digraphsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
@@ -1217,6 +1219,10 @@ function isQuestionValid(q) {
     const blendIssues = getBlendsRuntimeEligibilityIssues(q, candidateStage.id);
     if (blendIssues.length > 0) return false;
   }
+  if (candidateStage?.id === "digraphs") {
+    const digraphIssues = getDigraphsRuntimeEligibilityIssues(q, candidateStage.id);
+    if (digraphIssues.length > 0) return false;
+  }
   if (
     PURE_EARLY_PHONICS_SKILL_IDS.has(candidateSkillId) &&
     !isRuntimeEligibleEarlySkillQuestion(q, {
@@ -1316,6 +1322,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...safeContentExpansionQuestions,
   ...hfwAssessmentQuestions,
   ...blendsAssessmentQuestions,
+  ...digraphsAssessmentQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,

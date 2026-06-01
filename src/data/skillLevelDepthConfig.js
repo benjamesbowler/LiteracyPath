@@ -143,8 +143,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Digraphs",
     aliases: ["digraphs"],
     levels: {
-      1: { designed: true, rule: "sh,ch,th,wh recognition.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "MULTIPLE_CHOICE"] },
-      2: { designed: true, rule: "Harder digraph discrimination and word matching.", allowedFormats: ["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "MULTIPLE_CHOICE"] }
+      1: { designed: true, rule: "Image-card word recognition for the target digraph.", allowedFormats: ["DIGRAPH_IMAGE_CHOICE"] },
+      2: { designed: true, rule: "Picture-backed word completion with the correct digraph.", allowedFormats: ["DIGRAPH_COMPLETE_WORD"] }
     }
   },
   {

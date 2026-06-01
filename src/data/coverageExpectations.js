@@ -2,6 +2,7 @@ import {
   ALL_BLEND_PATTERNS,
   BEGINNING_BLEND_PATTERNS
 } from "./blendPatternData.js";
+import { ALL_DIGRAPH_PATTERNS } from "./digraphPatternData.js";
 
 export const initialSoundExpectedItemKeys = [
   "a",
@@ -207,5 +208,16 @@ export const coverageExpectations = {
     total: ALL_BLEND_PATTERNS.length,
     unit: "blend patterns",
     note: "Blends uses replacement-only content: Level 1 covers beginning blends with image-card choices; Level 2 mixes beginning and ending blends with picture-backed word completion."
+  },
+  digraphs: {
+    itemType: "phonics_pattern",
+    itemKeys: ALL_DIGRAPH_PATTERNS,
+    levels: {
+      1: ALL_DIGRAPH_PATTERNS,
+      2: ALL_DIGRAPH_PATTERNS
+    },
+    total: ALL_DIGRAPH_PATTERNS.length,
+    unit: "digraph patterns",
+    note: "Digraphs uses replacement-only content: Level 1 selects image-backed words that use the target digraph; Level 2 completes image-backed words with the correct digraph."
   }
 };

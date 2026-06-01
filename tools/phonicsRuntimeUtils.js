@@ -31,6 +31,7 @@ import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js"
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
+import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
@@ -48,6 +49,10 @@ import {
   getBlendsRuntimeEligibilityIssues,
   isRuntimeEligibleBlendsQuestion
 } from "../src/data/blendsRuntimeEligibility.js";
+import {
+  getDigraphsRuntimeEligibilityIssues,
+  isRuntimeEligibleDigraphsQuestion
+} from "../src/data/digraphsRuntimeEligibility.js";
 import {
   getFinalSoundsLevel1QuestionIssues,
   isFinalSoundsLevel1Question
@@ -74,6 +79,7 @@ const questionBanks = [
   ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
+  ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -450,6 +456,10 @@ export function questionFilterReason(question = {}) {
       const blendIssues = getBlendsRuntimeEligibilityIssues(question, skillId);
       return blendIssues.length > 0 ? `blends runtime ineligible: ${blendIssues.join("; ")}` : "";
     }
+    if (skillId === "digraphs") {
+      const digraphIssues = getDigraphsRuntimeEligibilityIssues(question, skillId);
+      return digraphIssues.length > 0 ? `digraphs runtime ineligible: ${digraphIssues.join("; ")}` : "";
+    }
     const eligibilityIssues = getEarlySkillRuntimeEligibilityIssues(question, {
       skillId: normalizeEarlySkillId(skillId),
       level: question.level || question.difficulty || 1,
@@ -529,6 +539,12 @@ export function selectableRuntimeQuestionsForSkill(skillId) {
     return buildRuntimeQuestionsForSkill(skillId).filter(question =>
       (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
       isRuntimeEligibleBlendsQuestion(question, skillId)
+    );
+  }
+  if (skillId === "digraphs") {
+    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+      (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
+      isRuntimeEligibleDigraphsQuestion(question, skillId)
     );
   }
   return buildRuntimeQuestionsForSkill(skillId).filter(question =>

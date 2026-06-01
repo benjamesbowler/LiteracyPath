@@ -224,7 +224,10 @@ function audioIssue(question, assetExists) {
   }
 
   const cards = question?.imageCards || [];
-  const cardAudioCount = cards.filter(card => getApprovedAudioPath(card.word, card.audio || "")).length;
+  const cardAudioCount = cards.filter(card => {
+    const explicitAudioPath = card?.audio || card?.audioPath || card?.audioUrl || "";
+    return explicitAudioPath && getApprovedAudioPath(card.word, explicitAudioPath);
+  }).length;
   if (formatType !== "RHYMING_PICTURE" && cardAudioCount > 0 && cardAudioCount < cards.length) {
     return "mixed answer-card speaker availability";
   }

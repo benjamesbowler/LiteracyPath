@@ -3,6 +3,10 @@ import {
   BLENDS_ALLOWED_FORMATS,
   getBlendsRuntimeEligibilityIssues
 } from "./blendsRuntimeEligibility.js";
+import {
+  DIGRAPHS_ALLOWED_FORMATS,
+  getDigraphsRuntimeEligibilityIssues
+} from "./digraphsRuntimeEligibility.js";
 
 const normalize = value =>
   String(value || "")
@@ -85,7 +89,8 @@ const ROUTING_RULES = {
     singleTemplate: false
   },
   digraphs: {
-    allowedFormats: new Set(["PICTURE_AUDIO_TO_PATTERN", "IMAGE_WORD_PATTERN_MATCH", "HEARD_WORD_TO_PRINT_MINIMAL_PAIR", "MULTIPLE_CHOICE"]),
+    allowedFormats: DIGRAPHS_ALLOWED_FORMATS,
+    digraphsOnly: true,
     singleTemplate: false
   }
 };
@@ -132,6 +137,10 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   if (rule.blendsOnly) {
     const blendIssues = getBlendsRuntimeEligibilityIssues(question, stageId);
     if (blendIssues.length) return `Blends routing violation: ${blendIssues.join("; ")}`;
+  }
+  if (rule.digraphsOnly) {
+    const digraphIssues = getDigraphsRuntimeEligibilityIssues(question, stageId);
+    if (digraphIssues.length) return `Digraphs routing violation: ${digraphIssues.join("; ")}`;
   }
   return "";
 }
