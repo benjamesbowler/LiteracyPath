@@ -120,6 +120,7 @@ import { longVowelsAssessmentQuestions } from "./data/generated/longVowelsAssess
 import { grammarAssessmentQuestions } from "./data/generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
+import { highQualityComprehensionReplacementQuestions } from "./data/highQualityComprehensionReplacements";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
@@ -1361,6 +1362,10 @@ function dedupeQuestionsByRuntimeSignature(questions) {
 }
 
 const GENERATED_REPLACEMENT_SOURCE = "skill_level_depth_gap_generator";
+const APPROVED_REPLACEMENT_SOURCES = new Set([
+  GENERATED_REPLACEMENT_SOURCE,
+  "high_quality_comprehension_replacement_2026_06"
+]);
 const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
   "prepositions_of_place",
   "plurals",
@@ -1387,7 +1392,7 @@ function normalizeRuntimeSkillId(value = "") {
 }
 
 function isGeneratedReplacementQuestion(question = {}) {
-  return question.source === GENERATED_REPLACEMENT_SOURCE ||
+  return APPROVED_REPLACEMENT_SOURCES.has(question.source) ||
     question.tags?.includes("generated-gap");
 }
 
@@ -1439,6 +1444,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...generatedEarlySkillQuestions,
   ...skillLevelGapQuestions,
   ...hfwLevel2Questions,
+  ...highQualityComprehensionReplacementQuestions,
   ...generatedQuestions,
   ...fixSentenceQuestions,
   ...templateComprehensionAdvanced
@@ -4373,24 +4379,6 @@ export default function App() {
       setMessage(`No questions found for ${activeStage.label}.`);
       setAssessmentTransitioning(false);
       return;
-    }
-
-    const shouldInjectReview =
-      mode === "mastery" &&
-      !isHfwStage(activeStage) &&
-      !isPureEarlyPhonicsStage(activeStage) &&
-      answeredCount > 0 &&
-      (answeredCount + 1) % 5 === 0;
-
-    if (shouldInjectReview) {
-      const reviewPool =
-        getReviewQuestionPool();
-
-      if (reviewPool.length > 0) {
-        setCurrentQuestion(prepareQuestion(reviewPool[0], true));
-        setAssessmentTransitioning(false);
-        return;
-      }
     }
 
     const keysAlreadyInRound =

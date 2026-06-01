@@ -71,7 +71,7 @@ const ROUTING_RULES = {
     singleTemplate: false
   },
   short_vowel_discrimination: {
-    allowedFormats: new Set(["LISTEN_CHOOSE_VOWEL", "SHORT_VOWEL_WORD", "PICTURE_TO_PRINT_MATCH"]),
+    allowedFormats: new Set(["LISTEN_CHOOSE_VOWEL", "SHORT_VOWEL_WORD"]),
     singleTemplate: false
   },
   hfw_1_25: {
@@ -127,6 +127,16 @@ const ROUTING_RULES = {
   adjectives: {
     allowedFormats: GRAMMAR_ALLOWED_FORMATS,
     grammarPart: "adjective",
+    singleTemplate: false
+  },
+  sentence_comprehension: {
+    allowedFormats: new Set(["COMPREHENSION"]),
+    comprehensionSkill: "sentence_comprehension",
+    singleTemplate: false
+  },
+  key_details: {
+    allowedFormats: new Set(["COMPREHENSION"]),
+    comprehensionSkill: "key_details",
     singleTemplate: false
   }
 };
@@ -200,6 +210,53 @@ function getGrammarRuntimeEligibilityIssues(question = {}, expectedPart = "") {
   return [...new Set(issues)];
 }
 
+function countSentences(text = "") {
+  return String(text || "")
+    .split(/[.!?]+/)
+    .map(sentence => sentence.trim())
+    .filter(Boolean)
+    .length;
+}
+
+function countWords(text = "") {
+  return String(text || "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .length;
+}
+
+function getComprehensionRuntimeEligibilityIssues(question = {}, stageId = "") {
+  const issues = [];
+  const passage = String(question.passage || "");
+  const prompt = String(question.question || question.prompt || "");
+  const choices = Array.isArray(question.choices) ? question.choices : [];
+  const answer = String(question.answer || question.correctAnswer || "");
+  const allText = `${passage} ${prompt}`.toLowerCase();
+
+  if (!passage) issues.push("comprehension questions need a passage");
+  if (countSentences(passage) < 3) issues.push("comprehension passage must have at least three sentences");
+  if (countWords(passage) < 28) issues.push("comprehension passage is too short");
+  if (/\bchoose the word that completes\b/i.test(prompt)) issues.push("cloze prompt is not comprehension");
+  if (allText.includes("___")) issues.push("blank-fill cloze text is not comprehension");
+  if (choices.length !== 4) issues.push("comprehension questions need exactly four answer choices");
+  if (!answer || !choices.map(choice => String(choice)).includes(answer)) issues.push("correct answer is missing from choices");
+  if (!(question.imagePath || question.imageUrl || question.targetImage || question.targetImagePath)) {
+    issues.push("comprehension questions need a context image");
+  }
+
+  if (stageId === "key_details") {
+    if (String(question.id || "").startsWith("gap_key_details_")) {
+      issues.push("generated key-details template bank is blocked");
+    }
+    if (/where did they place the \d+ items/i.test(prompt) || /\bthey counted \d+ items\b/i.test(passage)) {
+      issues.push("repeated counted-items key-details template is blocked");
+    }
+  }
+
+  return [...new Set(issues)];
+}
+
 export function getQuestionRoutingIssue(question = {}, stageId = "") {
   const rule = getSkillRoutingRule(stageId);
   if (!rule) return "";
@@ -234,6 +291,10 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   if (rule.grammarPart) {
     const grammarIssues = getGrammarRuntimeEligibilityIssues(question, rule.grammarPart);
     if (grammarIssues.length) return `Grammar routing violation: ${grammarIssues.join("; ")}`;
+  }
+  if (rule.comprehensionSkill) {
+    const comprehensionIssues = getComprehensionRuntimeEligibilityIssues(question, rule.comprehensionSkill);
+    if (comprehensionIssues.length) return `Comprehension routing violation: ${comprehensionIssues.join("; ")}`;
   }
   return "";
 }
