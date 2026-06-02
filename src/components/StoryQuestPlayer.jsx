@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { preloadQuestionMedia, preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
+import { preloadMediaSet } from "../utils/preloadMedia.js";
 import "./StoryQuestPlayer.css";
 
 function StoryQuestImage({ src, title }) {
@@ -22,6 +22,9 @@ function StoryQuestImage({ src, title }) {
     <img
       alt={`Story illustration for ${title}`}
       className="story-quest-image"
+      decoding="async"
+      fetchPriority="high"
+      loading="eager"
       onError={() => setImageFailed(true)}
       src={src}
     />
@@ -110,11 +113,24 @@ export function StoryQuestPlayer({ quest, onExit }) {
   useEffect(() => {
     if (!currentPage) return;
     const nextPages = (currentPage.choices || [])
+      .filter(choice => choice.nextPageId !== "end")
       .map(choice => pageById.get(choice.nextPageId))
       .filter(Boolean);
-    void preloadQuestionMedia(currentPage);
-    void preloadQuestionMediaBatch(nextPages);
+    void preloadMediaSet({
+      images: [currentPage.imageUrl, ...nextPages.map(page => page.imageUrl)],
+      audio: [currentPage.audioUrl, ...nextPages.map(page => page.audioUrl)]
+    });
   }, [currentPage, pageById]);
+
+  useEffect(() => {
+    if (!isComplete) return;
+    const startPage = pageById.get(quest?.startPageId) || quest?.pages?.[0] || null;
+    if (!startPage) return;
+    void preloadMediaSet({
+      images: [startPage.imageUrl],
+      audio: [startPage.audioUrl]
+    });
+  }, [isComplete, pageById, quest]);
 
   useEffect(() => {
     if (typeof document === "undefined") return undefined;

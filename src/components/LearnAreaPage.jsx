@@ -1,21 +1,10 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
-import { preloadQuestionMedia, preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
 
 export function LearnAreaPage() {
   const [activeQuestId, setActiveQuestId] = useState("");
   const activeQuest = storyQuests.find(quest => quest.id === activeQuestId) || null;
-
-  useEffect(() => {
-    storyQuests.forEach(quest => {
-      void preloadQuestionMedia({
-        imageUrl: quest.coverImageUrl || quest.pages?.[0]?.imageUrl,
-        audioUrl: quest.pages?.[0]?.audioUrl,
-      });
-      void preloadQuestionMediaBatch((quest.pages || []).slice(0, 2));
-    });
-  }, []);
 
   useLayoutEffect(() => {
     if (!activeQuestId || typeof window === "undefined") return;
@@ -59,6 +48,8 @@ export function LearnAreaPage() {
                 <img
                   alt={`${quest.title} cover`}
                   className="learn-story-quest-cover"
+                  decoding="async"
+                  loading="lazy"
                   src={quest.coverImageUrl || quest.pages?.[0]?.imageUrl}
                 />
                 <div className="learn-story-quest-card-copy">
@@ -90,7 +81,7 @@ export function LearnAreaPage() {
         <div className="learn-story-word-card-grid">
           {storyQuests[0]?.wordCards?.map(card => (
             <article className="learn-story-word-card" key={card.word}>
-              <img alt={card.word} src={card.imageUrl} />
+              <img alt={card.word} decoding="async" loading="lazy" src={card.imageUrl} />
               <strong>{card.word}</strong>
             </article>
           ))}

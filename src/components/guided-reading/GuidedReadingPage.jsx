@@ -21,6 +21,7 @@ import {
   getGuidedReadingReadAloudState,
   getGuidedReadingPageAudioPath
 } from "../../utils/guidedReading/readAloudPolicy.js";
+import { preloadMediaSet } from "../../utils/preloadMedia.js";
 
 const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
 
@@ -30,7 +31,15 @@ function withGuidedReadingMediaVersion(src = "") {
   return `${src}${separator}v=${GUIDED_READING_MEDIA_VERSION}`;
 }
 
-function GuidedReadingImage({ src, alt, className = "", onLoad }) {
+function GuidedReadingImage({
+  src,
+  alt,
+  className = "",
+  decoding = "async",
+  fetchPriority,
+  loading = "lazy",
+  onLoad
+}) {
   const [missing, setMissing] = useState(false);
 
   useEffect(() => {
@@ -49,6 +58,9 @@ function GuidedReadingImage({ src, alt, className = "", onLoad }) {
     <img
       alt={alt}
       className={className}
+      decoding={decoding}
+      fetchPriority={fetchPriority}
+      loading={loading}
       onError={() => setMissing(true)}
       onLoad={onLoad}
       src={withGuidedReadingMediaVersion(src)}
@@ -236,6 +248,7 @@ function GuidedBookCover({ book }) {
     <GuidedReadingImage
       alt={`${book.title} cover`}
       className="guided-book-cover"
+      loading="lazy"
       src={cover.src}
     />
   );
@@ -510,6 +523,24 @@ export function GuidedReadingPage({
   const allPagesHaveAudio = Boolean(selectedBook?.pages?.length) &&
     selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
   const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
+
+  useEffect(() => {
+    if (!readerOpen || !selectedBook || !page) return;
+    const nextPage = selectedBook.pages?.[pageIndex + 1] || null;
+    const previousPage = selectedBook.pages?.[pageIndex - 1] || null;
+
+    void preloadMediaSet({
+      images: [
+        withGuidedReadingMediaVersion(page.image),
+        withGuidedReadingMediaVersion(nextPage?.image),
+        withGuidedReadingMediaVersion(previousPage?.image)
+      ],
+      audio: [
+        currentPageAudioPath,
+        nextPage ? getGuidedReadingPageAudioPath(nextPage) : ""
+      ]
+    });
+  }, [currentPageAudioPath, page, pageIndex, readerOpen, selectedBook]);
 
   useEffect(() => {
     if (!launchBookId) return;
@@ -1498,6 +1529,8 @@ export function GuidedReadingPage({
                   <GuidedReadingImage
                     alt=""
                     className="guided-page-image"
+                    fetchPriority="high"
+                    loading="eager"
                     onLoad={() => setReaderLayoutVersion(version => version + 1)}
                     src={page.image}
                   />

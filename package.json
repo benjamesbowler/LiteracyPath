@@ -19,6 +19,7 @@
     "audit:image-quality": "node tools/auditImageQuality.js",
     "check:media-quality": "node tools/checkMediaQualityManifest.js",
     "check:assessment-media-sizes": "node tools/checkAssessmentMediaSizes.js",
+    "check:reading-media-sizes": "node tools/checkReadingMediaSizes.js",
     "check:story-quests": "node tools/checkStoryQuestIntegrity.js",
     "audit:story-quest-assets": "node tools/auditStoryQuestAssets.js",
     "check:hfw-coverage": "node tools/checkHighFrequencyWordsCoverage.js",
