@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-06-02T06:12:53.866Z
+Generated: 2026-06-02T06:31:56.636Z
 
 ## Summary Counts
 
@@ -8,147 +8,19 @@ Generated: 2026-06-02T06:12:53.866Z
 - Total page rows: 255
 - Total referenced images: 261
 - Total referenced audio files: 255
-- Missing referenced images: 65
-- Missing referenced audio: 65
+- Missing referenced images: 1
+- Missing referenced audio: 1
 - Unused image files: 17
 - Unused audio files: 10
 - Extension mismatch candidates: 0
 
 ## Missing Referenced Images
 
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p01_start.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p02_chompy.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p02_wiggly.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_carry_basket.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_tail_sweep.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_taste_berry.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_walk_carefully.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_blanket_flip.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_clipboard_gone.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_leaf_storm.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_no_berries.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_one_berry.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_pillow_flip.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_sunny_helps.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_bush_clipboard.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_chompy_sorry.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_clipboard_on_chompy.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_dozy_blanket.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_not_true.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_sleepy_pause.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_wiggly_fix.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_ask_nicely.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_berry_rolls.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_bossy_cross.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.webp
 - public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_plates.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_roof.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_berry_splat_ending.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_cup_jump_ending.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_dozy_roof_ending.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_leaf_lunch_ending.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_silly_hat_ending.webp
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p01_start.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p02_flappy.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p02_zippy.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_up.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_walks.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_stops.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_too_far.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_branch.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_find_flappy.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flappy_sees_zippy.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flower.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_mud_landing.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_sunny_finds_zippy.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_fast_together.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_flappy_rescue.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_grumpy_advice.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_run_again.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_looking.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_together.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_grumpy_stop.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_sunny_stop.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_walk_home.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p07_branch_practice.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p07_laugh.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_flower_ending.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_friend_ending.webp
-- public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_grumpy_ending.webp
 
 ## Missing Referenced Audio
 
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p01_start.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p02_chompy.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p02_wiggly.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_carry_basket.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_tail_sweep.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_taste_berry.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_walk_carefully.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_blanket_flip.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_clipboard_gone.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_leaf_storm.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_no_berries.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_one_berry.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_pillow_flip.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_sunny_helps.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_bush_clipboard.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_chompy_sorry.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_clipboard_on_chompy.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_dozy_blanket.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_not_true.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_sleepy_pause.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_wiggly_fix.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_ask_nicely.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_berry_rolls.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_bossy_cross.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.mp3
 - public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_plates.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_roof.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_berry_splat_ending.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_cup_jump_ending.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_dozy_roof_ending.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_leaf_lunch_ending.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_silly_hat_ending.mp3
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p01_start.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p02_flappy.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p02_zippy.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_up.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_walks.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_stops.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_too_far.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_branch.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_find_flappy.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flappy_sees_zippy.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flower.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_mud_landing.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_sunny_finds_zippy.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_fast_together.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_flappy_rescue.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_grumpy_advice.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_run_again.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_looking.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_together.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_grumpy_stop.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_sunny_stop.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_walk_home.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p07_branch_practice.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p07_laugh.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_flower_ending.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_friend_ending.mp3
-- public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_grumpy_ending.mp3
 
 ## Extension Mismatch Candidates
 
@@ -234,44 +106,44 @@ None found.
 
 | Page | Page id | Image path | Image status | Audio path | Audio status |
 | --- | --- | --- | --- | --- | --- |
-| 1 | `p01_start` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p01_start.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p01_start.mp3` | missing |
-| 2 | `p02_chompy` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p02_chompy.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p02_chompy.mp3` | missing |
-| 3 | `p02_wiggly` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p02_wiggly.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p02_wiggly.mp3` | missing |
-| 4 | `p03_carry_basket` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_carry_basket.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_carry_basket.mp3` | missing |
-| 5 | `p03_taste_berry` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_taste_berry.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_taste_berry.mp3` | missing |
-| 6 | `p03_walk_carefully` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_walk_carefully.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_walk_carefully.mp3` | missing |
-| 7 | `p03_tail_sweep` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_tail_sweep.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_tail_sweep.mp3` | missing |
-| 8 | `p04_one_berry` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_one_berry.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_one_berry.mp3` | missing |
-| 9 | `p04_no_berries` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_no_berries.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_no_berries.mp3` | missing |
-| 10 | `p04_sunny_helps` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_sunny_helps.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_sunny_helps.mp3` | missing |
-| 11 | `p04_blanket_flip` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_blanket_flip.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_blanket_flip.mp3` | missing |
-| 12 | `p04_pillow_flip` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_pillow_flip.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_pillow_flip.mp3` | missing |
-| 13 | `p04_clipboard_gone` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_clipboard_gone.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_clipboard_gone.mp3` | missing |
-| 14 | `p04_leaf_storm` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_leaf_storm.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_leaf_storm.mp3` | missing |
-| 15 | `p05_chompy_sorry` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_chompy_sorry.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_chompy_sorry.mp3` | missing |
-| 16 | `p05_not_true` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_not_true.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_not_true.mp3` | missing |
-| 17 | `p05_wiggly_fix` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_wiggly_fix.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_wiggly_fix.mp3` | missing |
-| 18 | `p05_dozy_blanket` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_dozy_blanket.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_dozy_blanket.mp3` | missing |
-| 19 | `p05_sleepy_pause` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_sleepy_pause.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_sleepy_pause.mp3` | missing |
-| 20 | `p05_bush_clipboard` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_bush_clipboard.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_bush_clipboard.mp3` | missing |
-| 21 | `p05_clipboard_on_chompy` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_clipboard_on_chompy.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_clipboard_on_chompy.mp3` | missing |
-| 22 | `p06_bossy_cross` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_bossy_cross.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_bossy_cross.mp3` | missing |
-| 23 | `p06_ask_nicely` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_ask_nicely.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_ask_nicely.mp3` | missing |
-| 24 | `p06_berry_rolls` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_berry_rolls.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_berry_rolls.mp3` | missing |
-| 25 | `p06_leaf_plates` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_plates.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_plates.mp3` | missing |
-| 26 | `p06_leaf_roof` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_roof.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_roof.mp3` | missing |
-| 27 | `p06_sleepy_problem` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.mp3` | missing |
-| 28 | `p06_clipboard_back` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.mp3` | missing |
-| 29 | `p06_loud_plan` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.mp3` | missing |
+| 1 | `p01_start` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p01_start.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p01_start.mp3` | exists |
+| 2 | `p02_chompy` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p02_chompy.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p02_chompy.mp3` | exists |
+| 3 | `p02_wiggly` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p02_wiggly.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p02_wiggly.mp3` | exists |
+| 4 | `p03_carry_basket` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_carry_basket.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_carry_basket.mp3` | exists |
+| 5 | `p03_taste_berry` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_taste_berry.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_taste_berry.mp3` | exists |
+| 6 | `p03_walk_carefully` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_walk_carefully.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_walk_carefully.mp3` | exists |
+| 7 | `p03_tail_sweep` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_tail_sweep.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_tail_sweep.mp3` | exists |
+| 8 | `p04_one_berry` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_one_berry.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_one_berry.mp3` | exists |
+| 9 | `p04_no_berries` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_no_berries.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_no_berries.mp3` | exists |
+| 10 | `p04_sunny_helps` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_sunny_helps.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_sunny_helps.mp3` | exists |
+| 11 | `p04_blanket_flip` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_blanket_flip.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_blanket_flip.mp3` | exists |
+| 12 | `p04_pillow_flip` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_pillow_flip.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_pillow_flip.mp3` | exists |
+| 13 | `p04_clipboard_gone` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_clipboard_gone.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_clipboard_gone.mp3` | exists |
+| 14 | `p04_leaf_storm` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_leaf_storm.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_leaf_storm.mp3` | exists |
+| 15 | `p05_chompy_sorry` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_chompy_sorry.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_chompy_sorry.mp3` | exists |
+| 16 | `p05_not_true` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_not_true.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_not_true.mp3` | exists |
+| 17 | `p05_wiggly_fix` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_wiggly_fix.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_wiggly_fix.mp3` | exists |
+| 18 | `p05_dozy_blanket` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_dozy_blanket.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_dozy_blanket.mp3` | exists |
+| 19 | `p05_sleepy_pause` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_sleepy_pause.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_sleepy_pause.mp3` | exists |
+| 20 | `p05_bush_clipboard` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_bush_clipboard.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_bush_clipboard.mp3` | exists |
+| 21 | `p05_clipboard_on_chompy` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_clipboard_on_chompy.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_clipboard_on_chompy.mp3` | exists |
+| 22 | `p06_bossy_cross` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_bossy_cross.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_bossy_cross.mp3` | exists |
+| 23 | `p06_ask_nicely` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_ask_nicely.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_ask_nicely.mp3` | exists |
+| 24 | `p06_berry_rolls` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_berry_rolls.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_berry_rolls.mp3` | exists |
+| 25 | `p06_leaf_plates` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_plates.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_plates.mp3` | exists |
+| 26 | `p06_leaf_roof` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_roof.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_roof.mp3` | exists |
+| 27 | `p06_sleepy_problem` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.mp3` | exists |
+| 28 | `p06_clipboard_back` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.mp3` | exists |
+| 29 | `p06_loud_plan` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.mp3` | exists |
 | 30 | `p06_find_more` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.mp3` | missing |
-| 31 | `p07_picnic_ready` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.mp3` | missing |
-| 32 | `p08_chompy_bite_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.mp3` | missing |
-| 33 | `p08_teamwork_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.mp3` | missing |
-| 34 | `p08_silly_hat_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_silly_hat_ending.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_silly_hat_ending.mp3` | missing |
-| 35 | `p08_berry_splat_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_berry_splat_ending.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_berry_splat_ending.mp3` | missing |
-| 36 | `p08_leaf_lunch_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_leaf_lunch_ending.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_leaf_lunch_ending.mp3` | missing |
-| 37 | `p08_dozy_roof_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_dozy_roof_ending.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_dozy_roof_ending.mp3` | missing |
-| 38 | `p08_cup_jump_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_cup_jump_ending.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_cup_jump_ending.mp3` | missing |
+| 31 | `p07_picnic_ready` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.mp3` | exists |
+| 32 | `p08_chompy_bite_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.mp3` | exists |
+| 33 | `p08_teamwork_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.mp3` | exists |
+| 34 | `p08_silly_hat_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_silly_hat_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_silly_hat_ending.mp3` | exists |
+| 35 | `p08_berry_splat_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_berry_splat_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_berry_splat_ending.mp3` | exists |
+| 36 | `p08_leaf_lunch_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_leaf_lunch_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_leaf_lunch_ending.mp3` | exists |
+| 37 | `p08_dozy_roof_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_dozy_roof_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_dozy_roof_ending.mp3` | exists |
+| 38 | `p08_cup_jump_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_cup_jump_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_cup_jump_ending.mp3` | exists |
 
 ### Zippy and Flappy: Fast, Slow, Up, Down
 
@@ -280,33 +152,33 @@ None found.
 
 | Page | Page id | Image path | Image status | Audio path | Audio status |
 | --- | --- | --- | --- | --- | --- |
-| 1 | `p01_start` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p01_start.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p01_start.mp3` | missing |
-| 2 | `p02_zippy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p02_zippy.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p02_zippy.mp3` | missing |
-| 3 | `p02_flappy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p02_flappy.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p02_flappy.mp3` | missing |
-| 4 | `p03_zippy_stops` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_stops.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_stops.mp3` | missing |
-| 5 | `p03_zippy_too_far` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_too_far.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_too_far.mp3` | missing |
-| 6 | `p03_flappy_up` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_up.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_up.mp3` | missing |
-| 7 | `p03_flappy_walks` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_walks.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_walks.mp3` | missing |
-| 8 | `p04_flower` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flower.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flower.mp3` | missing |
-| 9 | `p04_find_flappy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_find_flappy.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_find_flappy.mp3` | missing |
-| 10 | `p04_sunny_finds_zippy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_sunny_finds_zippy.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_sunny_finds_zippy.mp3` | missing |
-| 11 | `p04_flappy_sees_zippy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flappy_sees_zippy.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flappy_sees_zippy.mp3` | missing |
-| 12 | `p04_branch` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_branch.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_branch.mp3` | missing |
-| 13 | `p04_mud_landing` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_mud_landing.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_mud_landing.mp3` | missing |
-| 14 | `p05_slow_looking` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_looking.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_looking.mp3` | missing |
-| 15 | `p05_run_again` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_run_again.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_run_again.mp3` | missing |
-| 16 | `p05_fast_together` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_fast_together.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_fast_together.mp3` | missing |
-| 17 | `p05_slow_together` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_together.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_together.mp3` | missing |
-| 18 | `p05_flappy_rescue` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_flappy_rescue.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_flappy_rescue.mp3` | missing |
-| 19 | `p05_grumpy_advice` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_grumpy_advice.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_grumpy_advice.mp3` | missing |
-| 20 | `p06_walk_home` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_walk_home.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_walk_home.mp3` | missing |
-| 21 | `p06_sunny_stop` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_sunny_stop.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_sunny_stop.mp3` | missing |
-| 22 | `p06_grumpy_stop` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_grumpy_stop.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_grumpy_stop.mp3` | missing |
-| 23 | `p07_branch_practice` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p07_branch_practice.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p07_branch_practice.mp3` | missing |
-| 24 | `p07_laugh` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p07_laugh.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p07_laugh.mp3` | missing |
-| 25 | `p08_flower_ending` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_flower_ending.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_flower_ending.mp3` | missing |
-| 26 | `p08_friend_ending` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_friend_ending.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_friend_ending.mp3` | missing |
-| 27 | `p08_grumpy_ending` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_grumpy_ending.webp` | missing | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_grumpy_ending.mp3` | missing |
+| 1 | `p01_start` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p01_start.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p01_start.mp3` | exists |
+| 2 | `p02_zippy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p02_zippy.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p02_zippy.mp3` | exists |
+| 3 | `p02_flappy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p02_flappy.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p02_flappy.mp3` | exists |
+| 4 | `p03_zippy_stops` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_stops.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_stops.mp3` | exists |
+| 5 | `p03_zippy_too_far` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_too_far.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_too_far.mp3` | exists |
+| 6 | `p03_flappy_up` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_up.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_up.mp3` | exists |
+| 7 | `p03_flappy_walks` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_walks.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_walks.mp3` | exists |
+| 8 | `p04_flower` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flower.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flower.mp3` | exists |
+| 9 | `p04_find_flappy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_find_flappy.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_find_flappy.mp3` | exists |
+| 10 | `p04_sunny_finds_zippy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_sunny_finds_zippy.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_sunny_finds_zippy.mp3` | exists |
+| 11 | `p04_flappy_sees_zippy` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flappy_sees_zippy.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flappy_sees_zippy.mp3` | exists |
+| 12 | `p04_branch` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_branch.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_branch.mp3` | exists |
+| 13 | `p04_mud_landing` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_mud_landing.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_mud_landing.mp3` | exists |
+| 14 | `p05_slow_looking` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_looking.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_looking.mp3` | exists |
+| 15 | `p05_run_again` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_run_again.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_run_again.mp3` | exists |
+| 16 | `p05_fast_together` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_fast_together.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_fast_together.mp3` | exists |
+| 17 | `p05_slow_together` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_together.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_together.mp3` | exists |
+| 18 | `p05_flappy_rescue` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_flappy_rescue.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_flappy_rescue.mp3` | exists |
+| 19 | `p05_grumpy_advice` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_grumpy_advice.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_grumpy_advice.mp3` | exists |
+| 20 | `p06_walk_home` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_walk_home.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_walk_home.mp3` | exists |
+| 21 | `p06_sunny_stop` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_sunny_stop.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_sunny_stop.mp3` | exists |
+| 22 | `p06_grumpy_stop` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_grumpy_stop.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_grumpy_stop.mp3` | exists |
+| 23 | `p07_branch_practice` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p07_branch_practice.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p07_branch_practice.mp3` | exists |
+| 24 | `p07_laugh` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p07_laugh.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p07_laugh.mp3` | exists |
+| 25 | `p08_flower_ending` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_flower_ending.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_flower_ending.mp3` | exists |
+| 26 | `p08_friend_ending` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_friend_ending.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_friend_ending.mp3` | exists |
+| 27 | `p08_grumpy_ending` | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_grumpy_ending.webp` | exists | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_grumpy_ending.mp3` | exists |
 
 ### Sam and Pam Go Out
 
@@ -487,136 +359,8 @@ None found.
 
 | Priority | Area | Story/Scope | Target path | Reason |
 | --- | --- | --- | --- | --- |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p01_start.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p02_chompy.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p02_wiggly.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_carry_basket.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_tail_sweep.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_taste_berry.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p03_walk_carefully.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_blanket_flip.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_clipboard_gone.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_leaf_storm.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_no_berries.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_one_berry.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_pillow_flip.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p04_sunny_helps.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_bush_clipboard.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_chompy_sorry.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_clipboard_on_chompy.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_dozy_blanket.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_not_true.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_sleepy_pause.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p05_wiggly_fix.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_ask_nicely.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_berry_rolls.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_bossy_cross.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.webp` | Referenced image is missing. |
 | P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_plates.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_roof.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_berry_splat_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_cup_jump_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_dozy_roof_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_leaf_lunch_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_silly_hat_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p01_start.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p02_flappy.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p02_zippy.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_up.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_walks.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_stops.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_too_far.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_branch.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_find_flappy.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flappy_sees_zippy.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flower.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_mud_landing.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p04_sunny_finds_zippy.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_fast_together.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_flappy_rescue.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_grumpy_advice.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_run_again.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_looking.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_together.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_grumpy_stop.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_sunny_stop.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p06_walk_home.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p07_branch_practice.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p07_laugh.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_flower_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_friend_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests images | Zippy and Flappy: Fast, Slow, Up, Down | `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/p08_grumpy_ending.webp` | Referenced image is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p01_start.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p02_chompy.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p02_wiggly.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_carry_basket.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_tail_sweep.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_taste_berry.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p03_walk_carefully.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_blanket_flip.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_clipboard_gone.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_leaf_storm.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_no_berries.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_one_berry.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_pillow_flip.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p04_sunny_helps.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_bush_clipboard.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_chompy_sorry.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_clipboard_on_chompy.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_dozy_blanket.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_not_true.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_sleepy_pause.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p05_wiggly_fix.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_ask_nicely.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_berry_rolls.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_bossy_cross.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.mp3` | Referenced audio is missing. |
 | P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_plates.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_leaf_roof.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_berry_splat_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_cup_jump_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_dozy_roof_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_leaf_lunch_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_silly_hat_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p01_start.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p02_flappy.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p02_zippy.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_up.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_flappy_walks.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_stops.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p03_zippy_too_far.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_branch.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_find_flappy.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flappy_sees_zippy.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_flower.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_mud_landing.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p04_sunny_finds_zippy.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_fast_together.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_flappy_rescue.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_grumpy_advice.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_run_again.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_looking.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p05_slow_together.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_grumpy_stop.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_sunny_stop.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p06_walk_home.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p07_branch_practice.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p07_laugh.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_flower_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_friend_ending.mp3` | Referenced audio is missing. |
-| P0 | Story Quests audio | Zippy and Flappy: Fast, Slow, Up, Down | `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/p08_grumpy_ending.mp3` | Referenced audio is missing. |
 | P1 | Story Quests images | Meadow Pals / Brave Tiny Rescue | `public/images/story-quests/meadow-pals/brave-tiny-rescue/p05_big_tree.webp` | Known unresolved Kimi note: no-watermark archive included p05_big_tree.png, but it still showed a visible source mark and was not wired. Do not convert or wire the marked PNG. |
 
 ## Safe to Delete Candidates
