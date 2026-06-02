@@ -7,6 +7,8 @@ const meadowPalsImagePath = (folder, pageId) => `/images/story-quests/meadow-pal
 const meadowPalsAudioPath = (folder, pageId) => `/audio/story-quests/meadow-pals/${folder}/${pageId}.mp3`;
 const dinoPalsImagePath = (folder, pageId) => `/images/story-quests/dino-pals/${folder}/${pageId}.webp`;
 const dinoPalsAudioPath = (folder, pageId) => `/audio/story-quests/dino-pals/${folder}/${pageId}.mp3`;
+const moonwoodImagePath = (folder, pageId) => `/images/story-quests/moonwood/${folder}/${pageId}.webp`;
+const moonwoodAudioPath = (folder, pageId) => `/audio/story-quests/moonwood/${folder}/${pageId}.mp3`;
 
 function meadowPalsPage(folder, id, text, choicePrompt, choices, skillTags = []) {
   return {
@@ -32,6 +34,18 @@ function dinoPalsPage(folder, id, text, choicePrompt, choices, skillTags = []) {
   };
 }
 
+function moonwoodPage(folder, id, text, choicePrompt, choices, skillTags = []) {
+  return {
+    id,
+    text,
+    imageUrl: moonwoodImagePath(folder, id),
+    audioUrl: moonwoodAudioPath(folder, id),
+    choicePrompt,
+    choices,
+    skillTags
+  };
+}
+
 const muddySplashyFolder = "muddy-splashy-hat";
 const shyCuddlyFolder = "shy-cuddly-quiet";
 const bouncySpeedyFolder = "bouncy-speedy-map";
@@ -40,6 +54,8 @@ const chompyLunchFolder = "chompy-lunch-hunt";
 const sunnyRainyFolder = "sunny-rainy-rescue";
 const bossyPicnicFolder = "bossy-picnic-mix-up";
 const zippyFlappyFolder = "zippy-flappy-fast-slow";
+const pipStoneFolder = "pip-stone-loud-thing";
+const fernWrenFolder = "fern-wren-walking-garden";
 
 export const dinoPalsStoryQuestMetadata = [
   {
@@ -647,7 +663,285 @@ const dinoPalsStoryQuests = [
   }
 ];
 
+const moonwoodStoryQuests = [
+  {
+    id: "mw_ra_c_01_pip_stone_loud_thing",
+    title: "Pip and Stone: The Loud Thing",
+    level: "C",
+    ageRange: "Ages 5-6",
+    adventureType: "Reading Adventure",
+    skillFocus: "Level C guided reading choice adventure",
+    cycleFocus: "guided_reading_level_c_story_choice",
+    series: "Moonwood Tales",
+    characters: ["Pip", "Stone", "Toadling"],
+    location: "Moonwood - Hollow Oak, Fog Marsh, mossy stones, reeds, dark water",
+    targetWords: ["Pip", "Stone", "loud", "marsh", "fog", "toadling", "lost", "family", "gentle", "together", "help", "quiet"],
+    highFrequencyWords: ["and", "the", "from", "said", "went", "was", "were", "looked", "again", "with", "home", "everyone"],
+    hfw: ["and", "the", "from", "said", "went", "was", "were", "looked", "again", "with", "home", "everyone"],
+    coverImageUrl: moonwoodImagePath(pipStoneFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      moonwoodPage(pipStoneFolder, "p01_start", ["Pip and Stone sat outside the Hollow Oak.", "Then a crash came from the Fog Marsh.", "The leaves shook."], "What should they do?", [
+        { label: "Find the noise", nextPageId: "p02_pip_wants_to_go" },
+        { label: "Stay near the Hollow Oak", nextPageId: "p02_stone_waits" }
+      ], ["pip", "stone", "marsh", "fog", "loud"]),
+      moonwoodPage(pipStoneFolder, "p02_pip_wants_to_go", ["\"I want to find it,\" said Pip.", "Stone folded both arms.", "\"It is very loud,\" said Stone."], "Who should go first?", [
+        { label: "Pip goes first", nextPageId: "p03_pip_edge" },
+        { label: "Ask Stone to come", nextPageId: "p03_stone_one_foot" }
+      ], ["pip", "stone", "loud"]),
+      moonwoodPage(pipStoneFolder, "p02_stone_waits", ["Stone did not move.", "The noise came again.", "This time, even Stone blinked."], "What happens next?", [
+        { label: "Stone follows Pip", nextPageId: "p03_stone_one_foot" },
+        { label: "Call for Luna", nextPageId: "p03_luna_says_together" }
+      ], ["stone"]),
+      moonwoodPage(pipStoneFolder, "p03_pip_edge", ["Pip walked to the marsh edge.", "Grey fog curled around his boots.", "The noise came again."], "What should Pip do?", [
+        { label: "Step into the fog", nextPageId: "p04_inside_marsh" },
+        { label: "Wait for Stone", nextPageId: "p04_stone_appears" }
+      ], ["pip", "marsh", "fog"]),
+      moonwoodPage(pipStoneFolder, "p03_stone_one_foot", ["Stone had not moved.", "Then Stone moved one foot.", "Then another.", "\"I came anyway,\" said Stone."], "How should they go?", [
+        { label: "Go together", nextPageId: "p04_stone_appears" },
+        { label: "Let Stone lead", nextPageId: "p04_stone_leads" }
+      ], ["stone", "together"]),
+      moonwoodPage(pipStoneFolder, "p03_luna_says_together", ["Luna listened to the sound.", "\"The Fog Marsh is not for one friend alone,\" she said.", "\"Go together.\""], "What should they do?", [
+        { label: "Go with Stone", nextPageId: "p04_stone_appears" },
+        { label: "Go carefully", nextPageId: "p04_inside_marsh" }
+      ], ["marsh", "together"]),
+      moonwoodPage(pipStoneFolder, "p04_stone_appears", ["Stone appeared behind Pip.", "The fog was thick.", "Stone put one huge hand on Pip's shoulder."], "How should they move?", [
+        { label: "Hold hands", nextPageId: "p05_together" },
+        { label: "Follow the sound", nextPageId: "p05_reeds_shake" }
+      ], ["pip", "stone", "fog", "together"]),
+      moonwoodPage(pipStoneFolder, "p04_stone_leads", ["Stone stepped forward.", "The ground squelched.", "Pip stayed close behind."], "What should they follow?", [
+        { label: "Follow the loud noise", nextPageId: "p05_reeds_shake" },
+        { label: "Look for tracks", nextPageId: "p05_tiny_tracks" }
+      ], ["pip", "stone", "loud"]),
+      moonwoodPage(pipStoneFolder, "p04_inside_marsh", ["Inside the marsh, the sound bounced.", "The reeds shook.", "The water rippled."], "Where should they look?", [
+        { label: "Look near the reeds", nextPageId: "p05_reeds_shake" },
+        { label: "Look at the mud", nextPageId: "p05_tiny_tracks" }
+      ], ["marsh"]),
+      moonwoodPage(pipStoneFolder, "p05_together", ["\"Together,\" said Stone.", "Pip nodded.", "The noise came from deeper in the fog."], "What should they do?", [
+        { label: "Creep closer", nextPageId: "p06_mossy_stone" },
+        { label: "Call softly", nextPageId: "p06_small_answer" }
+      ], ["pip", "stone", "fog", "together"]),
+      moonwoodPage(pipStoneFolder, "p05_reeds_shake", ["The reeds shook.", "Something very small was making something very big.", "Pip pointed ahead."], "Where should they go?", [
+        { label: "Go to the mossy stone", nextPageId: "p06_mossy_stone" },
+        { label: "Call softly", nextPageId: "p06_small_answer" }
+      ], ["pip"]),
+      moonwoodPage(pipStoneFolder, "p05_tiny_tracks", ["Pip found tiny wet tracks.", "They went around a puddle.", "They stopped near a mossy stone."], "What should they do?", [
+        { label: "Look on the stone", nextPageId: "p06_mossy_stone" },
+        { label: "Ask Stone to look", nextPageId: "p06_stone_bends" }
+      ], ["pip", "stone"]),
+      moonwoodPage(pipStoneFolder, "p06_small_answer", ["Pip called softly.", "The marsh went quiet.", "Then a tiny voice said, \"Here.\""], "How should they answer?", [
+        { label: "Find the voice", nextPageId: "p06_mossy_stone" },
+        { label: "Let Stone answer", nextPageId: "p07_stone_gentle" }
+      ], ["pip", "stone", "marsh", "quiet"]),
+      moonwoodPage(pipStoneFolder, "p06_stone_bends", ["Stone bent down carefully.", "Stone was enormous.", "The thing on the stone was not."], "Who should speak?", [
+        { label: "Look closer", nextPageId: "p06_mossy_stone" },
+        { label: "Let Pip speak", nextPageId: "p07_pip_speaks" }
+      ], ["stone", "pip"]),
+      moonwoodPage(pipStoneFolder, "p06_mossy_stone", ["On a mossy stone sat a tiny toadling.", "Its mouth was very wide.", "All the loud noise had come from it."], "What should they do?", [
+        { label: "Pip asks why", nextPageId: "p07_pip_speaks" },
+        { label: "Stone kneels down", nextPageId: "p07_stone_gentle" }
+      ], ["toadling", "loud", "pip", "stone"]),
+      moonwoodPage(pipStoneFolder, "p07_pip_speaks", ["\"Why were you shouting?\" asked Pip.", "\"I am lost,\" said the toadling.", "\"I was calling my family.\""], "How can they help?", [
+        { label: "Help call louder", nextPageId: "p08_stone_calls" },
+        { label: "Search the marsh", nextPageId: "p08_search_family" }
+      ], ["pip", "toadling", "lost", "family", "help", "marsh"]),
+      moonwoodPage(pipStoneFolder, "p07_stone_gentle", ["Stone knelt down very slowly.", "\"We will help,\" said Stone.", "The toadling looked at Stone's hands."], "How should Stone help?", [
+        { label: "Stone carries the toadling", nextPageId: "p08_stone_carries" },
+        { label: "Stone calls out", nextPageId: "p08_stone_calls" }
+      ], ["stone", "toadling", "help", "gentle"]),
+      moonwoodPage(pipStoneFolder, "p08_search_family", ["They searched near the reeds.", "They searched near the dark water.", "The toadling looked smaller and smaller."], "What should they try?", [
+        { label: "Use Stone's loud voice", nextPageId: "p08_stone_calls" },
+        { label: "Climb higher to listen", nextPageId: "p09_pip_listens" }
+      ], ["stone", "loud", "toadling", "family"]),
+      moonwoodPage(pipStoneFolder, "p08_stone_carries", ["Stone opened both hands.", "The toadling sat in Stone's palms.", "\"You are very large,\" said the toadling."], "What should Stone do?", [
+        { label: "Stone is gentle", nextPageId: "p08_stone_calls" },
+        { label: "Pip walks beside them", nextPageId: "p09_pip_listens" }
+      ], ["stone", "toadling", "gentle", "pip"]),
+      moonwoodPage(pipStoneFolder, "p08_stone_calls", ["Stone stood tall.", "Stone called across the marsh.", "It was louder than the toadling.", "Much louder."], "What should they do?", [
+        { label: "Listen for an answer", nextPageId: "p09_answer_far_side" },
+        { label: "Too loud! Cover ears", nextPageId: "p09_pip_covers_ears" }
+      ], ["stone", "marsh", "toadling", "loud"]),
+      moonwoodPage(pipStoneFolder, "p09_pip_listens", ["Pip climbed on a root.", "He listened hard.", "Far away, something answered."], "What next?", [
+        { label: "Go toward the answer", nextPageId: "p10_family_found" },
+        { label: "Ask Stone to call again", nextPageId: "p08_stone_calls" }
+      ], ["pip", "stone", "family"]),
+      moonwoodPage(pipStoneFolder, "p09_answer_far_side", ["Something answered from the far side.", "The toadling sat up.", "\"That is them!\" it said."], "What should they do?", [
+        { label: "Take the toadling home", nextPageId: "p10_family_found" },
+        { label: "Let the toadling call back", nextPageId: "p09_toadling_calls" }
+      ], ["toadling", "home", "family"]),
+      moonwoodPage(pipStoneFolder, "p09_pip_covers_ears", ["Pip covered both ears.", "Stone looked sorry.", "The toadling looked very happy."], "What should Stone do?", [
+        { label: "Listen for family", nextPageId: "p09_answer_far_side" },
+        { label: "Stone calls softer", nextPageId: "p09_soft_call" }
+      ], ["pip", "stone", "toadling", "family"]),
+      moonwoodPage(pipStoneFolder, "p09_toadling_calls", ["The toadling opened its mouth.", "A huge sound came out again.", "This time, it sounded happy."], "What should they do?", [
+        { label: "Follow the happy sound", nextPageId: "p10_family_found" },
+        { label: "Stone helps too", nextPageId: "p08_stone_calls" }
+      ], ["toadling", "stone", "help"]),
+      moonwoodPage(pipStoneFolder, "p09_soft_call", ["Stone tried a softer call.", "It was still very loud.", "But it worked."], "What should they do?", [
+        { label: "Follow the answer", nextPageId: "p10_family_found" },
+        { label: "Laugh quietly", nextPageId: "p11_back_home" }
+      ], ["stone", "loud", "quiet"]),
+      moonwoodPage(pipStoneFolder, "p10_family_found", ["At the far side of the marsh, small eyes blinked.", "More toadlings hopped out.", "The lost toadling jumped home."], "What should Pip and Stone do?", [
+        { label: "Wave goodbye", nextPageId: "p11_back_home" },
+        { label: "Ask about the loud noise", nextPageId: "p11_toadling_answer" }
+      ], ["marsh", "toadling", "lost", "home", "family"]),
+      moonwoodPage(pipStoneFolder, "p11_toadling_answer", ["\"Are you always that loud?\" asked Pip.", "\"Only when lost,\" said the toadling.", "Stone smiled."], "How should it end?", [
+        { label: "Go home", nextPageId: "p12_ending_quiet" },
+        { label: "Tell everyone", nextPageId: "p12_ending_loud" }
+      ], ["pip", "stone", "toadling", "loud", "lost"]),
+      moonwoodPage(pipStoneFolder, "p11_back_home", ["Pip and Stone walked back.", "The marsh was quiet now.", "Stone's hand stayed near Pip's shoulder."], "What should they do?", [
+        { label: "Tell everyone", nextPageId: "p12_ending_loud" },
+        { label: "Keep it secret", nextPageId: "p12_ending_quiet" }
+      ], ["pip", "stone", "marsh", "quiet"]),
+      moonwoodPage(pipStoneFolder, "p12_ending_loud", ["Back at the Hollow Oak, everyone asked about the loud thing.", "\"Very small,\" said Pip.", "\"Very loud,\" said Stone."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["pip", "stone", "loud"]),
+      moonwoodPage(pipStoneFolder, "p12_ending_quiet", ["Pip and Stone sat outside the Hollow Oak again.", "The forest was quiet.", "Stone smiled at the quiet."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["pip", "stone", "quiet"])
+    ]
+  },
+  {
+    id: "mw_ra_c_02_fern_wren_walking_garden",
+    title: "Fern and Wren: The Walking Garden",
+    level: "C",
+    ageRange: "Ages 5-6",
+    adventureType: "Reading Adventure",
+    skillFocus: "Level C guided reading choice adventure",
+    cycleFocus: "guided_reading_level_c_story_choice",
+    series: "Moonwood Tales",
+    characters: ["Fern", "Wren", "walking plants"],
+    location: "Moonwood - Fern's garden, Hollow Oak, Crystal Stream, Burrow's tunnel",
+    targetWords: ["Fern", "Wren", "garden", "potion", "plants", "walking", "wrong", "book", "sing", "calm", "home", "fewer"],
+    highFrequencyWords: ["and", "the", "said", "was", "were", "looked", "then", "again", "home", "one", "very", "morning"],
+    hfw: ["and", "the", "said", "was", "were", "looked", "then", "again", "home", "one", "very", "morning"],
+    coverImageUrl: moonwoodImagePath(fernWrenFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      moonwoodPage(fernWrenFolder, "p01_start", ["Fern's garden was her favourite place.", "One morning, Wren arrived with a bubbling cauldron.", "\"I made a potion,\" said Wren."], "What should Fern do?", [
+        { label: "Look at the potion", nextPageId: "p02_recipe" },
+        { label: "Let Wren try it", nextPageId: "p03_pour_potion" }
+      ], ["fern", "wren", "garden", "potion"]),
+      moonwoodPage(fernWrenFolder, "p02_recipe", ["Fern looked at the recipe.", "\"Are you sure?\" she asked.", "\"Completely,\" said Wren.", "Mostly."], "What should Fern do?", [
+        { label: "Trust Wren", nextPageId: "p03_pour_potion" },
+        { label: "Check the book again", nextPageId: "p03_wrong_colour" }
+      ], ["fern", "wren", "book"]),
+      moonwoodPage(fernWrenFolder, "p03_wrong_colour", ["The potion was meant to be green.", "It was more purple.", "Wren did not notice."], "What should happen?", [
+        { label: "Fern warns Wren", nextPageId: "p04_fern_warns" },
+        { label: "Wren pours it anyway", nextPageId: "p03_pour_potion" }
+      ], ["potion", "wren", "fern"]),
+      moonwoodPage(fernWrenFolder, "p03_pour_potion", ["Wren poured the potion on the plants.", "The plants stood straight.", "Then one small plant took a step."], "What should they do?", [
+        { label: "Follow the small plant", nextPageId: "p04_small_plant" },
+        { label: "Look at all the plants", nextPageId: "p04_all_walk" }
+      ], ["wren", "potion", "plants", "walking"]),
+      moonwoodPage(fernWrenFolder, "p04_fern_warns", ["\"Wren,\" said Fern.", "\"That colour is not right.\"", "The nearest fern stretched one root-foot."], "What should Fern do?", [
+        { label: "Stop the potion", nextPageId: "p05_too_late" },
+        { label: "Read the book", nextPageId: "p06_wrong_book" }
+      ], ["fern", "wren", "potion", "book"]),
+      moonwoodPage(fernWrenFolder, "p04_small_plant", ["The smallest plant walked slowly.", "Very slowly.", "It was heading for Burrow's tunnel."], "What should they do?", [
+        { label: "Stop the small plant", nextPageId: "p05_tiny_escape" },
+        { label: "Call Fern", nextPageId: "p05_fern_calm" }
+      ], ["plants", "walking", "fern"]),
+      moonwoodPage(fernWrenFolder, "p04_all_walk", ["All the plants began to walk.", "They walked around Fern.", "They walked around Wren.", "Then they went for a stroll."], "What should they do?", [
+        { label: "Follow the plants", nextPageId: "p05_garden_empty" },
+        { label: "Open the spell book", nextPageId: "p06_wrong_book" }
+      ], ["plants", "walking", "fern", "wren", "book"]),
+      moonwoodPage(fernWrenFolder, "p05_too_late", ["Fern reached for the cauldron.", "But the roots were already moving.", "The garden had feet."], "How should Fern react?", [
+        { label: "Stay calm", nextPageId: "p05_fern_calm" },
+        { label: "Panic with Wren", nextPageId: "p05_wren_panic" }
+      ], ["fern", "garden", "calm", "wren"]),
+      moonwoodPage(fernWrenFolder, "p05_tiny_escape", ["The tiny plant reached Burrow's tunnel.", "It knocked politely.", "No one answered."], "What should they do?", [
+        { label: "Carry it back", nextPageId: "p07_sing_softly" },
+        { label: "Let it explore", nextPageId: "p06_plants_everywhere" }
+      ], ["plants"]),
+      moonwoodPage(fernWrenFolder, "p05_fern_calm", ["Fern took one slow breath.", "Wren took three fast ones.", "The plants kept walking."], "What should Fern try?", [
+        { label: "Check the books", nextPageId: "p06_wrong_book" },
+        { label: "Sing to the plants", nextPageId: "p07_sing_softly" }
+      ], ["fern", "wren", "plants", "walking", "calm", "book", "sing"]),
+      moonwoodPage(fernWrenFolder, "p05_wren_panic", ["Wren opened one book.", "Then another.", "Then another.", "None of them were the right book."], "What should Wren do?", [
+        { label: "Ask Fern for help", nextPageId: "p05_fern_calm" },
+        { label: "Try a fast spell", nextPageId: "p06_fast_spell" }
+      ], ["wren", "book", "fern"]),
+      moonwoodPage(fernWrenFolder, "p05_garden_empty", ["The garden was almost empty.", "A flowerpot waddled down the path.", "A vine waved politely."], "What should they do?", [
+        { label: "Follow the vine", nextPageId: "p06_crystal_stream" },
+        { label: "Find the recipe", nextPageId: "p06_wrong_book" }
+      ], ["garden", "book"]),
+      moonwoodPage(fernWrenFolder, "p06_wrong_book", ["Wren found the problem.", "\"This is the motion recipe,\" she said.", "\"Not the growing recipe.\"", "Fern was very quiet."], "What should they use?", [
+        { label: "Use the right book", nextPageId: "p07_book_fix" },
+        { label: "Use Fern's song", nextPageId: "p07_sing_softly" }
+      ], ["wren", "book", "wrong", "fern", "quiet"]),
+      moonwoodPage(fernWrenFolder, "p06_plants_everywhere", ["Plants walked into the Hollow Oak.", "Some went toward the Crystal Stream.", "One sat on a mushroom."], "How can they bring them back?", [
+        { label: "Call them home", nextPageId: "p07_sing_softly" },
+        { label: "Try Wren's spell", nextPageId: "p07_book_fix" }
+      ], ["plants", "walking", "home", "wren"]),
+      moonwoodPage(fernWrenFolder, "p06_fast_spell", ["Wren cast a quick spell.", "The plants stopped.", "Then they walked backward.", "That was not better."], "What should they do now?", [
+        { label: "Let Fern sing", nextPageId: "p07_sing_softly" },
+        { label: "Find the right page", nextPageId: "p07_book_fix" }
+      ], ["wren", "plants", "walking", "fern", "sing", "book"]),
+      moonwoodPage(fernWrenFolder, "p06_crystal_stream", ["A vine reached the Crystal Stream.", "It looked at the water.", "Then it sat down like it was tired."], "Who can help?", [
+        { label: "Ask Dewdrop for help", nextPageId: "p07_dewdrop_laughs" },
+        { label: "Sing to the vine", nextPageId: "p07_sing_softly" }
+      ], ["plants", "sing"]),
+      moonwoodPage(fernWrenFolder, "p07_dewdrop_laughs", ["Dewdrop watched the walking vine.", "\"I have seen stranger,\" she said.", "\"But not today.\""], "What should they do?", [
+        { label: "Bring it home", nextPageId: "p08_return_home" },
+        { label: "Call all plants", nextPageId: "p07_sing_softly" }
+      ], ["walking", "home", "plants"]),
+      moonwoodPage(fernWrenFolder, "p07_book_fix", ["Wren found the right page.", "She read very carefully.", "The spell made one plant sneeze."], "What should Wren do?", [
+        { label: "Try again", nextPageId: "p08_almost_fixed" },
+        { label: "Let Fern try", nextPageId: "p07_sing_softly" }
+      ], ["wren", "book", "plants"]),
+      moonwoodPage(fernWrenFolder, "p07_sing_softly", ["Fern stood in the clearing.", "She closed her eyes.", "She sang very softly."], "What happens?", [
+        { label: "The plants listen", nextPageId: "p08_return_home" },
+        { label: "The smallest plant dances", nextPageId: "p08_tiny_dance" }
+      ], ["fern", "sing", "plants", "calm"]),
+      moonwoodPage(fernWrenFolder, "p08_almost_fixed", ["The plants slowed down.", "One plant sat in the wrong pot.", "Another wore a leaf like a hat."], "What should they do?", [
+        { label: "Finish with Fern's song", nextPageId: "p08_return_home" },
+        { label: "Accept the silly garden", nextPageId: "p09_silly_garden" }
+      ], ["plants", "wrong", "fern", "sing", "garden"]),
+      moonwoodPage(fernWrenFolder, "p08_tiny_dance", ["The smallest plant danced in a circle.", "Wren stared.", "Fern kept singing."], "What should they do?", [
+        { label: "Let it finish", nextPageId: "p09_tiny_bow" },
+        { label: "Call it home", nextPageId: "p08_return_home" }
+      ], ["plants", "wren", "fern", "sing", "home"]),
+      moonwoodPage(fernWrenFolder, "p08_return_home", ["The plants turned around.", "Slowly, like sleepy creatures, they walked home.", "One by one."], "What should they watch?", [
+        { label: "Watch them settle", nextPageId: "p09_plants_settle" },
+        { label: "Help the tiny plant", nextPageId: "p09_tiny_bow" }
+      ], ["plants", "walking", "home", "help"]),
+      moonwoodPage(fernWrenFolder, "p09_plants_settle", ["Each plant found its place.", "The smallest sat down last.", "It made a small happy thump."], "What should happen next?", [
+        { label: "Wren apologises", nextPageId: "p10_wren_sorry" },
+        { label: "Fern checks the garden", nextPageId: "p10_garden_safe" }
+      ], ["plants", "wren", "fern", "garden"]),
+      moonwoodPage(fernWrenFolder, "p09_tiny_bow", ["The smallest plant bowed.", "Then it sat in its pot.", "Wren bowed back.", "Fern almost smiled."], "What should they do?", [
+        { label: "Wren apologises", nextPageId: "p10_wren_sorry" },
+        { label: "Keep the bowing plant", nextPageId: "p10_garden_safe" }
+      ], ["plants", "wren", "fern"]),
+      moonwoodPage(fernWrenFolder, "p09_silly_garden", ["For a moment, the garden looked silly.", "Then a pot sneezed.", "Fern shook her head."], "What should Fern do?", [
+        { label: "Fix it properly", nextPageId: "p08_return_home" },
+        { label: "Ask Wren what she learned", nextPageId: "p10_wren_sorry" }
+      ], ["garden", "fern", "wren"]),
+      moonwoodPage(fernWrenFolder, "p10_wren_sorry", ["\"I am sorry,\" said Wren.", "\"Did you learn something?\" asked Fern.", "\"Yes,\" said Wren.", "\"I need more books.\""], "What should Fern say?", [
+        { label: "Fern answers", nextPageId: "p11_fewer_books" },
+        { label: "Read again", nextPageId: "p01_start" }
+      ], ["wren", "fern", "book"]),
+      moonwoodPage(fernWrenFolder, "p10_garden_safe", ["Fern checked each plant.", "Every root was home.", "Every leaf was calm."], "What should Fern do?", [
+        { label: "Talk to Wren", nextPageId: "p10_wren_sorry" },
+        { label: "End quietly", nextPageId: "p12_ending_calm" }
+      ], ["fern", "plants", "home", "calm"]),
+      moonwoodPage(fernWrenFolder, "p11_fewer_books", ["\"Fewer,\" said Fern.", "\"Fewer books.\"", "Wren looked at the pile.", "\"That might also work.\""], "Read again?", [
+        { label: "Finish", nextPageId: "end" },
+        { label: "Read again", nextPageId: "p01_start" }
+      ], ["fern", "wren", "fewer", "book"]),
+      moonwoodPage(fernWrenFolder, "p12_ending_calm", ["Fern's garden was quiet again.", "Wren put the purple potion away.", "The smallest plant did not move.", "Much."], "Read again?", [
+        { label: "Finish", nextPageId: "end" },
+        { label: "Read again", nextPageId: "p01_start" }
+      ], ["fern", "garden", "wren", "potion", "plants", "calm"])
+    ]
+  }
+];
+
 export const storyQuests = [
+  ...moonwoodStoryQuests,
   ...dinoPalsStoryQuests,
   {
     id: "story_quest_short_a_sam_pam_01",

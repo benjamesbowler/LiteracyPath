@@ -46,29 +46,38 @@ export function LearnAreaPage() {
           <p>Read bright guided stories, hear each page, and choose what happens next.</p>
         </div>
         <div className="learn-story-quest-list">
-          {storyQuests.map(quest => (
-            <article className="learn-story-quest-card" key={quest.id}>
-              <img
-                alt={`${quest.title} cover`}
-                className="learn-story-quest-cover"
-                src={quest.coverImageUrl || quest.pages?.[0]?.imageUrl}
-              />
-              <div className="learn-story-quest-card-copy">
-                <span className="story-quest-kicker">{quest.adventureType || "Story Reader"}</span>
-                <h3>{quest.title}</h3>
-                <p>{quest.level === "A" ? "Level A" : quest.level || quest.skillFocus}</p>
-                <span>{(quest.characters || []).join(", ") || quest.skillFocus}</span>
-                <div className="learn-story-word-preview" aria-label="Target words">
-                  {(quest.targetWords || []).slice(0, 9).map(word => (
-                    <span key={word}>{word}</span>
-                  ))}
+          {storyQuests.map(quest => {
+            const levelLabel = quest.level && /^[A-Z]$/.test(quest.level)
+              ? `Level ${quest.level}`
+              : quest.level || quest.skillFocus;
+            const questDetails = [quest.series, (quest.characters || []).join(", ")]
+              .filter(Boolean)
+              .join(" - ");
+
+            return (
+              <article className="learn-story-quest-card" key={quest.id}>
+                <img
+                  alt={`${quest.title} cover`}
+                  className="learn-story-quest-cover"
+                  src={quest.coverImageUrl || quest.pages?.[0]?.imageUrl}
+                />
+                <div className="learn-story-quest-card-copy">
+                  <span className="story-quest-kicker">{quest.adventureType || "Story Reader"}</span>
+                  <h3>{quest.title}</h3>
+                  <p>{levelLabel}</p>
+                  <span>{questDetails || quest.skillFocus}</span>
+                  <div className="learn-story-word-preview" aria-label="Target words">
+                    {(quest.targetWords || []).slice(0, 9).map(word => (
+                      <span key={word}>{word}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">
-                Start Reading
-              </button>
-            </article>
-          ))}
+                <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">
+                  Start Reading
+                </button>
+              </article>
+            );
+          })}
         </div>
       </section>
 
