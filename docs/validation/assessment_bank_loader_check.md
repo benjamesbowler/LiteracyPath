@@ -1,6 +1,6 @@
 # Assessment Skill Bank Loader Check
 
-Generated: 2026-06-02T06:54:37.445Z
+Generated: 2026-06-02T07:44:18.694Z
 
 ## Summary
 
@@ -54,15 +54,58 @@ Generated: 2026-06-02T06:54:37.445Z
 | context_clues | Context Clues | comprehension | 218 | p3_context_clues_paragraph_001, template_context_1, exp2_comp_9, exp2_comp_10, exp3_comp_21 |
 | theme | Theme and Higher Comprehension | comprehension | 217 | template_theme_1, exp2_comp_11, exp2_comp_12, exp3_comp_26, exp3_comp_27 |
 
+## HFW-Specific Loader Checks
+
+| Skill | Raw Loader Questions | HFW-Safe Questions | Level 1 | Level 2 | Formats | Audio Rows |
+| --- | ---: | ---: | ---: | ---: | --- | ---: |
+| hfw_1_25 | 278 | 60 | 30 | 30 | HFW_IMAGE_CONTEXT_CLOZE: 30<br>HFW_LETTER_BUILD: 30 | 0 |
+| hfw_26_50 | 279 | 60 | 30 | 30 | HFW_IMAGE_CONTEXT_CLOZE: 30<br>HFW_LETTER_BUILD: 30 | 0 |
+| hfw_51_75 | 92 | 92 | 46 | 46 | HFW_IMAGE_CONTEXT_CLOZE: 46<br>HFW_LETTER_BUILD: 46 | 0 |
+| hfw_76_100 | 92 | 92 | 46 | 46 | HFW_IMAGE_CONTEXT_CLOZE: 46<br>HFW_LETTER_BUILD: 46 | 0 |
+
 ## Explicit Safety Checks
 
 | Check | Result | Detail |
 | --- | --- | --- |
 | hfw_1_25 resolves | pass | 278 questions |
+| hfw_1_25 maps to hfw | pass | hfw |
+| hfw_1_25 HFW-safe loader resolves | pass | 60 questions |
+| hfw_1_25 HFW-safe loader level 1 depth | pass | 30 questions |
+| hfw_1_25 HFW-safe loader level 2 depth | pass | 30 questions |
+| hfw_1_25 HFW-safe loader active skill ids only | pass | 0 invalid rows |
+| hfw_1_25 HFW-safe loader has no audio | pass | 0 audio rows |
+| hfw_1_25 HFW-safe loader formats allowed | pass | 0 invalid formats |
+| hfw_1_25 HFW-safe loader eligibility | pass | 0 ineligible rows |
 | hfw_26_50 resolves | pass | 279 questions |
+| hfw_26_50 maps to hfw | pass | hfw |
+| hfw_26_50 HFW-safe loader resolves | pass | 60 questions |
+| hfw_26_50 HFW-safe loader level 1 depth | pass | 30 questions |
+| hfw_26_50 HFW-safe loader level 2 depth | pass | 30 questions |
+| hfw_26_50 HFW-safe loader active skill ids only | pass | 0 invalid rows |
+| hfw_26_50 HFW-safe loader has no audio | pass | 0 audio rows |
+| hfw_26_50 HFW-safe loader formats allowed | pass | 0 invalid formats |
+| hfw_26_50 HFW-safe loader eligibility | pass | 0 ineligible rows |
 | hfw_51_75 resolves | pass | 92 questions |
+| hfw_51_75 maps to hfw | pass | hfw |
+| hfw_51_75 HFW-safe loader resolves | pass | 92 questions |
+| hfw_51_75 HFW-safe loader level 1 depth | pass | 46 questions |
+| hfw_51_75 HFW-safe loader level 2 depth | pass | 46 questions |
+| hfw_51_75 HFW-safe loader active skill ids only | pass | 0 invalid rows |
+| hfw_51_75 HFW-safe loader has no audio | pass | 0 audio rows |
+| hfw_51_75 HFW-safe loader formats allowed | pass | 0 invalid formats |
+| hfw_51_75 HFW-safe loader eligibility | pass | 0 ineligible rows |
 | hfw_76_100 resolves | pass | 92 questions |
+| hfw_76_100 maps to hfw | pass | hfw |
+| hfw_76_100 HFW-safe loader resolves | pass | 92 questions |
+| hfw_76_100 HFW-safe loader level 1 depth | pass | 46 questions |
+| hfw_76_100 HFW-safe loader level 2 depth | pass | 46 questions |
+| hfw_76_100 HFW-safe loader active skill ids only | pass | 0 invalid rows |
+| hfw_76_100 HFW-safe loader has no audio | pass | 0 audio rows |
+| hfw_76_100 HFW-safe loader formats allowed | pass | 0 invalid formats |
+| hfw_76_100 HFW-safe loader eligibility | pass | 0 ineligible rows |
 | hfw_51_100 is not active | pass |  |
+| hfw_51_100 has no HFW-safe loader output | pass | 0 questions |
+| all HFW bands map to group hfw | pass | hfw_1_25:hfw, hfw_26_50:hfw, hfw_51_75:hfw, hfw_76_100:hfw |
 | reading_comprehension is not active | pass |  |
 | blends replacement phonics resolves | pass | 267 questions |
 | digraphs replacement phonics resolves | pass | 309 questions |

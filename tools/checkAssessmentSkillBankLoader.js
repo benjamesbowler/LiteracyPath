@@ -8,8 +8,10 @@ import {
   getAssessmentSkillGroup,
   getAssessmentSkillGroupMetadata,
   getAssessmentSkillIdsForGroup,
-  loadAssessmentSkillBank
+  loadAssessmentSkillBank,
+  loadHfwAssessmentBank
 } from "../src/data/loadAssessmentSkillBank.js";
+import { HFW_ALLOWED_FORMATS, getHfwRuntimeEligibilityIssues } from "../src/data/hfwRuntimeEligibility.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reportPath = path.join(repoRoot, "docs/validation/assessment_bank_loader_check.md");
@@ -89,6 +91,7 @@ const activeSkillIdSet = new Set(activeSkillIds);
 const groups = getAssessmentSkillGroupMetadata();
 const rows = [];
 const explicitCheckRows = [];
+const hfwRows = [];
 
 const runtimeAliases = {
   long_vowels_silent_e: "long_vowels",
@@ -116,6 +119,29 @@ function mappedGroupsForSkill(skillId = "") {
 function addExplicitCheck(name, passed, detail = "") {
   explicitCheckRows.push({ name, passed, detail });
   if (!passed) failures.push(`${name}${detail ? `: ${detail}` : ""}`);
+}
+
+function questionLevel(question = {}) {
+  const level = Number(question.level || question.assessmentLevel || question.depthLevel || 0);
+  if (Number.isFinite(level) && level >= 1) return level >= 2 ? 2 : 1;
+  const difficulty = Number(question.difficultyLevel || question.difficulty || 0);
+  return Number.isFinite(difficulty) && difficulty >= 2 ? 2 : 1;
+}
+
+function questionFormat(question = {}) {
+  return String(question.formatType || question.templateType || question.questionType || "UNKNOWN").toUpperCase();
+}
+
+function questionHasAudio(question = {}) {
+  return Boolean(
+    question.audioPath ||
+    question.audioUrl ||
+    question.audioText ||
+    question.spokenPrompt ||
+    question.audio ||
+    (Array.isArray(question.answerOptions) && question.answerOptions.some(option => option?.audio || option?.audioPath || option?.audioUrl)) ||
+    (Array.isArray(question.choices) && question.choices.some(option => option?.audio || option?.audioPath || option?.audioUrl))
+  );
 }
 
 for (const group of groups) {
@@ -148,16 +174,57 @@ for (const skill of skillTree) {
   });
 }
 
-for (const skillId of ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]) {
+const hfwSkillIds = ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"];
+for (const skillId of hfwSkillIds) {
   const questions = await loadAssessmentSkillBank(skillId);
   addExplicitCheck(`${skillId} resolves`, questions.length > 0, `${questions.length} questions`);
+
+  const hfwQuestions = await loadHfwAssessmentBank(skillId);
+  const levelOne = hfwQuestions.filter(question => questionLevel(question) === 1);
+  const levelTwo = hfwQuestions.filter(question => questionLevel(question) === 2);
+  const invalidSkillRows = hfwQuestions.filter(question => canonicalSkillId(question.assessmentSkillId || question.skillId) !== skillId);
+  const audioRows = hfwQuestions.filter(questionHasAudio);
+  const invalidFormatRows = hfwQuestions.filter(question => !HFW_ALLOWED_FORMATS.has(questionFormat(question)));
+  const eligibilityRows = hfwQuestions
+    .map(question => ({ question, issues: getHfwRuntimeEligibilityIssues(question, skillId) }))
+    .filter(row => row.issues.length);
+
+  addExplicitCheck(`${skillId} maps to hfw`, getAssessmentSkillGroup(skillId) === "hfw", getAssessmentSkillGroup(skillId) || "none");
+  addExplicitCheck(`${skillId} HFW-safe loader resolves`, hfwQuestions.length > 0, `${hfwQuestions.length} questions`);
+  addExplicitCheck(`${skillId} HFW-safe loader level 1 depth`, levelOne.length >= 15, `${levelOne.length} questions`);
+  addExplicitCheck(`${skillId} HFW-safe loader level 2 depth`, levelTwo.length >= 15, `${levelTwo.length} questions`);
+  addExplicitCheck(`${skillId} HFW-safe loader active skill ids only`, invalidSkillRows.length === 0, `${invalidSkillRows.length} invalid rows`);
+  addExplicitCheck(`${skillId} HFW-safe loader has no audio`, audioRows.length === 0, `${audioRows.length} audio rows`);
+  addExplicitCheck(`${skillId} HFW-safe loader formats allowed`, invalidFormatRows.length === 0, `${invalidFormatRows.length} invalid formats`);
+  addExplicitCheck(`${skillId} HFW-safe loader eligibility`, eligibilityRows.length === 0, `${eligibilityRows.length} ineligible rows`);
+
+  hfwRows.push({
+    skillId,
+    rawCount: questions.length,
+    hfwSafeCount: hfwQuestions.length,
+    levelOne: levelOne.length,
+    levelTwo: levelTwo.length,
+    formats: Object.entries(hfwQuestions.reduce((counts, question) => {
+      const format = questionFormat(question);
+      counts[format] = (counts[format] || 0) + 1;
+      return counts;
+    }, {})).map(([format, count]) => `${format}: ${count}`).join("<br>"),
+    audioRows: audioRows.length
+  });
 }
 
 const legacyHfwQuestions = await loadAssessmentSkillBank("hfw_51_100");
+const legacyHfwSafeQuestions = await loadHfwAssessmentBank("hfw_51_100");
 addExplicitCheck("hfw_51_100 is not active", !activeSkillIdSet.has("hfw_51_100"));
+addExplicitCheck("hfw_51_100 has no HFW-safe loader output", legacyHfwSafeQuestions.length === 0, `${legacyHfwSafeQuestions.length} questions`);
 if (legacyHfwQuestions.length > 0) {
   warnings.push("hfw_51_100 still has legacy source questions, but it is not an active skillTree id");
 }
+addExplicitCheck(
+  "all HFW bands map to group hfw",
+  hfwSkillIds.every(skillId => getAssessmentSkillGroup(skillId) === "hfw"),
+  hfwSkillIds.map(skillId => `${skillId}:${getAssessmentSkillGroup(skillId)}`).join(", ")
+);
 addExplicitCheck("reading_comprehension is not active", !activeSkillIdSet.has("reading_comprehension"));
 
 for (const skillId of ["blends", "digraphs", "long_vowels_silent_e", "vowel_teams", "r_controlled_vowels"]) {
@@ -212,6 +279,12 @@ const report = [
   "| Skill | Label | Group | Loader Questions | Sample IDs |",
   "| --- | --- | --- | ---: | --- |",
   ...rows.map(row => `| ${row.skillId} | ${row.label} | ${row.groupId || "UNMAPPED"} | ${row.count} | ${row.sampleIds.join(", ")} |`),
+  "",
+  "## HFW-Specific Loader Checks",
+  "",
+  "| Skill | Raw Loader Questions | HFW-Safe Questions | Level 1 | Level 2 | Formats | Audio Rows |",
+  "| --- | ---: | ---: | ---: | ---: | --- | ---: |",
+  ...hfwRows.map(row => `| ${row.skillId} | ${row.rawCount} | ${row.hfwSafeCount} | ${row.levelOne} | ${row.levelTwo} | ${row.formats} | ${row.audioRows} |`),
   "",
   "## Explicit Safety Checks",
   "",

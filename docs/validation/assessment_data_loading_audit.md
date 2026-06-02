@@ -194,3 +194,73 @@ Recommended Phase 7 sequence:
 3. Lazy-load only the `hfw` group first.
 4. Compare loader counts and runtime-selected rounds before and after.
 5. Keep `early_phonics` and `comprehension` eager until async selection has dedicated smoke coverage.
+
+## Phase 7 HFW Runtime Smoke Test
+
+Generated: 2026-06-02
+
+Phase 7 stayed conservative. No live assessment startup or runtime selection behavior was changed.
+
+### What changed
+
+- Added `tools/checkHfwRuntimeSmoke.js`.
+- Added package script `npm run check:hfw-runtime-smoke`.
+- Added `docs/validation/hfw_runtime_smoke_check.md`.
+- Added an isolated `loadHfwAssessmentBank(skillId)` helper in `src/data/loadAssessmentSkillBank.js`.
+- Strengthened `tools/checkAssessmentSkillBankLoader.js` with HFW-specific validation.
+
+### HFW smoke coverage
+
+The new smoke test verifies all four active HFW bands:
+
+- `hfw_1_25`
+- `hfw_26_50`
+- `hfw_51_75`
+- `hfw_76_100`
+
+For each band, it checks:
+
+- current selectable runtime path resolves questions
+- Level 1 image-context cloze questions are available
+- Level 2 letter-build questions are available
+- each level can sample a 15-question round
+- no selectable HFW runtime question has `audioPath`, `audioUrl`, `audioText`, or `spokenPrompt`
+- no selectable HFW runtime question uses speaker/audio/listen formats
+- `disableAudio: true` is preserved
+- active HFW skill ids stay in the four-band model
+- legacy `hfw_51_100` is not active
+
+### HFW runtime counts from smoke test
+
+| Skill | Raw loader | Runtime pool | Selectable HFW runtime | Level 1 | Level 2 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `hfw_1_25` | 278 | 218 | 60 | 30 | 30 |
+| `hfw_26_50` | 279 | 219 | 60 | 30 | 30 |
+| `hfw_51_75` | 92 | 92 | 92 | 46 | 46 |
+| `hfw_76_100` | 92 | 92 | 92 | 46 | 46 |
+
+The raw loader still sees older legacy/listen HFW rows for the lower bands. The selectable runtime path correctly filters those out and keeps only `HFW_IMAGE_CONTEXT_CLOZE` and `HFW_LETTER_BUILD`.
+
+### Lazy-loading status
+
+Actual runtime lazy loading was deferred.
+
+Reason: switching HFW to async runtime loading would still require changing the assessment startup path in `App.jsx`. This phase intentionally avoided that. The new `loadHfwAssessmentBank()` helper is readiness-only and is not wired into student assessment startup.
+
+### Why early phonics remains untouched
+
+Early phonics is still the highest-risk assessment area for async loading because it uses custom selectors, phase/depth progression, media eligibility, coverage tracking, and repeat guards. Phase 7 did not touch:
+
+- `initial_sounds`
+- `final_sounds`
+- `rhyming`
+- `cvc_short_vowels`
+- `short_vowel_discrimination`
+
+### Why comprehension remains untouched
+
+Comprehension banks are large and quality-sensitive, and they share replacement-bank routing with higher skill validation. They remain eager until the assessment runtime has a broader async bootstrap and smoke coverage.
+
+### Phase 8 recommendation
+
+Phase 8 should extract the current `App.jsx` question-pool assembly into a runtime module with identical synchronous behavior first. After that, HFW can be switched to an async group-loaded path behind the new smoke test, with before/after count comparisons.

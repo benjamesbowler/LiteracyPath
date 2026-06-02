@@ -3,6 +3,7 @@ import { resolveAssessmentSkillId } from "./assessmentSkillMapping.js";
 import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
 import { enrichListenAndFindWordQuestion } from "./listenAndFindAssets.js";
 import { enrichQuestionWithExistingMedia } from "./questionMediaResolver.js";
+import { isRuntimeEligibleHfwQuestion } from "./hfwRuntimeEligibility.js";
 
 import { masteryCoreQuestions } from "./masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "./masteryExtraQuestions.js";
@@ -272,9 +273,15 @@ export async function loadAssessmentSkillBank(skillId = "") {
   );
 }
 
+export async function loadHfwAssessmentBank(skillId = "") {
+  const normalizedSkillId = normalizeSkillId(skillId);
+  if (getAssessmentSkillGroup(normalizedSkillId) !== "hfw") return [];
+  const questions = await loadAssessmentSkillBank(normalizedSkillId);
+  return questions.filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
+}
+
 export function getActiveAssessmentSkillIds() {
   return skillTree.map(skill => skill.id);
 }
 
 export const assessmentSkillGroupDefinitions = ASSESSMENT_SKILL_GROUPS;
-

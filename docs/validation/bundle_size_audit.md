@@ -244,3 +244,42 @@ Still risky:
 - Rhyming image-card purity.
 - CVC/short-vowel round construction.
 - Sentence/comprehension replacement banks and higher-skill paragraph quality.
+
+## Phase 7 Status
+
+Generated: 2026-06-02
+
+Phase 7 added HFW smoke coverage and HFW-safe loader validation only. It did not switch live assessment runtime loading to async.
+
+### Latest build chunk sizes
+
+From the latest `npm run check:bundle-size` after the Phase 7 build:
+
+| Chunk | File | Size | Gzip |
+| --- | --- | ---: | ---: |
+| main index | `index-2paILfQI.js` | 3441.45 kB | 357.67 kB |
+| generated-early-skills | `generated-early-skills-IajG1PXK.js` | 916.48 kB | 42.32 kB |
+| question-bank-extra | `question-bank-extra-D_3P6UoK.js` | 907.19 kB | 120.12 kB |
+| audio-manifest | `audio-manifest-Db4LBHm1.js` | 758.17 kB | 195.53 kB |
+
+### Did Phase 7 change chunk sizes?
+
+Not materially. The app still assembles the assessment question pool synchronously, so the large assessment-related chunks remain. The new smoke test and loader validation run in Node tooling and do not reduce the production bundle.
+
+### Phase 7 changes
+
+- Added `tools/checkHfwRuntimeSmoke.js`.
+- Added `npm run check:hfw-runtime-smoke`.
+- Added `docs/validation/hfw_runtime_smoke_check.md`.
+- Added readiness-only `loadHfwAssessmentBank(skillId)`.
+- Strengthened HFW checks inside `tools/checkAssessmentSkillBankLoader.js`.
+
+### Phase 8 recommendation
+
+Do not lazy-load all assessment banks at once. The next safe step is:
+
+1. Extract `App.jsx` question-pool assembly into a dedicated runtime module without changing behavior.
+2. Add an assessment-bank loading state before starting/resuming a round.
+3. Switch only HFW to the HFW-safe async group path.
+4. Compare `npm run check:hfw-runtime-smoke` before and after.
+5. Leave early phonics and comprehension eager until they have their own runtime smoke checks.

@@ -38,6 +38,7 @@
     "check:checkpoint-coverage": "node tools/checkCheckpointCoverage.js",
     "check:bundle-size": "node tools/checkBundleSize.js",
     "check:assessment-bank-loader": "node tools/checkAssessmentSkillBankLoader.js",
+    "check:hfw-runtime-smoke": "node tools/checkHfwRuntimeSmoke.js",
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all",
     "audit:assessment-integrity": "node tools/auditAssessmentSkillIntegrity.js",
     "audit:lexicon": "node scripts/auditLexicon.js"
