@@ -22,6 +22,14 @@ import {
   getGuidedReadingPageAudioPath
 } from "../../utils/guidedReading/readAloudPolicy.js";
 
+const GUIDED_READING_MEDIA_VERSION = "20260603-continuity-1";
+
+function withGuidedReadingMediaVersion(src = "") {
+  if (!src || !src.startsWith("/guided-reading/")) return src;
+  const separator = src.includes("?") ? "&" : "?";
+  return `${src}${separator}v=${GUIDED_READING_MEDIA_VERSION}`;
+}
+
 function GuidedReadingImage({ src, alt, className = "", onLoad }) {
   const [missing, setMissing] = useState(false);
 
@@ -43,7 +51,7 @@ function GuidedReadingImage({ src, alt, className = "", onLoad }) {
       className={className}
       onError={() => setMissing(true)}
       onLoad={onLoad}
-      src={src}
+      src={withGuidedReadingMediaVersion(src)}
     />
   );
 }
