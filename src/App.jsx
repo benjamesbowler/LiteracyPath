@@ -7181,7 +7181,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === APP_VIEWS.LEARN && (
         <PageBoundary resetKey="learn">
-          <Suspense fallback={<LazyPageFallback label="Loading EL Skills Block Learn..." />}>
+          <Suspense fallback={<LazyPageFallback label="Loading Story Quest Adventures..." />}>
             <LearnAreaPage assessmentSummary={summarizeAssessmentHistory(assessmentHistory, {
               students: studentList.map(row => ({ ...row, className: getSelectedClassName(classList, row.class_id, "") })),
               classes: classList

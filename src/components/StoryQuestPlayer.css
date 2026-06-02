@@ -625,10 +625,208 @@
 
 @media (max-width: 760px) {
   .story-quest-learn-page {
+    padding: 6px;
+  }
+
+  .story-quest-reader {
+    gap: 7px;
     padding: 8px;
+    max-height: calc(100dvh - 12px);
+    border-radius: 8px;
+  }
+
+  .story-quest-header {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .story-quest-header h2 {
+    font-size: clamp(1.05rem, 5.2vw, 1.3rem);
+    line-height: 1.08;
+  }
+
+  .story-quest-header p {
+    display: none;
+  }
+
+  .story-quest-kicker {
+    font-size: 0.68rem;
+    line-height: 1;
+  }
+
+  .story-quest-header-actions {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+    justify-content: stretch;
+  }
+
+  .story-quest-header-actions .lp-button {
+    min-height: 32px !important;
+    padding: 5px 4px !important;
+    border-radius: 7px !important;
+    font-size: clamp(0.68rem, 2.7vw, 0.76rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  .story-quest-progress {
+    gap: 4px;
+    font-size: 0.72rem;
+    line-height: 1;
+  }
+
+  .story-quest-progress-bar {
+    height: 5px;
+  }
+
+  .story-quest-page-dots {
+    display: none;
+  }
+
+  .story-quest-image-stage {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .story-quest-image,
+  .story-quest-image-placeholder {
+    width: 100%;
+    max-height: min(28dvh, 210px);
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.11);
+  }
+
+  .story-quest-image {
+    object-fit: contain;
+  }
+
+  .story-quest-read-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .story-quest-audio-button {
+    width: 100%;
+    min-width: 0;
+    min-height: 32px !important;
+    padding: 5px 8px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .story-quest-text {
+    gap: 4px;
+    padding: 8px 10px;
+    max-height: 22dvh;
+    overflow: auto;
+  }
+
+  .story-quest-text p {
+    font-size: clamp(1rem, 4.2vw, 1.2rem);
+    line-height: 1.16;
+  }
+
+  .story-quest-word-panel {
+    padding: 5px 7px;
+  }
+
+  .story-quest-word-panel > span {
+    font-size: 0.72rem;
+  }
+
+  .story-quest-word-panel > div {
+    display: none;
+  }
+
+  .story-quest-choice-prompt {
+    padding: 1px 4px;
+    font-size: clamp(1.15rem, 5vw, 1.42rem);
+    line-height: 1.06;
   }
 
   .story-quest-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .story-quest-choice-button {
+    min-height: 52px;
+    padding: 8px 6px;
+    font-size: clamp(0.98rem, 4vw, 1.16rem);
+    line-height: 1.08;
+  }
+
+  .story-quest-reader.fullscreen {
+    padding: 6px;
+    grid-template-rows: auto auto minmax(92px, 0.9fr) auto auto auto auto;
+    gap: 5px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-header {
+    gap: 5px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-header-actions .lp-button {
+    min-height: 30px !important;
+    padding: 4px 3px !important;
+    font-size: clamp(0.64rem, 2.5vw, 0.72rem) !important;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-image,
+  .story-quest-reader.fullscreen .story-quest-image-placeholder {
+    width: 100%;
+    max-height: min(27dvh, 205px);
+  }
+
+  .story-quest-reader.fullscreen .story-quest-read-row {
     grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-audio-button {
+    width: 100%;
+    min-width: 0;
+    min-height: 30px;
+    padding: 4px 8px;
+    font-size: 0.74rem;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-text {
+    max-height: 21dvh;
+    padding: 7px 9px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-text p {
+    font-size: clamp(0.95rem, 3.8vw, 1.12rem);
+    line-height: 1.14;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-word-panel {
+    display: block;
+    padding: 4px 7px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-word-panel > span {
+    white-space: normal;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-word-panel > div {
+    display: none;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-choice-prompt {
+    font-size: clamp(1.1rem, 4.6vw, 1.35rem);
+    line-height: 1.05;
+    padding: 0 4px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-choice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-choice-button {
+    min-height: 48px;
+    padding: 7px 6px;
+    font-size: clamp(0.94rem, 3.8vw, 1.1rem);
   }
 }

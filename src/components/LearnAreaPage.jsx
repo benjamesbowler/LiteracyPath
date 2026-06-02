@@ -31,14 +31,14 @@ export function LearnAreaPage() {
 
   if (activeQuest) {
     return (
-      <main className="learn-area-page story-quest-learn-page" aria-label="Learn area">
+      <main className="learn-area-page story-quest-learn-page" aria-label="Story Quest Adventures">
         <StoryQuestPlayer quest={activeQuest} onExit={() => setActiveQuestId("")} />
       </main>
     );
   }
 
   return (
-    <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Learn area">
+    <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Story Quest Adventures">
       <section className="learn-story-quest-library card">
         <div className="learn-story-quest-copy">
           <span className="story-quest-kicker">Read</span>

@@ -204,7 +204,7 @@ export function TopNavigation({
           className={appView === "learn" ? "nav-button primary" : "nav-button"}
           onClick={goToLearn}
         >
-          Learn
+          Story Quest Adventures
         </button>
 
         <button

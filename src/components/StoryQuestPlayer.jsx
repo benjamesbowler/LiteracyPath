@@ -249,7 +249,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
           </button>
           {onExit && (
             <button className="story-quest-choice-button" onClick={exitReader} type="button">
-              Back to Learn
+              Back to Story Quests
             </button>
           )}
         </div>
