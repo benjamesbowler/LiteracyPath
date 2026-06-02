@@ -36,6 +36,14 @@ const FINAL_SOUNDS_LEVEL_ONE_FORBIDDEN = [
   "sh", "ch", "th", "ng", "nd", "nk", "nt", "st", "sk", "ft", "lt",
   "ll", "ck", "ss", "ff", "zz", "mp", "rk", "lk"
 ];
+const SHORT_VOWEL_ALLOWED_FORMATS = new Set([
+  "LISTEN_CHOOSE_VOWEL",
+  "PICTURE_TO_PRINT_MATCH"
+]);
+const SHORT_VOWEL_FORBIDDEN_WORDS = new Set([
+  "yen"
+]);
+const SHORT_VOWEL_GRAPHEME_CHOICES = new Set(["a", "e", "i", "o", "u"]);
 const PLACEHOLDER_PATTERN = /(?:placeholder|fallback|missing|unavailable|coming-soon|blank)/i;
 const UI_IMAGE_PATH_PATTERN = /(?:speaker|audio-button|volume|question-visual|\/ui\/|\/icons?\/|speaker-icon|(?:^|[\/_-])audio(?:[\/_.-]|$)|(?:^|[\/_-])sound(?:[\/_.-]|$)|\.svg$)/i;
 
@@ -103,6 +111,49 @@ function getAnswerOptionTokens(question = {}) {
     .map(getAnswerOptionLabel)
     .map(normalizeToken)
     .filter(Boolean);
+}
+
+function getQuestionFormat(question = {}) {
+  return String(question.formatType || question.templateType || question.questionType || "")
+    .toUpperCase();
+}
+
+function addShortVowelDiscriminationIssues(question = {}, issues = []) {
+  const format = getQuestionFormat(question);
+  const optionTokens = [...new Set(getAnswerOptionTokens(question))];
+  const targetWord = getTargetWord(question);
+
+  if (!SHORT_VOWEL_ALLOWED_FORMATS.has(format)) {
+    issues.push(`Short Vowel Discrimination template "${format || "(missing)"}" is not allowed`);
+  }
+
+  if (targetWord && SHORT_VOWEL_FORBIDDEN_WORDS.has(targetWord)) {
+    issues.push(`Short Vowel Discrimination target word "${targetWord}" is not allowed`);
+  }
+
+  optionTokens.forEach(option => {
+    if (SHORT_VOWEL_FORBIDDEN_WORDS.has(option)) {
+      issues.push(`Short Vowel Discrimination answer option "${option}" is not allowed`);
+    }
+  });
+
+  if (format === "LISTEN_CHOOSE_VOWEL") {
+    if (optionTokens.length !== 4) {
+      issues.push(`Short Vowel Discrimination listening questions need exactly 4 vowel choices, found ${optionTokens.length}`);
+    }
+    if (!optionTokens.every(option => SHORT_VOWEL_GRAPHEME_CHOICES.has(option))) {
+      issues.push("Short Vowel Discrimination listening choices must be vowel letters only");
+    }
+  }
+
+  if (format === "PICTURE_TO_PRINT_MATCH") {
+    if (optionTokens.length !== 4) {
+      issues.push(`Short Vowel Discrimination picture questions need exactly 4 word choices, found ${optionTokens.length}`);
+    }
+    if (!optionTokens.every(option => /^[a-z]+$/.test(option))) {
+      issues.push("Short Vowel Discrimination picture choices must be simple lowercase words");
+    }
+  }
 }
 
 function getQuestionText(question = {}) {
@@ -315,6 +366,7 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
   }
 
   if (skillId === "short_vowel_discrimination") {
+    addShortVowelDiscriminationIssues(question, issues);
     if (!getTargetWord(question)) {
       issues.push("Short Vowel Discrimination question is missing targetWord");
     }

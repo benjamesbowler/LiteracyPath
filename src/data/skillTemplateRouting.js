@@ -71,7 +71,7 @@ const ROUTING_RULES = {
     singleTemplate: false
   },
   short_vowel_discrimination: {
-    allowedFormats: new Set(["LISTEN_CHOOSE_VOWEL", "SHORT_VOWEL_WORD"]),
+    allowedFormats: new Set(["LISTEN_CHOOSE_VOWEL", "PICTURE_TO_PRINT_MATCH"]),
     singleTemplate: false
   },
   hfw_1_25: {

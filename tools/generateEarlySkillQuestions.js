@@ -32,6 +32,10 @@ const splitOutputFiles = {
   rhyming: "rhyming.generated.js"
 };
 
+const FORBIDDEN_EARLY_CHOICE_WORDS = new Set([
+  "yen"
+]);
+
 function normalize(value = "") {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 }
@@ -105,12 +109,19 @@ function wordEntries() {
   }));
   const scannedEntries = masterWordLexicon
     .filter(entry => entry.active !== false && /^[a-z]+(?: [a-z]+)?$/.test(entry.lowercaseWord))
+    .filter(entry => !FORBIDDEN_EARLY_CHOICE_WORDS.has(entry.lowercaseWord))
     .filter(entry => !["zinnia", "zinnia flower", "zannia", "zone", "zoo gate"].includes(entry.lowercaseWord));
   const seen = new Set(scannedEntries.map(entry => entry.lowercaseWord));
   return [
     ...scannedEntries,
     ...supplementalWords.filter(entry => !seen.has(entry.lowercaseWord))
   ];
+}
+
+function vowelOptions(correctVowel, seed = 0, count = 4) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  const distractors = byRotatingIndex(vowels.filter(vowel => vowel !== correctVowel), seed);
+  return unique([correctVowel, ...distractors]).slice(0, count);
 }
 
 function optionWords(correct, pool, count = 4) {
@@ -517,13 +528,6 @@ function generateShortVowelDiscriminationQuestions(entries) {
   return cvcEntries.slice(0, 180).flatMap((entry, index) => {
     const level = index % 2 === 0 ? 1 : 2;
     const phase = Math.floor(index / 2) % 2 === 0 ? 1 : 2;
-    const wordOptions = balancedCvcOptions(entry, [
-      ...cvcEntries.filter(item => item.medialVowel !== entry.medialVowel),
-      ...cvcEntries.filter(item => item.medialVowel === entry.medialVowel && item.lowercaseWord !== entry.lowercaseWord)
-    ], {
-      seed: index,
-      preferDifferentVowel: true
-    });
     return [
       makeBase({
         id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_listen`,
@@ -537,7 +541,7 @@ function generateShortVowelDiscriminationQuestions(entries) {
         audioText: entry.lowercaseWord,
         targetWord: entry.lowercaseWord,
         correctAnswer: entry.medialVowel,
-        answerOptions: vowels,
+        answerOptions: vowelOptions(entry.medialVowel, index),
         coverageTarget: `short_${entry.medialVowel}`,
         phonicsPattern: `short_${entry.medialVowel}`,
         imageUrl: getEntryImageUrl(entry),
@@ -545,27 +549,6 @@ function generateShortVowelDiscriminationQuestions(entries) {
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "short-vowel-discrimination", "listen-vowel"]
-      }),
-      makeBase({
-        id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_word`,
-        skillId: "short_vowel_discrimination",
-        skillName: "Short Vowel Discrimination",
-        level,
-        phase,
-        templateType: "SHORT_VOWEL_WORD",
-        prompt: `Which word has the short ${entry.medialVowel} sound?`,
-        spokenPrompt: `Which word has the short ${entry.medialVowel} sound?`,
-        targetWord: entry.lowercaseWord,
-        correctAnswer: entry.lowercaseWord,
-        answerOptions: wordOptions,
-        coverageTarget: `short_${entry.medialVowel}`,
-        phonicsPattern: `short_${entry.medialVowel}`,
-        imageUrl: getEntryImageUrl(entry),
-        audioText: hasApprovedAudio(entry) ? entry.lowercaseWord : "",
-        audioUrl: getEntryAudioUrl(entry),
-        sourceLexiconId: entry.id,
-        itemType: "short_vowel",
-        tags: ["generated", "short-vowel-discrimination", "word-choice"]
       })
     ];
   });

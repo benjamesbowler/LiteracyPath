@@ -28,6 +28,9 @@ const markdownPath = path.join(docsValidationDir, "skill_level_gap_questions_gen
 const GENERATED_SOURCE = "skill_level_depth_gap_generator";
 const PHASE_BUFFER_SIZE = SKILL_LEVEL_DEPTH_TARGETS.phaseBufferSize || Math.ceil(SKILL_LEVEL_DEPTH_TARGETS.phaseSize * 1.5);
 const SHORT_VOWEL_LABELS = ["short_a", "short_e", "short_i", "short_o", "short_u"];
+const FORBIDDEN_EARLY_CHOICE_WORDS = new Set([
+  "yen"
+]);
 const SINGLE_LETTER_SOUNDS = "abcdefghijklmnopqrstuvwxyz".split("");
 const BASIC_FINAL_SOUNDS = finalSoundExpectedItemKeys;
 const REPLACED_LEGACY_SKILLS = new Set([
@@ -139,11 +142,23 @@ const SHORT_VOWEL_MEDIA_RESERVE = [
 function entriesWithShortVowelReserve(predicate) {
   const seen = new Set();
   return [...lexicon, ...SHORT_VOWEL_MEDIA_RESERVE]
+    .filter(entry => !FORBIDDEN_EARLY_CHOICE_WORDS.has(entry.word))
     .filter(entry => {
       if (seen.has(entry.word)) return false;
       seen.add(entry.word);
       return predicate(entry);
     });
+}
+
+function vowelOptions(correctVowel, seed = 0, count = 4) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  const distractors = vowels.filter(vowel => vowel !== correctVowel);
+  const start = Math.abs(seed) % distractors.length;
+  return [
+    correctVowel,
+    ...distractors.slice(start),
+    ...distractors.slice(0, start)
+  ].slice(0, count);
 }
 
 function entrySkillEligible(skillKey, level, entry) {
@@ -242,7 +257,9 @@ function makeShortVowelQuestions(skillId, skillName, level, needed) {
   const makeQuestion = (entry, index, variant = 0) => {
     const itemKey = entry.phonics.shortVowel;
     const vowel = itemKey.replace("short_", "");
-    const templateType = variant === 1
+    const templateType = skillId === "short_vowel_discrimination"
+      ? "LISTEN_CHOOSE_VOWEL"
+      : variant === 1
       ? "MISSING_VOWEL_CVC"
       : index % 2 === 0 ? "LISTEN_CHOOSE_VOWEL" : "SHORT_VOWEL_WORD";
     return mediaQuestion({
@@ -254,7 +271,9 @@ function makeShortVowelQuestions(skillId, skillName, level, needed) {
       templateType,
       prompt: "Listen to the word. Which short vowel sound do you hear?",
       correctAnswer: vowel,
-      answerOptions: ["a", "e", "i", "o", "u"],
+      answerOptions: templateType === "LISTEN_CHOOSE_VOWEL"
+        ? vowelOptions(vowel, index)
+        : ["a", "e", "i", "o", "u"],
       itemType: "short_vowel",
       itemKey
     }, entry, {

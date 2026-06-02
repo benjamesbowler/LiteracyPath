@@ -90,8 +90,8 @@ export const managedAssessmentSkillDepthConfig = [
     skillName: "Short Vowel Discrimination",
     aliases: ["short vowel discrimination"],
     levels: {
-      1: { designed: true, rule: "Choose the medial vowel from simple CVC image/audio words.", allowedFormats: ["LISTEN_CHOOSE_VOWEL", "SHORT_VOWEL_WORD", "PICTURE_TO_PRINT_MATCH"] },
-      2: { designed: true, rule: "Closer short-vowel contrasts and harder distractors.", allowedFormats: ["LISTEN_CHOOSE_VOWEL", "SHORT_VOWEL_WORD", "PICTURE_TO_PRINT_MATCH"] }
+      1: { designed: true, rule: "Choose the medial vowel from simple CVC image/audio words.", allowedFormats: ["LISTEN_CHOOSE_VOWEL", "PICTURE_TO_PRINT_MATCH"] },
+      2: { designed: true, rule: "Closer short-vowel contrasts and harder distractors.", allowedFormats: ["LISTEN_CHOOSE_VOWEL", "PICTURE_TO_PRINT_MATCH"] }
     }
   },
   {
