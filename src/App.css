@@ -2096,32 +2096,63 @@ body {
 }
 
 .guided-page-controls {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
   gap: 8px;
   align-items: center;
   justify-content: flex-end;
+  width: min(100%, 640px);
 }
 
 .guided-auto-advance-toggle {
-  display: inline-flex;
+  display: flex;
   gap: 6px;
   align-items: center;
-  min-height: 36px;
-  padding: 6px 9px;
+  justify-content: center;
+  min-width: 0;
+  min-height: 34px;
+  padding: 5px 7px;
   border: 1px solid var(--color-border-soft);
-  border-radius: 999px;
+  border-radius: 10px;
   background: #ffffff;
   color: var(--lp-color-text-muted);
-  font-size: 0.78rem;
+  font-size: clamp(0.66rem, 1.2vw, 0.78rem);
   font-weight: 850;
+  line-height: 1.05;
+  text-align: center;
   white-space: nowrap;
 }
 
+.guided-auto-advance-toggle input {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+}
+
 .guided-page-controls .lp-button {
-  min-height: 36px;
-  padding: 8px 11px;
-  font-size: 0.86rem;
+  width: 100%;
+  min-width: 0;
+  min-height: 34px;
+  padding: 6px 8px;
+  font-size: clamp(0.66rem, 1.2vw, 0.84rem);
+  line-height: 1.05;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.guided-page-controls strong {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 34px;
+  padding: 5px 7px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--lp-color-text-muted);
+  font-size: clamp(0.66rem, 1.2vw, 0.78rem);
+  line-height: 1.05;
+  text-align: center;
 }
 
 .guided-page-controls .lp-button.active {
@@ -2149,30 +2180,35 @@ body {
 
 .guided-reader-shell.fullscreen .guided-page-controls {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(5, minmax(76px, 1fr));
+  gap: 6px;
   justify-content: stretch;
+  width: min(100%, 720px);
+  margin-left: auto;
 }
 
 .guided-reader-shell.fullscreen .guided-page-controls .lp-button {
   width: 100%;
   min-width: 0;
-  min-height: 42px;
-  padding-inline: 8px;
-  white-space: normal;
+  min-height: 34px;
+  padding: 5px 6px;
+  border-radius: 10px;
+  font-size: clamp(0.62rem, 1.1vw, 0.78rem);
+  line-height: 1.05;
 }
 
 .guided-fullscreen-info {
   margin: 0;
-  padding: 8px 10px;
+  padding: 4px 8px;
   border: 1px solid var(--color-border-soft);
-  border-radius: 12px;
+  border-radius: 999px;
   background: #ffffff;
   color: var(--lp-color-text-muted);
-  font-size: clamp(0.78rem, 2.5vw, 0.92rem);
+  font-size: clamp(0.66rem, 1.1vw, 0.78rem);
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.05;
   text-align: center;
+  justify-self: center;
 }
 
 .guided-reader-shell.fullscreen .guided-page-layout {
@@ -8594,8 +8630,11 @@ select:focus {
   }
 
   .guided-page-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
     justify-content: stretch;
     gap: 4px;
+    width: 100%;
   }
 
   .guided-reader-shell.fullscreen .guided-reader-card {
@@ -8606,17 +8645,18 @@ select:focus {
   .guided-reader-shell.fullscreen .guided-page-controls {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 4px;
+    width: 100%;
   }
 
   .guided-reader-shell.fullscreen .guided-page-controls .lp-button {
-    min-height: 38px;
-    padding: 5px 4px;
-    font-size: clamp(0.66rem, 2.5vw, 0.76rem);
+    min-height: 32px;
+    padding: 4px 3px;
+    font-size: clamp(0.58rem, 2.25vw, 0.7rem);
   }
 
   .guided-reader-shell.fullscreen .guided-fullscreen-info {
-    padding: 5px 7px;
-    font-size: clamp(0.68rem, 2.6vw, 0.78rem);
+    padding: 3px 7px;
+    font-size: clamp(0.62rem, 2.2vw, 0.72rem);
   }
 
   .guided-reader-shell.fullscreen .guided-page-layout {
@@ -8632,17 +8672,22 @@ select:focus {
   }
 
   .guided-page-controls .lp-button {
-    flex: 1 1 auto;
     min-height: 30px;
-    padding: 5px 7px;
-    font-size: 0.72rem;
+    padding: 4px 5px;
+    font-size: clamp(0.6rem, 2.4vw, 0.72rem);
   }
 
   .guided-page-controls strong {
-    flex: 1 0 100%;
-    order: -1;
-    font-size: 0.76rem;
+    min-height: 30px;
+    padding: 4px 5px;
+    font-size: clamp(0.6rem, 2.4vw, 0.72rem);
     line-height: 1.1;
+  }
+
+  .guided-auto-advance-toggle {
+    min-height: 30px;
+    padding: 4px 5px;
+    font-size: clamp(0.6rem, 2.4vw, 0.72rem);
   }
 
   .guided-reader-modebar {

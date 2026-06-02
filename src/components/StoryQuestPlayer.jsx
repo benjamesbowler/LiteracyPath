@@ -229,7 +229,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
           </div>
           <div className="story-quest-header-actions">
             <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
-              {isFullscreen ? "Exit Full Screen" : "Full Screen"}
+              {isFullscreen ? "Exit" : "Full"}
             </button>
             {onExit && (
               <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
@@ -277,7 +277,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
             Restart
           </button>
           <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
-            {isFullscreen ? "Exit Full Screen" : "Full Screen"}
+            {isFullscreen ? "Exit" : "Full"}
           </button>
           {onExit && (
             <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">

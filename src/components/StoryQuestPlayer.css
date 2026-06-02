@@ -830,3 +830,319 @@
     font-size: clamp(0.94rem, 3.8vw, 1.1rem);
   }
 }
+
+.story-quest-reader.fullscreen,
+.story-quest-reader:fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto auto auto;
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: clamp(6px, 1.2dvh, 12px) clamp(8px, 1.2vw, 14px);
+  border: 0;
+  border-radius: 0;
+  background: #fff8f0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.story-quest-reader.fullscreen .story-quest-header,
+.story-quest-reader:fullscreen .story-quest-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  align-items: center;
+}
+
+.story-quest-reader.fullscreen .story-quest-header > div:first-child,
+.story-quest-reader:fullscreen .story-quest-header > div:first-child {
+  display: none;
+}
+
+.story-quest-reader.fullscreen .story-quest-header-actions,
+.story-quest-reader:fullscreen .story-quest-header-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  justify-self: center;
+  width: min(100%, 520px);
+}
+
+.story-quest-reader.fullscreen .story-quest-header-actions .lp-button,
+.story-quest-reader:fullscreen .story-quest-header-actions .lp-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 32px !important;
+  padding: 4px 5px !important;
+  border-radius: 10px !important;
+  font-size: clamp(0.6rem, 1.15vw, 0.78rem) !important;
+  line-height: 1.05 !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.story-quest-reader.fullscreen .story-quest-progress,
+.story-quest-reader:fullscreen .story-quest-progress {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "label bar dots";
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(0.66rem, 1.1vw, 0.8rem);
+  line-height: 1;
+}
+
+.story-quest-reader.fullscreen .story-quest-progress > span,
+.story-quest-reader:fullscreen .story-quest-progress > span {
+  grid-area: label;
+  white-space: nowrap;
+}
+
+.story-quest-reader.fullscreen .story-quest-progress-bar,
+.story-quest-reader:fullscreen .story-quest-progress-bar {
+  grid-area: bar;
+  height: 5px;
+}
+
+.story-quest-reader.fullscreen .story-quest-page-dots,
+.story-quest-reader:fullscreen .story-quest-page-dots {
+  grid-area: dots;
+  display: flex;
+  max-width: min(42vw, 320px);
+  overflow: hidden;
+}
+
+.story-quest-reader.fullscreen .story-quest-page-dots span,
+.story-quest-reader:fullscreen .story-quest-page-dots span {
+  width: 6px;
+  height: 6px;
+}
+
+.story-quest-reader.fullscreen .story-quest-page-dots span.active,
+.story-quest-reader:fullscreen .story-quest-page-dots span.active {
+  width: 18px;
+}
+
+.story-quest-reader.fullscreen .story-quest-image-stage,
+.story-quest-reader:fullscreen .story-quest-image-stage {
+  min-height: 0;
+  height: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+.story-quest-reader.fullscreen .story-quest-image,
+.story-quest-reader.fullscreen .story-quest-image-placeholder,
+.story-quest-reader:fullscreen .story-quest-image,
+.story-quest-reader:fullscreen .story-quest-image-placeholder {
+  width: min(100%, 1120px);
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.story-quest-reader.fullscreen .story-quest-read-row,
+.story-quest-reader:fullscreen .story-quest-read-row {
+  grid-template-columns: minmax(96px, 128px) minmax(0, 1fr);
+  gap: 8px;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.story-quest-reader.fullscreen .story-quest-audio-button,
+.story-quest-reader:fullscreen .story-quest-audio-button {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px !important;
+  padding: 5px 6px !important;
+  border-radius: 10px !important;
+  font-size: clamp(0.62rem, 1.15vw, 0.78rem) !important;
+  line-height: 1.05 !important;
+  white-space: normal;
+}
+
+.story-quest-reader.fullscreen .story-quest-text,
+.story-quest-reader:fullscreen .story-quest-text {
+  min-height: 0;
+  max-height: none;
+  gap: 4px;
+  padding: 7px 10px;
+  overflow: auto;
+}
+
+.story-quest-reader.fullscreen .story-quest-text p,
+.story-quest-reader:fullscreen .story-quest-text p {
+  font-size: clamp(0.98rem, 1.9vw, 1.45rem);
+  line-height: 1.13;
+}
+
+.story-quest-reader.fullscreen .story-quest-word-panel,
+.story-quest-reader:fullscreen .story-quest-word-panel {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+}
+
+.story-quest-reader.fullscreen .story-quest-word-panel > span,
+.story-quest-reader:fullscreen .story-quest-word-panel > span {
+  font-size: clamp(0.62rem, 1.1vw, 0.76rem);
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.story-quest-reader.fullscreen .story-quest-word-panel > div,
+.story-quest-reader:fullscreen .story-quest-word-panel > div {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.story-quest-reader.fullscreen .story-quest-word-panel > div > span,
+.story-quest-reader:fullscreen .story-quest-word-panel > div > span {
+  min-height: 20px;
+  padding: 2px 6px;
+  font-size: clamp(0.66rem, 1.15vw, 0.86rem);
+}
+
+.story-quest-reader.fullscreen .story-quest-choice-prompt,
+.story-quest-reader:fullscreen .story-quest-choice-prompt {
+  padding: 0 6px;
+  font-size: clamp(1rem, 2vw, 1.42rem);
+  line-height: 1.04;
+}
+
+.story-quest-reader.fullscreen .story-quest-choice-grid,
+.story-quest-reader:fullscreen .story-quest-choice-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.story-quest-reader.fullscreen .story-quest-choice-button,
+.story-quest-reader:fullscreen .story-quest-choice-button {
+  min-width: 0;
+  min-height: 48px;
+  padding: 7px 8px;
+  border-radius: 10px;
+  font-size: clamp(0.92rem, 1.8vw, 1.22rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+@media (orientation: landscape) and (max-height: 680px) {
+  .story-quest-reader.fullscreen,
+  .story-quest-reader:fullscreen {
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+    gap: 5px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-word-panel,
+  .story-quest-reader:fullscreen .story-quest-word-panel {
+    display: none;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-read-row,
+  .story-quest-reader:fullscreen .story-quest-read-row {
+    grid-template-columns: minmax(88px, 116px) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .story-quest-reader.fullscreen,
+  .story-quest-reader:fullscreen {
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto auto;
+    gap: 5px;
+    padding: 6px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-header-actions,
+  .story-quest-reader:fullscreen .story-quest-header-actions {
+    gap: 4px;
+    width: 100%;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-header-actions .lp-button,
+  .story-quest-reader:fullscreen .story-quest-header-actions .lp-button {
+    min-height: 30px !important;
+    padding: 4px 3px !important;
+    font-size: clamp(0.58rem, 2.3vw, 0.7rem) !important;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-progress,
+  .story-quest-reader:fullscreen .story-quest-progress {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas: "label bar";
+    gap: 6px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-page-dots,
+  .story-quest-reader:fullscreen .story-quest-page-dots {
+    display: none;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-read-row,
+  .story-quest-reader:fullscreen .story-quest-read-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-audio-button,
+  .story-quest-reader:fullscreen .story-quest-audio-button {
+    min-height: 30px !important;
+    padding: 4px 6px !important;
+    font-size: clamp(0.62rem, 2.5vw, 0.74rem) !important;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-text,
+  .story-quest-reader:fullscreen .story-quest-text {
+    padding: 6px 8px;
+    max-height: 18dvh;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-text p,
+  .story-quest-reader:fullscreen .story-quest-text p {
+    font-size: clamp(0.94rem, 3.5vw, 1.12rem);
+  }
+
+  .story-quest-reader.fullscreen .story-quest-word-panel,
+  .story-quest-reader:fullscreen .story-quest-word-panel {
+    display: block;
+    padding: 4px 7px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-word-panel > span,
+  .story-quest-reader:fullscreen .story-quest-word-panel > span {
+    white-space: normal;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-word-panel > div,
+  .story-quest-reader:fullscreen .story-quest-word-panel > div {
+    display: none;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-choice-prompt,
+  .story-quest-reader:fullscreen .story-quest-choice-prompt {
+    font-size: clamp(1.02rem, 4.2vw, 1.26rem);
+  }
+
+  .story-quest-reader.fullscreen .story-quest-choice-grid,
+  .story-quest-reader:fullscreen .story-quest-choice-grid {
+    gap: 6px;
+  }
+
+  .story-quest-reader.fullscreen .story-quest-choice-button,
+  .story-quest-reader:fullscreen .story-quest-choice-button {
+    min-height: 46px;
+    padding: 6px;
+    font-size: clamp(0.9rem, 3.6vw, 1.05rem);
+  }
+}

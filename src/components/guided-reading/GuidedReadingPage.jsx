@@ -1455,7 +1455,7 @@ export function GuidedReadingPage({
 
             {isReaderFullscreen && (
               <p className="guided-fullscreen-info">
-                Full-screen reading/listening mode. Page {pageIndex + 1} of {selectedBook.pages.length}; use Read Page, Read Whole Book, Previous, Next, or Exit.
+                Page {pageIndex + 1} of {selectedBook.pages.length}
               </p>
             )}
 
