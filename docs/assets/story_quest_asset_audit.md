@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-06-02T11:33:34.458Z
+Generated: 2026-06-02T11:48:16.768Z
 
 ## Summary Counts
 
@@ -8,19 +8,19 @@ Generated: 2026-06-02T11:33:34.458Z
 - Total page rows: 314
 - Total referenced images: 320
 - Total referenced audio files: 314
-- Missing referenced images: 1
-- Missing referenced audio: 1
+- Missing referenced images: 0
+- Missing referenced audio: 0
 - Unused image files: 0
 - Unused audio files: 0
 - Extension mismatch candidates: 0
 
 ## Missing Referenced Images
 
-- public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.webp
+None found.
 
 ## Missing Referenced Audio
 
-- public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.mp3
+None found.
 
 ## Extension Mismatch Candidates
 
@@ -210,7 +210,7 @@ None found.
 | 27 | `p06_sleepy_problem` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_sleepy_problem.mp3` | exists |
 | 28 | `p06_clipboard_back` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_clipboard_back.mp3` | exists |
 | 29 | `p06_loud_plan` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_loud_plan.mp3` | exists |
-| 30 | `p06_find_more` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.webp` | missing | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.mp3` | missing |
+| 30 | `p06_find_more` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.mp3` | exists |
 | 31 | `p07_picnic_ready` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p07_picnic_ready.mp3` | exists |
 | 32 | `p08_chompy_bite_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_chompy_bite_ending.mp3` | exists |
 | 33 | `p08_teamwork_ending` | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.webp` | exists | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p08_teamwork_ending.mp3` | exists |
@@ -434,8 +434,6 @@ None found.
 
 | Priority | Area | Story/Scope | Target path | Reason |
 | --- | --- | --- | --- | --- |
-| P0 | Story Quests images | Bossy and the Picnic Mix-Up | `public/images/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.webp` | Referenced image is missing. |
-| P0 | Story Quests audio | Bossy and the Picnic Mix-Up | `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/p06_find_more.mp3` | Referenced audio is missing. |
 | P1 | Story Quests images | Meadow Pals / Brave Tiny Rescue | `public/images/story-quests/meadow-pals/brave-tiny-rescue/p05_big_tree.webp` | Known unresolved Kimi note: no-watermark archive included p05_big_tree.png, but it still showed a visible source mark and was not wired. Do not convert or wire the marked PNG. |
 
 ## Safe to Delete Candidates
