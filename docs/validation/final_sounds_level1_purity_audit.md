@@ -5,7 +5,7 @@ Date: 2026-05-26
 ## Summary
 
 - Runtime Final Sounds candidates scanned: 532
-- Runtime-selectable Final Sounds candidates: 451
+- Runtime-selectable Final Sounds candidates: 452
 - Clean Level 1 runtime candidates after last-mile guard: 190
 - Generated Level 1 candidates scanned: 111
 - Dirty generated Level 1 candidates: 0

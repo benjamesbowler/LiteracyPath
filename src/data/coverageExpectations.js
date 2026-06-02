@@ -97,6 +97,8 @@ export const cvcShortVowelExpectedItemKeys = [
   "short_u"
 ];
 
+export const cvcShortVowelLevelTwoExpectedItemKeys = cvcShortVowelExpectedItemKeys;
+
 export const rhymingExpectedItemKeys = [
   "at",
   "an",
@@ -172,9 +174,24 @@ export const coverageExpectations = {
   cvc_short_vowels: {
     itemType: "short_vowel",
     itemKeys: cvcShortVowelExpectedItemKeys,
+    levels: {
+      1: cvcShortVowelExpectedItemKeys,
+      2: cvcShortVowelLevelTwoExpectedItemKeys
+    },
     total: cvcShortVowelExpectedItemKeys.length,
     unit: "vowels",
-    note: "CVC Short Vowels must cover all five medial short-vowel targets and must not cross-fill Initial Sounds questions."
+    note: "CVC Short Vowels must cover all five medial short-vowel targets at each level and must not cross-fill Initial Sounds questions."
+  },
+  short_vowel_discrimination: {
+    itemType: "short_vowel",
+    itemKeys: cvcShortVowelExpectedItemKeys,
+    levels: {
+      1: cvcShortVowelExpectedItemKeys,
+      2: cvcShortVowelLevelTwoExpectedItemKeys
+    },
+    total: cvcShortVowelExpectedItemKeys.length,
+    unit: "short vowel sounds",
+    note: "Short Vowel Discrimination covers the five medial short-vowel sounds at each level with image-backed word and listening questions only."
   },
   rhyming: {
     itemType: "rhyming_family",

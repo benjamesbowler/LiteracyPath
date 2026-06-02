@@ -14,38 +14,38 @@ Date: 2026-05-25
 ### Round 1 - Level 1
 
 - Phase: 1
-- Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Words: ant, bat, cat, dog, egg, fan, gum, hat, ink, jam, king, leg, map, nest, ox
+- Letters: v, m, y, u, f, g, n, j, o, p, w, t, s, h, e
+- Words: van, map, yak, up, fan, gum, nest, jam, ox, pig, wig, tent, sun, hat, egg
 
 ### Round 2 - Level 1
 
 - Phase: 2
-- Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Words: pig, queen, ring, sun, tent, up, van, wig, yak, zoo, apple, ball, cup, duck, elf
+- Letters: l, b, k, i, q, a, z, c, d, r, u, w, p, h, g
+- Words: leg, bat, king, ink, queen, ant, zoo, cat, dog, ring, umbrella, web, pan, hand, goat
 
 ### Round 3 - Level 2
 
 - Phase: 1
-- Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Words: astronaut, banana, calculator, doctor, elevator, firefighter, gorilla, hospital, iceberg, jellyfish, kitchen, lighthouse, mushroom, newspaper, orangutan
+- Letters: s, o, n, a, g, v, b, e, j, w, f, l, z, m, c
+- Words: sandwich, orangutan, newspaper, astronaut, gorilla, volleyball, banana, elevator, jellyfish, watermelon, firefighter, lighthouse, zipline, mushroom, calculator
 
 ### Round 4 - Level 2
 
 - Phase: 2
-- Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Words: pineapple, question mark, rainbow, sandwich, telescope, unicycle, volleyball, watermelon, yogurt cup, zipline, ambulance, basket, camera, dinosaur, eraser
+- Letters: u, t, p, k, h, y, i, q, d, r, a, b, f, g, o
+- Words: unicycle, telescope, pineapple, kitchen, hospital, yogurt cup, iceberg, question mark, doctor, rainbow, ambulance, basket, flamingo, giraffe, octagon
 
 ### Round 5 - Level 1
 
 - Phase: 3
-- Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Words: ax, bed, cap, door, elbow, fish, goat, hand, igloo, jet, kite, log, milk, net, octopus
+- Letters: n, h, s, i, c, o, t, w, u, g, p, k, j, d, b
+- Words: net, ham, sock, igloo, cup, octopus, top, window, under, gate, pin, kite, jet, duck, ball
 
 ### Round 6 - Level 2
 
 - Phase: 3
-- Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Words: apartment, balloon, caterpillar, diamond, exercise, flamingo, giraffe, helicopter, instrument, jaguar, kayak, ladybug, motorcycle, notebook, octagon
+- Letters: s, e, a, d, h, g, l, v, c, z, b, p, w, y, q
+- Words: sailboat, eraser, apartment, dinosaur, helicopter, goggles, ladybug, veterinarian, camera, zigzag road, balloon, parachute, wheelbarrow, yardstick, quicksand
 
 ## Failures
 

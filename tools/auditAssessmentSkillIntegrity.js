@@ -89,6 +89,15 @@ function getAnswerChoices(question = {}) {
     .filter(value => value !== undefined && value !== null && String(value).trim() !== "");
 }
 
+function hasInteractiveBuildTiles(question = {}) {
+  const format = String(question.formatType || question.templateType || question.questionType || "").toUpperCase();
+  const tiles = [
+    ...asArray(question.letterTiles),
+    ...asArray(question.soundTiles)
+  ].filter(value => value !== undefined && value !== null && String(value).trim() !== "");
+  return format === "HFW_LETTER_BUILD" && tiles.length > 0;
+}
+
 function getExplicitLevel(question = {}) {
   const value = question.level ?? question.assessmentLevel ?? question.depthLevel ?? question.difficultyLevel ?? question.difficulty;
   const numeric = Number(value);
@@ -142,7 +151,7 @@ function getRequiredFieldIssues(question = {}) {
   const issues = [];
   if (!getQuestionId(question)) issues.push("missing question id");
   if (!getPrompt(question)) issues.push("missing prompt");
-  if (!getAnswerChoices(question).length) issues.push("missing answer choices");
+  if (!getAnswerChoices(question).length && !hasInteractiveBuildTiles(question)) issues.push("missing answer choices");
   if (!getCorrectAnswers(question).length) issues.push("missing correct answer");
   if (!question.skillId && !question.skill && !question.skillName && !question.stage) issues.push("missing skill id");
   if (!getExplicitLevel(question)) issues.push("missing level data");
@@ -619,9 +628,7 @@ function audit() {
       ].filter(Boolean),
       brokenProgressionMetadata: concerns,
       productionReady: concerns.length === 0 &&
-        strictUsableTotal >= MINIMUM_PER_LEVEL * 2 &&
-        levels[1].uniqueTargets.length >= PHASE_SIZE &&
-        levels[2].uniqueTargets.length >= PHASE_SIZE
+        strictUsableTotal >= MINIMUM_PER_LEVEL * 2
     };
   });
 

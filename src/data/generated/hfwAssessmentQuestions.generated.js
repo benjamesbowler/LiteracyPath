@@ -14,7 +14,11 @@ const HFW_BAND_CONFIGS = [
   { skillId: "hfw_76_100", skillName: "High-Frequency Words 76-100", words: HFW_WORDS_76_100 }
 ];
 
-const HFW_EXTRA_VARIANT_COUNT = 5;
+const DEFAULT_HFW_EXTRA_VARIANT_COUNT = 5;
+const HFW_EXTRA_VARIANT_COUNTS = {
+  hfw_51_75: 21,
+  hfw_76_100: 21
+};
 
 const HFW_SCENES = {
   "the": {
@@ -441,15 +445,16 @@ function letterTiles(word, index) {
   return tiles.slice(0, 12);
 }
 
-function phaseForSequence(sequenceIndex) {
-  return sequenceIndex < 15 ? 1 : 2;
+function phaseForSequence(sequenceIndex, totalCount) {
+  const phaseOneCount = Math.ceil(totalCount / 2);
+  return sequenceIndex < phaseOneCount ? 1 : 2;
 }
 
 function phaseTarget(level, phase) {
   return `level_${level}_phase_${phase}`;
 }
 
-function makeLevelOneQuestion(config, bandIndex, word, wordIndex, sequenceIndex, variantIndex = 0) {
+function makeLevelOneQuestion(config, bandIndex, word, wordIndex, sequenceIndex, variantIndex = 0, totalCount = 30) {
   const scene = HFW_SCENES[word];
   const imagePath = `/images/assessment/hfw/${slug(word)}.webp`;
   const base = {
@@ -472,7 +477,7 @@ function makeLevelOneQuestion(config, bandIndex, word, wordIndex, sequenceIndex,
     disableAudio: true,
     tags: ["hfw", config.skillId, word]
   };
-  const phase = phaseForSequence(sequenceIndex);
+  const phase = phaseForSequence(sequenceIndex, totalCount);
   const options = wordOptions(word, config.words, bandIndex + variantIndex, wordIndex + variantIndex * 7);
 
   return {
@@ -496,10 +501,10 @@ function makeLevelOneQuestion(config, bandIndex, word, wordIndex, sequenceIndex,
   };
 }
 
-function makeLevelTwoQuestion(config, bandIndex, word, wordIndex, sequenceIndex, variantIndex = 0) {
+function makeLevelTwoQuestion(config, bandIndex, word, wordIndex, sequenceIndex, variantIndex = 0, totalCount = 30) {
   const scene = HFW_SCENES[word];
   const imagePath = `/images/assessment/hfw/${slug(word)}.webp`;
-  const phase = phaseForSequence(sequenceIndex);
+  const phase = phaseForSequence(sequenceIndex, totalCount);
   const tileSeed = wordIndex + bandIndex * 25 + variantIndex * 31;
   const tiles = letterTiles(word, wordIndex + bandIndex * 25);
 
@@ -545,7 +550,8 @@ function makeLevelTwoQuestion(config, bandIndex, word, wordIndex, sequenceIndex,
 }
 
 function makeQuestionsForBand(config, bandIndex) {
-  const extraWords = config.words.slice(0, HFW_EXTRA_VARIANT_COUNT);
+  const extraVariantCount = HFW_EXTRA_VARIANT_COUNTS[config.skillId] ?? DEFAULT_HFW_EXTRA_VARIANT_COUNT;
+  const extraWords = config.words.slice(0, extraVariantCount);
   const levelOneWords = [
     ...config.words.map((word, wordIndex) => ({ word, wordIndex, variantIndex: 0 })),
     ...extraWords.map((word, extraIndex) => ({
@@ -565,10 +571,10 @@ function makeQuestionsForBand(config, bandIndex) {
 
   return [
     ...levelOneWords.map((item, sequenceIndex) =>
-      makeLevelOneQuestion(config, bandIndex, item.word, item.wordIndex, sequenceIndex, item.variantIndex)
+      makeLevelOneQuestion(config, bandIndex, item.word, item.wordIndex, sequenceIndex, item.variantIndex, levelOneWords.length)
     ),
     ...levelTwoWords.map((item, sequenceIndex) =>
-      makeLevelTwoQuestion(config, bandIndex, item.word, item.wordIndex, sequenceIndex, item.variantIndex)
+      makeLevelTwoQuestion(config, bandIndex, item.word, item.wordIndex, sequenceIndex, item.variantIndex, levelTwoWords.length)
     )
   ];
 }

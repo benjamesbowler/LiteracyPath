@@ -93,7 +93,7 @@ Date: 2026-05-25
 | L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, b, d, n, l, t, g, n | cab, sad, dog, fossil, ham, hen, sip, wet, web, red, yen, curl, mat, big, pen |
 | L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, sock, mud, leaf, raft, bag, desk, ball, football, quilt, drum, lamp, ten, pond, spring |
 | L2 R2 | 2 | 15 | 15/15 | nk, nt, p, r, rk, s, sh, sk, st, t, th, b, ck, d, f | ink, tent, cap, car, park, bus, brush, desk, chest, jet, moth, crab, duck, red, roof |
-| L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, rock, bid, leaf, soft, dog, snake, whale, grill, belt, ham, lamp, fan, hand, building |
+| L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, rock, seed, leaf, soft, dog, snake, whale, grill, belt, ham, lamp, fan, hand, building |
 
 ## Rhyming Words
 
@@ -191,7 +191,7 @@ Date: 2026-05-25
 ## High Frequency Words
 
 - Skill ID: high_frequency_words
-- Media-complete items: 839
+- Media-complete items: 907
 - Media-complete targets: 146
 - Blocked expected targets: none
 

@@ -33,6 +33,7 @@ function childModeWordAsset({ word, folder, audio = true, alt = "" }) {
 }
 
 const blockedAssessmentImageAssetNotes = {
+  bid: "The current bid image shows a flower/bud and is blocked from active image-backed assessment use until a correct replacement is QA-approved. Clean audio is preserved.",
   bud: "The current bud image is visually ambiguous and is blocked from active assessment use until a clear unopened flower bud replacement is QA-approved. Clean audio is preserved.",
   nut: "The current nut image looks like an acorn and is blocked from active assessment use. Audio is preserved."
 };

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T01:15:24.004Z",
+  "generatedAt": "2026-06-02T00:16:57.017Z",
   "simulationRoundsPerPhase": 100,
   "failures": [],
   "warnings": [],
@@ -20,28 +20,28 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
+      "questionCount": 54,
+      "uniqueTargetWords": 54,
       "status": "checked"
     },
     {
       "skillId": "final_sounds",
       "skillName": "Final Sounds",
       "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 124,
-      "uniqueTargetWords": 69,
-      "status": "checked"
-    },
-    {
-      "skillId": "final_sounds",
-      "skillName": "Final Sounds",
-      "level": 2,
       "designed": true,
       "simulations": 200,
       "questionCount": 190,
-      "uniqueTargetWords": 110,
+      "uniqueTargetWords": 122,
+      "status": "checked"
+    },
+    {
+      "skillId": "final_sounds",
+      "skillName": "Final Sounds",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 262,
+      "uniqueTargetWords": 145,
       "status": "checked"
     },
     {
@@ -50,8 +50,8 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 125,
-      "uniqueTargetWords": 52,
+      "questionCount": 169,
+      "uniqueTargetWords": 60,
       "status": "checked"
     },
     {
@@ -60,7 +60,7 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
+      "questionCount": 54,
       "uniqueTargetWords": 27,
       "status": "checked"
     },
@@ -70,8 +70,8 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 278,
-      "uniqueTargetWords": 69,
+      "questionCount": 261,
+      "uniqueTargetWords": 71,
       "status": "checked"
     },
     {
@@ -80,8 +80,8 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
+      "questionCount": 190,
+      "uniqueTargetWords": 80,
       "status": "checked"
     },
     {
@@ -90,8 +90,8 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 250,
-      "uniqueTargetWords": 71,
+      "questionCount": 148,
+      "uniqueTargetWords": 74,
       "status": "checked"
     },
     {
@@ -100,8 +100,8 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
+      "questionCount": 148,
+      "uniqueTargetWords": 82,
       "status": "checked"
     },
     {
@@ -110,8 +110,8 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 61,
-      "uniqueTargetWords": 32,
+      "questionCount": 123,
+      "uniqueTargetWords": 40,
       "status": "checked"
     },
     {
@@ -120,8 +120,8 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 32,
+      "questionCount": 95,
+      "uniqueTargetWords": 40,
       "status": "checked"
     },
     {
@@ -130,108 +130,128 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 48,
-      "uniqueTargetWords": 25,
-      "status": "checked"
-    },
-    {
-      "skillId": "hfw_26_50",
-      "skillName": "High-Frequency Words 26-50",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 75,
-      "uniqueTargetWords": 37,
-      "status": "checked"
-    },
-    {
-      "skillId": "hfw_51_100",
-      "skillName": "High-Frequency Words 51-100",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
-      "status": "checked"
-    },
-    {
-      "skillId": "hfw_51_100",
-      "skillName": "High-Frequency Words 51-100",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 130,
-      "uniqueTargetWords": 68,
-      "status": "checked"
-    },
-    {
-      "skillId": "blends",
-      "skillName": "Blends",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 68,
-      "uniqueTargetWords": 20,
-      "status": "checked"
-    },
-    {
-      "skillId": "blends",
-      "skillName": "Blends",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 33,
-      "uniqueTargetWords": 23,
-      "status": "checked"
-    },
-    {
-      "skillId": "digraphs",
-      "skillName": "Digraphs",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 54,
-      "uniqueTargetWords": 26,
-      "status": "checked"
-    },
-    {
-      "skillId": "digraphs",
-      "skillName": "Digraphs",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 37,
-      "uniqueTargetWords": 26,
-      "status": "checked"
-    },
-    {
-      "skillId": "long_vowels_silent_e",
-      "skillName": "Long Vowels and Silent E",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
-      "status": "checked"
-    },
-    {
-      "skillId": "long_vowels_silent_e",
-      "skillName": "Long Vowels and Silent E",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 60,
+      "questionCount": 84,
       "uniqueTargetWords": 44,
       "status": "checked"
     },
     {
+      "skillId": "hfw_26_50",
+      "skillName": "High-Frequency Words 26-50",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 135,
+      "uniqueTargetWords": 66,
+      "status": "checked"
+    },
+    {
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 70,
+      "uniqueTargetWords": 25,
+      "status": "checked"
+    },
+    {
+      "skillId": "hfw_51_75",
+      "skillName": "High-Frequency Words 51-75",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 70,
+      "uniqueTargetWords": 25,
+      "status": "checked"
+    },
+    {
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 70,
+      "uniqueTargetWords": 25,
+      "status": "checked"
+    },
+    {
+      "skillId": "hfw_76_100",
+      "skillName": "High-Frequency Words 76-100",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 70,
+      "uniqueTargetWords": 25,
+      "status": "checked"
+    },
+    {
+      "skillId": "blends",
+      "skillName": "Blends",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 126,
+      "uniqueTargetWords": 58,
+      "status": "checked"
+    },
+    {
+      "skillId": "blends",
+      "skillName": "Blends",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 90,
+      "uniqueTargetWords": 75,
+      "status": "checked"
+    },
+    {
+      "skillId": "digraphs",
+      "skillName": "Digraphs",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 131,
+      "uniqueTargetWords": 78,
+      "status": "checked"
+    },
+    {
+      "skillId": "digraphs",
+      "skillName": "Digraphs",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 123,
+      "uniqueTargetWords": 92,
+      "status": "checked"
+    },
+    {
+      "skillId": "long_vowels_silent_e",
+      "skillName": "Long Vowels and Silent E",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 61,
+      "uniqueTargetWords": 48,
+      "status": "checked"
+    },
+    {
+      "skillId": "long_vowels_silent_e",
+      "skillName": "Long Vowels and Silent E",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 119,
+      "uniqueTargetWords": 89,
+      "status": "checked"
+    },
+    {
       "skillId": "vowel_teams",
       "skillName": "Vowel Teams",
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
       "status": "checked"
     },
     {
@@ -240,8 +260,8 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 68,
-      "uniqueTargetWords": 50,
+      "questionCount": 61,
+      "uniqueTargetWords": 58,
       "status": "checked"
     },
     {
@@ -250,308 +270,308 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
-      "status": "checked"
-    },
-    {
-      "skillId": "r_controlled_vowels",
-      "skillName": "R-Controlled Vowels",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 56,
-      "uniqueTargetWords": 31,
-      "status": "checked"
-    },
-    {
-      "skillId": "nouns",
-      "skillName": "Nouns",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 34,
-      "status": "checked"
-    },
-    {
-      "skillId": "nouns",
-      "skillName": "Nouns",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 39,
-      "uniqueTargetWords": 34,
-      "status": "checked"
-    },
-    {
-      "skillId": "verbs",
-      "skillName": "Verbs",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 41,
-      "uniqueTargetWords": 39,
-      "status": "checked"
-    },
-    {
-      "skillId": "verbs",
-      "skillName": "Verbs",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 39,
-      "uniqueTargetWords": 30,
-      "status": "checked"
-    },
-    {
-      "skillId": "adjectives",
-      "skillName": "Adjectives",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 42,
-      "uniqueTargetWords": 36,
-      "status": "checked"
-    },
-    {
-      "skillId": "adjectives",
-      "skillName": "Adjectives",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 39,
-      "uniqueTargetWords": 32,
-      "status": "checked"
-    },
-    {
-      "skillId": "prepositions_of_place",
-      "skillName": "Prepositions of Place",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 49,
-      "uniqueTargetWords": 30,
-      "status": "checked"
-    },
-    {
-      "skillId": "prepositions_of_place",
-      "skillName": "Prepositions of Place",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 52,
-      "uniqueTargetWords": 21,
-      "status": "checked"
-    },
-    {
-      "skillId": "plurals",
-      "skillName": "Plurals",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 29,
-      "status": "checked"
-    },
-    {
-      "skillId": "plurals",
-      "skillName": "Plurals",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 94,
-      "uniqueTargetWords": 40,
-      "status": "checked"
-    },
-    {
-      "skillId": "prefixes_suffixes",
-      "skillName": "Prefixes and Suffixes",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 28,
-      "status": "checked"
-    },
-    {
-      "skillId": "prefixes_suffixes",
-      "skillName": "Prefixes and Suffixes",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 75,
-      "uniqueTargetWords": 45,
-      "status": "checked"
-    },
-    {
-      "skillId": "antonyms_synonyms",
-      "skillName": "Antonyms and Synonyms",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 33,
-      "uniqueTargetWords": 33,
-      "status": "checked"
-    },
-    {
-      "skillId": "antonyms_synonyms",
-      "skillName": "Antonyms and Synonyms",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 64,
-      "uniqueTargetWords": 40,
-      "status": "checked"
-    },
-    {
-      "skillId": "homophones_homonyms",
-      "skillName": "Homophones and Homonyms",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
-      "status": "checked"
-    },
-    {
-      "skillId": "homophones_homonyms",
-      "skillName": "Homophones and Homonyms",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 52,
-      "uniqueTargetWords": 50,
-      "status": "checked"
-    },
-    {
-      "skillId": "sentence_comprehension",
-      "skillName": "Sentence Comprehension",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 35,
-      "status": "checked"
-    },
-    {
-      "skillId": "sentence_comprehension",
-      "skillName": "Sentence Comprehension",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 110,
-      "uniqueTargetWords": 97,
-      "status": "checked"
-    },
-    {
-      "skillId": "key_details",
-      "skillName": "Key Details",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 20,
-      "status": "checked"
-    },
-    {
-      "skillId": "key_details",
-      "skillName": "Key Details",
-      "level": 2,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 59,
+      "questionCount": 53,
       "uniqueTargetWords": 52,
       "status": "checked"
     },
     {
-      "skillId": "sequencing",
-      "skillName": "Sequencing",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 20,
-      "status": "checked"
-    },
-    {
-      "skillId": "sequencing",
-      "skillName": "Sequencing",
+      "skillId": "r_controlled_vowels",
+      "skillName": "R-Controlled Vowels",
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 59,
+      "questionCount": 85,
+      "uniqueTargetWords": 44,
+      "status": "checked"
+    },
+    {
+      "skillId": "nouns",
+      "skillName": "Nouns",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 75,
       "uniqueTargetWords": 57,
       "status": "checked"
     },
     {
-      "skillId": "main_idea",
-      "skillName": "Main Idea",
-      "level": 1,
-      "designed": true,
-      "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 20,
-      "status": "checked"
-    },
-    {
-      "skillId": "main_idea",
-      "skillName": "Main Idea",
+      "skillId": "nouns",
+      "skillName": "Nouns",
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 65,
-      "uniqueTargetWords": 60,
+      "questionCount": 114,
+      "uniqueTargetWords": 85,
       "status": "checked"
     },
     {
-      "skillId": "inference",
-      "skillName": "Inference",
+      "skillId": "verbs",
+      "skillName": "Verbs",
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 21,
+      "questionCount": 81,
+      "uniqueTargetWords": 59,
       "status": "checked"
     },
     {
-      "skillId": "inference",
-      "skillName": "Inference",
+      "skillId": "verbs",
+      "skillName": "Verbs",
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 105,
-      "uniqueTargetWords": 105,
+      "questionCount": 114,
+      "uniqueTargetWords": 75,
       "status": "checked"
     },
     {
-      "skillId": "cause_effect",
-      "skillName": "Cause and Effect",
+      "skillId": "adjectives",
+      "skillName": "Adjectives",
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 20,
+      "questionCount": 82,
+      "uniqueTargetWords": 56,
       "status": "checked"
     },
     {
-      "skillId": "cause_effect",
-      "skillName": "Cause and Effect",
+      "skillId": "adjectives",
+      "skillName": "Adjectives",
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 65,
+      "questionCount": 99,
       "uniqueTargetWords": 62,
       "status": "checked"
     },
     {
+      "skillId": "prepositions_of_place",
+      "skillName": "Prepositions of Place",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "prepositions_of_place",
+      "skillName": "Prepositions of Place",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "plurals",
+      "skillName": "Plurals",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "plurals",
+      "skillName": "Plurals",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "prefixes_suffixes",
+      "skillName": "Prefixes and Suffixes",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "prefixes_suffixes",
+      "skillName": "Prefixes and Suffixes",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "skillName": "Antonyms and Synonyms",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "skillName": "Antonyms and Synonyms",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "homophones_homonyms",
+      "skillName": "Homophones and Homonyms",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "homophones_homonyms",
+      "skillName": "Homophones and Homonyms",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "sentence_comprehension",
+      "skillName": "Sentence Comprehension",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "sentence_comprehension",
+      "skillName": "Sentence Comprehension",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "key_details",
+      "skillName": "Key Details",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "key_details",
+      "skillName": "Key Details",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "sequencing",
+      "skillName": "Sequencing",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "sequencing",
+      "skillName": "Sequencing",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "main_idea",
+      "skillName": "Main Idea",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "main_idea",
+      "skillName": "Main Idea",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "inference",
+      "skillName": "Inference",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "inference",
+      "skillName": "Inference",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "cause_effect",
+      "skillName": "Cause and Effect",
+      "level": 1,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
+      "skillId": "cause_effect",
+      "skillName": "Cause and Effect",
+      "level": 2,
+      "designed": true,
+      "simulations": 200,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
+      "status": "checked"
+    },
+    {
       "skillId": "context_clues",
       "skillName": "Context Clues",
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 21,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
       "status": "checked"
     },
     {
@@ -560,8 +580,8 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 65,
-      "uniqueTargetWords": 60,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
       "status": "checked"
     },
     {
@@ -570,8 +590,8 @@
       "level": 1,
       "designed": true,
       "simulations": 200,
-      "questionCount": 35,
-      "uniqueTargetWords": 20,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
       "status": "checked"
     },
     {
@@ -580,8 +600,8 @@
       "level": 2,
       "designed": true,
       "simulations": 200,
-      "questionCount": 65,
-      "uniqueTargetWords": 54,
+      "questionCount": 46,
+      "uniqueTargetWords": 46,
       "status": "checked"
     }
   ]

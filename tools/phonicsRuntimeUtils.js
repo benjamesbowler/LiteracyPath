@@ -33,6 +33,7 @@ import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuest
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
 import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsAssessmentQuestions.generated.js";
+import { vowelTeamsVarietyQuestions } from "../src/data/generated/vowelTeamsVarietyQuestions.generated.js";
 import { grammarAssessmentQuestions } from "../src/data/generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
@@ -87,6 +88,7 @@ const questionBanks = [
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
   ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
+  ["vowelTeamsVarietyQuestions", vowelTeamsVarietyQuestions],
   ["grammarAssessmentQuestions", grammarAssessmentQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],

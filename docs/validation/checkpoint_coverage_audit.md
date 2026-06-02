@@ -1,11 +1,12 @@
 # Checkpoint Coverage Audit
 
-Generated: 2026-05-26T04:40:03.872Z
+Generated: 2026-06-01T06:56:36.342Z
 
-Checkpoint pass decisions now require both:
+Checkpoint pass decisions now require:
 
 - accuracy pass
 - complete required target coverage for the current skill/level
+- for Final Sounds Level 1, mastery depth: three correct unique words per sound, sufficient distinct usable content, and 2 successful rounds
 
 ## Required Targets
 
@@ -16,13 +17,15 @@ Checkpoint pass decisions now require both:
 
 ## Simulated Decisions
 
-| Case | Accuracy Passed | Coverage Complete | Missing Targets | Expected Pass | Actual Pass |
-| --- | --- | --- | --- | --- | --- |
-| Final Sounds Level 1 7/8 with 100% accuracy | yes | no | l | no | no |
-| Final Sounds Level 1 8/8 with 100% accuracy | yes | yes | none | yes | yes |
-| Final Sounds Level 2 partial with 100% accuracy | yes | no | lt | no | no |
-| CVC Short Vowels partial with 100% accuracy | yes | no | short_u | no | no |
-| Rhyming partial rime coverage with 100% accuracy | yes | no | ut | no | no |
+| Case | Accuracy Passed | Coverage Complete | Depth Complete | Missing Targets | Expected Pass | Actual Pass |
+| --- | --- | --- | --- | --- | --- | --- |
+| Final Sounds Level 1 7/8 with 100% accuracy | yes | no | n/a | l | no | no |
+| Final Sounds Level 1 8/8 with 100% accuracy | yes | yes | n/a | none | yes | yes |
+| Final Sounds Level 1 8/8 coverage after one round | yes | yes | no | b, d, g, l, m, n, p, t | no | no |
+| Final Sounds Level 1 full depth and two successful rounds | yes | yes | yes | none | yes | yes |
+| Final Sounds Level 2 partial with 100% accuracy | yes | no | n/a | lt | no | no |
+| CVC Short Vowels partial with 100% accuracy | yes | no | n/a | short_u | no | no |
+| Rhyming partial rime coverage with 100% accuracy | yes | no | n/a | ut | no | no |
 
 ## Failures
 

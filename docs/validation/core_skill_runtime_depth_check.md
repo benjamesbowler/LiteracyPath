@@ -5,7 +5,7 @@ Date: 2026-05-25
 | Skill | Runtime-Selectable Items | Minimum | Sample Round Size | Status |
 | --- | ---: | ---: | ---: | --- |
 | Initial Sounds | 473 | 100 | 15 | pass |
-| Ending Sounds | 451 | 100 | 15 | pass |
+| Ending Sounds | 452 | 100 | 15 | pass |
 | CVC Short Vowels | 451 | 100 | 15 | pass |
 | Rhyming Words | 223 | 100 | 15 | pass |
 
@@ -58,8 +58,8 @@ Repeated round simulation:
 
 - Round 1: bed, dog, book, ball, ram, fan, cap, car, bus, cat, web, fish, dish, brush, duck
 - Round 2: red, bug, sock, shell, ham, pan, mop, fork, vase, bat, cub, rock, ring, king, hand
-- Round 3: seed, bag, cake, girl, farm, moon, ship, star, octopus, jet, cab, tent, lamp, park, desk
-- Round 4: lid, pig, snake, thumb, lion, clap, pot, bib, animal, chair, leaf, dot, beach, bulb, cob
+- Round 3: mud, bag, cake, girl, farm, moon, ship, star, octopus, jet, cab, tent, lamp, park, desk
+- Round 4: seed, pig, snake, thumb, lion, clap, pot, bib, animal, chair, leaf, dot, beach, bulb, cob
 
 ### CVC Short Vowels
 

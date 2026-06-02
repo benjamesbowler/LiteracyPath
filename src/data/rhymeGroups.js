@@ -60,7 +60,7 @@ export const rhymeGroups = {
   ird: ["bird", "third"],
   urn: ["burn", "turn"],
   ar: ["car", "star", "jar"],
-  or: ["corn", "horn", "storm"]
+  or: ["corn", "horn"]
 };
 
 const wordToRhymeGroup = Object.entries(rhymeGroups).reduce((map, [group, words]) => {

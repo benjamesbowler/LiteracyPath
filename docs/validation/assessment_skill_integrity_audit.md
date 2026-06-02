@@ -1,6 +1,6 @@
 # Assessment Skill Integrity Audit
 
-Generated: 2026-06-01T23:41:33.430Z
+Generated: 2026-06-02T00:15:36.738Z
 
 Strict contract: every assessment skill should have exactly 2 levels, exactly 2 phases, 15 safe questions per phase, and at least 30 unique usable questions per level. This is audit-only and does not modify question content.
 
@@ -9,22 +9,22 @@ Strict contract: every assessment skill should have exactly 2 levels, exactly 2 
 | Metric | Count |
 | --- | --- |
 | skillsAudited | 30 |
-| productionReadySkills | 24 |
+| productionReadySkills | 30 |
 | failingPhaseCount | 0 |
 | failingLevelCount | 0 |
 | belowLevel1Depth | 0 |
-| belowLevel2Depth | 2 |
-| unableToGenerate15QuestionRound | 2 |
+| belowLevel2Depth | 0 |
+| unableToGenerate15QuestionRound | 0 |
 | duplicateIdGroups | 0 |
 | missingQuestionIds | 0 |
 | missingPrompts | 0 |
-| missingAnswerChoices | 120 |
+| missingAnswerChoices | 152 |
 | missingCorrectAnswers | 0 |
 | missingSkillIds | 0 |
 | missingLevelData | 0 |
 | missingPhaseData | 0 |
-| graphemeChoiceQuestions | 1070 |
-| imageChoiceQuestions | 1892 |
+| graphemeChoiceQuestions | 1085 |
+| imageChoiceQuestions | 1893 |
 | imageChoiceLeaks | 0 |
 | unassignedQuestions | 190 |
 
@@ -32,19 +32,19 @@ Strict contract: every assessment skill should have exactly 2 levels, exactly 2 
 
 | # | Skill | Skill ID | Unique total | L1 usable | L2 usable | Phases | Levels | 2 phases | 2 levels | L1 missing | L2 missing | Text-tile questions | Image-choice questions | Image leaks | Round risk | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Initial Sounds | initial_sounds | 197 | 143 | 54 | 2 | 2 | yes | yes | 0 | 0 | 84 | 109 | 0 | ok | blocker |
-| 2 | Final Sounds | final_sounds | 545 | 265 | 280 | 2 | 2 | yes | yes | 0 | 0 | 318 | 157 | 0 | ok | blocker |
+| 1 | Initial Sounds | initial_sounds | 197 | 143 | 54 | 2 | 2 | yes | yes | 0 | 0 | 84 | 109 | 0 | ok | pass |
+| 2 | Final Sounds | final_sounds | 545 | 265 | 280 | 2 | 2 | yes | yes | 0 | 0 | 318 | 157 | 0 | ok | pass |
 | 3 | Rhyming | rhyming | 637 | 486 | 151 | 2 | 2 | yes | yes | 0 | 0 | 0 | 593 | 0 | ok | pass |
 | 4 | CVC Short Vowels | cvc_short_vowels | 544 | 326 | 218 | 2 | 2 | yes | yes | 0 | 0 | 180 | 305 | 0 | ok | pass |
-| 5 | Short Vowel Discrimination | short_vowel_discrimination | 532 | 212 | 320 | 2 | 2 | yes | yes | 0 | 0 | 195 | 314 | 0 | ok | blocker |
-| 6 | High-Frequency Words 1-25 | hfw_1_25 | 218 | 123 | 65 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
-| 7 | High-Frequency Words 26-50 | hfw_26_50 | 219 | 84 | 105 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
-| 8 | High-Frequency Words 51-75 | hfw_51_75 | 108 | 54 | 24 | 2 | 2 | yes | yes | 0 | 22 | 0 | 0 | 0 | risk | blocker |
-| 9 | High-Frequency Words 76-100 | hfw_76_100 | 108 | 54 | 24 | 2 | 2 | yes | yes | 0 | 22 | 0 | 2 | 0 | risk | blocker |
+| 5 | Short Vowel Discrimination | short_vowel_discrimination | 532 | 212 | 320 | 2 | 2 | yes | yes | 0 | 0 | 195 | 314 | 0 | ok | pass |
+| 6 | High-Frequency Words 1-25 | hfw_1_25 | 218 | 123 | 95 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
+| 7 | High-Frequency Words 26-50 | hfw_26_50 | 219 | 84 | 135 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
+| 8 | High-Frequency Words 51-75 | hfw_51_75 | 140 | 70 | 70 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 9 | High-Frequency Words 76-100 | hfw_76_100 | 140 | 70 | 70 | 2 | 2 | yes | yes | 0 | 0 | 0 | 3 | 0 | ok | pass |
 | 10 | Blends | blends | 237 | 146 | 91 | 2 | 2 | yes | yes | 0 | 0 | 60 | 90 | 0 | ok | pass |
 | 11 | Digraphs | digraphs | 289 | 153 | 136 | 2 | 2 | yes | yes | 0 | 0 | 81 | 99 | 0 | ok | pass |
 | 12 | Long Vowels and Silent E | long_vowels_silent_e | 190 | 61 | 128 | 2 | 2 | yes | yes | 0 | 0 | 60 | 0 | 0 | ok | pass |
-| 13 | Vowel Teams | vowel_teams | 92 | 46 | 46 | 2 | 2 | yes | yes | 0 | 0 | 92 | 0 | 0 | ok | blocker |
+| 13 | Vowel Teams | vowel_teams | 107 | 46 | 61 | 2 | 2 | yes | yes | 0 | 0 | 107 | 0 | 0 | ok | pass |
 | 14 | R-Controlled Vowels | r_controlled_vowels | 140 | 53 | 85 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
 | 15 | Nouns | nouns | 189 | 75 | 114 | 2 | 2 | yes | yes | 0 | 0 | 0 | 90 | 0 | ok | pass |
 | 16 | Verbs | verbs | 195 | 81 | 114 | 2 | 2 | yes | yes | 0 | 0 | 0 | 62 | 0 | ok | pass |
@@ -65,22 +65,23 @@ Strict contract: every assessment skill should have exactly 2 levels, exactly 2 
 
 ## Red Flags
 
-- Initial Sounds: strict production contract not met
-- Final Sounds: Final Sounds pair-selection questions without exactly 4 image/audio cards: coverage_final_d_003 (4 cards).
-- Short Vowel Discrimination: strict production contract not met
-- High-Frequency Words 51-75: Level 2 has 24/30 strict usable questions.
-- High-Frequency Words 76-100: Level 2 has 24/30 strict usable questions.
-- Vowel Teams: strict production contract not met
+_None._
 
 ## Skills Passing All Checks
 
+- Initial Sounds
+- Final Sounds
 - Rhyming
 - CVC Short Vowels
+- Short Vowel Discrimination
 - High-Frequency Words 1-25
 - High-Frequency Words 26-50
+- High-Frequency Words 51-75
+- High-Frequency Words 76-100
 - Blends
 - Digraphs
 - Long Vowels and Silent E
+- Vowel Teams
 - R-Controlled Vowels
 - Nouns
 - Verbs
@@ -109,18 +110,16 @@ _None._
 
 ## Skills Below 30 Unique Usable Questions For Either Level
 
-- High-Frequency Words 51-75: Level 1 54/30, Level 2 24/30
-- High-Frequency Words 76-100: Level 1 54/30, Level 2 24/30
+_None._
 
 ## Skills Unable To Safely Generate 15-Question Rounds
 
-- High-Frequency Words 51-75: Level 2 Phase 2 cannot safely generate 15 questions.
-- High-Frequency Words 76-100: Level 2 Phase 2 cannot safely generate 15 questions.
+_None._
 
 ## Assessment Choice Rendering Diagnostics
 
-- Grapheme/text-choice questions: 1070
-- Image-choice questions: 1892
+- Grapheme/text-choice questions: 1085
+- Image-choice questions: 1893
 - Image-choice leaks in grapheme/text-choice questions: 0
 
 _No image-choice leaks detected in grapheme/text-choice questions._
@@ -152,79 +151,14 @@ _None._
 
 - High-Frequency Words 1-25: ids 0, prompts 0, choices 30, correct 0, skill ids 0, levels 0, phases 0
 - High-Frequency Words 26-50: ids 0, prompts 0, choices 30, correct 0, skill ids 0, levels 0, phases 0
-- High-Frequency Words 51-75: ids 0, prompts 0, choices 30, correct 0, skill ids 0, levels 0, phases 0
-- High-Frequency Words 76-100: ids 0, prompts 0, choices 30, correct 0, skill ids 0, levels 0, phases 0
+- High-Frequency Words 51-75: ids 0, prompts 0, choices 46, correct 0, skill ids 0, levels 0, phases 0
+- High-Frequency Words 76-100: ids 0, prompts 0, choices 46, correct 0, skill ids 0, levels 0, phases 0
 - Long Vowels and Silent E: ids 0, prompts 0, choices 0, correct 0, skill ids 0, levels 0, phases 0
 - R-Controlled Vowels: ids 0, prompts 0, choices 0, correct 0, skill ids 0, levels 0, phases 0
 
 ## Progression Logic Concerns
 
-### 1. Initial Sounds
-
-- Skill id: `initial_sounds`
-- Unique strict usable questions: 197
-- Level 1: 143/30; phases 1, 2; targets 38
-- Level 2: 54/30; phases 1, 2; targets 2
-- Duplicate IDs: none
-- Missing required fields: question ids 0; prompts 0; choices 0; correct answers 0; skill ids 0; levels 0; phases 0
-- Runtime risks: none
-- Progression concerns: none
-
-### 2. Final Sounds
-
-- Skill id: `final_sounds`
-- Unique strict usable questions: 545
-- Level 1: 265/30; phases 1, 2; targets 40
-- Level 2: 280/30; phases 1, 2; targets 38
-- Duplicate IDs: none
-- Missing required fields: question ids 0; prompts 0; choices 0; correct answers 0; skill ids 0; levels 0; phases 0
-- Runtime risks: none
-- Progression concerns: Final Sounds pair-selection questions without exactly 4 image/audio cards: coverage_final_d_003 (4 cards).
-
-### 5. Short Vowel Discrimination
-
-- Skill id: `short_vowel_discrimination`
-- Unique strict usable questions: 532
-- Level 1: 212/30; phases 1, 2; targets 12
-- Level 2: 320/30; phases 1, 2; targets 124
-- Duplicate IDs: none
-- Missing required fields: question ids 0; prompts 0; choices 0; correct answers 0; skill ids 0; levels 0; phases 0
-- Runtime risks: none
-- Progression concerns: none
-
-### 8. High-Frequency Words 51-75
-
-- Skill id: `hfw_51_75`
-- Unique strict usable questions: 78
-- Level 1: 54/30; phases 1, 2; targets 25
-- Level 2: 24/30; phases 1, 2; targets 24
-- Duplicate IDs: none
-- Missing required fields: question ids 0; prompts 0; choices 30; correct answers 0; skill ids 0; levels 0; phases 0
-- Runtime risks: Level 2 Phase 2 cannot safely generate 15 questions.
-- Progression concerns: Level 2 has 24/30 strict usable questions. Level 2 Phase 2 cannot safely generate 15 questions.
-
-### 9. High-Frequency Words 76-100
-
-- Skill id: `hfw_76_100`
-- Unique strict usable questions: 78
-- Level 1: 54/30; phases 1, 2; targets 25
-- Level 2: 24/30; phases 1, 2; targets 24
-- Duplicate IDs: none
-- Missing required fields: question ids 0; prompts 0; choices 30; correct answers 0; skill ids 0; levels 0; phases 0
-- Runtime risks: Level 2 Phase 2 cannot safely generate 15 questions.
-- Progression concerns: Level 2 has 24/30 strict usable questions. Level 2 Phase 2 cannot safely generate 15 questions.
-
-### 13. Vowel Teams
-
-- Skill id: `vowel_teams`
-- Unique strict usable questions: 92
-- Level 1: 46/30; phases 1, 2; targets 5
-- Level 2: 46/30; phases 1, 2; targets 11
-- Duplicate IDs: none
-- Missing required fields: question ids 0; prompts 0; choices 0; correct answers 0; skill ids 0; levels 0; phases 0
-- Runtime risks: none
-- Progression concerns: none
-
+_None._
 
 ## Unassigned Questions
 
