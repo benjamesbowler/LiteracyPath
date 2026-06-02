@@ -5,6 +5,8 @@ const samPamWordImagePath = word => `/images/story-quests/sam-pam/words/word-${w
 
 const meadowPalsImagePath = (folder, pageId) => `/images/story-quests/meadow-pals/${folder}/${pageId}.webp`;
 const meadowPalsAudioPath = (folder, pageId) => `/audio/story-quests/meadow-pals/${folder}/${pageId}.mp3`;
+const dinoPalsImagePath = (folder, pageId) => `/images/story-quests/dino-pals/${folder}/${pageId}.webp`;
+const dinoPalsAudioPath = (folder, pageId) => `/audio/story-quests/dino-pals/${folder}/${pageId}.mp3`;
 
 function meadowPalsPage(folder, id, text, choicePrompt, choices, skillTags = []) {
   return {
@@ -18,12 +20,313 @@ function meadowPalsPage(folder, id, text, choicePrompt, choices, skillTags = [])
   };
 }
 
+function dinoPalsPage(folder, id, text, choicePrompt, choices, skillTags = []) {
+  return {
+    id,
+    text,
+    imageUrl: dinoPalsImagePath(folder, id),
+    audioUrl: dinoPalsAudioPath(folder, id),
+    choicePrompt,
+    choices,
+    skillTags
+  };
+}
+
 const muddySplashyFolder = "muddy-splashy-hat";
 const shyCuddlyFolder = "shy-cuddly-quiet";
 const bouncySpeedyFolder = "bouncy-speedy-map";
 const braveTinyFolder = "brave-tiny-rescue";
+const chompyLunchFolder = "chompy-lunch-hunt";
+const sunnyRainyFolder = "sunny-rainy-rescue";
+
+export const dinoPalsStoryQuestMetadata = [
+  {
+    id: "dp_ra_b_01_chompy_big_lunch_hunt",
+    title: "Chompy's Big Lunch Hunt",
+    level: "B",
+    ageRange: "Ages 5-6",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Level B guided reading choice adventure",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    mediaFolder: "chompy-lunch-hunt"
+  },
+  {
+    id: "dp_ra_b_02_sunnys_rainy_day_rescue",
+    title: "Sunny's Rainy Day Rescue",
+    level: "B",
+    ageRange: "Ages 5-6",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Level B guided reading choice adventure",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    mediaFolder: "sunny-rainy-rescue"
+  }
+];
+
+const dinoPalsStoryQuests = [
+  {
+    id: "dp_ra_b_01_chompy_big_lunch_hunt",
+    title: "Chompy's Big Lunch Hunt",
+    level: "B",
+    ageRange: "Ages 5-6",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Level B guided reading choice adventure",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    characters: ["Chompy", "Sunny", "Grumpy", "Bouncy"],
+    location: "Sunny Hollow - Cozy Cave, Berry Bush Corner, Big Flat Rock, Muddy Puddle Pool, Long Meadow",
+    targetWords: ["Chompy", "lunch", "berries", "leaves", "cave", "rock", "mud", "rumbling", "enormous", "shared", "surprised", "sniffed"],
+    highFrequencyWords: ["I", "am", "is", "the", "go", "to", "see", "can", "we", "you", "more", "no", "yes", "said", "for"],
+    hfw: ["I", "am", "is", "the", "go", "to", "see", "can", "we", "you", "more", "no", "yes", "said", "for"],
+    coverImageUrl: dinoPalsImagePath(chompyLunchFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      dinoPalsPage(chompyLunchFolder, "p01_start", ["Chompy woke up.", "His tummy was rumbling.", "\"I need lunch,\" he said."], "Where should Chompy go?", [
+        { label: "Berries", nextPageId: "p02_berries" },
+        { label: "Cave door", nextPageId: "p02_cave_door" }
+      ], ["chompy", "rumbling", "lunch"]),
+      dinoPalsPage(chompyLunchFolder, "p02_berries", ["Chompy sniffed the air.", "He found red berries.", "\"Sweet lunch!\" he said."], "What should Chompy do?", [
+        { label: "Eat some", nextPageId: "p03_eat_berries" },
+        { label: "Save some", nextPageId: "p03_save_berries" }
+      ], ["chompy", "sniffed", "berries"]),
+      dinoPalsPage(chompyLunchFolder, "p02_cave_door", ["Chompy padded to the cave door.", "Sunny was there with an enormous smile.", "\"Hello, Chompy!\" she said."], "Who should Chompy ask?", [
+        { label: "Ask Sunny", nextPageId: "p03_ask_sunny" },
+        { label: "Sniff path", nextPageId: "p03_sniff_path" }
+      ], ["chompy", "sunny", "cave", "enormous"]),
+      dinoPalsPage(chompyLunchFolder, "p03_eat_berries", ["Chompy ate the berries.", "His tummy rumbled again.", "\"More, please!\" he said."], "Is Chompy full?", [
+        { label: "Yes?", nextPageId: "p04_not_full" },
+        { label: "Nope", nextPageId: "p04_more_food" }
+      ], ["chompy", "berries", "more"]),
+      dinoPalsPage(chompyLunchFolder, "p03_save_berries", ["Chompy saved some berries.", "That was hard work.", "\"I can share,\" he said."], "Who gets some?", [
+        { label: "Sunny", nextPageId: "p04_sunny_shares" },
+        { label: "Grumpy", nextPageId: "p04_grumpy_berries" }
+      ], ["chompy", "berries", "share"]),
+      dinoPalsPage(chompyLunchFolder, "p03_ask_sunny", ["\"I am hungry,\" said Chompy.", "\"I can help,\" said Sunny.", "\"Food is more fun with friends.\""], "What should Sunny bring?", [
+        { label: "Fruit", nextPageId: "p04_sunny_shares" },
+        { label: "Leaves", nextPageId: "p04_leaf_lunch" }
+      ], ["chompy", "sunny", "food"]),
+      dinoPalsPage(chompyLunchFolder, "p03_sniff_path", ["Chompy sniffed the path.", "Sniff, sniff, sniff.", "One smell was not food."], "What smell does Chompy follow?", [
+        { label: "Berry smell", nextPageId: "p02_berries" },
+        { label: "Mud smell", nextPageId: "p04_mud_smell" }
+      ], ["chompy", "sniffed", "mud"]),
+      dinoPalsPage(chompyLunchFolder, "p04_not_full", ["Chompy was not full.", "His tummy made a little grumble.", "\"That means more lunch,\" he said."], "What next?", [
+        { label: "Find leaves", nextPageId: "p04_leaf_lunch" },
+        { label: "Find pals", nextPageId: "p05_big_flat_rock" }
+      ], ["chompy", "lunch", "more"]),
+      dinoPalsPage(chompyLunchFolder, "p04_more_food", ["Chompy wanted more food.", "He wanted an enormous lunch.", "\"Which way?\" he asked."], "Where should Chompy go?", [
+        { label: "Big Rock", nextPageId: "p05_big_flat_rock" },
+        { label: "Meadow", nextPageId: "p05_long_meadow" }
+      ], ["chompy", "enormous", "lunch"]),
+      dinoPalsPage(chompyLunchFolder, "p04_sunny_shares", ["Sunny shared her lunch.", "Chompy smiled at the fruit.", "\"Thank you, Sunny.\""], "Eat it all?", [
+        { label: "Eat it all", nextPageId: "p06_tummy_big" },
+        { label: "Share too", nextPageId: "p05_big_flat_rock" }
+      ], ["sunny", "shared", "lunch"]),
+      dinoPalsPage(chompyLunchFolder, "p04_grumpy_berries", ["Grumpy saw the berries.", "His tummy grumbled too.", "\"Hmph,\" said Grumpy."], "Does Grumpy want one?", [
+        { label: "Yes", nextPageId: "p05_grumpy_tiny_smile" },
+        { label: "Hmph no", nextPageId: "p05_big_flat_rock" }
+      ], ["grumpy", "berries"]),
+      dinoPalsPage(chompyLunchFolder, "p04_leaf_lunch", ["Chompy found a big leaf.", "Crunch!", "\"That leaf was mostly hat,\" he said."], "Did that help?", [
+        { label: "A little", nextPageId: "p04_not_full" },
+        { label: "Not much", nextPageId: "p05_long_meadow" }
+      ], ["chompy", "leaf"]),
+      dinoPalsPage(chompyLunchFolder, "p04_mud_smell", ["Chompy found mud.", "The mud was soggy.", "\"Mud is not lunch,\" he said."], "What should Chompy do?", [
+        { label: "Step back", nextPageId: "p05_big_flat_rock" },
+        { label: "Taste it?", nextPageId: "p05_mud_face" }
+      ], ["chompy", "mud", "soggy"]),
+      dinoPalsPage(chompyLunchFolder, "p05_mud_face", ["Chompy tasted the mud.", "His face went funny.", "\"No, no, no!\""], "Now what?", [
+        { label: "Real food", nextPageId: "p05_big_flat_rock" },
+        { label: "Ask Sunny", nextPageId: "p03_ask_sunny" }
+      ], ["chompy", "mud"]),
+      dinoPalsPage(chompyLunchFolder, "p05_grumpy_tiny_smile", ["Grumpy had one berry.", "He looked surprised.", "Then he almost smiled."], "What does Chompy do?", [
+        { label: "Ask more", nextPageId: "p05_big_flat_rock" },
+        { label: "Give more", nextPageId: "p06_grumpy_full" }
+      ], ["grumpy", "surprised", "berries"]),
+      dinoPalsPage(chompyLunchFolder, "p05_big_flat_rock", ["They went to Big Flat Rock.", "Lunch was waiting there.", "\"Enormous lunch!\" said Chompy."], "Who eats first?", [
+        { label: "Chompy", nextPageId: "p06_tummy_big" },
+        { label: "Everyone", nextPageId: "p06_everyone_eats" }
+      ], ["chompy", "rock", "lunch", "enormous"]),
+      dinoPalsPage(chompyLunchFolder, "p05_long_meadow", ["Chompy went to Long Meadow.", "The grass tickled his nose.", "Something bounced in the grass."], "What is hiding there?", [
+        { label: "Bouncy", nextPageId: "p06_bouncy_lunch" },
+        { label: "More food", nextPageId: "p06_tummy_big" }
+      ], ["chompy", "bouncy"]),
+      dinoPalsPage(chompyLunchFolder, "p06_bouncy_lunch", ["Bouncy bounced in.", "The lunch bounced too.", "\"Oops!\" said Bouncy."], "What flies up?", [
+        { label: "Berries", nextPageId: "p07_berry_rain" },
+        { label: "Leaves", nextPageId: "p07_leaf_hat" }
+      ], ["bouncy", "lunch"]),
+      dinoPalsPage(chompyLunchFolder, "p06_tummy_big", ["Chompy ate and ate.", "His tummy got enormous.", "Sunny looked surprised."], "Is Chompy full?", [
+        { label: "Yes", nextPageId: "p08_star_ending" },
+        { label: "Not yet", nextPageId: "p07_more_please" }
+      ], ["chompy", "enormous", "surprised"]),
+      dinoPalsPage(chompyLunchFolder, "p06_everyone_eats", ["Everyone shared lunch.", "Chompy had lunch too.", "It felt peaceful."], "What does Chompy say?", [
+        { label: "Thank you", nextPageId: "p08_thank_you_ending" },
+        { label: "More?", nextPageId: "p07_more_please" }
+      ], ["shared", "lunch", "peaceful"]),
+      dinoPalsPage(chompyLunchFolder, "p06_grumpy_full", ["Grumpy had more berries.", "His tummy was full.", "\"Not bad,\" he grumbled."], "What about Chompy?", [
+        { label: "Full too", nextPageId: "p08_thank_you_ending" },
+        { label: "Wants more", nextPageId: "p07_more_please" }
+      ], ["grumpy", "grumbled", "berries"]),
+      dinoPalsPage(chompyLunchFolder, "p07_berry_rain", ["Berries came down.", "Chompy opened wide.", "Plop, plop, yum!"], "Catch them?", [
+        { label: "Yes", nextPageId: "p06_tummy_big" },
+        { label: "No", nextPageId: "p08_berry_mess_ending" }
+      ], ["chompy", "berries"]),
+      dinoPalsPage(chompyLunchFolder, "p07_leaf_hat", ["A leaf landed on Chompy.", "It made a floppy hat.", "\"Not lunch,\" said Sunny."], "Eat the hat?", [
+        { label: "Chomp it", nextPageId: "p07_more_please" },
+        { label: "Wear it", nextPageId: "p08_leaf_hat_ending" }
+      ], ["chompy", "leaf", "lunch"]),
+      dinoPalsPage(chompyLunchFolder, "p07_more_please", ["\"More, please!\" said Chompy.", "Sunny laughed softly.", "\"One more, then rest.\""], "What happens next?", [
+        { label: "One berry", nextPageId: "p08_star_ending" },
+        { label: "No more", nextPageId: "p08_thank_you_ending" }
+      ], ["chompy", "more"]),
+      dinoPalsPage(chompyLunchFolder, "p08_star_ending", ["That night, Chompy looked up.", "His tummy was quiet.", "\"What is breakfast?\" he whispered."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["chompy"]),
+      dinoPalsPage(chompyLunchFolder, "p08_thank_you_ending", ["\"Thank you,\" said Chompy.", "The pals shared the last berry.", "Chompy was full, for now."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["chompy", "shared"]),
+      dinoPalsPage(chompyLunchFolder, "p08_berry_mess_ending", ["The berries went splat.", "Chompy looked at his feet.", "\"Berry boots!\" said Bouncy."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["chompy", "berries", "bouncy"]),
+      dinoPalsPage(chompyLunchFolder, "p08_leaf_hat_ending", ["Chompy kept the leaf hat.", "It was not lunch.", "It was still fun."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["chompy", "leaf"])
+    ]
+  },
+  {
+    id: "dp_ra_b_02_sunnys_rainy_day_rescue",
+    title: "Sunny's Rainy Day Rescue",
+    level: "B",
+    ageRange: "Ages 5-6",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Level B guided reading choice adventure",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    characters: ["Sunny", "Grumpy", "Dozy", "Wiggly", "Honky"],
+    location: "Sunny Hollow - Muddy Puddle Pool, Big Flat Rock, Cozy Cave, Fernwood forest",
+    targetWords: ["Sunny", "rain", "puddle", "mud", "soggy", "dripping", "splashed", "surprised", "peaceful", "grumbled", "rainbow"],
+    highFrequencyWords: ["I", "am", "is", "the", "go", "to", "see", "can", "we", "you", "in", "no", "yes", "said", "too"],
+    hfw: ["I", "am", "is", "the", "go", "to", "see", "can", "we", "you", "in", "no", "yes", "said", "too"],
+    coverImageUrl: dinoPalsImagePath(sunnyRainyFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      dinoPalsPage(sunnyRainyFolder, "p01_start", ["Rain fell on Sunny Hollow.", "Sunny smiled at the dripping trees.", "\"Someone needs help,\" she said."], "Who should Sunny help?", [
+        { label: "Grumpy", nextPageId: "p02_grumpy" },
+        { label: "Dozy", nextPageId: "p02_dozy" }
+      ], ["sunny", "rain", "dripping"]),
+      dinoPalsPage(sunnyRainyFolder, "p02_grumpy", ["Grumpy was wet.", "Water dripped from his shell.", "\"Rain is rude,\" he grumbled."], "What should Sunny do?", [
+        { label: "Dry rock", nextPageId: "p03_dry_rock" },
+        { label: "Puddle", nextPageId: "p03_puddle" }
+      ], ["grumpy", "rain", "grumbled"]),
+      dinoPalsPage(sunnyRainyFolder, "p02_dozy", ["Dozy was sleepy.", "His pillow was soggy.", "\"My nap is wet,\" he said."], "What should Sunny do?", [
+        { label: "Cozy Cave", nextPageId: "p03_cozy_cave" },
+        { label: "Puddle", nextPageId: "p03_puddle" }
+      ], ["dozy", "soggy"]),
+      dinoPalsPage(sunnyRainyFolder, "p03_dry_rock", ["Sunny found Big Flat Rock.", "The rain had splashed it.", "\"Not dry,\" said Grumpy."], "What now?", [
+        { label: "Try cave", nextPageId: "p03_cozy_cave" },
+        { label: "Try puddle", nextPageId: "p03_puddle" }
+      ], ["sunny", "rock", "splashed"]),
+      dinoPalsPage(sunnyRainyFolder, "p03_cozy_cave", ["Cozy Cave was dry.", "Dozy hugged his pillow.", "\"This is peaceful,\" he said."], "Who comes in?", [
+        { label: "Grumpy", nextPageId: "p04_cave_grumpy" },
+        { label: "Wiggly", nextPageId: "p04_wiggly_tail" }
+      ], ["cave", "dozy", "peaceful"]),
+      dinoPalsPage(sunnyRainyFolder, "p03_puddle", ["Sunny saw a wide puddle.", "Rain dripped from her rainbow horns.", "Sunny smiled."], "Jump in?", [
+        { label: "Jump", nextPageId: "p04_splash" },
+        { label: "Wait", nextPageId: "p04_wait" }
+      ], ["sunny", "puddle", "rainbow"]),
+      dinoPalsPage(sunnyRainyFolder, "p04_splash", ["Sunny jumped in.", "Mud splashed up high.", "\"Oops!\" said Sunny."], "Who got splashed?", [
+        { label: "Grumpy", nextPageId: "p05_grumpy_splash" },
+        { label: "Dozy", nextPageId: "p05_dozy_splash" }
+      ], ["sunny", "mud", "splashed"]),
+      dinoPalsPage(sunnyRainyFolder, "p04_wait", ["Sunny waited by the puddle.", "Drip, drip, drip went the rain.", "Then footsteps came."], "Who walks by?", [
+        { label: "Wiggly", nextPageId: "p04_wiggly_tail" },
+        { label: "Honky", nextPageId: "p05_honky_rain" }
+      ], ["sunny", "puddle", "rain"]),
+      dinoPalsPage(sunnyRainyFolder, "p04_cave_grumpy", ["Grumpy came into the cave.", "His tail was still dripping.", "\"Too drippy,\" he grumbled."], "What helps?", [
+        { label: "Leaf roof", nextPageId: "p05_leaf_roof" },
+        { label: "Puddle game", nextPageId: "p03_puddle" }
+      ], ["grumpy", "dripping", "grumbled"]),
+      dinoPalsPage(sunnyRainyFolder, "p04_wiggly_tail", ["Wiggly came by.", "His long tail went swish.", "\"Sorry!\" said Wiggly."], "What did the tail do?", [
+        { label: "Made wave", nextPageId: "p05_tail_wave" },
+        { label: "Knocked leaf", nextPageId: "p05_leaf_roof" }
+      ], ["wiggly"]),
+      dinoPalsPage(sunnyRainyFolder, "p05_grumpy_splash", ["Grumpy got splashed.", "He looked surprised.", "\"That was enormous,\" he said."], "Is Grumpy mad?", [
+        { label: "A little", nextPageId: "p06_grumpy_smile" },
+        { label: "Very", nextPageId: "p06_sorry_grumpy" }
+      ], ["grumpy", "splashed", "surprised", "enormous"]),
+      dinoPalsPage(sunnyRainyFolder, "p05_dozy_splash", ["Dozy got splashed.", "His eyes popped open.", "\"Was that my nap?\" he asked."], "What does Dozy say?", [
+        { label: "Again?", nextPageId: "p06_dozy_again" },
+        { label: "Nap now", nextPageId: "p03_cozy_cave" }
+      ], ["dozy", "splashed"]),
+      dinoPalsPage(sunnyRainyFolder, "p05_honky_rain", ["Honky called, \"RAIN!\"", "His enormous voice shook the leaves.", "Down they fell."], "What happened?", [
+        { label: "Leaves fell", nextPageId: "p06_leaf_rain" },
+        { label: "Ears covered", nextPageId: "p06_grumpy_ears" }
+      ], ["honky", "rain", "enormous"]),
+      dinoPalsPage(sunnyRainyFolder, "p05_tail_wave", ["Wiggly's tail made a wave.", "The puddle grew bigger.", "Sunny clapped."], "Jump in?", [
+        { label: "Sunny jumps", nextPageId: "p04_splash" },
+        { label: "Everyone jumps", nextPageId: "p07_everyone_puddle" }
+      ], ["wiggly", "puddle"]),
+      dinoPalsPage(sunnyRainyFolder, "p05_leaf_roof", ["The big leaf made a roof.", "No more drip, drip.", "\"Good leaf,\" said Sunny."], "Who sits under it?", [
+        { label: "Grumpy", nextPageId: "p06_grumpy_dry" },
+        { label: "Dozy", nextPageId: "p06_dozy_dry" }
+      ], ["leaf", "sunny"]),
+      dinoPalsPage(sunnyRainyFolder, "p06_grumpy_smile", ["Grumpy did not smile.", "Well, not much.", "\"Maybe puddles are fine,\" he said."], "Try again?", [
+        { label: "Big splash", nextPageId: "p07_everyone_puddle" },
+        { label: "Leaf roof", nextPageId: "p05_leaf_roof" }
+      ], ["grumpy", "puddle"]),
+      dinoPalsPage(sunnyRainyFolder, "p06_sorry_grumpy", ["\"Sorry,\" said Sunny.", "Grumpy dripped and grumbled.", "\"Help me get dry.\""], "What helps Grumpy?", [
+        { label: "Dry leaf", nextPageId: "p05_leaf_roof" },
+        { label: "Little splash", nextPageId: "p06_grumpy_smile" }
+      ], ["sunny", "grumpy", "grumbled"]),
+      dinoPalsPage(sunnyRainyFolder, "p06_dozy_again", ["\"Again?\" said Dozy.", "Sunny splashed softly.", "Dozy giggled."], "What now?", [
+        { label: "Everyone joins", nextPageId: "p07_everyone_puddle" },
+        { label: "Dozy naps", nextPageId: "p03_cozy_cave" }
+      ], ["dozy", "sunny", "splashed"]),
+      dinoPalsPage(sunnyRainyFolder, "p06_leaf_rain", ["Leaves came down.", "It was leaf rain.", "Sunny had an idea."], "What can leaves make?", [
+        { label: "Roof", nextPageId: "p05_leaf_roof" },
+        { label: "Boat", nextPageId: "p07_leaf_boat" }
+      ], ["leaf", "rain", "sunny"]),
+      dinoPalsPage(sunnyRainyFolder, "p06_grumpy_ears", ["Grumpy covered his ears.", "\"Too loud!\" he said.", "Honky looked sorry."], "What should Honky do?", [
+        { label: "Soft voice", nextPageId: "p08_quiet_ending" },
+        { label: "Call pals", nextPageId: "p07_everyone_puddle" }
+      ], ["grumpy", "honky"]),
+      dinoPalsPage(sunnyRainyFolder, "p06_grumpy_dry", ["Grumpy was dry.", "The leaf kept rain away.", "\"This is better.\""], "Go outside?", [
+        { label: "Yes", nextPageId: "p07_everyone_puddle" },
+        { label: "No", nextPageId: "p08_quiet_ending" }
+      ], ["grumpy", "rain", "leaf"]),
+      dinoPalsPage(sunnyRainyFolder, "p06_dozy_dry", ["Dozy was dry.", "He fell asleep again.", "The cave felt peaceful."], "Wake Dozy?", [
+        { label: "No", nextPageId: "p08_quiet_ending" },
+        { label: "Soft splash", nextPageId: "p06_dozy_again" }
+      ], ["dozy", "peaceful"]),
+      dinoPalsPage(sunnyRainyFolder, "p07_leaf_boat", ["Sunny made a leaf boat.", "It went plop.", "Grumpy watched it float."], "Where does it go?", [
+        { label: "Across", nextPageId: "p08_rainbow_ending" },
+        { label: "Into Grumpy", nextPageId: "p06_grumpy_smile" }
+      ], ["sunny", "leaf", "grumpy"]),
+      dinoPalsPage(sunnyRainyFolder, "p07_everyone_puddle", ["One by one, they joined in.", "Everyone splashed.", "Even Grumpy's tail splashed."], "What comes next?", [
+        { label: "Sun out", nextPageId: "p08_rainbow_ending" },
+        { label: "Grumpy laughs", nextPageId: "p08_grumpy_laugh_ending" }
+      ], ["sunny", "grumpy", "splashed"]),
+      dinoPalsPage(sunnyRainyFolder, "p08_rainbow_ending", ["The sun came out.", "A rainbow came too.", "Sunny was right."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["sunny", "rainbow"]),
+      dinoPalsPage(sunnyRainyFolder, "p08_grumpy_laugh_ending", ["Grumpy laughed.", "Just a little.", "Sunny looked surprised."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["grumpy", "sunny", "surprised"]),
+      dinoPalsPage(sunnyRainyFolder, "p08_quiet_ending", ["The rain was soft.", "The cave was warm.", "The pals felt peaceful."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["rain", "peaceful"])
+    ]
+  }
+];
 
 export const storyQuests = [
+  ...dinoPalsStoryQuests,
   {
     id: "story_quest_short_a_sam_pam_01",
     title: "Sam and Pam Go Out",
