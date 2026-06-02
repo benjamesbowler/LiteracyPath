@@ -172,16 +172,16 @@ const inferencePassages = [
   {
     passage: "Eli packed his folder slowly while the other students talked about the field trip. He looked at the permission slip still sitting on his desk. When the teacher reminded everyone that slips were due today, Eli put his head down. At lunch, he asked if he could call home. His voice was quiet.",
     questions: [
-      ["What can you infer about Eli?", "he may not have a signed permission slip", ["he may not have a signed permission slip", "he dislikes all field trips", "he already went home", "he lost his lunch"]],
+      ["What do the clues show about Eli?", "he may not have a signed permission slip", ["he may not have a signed permission slip", "he dislikes all field trips", "he already went home", "he lost his lunch"]],
       ["Why did Eli ask to call home?", "to try to solve the permission slip problem", ["to try to solve the permission slip problem", "to order a new backpack", "to invite friends over", "to ask about dinner"]],
       ["How is Eli probably feeling?", "worried", ["worried", "silly", "bored with recess", "angry at the bus"]],
-      ["Which clue best supports the inference?", "the slip was still on his desk", ["the slip was still on his desk", "students talked together", "lunch happened later", "the folder was packed"]]
+      ["Which clue best supports that idea?", "the slip was still on his desk", ["the slip was still on his desk", "students talked together", "lunch happened later", "the folder was packed"]]
     ]
   },
   {
     passage: "Tara placed the cracked birdhouse on the table. She found sandpaper, glue, and a small brush. Her grandpa smiled but did not touch the tools. Instead, he asked, 'What should you fix first?' Tara studied the loose roof and reached for the glue.",
     questions: [
-      ["What can you infer about Grandpa?", "he wants Tara to learn by trying", ["he wants Tara to learn by trying", "he cannot see the birdhouse", "he dislikes birds", "he plans to throw it away"]],
+      ["What do the clues show about Grandpa?", "he wants Tara to learn by trying", ["he wants Tara to learn by trying", "he cannot see the birdhouse", "he dislikes birds", "he plans to throw it away"]],
       ["Why did Grandpa ask a question instead of fixing it?", "to guide Tara's thinking", ["to guide Tara's thinking", "to avoid the table", "to change the subject", "to make Tara stop"]],
       ["What will Tara probably do next?", "glue the loose roof", ["glue the loose roof", "paint the table", "buy a new brush", "feed the birds inside"]],
       ["Which clue shows Tara is solving the problem?", "she studied the loose roof", ["she studied the loose roof", "Grandpa smiled", "the brush was small", "the table was nearby"]]
@@ -190,16 +190,16 @@ const inferencePassages = [
   {
     passage: "The gym grew quiet as the final runner came around the track. Jada's team was behind, and her legs felt heavy. She heard her classmates chanting her name. Jada took one deep breath and leaned forward. By the finish line, two runners were beside her instead of ahead of her.",
     questions: [
-      ["What can you infer about Jada?", "she pushed herself to run faster", ["she pushed herself to run faster", "she stopped before the finish", "she forgot her team", "she was walking home"]],
+      ["What do the clues show about Jada?", "she pushed herself to run faster", ["she pushed herself to run faster", "she stopped before the finish", "she forgot her team", "she was walking home"]],
       ["How did the chanting probably affect Jada?", "it encouraged her", ["it encouraged her", "it made the track wet", "it ended the race", "it confused the runners"]],
       ["What likely happened near the finish?", "Jada caught up to other runners", ["Jada caught up to other runners", "the race was canceled", "the gym lights went out", "her team left"]],
-      ["Which clue supports the inference?", "two runners were beside her instead of ahead", ["two runners were beside her instead of ahead", "the gym grew quiet", "her legs felt heavy", "the track was round"]]
+      ["Which clue supports that idea?", "two runners were beside her instead of ahead", ["two runners were beside her instead of ahead", "the gym grew quiet", "her legs felt heavy", "the track was round"]]
     ]
   },
   {
     passage: "At the bake sale, Noah kept looking at the last blueberry muffin. He had enough coins for one treat, but his little sister had dropped her cookie on the ground. Noah sighed, picked up the muffin, and handed it to her. She smiled with crumbs still on her shirt.",
     questions: [
-      ["What can you infer about Noah?", "he chose to be kind to his sister", ["he chose to be kind to his sister", "he does not like muffins", "he lost all his coins", "he wanted to leave school"]],
+      ["What do the clues show about Noah?", "he chose to be kind to his sister", ["he chose to be kind to his sister", "he does not like muffins", "he lost all his coins", "he wanted to leave school"]],
       ["Why did Noah sigh?", "he wanted the muffin but gave it away", ["he wanted the muffin but gave it away", "he was too tired to stand", "the sale was closed", "his shirt was dirty"]],
       ["How did the sister likely feel?", "grateful", ["grateful", "sleepy", "confused by coins", "angry about blueberries"]],
       ["Which clue shows Noah made a sacrifice?", "he kept looking at the last muffin", ["he kept looking at the last muffin", "the cookie fell", "crumbs were on a shirt", "the sale had treats"]]
@@ -208,7 +208,7 @@ const inferencePassages = [
   {
     passage: "The class hamster was missing from its cage. Papers near the reading corner had tiny bite marks. A trail of sunflower seeds led behind the bookshelf. Ms. Chen asked everyone to stay still. Luis pointed to a soft scratching sound near the wall.",
     questions: [
-      ["What can you infer about the hamster?", "it is probably behind the bookshelf", ["it is probably behind the bookshelf", "it went outside for recess", "it ate every paper", "it is sleeping in the cage"]],
+      ["What do the clues show about the hamster?", "it is probably behind the bookshelf", ["it is probably behind the bookshelf", "it went outside for recess", "it ate every paper", "it is sleeping in the cage"]],
       ["Why did Ms. Chen ask students to stay still?", "so the hamster would not be scared or stepped on", ["so the hamster would not be scared or stepped on", "so lunch could begin", "so papers would dry", "so the bookshelf could move itself"]],
       ["What clue helped Luis?", "a scratching sound", ["a scratching sound", "a sunny window", "a closed notebook", "a clean cage"]],
       ["What probably happened before the passage began?", "the hamster got out of its cage", ["the hamster got out of its cage", "Luis fed a dog", "the class went to the gym", "Ms. Chen painted the wall"]]

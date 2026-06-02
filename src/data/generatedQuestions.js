@@ -7133,7 +7133,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "During lunch, Sam quietly ate alone and kept looking at the door.",
-    "question": "What can you infer about Sam’s feelings?",
+    "question": "What do the clues show about Sam’s feelings?",
     "choices": [
       "Sam may be waiting for someone or feeling lonely.",
       "Sam is ignoring friends because he is upset.",
@@ -7277,7 +7277,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "Carter's hands were covered in chocolate after eating the cake quickly.",
-    "question": "What can you infer about Carter?",
+    "question": "What do the clues show about Carter?",
     "choices": [
       "He enjoyed the cake a lot.",
       "He didn’t like the cake at all.",
@@ -7357,7 +7357,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 5,
     "passage": "Anna wrapped her scarf tighter around her neck and rubbed her hands together while waiting at the bus stop.",
-    "question": "What can you infer about the weather?",
+    "question": "What do the clues show about the weather?",
     "choices": [
       "It is cold outside.",
       "It is very warm and sunny.",
@@ -7469,7 +7469,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "The playground was empty, and the swings were still moving gently in the wind.",
-    "question": "What can you infer about the playground?",
+    "question": "What do the clues show about the playground?",
     "choices": [
       "No children are playing outside right now.",
       "Many kids are running around the playground.",
@@ -7517,7 +7517,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 5,
     "passage": "When the rain stopped, the children ran outside with big smiles and pushed their wet bikes down the hill.",
-    "question": "What can you infer about the weather before and after the rain stopped?",
+    "question": "What do the clues show about the weather before and after the rain stopped?",
     "choices": [
       "It was raining but now it is clear and children are happy to play.",
       "It was very sunny and hot all day.",
@@ -7597,7 +7597,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 5,
     "passage": "The empty plates and crumbs on the table show that everyone finished their snacks happily.",
-    "question": "What can you infer about the snacks?",
+    "question": "What do the clues show about the snacks?",
     "image": "🍎",
     "choices": [
       "The snacks were tasty and eaten by all.",
@@ -7645,7 +7645,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "The traffic was slow, and cars were honking loudly as the rain poured down hard.",
-    "question": "What can you infer about the driving conditions?",
+    "question": "What do the clues show about the driving conditions?",
     "image": "🚗",
     "choices": [
       "The weather caused slow and difficult driving.",
@@ -7661,7 +7661,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 5,
     "passage": "Pete’s homework notebook was open with neat writing and checked boxes next to each task.",
-    "question": "What can you infer about Pete’s homework?",
+    "question": "What do the clues show about Pete’s homework?",
     "choices": [
       "He completed his homework carefully.",
       "He forgot to do his homework.",
@@ -7709,7 +7709,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "The library was quiet except for the soft pages turning and whispered voices.",
-    "question": "What can you infer about the library’s atmosphere?",
+    "question": "What do the clues show about the library’s atmosphere?",
     "choices": [
       "It is calm and quiet for reading and studying.",
       "It is noisy and full of loud talking.",
@@ -7757,7 +7757,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "Tim’s backpack was heavy and full, with books sticking out on top.",
-    "question": "What can you infer about Tim’s backpack?",
+    "question": "What do the clues show about Tim’s backpack?",
     "choices": [
       "It contains many school books and supplies.",
       "It is empty and light to carry.",
@@ -7805,7 +7805,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "The alarm clock rang loudly, and Jonah quickly got out of bed rubbing his eyes.",
-    "question": "What can you infer about Jonah’s mood when waking up?",
+    "question": "What do the clues show about Jonah’s mood when waking up?",
     "choices": [
       "He is probably still sleepy but ready to start the day.",
       "He is excited to stay in bed all day.",
@@ -7901,7 +7901,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 5,
     "passage": "The classroom smelled like fresh paint and had colorful posters all over the walls.",
-    "question": "What can you infer about what happened in the classroom recently?",
+    "question": "What do the clues show about what happened in the classroom recently?",
     "image": "🏫",
     "choices": [
       "The classroom was decorated or painted recently.",
@@ -8013,7 +8013,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "Lucy grabbed a glass of water after running around the playground several times.",
-    "question": "What can you infer about what Lucy was doing?",
+    "question": "What do the clues show about what Lucy was doing?",
     "image": "🚰",
     "choices": [
       "She was playing hard and got thirsty.",
@@ -8221,7 +8221,7 @@ export const generatedQuestions = [
     "skill": "inference",
     "difficulty": 4,
     "passage": "The rain soaked the playground, leaving puddles and wet swings behind.",
-    "question": "What can you infer about the playground?",
+    "question": "What do the clues show about the playground?",
     "choices": [
       "It was recently raining and is wet.",
       "It is dry and sunny soon after rain.",

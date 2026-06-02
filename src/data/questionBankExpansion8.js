@@ -66,7 +66,7 @@ const advancedPassageSets = [
     prefix: "qb8_infer",
     passage: "On Monday, the class fish tank looked cloudy. Maya noticed that the filter was quiet, even though it usually made a soft hum. She wrote a note for the teacher before morning meeting began. By afternoon, the filter was humming again and the water looked clearer. Maya smiled when the fish swam out from behind the plant.",
     questions: [
-      ["What can you infer Maya noticed first?", "something was wrong with the tank filter", ["something was wrong with the tank filter", "the fish needed a new plant", "the class had no meeting", "the water was too cold"], "The passage says the filter was quiet when it usually hummed."],
+      ["What did Maya notice first from the clues?", "something was wrong with the tank filter", ["something was wrong with the tank filter", "the fish needed a new plant", "the class had no meeting", "the water was too cold"], "The passage says the filter was quiet when it usually hummed."],
       ["Why did Maya write a note?", "to let the teacher know about the tank problem", ["to let the teacher know about the tank problem", "to ask for a new pencil", "to change the morning meeting", "to feed the fish candy"], "Her note helped the adult know the filter needed attention."],
       ["How did Maya probably feel at the end?", "relieved", ["relieved", "jealous", "confused about lunch", "angry at the plant"], "The tank improved and Maya smiled."]
     ]
@@ -76,9 +76,9 @@ const advancedPassageSets = [
     prefix: "qb8_infer",
     passage: "Theo carried two library books to the return bin. He paused when he saw the poster for the reading challenge. Only one blank star was left beside his name. Instead of going outside right away, he chose a short mystery book and sat near the window. When recess ended, he was already on chapter three.",
     questions: [
-      ["What can you infer about Theo?", "he wants to finish the reading challenge", ["he wants to finish the reading challenge", "he dislikes mystery books", "he lost his library card", "he plans to skip class"], "He notices one blank star and starts another book immediately."],
+      ["What do the clues show about Theo?", "he wants to finish the reading challenge", ["he wants to finish the reading challenge", "he dislikes mystery books", "he lost his library card", "he plans to skip class"], "He notices one blank star and starts another book immediately."],
       ["Why did Theo choose a short book?", "he could read it quickly for the challenge", ["he could read it quickly for the challenge", "it was too heavy to carry", "the cover was blank", "the window told him to"], "The challenge clue makes the short book choice meaningful."],
-      ["Which clue best supports the inference?", "only one blank star was left beside his name", ["only one blank star was left beside his name", "the bin was in the library", "the book was a mystery", "recess ended later"], "That clue shows he is close to finishing."]
+      ["Which clue best supports that idea?", "only one blank star was left beside his name", ["only one blank star was left beside his name", "the bin was in the library", "the book was a mystery", "recess ended later"], "That clue shows he is close to finishing."]
     ]
   },
   {

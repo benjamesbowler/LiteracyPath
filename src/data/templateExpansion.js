@@ -1638,7 +1638,7 @@ export const templateExpansion = [
     "skill": "context clues",
     "difficulty": 4,
     "passage": "The tiny kitten was trembling during the thunderstorm. It hid under the chair.",
-    "question": "What does trembling probably mean?",
+    "question": "What does trembling mean in this passage?",
     "image": "",
     "imagePath": "",
     "questionType": "multiple_choice",

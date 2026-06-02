@@ -393,7 +393,7 @@ export const questions = [
     "skill": "inference",
     "difficulty": 3,
     "passage": "Lily put on her raincoat. She took her umbrella and walked outside.",
-    "question": "What is the weather probably like?",
+    "question": "What do the clues show about the weather?",
     "image": "☔",
     "imagePath": "/images/comprehension/rainy_day.png",
     "choices": [
@@ -458,7 +458,7 @@ export const questions = [
     "skill": "context clues",
     "difficulty": 5,
     "passage": "The tiny kitten was trembling during the loud thunderstorm. It hid under the chair.",
-    "question": "What does trembling probably mean?",
+    "question": "What does trembling mean in this passage?",
     "image": "⛈️",
     "choices": [
       "shaking",
