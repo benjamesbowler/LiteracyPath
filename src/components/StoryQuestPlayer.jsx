@@ -37,6 +37,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
   const [audioAvailable, setAudioAvailable] = useState(false);
   const [audioChecking, setAudioChecking] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
   const audioRef = useRef(null);
   const playerRef = useRef(null);
 
@@ -61,6 +62,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
   useEffect(() => {
     setCurrentPageId(quest?.startPageId || quest?.pages?.[0]?.id || "");
     setHistory([]);
+    setIsComplete(false);
   }, [quest]);
 
   useEffect(() => {
@@ -139,10 +141,16 @@ export function StoryQuestPlayer({ quest, onExit }) {
   }
 
   function goToPage(nextPageId) {
+    if (nextPageId === "end") {
+      stopAudio();
+      setIsComplete(true);
+      return;
+    }
     if (!pageById.has(nextPageId)) return;
     stopAudio();
     setHistory(previous => [...previous, currentPageId]);
     setCurrentPageId(nextPageId);
+    setIsComplete(false);
   }
 
   function goBack() {
@@ -159,6 +167,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
     stopAudio();
     setHistory([]);
     setCurrentPageId(quest?.startPageId || quest?.pages?.[0]?.id || "");
+    setIsComplete(false);
   }
 
   async function toggleFullscreen() {
@@ -204,6 +213,49 @@ export function StoryQuestPlayer({ quest, onExit }) {
     );
   }
 
+  if (isComplete) {
+    return (
+      <section
+        aria-label={`${quest.title} complete`}
+        className={["story-quest-player story-quest-reader card", isFullscreen ? "fullscreen" : ""].filter(Boolean).join(" ")}
+        ref={playerRef}
+      >
+        <header className="story-quest-header">
+          <div>
+            <span className="story-quest-kicker">Reading Adventure</span>
+            <h2>{quest.title}</h2>
+            <p>Adventure complete</p>
+          </div>
+          <div className="story-quest-header-actions">
+            <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
+              {isFullscreen ? "Exit Full Screen" : "Full Screen"}
+            </button>
+            {onExit && (
+              <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
+                Close
+              </button>
+            )}
+          </div>
+        </header>
+
+        <div className="story-quest-image-placeholder story-quest-complete-panel" role="img" aria-label={`${quest.title} complete`}>
+          <span>Great reading!</span>
+        </div>
+
+        <div className="story-quest-choice-grid">
+          <button className="story-quest-choice-button" onClick={restart} type="button">
+            Read again
+          </button>
+          {onExit && (
+            <button className="story-quest-choice-button" onClick={exitReader} type="button">
+              Back to Learn
+            </button>
+          )}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       className={["story-quest-player story-quest-reader card", isFullscreen ? "fullscreen" : ""].filter(Boolean).join(" ")}
@@ -212,7 +264,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
     >
       <header className="story-quest-header">
         <div>
-          <span className="story-quest-kicker">Read</span>
+          <span className="story-quest-kicker">{quest.adventureType || "Read"}</span>
           <h2>{quest.title}</h2>
           <p>{quest.skillFocus} - {quest.cycleFocus}</p>
         </div>
@@ -307,11 +359,17 @@ export function StoryQuestPlayer({ quest, onExit }) {
         </div>
       </div>
 
+      {currentPage.choicePrompt && (
+        <div className="story-quest-choice-prompt" aria-live="polite">
+          {currentPage.choicePrompt}
+        </div>
+      )}
+
       <div className="story-quest-choice-grid">
         {(currentPage.choices || []).slice(0, 2).map(choice => (
           <button
             className="story-quest-choice-button"
-            disabled={!pageById.has(choice.nextPageId)}
+            disabled={choice.nextPageId !== "end" && !pageById.has(choice.nextPageId)}
             key={`${currentPage.id}-${choice.label}`}
             onClick={() => goToPage(choice.nextPageId)}
             type="button"

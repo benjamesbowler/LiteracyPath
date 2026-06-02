@@ -42,8 +42,8 @@ export function LearnAreaPage() {
       <section className="learn-story-quest-library card">
         <div className="learn-story-quest-copy">
           <span className="story-quest-kicker">Read</span>
-          <h2>Read with Sam and Pam</h2>
-          <p>Read a bright decodable story, hear each page, and collect story words as you go.</p>
+          <h2>Story Quest Reading Adventures</h2>
+          <p>Read bright guided stories, hear each page, and choose what happens next.</p>
         </div>
         <div className="learn-story-quest-list">
           {storyQuests.map(quest => (
@@ -54,10 +54,10 @@ export function LearnAreaPage() {
                 src={quest.coverImageUrl || quest.pages?.[0]?.imageUrl}
               />
               <div className="learn-story-quest-card-copy">
-                <span className="story-quest-kicker">Story Reader</span>
+                <span className="story-quest-kicker">{quest.adventureType || "Story Reader"}</span>
                 <h3>{quest.title}</h3>
-                <p>{quest.skillFocus}</p>
-                <span>{quest.cycleFocus}</span>
+                <p>{quest.level === "A" ? "Level A" : quest.level || quest.skillFocus}</p>
+                <span>{(quest.characters || []).join(", ") || quest.skillFocus}</span>
                 <div className="learn-story-word-preview" aria-label="Target words">
                   {(quest.targetWords || []).slice(0, 9).map(word => (
                     <span key={word}>{word}</span>
