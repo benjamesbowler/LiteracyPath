@@ -20,6 +20,7 @@
     "check:media-quality": "node tools/checkMediaQualityManifest.js",
     "check:assessment-media-sizes": "node tools/checkAssessmentMediaSizes.js",
     "check:story-quests": "node tools/checkStoryQuestIntegrity.js",
+    "audit:story-quest-assets": "node tools/auditStoryQuestAssets.js",
     "check:hfw-coverage": "node tools/checkHighFrequencyWordsCoverage.js",
     "check:guided-reading-visibility": "node tools/checkGuidedReadingVisibility.js",
     "validate:skill-banks": "node tools/auditSkillBanks.js",
