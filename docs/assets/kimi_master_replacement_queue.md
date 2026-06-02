@@ -19,8 +19,8 @@ This is the active source of truth for unresolved Kimi media work. Use this file
 | --- | --- | ---: | --- |
 | P1 | Assessment images | 4 destination paths for 1 target word | This file |
 | P1 | Assessment audio | 565 generated review/replacement rows; 0 missing/broken active-audio rows | `docs/assets/replacement_assessment_audio_request.md` |
-| P1 | Story Quests images | 1 known quality replacement | This file |
-| P2 | Story Quests audio | 0 active unresolved items | `docs/assets/story_quest_asset_audit.md` |
+| P1 | Story Quests images | 2 new Dino Pals full image packs + 1 known quality replacement | This file; `docs/assets/kimi_story_quest_bossy_picnic_mix_up_request.md`; `docs/assets/kimi_story_quest_zippy_flappy_fast_slow_up_down_request.md` |
+| P1 | Story Quests audio | 2 new Dino Pals full page-audio packs | `docs/assets/kimi_story_quest_bossy_picnic_mix_up_request.md`; `docs/assets/kimi_story_quest_zippy_flappy_fast_slow_up_down_request.md` |
 | P1 | Guided Reading images | 33 confirmed problem-text image replacements | `docs/assets/kimi_guided_reading_problem_text_image_replacement_request.md` |
 | P1 | Guided Reading whole-book audio | 116 missing MP3 + 116 missing sync JSON files | `docs/assets/kimi_missing_whole_book_audio_request.md` |
 
@@ -57,6 +57,30 @@ This is the active source of truth for unresolved Kimi media work. Use this file
 
 ## Story Quests Images
 
+### P1 — Dino Pals / Bossy and the Picnic Mix-Up Full Image Pack
+
+- Area: Story Quests images
+- Story/book/skill: Dino Pals / Bossy and the Picnic Mix-Up
+- Current path(s): new quest image paths under `public/images/story-quests/dino-pals/bossy-picnic-mix-up/`
+- Required target path(s): every image path listed in `docs/assets/kimi_story_quest_bossy_picnic_mix_up_request.md`
+- Reason: new Level B Dino Pals Story Quest has been added with placeholder media paths; production media is needed.
+- Exact generation requirements: use the full page-by-page image prompts and Dino Pals character bible in `docs/assets/kimi_story_quest_bossy_picnic_mix_up_request.md`.
+- Naming convention: replace each listed path exactly.
+- Output format: WebP.
+- QA notes: no embedded text, labels, source marks, watermarks, logos, or signatures. Keep Bossy, Chompy, Wiggly, Dozy, and Sunny visually consistent.
+
+### P1 — Dino Pals / Zippy and Flappy Full Image Pack
+
+- Area: Story Quests images
+- Story/book/skill: Dino Pals / Zippy and Flappy: Fast, Slow, Up, Down
+- Current path(s): new quest image paths under `public/images/story-quests/dino-pals/zippy-flappy-fast-slow/`
+- Required target path(s): every image path listed in `docs/assets/kimi_story_quest_zippy_flappy_fast_slow_up_down_request.md`
+- Reason: new Level B Dino Pals Story Quest has been added with placeholder media paths; production media is needed.
+- Exact generation requirements: use the full page-by-page image prompts and Dino Pals character bible in `docs/assets/kimi_story_quest_zippy_flappy_fast_slow_up_down_request.md`.
+- Naming convention: replace each listed path exactly.
+- Output format: WebP.
+- QA notes: no embedded text, labels, source marks, watermarks, logos, or signatures. Keep Zippy, Flappy, Sunny, and Grumpy visually consistent.
+
 ### P1 — Meadow Pals / Brave Tiny Rescue `p05_big_tree.webp`
 
 - Area: Story Quests images
@@ -71,7 +95,29 @@ This is the active source of truth for unresolved Kimi media work. Use this file
 
 ## Story Quests Audio
 
-No active unresolved Story Quest audio item is currently carried forward. `docs/assets/story_quest_asset_audit.md` reports 0 missing referenced Story Quest audio files.
+### P1 — Dino Pals / Bossy and the Picnic Mix-Up Full Page Audio Pack
+
+- Area: Story Quests audio
+- Story/book/skill: Dino Pals / Bossy and the Picnic Mix-Up
+- Current path(s): new quest audio paths under `public/audio/story-quests/dino-pals/bossy-picnic-mix-up/`
+- Required target path(s): every audio path listed in `docs/assets/kimi_story_quest_bossy_picnic_mix_up_request.md`
+- Reason: new Level B Dino Pals Story Quest has been added with placeholder media paths; page narration is needed.
+- Exact generation requirements: read only the page text listed in `docs/assets/kimi_story_quest_bossy_picnic_mix_up_request.md`.
+- Naming convention: replace each listed path exactly.
+- Output format: MP3.
+- QA notes: warm clear Level B narration, no choice prompts, filenames, effects, music, or extra words.
+
+### P1 — Dino Pals / Zippy and Flappy Full Page Audio Pack
+
+- Area: Story Quests audio
+- Story/book/skill: Dino Pals / Zippy and Flappy: Fast, Slow, Up, Down
+- Current path(s): new quest audio paths under `public/audio/story-quests/dino-pals/zippy-flappy-fast-slow/`
+- Required target path(s): every audio path listed in `docs/assets/kimi_story_quest_zippy_flappy_fast_slow_up_down_request.md`
+- Reason: new Level B Dino Pals Story Quest has been added with placeholder media paths; page narration is needed.
+- Exact generation requirements: read only the page text listed in `docs/assets/kimi_story_quest_zippy_flappy_fast_slow_up_down_request.md`.
+- Naming convention: replace each listed path exactly.
+- Output format: MP3.
+- QA notes: warm clear Level B narration, no choice prompts, filenames, effects, music, or extra words.
 
 ## Guided Reading Images
 
@@ -117,4 +163,3 @@ These files are intentionally not archived because they contain long active requ
 - `docs/assets/kimi_guided_reading_problem_text_image_replacement_request.md`
 - `docs/assets/kimi_missing_whole_book_audio_request.md`
 - `docs/assets/kimi_media_replacement_request.md`
-

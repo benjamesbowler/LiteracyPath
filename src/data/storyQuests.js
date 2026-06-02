@@ -38,6 +38,8 @@ const bouncySpeedyFolder = "bouncy-speedy-map";
 const braveTinyFolder = "brave-tiny-rescue";
 const chompyLunchFolder = "chompy-lunch-hunt";
 const sunnyRainyFolder = "sunny-rainy-rescue";
+const bossyPicnicFolder = "bossy-picnic-mix-up";
+const zippyFlappyFolder = "zippy-flappy-fast-slow";
 
 export const dinoPalsStoryQuestMetadata = [
   {
@@ -61,6 +63,28 @@ export const dinoPalsStoryQuestMetadata = [
     cycleFocus: "guided_reading_level_b_story_choice",
     series: "Dino Pals",
     mediaFolder: "sunny-rainy-rescue"
+  },
+  {
+    id: "dp_ra_b_05_bossy_picnic_mix_up",
+    title: "Bossy and the Picnic Mix-Up",
+    level: "B",
+    ageRange: "Ages 5-6",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Level B guided reading choice adventure",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    mediaFolder: "bossy-picnic-mix-up"
+  },
+  {
+    id: "dp_ra_b_06_zippy_flappy_fast_slow_up_down",
+    title: "Zippy and Flappy: Fast, Slow, Up, Down",
+    level: "B",
+    ageRange: "Ages 5-6",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Level B guided reading choice adventure",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    mediaFolder: "zippy-flappy-fast-slow"
   }
 ];
 
@@ -321,6 +345,304 @@ const dinoPalsStoryQuests = [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["rain", "peaceful"])
+    ]
+  },
+  {
+    id: "dp_ra_b_05_bossy_picnic_mix_up",
+    title: "Bossy and the Picnic Mix-Up",
+    level: "B",
+    ageRange: "Ages 5-6",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Level B guided reading choice adventure",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    characters: ["Bossy", "Chompy", "Wiggly", "Dozy", "Sunny"],
+    location: "Sunny Hollow - picnic rock, berry bush, meadow, leafy trees",
+    targetWords: ["Bossy", "plan", "picnic", "berries", "leaves", "basket", "help", "ask", "share", "mess", "tail", "sleep"],
+    highFrequencyWords: ["I", "am", "is", "the", "go", "to", "see", "can", "we", "you", "help", "ask", "share", "said"],
+    hfw: ["I", "am", "is", "the", "go", "to", "see", "can", "we", "you", "help", "ask", "share", "said"],
+    coverImageUrl: dinoPalsImagePath(bossyPicnicFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      dinoPalsPage(bossyPicnicFolder, "p01_start", ["Bossy had a picnic plan.", "It was a very neat plan.", "Nothing could go wrong."], "Who should Bossy check first?", [
+        { label: "Chompy", nextPageId: "p02_chompy" },
+        { label: "Wiggly", nextPageId: "p02_wiggly" }
+      ], ["bossy", "plan", "picnic"]),
+      dinoPalsPage(bossyPicnicFolder, "p02_chompy", ["Bossy gave Chompy one job.", "\"Carry the berries,\" said Bossy.", "Chompy sniffed the basket."], "What should Chompy do?", [
+        { label: "Carry the basket", nextPageId: "p03_carry_basket" },
+        { label: "Taste one berry", nextPageId: "p03_taste_berry" }
+      ], ["bossy", "chompy", "berries", "basket"]),
+      dinoPalsPage(bossyPicnicFolder, "p02_wiggly", ["Bossy gave Wiggly one job.", "\"Carry the leaves,\" said Bossy.", "Wiggly tucked the tail in."], "What should Wiggly do?", [
+        { label: "Walk carefully", nextPageId: "p03_walk_carefully" },
+        { label: "Turn around", nextPageId: "p03_tail_sweep" }
+      ], ["bossy", "wiggly", "leaves", "tail"]),
+      dinoPalsPage(bossyPicnicFolder, "p03_carry_basket", ["Chompy carried the basket.", "The basket smelled sweet.", "Chompy walked slower and slower."], "What happens next?", [
+        { label: "Chompy eats one", nextPageId: "p04_one_berry" },
+        { label: "Chompy calls Sunny", nextPageId: "p04_sunny_helps" }
+      ], ["chompy", "basket", "berries"]),
+      dinoPalsPage(bossyPicnicFolder, "p03_taste_berry", ["Chompy tasted one berry.", "Then one more.", "Then maybe one more."], "How many berries are left?", [
+        { label: "One berry left", nextPageId: "p04_one_berry" },
+        { label: "No berries left", nextPageId: "p04_no_berries" }
+      ], ["chompy", "berries"]),
+      dinoPalsPage(bossyPicnicFolder, "p03_walk_carefully", ["Wiggly walked carefully.", "Very carefully.", "The tail did not agree."], "What does the tail find?", [
+        { label: "The picnic blanket", nextPageId: "p04_blanket_flip" },
+        { label: "Dozy's pillow", nextPageId: "p04_pillow_flip" }
+      ], ["wiggly", "tail", "picnic"]),
+      dinoPalsPage(bossyPicnicFolder, "p03_tail_sweep", ["Wiggly turned around.", "The tail went swish.", "Bossy's plan went flying."], "What went flying?", [
+        { label: "The clipboard", nextPageId: "p04_clipboard_gone" },
+        { label: "The leaves", nextPageId: "p04_leaf_storm" }
+      ], ["wiggly", "tail", "plan"]),
+      dinoPalsPage(bossyPicnicFolder, "p04_one_berry", ["One berry was left.", "Bossy looked at the basket.", "Chompy looked at the sky."], "What should Chompy say?", [
+        { label: "\"Sorry.\"", nextPageId: "p05_chompy_sorry" },
+        { label: "\"It fell.\"", nextPageId: "p05_not_true" }
+      ], ["berries", "bossy", "basket"]),
+      dinoPalsPage(bossyPicnicFolder, "p04_no_berries", ["The basket was empty.", "Chompy's tummy was not.", "Bossy blinked twice."], "What should they do?", [
+        { label: "Find more berries", nextPageId: "p06_find_more" },
+        { label: "Ask everyone to share", nextPageId: "p06_ask_nicely" }
+      ], ["basket", "chompy", "bossy"]),
+      dinoPalsPage(bossyPicnicFolder, "p04_sunny_helps", ["Sunny came over.", "\"You can do it, Chompy.\"", "Chompy held the basket higher."], "Where should the basket go?", [
+        { label: "Take it to the rock", nextPageId: "p07_picnic_ready" },
+        { label: "Share one berry", nextPageId: "p05_chompy_sorry" }
+      ], ["sunny", "chompy", "basket"]),
+      dinoPalsPage(bossyPicnicFolder, "p04_blanket_flip", ["The picnic blanket flipped.", "Cups rolled away.", "Bossy made a tiny squeak."], "Who can help?", [
+        { label: "Wiggly fixes it", nextPageId: "p05_wiggly_fix" },
+        { label: "Dozy helps", nextPageId: "p05_dozy_blanket" }
+      ], ["picnic", "bossy"]),
+      dinoPalsPage(bossyPicnicFolder, "p04_pillow_flip", ["Dozy's pillow flipped up.", "Dozy woke up.", "That was surprising."], "What should Dozy do?", [
+        { label: "Help fold the blanket", nextPageId: "p05_dozy_blanket" },
+        { label: "Go back to sleep", nextPageId: "p05_sleepy_pause" }
+      ], ["dozy", "sleep"]),
+      dinoPalsPage(bossyPicnicFolder, "p04_clipboard_gone", ["The clipboard flew away.", "Bossy gasped.", "No clipboard meant no plan."], "Where did it land?", [
+        { label: "It landed in a bush", nextPageId: "p05_bush_clipboard" },
+        { label: "It landed on Chompy", nextPageId: "p05_clipboard_on_chompy" }
+      ], ["bossy", "plan"]),
+      dinoPalsPage(bossyPicnicFolder, "p04_leaf_storm", ["Leaves flew everywhere.", "Dozy got a leaf hat.", "Sunny laughed kindly."], "How should they use the leaves?", [
+        { label: "Use leaves as plates", nextPageId: "p06_leaf_plates" },
+        { label: "Use leaves as a roof", nextPageId: "p06_leaf_roof" }
+      ], ["leaves", "dozy", "sunny"]),
+      dinoPalsPage(bossyPicnicFolder, "p05_chompy_sorry", ["\"I ate some,\" said Chompy.", "\"Some?\" asked Bossy.", "Chompy looked at his tummy."], "How does Bossy respond?", [
+        { label: "Bossy feels cross", nextPageId: "p06_bossy_cross" },
+        { label: "Bossy asks for help", nextPageId: "p06_ask_nicely" }
+      ], ["chompy", "bossy", "ask"]),
+      dinoPalsPage(bossyPicnicFolder, "p05_not_true", ["\"It fell,\" said Chompy.", "A berry rolled off his bib.", "\"Oh,\" said Chompy."], "What should Chompy do?", [
+        { label: "Tell the truth", nextPageId: "p05_chompy_sorry" },
+        { label: "Hide the berry", nextPageId: "p06_berry_rolls" }
+      ], ["chompy", "berries"]),
+      dinoPalsPage(bossyPicnicFolder, "p05_wiggly_fix", ["Wiggly tried to fix it.", "The tail helped.", "Then the tail unhelped."], "Did it work?", [
+        { label: "Blanket folds neatly", nextPageId: "p07_picnic_ready" },
+        { label: "Blanket flies again", nextPageId: "p06_ask_nicely" }
+      ], ["wiggly", "tail", "help"]),
+      dinoPalsPage(bossyPicnicFolder, "p05_dozy_blanket", ["Dozy sat on the blanket.", "That held it down.", "Dozy fell asleep."], "Was Dozy helpful?", [
+        { label: "Yes, helpful", nextPageId: "p07_picnic_ready" },
+        { label: "Sort of", nextPageId: "p06_sleepy_problem" }
+      ], ["dozy", "sleep", "help"]),
+      dinoPalsPage(bossyPicnicFolder, "p05_sleepy_pause", ["Dozy went back to sleep.", "The blanket stayed messy.", "Bossy took a deep breath."], "What should Bossy do?", [
+        { label: "Wake Dozy kindly", nextPageId: "p05_dozy_blanket" },
+        { label: "Ask everyone", nextPageId: "p06_ask_nicely" }
+      ], ["dozy", "sleep", "bossy"]),
+      dinoPalsPage(bossyPicnicFolder, "p05_bush_clipboard", ["The clipboard was in a bush.", "Chompy found berries there too.", "This was dangerous."], "What should Chompy grab?", [
+        { label: "Grab clipboard", nextPageId: "p06_clipboard_back" },
+        { label: "Grab berries", nextPageId: "p04_no_berries" }
+      ], ["chompy", "berries"]),
+      dinoPalsPage(bossyPicnicFolder, "p05_clipboard_on_chompy", ["The clipboard landed on Chompy.", "Chompy wore it like a hat.", "Bossy did not write that plan."], "What should Chompy do?", [
+        { label: "Give it back", nextPageId: "p06_clipboard_back" },
+        { label: "Wear it", nextPageId: "p08_silly_hat_ending" }
+      ], ["chompy", "bossy", "plan"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_bossy_cross", ["Bossy felt cross.", "The picnic was still not ready.", "Being cross did not fix it."], "What should Bossy try?", [
+        { label: "Ask nicely", nextPageId: "p06_ask_nicely" },
+        { label: "Make a louder plan", nextPageId: "p06_loud_plan" }
+      ], ["bossy", "picnic", "ask"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_ask_nicely", ["Bossy folded the clipboard.", "\"Can everyone help, please?\"", "Everyone looked up."], "Who helps first?", [
+        { label: "Chompy helps", nextPageId: "p06_leaf_plates" },
+        { label: "Wiggly helps", nextPageId: "p05_wiggly_fix" }
+      ], ["bossy", "help", "ask"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_berry_rolls", ["The berry rolled away.", "Then five more rolled after it.", "Chompy chased them."], "Where do the berries go?", [
+        { label: "Big Flat Rock", nextPageId: "p07_picnic_ready" },
+        { label: "Muddy Puddle Pool", nextPageId: "p08_berry_splat_ending" }
+      ], ["berries", "chompy"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_leaf_plates", ["They used leaves as plates.", "That was Sunny's idea.", "Bossy wrote it down."], "What goes on the plates?", [
+        { label: "Berries", nextPageId: "p07_picnic_ready" },
+        { label: "Leaves", nextPageId: "p08_leaf_lunch_ending" }
+      ], ["leaves", "sunny", "bossy"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_leaf_roof", ["They made a leaf roof.", "It was not needed.", "But it looked wonderful."], "What should they do under it?", [
+        { label: "Eat under it", nextPageId: "p07_picnic_ready" },
+        { label: "Nap under it", nextPageId: "p08_dozy_roof_ending" }
+      ], ["leaves", "picnic"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_sleepy_problem", ["Dozy held the blanket down.", "Dozy also held the cups down.", "By sleeping on them."], "What should they do?", [
+        { label: "Move the cups", nextPageId: "p07_picnic_ready" },
+        { label: "Let Dozy nap", nextPageId: "p08_dozy_roof_ending" }
+      ], ["dozy", "sleep"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_clipboard_back", ["Bossy got the clipboard back.", "Then Bossy paused.", "Maybe the plan could change."], "Should the plan change?", [
+        { label: "Change the plan", nextPageId: "p06_ask_nicely" },
+        { label: "No", nextPageId: "p06_loud_plan" }
+      ], ["bossy", "plan"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_loud_plan", ["Bossy used the megaphone.", "Everyone jumped.", "The cups jumped too."], "Was that better?", [
+        { label: "No, not better", nextPageId: "p06_ask_nicely" },
+        { label: "Funny", nextPageId: "p08_cup_jump_ending" }
+      ], ["bossy", "plan"]),
+      dinoPalsPage(bossyPicnicFolder, "p06_find_more", ["Bossy found the berry bush.", "Chompy found it too.", "\"I will wait,\" said Chompy."], "How should they collect berries?", [
+        { label: "Ask everyone", nextPageId: "p06_ask_nicely" },
+        { label: "Use the basket", nextPageId: "p07_picnic_ready" }
+      ], ["bossy", "chompy", "berries", "basket"]),
+      dinoPalsPage(bossyPicnicFolder, "p07_picnic_ready", ["At last, the picnic was ready.", "It was not Bossy's first plan.", "It was better."], "Who gets the first bite?", [
+        { label: "Chompy gets first bite", nextPageId: "p08_chompy_bite_ending" },
+        { label: "Everyone shares", nextPageId: "p08_teamwork_ending" }
+      ], ["bossy", "picnic", "share"]),
+      dinoPalsPage(bossyPicnicFolder, "p08_chompy_bite_ending", ["Chompy took one bite.", "A very big bite.", "Bossy made a new plan."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["chompy", "bossy", "plan"]),
+      dinoPalsPage(bossyPicnicFolder, "p08_teamwork_ending", ["Everyone shared the picnic.", "Bossy smiled.", "\"Good plan,\" said Bossy."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["bossy", "picnic", "share"]),
+      dinoPalsPage(bossyPicnicFolder, "p08_silly_hat_ending", ["Chompy kept the clipboard hat.", "Bossy tried not to laugh.", "The hat was a terrible plan."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["chompy", "bossy", "plan"]),
+      dinoPalsPage(bossyPicnicFolder, "p08_berry_splat_ending", ["The berries went splat.", "The picnic turned purple.", "Chompy still said, \"Yum.\""], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["berries", "picnic", "chompy"]),
+      dinoPalsPage(bossyPicnicFolder, "p08_leaf_lunch_ending", ["They had leaf lunch.", "Chompy chewed slowly.", "\"Needs berries,\" said Chompy."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["leaves", "chompy", "berries"]),
+      dinoPalsPage(bossyPicnicFolder, "p08_dozy_roof_ending", ["Dozy napped under the leaf roof.", "The picnic waited.", "That was peaceful too."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["dozy", "sleep", "picnic"]),
+      dinoPalsPage(bossyPicnicFolder, "p08_cup_jump_ending", ["The cups jumped again.", "Bossy wrote one rule.", "No megaphone at picnics."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["bossy", "picnic"])
+    ]
+  },
+  {
+    id: "dp_ra_b_06_zippy_flappy_fast_slow_up_down",
+    title: "Zippy and Flappy: Fast, Slow, Up, Down",
+    level: "B",
+    ageRange: "Ages 5-6",
+    adventureType: "Dino Pals Reading Adventure",
+    skillFocus: "Level B guided reading choice adventure",
+    cycleFocus: "guided_reading_level_b_story_choice",
+    series: "Dino Pals",
+    characters: ["Zippy", "Flappy", "Sunny", "Grumpy"],
+    location: "Sunny Hollow - meadow, rock, fern patch, branch, home path",
+    targetWords: ["Zippy", "Flappy", "fast", "slow", "up", "down", "run", "flap", "stop", "branch", "meadow", "quiet"],
+    highFrequencyWords: ["I", "am", "is", "the", "go", "to", "see", "can", "we", "you", "up", "down", "stop", "said"],
+    hfw: ["I", "am", "is", "the", "go", "to", "see", "can", "we", "you", "up", "down", "stop", "said"],
+    coverImageUrl: dinoPalsImagePath(zippyFlappyFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      dinoPalsPage(zippyFlappyFolder, "p01_start", ["Zippy ran fast.", "Flappy flapped up.", "Both of them forgot to stop."], "Who should we follow?", [
+        { label: "Follow Zippy", nextPageId: "p02_zippy" },
+        { label: "Follow Flappy", nextPageId: "p02_flappy" }
+      ], ["zippy", "flappy", "fast", "up", "stop"]),
+      dinoPalsPage(zippyFlappyFolder, "p02_zippy", ["Zippy ran past the meadow.", "Zippy ran past the rock.", "Zippy ran past the reason for running."], "What should Zippy do?", [
+        { label: "Stop now", nextPageId: "p03_zippy_stops" },
+        { label: "Keep running", nextPageId: "p03_zippy_too_far" }
+      ], ["zippy", "run", "meadow", "fast"]),
+      dinoPalsPage(zippyFlappyFolder, "p02_flappy", ["Flappy flapped once.", "Flappy flapped twice.", "Flappy flapped into a fern."], "What should Flappy try?", [
+        { label: "Try flying up", nextPageId: "p03_flappy_up" },
+        { label: "Try walking", nextPageId: "p03_flappy_walks" }
+      ], ["flappy", "flap", "up"]),
+      dinoPalsPage(zippyFlappyFolder, "p03_zippy_stops", ["Zippy stopped.", "The scarf stopped too.", "That felt strange."], "What does Zippy notice?", [
+        { label: "A flower", nextPageId: "p04_flower" },
+        { label: "Flappy", nextPageId: "p04_find_flappy" }
+      ], ["zippy", "stop"]),
+      dinoPalsPage(zippyFlappyFolder, "p03_zippy_too_far", ["Zippy kept running.", "The Hollow got smaller.", "That was a problem."], "Who might help?", [
+        { label: "Sunny", nextPageId: "p04_sunny_finds_zippy" },
+        { label: "Flappy", nextPageId: "p04_flappy_sees_zippy" }
+      ], ["zippy", "run"]),
+      dinoPalsPage(zippyFlappyFolder, "p03_flappy_up", ["Flappy flapped up.", "Up, up, almost up.", "Then down."], "Where does Flappy land?", [
+        { label: "On a branch", nextPageId: "p04_branch" },
+        { label: "In the mud", nextPageId: "p04_mud_landing" }
+      ], ["flappy", "up", "down", "branch"]),
+      dinoPalsPage(zippyFlappyFolder, "p03_flappy_walks", ["Flappy walked instead.", "Walking worked.", "That was interesting."], "Where does Flappy walk?", [
+        { label: "To the branch", nextPageId: "p04_branch" },
+        { label: "To Zippy", nextPageId: "p04_find_flappy" }
+      ], ["flappy", "slow", "branch"]),
+      dinoPalsPage(zippyFlappyFolder, "p04_flower", ["Zippy saw one flower.", "Zippy had run past it nine times.", "It was still there."], "What should Zippy do?", [
+        { label: "Look closely", nextPageId: "p05_slow_looking" },
+        { label: "Run to tell Sunny", nextPageId: "p05_run_again" }
+      ], ["zippy", "run", "slow"]),
+      dinoPalsPage(zippyFlappyFolder, "p04_find_flappy", ["Zippy found Flappy.", "Flappy had feathers everywhere.", "Both of them looked busy."], "How should they move?", [
+        { label: "Fast together", nextPageId: "p05_fast_together" },
+        { label: "Slow together", nextPageId: "p05_slow_together" }
+      ], ["zippy", "flappy", "fast", "slow"]),
+      dinoPalsPage(zippyFlappyFolder, "p04_sunny_finds_zippy", ["Sunny found Zippy.", "\"You went very far,\" said Sunny.", "\"I noticed,\" said Zippy."], "How should Zippy go home?", [
+        { label: "Run home", nextPageId: "p05_run_again" },
+        { label: "Walk slowly", nextPageId: "p06_walk_home" }
+      ], ["sunny", "zippy", "slow"]),
+      dinoPalsPage(zippyFlappyFolder, "p04_flappy_sees_zippy", ["Flappy saw a red blur.", "Then the blur sat down.", "It was Zippy."], "How should Flappy reach Zippy?", [
+        { label: "Flap over", nextPageId: "p05_flappy_rescue" },
+        { label: "Walk over", nextPageId: "p05_slow_together" }
+      ], ["flappy", "zippy", "flap"]),
+      dinoPalsPage(zippyFlappyFolder, "p04_branch", ["Flappy landed on a branch.", "Not a big flight.", "But a good landing."], "Who should Flappy show?", [
+        { label: "Show Zippy", nextPageId: "p04_find_flappy" },
+        { label: "Show Grumpy", nextPageId: "p05_grumpy_advice" }
+      ], ["flappy", "branch"]),
+      dinoPalsPage(zippyFlappyFolder, "p04_mud_landing", ["Flappy landed in mud.", "It was soft.", "It was also very muddy."], "What should Flappy do?", [
+        { label: "Try again", nextPageId: "p03_flappy_up" },
+        { label: "Ask Grumpy", nextPageId: "p05_grumpy_advice" }
+      ], ["flappy", "down"]),
+      dinoPalsPage(zippyFlappyFolder, "p05_slow_looking", ["Zippy looked slowly.", "The flower had tiny dots.", "Slow was not boring."], "Who should Zippy show?", [
+        { label: "Show Flappy", nextPageId: "p05_slow_together" },
+        { label: "Show Sunny", nextPageId: "p06_walk_home" }
+      ], ["zippy", "slow"]),
+      dinoPalsPage(zippyFlappyFolder, "p05_run_again", ["Zippy ran again.", "Too fast.", "The flower was gone behind."], "Can Zippy stop this time?", [
+        { label: "Stop this time", nextPageId: "p03_zippy_stops" },
+        { label: "Not yet", nextPageId: "p03_zippy_too_far" }
+      ], ["zippy", "fast", "stop"]),
+      dinoPalsPage(zippyFlappyFolder, "p05_fast_together", ["Zippy ran.", "Flappy flapped.", "Nobody knew where they were going."], "Who do they pass?", [
+        { label: "They pass Sunny", nextPageId: "p06_sunny_stop" },
+        { label: "They pass Grumpy", nextPageId: "p06_grumpy_stop" }
+      ], ["zippy", "flappy", "fast", "flap"]),
+      dinoPalsPage(zippyFlappyFolder, "p05_slow_together", ["Zippy walked.", "Flappy walked too.", "That gave them time to see."], "What do they see?", [
+        { label: "A branch", nextPageId: "p07_branch_practice" },
+        { label: "The way home", nextPageId: "p06_walk_home" }
+      ], ["zippy", "flappy", "slow"]),
+      dinoPalsPage(zippyFlappyFolder, "p05_flappy_rescue", ["Flappy flapped toward Zippy.", "Three flaps up.", "One soft plop down."], "Did Zippy see?", [
+        { label: "Zippy saw", nextPageId: "p05_slow_together" },
+        { label: "Not yet", nextPageId: "p04_mud_landing" }
+      ], ["flappy", "zippy", "flap", "up", "down"]),
+      dinoPalsPage(zippyFlappyFolder, "p05_grumpy_advice", ["Grumpy looked at Flappy.", "\"You do not have to be good at everything.\"", "Flappy blinked."], "What should Flappy try?", [
+        { label: "Try being Flappy", nextPageId: "p07_branch_practice" },
+        { label: "Try being Zippy", nextPageId: "p05_fast_together" }
+      ], ["grumpy", "flappy"]),
+      dinoPalsPage(zippyFlappyFolder, "p06_walk_home", ["They walked home.", "It took a long time.", "Zippy saw many things."], "What does Zippy remember?", [
+        { label: "The flower", nextPageId: "p08_flower_ending" },
+        { label: "Walking with Flappy", nextPageId: "p08_friend_ending" }
+      ], ["zippy", "flappy", "slow"]),
+      dinoPalsPage(zippyFlappyFolder, "p06_sunny_stop", ["\"Stop!\" called Sunny.", "Zippy skidded.", "Flappy landed on Zippy."], "What next?", [
+        { label: "Everyone okay", nextPageId: "p07_laugh" },
+        { label: "Try slower", nextPageId: "p05_slow_together" }
+      ], ["sunny", "zippy", "flappy", "stop"]),
+      dinoPalsPage(zippyFlappyFolder, "p06_grumpy_stop", ["\"Stop,\" said Grumpy.", "It was not loud.", "But everyone stopped."], "What does Grumpy say?", [
+        { label: "\"Slow down.\"", nextPageId: "p05_slow_together" },
+        { label: "\"Try again.\"", nextPageId: "p07_branch_practice" }
+      ], ["grumpy", "stop", "slow"]),
+      dinoPalsPage(zippyFlappyFolder, "p07_branch_practice", ["Flappy tried again.", "Three flaps up.", "One neat branch."], "Who reacts?", [
+        { label: "Zippy cheers", nextPageId: "p08_friend_ending" },
+        { label: "Grumpy praises", nextPageId: "p08_grumpy_ending" }
+      ], ["flappy", "up", "branch"]),
+      dinoPalsPage(zippyFlappyFolder, "p07_laugh", ["Zippy laughed.", "Flappy laughed.", "Sunny laughed too."], "What should they do?", [
+        { label: "Try slowly", nextPageId: "p05_slow_together" },
+        { label: "Go home", nextPageId: "p06_walk_home" }
+      ], ["zippy", "flappy", "sunny"]),
+      dinoPalsPage(zippyFlappyFolder, "p08_flower_ending", ["Zippy found the flower again.", "This time, Zippy stopped.", "That was new."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["zippy", "stop"]),
+      dinoPalsPage(zippyFlappyFolder, "p08_friend_ending", ["Zippy was fast.", "Flappy was Flappy.", "Together, they got home."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["zippy", "flappy", "fast"]),
+      dinoPalsPage(zippyFlappyFolder, "p08_grumpy_ending", ["\"Not bad,\" said Grumpy.", "From Grumpy, that meant wonderful.", "Flappy stood very tall."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["grumpy", "flappy"])
     ]
   }
 ];
