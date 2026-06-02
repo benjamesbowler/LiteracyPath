@@ -40,6 +40,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
   const [history, setHistory] = useState([]);
   const [audioAvailable, setAudioAvailable] = useState(false);
   const [audioChecking, setAudioChecking] = useState(false);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const audioRef = useRef(null);
@@ -74,6 +75,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
     const audioUrl = currentPage?.audioUrl || "";
     setAudioAvailable(false);
     setAudioChecking(Boolean(audioUrl));
+    setIsAudioPlaying(false);
 
     if (!audioUrl || typeof Audio === "undefined") {
       setAudioChecking(false);
@@ -144,6 +146,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
   }, []);
 
   function stopAudio() {
+    setIsAudioPlaying(false);
     if (!audioRef.current) return;
     audioRef.current.pause();
     audioRef.current = null;
@@ -154,7 +157,22 @@ export function StoryQuestPlayer({ quest, onExit }) {
     stopAudio();
     const audio = new Audio(currentPage.audioUrl);
     audioRef.current = audio;
-    audio.play().catch(() => setAudioAvailable(false));
+    audio.onended = () => {
+      audioRef.current = null;
+      setIsAudioPlaying(false);
+    };
+    audio.onerror = () => {
+      audioRef.current = null;
+      setIsAudioPlaying(false);
+      setAudioAvailable(false);
+    };
+    audio.play()
+      .then(() => setIsAudioPlaying(true))
+      .catch(() => {
+        audioRef.current = null;
+        setIsAudioPlaying(false);
+        setAudioAvailable(false);
+      });
   }
 
   function goToPage(nextPageId) {
@@ -336,12 +354,17 @@ export function StoryQuestPlayer({ quest, onExit }) {
 
       <div className="story-quest-read-row">
         <button
-          className="lp-button lp-button-secondary story-quest-audio-button"
+          className={[
+            "lp-button lp-button-secondary story-quest-audio-button",
+            audioChecking ? "audio-feedback-loading" : "",
+            isAudioPlaying ? "audio-feedback-playing" : ""
+          ].filter(Boolean).join(" ")}
           disabled={!audioAvailable}
           onClick={replayAudio}
           type="button"
         >
-          {audioChecking ? "Checking Audio" : audioAvailable ? "Replay Audio" : "Audio Coming Soon"}
+          {audioChecking && <span className="audio-loading-dot" aria-hidden="true" />}
+          {audioChecking ? "Loading Audio" : isAudioPlaying ? "Playing" : audioAvailable ? "Replay Audio" : "Audio Coming Soon"}
         </button>
         <AnimatePresence mode="wait">
           <motion.div

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { getApprovedAudioPath } from "../../data/audioPreferenceManifest";
 import {
   getTargetWordAudioPath,
@@ -13,9 +14,17 @@ export function AssessmentAudioButton({
   audioRole = "",
   showDisabled = false
 }) {
+  const [audioState, setAudioState] = useState("idle");
+  const feedbackTimerRef = useRef(null);
   const approvedAudioPath = audioRole === "target_word"
     ? getTargetWordAudioPath(text, audioPath)
     : getApprovedAudioPath(text, audioPath);
+
+  useEffect(() => {
+    return () => {
+      if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
+    };
+  }, []);
 
   if (import.meta.env.DEV && audioRole === "target_word" && isGenericInstructionAudioPath(audioPath)) {
     console.warn("Assessment target-word audio rejected instruction/prompt audio path.", {
@@ -43,20 +52,40 @@ export function AssessmentAudioButton({
     );
   }
 
+  async function playApprovedAudio() {
+    if (audioState === "loading") return;
+    if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
+    setAudioState("loading");
+    try {
+      await speakText(text, approvedAudioPath, {
+        allowBrowserFallback: false,
+        requireApprovedAudio: true,
+        audioRole
+      });
+      setAudioState("playing");
+      feedbackTimerRef.current = setTimeout(() => setAudioState("idle"), 1200);
+    } catch {
+      setAudioState("idle");
+    }
+  }
+
+  const isLoading = audioState === "loading";
+  const isPlaying = audioState === "playing";
+
   return (
     <button
-      className={`assessment-audio-button ${className}`}
-      onClick={() =>
-        speakText(text, approvedAudioPath, {
-          allowBrowserFallback: false,
-          requireApprovedAudio: true,
-          audioRole
-        })
-      }
-      aria-label={label}
+      className={[
+        "assessment-audio-button",
+        className,
+        isLoading ? "audio-feedback-loading" : "",
+        isPlaying ? "audio-feedback-playing" : ""
+      ].filter(Boolean).join(" ")}
+      disabled={isLoading}
+      onClick={playApprovedAudio}
+      aria-label={isLoading ? `${label} loading` : isPlaying ? `${label} playing` : label}
       type="button"
     >
-      <span aria-hidden="true">🔊</span>
+      {isLoading ? <span className="audio-loading-dot" aria-hidden="true" /> : <span aria-hidden="true">🔊</span>}
     </button>
   );
 }

@@ -223,16 +223,16 @@ body {
 
 .top-nav-actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: flex-start;
   gap: 4px;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .nav-button {
   flex: 0 1 auto;
-  min-width: 0;
+  min-width: max-content;
   min-height: 28px;
   padding: 4px 8px;
   background: rgba(255, 255, 255, 0.92) !important;
@@ -259,7 +259,10 @@ body {
 
 .nav-button:disabled {
   cursor: not-allowed;
-  opacity: 0.45;
+  opacity: 0.68;
+  background: #f3f4f6 !important;
+  color: var(--lp-color-text-muted) !important;
+  border-color: var(--lp-color-border) !important;
   transform: none;
 }
 
@@ -2549,8 +2552,21 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .guided-word.heard {
+  .guided-word.heard,
+  .audio-feedback-playing,
+  .audio-loading-dot {
     animation: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .teacher-overview-hero,
+  .teacher-start-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-metric-strip {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -3242,6 +3258,49 @@ select:focus {
 .assessment-audio-button:active {
   box-shadow: 0 4px 12px rgba(23, 92, 211, 0.1);
   transform: translateY(0);
+}
+
+.audio-feedback-loading {
+  position: relative;
+}
+
+.audio-feedback-playing {
+  animation: audio-feedback-pulse 1.15s ease-in-out infinite;
+}
+
+.audio-loading-dot {
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  margin-right: 0.35em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  vertical-align: -0.08em;
+  animation: audio-feedback-spin 0.72s linear infinite;
+}
+
+.assessment-audio-button .audio-loading-dot,
+.mini-audio-button .audio-loading-dot,
+.choice-audio .audio-loading-dot,
+.initial-sound-card-audio .audio-loading-dot {
+  margin-right: 0;
+}
+
+@keyframes audio-feedback-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 99, 215, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(79, 99, 215, 0.08);
+  }
+}
+
+@keyframes audio-feedback-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .instruction-audio-button {
@@ -5061,6 +5120,36 @@ select:focus {
   color: var(--lp-color-text-muted) !important;
   font-size: 13px;
   line-height: 1.45;
+}
+
+.full-reset-confirmation {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  border-radius: 12px;
+  background: #fff7f7;
+}
+
+.full-reset-confirmation strong {
+  color: #991b1b !important;
+}
+
+.full-reset-confirmation label {
+  display: grid;
+  gap: 5px;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.full-reset-confirmation input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: 8px;
+  font: inherit;
 }
 
 .admin-dashboard {
@@ -8203,9 +8292,11 @@ select:focus {
   }
 
   .nav-button {
+    min-width: 0;
     min-height: 30px;
     padding: 5px 8px;
     font-size: 11px;
+    white-space: normal;
   }
 
   .dashboard {
@@ -8256,7 +8347,7 @@ select:focus {
   }
 
   .teacher-metric-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .teacher-primary-action {
@@ -8805,6 +8896,7 @@ select:focus {
 
   .top-nav-actions .nav-button {
     flex: 1 1 calc(50% - 5px);
+    min-width: min(100%, 132px);
   }
 
   .dashboard {

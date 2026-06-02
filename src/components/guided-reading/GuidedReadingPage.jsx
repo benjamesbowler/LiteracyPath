@@ -480,6 +480,8 @@ export function GuidedReadingPage({
   const [audioNotice, setAudioNotice] = useState("");
   const [isPageAudioPlaying, setIsPageAudioPlaying] = useState(false);
   const [isWholeBookReading, setIsWholeBookReading] = useState(false);
+  const [isReadAloudLoading, setIsReadAloudLoading] = useState(false);
+  const [loadingWordAudioIndex, setLoadingWordAudioIndex] = useState(null);
   const [isReadAloudPaused, setIsReadAloudPaused] = useState(false);
   const [autoAdvanceReadAloud, setAutoAdvanceReadAloud] = useState(true);
   const [wholeBookSyncData, setWholeBookSyncData] = useState(null);
@@ -905,6 +907,7 @@ export function GuidedReadingPage({
     setHighlightedSentenceIndex(null);
     setIsPageAudioPlaying(false);
     setIsWholeBookReading(false);
+    setIsReadAloudLoading(false);
     setIsReadAloudPaused(false);
   }
 
@@ -940,27 +943,32 @@ export function GuidedReadingPage({
       return;
     }
 
+    setIsReadAloudLoading(true);
     try {
       const audio = new Audio(currentPageAudioPath);
       pageAudioRef.current = audio;
-      setIsPageAudioPlaying(true);
       setIsReadAloudPaused(false);
       runSentenceHighlights(pageSentences);
       audio.onended = () => {
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
+        setIsReadAloudLoading(false);
         setHighlightedSentenceIndex(null);
       };
       audio.onerror = () => {
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
+        setIsReadAloudLoading(false);
         setAudioNotice("Read-aloud audio could not be loaded for this page.");
       };
       await audio.play();
+      setIsReadAloudLoading(false);
+      setIsPageAudioPlaying(true);
     } catch (error) {
       console.warn("Guided Reading page audio unavailable.", error);
       pageAudioRef.current = null;
       setIsPageAudioPlaying(false);
+      setIsReadAloudLoading(false);
       setAudioNotice("Read-aloud audio could not be played for this page.");
     }
   }
@@ -987,15 +995,16 @@ export function GuidedReadingPage({
 
     readAloudPageChangeRef.current = true;
     setPageIndex(startIndex);
+    setIsReadAloudLoading(true);
     try {
       const audio = new Audio(audioPath);
       pageAudioRef.current = audio;
-      setIsPageAudioPlaying(true);
       setIsWholeBookReading(true);
       setIsReadAloudPaused(false);
       audio.onended = () => {
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
+        setIsReadAloudLoading(false);
         if (autoAdvanceReadAloudRef.current && startIndex < selectedBook.pages.length - 1) {
           readWholeBookFrom(startIndex + 1);
         } else {
@@ -1007,13 +1016,17 @@ export function GuidedReadingPage({
         pageAudioRef.current = null;
         setIsPageAudioPlaying(false);
         setIsWholeBookReading(false);
+        setIsReadAloudLoading(false);
         setAudioNotice("Read-aloud audio could not be loaded for this book.");
       };
       await audio.play();
+      setIsReadAloudLoading(false);
+      setIsPageAudioPlaying(true);
     } catch (error) {
       console.warn("Guided Reading whole-book audio unavailable.", error);
       setIsPageAudioPlaying(false);
       setIsWholeBookReading(false);
+      setIsReadAloudLoading(false);
       setAudioNotice("Read-aloud audio could not be played for this book.");
     }
   }
@@ -1027,6 +1040,7 @@ export function GuidedReadingPage({
     });
 
     if (fullBookAudioPath) {
+      setIsReadAloudLoading(true);
       try {
         const syncData = wholeBookSyncData || await fetchWholeBookSyncData(selectedBook, fullBookAudioPath);
         if (syncData && !wholeBookSyncData) setWholeBookSyncData(syncData);
@@ -1045,7 +1059,6 @@ export function GuidedReadingPage({
 
         pageAudioRef.current = audio;
         setIsWholeBookReading(true);
-        setIsPageAudioPlaying(true);
         setIsReadAloudPaused(false);
         setAudioNotice(syncData?.syncAccuracy === "explicit" || hasInlinePageLevelAudioTiming(selectedBook.pages)
           ? ""
@@ -1067,6 +1080,7 @@ export function GuidedReadingPage({
           pageAudioRef.current = null;
           setIsWholeBookReading(false);
           setIsPageAudioPlaying(false);
+          setIsReadAloudLoading(false);
           if (autoAdvanceReadAloudRef.current) {
             readAloudPageChangeRef.current = true;
             setPageIndex(selectedBook.pages.length - 1);
@@ -1076,13 +1090,17 @@ export function GuidedReadingPage({
           pageAudioRef.current = null;
           setIsWholeBookReading(false);
           setIsPageAudioPlaying(false);
+          setIsReadAloudLoading(false);
           setAudioNotice("Whole-book audio could not be loaded.");
         };
         await audio.play();
+        setIsReadAloudLoading(false);
+        setIsPageAudioPlaying(true);
       } catch (error) {
         console.warn("Guided Reading full-book audio unavailable.", error);
         setIsWholeBookReading(false);
         setIsPageAudioPlaying(false);
+        setIsReadAloudLoading(false);
         setIsReadAloudPaused(false);
         setAudioNotice("Whole-book audio could not be played.");
       }
@@ -1152,6 +1170,7 @@ export function GuidedReadingPage({
   }
 
   async function playWordAudio(word, wordIndex) {
+    setLoadingWordAudioIndex(wordIndex);
     const resolvedAudioPath = await findExistingGuidedReadingWordAudio(word);
     if (!resolvedAudioPath) {
       if (import.meta.env.DEV) {
@@ -1163,6 +1182,7 @@ export function GuidedReadingPage({
       }
       setAudioNotice("Word audio is not ready for this word yet.");
       brieflyHighlightWord(wordIndex);
+      setLoadingWordAudioIndex(null);
       return;
     }
 
@@ -1174,6 +1194,7 @@ export function GuidedReadingPage({
       }
       const audio = new Audio(resolvedAudioPath);
       await audio.play();
+      setLoadingWordAudioIndex(null);
     } catch (error) {
       if (import.meta.env.DEV) {
         console.warn("Guided Reading word audio failed to play:", {
@@ -1185,6 +1206,7 @@ export function GuidedReadingPage({
         });
       }
       setAudioNotice("Word audio is not ready for this word yet.");
+      setLoadingWordAudioIndex(null);
     }
   }
 
@@ -1427,20 +1449,30 @@ export function GuidedReadingPage({
                   </button>
                 )}
                 <button
-                  className={isPageAudioPlaying ? "lp-button lp-button-secondary active" : "lp-button lp-button-secondary"}
-                  disabled={!currentPageAudioPath || isWholeBookReading}
+                  className={[
+                    "lp-button lp-button-secondary",
+                    isPageAudioPlaying ? "active audio-feedback-playing" : "",
+                    isReadAloudLoading && !isWholeBookReading ? "audio-feedback-loading" : ""
+                  ].filter(Boolean).join(" ")}
+                  disabled={!currentPageAudioPath || isWholeBookReading || isReadAloudLoading}
                   onClick={togglePageAudio}
                   type="button"
                 >
-                  {isPageAudioPlaying ? "Stop Reading" : "Read Page"}
+                  {isReadAloudLoading && !isWholeBookReading && <span className="audio-loading-dot" aria-hidden="true" />}
+                  {isReadAloudLoading && !isWholeBookReading ? "Loading Page" : isPageAudioPlaying ? "Stop Reading" : "Read Page"}
                 </button>
                 <button
-                  className={isWholeBookReading ? "lp-button lp-button-secondary active" : "lp-button lp-button-secondary"}
-                  disabled={!canReadWholeBook}
+                  className={[
+                    "lp-button lp-button-secondary",
+                    isWholeBookReading ? "active audio-feedback-playing" : "",
+                    isReadAloudLoading && isWholeBookReading ? "audio-feedback-loading" : ""
+                  ].filter(Boolean).join(" ")}
+                  disabled={!canReadWholeBook || (isReadAloudLoading && !isWholeBookReading)}
                   onClick={isWholeBookReading ? stopPageAudio : startWholeBookReadAloud}
                   type="button"
                 >
-                  {isWholeBookReading ? "Stop Book" : "Read Whole Book"}
+                  {isReadAloudLoading && isWholeBookReading && <span className="audio-loading-dot" aria-hidden="true" />}
+                  {isReadAloudLoading && isWholeBookReading ? "Loading Book" : isWholeBookReading ? "Stop Book" : "Read Whole Book"}
                 </button>
                 {!isReaderFullscreen && (isPageAudioPlaying || isWholeBookReading) && (
                   <button className="lp-button lp-button-secondary" onClick={toggleReadAloudPause} type="button">
@@ -1555,11 +1587,12 @@ export function GuidedReadingPage({
 
                           const mark = currentPageRecord.wordMarks?.[item.wordIndex] || "";
                           const isHighlighted = highlightedWordIndex === item.wordIndex;
+                          const isWordAudioLoading = loadingWordAudioIndex === item.wordIndex;
 
                           return (
                             <button
-                              aria-label={`${readingMode === "marking" ? "Mark" : "Hear"} ${item.token}`}
-                              className={`guided-word ${readingMode} ${mark || "neutral"} ${isHighlighted ? "heard" : ""}`}
+                              aria-label={isWordAudioLoading ? `Loading audio for ${item.token}` : `${readingMode === "marking" ? "Mark" : "Hear"} ${item.token}`}
+                              className={`guided-word ${readingMode} ${mark || "neutral"} ${isHighlighted ? "heard audio-feedback-playing" : ""} ${isWordAudioLoading ? "audio-feedback-loading" : ""}`}
                               key={`word-${group.sentenceIndex}-${item.index}-${item.wordIndex}`}
                               onClick={event => handleWordClick(item.wordIndex, event)}
                               onContextMenu={event => {

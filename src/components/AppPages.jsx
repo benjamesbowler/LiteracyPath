@@ -139,6 +139,7 @@ export function TopNavigation({
     { id: "student", label: nameSaved ? studentName || "Unnamed student" : "No student selected" },
     ...(nameSaved && currentStage ? [{ id: "stage", label: currentStage.label }] : [])
   ];
+  const needsStudentTitle = nameSaved ? undefined : "Select a student first";
 
   return (
     <nav className="top-nav" aria-label="Teacher navigation">
@@ -165,6 +166,7 @@ export function TopNavigation({
           className={appView === "overview" ? "nav-button primary" : "nav-button"}
           onClick={goToOverview}
           disabled={!nameSaved}
+          title={needsStudentTitle}
         >
           Student Overview
         </button>
@@ -173,6 +175,7 @@ export function TopNavigation({
           className={appView === "skills" ? "nav-button primary" : "nav-button"}
           onClick={goToSkills}
           disabled={!nameSaved}
+          title={needsStudentTitle}
         >
           Skills
         </button>
@@ -181,6 +184,7 @@ export function TopNavigation({
           className={appView === "elAssessments" ? "nav-button primary" : "nav-button"}
           onClick={goToElAssessments}
           disabled={!nameSaved}
+          title={needsStudentTitle}
         >
           EL Assessments
         </button>
@@ -189,6 +193,7 @@ export function TopNavigation({
           className={appView === "guidedReading" ? "nav-button primary" : "nav-button"}
           onClick={goToGuidedReading}
           disabled={!nameSaved}
+          title={needsStudentTitle}
         >
           Guided Reading
         </button>
@@ -211,6 +216,7 @@ export function TopNavigation({
           className={appView === "tools" ? "nav-button primary" : "nav-button"}
           onClick={goToTools}
           disabled={!nameSaved}
+          title={needsStudentTitle}
         >
           Tools
         </button>
@@ -2051,14 +2057,38 @@ export function ResetStudentProgressDialog({
   onFullReset,
   onCancel
 }) {
+  const [fullResetConfirming, setFullResetConfirming] = useState(false);
+  const [fullResetPhrase, setFullResetPhrase] = useState("");
+
+  useEffect(() => {
+    if (!open) {
+      setFullResetConfirming(false);
+      setFullResetPhrase("");
+    }
+  }, [open]);
+
   if (!open) return null;
+
+  const canConfirmFullReset = fullResetPhrase.trim() === "RESET";
+  const studentLabel = studentName || "the student";
+
+  function cancelReset() {
+    setFullResetConfirming(false);
+    setFullResetPhrase("");
+    onCancel();
+  }
+
+  function confirmFullReset() {
+    if (!canConfirmFullReset || resetting) return;
+    onFullReset();
+  }
 
   return (
     <div className="modal-backdrop" role="presentation">
       <section className="modal-card reset-progress-dialog" role="dialog" aria-modal="true" aria-labelledby="reset-progress-title">
         <h2 id="reset-progress-title">Reset Student Progress</h2>
         <p>
-          This will keep {studentName || "the student"} and the class in place. Choose the scope carefully.
+          This will keep {studentLabel} and the class in place. Choose the scope carefully.
         </p>
 
         <div className="reset-progress-options">
@@ -2068,31 +2098,73 @@ export function ResetStudentProgressDialog({
             onClick={onAdaptiveReset}
             type="button"
           >
-            Reset adaptive assessment progress only
+            Reset adaptive progress
           </button>
           <p>
             Clears checkpoint progress, skill progression, item mastery, and adaptive answer history for this student.
             Formal EL assessment results stay available.
           </p>
 
-          <button
-            className="reset-button"
-            disabled={resetting}
-            onClick={onFullReset}
-            type="button"
-          >
-            Reset all student assessment data including formal EL results
-          </button>
-          <p>
-            Also clears local Letter Name/Sound and Advanced Phonics assessment results for this selected student.
-          </p>
+          {!fullResetConfirming ? (
+            <>
+              <button
+                className="reset-button"
+                disabled={resetting}
+                onClick={() => setFullResetConfirming(true)}
+                type="button"
+              >
+                Reset all student assessment data including formal EL results
+              </button>
+              <p>
+                Also clears local Letter Name/Sound and Advanced Phonics assessment results for this selected student.
+              </p>
+            </>
+          ) : (
+            <div className="full-reset-confirmation" aria-live="polite">
+              <strong>Confirm full data reset</strong>
+              <p>
+                This permanently clears all assessment data for {studentLabel}, including formal EL results.
+                Type RESET to enable the final reset button.
+              </p>
+              <label>
+                <span>Type RESET</span>
+                <input
+                  autoComplete="off"
+                  disabled={resetting}
+                  onChange={event => setFullResetPhrase(event.target.value)}
+                  value={fullResetPhrase}
+                />
+              </label>
+              <div className="button-row">
+                <button
+                  className="report-button"
+                  disabled={resetting}
+                  onClick={() => {
+                    setFullResetConfirming(false);
+                    setFullResetPhrase("");
+                  }}
+                  type="button"
+                >
+                  Back
+                </button>
+                <button
+                  className="reset-button"
+                  disabled={resetting || !canConfirmFullReset}
+                  onClick={confirmFullReset}
+                  type="button"
+                >
+                  Permanently reset all data
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="button-row">
           <button
             className="report-button"
             disabled={resetting}
-            onClick={onCancel}
+            onClick={cancelReset}
             type="button"
           >
             Cancel

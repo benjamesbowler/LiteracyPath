@@ -4,7 +4,10 @@ import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
 
 export function LearnAreaPage() {
   const [activeQuestId, setActiveQuestId] = useState("");
+  const [selectedQuestId, setSelectedQuestId] = useState("");
   const activeQuest = storyQuests.find(quest => quest.id === activeQuestId) || null;
+  const selectedQuest = storyQuests.find(quest => quest.id === selectedQuestId) || null;
+  const selectedWordCards = selectedQuest?.wordCards || [];
 
   useLayoutEffect(() => {
     if (!activeQuestId || typeof window === "undefined") return;
@@ -15,6 +18,7 @@ export function LearnAreaPage() {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
+    setSelectedQuestId(questId);
     setActiveQuestId(questId);
   }
 
@@ -44,7 +48,12 @@ export function LearnAreaPage() {
               .join(" - ");
 
             return (
-              <article className="learn-story-quest-card" key={quest.id}>
+              <article
+                className={selectedQuestId === quest.id ? "learn-story-quest-card selected" : "learn-story-quest-card"}
+                key={quest.id}
+                onFocus={() => setSelectedQuestId(quest.id)}
+                onMouseEnter={() => setSelectedQuestId(quest.id)}
+              >
                 <img
                   alt={`${quest.title} cover`}
                   className="learn-story-quest-cover"
@@ -63,9 +72,14 @@ export function LearnAreaPage() {
                     ))}
                   </div>
                 </div>
-                <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">
-                  Start Reading
-                </button>
+                <div className="learn-story-quest-actions">
+                  <button className="lp-button lp-button-secondary" onClick={() => setSelectedQuestId(quest.id)} type="button">
+                    Show Words
+                  </button>
+                  <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">
+                    Start Reading
+                  </button>
+                </div>
               </article>
             );
           })}
@@ -76,16 +90,19 @@ export function LearnAreaPage() {
         <div className="learn-story-quest-copy">
           <span className="story-quest-kicker">Practice</span>
           <h2>Words in the Story</h2>
-          <p>Tap into the story first, then come back to use these picture words for quick practice.</p>
+          <p>{selectedQuest ? `Picture words for ${selectedQuest.title}.` : "Choose a Story Quest to preview its picture words."}</p>
         </div>
         <div className="learn-story-word-card-grid">
-          {storyQuests[0]?.wordCards?.map(card => (
+          {selectedWordCards.map(card => (
             <article className="learn-story-word-card" key={card.word}>
               <img alt={card.word} decoding="async" loading="lazy" src={card.imageUrl} />
               <strong>{card.word}</strong>
             </article>
           ))}
         </div>
+        {!selectedWordCards.length && (
+          <p className="learn-story-empty-words">No story words selected yet.</p>
+        )}
       </section>
     </main>
   );
