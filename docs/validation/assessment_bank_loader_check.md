@@ -1,0 +1,63 @@
+# Assessment Skill Bank Loader Check
+
+Generated: 2026-06-02T06:26:26.739Z
+
+## Summary
+
+- Active skills checked: 30
+- Groups checked: 5
+- Fatal failures: 0
+- Warnings: 1
+
+## Groups
+
+| Group | Label | Configured Skills | Active Skill Matches |
+| --- | --- | --- | ---: |
+| early_phonics | Early Phonics | initial_sounds, final_sounds, rhyming, cvc_short_vowels, short_vowel_discrimination | 5 |
+| hfw | High-Frequency Words | hfw_1_25, hfw_26_50, hfw_51_75, hfw_76_100 | 4 |
+| replacement_phonics | Replacement Phonics | blends, digraphs, long_vowels_silent_e, vowel_teams, r_controlled_vowels | 5 |
+| grammar_language | Grammar and Language | nouns, verbs, adjectives, prepositions_of_place, plurals, prefixes_suffixes, antonyms_synonyms, homophones_homonyms | 8 |
+| comprehension | Comprehension | sentence_comprehension, key_details, sequencing, main_idea, inference, cause_effect, context_clues, theme_higher_comprehension | 8 |
+
+## Skill Loader Counts
+
+| Skill | Label | Group | Loader Questions | Sample IDs |
+| --- | --- | --- | ---: | --- |
+| initial_sounds | Initial Sounds | early_phonics | 197 | extra_initial_1, extra_initial_2, extra_initial_3, extra_initial_4, extra_initial_5 |
+| final_sounds | Final Sounds | early_phonics | 545 | extra_final_1, extra_final_2, extra_final_3, extra_final_4, extra_final_5 |
+| rhyming | Rhyming | early_phonics | 637 | extra_rhyme_1, extra_rhyme_2, extra_rhyme_3, extra_rhyme_4, extra_rhyme_5 |
+| cvc_short_vowels | CVC and Short Vowels | early_phonics | 544 | core_cvc_001, core_cvc_002, core_cvc_003, core_cvc_004, core_cvc_005 |
+| short_vowel_discrimination | Short Vowel Discrimination | early_phonics | 592 | extra_short_vowel_1, extra_short_vowel_2, extra_short_vowel_3, extra_short_vowel_4, extra_short_vowel_5 |
+| hfw_1_25 | High-Frequency Words 1-25 | hfw | 278 | p3_hfw_1_25_listen_the, p3_hfw_1_25_read_the, p3_hfw_1_25_listen_and, p3_hfw_1_25_read_and, p3_hfw_1_25_listen_to |
+| hfw_26_50 | High-Frequency Words 26-50 | hfw | 279 | p3_hfw_26_50_listen_he, p3_hfw_26_50_read_he, p3_hfw_26_50_listen_she, p3_hfw_26_50_read_she, p3_hfw_26_50_listen_they |
+| hfw_51_75 | High-Frequency Words 51-75 | hfw | 140 | hfw_hfw-51-75_01_after_l1_cloze, hfw_hfw-51-75_02_again_l1_cloze, hfw_hfw-51-75_03_an_l1_cloze, hfw_hfw-51-75_04_any_l1_cloze, hfw_hfw-51-75_05_around_l1_cloze |
+| hfw_76_100 | High-Frequency Words 76-100 | hfw | 140 | hfw_hfw-76-100_01_just_l1_cloze, hfw_hfw-76-100_02_know_l1_cloze, hfw_hfw-76-100_03_let_l1_cloze, hfw_hfw-76-100_04_live_l1_cloze, hfw_hfw-76-100_05_made_l1_cloze |
+| blends | Blends | replacement_phonics | 267 | p3_blend_sound_bl_1, p3_blend_sound_cl_2, p3_blend_word_cl_2, p3_blend_sound_fl_3, p3_blend_sound_fr_4 |
+| digraphs | Digraphs | replacement_phonics | 309 | p3_digraph_sound_sh_1, p3_digraph_sound_sh_2, p3_digraph_sound_ch_4, p3_digraph_word_ch_4, p3_digraph_sound_th_5 |
+| long_vowels | Long Vowels and Silent E | replacement_phonics | 190 | safe_long_a_1, safe_long_a_2, safe_long_e_1, safe_long_e_2, safe_long_i_1 |
+| vowel_teams | Vowel Teams | replacement_phonics | 243 | safe_vowel_team_ai_1, safe_vowel_team_ai_2, safe_vowel_team_ay_1, safe_vowel_team_ay_2, safe_vowel_team_ee_1 |
+| r_controlled | R-Controlled Vowels | replacement_phonics | 140 | safe_r_ar_1, safe_r_ar_2, safe_r_er_1, safe_r_er_2, safe_r_ir_1 |
+| nouns | Nouns | grammar_language | 189 | ixl_category_1, ixl_category_b_1, ixl_category_2, ixl_category_b_2, ixl_category_3 |
+| verbs | Verbs | grammar_language | 210 | ixl_grammar_1, ixl_grammar_b_1, ixl_grammar_2, ixl_grammar_b_2, ixl_grammar_3 |
+| adjectives | Adjectives | grammar_language | 196 | grammar_adjectives_l1_001, grammar_adjectives_l1_002, grammar_adjectives_l1_003, grammar_adjectives_l1_004, grammar_adjectives_l1_005 |
+| prepositions | Prepositions of Place | grammar_language | 230 | template_prep_1, template_prep_2, template_prep_3, exp2_prep_1, exp2_prep_2 |
+| plurals | Plurals | grammar_language | 201 | p3_plural_visual_s_1, p3_plural_visual_s_2, p3_plural_visual_s_3, p3_plural_visual_es_4, p3_plural_visual_es_5 |
+| prefix_suffix | Prefixes and Suffixes | grammar_language | 250 | p3_morphology_un_1, p3_morphology_un_2, p3_morphology_re_3, p3_morphology_pre_4, p3_morphology_ful_5 |
+| antonyms_synonyms | Antonyms and Synonyms | grammar_language | 157 | exp6_language_17, exp6_language_18, exp6_language_19, exp6_language_20, gap_antonyms_synonyms_l1_hot_1 |
+| homophones | Homophones and Homonyms | grammar_language | 229 | safe_homophone_one, safe_homophone_won, safe_homophone_two, safe_homophone_too, safe_homophone_blue |
+| sentence_comprehension | Sentence Comprehension | comprehension | 293 | p3_sentence_comp_paragraph_001, ixl_sentence_picture_1, ixl_sentence_picture_b_1, ixl_sentence_picture_2, ixl_sentence_picture_b_2 |
+| key_details | Key Details | comprehension | 360 | template_detail_1, exp2_comp_1, exp2_comp_2, exp3_comp_1, exp3_comp_2 |
+| sequencing | Sequencing | comprehension | 202 | template_sequence_1, exp2_comp_3, exp2_comp_4, exp3_comp_6, exp3_comp_7 |
+| main_idea | Main Idea | comprehension | 200 | template_main_idea_1, exp2_comp_5, exp2_comp_6, exp3_comp_11, exp3_comp_12 |
+| inference | Inference | comprehension | 262 | p3_inference_paragraph_001, qb8_infer_01_01, qb8_infer_01_02, qb8_infer_01_03, qb8_infer_02_01 |
+| cause_effect | Cause and Effect | comprehension | 206 | template_cause_1, exp2_comp_7, exp2_comp_8, exp3_comp_16, exp3_comp_17 |
+| context_clues | Context Clues | comprehension | 218 | p3_context_clues_paragraph_001, template_context_1, exp2_comp_9, exp2_comp_10, exp3_comp_21 |
+| theme | Theme and Higher Comprehension | comprehension | 217 | template_theme_1, exp2_comp_11, exp2_comp_12, exp3_comp_26, exp3_comp_27 |
+
+## Warnings
+
+- hfw_51_100 still has legacy source questions, but it is not an active skillTree id
+
+## Failures
+
+- none

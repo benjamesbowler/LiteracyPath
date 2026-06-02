@@ -11,6 +11,30 @@ Phase 4 stayed conservative. The only code lazy-loading changes were inside alre
 
 No assessment question bank loading was changed. The large assessment banks are still eager because they are currently assembled synchronously during app startup and used by the existing assessment selection, coverage, routing, and validation paths.
 
+## Phase 5 Status
+
+Phase 5 added an assessment bank loading foundation but did not wire real lazy loading into runtime. This was intentional: the current assessment engine still expects a synchronous `allQuestions` pool during app module startup.
+
+Added:
+
+- `src/data/loadAssessmentSkillBank.js`
+- `tools/checkAssessmentSkillBankLoader.js`
+- `npm run check:assessment-bank-loader`
+- `docs/validation/assessment_data_loading_audit.md`
+- `docs/validation/assessment_bank_loader_check.md`
+
+The loader defines the future skill groups:
+
+- `early_phonics`
+- `hfw`
+- `replacement_phonics`
+- `grammar_language`
+- `comprehension`
+
+It supports the Phase 5 group names plus current runtime aliases such as `long_vowels`, `r_controlled`, `prepositions`, `prefix_suffix`, `homophones`, and `theme`.
+
+Real lazy loading was not added. The main chunk was expected to remain nearly unchanged because `App.jsx` still imports and assembles assessment banks eagerly.
+
 ## Latest Chunk Sizes
 
 Before this phase, from the existing `dist/assets` output:
@@ -46,6 +70,24 @@ After this phase:
 | FinishedReportPage | `FinishedReportPage-CByA7f8-.js` | 6.51 kB | 2.12 kB |
 
 Vite output changed the Admin dashboard chunk from 155.39 kB to 147.74 kB minified. The main index stayed effectively unchanged, moving from about 3,702.37 kB to 3,702.32 kB minified.
+
+After Phase 5 foundation:
+
+| Chunk | File | Size | Gzip |
+|---|---|---:|---:|
+| main index | `index-zVnSheuq.js` | 3615.62 kB | 366.50 kB |
+| generated early skills | `generated-early-skills-3NVrDMpD.js` | 1024.07 kB | 46.11 kB |
+| question-bank-extra | `question-bank-extra-D_3P6UoK.js` | 907.19 kB | 120.12 kB |
+| audio manifest | `audio-manifest-Db4LBHm1.js` | 758.17 kB | 195.53 kB |
+| admin media inventory | `admin-media-inventory-Cwm8n-X9.js` | 1380.61 kB | 62.21 kB |
+| guided-reading-data | `guided-reading-data-DZHBYWgF.js` | 1011.77 kB | 148.42 kB |
+| exceljs | `exceljs.min-CjgIwHka.js` | 908.13 kB | 249.59 kB |
+| LearnAreaPage | `LearnAreaPage-Db_lmo5i.js` | 72.62 kB | 16.96 kB |
+| AdminDashboardPage | `AdminDashboardPage-Dc8gpX8I.js` | 144.29 kB | 31.07 kB |
+| GuidedReadingPage | `GuidedReadingPage-CLJwfX5-.js` | 31.47 kB | 9.20 kB |
+| FinishedReportPage | `FinishedReportPage-CByA7f8-.js` | 6.51 kB | 2.12 kB |
+
+The Learn chunk is larger than Phase 4 because new Story Quest data was added before this phase. The assessment-related chunks stayed effectively unchanged, as expected.
 
 ## Still Eager
 
@@ -136,3 +178,24 @@ The next safe bundle step should be a dedicated assessment bootstrap refactor:
 3. Keep the current synchronous API inside that module once loaded.
 4. Add smoke coverage for Initial Sounds, Final Sounds, HFW letter-build, Blends, Digraphs, Long Vowels, and advanced/comprehension banks before moving more imports.
 5. Only then split generated early-skill banks and replacement banks by route or skill family.
+
+## Phase 6 Recommendation
+
+Phase 6 should use `loadAssessmentSkillBank.js` as the abstraction point, but only after extracting current `allQuestions` assembly out of `App.jsx`.
+
+Suggested order:
+
+1. Move current synchronous assessment assembly to a runtime module with no behavior changes.
+2. Add an explicit assessment-bank loading state before a round can start.
+3. Convert `hfw` to group-loaded data first.
+4. Convert `replacement_phonics` next.
+5. Convert `grammar_language` after replacement phonics is stable.
+6. Leave `early_phonics` and `comprehension` synchronous until async round selection has dedicated smoke tests.
+
+Still risky:
+
+- Initial Sounds custom selector and media requirements.
+- Final Sounds Level 1 mastery-depth and image/audio eligibility.
+- Rhyming image-card purity.
+- CVC/short-vowel round construction.
+- Sentence/comprehension replacement banks and higher-skill paragraph quality.
