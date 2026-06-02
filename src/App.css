@@ -11527,6 +11527,15 @@ select:focus {
   color: #8a4f00;
 }
 
+.story-quest-choice-prompt {
+  color: #111827;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  font-weight: 950;
+  line-height: 1.12;
+  padding: 4px 10px;
+  text-align: center;
+}
+
 .story-quest-choice-button {
   min-height: 82px;
   border: 2px solid #c7d2fe;
@@ -11646,6 +11655,11 @@ select:focus {
   font-size: clamp(0.78rem, 1.5vw, 0.95rem);
 }
 
+.story-quest-reader.fullscreen .story-quest-choice-prompt {
+  font-size: clamp(1.12rem, 2.2vw, 1.55rem);
+  padding-block: 2px;
+}
+
 .story-quest-reader.fullscreen .story-quest-choice-grid {
   gap: 8px;
 }
@@ -11654,6 +11668,10 @@ select:focus {
   min-height: 50px;
   padding: 8px 10px;
   font-size: clamp(0.95rem, 2vw, 1.28rem);
+}
+
+.story-quest-complete-panel {
+  margin-inline: auto;
 }
 
 @media (max-height: 820px) and (min-width: 761px) {
@@ -11742,6 +11760,11 @@ select:focus {
     min-height: 22px;
     padding: 2px 7px;
     font-size: 0.9rem;
+  }
+
+  .story-quest-choice-prompt {
+    font-size: clamp(1.18rem, 2.25vw, 1.55rem);
+    padding-block: 2px;
   }
 
   .story-quest-choice-grid {
