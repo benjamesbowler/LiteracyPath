@@ -1,6 +1,6 @@
 # Skill Routing Purity Audit
 
-Generated: 2026-06-02T03:07:04.337Z
+Generated: 2026-06-02T06:54:41.601Z
 
 ## Summary
 
@@ -9,7 +9,7 @@ Generated: 2026-06-02T03:07:04.337Z
 
 ## Final Sounds
 
-- Runtime-selectable pool: 452
+- Runtime-selectable pool: 451
 - Routing/purity failures: 0
 
 | Simulated Round | Questions | Formats | Target Words |
@@ -41,7 +41,7 @@ Generated: 2026-06-02T03:07:04.337Z
 
 ## CVC Short Vowels
 
-- Runtime-selectable pool: 451
+- Runtime-selectable pool: 394
 - Routing/purity failures: 0
 
 | Simulated Round | Questions | Formats | Target Words |
@@ -73,7 +73,7 @@ Generated: 2026-06-02T03:07:04.337Z
 
 ## Rhyming Words
 
-- Runtime-selectable pool: 223
+- Runtime-selectable pool: 220
 - Routing/purity failures: 0
 
 | Simulated Round | Questions | Formats | Target Words |

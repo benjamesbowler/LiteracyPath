@@ -88,26 +88,53 @@ const activeSkillIds = getActiveAssessmentSkillIds();
 const activeSkillIdSet = new Set(activeSkillIds);
 const groups = getAssessmentSkillGroupMetadata();
 const rows = [];
+const explicitCheckRows = [];
+
+const runtimeAliases = {
+  long_vowels_silent_e: "long_vowels",
+  r_controlled_vowels: "r_controlled",
+  prepositions_of_place: "prepositions",
+  prefixes_suffixes: "prefix_suffix",
+  homophones_homonyms: "homophones",
+  theme_higher_comprehension: "theme"
+};
+
+const canonicalAliases = Object.fromEntries(
+  Object.entries(runtimeAliases).map(([canonical, alias]) => [alias, canonical])
+);
+
+function canonicalSkillId(value = "") {
+  const normalized = normalize(value);
+  return canonicalAliases[normalized] || normalized;
+}
+
+function mappedGroupsForSkill(skillId = "") {
+  const canonical = canonicalSkillId(skillId);
+  return groups.filter(group => group.skillIds.includes(canonical));
+}
+
+function addExplicitCheck(name, passed, detail = "") {
+  explicitCheckRows.push({ name, passed, detail });
+  if (!passed) failures.push(`${name}${detail ? `: ${detail}` : ""}`);
+}
 
 for (const group of groups) {
   if (!group.skillIds.length) failures.push(`${group.id} has no configured skill ids`);
   const activeInGroup = group.skillIds.filter(skillId => {
-    const runtimeAliases = {
-      long_vowels_silent_e: "long_vowels",
-      r_controlled_vowels: "r_controlled",
-      prepositions_of_place: "prepositions",
-      prefixes_suffixes: "prefix_suffix",
-      homophones_homonyms: "homophones",
-      theme_higher_comprehension: "theme"
-    };
     return activeSkillIdSet.has(skillId) || activeSkillIdSet.has(runtimeAliases[skillId]);
   });
   if (!activeInGroup.length) warnings.push(`${group.id} has configured skills but no active skillTree entries`);
 }
 
 for (const skill of skillTree) {
+  const matchingGroups = mappedGroupsForSkill(skill.id);
   const groupId = getAssessmentSkillGroup(skill.id);
   if (!groupId) failures.push(`${skill.id} is active but unmapped`);
+  if (matchingGroups.length !== 1) {
+    failures.push(`${skill.id} maps to ${matchingGroups.length} groups; expected exactly one`);
+  } else if (groupId !== matchingGroups[0].id) {
+    failures.push(`${skill.id} helper returned ${groupId || "none"} but metadata maps to ${matchingGroups[0].id}`);
+  }
   const questions = await loadAssessmentSkillBank(skill.id);
   if (!questions.length) failures.push(`${skill.id} resolved 0 questions through loadAssessmentSkillBank`);
   const shapeIssues = validateQuestionShape(skill.id, questions);
@@ -123,14 +150,37 @@ for (const skill of skillTree) {
 
 for (const skillId of ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]) {
   const questions = await loadAssessmentSkillBank(skillId);
-  if (!questions.length) failures.push(`${skillId} HFW split band did not resolve questions`);
+  addExplicitCheck(`${skillId} resolves`, questions.length > 0, `${questions.length} questions`);
 }
 
-if (activeSkillIdSet.has("hfw_51_100")) failures.push("old hfw_51_100 is active in skillTree");
-if ((await loadAssessmentSkillBank("hfw_51_100")).length > 0) {
+const legacyHfwQuestions = await loadAssessmentSkillBank("hfw_51_100");
+addExplicitCheck("hfw_51_100 is not active", !activeSkillIdSet.has("hfw_51_100"));
+if (legacyHfwQuestions.length > 0) {
   warnings.push("hfw_51_100 still has legacy source questions, but it is not an active skillTree id");
 }
-if (activeSkillIdSet.has("reading_comprehension")) failures.push("reading_comprehension ghost skill is active in skillTree");
+addExplicitCheck("reading_comprehension is not active", !activeSkillIdSet.has("reading_comprehension"));
+
+for (const skillId of ["blends", "digraphs", "long_vowels_silent_e", "vowel_teams", "r_controlled_vowels"]) {
+  const questions = await loadAssessmentSkillBank(skillId);
+  addExplicitCheck(`${skillId} replacement phonics resolves`, questions.length > 0, `${questions.length} questions`);
+}
+
+for (const [alias, canonical] of Object.entries(canonicalAliases)) {
+  const aliasGroup = getAssessmentSkillGroup(alias);
+  const canonicalGroup = getAssessmentSkillGroup(canonical);
+  const aliasQuestions = await loadAssessmentSkillBank(alias);
+  const canonicalQuestions = await loadAssessmentSkillBank(canonical);
+  addExplicitCheck(`${alias} alias maps to ${canonical}`, aliasGroup === canonicalGroup && aliasQuestions.length === canonicalQuestions.length && aliasQuestions.length > 0, `${aliasQuestions.length}/${canonicalQuestions.length} questions`);
+}
+
+let fallbackAvailable = false;
+try {
+  const unknownQuestions = await loadAssessmentSkillBank("__unknown_future_skill__");
+  fallbackAvailable = Array.isArray(unknownQuestions);
+} catch {
+  fallbackAvailable = false;
+}
+addExplicitCheck("unknown-skill fallback returns safely", fallbackAvailable);
 
 const groupRows = groups.map(group => ({
   groupId: group.id,
@@ -162,6 +212,12 @@ const report = [
   "| Skill | Label | Group | Loader Questions | Sample IDs |",
   "| --- | --- | --- | ---: | --- |",
   ...rows.map(row => `| ${row.skillId} | ${row.label} | ${row.groupId || "UNMAPPED"} | ${row.count} | ${row.sampleIds.join(", ")} |`),
+  "",
+  "## Explicit Safety Checks",
+  "",
+  "| Check | Result | Detail |",
+  "| --- | --- | --- |",
+  ...explicitCheckRows.map(row => `| ${row.name} | ${row.passed ? "pass" : "fail"} | ${row.detail || ""} |`),
   "",
   "## Warnings",
   "",

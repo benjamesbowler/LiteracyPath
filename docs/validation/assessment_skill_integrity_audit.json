@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-02T03:07:27.945Z",
+  "generatedAt": "2026-06-02T06:55:05.867Z",
   "source": "loadCoreQuestionPool() plus managedAssessmentSkillDepthConfig",
   "targetContract": {
     "levelsPerSkill": 2,
@@ -23,8 +23,8 @@
     "missingSkillIds": 0,
     "missingLevelData": 0,
     "missingPhaseData": 0,
-    "graphemeChoiceQuestions": 1085,
-    "imageChoiceQuestions": 1893,
+    "graphemeChoiceQuestions": 974,
+    "imageChoiceQuestions": 1792,
     "imageChoiceLeaks": 0,
     "unassignedQuestions": 190
   },
@@ -179,10 +179,10 @@
       "skillNumber": 2,
       "skillId": "final_sounds",
       "skillName": "Final Sounds",
-      "totalRawQuestions": 545,
-      "totalUniqueQuestions": 545,
-      "totalStrictUsableQuestions": 545,
-      "uniqueLevel1Questions": 265,
+      "totalRawQuestions": 544,
+      "totalUniqueQuestions": 544,
+      "totalStrictUsableQuestions": 544,
+      "uniqueLevel1Questions": 264,
       "uniqueLevel2Questions": 280,
       "phasesDetected": [
         1,
@@ -229,7 +229,7 @@
       },
       "cvcShortVowelSpecial": null,
       "choiceRendering": {
-        "graphemeChoiceCount": 318,
+        "graphemeChoiceCount": 317,
         "imageChoiceCount": 157,
         "imageChoiceLeaks": [],
         "missingTextLabels": [],
@@ -238,15 +238,15 @@
       "levels": {
         "1": {
           "level": 1,
-          "rawQuestionCount": 265,
-          "uniqueQuestionCount": 265,
-          "strictUsableQuestionCount": 265,
+          "rawQuestionCount": 264,
+          "uniqueQuestionCount": 264,
+          "strictUsableQuestionCount": 264,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 189,
+            "1": 188,
             "2": 76
           },
           "phaseGeneration": {
@@ -301,7 +301,7 @@
             "top"
           ],
           "formats": {
-            "ENDING_SOUND": 201,
+            "ENDING_SOUND": 200,
             "ENDING_SOUND_WORD_MATCH": 63,
             "UNKNOWN": 1
           }
@@ -384,11 +384,11 @@
       "skillNumber": 3,
       "skillId": "rhyming",
       "skillName": "Rhyming",
-      "totalRawQuestions": 637,
-      "totalUniqueQuestions": 637,
-      "totalStrictUsableQuestions": 637,
+      "totalRawQuestions": 634,
+      "totalUniqueQuestions": 634,
+      "totalStrictUsableQuestions": 634,
       "uniqueLevel1Questions": 486,
-      "uniqueLevel2Questions": 151,
+      "uniqueLevel2Questions": 148,
       "phasesDetected": [
         1,
         2
@@ -416,7 +416,7 @@
       "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
-        "imageChoiceCount": 593,
+        "imageChoiceCount": 590,
         "imageChoiceLeaks": [],
         "missingTextLabels": [],
         "issues": []
@@ -531,15 +531,15 @@
         },
         "2": {
           "level": 2,
-          "rawQuestionCount": 151,
-          "uniqueQuestionCount": 151,
-          "strictUsableQuestionCount": 151,
+          "rawQuestionCount": 148,
+          "uniqueQuestionCount": 148,
+          "strictUsableQuestionCount": 148,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 90,
+            "1": 87,
             "2": 61
           },
           "phaseGeneration": {
@@ -593,7 +593,7 @@
             "LISTEN_FIND_RHYME": 26,
             "MULTIPLE_CHOICE": 21,
             "READ_FIND_RHYME": 50,
-            "RHYMING_PICTURE": 54
+            "RHYMING_PICTURE": 51
           }
         }
       },
@@ -605,11 +605,11 @@
       "skillNumber": 4,
       "skillId": "cvc_short_vowels",
       "skillName": "CVC Short Vowels",
-      "totalRawQuestions": 544,
-      "totalUniqueQuestions": 544,
-      "totalStrictUsableQuestions": 544,
-      "uniqueLevel1Questions": 326,
-      "uniqueLevel2Questions": 218,
+      "totalRawQuestions": 487,
+      "totalUniqueQuestions": 487,
+      "totalStrictUsableQuestions": 487,
+      "uniqueLevel1Questions": 323,
+      "uniqueLevel2Questions": 164,
       "phasesDetected": [
         1,
         2
@@ -637,8 +637,8 @@
       "cvcShortVowelSpecial": {
         "issues": [],
         "warnings": [
-          "Short-vowel category prompts must render as word/audio option cards without a central speaker-only stimulus: gen_cvc_short_a_bad_0_vowel, gen_cvc_short_a_bag_1_vowel, gen_cvc_short_a_bat_2_vowel, gen_cvc_short_a_cab_3_vowel, gen_cvc_short_a_can_4_vowel, gen_cvc_short_a_cap_5_vowel, gen_cvc_short_a_dab_6_vowel, gen_cvc_short_a_dad_7_vowel, gen_cvc_short_a_fan_8_vowel, gen_cvc_short_a_ham_9_vowel, gen_cvc_short_a_hat_10_vowel, gen_cvc_short_a_jam_11_vowel +83 more.",
-          "Short-vowel category prompts have raw central-image plus answer-image metadata; the student renderer must not show both: gen_cvc_short_a_bad_0_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_bag_1_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_bat_2_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_cab_3_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_can_4_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_cap_5_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_dab_6_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_dad_7_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_fan_8_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_ham_9_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_hat_10_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_jam_11_vowel: raw data has central image + 4 image options; renderer suppresses central image +82 more."
+          "Short-vowel category prompts must render as word/audio option cards without a central speaker-only stimulus: gen_cvc_short_a_bad_0_vowel, gen_cvc_short_a_bag_1_vowel, gen_cvc_short_a_bat_2_vowel, gen_cvc_short_a_cab_3_vowel, gen_cvc_short_a_can_4_vowel, gen_cvc_short_a_cap_5_vowel, gen_cvc_short_a_dab_6_vowel, gen_cvc_short_a_dad_7_vowel, gen_cvc_short_a_fan_8_vowel, gen_cvc_short_a_ham_9_vowel, gen_cvc_short_a_hat_10_vowel, gen_cvc_short_a_jam_11_vowel +82 more.",
+          "Short-vowel category prompts have raw central-image plus answer-image metadata; the student renderer must not show both: gen_cvc_short_a_bad_0_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_bag_1_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_bat_2_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_cab_3_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_can_4_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_cap_5_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_dab_6_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_dad_7_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_fan_8_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_ham_9_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_hat_10_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_jam_11_vowel: raw data has central image + 4 image options; renderer suppresses central image +81 more."
         ],
         "centralSpeakerRisk": [
           "gen_cvc_short_a_bad_0_vowel",
@@ -684,7 +684,6 @@
           "gen_cvc_short_e_ten_9_vowel",
           "gen_cvc_short_e_web_10_vowel",
           "gen_cvc_short_e_wet_11_vowel",
-          "gen_cvc_short_e_yen_12_vowel",
           "gen_cvc_short_i_bib_0_vowel",
           "gen_cvc_short_i_bid_1_vowel",
           "gen_cvc_short_i_big_2_vowel",
@@ -784,7 +783,6 @@
           "gen_cvc_short_e_ten_9_vowel: raw data has central image + 4 image options; renderer suppresses central image",
           "gen_cvc_short_e_web_10_vowel: raw data has central image + 4 image options; renderer suppresses central image",
           "gen_cvc_short_e_wet_11_vowel: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_cvc_short_e_yen_12_vowel: raw data has central image + 4 image options; renderer suppresses central image",
           "gen_cvc_short_i_bib_0_vowel: raw data has central image + 4 image options; renderer suppresses central image",
           "gen_cvc_short_i_big_2_vowel: raw data has central image + 4 image options; renderer suppresses central image",
           "gen_cvc_short_i_bin_3_vowel: raw data has central image + 4 image options; renderer suppresses central image",
@@ -840,8 +838,8 @@
         "twoOptionMultipleChoiceRisks": []
       },
       "choiceRendering": {
-        "graphemeChoiceCount": 180,
-        "imageChoiceCount": 305,
+        "graphemeChoiceCount": 125,
+        "imageChoiceCount": 303,
         "imageChoiceLeaks": [],
         "missingTextLabels": [],
         "issues": []
@@ -849,15 +847,15 @@
       "levels": {
         "1": {
           "level": 1,
-          "rawQuestionCount": 326,
-          "uniqueQuestionCount": 326,
-          "strictUsableQuestionCount": 326,
+          "rawQuestionCount": 323,
+          "uniqueQuestionCount": 323,
+          "strictUsableQuestionCount": 323,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 166,
+            "1": 163,
             "2": 160
           },
           "phaseGeneration": {
@@ -928,26 +926,26 @@
           "formats": {
             "COMPLETE_WORD": 15,
             "HEARD_WORD_TO_PRINT_MINIMAL_PAIR": 84,
-            "MISSING_VOWEL_CVC": 65,
+            "MISSING_VOWEL_CVC": 64,
             "MULTIPLE_CHOICE": 27,
-            "PICTURE_TO_PRINT_MATCH": 51,
+            "PICTURE_TO_PRINT_MATCH": 50,
             "PUT_SOUNDS_IN_ORDER": 30,
-            "SHORT_VOWEL_WORD": 49,
+            "SHORT_VOWEL_WORD": 48,
             "UNKNOWN": 5
           }
         },
         "2": {
           "level": 2,
-          "rawQuestionCount": 218,
-          "uniqueQuestionCount": 218,
-          "strictUsableQuestionCount": 218,
+          "rawQuestionCount": 164,
+          "uniqueQuestionCount": 164,
+          "strictUsableQuestionCount": 164,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 113,
-            "2": 105
+            "1": 82,
+            "2": 82
           },
           "phaseGeneration": {
             "1": true,
@@ -992,11 +990,10 @@
             "sit_fit"
           ],
           "formats": {
-            "LISTEN_CHOOSE_VOWEL": 27,
             "MISSING_VOWEL_CVC": 46,
             "MULTIPLE_CHOICE": 27,
             "PICTURE_TO_PRINT_MATCH": 45,
-            "SHORT_VOWEL_WORD": 73
+            "SHORT_VOWEL_WORD": 46
           }
         }
       },
@@ -1008,11 +1005,11 @@
       "skillNumber": 5,
       "skillId": "short_vowel_discrimination",
       "skillName": "Short Vowel Discrimination",
-      "totalRawQuestions": 532,
-      "totalUniqueQuestions": 532,
-      "totalStrictUsableQuestions": 532,
-      "uniqueLevel1Questions": 212,
-      "uniqueLevel2Questions": 320,
+      "totalRawQuestions": 383,
+      "totalUniqueQuestions": 383,
+      "totalStrictUsableQuestions": 383,
+      "uniqueLevel1Questions": 165,
+      "uniqueLevel2Questions": 218,
       "phasesDetected": [
         1,
         2
@@ -1040,9 +1037,9 @@
       "cvcShortVowelSpecial": {
         "issues": [],
         "warnings": [
-          "Short-vowel category prompts must render as word/audio option cards without a central speaker-only stimulus: ixl_short_vowel_1, ixl_short_vowel_2, ixl_short_vowel_3, ixl_short_vowel_4, ixl_short_vowel_5, ixl_short_vowel_6, ixl_short_vowel_7, ixl_short_vowel_8, ixl_short_vowel_9, ixl_short_vowel_10, ixl_short_vowel_11, ixl_short_vowel_12 +112 more.",
+          "Short-vowel category prompts must render as word/audio option cards without a central speaker-only stimulus: ixl_short_vowel_1, ixl_short_vowel_2, ixl_short_vowel_3, ixl_short_vowel_4, ixl_short_vowel_5, ixl_short_vowel_6, ixl_short_vowel_7, ixl_short_vowel_8, ixl_short_vowel_9, ixl_short_vowel_10, ixl_short_vowel_11, ixl_short_vowel_12 +18 more.",
           "Short-vowel category prompts have fewer than 4 raw choices and rely on runtime expansion: ixl_short_vowel_1 (2 raw choices; runtime expands to 4), ixl_short_vowel_2 (2 raw choices; runtime expands to 4), ixl_short_vowel_3 (2 raw choices; runtime expands to 4), ixl_short_vowel_4 (2 raw choices; runtime expands to 4), ixl_short_vowel_5 (2 raw choices; runtime expands to 4), ixl_short_vowel_6 (2 raw choices; runtime expands to 4), ixl_short_vowel_7 (2 raw choices; runtime expands to 4), ixl_short_vowel_8 (2 raw choices; runtime expands to 4), ixl_short_vowel_9 (2 raw choices; runtime expands to 4), ixl_short_vowel_10 (2 raw choices; runtime expands to 4), ixl_short_vowel_11 (2 raw choices; runtime expands to 4), ixl_short_vowel_12 (2 raw choices; runtime expands to 4) +18 more.",
-          "Short-vowel category prompts have raw central-image plus answer-image metadata; the student renderer must not show both: ixl_short_vowel_1: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_2: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_3: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_4: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_5: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_6: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_7: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_8: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_9: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_10: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_11: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_12: raw data has central image + 2 image options; renderer suppresses central image +112 more.",
+          "Short-vowel category prompts have raw central-image plus answer-image metadata; the student renderer must not show both: ixl_short_vowel_1: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_2: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_3: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_4: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_5: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_6: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_7: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_8: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_9: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_10: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_11: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_12: raw data has central image + 2 image options; renderer suppresses central image +18 more.",
           "Short-vowel multiple-choice tasks with only 2 raw choices: ixl_short_vowel_1:SHORT_VOWEL_WORD, ixl_short_vowel_2:SHORT_VOWEL_WORD, ixl_short_vowel_3:SHORT_VOWEL_WORD, ixl_short_vowel_4:SHORT_VOWEL_WORD, ixl_short_vowel_5:SHORT_VOWEL_WORD, ixl_short_vowel_6:SHORT_VOWEL_WORD, ixl_short_vowel_7:SHORT_VOWEL_WORD, ixl_short_vowel_8:SHORT_VOWEL_WORD, ixl_short_vowel_9:SHORT_VOWEL_WORD, ixl_short_vowel_10:SHORT_VOWEL_WORD, ixl_short_vowel_11:SHORT_VOWEL_WORD, ixl_short_vowel_12:SHORT_VOWEL_WORD +18 more."
         ],
         "centralSpeakerRisk": [
@@ -1075,101 +1072,7 @@
           "ixl_short_vowel_27",
           "ixl_short_vowel_28",
           "ixl_short_vowel_29",
-          "ixl_short_vowel_30",
-          "gen_short_vowel_a_bad_0_word",
-          "gen_short_vowel_a_bag_1_word",
-          "gen_short_vowel_a_bat_2_word",
-          "gen_short_vowel_i_bib_3_word",
-          "gen_short_vowel_i_big_4_word",
-          "gen_short_vowel_i_bin_5_word",
-          "gen_short_vowel_u_bug_6_word",
-          "gen_short_vowel_u_bun_7_word",
-          "gen_short_vowel_u_bus_8_word",
-          "gen_short_vowel_a_cab_9_word",
-          "gen_short_vowel_a_can_10_word",
-          "gen_short_vowel_a_cap_11_word",
-          "gen_short_vowel_o_cob_12_word",
-          "gen_short_vowel_o_cot_13_word",
-          "gen_short_vowel_u_cub_14_word",
-          "gen_short_vowel_u_cup_15_word",
-          "gen_short_vowel_a_dab_16_word",
-          "gen_short_vowel_a_dad_17_word",
-          "gen_short_vowel_e_den_18_word",
-          "gen_short_vowel_i_dig_19_word",
-          "gen_short_vowel_i_dip_20_word",
-          "gen_short_vowel_o_dog_21_word",
-          "gen_short_vowel_o_dot_22_word",
-          "gen_short_vowel_u_dug_23_word",
-          "gen_short_vowel_a_fan_24_word",
-          "gen_short_vowel_i_fig_25_word",
-          "gen_short_vowel_i_fin_26_word",
-          "gen_short_vowel_u_fun_27_word",
-          "gen_short_vowel_e_gem_28_word",
-          "gen_short_vowel_u_gum_29_word",
-          "gen_short_vowel_a_ham_30_word",
-          "gen_short_vowel_a_hat_31_word",
-          "gen_short_vowel_e_hen_32_word",
-          "gen_short_vowel_i_hip_33_word",
-          "gen_short_vowel_i_hit_34_word",
-          "gen_short_vowel_o_hop_35_word",
-          "gen_short_vowel_o_hot_36_word",
-          "gen_short_vowel_u_hut_37_word",
-          "gen_short_vowel_a_jam_38_word",
-          "gen_short_vowel_e_jet_39_word",
-          "gen_short_vowel_u_jug_40_word",
-          "gen_short_vowel_i_kid_41_word",
-          "gen_short_vowel_i_kit_42_word",
-          "gen_short_vowel_a_lab_43_word",
-          "gen_short_vowel_a_lap_44_word",
-          "gen_short_vowel_e_leg_45_word",
-          "gen_short_vowel_i_lid_46_word",
-          "gen_short_vowel_i_lip_47_word",
-          "gen_short_vowel_o_log_48_word",
-          "gen_short_vowel_a_mad_49_word",
-          "gen_short_vowel_a_man_50_word",
-          "gen_short_vowel_a_mat_51_word",
-          "gen_short_vowel_o_mop_52_word",
-          "gen_short_vowel_u_mud_53_word",
-          "gen_short_vowel_u_mug_54_word",
-          "gen_short_vowel_a_nap_55_word",
-          "gen_short_vowel_a_pad_56_word",
-          "gen_short_vowel_a_pan_57_word",
-          "gen_short_vowel_e_peg_58_word",
-          "gen_short_vowel_e_pen_59_word",
-          "gen_short_vowel_e_pet_60_word",
-          "gen_short_vowel_i_pig_61_word",
-          "gen_short_vowel_i_pin_62_word",
-          "gen_short_vowel_o_pot_63_word",
-          "gen_short_vowel_u_pup_64_word",
-          "gen_short_vowel_a_rag_65_word",
-          "gen_short_vowel_a_ram_66_word",
-          "gen_short_vowel_a_rat_67_word",
-          "gen_short_vowel_e_red_68_word",
-          "gen_short_vowel_i_rib_69_word",
-          "gen_short_vowel_o_rod_70_word",
-          "gen_short_vowel_u_rub_71_word",
-          "gen_short_vowel_u_rug_72_word",
-          "gen_short_vowel_u_run_73_word",
-          "gen_short_vowel_a_sad_74_word",
-          "gen_short_vowel_a_sap_75_word",
-          "gen_short_vowel_i_sip_76_word",
-          "gen_short_vowel_i_sit_77_word",
-          "gen_short_vowel_u_sub_78_word",
-          "gen_short_vowel_u_sun_79_word",
-          "gen_short_vowel_a_tab_80_word",
-          "gen_short_vowel_a_tag_81_word",
-          "gen_short_vowel_a_tap_82_word",
-          "gen_short_vowel_e_ten_83_word",
-          "gen_short_vowel_o_top_84_word",
-          "gen_short_vowel_u_tub_85_word",
-          "gen_short_vowel_u_tug_86_word",
-          "gen_short_vowel_a_van_87_word",
-          "gen_short_vowel_a_wag_88_word",
-          "gen_short_vowel_e_web_89_word",
-          "gen_short_vowel_e_wet_90_word",
-          "gen_short_vowel_i_wig_91_word",
-          "gen_short_vowel_a_yak_92_word",
-          "gen_short_vowel_e_yen_93_word"
+          "ixl_short_vowel_30"
         ],
         "invalidListenFind": [],
         "graphemeImageLeaks": [],
@@ -1235,101 +1138,7 @@
           "ixl_short_vowel_27: raw data has central image + 2 image options; renderer suppresses central image",
           "ixl_short_vowel_28: raw data has central image + 2 image options; renderer suppresses central image",
           "ixl_short_vowel_29: raw data has central image + 2 image options; renderer suppresses central image",
-          "ixl_short_vowel_30: raw data has central image + 2 image options; renderer suppresses central image",
-          "gen_short_vowel_a_bad_0_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_bag_1_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_bat_2_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_bib_3_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_big_4_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_bin_5_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_bug_6_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_bun_7_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_bus_8_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_cab_9_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_can_10_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_cap_11_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_cob_12_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_cot_13_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_cub_14_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_cup_15_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_dab_16_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_dad_17_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_den_18_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_dig_19_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_dip_20_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_dog_21_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_dot_22_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_dug_23_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_fan_24_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_fig_25_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_fin_26_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_fun_27_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_gem_28_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_gum_29_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_ham_30_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_hat_31_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_hen_32_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_hip_33_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_hit_34_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_hop_35_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_hot_36_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_hut_37_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_jam_38_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_jet_39_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_jug_40_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_kid_41_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_kit_42_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_lab_43_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_lap_44_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_leg_45_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_lid_46_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_lip_47_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_log_48_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_mad_49_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_man_50_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_mat_51_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_mop_52_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_mud_53_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_mug_54_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_nap_55_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_pad_56_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_pan_57_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_peg_58_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_pen_59_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_pet_60_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_pig_61_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_pin_62_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_pot_63_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_pup_64_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_rag_65_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_ram_66_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_rat_67_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_red_68_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_rib_69_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_rod_70_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_rub_71_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_rug_72_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_run_73_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_sad_74_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_sap_75_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_sip_76_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_sit_77_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_sub_78_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_sun_79_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_tab_80_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_tag_81_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_tap_82_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_ten_83_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_o_top_84_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_tub_85_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_u_tug_86_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_van_87_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_wag_88_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_web_89_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_wet_90_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_i_wig_91_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_a_yak_92_word: raw data has central image + 4 image options; renderer suppresses central image",
-          "gen_short_vowel_e_yen_93_word: raw data has central image + 4 image options; renderer suppresses central image"
+          "ixl_short_vowel_30: raw data has central image + 2 image options; renderer suppresses central image"
         ],
         "listenChooseVowelTileIssues": [],
         "twoOptionMultipleChoiceRisks": [
@@ -1366,8 +1175,8 @@
         ]
       },
       "choiceRendering": {
-        "graphemeChoiceCount": 195,
-        "imageChoiceCount": 314,
+        "graphemeChoiceCount": 140,
+        "imageChoiceCount": 220,
         "imageChoiceLeaks": [],
         "missingTextLabels": [],
         "issues": []
@@ -1375,16 +1184,16 @@
       "levels": {
         "1": {
           "level": 1,
-          "rawQuestionCount": 212,
-          "uniqueQuestionCount": 212,
-          "strictUsableQuestionCount": 212,
+          "rawQuestionCount": 165,
+          "uniqueQuestionCount": 165,
+          "strictUsableQuestionCount": 165,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 107,
-            "2": 105
+            "1": 83,
+            "2": 82
           },
           "phaseGeneration": {
             "1": true,
@@ -1412,22 +1221,22 @@
           "formats": {
             "LISTEN_CHOOSE_VOWEL": 87,
             "PICTURE_TO_PRINT_MATCH": 39,
-            "SHORT_VOWEL_WORD": 77,
+            "SHORT_VOWEL_WORD": 30,
             "UNKNOWN": 9
           }
         },
         "2": {
           "level": 2,
-          "rawQuestionCount": 320,
-          "uniqueQuestionCount": 320,
-          "strictUsableQuestionCount": 320,
+          "rawQuestionCount": 218,
+          "uniqueQuestionCount": 218,
+          "strictUsableQuestionCount": 218,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 164,
-            "2": 156
+            "1": 109,
+            "2": 109
           },
           "phaseGeneration": {
             "1": true,
@@ -1565,9 +1374,8 @@
             "yellow"
           ],
           "formats": {
-            "LISTEN_CHOOSE_VOWEL": 74,
+            "LISTEN_CHOOSE_VOWEL": 46,
             "MULTIPLE_CHOICE": 152,
-            "SHORT_VOWEL_WORD": 74,
             "UNKNOWN": 20
           }
         }
@@ -2050,11 +1858,11 @@
       "skillNumber": 8,
       "skillId": "hfw_51_75",
       "skillName": "High-Frequency Words 51-75",
-      "totalRawQuestions": 140,
-      "totalUniqueQuestions": 140,
-      "totalStrictUsableQuestions": 140,
-      "uniqueLevel1Questions": 70,
-      "uniqueLevel2Questions": 70,
+      "totalRawQuestions": 92,
+      "totalUniqueQuestions": 92,
+      "totalStrictUsableQuestions": 92,
+      "uniqueLevel1Questions": 46,
+      "uniqueLevel2Questions": 46,
       "phasesDetected": [
         1,
         2
@@ -2137,16 +1945,16 @@
       "levels": {
         "1": {
           "level": 1,
-          "rawQuestionCount": 70,
-          "uniqueQuestionCount": 70,
-          "strictUsableQuestionCount": 70,
+          "rawQuestionCount": 46,
+          "uniqueQuestionCount": 46,
+          "strictUsableQuestionCount": 46,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 39,
-            "2": 31
+            "1": 23,
+            "2": 23
           },
           "phaseGeneration": {
             "1": true,
@@ -2185,22 +1993,21 @@
             "into"
           ],
           "formats": {
-            "HFW_IMAGE_CONTEXT_CLOZE": 46,
-            "READ_FIND_WORD": 24
+            "HFW_IMAGE_CONTEXT_CLOZE": 46
           }
         },
         "2": {
           "level": 2,
-          "rawQuestionCount": 70,
-          "uniqueQuestionCount": 70,
-          "strictUsableQuestionCount": 70,
+          "rawQuestionCount": 46,
+          "uniqueQuestionCount": 46,
+          "strictUsableQuestionCount": 46,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 39,
-            "2": 31
+            "1": 23,
+            "2": 23
           },
           "phaseGeneration": {
             "1": true,
@@ -2239,8 +2046,7 @@
             "into"
           ],
           "formats": {
-            "HFW_LETTER_BUILD": 46,
-            "READ_FIND_WORD": 24
+            "HFW_LETTER_BUILD": 46
           }
         }
       },
@@ -2252,11 +2058,11 @@
       "skillNumber": 9,
       "skillId": "hfw_76_100",
       "skillName": "High-Frequency Words 76-100",
-      "totalRawQuestions": 140,
-      "totalUniqueQuestions": 140,
-      "totalStrictUsableQuestions": 140,
-      "uniqueLevel1Questions": 70,
-      "uniqueLevel2Questions": 70,
+      "totalRawQuestions": 92,
+      "totalUniqueQuestions": 92,
+      "totalStrictUsableQuestions": 92,
+      "uniqueLevel1Questions": 46,
+      "uniqueLevel2Questions": 46,
       "phasesDetected": [
         1,
         2
@@ -2331,7 +2137,7 @@
       "cvcShortVowelSpecial": null,
       "choiceRendering": {
         "graphemeChoiceCount": 0,
-        "imageChoiceCount": 3,
+        "imageChoiceCount": 1,
         "imageChoiceLeaks": [],
         "missingTextLabels": [],
         "issues": []
@@ -2339,16 +2145,16 @@
       "levels": {
         "1": {
           "level": 1,
-          "rawQuestionCount": 70,
-          "uniqueQuestionCount": 70,
-          "strictUsableQuestionCount": 70,
+          "rawQuestionCount": 46,
+          "uniqueQuestionCount": 46,
+          "strictUsableQuestionCount": 46,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 39,
-            "2": 31
+            "1": 23,
+            "2": 23
           },
           "phaseGeneration": {
             "1": true,
@@ -2387,22 +2193,21 @@
             "yes"
           ],
           "formats": {
-            "HFW_IMAGE_CONTEXT_CLOZE": 46,
-            "READ_FIND_WORD": 24
+            "HFW_IMAGE_CONTEXT_CLOZE": 46
           }
         },
         "2": {
           "level": 2,
-          "rawQuestionCount": 70,
-          "uniqueQuestionCount": 70,
-          "strictUsableQuestionCount": 70,
+          "rawQuestionCount": 46,
+          "uniqueQuestionCount": 46,
+          "strictUsableQuestionCount": 46,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
-            "1": 39,
-            "2": 31
+            "1": 23,
+            "2": 23
           },
           "phaseGeneration": {
             "1": true,
@@ -2441,8 +2246,7 @@
             "yes"
           ],
           "formats": {
-            "HFW_LETTER_BUILD": 46,
-            "READ_FIND_WORD": 24
+            "HFW_LETTER_BUILD": 46
           }
         }
       },
@@ -3239,10 +3043,10 @@
       "skillNumber": 14,
       "skillId": "r_controlled_vowels",
       "skillName": "R-Controlled Vowels",
-      "totalRawQuestions": 140,
-      "totalUniqueQuestions": 140,
-      "totalStrictUsableQuestions": 138,
-      "uniqueLevel1Questions": 53,
+      "totalRawQuestions": 141,
+      "totalUniqueQuestions": 141,
+      "totalStrictUsableQuestions": 139,
+      "uniqueLevel1Questions": 54,
       "uniqueLevel2Questions": 85,
       "phasesDetected": [
         1,
@@ -3296,16 +3100,16 @@
       "levels": {
         "1": {
           "level": 1,
-          "rawQuestionCount": 54,
-          "uniqueQuestionCount": 54,
-          "strictUsableQuestionCount": 53,
+          "rawQuestionCount": 55,
+          "uniqueQuestionCount": 55,
+          "strictUsableQuestionCount": 54,
           "detectedPhases": [
             1,
             2
           ],
           "phaseCounts": {
             "1": 31,
-            "2": 22
+            "2": 23
           },
           "phaseGeneration": {
             "1": true,
@@ -3352,7 +3156,7 @@
             "verb"
           ],
           "formats": {
-            "DECODING": 24,
+            "DECODING": 25,
             "MULTIPLE_CHOICE": 29
           }
         },

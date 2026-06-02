@@ -106,3 +106,91 @@ Recommended next step:
 5. Keep early phonics and comprehension synchronous until round-selection and checkpoint flows have async smoke coverage.
 6. Re-run the full assessment safety suite after each group split.
 
+## Phase 6 Conservative Safety Audit
+
+Generated: 2026-06-02
+
+Phase 6 was kept audit-first. No live assessment-bank lazy loading was added in this phase, and early phonics runtime selection was intentionally left untouched.
+
+### 1. Safe candidate groups
+
+These groups remain the safest candidates for future lazy loading because they have clearer skill boundaries and less custom round-selection behavior than early phonics:
+
+- HFW banks:
+  - `hfw_1_25`
+  - `hfw_26_50`
+  - `hfw_51_75`
+  - `hfw_76_100`
+- Replacement phonics banks:
+  - `blends`
+  - `digraphs`
+  - `long_vowels_silent_e` / runtime alias `long_vowels`
+  - `vowel_teams`
+  - `r_controlled_vowels` / runtime alias `r_controlled`
+
+These are still not lazy-loaded in Phase 6. The recommendation is to lazy-load only one isolated group after a runtime smoke test is available.
+
+### 2. Unsafe / deferred groups
+
+These groups should remain eager/synchronous for now:
+
+- `initial_sounds`
+- `final_sounds`
+- `rhyming`
+- `cvc_short_vowels`
+- `short_vowel_discrimination`
+- comprehension:
+  - `sentence_comprehension`
+  - `key_details`
+  - `sequencing`
+  - `main_idea`
+  - `inference`
+  - `cause_effect`
+  - `context_clues`
+  - `theme_higher_comprehension`
+
+### 3. Reason for deferring early phonics
+
+Early phonics uses generated banks, runtime eligibility, phase metadata, adaptive selection, media resolution, repeat prevention, coverage keys, and progression checks. It must stay eager/synchronous for now.
+
+In particular:
+
+- Initial Sounds uses a custom selector and level-aware word-bank planning.
+- Final Sounds has Level 1 purity checks plus mastery-depth requirements before Level 2 unlocks.
+- Rhyming depends on image-card purity, rime-family coverage, and repeat guards.
+- CVC Short Vowels and Short Vowel Discrimination depend on short-vowel media enrichment, phase metadata, and runtime format filtering.
+
+Moving these to async group loading before a dedicated assessment bootstrap would risk blank rounds, wrong phase selection, or incorrect checkpoint behavior.
+
+### 4. Current eager imports still present
+
+`src/App.jsx` still eagerly imports and assembles the main runtime assessment pool.
+
+| Chunk/source family | Current eager imports |
+| --- | --- |
+| generated-early-skills | `generatedEarlySkillQuestions` from `./data/generated/earlySkillQuestions.generated.js` |
+| question-bank-extra | `questionBankExpansion8`, `questionBankExpansion9`, `questionBankExpansion10`, `questionBankExpansion11`, `questionBankExpansion12`, `questionBankExpansion13`, `questionBankExpansion14`, plus `generatedQuestions`, `templateExpansion*`, `qbAssess_*`, `qbFillGaps`, and compatibility banks |
+| audio-manifest | No static top-level import in `App.jsx`; still available as a dynamic chunk through `import("./data/audioManifest")` |
+| replacement banks | `blendsAssessmentQuestions`, `digraphsAssessmentQuestions`, `longVowelsAssessmentQuestions`, `vowelTeamsVarietyQuestions`, `grammarAssessmentQuestions`, `skillLevelGapQuestions` |
+| HFW banks | `qbAssess_hfw1`, `qbAssess_hfw2`, `hfwAssessmentQuestions`, `hfwLevel2Questions` |
+
+`src/data/loadAssessmentSkillBank.js` also imports the same broad source banks so the Phase 5/6 validation path can prove group resolution without changing runtime behavior.
+
+### 5. Recommended Phase 7 plan
+
+The smallest next safe lazy-loading target is the `hfw` group, but only after a runtime smoke test exists for:
+
+- starting an HFW 1-25 round
+- starting an HFW 26-50 round
+- starting an HFW 51-75 round
+- starting an HFW 76-100 round
+- completing a Level 1 HFW checkpoint
+- completing a Level 2 HFW letter-build checkpoint
+
+Recommended Phase 7 sequence:
+
+1. Extract the current `App.jsx` question-pool assembly into a runtime module without changing behavior.
+2. Add an explicit assessment-bank loading state before a round starts.
+3. Lazy-load only the `hfw` group first.
+4. Compare loader counts and runtime-selected rounds before and after.
+5. Keep `early_phonics` and `comprehension` eager until async selection has dedicated smoke coverage.

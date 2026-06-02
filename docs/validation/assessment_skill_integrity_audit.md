@@ -1,6 +1,6 @@
 # Assessment Skill Integrity Audit
 
-Generated: 2026-06-02T03:07:27.945Z
+Generated: 2026-06-02T06:55:05.867Z
 
 Strict contract: every assessment skill should have exactly 2 levels, exactly 2 phases, 15 safe questions per phase, and at least 30 unique usable questions per level. This is audit-only and does not modify question content.
 
@@ -23,8 +23,8 @@ Strict contract: every assessment skill should have exactly 2 levels, exactly 2 
 | missingSkillIds | 0 |
 | missingLevelData | 0 |
 | missingPhaseData | 0 |
-| graphemeChoiceQuestions | 1085 |
-| imageChoiceQuestions | 1893 |
+| graphemeChoiceQuestions | 974 |
+| imageChoiceQuestions | 1792 |
 | imageChoiceLeaks | 0 |
 | unassignedQuestions | 190 |
 
@@ -33,19 +33,19 @@ Strict contract: every assessment skill should have exactly 2 levels, exactly 2 
 | # | Skill | Skill ID | Unique total | L1 usable | L2 usable | Phases | Levels | 2 phases | 2 levels | L1 missing | L2 missing | Text-tile questions | Image-choice questions | Image leaks | Round risk | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Initial Sounds | initial_sounds | 197 | 143 | 54 | 2 | 2 | yes | yes | 0 | 0 | 84 | 109 | 0 | ok | pass |
-| 2 | Final Sounds | final_sounds | 545 | 265 | 280 | 2 | 2 | yes | yes | 0 | 0 | 318 | 157 | 0 | ok | pass |
-| 3 | Rhyming | rhyming | 637 | 486 | 151 | 2 | 2 | yes | yes | 0 | 0 | 0 | 593 | 0 | ok | pass |
-| 4 | CVC Short Vowels | cvc_short_vowels | 544 | 326 | 218 | 2 | 2 | yes | yes | 0 | 0 | 180 | 305 | 0 | ok | pass |
-| 5 | Short Vowel Discrimination | short_vowel_discrimination | 532 | 212 | 320 | 2 | 2 | yes | yes | 0 | 0 | 195 | 314 | 0 | ok | pass |
+| 2 | Final Sounds | final_sounds | 544 | 264 | 280 | 2 | 2 | yes | yes | 0 | 0 | 317 | 157 | 0 | ok | pass |
+| 3 | Rhyming | rhyming | 634 | 486 | 148 | 2 | 2 | yes | yes | 0 | 0 | 0 | 590 | 0 | ok | pass |
+| 4 | CVC Short Vowels | cvc_short_vowels | 487 | 323 | 164 | 2 | 2 | yes | yes | 0 | 0 | 125 | 303 | 0 | ok | pass |
+| 5 | Short Vowel Discrimination | short_vowel_discrimination | 383 | 165 | 218 | 2 | 2 | yes | yes | 0 | 0 | 140 | 220 | 0 | ok | pass |
 | 6 | High-Frequency Words 1-25 | hfw_1_25 | 218 | 123 | 95 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
 | 7 | High-Frequency Words 26-50 | hfw_26_50 | 219 | 84 | 135 | 2 | 2 | yes | yes | 0 | 0 | 0 | 2 | 0 | ok | pass |
-| 8 | High-Frequency Words 51-75 | hfw_51_75 | 140 | 70 | 70 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
-| 9 | High-Frequency Words 76-100 | hfw_76_100 | 140 | 70 | 70 | 2 | 2 | yes | yes | 0 | 0 | 0 | 3 | 0 | ok | pass |
+| 8 | High-Frequency Words 51-75 | hfw_51_75 | 92 | 46 | 46 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 9 | High-Frequency Words 76-100 | hfw_76_100 | 92 | 46 | 46 | 2 | 2 | yes | yes | 0 | 0 | 0 | 1 | 0 | ok | pass |
 | 10 | Blends | blends | 237 | 146 | 91 | 2 | 2 | yes | yes | 0 | 0 | 60 | 90 | 0 | ok | pass |
 | 11 | Digraphs | digraphs | 289 | 153 | 136 | 2 | 2 | yes | yes | 0 | 0 | 81 | 99 | 0 | ok | pass |
 | 12 | Long Vowels and Silent E | long_vowels_silent_e | 190 | 61 | 128 | 2 | 2 | yes | yes | 0 | 0 | 60 | 0 | 0 | ok | pass |
 | 13 | Vowel Teams | vowel_teams | 107 | 46 | 61 | 2 | 2 | yes | yes | 0 | 0 | 107 | 0 | 0 | ok | pass |
-| 14 | R-Controlled Vowels | r_controlled_vowels | 140 | 53 | 85 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
+| 14 | R-Controlled Vowels | r_controlled_vowels | 141 | 54 | 85 | 2 | 2 | yes | yes | 0 | 0 | 0 | 0 | 0 | ok | pass |
 | 15 | Nouns | nouns | 189 | 75 | 114 | 2 | 2 | yes | yes | 0 | 0 | 0 | 90 | 0 | ok | pass |
 | 16 | Verbs | verbs | 195 | 81 | 114 | 2 | 2 | yes | yes | 0 | 0 | 0 | 62 | 0 | ok | pass |
 | 17 | Adjectives | adjectives | 181 | 82 | 99 | 2 | 2 | yes | yes | 0 | 0 | 0 | 60 | 0 | ok | pass |
@@ -118,8 +118,8 @@ _None._
 
 ## Assessment Choice Rendering Diagnostics
 
-- Grapheme/text-choice questions: 1085
-- Image-choice questions: 1893
+- Grapheme/text-choice questions: 974
+- Image-choice questions: 1792
 - Image-choice leaks in grapheme/text-choice questions: 0
 
 _No image-choice leaks detected in grapheme/text-choice questions._
@@ -127,17 +127,17 @@ _No image-choice leaks detected in grapheme/text-choice questions._
 ## CVC / Short Vowel Rendering Guardrails
 
 - CVC Short Vowels:
-  - Short-vowel word-choice prompts requiring option-card rendering: gen_cvc_short_a_bad_0_vowel, gen_cvc_short_a_bag_1_vowel, gen_cvc_short_a_bat_2_vowel, gen_cvc_short_a_cab_3_vowel, gen_cvc_short_a_can_4_vowel, gen_cvc_short_a_cap_5_vowel, gen_cvc_short_a_dab_6_vowel, gen_cvc_short_a_dad_7_vowel, gen_cvc_short_a_fan_8_vowel, gen_cvc_short_a_ham_9_vowel, gen_cvc_short_a_hat_10_vowel, gen_cvc_short_a_jam_11_vowel, gen_cvc_short_a_lab_12_vowel, gen_cvc_short_a_lap_13_vowel, gen_cvc_short_a_mad_14_vowel, gen_cvc_short_a_man_15_vowel +79 more
+  - Short-vowel word-choice prompts requiring option-card rendering: gen_cvc_short_a_bad_0_vowel, gen_cvc_short_a_bag_1_vowel, gen_cvc_short_a_bat_2_vowel, gen_cvc_short_a_cab_3_vowel, gen_cvc_short_a_can_4_vowel, gen_cvc_short_a_cap_5_vowel, gen_cvc_short_a_dab_6_vowel, gen_cvc_short_a_dad_7_vowel, gen_cvc_short_a_fan_8_vowel, gen_cvc_short_a_ham_9_vowel, gen_cvc_short_a_hat_10_vowel, gen_cvc_short_a_jam_11_vowel, gen_cvc_short_a_lab_12_vowel, gen_cvc_short_a_lap_13_vowel, gen_cvc_short_a_mad_14_vowel, gen_cvc_short_a_man_15_vowel +78 more
   - Raw short-vowel word-choice prompts with fewer than 4 options: -
-  - Raw central-image + answer-image category prompts: gen_cvc_short_a_bad_0_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_bag_1_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_bat_2_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_cab_3_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_can_4_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_cap_5_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_dab_6_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_dad_7_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_fan_8_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_ham_9_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_hat_10_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_jam_11_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_lab_12_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_lap_13_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_mad_14_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_man_15_vowel: raw data has central image + 4 image options; renderer suppresses central image +78 more
+  - Raw central-image + answer-image category prompts: gen_cvc_short_a_bad_0_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_bag_1_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_bat_2_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_cab_3_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_can_4_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_cap_5_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_dab_6_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_dad_7_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_fan_8_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_ham_9_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_hat_10_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_jam_11_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_lab_12_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_lap_13_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_mad_14_vowel: raw data has central image + 4 image options; renderer suppresses central image, gen_cvc_short_a_man_15_vowel: raw data has central image + 4 image options; renderer suppresses central image +77 more
   - Listen-choose-vowel tile issues: -
   - Raw 2-option short-vowel multiple-choice tasks: -
   - Invalid Listen & Find classifications: -
   - Grapheme image leaks: -
 - Short Vowel Discrimination:
-  - Short-vowel word-choice prompts requiring option-card rendering: ixl_short_vowel_1, ixl_short_vowel_2, ixl_short_vowel_3, ixl_short_vowel_4, ixl_short_vowel_5, ixl_short_vowel_6, ixl_short_vowel_7, ixl_short_vowel_8, ixl_short_vowel_9, ixl_short_vowel_10, ixl_short_vowel_11, ixl_short_vowel_12, ixl_short_vowel_13, ixl_short_vowel_14, ixl_short_vowel_15, ixl_short_vowel_16 +108 more
+  - Short-vowel word-choice prompts requiring option-card rendering: ixl_short_vowel_1, ixl_short_vowel_2, ixl_short_vowel_3, ixl_short_vowel_4, ixl_short_vowel_5, ixl_short_vowel_6, ixl_short_vowel_7, ixl_short_vowel_8, ixl_short_vowel_9, ixl_short_vowel_10, ixl_short_vowel_11, ixl_short_vowel_12, ixl_short_vowel_13, ixl_short_vowel_14, ixl_short_vowel_15, ixl_short_vowel_16 +14 more
   - Raw short-vowel word-choice prompts with fewer than 4 options: ixl_short_vowel_1 (2 raw choices; runtime expands to 4), ixl_short_vowel_2 (2 raw choices; runtime expands to 4), ixl_short_vowel_3 (2 raw choices; runtime expands to 4), ixl_short_vowel_4 (2 raw choices; runtime expands to 4), ixl_short_vowel_5 (2 raw choices; runtime expands to 4), ixl_short_vowel_6 (2 raw choices; runtime expands to 4), ixl_short_vowel_7 (2 raw choices; runtime expands to 4), ixl_short_vowel_8 (2 raw choices; runtime expands to 4), ixl_short_vowel_9 (2 raw choices; runtime expands to 4), ixl_short_vowel_10 (2 raw choices; runtime expands to 4), ixl_short_vowel_11 (2 raw choices; runtime expands to 4), ixl_short_vowel_12 (2 raw choices; runtime expands to 4), ixl_short_vowel_13 (2 raw choices; runtime expands to 4), ixl_short_vowel_14 (2 raw choices; runtime expands to 4), ixl_short_vowel_15 (2 raw choices; runtime expands to 4), ixl_short_vowel_16 (2 raw choices; runtime expands to 4) +14 more
-  - Raw central-image + answer-image category prompts: ixl_short_vowel_1: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_2: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_3: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_4: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_5: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_6: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_7: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_8: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_9: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_10: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_11: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_12: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_13: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_14: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_15: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_16: raw data has central image + 2 image options; renderer suppresses central image +108 more
+  - Raw central-image + answer-image category prompts: ixl_short_vowel_1: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_2: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_3: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_4: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_5: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_6: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_7: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_8: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_9: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_10: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_11: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_12: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_13: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_14: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_15: raw data has central image + 2 image options; renderer suppresses central image, ixl_short_vowel_16: raw data has central image + 2 image options; renderer suppresses central image +14 more
   - Listen-choose-vowel tile issues: -
   - Raw 2-option short-vowel multiple-choice tasks: ixl_short_vowel_1:SHORT_VOWEL_WORD, ixl_short_vowel_2:SHORT_VOWEL_WORD, ixl_short_vowel_3:SHORT_VOWEL_WORD, ixl_short_vowel_4:SHORT_VOWEL_WORD, ixl_short_vowel_5:SHORT_VOWEL_WORD, ixl_short_vowel_6:SHORT_VOWEL_WORD, ixl_short_vowel_7:SHORT_VOWEL_WORD, ixl_short_vowel_8:SHORT_VOWEL_WORD, ixl_short_vowel_9:SHORT_VOWEL_WORD, ixl_short_vowel_10:SHORT_VOWEL_WORD, ixl_short_vowel_11:SHORT_VOWEL_WORD, ixl_short_vowel_12:SHORT_VOWEL_WORD, ixl_short_vowel_13:SHORT_VOWEL_WORD, ixl_short_vowel_14:SHORT_VOWEL_WORD, ixl_short_vowel_15:SHORT_VOWEL_WORD, ixl_short_vowel_16:SHORT_VOWEL_WORD +14 more
   - Invalid Listen & Find classifications: -

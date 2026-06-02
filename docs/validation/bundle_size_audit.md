@@ -89,6 +89,51 @@ After Phase 5 foundation:
 
 The Learn chunk is larger than Phase 4 because new Story Quest data was added before this phase. The assessment-related chunks stayed effectively unchanged, as expected.
 
+## Phase 6 Status
+
+Generated: 2026-06-02
+
+Phase 6 was audit-only for runtime behavior. No assessment bank lazy loading was added, and no live assessment startup code was changed.
+
+Checker/reporting changes were made:
+
+- `tools/checkAssessmentSkillBankLoader.js` now verifies every active skill maps to exactly one known group.
+- It explicitly checks HFW split bands, replacement phonics skills, runtime aliases, ghost inactive skills, and unknown-skill fallback behavior.
+- `docs/validation/assessment_data_loading_audit.md` now includes a Phase 6 safe/deferred loading section.
+
+### Phase 6 Chunk Sizes
+
+Fresh build output:
+
+| Chunk | File | Size | Gzip |
+|---|---|---:|---:|
+| main index | `index-BaW77GMO.js` | 3441.45 kB | 357.66 kB |
+| generated-early-skills | `generated-early-skills-IajG1PXK.js` | 916.48 kB | 42.32 kB |
+| question-bank-extra | `question-bank-extra-D_3P6UoK.js` | 907.19 kB | 120.12 kB |
+| audio-manifest | `audio-manifest-Db4LBHm1.js` | 758.17 kB | 195.53 kB |
+| admin media inventory | `admin-media-inventory-Cwm8n-X9.js` | 1380.61 kB | 62.21 kB |
+| guided-reading-data | `guided-reading-data-DZHBYWgF.js` | 1011.77 kB | 148.42 kB |
+| exceljs | `exceljs.min-CjgIwHka.js` | 908.13 kB | 249.59 kB |
+| LearnAreaPage | `LearnAreaPage-DOHpN1jo.js` | 72.62 kB | 16.96 kB |
+| AdminDashboardPage | `AdminDashboardPage-CQTN4YrL.js` | 144.29 kB | 31.07 kB |
+| GuidedReadingPage | `GuidedReadingPage-RCJm6iiS.js` | 31.47 kB | 9.20 kB |
+| FinishedReportPage | `FinishedReportPage-CByA7f8-.js` | 6.51 kB | 2.12 kB |
+
+The main index and assessment chunks remain large because the current app still assembles the assessment bank synchronously. The generated-early-skills chunk is smaller than the Phase 5 number because earlier assessment-bank cleanup reduced generated short-vowel content, not because Phase 6 added lazy loading.
+
+### Deferred Reduction
+
+Major chunk reduction is deferred until Phase 7. The safest next step is to lazy-load one isolated bank group only after a runtime smoke test is available.
+
+Recommended next target:
+
+- Start with `hfw` only.
+- Keep `early_phonics` eager.
+- Keep comprehension eager.
+- Compare selected-round behavior before and after lazy loading.
+
+Do not split generated early skills, final-sound progression data, or comprehension banks until the assessment runtime has an explicit loading state and smoke coverage.
+
 ## Still Eager
 
 ### Assessment banks in `src/App.jsx`
