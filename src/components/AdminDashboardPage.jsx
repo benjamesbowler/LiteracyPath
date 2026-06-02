@@ -5,7 +5,6 @@ import {
   readMediaQaOverrides,
   updateMediaQaRecords
 } from "../data/mediaQaManifest";
-import { publicMediaInventory } from "../data/publicMediaInventory";
 import { guidedReadingBooks } from "../data/guidedReadingBooks";
 import { addDeletedMediaRecords, isMediaDeleted } from "../data/deletedMediaManifest";
 import { enrichGuidedReadingBook } from "../utils/guidedReading/phonicsPageAnalyzer";
@@ -35,7 +34,6 @@ import {
   exportClassElAssessmentExcel,
   exportStudentElAssessmentExcel
 } from "../utils/exportElAssessmentExcel.js";
-import { exportGuidedReadingCompletionExcel } from "../utils/exportGuidedReadingCompletionExcel.js";
 import assessmentAudioCoverage from "../content/assessments/assessmentAudioCoverageSummary.generated.json";
 import guidedReadingImageTextQa from "../content/guidedReading/imageTextArtifactSummary.generated.json";
 import guidedReadingWordAudioCoverage from "../content/guidedReading/wordAudioCoverageSummary.generated.json";
@@ -459,6 +457,7 @@ function guidedImageQaToKimiMarkdown(records) {
 
 function MediaQaPage({ mediaType, questions = [], onBack }) {
   const [overrides, setOverrides] = useState(() => readMediaQaOverrides());
+  const [mediaInventory, setMediaInventory] = useState(null);
   const [statusFilter, setStatusFilter] = useState("all");
   const [skillFilter, setSkillFilter] = useState("all");
   const [search, setSearch] = useState("");
@@ -466,9 +465,20 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
   const [pendingDelete, setPendingDelete] = useState(null);
   const [deleteConfirmationText, setDeleteConfirmationText] = useState("");
   const audioPreviewRef = useRef(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    import("../data/publicMediaInventory").then(module => {
+      if (!cancelled) setMediaInventory(module.publicMediaInventory || []);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const allRecords = useMemo(
-    () => buildMediaQaRecords(questions, overrides, publicMediaInventory).filter(record => record.mediaType === mediaType),
-    [questions, overrides, mediaType]
+    () => buildMediaQaRecords(questions, overrides, mediaInventory || []).filter(record => record.mediaType === mediaType),
+    [questions, overrides, mediaInventory, mediaType]
   );
   const skillOptions = useMemo(() => [...new Set(allRecords.map(record => record.skillName || record.skillId).filter(Boolean))].sort(), [allRecords]);
   const statusCounts = useMemo(() => allRecords.reduce((counts, record) => {
@@ -520,6 +530,24 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
       "no wrong accent/pronunciation",
       "short silence before/after only"
     ];
+
+  if (!mediaInventory) {
+    return (
+      <main className="admin-dashboard page-stack media-qa-page">
+        <section className="card page-stack">
+          <div className="admin-header">
+            <div>
+              <h2>{mediaType === "image" ? "Image QA" : "Audio QA"}</h2>
+              <p className="muted-text">Loading media inventory...</p>
+            </div>
+            <div className="button-row admin-controls">
+              <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   function playPreviewAudio(filePath) {
     if (!filePath) return;
@@ -1216,6 +1244,7 @@ export function AdminDashboardPage({
   async function handleGuidedReadingCompletionExport() {
     setExportNotice("");
     try {
+      const { exportGuidedReadingCompletionExcel } = await import("../utils/exportGuidedReadingCompletionExcel.js");
       const data = await exportGuidedReadingCompletionExcel({
         students,
         classes,

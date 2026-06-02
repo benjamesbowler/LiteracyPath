@@ -1,6 +1,6 @@
 # Early Skill Runtime Eligibility Audit
 
-Generated: 2026-06-02T00:11:03.142Z
+Generated: 2026-06-02T03:07:05.136Z
 
 ## initial_sounds
 
@@ -46,7 +46,7 @@ Generated: 2026-06-02T00:11:03.142Z
 ## final_sounds
 
 - Total candidate questions: 532
-- Runtime eligible questions: 451
+- Runtime eligible questions: 452
 
 ### Level 1
 
@@ -75,7 +75,7 @@ Generated: 2026-06-02T00:11:03.142Z
 
 ### Level 2
 
-- Accepted count: 261
+- Accepted count: 262
 - Coverage targets: 31
 - Missing image references among accepted: 0
 - Missing audio references among accepted: 0
@@ -83,16 +83,15 @@ Generated: 2026-06-02T00:11:03.142Z
 | Rejection reason | Count |
 |---|---:|
 | Final Sounds question is missing a real target-word object image | 24 |
-| question would render with an empty or broken visual area | 22 |
 | missing required runtime image | 21 |
+| question would render with an empty or broken visual area | 21 |
 | routing/template mismatch: MULTIPLE_CHOICE is not allowed for final_sounds | 3 |
-| runtime card set is incomplete | 1 |
 | question is inactive | 1 |
 | routing/template mismatch: UNKNOWN is not allowed for final_sounds | 1 |
 | listen prompt is missing required runtime audio | 1 |
 
-- Fresh round proof: gen_final_l2_lt_quilt_1_word (quilt), ending_l2_007_ring (ring), gen_final_l2_st_goalpost_5_word (goalpost), recovery_final_n_1 (pen), ending_l2_009_hand (hand), gen_final_l2_sk_kiosk_2_word (kiosk), coverage_final_g_003 (bag), gen_final_l2_sh_fish_3_sound (fish), coverage_final_d_006 (red), coverage_final_s_003 (octopus), gen_final_l2_nk_drink_0_word (drink), ending_l2_013_fork (fork), qb12_fs_021 (dot), gen_final_l2_nd_sand_13_word (sand), recovery_final_p_3 (cap)
-- Review round proof: ending_l2_005_sock (sock), qb12_fs_026 (beach), ending_l2_013_fork (fork), coverage_final_n_006 (rain), gen_final_l2_nk_ink_1_word (ink), ending_l2_011_lamp (lamp), ending_l2_009_hand (hand), coverage_final_k_007 (rock), gen_final_l2_sh_leash_7_word (leash), recovery_final_t_3 (mat), gen_final_l2_ll_doll_8_word (doll), coverage_final_s_003 (octopus), gen_final_l2_ng_ring_4_sound (ring), ending_l2_025_thumb (thumb), coverage_final_t_004 (pot)
+- Fresh round proof: gen_final_l2_nd_almond_0_sound (almond), gen_final_l2_th_tooth_5_sound (tooth), gen_final_l2_st_fast_2_sound (fast), coverage_final_k_005 (desk), ending_l2_017_chair (chair), coverage_final_p_002 (mop), gen_final_l2_ft_raft_2_sound (raft), ending_l2_005_sock (sock), coverage_final_n_002 (pan), coverage_final_t_003 (jet), gen_final_l2_sh_paintbrush_8_sound (paintbrush), ending_l2_024_octopus (octopus), gen_final_l2_ll_bell_5_sound (bell), gen_final_l2_ll_full_12_sound (full), coverage_final_s_001 (bus)
+- Review round proof: coverage_final_d_002 (red), coverage_final_r_002 (fork), gen_final_l2_nd_bookend_4_sound (bookend), ending_l2_003_brush (brush), gen_final_l2_sk_whisk_4_word (whisk), coverage_final_g_005 (leg), gen_final_l2_ll_bull_6_word (bull), gen_final_l2_ng_swing_6_sound (swing), coverage_final_s_001 (bus), coverage_final_t_001 (cat), coverage_final_p_002 (mop), ending_l2_020_leaf (leaf), gen_final_l2_lt_quilt_1_word (quilt), qb12_fs_026 (beach), coverage_final_n_006 (rain)
 
 ## cvc_short_vowels
 
