@@ -1,4 +1,4 @@
-import { summarizeGuidedReadingRecords } from "../data/guidedReadingBooks";
+import { useEffect, useState } from "react";
 
 export function FinishedReportPage({
   startAssessment,
@@ -30,6 +30,26 @@ export function FinishedReportPage({
   guidedReadingRecords = {},
   returnToTeacherDashboard
 }) {
+  const [guidedReadingSummaries, setGuidedReadingSummaries] = useState([]);
+
+  useEffect(() => {
+    if (!Object.keys(guidedReadingRecords || {}).length) {
+      setGuidedReadingSummaries([]);
+      return undefined;
+    }
+
+    let cancelled = false;
+    import("../data/guidedReadingBooks").then(module => {
+      if (!cancelled) {
+        setGuidedReadingSummaries(module.summarizeGuidedReadingRecords(guidedReadingRecords));
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [guidedReadingRecords]);
+
   const latestCheckpointIndex = Math.max(
     -1,
     currentSkillIndex - 1,
@@ -44,7 +64,6 @@ export function FinishedReportPage({
   const latestCheckpointIncomplete =
     latestCheckpointCoverage &&
     latestCheckpointCoverage.mastered < latestCheckpointCoverage.total;
-  const guidedReadingSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
 
   return (
     <div className="report-panel page-stack">

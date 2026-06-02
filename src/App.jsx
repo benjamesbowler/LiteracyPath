@@ -49,12 +49,6 @@ import {
   getAssessmentSkillLabel,
   resolveAssessmentSkillId
 } from "./data/assessmentSkillMapping";
-import {
-  formatGuidedReadingType,
-  getGuidedReadingWordStatusRows,
-  summarizeGuidedReadingProgress,
-  summarizeGuidedReadingRecords
-} from "./data/guidedReadingBooks";
 import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
 import {
   enrichInitialSoundPairQuestion,
@@ -203,12 +197,20 @@ const AdminDashboardPage = lazy(() =>
 );
 
 let audioManifestModulePromise = null;
+let guidedReadingBooksModulePromise = null;
 
 function loadAudioManifestModule() {
   if (!audioManifestModulePromise) {
     audioManifestModulePromise = import("./data/audioManifest");
   }
   return audioManifestModulePromise;
+}
+
+function loadGuidedReadingBooksModule() {
+  if (!guidedReadingBooksModulePromise) {
+    guidedReadingBooksModulePromise = import("./data/guidedReadingBooks");
+  }
+  return guidedReadingBooksModulePromise;
 }
 
 const FinishedReportPage = lazy(() =>
@@ -6484,6 +6486,11 @@ export default function App() {
 
   async function exportReadingReport() {
     try {
+      const {
+        formatGuidedReadingType,
+        getGuidedReadingWordStatusRows,
+        summarizeGuidedReadingProgress
+      } = await loadGuidedReadingBooksModule();
       const workbook = await createExcelWorkbook();
       const progress = summarizeGuidedReadingProgress(guidedReadingRecords);
       const wordStatusRows = getGuidedReadingWordStatusRows(guidedReadingRecords);
@@ -6734,7 +6741,7 @@ export default function App() {
   }
 
 
-  function exportData() {
+  async function exportData() {
     const today =
       new Date().toISOString().slice(0, 10);
 
@@ -6798,6 +6805,9 @@ export default function App() {
       return note;
     }
 
+    const { summarizeGuidedReadingRecords } = await loadGuidedReadingBooksModule();
+    const guidedReadingSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
+
     const reportText = `
 Reading Mastery Report
 
@@ -6816,8 +6826,8 @@ Checkpoint rule: ${PASS_SCORE}/${ROUND_LENGTH} correct to unlock the next skill.
 
 Guided Reading
 
-${summarizeGuidedReadingRecords(guidedReadingRecords).length
-  ? summarizeGuidedReadingRecords(guidedReadingRecords).map(item =>
+${guidedReadingSummaries.length
+  ? guidedReadingSummaries.map(item =>
       `${item.title} (${item.type}, Level ${item.level}): ${item.correct}/${item.attempted} words read correctly (${item.accuracy}%). Support words: ${item.supportWords.length ? item.supportWords.join(", ") : "none"}. Notes: ${[item.wholeBookNote, ...item.pageNotes.map(note => `Page ${note.page}: ${note.note}`)].filter(Boolean).join(" | ") || "none"}`
     ).join("\n")
   : "No guided reading records saved yet."}
