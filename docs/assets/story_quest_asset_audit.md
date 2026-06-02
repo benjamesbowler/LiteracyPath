@@ -1,17 +1,17 @@
 # Story Quest Asset Audit
 
-Generated: 2026-06-02T06:31:56.636Z
+Generated: 2026-06-02T07:58:37.700Z
 
 ## Summary Counts
 
-- Total quests: 9
-- Total page rows: 255
-- Total referenced images: 261
-- Total referenced audio files: 255
+- Total quests: 11
+- Total page rows: 314
+- Total referenced images: 320
+- Total referenced audio files: 314
 - Missing referenced images: 1
 - Missing referenced audio: 1
-- Unused image files: 17
-- Unused audio files: 10
+- Unused image files: 0
+- Unused audio files: 0
 - Extension mismatch candidates: 0
 
 ## Missing Referenced Images
@@ -27,6 +27,81 @@ Generated: 2026-06-02T06:31:56.636Z
 None found.
 
 ## Quest Asset References
+
+### Pip and Stone: The Loud Thing
+
+- Quest id: `mw_ra_c_01_pip_stone_loud_thing`
+- Level: `C`
+
+| Page | Page id | Image path | Image status | Audio path | Audio status |
+| --- | --- | --- | --- | --- | --- |
+| 1 | `p01_start` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p01_start.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p01_start.mp3` | exists |
+| 2 | `p02_pip_wants_to_go` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p02_pip_wants_to_go.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p02_pip_wants_to_go.mp3` | exists |
+| 3 | `p02_stone_waits` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p02_stone_waits.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p02_stone_waits.mp3` | exists |
+| 4 | `p03_pip_edge` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p03_pip_edge.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p03_pip_edge.mp3` | exists |
+| 5 | `p03_stone_one_foot` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p03_stone_one_foot.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p03_stone_one_foot.mp3` | exists |
+| 6 | `p03_luna_says_together` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p03_luna_says_together.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p03_luna_says_together.mp3` | exists |
+| 7 | `p04_stone_appears` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p04_stone_appears.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p04_stone_appears.mp3` | exists |
+| 8 | `p04_stone_leads` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p04_stone_leads.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p04_stone_leads.mp3` | exists |
+| 9 | `p04_inside_marsh` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p04_inside_marsh.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p04_inside_marsh.mp3` | exists |
+| 10 | `p05_together` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p05_together.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p05_together.mp3` | exists |
+| 11 | `p05_reeds_shake` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p05_reeds_shake.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p05_reeds_shake.mp3` | exists |
+| 12 | `p05_tiny_tracks` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p05_tiny_tracks.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p05_tiny_tracks.mp3` | exists |
+| 13 | `p06_small_answer` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p06_small_answer.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p06_small_answer.mp3` | exists |
+| 14 | `p06_stone_bends` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p06_stone_bends.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p06_stone_bends.mp3` | exists |
+| 15 | `p06_mossy_stone` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p06_mossy_stone.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p06_mossy_stone.mp3` | exists |
+| 16 | `p07_pip_speaks` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p07_pip_speaks.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p07_pip_speaks.mp3` | exists |
+| 17 | `p07_stone_gentle` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p07_stone_gentle.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p07_stone_gentle.mp3` | exists |
+| 18 | `p08_search_family` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p08_search_family.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p08_search_family.mp3` | exists |
+| 19 | `p08_stone_carries` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p08_stone_carries.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p08_stone_carries.mp3` | exists |
+| 20 | `p08_stone_calls` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p08_stone_calls.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p08_stone_calls.mp3` | exists |
+| 21 | `p09_pip_listens` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p09_pip_listens.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p09_pip_listens.mp3` | exists |
+| 22 | `p09_answer_far_side` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p09_answer_far_side.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p09_answer_far_side.mp3` | exists |
+| 23 | `p09_pip_covers_ears` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p09_pip_covers_ears.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p09_pip_covers_ears.mp3` | exists |
+| 24 | `p09_toadling_calls` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p09_toadling_calls.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p09_toadling_calls.mp3` | exists |
+| 25 | `p09_soft_call` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p09_soft_call.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p09_soft_call.mp3` | exists |
+| 26 | `p10_family_found` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p10_family_found.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p10_family_found.mp3` | exists |
+| 27 | `p11_toadling_answer` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p11_toadling_answer.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p11_toadling_answer.mp3` | exists |
+| 28 | `p11_back_home` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p11_back_home.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p11_back_home.mp3` | exists |
+| 29 | `p12_ending_loud` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p12_ending_loud.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p12_ending_loud.mp3` | exists |
+| 30 | `p12_ending_quiet` | `public/images/story-quests/moonwood/pip-stone-loud-thing/p12_ending_quiet.webp` | exists | `public/audio/story-quests/moonwood/pip-stone-loud-thing/p12_ending_quiet.mp3` | exists |
+
+### Fern and Wren: The Walking Garden
+
+- Quest id: `mw_ra_c_02_fern_wren_walking_garden`
+- Level: `C`
+
+| Page | Page id | Image path | Image status | Audio path | Audio status |
+| --- | --- | --- | --- | --- | --- |
+| 1 | `p01_start` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p01_start.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p01_start.mp3` | exists |
+| 2 | `p02_recipe` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.mp3` | exists |
+| 3 | `p03_wrong_colour` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p03_wrong_colour.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p03_wrong_colour.mp3` | exists |
+| 4 | `p03_pour_potion` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p03_pour_potion.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p03_pour_potion.mp3` | exists |
+| 5 | `p04_fern_warns` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p04_fern_warns.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p04_fern_warns.mp3` | exists |
+| 6 | `p04_small_plant` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p04_small_plant.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p04_small_plant.mp3` | exists |
+| 7 | `p04_all_walk` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p04_all_walk.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p04_all_walk.mp3` | exists |
+| 8 | `p05_too_late` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p05_too_late.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p05_too_late.mp3` | exists |
+| 9 | `p05_tiny_escape` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p05_tiny_escape.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p05_tiny_escape.mp3` | exists |
+| 10 | `p05_fern_calm` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p05_fern_calm.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p05_fern_calm.mp3` | exists |
+| 11 | `p05_wren_panic` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p05_wren_panic.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p05_wren_panic.mp3` | exists |
+| 12 | `p05_garden_empty` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p05_garden_empty.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p05_garden_empty.mp3` | exists |
+| 13 | `p06_wrong_book` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p06_wrong_book.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p06_wrong_book.mp3` | exists |
+| 14 | `p06_plants_everywhere` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p06_plants_everywhere.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p06_plants_everywhere.mp3` | exists |
+| 15 | `p06_fast_spell` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p06_fast_spell.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p06_fast_spell.mp3` | exists |
+| 16 | `p06_crystal_stream` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p06_crystal_stream.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p06_crystal_stream.mp3` | exists |
+| 17 | `p07_dewdrop_laughs` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p07_dewdrop_laughs.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p07_dewdrop_laughs.mp3` | exists |
+| 18 | `p07_book_fix` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p07_book_fix.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p07_book_fix.mp3` | exists |
+| 19 | `p07_sing_softly` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p07_sing_softly.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p07_sing_softly.mp3` | exists |
+| 20 | `p08_almost_fixed` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p08_almost_fixed.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p08_almost_fixed.mp3` | exists |
+| 21 | `p08_tiny_dance` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p08_tiny_dance.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p08_tiny_dance.mp3` | exists |
+| 22 | `p08_return_home` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p08_return_home.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p08_return_home.mp3` | exists |
+| 23 | `p09_plants_settle` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p09_plants_settle.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p09_plants_settle.mp3` | exists |
+| 24 | `p09_tiny_bow` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p09_tiny_bow.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p09_tiny_bow.mp3` | exists |
+| 25 | `p09_silly_garden` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p09_silly_garden.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p09_silly_garden.mp3` | exists |
+| 26 | `p10_wren_sorry` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p10_wren_sorry.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p10_wren_sorry.mp3` | exists |
+| 27 | `p10_garden_safe` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p10_garden_safe.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p10_garden_safe.mp3` | exists |
+| 28 | `p11_fewer_books` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p11_fewer_books.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p11_fewer_books.mp3` | exists |
+| 29 | `p12_ending_calm` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p12_ending_calm.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p12_ending_calm.mp3` | exists |
 
 ### Chompy's Big Lunch Hunt
 
@@ -369,36 +444,11 @@ These files are not referenced by current Story Quest data. Do not delete until 
 
 ### Unused Image Files
 
-- public/images/story-quests/sam-alf/cover.webp
-- public/images/story-quests/sam-alf/page-01.webp
-- public/images/story-quests/sam-alf/page-02.webp
-- public/images/story-quests/sam-alf/page-03.webp
-- public/images/story-quests/sam-alf/page-04.webp
-- public/images/story-quests/sam-alf/page-05.webp
-- public/images/story-quests/sam-alf/page-06.webp
-- public/images/story-quests/sam-alf/page-07.webp
-- public/images/story-quests/sam-alf/page-08.webp
-- public/images/story-quests/sam-alf/page-09.webp
-- public/images/story-quests/sam-alf/page-10.webp
-- public/images/story-quests/sam-alf/words/word-bag.webp
-- public/images/story-quests/sam-alf/words/word-cat.webp
-- public/images/story-quests/sam-alf/words/word-jam.webp
-- public/images/story-quests/sam-alf/words/word-map.webp
-- public/images/story-quests/sam-alf/words/word-mat.webp
-- public/images/story-quests/sam-alf/words/word-van.webp
+None found.
 
 ### Unused Audio Files
 
-- public/audio/story-quests/sam-alf/page-01.mp3
-- public/audio/story-quests/sam-alf/page-02.mp3
-- public/audio/story-quests/sam-alf/page-03.mp3
-- public/audio/story-quests/sam-alf/page-04.mp3
-- public/audio/story-quests/sam-alf/page-05.mp3
-- public/audio/story-quests/sam-alf/page-06.mp3
-- public/audio/story-quests/sam-alf/page-07.mp3
-- public/audio/story-quests/sam-alf/page-08.mp3
-- public/audio/story-quests/sam-alf/page-09.mp3
-- public/audio/story-quests/sam-alf/page-10.mp3
+None found.
 
 ## Do Not Delete Yet
 
