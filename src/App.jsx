@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion, useReducedMotion } from "framer-motion";
 import "./App.css";
@@ -22,6 +22,7 @@ import {
   TeacherSettingsToolsPage,
   TopNavigation
 } from "./components/AppPages";
+import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 
 import { masteryCoreQuestions } from "./data/masteryCoreQuestions";
 import { masteryExtraQuestions } from "./data/masteryExtraQuestions";
@@ -226,6 +227,23 @@ function LazyPageFallback({ label = "Loading..." }) {
     <div className="card page-card page-stack lazy-page-fallback">
       <h2>{label}</h2>
     </div>
+  );
+}
+
+function PageErrorFallback() {
+  return (
+    <div className="card page-card page-stack error-boundary-fallback">
+      <h2>Something went wrong.</h2>
+      <p>Please refresh or go back.</p>
+    </div>
+  );
+}
+
+function PageBoundary({ children, resetKey }) {
+  return (
+    <ErrorBoundary resetKey={resetKey} fallback={<PageErrorFallback />}>
+      {children}
+    </ErrorBoundary>
   );
 }
 
@@ -579,41 +597,26 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId = null, index 
   };
 }
 
-class AssessmentErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { error: null };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { error };
-  }
-
-  componentDidCatch(error, info) {
-    console.error("Assessment screen crashed before fallback.", { error, info });
-  }
-
-  componentDidUpdate(previousProps) {
-    if (previousProps.resetKey !== this.props.resetKey && this.state.error) {
-      this.setState({ error: null });
-    }
-  }
-
-  render() {
-    if (!this.state.error) return this.props.children;
-
-    return (
-      <main className="assessment-shell">
-        <div className="card assessment-card">
-          <h2>Something went wrong loading this assessment.</h2>
-          {import.meta.env.DEV && <p>{this.state.error.message}</p>}
-          <button className="main-button" onClick={this.props.returnToStudentOverview} type="button">
-            Return to Student Overview
-          </button>
-        </div>
-      </main>
-    );
-  }
+function AssessmentErrorBoundary({ children, resetKey, returnToStudentOverview }) {
+  return (
+    <ErrorBoundary
+      logLabel="Assessment screen crashed before fallback."
+      resetKey={resetKey}
+      fallback={({ error }) => (
+        <main className="assessment-shell">
+          <div className="card assessment-card">
+            <h2>Something went wrong loading this assessment.</h2>
+            {import.meta.env.DEV && <p>{error.message}</p>}
+            <button className="main-button" onClick={returnToStudentOverview} type="button">
+              Return to Student Overview
+            </button>
+          </div>
+        </main>
+      )}
+    >
+      {children}
+    </ErrorBoundary>
+  );
 }
 
 function formatExportValue(value) {
@@ -6923,76 +6926,82 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
   if (!teacherUser) {
     return (
-      <div className="app auth-shell login-auth-shell">
-        <motion.div
-          className="hero auth-hero"
-          initial={{ y: -12, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-        >
-          <div className="auth-hero-mark" aria-hidden="true">Aa</div>
-          <h1>Reading Mastery</h1>
-          <p>Structured EL-style reading skill progression for classrooms, groups, and guided practice.</p>
-          <div className="auth-feature-badges" aria-label="Reading Mastery features">
-            <span>Adaptive Skills</span>
-            <span>Guided Reading</span>
-            <span>Teacher Dashboard</span>
-          </div>
-        </motion.div>
+      <PageBoundary resetKey={`auth-${authMode}`}>
+        <div className="app auth-shell login-auth-shell">
+          <motion.div
+            className="hero auth-hero"
+            initial={{ y: -12, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+          >
+            <div className="auth-hero-mark" aria-hidden="true">Aa</div>
+            <h1>Reading Mastery</h1>
+            <p>Structured EL-style reading skill progression for classrooms, groups, and guided practice.</p>
+            <div className="auth-feature-badges" aria-label="Reading Mastery features">
+              <span>Adaptive Skills</span>
+              <span>Guided Reading</span>
+              <span>Teacher Dashboard</span>
+            </div>
+          </motion.div>
 
-        <AuthPage
-          authMode={authMode}
-          setAuthMode={setAuthMode}
-          authEmail={authEmail}
-          setAuthEmail={setAuthEmail}
-          authPassword={authPassword}
-          setAuthPassword={setAuthPassword}
-          authUsername={authUsername}
-          setAuthUsername={setAuthUsername}
-          authDisplayName={authDisplayName}
-          setAuthDisplayName={setAuthDisplayName}
-          authLoading={authLoading}
-          authMessage={authMessage}
-          signUpTeacher={signUpTeacher}
-          logInTeacher={logInTeacher}
-          requestPasswordReset={requestPasswordReset}
-          completePasswordReset={completePasswordReset}
-        />
-      </div>
+          <AuthPage
+            authMode={authMode}
+            setAuthMode={setAuthMode}
+            authEmail={authEmail}
+            setAuthEmail={setAuthEmail}
+            authPassword={authPassword}
+            setAuthPassword={setAuthPassword}
+            authUsername={authUsername}
+            setAuthUsername={setAuthUsername}
+            authDisplayName={authDisplayName}
+            setAuthDisplayName={setAuthDisplayName}
+            authLoading={authLoading}
+            authMessage={authMessage}
+            signUpTeacher={signUpTeacher}
+            logInTeacher={logInTeacher}
+            requestPasswordReset={requestPasswordReset}
+            completePasswordReset={completePasswordReset}
+          />
+        </div>
+      </PageBoundary>
     );
   }
 
   if (authMode === "resetPassword") {
     return (
-      <div className="app auth-shell">
-        <AuthPage
-          authMode={authMode}
-          setAuthMode={setAuthMode}
-          authEmail={authEmail}
-          setAuthEmail={setAuthEmail}
-          authPassword={authPassword}
-          setAuthPassword={setAuthPassword}
-          authUsername={authUsername}
-          setAuthUsername={setAuthUsername}
-          authDisplayName={authDisplayName}
-          setAuthDisplayName={setAuthDisplayName}
-          authLoading={authLoading}
-          authMessage={authMessage}
-          signUpTeacher={signUpTeacher}
-          logInTeacher={logInTeacher}
-          requestPasswordReset={requestPasswordReset}
-          completePasswordReset={completePasswordReset}
-        />
-      </div>
+      <PageBoundary resetKey="reset-password">
+        <div className="app auth-shell">
+          <AuthPage
+            authMode={authMode}
+            setAuthMode={setAuthMode}
+            authEmail={authEmail}
+            setAuthEmail={setAuthEmail}
+            authPassword={authPassword}
+            setAuthPassword={setAuthPassword}
+            authUsername={authUsername}
+            setAuthUsername={setAuthUsername}
+            authDisplayName={authDisplayName}
+            setAuthDisplayName={setAuthDisplayName}
+            authLoading={authLoading}
+            authMessage={authMessage}
+            signUpTeacher={signUpTeacher}
+            logInTeacher={logInTeacher}
+            requestPasswordReset={requestPasswordReset}
+            completePasswordReset={completePasswordReset}
+          />
+        </div>
+      </PageBoundary>
     );
   }
 
   if (teacherAccountStatus === "checking" && !profileLoaded) {
     return (
-      <div className="app">
-        <div className="card page-card page-stack auth-card">
-          <h2>Checking account access...</h2>
+      <PageBoundary resetKey="checking-account">
+        <div className="app">
+          <div className="card page-card page-stack auth-card">
+            <h2>Checking account access...</h2>
+          </div>
         </div>
-      </div>
+      </PageBoundary>
     );
   }
 
@@ -7001,32 +7010,34 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     const isRejected = status === "rejected" || status === "disabled";
     const isSetupRequired = status === "approval_setup_required";
     return (
-      <div className="app auth-shell">
-        <div className="card page-card page-stack auth-card">
-          <div className="auth-heading">
-            <h2>
-              {isSetupRequired
-                ? "Signup Approval Setup Needed"
-                : isRejected
-                  ? "Account Not Approved"
-                  : "Account Waiting For Approval"}
-            </h2>
-            <p className="muted-text">
-              {isSetupRequired
-                ? "LiteracyPath requires the signup approval table before this account can enter the app. Ask an admin to apply the signup approval schema."
-                : isRejected
-                  ? "This account request was rejected. Please contact your school administrator if you think this is a mistake."
-                  : "Your account request has been submitted. An administrator must approve your account before you can use LiteracyPath."}
-            </p>
-            {teacherAccountRecord?.username && (
-              <p className="muted-text">Username: {teacherAccountRecord.username}</p>
-            )}
+      <PageBoundary resetKey={`account-status-${status}`}>
+        <div className="app auth-shell">
+          <div className="card page-card page-stack auth-card">
+            <div className="auth-heading">
+              <h2>
+                {isSetupRequired
+                  ? "Signup Approval Setup Needed"
+                  : isRejected
+                    ? "Account Not Approved"
+                    : "Account Waiting For Approval"}
+              </h2>
+              <p className="muted-text">
+                {isSetupRequired
+                  ? "LiteracyPath requires the signup approval table before this account can enter the app. Ask an admin to apply the signup approval schema."
+                  : isRejected
+                    ? "This account request was rejected. Please contact your school administrator if you think this is a mistake."
+                    : "Your account request has been submitted. An administrator must approve your account before you can use LiteracyPath."}
+              </p>
+              {teacherAccountRecord?.username && (
+                <p className="muted-text">Username: {teacherAccountRecord.username}</p>
+              )}
+            </div>
+            <button className="main-button" onClick={logOutTeacher} type="button">
+              Log Out
+            </button>
           </div>
-          <button className="main-button" onClick={logOutTeacher} type="button">
-            Log Out
-          </button>
         </div>
-      </div>
+      </PageBoundary>
     );
   }
 
@@ -7041,6 +7052,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   ].filter(Boolean).join(" ");
 
   return (
+    <ErrorBoundary resetKey={`app-shell-${appView}-${studentId || "none"}`} fallback={<PageErrorFallback />}>
     <div className={appShellClassName}>
       {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
@@ -7106,180 +7118,198 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       )}
 
       {appView === APP_VIEWS.ADMIN_DASHBOARD && isAdmin && (
-        <Suspense fallback={<LazyPageFallback label="Loading admin dashboard..." />}>
-          <AdminDashboardPage
-            teachers={adminTeachers}
-            classes={adminClasses}
-            students={adminStudents}
-            pendingAccounts={adminPendingAccounts}
-            pendingAccountsWarning={adminPendingAccountsWarning}
-            loading={adminLoading}
-            refreshDashboard={loadAdminDashboard}
-            deleteClass={adminDeleteClass}
-            deleteStudent={adminDeleteStudent}
-            updateTeacherAccountStatus={updateTeacherAccountStatus}
-            questionBankCoverage={questionBankCoverage}
-            mediaQuestions={allQuestions}
-            assessmentHistory={assessmentHistory}
-            dashboardMode="admin"
-            teacherId={teacherId}
-            message={message}
-          />
-        </Suspense>
+        <PageBoundary resetKey="admin-dashboard">
+          <Suspense fallback={<LazyPageFallback label="Loading admin dashboard..." />}>
+            <AdminDashboardPage
+              teachers={adminTeachers}
+              classes={adminClasses}
+              students={adminStudents}
+              pendingAccounts={adminPendingAccounts}
+              pendingAccountsWarning={adminPendingAccountsWarning}
+              loading={adminLoading}
+              refreshDashboard={loadAdminDashboard}
+              deleteClass={adminDeleteClass}
+              deleteStudent={adminDeleteStudent}
+              updateTeacherAccountStatus={updateTeacherAccountStatus}
+              questionBankCoverage={questionBankCoverage}
+              mediaQuestions={allQuestions}
+              assessmentHistory={assessmentHistory}
+              dashboardMode="admin"
+              teacherId={teacherId}
+              message={message}
+            />
+          </Suspense>
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.TEACHER_DASHBOARD && (
-        <Suspense fallback={<LazyPageFallback label="Loading teacher dashboard..." />}>
-          <AdminDashboardPage
-            teachers={[]}
-            classes={classList.map(row => ({
-              ...row,
-              teacher_id: teacherId,
-              studentCount: row.id === selectedClassId ? studentList.length : ""
-            }))}
-            students={studentList.map(row => ({
-              ...row,
-              teacher_id: teacherId,
-              className: getSelectedClassName(classList, row.class_id)
-            }))}
-            pendingAccounts={[]}
-            loading={false}
-            refreshDashboard={() => {
-              loadClasses();
-              if (selectedClassId) {
-                loadStudents(selectedClassId);
-                loadClassDashboard(selectedClassId);
-              }
-              setAssessmentHistory(teacherId ? loadAssessmentAttempts({ teacherId }) : []);
-            }}
-            deleteClass={deleteClass}
-            deleteStudent={deleteStudent}
-            updateTeacherAccountStatus={null}
-            questionBankCoverage={questionBankCoverage}
-            mediaQuestions={[]}
-            assessmentHistory={assessmentHistory}
-            dashboardMode="teacher"
-            teacherId={teacherId}
-            message={message}
-          />
-        </Suspense>
+        <PageBoundary resetKey="teacher-dashboard">
+          <Suspense fallback={<LazyPageFallback label="Loading teacher dashboard..." />}>
+            <AdminDashboardPage
+              teachers={[]}
+              classes={classList.map(row => ({
+                ...row,
+                teacher_id: teacherId,
+                studentCount: row.id === selectedClassId ? studentList.length : ""
+              }))}
+              students={studentList.map(row => ({
+                ...row,
+                teacher_id: teacherId,
+                className: getSelectedClassName(classList, row.class_id)
+              }))}
+              pendingAccounts={[]}
+              loading={false}
+              refreshDashboard={() => {
+                loadClasses();
+                if (selectedClassId) {
+                  loadStudents(selectedClassId);
+                  loadClassDashboard(selectedClassId);
+                }
+                setAssessmentHistory(teacherId ? loadAssessmentAttempts({ teacherId }) : []);
+              }}
+              deleteClass={deleteClass}
+              deleteStudent={deleteStudent}
+              updateTeacherAccountStatus={null}
+              questionBankCoverage={questionBankCoverage}
+              mediaQuestions={[]}
+              assessmentHistory={assessmentHistory}
+              dashboardMode="teacher"
+              teacherId={teacherId}
+              message={message}
+            />
+          </Suspense>
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.LEARN && (
-        <Suspense fallback={<LazyPageFallback label="Loading EL Skills Block Learn..." />}>
-          <LearnAreaPage assessmentSummary={summarizeAssessmentHistory(assessmentHistory, {
-            students: studentList.map(row => ({ ...row, className: getSelectedClassName(classList, row.class_id, "") })),
-            classes: classList
-          })} />
-        </Suspense>
+        <PageBoundary resetKey="learn">
+          <Suspense fallback={<LazyPageFallback label="Loading EL Skills Block Learn..." />}>
+            <LearnAreaPage assessmentSummary={summarizeAssessmentHistory(assessmentHistory, {
+              students: studentList.map(row => ({ ...row, className: getSelectedClassName(classList, row.class_id, "") })),
+              classes: classList
+            })} />
+          </Suspense>
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.OVERVIEW && nameSaved && (
-        <StudentOverviewPage
-          studentName={studentName}
-          currentSkillIndex={currentSkillIndex}
-          currentStage={currentStage}
-          accuracy={accuracy}
-          totalAnswered={totalAnswered}
-          roundCorrect={roundCorrect}
-          passScore={PASS_SCORE}
-          roundLength={ROUND_LENGTH}
-          skillTree={skillTree}
-          setCurrentSkillIndex={setCurrentSkillIndex}
-          setRoundAnswers={setRoundAnswers}
-          setCurrentQuestion={setCurrentQuestion}
-          setFeedback={setFeedback}
-          setMessage={setMessage}
-          startAssessment={startAssessment}
-          startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
-          startTargetedReview={startTargetedReview}
-          weaknessSnapshot={weaknessSnapshot}
-          itemMasterySnapshot={getItemMasterySnapshot()}
-          coverageSnapshot={buildCoverageSnapshot(itemMastery, {
-            enabled: DEBUG_ASSESSMENT_COVERAGE,
-            studentId
-          })}
-          setAppView={setAppView}
-          switchStudent={switchStudent}
-          openResetStudentProgress={() => setResetProgressDialogOpen(true)}
-          letterAssessment={letterAssessment}
-          patternAssessment={patternAssessment}
-          exportLetterAssessment={exportLetterAssessment}
-          exportPatternAssessment={exportPatternAssessment}
-          isAdmin={isAdmin}
-        />
+        <PageBoundary resetKey={`overview-${studentId}`}>
+          <StudentOverviewPage
+            studentName={studentName}
+            currentSkillIndex={currentSkillIndex}
+            currentStage={currentStage}
+            accuracy={accuracy}
+            totalAnswered={totalAnswered}
+            roundCorrect={roundCorrect}
+            passScore={PASS_SCORE}
+            roundLength={ROUND_LENGTH}
+            skillTree={skillTree}
+            setCurrentSkillIndex={setCurrentSkillIndex}
+            setRoundAnswers={setRoundAnswers}
+            setCurrentQuestion={setCurrentQuestion}
+            setFeedback={setFeedback}
+            setMessage={setMessage}
+            startAssessment={startAssessment}
+            startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
+            startTargetedReview={startTargetedReview}
+            weaknessSnapshot={weaknessSnapshot}
+            itemMasterySnapshot={getItemMasterySnapshot()}
+            coverageSnapshot={buildCoverageSnapshot(itemMastery, {
+              enabled: DEBUG_ASSESSMENT_COVERAGE,
+              studentId
+            })}
+            setAppView={setAppView}
+            switchStudent={switchStudent}
+            openResetStudentProgress={() => setResetProgressDialogOpen(true)}
+            letterAssessment={letterAssessment}
+            patternAssessment={patternAssessment}
+            exportLetterAssessment={exportLetterAssessment}
+            exportPatternAssessment={exportPatternAssessment}
+            isAdmin={isAdmin}
+          />
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.SKILLS && nameSaved && (
-        <SkillsProgressPage
-          studentName={studentName}
-          skillTree={skillTree}
-          currentSkillIndex={currentSkillIndex}
-          setCurrentSkillIndex={setCurrentSkillIndex}
-          setRoundAnswers={setRoundAnswers}
-          setCurrentQuestion={setCurrentQuestion}
-          setFeedback={setFeedback}
-          setMessage={setMessage}
-          mastery={mastery}
-          coverageSnapshot={buildCoverageSnapshot(itemMastery, {
-            enabled: DEBUG_ASSESSMENT_COVERAGE,
-            studentId
-          })}
-          startAssessment={startAssessment}
-        />
+        <PageBoundary resetKey={`skills-${studentId}`}>
+          <SkillsProgressPage
+            studentName={studentName}
+            skillTree={skillTree}
+            currentSkillIndex={currentSkillIndex}
+            setCurrentSkillIndex={setCurrentSkillIndex}
+            setRoundAnswers={setRoundAnswers}
+            setCurrentQuestion={setCurrentQuestion}
+            setFeedback={setFeedback}
+            setMessage={setMessage}
+            mastery={mastery}
+            coverageSnapshot={buildCoverageSnapshot(itemMastery, {
+              enabled: DEBUG_ASSESSMENT_COVERAGE,
+              studentId
+            })}
+            startAssessment={startAssessment}
+          />
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.EL_ASSESSMENTS && nameSaved && (
-        <ELAssessmentsPage
-          studentName={studentName}
-          startLetterAssessment={() => setAppView(APP_VIEWS.LETTERS)}
-          startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
-          openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-          letterAssessment={letterAssessment}
-          patternAssessment={patternAssessment}
-          exportLetterAssessment={exportLetterAssessment}
-          exportPatternAssessment={exportPatternAssessment}
-        />
+        <PageBoundary resetKey={`el-assessments-${studentId}`}>
+          <ELAssessmentsPage
+            studentName={studentName}
+            startLetterAssessment={() => setAppView(APP_VIEWS.LETTERS)}
+            startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
+            openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+            letterAssessment={letterAssessment}
+            patternAssessment={patternAssessment}
+            exportLetterAssessment={exportLetterAssessment}
+            exportPatternAssessment={exportPatternAssessment}
+          />
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.GUIDED_READING && nameSaved && (
-        <GuidedReadingPage
-          studentId={studentId}
-          studentName={studentName}
-          guidedReadingRecords={guidedReadingRecords}
-          saveGuidedReadingRecord={saveGuidedReadingRecord}
-          speakText={speakText}
-          returnToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
-          viewReports={() => setAppView(APP_VIEWS.REPORTS)}
-        />
+        <PageBoundary resetKey={`guided-reading-${studentId}`}>
+          <GuidedReadingPage
+            studentId={studentId}
+            studentName={studentName}
+            guidedReadingRecords={guidedReadingRecords}
+            saveGuidedReadingRecord={saveGuidedReadingRecord}
+            speakText={speakText}
+            returnToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
+            viewReports={() => setAppView(APP_VIEWS.REPORTS)}
+          />
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.REPORTS && nameSaved && (
-        <TeacherReportsPage
-          studentName={studentName}
-          viewFinishedReport={() => setAppView(APP_VIEWS.FINISHED)}
-          openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-          guidedReadingRecords={guidedReadingRecords}
-          assessmentHistory={reportsAssessmentHistory}
-          skillMasterySummary={reportSkillMasterySummary}
-          exportData={exportData}
-          exportCSVData={exportCSVData}
-          exportReadingReport={exportReadingReport}
-          letterAssessment={letterAssessment}
-          patternAssessment={patternAssessment}
-          exportLetterAssessment={exportLetterAssessment}
-          exportPatternAssessment={exportPatternAssessment}
-        />
+        <PageBoundary resetKey={`reports-${studentId}`}>
+          <TeacherReportsPage
+            studentName={studentName}
+            viewFinishedReport={() => setAppView(APP_VIEWS.FINISHED)}
+            openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+            guidedReadingRecords={guidedReadingRecords}
+            assessmentHistory={reportsAssessmentHistory}
+            skillMasterySummary={reportSkillMasterySummary}
+            exportData={exportData}
+            exportCSVData={exportCSVData}
+            exportReadingReport={exportReadingReport}
+            letterAssessment={letterAssessment}
+            patternAssessment={patternAssessment}
+            exportLetterAssessment={exportLetterAssessment}
+            exportPatternAssessment={exportPatternAssessment}
+          />
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.TOOLS && nameSaved && (
-        <TeacherSettingsToolsPage
-          studentName={studentName}
-          switchStudent={switchStudent}
-          openResetStudentProgress={() => setResetProgressDialogOpen(true)}
-          isAdmin={isAdmin}
-          itemMasterySnapshot={getItemMasterySnapshot()}
-        />
+        <PageBoundary resetKey={`tools-${studentId}`}>
+          <TeacherSettingsToolsPage
+            studentName={studentName}
+            switchStudent={switchStudent}
+            openResetStudentProgress={() => setResetProgressDialogOpen(true)}
+            isAdmin={isAdmin}
+            itemMasterySnapshot={getItemMasterySnapshot()}
+          />
+        </PageBoundary>
       )}
 
       {shouldShowDashboardSummary({ appView, isFocusedAssessment }) && (
@@ -7294,31 +7324,35 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       )}
 
       {appView === APP_VIEWS.LETTERS && (
-        <LetterAssessmentPage
-          studentName={studentName}
-          letterIndex={letterIndex}
-          letterItems={letterItems}
-          endAssessment={endAssessment}
-          recordLetterResult={recordLetterResult}
-          letterAssessment={letterAssessment}
-          exportLetterAssessment={exportLetterAssessment}
-          resetLetterAssessment={resetLetterAssessment}
-          returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
-        />
+        <PageBoundary resetKey={`letters-${studentId}`}>
+          <LetterAssessmentPage
+            studentName={studentName}
+            letterIndex={letterIndex}
+            letterItems={letterItems}
+            endAssessment={endAssessment}
+            recordLetterResult={recordLetterResult}
+            letterAssessment={letterAssessment}
+            exportLetterAssessment={exportLetterAssessment}
+            resetLetterAssessment={resetLetterAssessment}
+            returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
+          />
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.ADVANCED_PHONICS && (
-        <AdvancedPhonicsPatternAssessmentPage
-          studentName={studentName}
-          patternIndex={patternIndex}
-          patternItems={patternItems}
-          endAssessment={endAssessment}
-          recordPatternResult={recordPatternResult}
-          patternAssessment={patternAssessment}
-          exportPatternAssessment={exportPatternAssessment}
-          resetPatternAssessment={resetPatternAssessment}
-          returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
-        />
+        <PageBoundary resetKey={`advanced-phonics-${studentId}`}>
+          <AdvancedPhonicsPatternAssessmentPage
+            studentName={studentName}
+            patternIndex={patternIndex}
+            patternItems={patternItems}
+            endAssessment={endAssessment}
+            recordPatternResult={recordPatternResult}
+            patternAssessment={patternAssessment}
+            exportPatternAssessment={exportPatternAssessment}
+            resetPatternAssessment={resetPatternAssessment}
+            returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
+          />
+        </PageBoundary>
       )}
 
       {appView === APP_VIEWS.ASSESSMENT && (
@@ -7358,15 +7392,17 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       )}
 
       {appView === APP_VIEWS.CHECKPOINT && (
-        <CheckpointDecisionPage
-          checkpoint={checkpointDecision}
-          continueSkill={continueCheckpointSkill}
-          reviewInitialSoundLevelOne={reviewInitialSoundLevelOne}
-          moveToNextSkill={moveToNextCheckpointSkill}
-          retrySkill={retryCheckpointSkill}
-          reviewMistakes={startTargetedReview}
-          returnToOverview={goToOverview}
-        />
+        <PageBoundary resetKey={`checkpoint-${studentId}-${currentSkillIndex}`}>
+          <CheckpointDecisionPage
+            checkpoint={checkpointDecision}
+            continueSkill={continueCheckpointSkill}
+            reviewInitialSoundLevelOne={reviewInitialSoundLevelOne}
+            moveToNextSkill={moveToNextCheckpointSkill}
+            retrySkill={retryCheckpointSkill}
+            reviewMistakes={startTargetedReview}
+            returnToOverview={goToOverview}
+          />
+        </PageBoundary>
       )}
 
       <ResetStudentProgressDialog
@@ -7379,42 +7415,44 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       />
 
       {appView === APP_VIEWS.FINISHED && (
-        <Suspense fallback={<LazyPageFallback label="Loading report..." />}>
-          <FinishedReportPage
-            startAssessment={startAssessment}
-            keepPracticingSkill={keepPracticingSkill}
-            startTargetedReview={startTargetedReview}
-            goToOverview={goToOverview}
-            studentName={studentName}
-            totalAnswered={totalAnswered}
-            accuracy={accuracy}
-            currentStage={currentStage}
-            currentSkillIndex={currentSkillIndex}
-            setCurrentSkillIndex={setCurrentSkillIndex}
-            setRoundAnswers={setRoundAnswers}
-            setCurrentQuestion={setCurrentQuestion}
-            setFeedback={setFeedback}
-            setMessage={setMessage}
-            skillTree={skillTree}
-            currentStageQuestions={currentStageQuestions}
-            mastery={mastery}
-            coverageSnapshot={buildCoverageSnapshot(itemMastery, {
-              enabled: DEBUG_ASSESSMENT_COVERAGE,
-              studentId
-            })}
-            skillMasterySummary={reportSkillMasterySummary}
-            allowPassageAudio={allowPassageAudio}
-            setAllowPassageAudio={setAllowPassageAudio}
-            exportData={exportData}
-            exportCSVData={exportCSVData}
-            letterAssessment={letterAssessment}
-            patternAssessment={patternAssessment}
-            exportLetterAssessment={exportLetterAssessment}
-            exportPatternAssessment={exportPatternAssessment}
-            guidedReadingRecords={guidedReadingRecords}
-            returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
-          />
-        </Suspense>
+        <PageBoundary resetKey="finished-report">
+          <Suspense fallback={<LazyPageFallback label="Loading report..." />}>
+            <FinishedReportPage
+              startAssessment={startAssessment}
+              keepPracticingSkill={keepPracticingSkill}
+              startTargetedReview={startTargetedReview}
+              goToOverview={goToOverview}
+              studentName={studentName}
+              totalAnswered={totalAnswered}
+              accuracy={accuracy}
+              currentStage={currentStage}
+              currentSkillIndex={currentSkillIndex}
+              setCurrentSkillIndex={setCurrentSkillIndex}
+              setRoundAnswers={setRoundAnswers}
+              setCurrentQuestion={setCurrentQuestion}
+              setFeedback={setFeedback}
+              setMessage={setMessage}
+              skillTree={skillTree}
+              currentStageQuestions={currentStageQuestions}
+              mastery={mastery}
+              coverageSnapshot={buildCoverageSnapshot(itemMastery, {
+                enabled: DEBUG_ASSESSMENT_COVERAGE,
+                studentId
+              })}
+              skillMasterySummary={reportSkillMasterySummary}
+              allowPassageAudio={allowPassageAudio}
+              setAllowPassageAudio={setAllowPassageAudio}
+              exportData={exportData}
+              exportCSVData={exportCSVData}
+              letterAssessment={letterAssessment}
+              patternAssessment={patternAssessment}
+              exportLetterAssessment={exportLetterAssessment}
+              exportPatternAssessment={exportPatternAssessment}
+              guidedReadingRecords={guidedReadingRecords}
+              returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
+            />
+          </Suspense>
+        </PageBoundary>
       )}
 
       {shouldShowFooterUtilityActions({ appView, isFocusedAssessment }) && (
@@ -7429,5 +7467,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </div>
       )}
     </div>
+    </ErrorBoundary>
   );
 }

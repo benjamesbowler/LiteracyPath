@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { preloadQuestionMedia, preloadQuestionMediaBatch } from "../utils/preloadQuestionMedia.js";
+import "./StoryQuestPlayer.css";
 
 function StoryQuestImage({ src, title }) {
   const [imageFailed, setImageFailed] = useState(false);
