@@ -52,18 +52,22 @@ function collectReachable(pageById, startPageId) {
   return reachable;
 }
 
-function hasPathToEnd(pageId, pageById, visiting = new Set(), memo = new Map()) {
-  if (pageId === "end") return true;
-  if (memo.has(pageId)) return memo.get(pageId);
-  if (visiting.has(pageId)) return false;
+function hasPathToEnd(pageId, pageById) {
+  const seen = new Set();
+  const stack = [pageId];
 
-  const page = pageById.get(pageId);
-  if (!page) return false;
-  visiting.add(pageId);
-  const result = (page.choices || []).some(choice => hasPathToEnd(choice.nextPageId, pageById, visiting, memo));
-  visiting.delete(pageId);
-  memo.set(pageId, result);
-  return result;
+  while (stack.length > 0) {
+    const currentPageId = stack.pop();
+    if (currentPageId === "end") return true;
+    if (!currentPageId || seen.has(currentPageId)) continue;
+    seen.add(currentPageId);
+
+    const page = pageById.get(currentPageId);
+    if (!page) continue;
+    (page.choices || []).forEach(choice => stack.push(choice.nextPageId));
+  }
+
+  return false;
 }
 
 function detectClosedLoops(pageById, startPageId) {
@@ -173,9 +177,8 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
       if (!reachable.has(page.id)) addError(quest, `${page.id} is unreachable from start`);
     });
 
-    const memo = new Map();
     reachable.forEach(pageId => {
-      if (!hasPathToEnd(pageId, pageById, new Set(), memo)) {
+      if (!hasPathToEnd(pageId, pageById)) {
         const page = pageById.get(pageId);
         const readAgainOnly = (page?.choices || []).every(choice => choice.nextPageId === startPageId);
         if (!readAgainOnly) addWarning(quest, `${pageId} does not have an obvious path to end`);

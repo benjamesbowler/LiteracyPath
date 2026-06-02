@@ -20,6 +20,8 @@ function meadowPalsPage(folder, id, text, choicePrompt, choices, skillTags = [])
 
 const muddySplashyFolder = "muddy-splashy-hat";
 const shyCuddlyFolder = "shy-cuddly-quiet";
+const bouncySpeedyFolder = "bouncy-speedy-map";
+const braveTinyFolder = "brave-tiny-rescue";
 
 export const storyQuests = [
   {
@@ -424,6 +426,300 @@ export const storyQuests = [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["hug"])
+    ]
+  },
+  {
+    id: "mp_ra_a_03_bouncy_speedy_fast_map",
+    title: "Bouncy and Speedy: The Very Fast Map",
+    level: "A",
+    adventureType: "Reading Adventure",
+    skillFocus: "Level A guided reading choice adventure",
+    cycleFocus: "guided_reading_level_a_story_choice",
+    characters: ["Bouncy", "Speedy", "Tiny", "Grumpy"],
+    location: "Sunny Meadow Farm - farmyard, barn, duck pond, big hill, big oak tree",
+    targetWords: ["Bouncy", "Speedy", "map", "run", "hop", "barn", "pond", "hill", "tree", "fast", "stop"],
+    highFrequencyWords: ["I", "am", "go", "to", "the", "see", "can", "we", "you", "is", "no", "yes"],
+    hfw: ["I", "am", "go", "to", "the", "see", "can", "we", "you", "is", "no", "yes"],
+    coverImageUrl: meadowPalsImagePath(bouncySpeedyFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      meadowPalsPage(bouncySpeedyFolder, "p01_start", ["Bouncy has a map.", "Speedy wants to go."], "Who do you help?", [
+        { label: "Help Bouncy", nextPageId: "p02_bouncy" },
+        { label: "Help Speedy", nextPageId: "p02_speedy" }
+      ], ["bouncy", "speedy", "map"]),
+      meadowPalsPage(bouncySpeedyFolder, "p02_bouncy", ["You are with Bouncy.", "Bouncy hops with the map."], "Where does Bouncy hop?", [
+        { label: "To the barn", nextPageId: "p03_barn" },
+        { label: "To the pond", nextPageId: "p03_pond" }
+      ], ["bouncy", "hop", "map", "barn", "pond"]),
+      meadowPalsPage(bouncySpeedyFolder, "p02_speedy", ["You are with Speedy.", "Speedy runs fast."], "Where does Speedy run?", [
+        { label: "To the barn", nextPageId: "p03_barn_fast" },
+        { label: "To the hill", nextPageId: "p03_hill_fast" }
+      ], ["speedy", "run", "fast", "barn", "hill"]),
+      meadowPalsPage(bouncySpeedyFolder, "p03_barn", ["Bouncy hops to the barn.", "Hop, hop, hop."], "What is by the barn?", [
+        { label: "A boot", nextPageId: "p04_boot" },
+        { label: "Tiny", nextPageId: "p04_tiny_map" }
+      ], ["bouncy", "hop", "barn"]),
+      meadowPalsPage(bouncySpeedyFolder, "p03_barn_fast", ["Speedy runs to the barn.", "The map flies up."], "What do you catch?", [
+        { label: "The map", nextPageId: "p04_map_caught" },
+        { label: "The boot", nextPageId: "p04_boot" }
+      ], ["speedy", "run", "barn", "map"]),
+      meadowPalsPage(bouncySpeedyFolder, "p03_pond", ["Bouncy hops to the pond.", "The map gets wet."], "What should Bouncy do?", [
+        { label: "Shake the map", nextPageId: "p04_map_splash" },
+        { label: "Ask Splashy", nextPageId: "p04_splashy_help" }
+      ], ["bouncy", "hop", "pond", "map"]),
+      meadowPalsPage(bouncySpeedyFolder, "p03_hill_fast", ["Speedy runs to the hill.", "Very, very fast."], "Can Speedy stop?", [
+        { label: "Stop now", nextPageId: "p04_speedy_stops" },
+        { label: "Keep going", nextPageId: "p04_too_fast" }
+      ], ["speedy", "run", "hill", "fast", "stop"]),
+      meadowPalsPage(bouncySpeedyFolder, "p04_boot", ["It is a boot.", "It is not the map."], "Who can help?", [
+        { label: "Tiny", nextPageId: "p04_tiny_map" },
+        { label: "Grumpy", nextPageId: "p05_grumpy_boot" }
+      ], ["map"]),
+      meadowPalsPage(bouncySpeedyFolder, "p04_map_caught", ["You caught the map.", "Speedy did not stop."], "Where does Speedy go?", [
+        { label: "To the pond", nextPageId: "p03_pond" },
+        { label: "To the hill", nextPageId: "p03_hill_fast" }
+      ], ["map", "speedy", "stop", "pond", "hill"]),
+      meadowPalsPage(bouncySpeedyFolder, "p04_tiny_map", ["Tiny sees the map.", "Tiny points up."], "Where should they go?", [
+        { label: "To the big tree", nextPageId: "p05_big_tree" },
+        { label: "To the pond", nextPageId: "p03_pond" }
+      ], ["map", "tree", "pond"]),
+      meadowPalsPage(bouncySpeedyFolder, "p04_map_splash", ["Bouncy shook the map.", "Splash!"], "Who got wet?", [
+        { label: "Bouncy", nextPageId: "p05_bouncy_wet" },
+        { label: "Grumpy", nextPageId: "p05_grumpy_wet" }
+      ], ["bouncy", "map"]),
+      meadowPalsPage(bouncySpeedyFolder, "p04_splashy_help", ["Splashy helps.", "Splashy likes wet maps."], "Where does the map point?", [
+        { label: "To the tree", nextPageId: "p05_big_tree" },
+        { label: "To the mud", nextPageId: "p05_muddy_map" }
+      ], ["map", "tree"]),
+      meadowPalsPage(bouncySpeedyFolder, "p04_speedy_stops", ["Speedy stopped.", "Bouncy hopped past."], "Follow Bouncy?", [
+        { label: "Yes", nextPageId: "p05_big_tree" },
+        { label: "No", nextPageId: "p05_speedy_waits" }
+      ], ["speedy", "bouncy", "hop", "stop"]),
+      meadowPalsPage(bouncySpeedyFolder, "p04_too_fast", ["Speedy went too fast.", "The map went too."], "Where did it land?", [
+        { label: "In the tree", nextPageId: "p05_big_tree" },
+        { label: "In the mud", nextPageId: "p05_muddy_map" }
+      ], ["speedy", "fast", "map", "tree"]),
+      meadowPalsPage(bouncySpeedyFolder, "p05_grumpy_boot", ["Grumpy sees the boot.", "\"That is my boot.\""], "Does Grumpy help?", [
+        { label: "Yes", nextPageId: "p05_big_tree" },
+        { label: "No", nextPageId: "p06_lost_again" }
+      ], []),
+      meadowPalsPage(bouncySpeedyFolder, "p05_bouncy_wet", ["Bouncy is wet.", "Bouncy still hops."], "Hop where?", [
+        { label: "To the tree", nextPageId: "p05_big_tree" },
+        { label: "To the barn", nextPageId: "p03_barn" }
+      ], ["bouncy", "hop", "tree", "barn"]),
+      meadowPalsPage(bouncySpeedyFolder, "p05_grumpy_wet", ["Grumpy is wet.", "Grumpy is not happy."], "Run?", [
+        { label: "Yes", nextPageId: "p06_lost_again" },
+        { label: "No", nextPageId: "p05_big_tree" }
+      ], ["run"]),
+      meadowPalsPage(bouncySpeedyFolder, "p05_speedy_waits", ["Speedy waits.", "That is new."], "Who comes back?", [
+        { label: "Bouncy", nextPageId: "p05_big_tree" },
+        { label: "Tiny", nextPageId: "p04_tiny_map" }
+      ], ["speedy", "bouncy"]),
+      meadowPalsPage(bouncySpeedyFolder, "p05_muddy_map", ["The map is in the mud.", "Oh no."], "Who gets it?", [
+        { label: "Bouncy", nextPageId: "p06_bouncy_muddy" },
+        { label: "Speedy", nextPageId: "p06_speedy_muddy" }
+      ], ["map", "bouncy", "speedy"]),
+      meadowPalsPage(bouncySpeedyFolder, "p05_big_tree", ["They got to the big tree.", "The map says stop."], "Do they stop?", [
+        { label: "Yes", nextPageId: "p07_tree_stop" },
+        { label: "No", nextPageId: "p06_lost_again" }
+      ], ["tree", "map", "stop"]),
+      meadowPalsPage(bouncySpeedyFolder, "p06_bouncy_muddy", ["Bouncy got the map.", "Bouncy got muddy."], "Is the map okay?", [
+        { label: "Yes", nextPageId: "p05_big_tree" },
+        { label: "No", nextPageId: "p06_lost_again" }
+      ], ["bouncy", "map"]),
+      meadowPalsPage(bouncySpeedyFolder, "p06_speedy_muddy", ["Speedy got the map.", "Speedy slid in mud."], "Where did Speedy slide?", [
+        { label: "To the tree", nextPageId: "p05_big_tree" },
+        { label: "To Grumpy", nextPageId: "p05_grumpy_wet" }
+      ], ["speedy", "map", "tree"]),
+      meadowPalsPage(bouncySpeedyFolder, "p06_lost_again", ["They did not stop.", "Now they are lost."], "Who can help?", [
+        { label: "Tiny", nextPageId: "p04_tiny_map" },
+        { label: "The map", nextPageId: "p05_big_tree" }
+      ], ["stop", "map"]),
+      meadowPalsPage(bouncySpeedyFolder, "p07_tree_stop", ["They stopped.", "They sat by the tree."], "What do they see?", [
+        { label: "The farm", nextPageId: "p08_farm_view" },
+        { label: "A snack", nextPageId: "p08_tiny_snack" }
+      ], ["stop", "tree"]),
+      meadowPalsPage(bouncySpeedyFolder, "p08_farm_view", ["They see the farm.", "It is very big."], "Go home?", [
+        { label: "Yes", nextPageId: "p09_home_ending" },
+        { label: "One more race", nextPageId: "p09_race_ending" }
+      ], ["big"]),
+      meadowPalsPage(bouncySpeedyFolder, "p08_tiny_snack", ["Tiny has a snack.", "It is very, very small."], "Share it?", [
+        { label: "Yes", nextPageId: "p09_tiny_snack_ending" },
+        { label: "No, run home", nextPageId: "p09_home_ending" }
+      ], ["run"]),
+      meadowPalsPage(bouncySpeedyFolder, "p09_home_ending", ["They went home.", "They did not run.", "Well... not much."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["run"]),
+      meadowPalsPage(bouncySpeedyFolder, "p09_race_ending", ["Bouncy hopped.", "Speedy ran.", "Oh no!"], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["bouncy", "speedy", "hop", "run"]),
+      meadowPalsPage(bouncySpeedyFolder, "p09_tiny_snack_ending", ["Tiny shared the snack.", "It was too small.", "They all laughed."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], [])
+    ]
+  },
+  {
+    id: "mp_ra_a_04_brave_tiny_big_little_rescue",
+    title: "Brave and Tiny: The Big Little Rescue",
+    level: "A",
+    adventureType: "Reading Adventure",
+    skillFocus: "Level A guided reading choice adventure",
+    cycleFocus: "guided_reading_level_a_story_choice",
+    characters: ["Brave", "Tiny", "Woolly", "Clucky"],
+    location: "Sunny Meadow Farm - big barn, stone wall, flower pot, hay bale, little stream",
+    targetWords: ["Brave", "Tiny", "big", "little", "up", "down", "in", "on", "pot", "wall", "stream", "help"],
+    highFrequencyWords: ["I", "am", "go", "to", "the", "see", "can", "we", "you", "is", "no", "yes", "help"],
+    hfw: ["I", "am", "go", "to", "the", "see", "can", "we", "you", "is", "no", "yes", "help"],
+    coverImageUrl: meadowPalsImagePath(braveTinyFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      meadowPalsPage(braveTinyFolder, "p01_start", ["Brave is little.", "Tiny is little too."], "Who do you help?", [
+        { label: "Help Brave", nextPageId: "p02_brave" },
+        { label: "Help Tiny", nextPageId: "p02_tiny" }
+      ], ["brave", "tiny", "little"]),
+      meadowPalsPage(braveTinyFolder, "p02_brave", ["You are with Brave.", "Brave can help."], "Where should Brave go?", [
+        { label: "To the pot", nextPageId: "p03_pot" },
+        { label: "To the wall", nextPageId: "p03_wall" }
+      ], ["brave", "help", "pot", "wall"]),
+      meadowPalsPage(braveTinyFolder, "p02_tiny", ["You are with Tiny.", "Tiny sees a problem."], "What does Tiny see?", [
+        { label: "A stuck hat", nextPageId: "p03_hat" },
+        { label: "A sad Woolly", nextPageId: "p03_woolly" }
+      ], ["tiny"]),
+      meadowPalsPage(braveTinyFolder, "p03_pot", ["Brave went to the pot.", "The pot was big."], "What is in the pot?", [
+        { label: "A hat", nextPageId: "p04_hat_in_pot" },
+        { label: "Tiny", nextPageId: "p04_tiny_in_pot" }
+      ], ["brave", "pot", "big", "in"]),
+      meadowPalsPage(braveTinyFolder, "p03_wall", ["Brave went to the wall.", "The wall was big."], "What is on the wall?", [
+        { label: "A feather", nextPageId: "p04_feather" },
+        { label: "Clucky", nextPageId: "p04_clucky_wall" }
+      ], ["brave", "wall", "big", "on"]),
+      meadowPalsPage(braveTinyFolder, "p03_hat", ["Tiny sees a hat.", "The hat is stuck."], "Where is it stuck?", [
+        { label: "In the pot", nextPageId: "p04_hat_in_pot" },
+        { label: "On the wall", nextPageId: "p04_hat_on_wall" }
+      ], ["tiny", "in", "pot", "on", "wall"]),
+      meadowPalsPage(braveTinyFolder, "p03_woolly", ["Woolly is sad.", "\"My bell is gone.\""], "Where should they look?", [
+        { label: "Under the wool", nextPageId: "p04_under_wool" },
+        { label: "By the stream", nextPageId: "p04_stream" }
+      ], ["stream"]),
+      meadowPalsPage(braveTinyFolder, "p04_hat_in_pot", ["The hat is in the pot.", "Brave jumps in."], "What happens?", [
+        { label: "Brave finds it", nextPageId: "p05_hat_found" },
+        { label: "Brave gets stuck", nextPageId: "p05_brave_stuck" }
+      ], ["brave", "in", "pot"]),
+      meadowPalsPage(braveTinyFolder, "p04_tiny_in_pot", ["Tiny is in the pot.", "Tiny can fit."], "What does Tiny find?", [
+        { label: "A hat", nextPageId: "p05_hat_found" },
+        { label: "A bell", nextPageId: "p05_bell_found" }
+      ], ["tiny", "in", "pot"]),
+      meadowPalsPage(braveTinyFolder, "p04_feather", ["It is a feather.", "It is not the hat."], "Who lost it?", [
+        { label: "Clucky", nextPageId: "p04_clucky_wall" },
+        { label: "Brave", nextPageId: "p05_feather_brave" }
+      ], ["brave"]),
+      meadowPalsPage(braveTinyFolder, "p04_clucky_wall", ["Clucky is on the wall.", "Clucky is cross."], "What does Clucky need?", [
+        { label: "Her hat", nextPageId: "p04_hat_on_wall" },
+        { label: "Her feather", nextPageId: "p05_feather_back" }
+      ], ["on", "wall"]),
+      meadowPalsPage(braveTinyFolder, "p04_hat_on_wall", ["The hat is on the wall.", "It is too high."], "Who can get it?", [
+        { label: "Tiny", nextPageId: "p05_tiny_climbs" },
+        { label: "Brave", nextPageId: "p05_brave_climbs" }
+      ], ["tiny", "brave", "on", "wall", "up"]),
+      meadowPalsPage(braveTinyFolder, "p04_under_wool", ["Tiny looks in the wool.", "It is very fluffy."], "What is in there?", [
+        { label: "The bell", nextPageId: "p05_bell_found" },
+        { label: "Brave", nextPageId: "p05_brave_in_wool" }
+      ], ["tiny", "in"]),
+      meadowPalsPage(braveTinyFolder, "p04_stream", ["They go to the stream.", "The stream is little."], "What is by the stream?", [
+        { label: "The bell", nextPageId: "p05_bell_stream" },
+        { label: "A hat", nextPageId: "p03_hat" }
+      ], ["stream", "little"]),
+      meadowPalsPage(braveTinyFolder, "p05_hat_found", ["They found the hat.", "Clucky can have it."], "Take it to Clucky?", [
+        { label: "Yes", nextPageId: "p07_clucky_happy" },
+        { label: "Wait", nextPageId: "p06_hat_on_brave" }
+      ], []),
+      meadowPalsPage(braveTinyFolder, "p06_hat_on_brave", ["The hat is on Brave.", "Brave feels big."], "Who gets the hat?", [
+        { label: "Clucky", nextPageId: "p07_clucky_happy" },
+        { label: "Brave", nextPageId: "p09_fancy_brave_ending" }
+      ], ["brave", "big", "on"]),
+      meadowPalsPage(braveTinyFolder, "p05_brave_stuck", ["Brave is in the pot.", "Brave is stuck."], "Who helps?", [
+        { label: "Tiny", nextPageId: "p06_tiny_helps" },
+        { label: "Woolly", nextPageId: "p06_woolly_helps" }
+      ], ["brave", "in", "pot"]),
+      meadowPalsPage(braveTinyFolder, "p05_bell_found", ["They found the bell.", "Woolly can have it."], "Take it to Woolly?", [
+        { label: "Yes", nextPageId: "p07_woolly_happy" },
+        { label: "Ring it first", nextPageId: "p06_bell_ring" }
+      ], []),
+      meadowPalsPage(braveTinyFolder, "p05_feather_brave", ["Brave has a feather.", "Brave looks fancy."], "Keep it?", [
+        { label: "Yes", nextPageId: "p09_fancy_brave_ending" },
+        { label: "Give it back", nextPageId: "p05_feather_back" }
+      ], ["brave"]),
+      meadowPalsPage(braveTinyFolder, "p05_feather_back", ["Clucky gets the feather.", "Clucky is pleased."], "What is still missing?", [
+        { label: "The hat", nextPageId: "p04_hat_on_wall" },
+        { label: "The bell", nextPageId: "p04_under_wool" }
+      ], []),
+      meadowPalsPage(braveTinyFolder, "p05_tiny_climbs", ["Tiny climbs up.", "Tiny is very good at small."], "Can Tiny reach it?", [
+        { label: "Yes", nextPageId: "p05_hat_found" },
+        { label: "Not yet", nextPageId: "p06_brave_boost" }
+      ], ["tiny", "up"]),
+      meadowPalsPage(braveTinyFolder, "p05_brave_climbs", ["Brave climbs up.", "Brave is very brave."], "What happens?", [
+        { label: "Brave slips", nextPageId: "p06_brave_slips" },
+        { label: "Tiny helps", nextPageId: "p06_brave_boost" }
+      ], ["brave", "up", "help"]),
+      meadowPalsPage(braveTinyFolder, "p05_brave_in_wool", ["Brave is in the wool.", "Only her feet show."], "Pull Brave out?", [
+        { label: "Yes", nextPageId: "p06_tiny_helps" },
+        { label: "Wait", nextPageId: "p06_woolly_laughs" }
+      ], ["brave", "in"]),
+      meadowPalsPage(braveTinyFolder, "p05_bell_stream", ["The bell is by the stream.", "Tiny can get it."], "Get the bell?", [
+        { label: "Yes", nextPageId: "p05_bell_found" },
+        { label: "Ask Brave", nextPageId: "p06_brave_stream" }
+      ], ["tiny", "stream"]),
+      meadowPalsPage(braveTinyFolder, "p06_tiny_helps", ["Tiny helped Brave.", "Brave got out."], "What did they find?", [
+        { label: "The hat", nextPageId: "p05_hat_found" },
+        { label: "The bell", nextPageId: "p05_bell_found" }
+      ], ["tiny", "brave"]),
+      meadowPalsPage(braveTinyFolder, "p06_woolly_helps", ["Woolly helped.", "The pot tipped over."], "What rolled out?", [
+        { label: "The hat", nextPageId: "p05_hat_found" },
+        { label: "The bell", nextPageId: "p05_bell_found" }
+      ], ["pot"]),
+      meadowPalsPage(braveTinyFolder, "p06_bell_ring", ["Ring, ring!", "Woolly jumped."], "Say sorry?", [
+        { label: "Yes", nextPageId: "p07_woolly_happy" },
+        { label: "Ring again", nextPageId: "p09_loud_bell_ending" }
+      ], []),
+      meadowPalsPage(braveTinyFolder, "p06_brave_boost", ["Tiny gave Brave a boost.", "Up, up, up!"], "What do they get?", [
+        { label: "The hat", nextPageId: "p05_hat_found" },
+        { label: "The feather", nextPageId: "p05_feather_back" }
+      ], ["tiny", "brave", "up"]),
+      meadowPalsPage(braveTinyFolder, "p06_brave_slips", ["Brave slipped down.", "Plop."], "Try again?", [
+        { label: "Yes", nextPageId: "p06_brave_boost" },
+        { label: "Ask Tiny", nextPageId: "p05_tiny_climbs" }
+      ], ["brave", "down"]),
+      meadowPalsPage(braveTinyFolder, "p06_woolly_laughs", ["Woolly giggled.", "Brave popped out."], "What popped out too?", [
+        { label: "The bell", nextPageId: "p05_bell_found" },
+        { label: "The hat", nextPageId: "p05_hat_found" }
+      ], ["brave"]),
+      meadowPalsPage(braveTinyFolder, "p06_brave_stream", ["Brave jumped in.", "Splash!"], "Did Brave get the bell?", [
+        { label: "Yes", nextPageId: "p05_bell_found" },
+        { label: "No", nextPageId: "p06_tiny_helps" }
+      ], ["brave", "in", "stream"]),
+      meadowPalsPage(braveTinyFolder, "p07_clucky_happy", ["Clucky got her hat.", "Clucky stood tall."], "What now?", [
+        { label: "Help Woolly", nextPageId: "p03_woolly" },
+        { label: "Finish", nextPageId: "p09_helpful_ending" }
+      ], []),
+      meadowPalsPage(braveTinyFolder, "p07_woolly_happy", ["Woolly got her bell.", "Woolly smiled."], "What now?", [
+        { label: "Help Clucky", nextPageId: "p03_hat" },
+        { label: "Finish", nextPageId: "p09_helpful_ending" }
+      ], []),
+      meadowPalsPage(braveTinyFolder, "p09_fancy_brave_ending", ["Brave kept the feather.", "Brave felt big."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["brave", "big"]),
+      meadowPalsPage(braveTinyFolder, "p09_loud_bell_ending", ["Ring, ring, ring!", "Oh, Brave!"], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["brave"]),
+      meadowPalsPage(braveTinyFolder, "p09_helpful_ending", ["Tiny helped.", "Brave helped.", "Little can help big."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], ["tiny", "brave", "little", "help", "big"])
     ]
   }
 ];
