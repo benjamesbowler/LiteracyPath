@@ -1,0 +1,180 @@
+.assessment-shell {
+  width: min(100%, 1280px);
+  max-width: calc(100vw - 32px);
+  height: calc(100vh - 16px);
+  height: calc(100dvh - 16px);
+  min-height: calc(100vh - 16px);
+  min-height: calc(100dvh - 16px);
+  margin: 0 auto;
+  align-self: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.assessment-topbar {
+  position: sticky;
+  top: 8px;
+  z-index: 12;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+  padding: 6px 8px;
+  background: rgba(255, 253, 248, 0.96);
+  border: 1px solid rgba(226, 219, 206, 0.92);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(22, 34, 51, 0.05);
+}
+
+.assessment-topbar > * {
+  min-width: 0;
+}
+
+.assessment-meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 180px;
+  gap: 2px;
+  min-width: 0;
+}
+
+.assessment-meta span,
+.assessment-meta strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.assessment-meta span {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.assessment-meta strong {
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.assessment-progress {
+  flex: 999 1 260px;
+  min-width: 0;
+}
+
+.assessment-progress .progress-label {
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.assessment-progress-dots {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.assessment-progress-dots span {
+  flex: 1 1 0;
+  min-width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #e7dfd2;
+}
+
+.assessment-progress-dots span.complete {
+  background: var(--lp-color-success);
+}
+
+.assessment-progress-dots span.current {
+  background: var(--lp-color-primary);
+}
+
+.assessment-end-button {
+  flex: 0 0 auto;
+  margin-left: auto;
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  font-size: 12px;
+}
+
+.assessment-card,
+.assessment-feedback {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: clamp(12px, 1.6vw, 16px);
+}
+
+.assessment-card {
+  max-height: calc(100dvh - 88px);
+  overflow: hidden;
+  width: min(100%, 1220px);
+  align-self: center;
+  border: 1px solid #d8ddfb;
+  border-radius: 24px;
+  box-shadow: 0 22px 46px rgba(48, 37, 18, 0.11);
+}
+
+.assessment-card .image-box {
+  max-height: clamp(140px, 24vh, 220px);
+  margin-bottom: 10px;
+}
+
+.assessment-card .question-image {
+  max-height: clamp(125px, 22vh, 200px);
+}
+
+.assessment-card .passage {
+  margin: 0 0 10px;
+  padding: 12px 14px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.assessment-card .question-line {
+  margin-bottom: 8px;
+}
+
+.assessment-card .question-line h2 {
+  font-size: clamp(22px, 2.4vw, 30px);
+}
+
+.assessment-card .choices {
+  margin-top: 12px;
+  gap: 14px;
+}
+
+.assessment-card .choice-button {
+  min-height: clamp(64px, 9vh, 86px);
+  padding: 12px 14px;
+}
+
+.assessment-card .choice-button.final-sound-choice-button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: clamp(82px, 12vh, 118px);
+  padding: clamp(10px, 1.7vw, 16px);
+}
+
+.assessment-card .choice-button.final-sound-choice-button span {
+  font-size: clamp(3rem, 6vw, 4.75rem);
+  font-weight: 850;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (min-width: 760px) {
+  .assessment-card .choice-button.final-sound-choice-button span {
+    font-size: clamp(3.75rem, 5.4vw, 5rem);
+  }
+}

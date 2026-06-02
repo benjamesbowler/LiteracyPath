@@ -1,9 +1,9 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import "../styles/assessment.css";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
   getTargetWordAudioPath,
-  isGenericInstructionAudioPath,
   SHORT_VOWEL_LISTEN_PROMPT
 } from "../utils/assessmentAudioRoles";
 import {
@@ -45,6 +45,8 @@ import {
 } from "../utils/guidedReading/readAloudPolicy.js";
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation.js";
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
+import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
+import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 
 export { AuthPage } from "./AuthPage.jsx";
 
@@ -130,63 +132,6 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
         </button>
       </div>
     </div>
-  );
-}
-
-function AssessmentAudioButton({
-  text,
-  audioPath = "",
-  speakText,
-  label = "Play audio",
-  className = "mini-audio-button",
-  audioRole = "",
-  showDisabled = false
-}) {
-  const approvedAudioPath = audioRole === "target_word"
-    ? getTargetWordAudioPath(text, audioPath)
-    : getApprovedAudioPath(text, audioPath);
-
-  if (import.meta.env.DEV && audioRole === "target_word" && isGenericInstructionAudioPath(audioPath)) {
-    console.warn("Assessment target-word audio rejected instruction/prompt audio path.", {
-      text,
-      audioPath,
-      label
-    });
-  }
-
-  if (!approvedAudioPath) {
-    if (audioPath && import.meta.env.DEV) {
-      console.warn("Assessment audio unavailable or not approved.", { text, audioPath, label });
-    }
-    if (!showDisabled) return null;
-    return (
-      <button
-        className={`assessment-audio-button ${className}`}
-        aria-label={`${label} unavailable`}
-        title="Audio is not available yet."
-        type="button"
-        disabled
-      >
-        <span aria-hidden="true">🔇</span>
-      </button>
-    );
-  }
-
-  return (
-    <button
-      className={`assessment-audio-button ${className}`}
-      onClick={() =>
-        speakText(text, approvedAudioPath, {
-          allowBrowserFallback: false,
-          requireApprovedAudio: true,
-          audioRole
-        })
-      }
-      aria-label={label}
-      type="button"
-    >
-      <span aria-hidden="true">🔊</span>
-    </button>
   );
 }
 
@@ -567,121 +512,6 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
   );
 }
 
-function HfwLetterBuildQuestion({ currentQuestion, answerQuestion }) {
-  const [selectedTiles, setSelectedTiles] = useState([]);
-  const targetWord = getHfwLetterBuildTarget(currentQuestion);
-  const targetLength = targetWord.length || Number(currentQuestion.blankSlots) || 0;
-  const rawTiles = currentQuestion.letterTiles || currentQuestion.soundTiles || [];
-  const tiles = rawTiles.length > 0
-    ? rawTiles
-    : targetWord.split("");
-  const selectedIndexes = new Set(selectedTiles.map(item => item.index));
-  const builtWord = selectedTiles.map(item => item.tile).join("").toLowerCase();
-  const sentence = String(currentQuestion.sentence || currentQuestion.context || currentQuestion.passage || "")
-    .replace(/_{2,}/g, "___");
-  const [sentenceBefore, sentenceAfter = ""] = sentence.includes("___")
-    ? sentence.split("___")
-    : ["", sentence];
-
-  useEffect(() => {
-    setSelectedTiles([]);
-  }, [currentQuestion.id]);
-
-  function addTile(tile, index) {
-    if (selectedIndexes.has(index) || selectedTiles.length >= targetLength) return;
-    setSelectedTiles(previous => [...previous, { tile: String(tile || "").toLowerCase(), index }]);
-  }
-
-  function removeTile(index) {
-    setSelectedTiles(previous => previous.filter((_, itemIndex) => itemIndex !== index));
-  }
-
-  function handleDragStart(event, index) {
-    event.dataTransfer.setData("text/plain", String(index));
-    event.dataTransfer.effectAllowed = "move";
-  }
-
-  function handleDrop(event) {
-    event.preventDefault();
-    const tileIndex = Number(event.dataTransfer.getData("text/plain"));
-    if (!Number.isInteger(tileIndex)) return;
-    addTile(tiles[tileIndex], tileIndex);
-  }
-
-  return (
-    <div className="ixl-template-panel hfw-letter-build-panel">
-      <div
-        className="hfw-letter-build-sentence"
-        onDragOver={event => event.preventDefault()}
-        onDrop={handleDrop}
-      >
-        <span>{sentenceBefore}</span>
-        <span className="hfw-letter-build-slots" aria-label="Built word">
-          {Array.from({ length: targetLength }, (_, index) => {
-            const selected = selectedTiles[index];
-            return selected ? (
-              <button
-                className="sound-order-selected-tile hfw-letter-slot filled"
-                key={`${selected.tile}-${selected.index}`}
-                onClick={() => removeTile(index)}
-                type="button"
-                aria-label={`Remove ${selected.tile}`}
-              >
-                {selected.tile}
-              </button>
-            ) : (
-              <span
-                className="sound-order-empty-slot hfw-letter-slot"
-                key={`empty-${index}`}
-                aria-hidden="true"
-              />
-            );
-          })}
-        </span>
-        <span>{sentenceAfter}</span>
-      </div>
-
-      <div className="sound-order-tile-row hfw-letter-tile-row" aria-label="Choose letters">
-        {tiles.map((tile, index) => {
-          const disabled = selectedIndexes.has(index) || selectedTiles.length >= targetLength;
-          return (
-            <button
-              className="sound-order-tile"
-              disabled={disabled}
-              draggable={!disabled}
-              key={`${tile}-${index}`}
-              onClick={() => addTile(tile, index)}
-              onDragStart={event => handleDragStart(event, index)}
-              type="button"
-              aria-label={`Add ${tile}`}
-            >
-              {tile}
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="button-row ixl-template-actions">
-        <button
-          className="reset-button"
-          onClick={() => setSelectedTiles([])}
-          type="button"
-        >
-          Reset
-        </button>
-        <button
-          className="main-button"
-          disabled={builtWord.length !== targetLength}
-          onClick={() => answerQuestion(builtWord)}
-          type="button"
-        >
-          Submit
-        </button>
-      </div>
-    </div>
-  );
-}
-
 function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
   const isHfwLetterBuild = isHfwLetterBuildQuestion(currentQuestion);
@@ -729,7 +559,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
 
   if (isHfwLetterBuild) {
     return (
-      <HfwLetterBuildQuestion
+      <HfwLetterBuildPanel
         currentQuestion={currentQuestion}
         answerQuestion={answerQuestion}
       />
@@ -923,12 +753,6 @@ function isHfwLetterBuildQuestion(question = {}) {
 
 function isGrammarSentenceFitQuestion(question = {}) {
   return String(question?.formatType || question?.templateType || "").toUpperCase() === "GRAMMAR_SENTENCE_FIT";
-}
-
-function getHfwLetterBuildTarget(question = {}) {
-  return String(question.targetWord || question.correctAnswer || question.answer || "")
-    .trim()
-    .toLowerCase();
 }
 
 function stripTargetWordFromPrompt(prompt = "", targetWord = "") {

@@ -23,6 +23,7 @@ import {
   TopNavigation
 } from "./components/AppPages";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
+import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
 
 import { masteryCoreQuestions } from "./data/masteryCoreQuestions";
 import { masteryExtraQuestions } from "./data/masteryExtraQuestions";
@@ -257,19 +258,6 @@ const PURE_EARLY_PHONICS_SKILL_IDS = new Set([
 
 function isHfwStage(stage = {}) {
   return isHighFrequencyWordSkill(stage.id || stage.label || "");
-}
-
-function shuffleArray(array) {
-  const next = [...array];
-  for (let index = next.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [next[index], next[swapIndex]] = [next[swapIndex], next[index]];
-  }
-  return next;
-}
-
-function normalize(text) {
-  return String(text || "").toLowerCase().trim();
 }
 
 function getStageIndex(question) {
