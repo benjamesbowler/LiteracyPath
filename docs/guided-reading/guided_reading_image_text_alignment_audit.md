@@ -1,12 +1,12 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-05-28T07:49:48.893Z
+Generated: 2026-06-02T11:36:59.074Z
 
 ## What This Check Proves
 
-This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-10 in student public release. First Facts nonfiction books 1-25 are now Level B, the new First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are also checked as public nonfiction.
+This check verifies that every visible Guided Reading book has title-page normalization and that story page images stay mechanically aligned with story page numbers. Fiction is limited to Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-25 in student public release. First Facts nonfiction books 1-25 are now Level B, the new First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are also checked as public nonfiction.
 
-Visible fiction books: 85
+Visible fiction books: 100
 
 ## Page Sequence
 
@@ -1594,6 +1594,607 @@ Very, very fast. |
 | moonwood-tales-c-10 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-012.webp | Luna gave one to each creature. One for each of them. The seeds glowed gently in |
 | moonwood-tales-c-10 | 14 | 13 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-013.webp | They planted the seeds in a ring around the Hollow Oak. One from each of them. I |
 | moonwood-tales-c-10 | 15 | 14 | yes | yes | /guided-reading/series/moonwood-tales/book-10/page-014.webp | What would have happened if you hadn't remembered? asked Wren. I did remember, s |
+| moonwood-tales-c-11 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-001.webp | Pip and Stone were sitting outside the Hollow Oak.
+Then a noise came from the Fo |
+| moonwood-tales-c-11 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-002.webp | "I want to find out what it is," said Pip.
+"I do not," said Stone.
+"It is very l |
+| moonwood-tales-c-11 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-003.webp | Pip walked toward the Fog Marsh.
+He looked back.
+Stone had not moved.
+Stone had  |
+| moonwood-tales-c-11 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-004.webp | At the edge of the marsh, the noise came again.
+It was even louder.
+Pip's hair s |
+| moonwood-tales-c-11 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-005.webp | They stood at the edge together.
+The fog was thick and grey-green.
+The noise bou |
+| moonwood-tales-c-11 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-006.webp | Inside the marsh, the noise was everywhere.
+The reeds shook.
+The water rippled.
+ |
+| moonwood-tales-c-11 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-007.webp | On a mossy stone in the marsh sat a toadling.
+It was very small.
+Its mouth was v |
+| moonwood-tales-c-11 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-008.webp | The toadling stopped when it saw them.
+Everything was suddenly very quiet.
+"Oh," |
+| moonwood-tales-c-11 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-009.webp | "Why were you shouting?" asked Pip.
+The toadling blinked.
+"I am lost," it said.
+ |
+| moonwood-tales-c-11 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-010.webp | Stone knelt down carefully.
+"We will help," said Stone.
+The toadling looked at S |
+| moonwood-tales-c-11 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-011.webp | Stone stood up and called out across the marsh.
+It was the loudest sound Pip had |
+| moonwood-tales-c-11 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-11/page-012.webp | Back at the Hollow Oak, everyone asked:
+"What was the loud thing?"
+"Very small," |
+| moonwood-tales-c-12 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-001.webp | The Crystal Stream was not singing.
+Fern heard it first.
+Or rather — she heard n |
+| moonwood-tales-c-12 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-002.webp | "It flows," said Fern.
+"But it does not sing," said Dewdrop.
+"Something is wrong |
+| moonwood-tales-c-12 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-003.webp | "The song comes from the source," said Dewdrop.
+"We must follow the stream up."
+ |
+| moonwood-tales-c-12 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-004.webp | They followed the stream upstream.
+The forest grew older.
+The roots grew bigger. |
+| moonwood-tales-c-12 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-005.webp | At the source, they found it.
+A great boulder had fallen.
+It lay across the sing |
+| moonwood-tales-c-12 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-006.webp | Dewdrop tried to push it with water.
+She pushed as hard as she could.
+The boulde |
+| moonwood-tales-c-12 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-007.webp | Fern tried to push with her hands.
+The boulder did not move.
+Fern stepped back a |
+| moonwood-tales-c-12 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-008.webp | Fern grew a strong vine around the boulder.
+Dewdrop sent water under it to loose |
+| moonwood-tales-c-12 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-009.webp | They pushed and pulled together.
+The boulder shifted.
+The mud let go.
+The boulde |
+| moonwood-tales-c-12 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-010.webp | The water rushed over the singing stones.
+And the Crystal Stream began to sing.
+ |
+| moonwood-tales-c-12 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-011.webp | They sat on the bank and listened.
+The stream sang around them.
+"We did it," sai |
+| moonwood-tales-c-12 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-12/page-012.webp | At the Hollow Oak, everyone heard it.
+"The stream is singing again!" said Pip.
+" |
+| moonwood-tales-c-13 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-001.webp | Glimmer and Spark made a deal.
+Spark would teach Glimmer to breathe fire properl |
+| moonwood-tales-c-13 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-002.webp | On the first day, Spark explained fire.
+He drew many diagrams.
+The diagrams were |
+| moonwood-tales-c-13 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-003.webp | Glimmer tried.
+Smoke came out.
+Just smoke.
+"Interesting," said Spark, and wrote  |
+| moonwood-tales-c-13 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-004.webp | That afternoon, it was Glimmer's turn to teach.
+Glimmer spread both wings.
+Glimm |
+| moonwood-tales-c-13 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-005.webp | Spark tried.
+Sparkles shot everywhere.
+His hat fell off.
+His feet stayed on the  |
+| moonwood-tales-c-13 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-006.webp | On the third day, the diagrams had multiplied.
+There were charts about heat.
+Cha |
+| moonwood-tales-c-13 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-007.webp | "Spark," said Glimmer.
+"You are trying too hard."
+"Fire is not thinking."
+"It is |
+| moonwood-tales-c-13 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-008.webp | Spark put down his wand.
+He put down his notes.
+He stood very still.
+He stopped  |
+| moonwood-tales-c-13 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-009.webp | "What does flying feel like?" asked Spark.
+Glimmer thought.
+"Like falling upward |
+| moonwood-tales-c-13 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-010.webp | Glimmer ran.
+Glimmer spread both wings.
+Glimmer jumped.
+Glimmer glided five whol |
+| moonwood-tales-c-13 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-011.webp | At the end of the day, they sat down.
+Spark could not fly.
+Glimmer had not breat |
+| moonwood-tales-c-13 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-13/page-012.webp | "Did we succeed?" asked Spark.
+"I don't know," said Glimmer.
+"Let's try again to |
+| moonwood-tales-c-14 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-001.webp | Wren and Flint were going to the Whispering Meadow.
+Flint had a map.
+Wren had a  |
+| moonwood-tales-c-14 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-002.webp | Flint's map said go left.
+Wren's spell said go right.
+"Straight ahead," they agr |
+| moonwood-tales-c-14 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-003.webp | An hour later, nothing looked right.
+The trees were wrong.
+The paths had gone.
+" |
+| moonwood-tales-c-14 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-004.webp | "We are here," said Flint.
+He pointed at the map.
+Wren looked around.
+Grey fog w |
+| moonwood-tales-c-14 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-005.webp | Wren tried her direction spell.
+The arrow spun three times.
+Then it pointed at F |
+| moonwood-tales-c-14 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-006.webp | Flint opened his satchel.
+Seven maps fell out.
+One was of the coast.
+One was ups |
+| moonwood-tales-c-14 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-007.webp | They sat down under a large mushroom.
+They were tired.
+They were lost.
+The mushr |
+| moonwood-tales-c-14 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-008.webp | "I wonder," said Wren.
+She closed her spell book.
+She spoke to the mushroom.
+Ver |
+| moonwood-tales-c-14 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-009.webp | The mushroom's glow changed.
+It pulsed once — pointing.
+Another mushroom far awa |
+| moonwood-tales-c-14 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-010.webp | Wren and Flint followed the mushroom trail.
+The forest opened up.
+The golden lig |
+| moonwood-tales-c-14 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-011.webp | They arrived at the Whispering Meadow.
+It was exactly where they had been going. |
+| moonwood-tales-c-14 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-14/page-012.webp | "Why didn't we try that first?" asked Flint.
+"I don't know," said Wren.
+She look |
+| moonwood-tales-c-15 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-001.webp | Burrow was digging a new tunnel.
+He dug every morning.
+He liked the quiet of it. |
+| moonwood-tales-c-15 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-002.webp | Then his tunnel fell open.
+He tumbled into a room.
+It was large.
+It was old.
+It  |
+| moonwood-tales-c-15 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-003.webp | The room had carvings on every wall.
+It had small glowing stones in the ceiling. |
+| moonwood-tales-c-15 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-004.webp | Burrow went up to find Luna.
+"Come with me," he said.
+"Bring a light."
+Luna said |
+| moonwood-tales-c-15 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-005.webp | Luna was very large for a tunnel.
+She came anyway.
+She did not say anything abou |
+| moonwood-tales-c-15 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-006.webp | Luna stood in the doorway.
+She was very still.
+Her eyes went wide.
+Then soft.
+"O |
+| moonwood-tales-c-15 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-007.webp | Luna walked slowly around the room.
+She touched the carvings.
+They lit up where  |
+| moonwood-tales-c-15 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-008.webp | "Have you been here before?" asked Burrow.
+"Yes," said Luna.
+She looked around t |
+| moonwood-tales-c-15 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-009.webp | "This is the Memory Room," said Luna.
+"This is where Moonwood keeps its oldest s |
+| moonwood-tales-c-15 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-010.webp | Luna settled on a ledge.
+She folded her wings.
+She looked at the carvings for a  |
+| moonwood-tales-c-15 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-011.webp | Burrow sat very still and listened.
+The room grew warmer.
+The carvings lit up on |
+| moonwood-tales-c-15 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-15/page-012.webp | It was very late when Burrow noticed.
+"Will you tell me the rest?" he asked.
+"Ye |
+| moonwood-tales-c-16 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-001.webp | One morning, things had moved in the night.
+Pip's boots were not where he had le |
+| moonwood-tales-c-16 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-002.webp | The next night, it happened again.
+More things had moved.
+"Was it you?" asked St |
+| moonwood-tales-c-16 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-003.webp | "I am going to find out," said Pip.
+He told Glimmer his plan.
+They would stay aw |
+| moonwood-tales-c-16 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-004.webp | Night fell.
+Moonwood glowed softly.
+Pip and Glimmer hid behind the big mushroom. |
+| moonwood-tales-c-16 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-005.webp | It was very late.
+The clearing was empty.
+Glimmer's eyes kept closing.
+"Don't fa |
+| moonwood-tales-c-16 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-006.webp | Then — a sound.
+A shuffling.
+A round shape moving through the clearing.
+Pip and  |
+| moonwood-tales-c-16 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-007.webp | It was Burrow.
+His eyes were closed.
+He was fast asleep.
+He was walking. |
+| moonwood-tales-c-16 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-008.webp | Burrow bumped the bench.
+It fell over.
+Burrow kept walking.
+He found Pip's door. |
+| moonwood-tales-c-16 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-009.webp | He found the acorn biscuits.
+He put some in his pocket.
+He was still asleep.
+Gli |
+| moonwood-tales-c-16 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-010.webp | Then Burrow sat down.
+Against the big mushroom.
+Pip and Glimmer were still behin |
+| moonwood-tales-c-16 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-011.webp | In the morning, Burrow woke up.
+He looked around.
+Pip and Glimmer were standing  |
+| moonwood-tales-c-16 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-16/page-012.webp | "It was you," said Pip gently. "You sleep-dig."
+"I am very sorry," said Burrow.
+ |
+| moonwood-tales-c-17 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-001.webp | Fern's garden was her favourite place.
+One morning, Wren arrived with a cauldron |
+| moonwood-tales-c-17 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-002.webp | "Are you sure?" said Fern.
+"Completely," said Wren.
+She had practised many times |
+| moonwood-tales-c-17 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-003.webp | Wren stirred the potion.
+It was meant to be green.
+It was more purple.
+Wren did  |
+| moonwood-tales-c-17 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-004.webp | Wren poured the potion on the plants.
+The plants stood very straight.
+Then they  |
+| moonwood-tales-c-17 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-005.webp | Then all the plants began to walk.
+They were very polite about it.
+They walked a |
+| moonwood-tales-c-17 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-006.webp | "Oh," said Wren.
+"Oh no," said Fern.
+"The plants are walking."
+Wren checked her  |
+| moonwood-tales-c-17 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-007.webp | The plants walked into the Hollow Oak.
+Some walked toward the Crystal Stream.
+A  |
+| moonwood-tales-c-17 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-008.webp | Wren found the problem.
+She had used the wrong book.
+"This is the motion recipe, |
+| moonwood-tales-c-17 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-009.webp | Fern went to the middle of the clearing.
+She closed her eyes.
+She sang.
+Very sof |
+| moonwood-tales-c-17 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-010.webp | The plants slowed.
+The far ones turned.
+They walked back.
+Slowly.
+Like sleepy cr |
+| moonwood-tales-c-17 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-011.webp | One by one they found their places.
+Each plant settled.
+The smallest sat down la |
+| moonwood-tales-c-17 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-17/page-012.webp | Everything was back.
+"I'm sorry," said Wren.
+"Did you learn something?" asked Fe |
+| moonwood-tales-c-18 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-001.webp | Dewdrop was at the Crystal Stream.
+She was looking at something in the water.
+It |
+| moonwood-tales-c-18 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-002.webp | The fish was wedged between two rocks.
+It had been there since morning.
+Its tail |
+| moonwood-tales-c-18 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-003.webp | Dewdrop tried to push it loose.
+She sent the water flowing hard against the rock |
+| moonwood-tales-c-18 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-004.webp | Dewdrop found Stone at the Hollow Oak.
+"I need your hands," she said.
+"Just to r |
+| moonwood-tales-c-18 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-005.webp | Stone stood at the edge of the Crystal Stream.
+The water sparkled.
+Stone's feet  |
+| moonwood-tales-c-18 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-006.webp | "Just your arm," said Dewdrop.
+"Just the one arm."
+"Just for a moment."
+Stone lo |
+| moonwood-tales-c-18 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-007.webp | Stone rolled up one sleeve.
+The arm was very large.
+Stone leaned forward.
+The ha |
+| moonwood-tales-c-18 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-008.webp | Stone's hand went into the stream.
+It found the rock.
+It gripped it.
+Stone's fac |
+| moonwood-tales-c-18 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-009.webp | Stone pushed.
+The rock moved.
+The mud let go.
+The fish was free. |
+| moonwood-tales-c-18 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-010.webp | The fish made a very large splash.
+Stone was completely wet.
+All of Stone.
+Dewdr |
+| moonwood-tales-c-18 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-011.webp | Stone sat and dripped.
+Stone looked at the arm.
+Stone looked at the rest of Ston |
+| moonwood-tales-c-18 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-18/page-012.webp | They sat by the stream together.
+Stone dripped for a long time.
+The fish surface |
+| moonwood-tales-c-19 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-001.webp | The magic seeds were gone.
+The box that held them was open and empty.
+Luna looke |
+| moonwood-tales-c-19 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-002.webp | Luna called everyone together.
+"The seeds keep Moonwood glowing," she said.
+"Wit |
+| moonwood-tales-c-19 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-003.webp | They split into groups.
+Each group took a different path.
+Each path led somewher |
+| moonwood-tales-c-19 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-004.webp | Pip searched the Fog Marsh.
+He found no seeds.
+He found mud.
+Flint searched the  |
+| moonwood-tales-c-19 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-005.webp | Wren and Spark tried search spells.
+The spells pointed at each other.
+Stone look |
+| moonwood-tales-c-19 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-006.webp | Burrow went underground.
+He searched every tunnel.
+He found three interesting th |
+| moonwood-tales-c-19 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-007.webp | Dewdrop searched the stream.
+Fern walked slowly around the clearing.
+She was not |
+| moonwood-tales-c-19 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-008.webp | Fern stopped.
+She knelt down.
+There were small green shoots in the ground.
+They  |
+| moonwood-tales-c-19 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-009.webp | "Oh," said Fern.
+She remembered.
+Two nights ago she had been in the clearing.
+Sh |
+| moonwood-tales-c-19 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-010.webp | Everyone came back with nothing.
+Then they saw Fern.
+She was sitting in the midd |
+| moonwood-tales-c-19 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-011.webp | Luna bent down to look.
+The seedlings were strong.
+They were growing along the p |
+| moonwood-tales-c-19 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-19/page-012.webp | That night, Moonwood glowed more than ever.
+The seedlings lit the ground.
+Everyo |
+| moonwood-tales-c-20 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-001.webp | It was the middle of the night.
+Everyone was nearly asleep.
+Then a light flashed |
+| moonwood-tales-c-20 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-002.webp | The small things landed and bounced.
+They bounced along the ground.
+They made a  |
+| moonwood-tales-c-20 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-003.webp | Pip caught one.
+It was warm.
+It had very large golden eyes.
+It looked up at Pip  |
+| moonwood-tales-c-20 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-004.webp | "What are you?" asked Pip.
+The star spirit blinked its large gold eyes.
+"Star,"  |
+| moonwood-tales-c-20 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-005.webp | Luna pushed forward.
+She looked at the star spirit over her glasses.
+"I know wha |
+| moonwood-tales-c-20 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-006.webp | They gathered the star spirits.
+There were many of them.
+Stone held several.
+Wre |
+| moonwood-tales-c-20 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-007.webp | "They need height," said Luna.
+"The highest point in Moonwood."
+Flint reached fo |
+| moonwood-tales-c-20 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-008.webp | "This way," said Flint.
+He was right.
+The Tumblerock Cliffs rose ahead.
+"You fou |
+| moonwood-tales-c-20 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-009.webp | They climbed to the top.
+Moonwood spread below them in the dark.
+The sky was ful |
+| moonwood-tales-c-20 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-010.webp | Stone raised their hands high.
+Pip and Spark added a little push.
+The star spiri |
+| moonwood-tales-c-20 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-011.webp | The star spirits went up.
+Slowly at first.
+Then faster.
+One by one they found th |
+| moonwood-tales-c-20 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-20/page-012.webp | The last star spirit sat in Stone's hand.
+It blinked its large gold eyes at ever |
+| moonwood-tales-c-21 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-001.webp | It was late in the Hollow Oak.
+Everyone was asleep.
+Then Pip heard it.
+Scratch.
+ |
+| moonwood-tales-c-21 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-002.webp | Pip woke Wren.
+They listened together.
+Scratch.
+Shuffle.
+"...they were right her |
+| moonwood-tales-c-21 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-003.webp | By morning, everyone knew.
+They stood outside the Hollow Oak.
+"It makes those so |
+| moonwood-tales-c-21 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-004.webp | Pip, Wren, Burrow, and Fern went inside to search.
+They searched every room.
+The |
+| moonwood-tales-c-21 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-005.webp | "There is a room here," said Burrow.
+He found a small door near the roots.
+It wa |
+| moonwood-tales-c-21 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-006.webp | Fern went through the small door.
+She was inside for a moment.
+Then she called b |
+| moonwood-tales-c-21 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-007.webp | Inside was a room.
+It was small and warm.
+It was full of collected things.
+A tin |
+| moonwood-tales-c-21 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-008.webp | "Hello," said Fern.
+The tiny creature looked up.
+"Have you seen my spectacles?"  |
+| moonwood-tales-c-21 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-009.webp | Fern looked around the room.
+Then she looked at Twig.
+The spectacles were on top |
+| moonwood-tales-c-21 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-010.webp | "I am Twig," said the tiny creature.
+"I live here."
+"I have always lived here."
+ |
+| moonwood-tales-c-21 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-011.webp | Fern came back through the door.
+"Her name is Twig," said Fern.
+"She has lived h |
+| moonwood-tales-c-21 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-21/page-012.webp | They made Twig a slightly larger door.
+Twig came out for acorn biscuits.
+She sat |
+| moonwood-tales-c-22 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-001.webp | Luna read out the race rules.
+The course: from the Hollow Oak to the Crystal Str |
+| moonwood-tales-c-22 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-002.webp | They were off.
+Pip ran.
+Fern flew.
+Stone trotted.
+Dewdrop glided.
+Wren ran and r |
+| moonwood-tales-c-22 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-003.webp | Flint went left.
+Then left again.
+Then the Fog Marsh was ahead of him.
+"I am tak |
+| moonwood-tales-c-22 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-004.webp | Wren found a speed spell.
+She cast it.
+It worked on everyone near her.
+Everyone  |
+| moonwood-tales-c-22 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-005.webp | Glimmer could not stop.
+Glimmer hit Spark.
+Sparkles went everywhere.
+They both k |
+| moonwood-tales-c-22 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-006.webp | Stone hit a root.
+Stone began to fall.
+This took a while.
+Stone was very large.
+ |
+| moonwood-tales-c-22 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-007.webp | Pip reached the Crystal Stream.
+He leaped from stone to stone.
+One stone was sli |
+| moonwood-tales-c-22 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-008.webp | Halfway through, everyone was somewhere different.
+Pip was wet.
+Stone was standi |
+| moonwood-tales-c-22 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-009.webp | Dewdrop crossed the finish line.
+She had glided the whole way.
+She was not wet.
+ |
+| moonwood-tales-c-22 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-010.webp | Everyone finished.
+Eventually.
+Pip was still damp.
+Spark had found his hat.
+Ston |
+| moonwood-tales-c-22 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-011.webp | Luna counted everyone.
+Everyone was back.
+Then there was a rumbling.
+Burrow came |
+| moonwood-tales-c-22 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-22/page-012.webp | Dewdrop won a gold leaf for finishing.
+Burrow won a gold leaf for best route.
+"I |
+| moonwood-tales-c-23 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-001.webp | Pip noticed it on a Tuesday.
+The grey fog of the Fog Marsh was closer.
+It had ne |
+| moonwood-tales-c-23 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-002.webp | By the end of the week, the fog had crept closer.
+The mushrooms at the edge were |
+| moonwood-tales-c-23 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-003.webp | Pip told Luna.
+Luna listened carefully.
+"Something is wrong at the marsh," she s |
+| moonwood-tales-c-23 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-004.webp | Inside the marsh, it was colder.
+The trees drooped.
+The water did not move.
+Dewd |
+| moonwood-tales-c-23 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-005.webp | At the centre of the marsh, they found it.
+A figure made of grey mist.
+It sat ag |
+| moonwood-tales-c-23 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-006.webp | Dewdrop went close.
+"What is wrong?" she asked.
+The spirit looked up slowly.
+Its |
+| moonwood-tales-c-23 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-007.webp | The spirit pointed to the edges.
+They looked.
+There were things left behind.
+A r |
+| moonwood-tales-c-23 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-008.webp | "We didn't know," said Pip.
+"We left things without thinking," said Fern.
+The sp |
+| moonwood-tales-c-23 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-009.webp | "We'll clear it," said Pip.
+"Now," said Fern.
+They spent the afternoon clearing  |
+| moonwood-tales-c-23 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-010.webp | When the edge was clear, the spirit stood.
+Its shape was clearer now.
+"Thank you |
+| moonwood-tales-c-23 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-011.webp | They marked the boundary at the Hollow Oak.
+Everyone placed a stone.
+"The marsh  |
+| moonwood-tales-c-23 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-012.webp | That evening, the fog stayed at the line.
+The mushrooms began to come back on.
+O |
+| moonwood-tales-c-24 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-001.webp | There was a sign on the Hollow Oak door.
+GLIMMER'S FIRE PERFORMANCE — TODAY.
+Eve |
+| moonwood-tales-c-24 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-002.webp | They all sat in the clearing.
+Glimmer stood at the front.
+It was very quiet.
+"Re |
+| moonwood-tales-c-24 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-003.webp | Glimmer breathed in.
+Deeply.
+Glimmer breathed out.
+A jet of orange fire came out |
+| moonwood-tales-c-24 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-004.webp | Everyone gasped.
+Pip covered his mouth.
+Stone's eyes went very wide.
+Luna took o |
+| moonwood-tales-c-24 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-005.webp | Glimmer did it again.
+Longer.
+The fire was steady.
+It was warm.
+Glimmer's scales |
+| moonwood-tales-c-24 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-006.webp | Glimmer got excited.
+Glimmer breathed in very deeply.
+Much more deeply than befo |
+| moonwood-tales-c-24 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-007.webp | The fire was very large.
+It was taller than Glimmer.
+It caught the torch on the  |
+| moonwood-tales-c-24 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-008.webp | The light spread.
+Mushroom to mushroom.
+Lamp to lamp.
+Through every path.
+Throug |
+| moonwood-tales-c-24 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-009.webp | Moonwood blazed with gold.
+Every mushroom.
+Every lamp.
+Every glowing stone.
+The  |
+| moonwood-tales-c-24 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-010.webp | Everyone looked at the forest.
+Then everyone looked at Glimmer.
+Glimmer looked a |
+| moonwood-tales-c-24 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-011.webp | The fire faded slowly.
+Moonwood kept its glow.
+Luna looked at Glimmer over her g |
+| moonwood-tales-c-24 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-012.webp | "I did it," said Glimmer.
+"You did," said Pip.
+"I'd like to do it again," said G |
+| moonwood-tales-c-25 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-001.webp | It was the deepest part of the night.
+Moonwood was very quiet.
+Then there was a  |
+| moonwood-tales-c-25 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-002.webp | Pip opened the door.
+A small creature was at the edge of the clearing.
+It had ve |
+| moonwood-tales-c-25 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-003.webp | Pip knelt down.
+He held still.
+The creature came closer.
+One step.
+Then another. |
+| moonwood-tales-c-25 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-004.webp | Pip brought it inside.
+Everyone woke up.
+Stone brought a piece of acorn biscuit. |
+| moonwood-tales-c-25 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-005.webp | "Where is your home?" asked Burrow, gently.
+The creature looked at its paws.
+The |
+| moonwood-tales-c-25 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-006.webp | "We'll take you home," said Pip.
+"But the Deep Dark—" said Wren.
+"We'll go toget |
+| moonwood-tales-c-25 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-007.webp | They all went together.
+Luna led — her eyes could see in any dark.
+Glimmer breat |
+| moonwood-tales-c-25 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-008.webp | The Deep Dark was very dark.
+The trees had no glow.
+The light went only a little |
+| moonwood-tales-c-25 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-009.webp | Burrow found the underground path.
+He could smell the way.
+The creature stepped  |
+| moonwood-tales-c-25 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-010.webp | Beyond the roots, a small clearing.
+Silver moss lit the ground.
+It was warm.
+Oth |
+| moonwood-tales-c-25 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-011.webp | The creature ran to its family.
+The family gathered around it.
+They looked at th |
+| moonwood-tales-c-25 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-012.webp | They walked back through the Dark.
+At the edge, Pip looked back.
+One silver ligh |
 
 ## Failures
 

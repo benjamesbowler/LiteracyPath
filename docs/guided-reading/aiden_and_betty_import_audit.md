@@ -1,6 +1,6 @@
 # Aiden and Betty Level C Import Audit
 
-Generated: 2026-05-28T02:15:28.999Z
+Generated: 2026-06-02T11:36:59.132Z
 
 ## Source
 
@@ -21,7 +21,7 @@ Nested image packs used: `Kimi_Agent_Aiden & Betty Illustration Series/aiden-bet
 - Imported covers: 10/10
 - Imported story page images: 132
 - Missing story page images: 0
-- Nonfiction books kept: 56
+- Nonfiction books kept: 76
 - Old deleted fiction books restored: 0
 - Validation failures: 0
 
