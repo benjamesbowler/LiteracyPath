@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-06-02T11:48:16.768Z
+Generated: 2026-06-02T11:50:38.950Z
 
 ## Summary Counts
 
