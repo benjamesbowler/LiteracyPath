@@ -36,7 +36,9 @@ export function StoryQuestPlayer({ quest, onExit }) {
   const [history, setHistory] = useState([]);
   const [audioAvailable, setAudioAvailable] = useState(false);
   const [audioChecking, setAudioChecking] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const audioRef = useRef(null);
+  const playerRef = useRef(null);
 
   const currentPage = pageById.get(currentPageId) || quest?.pages?.[0] || null;
   const currentPageNumber = quest?.pages?.findIndex(page => page.id === currentPage?.id) + 1 || 1;
@@ -111,6 +113,17 @@ export function StoryQuestPlayer({ quest, onExit }) {
     void preloadQuestionMediaBatch(nextPages);
   }, [currentPage, pageById]);
 
+  useEffect(() => {
+    if (typeof document === "undefined") return undefined;
+
+    function handleFullscreenChange() {
+      setIsFullscreen(document.fullscreenElement === playerRef.current);
+    }
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
   function stopAudio() {
     if (!audioRef.current) return;
     audioRef.current.pause();
@@ -148,6 +161,35 @@ export function StoryQuestPlayer({ quest, onExit }) {
     setCurrentPageId(quest?.startPageId || quest?.pages?.[0]?.id || "");
   }
 
+  async function toggleFullscreen() {
+    const player = playerRef.current;
+    if (!player || typeof document === "undefined") {
+      setIsFullscreen(value => !value);
+      return;
+    }
+
+    try {
+      if (document.fullscreenElement === player) {
+        await document.exitFullscreen();
+      } else if (player.requestFullscreen) {
+        await player.requestFullscreen();
+      } else {
+        setIsFullscreen(value => !value);
+      }
+    } catch (error) {
+      console.warn("Story Quest fullscreen toggle unavailable.", error);
+      setIsFullscreen(value => !value);
+    }
+  }
+
+  function exitReader() {
+    stopAudio();
+    if (typeof document !== "undefined" && document.fullscreenElement === playerRef.current) {
+      document.exitFullscreen?.().catch(() => {});
+    }
+    onExit?.();
+  }
+
   if (!quest || !currentPage) {
     return (
       <section className="story-quest-player card">
@@ -163,7 +205,11 @@ export function StoryQuestPlayer({ quest, onExit }) {
   }
 
   return (
-    <section className="story-quest-player story-quest-reader card" aria-label={`${quest.title} Story Quest`}>
+    <section
+      className={["story-quest-player story-quest-reader card", isFullscreen ? "fullscreen" : ""].filter(Boolean).join(" ")}
+      ref={playerRef}
+      aria-label={`${quest.title} Story Quest`}
+    >
       <header className="story-quest-header">
         <div>
           <span className="story-quest-kicker">Read</span>
@@ -177,8 +223,11 @@ export function StoryQuestPlayer({ quest, onExit }) {
           <button className="lp-button lp-button-secondary" onClick={restart} type="button">
             Restart
           </button>
+          <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
+            {isFullscreen ? "Exit Full Screen" : "Full Screen"}
+          </button>
           {onExit && (
-            <button className="lp-button lp-button-secondary" onClick={onExit} type="button">
+            <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
               Close
             </button>
           )}
