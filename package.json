@@ -46,6 +46,9 @@
     "check:bundle-size": "node tools/checkBundleSize.js",
     "check:assessment-bank-loader": "node tools/checkAssessmentSkillBankLoader.js",
     "check:hfw-runtime-smoke": "node tools/checkHfwRuntimeSmoke.js",
+    "check:hfw-distractor-ambiguity": "node tools/checkHfwDistractorAmbiguity.js",
+    "check:assessment-level1-content-media": "node tools/checkAssessmentLevel1ContentMedia.js",
+    "check:assessment-prompt-audio-quality": "node tools/checkAssessmentPromptAudioQuality.js",
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all",
     "audit:assessment-integrity": "node tools/auditAssessmentSkillIntegrity.js",
     "audit:lexicon": "node scripts/auditLexicon.js"
