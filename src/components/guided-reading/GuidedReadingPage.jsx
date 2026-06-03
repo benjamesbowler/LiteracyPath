@@ -467,7 +467,6 @@ export function GuidedReadingPage({
   speakText,
   launchBookId = "",
   onLaunchBookHandled = null,
-  returnToElAssessments,
   viewReports
 }) {
   const [selectedBookId, setSelectedBookId] = useState(() => getRuntimeGuidedReadingBooks()[0]?.id || "");
@@ -1233,14 +1232,11 @@ export function GuidedReadingPage({
         <section className="teacher-page-header">
           <div>
             <p className="panel-label">Guided Reading</p>
-            <h2>{studentName || "Student"} Reading Conference</h2>
+            <h2>{studentName || "Student"} Reading Library</h2>
             <p>Guided Reading books are temporarily paused while the page images and app text are regenerated to match correctly.</p>
           </div>
 
           <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={returnToElAssessments} type="button">
-              EL Assessments
-            </button>
             <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
               Reports
             </button>
@@ -1278,14 +1274,11 @@ export function GuidedReadingPage({
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Guided Reading</p>
-          <h2>{studentName || "Student"} Reading Conference</h2>
+          <h2>{studentName || "Student"} Reading Library</h2>
           <p>Choose a guided reading book to listen, read, reread, and capture teacher notes.</p>
         </div>
 
         <div className="teacher-action-list">
-          <button className="lp-button lp-button-secondary" onClick={returnToElAssessments} type="button">
-            EL Assessments
-          </button>
           <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
             Reports
           </button>

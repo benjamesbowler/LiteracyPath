@@ -7361,7 +7361,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             guidedReadingRecords={guidedReadingRecords}
             saveGuidedReadingRecord={saveGuidedReadingRecord}
             speakText={speakText}
-            returnToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
             viewReports={() => setAppView(APP_VIEWS.REPORTS)}
           />
         </PageBoundary>
