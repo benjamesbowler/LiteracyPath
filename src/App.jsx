@@ -7185,7 +7185,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             <LearnAreaPage assessmentSummary={summarizeAssessmentHistory(assessmentHistory, {
               students: studentList.map(row => ({ ...row, className: getSelectedClassName(classList, row.class_id, "") })),
               classes: classList
-            })} />
+            })} progressScopeKey={studentId || studentName || "default"} />
           </Suspense>
         </PageBoundary>
       )}
@@ -7282,6 +7282,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         <PageBoundary resetKey={`reports-${studentId}`}>
           <TeacherReportsPage
             studentName={studentName}
+            startAssessment={startAssessment}
             viewFinishedReport={() => setAppView(APP_VIEWS.FINISHED)}
             openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
             guidedReadingRecords={guidedReadingRecords}
@@ -7447,6 +7448,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               exportLetterAssessment={exportLetterAssessment}
               exportPatternAssessment={exportPatternAssessment}
               guidedReadingRecords={guidedReadingRecords}
+              openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
               returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
             />
           </Suspense>

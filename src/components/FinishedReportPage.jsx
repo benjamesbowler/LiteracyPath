@@ -28,6 +28,7 @@ export function FinishedReportPage({
   exportLetterAssessment,
   exportPatternAssessment,
   guidedReadingRecords = {},
+  openGuidedReading,
   returnToTeacherDashboard
 }) {
   const [guidedReadingSummaries, setGuidedReadingSummaries] = useState([]);
@@ -64,6 +65,11 @@ export function FinishedReportPage({
   const latestCheckpointIncomplete =
     latestCheckpointCoverage &&
     latestCheckpointCoverage.mastered < latestCheckpointCoverage.total;
+  const hasAssessmentData =
+    totalAnswered > 0 ||
+    skillMasterySummary.some(summary => summary.masteredCount > 0) ||
+    Object.values(mastery || {}).some(value => value?.lastTotal || value?.mastered);
+  const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
 
   return (
     <div className="report-panel page-stack">
@@ -90,6 +96,16 @@ export function FinishedReportPage({
       <p><strong>Accuracy:</strong> {accuracy}%</p>
       <p><strong>Current focus:</strong> {currentStage.label}</p>
 
+      {!hasAssessmentData && (
+        <section className="report-empty-state">
+          <strong>No assessment data yet.</strong>
+          <p>Start the first assessment to populate checkpoints, accuracy, and mastered items.</p>
+          <button className="main-button" onClick={startAssessment} type="button">
+            Start First Assessment
+          </button>
+        </section>
+      )}
+
       {guidedReadingSummaries.length > 0 && (
         <section className="checkpoint-complete-panel">
           <div>
@@ -106,6 +122,16 @@ export function FinishedReportPage({
               </article>
             ))}
           </div>
+        </section>
+      )}
+
+      {!hasGuidedReadingRecords && openGuidedReading && (
+        <section className="report-empty-state">
+          <strong>No guided reading records yet.</strong>
+          <p>Open Guided Reading to begin saving book progress and conference notes.</p>
+          <button className="report-button" onClick={openGuidedReading} type="button">
+            Open Guided Reading
+          </button>
         </section>
       )}
 

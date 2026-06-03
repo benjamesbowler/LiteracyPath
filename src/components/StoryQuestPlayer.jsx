@@ -31,12 +31,17 @@ function StoryQuestImage({ src, title }) {
   );
 }
 
-export function StoryQuestPlayer({ quest, onExit }) {
+export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit, onProgress }) {
   const pageById = useMemo(() => {
     return new Map((quest?.pages || []).map(page => [page.id, page]));
   }, [quest]);
 
-  const [currentPageId, setCurrentPageId] = useState(quest?.startPageId || quest?.pages?.[0]?.id || "");
+  const getStartPageId = () =>
+    initialPageId && pageById.has(initialPageId)
+      ? initialPageId
+      : quest?.startPageId || quest?.pages?.[0]?.id || "";
+
+  const [currentPageId, setCurrentPageId] = useState(getStartPageId);
   const [history, setHistory] = useState([]);
   const [audioAvailable, setAudioAvailable] = useState(false);
   const [audioChecking, setAudioChecking] = useState(false);
@@ -65,10 +70,15 @@ export function StoryQuestPlayer({ quest, onExit }) {
     .slice(0, 4);
 
   useEffect(() => {
-    setCurrentPageId(quest?.startPageId || quest?.pages?.[0]?.id || "");
+    setCurrentPageId(getStartPageId());
     setHistory([]);
     setIsComplete(false);
-  }, [quest]);
+  }, [quest, initialPageId, pageById]);
+
+  useEffect(() => {
+    if (!currentPageId || isComplete) return;
+    onProgress?.(currentPageId);
+  }, [currentPageId, isComplete]);
 
   useEffect(() => {
     let cancelled = false;
@@ -179,6 +189,7 @@ export function StoryQuestPlayer({ quest, onExit }) {
     if (nextPageId === "end") {
       stopAudio();
       setIsComplete(true);
+      onComplete?.();
       return;
     }
     if (!pageById.has(nextPageId)) return;

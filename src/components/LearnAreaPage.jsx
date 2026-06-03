@@ -1,31 +1,91 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
 
-export function LearnAreaPage() {
+const STORY_QUEST_PROGRESS_STORAGE_KEY = "literacyPath.storyQuestProgress.v1";
+
+function storyQuestProgressStorageKey(progressScopeKey = "default") {
+  return `${STORY_QUEST_PROGRESS_STORAGE_KEY}.${encodeURIComponent(progressScopeKey || "default")}`;
+}
+
+function loadStoryQuestProgress(progressScopeKey) {
+  if (typeof window === "undefined") return {};
+  try {
+    return JSON.parse(window.localStorage.getItem(storyQuestProgressStorageKey(progressScopeKey)) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function saveStoryQuestProgress(progressScopeKey, progress) {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.setItem(storyQuestProgressStorageKey(progressScopeKey), JSON.stringify(progress));
+  } catch {
+    // Progress labels are helpful but should never block reading.
+  }
+}
+
+export function LearnAreaPage({ progressScopeKey = "default" }) {
   const [activeQuestId, setActiveQuestId] = useState("");
   const [selectedQuestId, setSelectedQuestId] = useState("");
+  const [questProgress, setQuestProgress] = useState(() => loadStoryQuestProgress(progressScopeKey));
+  const [questProgressScope, setQuestProgressScope] = useState(progressScopeKey);
   const activeQuest = storyQuests.find(quest => quest.id === activeQuestId) || null;
   const selectedQuest = storyQuests.find(quest => quest.id === selectedQuestId) || null;
   const selectedWordCards = selectedQuest?.wordCards || [];
+  const activeQuestProgress = activeQuest ? questProgress[activeQuest.id] || {} : {};
+  const activeQuestInitialPageId =
+    activeQuest && !activeQuestProgress.completed && activeQuestProgress.lastPageId
+      ? activeQuestProgress.lastPageId
+      : "";
 
   useLayoutEffect(() => {
     if (!activeQuestId || typeof window === "undefined") return;
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [activeQuestId]);
 
+  useEffect(() => {
+    setQuestProgressScope(progressScopeKey);
+    setQuestProgress(loadStoryQuestProgress(progressScopeKey));
+  }, [progressScopeKey]);
+
+  useEffect(() => {
+    if (questProgressScope !== progressScopeKey) return;
+    saveStoryQuestProgress(progressScopeKey, questProgress);
+  }, [progressScopeKey, questProgress, questProgressScope]);
+
+  function updateQuestProgress(questId, patch) {
+    setQuestProgress(previous => ({
+      ...previous,
+      [questId]: {
+        ...(previous[questId] || {}),
+        ...patch,
+        opened: true,
+        updatedAt: new Date().toISOString()
+      }
+    }));
+  }
+
   function startQuest(questId) {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
     setSelectedQuestId(questId);
+    updateQuestProgress(questId, {});
     setActiveQuestId(questId);
   }
 
   if (activeQuest) {
     return (
       <main className="learn-area-page story-quest-learn-page" aria-label="Story Quest Adventures">
-        <StoryQuestPlayer quest={activeQuest} onExit={() => setActiveQuestId("")} />
+        <StoryQuestPlayer
+          initialPageId={activeQuestInitialPageId}
+          onComplete={() => updateQuestProgress(activeQuest.id, { completed: true })}
+          onExit={() => setActiveQuestId("")}
+          onProgress={pageId => updateQuestProgress(activeQuest.id, { lastPageId: pageId })}
+          quest={activeQuest}
+        />
       </main>
     );
   }
@@ -40,6 +100,10 @@ export function LearnAreaPage() {
         </div>
         <div className="learn-story-quest-list">
           {storyQuests.map(quest => {
+            const progress = questProgress[quest.id] || {};
+            const isCompleted = Boolean(progress.completed);
+            const hasOpened = Boolean(progress.opened);
+            const actionLabel = isCompleted ? "Read Again" : hasOpened ? "Continue" : "Start Reading";
             const levelLabel = quest.level && /^[A-Z]$/.test(quest.level)
               ? `Level ${quest.level}`
               : quest.level || quest.skillFocus;
@@ -66,6 +130,11 @@ export function LearnAreaPage() {
                   <h3>{quest.title}</h3>
                   <p>{levelLabel}</p>
                   <span>{questDetails || quest.skillFocus}</span>
+                  {hasOpened && (
+                    <span className={isCompleted ? "story-quest-status completed" : "story-quest-status"}>
+                      {isCompleted ? "Completed ✓" : "In progress"}
+                    </span>
+                  )}
                   <div className="learn-story-word-preview" aria-label="Target words">
                     {(quest.targetWords || []).slice(0, 9).map(word => (
                       <span key={word}>{word}</span>
@@ -77,7 +146,7 @@ export function LearnAreaPage() {
                     Show Words
                   </button>
                   <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">
-                    Start Reading
+                    {actionLabel}
                   </button>
                 </div>
               </article>

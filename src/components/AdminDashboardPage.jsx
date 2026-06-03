@@ -1879,7 +1879,10 @@ export function AdminDashboardPage({
                       <span>{individualDetailedReport.guidedReading.completedBooks} completed · {individualDetailedReport.guidedReading.inProgressBooks} in progress</span>
                     </summary>
                     {individualDetailedReport.guidedReading.bookRows.length === 0 ? (
-                      <p>No guided reading records yet.</p>
+                      <div className="report-empty-state compact">
+                        <strong>No guided reading records yet.</strong>
+                        <p>Open Guided Reading with this student to save book progress and conference notes.</p>
+                      </div>
                     ) : (
                       <div className="guided-reading-detail-cards">
                         {individualDetailedReport.guidedReading.bookRows.map(row => (
@@ -2346,6 +2349,12 @@ export function AdminDashboardPage({
               <strong>{hfwAssessedCount ? Math.round(hfwStudentRows.reduce((sum, row) => sum + (row.attempts ? row.accuracy : 0), 0) / hfwAssessedCount) : 0}%</strong>
             </article>
           </div>
+          {hfwAssessedCount === 0 && (
+            <div className="report-empty-state">
+              <strong>No high-frequency word data yet.</strong>
+              <p>Complete an HFW round to populate attempts, accuracy, and status here.</p>
+            </div>
+          )}
           <div className="admin-table-wrap teacher-scroll-panel">
             <table className="dashboard-table admin-table admin-responsive-table">
               <thead>
