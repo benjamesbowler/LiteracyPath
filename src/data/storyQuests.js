@@ -46,6 +46,17 @@ function moonwoodPage(folder, id, text, choicePrompt, choices, skillTags = []) {
   };
 }
 
+function storyQuestSkillTags(text = [], targetWords = []) {
+  const normalizedText = text.join(" ").toLowerCase();
+  return targetWords
+    .map(word => String(word).toLowerCase())
+    .filter(word => normalizedText.includes(word));
+}
+
+function moonwoodTargetPage(folder, id, text, choicePrompt, choices, targetWords = []) {
+  return moonwoodPage(folder, id, text, choicePrompt, choices, storyQuestSkillTags(text, targetWords));
+}
+
 const muddySplashyFolder = "muddy-splashy-hat";
 const shyCuddlyFolder = "shy-cuddly-quiet";
 const bouncySpeedyFolder = "bouncy-speedy-map";
@@ -56,6 +67,10 @@ const bossyPicnicFolder = "bossy-picnic-mix-up";
 const zippyFlappyFolder = "zippy-flappy-fast-slow";
 const pipStoneFolder = "pip-stone-loud-thing";
 const fernWrenFolder = "fern-wren-walking-garden";
+const lunaBurrowStarShellDoorFolder = "luna-burrow-star-shell-door";
+const dewdropFlintLostGlowFolder = "dewdrop-flint-lost-glow";
+const lunaBurrowStarShellDoorTargetWords = ["Luna", "Burrow", "star", "shell", "door", "map", "moon", "listen", "choose", "path", "hidden", "brave", "open", "glow", "home"];
+const dewdropFlintLostGlowTargetWords = ["Dewdrop", "Flint", "glow", "stream", "crystal", "dark", "bright", "float", "listen", "lantern", "whisper", "cave", "help", "shine", "again"];
 
 export const dinoPalsStoryQuestMetadata = [
   {
@@ -936,6 +951,584 @@ const moonwoodStoryQuests = [
         { label: "Finish", nextPageId: "end" },
         { label: "Read again", nextPageId: "p01_start" }
       ], ["fern", "garden", "wren", "potion", "plants", "calm"])
+    ]
+  },
+  {
+    id: "mw_ra_c_03_luna_burrow_star_shell_door",
+    title: "Luna and Burrow: The Star Shell Door",
+    level: "C",
+    ageRange: "Ages 5-6",
+    adventureType: "Reading Adventure",
+    skillFocus: "Level C guided reading choice adventure",
+    cycleFocus: "guided_reading_level_c_story_choice",
+    series: "Moonwood Tales",
+    characters: ["Luna", "Burrow", "Pip", "Stone", "Wren"],
+    location: "Moonwood - Hollow Oak, Fog Marsh, Crystal Stream, old roots, hidden star room",
+    targetWords: lunaBurrowStarShellDoorTargetWords,
+    highFrequencyWords: ["and", "the", "said", "was", "were", "looked", "then", "again", "home", "one", "very", "inside"],
+    hfw: ["and", "the", "said", "was", "were", "looked", "then", "again", "home", "one", "very", "inside"],
+    coverImageUrl: moonwoodImagePath(lunaBurrowStarShellDoorFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p01_start", ["Luna found a star shell under the Hollow Oak.", "Burrow found a tiny map inside it.", "The map had no words."], "What should they try first?", [
+        { label: "Hold it to the moon", nextPageId: "p02_moon_map" },
+        { label: "Listen to the shell", nextPageId: "p02_shell_song" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p02_moon_map", ["Moonlight touched the map.", "Silver lines appeared.", "One line led to the Fog Marsh.", "One line led to the Crystal Stream."], "Which line should they choose?", [
+        { label: "Go to the Fog Marsh", nextPageId: "p03_marsh_path" },
+        { label: "Go to the Crystal Stream", nextPageId: "p03_stream_path" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p02_shell_song", ["Burrow held the shell to his ear.", "It hummed softly.", "\"The map is singing,\" said Luna."], "Which hum should they follow?", [
+        { label: "Follow the low hum", nextPageId: "p03_root_path" },
+        { label: "Follow the bright hum", nextPageId: "p03_stream_path" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p03_marsh_path", ["The Fog Marsh was still and grey.", "A stone bird stood beside the path.", "Its eyes were full of stars."], "What should Luna and Burrow do?", [
+        { label: "Ask the stone bird", nextPageId: "p04_bird_riddle" },
+        { label: "Walk past quietly", nextPageId: "p04_quiet_mist" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p03_stream_path", ["The Crystal Stream shone blue.", "The map floated above the water.", "Then it split into three silver arrows."], "Which arrow should they follow?", [
+        { label: "Follow the arrow upstream", nextPageId: "p04_upstream" },
+        { label: "Follow the arrow under the bridge", nextPageId: "p04_bridge_shadow" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p03_root_path", ["The low hum led under old roots.", "Burrow smiled.", "\"This is my kind of path,\" he said."], "Who should help with the roots?", [
+        { label: "Let Burrow dig", nextPageId: "p04_burrow_digs" },
+        { label: "Call Pip for help", nextPageId: "p04_pip_arrives" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p04_bird_riddle", ["The stone bird opened one eye.", "\"What opens with no key?\" it asked.", "Luna blinked."], "What should they answer?", [
+        { label: "Say \"a song\"", nextPageId: "p05_song_answer" },
+        { label: "Say \"a door\"", nextPageId: "p05_door_answer" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p04_quiet_mist", ["Luna and Burrow walked quietly.", "The mist moved aside.", "A tiny silver feather fell at Luna's feet."], "What should Luna do?", [
+        { label: "Pick up the feather", nextPageId: "p05_feather" },
+        { label: "Leave it for the bird", nextPageId: "p05_kind_choice" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p04_upstream", ["Upstream, the water jumped over shining stones.", "Burrow slipped once.", "Luna caught his paw."], "How should they cross?", [
+        { label: "Cross the stones", nextPageId: "p05_cross_stones" },
+        { label: "Look for another way", nextPageId: "p05_leaf_boat" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p04_bridge_shadow", ["Under the bridge, something glittered.", "It was another star shell.", "But this one was cracked."], "What should Burrow do?", [
+        { label: "Take the cracked shell", nextPageId: "p05_cracked_shell" },
+        { label: "Leave it and keep looking", nextPageId: "p05_kind_choice" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p04_burrow_digs", ["Burrow dug under the roots.", "His tunnel bumped into something hard.", "A round stone door was hiding underground."], "What should Burrow do?", [
+        { label: "Knock on the door", nextPageId: "p06_hidden_door" },
+        { label: "Dig around it", nextPageId: "p05_tunnel_wide" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p04_pip_arrives", ["Pip came with a lantern.", "\"I can be brave,\" he said.", "The lantern flickered near the roots."], "Who should lead?", [
+        { label: "Let Pip lead", nextPageId: "p05_pip_leads" },
+        { label: "Let Burrow lead", nextPageId: "p04_burrow_digs" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_song_answer", ["\"A song,\" said Luna.", "The stone bird smiled.", "It gave Luna a silver note."], "What should Luna do with the note?", [
+        { label: "Follow the note", nextPageId: "p06_hidden_door" },
+        { label: "Sing to the map", nextPageId: "p06_map_sings" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_door_answer", ["\"A door,\" said Burrow.", "The stone bird shook its head.", "\"Too easy,\" it said."], "What should they try next?", [
+        { label: "Try again softly", nextPageId: "p05_song_answer" },
+        { label: "Ask Luna to think", nextPageId: "p05_feather" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_feather", ["Luna touched the feather to the map.", "The map became light as air.", "It flew toward the old roots."], "What should they do?", [
+        { label: "Follow the flying map", nextPageId: "p06_hidden_door" },
+        { label: "Ask Burrow to catch it", nextPageId: "p06_burrow_catches_map" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_kind_choice", ["They did not take what was not theirs.", "The map glowed brighter.", "A new path opened between two roots."], "What should they do?", [
+        { label: "Step through the roots", nextPageId: "p06_hidden_door" },
+        { label: "Call Wren first", nextPageId: "p06_wren_warning" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_cross_stones", ["The stones were slippery.", "Burrow wobbled.", "Luna spread both wings and balanced him."], "Where should they go?", [
+        { label: "Keep crossing", nextPageId: "p06_stream_gate" },
+        { label: "Turn back to the roots", nextPageId: "p06_hidden_door" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_leaf_boat", ["They made a boat from a giant leaf.", "It spun in one circle.", "Then it carried them to a small door in the bank."], "What should they do?", [
+        { label: "Open the bank door", nextPageId: "p06_stream_gate" },
+        { label: "Call for Stone", nextPageId: "p06_stone_helps" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_cracked_shell", ["Burrow picked up the cracked shell.", "The map grew dim.", "\"That shell is not ours,\" said Luna."], "What should Burrow do?", [
+        { label: "Put it back", nextPageId: "p05_kind_choice" },
+        { label: "Keep it anyway", nextPageId: "p07_wrong_shell" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_tunnel_wide", ["Burrow made the tunnel wider.", "The ground rumbled.", "Stone's sleepy voice came from above."], "What should they do?", [
+        { label: "Ask Stone to lift the root", nextPageId: "p06_stone_helps" },
+        { label: "Knock before digging more", nextPageId: "p06_hidden_door" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p05_pip_leads", ["Pip held the lantern high.", "The light showed tiny star marks on the roots.", "One mark looked like a door."], "What should Pip do?", [
+        { label: "Touch the star mark", nextPageId: "p06_hidden_door" },
+        { label: "Follow more star marks", nextPageId: "p06_map_sings" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p06_map_sings", ["The map sang three notes.", "The shell sang three notes back.", "A door appeared in the old roots."], "How should they open it?", [
+        { label: "Sing with Luna", nextPageId: "p07_door_opens" },
+        { label: "Let Burrow knock", nextPageId: "p06_hidden_door" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p06_burrow_catches_map", ["Burrow jumped and caught the map.", "He landed in a pile of moss.", "The moss laughed."], "What should they do?", [
+        { label: "Laugh too", nextPageId: "p07_moss_laughs" },
+        { label: "Look for the door", nextPageId: "p06_hidden_door" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p06_wren_warning", ["Wren came running with three books.", "\"Do not open strange doors fast,\" she said.", "Then the smallest book sneezed."], "How should they open it?", [
+        { label: "Open it carefully", nextPageId: "p07_door_opens" },
+        { label: "Let Wren check first", nextPageId: "p07_wren_checks" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p06_stream_gate", ["The stream door was made of clear crystal.", "Inside it, tiny stars swam like fish.", "Burrow pressed his nose to the glass."], "What should they do?", [
+        { label: "Open the crystal gate", nextPageId: "p07_star_fish" },
+        { label: "Go back to the root door", nextPageId: "p06_hidden_door" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p06_stone_helps", ["Stone lifted one huge root very gently.", "Under it was a round door.", "\"Small door,\" said Stone.", "\"Big root.\""], "What should they do?", [
+        { label: "Thank Stone", nextPageId: "p07_door_opens" },
+        { label: "Ask Stone to come too", nextPageId: "p07_stone_too_big" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p06_hidden_door", ["The hidden door was round and small.", "It had no handle.", "Only a shell-shaped hollow."], "How should they open it?", [
+        { label: "Place the star shell in the hollow", nextPageId: "p07_door_opens" },
+        { label: "Knock three times", nextPageId: "p07_knock_reply" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_wrong_shell", ["The cracked shell made the door frown.", "The map turned upside down.", "Burrow looked worried."], "What should Burrow do?", [
+        { label: "Return the shell", nextPageId: "p05_kind_choice" },
+        { label: "Ask Luna for help", nextPageId: "p07_luna_fixes" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_luna_fixes", ["Luna took one slow breath.", "\"We must give back what we borrow,\" she said.", "Burrow nodded."], "What should they do?", [
+        { label: "Return the shell", nextPageId: "p05_kind_choice" },
+        { label: "Say sorry to the map", nextPageId: "p08_sorry_path" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_moss_laughs", ["The moss laughed louder.", "Pip laughed too.", "The hidden door opened just a crack."], "What should they do?", [
+        { label: "Peek inside", nextPageId: "p08_star_room" },
+        { label: "Wait for Luna", nextPageId: "p07_door_opens" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_wren_checks", ["Wren read the smallest book.", "\"It says the door likes kind hands,\" she said.", "Then she dropped the book on her foot."], "What should they do?", [
+        { label: "Use kind hands", nextPageId: "p07_door_opens" },
+        { label: "Ask the door nicely", nextPageId: "p07_knock_reply" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_star_fish", ["Tiny star fish swam through the crystal gate.", "One carried a golden key.", "But the door had no lock."], "What should they do?", [
+        { label: "Follow the star fish", nextPageId: "p08_star_room" },
+        { label: "Ask why there is a key", nextPageId: "p08_key_joke" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_stone_too_big", ["Stone tried to fit through the door.", "Only one eye fit.", "\"I will guard outside,\" said Stone."], "What should they do?", [
+        { label: "Go inside with Luna", nextPageId: "p08_star_room" },
+        { label: "Ask Stone to watch the map", nextPageId: "p08_stone_guard" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_knock_reply", ["Burrow knocked three times.", "The door knocked back.", "Burrow jumped behind Luna."], "What should Burrow do?", [
+        { label: "Knock again politely", nextPageId: "p08_polite_door" },
+        { label: "Use the star shell", nextPageId: "p07_door_opens" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_door_opens", ["The star shell clicked into place.", "The hidden door opened.", "Behind it was a room full of soft blue stars."], "What should they do?", [
+        { label: "Step inside", nextPageId: "p08_star_room" },
+        { label: "Send the map in first", nextPageId: "p08_map_inside" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_sorry_path", ["Burrow said sorry to the map.", "The map stopped being upside down.", "A tiny arrow pointed home."], "What should they do?", [
+        { label: "Follow it home", nextPageId: "p10_quiet_ending" },
+        { label: "Try the true shell again", nextPageId: "p07_door_opens" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_key_joke", ["\"The key is for my lunch box,\" said the star fish.", "Burrow laughed so hard he sat down."], "What should they do?", [
+        { label: "Follow the star fish", nextPageId: "p08_star_room" },
+        { label: "Tell Luna the joke", nextPageId: "p09_luna_laughs" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_stone_guard", ["Stone held the map outside.", "He held it very carefully.", "Inside, the stars began to move."], "What should Luna do?", [
+        { label: "Trust Stone", nextPageId: "p09_star_choice" },
+        { label: "Call Stone's name", nextPageId: "p09_echo_room" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_polite_door", ["Burrow knocked again.", "\"Please,\" he said.", "The door opened with a tiny sigh."], "What should Burrow do?", [
+        { label: "Go inside", nextPageId: "p08_star_room" },
+        { label: "Ask why it sighed", nextPageId: "p09_door_answer" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_map_inside", ["The map flew into the room.", "It landed on a little star table.", "Three paths lit up around it."], "Which path should they choose?", [
+        { label: "Choose the blue path", nextPageId: "p09_blue_path" },
+        { label: "Choose the gold path", nextPageId: "p09_gold_path" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_star_room", ["The room was bigger inside than outside.", "Stars floated like bubbles.", "At the centre was a sleeping moon seed."], "What should they do?", [
+        { label: "Wake the moon seed", nextPageId: "p09_star_choice" },
+        { label: "Let it sleep", nextPageId: "p09_kind_sleep" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_luna_laughs", ["Luna tried not to laugh.", "Then she did.", "The star fish bowed and swam away."], "What should Luna do?", [
+        { label: "Look at the moon seed", nextPageId: "p09_star_choice" },
+        { label: "Go home smiling", nextPageId: "p10_funny_ending" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_echo_room", ["Luna called Stone's name.", "The room called back, \"Stone, Stone, Stone.\"", "Outside, Stone waved one huge hand."], "What should Luna do?", [
+        { label: "Keep going", nextPageId: "p09_star_choice" },
+        { label: "Bring back a star for Stone", nextPageId: "p10_stone_star" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_door_answer", ["\"I sigh because people rush,\" said the door.", "Burrow sat down.", "\"I do that,\" he said."], "What should Burrow do?", [
+        { label: "Promise to slow down", nextPageId: "p09_kind_sleep" },
+        { label: "Ask about the moon seed", nextPageId: "p09_star_choice" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_blue_path", ["The blue path showed the Fog Marsh under stars.", "The marsh looked less scary from above."], "What should Luna do?", [
+        { label: "Take a star to the marsh", nextPageId: "p10_marsh_light" },
+        { label: "Return to Moonwood", nextPageId: "p10_quiet_ending" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_gold_path", ["The gold path showed Hollow Oak.", "Everyone was waiting outside.", "The moon seed glowed brighter."], "What should Luna do?", [
+        { label: "Take the moon seed home", nextPageId: "p10_home_seed" },
+        { label: "Leave it safe", nextPageId: "p09_kind_sleep" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_kind_sleep", ["Luna did not wake the moon seed.", "Burrow tucked the map beside it.", "The whole room glowed softly."], "How should they leave?", [
+        { label: "Go home quietly", nextPageId: "p10_quiet_ending" },
+        { label: "Tell Wren everything", nextPageId: "p10_wren_ending" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p09_star_choice", ["The moon seed opened one eye.", "\"Do you need me?\" it asked.", "Luna looked at Burrow."], "What should Luna say?", [
+        { label: "Ask it to help Moonwood", nextPageId: "p10_home_seed" },
+        { label: "Say it can choose", nextPageId: "p10_free_seed" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_marsh_light", ["They placed one star near the Fog Marsh.", "The mist turned silver.", "Even Burrow thought it looked beautiful."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_stone_star", ["Luna brought one tiny star to Stone.", "Stone held it in both hands.", "\"Small star,\" he whispered."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_home_seed", ["The moon seed floated to Hollow Oak.", "By morning, a small moon flower grew there.", "Burrow said it looked like a lamp."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_free_seed", ["The moon seed stretched and flew outside.", "It chose the tallest branch of Hollow Oak.", "Luna smiled."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_wren_ending", ["Wren wrote the whole adventure in one book.", "Then in three books.", "Then Fern took two books away."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_funny_ending", ["Burrow told everyone about the lunch-box key.", "For three days, Pip checked every fish for pockets."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_quiet_ending", ["Luna and Burrow sat outside Hollow Oak.", "The star shell was quiet now.", "But the map gave one tiny wink."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], lunaBurrowStarShellDoorTargetWords)
+    ]
+  },
+  {
+    id: "mw_ra_c_04_dewdrop_flint_lost_glow",
+    title: "Dewdrop and Flint: The Lost Glow",
+    level: "C",
+    ageRange: "Ages 5-6",
+    adventureType: "Reading Adventure",
+    skillFocus: "Level C guided reading choice adventure",
+    cycleFocus: "guided_reading_level_c_story_choice",
+    series: "Moonwood Tales",
+    characters: ["Dewdrop", "Flint", "Fern", "Wren", "Pip"],
+    location: "Moonwood - Crystal Stream, Deep Dark, Fern's garden, glow cave",
+    targetWords: dewdropFlintLostGlowTargetWords,
+    highFrequencyWords: ["and", "the", "said", "was", "were", "looked", "then", "again", "with", "one", "very", "home"],
+    hfw: ["and", "the", "said", "was", "were", "looked", "then", "again", "with", "one", "very", "home"],
+    coverImageUrl: moonwoodImagePath(dewdropFlintLostGlowFolder, "p01_start"),
+    startPageId: "p01_start",
+    pages: [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p01_start", ["The Crystal Stream usually glowed at night.", "But tonight it was dark.", "Flint's little lantern blinked once and went out."], "What should they do first?", [
+        { label: "Ask Dewdrop what happened", nextPageId: "p02_dewdrop_listens" },
+        { label: "Shake the lantern", nextPageId: "p02_flint_shakes" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p02_dewdrop_listens", ["Dewdrop floated close to the water.", "\"The stream is whispering,\" she said.", "Flint held very still."], "What should they do?", [
+        { label: "Listen with Dewdrop", nextPageId: "p03_water_whisper" },
+        { label: "Search with Flint", nextPageId: "p03_lantern_path" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p02_flint_shakes", ["Flint shook the lantern.", "A tiny spark jumped out.", "It zipped into a bush."], "What should Flint do?", [
+        { label: "Catch the spark", nextPageId: "p03_spark_bush" },
+        { label: "Call Wren for a spell", nextPageId: "p03_wren_arrives" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p03_water_whisper", ["The water whispered, \"The glow is hiding.\"", "Dewdrop's wings shone pale blue.", "Flint gulped."], "Where should they look?", [
+        { label: "Follow the whisper upstream", nextPageId: "p04_upstream_dark" },
+        { label: "Look under stepping stones", nextPageId: "p04_under_stones" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p03_lantern_path", ["The lantern pointed toward the Deep Dark.", "It pointed again toward Fern's garden.", "Flint did not like either path."], "Which path should they choose?", [
+        { label: "Go toward the Deep Dark", nextPageId: "p04_deep_dark_edge" },
+        { label: "Go to Fern first", nextPageId: "p04_fern_garden" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p03_spark_bush", ["The spark landed on Pip's nose.", "Pip sneezed.", "His nose glowed green."], "What should they do?", [
+        { label: "Ask Pip to help", nextPageId: "p04_pip_glows" },
+        { label: "Take the spark back", nextPageId: "p04_spark_jar" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p03_wren_arrives", ["Wren arrived with a spell book.", "Then another spell book.", "Then a book about not dropping books."], "What should Wren do?", [
+        { label: "Try a careful spell", nextPageId: "p04_wren_spell" },
+        { label: "Skip the spell and listen", nextPageId: "p03_water_whisper" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p04_upstream_dark", ["Upstream, the crystals were dull.", "A tiny fish blinked in the dark.", "\"This way,\" it bubbled."], "What should they do?", [
+        { label: "Follow the fish", nextPageId: "p05_fish_tunnel" },
+        { label: "Ask the fish a question", nextPageId: "p05_fish_answer" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p04_under_stones", ["Under the stepping stones were scratch marks.", "One stone had a crack shaped like a moon.", "Flint's lantern blinked once."], "What should they do?", [
+        { label: "Squeeze into the crack", nextPageId: "p05_crack_path" },
+        { label: "Call Stone", nextPageId: "p05_stone_lifts" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p04_deep_dark_edge", ["The Deep Dark was not empty.", "It rustled.", "It smelled like wet leaves and old secrets."], "What should Flint do?", [
+        { label: "Keep going carefully", nextPageId: "p05_shadow_moth" },
+        { label: "Turn back to Fern", nextPageId: "p04_fern_garden" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p04_fern_garden", ["Fern's garden was dim too.", "Fern held one leaf to the air.", "\"The glow passed here,\" she said."], "What should they do?", [
+        { label: "Ask where it hides", nextPageId: "p05_fern_clue" },
+        { label: "Take Fern with you", nextPageId: "p05_fern_joins" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p04_pip_glows", ["Pip's nose glowed brighter.", "\"I am a lamp,\" said Pip.", "Then he walked into a mushroom."], "What should they do?", [
+        { label: "Let Pip lead", nextPageId: "p05_pip_lamp" },
+        { label: "Put the glow in the lantern", nextPageId: "p04_spark_jar" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p04_spark_jar", ["Flint caught the spark in a little jar.", "The jar shook.", "\"I want water,\" whispered the spark."], "What should Flint do?", [
+        { label: "Open it near the water", nextPageId: "p05_spark_water" },
+        { label: "Keep it safe", nextPageId: "p05_fern_clue" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p04_wren_spell", ["Wren whispered a careful spell.", "Purple smoke puffed out.", "The smoke made an arrow, then sneezed."], "What should they do?", [
+        { label: "Follow the smoke arrow", nextPageId: "p05_smoke_arrow" },
+        { label: "Ask Wren to stop", nextPageId: "p05_wren_stops" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_fish_tunnel", ["The fish led them to a water tunnel.", "Dewdrop could float through.", "Flint could not."], "Who should go first?", [
+        { label: "Dewdrop goes first", nextPageId: "p06_dewdrop_alone" },
+        { label: "Find a dry path", nextPageId: "p06_dry_path" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_fish_answer", ["The fish made three bubbles.", "One showed a cave.", "One showed a moth.", "One showed a crystal."], "Which bubble should they follow?", [
+        { label: "Go to the cave", nextPageId: "p06_glow_cave" },
+        { label: "Look for the moth", nextPageId: "p05_shadow_moth" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_crack_path", ["Flint tried to squeeze through the crack.", "His lantern got stuck.", "Dewdrop tried not to smile."], "What should Flint do?", [
+        { label: "Pull harder", nextPageId: "p06_lantern_pop" },
+        { label: "Ask nicely", nextPageId: "p06_crack_opens" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_stone_lifts", ["Stone lifted the stepping stone.", "Under it was a tiny stairway.", "\"Small stairs,\" said Stone."], "What should they do?", [
+        { label: "Go down", nextPageId: "p06_glow_cave" },
+        { label: "Ask Stone to guard", nextPageId: "p06_stone_guard" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_shadow_moth", ["A shadow moth fluttered past.", "Its feet glowed gold.", "It left tiny sparks on the path."], "What should they do?", [
+        { label: "Follow the moth", nextPageId: "p06_moth_path" },
+        { label: "Catch it gently", nextPageId: "p06_moth_caught" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_fern_clue", ["Fern found a leaf with glowing edges.", "\"It hides where no one shouts,\" she said."], "Where should they go?", [
+        { label: "To the quiet cave", nextPageId: "p06_glow_cave" },
+        { label: "To the quietest tree", nextPageId: "p06_quiet_tree" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_fern_joins", ["Fern joined them with a basket of soft leaves.", "\"For nervous glowing things,\" she said."], "Where should they go?", [
+        { label: "Return to the stream", nextPageId: "p05_spark_water" },
+        { label: "Check the cave", nextPageId: "p06_glow_cave" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_pip_lamp", ["Pip led the way.", "He tripped on a mushroom.", "The mushroom began to glow too."], "What should they do?", [
+        { label: "Help Pip up", nextPageId: "p06_pip_mushroom" },
+        { label: "Follow the blue light", nextPageId: "p06_glow_cave" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_spark_water", ["The spark touched the water.", "It became a little glowing fish.", "Then it swam away."], "What should they do?", [
+        { label: "Follow underwater", nextPageId: "p06_dewdrop_alone" },
+        { label: "Ask where it went", nextPageId: "p06_water_answer" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_smoke_arrow", ["The smoke arrow pointed down.", "Then it curled into a tiny shovel shape.", "Burrow would have liked that."], "What should they do?", [
+        { label: "Dig carefully", nextPageId: "p06_crack_opens" },
+        { label: "Ask Burrow to dig", nextPageId: "p06_burrow_dig" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p05_wren_stops", ["Wren shut the spell book.", "The smoke turned into a question mark.", "\"That is not helpful,\" said Wren."], "What should they do?", [
+        { label: "Follow the question mark", nextPageId: "p06_question_path" },
+        { label: "Try listening", nextPageId: "p03_water_whisper" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_dewdrop_alone", ["Dewdrop floated through the water tunnel.", "She found a broken crystal on the stream floor.", "It was too heavy to lift alone."], "What should Dewdrop do?", [
+        { label: "Try to lift it", nextPageId: "p07_heavy_crystal" },
+        { label: "Call Flint", nextPageId: "p07_water_call" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_dry_path", ["Flint found a dry path beside the stream.", "It was low and narrow.", "His lantern scraped the roof."], "What should Flint do?", [
+        { label: "Crawl through", nextPageId: "p07_dry_crawl" },
+        { label: "Send the lantern first", nextPageId: "p07_lantern_rolls" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_glow_cave", ["Inside the quiet cave was the missing glow.", "It curled like a sleeping kitten.", "The stream waited outside."], "What should they do?", [
+        { label: "Wake it gently", nextPageId: "p07_glow_wakes" },
+        { label: "Let it sleep", nextPageId: "p07_glow_sleeps" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_lantern_pop", ["Pop!", "The lantern came free.", "Flint fell into a puddle.", "The puddle glowed."], "What should Flint do?", [
+        { label: "Laugh", nextPageId: "p07_puddle_laugh" },
+        { label: "Check the lantern", nextPageId: "p07_lantern_crack" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_crack_opens", ["The crack opened wider.", "Inside were silver footprints.", "They led under the stream."], "What should they do?", [
+        { label: "Follow the footprints", nextPageId: "p06_glow_cave" },
+        { label: "Ask who made them", nextPageId: "p07_footprint_voice" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_stone_guard", ["Stone stood beside the stairway.", "A frog sat on Stone's foot.", "Stone looked very serious."], "What should they do?", [
+        { label: "Go down", nextPageId: "p06_glow_cave" },
+        { label: "Help Stone", nextPageId: "p07_frog_guard" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_moth_path", ["The moth looped around an old stump.", "Behind it was a hidden cave.", "The cave was very quiet."], "What should they do?", [
+        { label: "Enter the cave", nextPageId: "p06_glow_cave" },
+        { label: "Thank the moth", nextPageId: "p07_moth_thanks" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_moth_caught", ["Flint held the moth very gently.", "The moth tapped his hand.", "It pointed to the cave."], "What should Flint do?", [
+        { label: "Let it go", nextPageId: "p06_moth_path" },
+        { label: "Carry it carefully", nextPageId: "p07_moth_lantern" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_quiet_tree", ["The quietest tree had glowing roots.", "The roots hummed like faraway bees.", "Dewdrop listened."], "What should they do?", [
+        { label: "Look under the roots", nextPageId: "p06_glow_cave" },
+        { label: "Call Fern", nextPageId: "p07_fern_song" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_pip_mushroom", ["Pip stood up.", "Now his ears glowed too.", "\"I am more lamp,\" said Pip."], "What should they do?", [
+        { label: "Use Pip as a lamp", nextPageId: "p07_pip_lamp_big" },
+        { label: "Ask Pip to sit still", nextPageId: "p07_pip_sits" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_water_answer", ["The water whispered again.", "\"The glow is scared of loud feet.\"", "Flint looked at his boots."], "What should Flint do?", [
+        { label: "Walk softly", nextPageId: "p07_soft_feet" },
+        { label: "Float with Dewdrop", nextPageId: "p06_dewdrop_alone" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_burrow_dig", ["Burrow came and dug three tunnels.", "One tunnel led to the cave.", "One tunnel led to a waiting room."], "Which tunnel should they take?", [
+        { label: "Take the first tunnel", nextPageId: "p06_glow_cave" },
+        { label: "Visit the waiting room", nextPageId: "p07_waiting_room" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p06_question_path", ["The question mark floated to a tiny door.", "The door had no handle.", "It had a very worried face."], "What should they do?", [
+        { label: "Open the door", nextPageId: "p07_tiny_door" },
+        { label: "Ask the door a question", nextPageId: "p07_door_question" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_heavy_crystal", ["Dewdrop pushed the heavy crystal.", "It moved one tiny bit.", "Then it stopped."], "What should she do?", [
+        { label: "Push again", nextPageId: "p08_crystal_moves" },
+        { label: "Ask Flint", nextPageId: "p08_team_pull" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_water_call", ["Dewdrop called Flint's name.", "Bubbles carried it up.", "Flint heard, \"Flint, flint, help!\""], "What should Flint do?", [
+        { label: "Reach down", nextPageId: "p08_team_pull" },
+        { label: "Lower the lantern", nextPageId: "p08_lantern_light" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_dry_crawl", ["Flint crawled through the dry path.", "He found Dewdrop and the crystal.", "His knees were dusty."], "What should Flint do?", [
+        { label: "Help Dewdrop", nextPageId: "p08_team_pull" },
+        { label: "Look for another crystal", nextPageId: "p08_two_crystals" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_lantern_rolls", ["The lantern rolled through the path.", "It bonked into the sleeping glow.", "The glow squeaked."], "What should Flint do?", [
+        { label: "Say sorry", nextPageId: "p08_sorry_glow" },
+        { label: "Pick up the lantern", nextPageId: "p07_glow_wakes" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_glow_wakes", ["The glow opened one bright eye.", "\"Is the stream safe?\" it asked.", "Dewdrop nodded slowly."], "What should Dewdrop say?", [
+        { label: "Promise it is safe", nextPageId: "p08_safe_promise" },
+        { label: "Ask why it was scared", nextPageId: "p08_glow_story" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_glow_sleeps", ["They waited.", "Flint hummed very quietly.", "The glow stretched one tiny ray."], "What should they do?", [
+        { label: "Wait quietly", nextPageId: "p08_quiet_wait" },
+        { label: "Sing with Dewdrop", nextPageId: "p08_water_song" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_puddle_laugh", ["Flint laughed.", "The puddle made a glowing bubble.", "The bubble floated toward the cave."], "What should they do?", [
+        { label: "Follow the bubble", nextPageId: "p06_glow_cave" },
+        { label: "Fix the lantern", nextPageId: "p07_lantern_crack" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_lantern_crack", ["The lantern had a tiny crack.", "Inside it was a hiding light.", "\"Too noisy,\" whispered the light."], "What should Flint do?", [
+        { label: "Open the lantern", nextPageId: "p08_lantern_light" },
+        { label: "Speak gently", nextPageId: "p08_safe_promise" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_footprint_voice", ["A small voice said, \"I am behind the crystal.\"", "Dewdrop saw a soft gold glow.", "It did not come out."], "What should Dewdrop do?", [
+        { label: "Invite it out", nextPageId: "p08_safe_promise" },
+        { label: "Ask why it hid", nextPageId: "p08_glow_story" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_frog_guard", ["The frog croaked.", "Stone nodded.", "\"Guard frog,\" said Stone.", "The frog looked proud."], "What should they do?", [
+        { label: "Leave Stone guarding", nextPageId: "p06_glow_cave" },
+        { label: "Bring the frog", nextPageId: "p08_frog_ending_path" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_moth_thanks", ["The moth tapped Flint's nose.", "It left one silver spot there.", "Pip would have liked that."], "What should Flint do?", [
+        { label: "Enter the cave", nextPageId: "p06_glow_cave" },
+        { label: "Follow the silver spot", nextPageId: "p08_two_crystals" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_moth_lantern", ["The moth sat on the lantern.", "Now the lantern glowed gold.", "Flint smiled."], "What should they do?", [
+        { label: "Enter the cave", nextPageId: "p06_glow_cave" },
+        { label: "Use the silver lantern", nextPageId: "p08_lantern_light" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_fern_song", ["Fern sang to the roots.", "The roots opened a little door.", "Dewdrop heard water inside."], "What should they do?", [
+        { label: "Sing softly", nextPageId: "p08_water_song" },
+        { label: "Let Flint speak", nextPageId: "p08_safe_promise" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_pip_lamp_big", ["Pip's glow lit up five wrong paths.", "Pip looked proud.", "\"I found too many ways,\" he said."], "Which path should they take?", [
+        { label: "Take the quiet path", nextPageId: "p06_glow_cave" },
+        { label: "Take the shiny path", nextPageId: "p08_two_crystals" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_pip_sits", ["Pip sat still.", "The glow on his nose pointed like a small arrow.", "It pointed to the cave."], "What should they do?", [
+        { label: "Go to the cave", nextPageId: "p06_glow_cave" },
+        { label: "Thank Pip", nextPageId: "p08_pip_proud" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_soft_feet", ["Flint walked softly.", "His boots made no thumps.", "The dark stream shimmered."], "What should Flint do?", [
+        { label: "Keep walking softly", nextPageId: "p08_safe_promise" },
+        { label: "Call Dewdrop", nextPageId: "p08_team_pull" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_waiting_room", ["The waiting room had two tiny chairs.", "One chair glowed.", "One chair snored."], "What should they do?", [
+        { label: "Sit and wait", nextPageId: "p08_quiet_wait" },
+        { label: "Call the glow", nextPageId: "p08_safe_promise" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_tiny_door", ["The tiny door opened onto a tiny stage.", "A glow stood there, looking shy.", "It bowed."], "What should they do?", [
+        { label: "Clap softly", nextPageId: "p08_glow_story" },
+        { label: "Ask it to come home", nextPageId: "p08_safe_promise" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p07_door_question", ["Dewdrop asked, \"What question do you need?\"", "The door smiled.", "\"That one,\" it said."], "What should Dewdrop do?", [
+        { label: "Step inside", nextPageId: "p06_glow_cave" },
+        { label: "Ask another question", nextPageId: "p08_glow_story" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_crystal_moves", ["The crystal moved aside.", "Bright water rushed around its edges.", "The stream began to glow at the tips."], "What should they do?", [
+        { label: "Move it all the way", nextPageId: "p09_stream_returns" },
+        { label: "Call everyone", nextPageId: "p09_everyone_helps" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_team_pull", ["Flint pulled.", "Dewdrop pushed.", "The crystal slid with a soft chiming sound."], "What should they do?", [
+        { label: "Put it back correctly", nextPageId: "p09_stream_returns" },
+        { label: "Take it to Fern", nextPageId: "p09_fern_repairs" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_lantern_light", ["The lantern filled with shy light.", "It did not want to be shaken.", "Flint held it carefully."], "What should Flint do?", [
+        { label: "Guide it home", nextPageId: "p09_stream_returns" },
+        { label: "Let it choose", nextPageId: "p09_glow_chooses" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_two_crystals", ["There were two crystals.", "One was bright and loud.", "One was quiet and warm."], "Which crystal should they choose?", [
+        { label: "Choose the bright crystal", nextPageId: "p09_bright_wrong" },
+        { label: "Choose the quiet crystal", nextPageId: "p09_stream_returns" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_sorry_glow", ["Flint said sorry.", "The glow blinked.", "\"No loud bonks,\" it whispered."], "What should Flint do?", [
+        { label: "Promise", nextPageId: "p08_safe_promise" },
+        { label: "Offer the lantern", nextPageId: "p08_lantern_light" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_safe_promise", ["Dewdrop and Flint promised to keep the stream safe.", "The glow uncurled a little.", "It was still shy."], "What should they do?", [
+        { label: "Lead it to the water", nextPageId: "p09_stream_returns" },
+        { label: "Ask what it needs", nextPageId: "p09_glow_chooses" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_glow_story", ["The glow told its story.", "Too many feet had stomped by the stream.", "So it hid where quiet things sleep."], "What should they do?", [
+        { label: "Promise to listen", nextPageId: "p09_stream_returns" },
+        { label: "Tell Wren to write a rule", nextPageId: "p09_wren_rule" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_quiet_wait", ["They waited without talking.", "At last, the glow stretched.", "It looked at Flint's lantern."], "What should they do?", [
+        { label: "Walk with it", nextPageId: "p09_stream_returns" },
+        { label: "Let it choose", nextPageId: "p09_glow_chooses" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_water_song", ["Dewdrop sang a water song.", "The glow hummed along.", "Even Flint's boots seemed quieter."], "What should they do?", [
+        { label: "Sing it home", nextPageId: "p09_stream_returns" },
+        { label: "Ask Flint to hold the lantern", nextPageId: "p08_lantern_light" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_frog_ending_path", ["The frog croaked three times.", "A tiny sparkle hopped from lily pad to lily pad.", "Stone saluted it."], "What should they do?", [
+        { label: "Follow the sparkle", nextPageId: "p09_stream_returns" },
+        { label: "Let the frog lead", nextPageId: "p10_frog_ending" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p08_pip_proud", ["Pip smiled so hard his nose got brighter.", "\"I am useful lamp,\" he said.", "The path lit up."], "What should they do?", [
+        { label: "Follow Pip's glow", nextPageId: "p09_stream_returns" },
+        { label: "Ask Pip to wait", nextPageId: "p10_pip_ending" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_fern_repairs", ["Fern tucked the crystal beside the water.", "The stream glowed blue and green.", "\"Better,\" said Fern."], "What should they do?", [
+        { label: "Thank Fern", nextPageId: "p10_gentle_ending" },
+        { label: "Check the lantern", nextPageId: "p10_lantern_ending" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_bright_wrong", ["The bright crystal flashed too much.", "Everyone shut their eyes.", "The glow hid again."], "What should they do?", [
+        { label: "Try the quiet crystal", nextPageId: "p09_stream_returns" },
+        { label: "Ask Fern for help", nextPageId: "p09_fern_repairs" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_everyone_helps", ["Fern, Wren, Pip, Stone, Dewdrop, and Flint moved the crystal together.", "The stream shimmered.", "No one stomped."], "What should happen next?", [
+        { label: "Let the stream return", nextPageId: "p09_stream_returns" },
+        { label: "Celebrate", nextPageId: "p10_splash_ending" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_glow_chooses", ["The glow looked at the stream.", "Then it looked at the quiet cave.", "At last, it chose the water."], "What should they do?", [
+        { label: "Walk softly home", nextPageId: "p10_gentle_ending" },
+        { label: "Tell Wren the rule", nextPageId: "p09_wren_rule" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_wren_rule", ["Wren wrote, \"No stomping near shy glows.\"", "Then she wrote four more pages.", "Fern took the pen."], "What should happen next?", [
+        { label: "Fern makes it shorter", nextPageId: "p10_wren_ending" },
+        { label: "Return to the stream", nextPageId: "p09_stream_returns" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_stream_returns", ["The Crystal Stream glowed again.", "Dewdrop floated above it.", "Flint's lantern shone softly, not loudly."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_frog_ending", ["The guard frog sat by the stream.", "Stone stood beside it.", "Both looked very important."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_pip_ending", ["Pip tried to sit still.", "He wiggled once.", "The stream glowed anyway."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_splash_ending", ["Everyone celebrated with one quiet splash.", "Flint laughed.", "Dewdrop made a tiny rainbow."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_wren_ending", ["Wren's rule became one sentence.", "She sighed.", "\"Fine,\" she said.", "Then she made a tiny rule book."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_lantern_ending", ["Flint's lantern glowed gently.", "He did not shake it.", "Not even once."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], dewdropFlintLostGlowTargetWords),
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_gentle_ending", ["The stream kept shining.", "Dewdrop listened to the water.", "Flint walked home softly."], "Read again?", [
+        { label: "Read again", nextPageId: "p01_start" },
+        { label: "Finish", nextPageId: "end" }
+      ], dewdropFlintLostGlowTargetWords)
     ]
   }
 ];
