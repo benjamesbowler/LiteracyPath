@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import { storyQuests } from "../data/storyQuests.js";
+import {
+  formatStoryQuestDate,
+  loadStoryQuestProgress,
+  summarizeStoryQuestProgress
+} from "../utils/storyQuestProgress.js";
 
 export function FinishedReportPage({
   startAssessment,
@@ -29,9 +35,13 @@ export function FinishedReportPage({
   exportPatternAssessment,
   guidedReadingRecords = {},
   openGuidedReading,
+  storyQuestProgressScopeKey = "default",
   returnToTeacherDashboard
 }) {
   const [guidedReadingSummaries, setGuidedReadingSummaries] = useState([]);
+  const [storyQuestSummary, setStoryQuestSummary] = useState(() =>
+    summarizeStoryQuestProgress(loadStoryQuestProgress(storyQuestProgressScopeKey), storyQuests)
+  );
 
   useEffect(() => {
     if (!Object.keys(guidedReadingRecords || {}).length) {
@@ -50,6 +60,13 @@ export function FinishedReportPage({
       cancelled = true;
     };
   }, [guidedReadingRecords]);
+
+  useEffect(() => {
+    setStoryQuestSummary(summarizeStoryQuestProgress(
+      loadStoryQuestProgress(storyQuestProgressScopeKey),
+      storyQuests
+    ));
+  }, [storyQuestProgressScopeKey]);
 
   const latestCheckpointIndex = Math.max(
     -1,
@@ -134,6 +151,54 @@ export function FinishedReportPage({
           </button>
         </section>
       )}
+
+      <section className="story-quest-report-section">
+        <div className="story-quest-report-header">
+          <div>
+            <h3>Story Quest Adventures</h3>
+            <p>Local reading-adventure progress for this student.</p>
+          </div>
+          <span>Most recent: {formatStoryQuestDate(storyQuestSummary.mostRecentActivityAt)}</span>
+        </div>
+
+        {storyQuestSummary.rows.length > 0 ? (
+          <>
+            <div className="story-quest-report-metrics" aria-label="Story Quest summary">
+              <span><strong>{storyQuestSummary.completedCount}</strong> completed</span>
+              <span><strong>{storyQuestSummary.inProgressCount}</strong> in progress</span>
+              <span><strong>{storyQuestSummary.totalWordsFound}</strong> words found</span>
+            </div>
+            <div className="story-quest-report-list">
+              {storyQuestSummary.rows.map(row => (
+                <article key={row.questId}>
+                  <div className="story-quest-report-title">
+                    <strong>{row.title}</strong>
+                    <span>{[row.levelLabel, row.series].filter(Boolean).join(" · ") || "Story Quest"}</span>
+                  </div>
+                  <div className="story-quest-report-detail">
+                    <span>{row.status}</span>
+                    <span>Last activity: {formatStoryQuestDate(row.lastActivityAt)}</span>
+                    <span>Completed: {formatStoryQuestDate(row.completedAt)}</span>
+                    <span>Words: {row.wordCount}/{row.targetWordCount || row.wordCount}</span>
+                    {row.visitedPageCount > 0 && <span>Pages visited: {row.visitedPageCount}</span>}
+                  </div>
+                  {row.words.length > 0 && (
+                    <p className="story-quest-report-words">
+                      Words found: {row.words.slice(0, 10).join(", ")}
+                      {row.words.length > 10 ? "..." : ""}
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="report-empty-state compact">
+            <strong>No Story Quest progress yet.</strong>
+            <p>Open Story Quest Adventures and start a story to build reading-adventure progress.</p>
+          </div>
+        )}
+      </section>
 
       <label>
         <strong>Set start skill: </strong>

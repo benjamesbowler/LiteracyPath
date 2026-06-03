@@ -2826,6 +2826,91 @@ body {
   white-space: normal;
 }
 
+.story-quest-report-section {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--lp-color-background-warm) 0%, var(--lp-color-surface) 100%);
+}
+
+.story-quest-report-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.story-quest-report-header h3,
+.story-quest-report-header p {
+  margin: 0;
+}
+
+.story-quest-report-header p,
+.story-quest-report-header > span {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.story-quest-report-metrics,
+.story-quest-report-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.story-quest-report-metrics span,
+.story-quest-report-detail span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 999px;
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.story-quest-report-metrics strong {
+  margin-right: 4px;
+  color: var(--lp-color-text-strong);
+}
+
+.story-quest-report-list {
+  display: grid;
+  gap: 8px;
+}
+
+.story-quest-report-list article {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: var(--lp-color-surface);
+}
+
+.story-quest-report-title {
+  display: grid;
+  gap: 2px;
+}
+
+.story-quest-report-title span,
+.story-quest-report-words {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.story-quest-report-words {
+  margin: 0;
+  line-height: 1.4;
+}
+
 .media-qa-page {
   max-width: 1320px;
   margin-inline: auto;

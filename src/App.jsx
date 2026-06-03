@@ -7476,6 +7476,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               exportPatternAssessment={exportPatternAssessment}
               guidedReadingRecords={guidedReadingRecords}
               openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+              storyQuestProgressScopeKey={studentId || studentName || "default"}
               returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
             />
           </Suspense>

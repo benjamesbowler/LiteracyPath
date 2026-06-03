@@ -1,30 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
+import { loadStoryQuestProgress, saveStoryQuestProgress } from "../utils/storyQuestProgress.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
-
-const STORY_QUEST_PROGRESS_STORAGE_KEY = "literacyPath.storyQuestProgress.v1";
-
-function storyQuestProgressStorageKey(progressScopeKey = "default") {
-  return `${STORY_QUEST_PROGRESS_STORAGE_KEY}.${encodeURIComponent(progressScopeKey || "default")}`;
-}
-
-function loadStoryQuestProgress(progressScopeKey) {
-  if (typeof window === "undefined") return {};
-  try {
-    return JSON.parse(window.localStorage.getItem(storyQuestProgressStorageKey(progressScopeKey)) || "{}");
-  } catch {
-    return {};
-  }
-}
-
-function saveStoryQuestProgress(progressScopeKey, progress) {
-  if (typeof window === "undefined") return;
-  try {
-    window.localStorage.setItem(storyQuestProgressStorageKey(progressScopeKey), JSON.stringify(progress));
-  } catch {
-    // Progress labels are helpful but should never block reading.
-  }
-}
 
 export function LearnAreaPage({ progressScopeKey = "default" }) {
   const [activeQuestId, setActiveQuestId] = useState("");
@@ -90,9 +67,16 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
       <main className="learn-area-page story-quest-learn-page" aria-label="Story Quest Adventures">
         <StoryQuestPlayer
           initialPageId={activeQuestInitialPageId}
-          onComplete={() => updateQuestProgress(activeQuest.id, { completed: true })}
+          onComplete={(progressPatch = {}) => updateQuestProgress(activeQuest.id, {
+            ...progressPatch,
+            completed: true,
+            completedAt: progressPatch.completedAt || new Date().toISOString()
+          })}
           onExit={() => setActiveQuestId("")}
-          onProgress={pageId => updateQuestProgress(activeQuest.id, { lastPageId: pageId })}
+          onProgress={(pageId, progressPatch = {}) => updateQuestProgress(activeQuest.id, {
+            ...progressPatch,
+            lastPageId: pageId
+          })}
           quest={activeQuest}
         />
       </main>

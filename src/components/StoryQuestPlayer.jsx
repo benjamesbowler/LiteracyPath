@@ -68,6 +68,14 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
   const currentPageWords = (currentPage?.skillTags || [])
     .filter(tag => !["short_a", "hfw_1_25"].includes(String(tag).toLowerCase()))
     .slice(0, 4);
+  const progressSnapshot = useMemo(() => ({
+    lastPageId: currentPageId,
+    targetWordCount: quest?.targetWords?.length || 0,
+    visitedPageCount: visitedPageIds.size,
+    visitedPageIds: Array.from(visitedPageIds),
+    wordsFound: foundWords,
+    wordsFoundCount: foundWords.length
+  }), [currentPageId, foundWords, quest?.targetWords, visitedPageIds]);
 
   useEffect(() => {
     setCurrentPageId(getStartPageId());
@@ -77,8 +85,8 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
 
   useEffect(() => {
     if (!currentPageId || isComplete) return;
-    onProgress?.(currentPageId);
-  }, [currentPageId, isComplete]);
+    onProgress?.(currentPageId, progressSnapshot);
+  }, [currentPageId, isComplete, progressSnapshot]);
 
   useEffect(() => {
     let cancelled = false;
@@ -189,7 +197,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     if (nextPageId === "end") {
       stopAudio();
       setIsComplete(true);
-      onComplete?.();
+      onComplete?.(progressSnapshot);
       return;
     }
     if (!pageById.has(nextPageId)) return;
