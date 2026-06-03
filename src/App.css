@@ -1318,7 +1318,7 @@ body {
 
 .lp-button-primary {
   background: linear-gradient(180deg, var(--lp-color-primary), var(--lp-color-primary-strong)) !important;
-  color: #ffffff !important;
+  color: var(--lp-color-surface) !important;
   border: 1px solid var(--lp-color-primary-strong) !important;
   box-shadow: 0 8px 18px rgba(79, 99, 215, 0.18);
 }
@@ -1335,14 +1335,14 @@ body {
 }
 
 .lp-button-danger-outline {
-  background: #ffffff !important;
+  background: var(--lp-color-surface) !important;
   color: var(--lp-color-danger) !important;
-  border: 1px solid #fecdd3 !important;
+  border: 1px solid rgba(194, 65, 75, 0.32) !important;
 }
 
 .lp-button-danger-outline:hover:not(:disabled) {
-  background: var(--color-danger-soft) !important;
-  border-color: #fda4af !important;
+  background: var(--lp-color-danger-soft) !important;
+  border-color: rgba(194, 65, 75, 0.48) !important;
 }
 
 .teacher-product-page {
@@ -3426,9 +3426,14 @@ select:focus {
   transition: all 0.15s ease;
 }
 
-.app button:hover {
+.app button:hover:not(:disabled) {
   transform: translateY(-1px);
   filter: brightness(0.98);
+}
+
+.app button:focus-visible {
+  outline: none;
+  box-shadow: var(--lp-shadow-focus);
 }
 
 .app button:disabled {
@@ -3440,13 +3445,21 @@ select:focus {
 .main-button,
 .save-name-button,
 .report-button {
-  background: var(--lp-color-primary) !important;
-  color: white !important;
+  border: 1px solid var(--lp-color-primary-strong) !important;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--lp-color-primary), var(--lp-color-primary-strong)) !important;
+  color: var(--lp-color-surface) !important;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(79, 99, 215, 0.18);
 }
 
 .reset-button {
-  background: #ef4444 !important;
-  color: white !important;
+  border: 1px solid var(--lp-color-danger) !important;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #d94b57, var(--lp-color-danger)) !important;
+  color: var(--lp-color-surface) !important;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(194, 65, 75, 0.16);
 }
 
 .mini-audio-button,
