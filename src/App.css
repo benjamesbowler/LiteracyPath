@@ -2774,6 +2774,113 @@ body {
   font-weight: 850;
 }
 
+.guided-reading-detail-report {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--lp-color-background-warm) 0%, var(--lp-color-surface) 100%);
+}
+
+.guided-reading-detail-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.guided-reading-detail-header h3,
+.guided-reading-detail-header p,
+.guided-reading-trend-text,
+.guided-reading-notes-detail p {
+  margin: 0;
+}
+
+.guided-reading-detail-header p,
+.guided-reading-detail-header > span,
+.guided-reading-trend-text {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.guided-reading-detail-list {
+  display: grid;
+  gap: 8px;
+}
+
+.guided-reading-detail-list article {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: var(--lp-color-surface);
+}
+
+.guided-reading-detail-title {
+  display: grid;
+  gap: 2px;
+}
+
+.guided-reading-detail-title span {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.guided-reading-detail-grid,
+.guided-reading-word-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.guided-reading-detail-grid span,
+.guided-reading-word-summary span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 999px;
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.guided-reading-word-summary span {
+  border-radius: 8px;
+  line-height: 1.35;
+}
+
+.guided-reading-notes-detail {
+  padding: 8px 10px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: var(--lp-color-background-warm);
+}
+
+.guided-reading-notes-detail summary {
+  cursor: pointer;
+  color: var(--lp-color-text);
+  font-weight: 850;
+}
+
+.guided-reading-notes-detail div {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.guided-reading-notes-detail p {
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .reading-report-table {
   display: grid;
   gap: 8px;
@@ -3977,7 +4084,7 @@ select:focus {
   max-width: 100%;
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .rhyming-assessment-layout .assessment-prompt {
@@ -4005,12 +4112,14 @@ select:focus {
   min-height: 0;
   max-height: none;
   margin: 0;
+  padding: 10px;
+  overflow: visible;
 }
 
 .rhyming-assessment-layout .assessment-main-image {
   width: 100%;
   max-width: min(100%, 320px);
-  height: clamp(150px, 31vh, 280px);
+  height: clamp(140px, 29vh, 270px);
   max-height: none !important;
   object-fit: contain;
 }

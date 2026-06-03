@@ -651,6 +651,13 @@ export function deleteSavedElAssessmentReport(reportId, { teacherId = "local" } 
   return next;
 }
 
+export function deleteSavedElAssessmentReportsForStudent({ teacherId = "local", studentId = "" } = {}) {
+  if (typeof localStorage === "undefined") return [];
+  const next = getSavedElAssessmentReports({ teacherId }).filter(report => report.studentId !== studentId);
+  localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next));
+  return next;
+}
+
 export function regenerateElAssessmentWorkbookFromSavedReport(report = {}) {
   return {
     ...report,

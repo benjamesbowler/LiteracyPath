@@ -48,6 +48,7 @@ import { vowelTeamsVarietyQuestions } from "./generated/vowelTeamsVarietyQuestio
 import { grammarAssessmentQuestions } from "./generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "./generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./generated/hfwLevel2Questions.generated.js";
+import { assessmentQaReplacementQuestions } from "./assessmentQaReplacementQuestions.js";
 import { highQualityComprehensionReplacementQuestions } from "./highQualityComprehensionReplacements.js";
 import { fixSentenceQuestions } from "./fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "./templateComprehensionAdvanced.js";
@@ -176,6 +177,7 @@ const QUESTION_BANKS = [
   ["generatedEarlySkillQuestions", generatedEarlySkillQuestions],
   ["skillLevelGapQuestions", skillLevelGapQuestions],
   ["hfwLevel2Questions", hfwLevel2Questions],
+  ["assessmentQaReplacementQuestions", assessmentQaReplacementQuestions],
   ["highQualityComprehensionReplacementQuestions", highQualityComprehensionReplacementQuestions],
   ["generatedQuestions", generatedQuestions],
   ["fixSentenceQuestions", fixSentenceQuestions],

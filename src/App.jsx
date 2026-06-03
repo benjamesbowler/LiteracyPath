@@ -118,6 +118,8 @@ import { vowelTeamsVarietyQuestions } from "./data/generated/vowelTeamsVarietyQu
 import { grammarAssessmentQuestions } from "./data/generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
+import { assessmentQaReplacementQuestions } from "./data/assessmentQaReplacementQuestions";
+import { isLevelOneContentQualityAllowed } from "./data/levelOneContentQuality";
 import { highQualityComprehensionReplacementQuestions } from "./data/highQualityComprehensionReplacements";
 import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
 import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
@@ -155,12 +157,14 @@ import {
 } from "./utils/earlySkills/isRuntimeEligibleEarlySkillQuestion";
 import {
   buildAssessmentAttemptRecord,
+  deleteAssessmentAttemptsForStudent,
   extractMasteryFromAssessmentAttempt,
   loadAssessmentAttempts,
   mergeAssessmentAttemptIntoItemMastery,
   saveAssessmentAttempt,
   summarizeAssessmentHistory
 } from "./data/assessmentHistoryStore";
+import { deleteSavedElAssessmentReportsForStudent } from "./data/elAssessmentReportStore.js";
 import {
   isGenericInstructionAudioPath,
   normalizeAssessmentAudioRoles
@@ -1363,6 +1367,7 @@ function dedupeQuestionsByRuntimeSignature(questions) {
 const GENERATED_REPLACEMENT_SOURCE = "skill_level_depth_gap_generator";
 const APPROVED_REPLACEMENT_SOURCES = new Set([
   GENERATED_REPLACEMENT_SOURCE,
+  "assessment_qa_replacement_2026_06",
   "high_quality_comprehension_replacement_2026_06"
 ]);
 const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
@@ -1397,6 +1402,7 @@ function isGeneratedReplacementQuestion(question = {}) {
 
 function keepRuntimeQuestion(question = {}) {
   const skillId = normalizeRuntimeSkillId(question.skillId || question.assessmentSkillId || question.skillName || question.skill || "");
+  if (!isLevelOneContentQualityAllowed(question)) return false;
   if (!REPLACED_LEGACY_ASSESSMENT_SKILLS.has(skillId)) return true;
   return isGeneratedReplacementQuestion(question);
 }
@@ -1444,6 +1450,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...generatedEarlySkillQuestions,
   ...skillLevelGapQuestions,
   ...hfwLevel2Questions,
+  ...assessmentQaReplacementQuestions,
   ...highQualityComprehensionReplacementQuestions,
   ...generatedQuestions,
   ...fixSentenceQuestions,
@@ -3208,6 +3215,13 @@ export default function App() {
     }
   }
 
+  function resetSelectedStudentLocalAssessmentArchives(selectedStudentId = studentId) {
+    if (!selectedStudentId) return;
+    deleteAssessmentAttemptsForStudent({ teacherId, studentId: selectedStudentId });
+    deleteSavedElAssessmentReportsForStudent({ teacherId, studentId: selectedStudentId });
+    setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
+  }
+
   async function deleteStudentProgressRows(tableName, selectedStudentId) {
     const { error } = await supabase
       .from(tableName)
@@ -3219,7 +3233,7 @@ export default function App() {
     return null;
   }
 
-  async function resetSelectedStudentProgress({ includeFormalAssessments = false } = {}) {
+  async function resetSelectedStudentProgress() {
     if (!teacherId || !studentId) {
       setMessage("Select a student before resetting progress.");
       return;
@@ -3229,7 +3243,14 @@ export default function App() {
 
     const errors = [];
 
-    for (const tableName of ["answers", "mastery", "item_mastery"]) {
+    for (const tableName of [
+      "answers",
+      "mastery",
+      "item_mastery",
+      "assessment_attempts",
+      "el_assessment_reports",
+      "child_mode_answers"
+    ]) {
       const error = await deleteStudentProgressRows(tableName, studentId);
       if (error) errors.push(error);
     }
@@ -3242,14 +3263,17 @@ export default function App() {
       return;
     }
 
-    resetCurrentStudentLocalProgress({ clearFormalAssessments: includeFormalAssessments });
+    resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
+    resetSelectedStudentLocalAssessmentArchives(studentId);
+    if (import.meta.env.DEV) {
+      console.debug("[assessment-reset] Reset assessment data for selected student", {
+        studentId,
+        teacherId
+      });
+    }
     setResetProgressDialogOpen(false);
     setAppView(APP_VIEWS.OVERVIEW);
-    setMessage(
-      includeFormalAssessments
-        ? "Student progress and local EL assessment results were reset."
-        : "Adaptive assessment progress was reset. Formal EL assessment results were kept."
-    );
+    setMessage(`Assessment data reset for ${studentName || "student"}.`);
 
     await loadStudents(selectedClassId);
     await loadClassDashboard(selectedClassId);
@@ -3801,6 +3825,9 @@ export default function App() {
         return issues.length === 0;
       })
       : finalSoundLevelOneGuardedQuestions;
+    const uncoveredFinalSoundQuestions = getUncoveredFinalSoundQuestionsForRound(runtimeFilteredStageQuestions, stage);
+    if (uncoveredFinalSoundQuestions.length > 0) return uncoveredFinalSoundQuestions;
+
     const uncoveredRhymingQuestions = getUncoveredRhymingQuestionsForRound(runtimeFilteredStageQuestions, stage);
     if (uncoveredRhymingQuestions.length > 0) return uncoveredRhymingQuestions;
 
@@ -4103,6 +4130,36 @@ export default function App() {
       .forEach(key => covered.add(key));
 
     return covered;
+  }
+
+  function getUncoveredFinalSoundQuestionsForRound(questions, stage) {
+    if (!isFinalSoundsStage(stage)) return [];
+    const pathStep = getNextAssessmentPathStep(stage);
+    const level = Number(pathStep.level || 1) >= 2 ? 2 : 1;
+
+    const expectedKeys = getCoverageItemKeysForStage(stage, { level });
+    const coveredKeys = getCoveredStageItemKeys(stage, { level });
+    const currentRoundKeys = new Set(roundItemKeysRef.current);
+    const missingKeys = new Set(
+      Array.from(expectedKeys).filter(key => !coveredKeys.has(key) && !currentRoundKeys.has(key))
+    );
+
+    if (missingKeys.size === 0) return [];
+
+    const missingQuestions = questions.filter(question => {
+      const key = getQuestionItemKey(question);
+      return key && missingKeys.has(key);
+    });
+
+    debugAssessmentCoverage("final sound uncovered selection", {
+      studentId,
+      level,
+      missingKeys: Array.from(missingKeys).map(formatCoverageKeyLabel),
+      selectableMissingKeys: Array.from(new Set(missingQuestions.map(getQuestionItemKey).filter(Boolean))).map(formatCoverageKeyLabel),
+      selectableQuestionCount: missingQuestions.length
+    });
+
+    return prioritizeCoverageQuestions(missingQuestions, stage);
   }
 
   function getUncoveredRhymingQuestionsForRound(questions, stage) {
@@ -7440,8 +7497,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         open={resetProgressDialogOpen}
         studentName={studentName}
         resetting={resettingProgress}
-        onAdaptiveReset={() => resetSelectedStudentProgress({ includeFormalAssessments: false })}
-        onFullReset={() => resetSelectedStudentProgress({ includeFormalAssessments: true })}
+        onReset={resetSelectedStudentProgress}
         onCancel={() => setResetProgressDialogOpen(false)}
       />
 

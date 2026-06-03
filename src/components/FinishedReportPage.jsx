@@ -6,6 +6,80 @@ import {
   summarizeStoryQuestProgress
 } from "../utils/storyQuestProgress.js";
 
+function formatGuidedReadingDate(value) {
+  if (!value) return "Not yet";
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "Not yet";
+  return date.toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+}
+
+function getGuidedReadingNoteRows(summary = {}) {
+  return [
+    summary.wholeBookNote ? { label: "Book", note: summary.wholeBookNote } : null,
+    ...(summary.pageNotes || []).map(item => ({
+      label: `Page ${item.page}`,
+      note: item.note
+    }))
+  ].filter(item => item?.note?.trim());
+}
+
+function buildGuidedReadingReportRows(records = {}, module = {}) {
+  const summariesByBook = new Map(
+    (module.summarizeGuidedReadingRecords?.(records) || []).map(summary => [summary.bookId, summary])
+  );
+  const books = module.guidedReadingBooks || [];
+
+  return Object.entries(records || {})
+    .map(([bookId, record = {}]) => {
+      const book = books.find(item => item.id === bookId) || {};
+      const progress = module.getGuidedReadingProgress?.(book, { ...record, bookId }) || {};
+      const summary = summariesByBook.get(bookId) || module.summarizeGuidedReadingRecord?.(record) || {};
+      const readCount = Math.max(Number(progress.readCount || record.readCount || 0), progress.completed ? 1 : 0);
+      const notes = getGuidedReadingNoteRows(summary);
+      const latestAccuracy = Number(summary.accuracy || 0);
+
+      return {
+        bookId,
+        title: book.title || record.title || bookId,
+        level: book.level || record.level || progress.level || "",
+        type: module.formatGuidedReadingType?.(book.type || record.type || progress.type || "") || book.type || record.type || "",
+        lastReadAt: progress.lastReadAt || record.lastReadAt || record.completedAt || record.updatedAt || "",
+        readCount,
+        rereadCount: Math.max(0, readCount - 1),
+        latestAccuracy,
+        correctCount: Number(summary.correct || 0),
+        supportCount: Number(summary.support || 0),
+        attempted: Number(summary.attempted || 0),
+        correctWords: summary.correctWords || [],
+        supportWords: summary.supportWords || [],
+        notes,
+        pagesRead: Number(progress.completedPages || record.completedPages || 0),
+        totalPages: Number(progress.totalPages || record.totalPages || book.pages?.length || 0),
+        trendText: readCount > 1
+          ? `${readCount} reads recorded · latest ${latestAccuracy}%`
+          : readCount === 1
+            ? "First read"
+            : "Opened, not completed"
+      };
+    })
+    .filter(row =>
+      row.pagesRead > 0 ||
+      row.readCount > 0 ||
+      row.attempted > 0 ||
+      row.correctWords.length > 0 ||
+      row.supportWords.length > 0 ||
+      row.notes.length > 0
+    )
+    .sort((a, b) =>
+      String(b.lastReadAt).localeCompare(String(a.lastReadAt)) ||
+      a.title.localeCompare(b.title)
+    );
+}
+
 export function FinishedReportPage({
   startAssessment,
   keepPracticingSkill,
@@ -38,21 +112,21 @@ export function FinishedReportPage({
   storyQuestProgressScopeKey = "default",
   returnToTeacherDashboard
 }) {
-  const [guidedReadingSummaries, setGuidedReadingSummaries] = useState([]);
+  const [guidedReadingReportRows, setGuidedReadingReportRows] = useState([]);
   const [storyQuestSummary, setStoryQuestSummary] = useState(() =>
     summarizeStoryQuestProgress(loadStoryQuestProgress(storyQuestProgressScopeKey), storyQuests)
   );
 
   useEffect(() => {
     if (!Object.keys(guidedReadingRecords || {}).length) {
-      setGuidedReadingSummaries([]);
+      setGuidedReadingReportRows([]);
       return undefined;
     }
 
     let cancelled = false;
     import("../data/guidedReadingBooks").then(module => {
       if (!cancelled) {
-        setGuidedReadingSummaries(module.summarizeGuidedReadingRecords(guidedReadingRecords));
+        setGuidedReadingReportRows(buildGuidedReadingReportRows(guidedReadingRecords, module));
       }
     });
 
@@ -123,19 +197,58 @@ export function FinishedReportPage({
         </section>
       )}
 
-      {guidedReadingSummaries.length > 0 && (
-        <section className="checkpoint-complete-panel">
-          <div>
-            <h3>Guided Reading</h3>
-            <p>Locally saved guided reading summaries for this student.</p>
+      {guidedReadingReportRows.length > 0 && (
+        <section className="guided-reading-detail-report">
+          <div className="guided-reading-detail-header">
+            <div>
+              <h3>Guided Reading</h3>
+              <p>Locally saved book progress, rereads, word markings, and teacher notes for this student.</p>
+            </div>
+            <span>{guidedReadingReportRows.length} book{guidedReadingReportRows.length === 1 ? "" : "s"}</span>
           </div>
-          <div className="guided-record-list compact">
-            {guidedReadingSummaries.map(item => (
+
+          <div className="guided-reading-detail-list">
+            {guidedReadingReportRows.map(item => (
               <article key={item.bookId}>
-                <strong>{item.title}</strong>
-                <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
-                <span>{item.correctWords.length ? `Read correctly: ${item.correctWords.join(", ")}` : "No green words marked"}</span>
-                <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
+                <div className="guided-reading-detail-title">
+                  <strong>{item.title}</strong>
+                  <span>{[item.level ? `Level ${item.level}` : "", item.type].filter(Boolean).join(" · ") || "Guided Reading"}</span>
+                </div>
+
+                <div className="guided-reading-detail-grid">
+                  <span>Last read: {formatGuidedReadingDate(item.lastReadAt)}</span>
+                  <span>Reads: {item.readCount}</span>
+                  <span>Rereads: {item.rereadCount}</span>
+                  <span>Latest accuracy: {item.latestAccuracy}%</span>
+                  <span>Read correctly: {item.correctCount}</span>
+                  <span>Needs support: {item.supportCount}</span>
+                  <span>Notes: {item.notes.length}</span>
+                  {item.totalPages > 0 && <span>Pages: {item.pagesRead}/{item.totalPages}</span>}
+                </div>
+
+                <p className="guided-reading-trend-text">
+                  Reread trend: {item.trendText}
+                </p>
+
+                {(item.correctWords.length > 0 || item.supportWords.length > 0) && (
+                  <div className="guided-reading-word-summary">
+                    <span>{item.correctWords.length ? `Read correctly: ${item.correctWords.slice(0, 10).join(", ")}` : "No green words marked"}</span>
+                    <span>{item.supportWords.length ? `Support: ${item.supportWords.slice(0, 10).join(", ")}` : "No support words marked"}</span>
+                  </div>
+                )}
+
+                {item.notes.length > 0 && (
+                  <details className="guided-reading-notes-detail">
+                    <summary>{item.notes.length} teacher note{item.notes.length === 1 ? "" : "s"}</summary>
+                    <div>
+                      {item.notes.map(note => (
+                        <p key={`${item.bookId}-${note.label}-${note.note}`}>
+                          <strong>{note.label}:</strong> {note.note}
+                        </p>
+                      ))}
+                    </div>
+                  </details>
+                )}
               </article>
             ))}
           </div>

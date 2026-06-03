@@ -1114,14 +1114,16 @@ export const generatedQuestions = [
     "skill": "final sounds",
     "difficulty": 1,
     "passage": "",
-    "question": "Which letter is the last sound you hear in 'cat'?",
+    "question": "Which letter is the final sound you hear in 'cat'?",
     "choices": [
       "t",
       "c",
       "a",
       "s"
     ],
-    "answer": "t"
+    "answer": "t",
+    "skillId": "final_sounds",
+    "formatType": "ENDING_SOUND"
   },
   {
     "id": "phonics_k_087",

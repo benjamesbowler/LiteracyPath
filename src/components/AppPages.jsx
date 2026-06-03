@@ -1432,7 +1432,7 @@ export function StudentOverviewPage({
             onClick={openResetStudentProgress}
             type="button"
           >
-            Reset Student Progress
+            Reset Assessment Data
           </button>
         </div>
       </section>
@@ -2177,111 +2177,57 @@ export function ResetStudentProgressDialog({
   open,
   studentName,
   resetting,
-  onAdaptiveReset,
-  onFullReset,
+  onReset,
   onCancel
 }) {
-  const [fullResetConfirming, setFullResetConfirming] = useState(false);
-  const [fullResetPhrase, setFullResetPhrase] = useState("");
+  const [resetPhrase, setResetPhrase] = useState("");
 
   useEffect(() => {
     if (!open) {
-      setFullResetConfirming(false);
-      setFullResetPhrase("");
+      setResetPhrase("");
     }
   }, [open]);
 
   if (!open) return null;
 
-  const canConfirmFullReset = fullResetPhrase.trim() === "RESET";
+  const canConfirmReset = resetPhrase.trim() === "RESET";
   const studentLabel = studentName || "the student";
 
   function cancelReset() {
-    setFullResetConfirming(false);
-    setFullResetPhrase("");
+    setResetPhrase("");
     onCancel();
   }
 
-  function confirmFullReset() {
-    if (!canConfirmFullReset || resetting) return;
-    onFullReset();
+  function confirmReset() {
+    if (!canConfirmReset || resetting) return;
+    onReset();
   }
 
   return (
     <div className="modal-backdrop" role="presentation">
       <section className="modal-card reset-progress-dialog" role="dialog" aria-modal="true" aria-labelledby="reset-progress-title">
-        <h2 id="reset-progress-title">Reset Student Progress</h2>
+        <h2 id="reset-progress-title">Reset Assessment Data</h2>
         <p>
-          This will keep {studentLabel} and the class in place. Choose the scope carefully.
+          This resets assessment progress, scores, skill mastery, checkpoints, attempts, coverage,
+          level and phase progress, incorrect pattern tracking, and assessment history for {studentLabel}.
+        </p>
+        <p>
+          The student profile, class assignment, account login, Guided Reading history, and Story Quest progress
+          are kept in place.
         </p>
 
-        <div className="reset-progress-options">
-          <button
-            className="main-button"
-            disabled={resetting}
-            onClick={onAdaptiveReset}
-            type="button"
-          >
-            Reset adaptive progress
-          </button>
-          <p>
-            Clears checkpoint progress, skill progression, item mastery, and adaptive answer history for this student.
-            Formal EL assessment results stay available.
-          </p>
-
-          {!fullResetConfirming ? (
-            <>
-              <button
-                className="reset-button"
-                disabled={resetting}
-                onClick={() => setFullResetConfirming(true)}
-                type="button"
-              >
-                Reset all student assessment data including formal EL results
-              </button>
-              <p>
-                Also clears local Letter Name/Sound and Advanced Phonics assessment results for this selected student.
-              </p>
-            </>
-          ) : (
-            <div className="full-reset-confirmation" aria-live="polite">
-              <strong>Confirm full data reset</strong>
-              <p>
-                This permanently clears all assessment data for {studentLabel}, including formal EL results.
-                Type RESET to enable the final reset button.
-              </p>
-              <label>
-                <span>Type RESET</span>
-                <input
-                  autoComplete="off"
-                  disabled={resetting}
-                  onChange={event => setFullResetPhrase(event.target.value)}
-                  value={fullResetPhrase}
-                />
-              </label>
-              <div className="button-row">
-                <button
-                  className="report-button"
-                  disabled={resetting}
-                  onClick={() => {
-                    setFullResetConfirming(false);
-                    setFullResetPhrase("");
-                  }}
-                  type="button"
-                >
-                  Back
-                </button>
-                <button
-                  className="reset-button"
-                  disabled={resetting || !canConfirmFullReset}
-                  onClick={confirmFullReset}
-                  type="button"
-                >
-                  Permanently reset all data
-                </button>
-              </div>
-            </div>
-          )}
+        <div className="full-reset-confirmation" aria-live="polite">
+          <strong>Confirm assessment reset</strong>
+          <p>Type RESET to enable the final reset button.</p>
+          <label>
+            <span>Type RESET</span>
+            <input
+              autoComplete="off"
+              disabled={resetting}
+              onChange={event => setResetPhrase(event.target.value)}
+              value={resetPhrase}
+            />
+          </label>
         </div>
 
         <div className="button-row">
@@ -2292,6 +2238,14 @@ export function ResetStudentProgressDialog({
             type="button"
           >
             Cancel
+          </button>
+          <button
+            className="reset-button"
+            disabled={resetting || !canConfirmReset}
+            onClick={confirmReset}
+            type="button"
+          >
+            Reset Assessment Data
           </button>
         </div>
       </section>

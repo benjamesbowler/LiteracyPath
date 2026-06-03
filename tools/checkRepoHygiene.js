@@ -33,6 +33,10 @@ const ACTIVE_REQUEST_PATTERNS = [
   /docs\/assets\/[^/]*replacement[^/]*request[^/]*\.md$/i
 ];
 
+const ALLOWED_NEW_REQUEST_DOCS = new Set([
+  "docs/assets/kimi_story_quest_last_two_books_image_redo_request.md"
+]);
+
 const GENERATED_NOISE_PATTERNS = [
   /^docs\/validation\/.*\.(md|json)$/i,
   /^docs\/guided-reading\/.*audit.*\.md$/i,
@@ -406,7 +410,9 @@ function main() {
     const status = gitContext.statusByPath.get(filePath);
 
     if (isActiveRequestDoc(filePath)) {
-      if (status?.added || gitContext.untracked.has(filePath)) {
+      if (ALLOWED_NEW_REQUEST_DOCS.has(filePath)) {
+        addFinding(ignored, "allowed", filePath, "Approved active request document for current Story Quest image replacement pass.", "Allowed.");
+      } else if (status?.added || gitContext.untracked.has(filePath)) {
         addFinding(failures, "failure", filePath, "New active docs/assets media request document found.", removeSuggestion(filePath));
       } else {
         addFinding(warnings, "warning", filePath, "Existing active docs/assets media request document may be stale.", "Review or archive if stale.");

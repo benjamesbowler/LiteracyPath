@@ -11,6 +11,7 @@ import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
 import { getSkillBankItems } from "../src/content/skillMedia/skillAssetRegistry.js";
 import { hasMediaForItem } from "../src/content/skillMedia/skillCoverageUtils.js";
 import { buildSkillRoundPlan, emptySkillProgress } from "../src/content/skillMedia/skillProgressionRules.js";
+import { selectableRuntimeQuestionsForSkill } from "./phonicsRuntimeUtils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -225,7 +226,20 @@ if (levelTwoItems.length >= ROUND_LENGTH && levelTwoPlan.items.length !== ROUND_
 const levelOneTargets = [...new Set(levelOneItems.map(item => item.target).filter(Boolean))].sort();
 const levelTwoTargets = [...new Set(levelTwoItems.map(item => item.target).filter(Boolean))].sort();
 const expectedLevelOneTargets = coverageExpectations.final_sounds.itemKeys || [];
+const expectedLevelTwoTargets = coverageExpectations.final_sounds.levels?.[2] || [];
 const missingLevelOneTargets = expectedLevelOneTargets.filter(target => !levelOneTargets.includes(target));
+const runtimeSelectableFinalSounds = selectableRuntimeQuestionsForSkill("final_sounds");
+const runtimeLevelTwoQuestions = runtimeSelectableFinalSounds.filter(question => questionLevel(question) === 2);
+const runtimeLevelTwoTargets = [...new Set(runtimeLevelTwoQuestions.map(finalSound).filter(Boolean))].sort();
+const missingRuntimeLevelTwoTargets = expectedLevelTwoTargets.filter(target => !runtimeLevelTwoTargets.includes(target));
+const forcedCoverageProbe = ["th", "nk"].map(target => ({
+  target,
+  selectable: runtimeLevelTwoQuestions.filter(question => finalSound(question) === target).length
+}));
+
+if (missingRuntimeLevelTwoTargets.length) {
+  failures.push(`Runtime-selectable Final Sounds Level 2 is missing required targets: ${missingRuntimeLevelTwoTargets.join(", ")}.`);
+}
 
 const reportPath = path.join(rootDir, "docs", "validation", "final_sound_progression_audit.md");
 write(reportPath, `# Final Sound Progression Audit
@@ -258,6 +272,10 @@ Date: 2026-05-25
 - After Level 1 mastery, eligible level: Level 2.
 - Level 1 expected targets: ${expectedLevelOneTargets.join(", ")}
 - Missing media-complete Level 1 targets: ${missingLevelOneTargets.join(", ") || "none"}
+- Level 2 expected targets: ${expectedLevelTwoTargets.join(", ")}
+- Level 2 runtime-selectable targets: ${runtimeLevelTwoTargets.join(", ") || "none"}
+- Missing runtime-selectable Level 2 targets: ${missingRuntimeLevelTwoTargets.join(", ") || "none"}
+- Forced coverage probe for th/nk: ${forcedCoverageProbe.map(row => `${row.target}=${row.selectable}`).join(", ")}
 
 ## Level 1 Missing Media
 

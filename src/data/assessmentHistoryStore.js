@@ -336,6 +336,14 @@ export function saveAssessmentAttemptLocal(record, { teacherId = record.teacherI
   return next;
 }
 
+export function deleteAssessmentAttemptsForStudent({ teacherId = "local", studentId = "" } = {}) {
+  if (typeof localStorage === "undefined") return [];
+  const existing = loadAssessmentAttempts({ teacherId });
+  const next = existing.filter(record => record.studentId !== studentId);
+  localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next));
+  return next;
+}
+
 export async function saveAssessmentAttempt(record, { teacherId = record.teacherId || "local", supabase = null } = {}) {
   const normalized = normalizeAssessmentAttempt({ ...record, teacherId: record.teacherId || teacherId });
   const localRecords = saveAssessmentAttemptLocal(normalized, { teacherId });

@@ -37,6 +37,8 @@ import { vowelTeamsVarietyQuestions } from "../src/data/generated/vowelTeamsVari
 import { grammarAssessmentQuestions } from "../src/data/generated/grammarAssessmentQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
+import { assessmentQaReplacementQuestions } from "../src/data/assessmentQaReplacementQuestions.js";
+import { isLevelOneContentQualityAllowed } from "../src/data/levelOneContentQuality.js";
 import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
@@ -108,6 +110,7 @@ const questionBanks = [
   ["generatedEarlySkillQuestions", generatedEarlySkillQuestions],
   ["skillLevelGapQuestions", skillLevelGapQuestions],
   ["hfwLevel2Questions", hfwLevel2Questions],
+  ["assessmentQaReplacementQuestions", assessmentQaReplacementQuestions],
   ["generatedQuestions", generatedQuestions],
   ["fixSentenceQuestions", fixSentenceQuestions],
   ["templateComprehensionAdvanced", templateComprehensionAdvanced]
@@ -301,8 +304,11 @@ function getCanonicalAssessmentLevel(question = {}) {
 
 function keepRuntimeQuestion(question = {}) {
   const skillId = getCanonicalAssessmentSkillId(question);
+  if (!isLevelOneContentQualityAllowed(question)) return false;
   if (!REPLACED_LEGACY_ASSESSMENT_SKILLS.has(skillId)) return true;
   return question._source === "skillLevelGapQuestions" ||
+    question._source === "assessmentQaReplacementQuestions" ||
+    question.source === "assessment_qa_replacement_2026_06" ||
     question.source === "skill_level_depth_gap_generator" ||
     question.tags?.includes("generated-gap");
 }
@@ -458,9 +464,14 @@ export function getCoreSkillId(question = {}) {
   if (id === "blends" || label.includes("blend")) return "blends";
   if (id === "digraphs" || label.includes("digraph")) return "digraphs";
   if (id === "long_vowels" || id === "long_vowels_silent_e" || label.includes("long vowel") || label.includes("silent e")) return "long_vowels_silent_e";
+  if (id === "vowel_teams" || label.includes("vowel team")) return "vowel_teams";
+  if (id === "r_controlled" || id === "r_controlled_vowels" || label.includes("r-controlled") || label.includes("r controlled")) return "r_controlled";
   if (id === "nouns" || label.includes("noun")) return "nouns";
   if (id === "verbs" || label.includes("verb")) return "verbs";
   if (id === "adjectives" || label.includes("adjective")) return "adjectives";
+  if (id === "prepositions" || id === "prepositions_of_place" || label.includes("preposition")) return "prepositions";
+  if (id === "plurals" || label.includes("plural")) return "plurals";
+  if (id === "antonyms_synonyms" || label.includes("antonym") || label.includes("synonym")) return "antonyms_synonyms";
   return "";
 }
 
@@ -595,6 +606,20 @@ export function selectableRuntimeQuestionsForSkill(skillId) {
     return buildRuntimeQuestionsForSkill(skillId).filter(question =>
       (!question.filterReason || question.filterReason.startsWith("missing optional audio")) &&
       isRuntimeEligibleLongVowelsQuestion(question, skillId)
+    );
+  }
+  if ([
+    "vowel_teams",
+    "r_controlled",
+    "nouns",
+    "verbs",
+    "adjectives",
+    "prepositions",
+    "plurals",
+    "antonyms_synonyms"
+  ].includes(skillId)) {
+    return buildRuntimeQuestionsForSkill(skillId).filter(question =>
+      !question.filterReason || question.filterReason.startsWith("missing optional audio")
     );
   }
   return buildRuntimeQuestionsForSkill(skillId).filter(question =>
