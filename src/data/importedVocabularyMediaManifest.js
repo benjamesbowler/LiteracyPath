@@ -3,6 +3,56 @@ const importedVocabularyMedia = {
     audio: "/media/vocabulary/audio/a-blanket-fort.mp3",
     textSpoken: "a blanket fort"
   },
+  bake: {
+    audio: "/media/vocabulary/audio/bake.mp3",
+    textSpoken: "bake",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  buses: {
+    audio: "/media/vocabulary/audio/buses.mp3",
+    textSpoken: "buses",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  dirt: {
+    audio: "/media/vocabulary/audio/dirt.mp3",
+    textSpoken: "dirt",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  feed: {
+    audio: "/media/vocabulary/audio/feed.mp3",
+    textSpoken: "feed",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  harm: {
+    audio: "/media/vocabulary/audio/harm.mp3",
+    textSpoken: "harm",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  helper: {
+    audio: "/media/vocabulary/audio/helper.mp3",
+    textSpoken: "helper",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  rich: {
+    audio: "/media/vocabulary/audio/rich.mp3",
+    textSpoken: "rich",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  save: {
+    audio: "/media/vocabulary/audio/save.mp3",
+    textSpoken: "save",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  share: {
+    audio: "/media/vocabulary/audio/share.mp3",
+    textSpoken: "share",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
+  visit: {
+    audio: "/media/vocabulary/audio/visit.mp3",
+    textSpoken: "visit",
+    source: "kimi_non_ai_child_voice_import_2026_06_04"
+  },
   bellshell: {
     audio: "/media/vocabulary/audio/bellshell.mp3",
     textSpoken: "bell, shell"
