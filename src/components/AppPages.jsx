@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import logomarkUrl from "../assets/logomark.svg";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
@@ -161,7 +162,9 @@ export function TopNavigation({
 
   return (
     <nav className="top-nav" aria-label="Teacher navigation">
-      <div className="breadcrumb" aria-label="Current teacher context">
+      <div className="top-nav-identity">
+        <img src={logomarkUrl} alt="Literacy Guide" className="top-nav-logo" aria-hidden="true" />
+        <div className="breadcrumb" aria-label="Current teacher context">
         {infoItems.map((item, index) => (
           <span
             className={
@@ -188,6 +191,7 @@ export function TopNavigation({
             )}
           </span>
         ))}
+        </div>
       </div>
 
       <div className="top-nav-actions">

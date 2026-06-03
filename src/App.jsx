@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion, useReducedMotion } from "framer-motion";
 import "./App.css";
+import logoUrl from "./assets/logo.svg";
 import { supabase } from "./supabaseClient";
 import { getMasteryRule } from "./masterySystem";
 import { skillTree } from "./skillTree";
@@ -6931,13 +6932,39 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             initial={{ y: -12, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
           >
-            <div className="auth-hero-mark" aria-hidden="true">Aa</div>
-            <h1>Reading Mastery</h1>
-            <p>Structured EL-style reading skill progression for classrooms, groups, and guided practice.</p>
-            <div className="auth-feature-badges" aria-label="Reading Mastery features">
-              <span>Adaptive Skills</span>
-              <span>Guided Reading</span>
-              <span>Teacher Dashboard</span>
+            {/* Decorative beam arcs — references the lighthouse without being literal */}
+            <svg className="auth-hero-deco" aria-hidden="true" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.045" stroke="#4f63d7" strokeLinecap="round">
+                <path d="M480 0 Q240 200 0 400" strokeWidth="1"/>
+                <path d="M480 0 Q260 180 20 400" strokeWidth="1"/>
+                <path d="M480 0 Q280 160 40 400" strokeWidth="1"/>
+                <path d="M480 0 Q300 140 60 400" strokeWidth="1"/>
+                <path d="M480 0 Q320 120 80 400" strokeWidth="1"/>
+                <path d="M480 0 Q340 100 100 400" strokeWidth="1"/>
+                <path d="M480 0 Q360 80 120 400" strokeWidth="1"/>
+                <path d="M480 0 Q380 60 140 400" strokeWidth="1"/>
+                <path d="M480 0 Q400 40 160 400" strokeWidth="1"/>
+              </g>
+              {/* Subtle concentric arcs from top-right */}
+              <g opacity="0.032" stroke="#d68a11" fill="none">
+                <path d="M480 0 A200 200 0 0 1 280 200" strokeWidth="1.5"/>
+                <path d="M480 0 A280 280 0 0 1 200 280" strokeWidth="1.5"/>
+                <path d="M480 0 A360 360 0 0 1 120 360" strokeWidth="1.5"/>
+                <path d="M480 0 A440 440 0 0 1 40 400" strokeWidth="1.5"/>
+              </g>
+            </svg>
+
+            <img src={logoUrl} alt="Literacy Guide" className="auth-hero-logo" />
+
+            <div className="auth-hero-main">
+              <div className="auth-hero-copy">
+                <h1>Every reader<br/>finds their<br/>path.</h1>
+                <p>Structured literacy progression for classrooms, reading groups, and guided practice sessions.</p>
+              </div>
+              <ul className="auth-hero-features" aria-label="Features">
+                <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Adaptive skill checkpoints</li>
+                <li><span className="auth-hero-feature-dot" aria-hidden="true"/>Guided reading with running records</li>
+              </ul>
             </div>
           </motion.div>
 
