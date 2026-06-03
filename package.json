@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "analyze": "ANALYZE_BUNDLE=true vite build",
+    "test:smoke": "playwright test tests/smoke",
+    "test:smoke:headed": "playwright test tests/smoke --headed",
     "lint": "eslint .",
     "preview": "vite preview",
     "validate:guided-reading": "node tools/auditGuidedReadingContent.js",
@@ -61,6 +63,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.60.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",

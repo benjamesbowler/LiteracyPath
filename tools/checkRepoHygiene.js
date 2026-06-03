@@ -22,7 +22,7 @@ const ZIP_EXTENSIONS = new Set([".zip"]);
 const SOURCE_MEDIA_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".psd", ".ai", ".zip", ".md"]);
 const HARD_SOURCE_EXTENSIONS = new Set([".psd", ".ai", ".zip", ".md"]);
 const TEMP_ROOT_NAMES = new Set([".tmp", "tmp", "temp", "temporary"]);
-const SKIP_DIRS = new Set([".git", "node_modules", "dist"]);
+const SKIP_DIRS = new Set([".cache", ".git", "node_modules", "dist", "playwright-report", "test-results"]);
 
 const ACTIVE_REQUEST_PATTERNS = [
   /docs\/assets\/[^/]*kimi[^/]*request[^/]*\.md$/i,
