@@ -135,9 +135,24 @@ export function TopNavigation({
     appView === "letters" || appView === "advancedPhonics" ? "assessment" : appView;
   const infoItems = [
     { id: "section", label: activeStep === "select" ? "Class/Student Select" : "Teacher Mode", active: true },
-    { id: "teacher", label: teacherEmail || "Signed in" },
-    { id: "student", label: nameSaved ? studentName || "Unnamed student" : "No student selected" },
-    ...(nameSaved && currentStage ? [{ id: "stage", label: currentStage.label }] : [])
+    {
+      id: "teacher",
+      label: teacherEmail || "Signed in",
+      onClick: goToTeacherDashboard,
+      ariaLabel: "Open Teacher Dashboard"
+    },
+    {
+      id: "student",
+      label: nameSaved ? studentName || "Unnamed student" : "No student selected",
+      onClick: nameSaved ? goToOverview : null,
+      ariaLabel: nameSaved ? "Open Student Overview" : undefined
+    },
+    ...(nameSaved && currentStage ? [{
+      id: "stage",
+      label: currentStage.label,
+      onClick: goToSkills,
+      ariaLabel: "Open Skills"
+    }] : [])
   ];
   const needsStudentTitle = nameSaved ? undefined : "Select a student first";
 
@@ -153,7 +168,18 @@ export function TopNavigation({
             }
             key={item.id}
           >
-            <span className="breadcrumb-label">{item.label}</span>
+            {item.onClick ? (
+              <button
+                aria-label={item.ariaLabel}
+                className="breadcrumb-button"
+                onClick={item.onClick}
+                type="button"
+              >
+                <span className="breadcrumb-label">{item.label}</span>
+              </button>
+            ) : (
+              <span className="breadcrumb-label">{item.label}</span>
+            )}
             {index < infoItems.length - 1 && (
               <span className="breadcrumb-separator">/</span>
             )}
@@ -1536,30 +1562,55 @@ export function SkillsProgressPage({
                     : unlocked
                       ? "Open"
                       : "Locked";
+                const actionLabel = !unlocked
+                  ? "Locked"
+                  : index === currentSkillIndex
+                    ? "Start"
+                    : data?.mastered
+                      ? "Practice"
+                      : "Open";
+                const lockHelp = "Complete earlier skills to unlock.";
 
                 return (
                   <article className={`skill-catalogue-row ${status.toLowerCase()}`} key={stage.id}>
-                    <div className="skill-index-badge">{index + 1}</div>
-                    <div className="skill-row-main">
-                      <strong>{stage.label}</strong>
-                      <span>{status}</span>
+                    <div className="skill-card-heading">
+                      <div className="skill-index-badge">{index + 1}</div>
+                      <div className="skill-row-main">
+                        <strong>{stage.label}</strong>
+                        <span>{index === currentSkillIndex ? "Current focus" : data?.mastered ? "Checkpoint passed" : unlocked ? "Ready for practice" : "Not available yet"}</span>
+                      </div>
+                      <span className={`skill-status-badge ${status.toLowerCase()}`}>{status}</span>
                     </div>
-                    <div className="skill-row-meter">
-                      <span>Checkpoint {data ? `${data.lastScore}/${data.lastTotal}` : "-"}</span>
-                      <span className="mini-progress-bar"><span style={{ width: `${checkpointPercent}%` }}></span></span>
+
+                    <div className="skill-progress-grid">
+                      <div className="skill-row-meter">
+                        <span><strong>Checkpoint</strong> {data ? `${data.lastScore}/${data.lastTotal}` : "Not started"}</span>
+                        <span className="mini-progress-bar" aria-label={`Checkpoint progress ${checkpointPercent}%`}>
+                          <span style={{ width: `${checkpointPercent}%` }}></span>
+                        </span>
+                      </div>
+                      <div className="skill-row-meter">
+                        <span><strong>Coverage</strong> {coverage.mastered}/{coverage.total} {coverage.unit}</span>
+                        <span className="mini-progress-bar secondary" aria-label={`Coverage progress ${coveragePercent}%`}>
+                          <span style={{ width: `${coveragePercent}%` }}></span>
+                        </span>
+                      </div>
                     </div>
-                    <div className="skill-row-meter">
-                      <span>Coverage {coverage.mastered}/{coverage.total} {coverage.unit}</span>
-                      <span className="mini-progress-bar secondary"><span style={{ width: `${coveragePercent}%` }}></span></span>
+
+                    <div className="skill-action-area">
+                      <button
+                        className={index === currentSkillIndex ? "lp-button lp-button-primary" : "lp-button lp-button-secondary"}
+                        disabled={!unlocked}
+                        onClick={() => startSkill(index)}
+                        title={!unlocked ? lockHelp : undefined}
+                        type="button"
+                      >
+                        {actionLabel}
+                      </button>
+                      {!unlocked && (
+                        <span className="skill-lock-help">{lockHelp}</span>
+                      )}
                     </div>
-                    <button
-                      className={index === currentSkillIndex ? "lp-button lp-button-primary" : "lp-button lp-button-secondary"}
-                      disabled={!unlocked}
-                      onClick={() => startSkill(index)}
-                      type="button"
-                    >
-                      {index === currentSkillIndex ? "Start" : data?.mastered ? "Practice" : "Open"}
-                    </button>
                   </article>
                 );
               })}
@@ -1651,6 +1702,7 @@ export function GuidedReadingPage(props) {
 }
 export function TeacherReportsPage({
   studentName,
+  startAssessment,
   viewFinishedReport,
   openGuidedReading,
   guidedReadingRecords = {},
@@ -1787,6 +1839,14 @@ export function TeacherReportsPage({
     () => wordStatusRows.filter(row => row.status === "Needs Support").slice(0, 10),
     [wordStatusRows]
   );
+  const hasAssessmentData =
+    assessmentSummary.attempts > 0 ||
+    skillMasterySummary.some(summary => summary.masteredCount > 0);
+  const hasReadingData = Boolean(readingProgress) && (
+    readingProgress.totalBooksRead > 0 ||
+    readingProgress.inProgressBooks.length > 0 ||
+    readingProgress.totalRereads > 0
+  );
 
   useEffect(() => {
     if (!detailsReady || !import.meta.env.DEV) return;
@@ -1818,11 +1878,23 @@ export function TeacherReportsPage({
       <section className="teacher-action-panel-grid">
         <article className="teacher-action-panel">
           <h3>Student Report</h3>
-          <p>
-            {assessmentSummary.attempts
-              ? `${assessmentSummary.attempts} saved assessments · ${assessmentSummary.averageAccuracy}% average accuracy.`
-              : "Open the finished report view for checkpoint summaries, coverage, mastered items, and teacher notes."}
-          </p>
+          {hasAssessmentData ? (
+            <p>
+              {assessmentSummary.attempts
+                ? `${assessmentSummary.attempts} saved assessments · ${assessmentSummary.averageAccuracy}% average accuracy.`
+                : "Open the finished report view for checkpoint summaries, coverage, mastered items, and teacher notes."}
+            </p>
+          ) : (
+            <div className="report-empty-state">
+              <strong>No assessment data yet.</strong>
+              <p>Start the first assessment to build checkpoint summaries, coverage, and mastered item lists.</p>
+              {startAssessment && (
+                <button className="lp-button lp-button-secondary" onClick={startAssessment} type="button">
+                  Start First Assessment
+                </button>
+              )}
+            </div>
+          )}
           {assessmentSummary.latestAttempt && (
             <div className="guided-reading-report-mini">
               <span>Latest: {assessmentSummary.latestAttempt.skillName}</span>
@@ -1851,6 +1923,14 @@ export function TeacherReportsPage({
           <h3>Reading Report</h3>
           {!readingProgress ? (
             <p className="muted-text">Loading guided reading summary...</p>
+          ) : !hasReadingData ? (
+            <div className="report-empty-state">
+              <strong>No guided reading records yet.</strong>
+              <p>Open Guided Reading to begin saving book progress and conference notes.</p>
+              <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
+                Open Guided Reading
+              </button>
+            </div>
           ) : (
             <>
               <p>
@@ -1897,7 +1977,10 @@ export function TeacherReportsPage({
               ))}
             </div>
           ) : (
-            <p>No green words marked yet.</p>
+            <div className="report-empty-state compact">
+              <strong>No words marked green yet.</strong>
+              <p>Open Guided Reading and mark words read correctly during a conference.</p>
+            </div>
           )}
         </article>
 
@@ -1916,7 +1999,10 @@ export function TeacherReportsPage({
               ))}
             </div>
           ) : (
-            <p>No orange support words marked yet.</p>
+            <div className="report-empty-state compact">
+              <strong>No support words marked yet.</strong>
+              <p>Support-word notes will appear after Guided Reading conferences.</p>
+            </div>
           )}
         </article>
 
@@ -1935,7 +2021,13 @@ export function TeacherReportsPage({
               ))}
             </div>
           ) : (
-            <p>No guided reading records saved for this student yet.</p>
+            <div className="report-empty-state compact">
+              <strong>No guided reading records yet.</strong>
+              <p>Open Guided Reading to save the first book record for this student.</p>
+              <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
+                Open Guided Reading
+              </button>
+            </div>
           )}
         </article>
 
