@@ -428,6 +428,8 @@ function getRuntimeGuidedReadingBooks() {
     .map(book => ({
       ...book,
       pages: (book.pages || []).filter(page =>
+        page.active !== false &&
+        (!page.qaStatus || page.qaStatus === "approved") &&
         !isGuidedReadingAssetDeleted({
           bookId: book.id,
           path: page.image,

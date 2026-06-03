@@ -6,6 +6,10 @@ These files are not deleted, but they are blocked from active Teacher Assessment
 
 | word/phrase | quarantined path | source pack | runtime status | preferred path | notes |
 | --- | --- | --- | --- | --- | --- |
+| fan | /audio/child-mode/clean-human/words/fan.mp3 | live assessment audio review | not approved for active assessment runtime |  | Blocked after live tablet QA on 2026-06-03 found the active fan audio extremely poor quality / almost inaudible. |
+| fan | /audio/child-mode/words/fan.mp3 | child-mode words | not approved for active assessment runtime |  | Local alternate exists but is not treated as approved until human review or replacement. |
+| fan | /media/initial-sounds/audio/f/fan.mp3 | initial-sounds media | not approved for active assessment runtime |  | Local alternate exists but is not treated as approved until human review or replacement. |
+| fan | /guided-reading/audio/words/fan.mp3 | guided-reading word audio | not approved for active assessment runtime |  | Local alternate exists but is not treated as approved until human review or replacement. |
 | zip | /audio/child-mode/words/zip.mp3 | child-mode words | not approved for active assessment runtime |  | Blocked from active Teacher Assessment after live testing showed the word audio was pronounced as separated letters instead of the natural word. |
 | zip | /audio/child-mode/clean-human/words/zip.mp3 | legacy audio manifest | not approved for active assessment runtime |  | Blocked from active Teacher Assessment after live testing showed the word audio was pronounced as separated letters instead of the natural word. |
 | bad | /audio/child-mode/words/bad-kimi3.mp3 | kimi_assets3 review variant | not approved for active assessment runtime | /audio/child-mode/words/bad.mp3 | Kimi alternate is quarantined until human review; stable local word audio remains preferred. |

@@ -18,10 +18,10 @@ This is the active source of truth for unresolved Kimi media work. Use this file
 | Priority | Area | Count / Scope | Source detail |
 | --- | --- | ---: | --- |
 | P1 | Assessment images | 4 destination paths for 1 target word | This file |
-| P1 | Assessment audio | 565 generated review/replacement rows; 0 missing/broken active-audio rows | `docs/assets/replacement_assessment_audio_request.md` |
+| P1 | Assessment audio | 565 generated review/replacement rows + 1 live-QA blocked word audio | This file; `docs/assets/replacement_assessment_audio_request.md` |
 | P1 | Story Quests images | 2 new Dino Pals full image packs + 1 known quality replacement | This file; `docs/assets/kimi_story_quest_bossy_picnic_mix_up_request.md`; `docs/assets/kimi_story_quest_zippy_flappy_fast_slow_up_down_request.md` |
 | P1 | Story Quests audio | 2 new Dino Pals full page-audio packs | `docs/assets/kimi_story_quest_bossy_picnic_mix_up_request.md`; `docs/assets/kimi_story_quest_zippy_flappy_fast_slow_up_down_request.md` |
-| P1 | Guided Reading images | 33 confirmed problem-text image replacements | `docs/assets/kimi_guided_reading_problem_text_image_replacement_request.md` |
+| P1 | Guided Reading images | 33 confirmed problem-text image replacements + 1 live-QA cropped page replacement | This file; `docs/assets/kimi_guided_reading_problem_text_image_replacement_request.md` |
 | P1 | Guided Reading whole-book audio | 116 missing MP3 + 116 missing sync JSON files | `docs/assets/kimi_missing_whole_book_audio_request.md` |
 
 ## Assessment Images
@@ -42,6 +42,22 @@ This is the active source of truth for unresolved Kimi media work. Use this file
 - QA notes: verify that the image reads as "bud" without relying on audio or answer text.
 
 ## Assessment Audio
+
+### P1 — Live QA Blocked `fan` Word Audio
+
+- Area: Assessment audio
+- Skill/book/area: CVC and Short Vowels; active assessment word audio
+- Current path(s):
+  - `public/audio/child-mode/clean-human/words/fan.mp3`
+  - `public/audio/child-mode/words/fan.mp3`
+  - `public/media/initial-sounds/audio/f/fan.mp3`
+  - `public/guided-reading/audio/words/fan.mp3`
+- Required target path: `public/audio/child-mode/clean-human/words/fan.mp3`
+- Reason: live tablet QA on 2026-06-03 found the active `fan` audio extremely poor quality / almost inaudible. Local alternate `fan` recordings exist, but none is documented as approved over the failed live asset.
+- Exact generation requirements: record the single word "fan" only, with warm clear child-friendly American English. No spelling, no phrase, no noise, no effects, no music, no clipping, and no long silence.
+- Naming convention: replace the active clean-human path exactly after human QA approval.
+- Output format: MP3.
+- QA notes: `fan` word audio is blocked from active Teacher Assessment in `src/data/audioPreferenceManifest.js` until a replacement is imported and approved.
 
 ### P1 — Assessment Audio Review / Replacement Batch
 
@@ -120,6 +136,18 @@ This is the active source of truth for unresolved Kimi media work. Use this file
 - QA notes: warm clear Level B narration, no choice prompts, filenames, effects, music, or extra words.
 
 ## Guided Reading Images
+
+### P1 — Meadow Pals / Shy Comes Out to Play Page 9
+
+- Area: Guided Reading images
+- Story/book/skill: Meadow Pals / Shy Comes Out to Play
+- Current app path: `public/guided-reading/series/meadow-pals/book-09/page-009.webp`
+- Required target path: `public/guided-reading/series/meadow-pals/book-09/page-009.webp`
+- Reason: live tablet QA on 2026-06-03 found the rabbit character on the right side visibly cropped / missing ear detail. The current image is preserved but page 9 is marked `needs_kimi` and inactive until replacement.
+- Exact generation requirements: create a clean Meadow Pals Level A page illustration for text "Shy is playing!" Keep Shy and Cuddly fully visible, with complete ears and character details. Match the existing Meadow Pals style and sunny meadow setting. No embedded text, labels, source marks, watermarks, logos, or captions.
+- Naming convention: replace the active page path exactly after QA approval.
+- Output format: WebP.
+- QA notes: the guided-reading runtime now filters page-level `qaStatus`, so this failed page is not treated as production-approved while awaiting replacement.
 
 ### P1 — Confirmed Problem-Text Image Replacements
 

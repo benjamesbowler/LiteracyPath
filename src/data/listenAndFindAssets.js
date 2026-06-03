@@ -4,7 +4,7 @@ import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 const listenAndFindOverrides = {
   core_cvc_001: ["cat", ["cat", "cap", "dog", "sun"]],
   exp7_cvc_1: ["cat", ["cat", "cap", "dog", "sun"]],
-  exp7_cvc_2: ["bed", ["bed", "bad", "bid", "web"]],
+  exp7_cvc_2: ["bed", ["bed", "bad", "big", "web"]],
   exp7_cvc_3: ["hat", ["hat", "cat", "bug", "pen"]],
   exp7_cvc_4: ["mud", ["mud", "mug", "map", "bed"]],
   exp7_cvc_5: ["fin", ["fin", "lid", "dog", "cat"]],
@@ -64,12 +64,24 @@ function getChoiceAssetMap(choices) {
   );
 }
 
+function uniqueChoices(choices = []) {
+  return [...new Set(choices.map(choice => normalize(choice)).filter(Boolean))];
+}
+
+function ensureAnswerChoice(choices = [], answer = "") {
+  const normalizedAnswer = normalize(answer);
+  const cleanChoices = uniqueChoices(choices);
+  if (!normalizedAnswer) return cleanChoices;
+  if (cleanChoices.includes(normalizedAnswer)) return cleanChoices;
+  return [normalizedAnswer, ...cleanChoices].slice(0, Math.max(4, cleanChoices.length));
+}
+
 export function enrichListenAndFindWordQuestion(question = {}) {
   if (!isListenAndFindWordQuestion(question)) return question;
 
   const override = listenAndFindOverrides[question.id];
-  const answer = override?.[0] || question.answer;
-  const choices = override?.[1] || question.choices || [];
+  const answer = normalize(override?.[0] || question.correctAnswer || question.answer || question.targetWord || question.audioText);
+  const choices = ensureAnswerChoice(override?.[1] || question.choices || question.answerOptions || [], answer);
   const targetAsset = getChildWordAsset(answer);
   const approvedAudioPath = getApprovedAudioPath(answer, targetAsset?.audio || "");
 
@@ -82,8 +94,12 @@ export function enrichListenAndFindWordQuestion(question = {}) {
     spokenPrompt: answer,
     audioText: answer,
     audioPath: approvedAudioPath,
+    audioUrl: approvedAudioPath,
     choices,
+    answerOptions: choices,
     answer,
+    correctAnswer: answer,
+    targetWord: answer,
     choiceImages: getChoiceAssetMap(choices),
     imagePath: ""
   };
@@ -103,6 +119,8 @@ export function getListenAndFindAssetDiagnostics(question = {}) {
     missingImages,
     missingChoiceAssets,
     missingAudio: !enriched.audioPath || !getApprovedAudioPath(enriched.answer, targetAsset?.audio || ""),
-    usesSingleWordAudioText: normalize(enriched.audioText) === normalize(enriched.answer)
+    usesSingleWordAudioText: normalize(enriched.audioText) === normalize(enriched.answer),
+    answerInChoices: choices.map(normalize).includes(normalize(enriched.answer)),
+    targetMatchesAnswer: normalize(enriched.targetWord) === normalize(enriched.answer)
   };
 }

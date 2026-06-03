@@ -292,16 +292,25 @@ const meadowCoverPath = bookNumber =>
 const meadowAudioPath = (bookNumber, pageNumber) =>
   "/guided-reading/series/meadow-pals/book-" + String(bookNumber).padStart(2, "0") + "/audio/page-" + String(pageNumber).padStart(3, "0") + ".mp3";
 
-const createMeadowPage = ({ bookNumber, pageNumber, text }) => ({
+const createMeadowPage = ({
+  bookNumber,
+  pageNumber,
+  text,
+  qaStatus = "approved",
+  qaNotes = "Released for student Guided Reading.",
+  active = true,
+  regenerationReason = ""
+}) => ({
   pageNumber,
   text: normalizeReadingText(text),
   image: meadowPagePath(bookNumber, pageNumber),
   audio: meadowAudioPath(bookNumber, pageNumber),
   pageAudio: meadowAudioPath(bookNumber, pageNumber),
   words: words(text),
-  qaStatus: "approved",
-  qaNotes: "Released for student Guided Reading.",
-  active: true
+  qaStatus,
+  qaNotes,
+  active,
+  ...(regenerationReason ? { regenerationReason } : {})
 });
 
 const createMeadowPalsBook = ({
@@ -760,7 +769,11 @@ const meadowPalsBookData = [
       },
       {
         "pageNumber": 9,
-        "text": "Shy is playing!"
+        "text": "Shy is playing!",
+        "qaStatus": "needs_kimi",
+        "qaNotes": "Live tablet QA 2026-06-03: right-side Shy character is visibly cropped and missing ear detail. Current image is preserved but not production-approved.",
+        "active": false,
+        "regenerationReason": "Rabbit character on right side is cropped / missing ear detail."
       }
     ]
   },
