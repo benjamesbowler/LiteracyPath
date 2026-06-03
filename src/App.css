@@ -8,6 +8,8 @@
   --lp-color-accent-warm-soft: #fff7e8;
   --lp-color-success: #159a8a;
   --lp-color-success-soft: #e7f7f3;
+  --lp-color-success-text: #1a5c55;
+  --lp-color-teal-text: var(--lp-color-success-text);
   --lp-color-warning: #c98218;
   --lp-color-warning-soft: #fff5df;
   --lp-color-danger: #c2414b;
@@ -21,6 +23,7 @@
   --lp-color-surface-subtle: #f9fafb;
   --lp-color-background: #f7f8fb;
   --lp-color-background-warm: #fcf7ef;
+  --lp-color-background-warm-strong: #fff8f0;
   --lp-color-border: #e3e8ef;
   --lp-color-border-strong: #d0d5dd;
   --lp-color-border-subtle: #e4e7ec;
@@ -247,9 +250,39 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 6px;
   min-width: 0;
   overflow: visible;
+}
+
+.top-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 4px;
+  border: 1px solid rgba(226, 219, 206, 0.72);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.top-nav-group-label {
+  flex: 0 0 auto;
+  padding: 0 2px;
+  color: var(--lp-color-text-subtle);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.top-nav-group-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
 }
 
 .nav-button {
@@ -8481,6 +8514,15 @@ select:focus {
     gap: 5px;
   }
 
+  .top-nav-group {
+    flex: 1 1 260px;
+    align-items: flex-start;
+  }
+
+  .top-nav-group-actions {
+    flex: 1 1 auto;
+  }
+
   .nav-button {
     min-width: 0;
     min-height: 30px;
@@ -9084,9 +9126,26 @@ select:focus {
     width: 100%;
   }
 
-  .top-nav-actions .nav-button {
+  .top-nav-group {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .top-nav-group-label {
+    min-width: 58px;
+  }
+
+  .top-nav-group-actions {
+    display: grid;
+    flex: 1 1 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .top-nav-group-actions .nav-button {
     flex: 1 1 calc(50% - 5px);
-    min-width: min(100%, 132px);
+    min-width: 0;
+    width: 100%;
   }
 
   .dashboard {

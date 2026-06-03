@@ -155,6 +155,9 @@ export function TopNavigation({
     }] : [])
   ];
   const needsStudentTitle = nameSaved ? undefined : "Select a student first";
+  const getStudentActionLabel = (label) => (
+    nameSaved ? undefined : `${label} unavailable. Select a student first.`
+  );
 
   return (
     <nav className="top-nav" aria-label="Teacher navigation">
@@ -188,78 +191,103 @@ export function TopNavigation({
       </div>
 
       <div className="top-nav-actions">
-        <button
-          className={appView === "overview" ? "nav-button primary" : "nav-button"}
-          onClick={goToOverview}
-          disabled={!nameSaved}
-          title={needsStudentTitle}
-        >
-          Student Overview
-        </button>
+        <div className="top-nav-group" role="group" aria-label="Student navigation">
+          <span className="top-nav-group-label">Student</span>
+          <div className="top-nav-group-actions">
+            <button
+              aria-label={getStudentActionLabel("Student Overview")}
+              className={appView === "overview" ? "nav-button primary" : "nav-button"}
+              onClick={goToOverview}
+              disabled={!nameSaved}
+              title={needsStudentTitle}
+            >
+              Student Overview
+            </button>
 
-        <button
-          className={appView === "skills" ? "nav-button primary" : "nav-button"}
-          onClick={goToSkills}
-          disabled={!nameSaved}
-          title={needsStudentTitle}
-        >
-          Skills
-        </button>
+            <button
+              aria-label={getStudentActionLabel("Skills")}
+              className={appView === "skills" ? "nav-button primary" : "nav-button"}
+              onClick={goToSkills}
+              disabled={!nameSaved}
+              title={needsStudentTitle}
+            >
+              Skills
+            </button>
 
-        <button
-          className={appView === "elAssessments" ? "nav-button primary" : "nav-button"}
-          onClick={goToElAssessments}
-          disabled={!nameSaved}
-          title={needsStudentTitle}
-        >
-          EL Assessments
-        </button>
+            <button
+              aria-label={getStudentActionLabel("EL Assessments")}
+              className={appView === "elAssessments" ? "nav-button primary" : "nav-button"}
+              onClick={goToElAssessments}
+              disabled={!nameSaved}
+              title={needsStudentTitle}
+            >
+              EL Assessments
+            </button>
 
-        <button
-          className={appView === "guidedReading" ? "nav-button primary" : "nav-button"}
-          onClick={goToGuidedReading}
-          disabled={!nameSaved}
-          title={needsStudentTitle}
-        >
-          Guided Reading
-        </button>
+            <button
+              aria-label={getStudentActionLabel("Guided Reading")}
+              className={appView === "guidedReading" ? "nav-button primary" : "nav-button"}
+              onClick={goToGuidedReading}
+              disabled={!nameSaved}
+              title={needsStudentTitle}
+            >
+              Guided Reading
+            </button>
 
-        <button
-          className={appView === "teacherDashboard" ? "nav-button primary" : "nav-button"}
-          onClick={goToTeacherDashboard}
-        >
-          Teacher Dashboard
-        </button>
+            <button
+              className={appView === "learn" ? "nav-button primary" : "nav-button"}
+              onClick={goToLearn}
+            >
+              Story Quest Adventures
+            </button>
+          </div>
+        </div>
 
-        <button
-          className={appView === "learn" ? "nav-button primary" : "nav-button"}
-          onClick={goToLearn}
-        >
-          Story Quest Adventures
-        </button>
+        <div className="top-nav-group" role="group" aria-label="Teacher navigation actions">
+          <span className="top-nav-group-label">Teacher</span>
+          <div className="top-nav-group-actions">
+            <button
+              className={appView === "teacherDashboard" ? "nav-button primary" : "nav-button"}
+              onClick={goToTeacherDashboard}
+            >
+              Teacher Dashboard
+            </button>
 
-        <button
-          className={appView === "tools" ? "nav-button primary" : "nav-button"}
-          onClick={goToTools}
-          disabled={!nameSaved}
-          title={needsStudentTitle}
-        >
-          Tools
-        </button>
-
-        <button className="nav-button" onClick={switchStudent}>
-          Switch Student
-        </button>
+            <button
+              aria-label={getStudentActionLabel("Tools")}
+              className={appView === "tools" ? "nav-button primary" : "nav-button"}
+              onClick={goToTools}
+              disabled={!nameSaved}
+              title={needsStudentTitle}
+            >
+              Tools
+            </button>
+          </div>
+        </div>
 
         {isAdmin && (
-          <button className="nav-button" onClick={openAdminDashboard}>
-            Admin Dashboard
-          </button>
+          <div className="top-nav-group" role="group" aria-label="Admin navigation">
+            <span className="top-nav-group-label">Admin</span>
+            <div className="top-nav-group-actions">
+              <button className="nav-button" onClick={openAdminDashboard}>
+                Admin Dashboard
+              </button>
+            </div>
+          </div>
         )}
 
-        <button className="nav-button" onClick={logOutTeacher}>
-          Log Out
-        </button>
+        <div className="top-nav-group account" role="group" aria-label="Account actions">
+          <span className="top-nav-group-label">Account</span>
+          <div className="top-nav-group-actions">
+            <button className="nav-button" onClick={switchStudent}>
+              Switch Student
+            </button>
+
+            <button className="nav-button" onClick={logOutTeacher}>
+              Log Out
+            </button>
+          </div>
+        </div>
       </div>
     </nav>
   );
