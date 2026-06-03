@@ -89,7 +89,7 @@ const approvedWordAudioKeys = [
   "box", "boxes", "brush", "brushes", "bud", "bug", "bun", "bus", "cake", "cap",
   "car", "cat", "cats", "chair", "chick", "chip", "clap", "coat", "corn", "cot",
   "crab", "cup", "cups", "cut", "deer", "desk", "dig", "dish", "dishes", "dog",
-  "dogs", "dot", "drum", "duck", "dug", "egg", "elephant", "envelope", "fan", "farm",
+  "dogs", "dot", "drum", "duck", "dug", "egg", "elephant", "envelope", "farm",
   "feet", "fin", "fish", "flag", "fork", "fox", "frog", "gate", "girl", "goat",
   "gum", "ham", "hand", "hat", "hats", "hen", "hit", "home", "hook", "hop",
   "horse", "hot", "house", "hut", "igloo", "ink", "insect", "jam", "jet", "jug",
@@ -181,6 +181,21 @@ const quarantinedPhraseAudio = {
 };
 
 const activeReviewNeededWordAudio = {
+  fan: {
+    fallbackPath: "/audio/child-mode/clean-human/words/fan.mp3",
+    deprecatedAudioPaths: [
+      wordAudioPath("fan"),
+      "/media/initial-sounds/audio/f/fan.mp3",
+      "/guided-reading/audio/words/fan.mp3"
+    ],
+    reviewNeededPaths: [
+      wordAudioPath("fan"),
+      "/media/initial-sounds/audio/f/fan.mp3",
+      "/guided-reading/audio/words/fan.mp3"
+    ],
+    source: "Kimi_Agent_High-Quality Generation.zip import",
+    notes: "Clean replacement imported on 2026-06-03 after live tablet QA blocked the previous fan audio. Older local fan recordings remain quarantined; active assessment should resolve to the clean-human path."
+  },
   bud: {
     fallbackPath: wordAudioPath("bud"),
     deprecatedAudioPaths: [wordAudioPath("bud-kimi3")],
@@ -529,13 +544,16 @@ export function getPreferredAudioPath(keyOrText, fallbackPath = "") {
 }
 
 export function getApprovedAudioPath(keyOrText, fallbackPath = "") {
-  if (fallbackPath && approvedInitialSoundAudioPaths.has(fallbackPath)) return fallbackPath;
-  if (fallbackPath && /^\/audio\/assessment\/(?:digraphs|long-vowels)\/[a-z0-9-]+\.mp3$/i.test(fallbackPath)) return fallbackPath;
-
   const preference = getAudioPreferenceForPath(fallbackPath) || getAudioPreference(keyOrText);
 
-  if (!preference || preference.status !== "approved") return "";
-  return preference.preferredAudioPath || "";
+  if (preference) {
+    if (preference.status !== "approved") return "";
+    return preference.preferredAudioPath || "";
+  }
+
+  if (fallbackPath && approvedInitialSoundAudioPaths.has(fallbackPath)) return fallbackPath;
+  if (fallbackPath && /^\/audio\/assessment\/(?:digraphs|long-vowels)\/[a-z0-9-]+\.mp3$/i.test(fallbackPath)) return fallbackPath;
+  return "";
 }
 
 export function isApprovedAudioPath(audioPath) {

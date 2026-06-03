@@ -312,8 +312,10 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     enriched.imageUrl = enriched.imageUrl || enriched.imagePath || enriched.image || targetAsset.image;
     enriched.imagePath = enriched.imagePath || enriched.imageUrl || enriched.image || targetAsset.image;
     if (!suppressAudio) {
-      enriched.audioUrl = enriched.audioUrl || enriched.audioPath || enriched.audio || targetAsset.audio;
-      enriched.audioPath = enriched.audioPath || enriched.audioUrl || enriched.audio || targetAsset.audio;
+      const existingAudio = firstPath(enriched.audioPath, enriched.audioUrl, enriched.audio);
+      const approvedAudio = getApprovedAudioPath(targetWord, existingAudio) || targetAsset.audio;
+      enriched.audioUrl = approvedAudio || existingAudio;
+      enriched.audioPath = approvedAudio || existingAudio;
     }
   }
 

@@ -1147,6 +1147,7 @@ export function GuidedReadingPage({
     if (!guidedReadingWordSlug) return [];
 
     return [
+      selectedBook?.id ? `/guided-reading/audio/words/${selectedBook.id}-${guidedReadingWordSlug}.mp3` : "",
       word?.audioPath,
       `/audio/child-mode/clean-human/words/${guidedReadingWordSlug}.mp3`,
       `/audio/child-mode/clean-human/hfw/${guidedReadingWordSlug}.mp3`,
