@@ -1777,7 +1777,10 @@ export default function App() {
 
   useEffect(() => {
     if (!currentQuestion || !isFocusedAssessmentView(appView)) return;
-    void preloadQuestionMedia(currentQuestion);
+    void preloadQuestionMedia(currentQuestion, {
+      role: "focused-current",
+      source: "assessment-current-question-effect"
+    });
   }, [appView, currentQuestion?.id]);
 
   const profileStorageKey =
@@ -4324,7 +4327,9 @@ export default function App() {
   }
 
   function preloadAssessmentQuestionWindow(questions = []) {
-    void preloadQuestionMediaBatch(questions.filter(Boolean).slice(0, 3));
+    void preloadQuestionMediaBatch(questions.filter(Boolean).slice(0, 3), {
+      source: "assessment-candidate-window"
+    });
   }
 
   function pickQuestion(mode = assessmentMode, answeredCount = roundAnswers.length, stageIndexOverride = currentSkillIndex) {

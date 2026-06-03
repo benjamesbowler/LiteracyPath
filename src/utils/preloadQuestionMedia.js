@@ -1,36 +1,62 @@
 const imagePreloadCache = new Map();
 const audioPreloadCache = new Map();
 
-const IMAGE_FIELDS = [
+export const PRELOAD_IMAGE_FIELDS = [
   "imageUrl",
   "imagePath",
   "image",
+  "imageSrc",
+  "picture",
+  "pictureUrl",
+  "picturePath",
   "targetImage",
   "targetImageUrl",
   "targetImagePath",
   "promptImage",
   "promptImageUrl",
   "promptImagePath",
+  "choiceImage",
+  "choiceImageUrl",
+  "choiceImagePath",
+  "answerImage",
+  "answerImageUrl",
+  "answerImagePath",
+  "optionImage",
+  "optionImageUrl",
+  "optionImagePath",
   "cardImage",
-  "cardImageUrl"
+  "cardImageUrl",
+  "cardImagePath"
 ];
 
-const AUDIO_FIELDS = [
+export const PRELOAD_AUDIO_FIELDS = [
   "audioUrl",
   "audioPath",
   "audio",
+  "audioSrc",
   "targetAudio",
   "targetAudioUrl",
   "targetAudioPath",
   "promptAudio",
   "promptAudioUrl",
   "promptAudioPath",
+  "choiceAudioUrl",
+  "choiceAudioPath",
+  "answerAudio",
+  "answerAudioUrl",
+  "answerAudioPath",
+  "optionAudio",
+  "optionAudioUrl",
+  "optionAudioPath",
+  "cardAudio",
+  "cardAudioUrl",
+  "cardAudioPath",
   "wordAudio",
   "wordAudioUrl",
   "wordAudioPath"
 ];
 
-const NESTED_COLLECTION_FIELDS = [
+export const PRELOAD_NESTED_COLLECTION_FIELDS = [
   "choices",
   "answerOptions",
   "cards",
@@ -42,6 +68,20 @@ const NESTED_COLLECTION_FIELDS = [
   "tiles",
   "options"
 ];
+
+function isPreloadDebugEnabled() {
+  if (typeof window === "undefined") return false;
+  try {
+    return window.localStorage?.getItem("lpDebugPreload") === "1";
+  } catch {
+    return false;
+  }
+}
+
+function debugPreload(label, payload = {}) {
+  if (!isPreloadDebugEnabled()) return;
+  console.debug(`[lp-preload] ${label}`, payload);
+}
 
 function normalizeSrc(src) {
   if (typeof src !== "string") return "";
@@ -67,8 +107,8 @@ function collectMediaFromValue(value, media, depth = 0) {
 
   if (typeof value !== "object") return;
 
-  IMAGE_FIELDS.forEach(field => addSrc(media.images, value[field]));
-  AUDIO_FIELDS.forEach(field => addSrc(media.audio, value[field]));
+  PRELOAD_IMAGE_FIELDS.forEach(field => addSrc(media.images, value[field]));
+  PRELOAD_AUDIO_FIELDS.forEach(field => addSrc(media.audio, value[field]));
 
   if (value.choiceImages && typeof value.choiceImages === "object") {
     Object.values(value.choiceImages).forEach(src => {
@@ -84,26 +124,52 @@ function collectMediaFromValue(value, media, depth = 0) {
     });
   }
 
-  NESTED_COLLECTION_FIELDS.forEach(field => {
+  PRELOAD_NESTED_COLLECTION_FIELDS.forEach(field => {
     collectMediaFromValue(value[field], media, depth + 1);
   });
+}
+
+export function collectQuestionMedia(question) {
+  const media = {
+    images: new Set(),
+    audio: new Set()
+  };
+
+  collectMediaFromValue(question, media);
+
+  return {
+    images: Array.from(media.images),
+    audio: Array.from(media.audio)
+  };
 }
 
 export function preloadImage(src) {
   const normalized = normalizeSrc(src);
   if (!normalized || typeof Image === "undefined") {
+    debugPreload("image skipped", { src: normalized || src, reason: "Image API unavailable or empty src" });
     return Promise.resolve(false);
   }
 
   if (imagePreloadCache.has(normalized)) {
+    debugPreload("image cache hit", { src: normalized });
     return imagePreloadCache.get(normalized);
   }
 
   const promise = new Promise(resolve => {
     const image = new Image();
     image.decoding = "async";
-    image.onload = () => resolve(true);
-    image.onerror = () => resolve(false);
+    image.onload = () => {
+      debugPreload("image loaded", {
+        src: normalized,
+        naturalWidth: image.naturalWidth,
+        naturalHeight: image.naturalHeight
+      });
+      resolve(true);
+    };
+    image.onerror = () => {
+      debugPreload("image failed", { src: normalized });
+      resolve(false);
+    };
     image.src = normalized;
   });
 
@@ -114,10 +180,12 @@ export function preloadImage(src) {
 export function preloadAudio(src) {
   const normalized = normalizeSrc(src);
   if (!normalized || typeof Audio === "undefined") {
+    debugPreload("audio skipped", { src: normalized || src, reason: "Audio API unavailable or empty src" });
     return Promise.resolve(false);
   }
 
   if (audioPreloadCache.has(normalized)) {
+    debugPreload("audio cache hit", { src: normalized });
     return audioPreloadCache.get(normalized);
   }
 
@@ -133,6 +201,7 @@ export function preloadAudio(src) {
       audio.onloadedmetadata = null;
       audio.oncanplaythrough = null;
       audio.onerror = null;
+      debugPreload("audio settled", { src: normalized, result });
       resolve(result);
     };
 
@@ -149,13 +218,22 @@ export function preloadAudio(src) {
     try {
       audio.load();
       if (typeof fetch === "function") {
+        debugPreload("audio fetch hint", { src: normalized, cache: "force-cache" });
         fetch(normalized, { cache: "force-cache" })
           .then(response => {
+            debugPreload("audio fetch result", {
+              src: normalized,
+              ok: response.ok,
+              status: response.status
+            });
             if (response.ok) finish(true);
           })
-          .catch(() => {});
+          .catch(error => {
+            debugPreload("audio fetch failed", { src: normalized, message: error?.message || String(error) });
+          });
       }
     } catch {
+      debugPreload("audio load failed", { src: normalized });
       finish(false);
     }
   });
@@ -164,32 +242,67 @@ export function preloadAudio(src) {
   return promise;
 }
 
-export function preloadQuestionMedia(question) {
+export function preloadQuestionMedia(question, options = {}) {
   if (!question) return Promise.resolve([]);
 
-  const media = {
-    images: new Set(),
-    audio: new Set()
-  };
+  const media = collectQuestionMedia(question);
+  const questionId = question.id || question.questionId || "(unknown)";
 
-  collectMediaFromValue(question, media);
+  debugPreload("question media requested", {
+    role: options.role || "question",
+    source: options.source || "",
+    windowIndex: options.windowIndex ?? null,
+    questionId,
+    skillId: question.skillId || question.assessmentSkillId || "",
+    images: media.images,
+    audio: media.audio
+  });
 
   const preloadTasks = [
-    ...Array.from(media.images).map(preloadImage),
-    ...Array.from(media.audio).map(preloadAudio)
+    ...media.images.map(src => ({ type: "image", src, task: preloadImage(src) })),
+    ...media.audio.map(src => ({ type: "audio", src, task: preloadAudio(src) }))
   ];
 
-  return Promise.allSettled(preloadTasks);
+  return Promise.allSettled(preloadTasks.map(item => item.task)).then(results => {
+    debugPreload("question media settled", {
+      role: options.role || "question",
+      source: options.source || "",
+      windowIndex: options.windowIndex ?? null,
+      questionId,
+      results: results.map((result, index) => ({
+        type: preloadTasks[index]?.type,
+        src: preloadTasks[index]?.src,
+        status: result.status,
+        value: result.status === "fulfilled" ? result.value : undefined,
+        reason: result.status === "rejected" ? String(result.reason) : undefined
+      }))
+    });
+    return results;
+  });
 }
 
-export function preloadQuestionMediaBatch(questions) {
+export function preloadQuestionMediaBatch(questions, options = {}) {
   if (!Array.isArray(questions) || questions.length === 0) {
     return Promise.resolve([]);
   }
 
+  const windowQuestions = questions.filter(Boolean);
+  debugPreload("question window requested", {
+    role: options.role || "question-window",
+    source: options.source || "",
+    questions: windowQuestions.map((question, index) => ({
+      windowIndex: index,
+      questionId: question.id || question.questionId || "(unknown)",
+      skillId: question.skillId || question.assessmentSkillId || ""
+    }))
+  });
+
   return Promise.allSettled(
-    questions
-      .filter(Boolean)
-      .map(question => preloadQuestionMedia(question))
+    windowQuestions
+      .map((question, index) => preloadQuestionMedia(question, {
+        ...options,
+        role: index === 0 ? "current" : `next-${index}`,
+        windowIndex: index
+      }))
   );
 }
