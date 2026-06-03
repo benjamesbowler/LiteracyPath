@@ -19,6 +19,7 @@
     "audit:image-quality": "node tools/auditImageQuality.js",
     "check:media-quality": "node tools/checkMediaQualityManifest.js",
     "check:media-overwrite-risk": "node tools/checkMediaOverwriteRisk.js",
+    "check:repo-hygiene": "node tools/checkRepoHygiene.js",
     "check:assessment-media-sizes": "node tools/checkAssessmentMediaSizes.js",
     "check:reading-media-sizes": "node tools/checkReadingMediaSizes.js",
     "check:story-quests": "node tools/checkStoryQuestIntegrity.js",
