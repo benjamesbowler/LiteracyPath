@@ -45,13 +45,17 @@
     "check:checkpoint-coverage": "node tools/checkCheckpointCoverage.js",
     "check:bundle-size": "node tools/checkBundleSize.js",
     "check:assessment-bank-loader": "node tools/checkAssessmentSkillBankLoader.js",
+    "check:assessment-question-integrity": "node tools/checkAssessmentQuestionIntegrity.js",
     "check:hfw-runtime-smoke": "node tools/checkHfwRuntimeSmoke.js",
     "check:hfw-distractor-ambiguity": "node tools/checkHfwDistractorAmbiguity.js",
     "check:assessment-level1-content-media": "node tools/checkAssessmentLevel1ContentMedia.js",
     "check:assessment-prompt-audio-quality": "node tools/checkAssessmentPromptAudioQuality.js",
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all",
     "audit:assessment-integrity": "node tools/auditAssessmentSkillIntegrity.js",
-    "audit:lexicon": "node scripts/auditLexicon.js"
+    "audit:lexicon": "node scripts/auditLexicon.js",
+    "check:answer-choice-image-completeness": "node tools/checkAnswerChoiceImageCompleteness.js",
+    "check:grammar-image-coverage": "node tools/checkGrammarImageCoverage.js",
+    "check:k3-word-bank-media": "node tools/checkK3WordBankMediaCoverage.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",
@@ -61,6 +65,7 @@
     "exceljs": "^4.4.0",
     "express": "^5.2.1",
     "framer-motion": "^12.39.0",
+    "jszip": "^3.10.1",
     "openai": "^6.38.0",
     "react": "^19.2.6",
     "react-confetti": "^6.4.0",
