@@ -1,0 +1,1384 @@
+{
+  "generated": "2026-06-04",
+  "workbookWordCount": 1315,
+  "k3MediaStats": {
+    "entries": 728,
+    "withImage": 723,
+    "withAudio": 363,
+    "withBoth": 358,
+    "imageOnly": 365,
+    "audioOnly": 5
+  },
+  "todayMediaStats": {
+    "entries": 728,
+    "withImage": 723,
+    "withAudio": 363,
+    "withBoth": 358,
+    "imageOnly": 365,
+    "audioOnly": 5,
+    "sourceBreakdown": {
+      "kimi_k3_vocab_media_import_2026_06_04": 728
+    }
+  },
+  "byDecodabilityBand": {
+    "K-Grade 1": 192,
+    "Grade 1-2": 364,
+    "Grade 2-3": 241,
+    "K-Grade 3 vocabulary": 155,
+    "Grade 1": 295,
+    "K-Grade 3 sight/fluency": 68
+  },
+  "byImageability": {
+    "Low": 165,
+    "Medium": 806,
+    "High": 211,
+    "Medium-Low": 133
+  },
+  "byPrimarySection": {
+    "VC / CV / very early words": 30,
+    "Diphthongs ou / ow": 26,
+    "Common function / grammar words K-3": 24,
+    "Common verbs K-3": 24,
+    "R-controlled er / ir / ur": 38,
+    "High-frequency regular and partly decodable K-3 words": 67,
+    "Long a vowel teams ai / ay / eigh": 45,
+    "Au / aw / al / all": 31,
+    "Simple CVCC short-vowel words": 55,
+    "Simple two-syllable decodable words": 66,
+    "Diphthongs oi / oy": 20,
+    "Common early nouns - animals": 12,
+    "Common early nouns - food": 12,
+    "Long u / oo / ew / ue": 46,
+    "R-controlled ar": 24,
+    "Short a CVC": 42,
+    "Inflections - plural / s / es": 27,
+    "CVCe long a": 34,
+    "Inflections - ed / er / est": 32,
+    "Common early nouns - people and family": 13,
+    "Inflections - ing": 35,
+    "Consonant digraphs - th / wh / ph": 32,
+    "Consonant digraphs - ch": 36,
+    "Long e vowel teams ee / ea / ey / ie": 60,
+    "Air / ear / eer / are patterns": 27,
+    "Short e CVC": 27,
+    "R-controlled or / ore / oar / our": 36,
+    "Short vowel words with final blends": 26,
+    "Short i CVC": 36,
+    "CVCe long e / i / o / u": 73,
+    "Common blends and clusters": 33,
+    "Long o patterns o_e / oa / ow / oe": 35,
+    "Short o CVC": 31,
+    "Common early nouns - body and clothes": 11,
+    "Simple CCVC short-vowel words": 50,
+    "Long i patterns i_e / igh / y / ie": 23,
+    "Short u CVC": 26,
+    "Consonant digraphs - sh": 30,
+    "Common early nouns - home and school": 4,
+    "Common adjectives and describing words K-3": 8,
+    "Common early nouns - nature and places": 8
+  },
+  "eligibilityBySkill": [
+    {
+      "skillId": "initial_sounds",
+      "label": "Initial Sounds",
+      "eligibleWorkbook": 823,
+      "eligibleTodayMedia": 458,
+      "appBankQuestions": 223,
+      "appBankTodayWords": 7,
+      "sampleToday": [
+        "sent",
+        "went",
+        "bent",
+        "pain",
+        "main",
+        "sat",
+        "pat"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "label": "Final Sounds",
+      "eligibleWorkbook": 1150,
+      "eligibleTodayMedia": 652,
+      "appBankQuestions": 542,
+      "appBankTodayWords": 8,
+      "sampleToday": [
+        "bet",
+        "beg",
+        "ban",
+        "move",
+        "pat",
+        "sat",
+        "fit",
+        "beat"
+      ]
+    },
+    {
+      "skillId": "rhyming",
+      "label": "Rhyming",
+      "eligibleWorkbook": 913,
+      "eligibleTodayMedia": 498,
+      "appBankQuestions": 634,
+      "appBankTodayWords": 27,
+      "sampleToday": [
+        "fed",
+        "snack",
+        "rid",
+        "lot",
+        "lit",
+        "hair",
+        "bay",
+        "cook",
+        "cop",
+        "day"
+      ]
+    },
+    {
+      "skillId": "cvc_short_vowels",
+      "label": "CVC and Short Vowels",
+      "eligibleWorkbook": 396,
+      "eligibleTodayMedia": 191,
+      "appBankQuestions": 485,
+      "appBankTodayWords": 21,
+      "sampleToday": [
+        "men",
+        "sat",
+        "set",
+        "pat",
+        "pit",
+        "cop",
+        "beg",
+        "ran",
+        "tip",
+        "tan"
+      ]
+    },
+    {
+      "skillId": "short_vowel_discrimination",
+      "label": "Short Vowel Discrimination",
+      "eligibleWorkbook": 396,
+      "eligibleTodayMedia": 191,
+      "appBankQuestions": 443,
+      "appBankTodayWords": 36,
+      "sampleToday": [
+        "nod",
+        "men",
+        "beg",
+        "win",
+        "set",
+        "fed",
+        "fist",
+        "fond",
+        "pit",
+        "bloom"
+      ]
+    },
+    {
+      "skillId": "hfw_1_25",
+      "label": "High-Frequency Words 1-25",
+      "eligibleWorkbook": 25,
+      "eligibleTodayMedia": 0,
+      "appBankQuestions": 318,
+      "appBankTodayWords": 17,
+      "sampleToday": [
+        "want",
+        "at",
+        "am",
+        "went",
+        "if",
+        "no",
+        "do",
+        "ran",
+        "us",
+        "there"
+      ]
+    },
+    {
+      "skillId": "hfw_26_50",
+      "label": "High-Frequency Words 26-50",
+      "eligibleWorkbook": 25,
+      "eligibleTodayMedia": 0,
+      "appBankQuestions": 319,
+      "appBankTodayWords": 30,
+      "sampleToday": [
+        "two",
+        "went",
+        "jumped",
+        "very",
+        "at",
+        "art",
+        "did",
+        "get",
+        "got",
+        "gave"
+      ]
+    },
+    {
+      "skillId": "hfw_51_75",
+      "label": "High-Frequency Words 51-75",
+      "eligibleWorkbook": 25,
+      "eligibleTodayMedia": 0,
+      "appBankQuestions": 100,
+      "appBankTodayWords": 0,
+      "sampleToday": []
+    },
+    {
+      "skillId": "hfw_76_100",
+      "label": "High-Frequency Words 76-100",
+      "eligibleWorkbook": 25,
+      "eligibleTodayMedia": 0,
+      "appBankQuestions": 100,
+      "appBankTodayWords": 0,
+      "sampleToday": []
+    },
+    {
+      "skillId": "blends",
+      "label": "Blends",
+      "eligibleWorkbook": 493,
+      "eligibleTodayMedia": 294,
+      "appBankQuestions": 307,
+      "appBankTodayWords": 145,
+      "sampleToday": [
+        "blend",
+        "brag",
+        "brain",
+        "bran",
+        "clapping",
+        "blow",
+        "blur",
+        "flew",
+        "brand",
+        "glad"
+      ]
+    },
+    {
+      "skillId": "digraphs",
+      "label": "Digraphs",
+      "eligibleWorkbook": 204,
+      "eligibleTodayMedia": 126,
+      "appBankQuestions": 309,
+      "appBankTodayWords": 59,
+      "sampleToday": [
+        "tip",
+        "win",
+        "mail",
+        "pop",
+        "hair",
+        "fair",
+        "pair",
+        "sell",
+        "fell",
+        "tin"
+      ]
+    },
+    {
+      "skillId": "long_vowels",
+      "label": "Long Vowels and Silent E",
+      "eligibleWorkbook": 357,
+      "eligibleTodayMedia": 209,
+      "appBankQuestions": 190,
+      "appBankTodayWords": 64,
+      "sampleToday": [
+        "game",
+        "got",
+        "gap",
+        "name",
+        "pat",
+        "ban",
+        "tune",
+        "tin",
+        "tan",
+        "time"
+      ]
+    },
+    {
+      "skillId": "vowel_teams",
+      "label": "Vowel Teams",
+      "eligibleWorkbook": 421,
+      "eligibleTodayMedia": 262,
+      "appBankQuestions": 258,
+      "appBankTodayWords": 58,
+      "sampleToday": [
+        "mail",
+        "tell",
+        "day",
+        "did",
+        "say",
+        "sat",
+        "set",
+        "try",
+        "trap",
+        "left"
+      ]
+    },
+    {
+      "skillId": "r_controlled",
+      "label": "R-Controlled Vowels",
+      "eligibleWorkbook": 205,
+      "eligibleTodayMedia": 141,
+      "appBankQuestions": 161,
+      "appBankTodayWords": 44,
+      "sampleToday": [
+        "yell",
+        "teacher",
+        "touch",
+        "letter",
+        "first",
+        "sheet",
+        "shut",
+        "hurt",
+        "fur",
+        "turn"
+      ]
+    },
+    {
+      "skillId": "nouns",
+      "label": "Nouns",
+      "eligibleWorkbook": 211,
+      "eligibleTodayMedia": 55,
+      "appBankQuestions": 189,
+      "appBankTodayWords": 54,
+      "sampleToday": [
+        "teacher",
+        "school",
+        "tiny",
+        "write",
+        "grow",
+        "carry",
+        "kind",
+        "warm",
+        "stir",
+        "shiny"
+      ]
+    },
+    {
+      "skillId": "verbs",
+      "label": "Verbs",
+      "eligibleWorkbook": 124,
+      "eligibleTodayMedia": 69,
+      "appBankQuestions": 210,
+      "appBankTodayWords": 70,
+      "sampleToday": [
+        "eat",
+        "music",
+        "build",
+        "purple",
+        "listen",
+        "loud",
+        "tiny",
+        "cook",
+        "carry",
+        "think"
+      ]
+    },
+    {
+      "skillId": "adjectives",
+      "label": "Adjectives",
+      "eligibleWorkbook": 65,
+      "eligibleTodayMedia": 26,
+      "appBankQuestions": 196,
+      "appBankTodayWords": 74,
+      "sampleToday": [
+        "loud",
+        "ran",
+        "child",
+        "tiny",
+        "sweet",
+        "eat",
+        "soup",
+        "bake",
+        "fall",
+        "carry"
+      ]
+    },
+    {
+      "skillId": "prepositions",
+      "label": "Prepositions of Place",
+      "eligibleWorkbook": 29,
+      "eligibleTodayMedia": 6,
+      "appBankQuestions": 246,
+      "appBankTodayWords": 37,
+      "sampleToday": [
+        "write",
+        "listen",
+        "share",
+        "count",
+        "warm",
+        "carry",
+        "line",
+        "sweet",
+        "march",
+        "crisp"
+      ]
+    },
+    {
+      "skillId": "plurals",
+      "label": "Plurals",
+      "eligibleWorkbook": 124,
+      "eligibleTodayMedia": 102,
+      "appBankQuestions": 218,
+      "appBankTodayWords": 34,
+      "sampleToday": [
+        "hens",
+        "buses",
+        "baby",
+        "puppy",
+        "wolf",
+        "children",
+        "foxes",
+        "wishes",
+        "child",
+        "classes"
+      ]
+    },
+    {
+      "skillId": "prefix_suffix",
+      "label": "Prefixes and Suffixes",
+      "eligibleWorkbook": 150,
+      "eligibleTodayMedia": 119,
+      "appBankQuestions": 250,
+      "appBankTodayWords": 24,
+      "sampleToday": [
+        "teacher",
+        "jumping",
+        "played",
+        "doing",
+        "done",
+        "reading",
+        "enjoy",
+        "hoping",
+        "hoped",
+        "kinder"
+      ]
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "label": "Antonyms and Synonyms",
+      "eligibleWorkbook": 354,
+      "eligibleTodayMedia": 171,
+      "appBankQuestions": 172,
+      "appBankTodayWords": 46,
+      "sampleToday": [
+        "late",
+        "soon",
+        "first",
+        "tiny",
+        "loud",
+        "warm",
+        "glad",
+        "wide",
+        "high",
+        "clear"
+      ]
+    },
+    {
+      "skillId": "homophones",
+      "label": "Homophones and Homonyms",
+      "eligibleWorkbook": 0,
+      "eligibleTodayMedia": 0,
+      "appBankQuestions": 229,
+      "appBankTodayWords": 64,
+      "sampleToday": [
+        "own",
+        "went",
+        "two",
+        "too",
+        "blow",
+        "hear",
+        "hair",
+        "no",
+        "buy",
+        "boy"
+      ]
+    },
+    {
+      "skillId": "sentence_comprehension",
+      "label": "Sentence Comprehension",
+      "eligibleWorkbook": 1315,
+      "eligibleTodayMedia": 728,
+      "appBankQuestions": 293,
+      "appBankTodayWords": 14,
+      "sampleToday": [
+        "two",
+        "four",
+        "pink",
+        "purple",
+        "sleeping",
+        "eating",
+        "sweet",
+        "sour",
+        "six",
+        "mum"
+      ]
+    },
+    {
+      "skillId": "key_details",
+      "label": "Key Details",
+      "eligibleWorkbook": 1150,
+      "eligibleTodayMedia": 652,
+      "appBankQuestions": 360,
+      "appBankTodayWords": 22,
+      "sampleToday": [
+        "tea",
+        "soup",
+        "rice",
+        "cars",
+        "string",
+        "school",
+        "frogs",
+        "two",
+        "six",
+        "gas"
+      ]
+    },
+    {
+      "skillId": "sequencing",
+      "label": "Sequencing",
+      "eligibleWorkbook": 229,
+      "eligibleTodayMedia": 160,
+      "appBankQuestions": 202,
+      "appBankTodayWords": 7,
+      "sampleToday": [
+        "left",
+        "first",
+        "also",
+        "two",
+        "cars",
+        "food",
+        "frogs"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "label": "Main Idea",
+      "eligibleWorkbook": 1150,
+      "eligibleTodayMedia": 652,
+      "appBankQuestions": 200,
+      "appBankTodayWords": 8,
+      "sampleToday": [
+        "cars",
+        "food",
+        "frogs",
+        "buses",
+        "dinner",
+        "music",
+        "maps",
+        "summer"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "label": "Inference",
+      "eligibleWorkbook": 1150,
+      "eligibleTodayMedia": 652,
+      "appBankQuestions": 262,
+      "appBankTodayWords": 0,
+      "sampleToday": []
+    },
+    {
+      "skillId": "cause_effect",
+      "label": "Cause and Effect",
+      "eligibleWorkbook": 187,
+      "eligibleTodayMedia": 94,
+      "appBankQuestions": 206,
+      "appBankTodayWords": 4,
+      "sampleToday": [
+        "so",
+        "because",
+        "four",
+        "two"
+      ]
+    },
+    {
+      "skillId": "context_clues",
+      "label": "Context Clues",
+      "eligibleWorkbook": 1315,
+      "eligibleTodayMedia": 728,
+      "appBankQuestions": 218,
+      "appBankTodayWords": 17,
+      "sampleToday": [
+        "eating",
+        "sleeping",
+        "jumping",
+        "loud",
+        "strong",
+        "tiny",
+        "sharp",
+        "shy",
+        "wide",
+        "smooth"
+      ]
+    },
+    {
+      "skillId": "theme",
+      "label": "Theme and Higher Comprehension",
+      "eligibleWorkbook": 599,
+      "eligibleTodayMedia": 261,
+      "appBankQuestions": 217,
+      "appBankTodayWords": 0,
+      "sampleToday": []
+    }
+  ],
+  "appBankUsageBySkill": {
+    "initial_sounds": {
+      "questions": 223,
+      "workbookWords": 132,
+      "k3MediaWords": 7,
+      "todayMediaWords": 7,
+      "sampleTodayMediaWords": [
+        "sent",
+        "went",
+        "bent",
+        "pain",
+        "main",
+        "sat",
+        "pat"
+      ]
+    },
+    "final_sounds": {
+      "questions": 542,
+      "workbookWords": 209,
+      "k3MediaWords": 8,
+      "todayMediaWords": 8,
+      "sampleTodayMediaWords": [
+        "bet",
+        "beg",
+        "ban",
+        "move",
+        "pat",
+        "sat",
+        "fit",
+        "beat"
+      ]
+    },
+    "rhyming": {
+      "questions": 634,
+      "workbookWords": 180,
+      "k3MediaWords": 27,
+      "todayMediaWords": 27,
+      "sampleTodayMediaWords": [
+        "fed",
+        "snack",
+        "rid",
+        "lot",
+        "lit",
+        "hair",
+        "bay",
+        "cook",
+        "cop",
+        "day",
+        "feed",
+        "hope",
+        "hole",
+        "no",
+        "maybe",
+        "bog",
+        "fall",
+        "hall",
+        "who",
+        "do"
+      ]
+    },
+    "cvc_short_vowels": {
+      "questions": 485,
+      "workbookWords": 129,
+      "k3MediaWords": 21,
+      "todayMediaWords": 21,
+      "sampleTodayMediaWords": [
+        "men",
+        "sat",
+        "set",
+        "pat",
+        "pit",
+        "cop",
+        "beg",
+        "ran",
+        "tip",
+        "tan",
+        "tin",
+        "win",
+        "rip",
+        "late",
+        "bog",
+        "pain",
+        "date",
+        "page",
+        "pole",
+        "bent"
+      ]
+    },
+    "short_vowel_discrimination": {
+      "questions": 443,
+      "workbookWords": 192,
+      "k3MediaWords": 36,
+      "todayMediaWords": 36,
+      "sampleTodayMediaWords": [
+        "nod",
+        "men",
+        "beg",
+        "win",
+        "set",
+        "fed",
+        "fist",
+        "fond",
+        "pit",
+        "bloom",
+        "sat",
+        "hid",
+        "did",
+        "cop",
+        "ban",
+        "limp",
+        "crash",
+        "blend",
+        "melt",
+        "slip"
+      ]
+    },
+    "hfw_1_25": {
+      "questions": 318,
+      "workbookWords": 80,
+      "k3MediaWords": 17,
+      "todayMediaWords": 17,
+      "sampleTodayMediaWords": [
+        "want",
+        "at",
+        "am",
+        "went",
+        "if",
+        "no",
+        "do",
+        "ran",
+        "us",
+        "there",
+        "add",
+        "say",
+        "set",
+        "day",
+        "did",
+        "so",
+        "would"
+      ]
+    },
+    "hfw_26_50": {
+      "questions": 319,
+      "workbookWords": 129,
+      "k3MediaWords": 30,
+      "todayMediaWords": 30,
+      "sampleTodayMediaWords": [
+        "two",
+        "went",
+        "jumped",
+        "very",
+        "at",
+        "art",
+        "did",
+        "get",
+        "got",
+        "gave",
+        "save",
+        "low",
+        "if",
+        "lot",
+        "lit",
+        "set",
+        "hike",
+        "cook",
+        "took",
+        "bake"
+      ]
+    },
+    "hfw_51_75": {
+      "questions": 100,
+      "workbookWords": 25,
+      "k3MediaWords": 0,
+      "todayMediaWords": 0,
+      "sampleTodayMediaWords": []
+    },
+    "hfw_76_100": {
+      "questions": 100,
+      "workbookWords": 25,
+      "k3MediaWords": 0,
+      "todayMediaWords": 0,
+      "sampleTodayMediaWords": []
+    },
+    "blends": {
+      "questions": 307,
+      "workbookWords": 294,
+      "k3MediaWords": 145,
+      "todayMediaWords": 145,
+      "sampleTodayMediaWords": [
+        "blend",
+        "brag",
+        "brain",
+        "bran",
+        "clapping",
+        "blow",
+        "blur",
+        "flew",
+        "brand",
+        "glad",
+        "brat",
+        "brave",
+        "breeze",
+        "plain",
+        "brief",
+        "brighter",
+        "bring",
+        "slam",
+        "broke",
+        "brother"
+      ]
+    },
+    "digraphs": {
+      "questions": 309,
+      "workbookWords": 190,
+      "k3MediaWords": 59,
+      "todayMediaWords": 59,
+      "sampleTodayMediaWords": [
+        "tip",
+        "win",
+        "mail",
+        "pop",
+        "hair",
+        "fair",
+        "pair",
+        "sell",
+        "fell",
+        "tin",
+        "free",
+        "feel",
+        "peel",
+        "deep",
+        "keep",
+        "power",
+        "two",
+        "freeze",
+        "bite",
+        "line"
+      ]
+    },
+    "long_vowels": {
+      "questions": 190,
+      "workbookWords": 219,
+      "k3MediaWords": 64,
+      "todayMediaWords": 64,
+      "sampleTodayMediaWords": [
+        "game",
+        "got",
+        "gap",
+        "name",
+        "pat",
+        "ban",
+        "tune",
+        "tin",
+        "tan",
+        "time",
+        "tip",
+        "get",
+        "rob",
+        "rot",
+        "them",
+        "pit",
+        "plan",
+        "snack",
+        "june",
+        "set"
+      ]
+    },
+    "vowel_teams": {
+      "questions": 258,
+      "workbookWords": 197,
+      "k3MediaWords": 58,
+      "todayMediaWords": 58,
+      "sampleTodayMediaWords": [
+        "mail",
+        "tell",
+        "day",
+        "did",
+        "say",
+        "sat",
+        "set",
+        "try",
+        "trap",
+        "left",
+        "rid",
+        "bet",
+        "show",
+        "shed",
+        "snug",
+        "toy",
+        "tip",
+        "boy",
+        "bay",
+        "buy"
+      ]
+    },
+    "r_controlled": {
+      "questions": 161,
+      "workbookWords": 134,
+      "k3MediaWords": 44,
+      "todayMediaWords": 44,
+      "sampleTodayMediaWords": [
+        "yell",
+        "teacher",
+        "touch",
+        "letter",
+        "first",
+        "sheet",
+        "shut",
+        "hurt",
+        "fur",
+        "turn",
+        "tin",
+        "tan",
+        "sat",
+        "set",
+        "burn",
+        "ban",
+        "hair",
+        "shot",
+        "nice",
+        "teach"
+      ]
+    },
+    "nouns": {
+      "questions": 189,
+      "workbookWords": 202,
+      "k3MediaWords": 54,
+      "todayMediaWords": 54,
+      "sampleTodayMediaWords": [
+        "teacher",
+        "school",
+        "tiny",
+        "write",
+        "grow",
+        "carry",
+        "kind",
+        "warm",
+        "stir",
+        "shiny",
+        "market",
+        "buy",
+        "flow",
+        "wide",
+        "wear",
+        "against",
+        "cook",
+        "glow",
+        "hold",
+        "wait"
+      ]
+    },
+    "verbs": {
+      "questions": 210,
+      "workbookWords": 232,
+      "k3MediaWords": 70,
+      "todayMediaWords": 70,
+      "sampleTodayMediaWords": [
+        "eat",
+        "music",
+        "build",
+        "purple",
+        "listen",
+        "loud",
+        "tiny",
+        "cook",
+        "carry",
+        "think",
+        "baby",
+        "drive",
+        "share",
+        "toy",
+        "kind",
+        "count",
+        "many",
+        "joke",
+        "room",
+        "write"
+      ]
+    },
+    "adjectives": {
+      "questions": 196,
+      "workbookWords": 243,
+      "k3MediaWords": 74,
+      "todayMediaWords": 74,
+      "sampleTodayMediaWords": [
+        "loud",
+        "ran",
+        "child",
+        "tiny",
+        "sweet",
+        "eat",
+        "soup",
+        "bake",
+        "fall",
+        "carry",
+        "walk",
+        "room",
+        "brave",
+        "smooth",
+        "purple",
+        "sour",
+        "warm",
+        "touch",
+        "grow",
+        "float"
+      ]
+    },
+    "prepositions": {
+      "questions": 246,
+      "workbookWords": 134,
+      "k3MediaWords": 37,
+      "todayMediaWords": 37,
+      "sampleTodayMediaWords": [
+        "write",
+        "listen",
+        "share",
+        "count",
+        "warm",
+        "carry",
+        "line",
+        "sweet",
+        "march",
+        "crisp",
+        "tiny",
+        "class",
+        "trail",
+        "sour",
+        "build",
+        "brave",
+        "repair",
+        "clear",
+        "fair",
+        "walk"
+      ]
+    },
+    "plurals": {
+      "questions": 218,
+      "workbookWords": 96,
+      "k3MediaWords": 34,
+      "todayMediaWords": 34,
+      "sampleTodayMediaWords": [
+        "hens",
+        "buses",
+        "baby",
+        "puppy",
+        "wolf",
+        "children",
+        "foxes",
+        "wishes",
+        "child",
+        "classes",
+        "class",
+        "bags",
+        "foot",
+        "toy",
+        "boy",
+        "lady",
+        "story",
+        "men",
+        "women",
+        "woman"
+      ]
+    },
+    "prefix_suffix": {
+      "questions": 250,
+      "workbookWords": 32,
+      "k3MediaWords": 24,
+      "todayMediaWords": 24,
+      "sampleTodayMediaWords": [
+        "teacher",
+        "jumping",
+        "played",
+        "doing",
+        "done",
+        "reading",
+        "enjoy",
+        "hoping",
+        "hoped",
+        "kinder",
+        "slower",
+        "hope",
+        "build",
+        "kind",
+        "teach",
+        "taller",
+        "running",
+        "ran",
+        "jumped",
+        "helping"
+      ]
+    },
+    "antonyms_synonyms": {
+      "questions": 172,
+      "workbookWords": 110,
+      "k3MediaWords": 46,
+      "todayMediaWords": 46,
+      "sampleTodayMediaWords": [
+        "late",
+        "soon",
+        "first",
+        "tiny",
+        "loud",
+        "warm",
+        "glad",
+        "wide",
+        "high",
+        "clear",
+        "strong",
+        "neat",
+        "plain",
+        "deep",
+        "close",
+        "begin",
+        "start",
+        "finish",
+        "wait",
+        "kind"
+      ]
+    },
+    "homophones": {
+      "questions": 229,
+      "workbookWords": 149,
+      "k3MediaWords": 64,
+      "todayMediaWords": 64,
+      "sampleTodayMediaWords": [
+        "own",
+        "went",
+        "two",
+        "too",
+        "blow",
+        "hear",
+        "hair",
+        "no",
+        "buy",
+        "boy",
+        "pair",
+        "part",
+        "flow",
+        "mail",
+        "male",
+        "right",
+        "week",
+        "weak",
+        "walk",
+        "tell"
+      ]
+    },
+    "sentence_comprehension": {
+      "questions": 293,
+      "workbookWords": 59,
+      "k3MediaWords": 14,
+      "todayMediaWords": 14,
+      "sampleTodayMediaWords": [
+        "two",
+        "four",
+        "pink",
+        "purple",
+        "sleeping",
+        "eating",
+        "sweet",
+        "sour",
+        "six",
+        "mum",
+        "never",
+        "cars",
+        "jumping",
+        "soup"
+      ]
+    },
+    "key_details": {
+      "questions": 360,
+      "workbookWords": 61,
+      "k3MediaWords": 22,
+      "todayMediaWords": 22,
+      "sampleTodayMediaWords": [
+        "tea",
+        "soup",
+        "rice",
+        "cars",
+        "string",
+        "school",
+        "frogs",
+        "two",
+        "six",
+        "gas",
+        "four",
+        "spot",
+        "seven",
+        "smoke",
+        "purple",
+        "nine",
+        "first",
+        "balls",
+        "west",
+        "north"
+      ]
+    },
+    "sequencing": {
+      "questions": 202,
+      "workbookWords": 14,
+      "k3MediaWords": 7,
+      "todayMediaWords": 7,
+      "sampleTodayMediaWords": [
+        "left",
+        "first",
+        "also",
+        "two",
+        "cars",
+        "food",
+        "frogs"
+      ]
+    },
+    "main_idea": {
+      "questions": 200,
+      "workbookWords": 18,
+      "k3MediaWords": 8,
+      "todayMediaWords": 8,
+      "sampleTodayMediaWords": [
+        "cars",
+        "food",
+        "frogs",
+        "buses",
+        "dinner",
+        "music",
+        "maps",
+        "summer"
+      ]
+    },
+    "inference": {
+      "questions": 262,
+      "workbookWords": 1,
+      "k3MediaWords": 0,
+      "todayMediaWords": 0,
+      "sampleTodayMediaWords": []
+    },
+    "cause_effect": {
+      "questions": 206,
+      "workbookWords": 11,
+      "k3MediaWords": 4,
+      "todayMediaWords": 4,
+      "sampleTodayMediaWords": [
+        "so",
+        "because",
+        "four",
+        "two"
+      ]
+    },
+    "context_clues": {
+      "questions": 218,
+      "workbookWords": 32,
+      "k3MediaWords": 17,
+      "todayMediaWords": 17,
+      "sampleTodayMediaWords": [
+        "eating",
+        "sleeping",
+        "jumping",
+        "loud",
+        "strong",
+        "tiny",
+        "sharp",
+        "shy",
+        "wide",
+        "smooth",
+        "brave",
+        "sweet",
+        "sour",
+        "noise",
+        "carry",
+        "painted",
+        "late"
+      ]
+    },
+    "theme": {
+      "questions": 217,
+      "workbookWords": 0,
+      "k3MediaWords": 0,
+      "todayMediaWords": 0,
+      "sampleTodayMediaWords": []
+    }
+  },
+  "topPrimarySections": [
+    [
+      "CVCe long e / i / o / u",
+      73
+    ],
+    [
+      "High-frequency regular and partly decodable K-3 words",
+      67
+    ],
+    [
+      "Simple two-syllable decodable words",
+      66
+    ],
+    [
+      "Long e vowel teams ee / ea / ey / ie",
+      60
+    ],
+    [
+      "Simple CVCC short-vowel words",
+      55
+    ],
+    [
+      "Simple CCVC short-vowel words",
+      50
+    ],
+    [
+      "Long u / oo / ew / ue",
+      46
+    ],
+    [
+      "Long a vowel teams ai / ay / eigh",
+      45
+    ],
+    [
+      "Short a CVC",
+      42
+    ],
+    [
+      "R-controlled er / ir / ur",
+      38
+    ],
+    [
+      "Consonant digraphs - ch",
+      36
+    ],
+    [
+      "R-controlled or / ore / oar / our",
+      36
+    ],
+    [
+      "Short i CVC",
+      36
+    ],
+    [
+      "Inflections - ing",
+      35
+    ],
+    [
+      "Long o patterns o_e / oa / ow / oe",
+      35
+    ],
+    [
+      "CVCe long a",
+      34
+    ],
+    [
+      "Common blends and clusters",
+      33
+    ],
+    [
+      "Inflections - ed / er / est",
+      32
+    ],
+    [
+      "Consonant digraphs - th / wh / ph",
+      32
+    ],
+    [
+      "Au / aw / al / all",
+      31
+    ]
+  ]
+}
