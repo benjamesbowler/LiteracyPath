@@ -218,7 +218,9 @@ function AutoFitReadingText({
 }
 
 function getGuidedBookCover(book = {}) {
-  const src = book.cover || book.coverImage || book.coverUrl || "";
+  const firstPage = (book.pages || []).find(page => page?.image || page?.imageUrl || page?.pageImage);
+  const firstPageSrc = firstPage?.image || firstPage?.imageUrl || firstPage?.pageImage || "";
+  const src = firstPageSrc || book.coverImage || book.cover || book.coverUrl || "";
   if (src && isGuidedReadingAssetDeleted({ bookId: book.id, path: src, pageNumber: 0 })) {
     return {
       src: "",

@@ -58,6 +58,30 @@ function relevelGuidedReadingBook(book) {
   };
 }
 
+function pageImage(page = {}) {
+  return page.image || page.imageUrl || page.pageImage || "";
+}
+
+function firstReadablePageImage(book = {}) {
+  const pages = Array.isArray(book.pages) ? book.pages : [];
+  const approvedPage = pages.find(page => page.active !== false && page.qaStatus === "approved" && pageImage(page));
+  const fallbackPage = pages.find(page => page.active !== false && pageImage(page)) || pages.find(page => pageImage(page));
+  return pageImage(approvedPage || fallbackPage || {});
+}
+
+function useFirstPageAsGuidedReadingCover(book = {}) {
+  const firstPageImage = firstReadablePageImage(book);
+  if (!firstPageImage) return book;
+
+  return {
+    ...book,
+    coverImage: firstPageImage,
+    cover: firstPageImage,
+    coverUrl: firstPageImage,
+    coverSource: "first_page"
+  };
+}
+
 const rawGuidedReadingBooks = [
   {
     "id": "gr-a-26",
@@ -3171,6 +3195,7 @@ export const guidedReadingSeriesBookDrafts = guidedReadingSeriesBooks;
 
 export const guidedReadingBooks = activeGuidedReadingBaseBooks
   .map(relevelGuidedReadingBook)
+  .map(useFirstPageAsGuidedReadingCover)
   .filter(book => book.pages.length >= 4);
 
 export const enrichedGuidedReadingBooks = guidedReadingBooks.map(enrichGuidedReadingBook);

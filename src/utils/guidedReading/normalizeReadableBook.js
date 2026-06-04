@@ -55,12 +55,16 @@ function normalizePage(page = {}, index = 0, pageNumberOffset = 0) {
   };
 }
 
+function pageImage(page = {}) {
+  return page.image || page.imageUrl || page.pageImage || "";
+}
+
 function buildTitlePage(book = {}, pages = []) {
   if (!pages.length) return null;
 
   const title = String(book.title || "Untitled Book").trim();
   const { author, illustrator } = getGuidedReadingCredits(book);
-  const coverImage = book.coverImage || book.cover || pages[0]?.image || pages[0]?.imageUrl || pages[0]?.pageImage || "";
+  const coverImage = pageImage(pages[0]) || book.coverImage || book.cover || "";
 
   return {
     pageNumber: 1,
@@ -98,7 +102,7 @@ export function normalizeReadableBook(book = {}) {
     gradeBand: book.gradeBand || "",
     difficulty: book.difficulty || book.readingLevel || "",
     sourceUrl: book.sourceUrl || book.source || book.downloadPageUrl || "",
-    coverImage: book.coverImage || book.cover || "",
+    coverImage: pageImage(sourcePages[0]) || book.coverImage || book.cover || "",
     pages,
     validForReader: pages.length > 0,
     missingFields: [
