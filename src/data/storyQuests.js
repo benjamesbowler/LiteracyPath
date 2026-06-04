@@ -1,3 +1,5 @@
+import { dinoPalsV2StoryQuests } from "./generated/dinoPalsV2StoryQuests.generated.js";
+
 const samPamMediaVersion = "sam-pam-alf-replacement-20260602";
 const samPamImagePath = page => `/images/story-quests/sam-pam/page-${String(page).padStart(2, "0")}.webp?v=${samPamMediaVersion}`;
 const samPamAudioPath = page => `/audio/story-quests/sam-pam/page-${String(page).padStart(2, "0")}.mp3?v=${samPamMediaVersion}`;
@@ -664,6 +666,17 @@ const dinoPalsStoryQuests = [
   }
 ];
 
+const activeLegacyDinoPalsStoryQuestIds = new Set([
+  "dp_ra_b_01_chompy_big_lunch_hunt",
+  "dp_ra_b_02_sunnys_rainy_day_rescue"
+]);
+
+export const dinoPalsV2MediaPendingStoryQuestDrafts = dinoPalsV2StoryQuests.map(quest => ({
+  ...quest,
+  mediaStatus: "pending_audio",
+  active: false
+}));
+
 export const meadowPalsMediaPendingStoryQuestDrafts = [
   {
     id: "mp_ra_a_05_sleepy_very_busy_day",
@@ -778,6 +791,12 @@ export const meadowPalsMediaPendingStoryQuestDrafts = [
     ]
   }
 ];
+
+const meadowPalsMediaReadyStoryQuests = meadowPalsMediaPendingStoryQuestDrafts.map(quest => ({
+  ...quest,
+  mediaStatus: "ready",
+  active: true
+}));
 
 const moonwoodStoryQuests = [
   {
@@ -1636,7 +1655,8 @@ const moonwoodStoryQuests = [
 
 export const storyQuests = [
   ...moonwoodStoryQuests,
-  ...dinoPalsStoryQuests,
+  ...dinoPalsStoryQuests.filter(quest => activeLegacyDinoPalsStoryQuestIds.has(quest.id)),
+  ...meadowPalsMediaReadyStoryQuests,
   {
     id: "story_quest_short_a_sam_pam_01",
     title: "Sam and Pam Go Out",
