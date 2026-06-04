@@ -3188,6 +3188,11 @@ export default function App() {
 
   function resetCurrentStudentLocalProgress({ clearFormalAssessments = false } = {}) {
     answerInFlightRef.current = false;
+    answerHistoryRef.current = [];
+    roundItemKeysRef.current = [];
+    roundQuestionIdsRef.current = [];
+    initialSoundRoundQueueRef.current = [];
+    initialSoundRoundMetaRef.current = null;
     setCurrentSkillIndex(0);
     setRoundAnswers([]);
     setRoundItemKeys([]);
@@ -3217,8 +3222,8 @@ export default function App() {
 
   function resetSelectedStudentLocalAssessmentArchives(selectedStudentId = studentId) {
     if (!selectedStudentId) return;
-    deleteAssessmentAttemptsForStudent({ teacherId, studentId: selectedStudentId });
-    deleteSavedElAssessmentReportsForStudent({ teacherId, studentId: selectedStudentId });
+    deleteAssessmentAttemptsForStudent({ teacherId, studentId: selectedStudentId, studentName });
+    deleteSavedElAssessmentReportsForStudent({ teacherId, studentId: selectedStudentId, studentName });
     setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
   }
 
@@ -3226,7 +3231,6 @@ export default function App() {
     const { error } = await supabase
       .from(tableName)
       .delete()
-      .eq("teacher_id", teacherId)
       .eq("student_id", selectedStudentId);
 
     if (error && !isMissingTableError(error, tableName)) return error;
@@ -6918,6 +6922,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   }
 
   function resetStudent() {
+    if (studentId) {
+      setResetProgressDialogOpen(true);
+      return;
+    }
+
     if (profileStorageKey) {
       localStorage.removeItem(profileStorageKey);
     }

@@ -336,10 +336,20 @@ export function saveAssessmentAttemptLocal(record, { teacherId = record.teacherI
   return next;
 }
 
-export function deleteAssessmentAttemptsForStudent({ teacherId = "local", studentId = "" } = {}) {
+export function deleteAssessmentAttemptsForStudent({ teacherId = "local", studentId = "", studentName = "" } = {}) {
   if (typeof localStorage === "undefined") return [];
   const existing = loadAssessmentAttempts({ teacherId });
-  const next = existing.filter(record => record.studentId !== studentId);
+  const normalizedStudentName = String(studentName || "").trim().toLowerCase();
+  const next = existing.filter(record => {
+    if (studentId && record.studentId === studentId) return false;
+    if (
+      normalizedStudentName &&
+      String(record.studentName || "").trim().toLowerCase() === normalizedStudentName
+    ) {
+      return false;
+    }
+    return true;
+  });
   localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next));
   return next;
 }

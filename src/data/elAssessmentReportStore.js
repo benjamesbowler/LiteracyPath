@@ -651,9 +651,19 @@ export function deleteSavedElAssessmentReport(reportId, { teacherId = "local" } 
   return next;
 }
 
-export function deleteSavedElAssessmentReportsForStudent({ teacherId = "local", studentId = "" } = {}) {
+export function deleteSavedElAssessmentReportsForStudent({ teacherId = "local", studentId = "", studentName = "" } = {}) {
   if (typeof localStorage === "undefined") return [];
-  const next = getSavedElAssessmentReports({ teacherId }).filter(report => report.studentId !== studentId);
+  const normalizedStudentName = String(studentName || "").trim().toLowerCase();
+  const next = getSavedElAssessmentReports({ teacherId }).filter(report => {
+    if (studentId && report.studentId === studentId) return false;
+    if (
+      normalizedStudentName &&
+      String(report.studentName || "").trim().toLowerCase() === normalizedStudentName
+    ) {
+      return false;
+    }
+    return true;
+  });
   localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next));
   return next;
 }
