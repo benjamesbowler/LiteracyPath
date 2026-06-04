@@ -123,7 +123,7 @@ export const rhymingExpectedItemKeys = [
   "ut"
 ];
 
-export const rhymingLevelTwoExpectedItemKeys = [
+export const rhymingLevelTwoAllItemKeys = [
   "ing",
   "ang",
   "ong",
@@ -151,6 +151,25 @@ export const rhymingLevelTwoExpectedItemKeys = [
   "ar",
   "or"
 ];
+
+export const rhymingLevelTwoPendingMediaItemKeys = [
+  "unk",
+  "ank"
+];
+
+export const rhymingLevelTwoExpectedItemKeys = rhymingLevelTwoAllItemKeys
+  .filter(itemKey => !rhymingLevelTwoPendingMediaItemKeys.includes(itemKey));
+
+export const rhymingPhaseItemKeysByLevel = {
+  1: {
+    1: rhymingExpectedItemKeys.slice(0, 15),
+    2: rhymingExpectedItemKeys.slice(15)
+  },
+  2: {
+    1: rhymingLevelTwoExpectedItemKeys.slice(0, 12),
+    2: rhymingLevelTwoExpectedItemKeys.slice(12)
+  }
+};
 
 export const coverageExpectations = {
   initial_sounds: {
@@ -200,9 +219,13 @@ export const coverageExpectations = {
       1: rhymingExpectedItemKeys,
       2: rhymingLevelTwoExpectedItemKeys
     },
+    phases: rhymingPhaseItemKeysByLevel,
+    pendingMediaItemKeys: {
+      2: rhymingLevelTwoPendingMediaItemKeys
+    },
     total: rhymingExpectedItemKeys.length,
     unit: "rime families",
-    note: "Rhyming Level 1 uses simple short-vowel CVC rime families. Level 2 adds harder rimes, blends, digraphs, vowel teams, and r-controlled families."
+    note: "Rhyming Level 1 uses simple short-vowel CVC rime families. Level 2 adds harder rimes, blends, digraphs, vowel teams, and r-controlled families. Level 2 ank/unk are held out until two image-backed rhyme words exist for each family."
   },
   hfw_1_25: {
     total: 25,

@@ -39,7 +39,8 @@ import { ixlStyleSeedQuestions } from "./data/ixlStyleSeedQuestions";
 import { safeContentExpansionQuestions } from "./data/safeContentExpansionQuestions";
 import {
   coverageExpectations,
-  finalSoundLevelOneAllowedItemKeys
+  finalSoundLevelOneAllowedItemKeys,
+  rhymingPhaseItemKeysByLevel
 } from "./data/coverageExpectations";
 import {
   getQuestionRoutingFormat,
@@ -1465,13 +1466,25 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
 
 const configuredCoverageTotals = coverageExpectations;
 
-function getCoverageItemKeysForStage(stage, { finalSoundLevel = null, level = null } = {}) {
+function getConfiguredPhaseItemKeys(stage, level, phase) {
+  const configured = configuredCoverageTotals[stage?.id];
+  const normalizedLevel = Number(level || 1) >= 2 ? 2 : 1;
+  const normalizedPhase = Number(phase || 1) === 2 ? 2 : 1;
+  return configured?.phases?.[normalizedLevel]?.[normalizedPhase] || null;
+}
+
+function getCoverageItemKeysForStage(stage, { finalSoundLevel = null, level = null, phase = null } = {}) {
   const configured = configuredCoverageTotals[stage?.id];
   if (configured?.itemKeys?.length && configured?.itemType) {
     const requestedLevel = finalSoundLevel || level;
-    const itemKeys = requestedLevel && configured.levels?.[requestedLevel]
-      ? configured.levels[requestedLevel]
-      : configured.itemKeys;
+    const requestedPhase = phase ? Number(phase) : null;
+    const phaseItemKeys = requestedLevel && requestedPhase
+      ? getConfiguredPhaseItemKeys(stage, requestedLevel, requestedPhase)
+      : null;
+    const itemKeys = phaseItemKeys ||
+      (requestedLevel && configured.levels?.[requestedLevel]
+        ? configured.levels[requestedLevel]
+        : configured.itemKeys);
     return new Set(
       itemKeys.map(itemKey =>
         getItemMasteryStateKeyForValues(itemKey, configured.itemType)
@@ -3512,6 +3525,29 @@ export default function App() {
     const text = String(raw || "").toLowerCase();
     if (/\bphase_?1\b|level_?\d_?phase_?1|p1/.test(text)) return 1;
     if (/\bphase_?2\b|level_?\d_?phase_?2|p2/.test(text)) return 2;
+    const questionSkillId = normalizeEarlySkillId(question.skillId || question.skillName || question.skill || "");
+    if (questionSkillId === "rhyming") {
+      const family = normalizeItemKey(
+        question.itemKey ||
+        question.rhymeGroup ||
+        question.rime ||
+        question.coverageTarget ||
+        question.extra?.rimeFamily ||
+        getRhymeGroup(question.targetWord || question.anchorWord || question.answer || question.correctAnswer)
+      );
+      const level = Number(
+        question.level ||
+        question.assessmentLevel ||
+        question.depthLevel ||
+        question.difficultyLevel ||
+        question.difficulty ||
+        question.extra?.level ||
+        1
+      ) >= 2 ? 2 : 1;
+      const phaseEntry = Object.entries(rhymingPhaseItemKeysByLevel[level] || {})
+        .find(([, families]) => families.includes(family));
+      if (phaseEntry) return Number(phaseEntry[0]) === 2 ? 2 : 1;
+    }
     return 0;
   }
 
@@ -3520,7 +3556,7 @@ export default function App() {
       return getFinalSoundQuestionLevel(question);
     }
     const level =
-      Number(question.level || question.assessmentLevel || question.depthLevel || question.difficultyLevel || question.difficulty || 1);
+      Number(question.level || question.assessmentLevel || question.depthLevel || question.difficultyLevel || question.difficulty || question.extra?.level || 1);
     return level >= 2 ? 2 : 1;
   }
 
@@ -3571,6 +3607,10 @@ export default function App() {
     if (!expectedKeys.length) return false;
     const coveredKeys = getCoveredStageItemKeys(stage, { level });
     return expectedKeys.every(key => coveredKeys.has(key));
+  }
+
+  function hasConfiguredPhaseCoverage(stage, step = {}) {
+    return Boolean(getConfiguredPhaseItemKeys(stage, step.level, step.phase)?.length);
   }
 
   function hasAssessmentPathQuestions(stage, step = {}) {
@@ -3790,7 +3830,7 @@ export default function App() {
     const phaseFilteredStageQuestions = levelFilteredStageQuestions.filter(question =>
       (getAssessmentQuestionPhase(question) || pathStep.phase) === pathStep.phase
     );
-    const pathFilteredStageQuestions = phaseFilteredStageQuestions.length >= ROUND_LENGTH
+    const pathFilteredStageQuestions = phaseFilteredStageQuestions.length >= ROUND_LENGTH || hasConfiguredPhaseCoverage(stage, pathStep)
       ? phaseFilteredStageQuestions
       : levelFilteredStageQuestions;
     const finalSoundLevelOneGuardedQuestions = isFinalSoundsStage(stage) && pathStep.level === 1
@@ -4109,11 +4149,12 @@ export default function App() {
   function getCoveredStageItemKeys(stage, options = {}) {
     const expectedKeys = getCoverageItemKeysForStage(stage, {
       finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null,
-      level: options.level || null
+      level: options.level || null,
+      phase: options.phase || null
     });
     const covered = new Set();
 
-    if (!options.level) {
+    if (!options.level && !options.phase) {
       Object.values(itemMastery || {})
         .filter(row => row?.itemKey && row?.itemType && (row.mastered || row.correct > 0))
         .map(row => getItemMasteryStateKey(row.itemKey, row.itemType))
@@ -4125,7 +4166,8 @@ export default function App() {
       .filter(record =>
         record.isCorrect &&
         (record.stage === stage?.label || record.skillId === stage?.id) &&
-        (!options.level || Number(record.itemLevel || 1) === Number(options.level))
+        (!options.level || Number(record.itemLevel || 1) === Number(options.level)) &&
+        (!options.phase || Number(record.itemPhase || 1) === Number(options.phase))
       )
       .map(inferAnswerRecordMetadata)
       .filter(metadata => metadata?.itemKey && metadata?.itemType)
@@ -4171,9 +4213,10 @@ export default function App() {
     const pathStep = getNextAssessmentPathStep(stage);
 
     const expectedKeys = getCoverageItemKeysForStage(stage, {
-      level: pathStep.level
+      level: pathStep.level,
+      phase: pathStep.phase
     });
-    const coveredKeys = getCoveredStageItemKeys(stage, { level: pathStep.level });
+    const coveredKeys = getCoveredStageItemKeys(stage, { level: pathStep.level, phase: pathStep.phase });
     const currentRoundKeys = new Set(roundItemKeysRef.current);
     const missingKeys = new Set(
       Array.from(expectedKeys).filter(key => !coveredKeys.has(key) && !currentRoundKeys.has(key))
@@ -5113,11 +5156,12 @@ export default function App() {
       : getNextAssessmentPathStep(stage);
     const expectedKeys = Array.from(getCoverageItemKeysForStage(stage, {
       finalSoundLevel: stage?.id === "final_sounds" ? getNextFinalSoundLevel() : null,
-      level: currentStep.level
+      level: currentStep.level,
+      phase: currentStep.phase
     }));
     const expectedKeySet = new Set(expectedKeys);
     const alreadyCoveredKeys = new Set(
-      getCoveredStageItemKeys(stage, { level: currentStep.level })
+      getCoveredStageItemKeys(stage, { level: currentStep.level, phase: currentStep.phase })
     );
     const coveredKeys = new Set(alreadyCoveredKeys);
 

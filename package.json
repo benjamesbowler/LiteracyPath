@@ -32,6 +32,7 @@
     "check:guided-reading-visibility": "node tools/checkGuidedReadingVisibility.js",
     "validate:skill-banks": "node tools/auditSkillBanks.js",
     "check:skill-progression": "node tools/checkSkillProgression.js",
+    "check:rhyming-formal-progression": "node tools/checkRhymingFormalProgression.js",
     "check:final-sound-progression": "node tools/checkFinalSoundProgression.js",
     "check:final-sounds-level1-purity": "node tools/checkFinalSoundsLevel1Purity.js",
     "check:early-skill-runtime-eligibility": "node tools/checkEarlySkillRuntimeEligibility.js",

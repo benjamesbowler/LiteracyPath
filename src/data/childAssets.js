@@ -1,6 +1,7 @@
 import { kimiAssets2WordAssets } from "./kimiAssets2Manifest.js";
 import { kimiAssets3WordAssets } from "./kimiAssets3Manifest.js";
 import { kimiAssets4WordAssets } from "./kimiAssets4Manifest.js";
+import { k3VocabularyMedia } from "./generated/k3VocabularyMediaManifest.generated.js";
 import { getPreferredAudioPath } from "./audioPreferenceManifest.js";
 
 function normalizeAssetKey(value) {
@@ -62,6 +63,12 @@ export const childWordAssets = {
     audio: "/audio/child-mode/words/bag.mp3",
     fallbackImage: "/images/child-mode/cvc/cap.png",
     alt: "A paper bag"
+  }),
+  bang: wordAsset({
+    word: "bang",
+    image: "/media/learn/images/cycle-23/bang.png",
+    audio: "/guided-reading/audio/words/bang.mp3",
+    alt: "A bang sound effect"
   }),
   bat: wordAsset({
     word: "bat",
@@ -199,6 +206,18 @@ export const childWordAssets = {
     word: "duck",
     folder: "short-u",
     audio: false
+  }),
+  gong: wordAsset({
+    word: "gong",
+    image: "/media/learn/images/cycle-23/gong.png",
+    audio: "",
+    alt: "A gong"
+  }),
+  hang: wordAsset({
+    word: "hang",
+    image: "/media/learn/images/cycle-23/hang.png",
+    audio: "/media/vocabulary/audio/hang.mp3",
+    alt: "A hanging object"
   }),
   fin: childModeWordAsset({
     word: "fin",
@@ -425,9 +444,33 @@ export const childWordAssets = {
     word: "thumb",
     folder: "digraphs"
   }),
+  mouse: wordAsset({
+    word: "mouse",
+    image: "/media/initial-sounds/images/m/mouse.webp",
+    audio: "/guided-reading/audio/words/mouse.mp3",
+    alt: "A mouse"
+  }),
+  rang: wordAsset({
+    word: "rang",
+    image: "/media/learn/images/cycle-23/rang.png",
+    audio: "/guided-reading/audio/words/rang.mp3",
+    alt: "A ringing bell"
+  }),
+  song: wordAsset({
+    word: "song",
+    image: "/media/learn/images/cycle-23/song.png",
+    audio: "/media/vocabulary/audio/song.mp3",
+    alt: "A song"
+  }),
   tree: childModeWordAsset({
     word: "tree",
     folder: "blends"
+  }),
+  truck: wordAsset({
+    word: "truck",
+    image: "/images/assessment/blends/truck.webp",
+    audio: "/audio/child-mode/clean-human/words/truck.mp3",
+    alt: "A truck"
   }),
   web: childModeWordAsset({
     word: "web",
@@ -503,38 +546,47 @@ export function getChildWordAsset(word) {
   const kimiAsset = kimiAssets2WordAssets[key];
   const kimi3Asset = kimiAssets3WordAssets[key];
   const kimi4Asset = kimiAssets4WordAssets[key];
+  const vocabularyAsset = k3VocabularyMedia[key]
+    ? {
+      word: key,
+      image: k3VocabularyMedia[key].image || "",
+      audio: k3VocabularyMedia[key].audio || "",
+      fallbackImage: k3VocabularyMedia[key].image || "",
+      source: k3VocabularyMedia[key].source
+    }
+    : null;
 
-  if (!localAsset && !kimiAsset && !kimi3Asset) {
+  if (!localAsset && !kimiAsset && !kimi3Asset && !vocabularyAsset) {
     const resolvedAsset = kimi4Asset
       ? { ...kimi4Asset, audio: getPreferredAudioPath(key, kimi4Asset.audio) }
       : null;
     return blockAssessmentImageIfNeeded(key, resolvedAsset);
   }
-  if (!localAsset && !kimiAsset && kimi3Asset && !kimi4Asset) {
+  if (!localAsset && !kimiAsset && kimi3Asset && !kimi4Asset && !vocabularyAsset) {
     return blockAssessmentImageIfNeeded(key, { ...kimi3Asset, audio: getPreferredAudioPath(key, kimi3Asset.audio) });
   }
-  if (!localAsset && kimiAsset && !kimi3Asset && !kimi4Asset) {
+  if (!localAsset && kimiAsset && !kimi3Asset && !kimi4Asset && !vocabularyAsset) {
     return blockAssessmentImageIfNeeded(key, { ...kimiAsset, audio: getPreferredAudioPath(key, kimiAsset.audio) });
   }
-  if (!localAsset && (kimiAsset || kimi3Asset || kimi4Asset)) {
+  if (!localAsset && (kimiAsset || kimi3Asset || kimi4Asset || vocabularyAsset)) {
     return blockAssessmentImageIfNeeded(key, {
-      ...(kimiAsset || kimi3Asset || kimi4Asset),
-      image: kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image,
-      audio: getPreferredAudioPath(key, kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio),
-      fallbackImage: kimiAsset?.fallbackImage || kimi3Asset?.image || kimi4Asset?.image || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage,
-      source: kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source
+      ...(kimiAsset || kimi3Asset || kimi4Asset || vocabularyAsset),
+      image: kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image,
+      audio: getPreferredAudioPath(key, kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio || vocabularyAsset?.audio),
+      fallbackImage: kimiAsset?.fallbackImage || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage || vocabularyAsset?.fallbackImage,
+      source: kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source || vocabularyAsset?.source
     });
   }
-  if (localAsset && !kimiAsset && !kimi3Asset && !kimi4Asset) {
+  if (localAsset && !kimiAsset && !kimi3Asset && !kimi4Asset && !vocabularyAsset) {
     return blockAssessmentImageIfNeeded(key, { ...localAsset, audio: getPreferredAudioPath(key, localAsset.audio) });
   }
 
   return blockAssessmentImageIfNeeded(key, {
     ...localAsset,
-    image: localAsset.image || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image,
-    audio: getPreferredAudioPath(key, localAsset.audio || kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio),
-    fallbackImage: localAsset.fallbackImage || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || kimiAsset?.fallbackImage || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage,
-    source: localAsset.source || kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source
+    image: localAsset.image || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image,
+    audio: getPreferredAudioPath(key, localAsset.audio || kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio || vocabularyAsset?.audio),
+    fallbackImage: localAsset.fallbackImage || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image || kimiAsset?.fallbackImage || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage || vocabularyAsset?.fallbackImage,
+    source: localAsset.source || kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source || vocabularyAsset?.source
   });
 }
 
@@ -545,6 +597,7 @@ export function getChildAudioPath(text) {
     kimiAssets2WordAssets[key]?.audio ||
     kimiAssets3WordAssets[key]?.audio ||
     kimiAssets4WordAssets[key]?.audio ||
+    k3VocabularyMedia[key]?.audio ||
     childPhraseAudio[key] ||
     "";
 

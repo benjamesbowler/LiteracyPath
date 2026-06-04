@@ -1,13 +1,24 @@
 import { getChildWordAsset } from "./childAssets.js";
 import {
   rhymingExpectedItemKeys,
-  rhymingLevelTwoExpectedItemKeys
+  rhymingLevelTwoExpectedItemKeys,
+  rhymingPhaseItemKeysByLevel
 } from "./coverageExpectations.js";
 import { rhymeGroups } from "./rhymeGroups.js";
 import { makeVisualCardChoiceQuestion } from "./visualQuestionAssets.js";
 
 const levelOneFamilies = new Set(rhymingExpectedItemKeys);
 const levelTwoFamilies = new Set(rhymingLevelTwoExpectedItemKeys);
+const phaseLookupByLevel = Object.fromEntries(
+  Object.entries(rhymingPhaseItemKeysByLevel).map(([level, phases]) => [
+    Number(level),
+    Object.fromEntries(
+      Object.entries(phases).flatMap(([phase, families]) =>
+        families.map(family => [family, Number(phase)])
+      )
+    )
+  ])
+);
 
 function hasWordImage(word) {
   const asset = getChildWordAsset(word);
@@ -109,6 +120,7 @@ function pictureVariantsForFamily(family) {
 function makeRhymeQuestion(family, variant, index, level) {
   const correctAnswers = variant.answers || [variant.answer].filter(Boolean);
   const requiredSelections = correctAnswers.length === 2 ? 2 : 1;
+  const phase = phaseLookupByLevel[level]?.[family] || 1;
   const prompt = requiredSelections === 2
     ? `Which two words rhyme with ${variant.targetWord}?`
     : `Which word rhymes with ${variant.targetWord}?`;
@@ -119,6 +131,14 @@ function makeRhymeQuestion(family, variant, index, level) {
     skillId: "rhyming",
     itemType: "rhyming_family",
     itemKey: family,
+    level,
+    assessmentLevel: level,
+    depthLevel: level,
+    difficulty: level,
+    phase,
+    assessmentPhase: phase,
+    levelPhase: phase,
+    phaseTarget: `level_${level}_phase_${phase}`,
     formatType: "RHYMING_PICTURE",
     prompt,
     choices: variant.choices,
@@ -139,8 +159,9 @@ function makeRhymeQuestion(family, variant, index, level) {
       rhymeGroup: family,
       targetSound: family,
       level,
+      phase,
       difficulty: level,
-      tags: ["rhyming", `level-${level}`, family],
+      tags: ["rhyming", `level-${level}`, `phase-${phase}`, family],
       active: true
     }
   });
