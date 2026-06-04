@@ -118,12 +118,17 @@ function baseContract(overrides) {
     incompleteReason: "",
     roundSize: ASSESSMENT_CONTRACT_ROUND_SIZE,
     minimumSelectableCountPerPhase: ASSESSMENT_CONTRACT_ROUND_SIZE,
+    retryWrongAnswerAllowance: 3,
     promptAudioRequired: false,
     answerImagesRequired: false,
     answerAudioRequired: false,
     allowedWordPatterns: [],
     forbiddenPatterns: [],
     duplicateTargetTemplatePairsForbidden: true,
+    duplicateContentKeysForbidden: true,
+    uniquePrimaryImagesAcrossSkill: false,
+    uniquePromptAnswersAcrossSkill: false,
+    uniqueTargetTemplateAcrossSkill: false,
     qaBlockedMediaMustFail: true,
     fakeCompoundsNonWordsMustFail: true,
     obscureWordsMustFail: true,
@@ -171,11 +176,15 @@ function hfwContract(skillId, displayName, words) {
     allowedWordPatterns: ["high_frequency_word_band_member"],
     forbiddenPatterns: ["phonics_template", "audio_prompted_hfw", "ambiguous_article_cloze"],
     duplicateTargetTemplatePairsForbidden: true,
+    duplicateContentKeysForbidden: true,
+    uniquePrimaryImagesAcrossSkill: true,
+    uniquePromptAnswersAcrossSkill: true,
+    uniqueTargetTemplateAcrossSkill: true,
     qaBlockedMediaMustFail: true,
     fakeCompoundsNonWordsMustFail: true,
     obscureWordsMustFail: true,
     phases: hfwPhaseRequirements(words),
-    notes: "HFW live assessment is deliberately no-audio: Level 1 uses image-context cloze; Level 2 uses letter-build spelling."
+    notes: "HFW live assessment is deliberately no-audio. Every use of a word must have a genuinely distinct sentence/context image; answer shuffling does not count as a new question."
   });
 }
 

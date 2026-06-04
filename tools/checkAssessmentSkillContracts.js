@@ -69,6 +69,14 @@ function questionFormat(question = {}) {
   return String(question.formatType || question.templateType || question.questionType || "UNKNOWN").toUpperCase();
 }
 
+function primaryImage(question = {}) {
+  return getQuestionImagePaths(question)[0] || "";
+}
+
+function questionPromptContext(question = {}) {
+  return normalizeWord(question.sentence || question.passage || question.context || question.question || question.prompt || "");
+}
+
 function optionValue(option) {
   if (option && typeof option === "object") {
     return option.value || option.word || option.label || option.text || option.answer || "";
@@ -98,7 +106,7 @@ function questionWords(question = {}) {
 }
 
 function coverageKey(question = {}, contract = {}) {
-  const targetType = String(contract.targetType || "").toLowerCase();
+  const targetType = String(contract.requiredTargetType || contract.targetType || "").toLowerCase();
   const direct =
     question.itemKey ||
     question.coverageTarget ||
@@ -119,6 +127,23 @@ function targetTemplateKey(question = {}) {
   const format = questionFormat(question);
   if (!target || !format) return "";
   return `${target}::${format}`;
+}
+
+function contentKey(question = {}) {
+  const options = answerOptions(question)
+    .map(optionValue)
+    .map(normalizeWord)
+    .filter(Boolean)
+    .sort()
+    .join("|");
+  return [
+    normalizeWord(question.targetWord || getQuestionTargetWord(question) || question.itemKey || question.answer || question.correctAnswer),
+    questionFormat(question),
+    questionPromptContext(question),
+    normalizeWord(question.answer || question.correctAnswer || ""),
+    options,
+    primaryImage(question)
+  ].filter(Boolean).join("::");
 }
 
 function imagePathFromOption(option = {}) {
@@ -229,6 +254,51 @@ function evaluateCompleteContract(contract) {
   const selectableIdsInContract = new Set();
   const allPerQuestionIssues = [];
   const assignedTargetsByLevel = new Map();
+  const globalDuplicateMaps = {
+    targetTemplate: new Map(),
+    primaryImage: new Map(),
+    promptAnswer: new Map(),
+    content: new Map()
+  };
+
+  for (const question of selectable) {
+    const targetTemplate = targetTemplateKey(question);
+    const image = primaryImage(question);
+    const promptAnswer = `${questionPromptContext(question)}::${normalizeWord(question.answer || question.correctAnswer || "")}`;
+    const content = contentKey(question);
+    if (targetTemplate) {
+      const rows = globalDuplicateMaps.targetTemplate.get(targetTemplate) || [];
+      rows.push(question);
+      globalDuplicateMaps.targetTemplate.set(targetTemplate, rows);
+    }
+    if (image) {
+      const rows = globalDuplicateMaps.primaryImage.get(image) || [];
+      rows.push(question);
+      globalDuplicateMaps.primaryImage.set(image, rows);
+    }
+    if (promptAnswer.replace(/:/g, "")) {
+      const rows = globalDuplicateMaps.promptAnswer.get(promptAnswer) || [];
+      rows.push(question);
+      globalDuplicateMaps.promptAnswer.set(promptAnswer, rows);
+    }
+    if (content) {
+      const rows = globalDuplicateMaps.content.get(content) || [];
+      rows.push(question);
+      globalDuplicateMaps.content.set(content, rows);
+    }
+  }
+
+  function addGlobalDuplicateFailures(mapName, label) {
+    for (const [duplicateKey, rows] of globalDuplicateMaps[mapName].entries()) {
+      if (rows.length <= 1) continue;
+      failures.push(`${label} reused ${rows.length} times: ${duplicateKey} :: ${rows.map(questionId).join(", ")}`);
+    }
+  }
+
+  if (contract.uniqueTargetTemplateAcrossSkill) addGlobalDuplicateFailures("targetTemplate", "target/template");
+  if (contract.uniquePrimaryImagesAcrossSkill) addGlobalDuplicateFailures("primaryImage", "primary image");
+  if (contract.uniquePromptAnswersAcrossSkill) addGlobalDuplicateFailures("promptAnswer", "prompt/answer");
+  if (contract.duplicateContentKeysForbidden) addGlobalDuplicateFailures("content", "question content");
 
   for (const [key, phase] of Object.entries(contract.phases || {})) {
     const requiredTargets = new Set((phase.requiredTargets || []).map(value => String(value).toLowerCase()));
@@ -271,6 +341,15 @@ function evaluateCompleteContract(contract) {
     const extraTargets = [...coverageCounts.keys()].filter(target => requiredTargets.size && !requiredTargets.has(target));
     const round = sampleRound(phasePool, phase.roundSize || contract.roundSize || ASSESSMENT_CONTRACT_ROUND_SIZE);
     const roundPass = round.length >= (phase.roundSize || contract.roundSize || ASSESSMENT_CONTRACT_ROUND_SIZE);
+    const retryWrongAllowance = Number(contract.retryWrongAnswerAllowance || 0);
+    const wrongOnRetry = round.slice(0, retryWrongAllowance);
+    const wrongIds = new Set(wrongOnRetry.map(questionId));
+    const firstRoundIds = new Set(round.map(questionId));
+    const retryPool = phasePool.filter(question =>
+      !firstRoundIds.has(questionId(question)) || wrongIds.has(questionId(question))
+    );
+    const retryRound = sampleRound(retryPool, phase.roundSize || contract.roundSize || ASSESSMENT_CONTRACT_ROUND_SIZE);
+    const retryPass = retryRound.length >= (phase.roundSize || contract.roundSize || ASSESSMENT_CONTRACT_ROUND_SIZE);
     const minSelectable = phase.minimumSelectableCount || contract.minimumSelectableCountPerPhase || contract.roundSize || ASSESSMENT_CONTRACT_ROUND_SIZE;
 
     if (phasePool.length < minSelectable) {
@@ -278,6 +357,9 @@ function evaluateCompleteContract(contract) {
     }
     if (!roundPass) {
       phaseIssues.push(`${key}: runtime simulation only built ${round.length}/${phase.roundSize || contract.roundSize}`);
+    }
+    if (!retryPass) {
+      phaseIssues.push(`${key}: retry simulation after ${retryWrongAllowance} wrong answers only built ${retryRound.length}/${phase.roundSize || contract.roundSize} without repeating correctly answered questions`);
     }
     if (missingTargets.length) {
       phaseIssues.push(`${key}: missing required targets ${missingTargets.join(", ")}`);
@@ -296,6 +378,9 @@ function evaluateCompleteContract(contract) {
       roundSize: phase.roundSize || contract.roundSize,
       simulatedRoundCount: round.length,
       simulationPass: roundPass,
+      retryWrongAnswerAllowance: retryWrongAllowance,
+      simulatedRetryRoundCount: retryRound.length,
+      retrySimulationPass: retryPass,
       requiredTargetCount: requiredTargets.size,
       coveredTargetCount: coveredTargets.length,
       missingTargets,
@@ -370,6 +455,9 @@ function evaluateIncompleteContract(contract) {
       roundSize: phase.roundSize || contract.roundSize,
       simulatedRoundCount: 0,
       simulationPass: false,
+      retryWrongAnswerAllowance: Number(contract.retryWrongAnswerAllowance || 0),
+      simulatedRetryRoundCount: 0,
+      retrySimulationPass: false,
       requiredTargetCount: 0,
       coveredTargetCount: 0,
       missingTargets: [],
@@ -403,7 +491,7 @@ const summaryRows = results.map(result => [
   result.runtimeSelectableCount,
   result.auditSelectableCount,
   result.runtimeAuditCountsMatch ? "yes" : "no",
-  result.phaseRows.filter(row => row.simulationPass).length + "/" + result.phaseRows.length,
+  result.phaseRows.filter(row => row.simulationPass && row.retrySimulationPass).length + "/" + result.phaseRows.length,
   result.failures.length
 ]);
 
@@ -414,6 +502,7 @@ const phaseRows = results.flatMap(result =>
     row.selectableCount,
     row.minimumSelectable,
     `${row.simulatedRoundCount}/${row.roundSize}`,
+    `${row.simulatedRetryRoundCount}/${row.roundSize}`,
     `${row.coveredTargetCount}/${row.requiredTargetCount}`,
     row.missingTargets.join(", ") || "none",
     row.issues.length
@@ -464,6 +553,7 @@ writeFile(REPORT_MD, [
     "Selectable",
     "Minimum",
     "Simulated Round",
+    "Retry Round",
     "Targets Covered",
     "Missing Targets",
     "Issue Count"
