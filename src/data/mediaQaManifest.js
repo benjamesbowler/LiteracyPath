@@ -104,7 +104,13 @@ function getHeuristicFlags(mediaType, filePath = "") {
   if (mediaType !== "image") return [];
   const lower = filePath.toLowerCase();
   if (/\/rainbow\.[a-z0-9]+$/i.test(lower)) return [];
-  return BAD_IMAGE_WORDS.filter(flag => lower.includes(flag));
+  const tokens = new Set(
+    lower
+      .split("/")
+      .flatMap(part => part.replace(/\.[a-z0-9]+$/i, "").split(/[^a-z0-9]+/))
+      .filter(Boolean)
+  );
+  return BAD_IMAGE_WORDS.filter(flag => tokens.has(flag));
 }
 
 export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverrides(), extraSeedManifest = []) {

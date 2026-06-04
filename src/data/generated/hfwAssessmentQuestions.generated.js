@@ -14,10 +14,10 @@ const HFW_BAND_CONFIGS = [
   { skillId: "hfw_76_100", skillName: "High-Frequency Words 76-100", words: HFW_WORDS_76_100 }
 ];
 
-const DEFAULT_HFW_EXTRA_VARIANT_COUNT = 5;
+const DEFAULT_HFW_EXTRA_VARIANT_COUNT = 25;
 const HFW_EXTRA_VARIANT_COUNTS = {
-  hfw_51_75: 21,
-  hfw_76_100: 21
+  hfw_51_75: 25,
+  hfw_76_100: 25
 };
 
 const HFW_SCENES = {

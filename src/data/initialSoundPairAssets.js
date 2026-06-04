@@ -17,7 +17,7 @@ const initialSoundPairSets = {
   k: [["king", "kite", "dog"], ["key", "kid", "sun"]],
   l: [["lion", "lamp", "dog"], ["leg", "lid", "sun"]],
   m: [["mud", "map", "net"], ["moon", "mop", "sun"]],
-  n: [["net", "nut", "map"], ["nap", "nose", "dog"]],
+  n: [["net", "nap", "map"], ["nap", "nose", "dog"]],
   o: [["ox", "octopus", "dog"], ["orange", "octopus", "sun"]],
   p: [["pig", "pan", "sun"], ["pen", "pin", "dog"]],
   q: [["queen", "quilt", "dog"], ["quiz", "queen", "sun"]],

@@ -389,7 +389,8 @@ function generateFinalSoundQuestions(entries) {
             out.push(soundChoiceQuestion);
           }
         }
-        if (level >= 2) {
+        const wordMatchImageUrl = getEntryImageUrl(entry);
+        if (level >= 2 && wordMatchImageUrl) {
           out.push(makeBase({
             id: `gen_final_l${level}_${target}_${normalize(entry.lowercaseWord)}_${index}_word`,
             skillId: "final_sounds",
@@ -405,7 +406,7 @@ function generateFinalSoundQuestions(entries) {
             phonicsPattern: target,
             targetFinalSound: target,
             finalSoundType,
-            imageUrl: "",
+            imageUrl: wordMatchImageUrl,
             audioUrl: "",
             sourceLexiconId: entry.id,
             itemType: "final_sound",

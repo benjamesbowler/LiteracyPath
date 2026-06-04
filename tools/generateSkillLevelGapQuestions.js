@@ -8,6 +8,7 @@ import {
   finalSoundExpectedItemKeys,
   rhymingLevelTwoExpectedItemKeys
 } from "../src/data/coverageExpectations.js";
+import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
 import {
   SKILL_LEVEL_DEPTH_TARGETS,
@@ -89,7 +90,8 @@ function hasMedia(entry) {
   return entry?.status === "approved" &&
     !BLOCKED_RUNTIME_MEDIA_TOKEN.test(`${entry.word || ""} ${entry.imagePath || ""} ${entry.audioPath || ""}`) &&
     publicPathExists(entry.imagePath) &&
-    publicPathExists(entry.audioPath);
+    publicPathExists(entry.audioPath) &&
+    Boolean(getApprovedAudioPath(entry.word, entry.audioPath));
 }
 
 const lexicon = kimiVocabulary500Lexicon
