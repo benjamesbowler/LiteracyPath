@@ -667,11 +667,7 @@ const activeLegacyDinoPalsStoryQuestIds = new Set([
   "dp_ra_b_02_sunnys_rainy_day_rescue"
 ]);
 
-export const dinoPalsV2MediaPendingStoryQuestDrafts = dinoPalsV2StoryQuests.map(quest => ({
-  ...quest,
-  mediaStatus: "pending_audio",
-  active: false
-}));
+export const dinoPalsV2MediaPendingStoryQuestDrafts = [];
 
 
 const moonwoodStoryQuests = [
@@ -1532,6 +1528,7 @@ const moonwoodStoryQuests = [
 export const storyQuests = [
   ...moonwoodStoryQuests,
   ...dinoPalsStoryQuests.filter(quest => activeLegacyDinoPalsStoryQuestIds.has(quest.id)),
+  ...dinoPalsV2StoryQuests,
   {
     id: "story_quest_short_a_sam_pam_01",
     title: "Sam and Pam Go Out",
