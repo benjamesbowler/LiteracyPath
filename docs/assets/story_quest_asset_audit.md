@@ -1,13 +1,13 @@
 # Story Quest Asset Audit
 
-Generated: 2026-06-03T01:53:31.272Z
+Generated: 2026-06-04T02:42:02.762Z
 
 ## Summary Counts
 
-- Total quests: 11
-- Total page rows: 314
-- Total referenced images: 320
-- Total referenced audio files: 314
+- Total quests: 13
+- Total page rows: 449
+- Total referenced images: 455
+- Total referenced audio files: 449
 - Missing referenced images: 0
 - Missing referenced audio: 0
 - Unused image files: 0
@@ -102,6 +102,157 @@ None found.
 | 27 | `p10_garden_safe` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p10_garden_safe.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p10_garden_safe.mp3` | exists |
 | 28 | `p11_fewer_books` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p11_fewer_books.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p11_fewer_books.mp3` | exists |
 | 29 | `p12_ending_calm` | `public/images/story-quests/moonwood/fern-wren-walking-garden/p12_ending_calm.webp` | exists | `public/audio/story-quests/moonwood/fern-wren-walking-garden/p12_ending_calm.mp3` | exists |
+
+### Luna and Burrow: The Star Shell Door
+
+- Quest id: `mw_ra_c_03_luna_burrow_star_shell_door`
+- Level: `C`
+
+| Page | Page id | Image path | Image status | Audio path | Audio status |
+| --- | --- | --- | --- | --- | --- |
+| 1 | `p01_start` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p01_start.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p01_start.mp3` | exists |
+| 2 | `p02_moon_map` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p02_moon_map.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p02_moon_map.mp3` | exists |
+| 3 | `p02_shell_song` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p02_shell_song.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p02_shell_song.mp3` | exists |
+| 4 | `p03_marsh_path` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p03_marsh_path.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p03_marsh_path.mp3` | exists |
+| 5 | `p03_stream_path` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p03_stream_path.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p03_stream_path.mp3` | exists |
+| 6 | `p03_root_path` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p03_root_path.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p03_root_path.mp3` | exists |
+| 7 | `p04_bird_riddle` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_bird_riddle.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p04_bird_riddle.mp3` | exists |
+| 8 | `p04_quiet_mist` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_quiet_mist.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p04_quiet_mist.mp3` | exists |
+| 9 | `p04_upstream` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_upstream.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p04_upstream.mp3` | exists |
+| 10 | `p04_bridge_shadow` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_bridge_shadow.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p04_bridge_shadow.mp3` | exists |
+| 11 | `p04_burrow_digs` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_burrow_digs.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p04_burrow_digs.mp3` | exists |
+| 12 | `p04_pip_arrives` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p04_pip_arrives.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p04_pip_arrives.mp3` | exists |
+| 13 | `p05_song_answer` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_song_answer.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_song_answer.mp3` | exists |
+| 14 | `p05_door_answer` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_door_answer.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_door_answer.mp3` | exists |
+| 15 | `p05_feather` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_feather.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_feather.mp3` | exists |
+| 16 | `p05_kind_choice` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_kind_choice.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_kind_choice.mp3` | exists |
+| 17 | `p05_cross_stones` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_cross_stones.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_cross_stones.mp3` | exists |
+| 18 | `p05_leaf_boat` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_leaf_boat.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_leaf_boat.mp3` | exists |
+| 19 | `p05_cracked_shell` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_cracked_shell.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_cracked_shell.mp3` | exists |
+| 20 | `p05_tunnel_wide` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_tunnel_wide.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_tunnel_wide.mp3` | exists |
+| 21 | `p05_pip_leads` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p05_pip_leads.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p05_pip_leads.mp3` | exists |
+| 22 | `p06_map_sings` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_map_sings.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p06_map_sings.mp3` | exists |
+| 23 | `p06_burrow_catches_map` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_burrow_catches_map.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p06_burrow_catches_map.mp3` | exists |
+| 24 | `p06_wren_warning` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_wren_warning.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p06_wren_warning.mp3` | exists |
+| 25 | `p06_stream_gate` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_stream_gate.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p06_stream_gate.mp3` | exists |
+| 26 | `p06_stone_helps` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_stone_helps.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p06_stone_helps.mp3` | exists |
+| 27 | `p06_hidden_door` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p06_hidden_door.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p06_hidden_door.mp3` | exists |
+| 28 | `p07_wrong_shell` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_wrong_shell.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_wrong_shell.mp3` | exists |
+| 29 | `p07_luna_fixes` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_luna_fixes.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_luna_fixes.mp3` | exists |
+| 30 | `p07_moss_laughs` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_moss_laughs.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_moss_laughs.mp3` | exists |
+| 31 | `p07_wren_checks` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_wren_checks.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_wren_checks.mp3` | exists |
+| 32 | `p07_star_fish` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_star_fish.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_star_fish.mp3` | exists |
+| 33 | `p07_stone_too_big` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_stone_too_big.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_stone_too_big.mp3` | exists |
+| 34 | `p07_knock_reply` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_knock_reply.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_knock_reply.mp3` | exists |
+| 35 | `p07_door_opens` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p07_door_opens.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_door_opens.mp3` | exists |
+| 36 | `p08_sorry_path` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_sorry_path.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_sorry_path.mp3` | exists |
+| 37 | `p08_key_joke` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_key_joke.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_key_joke.mp3` | exists |
+| 38 | `p08_stone_guard` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_stone_guard.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_stone_guard.mp3` | exists |
+| 39 | `p08_polite_door` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_polite_door.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_polite_door.mp3` | exists |
+| 40 | `p08_map_inside` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_map_inside.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_map_inside.mp3` | exists |
+| 41 | `p08_star_room` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p08_star_room.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_star_room.mp3` | exists |
+| 42 | `p09_luna_laughs` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_luna_laughs.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_luna_laughs.mp3` | exists |
+| 43 | `p09_echo_room` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_echo_room.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_echo_room.mp3` | exists |
+| 44 | `p09_door_answer` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_door_answer.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_door_answer.mp3` | exists |
+| 45 | `p09_blue_path` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_blue_path.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_blue_path.mp3` | exists |
+| 46 | `p09_gold_path` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_gold_path.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_gold_path.mp3` | exists |
+| 47 | `p09_kind_sleep` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_kind_sleep.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_kind_sleep.mp3` | exists |
+| 48 | `p09_star_choice` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p09_star_choice.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_star_choice.mp3` | exists |
+| 49 | `p10_marsh_light` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_marsh_light.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_marsh_light.mp3` | exists |
+| 50 | `p10_stone_star` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_stone_star.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_stone_star.mp3` | exists |
+| 51 | `p10_home_seed` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_home_seed.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_home_seed.mp3` | exists |
+| 52 | `p10_free_seed` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_free_seed.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_free_seed.mp3` | exists |
+| 53 | `p10_wren_ending` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_wren_ending.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_wren_ending.mp3` | exists |
+| 54 | `p10_funny_ending` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_funny_ending.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_funny_ending.mp3` | exists |
+| 55 | `p10_quiet_ending` | `public/images/story-quests/moonwood/luna-burrow-star-shell-door/p10_quiet_ending.webp` | exists | `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_quiet_ending.mp3` | exists |
+
+### Dewdrop and Flint: The Lost Glow
+
+- Quest id: `mw_ra_c_04_dewdrop_flint_lost_glow`
+- Level: `C`
+
+| Page | Page id | Image path | Image status | Audio path | Audio status |
+| --- | --- | --- | --- | --- | --- |
+| 1 | `p01_start` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p01_start.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p01_start.mp3` | exists |
+| 2 | `p02_dewdrop_listens` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p02_dewdrop_listens.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p02_dewdrop_listens.mp3` | exists |
+| 3 | `p02_flint_shakes` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p02_flint_shakes.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p02_flint_shakes.mp3` | exists |
+| 4 | `p03_water_whisper` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_water_whisper.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p03_water_whisper.mp3` | exists |
+| 5 | `p03_lantern_path` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_lantern_path.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p03_lantern_path.mp3` | exists |
+| 6 | `p03_spark_bush` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_spark_bush.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p03_spark_bush.mp3` | exists |
+| 7 | `p03_wren_arrives` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p03_wren_arrives.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p03_wren_arrives.mp3` | exists |
+| 8 | `p04_upstream_dark` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_upstream_dark.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p04_upstream_dark.mp3` | exists |
+| 9 | `p04_under_stones` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_under_stones.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p04_under_stones.mp3` | exists |
+| 10 | `p04_deep_dark_edge` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_deep_dark_edge.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p04_deep_dark_edge.mp3` | exists |
+| 11 | `p04_fern_garden` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_fern_garden.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p04_fern_garden.mp3` | exists |
+| 12 | `p04_pip_glows` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_pip_glows.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p04_pip_glows.mp3` | exists |
+| 13 | `p04_spark_jar` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_spark_jar.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p04_spark_jar.mp3` | exists |
+| 14 | `p04_wren_spell` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p04_wren_spell.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p04_wren_spell.mp3` | exists |
+| 15 | `p05_fish_tunnel` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fish_tunnel.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fish_tunnel.mp3` | exists |
+| 16 | `p05_fish_answer` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fish_answer.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fish_answer.mp3` | exists |
+| 17 | `p05_crack_path` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_crack_path.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_crack_path.mp3` | exists |
+| 18 | `p05_stone_lifts` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_stone_lifts.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_stone_lifts.mp3` | exists |
+| 19 | `p05_shadow_moth` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_shadow_moth.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_shadow_moth.mp3` | exists |
+| 20 | `p05_fern_clue` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fern_clue.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fern_clue.mp3` | exists |
+| 21 | `p05_fern_joins` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fern_joins.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_fern_joins.mp3` | exists |
+| 22 | `p05_pip_lamp` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_pip_lamp.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_pip_lamp.mp3` | exists |
+| 23 | `p05_spark_water` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_spark_water.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_spark_water.mp3` | exists |
+| 24 | `p05_smoke_arrow` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_smoke_arrow.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_smoke_arrow.mp3` | exists |
+| 25 | `p05_wren_stops` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p05_wren_stops.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p05_wren_stops.mp3` | exists |
+| 26 | `p06_dewdrop_alone` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_dewdrop_alone.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_dewdrop_alone.mp3` | exists |
+| 27 | `p06_dry_path` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_dry_path.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_dry_path.mp3` | exists |
+| 28 | `p06_glow_cave` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_glow_cave.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_glow_cave.mp3` | exists |
+| 29 | `p06_lantern_pop` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_lantern_pop.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_lantern_pop.mp3` | exists |
+| 30 | `p06_crack_opens` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_crack_opens.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_crack_opens.mp3` | exists |
+| 31 | `p06_stone_guard` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_stone_guard.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_stone_guard.mp3` | exists |
+| 32 | `p06_moth_path` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_moth_path.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_moth_path.mp3` | exists |
+| 33 | `p06_moth_caught` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_moth_caught.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_moth_caught.mp3` | exists |
+| 34 | `p06_quiet_tree` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_quiet_tree.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_quiet_tree.mp3` | exists |
+| 35 | `p06_pip_mushroom` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_pip_mushroom.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_pip_mushroom.mp3` | exists |
+| 36 | `p06_water_answer` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_water_answer.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_water_answer.mp3` | exists |
+| 37 | `p06_burrow_dig` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_burrow_dig.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_burrow_dig.mp3` | exists |
+| 38 | `p06_question_path` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p06_question_path.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_question_path.mp3` | exists |
+| 39 | `p07_heavy_crystal` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_heavy_crystal.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_heavy_crystal.mp3` | exists |
+| 40 | `p07_water_call` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_water_call.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_water_call.mp3` | exists |
+| 41 | `p07_dry_crawl` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_dry_crawl.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_dry_crawl.mp3` | exists |
+| 42 | `p07_lantern_rolls` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_lantern_rolls.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_lantern_rolls.mp3` | exists |
+| 43 | `p07_glow_wakes` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_glow_wakes.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_glow_wakes.mp3` | exists |
+| 44 | `p07_glow_sleeps` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_glow_sleeps.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_glow_sleeps.mp3` | exists |
+| 45 | `p07_puddle_laugh` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_puddle_laugh.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_puddle_laugh.mp3` | exists |
+| 46 | `p07_lantern_crack` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_lantern_crack.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_lantern_crack.mp3` | exists |
+| 47 | `p07_footprint_voice` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_footprint_voice.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_footprint_voice.mp3` | exists |
+| 48 | `p07_frog_guard` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_frog_guard.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_frog_guard.mp3` | exists |
+| 49 | `p07_moth_thanks` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_moth_thanks.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_moth_thanks.mp3` | exists |
+| 50 | `p07_moth_lantern` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_moth_lantern.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_moth_lantern.mp3` | exists |
+| 51 | `p07_fern_song` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_fern_song.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_fern_song.mp3` | exists |
+| 52 | `p07_pip_lamp_big` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_pip_lamp_big.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_pip_lamp_big.mp3` | exists |
+| 53 | `p07_pip_sits` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_pip_sits.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_pip_sits.mp3` | exists |
+| 54 | `p07_soft_feet` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_soft_feet.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_soft_feet.mp3` | exists |
+| 55 | `p07_waiting_room` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_waiting_room.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_waiting_room.mp3` | exists |
+| 56 | `p07_tiny_door` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_tiny_door.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_tiny_door.mp3` | exists |
+| 57 | `p07_door_question` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p07_door_question.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_door_question.mp3` | exists |
+| 58 | `p08_crystal_moves` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_crystal_moves.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_crystal_moves.mp3` | exists |
+| 59 | `p08_team_pull` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_team_pull.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_team_pull.mp3` | exists |
+| 60 | `p08_lantern_light` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_lantern_light.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_lantern_light.mp3` | exists |
+| 61 | `p08_two_crystals` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_two_crystals.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_two_crystals.mp3` | exists |
+| 62 | `p08_sorry_glow` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_sorry_glow.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_sorry_glow.mp3` | exists |
+| 63 | `p08_safe_promise` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_safe_promise.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_safe_promise.mp3` | exists |
+| 64 | `p08_glow_story` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_glow_story.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_glow_story.mp3` | exists |
+| 65 | `p08_quiet_wait` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_quiet_wait.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_quiet_wait.mp3` | exists |
+| 66 | `p08_water_song` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_water_song.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_water_song.mp3` | exists |
+| 67 | `p08_frog_ending_path` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_frog_ending_path.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_frog_ending_path.mp3` | exists |
+| 68 | `p08_pip_proud` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p08_pip_proud.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_pip_proud.mp3` | exists |
+| 69 | `p09_fern_repairs` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_fern_repairs.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p09_fern_repairs.mp3` | exists |
+| 70 | `p09_bright_wrong` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_bright_wrong.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p09_bright_wrong.mp3` | exists |
+| 71 | `p09_everyone_helps` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_everyone_helps.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p09_everyone_helps.mp3` | exists |
+| 72 | `p09_glow_chooses` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_glow_chooses.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p09_glow_chooses.mp3` | exists |
+| 73 | `p09_wren_rule` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_wren_rule.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p09_wren_rule.mp3` | exists |
+| 74 | `p09_stream_returns` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p09_stream_returns.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p09_stream_returns.mp3` | exists |
+| 75 | `p10_frog_ending` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_frog_ending.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p10_frog_ending.mp3` | exists |
+| 76 | `p10_pip_ending` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_pip_ending.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p10_pip_ending.mp3` | exists |
+| 77 | `p10_splash_ending` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_splash_ending.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p10_splash_ending.mp3` | exists |
+| 78 | `p10_wren_ending` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_wren_ending.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p10_wren_ending.mp3` | exists |
+| 79 | `p10_lantern_ending` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_lantern_ending.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p10_lantern_ending.mp3` | exists |
+| 80 | `p10_gentle_ending` | `public/images/story-quests/moonwood/dewdrop-flint-lost-glow/p10_gentle_ending.webp` | exists | `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p10_gentle_ending.mp3` | exists |
 
 ### Chompy's Big Lunch Hunt
 

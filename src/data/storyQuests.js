@@ -57,10 +57,6 @@ function moonwoodTargetPage(folder, id, text, choicePrompt, choices, targetWords
   return moonwoodPage(folder, id, text, choicePrompt, choices, storyQuestSkillTags(text, targetWords));
 }
 
-function dinoPalsTargetPage(folder, id, text, choicePrompt, choices, targetWords = []) {
-  return dinoPalsPage(folder, id, text, choicePrompt, choices, storyQuestSkillTags(text, targetWords));
-}
-
 function meadowPalsTargetPage(folder, id, text, choicePrompt, choices, targetWords = []) {
   return meadowPalsPage(folder, id, text, choicePrompt, choices, storyQuestSkillTags(text, targetWords));
 }
@@ -73,8 +69,6 @@ const chompyLunchFolder = "chompy-lunch-hunt";
 const sunnyRainyFolder = "sunny-rainy-rescue";
 const bossyPicnicFolder = "bossy-picnic-mix-up";
 const zippyFlappyFolder = "zippy-flappy-fast-slow";
-const grumpyAlmostGoodDayFolder = "grumpy-almost-good-day";
-const bouncyBigBounceFolder = "bouncy-big-bounce";
 const sleepyBusyDayFolder = "sleepy-busy-day";
 const muddyCleanDayFolder = "muddy-clean-day";
 const pipStoneFolder = "pip-stone-loud-thing";
@@ -83,8 +77,6 @@ const lunaBurrowStarShellDoorFolder = "luna-burrow-star-shell-door";
 const dewdropFlintLostGlowFolder = "dewdrop-flint-lost-glow";
 const lunaBurrowStarShellDoorTargetWords = ["Luna", "Burrow", "star", "shell", "door", "map", "moon", "listen", "choose", "path", "hidden", "brave", "open", "glow", "home"];
 const dewdropFlintLostGlowTargetWords = ["Dewdrop", "Flint", "glow", "stream", "crystal", "dark", "bright", "float", "listen", "lantern", "whisper", "cave", "help", "shine", "again"];
-const grumpyAlmostGoodDayTargetWords = ["Grumpy", "stream", "berry", "bush", "stone", "tower", "Chompy", "Wiggly", "Fancy", "Dozy", "Sunny", "Bouncy", "quiet", "cold", "good", "help", "hmph"];
-const bouncyBigBounceTargetWords = ["Bouncy", "bounce", "bounced", "berry", "berries", "Chompy", "Dozy", "Wiggly", "Fancy", "Grumpy", "cave", "stream", "rock", "mud", "fast", "careful", "energy"];
 const sleepyBusyDayTargetWords = ["Sleepy", "busy", "barn", "egg", "eggs", "Clucky", "henhouse", "Woolly", "pond", "fence", "Tiny", "Splashy", "hay", "snore", "help"];
 const muddyCleanDayTargetWords = ["Muddy", "mud", "clean", "pond", "reeds", "garden", "Splashy", "Woolly", "Clucky", "Bouncy", "Noisy", "Grumpy", "dig", "soil", "hill"];
 
@@ -110,50 +102,6 @@ export const dinoPalsStoryQuestMetadata = [
     cycleFocus: "guided_reading_level_b_story_choice",
     series: "Dino Pals",
     mediaFolder: "sunny-rainy-rescue"
-  },
-  {
-    id: "dp_ra_b_05_bossy_picnic_mix_up",
-    title: "Bossy and the Picnic Mix-Up",
-    level: "B",
-    ageRange: "Ages 5-6",
-    adventureType: "Dino Pals Reading Adventure",
-    skillFocus: "Level B guided reading choice adventure",
-    cycleFocus: "guided_reading_level_b_story_choice",
-    series: "Dino Pals",
-    mediaFolder: "bossy-picnic-mix-up"
-  },
-  {
-    id: "dp_ra_b_06_zippy_flappy_fast_slow_up_down",
-    title: "Zippy and Flappy: Fast, Slow, Up, Down",
-    level: "B",
-    ageRange: "Ages 5-6",
-    adventureType: "Dino Pals Reading Adventure",
-    skillFocus: "Level B guided reading choice adventure",
-    cycleFocus: "guided_reading_level_b_story_choice",
-    series: "Dino Pals",
-    mediaFolder: "zippy-flappy-fast-slow"
-  },
-  {
-    id: "dp_ra_b_07_grumpy_almost_good_day",
-    title: "Grumpy's Almost-Good Day",
-    level: "B",
-    ageRange: "Ages 5-6",
-    adventureType: "Dino Pals Reading Adventure",
-    skillFocus: "Level B guided reading choice adventure",
-    cycleFocus: "guided_reading_level_b_story_choice",
-    series: "Dino Pals",
-    mediaFolder: "grumpy-almost-good-day"
-  },
-  {
-    id: "dp_ra_b_08_bouncy_big_bounce",
-    title: "Bouncy's Big Bounce",
-    level: "B",
-    ageRange: "Ages 5-6",
-    adventureType: "Dino Pals Reading Adventure",
-    skillFocus: "Level B guided reading choice adventure",
-    cycleFocus: "guided_reading_level_b_story_choice",
-    series: "Dino Pals",
-    mediaFolder: "bouncy-big-bounce"
   }
 ];
 
@@ -712,114 +660,6 @@ const dinoPalsStoryQuests = [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["grumpy", "flappy"])
-    ]
-  },
-  {
-    id: "dp_ra_b_07_grumpy_almost_good_day",
-    title: "Grumpy's Almost-Good Day",
-    level: "B",
-    ageRange: "Ages 5-6",
-    adventureType: "Dino Pals Reading Adventure",
-    skillFocus: "Level B guided reading choice adventure",
-    cycleFocus: "guided_reading_level_b_story_choice",
-    series: "Dino Pals",
-    characters: ["Grumpy","Chompy","Wiggly","Fancy","Dozy","Sunny","Bouncy"],
-    location: "Sunny Hollow - berry bush, stream, stone tower, warm quiet spots",
-    targetWords: grumpyAlmostGoodDayTargetWords,
-    highFrequencyWords: ["I","the","to","and","was","said","in","it","not","very","then","with"],
-    hfw: ["I","the","to","and","was","said","in","it","not","very","then","with"],
-    coverImageUrl: dinoPalsImagePath(grumpyAlmostGoodDayFolder, "p01_start"),
-    startPageId: "p01_start",
-    pages: [
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p01_start", ["Grumpy woke up in a berry bush.","This was not the right spot.","There were twigs stuck in the club tail.","Today was already terrible. Hmph."], "Where should Grumpy go?", [{"label":"Go to the stream","nextPageId":"p02_to_stream"},{"label":"Stay in the bush","nextPageId":"p02_sulk_bush"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p02_to_stream", ["Grumpy stomped to the stream.","The water was cold and very clear.","The trees were quiet.","Grumpy sat down in the water with a loud hmph."], "What should Grumpy do?", [{"label":"Stay in the stream","nextPageId":"p03_stream_stay"},{"label":"Get out","nextPageId":"p03_stream_out"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p02_sulk_bush", ["Grumpy stayed in the berry bush.","This was a protest.","A very important protest.","Grumpy sat down and sulked properly."], "What should Grumpy do?", [{"label":"Eat a berry","nextPageId":"p03_eat_berry"},{"label":"Make a list","nextPageId":"p03_count_wrong"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p03_stream_stay", ["Grumpy stayed in the cold water.","Cool. Quiet. Not too bad.","Then Chompy appeared at the bank.","\"GRUMPY! I found you!\" said Chompy."], "What should Grumpy do?", [{"label":"Splash Chompy","nextPageId":"p04_splash_chompy"},{"label":"Sit quietly","nextPageId":"p04_ignore_chompy"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p03_stream_out", ["Grumpy got out of the stream very fast.","The club tail swung sideways.","It knocked a tall tower of flat stones.","Crash! All the stones came down."], "What should Grumpy do?", [{"label":"Look at the stones","nextPageId":"p04_look_stones"},{"label":"Walk away","nextPageId":"p04_walk_away"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p03_eat_berry", ["Grumpy accidentally ate a berry.","It was extremely good.","Grumpy looked left. Then right.","Nobody saw. Good."], "What should Grumpy do?", [{"label":"Eat quietly","nextPageId":"p04_eat_quiet"},{"label":"Throw the berries","nextPageId":"p04_throw_berries"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p03_count_wrong", ["Grumpy made a list of what was wrong today.","One: wrong sleeping spot.","Two: birds singing too cheerfully.","Three: everything else."], "What should Grumpy do?", [{"label":"Tell Sunny","nextPageId":"p04_tell_sunny"},{"label":"Pretend it is fine","nextPageId":"p04_pretend_fine"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p04_splash_chompy", ["Grumpy splashed Chompy with one swing of the club tail.","This was meant to be very rude.","\"AMAZING!\" yelled Chompy.","\"Do it again! PLEASE do it again!\""], "What should Grumpy do?", [{"label":"Continue","nextPageId":"p05_chompy_delighted"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p04_ignore_chompy", ["Grumpy looked at the stream.","Chompy sat down right next to Grumpy.","Chompy did not say a single thing.","They both looked at the water together."], "What happened next?", [{"label":"Continue","nextPageId":"p05_quiet_together"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p04_look_stones", ["Grumpy looked at all the stones on the ground.","There were many of them.","Fancy had built that tower this morning.","Fancy would be arriving very soon."], "What should Grumpy do?", [{"label":"Continue","nextPageId":"p05_fancy_arrives"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p04_walk_away", ["Grumpy walked away from the fallen stones.","One stone started to roll.","It bumped into another stone.","That stone rolled right toward Bouncy."], "What happened to Bouncy?", [{"label":"Continue","nextPageId":"p05_stone_bouncy"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p04_eat_quiet", ["Grumpy ate more berries. Very quietly.","One. Then six. Then many more.","Grumpy's tummy felt much better.","Then Dozy wandered over and sat down nearby."], "What should Grumpy do?", [{"label":"Continue","nextPageId":"p05_dozy_joins"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p04_throw_berries", ["Grumpy threw all the berries away.","Very dramatically.","They flew through the air in a big arc.","They landed right on Bouncy."], "What did Bouncy do?", [{"label":"Continue","nextPageId":"p05_berry_chaos"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p04_tell_sunny", ["Sunny was passing by.","Grumpy stopped Sunny.","Grumpy read out the whole list.","All twelve things. Every single one."], "What did Sunny do?", [{"label":"Continue","nextPageId":"p05_sunny_listens"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p04_pretend_fine", ["Grumpy put the list away.","\"Everything is perfectly fine,\" said Grumpy.","This was not true.","Then Bouncy bounced past. Very close."], "What happened next?", [{"label":"Continue","nextPageId":"p05_bouncy_chaos"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p05_chompy_delighted", ["Chompy was absolutely delighted.","\"More! More!\" said Chompy.","Grumpy splashed again. And again.","This was now a game. Hmph."], "Who else arrived at the stream?", [{"label":"Continue","nextPageId":"p06_wiggly_joins"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p05_quiet_together", ["The stream went drip, drip, drip.","Chompy was quiet. Grumpy was quiet.","A fish jumped up and back in.","They both watched it go."], "Who else came to the stream?", [{"label":"Continue","nextPageId":"p06_wiggly_joins"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p05_fancy_arrives", ["Fancy arrived and looked at the stones.","Fancy looked at the stones for a long time.","Then Fancy looked at Grumpy.","Grumpy looked at Fancy's very nice sail."], "What did Grumpy do?", [{"label":"Continue","nextPageId":"p06_rebuilding"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p05_stone_bouncy", ["The stone hit Bouncy right on the dome.","Bouncy bounced. Very high.","\"Wheee!\" said Bouncy.","Bouncy bounced back toward the stones."], "What happened at the stones?", [{"label":"Continue","nextPageId":"p06_rebuilding"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p05_dozy_joins", ["Dozy sat down next to Grumpy.","Dozy was already very sleepy.","Dozy fell asleep leaning against Grumpy's side.","Grumpy did not move."], "What happened next?", [{"label":"Continue","nextPageId":"p06_warm_together"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p05_berry_chaos", ["Bouncy bounced with great berry joy.","The berries went up. Then came back down.","They landed all over Grumpy.","Grumpy was covered in red berries."], "What happened next?", [{"label":"Continue","nextPageId":"p06_warm_together"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p05_sunny_listens", ["Sunny listened very carefully.","Sunny nodded at every single thing on the list.","\"That does sound tricky,\" said Sunny.","\"I will help,\" said Sunny."], "What did Sunny try first?", [{"label":"Continue","nextPageId":"p06_sunny_helps"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p05_bouncy_chaos", ["Bouncy bounced right into the list.","The list flew up into the air.","Then it went into a tree.","Then away on the breeze. Gone."], "What did Grumpy do?", [{"label":"Continue","nextPageId":"p06_sunny_helps"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p06_wiggly_joins", ["Wiggly walked by the stream.","Wiggly's long tail swung wide.","It hit the water with a very big SMACK.","A huge wave went over everyone."], "How wet was everyone?", [{"label":"Continue","nextPageId":"p07_all_soaked"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p06_rebuilding", ["Grumpy looked at the fallen stones.","Then at Fancy.","Then at the stones again.","\"I will help,\" said Grumpy. Very quietly."], "Could Grumpy rebuild the tower?", [{"label":"Continue","nextPageId":"p07_tower_done"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p06_warm_together", ["Grumpy and Dozy were warm in the afternoon sun.","The berries were gone.","The birds were singing.","It was not terrible."], "What happened to Grumpy?", [{"label":"Continue","nextPageId":"p07_grumpy_naps"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p06_sunny_helps", ["Sunny found a better flat rock for Grumpy to sit on.","Sunny moved three annoying twigs out of the way.","Sunny hummed a cheerful song while helping.","Grumpy watched all of this."], "Did it help?", [{"label":"Continue","nextPageId":"p07_one_fixed"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p07_all_soaked", ["Grumpy was soaking wet.","Chompy was soaking wet.","Wiggly was very, very sorry.","The wave had been extremely large."], "Was Grumpy very upset?", [{"label":"Continue","nextPageId":"p08_soaked_ending"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p07_tower_done", ["The tower was rebuilt. Stone by stone.","Grumpy's club tail had knocked two over again.","They fixed those ones too.","It was a good tower."], "What did Fancy say?", [{"label":"Continue","nextPageId":"p08_stone_ending"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p07_grumpy_naps", ["Grumpy's eyes were getting very droopy.","The sun was warm. Dozy was warm.","Grumpy fell asleep.","This was an accident."], "Was it a good nap?", [{"label":"Continue","nextPageId":"p08_nap_ending"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p07_one_fixed", ["Sunny fixed thing number seven on the list.","It was the annoying twig by the path.","The twig was gone now.","One thing. Out of twelve."], "Did Grumpy notice?", [{"label":"Continue","nextPageId":"p08_fixed_ending"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p08_soaked_ending", ["Everyone was very wet.","Grumpy was the wettest of all.","\"This was a terrible day,\" said Grumpy.","Grumpy came back to the stream the next morning."], "Read again?", [{"label":"Read again","nextPageId":"p01_start"},{"label":"Finish","nextPageId":"end"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p08_stone_ending", ["The stone tower stood straight and tall.","Fancy's sail shimmered in the golden light.","\"Thank you,\" said Fancy.","Grumpy said nothing. But did not leave either."], "Read again?", [{"label":"Read again","nextPageId":"p01_start"},{"label":"Finish","nextPageId":"end"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p08_nap_ending", ["Grumpy woke up a long time later.","Dozy was still asleep.","It had been a very good nap.","Grumpy would not say this to anyone."], "Read again?", [{"label":"Read again","nextPageId":"p01_start"},{"label":"Finish","nextPageId":"end"}], grumpyAlmostGoodDayTargetWords),
-      dinoPalsTargetPage(grumpyAlmostGoodDayFolder, "p08_fixed_ending", ["One thing on the list was fixed.","There were still eleven things.","Eleven is fewer than twelve.","\"Hmph. Fine,\" said Grumpy."], "Read again?", [{"label":"Read again","nextPageId":"p01_start"},{"label":"Finish","nextPageId":"end"}], grumpyAlmostGoodDayTargetWords)
-    ]
-  },
-  {
-    id: "dp_ra_b_08_bouncy_big_bounce",
-    title: "Bouncy's Big Bounce",
-    level: "B",
-    ageRange: "Ages 5-6",
-    adventureType: "Dino Pals Reading Adventure",
-    skillFocus: "Level B guided reading choice adventure",
-    cycleFocus: "guided_reading_level_b_story_choice",
-    series: "Dino Pals",
-    characters: ["Bouncy","Chompy","Dozy","Wiggly","Fancy","Grumpy"],
-    location: "Sunny Hollow - Berry Bush Corner, Cozy Cave, stream, Big Flat Rock",
-    targetWords: bouncyBigBounceTargetWords,
-    highFrequencyWords: ["I","the","to","and","was","said","in","it","not","very","then","with"],
-    hfw: ["I","the","to","and","was","said","in","it","not","very","then","with"],
-    coverImageUrl: dinoPalsImagePath(bouncyBigBounceFolder, "p01_start"),
-    startPageId: "p01_start",
-    pages: [
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p01_start", ["Bouncy woke up with enormous energy.","The legs started bouncing before the eyes opened.","Bouncy was already in the air.","Where should Bouncy bounce today?"], "Where should Bouncy go?", [{"label":"Berry Bush Corner","nextPageId":"p02_berry_corner"},{"label":"Cozy Cave","nextPageId":"p02_cozy_cave"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p02_berry_corner", ["Bouncy bounced toward Berry Bush Corner.","The red berries were round and shiny.","They looked like very bouncy berries.","Chompy was already there eating."], "What should Bouncy do?", [{"label":"Help Chompy","nextPageId":"p03_help_chompy"},{"label":"Bounce too fast","nextPageId":"p03_too_fast"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p02_cozy_cave", ["Bouncy bounced toward Cozy Cave.","The cave was dark and warm inside.","Dozy was definitely asleep in there.","Bouncy tried to slow down. A bit."], "What should Bouncy do?", [{"label":"Tiptoe","nextPageId":"p03_tiptoe"},{"label":"Bounce inside","nextPageId":"p03_bounce_inside"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p03_help_chompy", ["Bouncy bounced up to Chompy.","\"I will help you get the berries!\" said Bouncy.","Chompy looked at Bouncy's dome head.","Chompy looked at the berry bush.","Chompy's eyes went very wide."], "How did Bouncy help?", [{"label":"Big bounce","nextPageId":"p04_big_bounce"},{"label":"Careful bounce","nextPageId":"p04_careful"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p03_too_fast", ["Bouncy was going too fast.","The berry bush was getting very close.","There was no stopping now.","\"SORRY!\" called Bouncy."], "What happened?", [{"label":"Crash into the bush","nextPageId":"p04_bush_crash"},{"label":"Land in the puddle","nextPageId":"p04_puddle"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p03_tiptoe", ["Bouncy slowed down near the cave.","Left foot. Right foot. Very carefully.","The legs still bounced just a little bit.","Bouncy tiptoed toward the cave entrance."], "Did Bouncy get out?", [{"label":"Nearly get out","nextPageId":"p04_nearly_out"},{"label":"Trip on a pebble","nextPageId":"p04_pebble_trip"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p03_bounce_inside", ["Bouncy bounced right into Cozy Cave.","BOING. BOING. BOING.","The cave made every bounce much bigger.","This was extremely loud."], "What happened next?", [{"label":"Listen to Dozy","nextPageId":"p04_dozy_advice"},{"label":"Follow Wiggly's tail","nextPageId":"p04_wiggly_tail"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p04_big_bounce", ["Bouncy did one enormous bounce.","The berries shot up into the sky.","Hundreds and hundreds of them.","All going up at once."], "Where did all the berries go?", [{"label":"Continue","nextPageId":"p05_berries_fly"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p04_careful", ["Bouncy tried tiny careful bounces.","Smaller. Smaller. Smaller still.","The berry bush shook just a little.","Then it shook a lot. Then — a LOT."], "What happened to the berries?", [{"label":"Continue","nextPageId":"p05_legs_explode"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p04_bush_crash", ["Bouncy went right through the berry bush.","The bush went sideways.","A hundred berries went straight up.","\"WHOA!\" said Chompy."], "Where did the berries land?", [{"label":"Continue","nextPageId":"p05_fancy_bush"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p04_puddle", ["Bouncy bounced sideways into the Muddy Puddle.","SPLASH! A very enormous splash.","Bouncy bounced straight back out.","The mud was still going up."], "Where did the mud land?", [{"label":"Continue","nextPageId":"p05_mud_splash"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p04_nearly_out", ["Bouncy was nearly at the cave entrance.","One more careful step.","Almost out. Almost.","Then one tiny involuntary spring happened."], "What happened at the cave entrance?", [{"label":"Continue","nextPageId":"p05_big_launch"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p04_pebble_trip", ["Bouncy tripped on a small pebble.","One huge bounce inside the cave.","BOOM. BOOM. BOOM went the echo.","The whole cave shook."], "What happened to Dozy?", [{"label":"Continue","nextPageId":"p05_cave_echo"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p04_dozy_advice", ["Bouncy bounced very close to Dozy.","Dozy's eyes opened. Just a little bit.","\"Too much bouncing,\" said Dozy.","Then Dozy's eyes closed again."], "What should Bouncy do?", [{"label":"Continue","nextPageId":"p05_bouncy_still"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p04_wiggly_tail", ["Wiggly was walking past the cave entrance.","Wiggly's enormously long tail swung inside.","It hit Bouncy right on the dome.","Bouncy launched upward very fast."], "How high did Bouncy go?", [{"label":"Continue","nextPageId":"p05_bouncy_flies"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p05_berries_fly", ["The berries came back down.","Like a red berry rainstorm.","Chompy stood with mouth open as wide as possible.","Most berries went right in."], "What happened to the rest?", [{"label":"Continue","nextPageId":"p06_everyone_sticky"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p05_legs_explode", ["Bouncy held very still.","The legs shook and shook.","Then they gave up completely.","One enormous bounce. Every berry left the bush at once."], "What happened to all those berries?", [{"label":"Continue","nextPageId":"p06_everyone_sticky"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p05_fancy_bush", ["The berries went very far.","Some hit Grumpy on the nose.","One went into Honky's crest. HONK.","And the berry bush landed on Fancy."], "What did Fancy say?", [{"label":"Continue","nextPageId":"p06_fancy_moment"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p05_mud_splash", ["The mud went everywhere.","On the ferns. On the boulders.","On Fancy, who had just arrived nearby.","Fancy looked at the mud on the sail for a long time."], "What did Fancy say?", [{"label":"Continue","nextPageId":"p06_fancy_moment"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p05_big_launch", ["Bouncy bounced out of the cave entrance.","Very fast. Very high. Very Bouncy.","Right over the stream.","Grumpy was standing at the stream below."], "What did Grumpy say?", [{"label":"Continue","nextPageId":"p06_great_landing"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p05_cave_echo", ["The echo was very, very big.","Dozy's eyes opened all the way.","Both of them. Wide open.","\"...What?\" said Dozy."], "What happened next?", [{"label":"Continue","nextPageId":"p06_great_landing"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p05_bouncy_still", ["Bouncy stopped bouncing.","For seven whole seconds.","Then one small bounce happened.","Bouncy looked at Dozy."], "Did Dozy see?", [{"label":"Continue","nextPageId":"p06_big_flat_rock"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p05_bouncy_flies", ["Bouncy went very, very high.","Right out of the cave.","Right over the valley.","Right toward the Big Flat Rock."], "Where did Bouncy land?", [{"label":"Continue","nextPageId":"p06_big_flat_rock"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p06_everyone_sticky", ["Everyone had berries on them.","Berries in fur. Berries on bibs.","Berries on dome. Berries everywhere.","Grumpy walked past and got one on the nose."], "What happened next?", [{"label":"Continue","nextPageId":"p07_berry_feast"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p06_fancy_moment", ["Fancy looked at the mud for a very long time.","\"Can you fix this?\" said Fancy.","Bouncy bounced nervously.","\"...Probably?\" said Bouncy."], "What should Bouncy do?", [{"label":"Continue","nextPageId":"p07_fancy_verdict"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p06_great_landing", ["Bouncy landed near the stream.","Right next to Grumpy.","\"Hello,\" said Bouncy.","\"HMPH,\" said Grumpy."], "What happened next?", [{"label":"Continue","nextPageId":"p07_grumpy_wet"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p06_big_flat_rock", ["Bouncy landed on the Big Flat Rock.","It was an extremely good landing.","Everyone was there.","They all looked at Bouncy."], "What did everyone say?", [{"label":"Continue","nextPageId":"p07_big_moment"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p07_berry_feast", ["Everyone sat down around the berries.","There were berries absolutely everywhere.","They ate them right off the ground.","Even Grumpy ate one."], "Was it a good day?", [{"label":"Continue","nextPageId":"p08_berry_ending"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p07_fancy_verdict", ["Bouncy bounced carefully back through the bush.","The branches went back into place. Mostly.","Fancy looked at it for a long, long time.","\"Different,\" said Fancy. \"But still a bush.\""], "Was that a good thing?", [{"label":"Continue","nextPageId":"p08_fancy_ending"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p07_grumpy_wet", ["Bouncy bounced out of the stream.","The splash went sideways.","It hit Grumpy.","\"HMPH!\" said Grumpy. Very loudly."], "Was Grumpy very upset?", [{"label":"Continue","nextPageId":"p08_stream_ending"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p07_big_moment", ["Everyone looked at Bouncy on the rock.","\"That was incredible!\" said Sunny.","Bouncy's dome sparkled in the sun.","Bouncy had definitely meant to do that."], "What happened next?", [{"label":"Continue","nextPageId":"p08_rock_ending"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p08_berry_ending", ["\"Best day ever!\" said Chompy.","There were berries everywhere.","Everyone had a very full tummy.","Bouncy had helped. Mostly."], "Read again?", [{"label":"Read again","nextPageId":"p01_start"},{"label":"Finish","nextPageId":"end"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p08_fancy_ending", ["The bush was different now. But still a bush.","\"I am calling it the New Bush,\" said Fancy.","Bouncy beamed.","Sometimes different is very good."], "Read again?", [{"label":"Read again","nextPageId":"p01_start"},{"label":"Finish","nextPageId":"end"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p08_stream_ending", ["Grumpy was wet again.","\"You again,\" said Grumpy.","\"Yes!\" said Bouncy. Very happily.","Grumpy sighed. But did not leave."], "Read again?", [{"label":"Read again","nextPageId":"p01_start"},{"label":"Finish","nextPageId":"end"}], bouncyBigBounceTargetWords),
-      dinoPalsTargetPage(bouncyBigBounceFolder, "p08_rock_ending", ["Bouncy sat on the Big Flat Rock.","Everyone sat down around Bouncy.","Chompy brought the last of the berries.","This had been a very good bounce."], "Read again?", [{"label":"Read again","nextPageId":"p01_start"},{"label":"Finish","nextPageId":"end"}], bouncyBigBounceTargetWords)
     ]
   }
 ];
