@@ -40,6 +40,11 @@ const PHONICS_PROMPT_PATTERN =
   /\b(short [aeiou]|short vowel|cvc|rhym|rime|beginning sound|initial sound|first sound|starts? with|ending sound|final sound|ends? with|blend|digraph|silent e|vowel team|r-controlled|matches the picture|which word has the short)\b/i;
 const WEAK_HFW_PROMPT_PATTERN =
   /\b(find the word|which word is|find word)\s*:?\s*["“”']?[a-z]+\b/i;
+const AMBIGUOUS_ARTICLE_CHOICE_PAIRS = [
+  ["the", "a"],
+  ["the", "an"],
+  ["a", "an"]
+];
 
 function normalizeWord(value = "") {
   return String(value || "")
@@ -178,6 +183,12 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     const blankCount = (sentence.match(/___/g) || []).length;
     if (blankCount !== 1) issues.push(`sentence cloze needs exactly one blank, found ${blankCount}`);
     if (answer && answer !== primaryWord) issues.push(`correct answer "${answer}" does not match target word "${primaryWord}"`);
+    const optionSet = new Set(optionWords);
+    for (const [first, second] of AMBIGUOUS_ARTICLE_CHOICE_PAIRS) {
+      if (optionSet.has(first) && optionSet.has(second)) {
+        issues.push(`ambiguous article choices include both "${first}" and "${second}"`);
+      }
+    }
   }
 
   if (format === "HFW_SENTENCE_PLACEMENT") {

@@ -247,7 +247,13 @@ const approvedGuidedReadingVocabularyAudio = {
 };
 
 const approvedAssessmentWordAudioOverrides = {
+  lip: "/audio/child-mode/clean-human/words/lip.mp3",
   sip: "/audio/child-mode/clean-human/phrases/sip.mp3"
+};
+
+const approvedAssessmentWordAudioOverrideReviewPaths = {
+  lip: ["/media/vocabulary/audio/lip.mp3", "/media/rhyming/audio/lip.mp3"],
+  sip: ["/media/vocabulary/audio/sip.mp3"]
 };
 
 const approvedLowerSkillInstructionAudio = [
@@ -413,8 +419,8 @@ export const audioPreferenceManifest = Object.fromEntries([
       word,
       category: "words",
       fallbackPath,
-      deprecatedAudioPaths: [`/media/vocabulary/audio/${word}.mp3`],
-      reviewNeededPaths: [`/media/vocabulary/audio/${word}.mp3`],
+      deprecatedAudioPaths: approvedAssessmentWordAudioOverrideReviewPaths[word] || [`/media/vocabulary/audio/${word}.mp3`],
+      reviewNeededPaths: approvedAssessmentWordAudioOverrideReviewPaths[word] || [`/media/vocabulary/audio/${word}.mp3`],
       source: "live assessment audio review",
       notes: "Approved clean exact-word replacement for active assessment playback; older vocabulary audio is blocked because live testing showed separated phoneme/letter playback."
     })

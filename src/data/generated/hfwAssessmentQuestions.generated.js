@@ -431,8 +431,18 @@ function rotate(values, offset) {
   return values.map((_, index) => values[(index + offset) % values.length]);
 }
 
+const mutuallyPlausibleArticleDistractors = {
+  a: new Set(["the", "an"]),
+  an: new Set(["the", "a"]),
+  the: new Set(["a", "an"])
+};
+
 function wordOptions(word, bandWords, bandIndex, wordIndex) {
-  const pool = rotate(bandWords.filter(item => item !== word), wordIndex * 3 + bandIndex);
+  const blockedDistractors = mutuallyPlausibleArticleDistractors[word] || new Set();
+  const pool = rotate(
+    bandWords.filter(item => item !== word && !blockedDistractors.has(item)),
+    wordIndex * 3 + bandIndex
+  );
   return [word, ...pool.slice(0, 3)];
 }
 

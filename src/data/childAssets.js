@@ -282,8 +282,9 @@ export const childWordAssets = {
   }),
   lip: wordAsset({
     word: "lip",
-    image: "/media/rhyming/images/lip.webp",
-    audio: "/media/rhyming/audio/lip.mp3",
+    image: "/media/vocabulary/images/lip.webp",
+    audio: "/audio/child-mode/clean-human/words/lip.mp3",
+    fallbackImage: "/media/rhyming/images/lip.webp",
     alt: "Lips"
   }),
   lid: childModeWordAsset({

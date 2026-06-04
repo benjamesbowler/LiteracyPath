@@ -32,6 +32,7 @@ import { initialSoundCoverageQuestions } from "./data/initialSoundCoverageQuesti
 import { finalSoundCoverageQuestions } from "./data/finalSoundCoverageQuestions";
 import { rhymingCoverageQuestions } from "./data/rhymingCoverageQuestions";
 import { cvcShortVowelExpansionQuestions } from "./data/cvcShortVowelExpansionQuestions";
+import { shortVowelDiscriminationPhase2Questions } from "./data/shortVowelDiscriminationPhase2Questions";
 import { contentExpansionPass3Questions } from "./data/contentExpansionPass3Questions";
 import { targetedContentRecoveryQuestions } from "./data/targetedContentRecoveryQuestions";
 import { kimiDataset7RuntimeQuestions } from "./data/kimiDataset7RuntimeQuestions";
@@ -1415,6 +1416,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...finalSoundCoverageQuestions,
   ...rhymingCoverageQuestions,
   ...cvcShortVowelExpansionQuestions,
+  ...shortVowelDiscriminationPhase2Questions,
   ...contentExpansionPass3Questions,
   ...targetedContentRecoveryQuestions,
   ...kimiDataset7RuntimeQuestions,
@@ -3548,6 +3550,13 @@ export default function App() {
         .find(([, families]) => families.includes(family));
       if (phaseEntry) return Number(phaseEntry[0]) === 2 ? 2 : 1;
     }
+    if (questionSkillId === "short_vowel_discrimination") {
+      const id = String(question.id || question.questionId || "").toLowerCase();
+      const source = String(question.source || question._source || "").toLowerCase();
+      if (id.startsWith("recovery_short_vowel_") || source.includes("targetedcontentrecoveryquestions")) return 2;
+      if (id.startsWith("p3_short_vowel_") || source.includes("contentexpansionpass3questions")) return 1;
+      if (id.startsWith("svd_l2p2_")) return 2;
+    }
     return 0;
   }
 
@@ -3616,11 +3625,16 @@ export default function App() {
   function hasAssessmentPathQuestions(stage, step = {}) {
     if (!stage || !step) return false;
     const stageIndex = skillTree.findIndex(item => item.id === stage.id);
+    const requiresExplicitPhase = hasConfiguredPhaseCoverage(stage, step);
     return allQuestions.filter(question =>
       getStageIndex(question) === stageIndex &&
       !isQuestionBlockedByMediaQa(question) &&
       getAssessmentQuestionLevel(stage, question) === Number(step.level || 1) &&
-      (getAssessmentQuestionPhase(question) || Number(step.phase || 1)) === Number(step.phase || 1)
+      (
+        requiresExplicitPhase
+          ? getAssessmentQuestionPhase(question) === Number(step.phase || 1)
+          : (getAssessmentQuestionPhase(question) || Number(step.phase || 1)) === Number(step.phase || 1)
+      )
     ).length >= ROUND_LENGTH;
   }
 
@@ -3827,8 +3841,11 @@ export default function App() {
     const levelFilteredStageQuestions = stageQuestions.filter(question =>
       getAssessmentQuestionLevel(stage, question) === pathStep.level
     );
+    const requiresExplicitPhase = hasConfiguredPhaseCoverage(stage, pathStep);
     const phaseFilteredStageQuestions = levelFilteredStageQuestions.filter(question =>
-      (getAssessmentQuestionPhase(question) || pathStep.phase) === pathStep.phase
+      requiresExplicitPhase
+        ? getAssessmentQuestionPhase(question) === pathStep.phase
+        : (getAssessmentQuestionPhase(question) || pathStep.phase) === pathStep.phase
     );
     const pathFilteredStageQuestions = phaseFilteredStageQuestions.length >= ROUND_LENGTH || hasConfiguredPhaseCoverage(stage, pathStep)
       ? phaseFilteredStageQuestions

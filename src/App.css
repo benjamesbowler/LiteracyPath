@@ -3894,9 +3894,9 @@ select:focus {
 
 .visual-word-choice {
   display: grid;
-  grid-template-rows: minmax(96px, 1fr) auto;
+  grid-template-rows: minmax(72px, 1fr) auto;
   gap: 8px;
-  min-height: clamp(148px, 22vh, 205px) !important;
+  min-height: clamp(118px, 18vh, 168px) !important;
   padding: 10px !important;
   align-items: stretch;
   justify-items: center;
@@ -3907,8 +3907,8 @@ select:focus {
 .visual-word-choice-image {
   width: 100%;
   height: 100%;
-  min-height: 92px;
-  max-height: 145px;
+  min-height: 72px;
+  max-height: 118px;
   object-fit: contain;
   border-radius: 8px;
   background: #f8fafc;
@@ -4064,6 +4064,10 @@ select:focus {
 .assessment-question-layout {
   gap: 10px;
   justify-content: start;
+  max-height: calc(100dvh - 132px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 253, 248, 0.98)),
     var(--lp-color-surface-warm);
@@ -4691,7 +4695,7 @@ select:focus {
 }
 
 .ixl-answer-card.image-card .ixl-answer-button {
-  min-height: clamp(132px, 24vh, 210px);
+  min-height: clamp(112px, 18vh, 168px);
 }
 
 .level-mastery-callout {
@@ -4794,7 +4798,7 @@ select:focus {
   }
 
   .ixl-answer-card.image-card .ixl-answer-button {
-    min-height: 230px;
+    min-height: clamp(132px, 19vh, 178px);
   }
 
   .short-vowel-word-choice-card .ixl-template-panel {
@@ -4807,7 +4811,7 @@ select:focus {
 
   .ixl-answer-button img {
     max-width: 240px;
-    height: 170px;
+    height: clamp(96px, 15vh, 136px);
   }
 
   .short-vowel-word-choice-card .ixl-answer-button img {
@@ -4816,11 +4820,11 @@ select:focus {
   }
 
   .visual-word-choice {
-    min-height: clamp(180px, 24vh, 245px) !important;
+    min-height: clamp(128px, 19vh, 178px) !important;
   }
 
   .visual-word-choice-image {
-    max-height: 175px;
+    max-height: 132px;
   }
 
   .visual-assessment-card-button {

@@ -71,6 +71,10 @@ function resolveWordAsset(word) {
   };
 }
 
+function shouldReplaceExistingTargetImage(targetWord, existingImagePath = "") {
+  return targetWord === "lip" && existingImagePath === "/media/rhyming/images/lip.webp";
+}
+
 function answerValue(value) {
   if (Array.isArray(value)) return value[0] || "";
   if (value && typeof value === "object") return value.word || value.value || value.label || value.text || value.answer || "";
@@ -284,6 +288,51 @@ function enrichOption(option) {
   };
 }
 
+function optionImagePath(option = {}) {
+  if (!option || typeof option !== "object") return "";
+  return option.image || option.imageUrl || option.imagePath || option.media?.image || option.media?.imageUrl || option.media?.imagePath || "";
+}
+
+function stripOptionImage(option = {}) {
+  if (!option || typeof option !== "object") return option;
+  const { image, imageUrl, imagePath, media, ...rest } = option;
+  if (media && typeof media === "object") {
+    const {
+      image: mediaImage,
+      imageUrl: mediaImageUrl,
+      imagePath: mediaImagePath,
+      ...restMedia
+    } = media;
+    return Object.keys(restMedia).length ? { ...rest, media: restMedia } : rest;
+  }
+  return rest;
+}
+
+function normalizeOptionImageGroup(options = [], field = "answerOptions") {
+  const enrichedOptions = options.map(enrichOption);
+  const imageCount = enrichedOptions.filter(option => optionImagePath(option)).length;
+  if (imageCount === 0 || imageCount === enrichedOptions.length) {
+    return {
+      options: enrichedOptions,
+      mediaGap: null
+    };
+  }
+
+  return {
+    options: enrichedOptions.map(stripOptionImage),
+    mediaGap: {
+      field,
+      optionCount: enrichedOptions.length,
+      imageCount,
+      missingOptions: enrichedOptions
+        .filter(option => !optionImagePath(option))
+        .map(option => optionWord(option))
+        .filter(Boolean),
+      normalizedToTextOnly: true
+    }
+  };
+}
+
 function shouldBuildImageCards(question = {}, skillId = "") {
   if (question.imageCards?.length) return false;
   if (!["rhyming", "initial_sounds"].includes(skillId)) return false;
@@ -309,8 +358,12 @@ export function enrichQuestionWithExistingMedia(question = {}) {
 
   if (targetAsset) {
     enriched.targetWord = enriched.targetWord || targetWord;
-    enriched.imageUrl = enriched.imageUrl || enriched.imagePath || enriched.image || targetAsset.image;
-    enriched.imagePath = enriched.imagePath || enriched.imageUrl || enriched.image || targetAsset.image;
+    const existingImage = firstPath(enriched.imagePath, enriched.imageUrl, enriched.image);
+    const targetImage = shouldReplaceExistingTargetImage(targetWord, existingImage)
+      ? targetAsset.image
+      : existingImage || targetAsset.image;
+    enriched.imageUrl = targetImage;
+    enriched.imagePath = targetImage;
     if (!suppressAudio) {
       const existingAudio = firstPath(enriched.audioPath, enriched.audioUrl, enriched.audio);
       const approvedAudio = getApprovedAudioPath(targetWord, existingAudio) || targetAsset.audio;
@@ -324,11 +377,19 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     Object.assign(enriched, balanced);
   }
 
+  const optionImageMediaGaps = [];
   if (Array.isArray(enriched.answerOptions) && !isGraphemeChoiceQuestion(enriched)) {
-    enriched.answerOptions = enriched.answerOptions.map(enrichOption);
+    const normalized = normalizeOptionImageGroup(enriched.answerOptions, "answerOptions");
+    enriched.answerOptions = normalized.options;
+    if (normalized.mediaGap) optionImageMediaGaps.push(normalized.mediaGap);
   }
   if (Array.isArray(enriched.options) && !isGraphemeChoiceQuestion(enriched)) {
-    enriched.options = enriched.options.map(enrichOption);
+    const normalized = normalizeOptionImageGroup(enriched.options, "options");
+    enriched.options = normalized.options;
+    if (normalized.mediaGap) optionImageMediaGaps.push(normalized.mediaGap);
+  }
+  if (optionImageMediaGaps.length) {
+    enriched.optionImageMediaGaps = optionImageMediaGaps;
   }
 
   if (shouldBuildImageCards(enriched, skillId)) {

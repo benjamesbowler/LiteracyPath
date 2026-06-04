@@ -99,6 +99,17 @@ export const cvcShortVowelExpectedItemKeys = [
 
 export const cvcShortVowelLevelTwoExpectedItemKeys = cvcShortVowelExpectedItemKeys;
 
+export const shortVowelDiscriminationPhaseItemKeysByLevel = {
+  1: {
+    1: cvcShortVowelExpectedItemKeys,
+    2: cvcShortVowelExpectedItemKeys
+  },
+  2: {
+    1: cvcShortVowelLevelTwoExpectedItemKeys,
+    2: cvcShortVowelLevelTwoExpectedItemKeys
+  }
+};
+
 export const rhymingExpectedItemKeys = [
   "at",
   "an",
@@ -208,6 +219,7 @@ export const coverageExpectations = {
       1: cvcShortVowelExpectedItemKeys,
       2: cvcShortVowelLevelTwoExpectedItemKeys
     },
+    phases: shortVowelDiscriminationPhaseItemKeysByLevel,
     total: cvcShortVowelExpectedItemKeys.length,
     unit: "short vowel sounds",
     note: "Short Vowel Discrimination covers the five medial short-vowel sounds at each level with image-backed word and listening questions only."
