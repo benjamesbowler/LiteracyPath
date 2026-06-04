@@ -3515,18 +3515,6 @@ export default function App() {
   }
 
   function getAssessmentQuestionPhase(question = {}) {
-    const raw =
-      question.phase ??
-      question.assessmentPhase ??
-      question.levelPhase ??
-      question.initialSoundRoundPhase ??
-      question.phaseTarget ??
-      "";
-    const numeric = Number(raw);
-    if (numeric === 1 || numeric === 2) return numeric;
-    const text = String(raw || "").toLowerCase();
-    if (/\bphase_?1\b|level_?\d_?phase_?1|p1/.test(text)) return 1;
-    if (/\bphase_?2\b|level_?\d_?phase_?2|p2/.test(text)) return 2;
     const questionSkillId = normalizeEarlySkillId(question.skillId || question.skillName || question.skill || "");
     if (questionSkillId === "rhyming") {
       const family = normalizeItemKey(
@@ -3550,6 +3538,19 @@ export default function App() {
         .find(([, families]) => families.includes(family));
       if (phaseEntry) return Number(phaseEntry[0]) === 2 ? 2 : 1;
     }
+
+    const raw =
+      question.phase ??
+      question.assessmentPhase ??
+      question.levelPhase ??
+      question.initialSoundRoundPhase ??
+      question.phaseTarget ??
+      "";
+    const numeric = Number(raw);
+    if (numeric === 1 || numeric === 2) return numeric;
+    const text = String(raw || "").toLowerCase();
+    if (/\bphase_?1\b|level_?\d_?phase_?1|p1/.test(text)) return 1;
+    if (/\bphase_?2\b|level_?\d_?phase_?2|p2/.test(text)) return 2;
     if (questionSkillId === "short_vowel_discrimination") {
       const id = String(question.id || question.questionId || "").toLowerCase();
       const source = String(question.source || question._source || "").toLowerCase();

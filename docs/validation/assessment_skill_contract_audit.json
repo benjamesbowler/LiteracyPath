@@ -1,0 +1,1728 @@
+{
+  "generatedAt": "2026-06-04T04:11:06.459Z",
+  "roundSize": 15,
+  "completeSkills": [
+    "rhyming",
+    "short_vowel_discrimination",
+    "hfw_1_25",
+    "hfw_26_50",
+    "hfw_51_75",
+    "hfw_76_100"
+  ],
+  "incompleteSkills": [
+    "initial_sounds",
+    "final_sounds",
+    "cvc_short_vowels",
+    "blends",
+    "digraphs",
+    "long_vowels_silent_e",
+    "vowel_teams",
+    "r_controlled",
+    "nouns",
+    "verbs",
+    "adjectives",
+    "prepositions",
+    "plurals",
+    "antonyms_synonyms"
+  ],
+  "passingSkills": [
+    "rhyming",
+    "short_vowel_discrimination",
+    "hfw_1_25",
+    "hfw_26_50",
+    "hfw_51_75",
+    "hfw_76_100"
+  ],
+  "failingSkills": [
+    "initial_sounds",
+    "final_sounds",
+    "cvc_short_vowels",
+    "blends",
+    "digraphs",
+    "long_vowels_silent_e",
+    "vowel_teams",
+    "r_controlled",
+    "nouns",
+    "verbs",
+    "adjectives",
+    "prepositions",
+    "plurals",
+    "antonyms_synonyms"
+  ],
+  "results": [
+    {
+      "skillId": "initial_sounds",
+      "displayName": "Initial Sounds",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 178,
+      "runtimeSelectableCount": 108,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "initial_sounds: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "final_sounds",
+      "displayName": "Final Sounds",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 529,
+      "runtimeSelectableCount": 379,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "final_sounds: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "rhyming",
+      "displayName": "Rhyming",
+      "status": "complete",
+      "contractComplete": true,
+      "rawRuntimeCount": 910,
+      "runtimeSelectableCount": 496,
+      "auditSelectableCount": 496,
+      "runtimeAuditCountsMatch": true,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 252,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 15,
+          "coveredTargetCount": 15,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 75,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 6,
+          "coveredTargetCount": 6,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 111,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 12,
+          "coveredTargetCount": 12,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 58,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 12,
+          "coveredTargetCount": 12,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        }
+      ],
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "skillId": "cvc_short_vowels",
+      "displayName": "CVC and Short Vowels",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 456,
+      "runtimeSelectableCount": 395,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "cvc_short_vowels: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "short_vowel_discrimination",
+      "displayName": "Short Vowel Discrimination",
+      "status": "complete",
+      "contractComplete": true,
+      "rawRuntimeCount": 469,
+      "runtimeSelectableCount": 232,
+      "auditSelectableCount": 232,
+      "runtimeAuditCountsMatch": true,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 39,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 5,
+          "coveredTargetCount": 5,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 47,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 5,
+          "coveredTargetCount": 5,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 46,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 5,
+          "coveredTargetCount": 5,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 100,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 5,
+          "coveredTargetCount": 5,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        }
+      ],
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "skillId": "hfw_1_25",
+      "displayName": "High-Frequency Words 1-25",
+      "status": "complete",
+      "contractComplete": true,
+      "rawRuntimeCount": 258,
+      "runtimeSelectableCount": 100,
+      "auditSelectableCount": 100,
+      "runtimeAuditCountsMatch": true,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        }
+      ],
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "skillId": "hfw_26_50",
+      "displayName": "High-Frequency Words 26-50",
+      "status": "complete",
+      "contractComplete": true,
+      "rawRuntimeCount": 259,
+      "runtimeSelectableCount": 100,
+      "auditSelectableCount": 100,
+      "runtimeAuditCountsMatch": true,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        }
+      ],
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "skillId": "hfw_51_75",
+      "displayName": "High-Frequency Words 51-75",
+      "status": "complete",
+      "contractComplete": true,
+      "rawRuntimeCount": 100,
+      "runtimeSelectableCount": 100,
+      "auditSelectableCount": 100,
+      "runtimeAuditCountsMatch": true,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        }
+      ],
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "skillId": "hfw_76_100",
+      "displayName": "High-Frequency Words 76-100",
+      "status": "complete",
+      "contractComplete": true,
+      "rawRuntimeCount": 100,
+      "runtimeSelectableCount": 100,
+      "auditSelectableCount": 100,
+      "runtimeAuditCountsMatch": true,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 25,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 15,
+          "simulationPass": true,
+          "requiredTargetCount": 25,
+          "coveredTargetCount": 25,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": []
+        }
+      ],
+      "warnings": [],
+      "failures": []
+    },
+    {
+      "skillId": "blends",
+      "displayName": "Blends",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 257,
+      "runtimeSelectableCount": 100,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "blends: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "digraphs",
+      "displayName": "Digraphs",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 259,
+      "runtimeSelectableCount": 120,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "digraphs: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "long_vowels_silent_e",
+      "displayName": "Long Vowels / Silent E",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 227,
+      "runtimeSelectableCount": 106,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "long_vowels_silent_e: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "vowel_teams",
+      "displayName": "Vowel Teams",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 116,
+      "runtimeSelectableCount": 116,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "vowel_teams: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "r_controlled",
+      "displayName": "R-Controlled Vowels",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 118,
+      "runtimeSelectableCount": 118,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "r_controlled: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "nouns",
+      "displayName": "Nouns",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 214,
+      "runtimeSelectableCount": 100,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "nouns: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "verbs",
+      "displayName": "Verbs",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 220,
+      "runtimeSelectableCount": 100,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "verbs: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "adjectives",
+      "displayName": "Adjectives",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 221,
+      "runtimeSelectableCount": 100,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "adjectives: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "prepositions",
+      "displayName": "Prepositions of Place",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 103,
+      "runtimeSelectableCount": 103,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "prepositions: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "plurals",
+      "displayName": "Plurals",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 104,
+      "runtimeSelectableCount": 104,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "plurals: contract_incomplete_needs_formal_phase_map"
+      ]
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "displayName": "Antonyms / Synonyms",
+      "status": "incomplete",
+      "incompleteReason": "contract_incomplete_needs_formal_phase_map",
+      "contractComplete": false,
+      "rawRuntimeCount": 110,
+      "runtimeSelectableCount": 110,
+      "auditSelectableCount": 0,
+      "runtimeAuditCountsMatch": false,
+      "rawQaBlockedCount": 0,
+      "selectableQaBlockedCount": 0,
+      "phaseRows": [
+        {
+          "phaseKey": "L1P1",
+          "level": 1,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L1P2",
+          "level": 1,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P1",
+          "level": 2,
+          "phase": 1,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        },
+        {
+          "phaseKey": "L2P2",
+          "level": 2,
+          "phase": 2,
+          "selectableCount": 0,
+          "minimumSelectable": 15,
+          "roundSize": 15,
+          "simulatedRoundCount": 0,
+          "simulationPass": false,
+          "requiredTargetCount": 0,
+          "coveredTargetCount": 0,
+          "missingTargets": [],
+          "extraTargets": [],
+          "issues": [
+            "contract_incomplete_needs_formal_phase_map"
+          ]
+        }
+      ],
+      "warnings": [],
+      "failures": [
+        "antonyms_synonyms: contract_incomplete_needs_formal_phase_map"
+      ]
+    }
+  ]
+}

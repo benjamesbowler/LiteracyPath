@@ -8,6 +8,7 @@ import { initialSoundCoverageQuestions } from "../src/data/initialSoundCoverageQ
 import { finalSoundCoverageQuestions } from "../src/data/finalSoundCoverageQuestions.js";
 import { rhymingCoverageQuestions } from "../src/data/rhymingCoverageQuestions.js";
 import { cvcShortVowelExpansionQuestions } from "../src/data/cvcShortVowelExpansionQuestions.js";
+import { shortVowelDiscriminationPhase2Questions } from "../src/data/shortVowelDiscriminationPhase2Questions.js";
 import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
 import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
 import { kimiDataset7RuntimeQuestions } from "../src/data/kimiDataset7RuntimeQuestions.js";
@@ -45,6 +46,7 @@ import { generatedQuestions } from "../src/data/generatedQuestions.js";
 import { fixSentenceQuestions } from "../src/data/fixSentenceQuestions.js";
 import { templateComprehensionAdvanced } from "../src/data/templateComprehensionAdvanced.js";
 import { managedAssessmentSkillDepthConfig } from "../src/data/skillLevelDepthConfig.js";
+import { rhymingPhaseItemKeysByLevel } from "../src/data/coverageExpectations.js";
 import { enrichListenAndFindWordQuestion } from "../src/data/listenAndFindAssets.js";
 import { enrichInitialSoundPairQuestion } from "../src/data/initialSoundPairAssets.js";
 import { enrichQuestionWithExistingMedia } from "../src/data/questionMediaResolver.js";
@@ -83,6 +85,7 @@ const questionBanks = [
   ["finalSoundCoverageQuestions", finalSoundCoverageQuestions],
   ["rhymingCoverageQuestions", rhymingCoverageQuestions],
   ["cvcShortVowelExpansionQuestions", cvcShortVowelExpansionQuestions],
+  ["shortVowelDiscriminationPhase2Questions", shortVowelDiscriminationPhase2Questions],
   ["contentExpansionPass3Questions", contentExpansionPass3Questions],
   ["targetedContentRecoveryQuestions", targetedContentRecoveryQuestions],
   ["kimiDataset7RuntimeQuestions", kimiDataset7RuntimeQuestions],
@@ -329,6 +332,20 @@ function getExplicitAssessmentPhase(question = {}) {
   return null;
 }
 
+function getRhymingAssessmentPhase(question = {}, level = 1) {
+  const family = normalizeWord(
+    question.itemKey ||
+    question.rhymeGroup ||
+    question.rime ||
+    question.coverageTarget ||
+    getRhymeGroup(question.targetWord || question.anchorWord || question.answer || question.correctAnswer)
+  );
+  if (!family) return null;
+  const entry = Object.entries(rhymingPhaseItemKeysByLevel[level] || {})
+    .find(([, families]) => families.includes(family));
+  return entry ? Number(entry[0]) : null;
+}
+
 function getPromptText(question = {}) {
   return question.prompt || question.question || question.text || question.sentence || question.passage || "";
 }
@@ -397,6 +414,19 @@ function applyAssessmentPhaseMetadata(questions = []) {
       depthLevel: question.depthLevel || level
     };
 
+    if (skillId === "rhyming") {
+      const rhymingPhase = getRhymingAssessmentPhase(question, level);
+      if (rhymingPhase) {
+        return {
+          ...normalized,
+          phase: rhymingPhase,
+          assessmentPhase: rhymingPhase,
+          phaseTarget: `level_${level}_phase_${rhymingPhase}`,
+          phaseSource: "rhyming_family_phase_map"
+        };
+      }
+    }
+
     if (explicitPhase) {
       return {
         ...normalized,
@@ -404,6 +434,26 @@ function applyAssessmentPhaseMetadata(questions = []) {
         assessmentPhase: question.assessmentPhase || explicitPhase,
         phaseTarget: question.phaseTarget || `level_${level}_phase_${explicitPhase}`
       };
+    }
+
+    if (skillId === "short_vowel_discrimination") {
+      const id = String(question.id || question.questionId || "").toLowerCase();
+      const source = String(question._source || question.source || "").toLowerCase();
+      const shortVowelPhase =
+        id.startsWith("recovery_short_vowel_") || source.includes("targetedcontentrecoveryquestions") ? 2 :
+          id.startsWith("p3_short_vowel_") || source.includes("contentexpansionpass3questions") ? 1 :
+            id.startsWith("svd_l2p2_") ? 2 :
+              null;
+
+      if (shortVowelPhase) {
+        return {
+          ...normalized,
+          phase: shortVowelPhase,
+          assessmentPhase: shortVowelPhase,
+          phaseTarget: `level_${level}_phase_${shortVowelPhase}`,
+          phaseSource: "short_vowel_known_source_phase_map"
+        };
+      }
     }
 
     if (!skillId) return normalized;
