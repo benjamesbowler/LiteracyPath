@@ -60,6 +60,10 @@ import {
 } from "./data/initialSoundPairAssets";
 import { enrichQuestionWithExistingMedia } from "./data/questionMediaResolver";
 import {
+  createAssessmentSessionMediaUsage,
+  resolveQuestionMediaDynamically
+} from "./data/assessmentMediaPicker";
+import {
   hasCompletePairSelectionAssets,
   isPairSelectionQuestion,
   normalizePairSelectionAnswer
@@ -1746,6 +1750,7 @@ export default function App() {
   const answerHistoryRef = useRef(answerHistory);
   const roundItemKeysRef = useRef(roundItemKeys);
   const roundQuestionIdsRef = useRef(roundQuestionIds);
+  const assessmentMediaUsageRef = useRef(createAssessmentSessionMediaUsage());
   const initialSoundRoundQueueRef = useRef([]);
   const initialSoundRoundMetaRef = useRef(null);
   const initialSoundForcedLevelRef = useRef(null);
@@ -4421,24 +4426,31 @@ export default function App() {
       }
     }
 
-    const preparedChoices = Array.isArray(normalizedQuestion.choices)
-      ? (isPairSelectionQuestion(normalizedQuestion) ? normalizedQuestion.choices : shuffleArray(normalizedQuestion.choices))
-      : normalizedQuestion.choices;
-    const preparedAnswerOptions = Array.isArray(normalizedQuestion.answerOptions)
-      ? shuffleArray(normalizedQuestion.answerOptions)
-      : normalizedQuestion.answerOptions;
-    const preparedCards = Array.isArray(normalizedQuestion.imageCards)
-      ? shuffleArray(normalizedQuestion.imageCards)
-      : normalizedQuestion.imageCards;
-    const preparedSoundTiles = Array.isArray(normalizedQuestion.soundTiles)
-      ? shuffleArray(normalizedQuestion.soundTiles)
-      : normalizedQuestion.soundTiles;
-    const preparedLetterTiles = Array.isArray(normalizedQuestion.letterTiles)
-      ? shuffleArray(normalizedQuestion.letterTiles)
-      : normalizedQuestion.letterTiles;
+    const mediaResolvedQuestion = resolveQuestionMediaDynamically(normalizedQuestion, {
+      skillId: stage?.id || fallbackSkillId,
+      level: normalizedQuestion.level || normalizedQuestion.difficulty || 1,
+      phase: normalizedQuestion.phase || normalizedQuestion.assessmentPhase || 1,
+      sessionUsage: assessmentMediaUsageRef.current
+    });
+
+    const preparedChoices = Array.isArray(mediaResolvedQuestion.choices)
+      ? (isPairSelectionQuestion(mediaResolvedQuestion) ? mediaResolvedQuestion.choices : shuffleArray(mediaResolvedQuestion.choices))
+      : mediaResolvedQuestion.choices;
+    const preparedAnswerOptions = Array.isArray(mediaResolvedQuestion.answerOptions)
+      ? shuffleArray(mediaResolvedQuestion.answerOptions)
+      : mediaResolvedQuestion.answerOptions;
+    const preparedCards = Array.isArray(mediaResolvedQuestion.imageCards)
+      ? shuffleArray(mediaResolvedQuestion.imageCards)
+      : mediaResolvedQuestion.imageCards;
+    const preparedSoundTiles = Array.isArray(mediaResolvedQuestion.soundTiles)
+      ? shuffleArray(mediaResolvedQuestion.soundTiles)
+      : mediaResolvedQuestion.soundTiles;
+    const preparedLetterTiles = Array.isArray(mediaResolvedQuestion.letterTiles)
+      ? shuffleArray(mediaResolvedQuestion.letterTiles)
+      : mediaResolvedQuestion.letterTiles;
 
     return {
-      ...normalizedQuestion,
+      ...mediaResolvedQuestion,
       isTargetedReview,
       choices: preparedChoices,
       answerOptions: preparedAnswerOptions,
@@ -5371,6 +5383,7 @@ export default function App() {
         setRoundQuestionIds([]);
         roundItemKeysRef.current = [];
         roundQuestionIdsRef.current = [];
+        assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
         setTimeout(() => {
           answerInFlightRef.current = false;
           setAppView(APP_VIEWS.FINISHED);
@@ -5450,6 +5463,7 @@ export default function App() {
       setRoundQuestionIds([]);
       roundItemKeysRef.current = [];
       roundQuestionIdsRef.current = [];
+      assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
       setCurrentQuestion(null);
       setFeedback(null);
       setAssessmentTransitioning(false);
@@ -6781,6 +6795,7 @@ export default function App() {
     setRoundQuestionIds([]);
     roundItemKeysRef.current = [];
     roundQuestionIdsRef.current = [];
+    assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
     setMessage("");
     setAppView(APP_VIEWS.ASSESSMENT);
     pickQuestion("mastery", 0, nextStageIndex);
@@ -6807,6 +6822,7 @@ export default function App() {
     setRoundQuestionIds([]);
     initialSoundRoundQueueRef.current = [];
     initialSoundRoundMetaRef.current = null;
+    assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
     setMessage("");
     setAppView(APP_VIEWS.ASSESSMENT);
     pickQuestion("targetedReview", 0);
@@ -6822,6 +6838,7 @@ export default function App() {
     setRoundQuestionIds([]);
     initialSoundRoundQueueRef.current = [];
     initialSoundRoundMetaRef.current = null;
+    assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
     setShowReport(true);
     setAppView(APP_VIEWS.FINISHED);
   }

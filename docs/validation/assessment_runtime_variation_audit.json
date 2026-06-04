@@ -1,0 +1,7029 @@
+{
+  "generatedAt": "2026-06-04T08:53:03.110Z",
+  "passed": true,
+  "sessionsSimulatedPerSkill": 10,
+  "roundSize": 15,
+  "skills": [
+    {
+      "skillId": "initial_sounds",
+      "selectableQuestions": 108,
+      "static": {
+        "uniqueImages": 100,
+        "uniqueAudio": 100,
+        "topImages": [
+          {
+            "path": "/media/vocabulary/images/arm.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/barn.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/bead.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/bean.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/beet.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/board.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/boot.webp",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/images/bowl.webp",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bag.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bat.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bed.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bug.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/cat.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/dog.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/fan.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/farm.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/fish.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hand.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hat.png",
+            "count": 1
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/jam.png",
+            "count": 1
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/barn.mp3",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/audio/arm.mp3",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/audio/bead.mp3",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/audio/bean.mp3",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/audio/beet.mp3",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/audio/board.mp3",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/audio/boot.mp3",
+            "count": 2
+          },
+          {
+            "path": "/media/vocabulary/audio/bowl.mp3",
+            "count": 2
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/alligator.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bag.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bat.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bed.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bug.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cat.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cup.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dog.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fan.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/farm.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fox.mp3",
+            "count": 1
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hat.mp3",
+            "count": 1
+          }
+        ],
+        "dominantImageCount": 2
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 60,
+        "uniqueContentKeys": 60,
+        "topImages": [
+          {
+            "path": "/images/child-mode/initial-sounds/cat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/dog.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/fan.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/farm.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/fish.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hand.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/jam.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/log.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/ring.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/sun.png",
+            "count": 10
+          },
+          {
+            "path": "/media/initial-sounds/images/d/duck.webp",
+            "count": 10
+          },
+          {
+            "path": "/media/initial-sounds/images/j/jet.webp",
+            "count": 10
+          },
+          {
+            "path": "/media/initial-sounds/images/s/sock.webp",
+            "count": 10
+          },
+          {
+            "path": "/media/initial-sounds/images/w/web.webp",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/images/airplane.webp",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/images/alligator.webp",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/images/almond.webp",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/images/anteater.webp",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/images/arch.webp",
+            "count": 10
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/alligator.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/barn.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dog.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fan.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/farm.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jam.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jet.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/log.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/sun.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/web.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/words/duck.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/words/fish.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/words/hand.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/words/ring.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/words/sock.mp3",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/audio/airplane.mp3",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/audio/almond.mp3",
+            "count": 10
+          },
+          {
+            "path": "/media/vocabulary/audio/anteater.mp3",
+            "count": 10
+          }
+        ],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -40,
+        "dominantImageRepeatDelta": 8
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 26,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 28,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 31,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 23,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "skillId": "final_sounds",
+      "selectableQuestions": 379,
+      "static": {
+        "uniqueImages": 223,
+        "uniqueAudio": 219,
+        "topImages": [
+          {
+            "path": "/images/child-mode/cvc/fish.png",
+            "count": 4
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hat.png",
+            "count": 4
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/log.png",
+            "count": 4
+          },
+          {
+            "path": "/media/initial-sounds/images/w/web.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bag.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bed.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/brush.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bug.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/desk.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/dish.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/dog.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hand.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/jam.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/king.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/map.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/mug.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/pot.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/ram.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/ring.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/sun.png",
+            "count": 3
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/bed.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hat.mp3",
+            "count": 4
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/log.mp3",
+            "count": 4
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/web.mp3",
+            "count": 4
+          },
+          {
+            "path": "/audio/child-mode/words/fish.mp3",
+            "count": 4
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bag.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/brush.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bug.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cup.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dish.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dog.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jam.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/lid.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/map.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/mug.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pen.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pin.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pot.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/ram.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/red.mp3",
+            "count": 3
+          }
+        ],
+        "dominantImageCount": 4
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 60,
+        "uniqueContentKeys": 60,
+        "topImages": [
+          {
+            "path": "/images/child-mode/cvc/fish.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/digraphs/chair.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/digraphs/shell.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/digraphs/ship.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/digraphs/thumb.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/digraphs/whale.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bag.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bed.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/brush.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bug.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/cap.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/car.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/cat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/desk.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/dish.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/dog.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/fork.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hand.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hat.png",
+            "count": 10
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/bag.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bed.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/brush.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bug.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bus.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cap.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/car.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/chair.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cup.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dish.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dog.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fork.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hen.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jam.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jet.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/leaf.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/log.mp3",
+            "count": 10
+          }
+        ],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -163,
+        "dominantImageRepeatDelta": 6
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 148,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 40,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 112,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 79,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "skillId": "rhyming",
+      "selectableQuestions": 496,
+      "static": {
+        "uniqueImages": 421,
+        "uniqueAudio": 128,
+        "topImages": [
+          {
+            "path": "/images/assessment/rhyming/variants/ack/back-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/all/tall-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/all/wall-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/bug/bug-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/bun/bun-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/eep/sheep-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/fun/fun-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ick/kick-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ing/swing-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ing/wing-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/jug/jug-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/mug/mug-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/rug/rug-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/run/run-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/sun/sun-02.webp",
+            "count": 4
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ack/sack-02.webp",
+            "count": 3
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/cup/cup-02.webp",
+            "count": 3
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/eep/sleep-02.webp",
+            "count": 3
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ick/brick-02.webp",
+            "count": 3
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/pup/pup-02.webp",
+            "count": 3
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/pig.mp3",
+            "count": 9
+          },
+          {
+            "path": "/media/vocabulary/audio/tall.mp3",
+            "count": 8
+          },
+          {
+            "path": "/media/vocabulary/audio/wall.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/map.mp3",
+            "count": 7
+          },
+          {
+            "path": "/media/vocabulary/audio/hang.mp3",
+            "count": 7
+          },
+          {
+            "path": "/media/vocabulary/audio/light.mp3",
+            "count": 7
+          },
+          {
+            "path": "/media/vocabulary/audio/swing.mp3",
+            "count": 7
+          },
+          {
+            "path": "/media/vocabulary/audio/wing.mp3",
+            "count": 7
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/ball.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bell.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cap.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/lip.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/mop.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/nap.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/tap.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/phrases/sip.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bat.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bed.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cat.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dig.mp3",
+            "count": 5
+          }
+        ],
+        "dominantImageCount": 4
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 56,
+        "uniqueContentKeys": 60,
+        "topImages": [
+          {
+            "path": "/images/assessment/rhyming/variants/ack/back-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ack/sack-03.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ad/bad-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ad/dad-04.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ad/mad-05.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ad/pad-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ad/sad-03.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ag/bag-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ag/rag-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ag/tag-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ag/wag-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ake/cake-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/ake/snake-03.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/all/ball-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/all/fall-04.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/all/tall-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/all/wall-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/am/dam-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/am/ham-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/rhyming/variants/am/jam-02.webp",
+            "count": 10
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/pig.mp3",
+            "count": 20
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/shell.mp3",
+            "count": 20
+          },
+          {
+            "path": "/media/vocabulary/audio/hang.mp3",
+            "count": 20
+          },
+          {
+            "path": "/media/vocabulary/audio/tall.mp3",
+            "count": 20
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bag.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/ball.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bell.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bird.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bug.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bun.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cake.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/car.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/chair.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cot.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dot.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fan.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/flame.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/ham.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hot.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jam.mp3",
+            "count": 10
+          }
+        ],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -361,
+        "dominantImageRepeatDelta": 6
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 252,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 75,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 111,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 12,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/media/vocabulary/audio/tall.mp3",
+              "count": 2
+            },
+            {
+              "value": "/media/vocabulary/audio/hang.mp3",
+              "count": 2
+            },
+            {
+              "value": "/audio/child-mode/clean-human/words/shell.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 58,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 14,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [
+            {
+              "value": "/audio/child-mode/clean-human/words/pig.mp3",
+              "count": 2
+            }
+          ],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "skillId": "cvc_short_vowels",
+      "selectableQuestions": 394,
+      "static": {
+        "uniqueImages": 109,
+        "uniqueAudio": 100,
+        "topImages": [
+          {
+            "path": "/images/child-mode/initial-sounds/dog.png",
+            "count": 8
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/log.png",
+            "count": 8
+          },
+          {
+            "path": "/media/initial-sounds/images/c/cup.webp",
+            "count": 8
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bat.png",
+            "count": 7
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hat.png",
+            "count": 7
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/pot.png",
+            "count": 7
+          },
+          {
+            "path": "/images/child-mode/short-i/fin.png",
+            "count": 7
+          },
+          {
+            "path": "/images/child-mode/short-i/sit.png",
+            "count": 7
+          },
+          {
+            "path": "/media/initial-sounds/images/p/pen.webp",
+            "count": 7
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/man.png",
+            "count": 6
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/ram.png",
+            "count": 6
+          },
+          {
+            "path": "/images/child-mode/short-e/red.png",
+            "count": 6
+          },
+          {
+            "path": "/images/child-mode/short-i/lid.png",
+            "count": 6
+          },
+          {
+            "path": "/images/child-mode/short-u/mud.png",
+            "count": 6
+          },
+          {
+            "path": "/media/initial-sounds/images/w/wig.webp",
+            "count": 6
+          },
+          {
+            "path": "/images/child-mode/cvc/dot.png",
+            "count": 5
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bag.png",
+            "count": 5
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bed.png",
+            "count": 5
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/cat.png",
+            "count": 5
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/map.png",
+            "count": 5
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/bag.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cup.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dog.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/log.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/sun.mp3",
+            "count": 8
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bat.mp3",
+            "count": 7
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fin.mp3",
+            "count": 7
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hat.mp3",
+            "count": 7
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jam.mp3",
+            "count": 7
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pen.mp3",
+            "count": 7
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pot.mp3",
+            "count": 7
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/sit.mp3",
+            "count": 7
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/lid.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/man.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/mud.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/mug.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pig.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/ram.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/red.mp3",
+            "count": 6
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/wig.mp3",
+            "count": 6
+          }
+        ],
+        "dominantImageCount": 8
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 58,
+        "uniqueContentKeys": 60,
+        "topImages": [
+          {
+            "path": "/images/assessment/rhyming/variants/bun/bun-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/cvc/dot.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/cvc/dug.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/cvc/pan.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bag.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bed.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/cap.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/cat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/dog.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/gum.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hot.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/jam.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/jug.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/log.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/man.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/map.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/mug.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/nap.png",
+            "count": 10
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/bag.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bed.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bun.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cap.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cot.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cup.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dog.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dot.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dug.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fin.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/ham.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hot.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jam.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jet.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/leg.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/lid.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/log.mp3",
+            "count": 10
+          }
+        ],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -49,
+        "dominantImageRepeatDelta": 2
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 132,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 126,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 81,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 55,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 13,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "skillId": "short_vowel_discrimination",
+      "selectableQuestions": 230,
+      "static": {
+        "uniqueImages": 152,
+        "uniqueAudio": 139,
+        "topImages": [
+          {
+            "path": "/images/child-mode/short-u/mud.png",
+            "count": 5
+          },
+          {
+            "path": "/images/child-mode/short-o/mop.png",
+            "count": 4
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bug.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/log.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/short-e/pen.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/short-e/red.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/short-i/fin.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/short-i/sit.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/short-u/cup.png",
+            "count": 3
+          },
+          {
+            "path": "/images/child-mode/blends/black.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/blends/drum.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/blends/flag.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/blends/frog.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/cvc/log.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/cvc/mug.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/digraphs/ship.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bed.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bell.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/brush.png",
+            "count": 2
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/cat.png",
+            "count": 2
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/words/cup.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/log.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/mud.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pen.mp3",
+            "count": 5
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/mop.mp3",
+            "count": 4
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/mug.mp3",
+            "count": 4
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bug.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/dog.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fin.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/net.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pig.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/pot.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/red.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/sit.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/sun.mp3",
+            "count": 3
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bag.mp3",
+            "count": 2
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bed.mp3",
+            "count": 2
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bell.mp3",
+            "count": 2
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/brush.mp3",
+            "count": 2
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/cat.mp3",
+            "count": 2
+          }
+        ],
+        "dominantImageCount": 5
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 60,
+        "uniqueContentKeys": 60,
+        "topImages": [
+          {
+            "path": "/images/child-mode/blends/black.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/blends/flag.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/cvc/bad.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/cvc/bag.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/cvc/pan.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/bell.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/clap.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/crab.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/desk.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/fan.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/ham.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hen.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/hit.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/jam.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/lamp.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/man.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/mat.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/nap.png",
+            "count": 10
+          },
+          {
+            "path": "/images/child-mode/initial-sounds/ram.png",
+            "count": 10
+          }
+        ],
+        "topAudio": [
+          {
+            "path": "/audio/child-mode/clean-human/phrases/sip.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bag.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/bell.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/clap.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/crab.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fan.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/fin.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/flag.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/ham.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hen.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/hit.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jam.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/jet.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/leg.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/lid.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/man.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/mat.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/nap.mp3",
+            "count": 10
+          },
+          {
+            "path": "/audio/child-mode/clean-human/words/net.mp3",
+            "count": 10
+          }
+        ],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -92,
+        "dominantImageRepeatDelta": 5
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 39,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 47,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 44,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 100,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 15,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "skillId": "hfw_1_25",
+      "selectableQuestions": 100,
+      "static": {
+        "uniqueImages": 100,
+        "uniqueAudio": 0,
+        "topImages": [
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/a-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/a-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/a-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/a-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/and-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/and-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/and-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/and-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/big-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/big-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/big-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/big-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/can-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/can-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/can-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/can-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/come-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/come-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/come-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/come-l2p2-02.webp",
+            "count": 1
+          }
+        ],
+        "topAudio": [],
+        "dominantImageCount": 1
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 0,
+        "uniqueContentKeys": 50,
+        "topImages": [
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/a-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/a-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/a-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/a-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/and-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/and-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/and-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/and-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/big-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/big-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/can-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/can-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/come-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/come-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/for-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/for-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/go-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/go-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/i-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-1-25/i-l1p2-02.webp",
+            "count": 10
+          }
+        ],
+        "topAudio": [],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -40,
+        "dominantImageRepeatDelta": 9
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "skillId": "hfw_26_50",
+      "selectableQuestions": 100,
+      "static": {
+        "uniqueImages": 100,
+        "uniqueAudio": 0,
+        "topImages": [
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/all-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/all-l1p2-03.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/all-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/all-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/are-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/are-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/are-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/are-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/as-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/as-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/as-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/as-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/be-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/be-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/be-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/be-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/but-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/but-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/but-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/but-l2p2-02.webp",
+            "count": 1
+          }
+        ],
+        "topAudio": [],
+        "dominantImageCount": 1
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 0,
+        "uniqueContentKeys": 50,
+        "topImages": [
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/all-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/all-l1p2-03.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/all-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/all-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/are-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/are-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/are-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/are-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/as-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/as-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/be-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/be-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/but-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/but-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/came-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/came-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/down-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/down-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/down-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-26-50/down-l2p2-02.webp",
+            "count": 10
+          }
+        ],
+        "topAudio": [],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -40,
+        "dominantImageRepeatDelta": 9
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "skillId": "hfw_51_75",
+      "selectableQuestions": 100,
+      "static": {
+        "uniqueImages": 100,
+        "uniqueAudio": 0,
+        "topImages": [
+          {
+            "path": "/images/assessment/hfw/has.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/after-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/after-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/after-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/after-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/again-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/again-l1p2-03.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/again-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/again-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/an-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/an-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/an-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/an-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/any-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/any-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/any-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/any-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/around-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/around-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/around-l2p1-02.webp",
+            "count": 1
+          }
+        ],
+        "topAudio": [],
+        "dominantImageCount": 1
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 0,
+        "uniqueContentKeys": 50,
+        "topImages": [
+          {
+            "path": "/images/assessment/hfw/has.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/after-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/after-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/after-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/after-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/again-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/again-l1p2-03.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/again-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/again-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/an-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/an-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/an-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/an-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/any-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/any-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/any-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/any-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/around-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/around-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-51-75/around-l2p1-02.webp",
+            "count": 10
+          }
+        ],
+        "topAudio": [],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -40,
+        "dominantImageRepeatDelta": 9
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    },
+    {
+      "skillId": "hfw_76_100",
+      "selectableQuestions": 100,
+      "static": {
+        "uniqueImages": 100,
+        "uniqueAudio": 0,
+        "topImages": [
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/just-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/just-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/just-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/just-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/know-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/know-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/know-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/know-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/let-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/let-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/let-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/let-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/live-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/live-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/live-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/live-l2p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/made-l1p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/made-l1p2-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/made-l2p1-02.webp",
+            "count": 1
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/made-l2p2-02.webp",
+            "count": 1
+          }
+        ],
+        "topAudio": [],
+        "dominantImageCount": 1
+      },
+      "dynamic": {
+        "simulatedSessions": 10,
+        "simulatedQuestionUses": 600,
+        "uniqueImages": 60,
+        "uniqueAudio": 0,
+        "uniqueContentKeys": 50,
+        "topImages": [
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/just-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/just-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/just-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/just-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/know-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/know-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/know-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/know-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/let-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/let-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/let-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/let-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/live-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/live-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/live-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/live-l2p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/made-l1p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/made-l1p2-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/made-l2p1-02.webp",
+            "count": 10
+          },
+          {
+            "path": "/images/assessment/hfw/variants/hfw-76-100/made-l2p2-02.webp",
+            "count": 10
+          }
+        ],
+        "topAudio": [],
+        "dominantImageCount": 10
+      },
+      "improvement": {
+        "uniqueImagesDelta": -40,
+        "dominantImageRepeatDelta": 9
+      },
+      "phaseResults": [
+        {
+          "sessionIndex": 0,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 0,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 1,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 2,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 3,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 4,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 5,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 6,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 7,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 8,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L1P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P1",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        },
+        {
+          "sessionIndex": 9,
+          "phase": "L2P2",
+          "poolSize": 25,
+          "selected": 15,
+          "uniqueImages": 15,
+          "uniqueAudio": 0,
+          "uniqueContentKeys": 15,
+          "repeatedImages": [],
+          "repeatedAudio": [],
+          "repeatedContent": []
+        }
+      ],
+      "failures": []
+    }
+  ],
+  "failures": []
+}

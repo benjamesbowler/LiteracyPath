@@ -59,7 +59,9 @@
     "check:answer-choice-image-completeness": "node tools/checkAnswerChoiceImageCompleteness.js",
     "check:grammar-image-coverage": "node tools/checkGrammarImageCoverage.js",
     "check:second-block-skill-depth": "node tools/checkSecondBlockSkillMediaDepth.js",
-    "check:k3-word-bank-media": "node tools/checkK3WordBankMediaCoverage.js"
+    "check:k3-word-bank-media": "node tools/checkK3WordBankMediaCoverage.js",
+    "audit:assessment-media-registry": "node tools/auditAssessmentMediaRegistry.js",
+    "check:assessment-runtime-variation": "node tools/checkAssessmentRuntimeVariation.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

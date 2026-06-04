@@ -1,6 +1,7 @@
 import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
 import { getImportedVocabularyMedia } from "./importedVocabularyMediaManifest.js";
+import { resolveQuestionMediaDynamically } from "./assessmentMediaPicker.js";
 import { getLexiconEntry } from "../content/lexicon/masterWordLexicon.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 
@@ -400,5 +401,5 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     }
   }
 
-  return enriched;
+  return resolveQuestionMediaDynamically(enriched, { skillId });
 }
