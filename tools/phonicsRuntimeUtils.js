@@ -30,6 +30,8 @@ import { questionBankExpansion13 } from "../src/data/questionBankExpansion13.js"
 import { questionBankExpansion14 } from "../src/data/questionBankExpansion14.js";
 import { generatedEarlySkillQuestions } from "../src/data/generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
+import { firstTenSkillTopUpQuestions } from "../src/data/generated/firstTenSkillTopUpQuestions.generated.js";
+import { secondBlockSkillTopUpQuestions } from "../src/data/generated/secondBlockSkillTopUpQuestions.generated.js";
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAssessmentQuestions.generated.js";
 import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsAssessmentQuestions.generated.js";
@@ -87,6 +89,8 @@ const questionBanks = [
   ["safeContentExpansionQuestions", safeContentExpansionQuestions],
   ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
+  ["firstTenSkillTopUpQuestions", firstTenSkillTopUpQuestions],
+  ["secondBlockSkillTopUpQuestions", secondBlockSkillTopUpQuestions],
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
   ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
@@ -308,7 +312,9 @@ function keepRuntimeQuestion(question = {}) {
   if (!REPLACED_LEGACY_ASSESSMENT_SKILLS.has(skillId)) return true;
   return question._source === "skillLevelGapQuestions" ||
     question._source === "assessmentQaReplacementQuestions" ||
+    question._source === "secondBlockSkillTopUpQuestions" ||
     question.source === "assessment_qa_replacement_2026_06" ||
+    question.source === "second_block_k3_topup_2026_06" ||
     question.source === "skill_level_depth_gap_generator" ||
     question.tags?.includes("generated-gap");
 }

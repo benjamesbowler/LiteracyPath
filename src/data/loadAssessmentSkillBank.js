@@ -41,6 +41,8 @@ import { qbFillGaps } from "./qbFillGaps.js";
 import { generatedQuestions } from "./generatedQuestions.js";
 import { generatedEarlySkillQuestions } from "./generated/earlySkillQuestions.generated.js";
 import { hfwAssessmentQuestions } from "./generated/hfwAssessmentQuestions.generated.js";
+import { firstTenSkillTopUpQuestions } from "./generated/firstTenSkillTopUpQuestions.generated.js";
+import { secondBlockSkillTopUpQuestions } from "./generated/secondBlockSkillTopUpQuestions.generated.js";
 import { blendsAssessmentQuestions } from "./generated/blendsAssessmentQuestions.generated.js";
 import { digraphsAssessmentQuestions } from "./generated/digraphsAssessmentQuestions.generated.js";
 import { longVowelsAssessmentQuestions } from "./generated/longVowelsAssessmentQuestions.generated.js";
@@ -147,6 +149,8 @@ const QUESTION_BANKS = [
   ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
   ["safeContentExpansionQuestions", safeContentExpansionQuestions],
   ["hfwAssessmentQuestions", hfwAssessmentQuestions],
+  ["firstTenSkillTopUpQuestions", firstTenSkillTopUpQuestions],
+  ["secondBlockSkillTopUpQuestions", secondBlockSkillTopUpQuestions],
   ["blendsAssessmentQuestions", blendsAssessmentQuestions],
   ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
   ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],

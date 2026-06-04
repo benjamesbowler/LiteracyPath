@@ -55,6 +55,7 @@
     "audit:lexicon": "node scripts/auditLexicon.js",
     "check:answer-choice-image-completeness": "node tools/checkAnswerChoiceImageCompleteness.js",
     "check:grammar-image-coverage": "node tools/checkGrammarImageCoverage.js",
+    "check:second-block-skill-depth": "node tools/checkSecondBlockSkillMediaDepth.js",
     "check:k3-word-bank-media": "node tools/checkK3WordBankMediaCoverage.js"
   },
   "dependencies": {
