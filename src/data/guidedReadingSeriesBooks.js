@@ -67,6 +67,7 @@ const createBobAndNanBook = ({
   teacherPreviewOnly: false,
   source: "bob_and_nan_level_a_pack_2026_05_26",
   coverImage: coverPath(bookNumber),
+  fullBookAudio: `/guided-reading/series/bob-and-nan/book-${String(bookNumber).padStart(2, "0")}/audio/full-book.mp3`,
   targetSkills: ["level-a", "early-fiction", "one-sentence-pages"],
   theme,
   characterReference: {
