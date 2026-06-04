@@ -29,7 +29,10 @@ const GRAMMAR_ALLOWED_FORMATS = new Set([
   "GRAMMAR_SENTENCE_FIT"
 ]);
 
-const GRAMMAR_REPLACEMENT_SOURCE = "grammar_replacement_2026_06";
+const GRAMMAR_REPLACEMENT_SOURCES = new Set([
+  "grammar_replacement_2026_06",
+  "skill_word_bank_workbook"
+]);
 
 export const APPROVED_SIGHT_WORDS = new Set([
   "a", "again", "after", "all", "am", "an", "and", "any", "are", "around", "as", "ask", "asked", "away",
@@ -180,7 +183,7 @@ function getGrammarRuntimeEligibilityIssues(question = {}, expectedPart = "") {
   const choices = Array.isArray(question.choices) ? question.choices : [];
   const answer = String(question.answer || question.correctAnswer || "").toLowerCase();
 
-  if (question.source !== GRAMMAR_REPLACEMENT_SOURCE) issues.push("Grammar skills must use the replacement bank");
+  if (!GRAMMAR_REPLACEMENT_SOURCES.has(question.source)) issues.push("Grammar skills must use the replacement bank");
   if (!GRAMMAR_ALLOWED_FORMATS.has(format)) issues.push(`${format} is not an allowed grammar replacement format`);
   if (question.partOfSpeech !== expectedPart) issues.push(`expected ${expectedPart} question`);
   if (!answer || !choices.map(choice => String(choice).toLowerCase()).includes(answer)) issues.push("correct answer is missing from choices");

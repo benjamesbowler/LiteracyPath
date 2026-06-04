@@ -38,6 +38,7 @@ import { digraphsAssessmentQuestions } from "../src/data/generated/digraphsAsses
 import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsAssessmentQuestions.generated.js";
 import { vowelTeamsVarietyQuestions } from "../src/data/generated/vowelTeamsVarietyQuestions.generated.js";
 import { grammarAssessmentQuestions } from "../src/data/generated/grammarAssessmentQuestions.generated.js";
+import { languageSkillQuestions } from "../src/data/generated/languageSkillQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "../src/data/generated/hfwLevel2Questions.generated.js";
 import { assessmentQaReplacementQuestions } from "../src/data/assessmentQaReplacementQuestions.js";
@@ -99,6 +100,7 @@ const questionBanks = [
   ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
   ["vowelTeamsVarietyQuestions", vowelTeamsVarietyQuestions],
   ["grammarAssessmentQuestions", grammarAssessmentQuestions],
+  ["languageSkillQuestions", languageSkillQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -316,8 +318,10 @@ function keepRuntimeQuestion(question = {}) {
   return question._source === "skillLevelGapQuestions" ||
     question._source === "assessmentQaReplacementQuestions" ||
     question._source === "secondBlockSkillTopUpQuestions" ||
+    question._source === "languageSkillQuestions" ||
     question.source === "assessment_qa_replacement_2026_06" ||
     question.source === "second_block_k3_topup_2026_06" ||
+    question.source === "skill_word_bank_workbook" ||
     question.source === "skill_level_depth_gap_generator" ||
     question.tags?.includes("generated-gap");
 }
@@ -527,7 +531,9 @@ export function getCoreSkillId(question = {}) {
   if (id === "adjectives" || label.includes("adjective")) return "adjectives";
   if (id === "prepositions" || id === "prepositions_of_place" || label.includes("preposition")) return "prepositions";
   if (id === "plurals" || label.includes("plural")) return "plurals";
+  if (id === "prefixes_suffixes" || id === "prefix_suffix" || label.includes("prefix") || label.includes("suffix")) return "prefixes_suffixes";
   if (id === "antonyms_synonyms" || label.includes("antonym") || label.includes("synonym")) return "antonyms_synonyms";
+  if (id === "homophones_homonyms" || id === "homophones" || label.includes("homophone") || label.includes("homonym")) return "homophones_homonyms";
   return "";
 }
 
@@ -672,7 +678,9 @@ export function selectableRuntimeQuestionsForSkill(skillId) {
     "adjectives",
     "prepositions",
     "plurals",
-    "antonyms_synonyms"
+    "prefixes_suffixes",
+    "antonyms_synonyms",
+    "homophones_homonyms"
   ].includes(skillId)) {
     return buildRuntimeQuestionsForSkill(skillId).filter(question =>
       !question.filterReason || question.filterReason.startsWith("missing optional audio")

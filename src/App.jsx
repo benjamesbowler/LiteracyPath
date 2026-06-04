@@ -122,6 +122,7 @@ import { digraphsAssessmentQuestions } from "./data/generated/digraphsAssessment
 import { longVowelsAssessmentQuestions } from "./data/generated/longVowelsAssessmentQuestions.generated.js";
 import { vowelTeamsVarietyQuestions } from "./data/generated/vowelTeamsVarietyQuestions.generated.js";
 import { grammarAssessmentQuestions } from "./data/generated/grammarAssessmentQuestions.generated.js";
+import { languageSkillQuestions } from "./data/generated/languageSkillQuestions.generated.js";
 import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
 import { assessmentQaReplacementQuestions } from "./data/assessmentQaReplacementQuestions";
@@ -1374,7 +1375,8 @@ const GENERATED_REPLACEMENT_SOURCE = "skill_level_depth_gap_generator";
 const APPROVED_REPLACEMENT_SOURCES = new Set([
   GENERATED_REPLACEMENT_SOURCE,
   "assessment_qa_replacement_2026_06",
-  "high_quality_comprehension_replacement_2026_06"
+  "high_quality_comprehension_replacement_2026_06",
+  "skill_word_bank_workbook"
 ]);
 const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
   "prepositions_of_place",
@@ -1432,6 +1434,7 @@ const allQuestions = dedupeQuestionsByRuntimeSignature([
   ...longVowelsAssessmentQuestions,
   ...vowelTeamsVarietyQuestions,
   ...grammarAssessmentQuestions,
+  ...languageSkillQuestions,
   ...templateQuestions,
   ...templateExpansion,
   ...templateExpansion2,

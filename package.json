@@ -61,7 +61,10 @@
     "check:second-block-skill-depth": "node tools/checkSecondBlockSkillMediaDepth.js",
     "check:k3-word-bank-media": "node tools/checkK3WordBankMediaCoverage.js",
     "audit:assessment-media-registry": "node tools/auditAssessmentMediaRegistry.js",
-    "check:assessment-runtime-variation": "node tools/checkAssessmentRuntimeVariation.js"
+    "check:assessment-runtime-variation": "node tools/checkAssessmentRuntimeVariation.js",
+    "import:skill-word-bank": "node tools/importSkillWordBankWorkbook.js",
+    "audit:skill-word-bank": "node tools/auditSkillWordBankWorkbook.js",
+    "audit:skill-question-depth": "node tools/auditSkillQuestionDepthFromWorkbook.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

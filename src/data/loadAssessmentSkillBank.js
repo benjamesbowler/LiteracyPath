@@ -48,6 +48,7 @@ import { digraphsAssessmentQuestions } from "./generated/digraphsAssessmentQuest
 import { longVowelsAssessmentQuestions } from "./generated/longVowelsAssessmentQuestions.generated.js";
 import { vowelTeamsVarietyQuestions } from "./generated/vowelTeamsVarietyQuestions.generated.js";
 import { grammarAssessmentQuestions } from "./generated/grammarAssessmentQuestions.generated.js";
+import { languageSkillQuestions } from "./generated/languageSkillQuestions.generated.js";
 import { skillLevelGapQuestions } from "./generated/skillLevelGapQuestions.generated.js";
 import { hfwLevel2Questions } from "./generated/hfwLevel2Questions.generated.js";
 import { assessmentQaReplacementQuestions } from "./assessmentQaReplacementQuestions.js";
@@ -156,6 +157,7 @@ const QUESTION_BANKS = [
   ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
   ["vowelTeamsVarietyQuestions", vowelTeamsVarietyQuestions],
   ["grammarAssessmentQuestions", grammarAssessmentQuestions],
+  ["languageSkillQuestions", languageSkillQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
