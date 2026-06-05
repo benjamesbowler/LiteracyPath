@@ -37,6 +37,7 @@ function cleanHumanMorphologyAudioPath(file) {
 
 function cleanAudioPath(key, category, fallbackPath) {
   const cleanKey = String(key || "").replace(/^hfw:/, "");
+  if (blockedCleanAudioKeys.has(cleanKey)) return fallbackPath;
   const clean = getKimiCleanAudio(cleanKey);
   if (!clean) return fallbackPath;
   if (category === "hfw" && clean.category !== "hfw") return fallbackPath;
@@ -44,6 +45,8 @@ function cleanAudioPath(key, category, fallbackPath) {
   if (category === "words" && clean.category !== "words") return fallbackPath;
   return clean.audio || fallbackPath;
 }
+
+const blockedCleanAudioKeys = new Set(["zip"]);
 
 function approvedPreference({ key, word = key, category, fallbackPath, source, notes, deprecatedAudioPaths = [], reviewNeededPaths = [] }) {
   const preferredAudioPath = cleanAudioPath(key, category, fallbackPath);
@@ -203,17 +206,25 @@ const activeReviewNeededWordAudio = {
     reviewNeededPaths: [wordAudioPath("bud-kimi3")],
     source: "Bud Audio File.zip import",
     notes: "Clean bud audio imported on 2026-05-28. Bud image remains blocked from live assessment use until a clear unopened flower bud replacement is QA-approved."
+  },
+  zip: {
+    fallbackPath: "/audio/vocabulary/zip.mp3",
+    deprecatedAudioPaths: [
+      wordAudioPath("zip"),
+      "/audio/child-mode/clean-human/words/zip.mp3",
+      "/media/vocabulary/audio/zip.mp3"
+    ],
+    reviewNeededPaths: [
+      wordAudioPath("zip"),
+      "/audio/child-mode/clean-human/words/zip.mp3",
+      "/media/vocabulary/audio/zip.mp3"
+    ],
+    source: "Kimi_Agent_These Still Need Finishing import",
+    notes: "Approved replacement imported on 2026-06-05. Older zip recordings remain quarantined after live review found separated-letter pronunciation."
   }
 };
 
-const blockedWordAudio = {
-  zip: {
-    fallbackPath: wordAudioPath("zip"),
-    reviewNeededPaths: ["/audio/child-mode/clean-human/words/zip.mp3"],
-    source: "live assessment audio review",
-    notes: "Blocked from active Teacher Assessment after live testing showed the word audio was pronounced as separated letters instead of the natural word."
-  }
-};
+const blockedWordAudio = {};
 
 const blockedHfwAudio = {};
 
