@@ -65,6 +65,7 @@ function makeVisualChoiceQuestion({
     questionType: "visual_card_choice",
     templateType: "GRAMMAR_IMAGE_CHOICE",
     formatType: "GRAMMAR_IMAGE_CHOICE",
+    runtimeTemplateKey: `GRAMMAR_IMAGE_CHOICE_${skillId}_${phase}_${String(answer || "").replace(/[^a-z0-9]+/gi, "_").replace(/^_+|_+$/g, "").toLowerCase()}_${cards.map(card => card.value).join("_").replace(/[^a-z0-9]+/gi, "_").replace(/^_+|_+$/g, "").toLowerCase()}`,
     prompt,
     question: prompt,
     targetWord: answer,

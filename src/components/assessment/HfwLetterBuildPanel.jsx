@@ -6,8 +6,9 @@ function getHfwLetterBuildTarget(question = {}) {
     .toLowerCase();
 }
 
-export function HfwLetterBuildPanel({ currentQuestion, answerQuestion }) {
+export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
+  const [isPlayingSentence, setIsPlayingSentence] = useState(false);
   const targetWord = getHfwLetterBuildTarget(currentQuestion);
   const targetLength = targetWord.length || Number(currentQuestion.blankSlots) || 0;
   const rawTiles = currentQuestion.letterTiles || currentQuestion.soundTiles || [];
@@ -21,6 +22,8 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion }) {
   const [sentenceBefore, sentenceAfter = ""] = sentence.includes("___")
     ? sentence.split("___")
     : ["", sentence];
+  const sentenceAudioText = String(currentQuestion.sentenceAudio || currentQuestion.sentenceText || currentQuestion.fullSentence || currentQuestion.spokenPrompt || "")
+    .trim();
 
   useEffect(() => {
     setSelectedTiles([]);
@@ -47,8 +50,30 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion }) {
     addTile(tiles[tileIndex], tileIndex);
   }
 
+  async function playSentence() {
+    if (!sentenceAudioText || !speakText || isPlayingSentence) return;
+    setIsPlayingSentence(true);
+    try {
+      await speakText(sentenceAudioText, "", { allowBrowserFallback: true });
+    } finally {
+      setTimeout(() => setIsPlayingSentence(false), 800);
+    }
+  }
+
   return (
     <div className="ixl-template-panel hfw-letter-build-panel">
+      {sentenceAudioText && (
+        <button
+          className="assessment-audio-button mini-audio-button hfw-sentence-audio-button"
+          disabled={isPlayingSentence}
+          onClick={playSentence}
+          type="button"
+          aria-label={isPlayingSentence ? "Sentence playing" : "Listen to sentence"}
+        >
+          <span aria-hidden="true">{isPlayingSentence ? "…" : "🔊"}</span>
+        </button>
+      )}
+
       <div
         className="hfw-letter-build-sentence"
         onDragOver={event => event.preventDefault()}

@@ -95,7 +95,7 @@ function hasInteractiveBuildTiles(question = {}) {
     ...asArray(question.letterTiles),
     ...asArray(question.soundTiles)
   ].filter(value => value !== undefined && value !== null && String(value).trim() !== "");
-  return format === "HFW_LETTER_BUILD" && tiles.length > 0;
+  return (format === "HFW_LETTER_BUILD" || format.startsWith("HFW_SENTENCE_SPELL")) && tiles.length > 0;
 }
 
 function getExplicitLevel(question = {}) {

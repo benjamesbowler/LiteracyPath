@@ -30,8 +30,35 @@ export function createAssessmentSessionMediaUsage(seed = {}) {
     audioPaths: ensureSet(seed.audioPaths),
     targetWords: ensureSet(seed.targetWords),
     contentKeys: ensureSet(seed.contentKeys),
+    templateKeys: ensureSet(seed.templateKeys),
+    promptKeys: ensureSet(seed.promptKeys),
     correctQuestionIds: ensureSet(seed.correctQuestionIds)
   };
+}
+
+function getQuestionTemplateKey(question = {}) {
+  return String(question.runtimeTemplateKey || question.templateKey || question.templateType || question.formatType || question.questionType || "")
+    .toLowerCase()
+    .replace(/\s+/g, "_")
+    .trim();
+}
+
+function getQuestionPromptKey(question = {}) {
+  const promptText = String(question.prompt || question.question || question.sentence || "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+  const mediaContext = [
+    question.spokenPrompt,
+    question.audioText,
+    currentImagePath(question)
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+  return [promptText, mediaContext].filter(Boolean).join(" :: ");
 }
 
 export function getQuestionMediaContentKey(question = {}) {
@@ -133,10 +160,14 @@ function markUsed(usage, question = {}, resolved = {}) {
   const audio = resolved.audio?.path || currentAudioPath(question);
   const target = inferAssessmentQuestionTargetWord(question);
   const key = getQuestionMediaContentKey(question);
+  const template = getQuestionTemplateKey(question);
+  const prompt = getQuestionPromptKey(question);
   if (image) usage.imagePaths.add(image);
   if (audio) usage.audioPaths.add(audio);
   if (target) usage.targetWords.add(target);
   if (key) usage.contentKeys.add(key);
+  if (template) usage.templateKeys.add(template);
+  if (prompt) usage.promptKeys.add(prompt);
 }
 
 export function resolveQuestionMediaDynamically(question = {}, context = {}) {

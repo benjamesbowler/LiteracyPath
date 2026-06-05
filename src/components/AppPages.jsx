@@ -603,6 +603,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
       <HfwLetterBuildPanel
         currentQuestion={currentQuestion}
         answerQuestion={answerQuestion}
+        speakText={speakText}
       />
     );
   }
@@ -789,7 +790,7 @@ function isHfwAudioFindWordQuestion(question = {}) {
 function isHfwLetterBuildQuestion(question = {}) {
   const skillId = String(question?.skillId || "").toLowerCase();
   const format = String(question?.formatType || question?.templateType || "").toUpperCase();
-  return skillId.startsWith("hfw_") && format === "HFW_LETTER_BUILD";
+  return skillId.startsWith("hfw_") && (format === "HFW_LETTER_BUILD" || format.startsWith("HFW_SENTENCE_SPELL"));
 }
 
 function isGrammarSentenceFitQuestion(question = {}) {

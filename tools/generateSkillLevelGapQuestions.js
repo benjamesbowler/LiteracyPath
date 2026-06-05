@@ -743,7 +743,10 @@ function makePluralQuestions(skillName, level, needed) {
     answerOptions: choiceList(plural, [singular, `${singular}s`, `${singular}es`, `${singular}ies`]),
     targetWord: plural,
     itemType: "plural",
-    itemKey: singular
+    itemKey: singular,
+    extra: {
+      runtimeTemplateKey: `PLURAL_SPELLING_CONTEXT_${level}_${slug(singular)}_${slug(plural)}`
+    }
   }));
 }
 
@@ -940,7 +943,10 @@ function makeMeaningQuestions(skillId, skillName, level, needed, rows) {
     answerOptions: choiceList(answer, choices.filter(choice => choice !== answer)),
     targetWord: target,
     itemType: skillId,
-    itemKey: target
+    itemKey: target,
+    extra: {
+      runtimeTemplateKey: `${skillId}_${level}_${slug(target)}_${slug(answer)}_${index + 1}`
+    }
   }));
 }
 

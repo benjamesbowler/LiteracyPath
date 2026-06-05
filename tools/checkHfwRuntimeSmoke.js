@@ -7,6 +7,13 @@ import {
   loadHfwAssessmentBank
 } from "../src/data/loadAssessmentSkillBank.js";
 import { HFW_ALLOWED_FORMATS, getHfwRuntimeEligibilityIssues } from "../src/data/hfwRuntimeEligibility.js";
+import {
+  getHfwAllowedFormatsForPhase,
+  hfwPhaseKey,
+  isHfwClozeFormat,
+  isHfwDirectRecognitionFormat,
+  isHfwSentenceSpellFormat
+} from "../src/data/hfwAssessmentFormatConfig.js";
 import { getHfwBandWords, normalizeHfwSkillId } from "../src/data/highFrequencyWordBands.js";
 import {
   buildRuntimeQuestionsForSkill,
@@ -23,8 +30,8 @@ import {
 const HFW_SKILL_IDS = ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"];
 const REPORT_PATH = path.join(repoRoot, "docs/validation/hfw_runtime_smoke_check.md");
 const ROUND_LENGTH = 15;
-const AUDIO_FIELD_NAMES = ["audioPath", "audioUrl", "audioText", "spokenPrompt"];
-const AUDIO_FORMAT_PATTERN = /AUDIO|LISTEN|SPEAKER/i;
+const AUDIO_PATH_FIELD_NAMES = ["audioPath", "audioUrl", "audio"];
+const AUDIO_FORMAT_PATTERN = /AUDIO|SPEAKER/i;
 
 const failures = [];
 const summaryRows = [];
@@ -48,6 +55,16 @@ function levelOf(question = {}) {
   if (Number.isFinite(level) && level >= 1) return level >= 2 ? 2 : 1;
   const difficulty = Number(question.difficultyLevel || question.difficulty || 0);
   return Number.isFinite(difficulty) && difficulty >= 2 ? 2 : 1;
+}
+
+function phaseOf(question = {}) {
+  const raw = question.phase || question.assessmentPhase || question.phaseNumber || question.stage || "";
+  const numeric = Number(raw);
+  if (numeric === 1 || numeric === 2) return numeric;
+  const text = String(raw || "").toLowerCase();
+  if (/phase_?2|p2/.test(text)) return 2;
+  if (/phase_?1|p1/.test(text)) return 1;
+  return 1;
 }
 
 function formatOf(question = {}) {
@@ -80,8 +97,17 @@ function answerOf(question = {}) {
   return normalizeWord(question.answer || question.correctAnswer || "");
 }
 
+function hasAmbiguousArticleChoices(question = {}) {
+  const optionSet = new Set(choicesOf(question).map(choiceValue).map(normalizeWord).filter(Boolean));
+  return (
+    (optionSet.has("the") && optionSet.has("a")) ||
+    (optionSet.has("the") && optionSet.has("an")) ||
+    (optionSet.has("a") && optionSet.has("an"))
+  );
+}
+
 function hasAudioField(question = {}) {
-  return AUDIO_FIELD_NAMES.some(field => Boolean(question[field]));
+  return AUDIO_PATH_FIELD_NAMES.some(field => Boolean(question[field]));
 }
 
 function hasAnswerOptionAudio(question = {}) {
@@ -95,52 +121,55 @@ function assert(condition, message) {
   if (!condition) failures.push(message);
 }
 
-function validateLevel1Question(skillId, question) {
+function validateQuestionChoices(skillId, question, phaseLabel) {
+  if (isHfwSentenceSpellFormat(formatOf(question))) return;
   const id = question.id || question.questionId || "(missing id)";
-  const format = formatOf(question);
   const choices = choicesOf(question).map(choiceValue).filter(Boolean);
-  const imagePath = imagePathOf(question);
-  const sentence = sentenceOf(question);
   const answer = answerOf(question);
   const targetWord = normalizeWord(question.targetWord || question.itemKey || answer);
 
-  assert(format === "HFW_IMAGE_CONTEXT_CLOZE", `${skillId}/${id}: Level 1 expected HFW_IMAGE_CONTEXT_CLOZE, found ${format}`);
-  assert(question.disableAudio === true, `${skillId}/${id}: Level 1 disableAudio must be true`);
-  assert(Boolean(imagePath), `${skillId}/${id}: Level 1 cloze missing image path`);
-  if (imagePath) assert(publicPathExists(imagePath), `${skillId}/${id}: Level 1 image does not exist: ${imagePath}`);
-  assert((sentence.match(/___/g) || []).length === 1, `${skillId}/${id}: Level 1 cloze needs exactly one blank`);
-  assert(choices.length === 4, `${skillId}/${id}: Level 1 cloze expected 4 choices, found ${choices.length}`);
-  assert(new Set(choices.map(normalizeWord)).size === choices.length, `${skillId}/${id}: Level 1 choices must be unique`);
-  assert(Boolean(answer), `${skillId}/${id}: Level 1 cloze missing answer`);
-  assert(choices.map(normalizeWord).includes(answer), `${skillId}/${id}: Level 1 answer "${answer}" is not in choices`);
-  assert(answer === targetWord, `${skillId}/${id}: Level 1 answer "${answer}" does not match target "${targetWord}"`);
+  assert(choices.length === 4, `${skillId}/${id}: ${phaseLabel} expected 4 choices, found ${choices.length}`);
+  assert(new Set(choices.map(normalizeWord)).size === choices.length, `${skillId}/${id}: ${phaseLabel} choices must be unique`);
+  assert(Boolean(answer), `${skillId}/${id}: ${phaseLabel} missing answer`);
+  assert(choices.map(normalizeWord).includes(answer), `${skillId}/${id}: ${phaseLabel} answer "${answer}" is not in choices`);
+  assert(answer === targetWord, `${skillId}/${id}: ${phaseLabel} answer "${answer}" does not match target "${targetWord}"`);
 }
 
-function validateLevel2Question(skillId, question) {
+function validateRuntimeQuestion(skillId, question) {
   const id = question.id || question.questionId || "(missing id)";
   const format = formatOf(question);
-  const tiles = Array.isArray(question.letterTiles) && question.letterTiles.length ? question.letterTiles : question.soundTiles;
   const imagePath = imagePathOf(question);
-  const targetWord = normalizeWord(question.targetWord || question.itemKey || question.answer || question.correctAnswer);
+  const level = levelOf(question);
+  const phase = phaseOf(question);
+  const phaseLabel = hfwPhaseKey(level, phase);
+  const allowedFormats = getHfwAllowedFormatsForPhase(level, phase);
 
-  assert(format === "HFW_LETTER_BUILD", `${skillId}/${id}: Level 2 expected HFW_LETTER_BUILD, found ${format}`);
-  assert(question.disableAudio === true, `${skillId}/${id}: Level 2 disableAudio must be true`);
-  assert(Boolean(imagePath), `${skillId}/${id}: Level 2 letter-build missing image path`);
-  if (imagePath) assert(publicPathExists(imagePath), `${skillId}/${id}: Level 2 image does not exist: ${imagePath}`);
-  assert(Array.isArray(tiles), `${skillId}/${id}: Level 2 letter-build missing tiles`);
-  assert((tiles || []).length === 12, `${skillId}/${id}: Level 2 letter-build expected 12 tiles, found ${(tiles || []).length}`);
-  assert(Boolean(targetWord), `${skillId}/${id}: Level 2 letter-build missing target word`);
+  assert(allowedFormats.includes(format), `${skillId}/${id}: ${phaseLabel} format ${format} is outside phase allowlist`);
+  assert(question.disableAudio === true, `${skillId}/${id}: ${phaseLabel} disableAudio must suppress target-word audio for ${format}`);
+  assert(Boolean(imagePath), `${skillId}/${id}: ${phaseLabel} missing image path`);
+  if (imagePath) assert(publicPathExists(imagePath), `${skillId}/${id}: ${phaseLabel} image does not exist: ${imagePath}`);
+  validateQuestionChoices(skillId, question, phaseLabel);
 
-  const available = (tiles || []).map(tile => String(tile || "").toLowerCase()).reduce((counts, letter) => {
-    counts[letter] = (counts[letter] || 0) + 1;
-    return counts;
-  }, {});
-  for (const letter of targetWord.split("")) {
-    if (!available[letter]) {
-      failures.push(`${skillId}/${id}: Level 2 letter-build tiles are missing "${letter}" for "${targetWord}"`);
-      break;
-    }
-    available[letter] -= 1;
+  if (isHfwDirectRecognitionFormat(format)) {
+    assert(phase === 1, `${skillId}/${id}: direct recognition format must be phase 1`);
+  }
+  if (isHfwClozeFormat(format)) {
+    const sentence = sentenceOf(question);
+    assert(level === 1, `${skillId}/${id}: cloze format must be level 1`);
+    assert((sentence.match(/___/g) || []).length === 1, `${skillId}/${id}: ${phaseLabel} cloze needs exactly one blank`);
+    assert(!hasAmbiguousArticleChoices(question), `${skillId}/${id}: ${phaseLabel} choices contain mutually plausible article answers`);
+  }
+  if (isHfwSentenceSpellFormat(format)) {
+    const sentence = String(question.visibleSentenceWithBlank || question.sentence || question.context || "");
+    const audioText = String(question.sentenceAudio || question.sentenceText || question.fullSentence || question.spokenPrompt || "");
+    const tiles = Array.isArray(question.letterTiles) && question.letterTiles.length ? question.letterTiles : question.soundTiles;
+    const sequence = Array.isArray(question.correctLetterSequence) ? question.correctLetterSequence.join("") : "";
+    const answer = answerOf(question);
+    assert(level === 2, `${skillId}/${id}: sentence spell format must be level 2`);
+    assert((sentence.match(/___/g) || []).length === 1, `${skillId}/${id}: ${phaseLabel} sentence spell needs exactly one visible blank`);
+    assert(audioText && normalizeWord(audioText).split(/\s+/).includes(answer), `${skillId}/${id}: ${phaseLabel} sentence spell needs sentence audio text with the answer in context`);
+    assert(sequence === answer, `${skillId}/${id}: ${phaseLabel} correctLetterSequence must spell ${answer}`);
+    assert(Array.isArray(tiles) && tiles.length === 12, `${skillId}/${id}: ${phaseLabel} sentence spell needs 12 letter tiles`);
   }
 }
 
@@ -185,17 +214,16 @@ for (const skillId of HFW_SKILL_IDS) {
   assert(levelTwo.length >= ROUND_LENGTH, `${skillId}: Level 2 selectable count ${levelTwo.length} is below ${ROUND_LENGTH}`);
   assert(levelOneRound.length === ROUND_LENGTH, `${skillId}: Level 1 round sampled ${levelOneRound.length}/${ROUND_LENGTH}`);
   assert(levelTwoRound.length === ROUND_LENGTH, `${skillId}: Level 2 round sampled ${levelTwoRound.length}/${ROUND_LENGTH}`);
-  assert(audioFieldRows.length === 0, `${skillId}: ${audioFieldRows.length} active HFW questions have audio fields`);
+  assert(audioFieldRows.length === 0, `${skillId}: ${audioFieldRows.length} active HFW questions expose audio path fields`);
   assert(audioPathRows.length === 0, `${skillId}: ${audioPathRows.length} active HFW questions expose audio paths`);
   assert(answerOptionAudioRows.length === 0, `${skillId}: ${answerOptionAudioRows.length} active HFW questions have answer option audio`);
-  assert(audioFormatRows.length === 0, `${skillId}: ${audioFormatRows.length} active HFW questions use audio/speaker/listen formats`);
+  assert(audioFormatRows.length === 0, `${skillId}: ${audioFormatRows.length} active HFW questions use audio/speaker formats`);
   assert(invalidSkillRows.length === 0, `${skillId}: ${invalidSkillRows.length} active HFW questions have invalid skill ids`);
   assert(disabledAudioRows.length === 0, `${skillId}: ${disabledAudioRows.length} active HFW questions do not have disableAudio true`);
   assert(hfwEligibilityRows.length === 0, `${skillId}: ${hfwEligibilityRows.length} selectable questions fail HFW eligibility`);
   assert(Object.keys(formats).every(format => HFW_ALLOWED_FORMATS.has(format)), `${skillId}: selectable formats outside HFW allowlist`);
 
-  for (const question of levelOne) validateLevel1Question(skillId, question);
-  for (const question of levelTwo) validateLevel2Question(skillId, question);
+  for (const question of selectableQuestions) validateRuntimeQuestion(skillId, question);
 
   summaryRows.push([
     skillId,

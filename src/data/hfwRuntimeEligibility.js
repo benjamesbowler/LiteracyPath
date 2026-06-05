@@ -10,8 +10,10 @@ import {
 } from "./highFrequencyWordBands.js";
 import {
   HFW_ALLOWED_FORMATS as HFW_ALLOWED_FORMAT_LIST,
+  getHfwDirectAnswerLeakageIssues,
   isHfwClozeFormat,
-  isHfwDirectRecognitionFormat
+  isHfwDirectRecognitionFormat,
+  isHfwSentenceSpellFormat
 } from "./hfwAssessmentFormatConfig.js";
 
 const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
@@ -41,7 +43,7 @@ const HFW_BLOCKED_FORMATS = new Set([
 const PHONICS_PROMPT_PATTERN =
   /\b(short [aeiou]|short vowel|cvc|rhym|rime|beginning sound|initial sound|first sound|starts? with|ending sound|final sound|ends? with|blend|digraph|silent e|vowel team|r-controlled|matches the picture|which word has the short)\b/i;
 const WEAK_HFW_PROMPT_PATTERN =
-  /\b(find the word|which word is|find word)\s*:?\s*["“”']?[a-z]+\b/i;
+  /\b(find the word|tap the word|which word says|which word is|find word)\s*:?\s*["“”']?[a-z]+\b/i;
 const AMBIGUOUS_ARTICLE_CHOICE_PAIRS = [
   ["the", "a"],
   ["the", "an"],
@@ -150,16 +152,15 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   if (HFW_BLOCKED_FORMATS.has(format)) issues.push(`${format} is not an HFW-safe template`);
   if (!HFW_ALLOWED_FORMATS.has(format)) issues.push(`${format} is not in the HFW allowlist`);
   if (PHONICS_PROMPT_PATTERN.test(promptText)) issues.push("prompt is phonics/picture-matching, not HFW recognition");
-  if (WEAK_HFW_PROMPT_PATTERN.test(visiblePromptText) && !isHfwDirectRecognitionFormat(format)) {
-    issues.push("weak text-only find-the-word prompt is blocked");
-  }
+  if (WEAK_HFW_PROMPT_PATTERN.test(visiblePromptText)) issues.push("direct answer-leaking HFW prompt is blocked");
+  for (const leakageIssue of getHfwDirectAnswerLeakageIssues(question)) issues.push(leakageIssue);
   if (itemType && itemType !== "sight_word") issues.push(`itemType is ${itemType}, not sight_word`);
   if (!primaryWord) {
     issues.push("missing target HFW word");
   } else if (!bandSet?.has(primaryWord)) {
     issues.push(`target word "${primaryWord}" is outside ${bandId}`);
   }
-  if (format !== "HFW_LETTER_BUILD" && optionValues.length !== 4) {
+  if (!isHfwSentenceSpellFormat(format) && format !== "HFW_LETTER_BUILD" && optionValues.length !== 4) {
     issues.push(`HFW live questions require exactly 4 answer options, found ${optionValues.length}`);
   }
   if (isHfwDirectRecognitionFormat(format) || isHfwClozeFormat(format)) {
@@ -202,6 +203,46 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
       if (optionSet.has(first) && optionSet.has(second)) {
         issues.push(`ambiguous article choices include both "${first}" and "${second}"`);
       }
+    }
+  }
+
+  if (isHfwSentenceSpellFormat(format)) {
+    const targetLetters = primaryWord.split("");
+    const tileLetters = (letterTiles || []).map(value => String(value || "").toLowerCase());
+    const correctLetterSequence = Array.isArray(question.correctLetterSequence)
+      ? question.correctLetterSequence.map(value => String(value || "").toLowerCase())
+      : [];
+    const visibleSentence = String(question.visibleSentenceWithBlank || question.sentence || question.passage || question.context || "");
+    const fullSentence = String(question.sentenceText || question.fullSentence || question.spokenPrompt || question.audioText || "");
+    const blankCount = (visibleSentence.match(/___/g) || []).length;
+    if (blankCount !== 1) issues.push(`sentence-spell needs exactly one visible blank, found ${blankCount}`);
+    if (!fullSentence || !normalizeWord(fullSentence).split(/\s+/).includes(primaryWord)) {
+      issues.push(`sentence-spell audio text must include target word "${primaryWord}"`);
+    }
+    if (correctLetterSequence.join("") !== primaryWord) {
+      issues.push(`correctLetterSequence does not spell "${primaryWord}"`);
+    }
+    if (!Array.isArray(letterTiles) || letterTiles.length !== 12) {
+      issues.push(`sentence-spell HFW questions need exactly 12 letter tiles, found ${letterTiles?.length || 0}`);
+    }
+    const available = tileLetters.reduce((counts, letter) => ({
+      ...counts,
+      [letter]: (counts[letter] || 0) + 1
+    }), {});
+    for (const letter of targetLetters) {
+      if (!available[letter]) {
+        issues.push(`sentence-spell tiles are missing "${letter}" for "${primaryWord}"`);
+        break;
+      }
+      available[letter] -= 1;
+    }
+    if (!question.sentenceAudio && !question.spokenPrompt && !question.audioText) {
+      issues.push("sentence-spell needs sentence audio text");
+    }
+    if (!imagePath) {
+      issues.push("sentence-spell HFW question needs a context image");
+    } else if (pathExists && !pathExists(imagePath)) {
+      issues.push(`image file does not exist: ${imagePath}`);
     }
   }
 

@@ -4035,7 +4035,9 @@ select:focus {
 
 .visual-assessment-card-button {
   display: grid;
-  grid-template-rows: minmax(88px, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: stretch;
+  justify-items: center;
   gap: 8px;
   min-height: clamp(132px, 21vh, 190px);
   padding: 8px !important;
@@ -4050,7 +4052,16 @@ select:focus {
 .visual-assessment-card-button img {
   width: 100%;
   height: clamp(82px, 15vh, 132px);
+  min-height: 0;
   object-fit: contain;
+}
+
+.visual-assessment-card-button strong {
+  display: block;
+  width: 100%;
+  min-height: 1.25em;
+  line-height: 1.1;
+  text-align: center;
 }
 
 .rhyming-answer-card .visual-assessment-card-button {
@@ -4160,7 +4171,9 @@ select:focus {
 .rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button img {
   width: 100%;
   height: clamp(82px, 19vh, 170px);
-  max-height: 72%;
+  min-height: 0;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button strong {
@@ -4695,7 +4708,23 @@ select:focus {
 }
 
 .ixl-answer-card.image-card .ixl-answer-button {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: stretch;
+  justify-items: center;
   min-height: clamp(112px, 18vh, 168px);
+}
+
+.ixl-answer-card.image-card .ixl-answer-button img {
+  min-height: 0;
+  object-fit: contain;
+}
+
+.ixl-answer-card.image-card .ixl-answer-button strong {
+  display: block;
+  width: 100%;
+  line-height: 1.1;
+  text-align: center;
 }
 
 .level-mastery-callout {

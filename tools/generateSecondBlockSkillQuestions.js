@@ -589,6 +589,7 @@ function makePlurals() {
         answer: plural,
         singularWord: singular,
         pluralRule: suffix,
+        runtimeTemplateKey: `PLURAL_IMAGE_SPELLING_${suffix}_${slug(singular)}_${slug(plural)}`,
         itemType: "plural",
         itemKey: suffix,
         explanation: `${plural} means more than one ${singular}.`
@@ -621,6 +622,7 @@ function makePlurals() {
         singularWord: singular,
         pluralWord: plural,
         pluralRule: suffix,
+        runtimeTemplateKey: `PLURAL_RULE_CHOICE_${suffix}_${slug(singular)}_${slug(plural)}`,
         itemType: "plural_rule",
         itemKey: suffix,
         explanation: `Add ${suffix} to make ${plural}.`

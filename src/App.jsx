@@ -1247,8 +1247,9 @@ function isQuestionValid(q) {
     return getStageIndex(q) !== -1;
   }
 
-  if (q.templateType === "PUT_SOUNDS_IN_ORDER" || q.templateType === "HFW_LETTER_BUILD") {
-    const tiles = q.templateType === "HFW_LETTER_BUILD" ? (q.letterTiles || q.soundTiles) : q.soundTiles;
+  const candidateTemplateType = String(q.templateType || q.formatType || "").toUpperCase();
+  if (candidateTemplateType === "PUT_SOUNDS_IN_ORDER" || candidateTemplateType === "HFW_LETTER_BUILD" || candidateTemplateType.startsWith("HFW_SENTENCE_SPELL")) {
+    const tiles = candidateTemplateType === "HFW_LETTER_BUILD" || candidateTemplateType.startsWith("HFW_SENTENCE_SPELL") ? (q.letterTiles || q.soundTiles) : q.soundTiles;
     const candidateStageIndex = getStageIndex(q);
     const candidateStage = skillTree[candidateStageIndex];
     if (isHfwStage(candidateStage)) {

@@ -57,6 +57,7 @@ function hasAnswer(question = {}) {
 function hasInteraction(question = {}) {
   const format = String(question.formatType || question.templateType || "").toUpperCase();
   if (format === "HFW_LETTER_BUILD") return true;
+  if (format.startsWith("HFW_SENTENCE_SPELL")) return true;
   return Boolean(
     (Array.isArray(question.choices) && question.choices.length) ||
     (Array.isArray(question.answerOptions) && question.answerOptions.length) ||

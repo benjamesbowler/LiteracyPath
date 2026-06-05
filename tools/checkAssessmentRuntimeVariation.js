@@ -107,17 +107,28 @@ function getPrimaryAudio(question = {}) {
 }
 
 function getTemplateKey(question = {}) {
-  return String(question.templateType || question.formatType || question.questionType || "")
+  return String(question.runtimeTemplateKey || question.templateKey || question.templateType || question.formatType || question.questionType || "")
     .toLowerCase()
     .replace(/\s+/g, "_")
     .trim();
 }
 
 function getPromptKey(question = {}) {
-  return String(question.prompt || question.question || question.sentence || "")
+  const promptText = String(question.prompt || question.question || question.sentence || "")
     .toLowerCase()
     .replace(/\s+/g, " ")
     .trim();
+  const mediaContext = [
+    question.spokenPrompt,
+    question.audioText,
+    getPrimaryImage(question)
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+  return [promptText, mediaContext].filter(Boolean).join(" :: ");
 }
 
 function markResolvedUsed(usage, question = {}) {
@@ -183,7 +194,15 @@ function pickRound(pool, context) {
       const score = scoreResolvedQuestion(resolved, context.sessionUsage) + scoreRoundRepeat(resolved, roundUsage);
       const issues = validateResolvedQuestionMedia(resolved);
       const ranked = { candidate, resolved, score, issues };
-      if (!best || ranked.score < best.score || (ranked.score === best.score && String(resolved.id).localeCompare(String(best.resolved.id)) < 0)) {
+      if (
+        !best ||
+        ranked.score < best.score ||
+        (
+          ranked.score === best.score &&
+          context.skillId.startsWith("hfw_") &&
+          String(resolved.id).localeCompare(String(best.resolved.id)) < 0
+        )
+      ) {
         best = ranked;
       }
     }

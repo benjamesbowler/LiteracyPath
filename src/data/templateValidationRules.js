@@ -141,6 +141,12 @@ export const templateValidationRules = {
     requiredMedia: ["targetImage"],
     allowedRenderModes: ["letter_build"]
   },
+  HFW_SENTENCE_SPELL_LISTEN: {
+    requiredFields: ["targetWord", "letterTiles", "correctLetterSequence", "visibleSentenceWithBlank", "sentenceText"],
+    optionalFields: ["sentenceAudio", "spokenPrompt", "explanation", "hint"],
+    requiredMedia: ["targetImage"],
+    allowedRenderModes: ["letter_build"]
+  },
   PICTURE_TO_PRINT: {
     requiredFields: ["targetImage", "answerOptions"],
     optionalFields: ["approvedAudio", "explanation", "hint"],
@@ -269,14 +275,49 @@ export const templateValidationRules = {
   }
 };
 
+for (const format of [
+  "HFW_SENTENCE_CLOZE_CONTEXT",
+  "HFW_SENTENCE_CLOZE_MEANING",
+  "HFW_SENTENCE_CLOZE_SCENE",
+  "HFW_SENTENCE_CLOZE_PICTURE",
+  "HFW_SENTENCE_CLOZE_SIMPLE",
+  "HFW_SENTENCE_CLOZE_READ",
+  "HFW_SENTENCE_CLOZE_CONTEXT_ALT",
+  "HFW_SENTENCE_CLOZE_MEANING_ALT",
+  "HFW_SENTENCE_CLOZE_SCENE_ALT",
+  "HFW_SENTENCE_CLOZE_PICTURE_ALT",
+  "HFW_SENTENCE_CLOZE_SIMPLE_ALT",
+  "HFW_SENTENCE_CLOZE_READ_ALT"
+]) {
+  templateValidationRules[format] = templateValidationRules.HFW_IMAGE_CONTEXT_CLOZE;
+}
+
+for (const format of [
+  "HFW_SENTENCE_SPELL_CONTEXT",
+  "HFW_SENTENCE_SPELL_MEANING",
+  "HFW_SENTENCE_SPELL_SCENE",
+  "HFW_SENTENCE_SPELL_TILE",
+  "HFW_SENTENCE_SPELL_WORD",
+  "HFW_SENTENCE_SPELL_LISTEN_ALT",
+  "HFW_SENTENCE_SPELL_CONTEXT_ALT",
+  "HFW_SENTENCE_SPELL_MEANING_ALT",
+  "HFW_SENTENCE_SPELL_SCENE_ALT",
+  "HFW_SENTENCE_SPELL_TILE_ALT",
+  "HFW_SENTENCE_SPELL_WORD_ALT"
+]) {
+  templateValidationRules[format] = templateValidationRules.HFW_SENTENCE_SPELL_LISTEN;
+}
+
 export function getTemplateValidationRule(question = {}) {
   const templateType = compactTemplateType(question);
+  if (templateType.startsWith("HFW_SENTENCE_CLOZE")) return templateValidationRules.HFW_IMAGE_CONTEXT_CLOZE;
+  if (templateType.startsWith("HFW_SENTENCE_SPELL")) return templateValidationRules.HFW_SENTENCE_SPELL_LISTEN;
   return templateValidationRules[templateType] || null;
 }
 
 export function validateQuestionTemplate(question = {}, options = {}) {
   const templateType = compactTemplateType(question);
-  const rule = templateValidationRules[templateType];
+  const rule = getTemplateValidationRule(question);
   const issues = [];
   const promptText = normalize([question.question, question.prompt].join(" "));
 
@@ -289,7 +330,7 @@ export function validateQuestionTemplate(question = {}, options = {}) {
     }
   }
 
-  if (!["PUT_SOUNDS_IN_ORDER", "HFW_LETTER_BUILD"].includes(templateType) && optionCount(question) < 2) {
+  if (!["PUT_SOUNDS_IN_ORDER", "HFW_LETTER_BUILD"].includes(templateType) && !templateType.startsWith("HFW_SENTENCE_SPELL") && optionCount(question) < 2) {
     issues.push(`template ${templateType} needs at least 2 answer options`);
   }
   if (templateType === "PAIR_SELECT" && optionCount(question) < 3) issues.push("PAIR_SELECT needs at least 3 cards");
@@ -302,7 +343,7 @@ export function validateQuestionTemplate(question = {}, options = {}) {
   if (hasDuplicateChoices(question) && templateType !== "GRAMMAR_BASICS") issues.push("duplicate or visually identical answer choices");
   if (choices(question).length > 0 && !answerInChoices(question)) issues.push("correct answer is missing from answer choices");
 
-  if (/\blisten\b/.test(promptText)) {
+  if (/\blisten\b/.test(promptText) && !templateType.startsWith("HFW_SENTENCE_SPELL")) {
     const hasPromptAudio = Boolean(approvedTargetAudio(question));
     const hasUniformCardAudio = hasRequiredCardAudio(question);
     if (!hasPromptAudio && !hasUniformCardAudio) {

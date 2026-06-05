@@ -172,6 +172,7 @@ function isMultipleChoice(question) {
   const templateType = String(question.templateType || question.formatType || "").toUpperCase();
   return question.questionType !== "fix_sentence" &&
     !["PUT_SOUNDS_IN_ORDER", "HFW_LETTER_BUILD"].includes(templateType) &&
+    !templateType.startsWith("HFW_SENTENCE_SPELL") &&
     !["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(question.questionType);
 }
 

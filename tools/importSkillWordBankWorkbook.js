@@ -4,6 +4,10 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 import { findAssessmentMediaCandidates, normalizeAssessmentMediaWord } from "../src/data/assessmentMediaRegistry.js";
+import {
+  HFW_FORMATS_BY_PHASE,
+  hfwPhaseKey
+} from "../src/data/hfwAssessmentFormatConfig.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const workbookPath = path.join(repoRoot, "docs/imports/LiteracyPath_K5_Skill_Word_Bank_Through_Homophones.xlsx");
@@ -652,6 +656,9 @@ function generateHfwModule(data) {
     const level = Number(record.level) >= 2 ? 2 : 1;
     const phase = Number(record.phase) === 2 ? 2 : 1;
     const imagePath = pickHfwImagePath(record.skillId, record.targetWord, level, phase, seed);
+    const phaseFormatKey = hfwPhaseKey(level, phase);
+    const phaseFormats = HFW_FORMATS_BY_PHASE[phaseFormatKey] || [];
+    const formatType = phaseFormats[Math.abs(seed) % Math.max(phaseFormats.length, 1)] || "HFW_SENTENCE_CLOZE_L1P1_01";
     const common = {
       id: `hfw_workbook_${record.skillId}_${targetSlug}_s${String(record.sentenceNumber || seed).padStart(2, "0")}`,
       skillId: record.skillId,
@@ -678,19 +685,23 @@ function generateHfwModule(data) {
       const tiles = buildLetterTiles(record.targetWord, seed);
       questions.push({
         ...common,
-        prompt: "Build the word that completes the sentence.",
-        question: "Build the word that completes the sentence.",
+        prompt: "Listen to the sentence. Spell the word that fits.",
+        question: "Listen to the sentence. Spell the word that fits.",
         sentence: cloze,
+        visibleSentenceWithBlank: cloze,
+        sentenceText: record.sentence,
         fullSentence: record.sentence,
+        spokenPrompt: record.sentence,
+        sentenceAudio: record.sentence,
+        audioText: record.sentence,
         context: cloze,
-        choices: [],
-        answerOptions: [],
-        options: [],
+        correctLetterSequence: record.targetWord.split(""),
         letterTiles: tiles,
         soundTiles: tiles,
-        formatType: "HFW_LETTER_BUILD",
-        templateType: "HFW_LETTER_BUILD",
-        questionType: "HFW_LETTER_BUILD"
+        distractorLetters: tiles.filter((letter, index) => !record.targetWord[index] || letter !== record.targetWord[index]),
+        formatType,
+        templateType: formatType,
+        questionType: "hfw_sentence_spell"
       });
     } else {
       const distractors = selectHfwDistractors({
@@ -710,9 +721,10 @@ function generateHfwModule(data) {
         choices: options.map(option => option.value),
         answerOptions: options,
         options,
-        formatType: "HFW_IMAGE_CONTEXT_CLOZE",
-        templateType: "HFW_IMAGE_CONTEXT_CLOZE",
-        questionType: "HFW_IMAGE_CONTEXT_CLOZE"
+        visibleSentenceWithBlank: cloze,
+        formatType,
+        templateType: formatType,
+        questionType: "multiple_choice"
       });
     }
   }
@@ -793,6 +805,14 @@ function sentenceTemplateFor(partOfSpeech, word) {
   return `The picture is ___.`;
 }
 
+function runtimeTemplateKey(...parts) {
+  return parts
+    .filter(Boolean)
+    .map(part => slugWord(part))
+    .filter(Boolean)
+    .join("_");
+}
+
 function generateLanguageQuestions(data) {
   const questions = [];
   const posPools = {
@@ -865,6 +885,7 @@ function generateLanguageQuestions(data) {
       options,
       formatType: "PREPOSITION_TEXT_CHOICE",
       templateType: "WORKBOOK_PREPOSITION_TEXT_CHOICE",
+      runtimeTemplateKey: runtimeTemplateKey("preposition", item.level, item.phase, item.targetWord, index),
       questionType: "PREPOSITION_TEXT_CHOICE",
       imagePath: imagePath || undefined,
       imageUrl: imagePath || undefined,
@@ -901,6 +922,7 @@ function generateLanguageQuestions(data) {
       options,
       formatType: "PLURAL_TEXT_CHOICE",
       templateType: "WORKBOOK_PLURAL_TEXT_CHOICE",
+      runtimeTemplateKey: runtimeTemplateKey("plural", item.level, item.phase, item.targetWord, item.pairedWord),
       questionType: "PLURAL_TEXT_CHOICE",
       imagePath: imagePath || undefined,
       imageUrl: imagePath || undefined,
@@ -1006,6 +1028,7 @@ function generateLanguageQuestions(data) {
       options,
       formatType: "LANGUAGE_PAIR_TEXT_CHOICE",
       templateType: `WORKBOOK_${relationship.toUpperCase()}_TEXT_CHOICE`,
+      runtimeTemplateKey: runtimeTemplateKey(relationship, item.level, item.phase, item.targetWord, item.pairedWord),
       questionType: "LANGUAGE_PAIR_TEXT_CHOICE",
       imagePath: imagePath || undefined,
       imageUrl: imagePath || undefined,
@@ -1042,6 +1065,7 @@ function generateLanguageQuestions(data) {
       options,
       formatType: "HOMOPHONE_SET_TEXT_CHOICE",
       templateType: "WORKBOOK_HOMOPHONE_SET_TEXT_CHOICE",
+      runtimeTemplateKey: runtimeTemplateKey("homophone", answer, item.words.join("-"), index),
       questionType: "HOMOPHONE_SET_TEXT_CHOICE",
       imagePath: imagePath || undefined,
       imageUrl: imagePath || undefined,

@@ -439,7 +439,7 @@ function isQuestionValid(question) {
       getStageIndex(question) !== -1 &&
       getAssessmentContentIssues(question, { assetExists: publicAssetExists }).length === 0;
   }
-  if (question.questionType === "ixl_template" && templateType === "HFW_LETTER_BUILD") {
+  if ((question.questionType === "ixl_template" || question.questionType === "hfw_sentence_spell") && (templateType === "HFW_LETTER_BUILD" || templateType.startsWith("HFW_SENTENCE_SPELL"))) {
     const tiles = question.letterTiles || question.soundTiles;
     const stageIndex = getStageIndex(question);
     const stage = skillTree[stageIndex];

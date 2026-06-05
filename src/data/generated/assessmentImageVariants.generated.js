@@ -2823,7 +2823,7 @@ export const rhymingAssessmentImageVariants = {
   },
   "ang": {
     "bang": [
-      "/images/assessment/rhyming/variants/ang/bang-02.webp",
+      "/media/learn/images/cycle-23/bang.png",
       "/images/assessment/rhyming/variants/ang/bang-03.webp",
       "/images/assessment/rhyming/variants/ang/bang-04.webp",
       "/images/assessment/rhyming/variants/ang/bang-05.webp"
@@ -3597,7 +3597,7 @@ export const rhymingAssessmentImageVariants = {
   },
   "up": {
     "up": [
-      "/images/assessment/rhyming/variants/up/up-02.webp",
+      "/images/child-mode/initial-sounds/up.png",
       "/images/assessment/rhyming/variants/up/up-03.webp",
       "/images/assessment/rhyming/variants/up/up-04.webp",
       "/images/assessment/rhyming/variants/up/up-05.webp"

@@ -1,10 +1,11 @@
 import path from "node:path";
 
 import {
+  getHfwDirectAnswerLeakageIssues,
   getHfwAllowedFormatsForPhase,
   hfwPhaseKey,
   isHfwClozeFormat,
-  isHfwDirectRecognitionFormat
+  isHfwSentenceSpellFormat
 } from "../src/data/hfwAssessmentFormatConfig.js";
 import { HFW_WORD_BANDS } from "../src/data/highFrequencyWordBands.js";
 import {
@@ -150,14 +151,26 @@ function clozeIssues(question = {}) {
 }
 
 function directIssues(question = {}) {
+  return getHfwDirectAnswerLeakageIssues(question);
+}
+
+function sentenceSpellIssues(question = {}) {
   const format = formatOf(question);
-  if (!isHfwDirectRecognitionFormat(format)) return [];
-  const options = optionWords(question);
+  if (!isHfwSentenceSpellFormat(format)) return [];
   const answer = answerOf(question);
+  const sequence = Array.isArray(question.correctLetterSequence)
+    ? question.correctLetterSequence.map(value => String(value || "").toLowerCase()).join("")
+    : "";
+  const tiles = Array.isArray(question.letterTiles) && question.letterTiles.length ? question.letterTiles : question.soundTiles;
+  const sentence = String(question.visibleSentenceWithBlank || question.sentence || question.context || "");
+  const audioText = String(question.sentenceAudio || question.sentenceText || question.fullSentence || question.spokenPrompt || "");
+  const options = optionWords(question);
   const issues = [];
-  if (options.length !== 4) issues.push("not four choices");
-  if (new Set(options).size !== options.length) issues.push("duplicate choices");
-  if (!answer || !options.includes(answer)) issues.push("answer missing from choices");
+  if ((sentence.match(/___/g) || []).length !== 1) issues.push("not exactly one visible blank");
+  if (sequence !== answer) issues.push("letter sequence does not spell answer");
+  if (!Array.isArray(tiles) || tiles.length !== 12) issues.push("not twelve letter tiles");
+  if (!audioText || !normalizeWord(audioText).split(/\s+/).includes(answer)) issues.push("sentence audio text missing answer context");
+  if (options.length) issues.push("sentence spell should not use text answer choices");
   return issues;
 }
 
@@ -215,6 +228,9 @@ for (const skillId of HFW_SKILL_IDS) {
   const directIssueRows = selectable
     .map(question => ({ question, issues: directIssues(question) }))
     .filter(row => row.issues.length);
+  const sentenceSpellIssueRows = selectable
+    .map(question => ({ question, issues: sentenceSpellIssues(question) }))
+    .filter(row => row.issues.length);
 
   const phaseCounts = {};
   const retryCounts = {};
@@ -241,7 +257,8 @@ for (const skillId of HFW_SKILL_IDS) {
     ...missingMedia.map(question => `missing media: ${questionId(question)}`),
     ...invalidFormatRows.map(question => `invalid phase format: ${questionId(question)} ${formatOf(question)}`),
     ...clozeIssueRows.map(row => `ambiguous cloze: ${questionId(row.question)} (${row.issues.join(", ")})`),
-    ...directIssueRows.map(row => `direct recognition issue: ${questionId(row.question)} (${row.issues.join(", ")})`),
+    ...directIssueRows.map(row => `direct answer leakage: ${questionId(row.question)} (${row.issues.join(", ")})`),
+    ...sentenceSpellIssueRows.map(row => `sentence spell issue: ${questionId(row.question)} (${row.issues.join(", ")})`),
     ...PHASE_KEYS.filter(phaseKey => phaseCounts[phaseKey] < ROUND_LENGTH).map(phaseKey => `${phaseKey} below ${ROUND_LENGTH} selectable questions`),
     ...PHASE_KEYS.filter(phaseKey => retryCounts[phaseKey] < REPLACEMENTS_NEEDED).map(phaseKey => `${phaseKey} has only ${retryCounts[phaseKey]}/${REPLACEMENTS_NEEDED} retry-safe replacements`)
   ];
@@ -264,6 +281,8 @@ for (const skillId of HFW_SKILL_IDS) {
     duplicateTargetImage.length,
     duplicatePromptAnswer.length,
     clozeIssueRows.length,
+    directIssueRows.length,
+    sentenceSpellIssueRows.length,
     missingMedia.length,
     failures.length ? "fail" : "pass"
   ]);
@@ -288,7 +307,8 @@ for (const skillId of HFW_SKILL_IDS) {
     },
     invalidFormats: invalidFormatRows.length,
     clozeIssues: clozeIssueRows.length,
-    directIssues: directIssueRows.length,
+    directAnswerLeakage: directIssueRows.length,
+    sentenceSpellIssues: sentenceSpellIssueRows.length,
     missingMedia: missingMedia.length,
     failures
   });
@@ -318,6 +338,8 @@ const markdown = [
     "Dup Target/Image",
     "Dup Prompt/Answer",
     "Ambiguous Cloze",
+    "Direct Answer Leakage",
+    "Sentence Spell Issues",
     "Missing Media",
     "Status"
   ], summaries),
@@ -343,7 +365,7 @@ console.table(summaries.map(row => ({
   uniqueTemplates: row[5],
   uniquePrompts: row[6],
   uniqueImages: row[7],
-  status: row[17]
+  status: row[19]
 })));
 console.log("Wrote docs/validation/hfw_true_variation_audit.md");
 console.log("Wrote docs/validation/hfw_true_variation_audit.json");

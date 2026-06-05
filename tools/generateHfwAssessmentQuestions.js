@@ -15,42 +15,6 @@ import {
 const outputPath = path.join("src", "data", "generated", "hfwAssessmentQuestions.generated.js");
 const importedManifestPath = path.join("docs", "imports", "kimi_these_still_need_finishing_2026-06-05", "production_manifest.json");
 
-const directPromptPatterns = [
-  word => `Find the word '${word}'.`,
-  word => `Which word says '${word}'?`,
-  word => `Tap the word '${word}'.`,
-  word => `Read and choose '${word}'.`,
-  word => `Match the printed word '${word}'.`,
-  word => `Select '${word}' from the words.`,
-  word => `Choose the word '${word}'.`,
-  word => `Spot the word '${word}'.`,
-  word => `Point to '${word}'.`,
-  word => `Go on a word hunt for '${word}'.`,
-  word => `Quickly find '${word}'.`,
-  word => `Which print shows '${word}'?`,
-  word => `Recognize the sight word '${word}'.`,
-  word => `Pick the target word '${word}'.`,
-  word => `Find this sight word: '${word}'.`
-];
-
-const hardDirectPromptPatterns = [
-  word => `Harder scan: find the word '${word}'.`,
-  word => `Harder scan: which word says '${word}'?`,
-  word => `Harder scan: tap the word '${word}'.`,
-  word => `Harder scan: read and choose '${word}'.`,
-  word => `Harder scan: match the printed word '${word}'.`,
-  word => `Harder scan: select '${word}' from the words.`,
-  word => `Harder scan: choose the word '${word}'.`,
-  word => `Harder scan: spot the word '${word}'.`,
-  word => `Harder scan: point to '${word}'.`,
-  word => `Harder scan: hunt for '${word}' in the set.`,
-  word => `Harder scan: quickly find '${word}'.`,
-  word => `Harder scan: which print shows '${word}'?`,
-  word => `Harder scan: recognize the sight word '${word}'.`,
-  word => `Harder scan: pick the target word '${word}'.`,
-  word => `Harder scan: find this sight word: '${word}'.`
-];
-
 const clozeSentenceBank = {
   a: "Mia found ___ smooth stone.",
   after: "We washed our hands ___ lunch.",
@@ -199,7 +163,39 @@ function sentenceFor(word, imagePath, variantIndex, importedSentences, hard = fa
   const phaseBase = hard
     ? `During harder practice, ${base.charAt(0).toLowerCase()}${base.slice(1)}`
     : base;
-  const endings = ["", " today", " after lunch", " at school", " before snack", " with a smile", " near the window"];
+  const endings = [
+    "",
+    " today",
+    " after lunch",
+    " at school",
+    " before snack",
+    " with a smile",
+    " near the window",
+    " on Monday",
+    " in the classroom",
+    " during reading time",
+    " before recess",
+    " after the story",
+    " in the morning",
+    " with the teacher",
+    " beside the rug",
+    " near the bookshelf",
+    " before we lined up",
+    " after center time",
+    " under the bright light",
+    " while everyone listened",
+    " during quiet work",
+    " before the bell",
+    " after music class",
+    " near the art table",
+    " during partner reading",
+    " before cleanup",
+    " after the game",
+    " beside the window",
+    " during morning meeting",
+    " before story time",
+    " after handwriting"
+  ];
   const ending = endings[variantIndex % endings.length];
   if (!ending) return phaseBase;
   if (/[?!]$/.test(phaseBase)) return phaseBase.replace(/([?!])$/, `${ending}$1`);
@@ -225,6 +221,22 @@ function optionObjects(values, target) {
     word: value,
     correct: value === target
   }));
+}
+
+function buildLetterTiles(word, seed = 0) {
+  const alphabet = "etaoinshrdlucmfwypvbgkqjxz";
+  const targetLetters = String(word || "").toLowerCase().replace(/[^a-z]/g, "").split("");
+  const tiles = [...targetLetters];
+  let index = Math.abs(Number(seed) || 0);
+  while (tiles.length < 12) {
+    const letter = alphabet[index % alphabet.length];
+    tiles.push(letter);
+    index += 5;
+  }
+  return tiles
+    .map((letter, tileIndex) => ({ letter, sortKey: (tileIndex * 7 + seed) % 17 }))
+    .sort((a, b) => a.sortKey - b.sortKey || a.letter.localeCompare(b.letter))
+    .map(item => item.letter);
 }
 
 function answerOptions({ target, bandWords, sentence = "", seed = 0, hard = false }) {
@@ -256,9 +268,11 @@ function questionForPath({ skillId, skillName, word, wordIndex, phaseKeyValue, i
   const formats = HFW_FORMATS_BY_PHASE[phaseKeyValue];
   const format = formats[(wordIndex + variantIndex) % formats.length];
   const hard = level >= 2;
-  const isCloze = phase === 2;
+  const isSpell = level >= 2;
   const target = normalizeWord(word);
   const id = `hfw_true_${skillId}_${slug(target)}_${phaseKeyValue.toLowerCase()}_${String(variantIndex + 1).padStart(2, "0")}`;
+  const sentence = sentenceFor(target, imagePath, variantIndex + (phase === 2 ? 5 : 0) + (hard ? 11 : 0), importedSentences, hard);
+  const fullSentence = sentence.replace("___", target);
   const common = {
     id,
     skillId,
@@ -282,28 +296,42 @@ function questionForPath({ skillId, skillName, word, wordIndex, phaseKeyValue, i
     templateType: format,
     questionType: format
   };
-  if (!isCloze) {
-    const promptPatterns = hard ? hardDirectPromptPatterns : directPromptPatterns;
-    const prompt = promptPatterns[(wordIndex + variantIndex) % promptPatterns.length](target);
-    const options = answerOptions({ target, bandWords, seed: wordIndex * 31 + variantIndex, hard });
+
+  if (isSpell) {
+    const prompt = "Listen to the sentence. Spell the word that fits.";
+    const tiles = buildLetterTiles(target, wordIndex * 41 + variantIndex + phase * 11);
+    const distractorLetters = tiles.filter((letter, index) => !target[index] || letter !== target[index]);
     return {
       ...common,
+      questionType: "hfw_sentence_spell",
       prompt,
       question: prompt,
-      context: prompt,
-      choices: options.map(option => option.value),
-      answerOptions: options,
-      options
+      context: sentence,
+      sentence,
+      visibleSentenceWithBlank: sentence,
+      sentenceText: fullSentence,
+      fullSentence,
+      spokenPrompt: fullSentence,
+      sentenceAudio: fullSentence,
+      audioText: fullSentence,
+      correctLetterSequence: target.split(""),
+      letterTiles: tiles,
+      soundTiles: tiles,
+      distractorLetters
     };
   }
-  const sentence = sentenceFor(target, imagePath, variantIndex, importedSentences, hard);
-  const options = answerOptions({ target, bandWords, sentence, seed: wordIndex * 37 + variantIndex, hard });
-  const prompt = `Choose the word that completes: ${sentence}`;
+
+  const options = answerOptions({ target, bandWords, sentence, seed: wordIndex * 37 + variantIndex + phase * 13, hard });
+  const prompt = phase === 2
+    ? "Read the sentence. Choose the word that fits."
+    : "Choose the word that completes the sentence.";
   return {
     ...common,
+    questionType: "multiple_choice",
     prompt,
     question: prompt,
     sentence,
+    visibleSentenceWithBlank: sentence,
     fullSentence: sentence.replace("___", target),
     context: sentence,
     choices: options.map(option => option.value),

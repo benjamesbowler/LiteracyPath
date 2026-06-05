@@ -84,7 +84,7 @@ function hfwPhaseRequirements(words) {
       requiredTargets: normalizedWords,
       requiredTargetType: "sight_word",
       allowedFormats: getHfwAllowedFormatsForPhase(1, 1),
-      notes: "Direct no-audio recognition variants for every word in the band."
+      notes: "Sentence cloze variants for every word in the band."
     }),
     L1P2: makePhase({
       level: 1,
@@ -92,7 +92,7 @@ function hfwPhaseRequirements(words) {
       requiredTargets: normalizedWords,
       requiredTargetType: "sight_word",
       allowedFormats: getHfwAllowedFormatsForPhase(1, 2),
-      notes: "Easier no-audio sentence/cloze variants for every word in the band."
+      notes: "Alternate sentence cloze variants for every word in the band."
     }),
     L2P1: makePhase({
       level: 2,
@@ -100,7 +100,7 @@ function hfwPhaseRequirements(words) {
       requiredTargets: normalizedWords,
       requiredTargetType: "sight_word",
       allowedFormats: getHfwAllowedFormatsForPhase(2, 1),
-      notes: "Harder no-audio direct recognition variants for every word in the band."
+      notes: "Listen-and-spell sentence variants for every word in the band."
     }),
     L2P2: makePhase({
       level: 2,
@@ -108,7 +108,7 @@ function hfwPhaseRequirements(words) {
       requiredTargets: normalizedWords,
       requiredTargetType: "sight_word",
       allowedFormats: getHfwAllowedFormatsForPhase(2, 2),
-      notes: "Harder no-audio sentence/cloze variants for every word in the band."
+      notes: "Alternate listen-and-spell sentence variants for every word in the band."
     })
   };
 }
@@ -175,7 +175,7 @@ function hfwContract(skillId, displayName, words) {
     displayName,
     aliases: [displayName.toLowerCase(), skillId.replace(/_/g, "-")],
     allowedWordPatterns: ["high_frequency_word_band_member"],
-    forbiddenPatterns: ["phonics_template", "audio_prompted_hfw", "ambiguous_article_cloze"],
+    forbiddenPatterns: ["phonics_template", "direct_answer_leakage", "ambiguous_article_cloze"],
     duplicateTargetTemplatePairsForbidden: true,
     duplicateContentKeysForbidden: true,
     uniquePrimaryImagesAcrossSkill: true,
@@ -185,7 +185,7 @@ function hfwContract(skillId, displayName, words) {
     fakeCompoundsNonWordsMustFail: true,
     obscureWordsMustFail: true,
     phases: hfwPhaseRequirements(words),
-    notes: "HFW live assessment is deliberately no-audio. Direct recognition and cloze phases must use genuinely distinct prompt/content/image variants; answer shuffling does not count as a new question."
+    notes: "HFW live assessment uses sentence cloze at Level 1 and listen-and-spell sentence tiles at Level 2. Direct Tap/Find/Which-word recognition is blocked from normal runtime."
   });
 }
 

@@ -267,6 +267,7 @@ function makeBase({
     skill: skillName,
     level,
     templateType,
+    runtimeTemplateKey: "",
     formatType: templateType,
     questionType: templateType.toLowerCase(),
     prompt,
@@ -422,6 +423,8 @@ function generateFinalSoundQuestions(entries) {
 
 function generateCvcQuestions(entries) {
   const vowels = ["a", "e", "i", "o", "u"];
+  const cvcTemplateVariant = (style, vowel, level, phase, index) =>
+    `${style}_L${level}_P${phase}_SHORT_${vowel.toUpperCase()}_${String((index % 8) + 1).padStart(2, "0")}`;
   const cvcEntries = entries.filter(entry =>
     entry.phonicsTags.includes("cvc") &&
     vowels.includes(entry.medialVowel) &&
@@ -445,7 +448,7 @@ function generateCvcQuestions(entries) {
         preferDifferentVowel: true
       });
       if (hasApprovedAudio(entry)) {
-        out.push(makeBase({
+        const question = makeBase({
           id: `gen_cvc_short_${vowel}_${normalize(entry.lowercaseWord)}_${index}_vowel`,
           skillId: "cvc_short_vowels",
           skillName: "CVC and Short Vowels",
@@ -465,9 +468,11 @@ function generateCvcQuestions(entries) {
           sourceLexiconId: entry.id,
           itemType: "short_vowel",
           tags: ["generated", "cvc", "short-vowel"]
-        }));
+        });
+        question.runtimeTemplateKey = cvcTemplateVariant("HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD", vowel, level, phase, index);
+        out.push(question);
       }
-      out.push(makeBase({
+      const missingVowelQuestion = makeBase({
           id: `gen_cvc_short_${vowel}_${normalize(entry.lowercaseWord)}_${index}_missing`,
           skillId: "cvc_short_vowels",
           skillName: "CVC and Short Vowels",
@@ -487,9 +492,11 @@ function generateCvcQuestions(entries) {
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "cvc", "missing-vowel"]
-      }));
+      });
+      missingVowelQuestion.runtimeTemplateKey = cvcTemplateVariant("HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL", vowel, level, phase, index);
+      out.push(missingVowelQuestion);
       if (hasImage(entry)) {
-        out.push(makeBase({
+        const question = makeBase({
           id: `gen_cvc_short_${vowel}_${normalize(entry.lowercaseWord)}_${index}_picture`,
           skillId: "cvc_short_vowels",
           skillName: "CVC and Short Vowels",
@@ -509,7 +516,9 @@ function generateCvcQuestions(entries) {
           sourceLexiconId: entry.id,
           itemType: "short_vowel",
           tags: ["generated", "cvc", "picture-word"]
-        }));
+        });
+        question.runtimeTemplateKey = cvcTemplateVariant("HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD", vowel, level, phase, index);
+        out.push(question);
       }
     });
   });
