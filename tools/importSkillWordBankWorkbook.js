@@ -256,7 +256,28 @@ function slugWord(value = "") {
 
 function pickMediaPath(word, skillId, mediaType = "image", role = "target_object") {
   const candidates = findAssessmentMediaCandidates({ word, skillId, mediaType, role, includeGenericFallback: true });
-  return candidates[0]?.path || "";
+  return candidates.find(candidate => publicAssetExists(candidate.path))?.path || "";
+}
+
+function publicAssetExists(assetPath = "") {
+  return Boolean(
+    assetPath &&
+    String(assetPath).startsWith("/") &&
+    fs.existsSync(path.join(repoRoot, "public", assetPath.replace(/^\//, "")))
+  );
+}
+
+function languageImageRole(skillId = "", itemType = "") {
+  const normalizedSkill = skillIdForName(skillId);
+  const normalizedType = normalizeAssessmentMediaWord(itemType);
+  if (normalizedSkill === "nouns" || normalizedType === "noun") return "noun_image";
+  if (normalizedSkill === "verbs" || normalizedType === "verb") return "verb_action";
+  if (normalizedSkill === "adjectives" || normalizedType === "adjective") return "adjective_visual";
+  if (normalizedSkill === "prepositions_of_place" || normalizedSkill === "prepositions") return "preposition_scene";
+  if (normalizedSkill === "plurals" || normalizedType === "plural") return "plural_pair";
+  if (normalizedSkill === "antonyms_synonyms" || normalizedType === "antonym" || normalizedType === "synonym") return "antonym_synonym_scene";
+  if (normalizedSkill === "homophones_homonyms" || normalizedType === "homophone_homonym") return "homophone_context";
+  return "target_object";
 }
 
 function parseSkillColumns(workbook) {
@@ -781,7 +802,7 @@ function generateLanguageQuestions(data) {
   };
   for (const [index, item] of data.partsOfSpeech.entries()) {
     if (!item.targetWord || OBVIOUSLY_UNSUITABLE.test(item.targetWord)) continue;
-    const imagePath = pickMediaPath(item.targetWord, item.skillId, "image", "target_object");
+    const imagePath = pickMediaPath(item.targetWord, item.skillId, "image", languageImageRole(item.skillId, item.partOfSpeech));
     const options = withPartOfSpeechOptionMedia(
       makeLanguageOptions(item.targetWord, posPools[item.partOfSpeech] || [], index),
       item.partOfSpeech,
@@ -823,6 +844,7 @@ function generateLanguageQuestions(data) {
   for (const [index, item] of data.prepositionQuestions.entries()) {
     const options = makeLanguageOptions(item.targetWord, prepositionPool, index);
     if (options.length !== 4) continue;
+    const imagePath = pickMediaPath(item.targetWord, item.skillId, "image", languageImageRole(item.skillId, item.itemType || "preposition"));
     questions.push({
       id: `workbook_prepositions_${slugWord(item.targetWord)}_${index}`,
       skillId: "prepositions_of_place",
@@ -844,6 +866,8 @@ function generateLanguageQuestions(data) {
       formatType: "PREPOSITION_TEXT_CHOICE",
       templateType: "WORKBOOK_PREPOSITION_TEXT_CHOICE",
       questionType: "PREPOSITION_TEXT_CHOICE",
+      imagePath: imagePath || undefined,
+      imageUrl: imagePath || undefined,
       mediaTarget: `workbook:prepositions:${slugWord(item.targetWord)}:${index}`,
       source: "skill_word_bank_workbook",
       sourceSheet: item.sourceSheet,
@@ -856,6 +880,7 @@ function generateLanguageQuestions(data) {
     if (item.malformed) continue;
     const options = makeLanguageOptions(item.pairedWord, pluralPool, index);
     if (options.length !== 4) continue;
+    const imagePath = pickMediaPath(item.targetWord, item.skillId, "image", languageImageRole(item.skillId, "plural"));
     questions.push({
       id: `workbook_plurals_${slugWord(item.targetWord)}_${index}`,
       skillId: "plurals",
@@ -877,6 +902,8 @@ function generateLanguageQuestions(data) {
       formatType: "PLURAL_TEXT_CHOICE",
       templateType: "WORKBOOK_PLURAL_TEXT_CHOICE",
       questionType: "PLURAL_TEXT_CHOICE",
+      imagePath: imagePath || undefined,
+      imageUrl: imagePath || undefined,
       mediaTarget: `workbook:plurals:${slugWord(item.targetWord)}`,
       source: "skill_word_bank_workbook",
       sourceSheet: item.sourceSheet,
@@ -959,6 +986,7 @@ function generateLanguageQuestions(data) {
     const relationship = item.pattern.includes("synonym") ? "synonym" : "antonym";
     const options = makeLanguageOptions(item.pairedWord, relationshipPools[relationship], index);
     if (options.length !== 4) continue;
+    const imagePath = pickMediaPath(item.targetWord, item.skillId, "image", languageImageRole(item.skillId, relationship));
     questions.push({
       id: `workbook_${relationship}_${slugWord(item.targetWord)}_${index}`,
       skillId: "antonyms_synonyms",
@@ -979,6 +1007,8 @@ function generateLanguageQuestions(data) {
       formatType: "LANGUAGE_PAIR_TEXT_CHOICE",
       templateType: `WORKBOOK_${relationship.toUpperCase()}_TEXT_CHOICE`,
       questionType: "LANGUAGE_PAIR_TEXT_CHOICE",
+      imagePath: imagePath || undefined,
+      imageUrl: imagePath || undefined,
       mediaTarget: `workbook:${relationship}:${slugWord(item.targetWord)}`,
       source: "skill_word_bank_workbook",
       sourceSheet: item.sourceSheet,
@@ -992,6 +1022,7 @@ function generateLanguageQuestions(data) {
     const answer = item.words[0];
     const options = makeLanguageOptions(answer, homophonePool, index);
     if (options.length !== 4) continue;
+    const imagePath = pickMediaPath(answer, item.skillId, "image", languageImageRole(item.skillId, "homophone_homonym"));
     questions.push({
       id: `workbook_homophones_${slugWord(answer)}_${index}`,
       skillId: "homophones_homonyms",
@@ -1012,6 +1043,8 @@ function generateLanguageQuestions(data) {
       formatType: "HOMOPHONE_SET_TEXT_CHOICE",
       templateType: "WORKBOOK_HOMOPHONE_SET_TEXT_CHOICE",
       questionType: "HOMOPHONE_SET_TEXT_CHOICE",
+      imagePath: imagePath || undefined,
+      imageUrl: imagePath || undefined,
       mediaTarget: `workbook:homophone:${slugWord(answer)}`,
       source: "skill_word_bank_workbook",
       sourceSheet: item.sourceSheet,

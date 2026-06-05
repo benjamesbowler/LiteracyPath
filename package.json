@@ -64,7 +64,9 @@
     "check:assessment-runtime-variation": "node tools/checkAssessmentRuntimeVariation.js",
     "import:skill-word-bank": "node tools/importSkillWordBankWorkbook.js",
     "audit:skill-word-bank": "node tools/auditSkillWordBankWorkbook.js",
-    "audit:skill-question-depth": "node tools/auditSkillQuestionDepthFromWorkbook.js"
+    "audit:skill-question-depth": "node tools/auditSkillQuestionDepthFromWorkbook.js",
+    "prioritize:workbook-media": "node tools/prioritizeWorkbookMediaNeeds.js",
+    "check:new-media-reachability": "node tools/auditNewMediaReachability.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

@@ -5,6 +5,10 @@ import { fileURLToPath } from "node:url";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { languageSkillQuestions } from "../src/data/generated/languageSkillQuestions.generated.js";
 import {
+  kimiHighQualityMediaStyleImageTasks,
+  kimiHighQualityMediaStyleAudioTasks
+} from "../src/data/generated/kimiHighQualityMediaStyleManifest.generated.js";
+import {
   buildRuntimeQuestionsForSkill,
   getQuestionAudioPaths,
   getQuestionImagePaths,
@@ -33,6 +37,8 @@ const WORKBOOK_SKILLS = [
 ];
 
 const generatedQuestions = [...hfwAssessmentQuestions, ...languageSkillQuestions];
+const NEW_PACK_IMAGE_PATHS = new Set(kimiHighQualityMediaStyleImageTasks.map(task => task.path).filter(Boolean));
+const NEW_PACK_AUDIO_PATHS = new Set(kimiHighQualityMediaStyleAudioTasks.map(task => task.path).filter(Boolean));
 
 function ensureDir(filePath) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -106,15 +112,19 @@ function auditSkill(skillId) {
   const runtime = buildRuntimeQuestionsForSkill(skillId);
   const selectable = selectableRuntimeQuestionsForSkill(skillId);
   const workbookSelectable = selectable.filter(question => String(question.source || "").includes("skill_word_bank_workbook") || String(question._source || "").includes("hfwAssessmentQuestions") || String(question._source || "").includes("languageSkillQuestions"));
-  const imagePaths = generated.flatMap(getQuestionImagePaths);
-  const audioPaths = generated.flatMap(getQuestionAudioPaths);
+  const imagePaths = generated.flatMap(question => [...new Set(getQuestionImagePaths(question))]);
+  const audioPaths = generated.flatMap(question => [...new Set(getQuestionAudioPaths(question))]);
   const missingImages = imagePaths.filter(item => item && String(item).startsWith("/") && !publicPathExists(item));
   const missingAudio = audioPaths.filter(item => item && String(item).startsWith("/") && !publicPathExists(item));
   const uniqueImages = new Set(imagePaths.filter(Boolean));
   const uniqueAudio = new Set(audioPaths.filter(Boolean));
+  const newPackImagesUsed = [...uniqueImages].filter(item => NEW_PACK_IMAGE_PATHS.has(item));
+  const newPackAudioUsed = [...uniqueAudio].filter(item => NEW_PACK_AUDIO_PATHS.has(item));
   const uniqueTargets = new Set(generated.map(question => question.targetWord || getQuestionTargetWord(question)).filter(Boolean).map(value => String(value).toLowerCase()));
   const uniqueTemplates = new Set(generated.map(question => question.templateType || question.formatType || question.questionType).filter(Boolean));
   const uniquePrompts = new Set(generated.map(question => [question.prompt, question.question, question.sentence, question.context, question.fullSentence].filter(Boolean).join(" ").toLowerCase().replace(/\s+/g, " ").trim()).filter(Boolean));
+  const repeatedImageCount = countDuplicates(generated, question => [...new Set(getQuestionImagePaths(question))][0] || "");
+  const repeatedTemplateCount = countDuplicates(generated, question => question.templateType || question.formatType || question.questionType || "");
   const phaseCounts = {
     level1Phase1: phaseCount(workbookSelectable, 1, 1),
     level1Phase2: phaseCount(workbookSelectable, 1, 2),
@@ -142,10 +152,14 @@ function auditSkill(skillId) {
     uniquePromptSentenceContent: uniquePrompts.size,
     uniqueImages: uniqueImages.size,
     uniqueAudio: uniqueAudio.size,
+    newPackImagesUsed: newPackImagesUsed.length,
+    newPackAudioUsed: newPackAudioUsed.length,
     ...phaseCounts,
     retrySafeReplacementCount,
     missingImageCount: missingImages.length,
     missingAudioCount: missingAudio.length,
+    repeatedImageCount,
+    repeatedTemplateCount,
     duplicateContentCount,
     multiplePlausibleAnswerCount,
     blockedMediaCount,
@@ -158,9 +172,9 @@ function markdown(audit) {
   const lines = [];
   lines.push("# Skill Question Depth From Workbook Audit", "");
   lines.push(`Generated: ${audit.generatedAt}`, "");
-  lines.push("| Skill | Generated | Selectable | Workbook Selectable | Targets | Templates | Prompt/Sentence Content | Images | Audio | L1P1 | L1P2 | L2P1 | L2P2 | Duplicate Content | Ambiguity | Missing Images | Missing Audio | Status |", "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|");
+  lines.push("| Skill | Generated | Selectable | Workbook Selectable | Targets | Templates | Prompt/Sentence Content | Images | Audio | New-Pack Images | New-Pack Audio | Repeated Images | Repeated Templates | L1P1 | L1P2 | L2P1 | L2P2 | Duplicate Content | Ambiguity | Missing Images | Missing Audio | Status |", "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|");
   for (const row of audit.skills) {
-    lines.push(`| ${row.skillId} | ${row.totalGeneratedQuestions} | ${row.selectableRuntimeQuestions} | ${row.workbookSelectableQuestions} | ${row.uniqueTargets} | ${row.uniqueTemplates} | ${row.uniquePromptSentenceContent} | ${row.uniqueImages} | ${row.uniqueAudio} | ${row.level1Phase1} | ${row.level1Phase2} | ${row.level2Phase1} | ${row.level2Phase2} | ${row.duplicateContentCount} | ${row.multiplePlausibleAnswerCount} | ${row.missingImageCount} | ${row.missingAudioCount} | ${row.status} |`);
+    lines.push(`| ${row.skillId} | ${row.totalGeneratedQuestions} | ${row.selectableRuntimeQuestions} | ${row.workbookSelectableQuestions} | ${row.uniqueTargets} | ${row.uniqueTemplates} | ${row.uniquePromptSentenceContent} | ${row.uniqueImages} | ${row.uniqueAudio} | ${row.newPackImagesUsed} | ${row.newPackAudioUsed} | ${row.repeatedImageCount} | ${row.repeatedTemplateCount} | ${row.level1Phase1} | ${row.level1Phase2} | ${row.level2Phase1} | ${row.level2Phase2} | ${row.duplicateContentCount} | ${row.multiplePlausibleAnswerCount} | ${row.missingImageCount} | ${row.missingAudioCount} | ${row.status} |`);
   }
   return `${lines.join("\n")}\n`;
 }

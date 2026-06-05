@@ -74,6 +74,10 @@ export function normalizeAssessmentSkillId(value = "") {
     if (text.includes("76") || text.includes("100")) return "hfw_76_100";
     return "hfw_1_25";
   }
+  if (text.includes("prepositions_of_place") || text.includes("preposition")) return "prepositions";
+  if (text.includes("prefix_suffix") || text.includes("prefixes_suffixes") || text.includes("prefix") || text.includes("suffix")) return "prefixes_suffixes";
+  if (text.includes("homophones_homonyms") || text.includes("homophone") || text.includes("homonym")) return "homophones_homonyms";
+  if (text.includes("antonyms_synonyms") || text.includes("antonym") || text.includes("synonym")) return "antonyms_synonyms";
   return text.replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 }
 
@@ -428,7 +432,13 @@ function recordsFromHfwBaseImages() {
 }
 
 function imageRoleForKimiHighQualityTask(task = {}) {
+  if (task.skillId === "nouns" || task.itemType === "noun") return "noun_image";
+  if (task.skillId === "verbs" || task.itemType === "verb") return "verb_action";
+  if (task.skillId === "adjectives" || task.itemType === "adjective") return "adjective_visual";
   if (task.skillId === "prepositions") return "preposition_scene";
+  if (task.skillId === "plurals" || task.itemType === "plural") return "plural_pair";
+  if (task.skillId === "antonyms_synonyms") return "antonym_synonym_scene";
+  if (task.skillId === "homophones_homonyms") return "homophone_context";
   if (task.skillId === "hfw_1_25" || task.skillId === "hfw_26_50" || task.skillId === "hfw_51_75" || task.skillId === "hfw_76_100") return "hfw_scene";
   if (task.skillId === "rhyming") return "rhyming_target";
   return "grammar_pos";
@@ -454,6 +464,7 @@ function recordsFromKimiHighQualityMediaStyle() {
         mediaType: "audio",
         path: task.path,
         targetWord: task.targetWord,
+        skillTags: [task.skillId],
         audioType: "whole_word",
         visualVariantGroup: `kimi-high-quality-audio:${normalizeToken(task.targetWord)}`,
         sourceManifest: "kimiHighQualityMediaStyleManifest",
@@ -523,7 +534,7 @@ export function findAssessmentMediaCandidates({
     if (role && mediaType === "image") {
       if (record.imageRole !== role) {
         const acceptableExactTargetRoles = role === "target_object"
-          ? ["generic_word", "target_object", "rhyming_target", "grammar_pos"]
+          ? ["generic_word", "target_object", "rhyming_target", "grammar_pos", "noun_image", "verb_action", "adjective_visual", "plural_pair", "antonym_synonym_scene", "homophone_context"]
           : ["generic_word", "target_object"];
         if (!includeGenericFallback || !acceptableExactTargetRoles.includes(record.imageRole)) return false;
       }

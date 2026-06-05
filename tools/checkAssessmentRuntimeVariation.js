@@ -27,7 +27,14 @@ const PRIORITY_SKILLS = [
   "hfw_1_25",
   "hfw_26_50",
   "hfw_51_75",
-  "hfw_76_100"
+  "hfw_76_100",
+  "nouns",
+  "verbs",
+  "adjectives",
+  "prepositions",
+  "plurals",
+  "antonyms_synonyms",
+  "homophones_homonyms"
 ];
 
 const PHASES = [
@@ -79,6 +86,13 @@ function filterPhase(pool, { level, phase }) {
 function mediaRoleForSkill(skillId) {
   if (skillId.startsWith("hfw_")) return "hfw_scene";
   if (skillId === "rhyming") return "rhyming_target";
+  if (skillId === "nouns") return "noun_image";
+  if (skillId === "verbs") return "verb_action";
+  if (skillId === "adjectives") return "adjective_visual";
+  if (skillId === "prepositions") return "preposition_scene";
+  if (skillId === "plurals") return "plural_pair";
+  if (skillId === "antonyms_synonyms") return "antonym_synonym_scene";
+  if (skillId === "homophones_homonyms") return "homophone_context";
   return "generic_word";
 }
 
@@ -88,6 +102,31 @@ function getPrimaryImage(question = {}) {
 
 function getPrimaryAudio(question = {}) {
   return getQuestionAudioPaths(question)[0] || "";
+}
+
+function getTemplateKey(question = {}) {
+  return String(question.templateType || question.formatType || question.questionType || "")
+    .toLowerCase()
+    .replace(/\s+/g, "_")
+    .trim();
+}
+
+function getPromptKey(question = {}) {
+  return String(question.prompt || question.question || question.sentence || "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function markResolvedUsed(usage, question = {}) {
+  const image = getPrimaryImage(question);
+  const audio = getPrimaryAudio(question);
+  const target = inferAssessmentQuestionTargetWord(question);
+  const contentKey = getQuestionMediaContentKey(question);
+  if (image) usage.imagePaths.add(image);
+  if (audio) usage.audioPaths.add(audio);
+  if (target) usage.targetWords.add(target);
+  if (contentKey) usage.contentKeys.add(contentKey);
 }
 
 function scoreResolvedQuestion(question, usage) {
@@ -133,6 +172,7 @@ function pickRound(pool, context) {
       phase: context.phase.phase,
       sessionUsage: context.sessionUsage
     });
+    markResolvedUsed(context.sessionUsage, resolved);
     const issues = validateResolvedQuestionMedia(resolved);
     if (issues.length) failures.push({ questionId: resolved.id, issues });
     selected.push(resolved);
@@ -210,13 +250,34 @@ function auditSkill(skillId) {
       const repeatedImages = countRepeats(images);
       const repeatedAudio = countRepeats(audio);
       const repeatedContent = countRepeats(contentKeys);
+      const repeatedTargets = countRepeats(round.selected.map(inferAssessmentQuestionTargetWord));
+      const repeatedTemplates = countRepeats(round.selected.map(getTemplateKey));
+      const repeatedPrompts = countRepeats(round.selected.map(getPromptKey));
       const contentAlternatives = new Set(phasePool.map(getQuestionMediaContentKey).filter(Boolean)).size;
+      const targetAlternatives = new Set(phasePool.map(inferAssessmentQuestionTargetWord).filter(Boolean)).size;
+      const templateAlternatives = new Set(phasePool.map(getTemplateKey).filter(Boolean)).size;
+      const promptAlternatives = new Set(phasePool.map(getPromptKey).filter(Boolean)).size;
       const imageRepeatFailures = repeatedImages.filter(repeat => {
         const repeatedQuestion = round.selected.find(question => getPrimaryImage(question) === repeat.value);
         return repeatedQuestion && approvedImageAlternativeCount(repeatedQuestion, normalizedSkillId, phase.level, phase.phase) > 1;
       });
       const audioRepeatFailures = repeatedAudio.filter(repeat => approvedAudioAlternativeCount(repeat.value) > 1);
       const contentRepeatFailures = repeatedContent.filter(() => contentAlternatives >= ROUND_SIZE);
+      const targetRepeatFailures = repeatedTargets.filter(() => targetAlternatives >= ROUND_SIZE);
+      const templateRepeatFailures = repeatedTemplates.filter(() => templateAlternatives >= Math.min(4, ROUND_SIZE));
+      const promptRepeatFailures = repeatedPrompts.filter(() => promptAlternatives >= ROUND_SIZE);
+      const missingImageFailures = round.selected.filter(question => {
+        const image = getPrimaryImage(question);
+        if (!image) return ["nouns", "verbs", "adjectives", "prepositions", "plurals", "antonyms_synonyms", "homophones_homonyms"].includes(normalizedSkillId);
+        const record = getAssessmentMediaByPath(image, "image");
+        return Boolean(record && !record.available);
+      });
+      const badAudioFailures = round.selected.filter(question => {
+        const audioPath = getPrimaryAudio(question);
+        if (!audioPath) return false;
+        const record = getAssessmentMediaByPath(audioPath, "audio");
+        return Boolean(record && (!record.available || (record.audioType && record.audioType !== "whole_word" && !normalizedSkillId.startsWith("hfw_"))));
+      });
 
       if (round.selected.length < Math.min(ROUND_SIZE, phasePool.length)) {
         failures.push({ skillId: normalizedSkillId, sessionIndex, phase: phase.key, reason: `only selected ${round.selected.length}/${Math.min(ROUND_SIZE, phasePool.length)} questions` });
@@ -229,6 +290,21 @@ function auditSkill(skillId) {
       }
       if (contentRepeatFailures.length) {
         failures.push({ skillId: normalizedSkillId, sessionIndex, phase: phase.key, reason: "repeated content/template key despite alternatives", repeats: contentRepeatFailures });
+      }
+      if (targetRepeatFailures.length) {
+        failures.push({ skillId: normalizedSkillId, sessionIndex, phase: phase.key, reason: "repeated target despite alternatives", repeats: targetRepeatFailures });
+      }
+      if (templateRepeatFailures.length) {
+        failures.push({ skillId: normalizedSkillId, sessionIndex, phase: phase.key, reason: "repeated template despite alternatives", repeats: templateRepeatFailures });
+      }
+      if (promptRepeatFailures.length) {
+        failures.push({ skillId: normalizedSkillId, sessionIndex, phase: phase.key, reason: "repeated prompt despite alternatives", repeats: promptRepeatFailures });
+      }
+      if (missingImageFailures.length) {
+        failures.push({ skillId: normalizedSkillId, sessionIndex, phase: phase.key, reason: "missing or blocked image media", questionIds: missingImageFailures.map(question => question.id).slice(0, 20) });
+      }
+      if (badAudioFailures.length) {
+        failures.push({ skillId: normalizedSkillId, sessionIndex, phase: phase.key, reason: "blocked or non-word audio media", questionIds: badAudioFailures.map(question => question.id).slice(0, 20) });
       }
       for (const failure of round.failures) {
         failures.push({ skillId: normalizedSkillId, sessionIndex, phase: phase.key, reason: "resolved media validation failed", ...failure });
@@ -244,7 +320,10 @@ function auditSkill(skillId) {
         uniqueContentKeys: new Set(contentKeys).size,
         repeatedImages,
         repeatedAudio,
-        repeatedContent
+        repeatedContent,
+        repeatedTargets,
+        repeatedTemplates,
+        repeatedPrompts
       });
     }
   }
